@@ -78,24 +78,173 @@
 
 ## 解法
 
-### 方法一
+### 方法一：动态规划
+
+我们注意到，矩阵中格子的值只有 $10$ 种可能，题目需要我们求出每一列数字相同，且相邻列数字不同的最小操作次数。那么我们只需要考虑将数字修改为 $0$ 到 $9$ 的情况即可。
+
+我们定义状态 $f[i][j]$ 表示前 $[0,..i]$ 列数字，且第 $i$ 列数字为 $j$ 的最小操作次数。那么我们可以得到状态转移方程：
+
+$$
+f[i][j] = \min_{k \neq j} f[i-1][k] + m - \text{cnt}[j]
+$$
+
+其中 $\text{cnt}[j]$ 表示第 $i$ 列数字为 $j$ 的个数。
+
+最后我们只需要求出 $f[n-1][j]$ 的最小值即可。
+
+时间复杂度 $O(n \times (m + C^2))$，空间复杂度 $O(n \times C)$。其中 $m$ 和 $n$ 分别表示矩阵的行数和列数；而 $C$ 表示数字的种类数，这里 $C = 10$。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def minimumOperations(self, grid: List[List[int]]) -> int:
+        m, n = len(grid), len(grid[0])
+        f = [[inf] * 10 for _ in range(n)]
+        for i in range(n):
+            cnt = [0] * 10
+            for j in range(m):
+                cnt[grid[j][i]] += 1
+            if i == 0:
+                for j in range(10):
+                    f[i][j] = m - cnt[j]
+            else:
+                for j in range(10):
+                    for k in range(10):
+                        if k != j:
+                            f[i][j] = min(f[i][j], f[i - 1][k] + m - cnt[j])
+        return min(f[-1])
 ```
 
 ```java
-
+class Solution {
+    public int minimumOperations(int[][] grid) {
+        int m = grid.length, n = grid[0].length;
+        int[][] f = new int[n][10];
+        final int inf = 1 << 29;
+        for (var g : f) {
+            Arrays.fill(g, inf);
+        }
+        for (int i = 0; i < n; ++i) {
+            int[] cnt = new int[10];
+            for (int j = 0; j < m; ++j) {
+                ++cnt[grid[j][i]];
+            }
+            if (i == 0) {
+                for (int j = 0; j < 10; ++j) {
+                    f[i][j] = m - cnt[j];
+                }
+            } else {
+                for (int j = 0; j < 10; ++j) {
+                    for (int k = 0; k < 10; ++k) {
+                        if (k != j) {
+                            f[i][j] = Math.min(f[i][j], f[i - 1][k] + m - cnt[j]);
+                        }
+                    }
+                }
+            }
+        }
+        int ans = inf;
+        for (int j = 0; j < 10; ++j) {
+            ans = Math.min(ans, f[n - 1][j]);
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int minimumOperations(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        int f[n][10];
+        memset(f, 0x3f, sizeof(f));
+        for (int i = 0; i < n; ++i) {
+            int cnt[10]{};
+            for (int j = 0; j < m; ++j) {
+                ++cnt[grid[j][i]];
+            }
+            if (i == 0) {
+                for (int j = 0; j < 10; ++j) {
+                    f[i][j] = m - cnt[j];
+                }
+            } else {
+                for (int j = 0; j < 10; ++j) {
+                    for (int k = 0; k < 10; ++k) {
+                        if (k != j) {
+                            f[i][j] = min(f[i][j], f[i - 1][k] + m - cnt[j]);
+                        }
+                    }
+                }
+            }
+        }
+        return *min_element(f[n - 1], f[n - 1] + 10);
+    }
+};
 ```
 
 ```go
+func minimumOperations(grid [][]int) int {
+	m, n := len(grid), len(grid[0])
+	f := make([][]int, n)
+	for i := range f {
+		f[i] = make([]int, 10)
+		for j := range f[i] {
+			f[i][j] = 1 << 29
+		}
+	}
+	for i := 0; i < n; i++ {
+		cnt := [10]int{}
+		for j := 0; j < m; j++ {
+			cnt[grid[j][i]]++
+		}
+		if i == 0 {
+			for j := 0; j < 10; j++ {
+				f[i][j] = m - cnt[j]
+			}
+		} else {
+			for j := 0; j < 10; j++ {
+				for k := 0; k < 10; k++ {
+					if j != k {
+						f[i][j] = min(f[i][j], f[i-1][k]+m-cnt[j])
+					}
+				}
+			}
+		}
+	}
+	return slices.Min(f[n-1])
+}
+```
 
+```ts
+function minimumOperations(grid: number[][]): number {
+    const m = grid.length;
+    const n = grid[0].length;
+    const f: number[][] = Array.from({ length: n }, () =>
+        Array.from({ length: 10 }, () => Infinity),
+    );
+    for (let i = 0; i < n; ++i) {
+        const cnt: number[] = Array(10).fill(0);
+        for (let j = 0; j < m; ++j) {
+            cnt[grid[j][i]]++;
+        }
+        if (i === 0) {
+            for (let j = 0; j < 10; ++j) {
+                f[i][j] = m - cnt[j];
+            }
+        } else {
+            for (let j = 0; j < 10; ++j) {
+                for (let k = 0; k < 10; ++k) {
+                    if (j !== k) {
+                        f[i][j] = Math.min(f[i][j], f[i - 1][k] + m - cnt[j]);
+                    }
+                }
+            }
+        }
+    }
+    return Math.min(...f[n - 1]);
+}
 ```
 
 <!-- tabs:end -->
