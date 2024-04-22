@@ -13,28 +13,33 @@
  */
 
 function amountOfTime(root: TreeNode | null, start: number): number {
-    const map = new Map<number, number[]>();
-    const create = ({ val, left, right }: TreeNode) => {
-        if (left != null) {
-            map.set(val, [...(map.get(val) ?? []), left.val]);
-            map.set(left.val, [...(map.get(left.val) ?? []), val]);
-            create(left);
+    const g: Map<number, number[]> = new Map();
+    const dfs = (node: TreeNode | null, fa: TreeNode | null) => {
+        if (!node) {
+            return;
         }
-        if (right != null) {
-            map.set(val, [...(map.get(val) ?? []), right.val]);
-            map.set(right.val, [...(map.get(right.val) ?? []), val]);
-            create(right);
+        if (fa) {
+            if (!g.has(node.val)) {
+                g.set(node.val, []);
+            }
+            g.get(node.val)!.push(fa.val);
+            if (!g.has(fa.val)) {
+                g.set(fa.val, []);
+            }
+            g.get(fa.val)!.push(node.val);
         }
+        dfs(node.left, node);
+        dfs(node.right, node);
     };
-    create(root);
-    const dfs = (st: number, fa: number) => {
-        let res = 0;
-        for (const v of map.get(st) ?? []) {
-            if (v !== fa) {
-                res = Math.max(res, dfs(v, st) + 1);
+    const dfs2 = (node: number, fa: number): number => {
+        let ans = 0;
+        for (const nxt of g.get(node) || []) {
+            if (nxt !== fa) {
+                ans = Math.max(ans, 1 + dfs2(nxt, node));
             }
         }
-        return res;
+        return ans;
     };
-    return dfs(start, -1);
+    dfs(root, null);
+    return dfs2(start, -1);
 }

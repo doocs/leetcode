@@ -127,13 +127,7 @@ WITH
         SELECT
             first_name,
             type,
-            CONCAT(
-                LPAD(duration DIV 3600, 2, '0'),
-                ':',
-                LPAD((duration MOD 3600) DIV 60, 2, '0'),
-                ':',
-                LPAD(duration MOD 60, 2, '0')
-            ) AS duration_formatted,
+            DATE_FORMAT(SEC_TO_TIME(duration), "%H:%i:%s") AS duration_formatted,
             RANK() OVER (
                 PARTITION BY type
                 ORDER BY duration DESC
