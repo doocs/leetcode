@@ -340,7 +340,7 @@ class MyQueue {
  * obj.push(x);
  * let param_2 = obj.pop();
  * let param_3 = obj.peek();
- * var myValue : Bool 
+ * var myValue : Bool
  * myValue = obj.empty();
  */
 ```
