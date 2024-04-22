@@ -1,4 +1,4 @@
-# [3063. 链表频率](https://leetcode.cn/problems/linked-list-frequency)
+# [3063. 链表频率 🔒](https://leetcode.cn/problems/linked-list-frequency)
 
 [English Version](/solution/3000-3099/3063.Linked%20List%20Frequency/README_EN.md)
 

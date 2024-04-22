@@ -1,4 +1,4 @@
-# [2345. Finding the Number of Visible Mountains](https://leetcode.com/problems/finding-the-number-of-visible-mountains)
+# [2345. Finding the Number of Visible Mountains 🔒](https://leetcode.com/problems/finding-the-number-of-visible-mountains)
 
 [中文文档](/solution/2300-2399/2345.Finding%20the%20Number%20of%20Visible%20Mountains/README.md)
 

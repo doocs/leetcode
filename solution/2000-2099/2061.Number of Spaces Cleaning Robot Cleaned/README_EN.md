@@ -1,4 +1,4 @@
-# [2061. Number of Spaces Cleaning Robot Cleaned](https://leetcode.com/problems/number-of-spaces-cleaning-robot-cleaned)
+# [2061. Number of Spaces Cleaning Robot Cleaned 🔒](https://leetcode.com/problems/number-of-spaces-cleaning-robot-cleaned)
 
 [中文文档](/solution/2000-2099/2061.Number%20of%20Spaces%20Cleaning%20Robot%20Cleaned/README.md)
 

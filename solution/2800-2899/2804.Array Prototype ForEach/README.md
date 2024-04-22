@@ -1,4 +1,4 @@
-# [2804. 数组原型的 forEach 方法](https://leetcode.cn/problems/array-prototype-foreach)
+# [2804. 数组原型的 forEach 方法 🔒](https://leetcode.cn/problems/array-prototype-foreach)
 
 [English Version](/solution/2800-2899/2804.Array%20Prototype%20ForEach/README_EN.md)
 

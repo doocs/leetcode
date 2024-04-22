@@ -1,4 +1,4 @@
-# [1747. Leetflex Banned Accounts](https://leetcode.com/problems/leetflex-banned-accounts)
+# [1747. Leetflex Banned Accounts 🔒](https://leetcode.com/problems/leetflex-banned-accounts)
 
 [中文文档](/solution/1700-1799/1747.Leetflex%20Banned%20Accounts/README.md)
 

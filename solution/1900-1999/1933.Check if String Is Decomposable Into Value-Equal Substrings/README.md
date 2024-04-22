@@ -1,4 +1,4 @@
-# [1933. 判断字符串是否可分解为值均等的子串](https://leetcode.cn/problems/check-if-string-is-decomposable-into-value-equal-substrings)
+# [1933. 判断字符串是否可分解为值均等的子串 🔒](https://leetcode.cn/problems/check-if-string-is-decomposable-into-value-equal-substrings)
 
 [English Version](/solution/1900-1999/1933.Check%20if%20String%20Is%20Decomposable%20Into%20Value-Equal%20Substrings/README_EN.md)
 

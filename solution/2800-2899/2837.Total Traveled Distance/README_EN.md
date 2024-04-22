@@ -1,4 +1,4 @@
-# [2837. Total Traveled Distance](https://leetcode.com/problems/total-traveled-distance)
+# [2837. Total Traveled Distance 🔒](https://leetcode.com/problems/total-traveled-distance)
 
 [中文文档](/solution/2800-2899/2837.Total%20Traveled%20Distance/README.md)
 

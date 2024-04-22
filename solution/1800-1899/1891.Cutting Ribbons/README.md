@@ -1,4 +1,4 @@
-# [1891. 割绳子](https://leetcode.cn/problems/cutting-ribbons)
+# [1891. 割绳子 🔒](https://leetcode.cn/problems/cutting-ribbons)
 
 [English Version](/solution/1800-1899/1891.Cutting%20Ribbons/README_EN.md)
 

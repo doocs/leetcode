@@ -1,4 +1,4 @@
-# [2291. Maximum Profit From Trading Stocks](https://leetcode.com/problems/maximum-profit-from-trading-stocks)
+# [2291. Maximum Profit From Trading Stocks 🔒](https://leetcode.com/problems/maximum-profit-from-trading-stocks)
 
 [中文文档](/solution/2200-2299/2291.Maximum%20Profit%20From%20Trading%20Stocks/README.md)
 

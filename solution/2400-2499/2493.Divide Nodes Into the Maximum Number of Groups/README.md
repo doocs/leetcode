@@ -61,11 +61,15 @@
 
 ## 解法
 
-### 方法一：DFS + BFS
+### 方法一：BFS + 枚举
 
-注意到图可能不连通，因此我们可以通过 DFS 找到每个连通块。
+由于题目给定的图可能是不连通的，所以我们需要对每个连通分量进行处理，找出每个连通分量的最大分组数，累加得到最终结果。
 
-然后对于每个连通块，枚举该连通块中的每个点作为起点，使用 BFS 对图进行分层。分层结束后，校验是否合法。若合法，更新该连通块的最大值。若某个连通块不存在合法的分层，说明没办法在给定条件下分组，直接返回 $-1$。否则，将该连通块的最大值加入答案中。
+我们可以枚举每一个点作为第一组的节点，然后使用 BFS 遍历整个连通分量，用一个数组 $d$ 记录每个连通分量的最大分组数。在代码实现上，我们使用连通分量中的最小节点作为该连通分量的根节点。
+
+在 BFS 的过程中，我们使用一个队列 $q$ 存储当前遍历到的节点，用一个数组 $dist$ 记录每个节点到起始节点的距离，用一个变量 $mx$ 记录当前连通分量的最大深度，用一个变量 $root$ 记录当前连通分量的根节点。
+
+在遍历过程中，如果发现某个节点 $b$ 的 $dist[b]$ 为 $0$，说明 $b$ 还没有被遍历到，我们将 $b$ 的距离设为 $dist[a] + 1$，更新 $mx$，并将 $b$ 加入队列 $q$ 中。如果 $b$ 的距离已经被更新过，我们检查 $b$ 和 $a$ 之间的距离是否为 $1$，如果不是，说明无法满足题目要求，直接返回 $-1$。
 
 时间复杂度 $O(n \times (n + m))$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别为节点数和边数。
 
@@ -74,127 +78,65 @@
 ```python
 class Solution:
     def magnificentSets(self, n: int, edges: List[List[int]]) -> int:
-        def dfs(i):
-            arr.append(i)
-            vis[i] = True
-            for j in g[i]:
-                if not vis[j]:
-                    dfs(j)
-
-        def bfs(i):
-            ans = 1
-            dist = [inf] * (n + 1)
-            dist[i] = 1
-            q = deque([i])
-            while q:
-                i = q.popleft()
-                for j in g[i]:
-                    if dist[j] == inf:
-                        ans = dist[j] = dist[i] + 1
-                        q.append(j)
-            for i in arr:
-                if dist[i] == inf:
-                    ans += 1
-                    dist[i] = ans
-            for i in arr:
-                for j in g[i]:
-                    if abs(dist[i] - dist[j]) != 1:
-                        return -1
-            return ans
-
-        g = defaultdict(list)
+        g = [[] for _ in range(n)]
         for a, b in edges:
-            g[a].append(b)
-            g[b].append(a)
-        vis = [False] * (n + 1)
-        ans = 0
-        for i in range(1, n + 1):
-            if not vis[i]:
-                arr = []
-                dfs(i)
-                t = max(bfs(v) for v in arr)
-                if t == -1:
-                    return -1
-                ans += t
-        return ans
+            g[a - 1].append(b - 1)
+            g[b - 1].append(a - 1)
+        d = defaultdict(int)
+        for i in range(n):
+            q = deque([i])
+            dist = [0] * n
+            dist[i] = mx = 1
+            root = i
+            while q:
+                a = q.popleft()
+                root = min(root, a)
+                for b in g[a]:
+                    if dist[b] == 0:
+                        dist[b] = dist[a] + 1
+                        mx = max(mx, dist[b])
+                        q.append(b)
+                    elif abs(dist[b] - dist[a]) != 1:
+                        return -1
+            d[root] = max(d[root], mx)
+        return sum(d.values())
 ```
 
 ```java
 class Solution {
-    private List<Integer>[] g;
-    private List<Integer> arr = new ArrayList<>();
-    private boolean[] vis;
-    private int n;
-
     public int magnificentSets(int n, int[][] edges) {
-        g = new List[n + 1];
-        this.n = n;
+        List<Integer>[] g = new List[n];
         Arrays.setAll(g, k -> new ArrayList<>());
         for (var e : edges) {
-            int a = e[0], b = e[1];
+            int a = e[0] - 1, b = e[1] - 1;
             g[a].add(b);
             g[b].add(a);
         }
-
-        vis = new boolean[n + 1];
-        int ans = 0;
-        for (int i = 1; i <= n; ++i) {
-            if (!vis[i]) {
-                dfs(i);
-                int t = -1;
-                for (int v : arr) {
-                    t = Math.max(t, bfs(v));
-                }
-                if (t == -1) {
-                    return -1;
-                }
-                ans += t;
-                arr.clear();
-            }
-        }
-        return ans;
-    }
-
-    private int bfs(int k) {
-        int[] dist = new int[n + 1];
-        Arrays.fill(dist, 1 << 30);
-        dist[k] = 1;
-        Deque<Integer> q = new ArrayDeque<>();
-        q.offer(k);
-        int ans = 1;
-        while (!q.isEmpty()) {
-            int i = q.pollFirst();
-            for (int j : g[i]) {
-                if (dist[j] == 1 << 30) {
-                    dist[j] = dist[i] + 1;
-                    ans = dist[j];
-                    q.offer(j);
+        int[] d = new int[n];
+        int[] dist = new int[n];
+        for (int i = 0; i < n; ++i) {
+            Deque<Integer> q = new ArrayDeque<>();
+            q.offer(i);
+            Arrays.fill(dist, 0);
+            dist[i] = 1;
+            int mx = 1;
+            int root = i;
+            while (!q.isEmpty()) {
+                int a = q.poll();
+                root = Math.min(root, a);
+                for (int b : g[a]) {
+                    if (dist[b] == 0) {
+                        dist[b] = dist[a] + 1;
+                        mx = Math.max(mx, dist[b]);
+                        q.offer(b);
+                    } else if (Math.abs(dist[b] - dist[a]) != 1) {
+                        return -1;
+                    }
                 }
             }
+            d[root] = Math.max(d[root], mx);
         }
-        for (int i : arr) {
-            if (dist[i] == 1 << 30) {
-                dist[i] = ++ans;
-            }
-        }
-        for (int i : arr) {
-            for (int j : g[i]) {
-                if (Math.abs(dist[i] - dist[j]) != 1) {
-                    return -1;
-                }
-            }
-        }
-        return ans;
-    }
-
-    private void dfs(int i) {
-        arr.add(i);
-        vis[i] = true;
-        for (int j : g[i]) {
-            if (!vis[j]) {
-                dfs(j);
-            }
-        }
+        return Arrays.stream(d).sum();
     }
 }
 ```
@@ -203,140 +145,75 @@ class Solution {
 class Solution {
 public:
     int magnificentSets(int n, vector<vector<int>>& edges) {
-        vector<vector<int>> g(n + 1);
+        vector<int> g[n];
         for (auto& e : edges) {
-            int a = e[0], b = e[1];
-            g[a].emplace_back(b);
-            g[b].emplace_back(a);
+            int a = e[0] - 1, b = e[1] - 1;
+            g[a].push_back(b);
+            g[b].push_back(a);
         }
-        vector<int> arr;
-        bool vis[n + 1];
-        memset(vis, 0, sizeof vis);
-        int ans = 0;
-        function<void(int)> dfs = [&](int i) {
-            arr.emplace_back(i);
-            vis[i] = true;
-            for (int& j : g[i]) {
-                if (!vis[j]) {
-                    dfs(j);
-                }
-            }
-        };
-        auto bfs = [&](int k) {
-            int ans = 1;
-            int dist[n + 1];
-            memset(dist, 0x3f, sizeof dist);
-            dist[k] = 1;
-            queue<int> q{{k}};
-            while (!q.empty()) {
-                int i = q.front();
+        vector<int> d(n);
+        for (int i = 0; i < n; ++i) {
+            queue<int> q{{i}};
+            vector<int> dist(n);
+            dist[i] = 1;
+            int mx = 1;
+            int root = i;
+            while (q.size()) {
+                int a = q.front();
                 q.pop();
-                for (int& j : g[i]) {
-                    if (dist[j] == 0x3f3f3f3f) {
-                        ans = dist[j] = dist[i] + 1;
-                        q.push(j);
-                    }
-                }
-            }
-            for (int& i : arr) {
-                if (dist[i] == 0x3f3f3f3f) {
-                    dist[i] = ++ans;
-                }
-            }
-            for (int& i : arr) {
-                for (int& j : g[i]) {
-                    if (abs(dist[i] - dist[j]) != 1) {
+                root = min(root, a);
+                for (int b : g[a]) {
+                    if (dist[b] == 0) {
+                        dist[b] = dist[a] + 1;
+                        mx = max(mx, dist[b]);
+                        q.push(b);
+                    } else if (abs(dist[b] - dist[a]) != 1) {
                         return -1;
                     }
                 }
             }
-            return ans;
-        };
-        for (int i = 1; i <= n; ++i) {
-            if (!vis[i]) {
-                dfs(i);
-                int t = -1;
-                for (int& v : arr) t = max(t, bfs(v));
-                if (t == -1) return -1;
-                ans += t;
-                arr.clear();
-            }
+            d[root] = max(d[root], mx);
         }
-        return ans;
+        return accumulate(d.begin(), d.end(), 0);
     }
 };
 ```
 
 ```go
-func magnificentSets(n int, edges [][]int) int {
-	g := make([][]int, n+1)
+func magnificentSets(n int, edges [][]int) (ans int) {
+	g := make([][]int, n)
 	for _, e := range edges {
-		a, b := e[0], e[1]
+		a, b := e[0]-1, e[1]-1
 		g[a] = append(g[a], b)
 		g[b] = append(g[b], a)
 	}
-	arr := []int{}
-	vis := make([]bool, n+1)
-	ans := 0
-	var dfs func(int)
-	dfs = func(i int) {
-		arr = append(arr, i)
-		vis[i] = true
-		for _, j := range g[i] {
-			if !vis[j] {
-				dfs(j)
-			}
-		}
-	}
-	bfs := func(k int) int {
-		ans := 1
-		dist := make([]int, n+1)
-		for i := range dist {
-			dist[i] = 1 << 30
-		}
-		q := []int{k}
-		dist[k] = 1
+	d := make([]int, n)
+	for i := range d {
+		q := []int{i}
+		dist := make([]int, n)
+		dist[i] = 1
+		mx := 1
+		root := i
 		for len(q) > 0 {
-			i := q[0]
+			a := q[0]
 			q = q[1:]
-			for _, j := range g[i] {
-				if dist[j] == 1<<30 {
-					dist[j] = dist[i] + 1
-					ans = dist[j]
-					q = append(q, j)
-				}
-			}
-		}
-		for _, i := range arr {
-			if dist[i] == 1<<30 {
-				ans++
-				dist[i] = ans
-			}
-		}
-		for _, i := range arr {
-			for _, j := range g[i] {
-				if abs(dist[i]-dist[j]) != 1 {
+			root = min(root, a)
+			for _, b := range g[a] {
+				if dist[b] == 0 {
+					dist[b] = dist[a] + 1
+					mx = max(mx, dist[b])
+					q = append(q, b)
+				} else if abs(dist[b]-dist[a]) != 1 {
 					return -1
 				}
 			}
 		}
-		return ans
+		d[root] = max(d[root], mx)
 	}
-	for i := 1; i <= n; i++ {
-		if !vis[i] {
-			dfs(i)
-			t := -1
-			for _, v := range arr {
-				t = max(t, bfs(v))
-			}
-			if t == -1 {
-				return -1
-			}
-			ans += t
-			arr = []int{}
-		}
+	for _, x := range d {
+		ans += x
 	}
-	return ans
+	return
 }
 
 func abs(x int) int {
@@ -348,46 +225,40 @@ func abs(x int) int {
 ```
 
 ```js
+/**
+ * @param {number} n
+ * @param {number[][]} edges
+ * @return {number}
+ */
 var magnificentSets = function (n, edges) {
-    const graph = Array.from({ length: n + 1 }, () => new Set());
-    for (const [u, v] of edges) {
-        graph[u].add(v);
-        graph[v].add(u);
+    const g = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a - 1].push(b - 1);
+        g[b - 1].push(a - 1);
     }
-    const hash = new Map();
-
-    // 2. BFS
-    for (let i = 1; i <= n; i++) {
-        let queue = [i];
-        const dis = Array(n + 1).fill(0);
-        dis[i] = 1;
-        let mx = 1,
-            mn = n;
-        while (queue.length) {
-            let next = [];
-            for (let u of queue) {
-                mn = Math.min(mn, u);
-                for (const v of graph[u]) {
-                    if (!dis[v]) {
-                        dis[v] = dis[u] + 1;
-                        mx = Math.max(mx, dis[v]);
-                        next.push(v);
-                    }
-                    if (Math.abs(dis[u] - dis[v]) != 1) {
-                        return -1;
-                    }
+    const d = Array(n).fill(0);
+    for (let i = 0; i < n; ++i) {
+        const q = [i];
+        const dist = Array(n).fill(0);
+        dist[i] = 1;
+        let mx = 1;
+        let root = i;
+        while (q.length) {
+            const a = q.shift();
+            root = Math.min(root, a);
+            for (const b of g[a]) {
+                if (dist[b] === 0) {
+                    dist[b] = dist[a] + 1;
+                    mx = Math.max(mx, dist[b]);
+                    q.push(b);
+                } else if (Math.abs(dist[b] - dist[a]) !== 1) {
+                    return -1;
                 }
             }
-            queue = next;
         }
-        hash.set(mn, Math.max(mx, hash.get(mn) || 0));
+        d[root] = Math.max(d[root], mx);
     }
-
-    let ans = 0;
-    for (const [u, v] of hash) {
-        ans += v;
-    }
-    return ans;
+    return d.reduce((a, b) => a + b);
 };
 ```
 

@@ -1,4 +1,4 @@
-# [1602. 找到二叉树中最近的右侧节点](https://leetcode.cn/problems/find-nearest-right-node-in-binary-tree)
+# [1602. 找到二叉树中最近的右侧节点 🔒](https://leetcode.cn/problems/find-nearest-right-node-in-binary-tree)
 
 [English Version](/solution/1600-1699/1602.Find%20Nearest%20Right%20Node%20in%20Binary%20Tree/README_EN.md)
 

@@ -1,8 +1,8 @@
-# [2604. Minimum Time to Eat All Grains](https://leetcode.com/problems/minimum-time-to-eat-all-grains)
+# [2604. Minimum Time to Eat All Grains 🔒](https://leetcode.com/problems/minimum-time-to-eat-all-grains)
 
 [中文文档](/solution/2600-2699/2604.Minimum%20Time%20to%20Eat%20All%20Grains/README.md)
 
-<!-- tags:Array,Binary Search,Sorting -->
+<!-- tags:Array,Two Pointers,Binary Search,Sorting -->
 
 ## Description
 

@@ -1,4 +1,4 @@
-# [2324. 产品销售分析 IV](https://leetcode.cn/problems/product-sales-analysis-iv)
+# [2324. 产品销售分析 IV 🔒](https://leetcode.cn/problems/product-sales-analysis-iv)
 
 [English Version](/solution/2300-2399/2324.Product%20Sales%20Analysis%20IV/README_EN.md)
 

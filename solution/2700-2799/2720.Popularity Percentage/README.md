@@ -1,4 +1,4 @@
-# [2720. 受欢迎度百分比](https://leetcode.cn/problems/popularity-percentage)
+# [2720. 受欢迎度百分比 🔒](https://leetcode.cn/problems/popularity-percentage)
 
 [English Version](/solution/2700-2799/2720.Popularity%20Percentage/README_EN.md)
 

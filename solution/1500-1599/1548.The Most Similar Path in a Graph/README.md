@@ -1,4 +1,4 @@
-# [1548. 图中最相似的路径](https://leetcode.cn/problems/the-most-similar-path-in-a-graph)
+# [1548. 图中最相似的路径 🔒](https://leetcode.cn/problems/the-most-similar-path-in-a-graph)
 
 [English Version](/solution/1500-1599/1548.The%20Most%20Similar%20Path%20in%20a%20Graph/README_EN.md)
 

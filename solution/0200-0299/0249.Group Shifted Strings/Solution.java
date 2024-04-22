@@ -1,19 +1,17 @@
 class Solution {
     public List<List<String>> groupStrings(String[] strings) {
-        Map<String, List<String>> mp = new HashMap<>();
-        for (String s : strings) {
-            int diff = s.charAt(0) - 'a';
+        Map<String, List<String>> g = new HashMap<>();
+        for (var s : strings) {
             char[] t = s.toCharArray();
+            int diff = t[0] - 'a';
             for (int i = 0; i < t.length; ++i) {
-                char d = (char) (t[i] - diff);
-                if (d < 'a') {
-                    d += 26;
+                t[i] = (char) (t[i] - diff);
+                if (t[i] < 'a') {
+                    t[i] += 26;
                 }
-                t[i] = d;
             }
-            String key = new String(t);
-            mp.computeIfAbsent(key, k -> new ArrayList<>()).add(s);
+            g.computeIfAbsent(new String(t), k -> new ArrayList<>()).add(s);
         }
-        return new ArrayList<>(mp.values());
+        return new ArrayList<>(g.values());
     }
 }

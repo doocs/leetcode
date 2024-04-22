@@ -1,4 +1,4 @@
-# [1257. 最小公共区域](https://leetcode.cn/problems/smallest-common-region)
+# [1257. 最小公共区域 🔒](https://leetcode.cn/problems/smallest-common-region)
 
 [English Version](/solution/1200-1299/1257.Smallest%20Common%20Region/README_EN.md)
 

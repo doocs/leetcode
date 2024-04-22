@@ -1,4 +1,4 @@
-# [2118. 建立方程](https://leetcode.cn/problems/build-the-equation)
+# [2118. 建立方程 🔒](https://leetcode.cn/problems/build-the-equation)
 
 [English Version](/solution/2100-2199/2118.Build%20the%20Equation/README_EN.md)
 

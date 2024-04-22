@@ -1,4 +1,4 @@
-# [2340. Minimum Adjacent Swaps to Make a Valid Array](https://leetcode.com/problems/minimum-adjacent-swaps-to-make-a-valid-array)
+# [2340. Minimum Adjacent Swaps to Make a Valid Array 🔒](https://leetcode.com/problems/minimum-adjacent-swaps-to-make-a-valid-array)
 
 [中文文档](/solution/2300-2399/2340.Minimum%20Adjacent%20Swaps%20to%20Make%20a%20Valid%20Array/README.md)
 

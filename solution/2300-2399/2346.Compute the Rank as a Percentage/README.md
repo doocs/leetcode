@@ -1,4 +1,4 @@
-# [2346. 以百分比计算排名](https://leetcode.cn/problems/compute-the-rank-as-a-percentage)
+# [2346. 以百分比计算排名 🔒](https://leetcode.cn/problems/compute-the-rank-as-a-percentage)
 
 [English Version](/solution/2300-2399/2346.Compute%20the%20Rank%20as%20a%20Percentage/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [2464. 有效分割中的最少子数组数目](https://leetcode.cn/problems/minimum-subarrays-in-a-valid-split)
+# [2464. 有效分割中的最少子数组数目 🔒](https://leetcode.cn/problems/minimum-subarrays-in-a-valid-split)
 
 [English Version](/solution/2400-2499/2464.Minimum%20Subarrays%20in%20a%20Valid%20Split/README_EN.md)
 

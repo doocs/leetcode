@@ -1,4 +1,4 @@
-# [1682. 最长回文子序列 II](https://leetcode.cn/problems/longest-palindromic-subsequence-ii)
+# [1682. 最长回文子序列 II 🔒](https://leetcode.cn/problems/longest-palindromic-subsequence-ii)
 
 [English Version](/solution/1600-1699/1682.Longest%20Palindromic%20Subsequence%20II/README_EN.md)
 

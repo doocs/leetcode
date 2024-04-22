@@ -1,4 +1,4 @@
-# [1580. Put Boxes Into the Warehouse II](https://leetcode.com/problems/put-boxes-into-the-warehouse-ii)
+# [1580. Put Boxes Into the Warehouse II 🔒](https://leetcode.com/problems/put-boxes-into-the-warehouse-ii)
 
 [中文文档](/solution/1500-1599/1580.Put%20Boxes%20Into%20the%20Warehouse%20II/README.md)
 

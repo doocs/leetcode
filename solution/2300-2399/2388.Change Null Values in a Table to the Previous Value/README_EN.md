@@ -1,4 +1,4 @@
-# [2388. Change Null Values in a Table to the Previous Value](https://leetcode.com/problems/change-null-values-in-a-table-to-the-previous-value)
+# [2388. Change Null Values in a Table to the Previous Value 🔒](https://leetcode.com/problems/change-null-values-in-a-table-to-the-previous-value)
 
 [中文文档](/solution/2300-2399/2388.Change%20Null%20Values%20in%20a%20Table%20to%20the%20Previous%20Value/README.md)
 

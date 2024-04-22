@@ -10,7 +10,7 @@
 
 <p>给你一个整数数组 <code>nums</code> 。</p>
 
-<p>返回数组 <code>nums</code> 中<strong> 严格递增 </strong>或 <strong>严格递减 </strong>的最长非空子数组的长度。</p>
+<p>返回数组 <code>nums</code> 中 <strong><span data-keyword="strictly-increasing-array">严格递增</span></strong> 或 <strong><span data-keyword="strictly-decreasing-array">严格递减</span> </strong>的最长非空子数组的长度。</p>
 
 <p>&nbsp;</p>
 

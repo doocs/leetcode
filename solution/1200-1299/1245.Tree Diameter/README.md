@@ -1,4 +1,4 @@
-# [1245. 树的直径](https://leetcode.cn/problems/tree-diameter)
+# [1245. 树的直径 🔒](https://leetcode.cn/problems/tree-diameter)
 
 [English Version](/solution/1200-1299/1245.Tree%20Diameter/README_EN.md)
 
@@ -69,7 +69,7 @@
 
 相似题目：
 
--   [1522. N 叉树的直径](https://github.com/doocs/leetcode/blob/main/solution/1500-1599/1522.Diameter%20of%20N-Ary%20Tree/README.md)
+-   [1522. N 叉树的直径 🔒](https://github.com/doocs/leetcode/blob/main/solution/1500-1599/1522.Diameter%20of%20N-Ary%20Tree/README.md)
 
 <!-- tabs:start -->
 

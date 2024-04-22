@@ -35,4 +35,15 @@
 
 ## 解法
 
+### 方法一：awk
+
+<!-- tabs:start -->
+
+```bash
+# Read from the file file.txt and output all valid phone numbers to stdout.
+awk '/^([0-9]{3}-|\([0-9]{3}\) )[0-9]{3}-[0-9]{4}$/' file.txt
+```
+
+<!-- tabs:end -->
+
 <!-- end -->

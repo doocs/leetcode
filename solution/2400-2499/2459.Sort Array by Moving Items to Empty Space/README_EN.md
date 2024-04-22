@@ -1,4 +1,4 @@
-# [2459. Sort Array by Moving Items to Empty Space](https://leetcode.com/problems/sort-array-by-moving-items-to-empty-space)
+# [2459. Sort Array by Moving Items to Empty Space 🔒](https://leetcode.com/problems/sort-array-by-moving-items-to-empty-space)
 
 [中文文档](/solution/2400-2499/2459.Sort%20Array%20by%20Moving%20Items%20to%20Empty%20Space/README.md)
 

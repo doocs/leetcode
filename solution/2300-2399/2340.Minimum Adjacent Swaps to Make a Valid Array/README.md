@@ -1,4 +1,4 @@
-# [2340. 生成有效数组的最少交换次数](https://leetcode.cn/problems/minimum-adjacent-swaps-to-make-a-valid-array)
+# [2340. 生成有效数组的最少交换次数 🔒](https://leetcode.cn/problems/minimum-adjacent-swaps-to-make-a-valid-array)
 
 [English Version](/solution/2300-2399/2340.Minimum%20Adjacent%20Swaps%20to%20Make%20a%20Valid%20Array/README_EN.md)
 

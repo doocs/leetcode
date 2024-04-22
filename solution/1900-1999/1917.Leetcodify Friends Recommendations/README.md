@@ -1,4 +1,4 @@
-# [1917. Leetcodify 好友推荐](https://leetcode.cn/problems/leetcodify-friends-recommendations)
+# [1917. Leetcodify 好友推荐 🔒](https://leetcode.cn/problems/leetcodify-friends-recommendations)
 
 [English Version](/solution/1900-1999/1917.Leetcodify%20Friends%20Recommendations/README_EN.md)
 

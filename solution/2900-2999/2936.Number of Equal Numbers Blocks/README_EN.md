@@ -1,4 +1,4 @@
-# [2936. Number of Equal Numbers Blocks](https://leetcode.com/problems/number-of-equal-numbers-blocks)
+# [2936. Number of Equal Numbers Blocks 🔒](https://leetcode.com/problems/number-of-equal-numbers-blocks)
 
 [中文文档](/solution/2900-2999/2936.Number%20of%20Equal%20Numbers%20Blocks/README.md)
 

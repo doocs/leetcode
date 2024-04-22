@@ -2,17 +2,17 @@
 
 [English Version](/solution/1200-1299/1201.Ugly%20Number%20III/README_EN.md)
 
-<!-- tags:数学,二分查找,数论 -->
+<!-- tags:数学,二分查找,组合数学,数论 -->
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
 
-<p>给你四个整数：<code>n</code> 、<code>a</code> 、<code>b</code> 、<code>c</code> ，请你设计一个算法来找出第 <code>n</code> 个丑数。</p>
+<p>丑数是可以被&nbsp;<code>a</code>&nbsp;<strong>或</strong>&nbsp;<code>b</code>&nbsp;<strong>或</strong> <code>c</code>&nbsp;整除的 <strong>正整数</strong> 。</p>
 
-<p>丑数是可以被 <code>a</code> <strong>或</strong> <code>b</code> <strong>或</strong> <code>c</code> 整除的 <strong>正整数</strong> 。</p>
+<p>给你四个整数：<code>n</code> 、<code>a</code> 、<code>b</code> 、<code>c</code> ，请你设计一个算法来找出第&nbsp;<code>n</code>&nbsp;个丑数。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -37,21 +37,14 @@
 <strong>解释：</strong>丑数序列为 2, 4, 6, 8, 10, 11, 12, 13... 其中第 5 个是 10。
 </pre>
 
-<p><strong>示例 4：</strong></p>
-
-<pre>
-<strong>输入：</strong>n = 1000000000, a = 2, b = 217983653, c = 336916467
-<strong>输出：</strong>1999999984
-</pre>
-
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 <= n, a, b, c <= 10^9</code></li>
-	<li><code>1 <= a * b * c <= 10^18</code></li>
-	<li>本题结果在 <code>[1, 2 * 10^9]</code> 的范围内</li>
+	<li><code>1 &lt;= n, a, b, c &lt;= 10<sup>9</sup></code></li>
+	<li><code>1 &lt;= a * b * c &lt;= 10<sup>18</sup></code></li>
+	<li>本题结果在&nbsp;<code>[1,&nbsp;2 * 10<sup>9</sup>]</code>&nbsp;的范围内</li>
 </ul>
 
 ## 解法

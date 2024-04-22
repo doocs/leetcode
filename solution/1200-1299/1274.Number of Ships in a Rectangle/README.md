@@ -1,4 +1,4 @@
-# [1274. 矩形内船只的数目](https://leetcode.cn/problems/number-of-ships-in-a-rectangle)
+# [1274. 矩形内船只的数目 🔒](https://leetcode.cn/problems/number-of-ships-in-a-rectangle)
 
 [English Version](/solution/1200-1299/1274.Number%20of%20Ships%20in%20a%20Rectangle/README_EN.md)
 
@@ -55,7 +55,7 @@ ships = [[1,1],[2,2],[3,3],[5,5]], topRight = [4,4], bottomLeft = [0,0]
 
 ### 方法一：递归 + 分治
 
-由于矩形内最多只有 $10$ 艘船，所以我们可以将矩形划分为四个子矩形，分别求出每个子矩形内船只的数目，然后将四个子矩形内船只的数目相加即可。如果一个子矩形内没有船只，那么就不需要再继续划分了。
+由于矩形内最多只有 $10$ 艘船，所以我们可以将矩形划分为四个子矩形，分别求出每个子矩形内船只的数目 🔒，然后将四个子矩形内船只的数目 🔒 相加即可。如果一个子矩形内没有船只，那么就不需要再继续划分了。
 
 时间复杂度 $O(C \times \log \max(m, n))$，空间复杂度 $O(\log \max(m, n))$。其中 $C$ 为船只的数目，而 $m$ 和 $n$ 分别为矩形的长和宽。
 

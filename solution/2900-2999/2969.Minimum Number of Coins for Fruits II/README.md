@@ -1,4 +1,4 @@
-# [2969. 购买水果需要的最少金币数 II](https://leetcode.cn/problems/minimum-number-of-coins-for-fruits-ii)
+# [2969. 购买水果需要的最少金币数 II 🔒](https://leetcode.cn/problems/minimum-number-of-coins-for-fruits-ii)
 
 [English Version](/solution/2900-2999/2969.Minimum%20Number%20of%20Coins%20for%20Fruits%20II/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [2797. Partial Function with Placeholders](https://leetcode.com/problems/partial-function-with-placeholders)
+# [2797. Partial Function with Placeholders 🔒](https://leetcode.com/problems/partial-function-with-placeholders)
 
 [中文文档](/solution/2700-2799/2797.Partial%20Function%20with%20Placeholders/README.md)
 

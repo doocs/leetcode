@@ -1,4 +1,4 @@
-# [3104. Find Longest Self-Contained Substring](https://leetcode.com/problems/find-longest-self-contained-substring)
+# [3104. Find Longest Self-Contained Substring 🔒](https://leetcode.com/problems/find-longest-self-contained-substring)
 
 [中文文档](/solution/3100-3199/3104.Find%20Longest%20Self-Contained%20Substring/README.md)
 

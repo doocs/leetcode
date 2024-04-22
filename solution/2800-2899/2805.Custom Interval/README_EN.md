@@ -1,4 +1,4 @@
-# [2805. Custom Interval](https://leetcode.com/problems/custom-interval)
+# [2805. Custom Interval 🔒](https://leetcode.com/problems/custom-interval)
 
 [中文文档](/solution/2800-2899/2805.Custom%20Interval/README.md)
 
@@ -8,11 +8,17 @@
 
 <p><strong>Function&nbsp;</strong><code>customInterval</code></p>
 
-<p>Given a function <code>fn</code>, a number <code>delay</code> and a number <code>period</code>, return&nbsp;a number&nbsp;<code>id</code>. <code>customInterval</code>&nbsp;is a function that should execute the provided function <code>fn</code> at intervals based on a linear pattern defined by the formula <code>delay&nbsp;+ period&nbsp;* count</code>.&nbsp;The <code>count</code> in the formula&nbsp;represents the number of times the interval has been&nbsp;executed starting from an initial value of 0.</p>
+<p>Given a function <code>fn</code>, a number <code>delay</code> and a number <code>period</code>, return&nbsp;a number&nbsp;<code>id</code>.</p>
+
+<p><code>customInterval</code>&nbsp;is a function that should execute the provided function <code>fn</code> at intervals based on a linear pattern defined by the formula <code>delay&nbsp;+ period&nbsp;* count</code>.&nbsp;</p>
+
+<p>The <code>count</code> in the formula&nbsp;represents the number of times the interval has been&nbsp;executed starting from an initial value of <code>0</code>.</p>
 
 <p><strong>Function </strong><code>customClearInterval</code>&nbsp;</p>
 
-<p>Given the&nbsp;<code>id</code>. <code>id</code>&nbsp;is the&nbsp;returned value from&nbsp;the function&nbsp;<code>customInterval</code>. <code>customClearInterval</code>&nbsp;should stop executing&nbsp;provided function <code>fn</code> at intervals.</p>
+<p>Given the&nbsp;<code>id</code>. <code>id</code>&nbsp;is the&nbsp;returned value from&nbsp;the function&nbsp;<code>customInterval</code>.</p>
+
+<p><code>customClearInterval</code>&nbsp;should stop executing&nbsp;provided function <code>fn</code> at intervals.</p>
 
 <p><strong>Note:</strong> The <code>setTimeout</code> and <code>setInterval</code> functions in Node.js return an object, not a number.</p>
 

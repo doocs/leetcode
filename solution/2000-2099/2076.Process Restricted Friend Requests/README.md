@@ -72,7 +72,13 @@
 
 ## 解法
 
-### 方法一
+### 方法一：并查集
+
+我们可以用并查集来维护朋友关系，然后对于每个请求，判断是否满足限制条件。
+
+对于当前请求的两个人 $(u, v)$，如果他们已经是朋友，那么可以直接接受请求；否则，我们遍历限制条件，如果存在限制条件 $(x, y)$，使得 $u$ 和 $x$ 互为朋友并且 $v$ 和 $y$ 互为朋友，或者 $u$ 和 $y$ 互为朋友并且 $v$ 和 $x$ 互为朋友，那么就不能接受请求。
+
+时间复杂度 $O(q \times m \times \log(n))$，空间复杂度 $O(n)$。其中 $q$ 和 $m$ 分别是请求的数量和限制条件的数量。
 
 <!-- tabs:start -->
 
@@ -81,29 +87,27 @@ class Solution:
     def friendRequests(
         self, n: int, restrictions: List[List[int]], requests: List[List[int]]
     ) -> List[bool]:
-        p = list(range(n))
-
-        def find(x):
+        def find(x: int) -> int:
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
 
+        p = list(range(n))
         ans = []
-        i = 0
         for u, v in requests:
-            if find(u) == find(v):
+            pu, pv = find(u), find(v)
+            if pu == pv:
                 ans.append(True)
             else:
-                valid = True
+                ok = True
                 for x, y in restrictions:
-                    if (find(u) == find(x) and find(v) == find(y)) or (
-                        find(u) == find(y) and find(v) == find(x)
-                    ):
-                        valid = False
+                    px, py = find(x), find(y)
+                    if (pu == px and pv == py) or (pu == py and pv == px):
+                        ok = False
                         break
-                ans.append(valid)
-                if valid:
-                    p[find(u)] = find(v)
+                ans.append(ok)
+                if ok:
+                    p[pu] = pv
         return ans
 ```
 
@@ -116,27 +120,25 @@ class Solution {
         for (int i = 0; i < n; ++i) {
             p[i] = i;
         }
-        boolean[] ans = new boolean[requests.length];
-        int i = 0;
-        for (int[] req : requests) {
-            int u = req[0], v = req[1];
-            if (find(u) == find(v)) {
-                ans[i++] = true;
+        int m = requests.length;
+        boolean[] ans = new boolean[m];
+        for (int i = 0; i < m; ++i) {
+            int u = requests[i][0], v = requests[i][1];
+            int pu = find(u), pv = find(v);
+            if (pu == pv) {
+                ans[i] = true;
             } else {
-                boolean valid = true;
-                for (int[] res : restrictions) {
-                    int x = res[0], y = res[1];
-                    if ((find(u) == find(x) && find(v) == find(y))
-                        || (find(u) == find(y) && find(v) == find(x))) {
-                        valid = false;
+                boolean ok = true;
+                for (var r : restrictions) {
+                    int px = find(r[0]), py = find(r[1]);
+                    if ((pu == px && pv == py) || (pu == py && pv == px)) {
+                        ok = false;
                         break;
                     }
                 }
-                if (valid) {
-                    p[find(u)] = find(v);
-                    ans[i++] = true;
-                } else {
-                    ans[i++] = false;
+                if (ok) {
+                    ans[i] = true;
+                    p[pu] = pv;
                 }
             }
         }
@@ -155,75 +157,109 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<int> p;
-
     vector<bool> friendRequests(int n, vector<vector<int>>& restrictions, vector<vector<int>>& requests) {
-        p.resize(n);
-        for (int i = 0; i < n; ++i) p[i] = i;
+        vector<int> p(n);
+        iota(p.begin(), p.end(), 0);
+        function<int(int)> find = [&](int x) {
+            if (p[x] != x) {
+                p[x] = find(p[x]);
+            }
+            return p[x];
+        };
         vector<bool> ans;
         for (auto& req : requests) {
             int u = req[0], v = req[1];
-            if (find(u) == find(v))
+            int pu = find(u), pv = find(v);
+            if (pu == pv) {
                 ans.push_back(true);
-            else {
-                bool valid = true;
-                for (auto& res : restrictions) {
-                    int x = res[0], y = res[1];
-                    if ((find(u) == find(x) && find(v) == find(y)) || (find(u) == find(y) && find(v) == find(x))) {
-                        valid = false;
+            } else {
+                bool ok = true;
+                for (auto& r : restrictions) {
+                    int px = find(r[0]), py = find(r[1]);
+                    if ((pu == px && pv == py) || (pu == py && pv == px)) {
+                        ok = false;
                         break;
                     }
                 }
-                ans.push_back(valid);
-                if (valid) p[find(u)] = find(v);
+                ans.push_back(ok);
+                if (ok) {
+                    p[pu] = pv;
+                }
             }
         }
         return ans;
-    }
-
-    int find(int x) {
-        if (p[x] != x) p[x] = find(p[x]);
-        return p[x];
     }
 };
 ```
 
 ```go
-var p []int
-
-func friendRequests(n int, restrictions [][]int, requests [][]int) []bool {
-	p = make([]int, n)
-	for i := 0; i < n; i++ {
+func friendRequests(n int, restrictions [][]int, requests [][]int) (ans []bool) {
+	p := make([]int, n)
+	for i := range p {
 		p[i] = i
 	}
-	var ans []bool
+	var find func(int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
 	for _, req := range requests {
-		u, v := req[0], req[1]
-		if find(u) == find(v) {
+		pu, pv := find(req[0]), find(req[1])
+		if pu == pv {
 			ans = append(ans, true)
 		} else {
-			valid := true
-			for _, res := range restrictions {
-				x, y := res[0], res[1]
-				if (find(u) == find(x) && find(v) == find(y)) || (find(u) == find(y) && find(v) == find(x)) {
-					valid = false
+			ok := true
+			for _, r := range restrictions {
+				px, py := find(r[0]), find(r[1])
+				if px == pu && py == pv || px == pv && py == pu {
+					ok = false
 					break
 				}
 			}
-			ans = append(ans, valid)
-			if valid {
-				p[find(u)] = find(v)
+			ans = append(ans, ok)
+			if ok {
+				p[pv] = pu
 			}
 		}
 	}
-	return ans
+	return
 }
+```
 
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
-	}
-	return p[x]
+```ts
+function friendRequests(n: number, restrictions: number[][], requests: number[][]): boolean[] {
+    const p: number[] = Array.from({ length: n }, (_, i) => i);
+    const find = (x: number): number => {
+        if (p[x] !== x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    };
+    const ans: boolean[] = [];
+    for (const [u, v] of requests) {
+        const pu = find(u);
+        const pv = find(v);
+        if (pu === pv) {
+            ans.push(true);
+        } else {
+            let ok = true;
+            for (const [x, y] of restrictions) {
+                const px = find(x);
+                const py = find(y);
+                if ((px === pu && py === pv) || (px === pv && py === pu)) {
+                    ok = false;
+                    break;
+                }
+            }
+            ans.push(ok);
+            if (ok) {
+                p[pu] = pv;
+            }
+        }
+    }
+    return ans;
 }
 ```
 

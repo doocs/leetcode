@@ -2,7 +2,7 @@
 
 [English Version](/solution/2500-2599/2506.Count%20Pairs%20Of%20Similar%20Strings/README_EN.md)
 
-<!-- tags:数组,哈希表,字符串 -->
+<!-- tags:位运算,数组,哈希表,字符串 -->
 
 ## 题目描述
 

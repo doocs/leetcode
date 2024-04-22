@@ -72,7 +72,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 2803 | [Factorial Generator](/solution/2800-2899/2803.Factorial%20Generator/README_EN.md)                                                                                                     |      | Easy       | 🔒     |
 | 2804 | [Array Prototype ForEach](/solution/2800-2899/2804.Array%20Prototype%20ForEach/README_EN.md)                                                                                           |      | Easy       | 🔒     |
 | 2805 | [Custom Interval](/solution/2800-2899/2805.Custom%20Interval/README_EN.md)                                                                                                             |      | Medium     | 🔒     |
-| 2821 | [Delay the Resolution of Each Promise](/solution/2800-2899/2821.Delay%20the%20Resolution%20of%20Each%20Promise/README_EN.md)                                                           |      | Easy       | 🔒     |
+| 2821 | [Delay the Resolution of Each Promise](/solution/2800-2899/2821.Delay%20the%20Resolution%20of%20Each%20Promise/README_EN.md)                                                           |      | Medium     | 🔒     |
 | 2822 | [Inversion of Object](/solution/2800-2899/2822.Inversion%20of%20Object/README_EN.md)                                                                                                   |      | Easy       | 🔒     |
 | 2823 | [Deep Object Filter](/solution/2800-2899/2823.Deep%20Object%20Filter/README_EN.md)                                                                                                     |      | Medium     | 🔒     |
 

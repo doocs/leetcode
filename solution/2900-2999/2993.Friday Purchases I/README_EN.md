@@ -1,4 +1,4 @@
-# [2993. Friday Purchases I](https://leetcode.com/problems/friday-purchases-i)
+# [2993. Friday Purchases I 🔒](https://leetcode.com/problems/friday-purchases-i)
 
 [中文文档](/solution/2900-2999/2993.Friday%20Purchases%20I/README.md)
 

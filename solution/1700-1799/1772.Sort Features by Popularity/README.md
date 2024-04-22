@@ -1,4 +1,4 @@
-# [1772. 按受欢迎程度排列功能](https://leetcode.cn/problems/sort-features-by-popularity)
+# [1772. 按受欢迎程度排列功能 🔒](https://leetcode.cn/problems/sort-features-by-popularity)
 
 [English Version](/solution/1700-1799/1772.Sort%20Features%20by%20Popularity/README_EN.md)
 

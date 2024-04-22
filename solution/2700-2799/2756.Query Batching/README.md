@@ -1,4 +1,4 @@
-# [2756. 批处理查询](https://leetcode.cn/problems/query-batching)
+# [2756. 批处理查询 🔒](https://leetcode.cn/problems/query-batching)
 
 [English Version](/solution/2700-2799/2756.Query%20Batching/README_EN.md)
 

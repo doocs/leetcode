@@ -1,4 +1,4 @@
-# [2664. 巡逻的骑士](https://leetcode.cn/problems/the-knights-tour)
+# [2664. 巡逻的骑士 🔒](https://leetcode.cn/problems/the-knights-tour)
 
 [English Version](/solution/2600-2699/2664.The%20Knight%E2%80%99s%20Tour/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1740. Find Distance in a Binary Tree](https://leetcode.com/problems/find-distance-in-a-binary-tree)
+# [1740. Find Distance in a Binary Tree 🔒](https://leetcode.com/problems/find-distance-in-a-binary-tree)
 
 [中文文档](/solution/1700-1799/1740.Find%20Distance%20in%20a%20Binary%20Tree/README.md)
 

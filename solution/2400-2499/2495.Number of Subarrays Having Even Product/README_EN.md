@@ -1,4 +1,4 @@
-# [2495. Number of Subarrays Having Even Product](https://leetcode.com/problems/number-of-subarrays-having-even-product)
+# [2495. Number of Subarrays Having Even Product 🔒](https://leetcode.com/problems/number-of-subarrays-having-even-product)
 
 [中文文档](/solution/2400-2499/2495.Number%20of%20Subarrays%20Having%20Even%20Product/README.md)
 

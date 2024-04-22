@@ -1,4 +1,4 @@
-# [1435. 制作会话柱状图](https://leetcode.cn/problems/create-a-session-bar-chart)
+# [1435. 制作会话柱状图 🔒](https://leetcode.cn/problems/create-a-session-bar-chart)
 
 [English Version](/solution/1400-1499/1435.Create%20a%20Session%20Bar%20Chart/README_EN.md)
 

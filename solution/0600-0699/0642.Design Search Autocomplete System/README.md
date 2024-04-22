@@ -1,4 +1,4 @@
-# [642. 设计搜索自动补全系统](https://leetcode.cn/problems/design-search-autocomplete-system)
+# [642. 设计搜索自动补全系统 🔒](https://leetcode.cn/problems/design-search-autocomplete-system)
 
 [English Version](/solution/0600-0699/0642.Design%20Search%20Autocomplete%20System/README_EN.md)
 

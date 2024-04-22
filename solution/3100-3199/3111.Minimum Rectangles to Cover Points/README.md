@@ -2,7 +2,7 @@
 
 [English Version](/solution/3100-3199/3111.Minimum%20Rectangles%20to%20Cover%20Points/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:贪心,数组,排序 -->
 
 ## 题目描述
 

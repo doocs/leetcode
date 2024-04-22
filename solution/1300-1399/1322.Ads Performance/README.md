@@ -1,4 +1,4 @@
-# [1322. 广告效果](https://leetcode.cn/problems/ads-performance)
+# [1322. 广告效果 🔒](https://leetcode.cn/problems/ads-performance)
 
 [English Version](/solution/1300-1399/1322.Ads%20Performance/README_EN.md)
 

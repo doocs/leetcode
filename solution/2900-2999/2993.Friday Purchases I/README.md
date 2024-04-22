@@ -1,4 +1,4 @@
-# [2993. 发生在周五的交易 I](https://leetcode.cn/problems/friday-purchases-i)
+# [2993. 发生在周五的交易 I 🔒](https://leetcode.cn/problems/friday-purchases-i)
 
 [English Version](/solution/2900-2999/2993.Friday%20Purchases%20I/README_EN.md)
 

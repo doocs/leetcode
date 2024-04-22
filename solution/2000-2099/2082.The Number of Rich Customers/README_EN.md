@@ -1,4 +1,4 @@
-# [2082. The Number of Rich Customers](https://leetcode.com/problems/the-number-of-rich-customers)
+# [2082. The Number of Rich Customers 🔒](https://leetcode.com/problems/the-number-of-rich-customers)
 
 [中文文档](/solution/2000-2099/2082.The%20Number%20of%20Rich%20Customers/README.md)
 

@@ -1,4 +1,4 @@
-# [531. 孤独像素 I](https://leetcode.cn/problems/lonely-pixel-i)
+# [531. 孤独像素 I 🔒](https://leetcode.cn/problems/lonely-pixel-i)
 
 [English Version](/solution/0500-0599/0531.Lonely%20Pixel%20I/README_EN.md)
 
@@ -42,28 +42,30 @@
 
 ## 解法
 
-### 方法一
+### 方法一：计数 + 枚举
+
+根据题目描述，我们需要统计每一行和每一列的黑色像素数量，分别记录在数组 $\textit{rows}$ 和 $\textit{cols}$ 中。然后我们遍历每一个黑色像素，检查其所在的行和列是否只有一个黑色像素，如果是则将答案加一。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def findLonelyPixel(self, picture: List[List[str]]) -> int:
-        m, n = len(picture), len(picture[0])
-        rows, cols = [0] * m, [0] * n
-        for i in range(m):
-            for j in range(n):
-                if picture[i][j] == 'B':
+        rows = [0] * len(picture)
+        cols = [0] * len(picture[0])
+        for i, row in enumerate(picture):
+            for j, x in enumerate(row):
+                if x == "B":
                     rows[i] += 1
                     cols[j] += 1
-        res = 0
-        for i in range(m):
-            if rows[i] == 1:
-                for j in range(n):
-                    if picture[i][j] == 'B' and cols[j] == 1:
-                        res += 1
-                        break
-        return res
+        ans = 0
+        for i, row in enumerate(picture):
+            for j, x in enumerate(row):
+                if x == "B" and rows[i] == 1 and cols[j] == 1:
+                    ans += 1
+        return ans
 ```
 
 ```java
@@ -80,18 +82,15 @@ class Solution {
                 }
             }
         }
-        int res = 0;
+        int ans = 0;
         for (int i = 0; i < m; ++i) {
-            if (rows[i] == 1) {
-                for (int j = 0; j < n; ++j) {
-                    if (picture[i][j] == 'B' && cols[j] == 1) {
-                        ++res;
-                        break;
-                    }
+            for (int j = 0; j < n; ++j) {
+                if (picture[i][j] == 'B' && rows[i] == 1 && cols[j] == 1) {
+                    ++ans;
                 }
             }
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -111,47 +110,65 @@ public:
                 }
             }
         }
-        int res = 0;
+        int ans = 0;
         for (int i = 0; i < m; ++i) {
-            if (rows[i] == 1) {
-                for (int j = 0; j < n; ++j) {
-                    if (picture[i][j] == 'B' && cols[j] == 1) {
-                        ++res;
-                        break;
-                    }
+            for (int j = 0; j < n; ++j) {
+                if (picture[i][j] == 'B' && rows[i] == 1 && cols[j] == 1) {
+                    ++ans;
                 }
             }
         }
-        return res;
+        return ans;
     }
 };
 ```
 
 ```go
-func findLonelyPixel(picture [][]byte) int {
-	m, n := len(picture), len(picture[0])
-	rows := make([]int, m)
-	cols := make([]int, n)
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			if picture[i][j] == 'B' {
+func findLonelyPixel(picture [][]byte) (ans int) {
+	rows := make([]int, len(picture))
+	cols := make([]int, len(picture[0]))
+	for i, row := range picture {
+		for j, x := range row {
+			if x == 'B' {
 				rows[i]++
 				cols[j]++
 			}
 		}
 	}
-	res := 0
-	for i := 0; i < m; i++ {
-		if rows[i] == 1 {
-			for j := 0; j < n; j++ {
-				if picture[i][j] == 'B' && cols[j] == 1 {
-					res++
-					break
-				}
+	for i, row := range picture {
+		for j, x := range row {
+			if x == 'B' && rows[i] == 1 && cols[j] == 1 {
+				ans++
 			}
 		}
 	}
-	return res
+	return
+}
+```
+
+```ts
+function findLonelyPixel(picture: string[][]): number {
+    const m = picture.length;
+    const n = picture[0].length;
+    const rows: number[] = Array(m).fill(0);
+    const cols: number[] = Array(n).fill(0);
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (picture[i][j] === 'B') {
+                ++rows[i];
+                ++cols[j];
+            }
+        }
+    }
+    let ans = 0;
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (picture[i][j] === 'B' && rows[i] === 1 && cols[j] === 1) {
+                ++ans;
+            }
+        }
+    }
+    return ans;
 }
 ```
 

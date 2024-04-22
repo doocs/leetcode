@@ -1,4 +1,4 @@
-# [2077. 殊途同归](https://leetcode.cn/problems/paths-in-maze-that-lead-to-same-room)
+# [2077. 殊途同归 🔒](https://leetcode.cn/problems/paths-in-maze-that-lead-to-same-room)
 
 [English Version](/solution/2000-2099/2077.Paths%20in%20Maze%20That%20Lead%20to%20Same%20Room/README_EN.md)
 

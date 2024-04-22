@@ -1,4 +1,4 @@
-# [1988. 找出每所学校的最低分数要求](https://leetcode.cn/problems/find-cutoff-score-for-each-school)
+# [1988. 找出每所学校的最低分数要求 🔒](https://leetcode.cn/problems/find-cutoff-score-for-each-school)
 
 [English Version](/solution/1900-1999/1988.Find%20Cutoff%20Score%20for%20Each%20School/README_EN.md)
 

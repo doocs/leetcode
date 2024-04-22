@@ -1,4 +1,4 @@
-# [3073. 最大递增三元组](https://leetcode.cn/problems/maximum-increasing-triplet-value)
+# [3073. 最大递增三元组 🔒](https://leetcode.cn/problems/maximum-increasing-triplet-value)
 
 [English Version](/solution/3000-3099/3073.Maximum%20Increasing%20Triplet%20Value/README_EN.md)
 

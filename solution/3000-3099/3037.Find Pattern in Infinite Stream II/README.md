@@ -1,4 +1,4 @@
-# [3037. 在无限流中寻找模式 II](https://leetcode.cn/problems/find-pattern-in-infinite-stream-ii)
+# [3037. 在无限流中寻找模式 II 🔒](https://leetcode.cn/problems/find-pattern-in-infinite-stream-ii)
 
 [English Version](/solution/3000-3099/3037.Find%20Pattern%20in%20Infinite%20Stream%20II/README_EN.md)
 

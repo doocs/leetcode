@@ -8,7 +8,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个字符串 <code>s</code> ，请你找出其中不含有重复字符的&nbsp;<strong>最长<span data-keyword="substring">子串</span></strong><strong>&nbsp;</strong>的长度。</p>
+<p>给定一个字符串 <code>s</code> ，请你找出其中不含有重复字符的&nbsp;<strong>最长 <span data-keyword="substring-nonempty">子串</span></strong><strong>&nbsp;</strong>的长度。</p>
 
 <p>&nbsp;</p>
 

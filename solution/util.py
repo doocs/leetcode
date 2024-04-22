@@ -150,13 +150,14 @@ def generate_question_readme(result):
         # choose the readme template
         category = item["category"]
         readme_template_cn, readme_template_en = select_templates(category)
+        paid_only = ' 🔒' if item['paid_only'] else ''
 
         # generate lc-cn problem readme
         with open(f"{path}/README.md", "w", encoding="utf-8") as f1:
             f1.write(
                 readme_template_cn.format(
                     int(item["frontend_question_id"]),
-                    item["title_cn"],
+                    item["title_cn"].strip() + paid_only,
                     item["url_cn"],
                     item["relative_path_en"],
                     ",".join(item["tags_cn"]),
@@ -169,7 +170,7 @@ def generate_question_readme(result):
             f2.write(
                 readme_template_en.format(
                     int(item["frontend_question_id"]),
-                    item["title_en"],
+                    item["title_en"].strip() + paid_only,
                     item["url_en"],
                     item["relative_path_cn"],
                     ",".join(item["tags_en"]),
@@ -262,8 +263,9 @@ def refresh(result):
     for question in result:
         front_question_id = question["frontend_question_id"]
         print(front_question_id)
-        title = question["title_cn"]
-        title_en = question["title_en"]
+        paid_only = ' 🔒' if question['paid_only'] else ''
+        title = question["title_cn"].strip() + paid_only
+        title_en = question["title_en"].strip() + paid_only
         tags = ",".join(question["tags_cn"])
         tags_en = ",".join(question["tags_en"])
 

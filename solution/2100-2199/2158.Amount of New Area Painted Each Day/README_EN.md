@@ -1,4 +1,4 @@
-# [2158. Amount of New Area Painted Each Day](https://leetcode.com/problems/amount-of-new-area-painted-each-day)
+# [2158. Amount of New Area Painted Each Day 🔒](https://leetcode.com/problems/amount-of-new-area-painted-each-day)
 
 [中文文档](/solution/2100-2199/2158.Amount%20of%20New%20Area%20Painted%20Each%20Day/README.md)
 

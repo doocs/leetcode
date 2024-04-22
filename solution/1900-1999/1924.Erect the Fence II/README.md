@@ -1,4 +1,4 @@
-# [1924. 安装栅栏 II](https://leetcode.cn/problems/erect-the-fence-ii)
+# [1924. 安装栅栏 II 🔒](https://leetcode.cn/problems/erect-the-fence-ii)
 
 [English Version](/solution/1900-1999/1924.Erect%20the%20Fence%20II/README_EN.md)
 

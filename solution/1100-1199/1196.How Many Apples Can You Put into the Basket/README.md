@@ -1,4 +1,4 @@
-# [1196. 最多可以买到的苹果数量](https://leetcode.cn/problems/how-many-apples-can-you-put-into-the-basket)
+# [1196. 最多可以买到的苹果数量 🔒](https://leetcode.cn/problems/how-many-apples-can-you-put-into-the-basket)
 
 [English Version](/solution/1100-1199/1196.How%20Many%20Apples%20Can%20You%20Put%20into%20the%20Basket/README_EN.md)
 
