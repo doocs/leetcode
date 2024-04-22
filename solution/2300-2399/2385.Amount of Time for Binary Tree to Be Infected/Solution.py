@@ -6,29 +6,22 @@
 #         self.right = right
 class Solution:
     def amountOfTime(self, root: Optional[TreeNode], start: int) -> int:
-        def dfs(root):
-            if root is None:
+        def dfs(node: Optional[TreeNode], fa: Optional[TreeNode]):
+            if node is None:
                 return
-            if root.left:
-                g[root.val].append(root.left.val)
-                g[root.left.val].append(root.val)
-            if root.right:
-                g[root.val].append(root.right.val)
-                g[root.right.val].append(root.val)
-            dfs(root.left)
-            dfs(root.right)
+            if fa:
+                g[node.val].append(fa.val)
+                g[fa.val].append(node.val)
+            dfs(node.left, node)
+            dfs(node.right, node)
+
+        def dfs2(node: int, fa: int) -> int:
+            ans = 0
+            for nxt in g[node]:
+                if nxt != fa:
+                    ans = max(ans, 1 + dfs2(nxt, node))
+            return ans
 
         g = defaultdict(list)
-        dfs(root)
-        vis = set()
-        q = deque([start])
-        ans = -1
-        while q:
-            ans += 1
-            for _ in range(len(q)):
-                i = q.popleft()
-                vis.add(i)
-                for j in g[i]:
-                    if j not in vis:
-                        q.append(j)
-        return ans
+        dfs(root, None)
+        return dfs2(start, -1)
