@@ -1,36 +1,29 @@
 class Solution {
     public long singleDivisorTriplet(int[] nums) {
-        int[] counter = new int[101];
+        int[] cnt = new int[101];
         for (int x : nums) {
-            ++counter[x];
+            ++cnt[x];
         }
         long ans = 0;
-        for (int i = 1; i <= 100; ++i) {
-            for (int j = 1; j <= 100; ++j) {
-                for (int k = 1; k <= 100; ++k) {
-                    int cnt1 = counter[i], cnt2 = counter[j], cnt3 = counter[k];
-                    int s = i + j + k;
-                    int cnt = 0;
-                    if (s % i == 0) {
-                        ++cnt;
-                    }
-                    if (s % j == 0) {
-                        ++cnt;
-                    }
-                    if (s % k == 0) {
-                        ++cnt;
-                    }
-                    if (cnt != 1) {
-                        continue;
-                    }
-                    if (i == j) {
-                        ans += (long) cnt1 * (cnt1 - 1) * cnt3;
-                    } else if (i == k) {
-                        ans += (long) cnt1 * (cnt1 - 1) * cnt2;
-                    } else if (j == k) {
-                        ans += (long) cnt1 * cnt2 * (cnt2 - 1);
-                    } else {
-                        ans += (long) cnt1 * cnt2 * cnt3;
+        for (int a = 1; a <= 100; ++a) {
+            for (int b = 1; b <= 100; ++b) {
+                for (int c = 1; c <= 100; ++c) {
+                    int s = a + b + c;
+                    int x = cnt[a], y = cnt[b], z = cnt[c];
+                    int t = 0;
+                    t += s % a == 0 ? 1 : 0;
+                    t += s % b == 0 ? 1 : 0;
+                    t += s % c == 0 ? 1 : 0;
+                    if (t == 1) {
+                        if (a == b) {
+                            ans += 1L * x * (x - 1) * z;
+                        } else if (a == c) {
+                            ans += 1L * x * (x - 1) * y;
+                        } else if (b == c) {
+                            ans += 1L * x * y * (y - 1);
+                        } else {
+                            ans += 1L * x * y * z;
+                        }
                     }
                 }
             }
