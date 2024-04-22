@@ -1147,6 +1147,7 @@
 - [2224. 转化时间需要的最少操作数](/solution/2200-2299/2224.Minimum%20Number%20of%20Operations%20to%20Convert%20Time/README.md)
 - [2225. 找出输掉零场或一场比赛的玩家](/solution/2200-2299/2225.Find%20Players%20With%20Zero%20or%20One%20Losses/README.md)
 - [2226. 每个小孩最多能分到多少糖果](/solution/2200-2299/2226.Maximum%20Candies%20Allocated%20to%20K%20Children/README.md)
+- [2227. 加密解密字符串](/solution/2200-2299/2227.Encrypt%20and%20Decrypt%20Strings/README.md)
 
 #### 第 75 场双周赛(2022-04-02 22:30, 90 分钟) 参赛人数 4335
 
@@ -1327,6 +1328,7 @@
 
 - [2094. 找出 3 位偶数](/solution/2000-2099/2094.Finding%203-Digit%20Even%20Numbers/README.md)
 - [2095. 删除链表的中间节点](/solution/2000-2099/2095.Delete%20the%20Middle%20Node%20of%20a%20Linked%20List/README.md)
+- [2096. 从二叉树一个节点到另一个节点每一步的方向](/solution/2000-2099/2096.Step-By-Step%20Directions%20From%20a%20Binary%20Tree%20Node%20to%20Another/README.md)
 - [2097. 合法重新排列数对](/solution/2000-2099/2097.Valid%20Arrangement%20of%20Pairs/README.md)
 
 #### 第 269 场周赛(2021-11-28 10:30, 90 分钟) 参赛人数 4293

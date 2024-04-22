@@ -10,7 +10,7 @@
 
 <p>给你一个字符串 <code>s</code>，由若干单词组成，单词前后用一些空格字符隔开。返回字符串中 <strong>最后一个</strong> 单词的长度。</p>
 
-<p><strong>单词</strong> 是指仅由字母组成、不包含任何空格字符的最大<span data-keyword="substring">子字符串</span>。</p>
+<p><strong>单词</strong> 是指仅由字母组成、不包含任何空格字符的最大<span data-keyword="substring-nonempty">子字符串</span>。</p>
 
 <p>&nbsp;</p>
 
@@ -19,7 +19,7 @@
 <pre>
 <strong>输入：</strong>s = "Hello World"
 <strong>输出：</strong>5
-<strong>解释：</strong>最后一个单词是“World”，长度为5。
+<strong>解释：</strong>最后一个单词是“World”，长度为 5。
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -27,7 +27,7 @@
 <pre>
 <strong>输入：</strong>s = "   fly me   to   the moon  "
 <strong>输出：</strong>4<strong>
-解释：</strong>最后一个单词是“moon”，长度为4。
+解释：</strong>最后一个单词是“moon”，长度为 4。
 </pre>
 
 <p><strong>示例 3：</strong></p>
@@ -35,7 +35,7 @@
 <pre>
 <strong>输入：</strong>s = "luffy is still joyboy"
 <strong>输出：</strong>6
-<strong>解释：</strong>最后一个单词是长度为6的“joyboy”。
+<strong>解释：</strong>最后一个单词是长度为 6 的“joyboy”。
 </pre>
 
 <p>&nbsp;</p>
