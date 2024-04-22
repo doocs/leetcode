@@ -61,24 +61,87 @@
 
 ## 解法
 
-### 方法一
+### 方法一：哈希表或数组
+
+我们用一个哈希表或数组 $s$ 来记录字符串 $word$ 中出现的字符。然后遍历 $26$ 个字母，如果小写字母和大写字母都在 $s$ 中出现，则特殊字符的数量加一。
+
+最后返回特殊字符的数量即可。
+
+时间复杂度 $O(n + |\Sigma|)$，空间复杂度 $O(|\Sigma|)$。其中 $n$ 为字符串 $word$ 的长度；而 $|\Sigma|$ 为字符集大小，本题中 $|\Sigma| \leq 128$。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def numberOfSpecialChars(self, word: str) -> int:
+        s = set(word)
+        return sum(a in s and b in s for a, b in zip(ascii_lowercase, ascii_uppercase))
 ```
 
 ```java
-
+class Solution {
+    public int numberOfSpecialChars(String word) {
+        boolean[] s = new boolean['z' + 1];
+        for (int i = 0; i < word.length(); ++i) {
+            s[word.charAt(i)] = true;
+        }
+        int ans = 0;
+        for (int i = 0; i < 26; ++i) {
+            if (s['a' + i] && s['A' + i]) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int numberOfSpecialChars(string word) {
+        vector<bool> s('z' + 1);
+        for (char& c : word) {
+            s[c] = true;
+        }
+        int ans = 0;
+        for (int i = 0; i < 26; ++i) {
+            ans += s['a' + i] && s['A' + i];
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func numberOfSpecialChars(word string) (ans int) {
+	s := make([]bool, 'z'+1)
+	for _, c := range word {
+		s[c] = true
+	}
+	for i := 0; i < 26; i++ {
+		if s['a'+i] && s['A'+i] {
+			ans++
+		}
+	}
+	return
+}
+```
 
+```ts
+function numberOfSpecialChars(word: string): number {
+    const s: boolean[] = Array.from({ length: 'z'.charCodeAt(0) + 1 }, () => false);
+    for (let i = 0; i < word.length; ++i) {
+        s[word.charCodeAt(i)] = true;
+    }
+    let ans: number = 0;
+    for (let i = 0; i < 26; ++i) {
+        if (s['a'.charCodeAt(0) + i] && s['A'.charCodeAt(0) + i]) {
+            ++ans;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

@@ -50,7 +50,15 @@ Note that different sequences are counted as different combinations.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[i]$ as the number of combinations that sum up to $i$. Initially, $f[0] = 1$, and the rest $f[i] = 0$. The final answer is $f[target]$.
+
+For $f[i]$, we can enumerate each element $x$ in the array. If $i \ge x$, then $f[i] = f[i] + f[i - x]$.
+
+Finally, return $f[target]$.
+
+The time complexity is $O(n \times target)$, and the space complexity is $O(target)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -118,7 +126,7 @@ func combinationSum4(nums []int, target int) int {
 
 ```ts
 function combinationSum4(nums: number[], target: number): number {
-    const f: number[] = new Array(target + 1).fill(0);
+    const f: number[] = Array(target + 1).fill(0);
     f[0] = 1;
     for (let i = 1; i <= target; ++i) {
         for (const x of nums) {
@@ -138,7 +146,7 @@ function combinationSum4(nums: number[], target: number): number {
  * @return {number}
  */
 var combinationSum4 = function (nums, target) {
-    const f = new Array(target + 1).fill(0);
+    const f = Array(target + 1).fill(0);
     f[0] = 1;
     for (let i = 1; i <= target; ++i) {
         for (const x of nums) {
