@@ -8,8 +8,7 @@
  */
 func isValidBST(root *TreeNode) bool {
 	var prev *TreeNode
-
-	var dfs func(root *TreeNode) bool
+	var dfs func(*TreeNode) bool
 	dfs = func(root *TreeNode) bool {
 		if root == nil {
 			return true
@@ -21,11 +20,7 @@ func isValidBST(root *TreeNode) bool {
 			return false
 		}
 		prev = root
-		if !dfs(root.Right) {
-			return false
-		}
-		return true
+		return dfs(root.Right)
 	}
-
 	return dfs(root)
 }

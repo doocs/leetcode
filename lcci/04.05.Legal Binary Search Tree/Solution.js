@@ -11,14 +11,19 @@
  * @return {boolean}
  */
 var isValidBST = function (root) {
-    function dfs(root, l, r) {
+    let prev = null;
+    const dfs = root => {
         if (!root) {
             return true;
         }
-        if (root.val <= l || root.val >= r) {
+        if (!dfs(root.left)) {
             return false;
         }
-        return dfs(root.left, l, root.val) && dfs(root.right, root.val, r);
-    }
-    return dfs(root, -Infinity, Infinity);
+        if (prev && prev.val >= root.val) {
+            return false;
+        }
+        prev = root;
+        return dfs(root.right);
+    };
+    return dfs(root);
 };

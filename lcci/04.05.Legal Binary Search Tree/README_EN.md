@@ -46,36 +46,38 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Recursion
+
+We can perform a recursive in-order traversal on the binary tree. If the result of the traversal is strictly ascending, then this tree is a binary search tree.
+
+Therefore, we use a variable `prev` to save the last node we traversed. Initially, `prev = -∞`. Then we recursively traverse the left subtree. If the left subtree is not a binary search tree, we directly return `False`. Otherwise, we check whether the value of the current node is greater than `prev`. If not, we return `False`. Otherwise, we update `prev` to the value of the current node, and then recursively traverse the right subtree.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-
-
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 class Solution:
-    res, t = True, None
+    def isValidBST(self, root: Optional[TreeNode]) -> bool:
+        def dfs(root: Optional[TreeNode]) -> bool:
+            if root is None:
+                return True
+            if not dfs(root.left):
+                return False
+            nonlocal prev
+            if prev >= root.val:
+                return False
+            prev = root.val
+            return dfs(root.right)
 
-    def isValidBST(self, root: TreeNode) -> bool:
-        self.isValid(root)
-        return self.res
-
-    def isValid(self, root):
-        if not root:
-            return
-        self.isValid(root.left)
-        if self.t is None or self.t < root.val:
-            self.t = root.val
-        else:
-            self.res = False
-            return
-        self.isValid(root.right)
+        prev = -inf
+        return dfs(root)
 ```
 
 ```java
@@ -85,29 +87,34 @@ class Solution:
  *     int val;
  *     TreeNode left;
  *     TreeNode right;
- *     TreeNode(int x) { val = x; }
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
  * }
  */
 class Solution {
-    private boolean res = true;
-    private Integer t = null;
+    private TreeNode prev;
+
     public boolean isValidBST(TreeNode root) {
-        isValid(root);
-        return res;
+        return dfs(root);
     }
 
-    private void isValid(TreeNode root) {
+    private boolean dfs(TreeNode root) {
         if (root == null) {
-            return;
+            return true;
         }
-        isValid(root.left);
-        if (t == null || t < root.val) {
-            t = root.val;
-        } else {
-            res = false;
-            return;
+        if (!dfs(root.left)) {
+            return false;
         }
-        isValid(root.right);
+        if (prev != null && prev.val >= root.val) {
+            return false;
+        }
+        prev = root;
+        return dfs(root.right);
     }
 }
 ```
@@ -119,54 +126,59 @@ class Solution {
  *     int val;
  *     TreeNode *left;
  *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
 class Solution {
 public:
     bool isValidBST(TreeNode* root) {
-        TreeNode* pre = nullptr;
-        TreeNode* cur = root;
-        stack<TreeNode*> stk;
-        while (cur || !stk.empty()) {
-            if (cur) {
-                stk.push(cur);
-                cur = cur->left;
-            } else {
-                cur = stk.top();
-                stk.pop();
-                if (pre && pre->val >= cur->val) {
-                    return false;
-                }
-                pre = cur;
-                cur = cur->right;
+        TreeNode* prev = nullptr;
+        function<bool(TreeNode*)> dfs = [&](TreeNode* root) {
+            if (!root) {
+                return true;
             }
-        }
-        return true;
+            if (!dfs(root->left)) {
+                return false;
+            }
+            if (prev && prev->val >= root->val) {
+                return false;
+            }
+            prev = root;
+            return dfs(root->right);
+        };
+        return dfs(root);
     }
 };
 ```
 
 ```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
 func isValidBST(root *TreeNode) bool {
-	stack := make([]*TreeNode, 0)
-	var prev *TreeNode = nil
-	node := root
-	for len(stack) > 0 || node != nil {
-		for node != nil {
-			stack = append(stack, node)
-			node = node.Left
+	var prev *TreeNode
+	var dfs func(*TreeNode) bool
+	dfs = func(root *TreeNode) bool {
+		if root == nil {
+			return true
 		}
-		node = stack[len(stack)-1]
-		stack = stack[:len(stack)-1]
-		if prev == nil || node.Val > prev.Val {
-			prev = node
-		} else {
+		if !dfs(root.Left) {
 			return false
 		}
-		node = node.Right
+		if prev != nil && prev.Val >= root.Val {
+			return false
+		}
+		prev = root
+		return dfs(root.Right)
 	}
-	return true
+	return dfs(root)
 }
 ```
 
@@ -186,17 +198,19 @@ func isValidBST(root *TreeNode) bool {
  */
 
 function isValidBST(root: TreeNode | null): boolean {
-    let pre = -Infinity;
-    const dfs = (root: TreeNode | null) => {
-        if (root == null) {
+    let prev: TreeNode | null = null;
+    const dfs = (root: TreeNode | null): boolean => {
+        if (!root) {
             return true;
         }
-        const { val, left, right } = root;
-        if (!dfs(left) || val <= pre) {
+        if (!dfs(root.left)) {
             return false;
         }
-        pre = val;
-        return dfs(right);
+        if (prev && prev.val >= root.val) {
+            return false;
+        }
+        prev = root;
+        return dfs(root.right);
     };
     return dfs(root);
 }
@@ -224,19 +238,19 @@ function isValidBST(root: TreeNode | null): boolean {
 use std::rc::Rc;
 use std::cell::RefCell;
 impl Solution {
-    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, pre: &mut Option<i32>) -> bool {
+    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, prev: &mut Option<i32>) -> bool {
         if root.is_none() {
             return true;
         }
         let root = root.as_ref().unwrap().borrow();
-        if !Self::dfs(&root.left, pre) {
+        if !Self::dfs(&root.left, prev) {
             return false;
         }
-        if pre.is_some() && pre.unwrap() >= root.val {
+        if prev.is_some() && prev.unwrap() >= root.val {
             return false;
         }
-        *pre = Some(root.val);
-        Self::dfs(&root.right, pre)
+        *prev = Some(root.val);
+        Self::dfs(&root.right, prev)
     }
 
     pub fn is_valid_bst(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
@@ -245,59 +259,72 @@ impl Solution {
 }
 ```
 
-<!-- tabs:end -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-```go
-func isValidBST(root *TreeNode) bool {
-	return check(root, math.MinInt64, math.MaxInt64)
-}
-
-func check(node *TreeNode, lower, upper int) bool {
-	if node == nil {
-		return true
-	}
-	if node.Val <= lower || node.Val >= upper {
-		return false
-	}
-	return check(node.Left, lower, node.Val) && check(node.Right, node.Val, upper)
-}
-```
-
-```ts
+```js
 /**
  * Definition for a binary tree node.
- * class TreeNode {
- *     val: number
- *     left: TreeNode | null
- *     right: TreeNode | null
- *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.left = (left===undefined ? null : left)
- *         this.right = (right===undefined ? null : right)
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+var isValidBST = function (root) {
+    let prev = null;
+    const dfs = root => {
+        if (!root) {
+            return true;
+        }
+        if (!dfs(root.left)) {
+            return false;
+        }
+        if (prev && prev.val >= root.val) {
+            return false;
+        }
+        prev = root;
+        return dfs(root.right);
+    };
+    return dfs(root);
+};
+```
+
+```cs
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left;
+ *     public TreeNode right;
+ *     public TreeNode(int val=0, TreeNode left=null, TreeNode right=null) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
  *     }
  * }
  */
+public class Solution {
+    private TreeNode prev;
 
-function isValidBST(root: TreeNode | null): boolean {
-    if (root == null) {
-        return true;
+    public bool IsValidBST(TreeNode root) {
+        return dfs(root);
     }
-    const { val, left, right } = root;
-    const dfs = (root: TreeNode | null, min: number, max: number) => {
+
+    private bool dfs(TreeNode root) {
         if (root == null) {
             return true;
         }
-        const { val, left, right } = root;
-        if (val <= min || val >= max) {
+        if (!dfs(root.left)) {
             return false;
         }
-        return dfs(left, min, Math.min(val, max)) && dfs(right, Math.max(val, min), max);
-    };
-    return dfs(left, -Infinity, val) && dfs(right, val, Infinity);
+        if (prev != null && prev.val >= root.val) {
+            return false;
+        }
+        prev = root;
+        return dfs(root.right);
+    }
 }
 ```
 

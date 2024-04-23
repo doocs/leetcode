@@ -12,8 +12,7 @@
  */
 var isValidBST = function (root) {
     let prev = null;
-
-    let dfs = function (root) {
+    const dfs = root => {
         if (!root) {
             return true;
         }
@@ -24,11 +23,7 @@ var isValidBST = function (root) {
             return false;
         }
         prev = root;
-        if (!dfs(root.right)) {
-            return false;
-        }
-        return true;
+        return dfs(root.right);
     };
-
     return dfs(root);
 };

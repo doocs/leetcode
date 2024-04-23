@@ -12,17 +12,23 @@
  * }
  */
 public class Solution {
+    private TreeNode prev;
+
     public bool IsValidBST(TreeNode root) {
-        return dfs(root, long.MinValue, long.MaxValue);
+        return dfs(root);
     }
 
-    public bool dfs(TreeNode root, long l, long r) {
+    private bool dfs(TreeNode root) {
         if (root == null) {
             return true;
         }
-        if (root.val <= l || root.val >= r) {
+        if (!dfs(root.left)) {
             return false;
         }
-        return dfs(root.left, l, root.val) && dfs(root.right, root.val, r);
+        if (prev != null && prev.val >= root.val) {
+            return false;
+        }
+        prev = root;
+        return dfs(root.right);
     }
 }
