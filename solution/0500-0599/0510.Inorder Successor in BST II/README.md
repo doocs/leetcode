@@ -85,7 +85,13 @@ class Node {
 
 ## 解法
 
-### 方法一
+### 方法一：分情况讨论
+
+如果 $\text{node}$ 有右子树，那么 $\text{node}$ 的中序后继节点是右子树中最左边的节点。
+
+如果 $\text{node}$ 没有右子树，那么如果 $\text{node}$ 是其父节点的右子树，我们就一直向上搜索，直到节点的父节点为空，或者节点是其父节点的左子树，此时父节点就是中序后继节点。
+
+时间复杂度 $O(h)$，其中 $h$ 是二叉树的高度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -100,7 +106,6 @@ class Node:
         self.parent = None
 """
 
-
 class Solution:
     def inorderSuccessor(self, node: 'Node') -> 'Optional[Node]':
         if node.right:
@@ -108,7 +113,7 @@ class Solution:
             while node.left:
                 node = node.left
             return node
-        while node.parent and node == node.parent.right:
+        while node.parent and node.parent.right is node:
             node = node.parent
         return node.parent
 ```
@@ -125,7 +130,6 @@ class Node {
 */
 
 class Solution {
-
     public Node inorderSuccessor(Node node) {
         if (node.right != null) {
             node = node.right;
@@ -134,7 +138,7 @@ class Solution {
             }
             return node;
         }
-        while (node.parent != null && node == node.parent.right) {
+        while (node.parent != null && node.parent.right == node) {
             node = node.parent;
         }
         return node.parent;
@@ -159,10 +163,14 @@ public:
     Node* inorderSuccessor(Node* node) {
         if (node->right) {
             node = node->right;
-            while (node->left) node = node->left;
+            while (node->left) {
+                node = node->left;
+            }
             return node;
         }
-        while (node->parent && node == node->parent->right) node = node->parent;
+        while (node->parent && node->parent->right == node) {
+            node = node->parent;
+        }
         return node->parent;
     }
 };
@@ -194,6 +202,38 @@ func inorderSuccessor(node *Node) *Node {
 }
 ```
 
+```ts
+/**
+ * Definition for a binary tree node.
+ * class Node {
+ *     val: number
+ *     left: Node | null
+ *     right: Node | null
+ *     parent: Node | null
+ *     constructor(val?: number, left?: Node | null, right?: Node | null, parent?: Node | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *         this.parent = (parent===undefined ? null : parent)
+ *     }
+ * }
+ */
+
+function inorderSuccessor(node: Node | null): Node | null {
+    if (node.right) {
+        node = node.right;
+        while (node.left) {
+            node = node.left;
+        }
+        return node;
+    }
+    while (node.parent && node === node.parent.right) {
+        node = node.parent;
+    }
+    return node.parent;
+}
+```
+
 ```js
 /**
  * // Definition for a Node.
@@ -212,10 +252,14 @@ func inorderSuccessor(node *Node) *Node {
 var inorderSuccessor = function (node) {
     if (node.right) {
         node = node.right;
-        while (node.left) node = node.left;
+        while (node.left) {
+            node = node.left;
+        }
         return node;
     }
-    while (node.parent && node == node.parent.right) node = node.parent;
+    while (node.parent && node === node.parent.right) {
+        node = node.parent;
+    }
     return node.parent;
 };
 ```

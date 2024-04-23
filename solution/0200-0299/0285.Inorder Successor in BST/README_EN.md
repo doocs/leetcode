@@ -38,7 +38,18 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Binary Search
+
+The in-order traversal of a binary search tree is an ascending sequence, so we can use the binary search method.
+
+The in-order successor node of a binary search tree node $p$ satisfies:
+
+1. The value of the in-order successor node is greater than the value of node $p$.
+2. The in-order successor is the node with the smallest value among all nodes greater than $p$.
+
+Therefore, for the current node $root$, if $root.val > p.val$, then $root$ could be the in-order successor of $p$. We record $root$ as $ans$ and then search the left subtree, i.e., $root = root.left$. If $root.val \leq p.val$, then $root$ cannot be the in-order successor of $p$, and we search the right subtree, i.e., $root = root.right$.
+
+The time complexity is $O(h)$, where $h$ is the height of the binary search tree. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

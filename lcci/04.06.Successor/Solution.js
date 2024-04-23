@@ -11,16 +11,14 @@
  * @return {TreeNode}
  */
 var inorderSuccessor = function (root, p) {
-    if (root == null) {
-        return root;
+    let ans = null;
+    while (root) {
+        if (root.val > p.val) {
+            ans = root;
+            root = root.left;
+        } else {
+            root = root.right;
+        }
     }
-    const { val, left, right } = root;
-    const res = inorderSuccessor(left, p);
-    if (res != null) {
-        return res;
-    }
-    if (val > p.val) {
-        return root;
-    }
-    return inorderSuccessor(right, p);
+    return ans;
 };
