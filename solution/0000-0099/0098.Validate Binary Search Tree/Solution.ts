@@ -13,19 +13,19 @@
  */
 
 function isValidBST(root: TreeNode | null): boolean {
-    if (root == null) {
-        return true;
-    }
-    const { val, left, right } = root;
-    const dfs = (root: TreeNode | null, min: number, max: number) => {
-        if (root == null) {
+    let prev: TreeNode | null = null;
+    const dfs = (root: TreeNode | null): boolean => {
+        if (!root) {
             return true;
         }
-        const { val, left, right } = root;
-        if (val <= min || val >= max) {
+        if (!dfs(root.left)) {
             return false;
         }
-        return dfs(left, min, Math.min(val, max)) && dfs(right, Math.max(val, min), max);
+        if (prev && prev.val >= root.val) {
+            return false;
+        }
+        prev = root;
+        return dfs(root.right);
     };
-    return dfs(left, -Infinity, val) && dfs(right, val, Infinity);
+    return dfs(root);
 }

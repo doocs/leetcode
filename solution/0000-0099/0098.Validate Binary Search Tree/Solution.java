@@ -14,10 +14,9 @@
  * }
  */
 class Solution {
-    private Integer prev;
+    private TreeNode prev;
 
     public boolean isValidBST(TreeNode root) {
-        prev = null;
         return dfs(root);
     }
 
@@ -28,13 +27,10 @@ class Solution {
         if (!dfs(root.left)) {
             return false;
         }
-        if (prev != null && prev >= root.val) {
+        if (prev != null && prev.val >= root.val) {
             return false;
         }
-        prev = root.val;
-        if (!dfs(root.right)) {
-            return false;
-        }
-        return true;
+        prev = root;
+        return dfs(root.right);
     }
 }

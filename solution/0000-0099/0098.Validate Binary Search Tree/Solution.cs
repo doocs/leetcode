@@ -15,28 +15,20 @@ public class Solution {
     private TreeNode prev;
 
     public bool IsValidBST(TreeNode root) {
-        prev = null;
         return dfs(root);
     }
 
     private bool dfs(TreeNode root) {
-        if (root == null)
-        {
+        if (root == null) {
             return true;
         }
-        if (!dfs(root.left))
-        {
+        if (!dfs(root.left)) {
             return false;
         }
-        if (prev != null && prev.val >= root.val)
-        {
+        if (prev != null && prev.val >= root.val) {
             return false;
         }
         prev = root;
-        if (!dfs(root.right))
-        {
-            return false;
-        }
-        return true;
+        return dfs(root.right);
     }
 }
