@@ -52,9 +52,9 @@
 
 ### 方法一：模拟
 
-我们记矩阵的列数为 $n$，创建一个长度为 $n$ 的数组 $ans$，其中 $ans[i]$ 表示第 $i$ 列的宽度。初始时，$ans[i]$ 的值均为 $0$。
+我们记矩阵的列数为 $n$，创建一个长度为 $n$ 的数组 $ans$，其中 $ans[i]$ 表示第 $i$ 列的宽度。初始时 $ans[i] = 0$。
 
-遍历矩阵中的每一行，对于每一行中的每个元素，计算其字符串长度 $w$，并更新 $ans[j]$ 的值为 $max(ans[j], w)$。
+遍历矩阵中的每一行，对于每一行中的每个元素，计算其字符串长度 $w$，并更新 $ans[j]$ 的值为 $\max(ans[j], w)$。
 
 遍历完所有行后，数组 $ans$ 中的每个元素即为对应列的宽度。
 
@@ -65,12 +65,7 @@
 ```python
 class Solution:
     def findColumnWidth(self, grid: List[List[int]]) -> List[int]:
-        ans = [0] * len(grid[0])
-        for row in grid:
-            for j, x in enumerate(row):
-                w = len(str(x))
-                ans[j] = max(ans[j], w)
-        return ans
+        return [max(len(str(x)) for x in col) for col in zip(*grid)]
 ```
 
 ```java
