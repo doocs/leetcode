@@ -48,19 +48,22 @@ In the 2<sup>nd</sup> column, both 12 and -2 are of length 2.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Simulation
+
+We denote the number of columns in the matrix as $n$, and create an array $ans$ of length $n$, where $ans[i]$ represents the width of the $i$-th column. Initially, $ans[i] = 0$.
+
+We traverse each row in the matrix. For each element in each row, we calculate its string length $w$, and update the value of $ans[j]$ to be $\max(ans[j], w)$.
+
+After traversing all rows, each element in the array $ans$ is the width of the corresponding column.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(\log M)$. Where $m$ and $n$ are the number of rows and columns in the matrix respectively, and $M$ is the absolute value of the maximum element in the matrix.
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def findColumnWidth(self, grid: List[List[int]]) -> List[int]:
-        ans = [0] * len(grid[0])
-        for row in grid:
-            for j, x in enumerate(row):
-                w = len(str(x))
-                ans[j] = max(ans[j], w)
-        return ans
+        return [max(len(str(x)) for x in col) for col in zip(*grid)]
 ```
 
 ```java

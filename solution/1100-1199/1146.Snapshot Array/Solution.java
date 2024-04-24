@@ -16,17 +16,17 @@ class SnapshotArray {
     }
 
     public int get(int index, int snap_id) {
-        var vals = arr[index];
-        int left = 0, right = vals.size();
-        while (left < right) {
-            int mid = (left + right) >> 1;
-            if (vals.get(mid)[0] > snap_id) {
-                right = mid;
+        int l = 0, r = arr[index].size();
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (arr[index].get(mid)[0] > snap_id) {
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return left == 0 ? 0 : vals.get(left - 1)[1];
+        --l;
+        return l < 0 ? 0 : arr[index].get(l)[1];
     }
 }
 
