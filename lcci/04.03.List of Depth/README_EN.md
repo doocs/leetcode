@@ -328,7 +328,7 @@ impl Solution {
 *    var val: Int
 *    var left: TreeNode?
 *    var right: TreeNode?
-*    
+*
 *    init(_ val: Int) {
 *        self.val = val
 *        self.left = nil
@@ -340,22 +340,22 @@ impl Solution {
 /* class ListNode {
 *    var val: Int
 *    var next: ListNode?
-*    
+*
 *    init(_ val: Int) {
 *        self.val = val
 *        self.next = nil
 *    }
-*  }  
+*  }
 */
 
 class Solution {
     func listOfDepth(_ tree: TreeNode?) -> [ListNode?] {
         var ans = [ListNode?]()
         guard let tree = tree else { return ans }
-        
+
         var q = [TreeNode]()
         q.append(tree)
-        
+
         while !q.isEmpty {
             let dummy = ListNode(0)
             var cur = dummy
@@ -363,7 +363,7 @@ class Solution {
                 let node = q.removeFirst()
                 cur.next = ListNode(node.val)
                 cur = cur.next!
-                
+
                 if let left = node.left {
                     q.append(left)
                 }
@@ -373,7 +373,7 @@ class Solution {
             }
             ans.append(dummy.next)
         }
-        
+
         return ans
     }
 }
