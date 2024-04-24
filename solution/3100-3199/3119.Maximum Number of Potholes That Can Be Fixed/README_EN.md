@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3100-3199/3119.Maximum%20Number%20of%20Potholes%20That%20Can%20Be%20Fixed/README.md)
 
-<!-- tags: -->
+<!-- tags:Greedy,String,Sorting -->
 
 ## Description
 

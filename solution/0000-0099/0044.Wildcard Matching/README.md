@@ -411,7 +411,7 @@ class Solution {
     function isMatch($s, $p) {
         $lengthS = strlen($s);
         $lengthP = strlen($p);
-        $dp = array();
+        $dp = [];
         for ($i = 0; $i <= $lengthS; $i++) {
             $dp[$i] = array_fill(0, $lengthP + 1, false);
         }
@@ -426,7 +426,7 @@ class Solution {
             for ($j = 1; $j <= $lengthP; $j++) {
                 if ($p[$j - 1] == '?' || $s[$i - 1] == $p[$j - 1]) {
                     $dp[$i][$j] = $dp[$i - 1][$j - 1];
-                } else if ($p[$j - 1] == '*') {
+                } elseif ($p[$j - 1] == '*') {
                     $dp[$i][$j] = $dp[$i][$j - 1] || $dp[$i - 1][$j];
                 }
             }

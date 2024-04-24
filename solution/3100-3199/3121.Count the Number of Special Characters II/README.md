@@ -2,7 +2,7 @@
 
 [English Version](/solution/3100-3199/3121.Count%20the%20Number%20of%20Special%20Characters%20II/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:哈希表,字符串 -->
 
 ## 题目描述
 

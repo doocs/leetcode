@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3100-3199/3121.Count%20the%20Number%20of%20Special%20Characters%20II/README.md)
 
-<!-- tags: -->
+<!-- tags:Hash Table,String -->
 
 ## Description
 
