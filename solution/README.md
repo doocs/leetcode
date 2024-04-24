@@ -3129,12 +3129,12 @@
 |  3116  |  [单面值组合的第 K 小金额](/solution/3100-3199/3116.Kth%20Smallest%20Amount%20With%20Single%20Denomination%20Combination/README.md)  |  `位运算`,`数组`,`数学`,`二分查找`,`组合数学`,`数论`  |  困难  |  第 393 场周赛  |
 |  3117  |  [划分数组得到最小的值之和](/solution/3100-3199/3117.Minimum%20Sum%20of%20Values%20by%20Dividing%20Array/README.md)  |  `位运算`,`线段树`,`队列`,`数组`,`二分查找`,`动态规划`  |  困难  |  第 393 场周赛  |
 |  3118  |  [Friday Purchase III](/solution/3100-3199/3118.Friday%20Purchase%20III/README.md)  |  `数据库`  |  中等  |  🔒  |
-|  3119  |  [Maximum Number of Potholes That Can Be Fixed](/solution/3100-3199/3119.Maximum%20Number%20of%20Potholes%20That%20Can%20Be%20Fixed/README.md)  |    |  中等  |  🔒  |
-|  3120  |  [统计特殊字母的数量 I](/solution/3100-3199/3120.Count%20the%20Number%20of%20Special%20Characters%20I/README.md)  |    |  简单  |  第 394 场周赛  |
-|  3121  |  [统计特殊字母的数量 II](/solution/3100-3199/3121.Count%20the%20Number%20of%20Special%20Characters%20II/README.md)  |    |  中等  |  第 394 场周赛  |
-|  3122  |  [使矩阵满足条件的最少操作次数](/solution/3100-3199/3122.Minimum%20Number%20of%20Operations%20to%20Satisfy%20Conditions/README.md)  |    |  中等  |  第 394 场周赛  |
-|  3123  |  [最短路径中的边](/solution/3100-3199/3123.Find%20Edges%20in%20Shortest%20Paths/README.md)  |    |  困难  |  第 394 场周赛  |
-|  3124  |  [查找最长的电话](/solution/3100-3199/3124.Find%20Longest%20Calls/README.md)  |    |  中等  |  🔒  |
+|  3119  |  [Maximum Number of Potholes That Can Be Fixed](/solution/3100-3199/3119.Maximum%20Number%20of%20Potholes%20That%20Can%20Be%20Fixed/README.md)  |  `贪心`,`字符串`,`排序`  |  中等  |  🔒  |
+|  3120  |  [统计特殊字母的数量 I](/solution/3100-3199/3120.Count%20the%20Number%20of%20Special%20Characters%20I/README.md)  |  `哈希表`,`字符串`  |  简单  |  第 394 场周赛  |
+|  3121  |  [统计特殊字母的数量 II](/solution/3100-3199/3121.Count%20the%20Number%20of%20Special%20Characters%20II/README.md)  |  `哈希表`,`字符串`  |  中等  |  第 394 场周赛  |
+|  3122  |  [使矩阵满足条件的最少操作次数](/solution/3100-3199/3122.Minimum%20Number%20of%20Operations%20to%20Satisfy%20Conditions/README.md)  |  `数组`,`动态规划`,`矩阵`  |  中等  |  第 394 场周赛  |
+|  3123  |  [最短路径中的边](/solution/3100-3199/3123.Find%20Edges%20in%20Shortest%20Paths/README.md)  |  `深度优先搜索`,`广度优先搜索`,`图`,`最短路`,`堆（优先队列）`  |  困难  |  第 394 场周赛  |
+|  3124  |  [查找最长的电话](/solution/3100-3199/3124.Find%20Longest%20Calls/README.md)  |  `数据库`  |  中等  |  🔒  |
 
 ## 版权
 

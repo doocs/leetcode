@@ -279,9 +279,9 @@ class Solution {
                 $product[$i + $j] += $carry;
             }
         }
-        $result = implode("", $product);
+        $result = implode('', $product);
         $result = ltrim($result, '0');
-        return $result === "" ? "0" : $result;
+        return $result === '' ? '0' : $result;
     }
 }
 ```

@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3100-3199/3122.Minimum%20Number%20of%20Operations%20to%20Satisfy%20Conditions/README.md)
 
-<!-- tags: -->
+<!-- tags:Array,Dynamic Programming,Matrix -->
 
 ## Description
 

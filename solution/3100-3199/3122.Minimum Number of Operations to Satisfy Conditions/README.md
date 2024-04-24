@@ -2,7 +2,7 @@
 
 [English Version](/solution/3100-3199/3122.Minimum%20Number%20of%20Operations%20to%20Satisfy%20Conditions/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:数组,动态规划,矩阵 -->
 
 ## 题目描述
 
