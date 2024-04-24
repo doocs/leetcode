@@ -1,4 +1,4 @@
-# [247. Strobogrammatic Number II](https://leetcode.com/problems/strobogrammatic-number-ii)
+# [247. Strobogrammatic Number II 🔒](https://leetcode.com/problems/strobogrammatic-number-ii)
 
 [中文文档](/solution/0200-0299/0247.Strobogrammatic%20Number%20II/README.md)
 
@@ -27,7 +27,25 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Recursion
+
+If the length is $1$, then the strobogrammatic numbers are only $0, 1, 8$; if the length is $2$, then the strobogrammatic numbers are only $11, 69, 88, 96$.
+
+We design a recursive function $dfs(u)$, which returns the strobogrammatic numbers of length $u$. The answer is $dfs(n)$.
+
+If $u$ is $0$, return a list containing an empty string, i.e., `[""]`; if $u$ is $1$, return the list `["0", "1", "8"]`.
+
+If $u$ is greater than $1$, we traverse all the strobogrammatic numbers of length $u - 2$. For each strobogrammatic number $v$, we add $1, 8, 6, 9$ to both sides of it, and we can get the strobogrammatic numbers of length `u`.
+
+Note that if $u \neq n$, we can also add $0$ to both sides of the strobogrammatic number.
+
+Finally, we return all the strobogrammatic numbers of length $n$.
+
+The time complexity is $O(2^{n+2})$.
+
+Similar problems:
+
+-   [248. Strobogrammatic Number III 🔒](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0248.Strobogrammatic%20Number%20III/README_EN.md)
 
 <!-- tabs:start -->
 

@@ -1,4 +1,4 @@
-# [1858. Longest Word With All Prefixes](https://leetcode.com/problems/longest-word-with-all-prefixes)
+# [1858. Longest Word With All Prefixes 🔒](https://leetcode.com/problems/longest-word-with-all-prefixes)
 
 [中文文档](/solution/1800-1899/1858.Longest%20Word%20With%20All%20Prefixes/README.md)
 

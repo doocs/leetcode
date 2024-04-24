@@ -1,4 +1,4 @@
-# [2794. 从两个数组中创建对象](https://leetcode.cn/problems/create-object-from-two-arrays)
+# [2794. 从两个数组中创建对象 🔒](https://leetcode.cn/problems/create-object-from-two-arrays)
 
 [English Version](/solution/2700-2799/2794.Create%20Object%20from%20Two%20Arrays/README_EN.md)
 

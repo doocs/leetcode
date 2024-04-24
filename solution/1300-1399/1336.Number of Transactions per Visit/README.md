@@ -1,4 +1,4 @@
-# [1336. 每次访问的交易次数](https://leetcode.cn/problems/number-of-transactions-per-visit)
+# [1336. 每次访问的交易次数 🔒](https://leetcode.cn/problems/number-of-transactions-per-visit)
 
 [English Version](/solution/1300-1399/1336.Number%20of%20Transactions%20per%20Visit/README_EN.md)
 

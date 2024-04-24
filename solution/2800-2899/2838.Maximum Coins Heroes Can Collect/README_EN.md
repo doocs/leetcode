@@ -1,4 +1,4 @@
-# [2838. Maximum Coins Heroes Can Collect](https://leetcode.com/problems/maximum-coins-heroes-can-collect)
+# [2838. Maximum Coins Heroes Can Collect 🔒](https://leetcode.com/problems/maximum-coins-heroes-can-collect)
 
 [中文文档](/solution/2800-2899/2838.Maximum%20Coins%20Heroes%20Can%20Collect/README.md)
 

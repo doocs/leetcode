@@ -1,4 +1,4 @@
-# [1783. Grand Slam Titles](https://leetcode.com/problems/grand-slam-titles)
+# [1783. Grand Slam Titles 🔒](https://leetcode.com/problems/grand-slam-titles)
 
 [中文文档](/solution/1700-1799/1783.Grand%20Slam%20Titles/README.md)
 

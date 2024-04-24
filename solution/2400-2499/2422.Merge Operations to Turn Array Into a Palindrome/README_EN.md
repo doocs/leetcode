@@ -1,4 +1,4 @@
-# [2422. Merge Operations to Turn Array Into a Palindrome](https://leetcode.com/problems/merge-operations-to-turn-array-into-a-palindrome)
+# [2422. Merge Operations to Turn Array Into a Palindrome 🔒](https://leetcode.com/problems/merge-operations-to-turn-array-into-a-palindrome)
 
 [中文文档](/solution/2400-2499/2422.Merge%20Operations%20to%20Turn%20Array%20Into%20a%20Palindrome/README.md)
 

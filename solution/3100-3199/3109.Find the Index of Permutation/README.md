@@ -1,4 +1,4 @@
-# [3109. Find the Index of Permutation](https://leetcode.cn/problems/find-the-index-of-permutation)
+# [3109. Find the Index of Permutation 🔒](https://leetcode.cn/problems/find-the-index-of-permutation)
 
 [English Version](/solution/3100-3199/3109.Find%20the%20Index%20of%20Permutation/README_EN.md)
 

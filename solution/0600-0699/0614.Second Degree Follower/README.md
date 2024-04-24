@@ -1,4 +1,4 @@
-# [614. 二级关注者](https://leetcode.cn/problems/second-degree-follower)
+# [614. 二级关注者 🔒](https://leetcode.cn/problems/second-degree-follower)
 
 [English Version](/solution/0600-0699/0614.Second%20Degree%20Follower/README_EN.md)
 

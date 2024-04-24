@@ -1,4 +1,4 @@
-# [1214. 查找两棵二叉搜索树之和](https://leetcode.cn/problems/two-sum-bsts)
+# [1214. 查找两棵二叉搜索树之和 🔒](https://leetcode.cn/problems/two-sum-bsts)
 
 [English Version](/solution/1200-1299/1214.Two%20Sum%20BSTs/README_EN.md)
 

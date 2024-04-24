@@ -63,7 +63,13 @@ The blue arrows show how we can find originalText from encodedText.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Simulation
+
+First, we calculate the number of columns in the matrix $cols = \text{len}(encodedText) / rows$. Then, following the rules described in the problem, we start traversing the matrix from the top left corner, adding characters to the answer.
+
+Finally, we return the answer, making sure to remove any trailing spaces.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $encodedText$.
 
 <!-- tabs:start -->
 
@@ -104,22 +110,42 @@ public:
     string decodeCiphertext(string encodedText, int rows) {
         string ans;
         int cols = encodedText.size() / rows;
-        for (int j = 0; j < cols; ++j)
-            for (int x = 0, y = j; x < rows && y < cols; ++x, ++y)
+        for (int j = 0; j < cols; ++j) {
+            for (int x = 0, y = j; x < rows && y < cols; ++x, ++y) {
                 ans += encodedText[x * cols + y];
-        while (ans.back() == ' ') ans.pop_back();
+            }
+        }
+        while (ans.size() && ans.back() == ' ') {
+            ans.pop_back();
+        }
         return ans;
     }
 };
 ```
 
+```go
+func decodeCiphertext(encodedText string, rows int) string {
+	ans := []byte{}
+	cols := len(encodedText) / rows
+	for j := 0; j < cols; j++ {
+		for x, y := 0, j; x < rows && y < cols; x, y = x+1, y+1 {
+			ans = append(ans, encodedText[x*cols+y])
+		}
+	}
+	for len(ans) > 0 && ans[len(ans)-1] == ' ' {
+		ans = ans[:len(ans)-1]
+	}
+	return string(ans)
+}
+```
+
 ```ts
 function decodeCiphertext(encodedText: string, rows: number): string {
     const cols = Math.ceil(encodedText.length / rows);
-    let ans = [];
+    const ans: string[] = [];
     for (let k = 0; k <= cols; k++) {
         for (let i = 0, j = k; i < rows && j < cols; i++, j++) {
-            ans.push(encodedText.charAt(i * cols + j));
+            ans.push(encodedText[i * cols + j]);
         }
     }
     return ans.join('').trimEnd();

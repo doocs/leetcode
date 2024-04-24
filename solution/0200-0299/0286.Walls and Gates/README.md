@@ -1,4 +1,4 @@
-# [286. 墙与门](https://leetcode.cn/problems/walls-and-gates)
+# [286. 墙与门 🔒](https://leetcode.cn/problems/walls-and-gates)
 
 [English Version](/solution/0200-0299/0286.Walls%20and%20Gates/README_EN.md)
 

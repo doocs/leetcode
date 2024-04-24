@@ -1,4 +1,4 @@
-# [2912. 在网格上移动到目的地的方法数](https://leetcode.cn/problems/number-of-ways-to-reach-destination-in-the-grid)
+# [2912. 在网格上移动到目的地的方法数 🔒](https://leetcode.cn/problems/number-of-ways-to-reach-destination-in-the-grid)
 
 [English Version](/solution/2900-2999/2912.Number%20of%20Ways%20to%20Reach%20Destination%20in%20the%20Grid/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [3052. Maximize Items](https://leetcode.com/problems/maximize-items)
+# [3052. Maximize Items 🔒](https://leetcode.com/problems/maximize-items)
 
 [中文文档](/solution/3000-3099/3052.Maximize%20Items/README.md)
 

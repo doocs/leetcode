@@ -1,4 +1,4 @@
-# [2847. Smallest Number With Given Digit Product](https://leetcode.com/problems/smallest-number-with-given-digit-product)
+# [2847. Smallest Number With Given Digit Product 🔒](https://leetcode.com/problems/smallest-number-with-given-digit-product)
 
 [中文文档](/solution/2800-2899/2847.Smallest%20Number%20With%20Given%20Digit%20Product/README.md)
 

@@ -1,8 +1,8 @@
-# [3118. Friday Purchase III](https://leetcode.com/problems/friday-purchase-iii)
+# [3118. Friday Purchase III 🔒](https://leetcode.com/problems/friday-purchase-iii)
 
 [中文文档](/solution/3100-3199/3118.Friday%20Purchase%20III/README.md)
 
-<!-- tags: -->
+<!-- tags:Database -->
 
 ## Description
 

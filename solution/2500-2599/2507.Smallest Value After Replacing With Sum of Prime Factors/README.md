@@ -2,7 +2,7 @@
 
 [English Version](/solution/2500-2599/2507.Smallest%20Value%20After%20Replacing%20With%20Sum%20of%20Prime%20Factors/README_EN.md)
 
-<!-- tags:数学,数论 -->
+<!-- tags:数学,数论,模拟 -->
 
 ## 题目描述
 

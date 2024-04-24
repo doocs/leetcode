@@ -1,4 +1,4 @@
-# [2524. 子数组的最大频率分数](https://leetcode.cn/problems/maximum-frequency-score-of-a-subarray)
+# [2524. 子数组的最大频率分数 🔒](https://leetcode.cn/problems/maximum-frequency-score-of-a-subarray)
 
 [English Version](/solution/2500-2599/2524.Maximum%20Frequency%20Score%20of%20a%20Subarray/README_EN.md)
 

@@ -56,7 +56,17 @@ Using 4 different numbers in the range [1,9], the smallest sum we can get is 1+2
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Pruning + Backtracking (Two Approaches)
+
+We design a function $dfs(i, s)$, which represents that we are currently enumerating the number $i$, and there are still numbers with a sum of $s$ to be enumerated. The current search path is $t$, and the answer is $ans$.
+
+The execution logic of the function $dfs(i, s)$ is as follows:
+
+Approach One:
+
+-   If $s = 0$ and the length of the current search path $t$ is $k$, it means that a group of answers has been found. Add $t$ to $ans$ and then return.
+-   If $i \gt 9$ or $i \gt s$ or the length of the current search path $t$ is greater than $k$, it means that the current search path cannot be the answer, so return directly.
+-   Otherwise, we can choose to add the number $i$ to the search path $t$, and then continue to search, i.e., execute $dfs(i + 1, s - i)$. After the search is completed, remove $i$ from the search path $t$; we can also choose not to add the number $i$ to the search path $t$, and directly execute $dfs(i + 1, s)$.
 
 <!-- tabs:start -->
 
@@ -257,7 +267,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
-### Solution 2
+Another approach:
+
+-   If $s = 0$ and the length of the current search path $t$ is $k$, it means that a group of answers has been found. Add $t$ to $ans$ and then return.
+-   If $i \gt 9$ or $i \gt s$ or the length of the current search path $t$ is greater than $k$, it means that the current search path cannot be the answer, so return directly.
+-   Otherwise, we enumerate the next number $j$, i.e., $j \in [i, 9]$, add the number $j$ to the search path $t$, and then continue to search, i.e., execute $dfs(j + 1, s - j)$. After the search is completed, remove $j$ from the search path $t$.
+
+In the main function, we call $dfs(1, n)$, i.e., start enumerating from the number $1$, and the remaining numbers with a sum of $n$ need to be enumerated. After the search is completed, we can get all the answers.
+
+The time complexity is $(C_{9}^k \times k)$, and the space complexity is $O(k)$.
 
 <!-- tabs:start -->
 
@@ -424,7 +442,19 @@ public class Solution {
 
 <!-- tabs:end -->
 
-### Solution 3
+### Solution 2: Binary Enumeration
+
+We can use a binary integer of length $9$ to represent the selection of numbers $1$ to $9$, where the $i$-th bit of the binary integer represents whether the number $i + 1$ is selected. If the $i$-th bit is $1$, it means that the number $i + 1$ is selected, otherwise, it means that the number $i + 1$ is not selected.
+
+We enumerate binary integers in the range of $[0, 2^9)$. For the currently enumerated binary integer $mask$, if the number of $1$s in the binary representation of $mask$ is $k$, and the sum of the numbers corresponding to $1$ in the binary representation of $mask$ is $n$, it means that the number selection scheme corresponding to $mask$ is a group of answers. We can add the number selection scheme corresponding to $mask$ to the answer.
+
+The time complexity is $O(2^9 \times 9)$, and the space complexity is $O(k)$.
+
+Similar problems:
+
+-   [39. Combination Sum](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0039.Combination%20Sum/README_EN.md)
+-   [40. Combination Sum II](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0040.Combination%20Sum%20II/README_EN.md)
+-   [77. Combinations](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0077.Combinations/README_EN.md)
 
 <!-- tabs:start -->
 

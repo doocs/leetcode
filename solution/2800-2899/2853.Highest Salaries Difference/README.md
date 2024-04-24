@@ -1,4 +1,4 @@
-# [2853. 最高薪水差异](https://leetcode.cn/problems/highest-salaries-difference)
+# [2853. 最高薪水差异 🔒](https://leetcode.cn/problems/highest-salaries-difference)
 
 [English Version](/solution/2800-2899/2853.Highest%20Salaries%20Difference/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [734. 句子相似性](https://leetcode.cn/problems/sentence-similarity)
+# [734. 句子相似性 🔒](https://leetcode.cn/problems/sentence-similarity)
 
 [English Version](/solution/0700-0799/0734.Sentence%20Similarity/README_EN.md)
 

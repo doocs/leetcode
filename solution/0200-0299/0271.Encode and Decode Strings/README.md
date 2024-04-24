@@ -1,4 +1,4 @@
-# [271. 字符串的编码与解码](https://leetcode.cn/problems/encode-and-decode-strings)
+# [271. 字符串的编码与解码 🔒](https://leetcode.cn/problems/encode-and-decode-strings)
 
 [English Version](/solution/0200-0299/0271.Encode%20and%20Decode%20Strings/README_EN.md)
 

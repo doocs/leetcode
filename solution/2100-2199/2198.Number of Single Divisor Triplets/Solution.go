@@ -1,40 +1,32 @@
-func singleDivisorTriplet(nums []int) int64 {
-	counter := make([]int, 101)
+func singleDivisorTriplet(nums []int) (ans int64) {
+	cnt := [101]int{}
 	for _, x := range nums {
-		counter[x]++
+		cnt[x]++
 	}
-	var ans int64
-	check := func(a, b, c int) bool {
-		s := a + b + c
-		cnt := 0
-		if s%a == 0 {
-			cnt++
+	f := func(a, b int) int {
+		if a%b == 0 {
+			return 1
 		}
-		if s%b == 0 {
-			cnt++
-		}
-		if s%c == 0 {
-			cnt++
-		}
-		return cnt == 1
+		return 0
 	}
-	for i := 1; i <= 100; i++ {
-		for j := 1; j <= 100; j++ {
-			for k := 1; k <= 100; k++ {
-				if check(i, j, k) {
-					cnt1, cnt2, cnt3 := counter[i], counter[j], counter[k]
-					if i == j {
-						ans += int64(cnt1 * (cnt1 - 1) * cnt3)
-					} else if i == k {
-						ans += int64(cnt1 * (cnt1 - 1) * cnt2)
-					} else if j == k {
-						ans += int64(cnt1 * cnt2 * (cnt2 - 1))
+	for a := 1; a <= 100; a++ {
+		for b := 1; b <= 100; b++ {
+			for c := 1; c <= 100; c++ {
+				s := a + b + c
+				t := f(s, a) + f(s, b) + f(s, c)
+				if t == 1 {
+					if a == b {
+						ans += int64(cnt[a] * (cnt[a] - 1) * cnt[c])
+					} else if a == c {
+						ans += int64(cnt[a] * (cnt[a] - 1) * cnt[b])
+					} else if b == c {
+						ans += int64(cnt[b] * (cnt[b] - 1) * cnt[a])
 					} else {
-						ans += int64(cnt1 * cnt2 * cnt3)
+						ans += int64(cnt[a] * cnt[b] * cnt[c])
 					}
 				}
 			}
 		}
 	}
-	return ans
+	return
 }

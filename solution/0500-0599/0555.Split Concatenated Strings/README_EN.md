@@ -1,4 +1,4 @@
-# [555. Split Concatenated Strings](https://leetcode.com/problems/split-concatenated-strings)
+# [555. Split Concatenated Strings 🔒](https://leetcode.com/problems/split-concatenated-strings)
 
 [中文文档](/solution/0500-0599/0555.Split%20Concatenated%20Strings/README.md)
 

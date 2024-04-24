@@ -1,4 +1,4 @@
-# [3087. Find Trending Hashtags](https://leetcode.com/problems/find-trending-hashtags)
+# [3087. Find Trending Hashtags 🔒](https://leetcode.com/problems/find-trending-hashtags)
 
 [中文文档](/solution/3000-3099/3087.Find%20Trending%20Hashtags/README.md)
 

@@ -38,7 +38,11 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: BFS Level Order Traversal
+
+We can use the BFS level order traversal method. For each level, we store the values of the current level's nodes into a list, and then add the list to the result array.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 
@@ -315,6 +319,62 @@ impl Solution {
             res.push(demmy.as_mut().unwrap().next.take());
         }
         res
+    }
+}
+```
+
+```swift
+/* class TreeNode {
+*    var val: Int
+*    var left: TreeNode?
+*    var right: TreeNode?
+*
+*    init(_ val: Int) {
+*        self.val = val
+*        self.left = nil
+*        self.right = nil
+*    }
+*  }
+*/
+
+/* class ListNode {
+*    var val: Int
+*    var next: ListNode?
+*
+*    init(_ val: Int) {
+*        self.val = val
+*        self.next = nil
+*    }
+*  }
+*/
+
+class Solution {
+    func listOfDepth(_ tree: TreeNode?) -> [ListNode?] {
+        var ans = [ListNode?]()
+        guard let tree = tree else { return ans }
+
+        var q = [TreeNode]()
+        q.append(tree)
+
+        while !q.isEmpty {
+            let dummy = ListNode(0)
+            var cur = dummy
+            for _ in 0..<q.count {
+                let node = q.removeFirst()
+                cur.next = ListNode(node.val)
+                cur = cur.next!
+
+                if let left = node.left {
+                    q.append(left)
+                }
+                if let right = node.right {
+                    q.append(right)
+                }
+            }
+            ans.append(dummy.next)
+        }
+
+        return ans
     }
 }
 ```

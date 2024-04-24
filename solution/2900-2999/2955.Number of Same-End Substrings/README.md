@@ -1,4 +1,4 @@
-# [2955. 同端子串的数量](https://leetcode.cn/problems/number-of-same-end-substrings)
+# [2955. 同端子串的数量 🔒](https://leetcode.cn/problems/number-of-same-end-substrings)
 
 [English Version](/solution/2900-2999/2955.Number%20of%20Same-End%20Substrings/README_EN.md)
 

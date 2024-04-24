@@ -1,4 +1,4 @@
-# [348. Design Tic-Tac-Toe](https://leetcode.com/problems/design-tic-tac-toe)
+# [348. Design Tic-Tac-Toe 🔒](https://leetcode.com/problems/design-tic-tac-toe)
 
 [中文文档](/solution/0300-0399/0348.Design%20Tic-Tac-Toe/README.md)
 

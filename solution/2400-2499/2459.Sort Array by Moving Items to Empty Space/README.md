@@ -1,4 +1,4 @@
-# [2459. 通过移动项目到空白区域来排序数组](https://leetcode.cn/problems/sort-array-by-moving-items-to-empty-space)
+# [2459. 通过移动项目到空白区域来排序数组 🔒](https://leetcode.cn/problems/sort-array-by-moving-items-to-empty-space)
 
 [English Version](/solution/2400-2499/2459.Sort%20Array%20by%20Moving%20Items%20to%20Empty%20Space/README_EN.md)
 

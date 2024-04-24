@@ -1,4 +1,4 @@
-# [2464. Minimum Subarrays in a Valid Split](https://leetcode.com/problems/minimum-subarrays-in-a-valid-split)
+# [2464. Minimum Subarrays in a Valid Split 🔒](https://leetcode.com/problems/minimum-subarrays-in-a-valid-split)
 
 [中文文档](/solution/2400-2499/2464.Minimum%20Subarrays%20in%20a%20Valid%20Split/README.md)
 

@@ -1,4 +1,4 @@
-# [666. 路径总和 IV](https://leetcode.cn/problems/path-sum-iv)
+# [666. 路径总和 IV 🔒](https://leetcode.cn/problems/path-sum-iv)
 
 [English Version](/solution/0600-0699/0666.Path%20Sum%20IV/README_EN.md)
 

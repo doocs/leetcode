@@ -1,4 +1,4 @@
-# [2979. 最贵的无法购买的商品](https://leetcode.cn/problems/most-expensive-item-that-can-not-be-bought)
+# [2979. 最贵的无法购买的商品 🔒](https://leetcode.cn/problems/most-expensive-item-that-can-not-be-bought)
 
 [English Version](/solution/2900-2999/2979.Most%20Expensive%20Item%20That%20Can%20Not%20Be%20Bought/README_EN.md)
 

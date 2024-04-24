@@ -1,4 +1,4 @@
-# [3062. Winner of the Linked List Game](https://leetcode.com/problems/winner-of-the-linked-list-game)
+# [3062. Winner of the Linked List Game 🔒](https://leetcode.com/problems/winner-of-the-linked-list-game)
 
 [中文文档](/solution/3000-3099/3062.Winner%20of%20the%20Linked%20List%20Game/README.md)
 

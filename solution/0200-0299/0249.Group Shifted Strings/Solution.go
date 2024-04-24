@@ -1,14 +1,18 @@
 func groupStrings(strings []string) [][]string {
-	mp := make(map[string][]string)
+	g := make(map[string][]string)
 	for _, s := range strings {
-		k := ""
-		for i := range s {
-			k += string((s[i]-s[0]+26)%26 + 'a')
+		t := []byte(s)
+		diff := t[0] - 'a'
+		for i := range t {
+			t[i] -= diff
+			if t[i] < 'a' {
+				t[i] += 26
+			}
 		}
-		mp[k] = append(mp[k], s)
+		g[string(t)] = append(g[string(t)], s)
 	}
-	var ans [][]string
-	for _, v := range mp {
+	ans := make([][]string, 0, len(g))
+	for _, v := range g {
 		ans = append(ans, v)
 	}
 	return ans

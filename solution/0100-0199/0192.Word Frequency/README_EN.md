@@ -43,4 +43,15 @@ day 1
 
 ## Solutions
 
+### Solution 1: awk
+
+<!-- tabs:start -->
+
+```bash
+# Read from the file words.txt and output the word frequency list to stdout.
+cat words.txt | tr -s ' ' '\n' | sort | uniq -c | sort -nr | awk '{print $2, $1}'
+```
+
+<!-- tabs:end -->
+
 <!-- end -->

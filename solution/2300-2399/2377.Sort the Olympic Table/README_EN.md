@@ -1,4 +1,4 @@
-# [2377. Sort the Olympic Table](https://leetcode.com/problems/sort-the-olympic-table)
+# [2377. Sort the Olympic Table 🔒](https://leetcode.com/problems/sort-the-olympic-table)
 
 [中文文档](/solution/2300-2399/2377.Sort%20the%20Olympic%20Table/README.md)
 

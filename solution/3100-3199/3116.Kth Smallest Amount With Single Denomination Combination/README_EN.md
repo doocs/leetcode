@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3100-3199/3116.Kth%20Smallest%20Amount%20With%20Single%20Denomination%20Combination/README.md)
 
-<!-- tags: -->
+<!-- tags:Bit Manipulation,Array,Math,Binary Search,Combinatorics,Number Theory -->
 
 ## Description
 

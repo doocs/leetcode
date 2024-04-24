@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3100-3199/3117.Minimum%20Sum%20of%20Values%20by%20Dividing%20Array/README.md)
 
-<!-- tags: -->
+<!-- tags:Bit Manipulation,Segment Tree,Queue,Array,Binary Search,Dynamic Programming -->
 
 ## Description
 

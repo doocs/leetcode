@@ -8,7 +8,9 @@
 
 <!-- 这里写题目描述 -->
 
-<p>现给定两个数组 <code>arr1</code> 和 <code>arr2</code> ，返回一个新的数组 <code>joinedArray</code> 。两个输入数组中的每个对象都包含一个 <code>id</code> 字段。<code>joinedArray</code> 是一个通过 <code>id</code> 将 <code>arr1</code> 和 <code>arr2</code> 连接而成的数组。<code>joinedArray</code> 的长度应为唯一值 <code>id</code> 的长度。返回的数组应按 <code>id</code> <strong>升序</strong> 排序。</p>
+<p>现给定两个数组 <code>arr1</code> 和 <code>arr2</code> ，返回一个新的数组 <code>joinedArray</code> 。两个输入数组中的每个对象都包含一个 <code>id</code> 字段。</p>
+
+<p><code>joinedArray</code> 是一个通过 <code>id</code> 将 <code>arr1</code> 和 <code>arr2</code> 连接而成的数组。<code>joinedArray</code> 的长度应为唯一值 <code>id</code> 的长度。返回的数组应按 <code>id</code> <strong>升序</strong> 排序。</p>
 
 <p>如果一个 <code>id</code> 存在于一个数组中但不存在于另一个数组中，则该对象应包含在结果数组中且不进行修改。</p>
 

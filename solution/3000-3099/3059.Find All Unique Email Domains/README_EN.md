@@ -1,4 +1,4 @@
-# [3059. Find All Unique Email Domains](https://leetcode.com/problems/find-all-unique-email-domains)
+# [3059. Find All Unique Email Domains 🔒](https://leetcode.com/problems/find-all-unique-email-domains)
 
 [中文文档](/solution/3000-3099/3059.Find%20All%20Unique%20Email%20Domains/README.md)
 

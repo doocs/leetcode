@@ -12,7 +12,8 @@
 
 <p>图中的每个节点都包含它的值 <code>val</code>（<code>int</code>） 和其邻居的列表（<code>list[Node]</code>）。</p>
 
-<pre>class Node {
+<pre>
+class Node {
     public int val;
     public List&lt;Node&gt; neighbors;
 }</pre>
@@ -31,9 +32,10 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0133.Clone%20Graph/images/133_clone_graph_question.png" style="height: 500px; width: 500px;"></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0133.Clone%20Graph/images/133_clone_graph_question.png" style="height: 500px; width: 500px;" /></p>
 
-<pre><strong>输入：</strong>adjList = [[2,4],[1,3],[2,4],[1,3]]
+<pre>
+<strong>输入：</strong>adjList = [[2,4],[1,3],[2,4],[1,3]]
 <strong>输出：</strong>[[2,4],[1,3],[2,4],[1,3]]
 <strong>解释：
 </strong>图中有 4 个节点。
@@ -45,38 +47,33 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0133.Clone%20Graph/images/graph.png" style="height: 148px; width: 163px;"></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0133.Clone%20Graph/images/graph.png" style="height: 148px; width: 163px;" /></p>
 
-<pre><strong>输入：</strong>adjList = [[]]
+<pre>
+<strong>输入：</strong>adjList = [[]]
 <strong>输出：</strong>[[]]
 <strong>解释：</strong>输入包含一个空列表。该图仅仅只有一个值为 1 的节点，它没有任何邻居。
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>adjList = []
+<pre>
+<strong>输入：</strong>adjList = []
 <strong>输出：</strong>[]
 <strong>解释：</strong>这个图是空的，它不含任何节点。
 </pre>
-
-<p><strong>示例 4：</strong></p>
-
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0133.Clone%20Graph/images/graph-1.png" style="height: 133px; width: 272px;"></p>
-
-<pre><strong>输入：</strong>adjList = [[2],[1]]
-<strong>输出：</strong>[[2],[1]]</pre>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
-<ol>
-	<li>节点数不超过 100 。</li>
-	<li>每个节点值&nbsp;<code>Node.val</code> 都是唯一的，<code>1 &lt;= Node.val &lt;= 100</code>。</li>
-	<li>无向图是一个<a href="https://baike.baidu.com/item/简单图/1680528?fr=aladdin" target="_blank">简单图</a>，这意味着图中没有重复的边，也没有自环。</li>
-	<li>由于图是无向的，如果节点 <em>p</em> 是节点 <em>q</em> 的邻居，那么节点 <em>q</em> 也必须是节点 <em>p</em>&nbsp;的邻居。</li>
+<ul>
+	<li>这张图中的节点数在 <code>[0, 100]</code>&nbsp;之间。</li>
+	<li><code>1 &lt;= Node.val &lt;= 100</code></li>
+	<li>每个节点值&nbsp;<code>Node.val</code> 都是唯一的，</li>
+	<li>图中没有重复的边，也没有自环。</li>
 	<li>图是连通图，你可以从给定节点访问到所有节点。</li>
-</ol>
+</ul>
 
 ## 解法
 

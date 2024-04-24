@@ -1,4 +1,4 @@
-# [2774. 数组的上界](https://leetcode.cn/problems/array-upper-bound)
+# [2774. 数组的上界 🔒](https://leetcode.cn/problems/array-upper-bound)
 
 [English Version](/solution/2700-2799/2774.Array%20Upper%20Bound/README_EN.md)
 

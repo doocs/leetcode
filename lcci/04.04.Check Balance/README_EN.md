@@ -52,7 +52,18 @@ return&nbsp;false.</pre>
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Recursion (Post-order Traversal)
+
+We design a function $dfs(root)$, which returns the height of the tree with $root$ as the root node. If the tree with $root$ as the root node is balanced, it returns the height of the tree, otherwise, it returns $-1$.
+
+The execution logic of the function $dfs(root)$ is as follows:
+
+-   If $root$ is null, then return $0$.
+-   Otherwise, we recursively call $dfs(root.left)$ and $dfs(root.right)$, and check whether the return values of $dfs(root.left)$ and $dfs(root.right)$ are $-1$. If not, we check whether $abs(dfs(root.left) - dfs(root.right)) \leq 1$ holds. If it holds, then return $max(dfs(root.left), dfs(root.right)) + 1$, otherwise return $-1$.
+
+In the main function, we only need to call $dfs(root)$, and check whether its return value is $-1$. If not, return `true`, otherwise return `false`.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 
@@ -69,12 +80,13 @@ class Solution:
     def isBalanced(self, root: TreeNode) -> bool:
         def dfs(root: TreeNode):
             if root is None:
-                return 0, True
-            a, b = dfs(root.left)
-            c, d = dfs(root.right)
-            return max(a, c) + 1, abs(a - c) <= 1 and b and d
+                return 0
+            l, r = dfs(root.left), dfs(root.right)
+            if l == -1 or r == -1 or abs(l - r) > 1:
+                return -1
+            return max(l, r) + 1
 
-        return dfs(root)[1]
+        return dfs(root) >= 0
 ```
 
 ```java
@@ -198,32 +210,38 @@ function isBalanced(root: TreeNode | null): boolean {
 }
 ```
 
-<!-- tabs:end -->
+```swift
+/* class TreeNode {
+*    var val: Int
+*    var left: TreeNode?
+*    var right: TreeNode?
+*
+*    init(_ val: Int) {
+*        self.val = val
+*        self.left = nil
+*        self.right = nil
+*    }
+*  }
+*/
 
-### Solution 2
-
-<!-- tabs:start -->
-
-```python
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-
-
-class Solution:
-    def isBalanced(self, root: TreeNode) -> bool:
-        def dfs(root: TreeNode):
-            if root is None:
-                return 0
-            l, r = dfs(root.left), dfs(root.right)
-            if l == -1 or r == -1 or abs(l - r) > 1:
-                return -1
-            return max(l, r) + 1
-
+class Solution {
+    func isBalanced(_ root: TreeNode?) -> Bool {
         return dfs(root) >= 0
+    }
+
+    private func dfs(_ root: TreeNode?) -> Int {
+        guard let root = root else {
+            return 0
+        }
+
+        let leftHeight = dfs(root.left)
+        let rightHeight = dfs(root.right)
+        if leftHeight < 0 || rightHeight < 0 || abs(leftHeight - rightHeight) > 1 {
+            return -1
+        }
+        return max(leftHeight, rightHeight) + 1
+    }
+}
 ```
 
 <!-- tabs:end -->

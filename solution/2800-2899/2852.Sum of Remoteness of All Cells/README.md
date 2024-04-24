@@ -1,4 +1,4 @@
-# [2852. 所有单元格的远离程度之和](https://leetcode.cn/problems/sum-of-remoteness-of-all-cells)
+# [2852. 所有单元格的远离程度之和 🔒](https://leetcode.cn/problems/sum-of-remoteness-of-all-cells)
 
 [English Version](/solution/2800-2899/2852.Sum%20of%20Remoteness%20of%20All%20Cells/README_EN.md)
 

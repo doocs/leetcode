@@ -1,4 +1,4 @@
-# [1136. Parallel Courses](https://leetcode.com/problems/parallel-courses)
+# [1136. Parallel Courses 🔒](https://leetcode.com/problems/parallel-courses)
 
 [中文文档](/solution/1100-1199/1136.Parallel%20Courses/README.md)
 

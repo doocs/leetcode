@@ -1,4 +1,4 @@
-# [2755. Deep Merge of Two Objects](https://leetcode.com/problems/deep-merge-of-two-objects)
+# [2755. Deep Merge of Two Objects 🔒](https://leetcode.com/problems/deep-merge-of-two-objects)
 
 [中文文档](/solution/2700-2799/2755.Deep%20Merge%20of%20Two%20Objects/README.md)
 

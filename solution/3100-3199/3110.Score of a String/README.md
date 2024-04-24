@@ -2,7 +2,7 @@
 
 [English Version](/solution/3100-3199/3110.Score%20of%20a%20String/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:字符串 -->
 
 ## 题目描述
 

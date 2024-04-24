@@ -1,4 +1,4 @@
-# [544. 输出比赛匹配对](https://leetcode.cn/problems/output-contest-matches)
+# [544. 输出比赛匹配对 🔒](https://leetcode.cn/problems/output-contest-matches)
 
 [English Version](/solution/0500-0599/0544.Output%20Contest%20Matches/README_EN.md)
 

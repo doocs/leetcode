@@ -1,4 +1,4 @@
-# [499. 迷宫 III](https://leetcode.cn/problems/the-maze-iii)
+# [499. 迷宫 III 🔒](https://leetcode.cn/problems/the-maze-iii)
 
 [English Version](/solution/0400-0499/0499.The%20Maze%20III/README_EN.md)
 

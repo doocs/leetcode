@@ -2,7 +2,7 @@
 
 [English Version](/solution/2500-2599/2509.Cycle%20Length%20Queries%20in%20a%20Tree/README_EN.md)
 
-<!-- tags:树,二叉树 -->
+<!-- tags:树,数组,二叉树 -->
 
 ## 题目描述
 

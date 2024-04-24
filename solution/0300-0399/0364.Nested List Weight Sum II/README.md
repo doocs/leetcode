@@ -1,4 +1,4 @@
-# [364. 嵌套列表加权和 II](https://leetcode.cn/problems/nested-list-weight-sum-ii)
+# [364. 嵌套列表加权和 II 🔒](https://leetcode.cn/problems/nested-list-weight-sum-ii)
 
 [English Version](/solution/0300-0399/0364.Nested%20List%20Weight%20Sum%20II/README_EN.md)
 

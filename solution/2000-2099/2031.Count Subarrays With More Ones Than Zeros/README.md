@@ -1,4 +1,4 @@
-# [2031. 1 比 0 多的子数组个数](https://leetcode.cn/problems/count-subarrays-with-more-ones-than-zeros)
+# [2031. 1 比 0 多的子数组个数 🔒](https://leetcode.cn/problems/count-subarrays-with-more-ones-than-zeros)
 
 [English Version](/solution/2000-2099/2031.Count%20Subarrays%20With%20More%20Ones%20Than%20Zeros/README_EN.md)
 

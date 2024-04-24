@@ -1,4 +1,4 @@
-# [1596. The Most Frequently Ordered Products for Each Customer](https://leetcode.com/problems/the-most-frequently-ordered-products-for-each-customer)
+# [1596. The Most Frequently Ordered Products for Each Customer 🔒](https://leetcode.com/problems/the-most-frequently-ordered-products-for-each-customer)
 
 [中文文档](/solution/1500-1599/1596.The%20Most%20Frequently%20Ordered%20Products%20for%20Each%20Customer/README.md)
 

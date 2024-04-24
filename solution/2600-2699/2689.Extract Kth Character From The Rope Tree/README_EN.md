@@ -1,4 +1,4 @@
-# [2689. Extract Kth Character From The Rope Tree](https://leetcode.com/problems/extract-kth-character-from-the-rope-tree)
+# [2689. Extract Kth Character From The Rope Tree 🔒](https://leetcode.com/problems/extract-kth-character-from-the-rope-tree)
 
 [中文文档](/solution/2600-2699/2689.Extract%20Kth%20Character%20From%20The%20Rope%20Tree/README.md)
 

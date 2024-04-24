@@ -1,4 +1,4 @@
-# [3004. 相同颜色的最大子树](https://leetcode.cn/problems/maximum-subtree-of-the-same-color)
+# [3004. 相同颜色的最大子树 🔒](https://leetcode.cn/problems/maximum-subtree-of-the-same-color)
 
 [English Version](/solution/3000-3099/3004.Maximum%20Subtree%20of%20the%20Same%20Color/README_EN.md)
 

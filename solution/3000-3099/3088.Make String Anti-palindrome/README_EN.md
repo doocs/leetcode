@@ -1,4 +1,4 @@
-# [3088. Make String Anti-palindrome](https://leetcode.com/problems/make-string-anti-palindrome)
+# [3088. Make String Anti-palindrome 🔒](https://leetcode.com/problems/make-string-anti-palindrome)
 
 [中文文档](/solution/3000-3099/3088.Make%20String%20Anti-palindrome/README.md)
 

@@ -1,4 +1,4 @@
-# [3009. 折线图上的最大交点数量](https://leetcode.cn/problems/maximum-number-of-intersections-on-the-chart)
+# [3009. 折线图上的最大交点数量 🔒](https://leetcode.cn/problems/maximum-number-of-intersections-on-the-chart)
 
 [English Version](/solution/3000-3099/3009.Maximum%20Number%20of%20Intersections%20on%20the%20Chart/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [580. 统计各专业学生人数](https://leetcode.cn/problems/count-student-number-in-departments)
+# [580. 统计各专业学生人数 🔒](https://leetcode.cn/problems/count-student-number-in-departments)
 
 [English Version](/solution/0500-0599/0580.Count%20Student%20Number%20in%20Departments/README_EN.md)
 

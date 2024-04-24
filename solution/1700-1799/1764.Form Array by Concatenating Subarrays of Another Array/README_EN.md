@@ -2,7 +2,7 @@
 
 [中文文档](/solution/1700-1799/1764.Form%20Array%20by%20Concatenating%20Subarrays%20of%20Another%20Array/README.md)
 
-<!-- tags:Greedy,Array,String Matching -->
+<!-- tags:Greedy,Array,Two Pointers,String Matching -->
 
 ## Description
 

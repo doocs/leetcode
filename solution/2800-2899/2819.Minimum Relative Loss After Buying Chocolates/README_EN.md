@@ -1,4 +1,4 @@
-# [2819. Minimum Relative Loss After Buying Chocolates](https://leetcode.com/problems/minimum-relative-loss-after-buying-chocolates)
+# [2819. Minimum Relative Loss After Buying Chocolates 🔒](https://leetcode.com/problems/minimum-relative-loss-after-buying-chocolates)
 
 [中文文档](/solution/2800-2899/2819.Minimum%20Relative%20Loss%20After%20Buying%20Chocolates/README.md)
 

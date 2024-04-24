@@ -1,4 +1,4 @@
-# [1500. 设计文件分享系统](https://leetcode.cn/problems/design-a-file-sharing-system)
+# [1500. 设计文件分享系统 🔒](https://leetcode.cn/problems/design-a-file-sharing-system)
 
 [English Version](/solution/1500-1599/1500.Design%20a%20File%20Sharing%20System/README_EN.md)
 
