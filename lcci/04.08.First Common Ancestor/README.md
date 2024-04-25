@@ -66,7 +66,7 @@ class Solution {
 *        self.left = nil
 *        self.right = nil
 *    }
-* } 
+* }
 */
 
 class Solution {
