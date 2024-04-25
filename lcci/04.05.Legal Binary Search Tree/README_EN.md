@@ -357,11 +357,11 @@ class Solution {
         if !dfs(root.left) {
             return false
         }
-    
+
         if let prev = prev, prev.val >= root.val {
             return false
         }
-    
+
         prev = root
 
         return dfs(root.right)
