@@ -213,13 +213,13 @@ impl Solution {
 *    var val: Int
 *    var left: TreeNode?
 *    var right: TreeNode?
-*    
+*
 *    init(_ val: Int, _ left: TreeNode? = nil, _ right: TreeNode? = nil) {
 *        self.val = val
 *        self.left = left
 *        self.right = right
 *    }
-* } 
+* }
 */
 
 class Solution {
