@@ -44,7 +44,7 @@ Given the following tree:</p>
 *        self.left = left
 *        self.right = right
 *    }
-* } 
+* }
 */
 
 class Solution {
