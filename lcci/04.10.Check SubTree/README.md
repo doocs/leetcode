@@ -29,7 +29,15 @@
 
 ## 解法
 
-### 方法一
+### 方法一：递归
+
+我们首先判断 $t_2$ 是否为空，如果为空，那么 $t_2$ 一定是 $t_1$ 的子树，返回 `true`。
+
+否则，判断 $t_1$ 是否为空，如果为空，那么 $t_2$ 一定不是 $t_1$ 的子树，返回 `false`。
+
+接着，我们判断 $t_1$ 和 $t_2$ 是否相等，如果相等，那么 $t_2$ 是 $t_1$ 的子树，返回 `true`。否则，我们递归判断 $t_1$ 的左子树和 $t_2$ 是否相等，以及 $t_1$ 的右子树和 $t_2$ 是否相等，只要有一个为 `true`，那么 $t_2$ 就是 $t_1$ 的子树，返回 `true`。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为 $t_1$ 的节点数。
 
 <!-- tabs:start -->
 
@@ -46,14 +54,18 @@ class Solution:
     def checkSubTree(self, t1: TreeNode, t2: TreeNode) -> bool:
         def dfs(t1, t2):
             if t2 is None:
-                return True
-            if t1 is None:
+                return t1 is None
+            if t1 is None or t1.val != t2.val:
                 return False
-            if t1.val == t2.val:
-                return dfs(t1.left, t2.left) and dfs(t1.right, t2.right)
-            return dfs(t1.left, t2) or dfs(t1.right, t2)
+            return dfs(t1.left, t2.left) and dfs(t1.right, t2.right)
 
-        return dfs(t1, t2)
+        if t2 is None:
+            return True
+        if t1 is None:
+            return False
+        if dfs(t1, t2):
+            return True
+        return self.checkSubTree(t1.left, t2) or self.checkSubTree(t1.right, t2)
 ```
 
 ```java
@@ -74,10 +86,20 @@ class Solution {
         if (t1 == null) {
             return false;
         }
-        if (t1.val == t2.val) {
-            return checkSubTree(t1.left, t2.left) && checkSubTree(t1.right, t2.right);
+        if (dfs(t1, t2)) {
+            return true;
         }
         return checkSubTree(t1.left, t2) || checkSubTree(t1.right, t2);
+    }
+
+    private boolean dfs(TreeNode t1, TreeNode t2) {
+        if (t2 == null) {
+            return t1 == null;
+        }
+        if (t1 == null || t1.val != t2.val) {
+            return false;
+        }
+        return dfs(t1.left, t2.left) && dfs(t1.right, t2.right);
     }
 }
 ```
@@ -95,10 +117,26 @@ class Solution {
 class Solution {
 public:
     bool checkSubTree(TreeNode* t1, TreeNode* t2) {
-        if (!t2) return 1;
-        if (!t1) return 0;
-        if (t1->val == t2->val) return checkSubTree(t1->left, t2->left) && checkSubTree(t1->right, t2->right);
+        if (!t2) {
+            return true;
+        }
+        if (!t1) {
+            return false;
+        }
+        if (dfs(t1, t2)) {
+            return true;
+        }
         return checkSubTree(t1->left, t2) || checkSubTree(t1->right, t2);
+    }
+
+    bool dfs(TreeNode* t1, TreeNode* t2) {
+        if (!t2) {
+            return !t1;
+        }
+        if (!t1 || t1->val != t2->val) {
+            return false;
+        }
+        return dfs(t1->left, t2->left) && dfs(t1->right, t2->right);
     }
 };
 ```
@@ -113,14 +151,24 @@ public:
  * }
  */
 func checkSubTree(t1 *TreeNode, t2 *TreeNode) bool {
+	var dfs func(t1, t2 *TreeNode) bool
+	dfs = func(t1, t2 *TreeNode) bool {
+		if t2 == nil {
+			return t1 == nil
+		}
+		if t1 == nil || t1.Val != t2.Val {
+			return false
+		}
+		return dfs(t1.Left, t2.Left) && dfs(t1.Right, t2.Right)
+	}
 	if t2 == nil {
 		return true
 	}
 	if t1 == nil {
 		return false
 	}
-	if t1.Val == t2.Val {
-		return checkSubTree(t1.Left, t2.Left) && checkSubTree(t1.Right, t2.Right)
+	if dfs(t1, t2) {
+		return true
 	}
 	return checkSubTree(t1.Left, t2) || checkSubTree(t1.Right, t2)
 }
@@ -142,14 +190,23 @@ func checkSubTree(t1 *TreeNode, t2 *TreeNode) bool {
  */
 
 function checkSubTree(t1: TreeNode | null, t2: TreeNode | null): boolean {
-    if (t1 == null && t2 == null) {
+    const dfs = (t1: TreeNode | null, t2: TreeNode | null): boolean => {
+        if (!t2) {
+            return !t1;
+        }
+        if (!t1 || t1.val !== t2.val) {
+            return false;
+        }
+        return dfs(t1.left, t2.left) && dfs(t1.right, t2.right);
+    };
+    if (!t2) {
         return true;
     }
-    if (t1 == null || t2 == null) {
+    if (!t1) {
         return false;
     }
-    if (t1.val === t2.val) {
-        return checkSubTree(t1.left, t2.left) && checkSubTree(t1.right, t2.right);
+    if (dfs(t1, t2)) {
+        return true;
     }
     return checkSubTree(t1.left, t2) || checkSubTree(t1.right, t2);
 }
@@ -178,25 +235,36 @@ use std::rc::Rc;
 use std::cell::RefCell;
 impl Solution {
     fn dfs(t1: &Option<Rc<RefCell<TreeNode>>>, t2: &Option<Rc<RefCell<TreeNode>>>) -> bool {
-        if t1.is_none() && t2.is_none() {
-            return true;
+        match (t1, t2) {
+            (Some(node1), Some(node2)) => {
+                let n1 = node1.borrow();
+                let n2 = node2.borrow();
+                n1.val == n2.val &&
+                    Solution::dfs(&n1.left, &n2.left) &&
+                    Solution::dfs(&n1.right, &n2.right)
+            }
+            (None, Some(_)) => false,
+            (Some(_), None) => false,
+            _ => true, // Both are None
         }
-        if t1.is_none() || t2.is_none() {
-            return false;
-        }
-        let r1 = t1.as_ref().unwrap().borrow();
-        let r2 = t2.as_ref().unwrap().borrow();
-        if r1.val == r2.val {
-            return Self::dfs(&r1.left, &r2.left) && Self::dfs(&r1.right, &r2.right);
-        }
-        Self::dfs(&r1.left, t2) || Self::dfs(&r1.right, t2)
     }
 
     pub fn check_sub_tree(
         t1: Option<Rc<RefCell<TreeNode>>>,
         t2: Option<Rc<RefCell<TreeNode>>>
     ) -> bool {
-        Self::dfs(&t1, &t2)
+        match (t1, t2) {
+            (Some(node1), Some(node2)) => {
+                let n1 = node1.borrow();
+                let n2 = node2.borrow();
+                Solution::dfs(&Some(Rc::clone(&node1)), &Some(Rc::clone(&node2))) ||
+                    Solution::check_sub_tree(n1.left.clone(), Some(Rc::clone(&node2))) ||
+                    Solution::check_sub_tree(n1.right.clone(), Some(Rc::clone(&node2)))
+            }
+            (Some(_), None) => true,
+            (None, Some(_)) => false,
+            _ => true, // Both are None or t1 is None
+        }
     }
 }
 ```
