@@ -3135,6 +3135,7 @@
 |  3122  |  [使矩阵满足条件的最少操作次数](/solution/3100-3199/3122.Minimum%20Number%20of%20Operations%20to%20Satisfy%20Conditions/README.md)  |  `数组`,`动态规划`,`矩阵`  |  中等  |  第 394 场周赛  |
 |  3123  |  [最短路径中的边](/solution/3100-3199/3123.Find%20Edges%20in%20Shortest%20Paths/README.md)  |  `深度优先搜索`,`广度优先搜索`,`图`,`最短路`,`堆（优先队列）`  |  困难  |  第 394 场周赛  |
 |  3124  |  [查找最长的电话](/solution/3100-3199/3124.Find%20Longest%20Calls/README.md)  |  `数据库`  |  中等  |  🔒  |
+|  3125  |  [Maximum Number That Makes Result of Bitwise AND Zero](/solution/3100-3199/3125.Maximum%20Number%20That%20Makes%20Result%20of%20Bitwise%20AND%20Zero/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
