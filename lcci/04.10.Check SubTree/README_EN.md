@@ -42,7 +42,7 @@ First, we check if $t_2$ is null. If it is, then $t_2$ is definitely a subtree o
 
 Otherwise, we check if $t_1$ is null. If it is, then $t_2$ is definitely not a subtree of $t_1$, so we return `false`.
 
-Next, we check if $t_1$ and $t_2$ are equal. If they are, then $t_2$ is a subtree of $t_1$, so we return `true`. Otherwise, we recursively check if $t_1$'s left subtree is equal to $t_2$, and if $t_1$'s right subtree is equal to $t_2$. If either is `true`, then $t_2$ is a subtree of $t_1`, so we return `true`.
+Next, we check if $t_1$ and $t_2$ are equal. If they are, then $t_2$ is a subtree of $t_1$, so we return `true`. Otherwise, we recursively check if $t_1$'s left subtree is equal to $t_2$, and if $t_1$'s right subtree is equal to $t_2$. If either is `true`, then $t_2$ is a subtree of $t_1$, so we return `true`.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in $t_1$.
 
@@ -272,6 +272,49 @@ impl Solution {
             (None, Some(_)) => false,
             _ => true, // Both are None or t1 is None
         }
+    }
+}
+```
+
+```swift
+/* class TreeNode {
+*    var val: Int
+*    var left: TreeNode?
+*    var right: TreeNode?
+*
+*    init(_ val: Int, _ left: TreeNode? = nil, _ right: TreeNode? = nil) {
+*        self.val = val
+*        self.left = left
+*        self.right = right
+*    }
+* }
+*/
+
+class Solution {
+    func checkSubTree(_ t1: TreeNode?, _ t2: TreeNode?) -> Bool {
+        if t2 == nil {
+            return true
+        }
+        if t1 == nil {
+            return false
+        }
+        if isSameTree(t1, t2) {
+            return true
+        }
+        return checkSubTree(t1!.left, t2) || checkSubTree(t1!.right, t2)
+    }
+
+    private func isSameTree(_ t1: TreeNode?, _ t2: TreeNode?) -> Bool {
+        if t1 == nil && t2 == nil {
+            return true
+        }
+        if t1 == nil || t2 == nil {
+            return false
+        }
+        if t1!.val != t2!.val {
+            return false
+        }
+        return isSameTree(t1!.left, t2!.left) && isSameTree(t1!.right, t2!.right)
     }
 }
 ```
