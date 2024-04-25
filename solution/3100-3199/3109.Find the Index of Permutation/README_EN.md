@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3100-3199/3109.Find%20the%20Index%20of%20Permutation/README.md)
 
-<!-- tags: -->
+<!-- tags:Binary Indexed Tree,Segment Tree,Array,Binary Search,Divide and Conquer,Ordered Set,Merge Sort -->
 
 ## Description
 
