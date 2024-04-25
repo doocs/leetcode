@@ -42,7 +42,7 @@ First, we check if $t_2$ is null. If it is, then $t_2$ is definitely a subtree o
 
 Otherwise, we check if $t_1$ is null. If it is, then $t_2$ is definitely not a subtree of $t_1$, so we return `false`.
 
-Next, we check if $t_1$ and $t_2$ are equal. If they are, then $t_2$ is a subtree of $t_1$, so we return `true`. Otherwise, we recursively check if $t_1$'s left subtree is equal to $t_2$, and if $t_1$'s right subtree is equal to $t_2$. If either is `true`, then $t_2$ is a subtree of $t_1`, so we return `true`.
+Next, we check if $t_1$ and $t_2$ are equal. If they are, then $t_2$ is a subtree of $t_1$, so we return `true`. Otherwise, we recursively check if $t_1$'s left subtree is equal to $t_2$, and if $t_1$'s right subtree is equal to $t_2$. If either is `true`, then $t_2$ is a subtree of $t_1$, so we return `true`.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in $t_1$.
 
