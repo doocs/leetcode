@@ -35,7 +35,11 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Bit Manipulation
+
+We can perform a bitwise AND operation between `num` and `0x55555555` to get the even bits of `num`, and then shift them one bit to the left. Then, we perform a bitwise AND operation between `num` and `0xaaaaaaaa` to get the odd bits of `num`, and then shift them one bit to the right. Finally, we perform a bitwise OR operation on the two results to get the answer.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -68,21 +72,17 @@ func exchangeBits(num int) int {
 }
 ```
 
+```ts
+function exchangeBits(num: number): number {
+    return ((num & 0x55555555) << 1) | ((num & 0xaaaaaaaa) >>> 1);
+}
+```
+
 ```rust
 impl Solution {
-    pub fn exchange_bits(mut num: i32) -> i32 {
-        let mut res = 0;
-        let mut i = 0;
-        while num != 0 {
-            let a = num & 1;
-            num >>= 1;
-            let b = num & 1;
-            num >>= 1;
-            res |= a << (i + 1);
-            res |= b << i;
-            i += 2;
-        }
-        res
+    pub fn exchange_bits(num: i32) -> i32 {
+        let num = num as u32;
+        (((num & 0x55555555) << 1) | ((num & 0xaaaaaaaa) >> 1)) as i32
     }
 }
 ```

@@ -1,16 +1,6 @@
 impl Solution {
-    pub fn exchange_bits(mut num: i32) -> i32 {
-        let mut res = 0;
-        let mut i = 0;
-        while num != 0 {
-            let a = num & 1;
-            num >>= 1;
-            let b = num & 1;
-            num >>= 1;
-            res |= a << (i + 1);
-            res |= b << i;
-            i += 2;
-        }
-        res
+    pub fn exchange_bits(num: i32) -> i32 {
+        let num = num as u32;
+        (((num & 0x55555555) << 1) | ((num & 0xaaaaaaaa) >> 1)) as i32
     }
 }
