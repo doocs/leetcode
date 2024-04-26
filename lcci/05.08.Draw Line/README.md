@@ -19,4 +19,64 @@
 
 ## 解法
 
+### 方法一：位运算
+
+我们先算出 $x_1$ 和 $x_2$ 在结果数组中的位置，记为 $i$ 和 $j$。然后将 $i$ 到 $j$ 之间的元素置为 $-1$。
+
+如果 $x_1 \bmod 32 \neq 0$，我们需要将 $i$ 位置的元素的前 $x_1 \bmod 32$ 位置为 $0$。
+
+如果 $x_2 \bmod 32 \neq 31$，我们需要将 $j$ 位置的元素的后 $31 - x_2 \bmod 32$ 位置为 $0$。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def drawLine(self, length: int, w: int, x1: int, x2: int, y: int) -> List[int]:
+        ans = [0] * length
+        i = (y * w + x1) // 32
+        j = (y * w + x2) // 32
+        for k in range(i, j + 1):
+            ans[k] = -1
+        ans[i] = (ans[i] & 0xFFFFFFFF) >> (x1 % 32) if x1 % 32 else -1
+        ans[j] &= -0x80000000 >> (x2 % 32)
+        return ans
+```
+
+```java
+class Solution {
+    public int[] drawLine(int length, int w, int x1, int x2, int y) {
+        int[] ans = new int[length];
+        int i = (y * w + x1) / 32;
+        int j = (y * w + x2) / 32;
+        for (int k = i; k <= j; ++k) {
+            ans[k] = -1;
+        }
+        ans[i] = ans[i] >>> (x1 % 32);
+        ans[j] &= 0x80000000 >> (x2 % 32);
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> drawLine(int length, int w, int x1, int x2, int y) {
+        vector<int> ans(length);
+        int i = (y * w + x1) / 32;
+        int j = (y * w + x2) / 32;
+        for (int k = i; k <= j; ++k) {
+            ans[k] = -1;
+        }
+        ans[i] = ans[i] & unsigned(-1) >> (x1 % 32);
+        ans[j] = ans[j] & unsigned(-1) << (31 - x2 % 32);
+        return ans;
+    }
+};
+```
+
+<!-- tabs:end -->
+
 <!-- end -->

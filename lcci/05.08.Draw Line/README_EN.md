@@ -27,4 +27,64 @@
 
 ## Solutions
 
+### Solution 1: Bit Manipulation
+
+First, we calculate the positions of $x_1$ and $x_2$ in the result array, denoted as $i$ and $j$. Then, we set the elements between $i$ and $j$ to $-1$.
+
+If $x_1 \bmod 32 \neq 0$, we need to set the first $x_1 \bmod 32$ bits of the element at position $i$ to $0$.
+
+If $x_2 \bmod 32 \neq 31$, we need to set the last $31 - x_2 \bmod 32$ bits of the element at position $j$ to $0$.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def drawLine(self, length: int, w: int, x1: int, x2: int, y: int) -> List[int]:
+        ans = [0] * length
+        i = (y * w + x1) // 32
+        j = (y * w + x2) // 32
+        for k in range(i, j + 1):
+            ans[k] = -1
+        ans[i] = (ans[i] & 0xFFFFFFFF) >> (x1 % 32) if x1 % 32 else -1
+        ans[j] &= -0x80000000 >> (x2 % 32)
+        return ans
+```
+
+```java
+class Solution {
+    public int[] drawLine(int length, int w, int x1, int x2, int y) {
+        int[] ans = new int[length];
+        int i = (y * w + x1) / 32;
+        int j = (y * w + x2) / 32;
+        for (int k = i; k <= j; ++k) {
+            ans[k] = -1;
+        }
+        ans[i] = ans[i] >>> (x1 % 32);
+        ans[j] &= 0x80000000 >> (x2 % 32);
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> drawLine(int length, int w, int x1, int x2, int y) {
+        vector<int> ans(length);
+        int i = (y * w + x1) / 32;
+        int j = (y * w + x2) / 32;
+        for (int k = i; k <= j; ++k) {
+            ans[k] = -1;
+        }
+        ans[i] = ans[i] & unsigned(-1) >> (x1 % 32);
+        ans[j] = ans[j] & unsigned(-1) << (31 - x2 % 32);
+        return ans;
+    }
+};
+```
+
+<!-- tabs:end -->
+
 <!-- end -->
