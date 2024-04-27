@@ -2,7 +2,7 @@
 
 [中文文档](/solution/0000-0099/0005.Longest%20Palindromic%20Substring/README.md)
 
-<!-- tags:String,Dynamic Programming -->
+<!-- tags:Two Pointers,String,Dynamic Programming -->
 
 ## Description
 

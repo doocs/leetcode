@@ -2,7 +2,7 @@
 
 [English Version](/solution/2500-2599/2517.Maximum%20Tastiness%20of%20Candy%20Basket/README_EN.md)
 
-<!-- tags:数组,二分查找,排序 -->
+<!-- tags:贪心,数组,二分查找,排序 -->
 
 ## 题目描述
 
