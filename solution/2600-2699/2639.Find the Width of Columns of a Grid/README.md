@@ -147,16 +147,4 @@ impl Solution {
 
 <!-- tabs:end -->
 
-### 方法二
-
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def findColumnWidth(self, grid: List[List[int]]) -> List[int]:
-        return [max(len(str(x)) for x in col) for col in zip(*grid)]
-```
-
-<!-- tabs:end -->
-
 <!-- end -->

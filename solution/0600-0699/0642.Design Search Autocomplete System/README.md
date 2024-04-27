@@ -2,7 +2,7 @@
 
 [English Version](/solution/0600-0699/0642.Design%20Search%20Autocomplete%20System/README_EN.md)
 
-<!-- tags:设计,字典树,字符串,数据流 -->
+<!-- tags:设计,字典树,字符串,数据流,排序,堆（优先队列） -->
 
 ## 题目描述
 

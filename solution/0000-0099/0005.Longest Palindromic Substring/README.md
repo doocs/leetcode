@@ -2,7 +2,7 @@
 
 [English Version](/solution/0000-0099/0005.Longest%20Palindromic%20Substring/README_EN.md)
 
-<!-- tags:字符串,动态规划 -->
+<!-- tags:双指针,字符串,动态规划 -->
 
 ## 题目描述
 
