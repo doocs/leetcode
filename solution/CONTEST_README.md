@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 129 场双周赛(2024-04-27 22:30, 90 分钟) 参赛人数 2510
+
+- [3127. 构造相同颜色的正方形](/solution/3100-3199/3127.Make%20a%20Square%20with%20the%20Same%20Color/README.md)
+- [3128. 直角三角形](/solution/3100-3199/3128.Right%20Triangles/README.md)
+- [3129. 找出所有稳定的二进制数组 I](/solution/3100-3199/3129.Find%20All%20Possible%20Stable%20Binary%20Arrays%20I/README.md)
+- [3130. 找出所有稳定的二进制数组 II](/solution/3100-3199/3130.Find%20All%20Possible%20Stable%20Binary%20Arrays%20II/README.md)
+
 #### 第 394 场周赛(2024-04-21 10:30, 90 分钟) 参赛人数 3957
 
 - [3120. 统计特殊字母的数量 I](/solution/3100-3199/3120.Count%20the%20Number%20of%20Special%20Characters%20I/README.md)

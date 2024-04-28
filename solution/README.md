@@ -3136,6 +3136,11 @@
 |  3123  |  [最短路径中的边](/solution/3100-3199/3123.Find%20Edges%20in%20Shortest%20Paths/README.md)  |  `深度优先搜索`,`广度优先搜索`,`图`,`最短路`,`堆（优先队列）`  |  困难  |  第 394 场周赛  |
 |  3124  |  [查找最长的电话](/solution/3100-3199/3124.Find%20Longest%20Calls/README.md)  |  `数据库`  |  中等  |  🔒  |
 |  3125  |  [使得按位与结果为 0 的最大数字](/solution/3100-3199/3125.Maximum%20Number%20That%20Makes%20Result%20of%20Bitwise%20AND%20Zero/README.md)  |    |  中等  |  🔒  |
+|  3126  |  [Server Utilization Time](/solution/3100-3199/3126.Server%20Utilization%20Time/README.md)  |    |  中等  |    |
+|  3127  |  [构造相同颜色的正方形](/solution/3100-3199/3127.Make%20a%20Square%20with%20the%20Same%20Color/README.md)  |    |  简单  |  第 129 场双周赛  |
+|  3128  |  [直角三角形](/solution/3100-3199/3128.Right%20Triangles/README.md)  |    |  中等  |  第 129 场双周赛  |
+|  3129  |  [找出所有稳定的二进制数组 I](/solution/3100-3199/3129.Find%20All%20Possible%20Stable%20Binary%20Arrays%20I/README.md)  |    |  中等  |  第 129 场双周赛  |
+|  3130  |  [找出所有稳定的二进制数组 II](/solution/3100-3199/3130.Find%20All%20Possible%20Stable%20Binary%20Arrays%20II/README.md)  |    |  困难  |  第 129 场双周赛  |
 
 ## 版权
 

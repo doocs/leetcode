@@ -16,7 +16,7 @@
 <pre>
 <strong>Input:</strong> word = &quot;b&quot;
 <strong>Output:</strong> 2
-<strong>Explanation:</strong> Insert the letter &quot;a&quot; right before &quot;b&quot;, and the letter &quot;c&quot; right next to &quot;a&quot; to obtain the valid string &quot;<strong>a</strong>b<strong>c</strong>&quot;.
+<strong>Explanation:</strong> Insert the letter &quot;a&quot; right before &quot;b&quot;, and the letter &quot;c&quot; right next to &quot;b&quot; to obtain the valid string &quot;<strong>a</strong>b<strong>c</strong>&quot;.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
