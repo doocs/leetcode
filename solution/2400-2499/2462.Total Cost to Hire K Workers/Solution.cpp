@@ -1,28 +1,30 @@
-using pii = pair<int, int>;
-
 class Solution {
 public:
     long long totalCost(vector<int>& costs, int k, int candidates) {
-        priority_queue<pii, vector<pii>, greater<pii>> q;
         int n = costs.size();
-        int i = candidates - 1, j = n - candidates;
-        for (int h = 0; h < candidates; ++h) q.push({costs[h], h});
-        for (int h = n - candidates; h < n; ++h)
-            if (h > i) q.push({costs[h], h});
+        if (candidates * 2 > n) {
+            sort(costs.begin(), costs.end());
+            return accumulate(costs.begin(), costs.begin() + k, 0LL);
+        }
+        using pii = pair<int, int>;
+        priority_queue<pii, vector<pii>, greater<pii>> pq;
+        for (int i = 0; i < candidates; ++i) {
+            pq.emplace(costs[i], i);
+            pq.emplace(costs[n - i - 1], n - i - 1);
+        }
         long long ans = 0;
+        int l = candidates, r = n - candidates - 1;
         while (k--) {
-            auto [c, x] = q.top();
-            q.pop();
-            ans += c;
-            if (x <= i) {
-                if (++i < j) {
-                    q.push({costs[i], i});
-                }
+            auto [cost, i] = pq.top();
+            pq.pop();
+            ans += cost;
+            if (l > r) {
+                continue;
             }
-            if (x >= j) {
-                if (--j > i) {
-                    q.push({costs[j], j});
-                }
+            if (i < l) {
+                pq.emplace(costs[l], l++);
+            } else {
+                pq.emplace(costs[r], r--);
             }
         }
         return ans;
