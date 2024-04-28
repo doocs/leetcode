@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 395 场周赛(2024-04-28 10:30, 90 分钟) 参赛人数 2968
+
+- [3131. 找出与数组相加的整数 I](/solution/3100-3199/3131.Find%20the%20Integer%20Added%20to%20Array%20I/README.md)
+- [3132. 找出与数组相加的整数 II](/solution/3100-3199/3132.Find%20the%20Integer%20Added%20to%20Array%20II/README.md)
+- [3133. 数组最后一个元素的最小值](/solution/3100-3199/3133.Minimum%20Array%20End/README.md)
+- [3134. 找出唯一性数组的中位数](/solution/3100-3199/3134.Find%20the%20Median%20of%20the%20Uniqueness%20Array/README.md)
+
 #### 第 129 场双周赛(2024-04-27 22:30, 90 分钟) 参赛人数 2510
 
 - [3127. 构造相同颜色的正方形](/solution/3100-3199/3127.Make%20a%20Square%20with%20the%20Same%20Color/README.md)

@@ -3141,6 +3141,10 @@
 |  3128  |  [直角三角形](/solution/3100-3199/3128.Right%20Triangles/README.md)  |    |  中等  |  第 129 场双周赛  |
 |  3129  |  [找出所有稳定的二进制数组 I](/solution/3100-3199/3129.Find%20All%20Possible%20Stable%20Binary%20Arrays%20I/README.md)  |    |  中等  |  第 129 场双周赛  |
 |  3130  |  [找出所有稳定的二进制数组 II](/solution/3100-3199/3130.Find%20All%20Possible%20Stable%20Binary%20Arrays%20II/README.md)  |    |  困难  |  第 129 场双周赛  |
+|  3131  |  [找出与数组相加的整数 I](/solution/3100-3199/3131.Find%20the%20Integer%20Added%20to%20Array%20I/README.md)  |    |  简单  |  第 395 场周赛  |
+|  3132  |  [找出与数组相加的整数 II](/solution/3100-3199/3132.Find%20the%20Integer%20Added%20to%20Array%20II/README.md)  |    |  中等  |  第 395 场周赛  |
+|  3133  |  [数组最后一个元素的最小值](/solution/3100-3199/3133.Minimum%20Array%20End/README.md)  |    |  中等  |  第 395 场周赛  |
+|  3134  |  [找出唯一性数组的中位数](/solution/3100-3199/3134.Find%20the%20Median%20of%20the%20Uniqueness%20Array/README.md)  |    |  困难  |  第 395 场周赛  |
 
 ## 版权
 

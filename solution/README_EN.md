@@ -3139,6 +3139,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3128  |  [Right Triangles](/solution/3100-3199/3128.Right%20Triangles/README_EN.md)  |    |  Medium  |  Biweekly Contest 129  |
 |  3129  |  [Find All Possible Stable Binary Arrays I](/solution/3100-3199/3129.Find%20All%20Possible%20Stable%20Binary%20Arrays%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 129  |
 |  3130  |  [Find All Possible Stable Binary Arrays II](/solution/3100-3199/3130.Find%20All%20Possible%20Stable%20Binary%20Arrays%20II/README_EN.md)  |    |  Hard  |  Biweekly Contest 129  |
+|  3131  |  [Find the Integer Added to Array I](/solution/3100-3199/3131.Find%20the%20Integer%20Added%20to%20Array%20I/README_EN.md)  |    |  Easy  |  Weekly Contest 395  |
+|  3132  |  [Find the Integer Added to Array II](/solution/3100-3199/3132.Find%20the%20Integer%20Added%20to%20Array%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 395  |
+|  3133  |  [Minimum Array End](/solution/3100-3199/3133.Minimum%20Array%20End/README_EN.md)  |    |  Medium  |  Weekly Contest 395  |
+|  3134  |  [Find the Median of the Uniqueness Array](/solution/3100-3199/3134.Find%20the%20Median%20of%20the%20Uniqueness%20Array/README_EN.md)  |    |  Hard  |  Weekly Contest 395  |
 
 ## Copyright
 
