@@ -157,6 +157,56 @@ function baseNeg2(n: number): string {
 }
 ```
 
+```rust
+impl Solution {
+    pub fn base_neg2(n: i32) -> String {
+        if n == 0 {
+            return "0".to_string();
+        }
+        let mut k = 1;
+        let mut ans = String::new();
+        let mut num = n;
+        while num != 0 {
+            if num % 2 != 0 {
+                ans.push('1');
+                num -= k;
+            } else {
+                ans.push('0');
+            }
+            k *= -1;
+            num /= 2;
+        }
+        ans.chars().rev().collect::<String>()
+    }
+}
+```
+
+```cs
+public class Solution {
+    public string BaseNeg2(int n) {
+        if (n == 0) {
+            return "0";
+        }
+        int k = 1;
+        StringBuilder ans = new StringBuilder();
+        int num = n;
+        while (num != 0) {
+            if (num % 2 != 0) {
+                ans.Append('1');
+                num -= k;
+            } else {
+                ans.Append('0');
+            }
+            k *= -1;
+            num /= 2;
+        }
+        char[] cs = ans.ToString().ToCharArray();
+        Array.Reverse(cs);
+        return new string(cs);
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- end -->

@@ -42,7 +42,16 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Recursion
+
+We design a recursive function `dfs(root, t)`, which takes two parameters: the current node `root` and the binary number corresponding to the parent node `t`. The return value of the function is the sum of the binary numbers represented by the path from the current node to the leaf node. The answer is `dfs(root, 0)`.
+
+The logic of the recursive function is as follows:
+
+-   If the current node `root` is null, then return `0`. Otherwise, calculate the binary number `t` corresponding to the current node, i.e., `t = t << 1 | root.val`.
+-   If the current node is a leaf node, then return `t`. Otherwise, return the sum of `dfs(root.left, t)` and `dfs(root.right, t)`.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary tree. Each node is visited once; the recursion stack requires $O(n)$ space.
 
 <!-- tabs:start -->
 
