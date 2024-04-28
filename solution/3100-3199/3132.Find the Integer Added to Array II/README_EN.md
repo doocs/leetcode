@@ -63,24 +63,148 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Sorting + Enumeration + Two Pointers
+
+First, we sort the arrays $nums1$ and $nums2$. Since we need to remove two elements from $nums1$, we only need to consider the first three elements of $nums1$, denoted as $a_1, a_2, a_3$. We can enumerate the first element $b_1$ of $nums2$, then we can get $x = b_1 - a_i$, where $i \in \{1, 2, 3\}$. Then we can use the two pointers method to determine whether there exists an integer $x$ that makes $nums1$ and $nums2$ equal, and take the smallest $x$ that satisfies the condition.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
 ```python
+class Solution:
+    def minimumAddedInteger(self, nums1: List[int], nums2: List[int]) -> int:
+        def f(x: int) -> bool:
+            i = j = cnt = 0
+            while i < len(nums1) and j < len(nums2):
+                if nums2[j] - nums1[i] != x:
+                    cnt += 1
+                else:
+                    j += 1
+                i += 1
+            return cnt <= 2
 
+        nums1.sort()
+        nums2.sort()
+        return min(
+            x
+            for x in (nums2[0] - nums1[0], nums2[0] - nums1[1], nums2[0] - nums1[2])
+            if f(x)
+        )
 ```
 
 ```java
+class Solution {
+    public int minimumAddedInteger(int[] nums1, int[] nums2) {
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
+        int ans = 1 << 30;
+        for (int i = 0; i < 3; ++i) {
+            int x = nums2[0] - nums1[i];
+            if (f(nums1, nums2, x)) {
+                ans = Math.min(ans, x);
+            }
+        }
+        return ans;
+    }
 
+    private boolean f(int[] nums1, int[] nums2, int x) {
+        int i = 0, j = 0, cnt = 0;
+        while (i < nums1.length && j < nums2.length) {
+            if (nums2[j] - nums1[i] != x) {
+                ++cnt;
+            } else {
+                ++j;
+            }
+            ++i;
+        }
+        return cnt <= 2;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int minimumAddedInteger(vector<int>& nums1, vector<int>& nums2) {
+        sort(nums1.begin(), nums1.end());
+        sort(nums2.begin(), nums2.end());
+        int ans = 1 << 30;
+        auto f = [&](int x) {
+            int i = 0, j = 0, cnt = 0;
+            while (i < nums1.size() && j < nums2.size()) {
+                if (nums2[j] - nums1[i] != x) {
+                    ++cnt;
+                } else {
+                    ++j;
+                }
+                ++i;
+            }
+            return cnt <= 2;
+        };
+        for (int i = 0; i < 3; ++i) {
+            int x = nums2[0] - nums1[i];
+            if (f(x)) {
+                ans = min(ans, x);
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func minimumAddedInteger(nums1 []int, nums2 []int) int {
+	sort.Ints(nums1)
+	sort.Ints(nums2)
+	ans := 1 << 30
+	f := func(x int) bool {
+		i, j, cnt := 0, 0, 0
+		for i < len(nums1) && j < len(nums2) {
+			if nums2[j]-nums1[i] != x {
+				cnt++
+			} else {
+				j++
+			}
+			i++
+		}
+		return cnt <= 2
+	}
+	for _, a := range nums1[:3] {
+		x := nums2[0] - a
+		if f(x) {
+			ans = min(ans, x)
+		}
+	}
+	return ans
+}
+```
 
+```ts
+function minimumAddedInteger(nums1: number[], nums2: number[]): number {
+    nums1.sort((a, b) => a - b);
+    nums2.sort((a, b) => a - b);
+    const f = (x: number): boolean => {
+        let [i, j, cnt] = [0, 0, 0];
+        while (i < nums1.length && j < nums2.length) {
+            if (nums2[j] - nums1[i] !== x) {
+                ++cnt;
+            } else {
+                ++j;
+            }
+            ++i;
+        }
+        return cnt <= 2;
+    };
+    let ans = Infinity;
+    for (let i = 0; i < 3; ++i) {
+        const x = nums2[0] - nums1[i];
+        if (f(x)) {
+            ans = Math.min(ans, x);
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
