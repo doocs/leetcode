@@ -19,7 +19,7 @@ on:
   schedule:
     - cron: '00 23 * * 0'
 
-concurrency: 
+concurrency:
   group: ${{github.workflow}} - ${{github.ref}}
   cancel-in-progress: true
 

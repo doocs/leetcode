@@ -5,7 +5,7 @@ on:
     branches:
       - main
       - docs
-    paths: 
+    paths:
       - package.json
       - requirements.txt
       - solution/**
@@ -23,7 +23,7 @@ env:
 permissions:
   contents: write
 
-concurrency: 
+concurrency:
   group: ${{github.workflow}} - ${{github.ref}}
   cancel-in-progress: true
 
