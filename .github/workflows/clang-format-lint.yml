@@ -1,10 +1,8 @@
 name: clang-format-linter
 
 on:
-  push: 
-    paths: 
-      - package.json
-      - requirements.txt
+  push:
+    paths:
       - solution/**
       - lcs/**
       - lcp/**
@@ -12,10 +10,8 @@ on:
       - lcof/**
       - lcci/**
       - basic/**
-  pull_request: 
-    paths: 
-      - package.json
-      - requirements.txt
+  pull_request:
+    paths:
       - solution/**
       - lcs/**
       - lcp/**
