@@ -18,12 +18,12 @@ function nextLargerNodes(head: ListNode | null): number[] {
     }
     const stk: number[] = [];
     const n = nums.length;
-    const ans: number[] = new Array(n).fill(0);
+    const ans: number[] = Array(n).fill(0);
     for (let i = n - 1; ~i; --i) {
-        while (stk.length && stk[stk.length - 1] <= nums[i]) {
+        while (stk.length && stk.at(-1)! <= nums[i]) {
             stk.pop();
         }
-        ans[i] = stk.length ? stk[stk.length - 1] : 0;
+        ans[i] = stk.length ? stk.at(-1)! : 0;
         stk.push(nums[i]);
     }
     return ans;

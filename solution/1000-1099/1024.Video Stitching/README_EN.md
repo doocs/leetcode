@@ -57,7 +57,27 @@ Now we have segments [0,2] + [2,8] + [8,10] which cover the sporting event [0, 1
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Greedy
+
+Note that if there are multiple sub-intervals with the same starting point, it is optimal to choose the one with the largest right endpoint.
+
+Therefore, we can preprocess all sub-intervals. For each position $i$, calculate the largest right endpoint among all sub-intervals starting at $i$, and record it in the array $last[i]$.
+
+We define a variable `mx` to represent the farthest position that can currently be reached, a variable `ans` to represent the current minimum number of sub-intervals needed, and a variable `pre` to represent the right endpoint of the last used sub-interval.
+
+Next, we start enumerating all positions $i$ from $0$, using $last[i]$ to update `mx`. If after updating, $mx = i$, it means that the next position cannot be covered, so the task cannot be completed, return $-1$.
+
+At the same time, we record the right endpoint `pre` of the last used sub-interval. If $pre = i$, it means that a new sub-interval needs to be used, so we add $1$ to `ans` and update `pre` to `mx`.
+
+After the traversal is over, return `ans`.
+
+The time complexity is $O(n+m)$, and the space complexity is $O(m)$. Where $n$ and $m$ are the lengths of the `clips` array and the value of `time`, respectively.
+
+Similar problems:
+
+-   [45. Jump Game II](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0045.Jump%20Game%20II/README_EN.md)
+-   [55. Jump Game](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0055.Jump%20Game/README_EN.md)
+-   [1326. Minimum Number of Taps to Open to Water a Garden](https://github.com/doocs/leetcode/blob/main/solution/1300-1399/1326.Minimum%20Number%20of%20Taps%20to%20Open%20to%20Water%20a%20Garden/README_EN.md)
 
 <!-- tabs:start -->
 
