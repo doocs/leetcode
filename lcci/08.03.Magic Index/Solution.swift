@@ -1,22 +1,20 @@
 class Solution {
     func findMagicIndex(_ nums: [Int]) -> Int {
-        let left = 0
-        let right = nums.count - 1
-        return find(nums, left, right)
+        return find(nums, 0, nums.count - 1)
     }
 
-    private func find(_ nums: [Int], _ left: Int, _ right: Int) -> Int {
-        if left > right {
+    private func find(_ nums: [Int], _ i: Int, _ j: Int) -> Int {
+        if i > j {
             return -1
         }
-        let mid = (left + right) >> 1
-        let leftIndex = find(nums, left, mid - 1)
-        if leftIndex != -1 {
-            return leftIndex
+        let mid = (i + j) >> 1
+        let l = find(nums, i, mid - 1)
+        if l != -1 {
+            return l
         }
         if nums[mid] == mid {
             return mid
         }
-        return find(nums, mid + 1, right)
+        return find(nums, mid + 1, j)
     }
 }

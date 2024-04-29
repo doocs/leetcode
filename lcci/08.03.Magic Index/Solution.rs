@@ -1,22 +1,22 @@
 impl Solution {
-    fn find(nums: &Vec<i32>, l: usize, r: usize) -> i32 {
-        if l >= r || nums[r - 1] < 0 {
+    fn dfs(nums: &Vec<i32>, i: usize, j: usize) -> i32 {
+        if i >= j || nums[j - 1] < 0 {
             return -1;
         }
-        let mid = l + (r - l) / 2;
-        if nums[mid] >= (l as i32) {
-            let res = Self::find(nums, l, mid);
-            if res != -1 {
-                return res;
+        let mid = (i + j) >> 1;
+        if nums[mid] >= (i as i32) {
+            let l = Self::dfs(nums, i, mid);
+            if l != -1 {
+                return l;
             }
         }
         if nums[mid] == (mid as i32) {
             return mid as i32;
         }
-        Self::find(nums, mid + 1, r)
+        Self::dfs(nums, mid + 1, j)
     }
 
     pub fn find_magic_index(nums: Vec<i32>) -> i32 {
-        Self::find(&nums, 0, nums.len())
+        Self::dfs(&nums, 0, nums.len())
     }
 }

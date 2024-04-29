@@ -1,18 +1,17 @@
 func findMagicIndex(nums []int) int {
-	return find(nums, 0, len(nums)-1)
-}
-
-func find(nums []int, left, right int) int {
-	if left > right {
-		return -1
+	var dfs func(i, j int) int
+	dfs = func(i, j int) int {
+		if i > j {
+			return -1
+		}
+		mid := (i + j) >> 1
+		if l := dfs(i, mid-1); l != -1 {
+			return l
+		}
+		if nums[mid] == mid {
+			return mid
+		}
+		return dfs(mid+1, j)
 	}
-	mid := (left + right) >> 1
-	leftIndex := find(nums, left, mid-1)
-	if leftIndex != -1 {
-		return leftIndex
-	}
-	if nums[mid] == mid {
-		return mid
-	}
-	return find(nums, mid+1, right)
+	return dfs(0, len(nums)-1)
 }
