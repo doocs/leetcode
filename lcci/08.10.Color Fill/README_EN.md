@@ -38,13 +38,11 @@ to the starting pixel.</pre>
 
 ## Solutions
 
-### Solution 1: Flood Fill Algorithm
+### Solution 1: DFS
 
-The Flood Fill algorithm is a classic algorithm used to extract several connected points from a region and distinguish them from other adjacent regions (or color them differently). It is named for its strategy, which is similar to a flood spreading from one area to all reachable areas.
+We design a function $dfs(i, j)$ to start filling color from $(i, j)$. If $(i, j)$ is not within the image range, or the color of $(i, j)$ is not the original color, or the color of $(i, j)$ has been filled with the new color, then return. Otherwise, fill the color of $(i, j)$ with the new color, and then recursively search the four directions: up, down, left, and right of $(i, j)$.
 
-The simplest implementation method is to use the recursive method of DFS, or it can be implemented iteratively using BFS.
-
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the image, respectively.
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns in the image, respectively.
 
 <!-- tabs:start -->
 
@@ -142,6 +140,32 @@ func floodFill(image [][]int, sr int, sc int, newColor int) [][]int {
 }
 ```
 
+```ts
+function floodFill(image: number[][], sr: number, sc: number, newColor: number): number[][] {
+    const dfs = (i: number, j: number): void => {
+        if (i < 0 || i >= m) {
+            return;
+        }
+        if (j < 0 || j >= n) {
+            return;
+        }
+        if (image[i][j] !== oc || image[i][j] === nc) {
+            return;
+        }
+        image[i][j] = nc;
+        for (let k = 0; k < 4; ++k) {
+            dfs(i + dirs[k], j + dirs[k + 1]);
+        }
+    };
+    const dirs: number[] = [-1, 0, 1, 0, -1];
+    const [m, n] = [image.length, image[0].length];
+    const oc = image[sr][sc];
+    const nc = newColor;
+    dfs(sr, sc);
+    return image;
+}
+```
+
 ```rust
 impl Solution {
     fn dfs(i: usize, j: usize, target: i32, new_color: i32, image: &mut Vec<Vec<i32>>) {
@@ -177,7 +201,11 @@ impl Solution {
 
 <!-- tabs:end -->
 
-### Solution 2
+### Solution 2: BFS
+
+We can use the method of breadth-first search. Starting from the initial point, fill the color of the initial point with the new color, and then add the initial point to the queue. Each time a point is taken from the queue, the points in the four directions: up, down, left, and right are added to the queue, until the queue is empty.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns in the image, respectively.
 
 <!-- tabs:start -->
 
@@ -278,6 +306,29 @@ func floodFill(image [][]int, sr int, sc int, newColor int) [][]int {
 		}
 	}
 	return image
+}
+```
+
+```ts
+function floodFill(image: number[][], sr: number, sc: number, newColor: number): number[][] {
+    if (image[sr][sc] === newColor) {
+        return image;
+    }
+    const q: number[][] = [[sr, sc]];
+    const oc = image[sr][sc];
+    image[sr][sc] = newColor;
+    const dirs: number[] = [-1, 0, 1, 0, -1];
+    while (q.length) {
+        const [i, j] = q.pop()!;
+        for (let k = 0; k < 4; ++k) {
+            const [x, y] = [i + dirs[k], j + dirs[k + 1]];
+            if (x >= 0 && x < image.length && y >= 0 && y < image[0].length && image[x][y] === oc) {
+                q.push([x, y]);
+                image[x][y] = newColor;
+            }
+        }
+    }
+    return image;
 }
 ```
 

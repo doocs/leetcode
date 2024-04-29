@@ -63,8 +63,6 @@ $$
 
 时间复杂度 $O(C \times n)$，空间复杂度 $O(C \times n)$，其中 $C$ 为硬币的种类数。
 
-我们注意到，$f[i][j]$ 的计算只与 $f[i−1][..]$ 有关，因此我们可以去掉第一维，将空间复杂度优化到 $O(n)$。
-
 <!-- tabs:start -->
 
 ```python
@@ -149,9 +147,7 @@ func waysToChange(n int) int {
 function waysToChange(n: number): number {
     const mod = 10 ** 9 + 7;
     const coins: number[] = [25, 10, 5, 1];
-    const f: number[][] = Array(5)
-        .fill(0)
-        .map(() => Array(n + 1).fill(0));
+    const f: number[][] = Array.from({ length: 5 }, () => Array(n + 1).fill(0));
     f[0][0] = 1;
     for (let i = 1; i <= 4; ++i) {
         for (let j = 0; j <= n; ++j) {
@@ -167,7 +163,9 @@ function waysToChange(n: number): number {
 
 <!-- tabs:end -->
 
-### 方法二
+### 方法二：动态规划（空间优化）
+
+我们注意到，$f[i][j]$ 的计算只与 $f[i−1][..]$ 有关，因此我们可以去掉第一维，将空间复杂度优化到 $O(n)$。
 
 <!-- tabs:start -->
 
