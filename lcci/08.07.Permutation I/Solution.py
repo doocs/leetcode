@@ -1,20 +1,21 @@
 class Solution:
     def permutation(self, S: str) -> List[str]:
-        def dfs(u, t):
-            if u == n:
-                ans.append(''.join(t))
+        def dfs(i: int):
+            if i == n:
+                ans.append("".join(t))
                 return
-            for i in range(n):
-                if vis[i]:
+            for j, c in enumerate(S):
+                if vis[j]:
                     continue
-                vis[i] = True
-                t.append(S[i])
-                dfs(u + 1, t)
+                vis[j] = True
+                t.append(c)
+                dfs(i + 1)
                 t.pop()
-                vis[i] = False
+                vis[j] = False
 
         n = len(S)
         vis = [False] * n
         ans = []
-        dfs(0, [])
+        t = []
+        dfs(0)
         return ans
