@@ -108,12 +108,28 @@ The accumulated runtime for all servers totals approximately 44.46 hours, equiva
 
 ## 解法
 
-### 方法一
+### 方法一：使用窗口函数
+
+我们可以使用窗口函数 `LEAD` 来获取每个服务器的下一个状态的时间，那么两个状态之间的时间差就是服务器的一次运行时间。最后我们将所有服务器的运行时间相加，然后除以一天的秒数，就得到了服务器的总运行天数。
 
 <!-- tabs:start -->
 
 ```sql
-
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT
+            session_status,
+            status_time,
+            LEAD(status_time) OVER (
+                PARTITION BY server_id
+                ORDER BY status_time
+            ) AS next_status_time
+        FROM Servers
+    )
+SELECT FLOOR(SUM(TIMESTAMPDIFF(SECOND, status_time, next_status_time)) / 86400) AS total_uptime_days
+FROM T
+WHERE session_status = 'start';
 ```
 
 <!-- tabs:end -->

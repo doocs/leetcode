@@ -106,12 +106,28 @@ The accumulated runtime for all servers totals approximately 44.46 hours, equiva
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Using Window Functions
+
+We can use the window function `LEAD` to get the time of the next status for each server. The time difference between two statuses is the running time of the server. Finally, we add up the running time of all servers, then divide by the number of seconds in a day to get the total running days of the servers.
 
 <!-- tabs:start -->
 
 ```sql
-
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT
+            session_status,
+            status_time,
+            LEAD(status_time) OVER (
+                PARTITION BY server_id
+                ORDER BY status_time
+            ) AS next_status_time
+        FROM Servers
+    )
+SELECT FLOOR(SUM(TIMESTAMPDIFF(SECOND, status_time, next_status_time)) / 86400) AS total_uptime_days
+FROM T
+WHERE session_status = 'start';
 ```
 
 <!-- tabs:end -->
