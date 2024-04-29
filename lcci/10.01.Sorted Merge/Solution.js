@@ -6,16 +6,12 @@
  * @return {void} Do not return anything, modify A in-place instead.
  */
 var merge = function (A, m, B, n) {
-    let i = m - 1,
-        j = n - 1;
-    for (let k = A.length - 1; k >= 0; k--) {
-        if (k == i) return;
-        if (i < 0 || A[i] <= B[j]) {
-            A[k] = B[j];
-            j--;
+    let [i, j] = [m - 1, n - 1];
+    for (let k = A.length - 1; ~k; --k) {
+        if (j < 0 || (i >= 0 && A[i] > B[j])) {
+            A[k] = A[i--];
         } else {
-            A[k] = A[i];
-            i--;
+            A[k] = B[j--];
         }
     }
 };
