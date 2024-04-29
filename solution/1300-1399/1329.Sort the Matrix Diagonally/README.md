@@ -43,7 +43,15 @@
 
 ## 解法
 
-### 方法一
+### 方法一：排序
+
+我们可以将矩阵中的每条对角线看作一个数组，然后对这些数组进行排序，最后再将排序后的元素填回原矩阵中。
+
+具体地，我们记矩阵的行数为 $m$，列数为 $n$。由于同一条对角线上的任意两个元素 $(i_1, j_1)$ 和 $(i_2, j_2)$ 满足 $j_1 - i_1 = j_2 - i_2$，我们可以根据 $j - i$ 的值来确定每条对角线。为了保证值为正数，我们加上一个偏移量 $m$，即 $m - i + j$。
+
+最后，我们将每条对角线上的元素排序后填回原矩阵中即可。
+
+时间复杂度 $O(m \times n \times \log \min(m, n))$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
 
@@ -51,11 +59,15 @@
 class Solution:
     def diagonalSort(self, mat: List[List[int]]) -> List[List[int]]:
         m, n = len(mat), len(mat[0])
-        for k in range(min(m, n) - 1):
-            for i in range(m - 1):
-                for j in range(n - 1):
-                    if mat[i][j] > mat[i + 1][j + 1]:
-                        mat[i][j], mat[i + 1][j + 1] = mat[i + 1][j + 1], mat[i][j]
+        g = [[] for _ in range(m + n)]
+        for i, row in enumerate(mat):
+            for j, x in enumerate(row):
+                g[m - i + j].append(x)
+        for e in g:
+            e.sort(reverse=True)
+        for i in range(m):
+            for j in range(n):
+                mat[i][j] = g[m - i + j].pop()
         return mat
 ```
 
@@ -63,15 +75,19 @@ class Solution:
 class Solution {
     public int[][] diagonalSort(int[][] mat) {
         int m = mat.length, n = mat[0].length;
-        for (int k = 0; k < Math.min(m, n) - 1; ++k) {
-            for (int i = 0; i < m - 1; ++i) {
-                for (int j = 0; j < n - 1; ++j) {
-                    if (mat[i][j] > mat[i + 1][j + 1]) {
-                        int t = mat[i][j];
-                        mat[i][j] = mat[i + 1][j + 1];
-                        mat[i + 1][j + 1] = t;
-                    }
-                }
+        List<Integer>[] g = new List[m + n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                g[m - i + j].add(mat[i][j]);
+            }
+        }
+        for (var e : g) {
+            Collections.sort(e, (a, b) -> b - a);
+        }
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                mat[i][j] = g[m - i + j].removeLast();
             }
         }
         return mat;
@@ -84,11 +100,21 @@ class Solution {
 public:
     vector<vector<int>> diagonalSort(vector<vector<int>>& mat) {
         int m = mat.size(), n = mat[0].size();
-        for (int k = 0; k < min(m, n) - 1; ++k)
-            for (int i = 0; i < m - 1; ++i)
-                for (int j = 0; j < n - 1; ++j)
-                    if (mat[i][j] > mat[i + 1][j + 1])
-                        swap(mat[i][j], mat[i + 1][j + 1]);
+        vector<int> g[m + n];
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                g[m - i + j].push_back(mat[i][j]);
+            }
+        }
+        for (auto& e : g) {
+            sort(e.rbegin(), e.rend());
+        }
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                mat[i][j] = g[m - i + j].back();
+                g[m - i + j].pop_back();
+            }
+        }
         return mat;
     }
 };
@@ -97,16 +123,97 @@ public:
 ```go
 func diagonalSort(mat [][]int) [][]int {
 	m, n := len(mat), len(mat[0])
-	for k := 0; k < m-1 && k < n-1; k++ {
-		for i := 0; i < m-1; i++ {
-			for j := 0; j < n-1; j++ {
-				if mat[i][j] > mat[i+1][j+1] {
-					mat[i][j], mat[i+1][j+1] = mat[i+1][j+1], mat[i][j]
-				}
-			}
+	g := make([][]int, m+n)
+	for i, row := range mat {
+		for j, x := range row {
+			g[m-i+j] = append(g[m-i+j], x)
+		}
+	}
+	for _, e := range g {
+		sort.Sort(sort.Reverse(sort.IntSlice(e)))
+	}
+	for i, row := range mat {
+		for j := range row {
+			k := len(g[m-i+j])
+			mat[i][j] = g[m-i+j][k-1]
+			g[m-i+j] = g[m-i+j][:k-1]
 		}
 	}
 	return mat
+}
+```
+
+```ts
+function diagonalSort(mat: number[][]): number[][] {
+    const [m, n] = [mat.length, mat[0].length];
+    const g: number[][] = Array.from({ length: m + n }, () => []);
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            g[m - i + j].push(mat[i][j]);
+        }
+    }
+    for (const e of g) {
+        e.sort((a, b) => b - a);
+    }
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            mat[i][j] = g[m - i + j].pop()!;
+        }
+    }
+    return mat;
+}
+```
+
+```rust
+impl Solution {
+    pub fn diagonal_sort(mut mat: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
+        let m = mat.len();
+        let n = mat[0].len();
+        let mut g: Vec<Vec<i32>> = vec![vec![]; m + n];
+        for i in 0..m {
+            for j in 0..n {
+                g[m - i + j].push(mat[i][j]);
+            }
+        }
+        for e in &mut g {
+            e.sort_by(|a, b| b.cmp(a));
+        }
+        for i in 0..m {
+            for j in 0..n {
+                mat[i][j] = g[m - i + j].pop().unwrap();
+            }
+        }
+        mat
+    }
+}
+```
+
+```cs
+public class Solution {
+    public int[][] DiagonalSort(int[][] mat) {
+        int m = mat.Length;
+        int n = mat[0].Length;
+        List<List<int>> g = new List<List<int>>();
+        for (int i = 0; i < m + n; i++) {
+            g.Add(new List<int>());
+        }
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                g[m - i + j].Add(mat[i][j]);
+            }
+        }
+        foreach (var e in g) {
+            e.Sort((a, b) => b.CompareTo(a));
+        }
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                int val = g[m - i + j][g[m - i + j].Count - 1];
+                g[m - i + j].RemoveAt(g[m - i + j].Count - 1);
+                mat[i][j] = val;
+            }
+        }
+        return mat;
+    }
 }
 ```
 
