@@ -1,4 +1,7 @@
 function searchMatrix(matrix: number[][], target: number): boolean {
+    if (matrix.length === 0) {
+        return false;
+    }
     const [m, n] = [matrix.length, matrix[0].length];
     let [i, j] = [m - 1, 0];
     while (i >= 0 && j < n) {
