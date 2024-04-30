@@ -2,7 +2,7 @@ class Solution {
     public int findString(String[] words, String s) {
         return dfs(words, s, 0, words.length - 1);
     }
-    
+
     private int dfs(String[] words, String s, int i, int j) {
         if (i > j) {
             return -1;
