@@ -34,41 +34,55 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Binary Search
+
+We design a function $dfs(i, j)$ to find the target string in the array $nums[i, j]$. If found, return the index of the target string, otherwise return $-1$. So the answer is $dfs(0, n-1)$.
+
+The implementation of the function $dfs(i, j)$ is as follows:
+
+1. If $i > j$, return $-1$.
+2. Otherwise, we take the middle position $mid = (i + j) / 2$, then recursively call $dfs(i, mid-1)$. If the return value is not $-1$, it means that the target string is found in the left half, return it directly. Otherwise, if $words[mid] = s$, it means that the target string is found, return it directly. Otherwise, recursively call $dfs(mid+1, j)$ and return.
+
+In the worst case, the time complexity is $O(n \times m)$, and the space complexity is $O(n)$. Where $n$ and $m$ are the length of the string array and the length of the string $s$, respectively.
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def findString(self, words: List[str], s: str) -> int:
-        left, right = 0, len(words) - 1
-        while left < right:
-            mid = (left + right) >> 1
-            while left < mid and words[mid] == '':
-                mid -= 1
-            if s <= words[mid]:
-                right = mid
-            else:
-                left = mid + 1
-        return -1 if words[left] != s else left
+        def dfs(i: int, j: int) -> int:
+            if i > j:
+                return -1
+            mid = (i + j) >> 1
+            l = dfs(i, mid - 1)
+            if l != -1:
+                return l
+            if words[mid] == s:
+                return mid
+            return dfs(mid + 1, j)
+
+        return dfs(0, len(words) - 1)
 ```
 
 ```java
 class Solution {
     public int findString(String[] words, String s) {
-        int left = 0, right = words.length - 1;
-        while (left < right) {
-            int mid = (left + right) >> 1;
-            while (left < mid && "".equals(words[mid])) {
-                --mid;
-            }
-            if (s.compareTo(words[mid]) <= 0) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
+        return dfs(words, s, 0, words.length - 1);
+    }
+
+    private int dfs(String[] words, String s, int i, int j) {
+        if (i > j) {
+            return -1;
         }
-        return s.equals(words[left]) ? left : -1;
+        int mid = (i + j) >> 1;
+        int l = dfs(words, s, i, mid - 1);
+        if (l != -1) {
+            return l;
+        }
+        if (words[mid].equals(s)) {
+            return mid;
+        }
+        return dfs(words, s, mid + 1, j);
     }
 }
 ```
@@ -77,38 +91,62 @@ class Solution {
 class Solution {
 public:
     int findString(vector<string>& words, string s) {
-        int left = 0, right = words.size() - 1;
-        while (left < right) {
-            int mid = left + right >> 1;
-            while (left < mid && words[mid] == "") --mid;
-            if (s <= words[mid])
-                right = mid;
-            else
-                left = mid + 1;
-        }
-        return words[left] == s ? left : -1;
+        function<int(int, int)> dfs = [&](int i, int j) {
+            if (i > j) {
+                return -1;
+            }
+            int mid = (i + j) >> 1;
+            int l = dfs(i, mid - 1);
+            if (l != -1) {
+                return l;
+            }
+            if (words[mid] == s) {
+                return mid;
+            }
+            return dfs(mid + 1, j);
+        };
+        return dfs(0, words.size() - 1);
     }
 };
 ```
 
 ```go
 func findString(words []string, s string) int {
-	left, right := 0, len(words)-1
-	for left < right {
-		mid := (left + right) >> 1
-		for left < mid && words[mid] == "" {
-			mid--
+	var dfs func(i, j int) int
+	dfs = func(i, j int) int {
+		if i > j {
+			return -1
 		}
-		if s <= words[mid] {
-			right = mid
-		} else {
-			left = mid + 1
+		mid := (i + j) >> 1
+		if l := dfs(i, mid-1); l != -1 {
+			return l
 		}
+		if words[mid] == s {
+			return mid
+		}
+		return dfs(mid+1, j)
 	}
-	if words[left] == s {
-		return left
-	}
-	return -1
+	return dfs(0, len(words)-1)
+}
+```
+
+```ts
+function findString(words: string[], s: string): number {
+    const dfs = (i: number, j: number): number => {
+        if (i > j) {
+            return -1;
+        }
+        const mid = (i + j) >> 1;
+        const l = dfs(i, mid - 1);
+        if (l !== -1) {
+            return l;
+        }
+        if (words[mid] === s) {
+            return mid;
+        }
+        return dfs(mid + 1, j);
+    };
+    return dfs(0, words.length - 1);
 }
 ```
 

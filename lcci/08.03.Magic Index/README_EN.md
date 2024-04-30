@@ -43,7 +43,7 @@ The implementation of the function $dfs(i, j)$ is as follows:
 1. If $i > j$, return $-1$.
 2. Otherwise, we take the middle position $mid = (i + j) / 2$, then recursively call $dfs(i, mid-1)$. If the return value is not $-1$, it means that the magic index is found in the left half, return it directly. Otherwise, if $nums[mid] = mid$, it means that the magic index is found, return it directly. Otherwise, recursively call $dfs(mid+1, j)$ and return.
 
-The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array.
+In the worst case, the time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
