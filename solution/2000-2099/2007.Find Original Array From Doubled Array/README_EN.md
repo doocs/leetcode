@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2007.Find%20Original%20Array%20From%20Doubled%20Array/README.md)
 
+<!-- tags:Greedy,Array,Hash Table,Sorting -->
+
 ## Description
 
 <p>An integer array <code>original</code> is transformed into a <strong>doubled</strong> array <code>changed</code> by appending <strong>twice the value</strong> of every element in <code>original</code>, and then randomly <strong>shuffling</strong> the resulting array.</p>
@@ -47,66 +49,59 @@ Other original arrays could be [4,3,1] or [3,1,4].
 
 ## Solutions
 
-### Solution 1: Sorting + Counting + Traversal
+### Solution 1: Sorting
 
-First, we check if the length $n$ of the array `changed` is odd. If it is, we directly return an empty array.
+We notice that if the array `changed` is a double array, then the smallest element in the array `changed` must also be an element in the original array. Therefore, we can first sort the array `changed`, and then start from the first element to traverse the array `changed` in ascending order.
 
-Then, we sort the array `changed`, and use a hash table or array `cnt` to count the occurrence of each element in `changed`.
+We use a hash table or array $cnt$ to count the occurrence of each element in the array `changed`. For each element $x$ in the array `changed`, we first check whether $x$ exists in $cnt$. If it does not exist, we skip this element. Otherwise, we subtract one from $cnt[x]$, and check whether $x \times 2$ exists in $cnt$. If it does not exist, we return an empty array directly. Otherwise, we subtract one from $cnt[x \times 2]$, and add $x$ to the answer array.
 
-Next, we traverse the array `changed`. For each element $x$ in `changed`, we first check if $x$ exists in the hash table `cnt`. If it does not exist, we directly skip this element. Otherwise, we check if $x \times 2$ exists in `cnt`. If it does not exist, we directly return an empty array. Otherwise, we add $x$ to the answer array `ans`, and decrease the occurrence counts of $x$ and $x \times 2$ in `cnt` by $1$ each.
+After the traversal, we return the answer array.
 
-After the traversal, we check if the length of the answer array `ans` is $\frac{n}{2}$. If it is, we return `ans`, otherwise we return an empty array.
-
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array `changed`.
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `changed`.
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def findOriginalArray(self, changed: List[int]) -> List[int]:
-        n = len(changed)
-        if n & 1:
-            return []
-        cnt = Counter(changed)
         changed.sort()
+        cnt = Counter(changed)
         ans = []
         for x in changed:
             if cnt[x] == 0:
                 continue
-            if cnt[x * 2] <= 0:
-                return []
-            ans.append(x)
             cnt[x] -= 1
-            cnt[x * 2] -= 1
-        return ans if len(ans) == n // 2 else []
+            if cnt[x << 1] <= 0:
+                return []
+            cnt[x << 1] -= 1
+            ans.append(x)
+        return ans
 ```
 
 ```java
 class Solution {
     public int[] findOriginalArray(int[] changed) {
         int n = changed.length;
-        if (n % 2 == 1) {
-            return new int[] {};
-        }
         Arrays.sort(changed);
         int[] cnt = new int[changed[n - 1] + 1];
         for (int x : changed) {
             ++cnt[x];
         }
-        int[] ans = new int[n / 2];
+        int[] ans = new int[n >> 1];
         int i = 0;
         for (int x : changed) {
             if (cnt[x] == 0) {
                 continue;
             }
-            if (x * 2 >= cnt.length || cnt[x * 2] <= 0) {
-                return new int[] {};
+            --cnt[x];
+            int y = x << 1;
+            if (y >= cnt.length || cnt[y] <= 0) {
+                return new int[0];
             }
+            --cnt[y];
             ans[i++] = x;
-            cnt[x]--;
-            cnt[x * 2]--;
         }
-        return i == n / 2 ? ans : new int[] {};
+        return ans;
     }
 }
 ```
@@ -115,41 +110,33 @@ class Solution {
 class Solution {
 public:
     vector<int> findOriginalArray(vector<int>& changed) {
-        int n = changed.size();
-        if (n & 1) {
-            return {};
-        }
         sort(changed.begin(), changed.end());
         vector<int> cnt(changed.back() + 1);
-        for (int& x : changed) {
+        for (int x : changed) {
             ++cnt[x];
         }
         vector<int> ans;
-        for (int& x : changed) {
+        for (int x : changed) {
             if (cnt[x] == 0) {
                 continue;
             }
-            if (x * 2 >= cnt.size() || cnt[x * 2] <= 0) {
+            --cnt[x];
+            int y = x << 1;
+            if (y >= cnt.size() || cnt[y] <= 0) {
                 return {};
             }
+            --cnt[y];
             ans.push_back(x);
-            --cnt[x];
-            --cnt[x * 2];
         }
-        return ans.size() == n / 2 ? ans : vector<int>();
+        return ans;
     }
 };
 ```
 
 ```go
-func findOriginalArray(changed []int) []int {
-	n := len(changed)
-	ans := []int{}
-	if n&1 == 1 {
-		return ans
-	}
+func findOriginalArray(changed []int) (ans []int) {
 	sort.Ints(changed)
-	cnt := make([]int, changed[n-1]+1)
+	cnt := make([]int, changed[len(changed)-1]+1)
 	for _, x := range changed {
 		cnt[x]++
 	}
@@ -157,44 +144,39 @@ func findOriginalArray(changed []int) []int {
 		if cnt[x] == 0 {
 			continue
 		}
-		if x*2 >= len(cnt) || cnt[x*2] <= 0 {
+		cnt[x]--
+		y := x << 1
+		if y >= len(cnt) || cnt[y] <= 0 {
 			return []int{}
 		}
+		cnt[y]--
 		ans = append(ans, x)
-		cnt[x]--
-		cnt[x*2]--
 	}
-	if len(ans) != n/2 {
-		return []int{}
-	}
-	return ans
+	return
 }
 ```
 
 ```ts
 function findOriginalArray(changed: number[]): number[] {
-    const n = changed.length;
-    if (n & 1) {
-        return [];
-    }
-    const cnt = new Map<number, number>();
-    for (const x of changed) {
-        cnt.set(x, (cnt.get(x) || 0) + 1);
-    }
     changed.sort((a, b) => a - b);
+    const cnt: number[] = Array(changed.at(-1)! + 1).fill(0);
+    for (const x of changed) {
+        ++cnt[x];
+    }
     const ans: number[] = [];
     for (const x of changed) {
-        if (cnt.get(x) == 0) {
+        if (cnt[x] === 0) {
             continue;
         }
-        if ((cnt.get(x * 2) || 0) <= 0) {
+        cnt[x]--;
+        const y = x << 1;
+        if (y >= cnt.length || cnt[y] <= 0) {
             return [];
         }
+        cnt[y]--;
         ans.push(x);
-        cnt.set(x, (cnt.get(x) || 0) - 1);
-        cnt.set(x * 2, (cnt.get(x * 2) || 0) - 1);
     }
-    return ans.length == n / 2 ? ans : [];
+    return ans;
 }
 ```
 

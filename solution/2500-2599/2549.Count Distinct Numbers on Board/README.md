@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2549.Count%20Distinct%20Numbers%20on%20Board/README_EN.md)
 
+<!-- tags:数组,哈希表,数学,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -57,7 +59,7 @@
 
 ### 方法一：脑筋急转弯
 
-由于每一次对桌面上的数字 $n$ 进行操作，会使得数字 $n-1$ 也出现在桌面上，因此最终桌面上的数字为 $[2,...n]$，即 $n-1$ 个数字。
+由于每一次对桌面上的数字 $n$ 进行操作，会使得数字 $n-1$ 也出现在桌面上，因此最终桌面上的数字为 $[2,...n]$，共 $n-1$ 个数字。
 
 注意到 $n$ 可能为 $1$，因此需要特判。
 
@@ -90,10 +92,7 @@ public:
 
 ```go
 func distinctIntegers(n int) int {
-	if n == 1 {
-		return 1
-	}
-	return n - 1
+	return max(1, n-1)
 }
 ```
 
@@ -106,11 +105,7 @@ function distinctIntegers(n: number): number {
 ```rust
 impl Solution {
     pub fn distinct_integers(n: i32) -> i32 {
-        if n == 1 {
-            return 1;
-        }
-
-        n - 1
+        (1).max(n - 1)
     }
 }
 ```

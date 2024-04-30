@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2243.Calculate%20Digit%20Sum%20of%20a%20String/README.md)
 
+<!-- tags:String,Simulation -->
+
 ## Description
 
 <p>You are given a string <code>s</code> consisting of digits and an integer <code>k</code>.</p>

@@ -3,9 +3,9 @@ class Solution:
         n = len(arr)
         if n < 3:
             return False
-        l, r = 0, n - 1
-        while l + 1 < n - 1 and arr[l] < arr[l + 1]:
-            l += 1
-        while r - 1 > 0 and arr[r] < arr[r - 1]:
-            r -= 1
-        return l == r
+        i, j = 0, n - 1
+        while i + 1 < n - 1 and arr[i] < arr[i + 1]:
+            i += 1
+        while j - 1 > 0 and arr[j - 1] > arr[j]:
+            j -= 1
+        return i == j

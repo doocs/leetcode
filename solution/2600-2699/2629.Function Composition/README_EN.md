@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2629.Function%20Composition/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Given an array of functions&nbsp;<code>[f<span style="font-size: 10.8333px;">1</span>, f<sub>2</sub>, f<sub>3</sub>,&nbsp;..., f<sub>n</sub>]</code>, return&nbsp;a new function&nbsp;<code>fn</code>&nbsp;that is the <strong>function&nbsp;composition</strong> of the array of functions.</p>

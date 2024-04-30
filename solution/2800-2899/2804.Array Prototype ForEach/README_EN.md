@@ -1,6 +1,8 @@
-# [2804. Array Prototype ForEach](https://leetcode.com/problems/array-prototype-foreach)
+# [2804. Array Prototype ForEach 🔒](https://leetcode.com/problems/array-prototype-foreach)
 
 [中文文档](/solution/2800-2899/2804.Array%20Prototype%20ForEach/README.md)
+
+<!-- tags: -->
 
 ## Description
 

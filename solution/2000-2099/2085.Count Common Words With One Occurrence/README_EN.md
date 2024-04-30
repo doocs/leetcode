@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2085.Count%20Common%20Words%20With%20One%20Occurrence/README.md)
 
+<!-- tags:Array,Hash Table,String,Counting -->
+
 ## Description
 
 <p>Given two string arrays <code>words1</code> and <code>words2</code>, return <em>the number of strings that appear <strong>exactly once</strong> in <b>each</b>&nbsp;of the two arrays.</em></p>

@@ -1,6 +1,8 @@
-# [2026. 低质量的问题](https://leetcode.cn/problems/low-quality-problems)
+# [2026. 低质量的问题 🔒](https://leetcode.cn/problems/low-quality-problems)
 
 [English Version](/solution/2000-2099/2026.Low-Quality%20Problems/README_EN.md)
+
+<!-- tags:数据库 -->
 
 ## 题目描述
 

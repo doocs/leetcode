@@ -1,11 +1,11 @@
 function maximumCount(nums: number[]): number {
-    const count = [0, 0];
-    for (const num of nums) {
-        if (num < 0) {
-            count[0]++;
-        } else if (num > 0) {
-            count[1]++;
+    let [a, b] = [0, 0];
+    for (const x of nums) {
+        if (x > 0) {
+            ++a;
+        } else if (x < 0) {
+            ++b;
         }
     }
-    return Math.max(...count);
+    return Math.max(a, b);
 }

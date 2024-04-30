@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0032.Longest%20Valid%20Parentheses/README.md)
 
+<!-- tags:Stack,String,Dynamic Programming -->
+
 ## Description
 
 <p>Given a string containing just the characters <code>&#39;(&#39;</code> and <code>&#39;)&#39;</code>, return <em>the length of the longest valid (well-formed) parentheses </em><span data-keyword="substring-nonempty"><em>substring</em></span>.</p>
@@ -378,6 +380,37 @@ var longestValidParentheses = function (s) {
     }
     return ans;
 };
+```
+
+```php
+class Solution {
+    /**
+     * @param string $s
+     * @return integer
+     */
+
+    function longestValidParentheses($s) {
+        $stack = [];
+        $maxLength = 0;
+
+        array_push($stack, -1);
+        for ($i = 0; $i < strlen($s); $i++) {
+            if ($s[$i] === '(') {
+                array_push($stack, $i);
+            } else {
+                array_pop($stack);
+
+                if (empty($stack)) {
+                    array_push($stack, $i);
+                } else {
+                    $length = $i - end($stack);
+                    $maxLength = max($maxLength, $length);
+                }
+            }
+        }
+        return $maxLength;
+    }
+}
 ```
 
 <!-- tabs:end -->

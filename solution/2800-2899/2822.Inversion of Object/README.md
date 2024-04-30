@@ -1,6 +1,8 @@
-# [2822. 对象反转](https://leetcode.cn/problems/inversion-of-object)
+# [2822. 对象反转 🔒](https://leetcode.cn/problems/inversion-of-object)
 
 [English Version](/solution/2800-2899/2822.Inversion%20of%20Object/README_EN.md)
+
+<!-- tags: -->
 
 ## 题目描述
 

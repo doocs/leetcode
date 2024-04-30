@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2878.Get%20the%20Size%20of%20a%20DataFrame/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <pre>

@@ -2,11 +2,13 @@
 
 [English Version](/solution/0200-0299/0234.Palindrome%20Linked%20List/README_EN.md)
 
+<!-- tags:栈,递归,链表,双指针 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
 
-<p>给你一个单链表的头节点 <code>head</code> ，请你判断该链表是否为回文链表。如果是，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
+<p>给你一个单链表的头节点 <code>head</code> ，请你判断该链表是否为<span data-keyword="palindrome-sequence">回文链表</span>。如果是，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
 
 <p>&nbsp;</p>
 

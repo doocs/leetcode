@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0633.Sum%20of%20Square%20Numbers/README_EN.md)
 
+<!-- tags:数学,双指针,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -35,7 +37,11 @@
 
 ## 解法
 
-### 方法一
+### 方法一：数学 + 双指针
+
+我们可以使用双指针的方法来解决这个问题，定义两个指针 $a$ 和 $b$，分别指向 $0$ 和 $\sqrt{c}$。在每一步中，我们会计算 $s = a^2 + b^2$ 的值，然后比较 $s$ 与 $c$ 的大小。如果 $s = c$，我们就找到了两个整数 $a$ 和 $b$，使得 $a^2 + b^2 = c$。如果 $s < c$，我们将 $a$ 的值增加 $1$，如果 $s > c$，我们将 $b$ 的值减小 $1$。我们不断进行这个过程直到找到答案，或者 $a$ 的值大于 $b$ 的值，返回 `false`。
+
+时间复杂度 $O(\sqrt{c})$，其中 $c$ 是给定的非负整数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -78,14 +84,17 @@ class Solution {
 class Solution {
 public:
     bool judgeSquareSum(int c) {
-        long a = 0, b = (long) sqrt(c);
+        long long a = 0, b = sqrt(c);
         while (a <= b) {
-            long s = a * a + b * b;
-            if (s == c) return true;
-            if (s < c)
+            long long s = a * a + b * b;
+            if (s == c) {
+                return true;
+            }
+            if (s < c) {
                 ++a;
-            else
+            } else {
                 --b;
+            }
         }
         return false;
     }
@@ -112,12 +121,13 @@ func judgeSquareSum(c int) bool {
 
 ```ts
 function judgeSquareSum(c: number): boolean {
-    let a = 0,
-        b = Math.floor(Math.sqrt(c));
+    let [a, b] = [0, Math.floor(Math.sqrt(c))];
     while (a <= b) {
-        let sum = a ** 2 + b ** 2;
-        if (sum == c) return true;
-        if (sum < c) {
+        const s = a * a + b * b;
+        if (s === c) {
+            return true;
+        }
+        if (s < c) {
             ++a;
         } else {
             --b;
@@ -129,22 +139,22 @@ function judgeSquareSum(c: number): boolean {
 
 ```rust
 use std::cmp::Ordering;
+
 impl Solution {
     pub fn judge_square_sum(c: i32) -> bool {
-        let c = c as i64;
-        let mut left = 0;
-        let mut right = (c as f64).sqrt() as i64;
-        while left <= right {
-            let num = left * left + right * right;
-            match num.cmp(&c) {
-                Ordering::Less => {
-                    left += 1;
-                }
-                Ordering::Greater => {
-                    right -= 1;
-                }
+        let mut a: i64 = 0;
+        let mut b: i64 = (c as f64).sqrt() as i64;
+        while a <= b {
+            let s = a * a + b * b;
+            match s.cmp(&(c as i64)) {
                 Ordering::Equal => {
                     return true;
+                }
+                Ordering::Less => {
+                    a += 1;
+                }
+                Ordering::Greater => {
+                    b -= 1;
                 }
             }
         }

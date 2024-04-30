@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2940.Find%20Building%20Where%20Alice%20and%20Bob%20Can%20Meet/README.md)
 
+<!-- tags:Stack,Binary Indexed Tree,Segment Tree,Array,Binary Search,Monotonic Stack,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array <code>heights</code> of positive integers, where <code>heights[i]</code> represents the height of the <code>i<sup>th</sup></code> building.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0879.Profitable%20Schemes/README_EN.md)
 
+<!-- tags:数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

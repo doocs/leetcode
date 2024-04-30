@@ -1,6 +1,8 @@
-# [2912. Number of Ways to Reach Destination in the Grid](https://leetcode.com/problems/number-of-ways-to-reach-destination-in-the-grid)
+# [2912. Number of Ways to Reach Destination in the Grid 🔒](https://leetcode.com/problems/number-of-ways-to-reach-destination-in-the-grid)
 
 [中文文档](/solution/2900-2999/2912.Number%20of%20Ways%20to%20Reach%20Destination%20in%20the%20Grid/README.md)
+
+<!-- tags:Math,Dynamic Programming,Combinatorics -->
 
 ## Description
 
@@ -104,6 +106,25 @@ class Solution:
         return b if source[1] == dest[1] else d
 ```
 
+```python
+class Solution:
+    def numberOfWays(
+        self, n: int, m: int, k: int, source: List[int], dest: List[int]
+    ) -> int:
+        mod = 10**9 + 7
+        f = [1, 0, 0, 0]
+        for _ in range(k):
+            g = [0] * 4
+            g[0] = ((n - 1) * f[1] + (m - 1) * f[2]) % mod
+            g[1] = (f[0] + (n - 2) * f[1] + (m - 1) * f[3]) % mod
+            g[2] = (f[0] + (m - 2) * f[2] + (n - 1) * f[3]) % mod
+            g[3] = (f[1] + f[2] + (n - 2) * f[3] + (m - 2) * f[3]) % mod
+            f = g
+        if source[0] == dest[0]:
+            return f[0] if source[1] == dest[1] else f[2]
+        return f[1] if source[1] == dest[1] else f[3]
+```
+
 ```java
 class Solution {
     public int numberOfWays(int n, int m, int k, int[] source, int[] dest) {
@@ -174,31 +195,6 @@ func numberOfWays(n int, m int, k int, source []int, dest []int) int {
 	}
 	return f[3]
 }
-```
-
-<!-- tabs:end -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def numberOfWays(
-        self, n: int, m: int, k: int, source: List[int], dest: List[int]
-    ) -> int:
-        mod = 10**9 + 7
-        f = [1, 0, 0, 0]
-        for _ in range(k):
-            g = [0] * 4
-            g[0] = ((n - 1) * f[1] + (m - 1) * f[2]) % mod
-            g[1] = (f[0] + (n - 2) * f[1] + (m - 1) * f[3]) % mod
-            g[2] = (f[0] + (m - 2) * f[2] + (n - 1) * f[3]) % mod
-            g[3] = (f[1] + f[2] + (n - 2) * f[3] + (m - 2) * f[3]) % mod
-            f = g
-        if source[0] == dest[0]:
-            return f[0] if source[1] == dest[1] else f[2]
-        return f[1] if source[1] == dest[1] else f[3]
 ```
 
 <!-- tabs:end -->

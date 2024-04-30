@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1713.Minimum%20Operations%20to%20Make%20a%20Subsequence/README_EN.md)
 
+<!-- tags:贪心,数组,哈希表,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

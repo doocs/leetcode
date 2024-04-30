@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1116.Print%20Zero%20Even%20Odd/README.md)
 
+<!-- tags:Concurrency -->
+
 ## Description
 
 <p>You have a function <code>printNumber</code> that can be called with an integer parameter and prints it to the console.</p>

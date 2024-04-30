@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2562.Find%20the%20Array%20Concatenation%20Value/README.md)
 
+<!-- tags:Array,Two Pointers,Simulation -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>.</p>

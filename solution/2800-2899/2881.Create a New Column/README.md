@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2881.Create%20a%20New%20Column/README_EN.md)
 
+<!-- tags: -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -55,7 +57,11 @@ DataFrame employees
 
 ## 解法
 
-### 方法一
+### 方法一：直接计算
+
+我们可以直接计算 `salary` 的两倍，然后将结果存入 `bonus` 列。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1275.Find%20Winner%20on%20a%20Tic%20Tac%20Toe%20Game/README_EN.md)
 
+<!-- tags:数组,哈希表,矩阵,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

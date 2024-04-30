@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2949.Count%20Beautiful%20Substrings%20II/README.md)
 
+<!-- tags:Hash Table,Math,String,Number Theory,Prefix Sum -->
+
 ## Description
 
 <p>You are given a string <code>s</code> and a positive integer <code>k</code>.</p>

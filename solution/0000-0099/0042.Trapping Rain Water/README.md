@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0042.Trapping%20Rain%20Water/README_EN.md)
 
+<!-- tags:栈,数组,双指针,动态规划,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -41,7 +43,7 @@
 
 ### 方法一：动态规划
 
-我们定义 $left[i]$ 表示下标 $i$ 位置及其左边的最高柱子的高度，定义 $right[i]$ 表示下标 $i$ 位置及其右边的最高柱子的高度。那么下标 $i$ 位置能接的雨水量为 $\min(left[i], right[i]) - height[i]$。我们遍历数组，计算出 $left[i]$ 和 $right[i]$，最后答案为 $\sum_{i=0}^{n-1} min(left[i], right[i]) - height[i]$。
+我们定义 $left[i]$ 表示下标 $i$ 位置及其左边的最高柱子的高度，定义 $right[i]$ 表示下标 $i$ 位置及其右边的最高柱子的高度。那么下标 $i$ 位置能接的雨水量为 $\min(left[i], right[i]) - height[i]$。我们遍历数组，计算出 $left[i]$ 和 $right[i]$，最后答案为 $\sum_{i=0}^{n-1} \min(left[i], right[i]) - height[i]$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组的长度。
 
@@ -181,6 +183,48 @@ public class Solution {
             ans += Math.Min(left[i], right[i]) - height[i];
         }
         return ans;
+    }
+}
+```
+
+```php
+class Solution {
+    /**
+     * @param integer[] $height
+     * @return integer
+     */
+
+    function trap($height) {
+        $n = count($height);
+
+        if ($n == 0) {
+            return 0;
+        }
+
+        $left = 0;
+        $right = $n - 1;
+        $leftMax = 0;
+        $rightMax = 0;
+        $ans = 0;
+
+        while ($left < $right) {
+            if ($height[$left] < $height[$right]) {
+                if ($height[$left] > $leftMax) {
+                    $leftMax = $height[$left];
+                } else {
+                    $ans += $leftMax - $height[$left];
+                }
+                $left++;
+            } else {
+                if ($height[$right] > $rightMax) {
+                    $rightMax = $height[$right];
+                } else {
+                    $ans += $rightMax - $height[$right];
+                }
+                $right--;
+            }
+        }
+        return $ans;
     }
 }
 ```

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2929.Distribute%20Candies%20Among%20Children%20II/README.md)
 
+<!-- tags:Math,Combinatorics,Enumeration -->
+
 ## Description
 
 <p>You are given two positive integers <code>n</code> and <code>limit</code>.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0686.Repeated%20String%20Match/README_EN.md)
 
+<!-- tags:字符串,字符串匹配 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

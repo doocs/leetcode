@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0883.Projection%20Area%20of%203D%20Shapes/README_EN.md)
 
+<!-- tags:几何,数组,数学,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -66,7 +68,17 @@
 
 ## 解法
 
-### 方法一
+### 方法一：数学
+
+我们可以分别计算三个投影的面积。
+
+-   xy 平面的投影面积：每个非零值都会投影到 xy 平面，所以 xy 的投影面积为非零值的个数。
+-   yz 平面的投影面积：每一行的最大值。
+-   zx 平面的投影面积：每一列的最大值。
+
+最后将三个面积相加即可。
+
+时间复杂度 $O(n^2)$，其中 $n$ 为网格 `grid` 的边长。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -142,40 +154,42 @@ func projectionArea(grid [][]int) int {
 
 ```ts
 function projectionArea(grid: number[][]): number {
-    const n = grid.length;
-    let res = grid.reduce((r, v) => r + v.reduce((r, v) => r + (v === 0 ? 0 : 1), 0), 0);
-    for (let i = 0; i < n; i++) {
-        let xMax = 0;
-        let yMax = 0;
-        for (let j = 0; j < n; j++) {
-            xMax = Math.max(xMax, grid[i][j]);
-            yMax = Math.max(yMax, grid[j][i]);
-        }
-        res += xMax + yMax;
-    }
-    return res;
+    const xy: number = grid.flat().filter(v => v > 0).length;
+    const yz: number = grid.reduce((acc, row) => acc + Math.max(...row), 0);
+    const zx: number = grid[0]
+        .map((_, i) => Math.max(...grid.map(row => row[i])))
+        .reduce((acc, val) => acc + val, 0);
+    return xy + yz + zx;
 }
 ```
 
 ```rust
 impl Solution {
     pub fn projection_area(grid: Vec<Vec<i32>>) -> i32 {
-        let n = grid.len();
-        let mut res = 0;
-        let mut x_max = vec![0; n];
-        let mut y_max = vec![0; n];
-        for i in 0..n {
-            for j in 0..n {
-                let val = grid[i][j];
-                if val == 0 {
-                    continue;
-                }
-                res += 1;
-                x_max[i] = x_max[i].max(val);
-                y_max[j] = y_max[j].max(val);
-            }
-        }
-        res + y_max.iter().sum::<i32>() + x_max.iter().sum::<i32>()
+        let xy: i32 = grid
+            .iter()
+            .map(
+                |row|
+                    row
+                        .iter()
+                        .filter(|&&v| v > 0)
+                        .count() as i32
+            )
+            .sum();
+        let yz: i32 = grid
+            .iter()
+            .map(|row| *row.iter().max().unwrap_or(&0))
+            .sum();
+        let zx: i32 = (0..grid[0].len())
+            .map(|i|
+                grid
+                    .iter()
+                    .map(|row| row[i])
+                    .max()
+                    .unwrap_or(0)
+            )
+            .sum();
+        xy + yz + zx
     }
 }
 ```

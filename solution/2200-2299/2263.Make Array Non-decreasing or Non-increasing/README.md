@@ -1,6 +1,8 @@
-# [2263. 数组变为有序的最小操作次数](https://leetcode.cn/problems/make-array-non-decreasing-or-non-increasing)
+# [2263. 数组变为有序的最小操作次数 🔒](https://leetcode.cn/problems/make-array-non-decreasing-or-non-increasing)
 
 [English Version](/solution/2200-2299/2263.Make%20Array%20Non-decreasing%20or%20Non-increasing/README_EN.md)
+
+<!-- tags:贪心,动态规划 -->
 
 ## 题目描述
 

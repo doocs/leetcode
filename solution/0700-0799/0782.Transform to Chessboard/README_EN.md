@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0782.Transform%20to%20Chessboard/README.md)
 
+<!-- tags:Bit Manipulation,Array,Math,Matrix -->
+
 ## Description
 
 <p>You are given an <code>n x n</code> binary grid <code>board</code>. In each move, you can swap any two rows with each other, or any two columns with each other.</p>

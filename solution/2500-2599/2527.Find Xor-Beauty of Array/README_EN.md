@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2527.Find%20Xor-Beauty%20of%20Array/README.md)
 
+<!-- tags:Bit Manipulation,Array,Math -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>.</p>

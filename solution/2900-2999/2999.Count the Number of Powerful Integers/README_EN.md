@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2999.Count%20the%20Number%20of%20Powerful%20Integers/README.md)
 
+<!-- tags:Math,String,Dynamic Programming -->
+
 ## Description
 
 <p>You are given three integers <code>start</code>, <code>finish</code>, and <code>limit</code>. You are also given a <strong>0-indexed</strong> string <code>s</code> representing a <strong>positive</strong> integer.</p>

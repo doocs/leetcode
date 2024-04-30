@@ -26,7 +26,13 @@
 
 ### 方法一：模拟
 
-用列表模拟栈的集合，每个栈的容量为 `cap`，当栈满时，新建一个栈。
+我们可以使用一个栈列表 $stk$ 来模拟这个过程，初始时 $stk$ 为空。
+
+-   当调用 $push$ 方法时，如果 $cap$ 为 0，直接返回。否则，如果 $stk$ 为空或者 $stk$ 的最后一个栈的长度大于等于 $cap$，则新建一个栈。然后将元素 $val$ 加入到 $stk$ 的最后一个栈中。时间复杂度为 $O(1)$。
+-   当调用 $pop$ 方法时，返回 $popAt(|stk| - 1)$ 的结果。时间复杂度 $O(1)$。
+-   当调用 $popAt$ 方法时，如果 $index$ 不在 $[0, |stk|)$ 范围内，返回 -1。否则，返回 $stk[index]$ 的栈顶元素，并将其弹出。如果弹出后 $stk[index]$ 为空，将其从 $stk$ 中删除。时间复杂度 $O(1)$。
+
+空间复杂度为 $O(n)$，其中 $n$ 为元素个数。
 
 <!-- tabs:start -->
 
@@ -114,9 +120,13 @@ public:
     }
 
     void push(int val) {
-        if (!cap) return;
-        if (stk.empty() || stk[stk.size() - 1].size() >= cap) stk.emplace_back(stack<int>());
-        stk[stk.size() - 1].push(val);
+        if (!cap) {
+            return;
+        }
+        if (stk.empty() || stk.back().size() >= cap) {
+            stk.emplace_back(stack<int>());
+        }
+        stk.back().push(val);
     }
 
     int pop() {
@@ -136,8 +146,8 @@ public:
     }
 
 private:
-    vector<stack<int>> stk;
     int cap;
+    vector<stack<int>> stk;
 };
 
 /**
@@ -245,6 +255,51 @@ class StackOfPlates {
  * obj.push(val)
  * var param_2 = obj.pop()
  * var param_3 = obj.popAt(index)
+ */
+```
+
+```swift
+class StackOfPlates {
+    private var stacks: [[Int]]
+    private var cap: Int
+
+    init(_ cap: Int) {
+        self.cap = cap
+        self.stacks = []
+    }
+
+    func push(_ val: Int) {
+        if cap == 0 {
+            return
+        }
+        if stacks.isEmpty || stacks.last!.count >= cap {
+            stacks.append([])
+        }
+        stacks[stacks.count - 1].append(val)
+    }
+
+    func pop() -> Int {
+        return popAt(stacks.count - 1)
+    }
+
+    func popAt(_ index: Int) -> Int {
+        guard index >= 0, index < stacks.count, !stacks[index].isEmpty else {
+            return -1
+        }
+        let value = stacks[index].removeLast()
+        if stacks[index].isEmpty {
+            stacks.remove(at: index)
+        }
+        return value
+    }
+}
+
+/**
+ * Your StackOfPlates object will be instantiated and called as such:
+ * let obj = new StackOfPlates(cap);
+ * obj.push(val);
+ * let param_2 = obj.pop();
+ * let param_3 = obj.popAt(index);
  */
 ```
 

@@ -8,22 +8,17 @@ func Constructor() FrequencyTracker {
 }
 
 func (this *FrequencyTracker) Add(number int) {
-	f := this.cnt[number]
-	if f > 0 {
-		this.freq[f]--
-	}
+	this.freq[this.cnt[number]]--
 	this.cnt[number]++
-	this.freq[f+1]++
+	this.freq[this.cnt[number]]++
 }
 
 func (this *FrequencyTracker) DeleteOne(number int) {
-	f := this.cnt[number]
-	if f == 0 {
-		return
+	if this.cnt[number] > 0 {
+		this.freq[this.cnt[number]]--
+		this.cnt[number]--
+		this.freq[this.cnt[number]]++
 	}
-	this.freq[f]--
-	this.cnt[number]--
-	this.freq[f-1]++
 }
 
 func (this *FrequencyTracker) HasFrequency(frequency int) bool {

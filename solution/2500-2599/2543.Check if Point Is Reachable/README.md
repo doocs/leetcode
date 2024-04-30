@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2543.Check%20if%20Point%20Is%20Reachable/README_EN.md)
 
+<!-- tags:数学,数论 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

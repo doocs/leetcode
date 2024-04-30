@@ -1,6 +1,8 @@
-# [2793. 航班机票状态](https://leetcode.cn/problems/status-of-flight-tickets)
+# [2793. 航班机票状态 🔒](https://leetcode.cn/problems/status-of-flight-tickets)
 
 [English Version](/solution/2700-2799/2793.Status%20of%20Flight%20Tickets/README_EN.md)
+
+<!-- tags: -->
 
 ## 题目描述
 

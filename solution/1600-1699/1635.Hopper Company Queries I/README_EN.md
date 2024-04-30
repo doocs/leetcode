@@ -1,6 +1,8 @@
-# [1635. Hopper Company Queries I](https://leetcode.com/problems/hopper-company-queries-i)
+# [1635. Hopper Company Queries I 🔒](https://leetcode.com/problems/hopper-company-queries-i)
 
 [中文文档](/solution/1600-1699/1635.Hopper%20Company%20Queries%20I/README.md)
+
+<!-- tags:Database -->
 
 ## Description
 

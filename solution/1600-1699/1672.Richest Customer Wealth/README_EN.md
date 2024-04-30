@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1672.Richest%20Customer%20Wealth/README.md)
 
+<!-- tags:Array,Matrix -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> integer grid <code>accounts</code> where <code>accounts[i][j]</code> is the amount of money the <code>i​​​​​<sup>​​​​​​th</sup>​​​​</code> customer has in the <code>j​​​​​<sup>​​​​​​th</sup></code>​​​​ bank. Return<em> the <strong>wealth</strong> that the richest customer has.</em></p>
@@ -50,7 +52,11 @@ The 2nd customer is the richest with a wealth of 10.</pre>
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Summation
+
+We traverse `accounts` and find the maximum sum of each row.
+
+The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns in the grid, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

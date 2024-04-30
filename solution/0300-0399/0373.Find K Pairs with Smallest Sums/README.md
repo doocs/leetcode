@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0373.Find%20K%20Pairs%20with%20Smallest%20Sums/README_EN.md)
 
+<!-- tags:数组,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -30,14 +32,6 @@
 <strong>输出: </strong>[1,1],[1,1]
 <strong>解释: </strong>返回序列中的前 2 对数：
 &nbsp;    [1,1],[1,1],[1,2],[2,1],[1,2],[2,2],[1,3],[1,3],[2,3]
-</pre>
-
-<p><strong class="example">示例 3:</strong></p>
-
-<pre>
-<strong>输入: </strong>nums1 = [1,2], nums2 = [3], k = 3 
-<strong>输出:</strong> [1,3],[2,3]
-<strong>解释: </strong>也可能序列中所有的数对都被返回:[1,3],[2,3]
 </pre>
 
 <p>&nbsp;</p>

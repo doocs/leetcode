@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0680.Valid%20Palindrome%20II/README.md)
 
+<!-- tags:Greedy,Two Pointers,String -->
+
 ## Description
 
 <p>Given a string <code>s</code>, return <code>true</code> <em>if the </em><code>s</code><em> can be palindrome after deleting <strong>at most one</strong> character from it</em>.</p>

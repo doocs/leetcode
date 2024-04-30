@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0740.Delete%20and%20Earn/README_EN.md)
 
+<!-- tags:数组,哈希表,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

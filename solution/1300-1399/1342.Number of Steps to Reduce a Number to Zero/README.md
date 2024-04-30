@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1342.Number%20of%20Steps%20to%20Reduce%20a%20Number%20to%20Zero/README_EN.md)
 
+<!-- tags:位运算,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

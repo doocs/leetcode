@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0703.Kth%20Largest%20Element%20in%20a%20Stream/README.md)
 
+<!-- tags:Tree,Design,Binary Search Tree,Binary Tree,Data Stream,Heap (Priority Queue) -->
+
 ## Description
 
 <p>Design a class to find the <code>k<sup>th</sup></code> largest element in a stream. Note that it is the <code>k<sup>th</sup></code> largest element in the sorted order, not the <code>k<sup>th</sup></code> distinct element.</p>

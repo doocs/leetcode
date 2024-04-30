@@ -1,6 +1,8 @@
-# [2892. 将相邻元素相乘后得到最小化数组](https://leetcode.cn/problems/minimizing-array-after-replacing-pairs-with-their-product)
+# [2892. 将相邻元素相乘后得到最小化数组 🔒](https://leetcode.cn/problems/minimizing-array-after-replacing-pairs-with-their-product)
 
 [English Version](/solution/2800-2899/2892.Minimizing%20Array%20After%20Replacing%20Pairs%20With%20Their%20Product/README_EN.md)
+
+<!-- tags:贪心,数组,动态规划 -->
 
 ## 题目描述
 

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2798.Number%20of%20Employees%20Who%20Met%20the%20Target/README.md)
 
+<!-- tags:Array -->
+
 ## Description
 
 <p>There are <code>n</code> employees in a company, numbered from <code>0</code> to <code>n - 1</code>. Each employee <code>i</code> has worked for <code>hours[i]</code> hours in the company.</p>
@@ -46,7 +48,13 @@ There are 0 employees who met the target.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Iteration and Counting
+
+We can iterate through the array $hours$. For each employee, if their working hours $x$ is greater than or equal to $target$, then we increment the counter $ans$ by one.
+
+After the iteration, we return the answer.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $hours$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -74,11 +82,7 @@ class Solution {
 class Solution {
 public:
     int numberOfEmployeesWhoMetTarget(vector<int>& hours, int target) {
-        int ans = 0;
-        for (int x : hours) {
-            ans += x >= target;
-        }
-        return ans;
+        return count_if(hours.begin(), hours.end(), [target](int h) { return h >= target; });
     }
 };
 ```
@@ -96,26 +100,17 @@ func numberOfEmployeesWhoMetTarget(hours []int, target int) (ans int) {
 
 ```ts
 function numberOfEmployeesWhoMetTarget(hours: number[], target: number): number {
-    let ans = 0;
-    for (const x of hours) {
-        if (x >= target) {
-            ++ans;
-        }
-    }
-    return ans;
+    return hours.filter(x => x >= target).length;
 }
 ```
 
 ```rust
 impl Solution {
     pub fn number_of_employees_who_met_target(hours: Vec<i32>, target: i32) -> i32 {
-        let mut ans = 0;
-        for &v in hours.iter() {
-            if v >= target {
-                ans += 1;
-            }
-        }
-        ans
+        hours
+            .iter()
+            .filter(|&x| *x >= target)
+            .count() as i32
     }
 }
 ```

@@ -1,6 +1,8 @@
-# [243. 最短单词距离](https://leetcode.cn/problems/shortest-word-distance)
+# [243. 最短单词距离 🔒](https://leetcode.cn/problems/shortest-word-distance)
 
 [English Version](/solution/0200-0299/0243.Shortest%20Word%20Distance/README_EN.md)
+
+<!-- tags:数组,字符串 -->
 
 ## 题目描述
 

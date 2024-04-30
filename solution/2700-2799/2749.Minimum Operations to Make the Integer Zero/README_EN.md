@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2749.Minimum%20Operations%20to%20Make%20the%20Integer%20Zero/README.md)
 
+<!-- tags:Bit Manipulation,Brainteaser -->
+
 ## Description
 
 <p>You are given two integers <code>num1</code> and <code>num2</code>.</p>

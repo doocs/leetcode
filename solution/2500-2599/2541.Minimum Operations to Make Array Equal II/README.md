@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2541.Minimum%20Operations%20to%20Make%20Array%20Equal%20II/README_EN.md)
 
+<!-- tags:贪心,数组,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

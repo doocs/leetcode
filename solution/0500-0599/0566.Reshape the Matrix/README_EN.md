@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0566.Reshape%20the%20Matrix/README.md)
 
+<!-- tags:Array,Matrix,Simulation -->
+
 ## Description
 
 <p>In MATLAB, there is a handy function called <code>reshape</code> which can reshape an <code>m x n</code> matrix into a new one with a different size <code>r x c</code> keeping its original data.</p>

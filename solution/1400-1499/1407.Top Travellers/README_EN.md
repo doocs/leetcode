@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1407.Top%20Travellers/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Users</code></p>

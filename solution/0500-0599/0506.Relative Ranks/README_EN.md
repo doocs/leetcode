@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0506.Relative%20Ranks/README.md)
 
+<!-- tags:Array,Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given an integer array <code>score</code> of size <code>n</code>, where <code>score[i]</code> is the score of the <code>i<sup>th</sup></code> athlete in a competition. All the scores are guaranteed to be <strong>unique</strong>.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2673.Make%20Costs%20of%20Paths%20Equal%20in%20a%20Binary%20Tree/README_EN.md)
 
+<!-- tags:贪心,树,数组,动态规划,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -15,7 +17,7 @@
 <p><b>注意：</b></p>
 
 <ul>
-	<li><strong>满二叉树</strong>&nbsp;指的是一棵树，它满足树中除了叶子节点外每个节点都恰好有 2 个节点，且所有叶子节点距离根节点距离相同。</li>
+	<li><strong>满二叉树</strong>&nbsp;指的是一棵树，它满足树中除了叶子节点外每个节点都恰好有 2 个子节点，且所有叶子节点距离根节点距离相同。</li>
 	<li><strong>路径值</strong> 指的是路径上所有节点的值之和。</li>
 </ul>
 
@@ -60,47 +62,43 @@
 
 ## 解法
 
-### 方法一
+### 方法一：贪心
+
+根据题目描述，我们需要计算最小的增加次数，使得根节点到每个叶子节点的路径值相等。
+
+根节点到每个叶子节点的路径值相等，实际上等价于以任意节点为根节点的子树到该子树的每个叶子节点的路径值相等。
+
+为什么呢？我们可以用反证法来证明。假设存在一个节点 $x$，以它为根节点的子树到某个叶子节点的路径值不相等，那么也就存在着根节点到叶子节点的路径值不相等的情况，这与“根节点到每个叶子节点的路径值相等”矛盾。因此假设不成立，以任意节点为根节点的子树到该子树的每个叶子节点的路径值相等。
+
+我们可以从树的底部开始，逐层向上计算增加次数。对于每个非叶子节点，我们可以计算它的左右孩子节点的路径值，增加的次数为两者路径值的差值，然后将左右孩子节点的路径值更新为两者中的较大值。
+
+最后返回总的增加的次数即可。
+
+时间复杂度 $O(n)$，其中 $n$ 为节点数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def minIncrements(self, n: int, cost: List[int]) -> int:
-        def dfs(i: int) -> int:
-            if (i << 1) > n:
-                return cost[i - 1]
-            l, r = dfs(i << 1), dfs(i << 1 | 1)
-            nonlocal ans
-            ans += max(l, r) - min(l, r)
-            return cost[i - 1] + max(l, r)
-
         ans = 0
-        dfs(1)
+        for i in range(n >> 1, 0, -1):
+            l, r = i << 1, i << 1 | 1
+            ans += abs(cost[l - 1] - cost[r - 1])
+            cost[i - 1] += max(cost[l - 1], cost[r - 1])
         return ans
 ```
 
 ```java
 class Solution {
-    private int[] cost;
-    private int n;
-    private int ans;
-
     public int minIncrements(int n, int[] cost) {
-        this.n = n;
-        this.cost = cost;
-        dfs(1);
-        return ans;
-    }
-
-    private int dfs(int i) {
-        if ((i << 1) > n) {
-            return cost[i - 1];
+        int ans = 0;
+        for (int i = n >> 1; i > 0; --i) {
+            int l = i << 1, r = i << 1 | 1;
+            ans += Math.abs(cost[l - 1] - cost[r - 1]);
+            cost[i - 1] += Math.max(cost[l - 1], cost[r - 1]);
         }
-        int l = dfs(i << 1);
-        int r = dfs(i << 1 | 1);
-        ans += Math.max(l, r) - Math.min(l, r);
-        return cost[i - 1] + Math.max(l, r);
+        return ans;
     }
 }
 ```
@@ -110,16 +108,11 @@ class Solution {
 public:
     int minIncrements(int n, vector<int>& cost) {
         int ans = 0;
-        function<int(int)> dfs = [&](int i) -> int {
-            if ((i << 1) > n) {
-                return cost[i - 1];
-            }
-            int l = dfs(i << 1);
-            int r = dfs(i << 1 | 1);
-            ans += max(l, r) - min(l, r);
-            return cost[i - 1] + max(l, r);
-        };
-        dfs(1);
+        for (int i = n >> 1; i > 0; --i) {
+            int l = i << 1, r = i << 1 | 1;
+            ans += abs(cost[l - 1] - cost[r - 1]);
+            cost[i - 1] += max(cost[l - 1], cost[r - 1]);
+        }
         return ans;
     }
 };
@@ -127,32 +120,30 @@ public:
 
 ```go
 func minIncrements(n int, cost []int) (ans int) {
-	var dfs func(int) int
-	dfs = func(i int) int {
-		if (i << 1) > n {
-			return cost[i-1]
-		}
-		l, r := dfs(i<<1), dfs(i<<1|1)
-		ans += max(l, r) - min(l, r)
-		return cost[i-1] + max(l, r)
+	for i := n >> 1; i > 0; i-- {
+		l, r := i<<1, i<<1|1
+		ans += abs(cost[l-1] - cost[r-1])
+		cost[i-1] += max(cost[l-1], cost[r-1])
 	}
-	dfs(1)
-	return ans
+	return
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
 }
 ```
 
 ```ts
 function minIncrements(n: number, cost: number[]): number {
     let ans = 0;
-    const dfs = (i: number): number => {
-        if (i << 1 > n) {
-            return cost[i - 1];
-        }
-        const [a, b] = [dfs(i << 1), dfs((i << 1) | 1)];
-        ans += Math.max(a, b) - Math.min(a, b);
-        return cost[i - 1] + Math.max(a, b);
-    };
-    dfs(1);
+    for (let i = n >> 1; i; --i) {
+        const [l, r] = [i << 1, (i << 1) | 1];
+        ans += Math.abs(cost[l - 1] - cost[r - 1]);
+        cost[i - 1] += Math.max(cost[l - 1], cost[r - 1]);
+    }
     return ans;
 }
 ```

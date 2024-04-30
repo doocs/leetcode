@@ -1,6 +1,8 @@
-# [2098. 长度为 K 的最大偶数和子序列](https://leetcode.cn/problems/subsequence-of-size-k-with-the-largest-even-sum)
+# [2098. 长度为 K 的最大偶数和子序列 🔒](https://leetcode.cn/problems/subsequence-of-size-k-with-the-largest-even-sum)
 
 [English Version](/solution/2000-2099/2098.Subsequence%20of%20Size%20K%20With%20the%20Largest%20Even%20Sum/README_EN.md)
+
+<!-- tags:贪心,数组,排序 -->
 
 ## 题目描述
 

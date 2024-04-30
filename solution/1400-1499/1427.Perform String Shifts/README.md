@@ -1,6 +1,8 @@
-# [1427. 字符串的左右移](https://leetcode.cn/problems/perform-string-shifts)
+# [1427. 字符串的左右移 🔒](https://leetcode.cn/problems/perform-string-shifts)
 
 [English Version](/solution/1400-1499/1427.Perform%20String%20Shifts/README_EN.md)
+
+<!-- tags:数组,数学,字符串 -->
 
 ## 题目描述
 

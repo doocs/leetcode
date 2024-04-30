@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0292.Nim%20Game/README.md)
 
+<!-- tags:Brainteaser,Math,Game Theory -->
+
 ## Description
 
 <p>You are playing the following Nim Game with your friend:</p>
@@ -51,7 +53,20 @@ In all outcomes, your friend wins.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Finding the Pattern
+
+The first player who gets a multiple of $4$ (i.e., $n$ can be divided by $4$) will lose the game.
+
+Proof:
+
+1. When $n \lt 4$, the first player can directly take all the stones, so the first player will win the game.
+1. When $n = 4$, no matter whether the first player chooses $1, 2, 3$, the second player can always choose the remaining number, so the first player will lose the game.
+1. When $4 \lt n \lt 8$, i.e., $n = 5, 6, 7$, the first player can correspondingly reduce the number to $4$, then the "death number" $4$ is given to the second player, and the second player will lose the game.
+1. When $n = 8$, no matter whether the first player chooses $1, 2, 3$, it will leave a number between $4 \lt n \lt 8$ to the second player, so the first player will lose the game.
+1. ...
+1. By induction, when a player gets the number $n$, and $n$ can be divided by $4$, he will lose the game, otherwise, he will win the game.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

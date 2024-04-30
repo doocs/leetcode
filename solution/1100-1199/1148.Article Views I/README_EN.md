@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1148.Article%20Views%20I/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Views</code></p>

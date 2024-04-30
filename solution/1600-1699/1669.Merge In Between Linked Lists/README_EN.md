@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1669.Merge%20In%20Between%20Linked%20Lists/README.md)
 
+<!-- tags:Linked List -->
+
 ## Description
 
 <p>You are given two linked lists: <code>list1</code> and <code>list2</code> of sizes <code>n</code> and <code>m</code> respectively.</p>
@@ -14,10 +16,10 @@
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1669.Merge%20In%20Between%20Linked%20Lists/images/merge_linked_list_ex1.png" style="width: 406px; height: 140px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1669.Merge%20In%20Between%20Linked%20Lists/images/ll.png" style="width: 609px; height: 210px;" />
 <pre>
-<strong>Input:</strong> list1 = [0,1,2,3,4,5], a = 3, b = 4, list2 = [1000000,1000001,1000002]
-<strong>Output:</strong> [0,1,2,1000000,1000001,1000002,5]
+<strong>Input:</strong> list1 = [10,1,13,6,9,5], a = 3, b = 4, list2 = [1000000,1000001,1000002]
+<strong>Output:</strong> [10,1,13,1000000,1000001,1000002,5]
 <strong>Explanation:</strong> We remove the nodes 3 and 4 and put the entire list2 in their place. The blue edges and nodes in the above figure indicate the result.
 </pre>
 
@@ -40,7 +42,15 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Simulation
+
+We can directly simulate the operations described in the problem.
+
+In the implementation, we use two pointers $p$ and $q$, both initially pointing to the head node of `list1`.
+
+Then we move pointers $p$ and $q$ forward, until pointer $p$ points to the node before the $a$-th node in `list1`, and pointer $q$ points to the $b$-th node in `list1`. At this point, we set the `next` pointer of $p$ to the head node of `list2`, and set the `next` pointer of the tail node of `list2` to the node pointed to by the `next` pointer of $q$. This completes the operation required by the problem.
+
+The time complexity is $O(m + n)$, and the space complexity is $O(1)$. Where $m$ and $n$ are the lengths of `list1` and `list2` respectively.
 
 <!-- tabs:start -->
 

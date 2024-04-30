@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2967.Minimum%20Cost%20to%20Make%20Array%20Equalindromic/README.md)
 
+<!-- tags:Greedy,Array,Math,Sorting -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> having length <code>n</code>.</p>
@@ -65,6 +67,10 @@ The range of palindrome numbers in the problem is $[1, 10^9]$. Due to the symmet
 Next, we sort the array $nums$ and take the median $x$ of $nums$. We only need to find a number in the palindrome array $ps$ that is closest to $x$ through binary search, and then calculate the cost of $nums$ becoming this number to get the answer.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(M)$. Here, $n$ is the length of the array $nums$, and $M$ is the length of the palindrome array $ps$.
+
+Similar problems:
+
+-   [906. Super Palindromes](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0906.Super%20Palindromes/README_EN.md)
 
 <!-- tabs:start -->
 

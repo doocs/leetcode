@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2807.Insert%20Greatest%20Common%20Divisors%20in%20Linked%20List/README_EN.md)
 
+<!-- tags:链表,数学,数论 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

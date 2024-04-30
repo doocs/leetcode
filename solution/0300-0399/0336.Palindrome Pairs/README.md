@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0336.Palindrome%20Pairs/README_EN.md)
 
+<!-- tags:字典树,数组,哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -13,7 +15,7 @@
 <ul>
 	<li><code>0 &lt;= i, j &lt; words.length</code>，</li>
 	<li><code>i != j</code> ，并且</li>
-	<li><code>words[i] + words[j]</code>（两个字符串的连接）是一个回文。</li>
+	<li><code>words[i] + words[j]</code>（两个字符串的连接）是一个<span data-keyword="palindrome-string">回文串</span>。</li>
 </ul>
 
 <p>返回一个数组，它包含&nbsp;<code>words</code> 中所有满足 <strong>回文对</strong> 条件的字符串。</p>

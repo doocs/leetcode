@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1568.Minimum%20Number%20of%20Days%20to%20Disconnect%20Island/README.md)
 
+<!-- tags:Depth-First Search,Breadth-First Search,Array,Matrix,Strongly Connected Component -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> binary grid <code>grid</code> where <code>1</code> represents land and <code>0</code> represents water. An <strong>island</strong> is a maximal <strong>4-directionally</strong> (horizontal or vertical) connected group of <code>1</code>&#39;s.</p>

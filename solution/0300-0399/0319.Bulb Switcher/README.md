@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0319.Bulb%20Switcher/README_EN.md)
 
+<!-- tags:脑筋急转弯,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

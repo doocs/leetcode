@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0982.Triples%20with%20Bitwise%20AND%20Equal%20To%20Zero/README.md)
 
+<!-- tags:Bit Manipulation,Array,Hash Table -->
+
 ## Description
 
 <p>Given an integer array nums, return <em>the number of <strong>AND triples</strong></em>.</p>

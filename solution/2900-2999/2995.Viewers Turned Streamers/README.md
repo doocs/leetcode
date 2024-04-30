@@ -1,6 +1,8 @@
-# [2995. 观众变主播](https://leetcode.cn/problems/viewers-turned-streamers)
+# [2995. 观众变主播 🔒](https://leetcode.cn/problems/viewers-turned-streamers)
 
 [English Version](/solution/2900-2999/2995.Viewers%20Turned%20Streamers/README_EN.md)
+
+<!-- tags:数据库 -->
 
 ## 题目描述
 

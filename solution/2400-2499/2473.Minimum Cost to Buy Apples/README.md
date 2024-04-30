@@ -1,6 +1,8 @@
-# [2473. 购买苹果的最低成本](https://leetcode.cn/problems/minimum-cost-to-buy-apples)
+# [2473. 购买苹果的最低成本 🔒](https://leetcode.cn/problems/minimum-cost-to-buy-apples)
 
 [English Version](/solution/2400-2499/2473.Minimum%20Cost%20to%20Buy%20Apples/README_EN.md)
+
+<!-- tags:图,数组,最短路,堆（优先队列） -->
 
 ## 题目描述
 

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1701.Average%20Waiting%20Time/README_EN.md)
 
+<!-- tags:数组,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -120,6 +122,17 @@ func averageWaitingTime(customers [][]int) float64 {
 		tot += t - a
 	}
 	return float64(tot) / float64(len(customers))
+}
+```
+
+```ts
+function averageWaitingTime(customers: number[][]): number {
+    let [tot, t] = [0, 0];
+    for (const [a, b] of customers) {
+        t = Math.max(t, a) + b;
+        tot += t - a;
+    }
+    return tot / customers.length;
 }
 ```
 

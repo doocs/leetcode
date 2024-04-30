@@ -1,6 +1,8 @@
-# [2036. 最大交替子数组和](https://leetcode.cn/problems/maximum-alternating-subarray-sum)
+# [2036. 最大交替子数组和 🔒](https://leetcode.cn/problems/maximum-alternating-subarray-sum)
 
 [English Version](/solution/2000-2099/2036.Maximum%20Alternating%20Subarray%20Sum/README_EN.md)
+
+<!-- tags:数组,动态规划 -->
 
 ## 题目描述
 

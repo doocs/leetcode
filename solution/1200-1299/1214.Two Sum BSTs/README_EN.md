@@ -1,6 +1,8 @@
-# [1214. Two Sum BSTs](https://leetcode.com/problems/two-sum-bsts)
+# [1214. Two Sum BSTs 🔒](https://leetcode.com/problems/two-sum-bsts)
 
 [中文文档](/solution/1200-1299/1214.Two%20Sum%20BSTs/README.md)
+
+<!-- tags:Stack,Tree,Depth-First Search,Binary Search Tree,Two Pointers,Binary Search,Binary Tree -->
 
 ## Description
 

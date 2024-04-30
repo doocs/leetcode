@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2011.Final%20Value%20of%20Variable%20After%20Performing%20Operations/README.md)
 
+<!-- tags:Array,String,Simulation -->
+
 ## Description
 
 <p>There is a programming language with only <strong>four</strong> operations and <strong>one</strong> variable <code>X</code>:</p>

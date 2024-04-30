@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0301.Remove%20Invalid%20Parentheses/README.md)
 
+<!-- tags:Breadth-First Search,String,Backtracking -->
+
 ## Description
 
 <p>Given a string <code>s</code> that contains parentheses and letters, remove the minimum number of invalid parentheses to make the input string valid.</p>

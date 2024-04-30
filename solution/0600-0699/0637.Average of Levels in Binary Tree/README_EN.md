@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0637.Average%20of%20Levels%20in%20Binary%20Tree/README.md)
 
+<!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Tree -->
+
 ## Description
 
 Given the <code>root</code> of a binary tree, return <em>the average value of the nodes on each level in the form of an array</em>. Answers within <code>10<sup>-5</sup></code> of the actual answer will be accepted.
@@ -233,8 +235,8 @@ impl Solution {
  * @return {number[]}
  */
 var averageOfLevels = function (root) {
-    let q = [root];
-    let ans = [];
+    const q = [root];
+    const ans = [];
     while (q.length) {
         const n = q.length;
         let s = 0;

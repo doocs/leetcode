@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2569.Handling%20Sum%20Queries%20After%20Update/README_EN.md)
 
+<!-- tags:线段树,数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

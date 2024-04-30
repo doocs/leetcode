@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2103.Rings%20and%20Rods/README_EN.md)
 
+<!-- tags:哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

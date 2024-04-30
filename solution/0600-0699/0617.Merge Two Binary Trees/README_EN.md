@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0617.Merge%20Two%20Binary%20Trees/README.md)
 
+<!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Tree -->
+
 ## Description
 
 <p>You are given two binary trees <code>root1</code> and <code>root2</code>.</p>

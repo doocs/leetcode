@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2281.Sum%20of%20Total%20Strength%20of%20Wizards/README.md)
 
+<!-- tags:Stack,Array,Prefix Sum,Monotonic Stack -->
+
 ## Description
 
 <p>As the ruler of a kingdom, you have an army of wizards at your command.</p>

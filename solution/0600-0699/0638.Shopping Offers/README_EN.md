@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0638.Shopping%20Offers/README.md)
 
+<!-- tags:Bit Manipulation,Memoization,Array,Dynamic Programming,Backtracking,Bitmask -->
+
 ## Description
 
 <p>In LeetCode Store, there are <code>n</code> items to sell. Each item has a price. However, there are some special offers, and a special offer consists of one or more different kinds of items with a sale price.</p>

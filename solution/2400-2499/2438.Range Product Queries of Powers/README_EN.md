@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2438.Range%20Product%20Queries%20of%20Powers/README.md)
 
+<!-- tags:Bit Manipulation,Array,Prefix Sum -->
+
 ## Description
 
 <p>Given a positive integer <code>n</code>, there exists a <strong>0-indexed</strong> array called <code>powers</code>, composed of the <strong>minimum</strong> number of powers of <code>2</code> that sum to <code>n</code>. The array is sorted in <strong>non-decreasing</strong> order, and there is <strong>only one</strong> way to form the array.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1575.Count%20All%20Possible%20Routes/README_EN.md)
 
+<!-- tags:记忆化搜索,数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

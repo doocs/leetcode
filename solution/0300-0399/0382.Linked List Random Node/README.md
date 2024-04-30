@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0382.Linked%20List%20Random%20Node/README_EN.md)
 
+<!-- tags:水塘抽样,链表,数学,随机化 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2442.Count%20Number%20of%20Distinct%20Integers%20After%20Reverse%20Operations/README_EN.md)
 
+<!-- tags:数组,哈希表,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

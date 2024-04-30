@@ -1,6 +1,8 @@
-# [2489. 固定比率的子字符串数](https://leetcode.cn/problems/number-of-substrings-with-fixed-ratio)
+# [2489. 固定比率的子字符串数 🔒](https://leetcode.cn/problems/number-of-substrings-with-fixed-ratio)
 
 [English Version](/solution/2400-2499/2489.Number%20of%20Substrings%20With%20Fixed%20Ratio/README_EN.md)
+
+<!-- tags:哈希表,数学,字符串,前缀和 -->
 
 ## 题目描述
 

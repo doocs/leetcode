@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1653.Minimum%20Deletions%20to%20Make%20String%20Balanced/README.md)
 
+<!-- tags:Stack,String,Dynamic Programming -->
+
 ## Description
 
 <p>You are given a string <code>s</code> consisting only of characters <code>&#39;a&#39;</code> and <code>&#39;b&#39;</code>​​​​.</p>
@@ -39,7 +41,29 @@ Delete the characters at 0-indexed positions 3 and 6 (&quot;aab<u>a</u>bb<u>a</u
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[i]$ as the minimum number of characters to be deleted in the first $i$ characters to make the string balanced. Initially, $f[0]=0$. The answer is $f[n]$.
+
+We traverse the string $s$, maintaining a variable $b$, which represents the number of character 'b' in the characters before the current position.
+
+-   If the current character is 'b', it does not affect the balance of the first $i$ characters, so $f[i]=f[i-1]$, then we update $b \leftarrow b+1$.
+-   If the current character is 'a', we can choose to delete the current character, so $f[i]=f[i-1]+1$; or we can choose to delete the previous character 'b', so $f[i]=b$. Therefore, we take the minimum of the two, that is, $f[i]=\min(f[i-1]+1,b)$.
+
+In summary, we can get the state transition equation:
+
+$$
+f[i]=\begin{cases}
+f[i-1], & s[i-1]='b'\\
+\min(f[i-1]+1,b), & s[i-1]='a'
+\end{cases}
+$$
+
+The final answer is $f[n]$.
+
+We notice that the state transition equation is only related to the previous state and the variable $b$, so we can just use an answer variable $ans$ to maintain the current $f[i]$, and there is no need to allocate an array $f$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -135,7 +159,13 @@ function minimumDeletions(s: string): number {
 
 <!-- tabs:end -->
 
-### Solution 2
+### Solution 2: Enumeration + Prefix Sum
+
+We can enumerate each position $i$ in the string $s$, dividing the string $s$ into two parts, namely $s[0,..,i-1]$ and $s[i+1,..n-1]$. To make the string balanced, the number of characters we need to delete at the current position $i$ is the number of character 'b' in $s[0,..,i-1]$ plus the number of character 'a' in $s[i+1,..n-1]$.
+
+Therefore, we maintain two variables $lb$ and $ra$ to represent the number of character 'b' in $s[0,..,i-1]$ and the number of character 'a' in $s[i+1,..n-1]$ respectively. The number of characters we need to delete is $lb+ra$. During the enumeration process, we update the variables $lb$ and $ra$.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

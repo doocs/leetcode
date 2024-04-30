@@ -1,6 +1,8 @@
-# [1698. Number of Distinct Substrings in a String](https://leetcode.com/problems/number-of-distinct-substrings-in-a-string)
+# [1698. Number of Distinct Substrings in a String 🔒](https://leetcode.com/problems/number-of-distinct-substrings-in-a-string)
 
 [中文文档](/solution/1600-1699/1698.Number%20of%20Distinct%20Substrings%20in%20a%20String/README.md)
+
+<!-- tags:Trie,String,Suffix Array,Hash Function,Rolling Hash -->
 
 ## Description
 

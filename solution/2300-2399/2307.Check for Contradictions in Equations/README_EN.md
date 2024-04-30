@@ -1,6 +1,8 @@
-# [2307. Check for Contradictions in Equations](https://leetcode.com/problems/check-for-contradictions-in-equations)
+# [2307. Check for Contradictions in Equations 🔒](https://leetcode.com/problems/check-for-contradictions-in-equations)
 
 [中文文档](/solution/2300-2399/2307.Check%20for%20Contradictions%20in%20Equations/README.md)
+
+<!-- tags:Depth-First Search,Union Find,Graph,Array -->
 
 ## Description
 

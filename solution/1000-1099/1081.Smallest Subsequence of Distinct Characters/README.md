@@ -2,11 +2,13 @@
 
 [English Version](/solution/1000-1099/1081.Smallest%20Subsequence%20of%20Distinct%20Characters/README_EN.md)
 
+<!-- tags:栈,贪心,字符串,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
 
-<p>返回 <code>s</code> 字典序最小的子序列，该子序列包含 <code>s</code> 的所有不同字符，且只包含一次。</p>
+<p>返回 <code>s</code> 字典序最小的<span data-keyword="subsequence-array">子序列</span>，该子序列包含 <code>s</code> 的所有不同字符，且只包含一次。</p>
 
 <p>&nbsp;</p>
 

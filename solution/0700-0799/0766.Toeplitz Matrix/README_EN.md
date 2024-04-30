@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0766.Toeplitz%20Matrix/README.md)
 
+<!-- tags:Array,Matrix -->
+
 ## Description
 
 <p>Given an <code>m x n</code> <code>matrix</code>, return&nbsp;<em><code>true</code>&nbsp;if the matrix is Toeplitz. Otherwise, return <code>false</code>.</em></p>

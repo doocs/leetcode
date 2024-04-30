@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1365.How%20Many%20Numbers%20Are%20Smaller%20Than%20the%20Current%20Number/README_EN.md)
 
+<!-- tags:数组,哈希表,计数,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

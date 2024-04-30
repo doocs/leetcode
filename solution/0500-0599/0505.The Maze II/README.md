@@ -1,6 +1,8 @@
-# [505. 迷宫 II](https://leetcode.cn/problems/the-maze-ii)
+# [505. 迷宫 II 🔒](https://leetcode.cn/problems/the-maze-ii)
 
 [English Version](/solution/0500-0599/0505.The%20Maze%20II/README_EN.md)
+
+<!-- tags:深度优先搜索,广度优先搜索,图,数组,矩阵,最短路,堆（优先队列） -->
 
 ## 题目描述
 

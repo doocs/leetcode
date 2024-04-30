@@ -1,6 +1,8 @@
-# [361. 轰炸敌人](https://leetcode.cn/problems/bomb-enemy)
+# [361. 轰炸敌人 🔒](https://leetcode.cn/problems/bomb-enemy)
 
 [English Version](/solution/0300-0399/0361.Bomb%20Enemy/README_EN.md)
+
+<!-- tags:数组,动态规划,矩阵 -->
 
 ## 题目描述
 

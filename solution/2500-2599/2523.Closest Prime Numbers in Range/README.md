@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2523.Closest%20Prime%20Numbers%20in%20Range/README_EN.md)
 
+<!-- tags:数学,数论 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

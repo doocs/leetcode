@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2670.Find%20the%20Distinct%20Difference%20Array/README.md)
 
+<!-- tags:Array,Hash Table -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> of length <code>n</code>.</p>
@@ -47,7 +49,13 @@ For index i = 4, there are 3 distinct elements in the prefix and no elements in 
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Hash Table + Preprocessed Suffix
+
+We can preprocess a suffix array $suf$, where $suf[i]$ represents the number of distinct elements in the suffix $nums[i, ..., n - 1]$. During the preprocessing, we use a hash table $s$ to maintain the elements that have appeared in the suffix, so we can query the number of distinct elements in the suffix in $O(1)$ time.
+
+After preprocessing the suffix array $suf$, we clear the hash table $s$, and then traverse the array $nums$ again, using the hash table $s$ to maintain the elements that have appeared in the prefix. The answer at position $i$ is the number of distinct elements in $s$ minus $suf[i + 1]$, that is, $s.size() - suf[i + 1]$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
@@ -55,11 +63,16 @@ For index i = 4, there are 3 distinct elements in the prefix and no elements in 
 class Solution:
     def distinctDifferenceArray(self, nums: List[int]) -> List[int]:
         n = len(nums)
+        suf = [0] * (n + 1)
+        s = set()
+        for i in range(n - 1, -1, -1):
+            s.add(nums[i])
+            suf[i] = len(s)
+        s.clear()
         ans = [0] * n
-        for i in range(n):
-            a = len(set(nums[: i + 1]))
-            b = len(set(nums[i + 1 :]))
-            ans[i] = a - b
+        for i, x in enumerate(nums):
+            s.add(x)
+            ans[i] = len(s) - suf[i + 1]
         return ans
 ```
 
@@ -128,14 +141,14 @@ func distinctDifferenceArray(nums []int) []int {
 ```ts
 function distinctDifferenceArray(nums: number[]): number[] {
     const n = nums.length;
-    const suf: number[] = new Array(n + 1).fill(0);
+    const suf: number[] = Array(n + 1).fill(0);
     const s: Set<number> = new Set();
     for (let i = n - 1; i >= 0; --i) {
         s.add(nums[i]);
         suf[i] = s.size;
     }
     s.clear();
-    const ans: number[] = new Array(n);
+    const ans: number[] = Array(n).fill(0);
     for (let i = 0; i < n; ++i) {
         s.add(nums[i]);
         ans[i] = s.size - suf[i + 1];
@@ -149,74 +162,20 @@ use std::collections::HashSet;
 
 impl Solution {
     pub fn distinct_difference_array(nums: Vec<i32>) -> Vec<i32> {
-        let mut ans: Vec<i32> = Vec::new();
-
-        for i in 0..nums.len() {
-            let mut j = 0;
-            let mut hash1 = HashSet::new();
-            while j <= i {
-                hash1.insert(nums[j]);
-                j += 1;
-            }
-
-            let mut k = i + 1;
-            let mut hash2 = HashSet::new();
-            while k < nums.len() {
-                hash2.insert(nums[k]);
-                k += 1;
-            }
-
-            ans.push((hash1.len() - hash2.len()) as i32);
-        }
-
-        ans
-    }
-}
-```
-
-<!-- tabs:end -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def distinctDifferenceArray(self, nums: List[int]) -> List[int]:
-        n = len(nums)
-        suf = [0] * (n + 1)
-        s = set()
-        for i in range(n - 1, -1, -1):
-            s.add(nums[i])
-            suf[i] = len(s)
-
-        s.clear()
-        ans = [0] * n
-        for i, x in enumerate(nums):
-            s.add(x)
-            ans[i] = len(s) - suf[i + 1]
-        return ans
-```
-
-```rust
-use std::collections::HashSet;
-
-impl Solution {
-    pub fn distinct_difference_array(nums: Vec<i32>) -> Vec<i32> {
         let n = nums.len();
-        let mut s = vec![0; n + 1];
-        let mut set = HashSet::new();
+        let mut suf = vec![0; n + 1];
+        let mut s = HashSet::new();
 
         for i in (0..n).rev() {
-            set.insert(nums[i]);
-            s[i] = set.len();
+            s.insert(nums[i]);
+            suf[i] = s.len();
         }
 
         let mut ans = Vec::new();
-        set.clear();
+        s.clear();
         for i in 0..n {
-            set.insert(nums[i]);
-            ans.push((set.len() - s[i + 1]) as i32);
+            s.insert(nums[i]);
+            ans.push((s.len() - suf[i + 1]) as i32);
         }
 
         ans

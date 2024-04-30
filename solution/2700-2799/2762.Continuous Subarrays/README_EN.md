@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2762.Continuous%20Subarrays/README.md)
 
+<!-- tags:Queue,Array,Ordered Set,Sliding Window,Monotonic Queue,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. A subarray of <code>nums</code> is called <strong>continuous</strong> if:</p>

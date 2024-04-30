@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0762.Prime%20Number%20of%20Set%20Bits%20in%20Binary%20Representation/README_EN.md)
 
+<!-- tags:位运算,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

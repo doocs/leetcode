@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2075.Decode%20the%20Slanted%20Ciphertext/README_EN.md)
 
+<!-- tags:字符串,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -77,7 +79,13 @@
 
 ## 解法
 
-### 方法一
+### 方法一：模拟
+
+我们先计算出矩阵的列数 $cols = \text{len}(encodedText) / rows$，然后按照题目描述的规则，从左上角开始遍历矩阵，将字符添加到答案中。
+
+最后返回答案，注意去掉末尾的空格。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $encodedText$ 的长度。
 
 <!-- tabs:start -->
 
@@ -118,22 +126,42 @@ public:
     string decodeCiphertext(string encodedText, int rows) {
         string ans;
         int cols = encodedText.size() / rows;
-        for (int j = 0; j < cols; ++j)
-            for (int x = 0, y = j; x < rows && y < cols; ++x, ++y)
+        for (int j = 0; j < cols; ++j) {
+            for (int x = 0, y = j; x < rows && y < cols; ++x, ++y) {
                 ans += encodedText[x * cols + y];
-        while (ans.back() == ' ') ans.pop_back();
+            }
+        }
+        while (ans.size() && ans.back() == ' ') {
+            ans.pop_back();
+        }
         return ans;
     }
 };
 ```
 
+```go
+func decodeCiphertext(encodedText string, rows int) string {
+	ans := []byte{}
+	cols := len(encodedText) / rows
+	for j := 0; j < cols; j++ {
+		for x, y := 0, j; x < rows && y < cols; x, y = x+1, y+1 {
+			ans = append(ans, encodedText[x*cols+y])
+		}
+	}
+	for len(ans) > 0 && ans[len(ans)-1] == ' ' {
+		ans = ans[:len(ans)-1]
+	}
+	return string(ans)
+}
+```
+
 ```ts
 function decodeCiphertext(encodedText: string, rows: number): string {
     const cols = Math.ceil(encodedText.length / rows);
-    let ans = [];
+    const ans: string[] = [];
     for (let k = 0; k <= cols; k++) {
         for (let i = 0, j = k; i < rows && j < cols; i++, j++) {
-            ans.push(encodedText.charAt(i * cols + j));
+            ans.push(encodedText[i * cols + j]);
         }
     }
     return ans.join('').trimEnd();

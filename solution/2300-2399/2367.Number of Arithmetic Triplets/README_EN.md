@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2367.Number%20of%20Arithmetic%20Triplets/README.md)
 
+<!-- tags:Array,Hash Table,Two Pointers,Enumeration -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong>, <strong>strictly increasing</strong> integer array <code>nums</code> and a positive integer <code>diff</code>. A triplet <code>(i, j, k)</code> is an <strong>arithmetic triplet</strong> if the following conditions are met:</p>
@@ -47,7 +49,11 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Brute Force
+
+We notice that the length of the array $nums$ is no more than $200$. Therefore, we can directly enumerate $i$, $j$, $k$, and check whether they meet the conditions. If they do, we increment the count of the triplet.
+
+The time complexity is $O(n^3)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -131,7 +137,13 @@ function arithmeticTriplets(nums: number[], diff: number): number {
 
 <!-- tabs:end -->
 
-### Solution 2
+### Solution 2: Array or Hash Table
+
+We can first store the elements of $nums$ in a hash table or array $vis$. Then, for each element $x$ in $nums$, we check if $x+diff$ and $x+diff+diff$ are also in $vis$. If they are, we increment the count of the triplet.
+
+After the enumeration, we return the answer.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

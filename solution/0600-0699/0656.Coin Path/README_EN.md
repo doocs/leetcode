@@ -1,6 +1,8 @@
-# [656. Coin Path](https://leetcode.com/problems/coin-path)
+# [656. Coin Path 🔒](https://leetcode.com/problems/coin-path)
 
 [中文文档](/solution/0600-0699/0656.Coin%20Path/README.md)
+
+<!-- tags:Array,Dynamic Programming -->
 
 ## Description
 

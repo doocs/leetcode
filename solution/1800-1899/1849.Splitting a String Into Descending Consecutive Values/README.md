@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1849.Splitting%20a%20String%20Into%20Descending%20Consecutive%20Values/README_EN.md)
 
+<!-- tags:字符串,回溯 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

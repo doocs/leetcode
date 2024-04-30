@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0392.Is%20Subsequence/README.md)
 
+<!-- tags:Two Pointers,String,Dynamic Programming -->
+
 ## Description
 
 <p>Given two strings <code>s</code> and <code>t</code>, return <code>true</code><em> if </em><code>s</code><em> is a <strong>subsequence</strong> of </em><code>t</code><em>, or </em><code>false</code><em> otherwise</em>.</p>

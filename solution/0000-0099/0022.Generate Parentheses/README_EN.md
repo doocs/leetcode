@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0022.Generate%20Parentheses/README.md)
 
+<!-- tags:String,Dynamic Programming,Backtracking -->
+
 ## Description
 
 <p>Given <code>n</code> pairs of parentheses, write a function to <em>generate all combinations of well-formed parentheses</em>.</p>
@@ -221,6 +223,34 @@ impl Solution {
         }
 
         dp[n as usize].clone()
+    }
+}
+```
+
+```php
+class Solution {
+    /**
+     * @param int $n
+     * @return string[]
+     */
+
+    function generateParenthesis($n) {
+        $result = [];
+        $this->backtrack($result, '', 0, 0, $n);
+        return $result;
+    }
+
+    function backtrack(&$result, $current, $open, $close, $max) {
+        if (strlen($current) === $max * 2) {
+            $result[] = $current;
+            return;
+        }
+        if ($open < $max) {
+            $this->backtrack($result, $current . '(', $open + 1, $close, $max);
+        }
+        if ($close < $open) {
+            $this->backtrack($result, $current . ')', $open, $close + 1, $max);
+        }
     }
 }
 ```

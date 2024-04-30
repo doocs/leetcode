@@ -36,32 +36,48 @@ Could you do it in O(n) time and O(1) space?</p>
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Fast and Slow Pointers + Reverse List
+
+First, we check if the list is empty. If it is, we return `true` directly.
+
+Next, we use fast and slow pointers to find the midpoint of the list. If the length of the list is odd, the slow pointer points to the midpoint. If the length of the list is even, the slow pointer points to the first of the two middle nodes.
+
+Then, we reverse the list after the slow pointer, giving us the second half of the list, with the head node as $p$.
+
+Finally, we loop to compare the first half and the second half of the list. If there are any unequal nodes, we return `false` directly. Otherwise, we return `true` after traversing the list.
+
+The time complexity is $O(n)$, where $n$ is the length of the list. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
 # Definition for singly-linked list.
 # class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
 class Solution:
     def isPalindrome(self, head: ListNode) -> bool:
-        if head is None or head.next is None:
+        if head is None:
             return True
         slow, fast = head, head.next
         while fast and fast.next:
-            slow, fast = slow.next, fast.next.next
-        pre, cur = None, slow.next
-        while cur:
-            t = cur.next
-            cur.next = pre
-            pre, cur = cur, t
-        while pre:
-            if pre.val != head.val:
+            slow = slow.next
+            fast = fast.next.next
+        p = slow.next
+        slow.next = None
+        dummy = ListNode()
+        while p:
+            next = p.next
+            p.next = dummy.next
+            dummy.next = p
+            p = next
+        p = dummy.next
+        while p:
+            if head.val != p.val:
                 return False
-            pre, head = pre.next, head.next
+            head = head.next
+            p = p.next
         return True
 ```
 
@@ -71,14 +87,12 @@ class Solution:
  * public class ListNode {
  *     int val;
  *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ *     ListNode(int x) { val = x; }
  * }
  */
 class Solution {
     public boolean isPalindrome(ListNode head) {
-        if (head == null || head.next == null) {
+        if (head == null) {
             return true;
         }
         ListNode slow = head;
@@ -87,67 +101,105 @@ class Solution {
             slow = slow.next;
             fast = fast.next.next;
         }
-        ListNode cur = slow.next;
+        ListNode p = slow.next;
         slow.next = null;
-        ListNode pre = null;
-        while (cur != null) {
-            ListNode t = cur.next;
-            cur.next = pre;
-            pre = cur;
-            cur = t;
+        ListNode dummy = new ListNode(0);
+        while (p != null) {
+            ListNode next = p.next;
+            p.next = dummy.next;
+            dummy.next = p;
+            p = next;
         }
-        while (pre != null) {
-            if (pre.val != head.val) {
+        p = dummy.next;
+        while (p != null) {
+            if (head.val != p.val) {
                 return false;
             }
-            pre = pre.next;
             head = head.next;
+            p = p.next;
         }
         return true;
     }
 }
 ```
 
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+        if (!head) {
+            return true;
+        }
+        ListNode* slow = head;
+        ListNode* fast = head->next;
+        while (fast && fast->next) {
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        ListNode* p = slow->next;
+        slow->next = nullptr;
+        ListNode* dummy = new ListNode(0);
+        while (p) {
+            ListNode* next = p->next;
+            p->next = dummy->next;
+            dummy->next = p;
+            p = next;
+        }
+        p = dummy->next;
+        while (p) {
+            if (head->val != p->val) {
+                return false;
+            }
+            head = head->next;
+            p = p->next;
+        }
+        return true;
+    }
+};
+```
+
 ```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
 func isPalindrome(head *ListNode) bool {
 	if head == nil {
 		return true
 	}
-	m := mid(head)
-	temp := reverse(m.Next)
-	m.Next = nil
-	p, q := head, temp
-	res := true
-	for p != nil && q != nil {
-		if p.Val != q.Val {
-			res = false
-			break
-		}
-		p = p.Next
-		q = q.Next
-	}
-	m.Next = reverse(temp)
-	return res
-}
-
-func mid(head *ListNode) *ListNode {
 	slow, fast := head, head.Next
 	for fast != nil && fast.Next != nil {
-		slow = slow.Next
-		fast = fast.Next.Next
+		slow, fast = slow.Next, fast.Next.Next
 	}
-	return slow
-}
-
-func reverse(head *ListNode) *ListNode {
-	var prev *ListNode = nil
-	for head != nil {
-		temp := head.Next
-		head.Next = prev
-		prev = head
-		head = temp
+	p := slow.Next
+	slow.Next = nil
+	dummy := &ListNode{}
+	for p != nil {
+		next := p.Next
+		p.Next = dummy.Next
+		dummy.Next = p
+		p = next
 	}
-	return prev
+	p = dummy.Next
+	for p != nil {
+		if head.Val != p.Val {
+			return false
+		}
+		head = head.Next
+		p = p.Next
+	}
+	return true
 }
 ```
 
@@ -165,48 +217,7 @@ func reverse(head *ListNode) *ListNode {
  */
 
 function isPalindrome(head: ListNode | null): boolean {
-    if (head == null || head.next == null) return true;
-    // 快慢指针定位到中点
-    let slow: ListNode = head,
-        fast: ListNode = head.next;
-    while (fast != null && fast.next != null) {
-        slow = slow.next;
-        fast = fast.next.next;
-    }
-    // 翻转链表
-    let cur: ListNode = slow.next;
-    slow.next = null;
-    let prev: ListNode = null;
-    while (cur != null) {
-        let t: ListNode = cur.next;
-        cur.next = prev;
-        prev = cur;
-        cur = t;
-    }
-    // 判断回文
-    while (prev != null) {
-        if (prev.val != head.val) return false;
-        prev = prev.next;
-        head = head.next;
-    }
-    return true;
-}
-```
-
-```js
-/**
- * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
- * }
- */
-/**
- * @param {ListNode} head
- * @return {boolean}
- */
-var isPalindrome = function (head) {
-    if (!head || !head.next) {
+    if (!head) {
         return true;
     }
     let slow = head;
@@ -215,21 +226,65 @@ var isPalindrome = function (head) {
         slow = slow.next;
         fast = fast.next.next;
     }
-    let cur = slow.next;
+    let p = slow.next;
     slow.next = null;
-    let pre = null;
-    while (cur) {
-        let t = cur.next;
-        cur.next = pre;
-        pre = cur;
-        cur = t;
+    const dummy = new ListNode(0);
+    while (p) {
+        const next = p.next;
+        p.next = dummy.next;
+        dummy.next = p;
+        p = next;
     }
-    while (pre) {
-        if (pre.val !== head.val) {
+    p = dummy.next;
+    while (p) {
+        if (head.val !== p.val) {
             return false;
         }
-        pre = pre.next;
         head = head.next;
+        p = p.next;
+    }
+    return true;
+}
+```
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {boolean}
+ */
+var isPalindrome = function (head) {
+    if (!head) {
+        return true;
+    }
+    let slow = head;
+    let fast = head.next;
+    while (fast && fast.next) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+    let p = slow.next;
+    slow.next = null;
+    const dummy = new ListNode(0);
+    while (p) {
+        const next = p.next;
+        p.next = dummy.next;
+        dummy.next = p;
+        p = next;
+    }
+    p = dummy.next;
+    while (p) {
+        if (head.val !== p.val) {
+            return false;
+        }
+        head = head.next;
+        p = p.next;
     }
     return true;
 };
@@ -241,81 +296,90 @@ var isPalindrome = function (head) {
  * public class ListNode {
  *     public int val;
  *     public ListNode next;
- *     public ListNode(int val=0, ListNode next=null) {
- *         this.val = val;
- *         this.next = next;
- *     }
+ *     public ListNode(int x) { val = x; }
  * }
  */
 public class Solution {
     public bool IsPalindrome(ListNode head) {
-        if (head == null || head.next == null)
-        {
+        if (head == null) {
             return true;
         }
         ListNode slow = head;
         ListNode fast = head.next;
-        while (fast != null && fast.next != null)
-        {
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
-        ListNode cur = slow.next;
+        ListNode p = slow.next;
         slow.next = null;
-        ListNode pre = null;
-        while (cur != null)
-        {
-            ListNode t = cur.next;
-            cur.next = pre;
-            pre = cur;
-            cur = t;
+        ListNode dummy = new ListNode(0);
+        while (p != null) {
+            ListNode next = p.next;
+            p.next = dummy.next;
+            dummy.next = p;
+            p = next;
         }
-        while (pre != null)
-        {
-            if (pre.val != head.val)
-            {
+        p = dummy.next;
+        while (p != null) {
+            if (head.val != p.val) {
                 return false;
             }
-            pre = pre.next;
             head = head.next;
+            p = p.next;
         }
         return true;
     }
 }
 ```
 
-<!-- tabs:end -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-```ts
+```swift
 /**
- * Definition for singly-linked list.
- * class ListNode {
- *     val: number
- *     next: ListNode | null
- *     constructor(val?: number, next?: ListNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.next = (next===undefined ? null : next)
- *     }
- * }
- */
+* public class ListNode {
+*    var val: Int
+*    var next: ListNode?
+*    init(_ x: Int) {
+*        self.val = x
+*        self.next = nil
+*    }
+* }
+*/
 
-function isPalindrome(head: ListNode | null): boolean {
-    let root = head;
-    const dfs = (node: ListNode | null): boolean => {
-        if (node == null) {
-            return true;
+class Solution {
+    func isPalindrome(_ head: ListNode?) -> Bool {
+        if head == nil {
+            return true
         }
-        if (dfs(node.next) && node.val === root.val) {
-            root = root.next;
-            return true;
+
+        var slow = head
+        var fast = head?.next
+        while fast != nil && fast?.next != nil {
+            slow = slow?.next
+            fast = fast?.next?.next
         }
-        return false;
-    };
-    return dfs(head);
+
+        var p = slow?.next
+        slow?.next = nil
+        var dummy = ListNode(0)
+
+        while p != nil {
+            let next = p?.next
+            p?.next = dummy.next
+            dummy.next = p
+            p = next
+        }
+
+        p = dummy.next
+        var currentHead = head
+        while p != nil {
+            if currentHead?.val != p?.val {
+                return false
+            }
+            currentHead = currentHead?.next
+            p = p?.next
+        }
+
+        return true
+    }
 }
 ```
 

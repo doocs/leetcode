@@ -1,6 +1,8 @@
-# [2868. 单词游戏](https://leetcode.cn/problems/the-wording-game)
+# [2868. 单词游戏 🔒](https://leetcode.cn/problems/the-wording-game)
 
 [English Version](/solution/2800-2899/2868.The%20Wording%20Game/README_EN.md)
+
+<!-- tags:数组,数学,双指针,字符串,博弈 -->
 
 ## 题目描述
 

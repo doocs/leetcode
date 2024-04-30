@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1025.Divisor%20Game/README_EN.md)
 
+<!-- tags:脑筋急转弯,数学,动态规划,博弈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -100,6 +102,12 @@ public:
 func divisorGame(n int) bool {
 	return n%2 == 0
 }
+```
+
+```js
+var divisorGame = function (n) {
+    return n % 2 === 0;
+};
 ```
 
 <!-- tabs:end -->

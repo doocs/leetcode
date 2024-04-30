@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1965.Employees%20With%20Missing%20Information/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Employees</code></p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2513.Minimize%20the%20Maximum%20of%20Two%20Arrays/README_EN.md)
 
+<!-- tags:数学,二分查找,数论 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

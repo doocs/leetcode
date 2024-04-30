@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1720.Decode%20XORed%20Array/README_EN.md)
 
+<!-- tags:位运算,数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

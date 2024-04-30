@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0856.Score%20of%20Parentheses/README_EN.md)
 
+<!-- tags:栈,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2469.Convert%20the%20Temperature/README_EN.md)
 
+<!-- tags:数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

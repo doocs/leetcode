@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1510.Stone%20Game%20IV/README.md)
 
+<!-- tags:Math,Dynamic Programming,Game Theory -->
+
 ## Description
 
 <p>Alice and Bob take turns playing a game, with Alice starting first.</p>

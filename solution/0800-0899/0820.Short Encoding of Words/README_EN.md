@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0820.Short%20Encoding%20of%20Words/README.md)
 
+<!-- tags:Trie,Array,Hash Table,String -->
+
 ## Description
 
 <p>A <strong>valid encoding</strong> of an array of <code>words</code> is any reference string <code>s</code> and array of indices <code>indices</code> such that:</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0732.My%20Calendar%20III/README_EN.md)
 
+<!-- tags:设计,线段树,二分查找,有序集合 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

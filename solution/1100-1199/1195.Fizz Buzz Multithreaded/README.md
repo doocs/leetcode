@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1195.Fizz%20Buzz%20Multithreaded/README_EN.md)
 
+<!-- tags:多线程 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

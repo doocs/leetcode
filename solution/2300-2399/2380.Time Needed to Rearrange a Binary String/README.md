@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2380.Time%20Needed%20to%20Rearrange%20a%20Binary%20String/README_EN.md)
 
+<!-- tags:字符串,动态规划,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

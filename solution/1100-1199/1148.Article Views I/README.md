@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1148.Article%20Views%20I/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

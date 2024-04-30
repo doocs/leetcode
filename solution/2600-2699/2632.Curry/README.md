@@ -1,6 +1,8 @@
-# [2632. 柯里化](https://leetcode.cn/problems/curry)
+# [2632. 柯里化 🔒](https://leetcode.cn/problems/curry)
 
 [English Version](/solution/2600-2699/2632.Curry/README_EN.md)
+
+<!-- tags: -->
 
 ## 题目描述
 

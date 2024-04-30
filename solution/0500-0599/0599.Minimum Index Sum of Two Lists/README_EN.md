@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0599.Minimum%20Index%20Sum%20of%20Two%20Lists/README.md)
 
+<!-- tags:Array,Hash Table,String -->
+
 ## Description
 
 <p>Given two arrays of strings <code>list1</code> and <code>list2</code>, find the <strong>common strings with the least index sum</strong>.</p>

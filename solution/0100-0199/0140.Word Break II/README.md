@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0140.Word%20Break%20II/README_EN.md)
 
+<!-- tags:字典树,记忆化搜索,数组,哈希表,字符串,动态规划,回溯 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -15,8 +17,8 @@
 <p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<strong>输入:</strong>s = "<code>catsanddog</code>", wordDict = <code>["cat","cats","and","sand","dog"]</code>
-<strong>输出:</strong><code>["cats and dog","cat sand dog"]</code>
+<strong>输入:</strong>s = "catsanddog", wordDict = ["cat","cats","and","sand","dog"]
+<strong>输出:</strong>["cats and dog","cat sand dog"]
 </pre>
 
 <p><strong class="example">示例 2：</strong></p>

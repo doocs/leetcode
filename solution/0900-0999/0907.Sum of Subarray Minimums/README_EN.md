@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0907.Sum%20of%20Subarray%20Minimums/README.md)
 
+<!-- tags:Stack,Array,Dynamic Programming,Monotonic Stack -->
+
 ## Description
 
 <p>Given an array of integers arr, find the sum of <code>min(b)</code>, where <code>b</code> ranges over every (contiguous) subarray of <code>arr</code>. Since the answer may be large, return the answer <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>
@@ -35,7 +37,37 @@ Sum is 17.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Monotonic Stack
+
+The problem asks for the sum of the minimum values of each subarray, which is equivalent to finding the number of subarrays for which each element $arr[i]$ is the minimum, then multiplying by $arr[i]$, and finally summing these up.
+
+Therefore, the focus of the problem is to find the number of subarrays for which $arr[i]$ is the minimum. For $arr[i]$, we find the first position $left[i]$ to its left that is less than $arr[i]$, and the first position $right[i]$ to its right that is less than or equal to $arr[i]$. The number of subarrays for which $arr[i]$ is the minimum is $(i - left[i]) \times (right[i] - i)$.
+
+Note, why do we find the first position $right[i]$ to the right that is less than or equal to $arr[i]$, rather than less than $arr[i]$? This is because if we find the first position $right[i]$ to the right that is less than $arr[i]$, it will lead to duplicate calculations.
+
+Let's take an example to illustrate. For the following array:
+
+The element at index $3$ is $2$, the first element to its left that is less than $2$ is at index $0$. If we find the first element to its right that is less than $2$, we get index $7$. That is, the subarray interval is $(0, 7)$. Note that this is an open interval.
+
+```
+0 4 3 2 5 3 2 1
+*     ^       *
+```
+
+In the same way, we can find the subarray interval for the element at index $6$, and find that its subarray interval is also $(0, 7)$. That is, the subarray intervals for the elements at index $3$ and index $6$ are the same. This leads to duplicate calculations.
+
+```
+0 4 3 2 5 3 2 1
+*           ^ *
+```
+
+If we find the first element to its right that is less than or equal to its value, there will be no duplication, because the subarray interval for the element at index $3$ becomes $(0, 6)$, and the subarray interval for the element at index $6$ is $(0, 7)$, which are not the same.
+
+Back to this problem, we just need to traverse the array, for each element $arr[i]$, use a monotonic stack to find the first position $left[i]$ to its left that is less than $arr[i]$, and the first position $right[i]$ to its right that is less than or equal to $arr[i]$. The number of subarrays for which $arr[i]$ is the minimum is $(i - left[i]) \times (right[i] - i)$, then multiply by $arr[i]$, and finally sum these up.
+
+Be aware of data overflow and modulo operations.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $arr$.
 
 <!-- tabs:start -->
 
@@ -256,63 +288,6 @@ impl Solution {
             ans %= MOD;
         }
         ans as i32
-    }
-}
-```
-
-<!-- tabs:end -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-```rust
-const MOD: i64 = (1e9 as i64) + 7;
-
-impl Solution {
-    pub fn sum_subarray_mins(arr: Vec<i32>) -> i32 {
-        let n: usize = arr.len();
-        let mut ret: i64 = 0;
-        let mut left: Vec<i32> = vec![-1; n];
-        let mut right: Vec<i32> = vec![n as i32; n];
-        // Index stack, store the index of the value in the given array
-        let mut stack: Vec<i32> = Vec::new();
-
-        // Find the first element that's less than the current value for the left side
-        // The default value of which is -1
-        for i in 0..n {
-            while !stack.is_empty() && arr[*stack.last().unwrap() as usize] >= arr[i] {
-                stack.pop();
-            }
-            if !stack.is_empty() {
-                left[i] = *stack.last().unwrap();
-            }
-            stack.push(i as i32);
-        }
-
-        stack.clear();
-
-        // Find the first element that's less or equal than the current value for the right side
-        // The default value of which is n
-        for i in (0..n).rev() {
-            while !stack.is_empty() && arr[*stack.last().unwrap() as usize] > arr[i] {
-                stack.pop();
-            }
-            if !stack.is_empty() {
-                right[i] = *stack.last().unwrap();
-            }
-            stack.push(i as i32);
-        }
-
-        // Traverse the array, to find the sum
-        for i in 0..n {
-            ret +=
-                ((((right[i] - (i as i32)) * ((i as i32) - left[i])) as i64) * (arr[i] as i64)) %
-                MOD;
-            ret %= MOD;
-        }
-
-        (ret % (MOD as i64)) as i32
     }
 }
 ```

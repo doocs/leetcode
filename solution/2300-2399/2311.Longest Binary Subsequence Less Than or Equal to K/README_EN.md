@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2311.Longest%20Binary%20Subsequence%20Less%20Than%20or%20Equal%20to%20K/README.md)
 
+<!-- tags:Greedy,Memoization,String,Dynamic Programming -->
+
 ## Description
 
 <p>You are given a binary string <code>s</code> and a positive integer <code>k</code>.</p>

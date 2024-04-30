@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0039.Combination%20Sum/README_EN.md)
 
+<!-- tags:数组,回溯 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -50,15 +52,13 @@
 
 ## 解法
 
-### 方法一：排序 + 剪枝 + 回溯（两种写法）
+### 方法一：排序 + 剪枝 + 回溯
 
 我们可以先对数组进行排序，方便剪枝。
 
 接下来，我们设计一个函数 $dfs(i, s)$，表示从下标 $i$ 开始搜索，且剩余目标值为 $s$，其中 $i$ 和 $s$ 都是非负整数，当前搜索路径为 $t$，答案为 $ans$。
 
 在函数 $dfs(i, s)$ 中，我们先判断 $s$ 是否为 $0$，如果是，则将当前搜索路径 $t$ 加入答案 $ans$ 中，然后返回。如果 $s \lt candidates[i]$，说明当前下标及后面的下标的元素都大于剩余目标值 $s$，路径不合法，直接返回。否则，我们从下标 $i$ 开始搜索，搜索的下标范围是 $j \in [i, n)$，其中 $n$ 为数组 $candidates$ 的长度。在搜索的过程中，我们将当前下标的元素加入搜索路径 $t$，递归调用函数 $dfs(j, s - candidates[j])$，递归结束后，将当前下标的元素从搜索路径 $t$ 中移除。
-
-我们也可以将函数 $dfs(i, s)$ 的实现逻辑改为另一种写法。在函数 $dfs(i, s)$ 中，我们先判断 $s$ 是否为 $0$，如果是，则将当前搜索路径 $t$ 加入答案 $ans$ 中，然后返回。如果 $i \geq n$ 或者 $s \lt candidates[i]$，路径不合法，直接返回。否则，我们考虑两种情况，一种是不选当前下标的元素，即递归调用函数 $dfs(i + 1, s)$，另一种是选当前下标的元素，即递归调用函数 $dfs(i, s - candidates[i])$。
 
 在主函数中，我们只要调用函数 $dfs(0, target)$，即可得到答案。
 
@@ -256,7 +256,11 @@ public class Solution {
 
 <!-- tabs:end -->
 
-### 方法二
+### 方法二：排序 + 剪枝 + 回溯（写法二）
+
+我们也可以将函数 $dfs(i, s)$ 的实现逻辑改为另一种写法。在函数 $dfs(i, s)$ 中，我们先判断 $s$ 是否为 $0$，如果是，则将当前搜索路径 $t$ 加入答案 $ans$ 中，然后返回。如果 $i \geq n$ 或者 $s \lt candidates[i]$，路径不合法，直接返回。否则，我们考虑两种情况，一种是不选当前下标的元素，即递归调用函数 $dfs(i + 1, s)$，另一种是选当前下标的元素，即递归调用函数 $dfs(i, s - candidates[i])$。
+
+时间复杂度 $O(2^n \times n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $candidates$ 的长度。由于剪枝，实际的时间复杂度要远小于 $O(2^n \times n)$。
 
 <!-- tabs:start -->
 
@@ -432,6 +436,44 @@ public class Solution {
         t.Add(candidates[i]);
         dfs(i, s - candidates[i]);
         t.RemoveAt(t.Count - 1);
+    }
+}
+```
+
+```php
+class Solution {
+    /**
+     * @param integer[] $candidates
+     * @param integer $target
+     * @return integer[][]
+     */
+
+    function combinationSum($candidates, $target) {
+        $result = [];
+        $currentCombination = [];
+        $startIndex = 0;
+
+        sort($candidates);
+        $this->findCombinations($candidates, $target, $startIndex, $currentCombination, $result);
+        return $result;
+    }
+
+    function findCombinations($candidates, $target, $startIndex, $currentCombination, &$result) {
+        if ($target === 0) {
+            $result[] = $currentCombination;
+            return;
+        }
+
+        for ($i = $startIndex; $i < count($candidates); $i++) {
+            $num = $candidates[$i];
+            if ($num > $target) {
+                break;
+            }
+            $currentCombination[] = $num;
+
+            $this->findCombinations($candidates, $target - $num, $i, $currentCombination, $result);
+            array_pop($currentCombination);
+        }
     }
 }
 ```

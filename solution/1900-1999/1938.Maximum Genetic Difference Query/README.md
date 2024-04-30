@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1938.Maximum%20Genetic%20Difference%20Query/README_EN.md)
 
+<!-- tags:位运算,字典树,数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

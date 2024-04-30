@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1095.Find%20in%20Mountain%20Array/README.md)
 
+<!-- tags:Array,Binary Search,Interactive -->
+
 ## Description
 
 <p><em>(This problem is an <strong>interactive problem</strong>.)</em></p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0343.Integer%20Break/README.md)
 
+<!-- tags:Math,Dynamic Programming -->
+
 ## Description
 
 <p>Given an integer <code>n</code>, break it into the sum of <code>k</code> <strong>positive integers</strong>, where <code>k &gt;= 2</code>, and maximize the product of those integers.</p>

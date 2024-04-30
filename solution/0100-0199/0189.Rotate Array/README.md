@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0189.Rotate%20Array/README_EN.md)
 
+<!-- tags:数组,数学,双指针 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

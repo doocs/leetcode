@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2114.Maximum%20Number%20of%20Words%20Found%20in%20Sentences/README.md)
 
+<!-- tags:Array,String -->
+
 ## Description
 
 <p>A <strong>sentence</strong> is a list of <strong>words</strong> that are separated by a single space&nbsp;with no leading or trailing spaces.</p>

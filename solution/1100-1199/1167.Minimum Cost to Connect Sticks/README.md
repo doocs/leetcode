@@ -1,6 +1,8 @@
-# [1167. 连接木棍的最低费用](https://leetcode.cn/problems/minimum-cost-to-connect-sticks)
+# [1167. 连接木棍的最低费用 🔒](https://leetcode.cn/problems/minimum-cost-to-connect-sticks)
 
 [English Version](/solution/1100-1199/1167.Minimum%20Cost%20to%20Connect%20Sticks/README_EN.md)
+
+<!-- tags:贪心,数组,堆（优先队列） -->
 
 ## 题目描述
 

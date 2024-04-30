@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0165.Compare%20Version%20Numbers/README_EN.md)
 
+<!-- tags:双指针,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -157,13 +159,16 @@ func compareVersion(version1 string, version2 string) int {
 
 ```ts
 function compareVersion(version1: string, version2: string): number {
-    let v1 = version1.split('.'),
-        v2 = version2.split('.');
-    for (let i = 0; i < Math.max(v1.length, v2.length); i++) {
-        let c1 = Number(v1[i] || 0),
-            c2 = Number(v2[i] || 0);
-        if (c1 > c2) return 1;
-        if (c1 < c2) return -1;
+    const v1 = version1.split('.');
+    const v2 = version2.split('.');
+    for (let i = 0; i < Math.max(v1.length, v2.length); ++i) {
+        const [n1, n2] = [+v1[i] || 0, +v2[i] || 0];
+        if (n1 < n2) {
+            return -1;
+        }
+        if (n1 > n2) {
+            return 1;
+        }
     }
     return 0;
 }

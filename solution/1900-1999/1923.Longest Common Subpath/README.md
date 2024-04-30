@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1923.Longest%20Common%20Subpath/README_EN.md)
 
+<!-- tags:数组,二分查找,后缀数组,哈希函数,滚动哈希 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

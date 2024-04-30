@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2816.Double%20a%20Number%20Represented%20as%20a%20Linked%20List/README.md)
 
+<!-- tags:Stack,Linked List,Math -->
+
 ## Description
 
 <p>You are given the <code>head</code> of a <strong>non-empty</strong> linked list representing a non-negative integer without leading zeroes.</p>

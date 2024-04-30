@@ -3,14 +3,14 @@
  * @return {number}
  */
 var minFlipsMonoIncr = function (s) {
-    const n = s.length;
-    let presum = new Array(n + 1).fill(0);
-    for (let i = 0; i < n; ++i) {
-        presum[i + 1] = presum[i] + (s[i] == '1');
+    let tot = 0;
+    for (const c of s) {
+        tot += c === '0' ? 1 : 0;
     }
-    let ans = presum[n];
-    for (let i = 0; i < n; ++i) {
-        ans = Math.min(ans, presum[i] + n - i - (presum[n] - presum[i]));
+    let [ans, cur] = [tot, 0];
+    for (let i = 1; i <= s.length; ++i) {
+        cur += s[i - 1] === '0' ? 1 : 0;
+        ans = Math.min(ans, i - cur + tot - cur);
     }
     return ans;
 };

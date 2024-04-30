@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0114.Flatten%20Binary%20Tree%20to%20Linked%20List/README.md)
 
+<!-- tags:Stack,Tree,Depth-First Search,Linked List,Binary Tree -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary tree, flatten the tree into a &quot;linked list&quot;:</p>

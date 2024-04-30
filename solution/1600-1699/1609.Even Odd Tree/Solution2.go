@@ -19,7 +19,7 @@ func isEvenOddTree(root *TreeNode) bool {
 			if even {
 				prev = 0
 			} else {
-				prev = 1000000
+				prev = 10000000
 			}
 		}
 		if even && (root.Val%2 == 0 || prev >= root.Val) {

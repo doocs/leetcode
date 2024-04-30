@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0989.Add%20to%20Array-Form%20of%20Integer/README.md)
 
+<!-- tags:Array,Math -->
+
 ## Description
 
 <p>The <strong>array-form</strong> of an integer <code>num</code> is an array representing its digits in left to right order.</p>

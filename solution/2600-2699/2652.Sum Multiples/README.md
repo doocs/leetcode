@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2652.Sum%20Multiples/README_EN.md)
 
+<!-- tags:数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

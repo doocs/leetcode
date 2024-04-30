@@ -1,6 +1,8 @@
-# [1495. 上月播放的儿童适宜电影](https://leetcode.cn/problems/friendly-movies-streamed-last-month)
+# [1495. 上月播放的儿童适宜电影 🔒](https://leetcode.cn/problems/friendly-movies-streamed-last-month)
 
 [English Version](/solution/1400-1499/1495.Friendly%20Movies%20Streamed%20Last%20Month/README_EN.md)
+
+<!-- tags:数据库 -->
 
 ## 题目描述
 

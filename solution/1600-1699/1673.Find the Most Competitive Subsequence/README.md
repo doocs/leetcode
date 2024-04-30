@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1673.Find%20the%20Most%20Competitive%20Subsequence/README_EN.md)
 
+<!-- tags:栈,贪心,数组,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -118,6 +120,22 @@ func mostCompetitive(nums []int, k int) []int {
 		}
 	}
 	return stk
+}
+```
+
+```ts
+function mostCompetitive(nums: number[], k: number): number[] {
+    const stk: number[] = [];
+    const n = nums.length;
+    for (let i = 0; i < n; ++i) {
+        while (stk.length && stk.at(-1) > nums[i] && stk.length + n - i > k) {
+            stk.pop();
+        }
+        if (stk.length < k) {
+            stk.push(nums[i]);
+        }
+    }
+    return stk;
 }
 ```
 

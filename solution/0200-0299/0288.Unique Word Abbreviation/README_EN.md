@@ -1,6 +1,8 @@
-# [288. Unique Word Abbreviation](https://leetcode.com/problems/unique-word-abbreviation)
+# [288. Unique Word Abbreviation 🔒](https://leetcode.com/problems/unique-word-abbreviation)
 
 [中文文档](/solution/0200-0299/0288.Unique%20Word%20Abbreviation/README.md)
+
+<!-- tags:Design,Array,Hash Table,String -->
 
 ## Description
 

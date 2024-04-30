@@ -1,6 +1,8 @@
-# [1966. Binary Searchable Numbers in an Unsorted Array](https://leetcode.com/problems/binary-searchable-numbers-in-an-unsorted-array)
+# [1966. Binary Searchable Numbers in an Unsorted Array 🔒](https://leetcode.com/problems/binary-searchable-numbers-in-an-unsorted-array)
 
 [中文文档](/solution/1900-1999/1966.Binary%20Searchable%20Numbers%20in%20an%20Unsorted%20Array/README.md)
+
+<!-- tags:Array,Binary Search -->
 
 ## Description
 

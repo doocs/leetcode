@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1998.GCD%20Sort%20of%20an%20Array/README.md)
 
+<!-- tags:Union Find,Array,Math,Number Theory,Sorting -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code>, and you can perform the following operation <strong>any</strong> number of times on <code>nums</code>:</p>

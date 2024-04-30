@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1672.Richest%20Customer%20Wealth/README_EN.md)
 
+<!-- tags:数组,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -53,9 +55,9 @@
 
 ### 方法一：求和
 
-遍历 `accounts`，求出每一行的和，然后求出最大值。
+我们遍历 `accounts`，求出每一行的和的最大值即可。
 
-时间复杂度 $O(m\times n)$。
+时间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别为网格的行数和列数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 

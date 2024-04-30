@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0705.Design%20HashSet/README_EN.md)
 
+<!-- tags:设计,数组,哈希表,链表,哈希函数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

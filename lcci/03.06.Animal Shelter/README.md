@@ -37,34 +37,42 @@
 
 ## 解法
 
-### 方法一
+### 方法一：数组嵌套队列
+
+我们定义一个长度为 $2$ 的数组 $q$，用于存放猫和狗的队列。
+
+在 `enqueue` 操作中，假设动物编号为 $i$，动物种类为 $j$，我们将 $i$ 入队到 $q[j]$ 中。
+
+在 `dequeueAny` 操作中，我们判断 $q[0]$ 是否为空，或者 $q[1]$ 不为空且 $q[1][0] < q[0][0]$，如果是，则调用 `dequeueDog`，否则调用 `dequeueCat`。
+
+在 `dequeueDog` 操作中，如果 $q[1]$ 为空，则返回 $[-1, -1]$，否则返回 $[q[1].pop(), 1]$。
+
+在 `dequeueCat` 操作中，如果 $q[0]$ 为空，则返回 $[-1, -1]$，否则返回 $[q[0].pop(), 0]$。
+
+以上操作的时间复杂度均为 $O(1)$，空间复杂度为 $O(n)$，其中 $n$ 为动物收容所中动物的数量。
 
 <!-- tabs:start -->
 
 ```python
 class AnimalShelf:
+
     def __init__(self):
-        self.cats = []
-        self.dogs = []
+        self.q = [deque(), deque()]
 
     def enqueue(self, animal: List[int]) -> None:
-        if animal[1] == 0:
-            self.cats.insert(0, animal[0])
-        else:
-            self.dogs.insert(0, animal[0])
+        i, j = animal
+        self.q[j].append(i)
 
     def dequeueAny(self) -> List[int]:
-        if len(self.dogs) == 0:
-            return self.dequeueCat()
-        if len(self.cats) == 0:
+        if not self.q[0] or (self.q[1] and self.q[1][0] < self.q[0][0]):
             return self.dequeueDog()
-        return self.dequeueDog() if self.dogs[-1] < self.cats[-1] else self.dequeueCat()
+        return self.dequeueCat()
 
     def dequeueDog(self) -> List[int]:
-        return [-1, -1] if len(self.dogs) == 0 else [self.dogs.pop(), 1]
+        return [-1, -1] if not self.q[1] else [self.q[1].popleft(), 1]
 
     def dequeueCat(self) -> List[int]:
-        return [-1, -1] if len(self.cats) == 0 else [self.cats.pop(), 0]
+        return [-1, -1] if not self.q[0] else [self.q[0].popleft(), 0]
 
 
 # Your AnimalShelf object will be instantiated and called as such:
@@ -77,34 +85,29 @@ class AnimalShelf:
 
 ```java
 class AnimalShelf {
-    Queue<Integer> cats;
-    Queue<Integer> dogs;
+    private Deque<Integer>[] q = new Deque[2];
+
     public AnimalShelf() {
-        cats = new LinkedList<>();
-        dogs = new LinkedList<>();
+        Arrays.setAll(q, k -> new ArrayDeque<>());
     }
 
     public void enqueue(int[] animal) {
-        if (animal[1] == 0) {
-            cats.offer(animal[0]);
-        } else {
-            dogs.offer(animal[0]);
-        }
+        q[animal[1]].offer(animal[0]);
     }
 
     public int[] dequeueAny() {
-        return dogs.isEmpty()
-            ? dequeueCat()
-            : (cats.isEmpty() ? dequeueDog()
-                              : (dogs.peek() < cats.peek() ? dequeueDog() : dequeueCat()));
+        if (q[0].isEmpty() || (!q[1].isEmpty() && q[1].peek() < q[0].peek())) {
+            return dequeueDog();
+        }
+        return dequeueCat();
     }
 
     public int[] dequeueDog() {
-        return dogs.isEmpty() ? new int[] {-1, -1} : new int[] {dogs.poll(), 1};
+        return q[1].isEmpty() ? new int[] {-1, -1} : new int[] {q[1].poll(), 1};
     }
 
     public int[] dequeueCat() {
-        return cats.isEmpty() ? new int[] {-1, -1} : new int[] {cats.poll(), 0};
+        return q[0].isEmpty() ? new int[] {-1, -1} : new int[] {q[0].poll(), 0};
     }
 }
 
@@ -118,46 +121,132 @@ class AnimalShelf {
  */
 ```
 
+```cpp
+class AnimalShelf {
+public:
+    AnimalShelf() {
+    }
+
+    void enqueue(vector<int> animal) {
+        q[animal[1]].push(animal[0]);
+    }
+
+    vector<int> dequeueAny() {
+        if (q[0].empty() || (!q[1].empty() && q[1].front() < q[0].front())) {
+            return dequeueDog();
+        }
+        return dequeueCat();
+    }
+
+    vector<int> dequeueDog() {
+        if (q[1].empty()) {
+            return {-1, -1};
+        }
+        int dog = q[1].front();
+        q[1].pop();
+        return {dog, 1};
+    }
+
+    vector<int> dequeueCat() {
+        if (q[0].empty()) {
+            return {-1, -1};
+        }
+        int cat = q[0].front();
+        q[0].pop();
+        return {cat, 0};
+    }
+
+private:
+    queue<int> q[2];
+};
+
+/**
+ * Your AnimalShelf object will be instantiated and called as such:
+ * AnimalShelf* obj = new AnimalShelf();
+ * obj->enqueue(animal);
+ * vector<int> param_2 = obj->dequeueAny();
+ * vector<int> param_3 = obj->dequeueDog();
+ * vector<int> param_4 = obj->dequeueCat();
+ */
+```
+
+```go
+type AnimalShelf struct {
+	q [2][]int
+}
+
+func Constructor() AnimalShelf {
+	return AnimalShelf{}
+}
+
+func (this *AnimalShelf) Enqueue(animal []int) {
+	this.q[animal[1]] = append(this.q[animal[1]], animal[0])
+}
+
+func (this *AnimalShelf) DequeueAny() []int {
+	if len(this.q[0]) == 0 || (len(this.q[1]) > 0 && this.q[0][0] > this.q[1][0]) {
+		return this.DequeueDog()
+	}
+	return this.DequeueCat()
+}
+
+func (this *AnimalShelf) DequeueDog() []int {
+	if len(this.q[1]) == 0 {
+		return []int{-1, -1}
+	}
+	dog := this.q[1][0]
+	this.q[1] = this.q[1][1:]
+	return []int{dog, 1}
+}
+
+func (this *AnimalShelf) DequeueCat() []int {
+	if len(this.q[0]) == 0 {
+		return []int{-1, -1}
+	}
+	cat := this.q[0][0]
+	this.q[0] = this.q[0][1:]
+	return []int{cat, 0}
+}
+
+/**
+ * Your AnimalShelf object will be instantiated and called as such:
+ * obj := Constructor();
+ * obj.Enqueue(animal);
+ * param_2 := obj.DequeueAny();
+ * param_3 := obj.DequeueDog();
+ * param_4 := obj.DequeueCat();
+ */
+```
+
 ```ts
 class AnimalShelf {
-    private cats: number[];
-    private dogs: number[];
-
-    constructor() {
-        this.cats = [];
-        this.dogs = [];
-    }
+    private q: number[][] = [[], []];
+    constructor() {}
 
     enqueue(animal: number[]): void {
         const [i, j] = animal;
-        this[j === 0 ? 'cats' : 'dogs'].push(i);
+        this.q[j].push(i);
     }
 
     dequeueAny(): number[] {
-        const n = this.dogs.length;
-        const m = this.cats.length;
-        if (n === 0 && m === 0) {
-            return [-1, -1];
+        if (this.q[0].length === 0 || (this.q[1].length > 0 && this.q[0][0] > this.q[1][0])) {
+            return this.dequeueDog();
         }
-        if ((this.dogs[0] ?? Infinity) < (this.cats[0] ?? Infinity)) {
-            return [this.dogs.shift(), 1];
-        } else {
-            return [this.cats.shift(), 0];
-        }
+        return this.dequeueCat();
     }
 
     dequeueDog(): number[] {
-        if (this.dogs.length === 0) {
+        if (this.q[1].length === 0) {
             return [-1, -1];
         }
-        return [this.dogs.shift(), 1];
+        return [this.q[1].shift()!, 1];
     }
 
     dequeueCat(): number[] {
-        if (this.cats.length === 0) {
+        if (this.q[0].length === 0) {
             return [-1, -1];
         }
-        return [this.cats.shift(), 0];
+        return [this.q[0].shift()!, 0];
     }
 }
 
@@ -175,53 +264,47 @@ class AnimalShelf {
 use std::collections::VecDeque;
 
 struct AnimalShelf {
-    cats: VecDeque<i32>,
-    dogs: VecDeque<i32>,
+    q: [VecDeque<i32>; 2],
 }
 
-/**
- * `&self` means the method takes an immutable reference.
- * If you need a mutable reference, change it to `&mut self` instead.
- */
 impl AnimalShelf {
     fn new() -> Self {
-        Self {
-            cats: VecDeque::new(),
-            dogs: VecDeque::new(),
+        AnimalShelf {
+            q: [VecDeque::new(), VecDeque::new()],
         }
     }
 
     fn enqueue(&mut self, animal: Vec<i32>) {
-        if animal[1] == 0 {
-            self.cats.push_back(animal[0]);
-        } else {
-            self.dogs.push_back(animal[0]);
-        }
+        self.q[animal[1] as usize].push_back(animal[0]);
     }
 
     fn dequeue_any(&mut self) -> Vec<i32> {
-        match (self.cats.is_empty(), self.dogs.is_empty()) {
-            (true, true) => vec![-1, -1],
-            (true, false) => self.dequeue_dog(),
-            (false, true) => self.dequeue_cat(),
-            (false, false) => {
-                if self.dogs[0] < self.cats[0] { self.dequeue_dog() } else { self.dequeue_cat() }
-            }
+        if
+            self.q[0].is_empty() ||
+            (!self.q[1].is_empty() && self.q[1].front().unwrap() < self.q[0].front().unwrap())
+        {
+            self.dequeue_dog()
+        } else {
+            self.dequeue_cat()
         }
     }
 
     fn dequeue_dog(&mut self) -> Vec<i32> {
-        if self.dogs.is_empty() {
-            return vec![-1, -1];
+        if self.q[1].is_empty() {
+            vec![-1, -1]
+        } else {
+            let dog = self.q[1].pop_front().unwrap();
+            vec![dog, 1]
         }
-        vec![self.dogs.pop_front().unwrap(), 1]
     }
 
     fn dequeue_cat(&mut self) -> Vec<i32> {
-        if self.cats.is_empty() {
-            return vec![-1, -1];
+        if self.q[0].is_empty() {
+            vec![-1, -1]
+        } else {
+            let cat = self.q[0].pop_front().unwrap();
+            vec![cat, 0]
         }
-        vec![self.cats.pop_front().unwrap(), 0]
     }
 }/**
  * Your AnimalShelf object will be instantiated and called as such:
@@ -230,6 +313,43 @@ impl AnimalShelf {
  * let ret_2: Vec<i32> = obj.dequeue_any();
  * let ret_3: Vec<i32> = obj.dequeue_dog();
  * let ret_4: Vec<i32> = obj.dequeue_cat();
+ */
+```
+
+```swift
+class AnimalShelf {
+    private var q: [[Int]] = Array(repeating: [], count: 2)
+
+    init() {
+    }
+
+    func enqueue(_ animal: [Int]) {
+        q[animal[1]].append(animal[0])
+    }
+
+    func dequeueAny() -> [Int] {
+        if q[0].isEmpty || (!q[1].isEmpty && q[1].first! < q[0].first!) {
+            return dequeueDog()
+        }
+        return dequeueCat()
+    }
+
+    func dequeueDog() -> [Int] {
+        return q[1].isEmpty ? [-1, -1] : [q[1].removeFirst(), 1]
+    }
+
+    func dequeueCat() -> [Int] {
+        return q[0].isEmpty ? [-1, -1] : [q[0].removeFirst(), 0]
+    }
+}
+
+/**
+ * Your AnimalShelf object will be instantiated and called as such:
+ * let obj = new AnimalShelf();
+ * obj.enqueue(animal);
+ * let param_2 = obj.dequeueAny();
+ * let param_3 = obj.dequeueDog();
+ * let param_4 = obj.dequeueCat();
  */
 ```
 

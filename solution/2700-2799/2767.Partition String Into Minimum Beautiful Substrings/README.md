@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2767.Partition%20String%20Into%20Minimum%20Beautiful%20Substrings/README_EN.md)
 
+<!-- tags:哈希表,字符串,动态规划,回溯 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2080.Range%20Frequency%20Queries/README.md)
 
+<!-- tags:Design,Segment Tree,Array,Hash Table,Binary Search -->
+
 ## Description
 
 <p>Design a data structure to find the <strong>frequency</strong> of a given value in a given subarray.</p>

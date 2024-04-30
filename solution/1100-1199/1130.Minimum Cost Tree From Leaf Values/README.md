@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1130.Minimum%20Cost%20Tree%20From%20Leaf%20Values/README_EN.md)
 
+<!-- tags:栈,贪心,数组,动态规划,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

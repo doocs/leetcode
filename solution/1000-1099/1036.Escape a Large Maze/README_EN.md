@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1036.Escape%20a%20Large%20Maze/README.md)
 
+<!-- tags:Depth-First Search,Breadth-First Search,Array,Hash Table -->
+
 ## Description
 
 <p>There is a 1 million by 1 million grid on an XY-plane, and the coordinates of each grid square are <code>(x, y)</code>.</p>

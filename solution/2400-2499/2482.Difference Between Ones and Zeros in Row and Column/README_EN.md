@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2482.Difference%20Between%20Ones%20and%20Zeros%20in%20Row%20and%20Column/README.md)
 
+<!-- tags:Array,Matrix,Simulation -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> <code>m x n</code> binary matrix <code>grid</code>.</p>
@@ -63,7 +65,11 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Simulation
+
+We can solve this problem by simulating the process as described in the problem statement.
+
+The time complexity is $O(m \times n)$, and if we ignore the space used by the answer, the space complexity is $O(m + n)$. Here, $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
 

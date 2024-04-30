@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0726.Number%20of%20Atoms/README_EN.md)
 
+<!-- tags:栈,哈希表,字符串,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

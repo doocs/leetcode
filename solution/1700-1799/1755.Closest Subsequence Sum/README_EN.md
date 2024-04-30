@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1755.Closest%20Subsequence%20Sum/README.md)
 
+<!-- tags:Bit Manipulation,Array,Two Pointers,Dynamic Programming,Bitmask -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> and an integer <code>goal</code>.</p>

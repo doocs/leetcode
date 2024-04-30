@@ -42,7 +42,17 @@
 
 ### 方法一：拼接链表
 
-创建两个链表，一个存放小于 `x` 的节点，另一个存放大于等于 `x` 的节点，之后进行拼接即可。
+我们创建两个链表 $left$ 和 $right$，分别用于存储小于 $x$ 的节点和大于等于 $x$ 的节点。
+
+然后我们用两个指针 $p1$ 和 $p2$ 分别指向 $left$ 和 $right$ 的最后一个节点，初始时 $p1$ 和 $p2$ 都指向一个虚拟头节点。
+
+接下来我们遍历链表 $head$，如果当前节点的值小于 $x$，我们就将当前节点添加到 $left$ 链表的末尾，即 $p1.next = head$，然后令 $p1 = p1.next$；否则我们就将当前节点添加到 $right$ 链表的末尾，即 $p2.next = head$，然后令 $p2 = p2.next$。
+
+遍历结束后，我们将 $left$ 链表的尾节点指向 $right$ 链表的第一个有效节点，即 $p1.next = right.next$，然后将 $right$ 链表的尾节点指向空节点，即 $p2.next = null$。
+
+最后我们返回 $left$ 链表的第一个有效节点。
+
+时间复杂度 $O(n)$，其中 $n$ 是链表的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -56,19 +66,19 @@
 
 class Solution:
     def partition(self, head: ListNode, x: int) -> ListNode:
-        l1, l2 = ListNode(0), ListNode(0)
-        cur1, cur2 = l1, l2
+        left, right = ListNode(0), ListNode(0)
+        p1, p2 = left, right
         while head:
             if head.val < x:
-                cur1.next = head
-                cur1 = cur1.next
+                p1.next = head
+                p1 = p1.next
             else:
-                cur2.next = head
-                cur2 = cur2.next
+                p2.next = head
+                p2 = p2.next
             head = head.next
-        cur1.next = l2.next
-        cur2.next = None
-        return l1.next
+        p1.next = right.next
+        p2.next = None
+        return left.next
 ```
 
 ```java
@@ -77,29 +87,27 @@ class Solution:
  * public class ListNode {
  *     int val;
  *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ *     ListNode(int x) { val = x; }
  * }
  */
 class Solution {
     public ListNode partition(ListNode head, int x) {
-        ListNode l1 = new ListNode(0);
-        ListNode l2 = new ListNode(0);
-        ListNode cur1 = l1, cur2 = l2;
-        while (head != null) {
+        ListNode left = new ListNode(0);
+        ListNode right = new ListNode(0);
+        ListNode p1 = left;
+        ListNode p2 = right;
+        for (; head != null; head = head.next) {
             if (head.val < x) {
-                cur1.next = head;
-                cur1 = cur1.next;
+                p1.next = head;
+                p1 = p1.next;
             } else {
-                cur2.next = head;
-                cur2 = cur2.next;
+                p2.next = head;
+                p2 = p2.next;
             }
-            head = head.next;
         }
-        cur1.next = l2.next;
-        cur2.next = null;
-        return l1.next;
+        p1.next = right.next;
+        p2.next = null;
+        return left.next;
     }
 }
 ```
@@ -110,33 +118,56 @@ class Solution {
  * struct ListNode {
  *     int val;
  *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
 class Solution {
 public:
     ListNode* partition(ListNode* head, int x) {
-        ListNode* l1 = new ListNode();
-        ListNode* l2 = new ListNode();
-        ListNode* cur1 = l1;
-        ListNode* cur2 = l2;
-        while (head != nullptr) {
+        ListNode* left = new ListNode(0);
+        ListNode* right = new ListNode(0);
+        ListNode* p1 = left;
+        ListNode* p2 = right;
+        for (; head; head = head->next) {
             if (head->val < x) {
-                cur1->next = head;
-                cur1 = cur1->next;
+                p1->next = head;
+                p1 = p1->next;
             } else {
-                cur2->next = head;
-                cur2 = cur2->next;
+                p2->next = head;
+                p2 = p2->next;
             }
-            head = head->next;
         }
-        cur1->next = l2->next;
-        cur2->next = nullptr;
-        return l1->next;
+        p1->next = right->next;
+        p2->next = nullptr;
+        return left->next;
     }
 };
+```
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func partition(head *ListNode, x int) *ListNode {
+	left, right := &ListNode{}, &ListNode{}
+	p1, p2 := left, right
+	for ; head != nil; head = head.Next {
+		if head.Val < x {
+			p1.Next = head
+			p1 = p1.Next
+		} else {
+			p2.Next = head
+			p2 = p2.Next
+		}
+	}
+	p1.Next = right.Next
+	p2.Next = nil
+	return left.Next
+}
 ```
 
 ```ts
@@ -153,30 +184,61 @@ public:
  */
 
 function partition(head: ListNode | null, x: number): ListNode | null {
-    if (head == null) {
-        return head;
-    }
-    let cur = head;
-    while (cur.next != null) {
-        let node = cur.next;
-        if (node.val < x) {
-            [head, node.next, cur.next] = [node, head, node.next];
+    const [left, right] = [new ListNode(), new ListNode()];
+    let [p1, p2] = [left, right];
+    for (; head; head = head.next) {
+        if (head.val < x) {
+            p1.next = head;
+            p1 = p1.next;
         } else {
-            cur = cur.next;
+            p2.next = head;
+            p2 = p2.next;
         }
     }
-    return head;
+    p1.next = right.next;
+    p2.next = null;
+    return left.next;
+}
+```
+
+```swift
+/** public class ListNode {
+*    var val: Int
+*    var next: ListNode?
+*    init(_ x: Int) {
+*        self.val = x
+*        self.next = nil
+*    }
+* }
+*/
+
+class Solution {
+    func partition(_ head: ListNode?, _ x: Int) -> ListNode? {
+        let leftDummy = ListNode(0)
+        let rightDummy = ListNode(0)
+        var left = leftDummy
+        var right = rightDummy
+        var head = head
+
+        while let current = head {
+            if current.val < x {
+                left.next = current
+                left = left.next!
+            } else {
+                right.next = current
+                right = right.next!
+            }
+            head = head?.next
+        }
+
+        right.next = nil
+        left.next = rightDummy.next
+
+        return leftDummy.next
+    }
 }
 ```
 
 <!-- tabs:end -->
-
-### 方法二：头插法
-
-题中指出，**不需要保留节点的相对位置**。
-
-1. 遍历链表。
-2. 当节点符合小于 `x` 条件时，将其移动至头节点前方，成为新的头节点。
-3. 忽略大于等于 `x` 的节点。
 
 <!-- end -->

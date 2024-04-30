@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2478.Number%20of%20Beautiful%20Partitions/README_EN.md)
 
+<!-- tags:字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -62,7 +64,7 @@
 
 ### 方法一：动态规划
 
-定义 $f[i][j]$ 表示前 $i$ 个字符分割成 $j$ 段的方案数。初始化 $f[0][0] = 1$，其余 $f[i][j] = 0$。
+我们定义 $f[i][j]$ 表示前 $i$ 个字符分割成 $j$ 段的方案数。初始化 $f[0][0] = 1$，其余 $f[i][j] = 0$。
 
 首先，我们需要判断第 $i$ 个字符是否能成为第 $j$ 段的最后一个字符，它需要同时满足以下条件：
 
@@ -109,8 +111,6 @@ class Solution:
 
 ```java
 class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-
     public int beautifulPartitions(String s, int k, int minLength) {
         int n = s.length();
         if (!prime(s.charAt(0)) || prime(s.charAt(n - 1))) {
@@ -120,6 +120,7 @@ class Solution {
         int[][] g = new int[n + 1][k + 1];
         f[0][0] = 1;
         g[0][0] = 1;
+        final int mod = (int) 1e9 + 7;
         for (int i = 1; i <= n; ++i) {
             if (i >= minLength && !prime(s.charAt(i - 1)) && (i == n || prime(s.charAt(i)))) {
                 for (int j = 1; j <= k; ++j) {
@@ -127,7 +128,7 @@ class Solution {
                 }
             }
             for (int j = 0; j <= k; ++j) {
-                g[i][j] = (g[i - 1][j] + f[i][j]) % MOD;
+                g[i][j] = (g[i - 1][j] + f[i][j]) % mod;
             }
         }
         return f[n][k];
@@ -142,8 +143,6 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    const int mod = 1e9 + 7;
-
     int beautifulPartitions(string s, int k, int minLength) {
         int n = s.size();
         auto prime = [](char c) {
@@ -153,6 +152,7 @@ public:
         vector<vector<int>> f(n + 1, vector<int>(k + 1));
         vector<vector<int>> g(n + 1, vector<int>(k + 1));
         f[0][0] = g[0][0] = 1;
+        const int mod = 1e9 + 7;
         for (int i = 1; i <= n; ++i) {
             if (i >= minLength && !prime(s[i - 1]) && (i == n || prime(s[i]))) {
                 for (int j = 1; j <= k; ++j) {
@@ -196,6 +196,36 @@ func beautifulPartitions(s string, k int, minLength int) int {
 		}
 	}
 	return f[n][k]
+}
+```
+
+```ts
+function beautifulPartitions(s: string, k: number, minLength: number): number {
+    const prime = (c: string): boolean => {
+        return c === '2' || c === '3' || c === '5' || c === '7';
+    };
+
+    const n: number = s.length;
+    if (!prime(s[0]) || prime(s[n - 1])) return 0;
+
+    const f: number[][] = new Array(n + 1).fill(0).map(() => new Array(k + 1).fill(0));
+    const g: number[][] = new Array(n + 1).fill(0).map(() => new Array(k + 1).fill(0));
+    const mod: number = 1e9 + 7;
+
+    f[0][0] = g[0][0] = 1;
+
+    for (let i = 1; i <= n; ++i) {
+        if (i >= minLength && !prime(s[i - 1]) && (i === n || prime(s[i]))) {
+            for (let j = 1; j <= k; ++j) {
+                f[i][j] = g[i - minLength][j - 1];
+            }
+        }
+        for (let j = 0; j <= k; ++j) {
+            g[i][j] = (g[i - 1][j] + f[i][j]) % mod;
+        }
+    }
+
+    return f[n][k];
 }
 ```
 

@@ -1,6 +1,8 @@
-# [2852. Sum of Remoteness of All Cells](https://leetcode.com/problems/sum-of-remoteness-of-all-cells)
+# [2852. Sum of Remoteness of All Cells 🔒](https://leetcode.com/problems/sum-of-remoteness-of-all-cells)
 
 [中文文档](/solution/2800-2899/2852.Sum%20of%20Remoteness%20of%20All%20Cells/README.md)
+
+<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Array,Matrix -->
 
 ## Description
 

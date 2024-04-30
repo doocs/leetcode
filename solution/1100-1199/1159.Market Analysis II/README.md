@@ -1,6 +1,8 @@
-# [1159. 市场分析 II](https://leetcode.cn/problems/market-analysis-ii)
+# [1159. 市场分析 II 🔒](https://leetcode.cn/problems/market-analysis-ii)
 
 [English Version](/solution/1100-1199/1159.Market%20Analysis%20II/README_EN.md)
+
+<!-- tags:数据库 -->
 
 ## 题目描述
 
@@ -51,7 +53,9 @@ item_id 是该表的主键(具有唯一值的列)。
 
 <p>&nbsp;</p>
 
-<p>编写一个解决方案，查找每个用户的加入日期和他们作为买家在 <code>2019</code> 年下的订单数。</p>
+<p>编写一个解决方案，为每个用户找出他们出售的第二件商品(按日期)的品牌是否是他们最喜欢的品牌。如果用户售出的商品少于两件，则该用户的结果为否。保证卖家不会在一天内卖出一件以上的商品。</p>
+
+<p>&nbsp;</p>
 
 <p>以 <strong>任意顺序</strong> 返回结果表。</p>
 

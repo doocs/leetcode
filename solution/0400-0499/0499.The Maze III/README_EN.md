@@ -1,6 +1,8 @@
-# [499. The Maze III](https://leetcode.com/problems/the-maze-iii)
+# [499. The Maze III 🔒](https://leetcode.com/problems/the-maze-iii)
 
 [中文文档](/solution/0400-0499/0499.The%20Maze%20III/README.md)
+
+<!-- tags:Depth-First Search,Breadth-First Search,Graph,Array,String,Matrix,Shortest Path,Heap (Priority Queue) -->
 
 ## Description
 

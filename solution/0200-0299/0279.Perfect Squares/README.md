@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0279.Perfect%20Squares/README_EN.md)
 
+<!-- tags:广度优先搜索,数学,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

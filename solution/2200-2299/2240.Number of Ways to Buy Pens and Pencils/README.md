@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2240.Number%20of%20Ways%20to%20Buy%20Pens%20and%20Pencils/README_EN.md)
 
+<!-- tags:数学,枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

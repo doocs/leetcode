@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0609.Find%20Duplicate%20File%20in%20System/README.md)
 
+<!-- tags:Array,Hash Table,String -->
+
 ## Description
 
 <p>Given a list <code>paths</code> of directory info, including the directory path, and all the files with contents in this directory, return <em>all the duplicate files in the file system in terms of their paths</em>. You may return the answer in <strong>any order</strong>.</p>

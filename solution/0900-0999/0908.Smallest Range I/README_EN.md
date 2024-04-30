@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0908.Smallest%20Range%20I/README.md)
 
+<!-- tags:Array,Math -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> and an integer <code>k</code>.</p>
@@ -48,7 +50,13 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Mathematics
+
+According to the problem description, we can add $k$ to the maximum value in the array and subtract $k$ from the minimum value. This can reduce the difference between the maximum and minimum values in the array.
+
+Therefore, the final answer is $\max(nums) - \min(nums) - 2 \times k$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array `nums`. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -92,9 +100,9 @@ func smallestRangeI(nums []int, k int) int {
 
 ```ts
 function smallestRangeI(nums: number[], k: number): number {
-    const max = nums.reduce((r, v) => Math.max(r, v));
-    const min = nums.reduce((r, v) => Math.min(r, v));
-    return Math.max(max - min - k * 2, 0);
+    const mx = Math.max(...nums);
+    const mi = Math.min(...nums);
+    return Math.max(mx - mi - k * 2, 0);
 }
 ```
 

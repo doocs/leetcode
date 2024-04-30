@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0223.Rectangle%20Area/README.md)
 
+<!-- tags:Geometry,Math -->
+
 ## Description
 
 <p>Given the coordinates of two <strong>rectilinear</strong> rectangles in a 2D plane, return <em>the total area covered by the two rectangles</em>.</p>

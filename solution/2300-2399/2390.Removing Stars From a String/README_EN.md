@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2390.Removing%20Stars%20From%20a%20String/README.md)
 
+<!-- tags:Stack,String,Simulation -->
+
 ## Description
 
 <p>You are given a string <code>s</code>, which contains stars <code>*</code>.</p>

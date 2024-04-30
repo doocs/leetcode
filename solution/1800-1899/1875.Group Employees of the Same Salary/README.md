@@ -1,6 +1,8 @@
-# [1875. 将工资相同的雇员分组](https://leetcode.cn/problems/group-employees-of-the-same-salary)
+# [1875. 将工资相同的雇员分组 🔒](https://leetcode.cn/problems/group-employees-of-the-same-salary)
 
 [English Version](/solution/1800-1899/1875.Group%20Employees%20of%20the%20Same%20Salary/README_EN.md)
+
+<!-- tags:数据库 -->
 
 ## 题目描述
 

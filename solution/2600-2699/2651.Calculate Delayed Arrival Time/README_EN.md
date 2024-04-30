@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2651.Calculate%20Delayed%20Arrival%20Time/README.md)
 
+<!-- tags:Math -->
+
 ## Description
 
 <p>You are given a positive integer <code>arrivalTime</code> denoting the arrival time of a train in hours, and another positive integer <code>delayedTime</code> denoting the amount of delay in hours.</p>

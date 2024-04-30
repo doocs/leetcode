@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2939.Maximum%20Xor%20Product/README.md)
 
+<!-- tags:Greedy,Bit Manipulation,Math -->
+
 ## Description
 
 <p>Given three integers <code>a</code>, <code>b</code>, and <code>n</code>, return <em>the <strong>maximum value</strong> of</em> <code>(a XOR x) * (b XOR x)</code> <em>where</em> <code>0 &lt;= x &lt; 2<sup>n</sup></code>.</p>

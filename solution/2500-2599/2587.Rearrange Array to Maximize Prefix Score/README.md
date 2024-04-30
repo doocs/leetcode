@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2587.Rearrange%20Array%20to%20Maximize%20Prefix%20Score/README_EN.md)
 
+<!-- tags:贪心,数组,前缀和,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

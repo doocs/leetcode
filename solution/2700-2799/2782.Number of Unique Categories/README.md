@@ -1,6 +1,8 @@
-# [2782. 唯一类别的数量](https://leetcode.cn/problems/number-of-unique-categories)
+# [2782. 唯一类别的数量 🔒](https://leetcode.cn/problems/number-of-unique-categories)
 
 [English Version](/solution/2700-2799/2782.Number%20of%20Unique%20Categories/README_EN.md)
+
+<!-- tags:并查集,计数,交互 -->
 
 ## 题目描述
 

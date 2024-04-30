@@ -1,6 +1,8 @@
-# [2345. 寻找可见山的数量](https://leetcode.cn/problems/finding-the-number-of-visible-mountains)
+# [2345. 寻找可见山的数量 🔒](https://leetcode.cn/problems/finding-the-number-of-visible-mountains)
 
 [English Version](/solution/2300-2399/2345.Finding%20the%20Number%20of%20Visible%20Mountains/README_EN.md)
+
+<!-- tags:栈,数组,排序,单调栈 -->
 
 ## 题目描述
 

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0033.Search%20in%20Rotated%20Sorted%20Array/README.md)
 
+<!-- tags:Array,Binary Search -->
+
 ## Description
 
 <p>There is an integer array <code>nums</code> sorted in ascending order (with <strong>distinct</strong> values).</p>
@@ -236,6 +238,26 @@ var search = function (nums, target) {
     }
     return nums[left] == target ? left : -1;
 };
+```
+
+```php
+class Solution {
+    /**
+     * @param integer[] $nums
+     * @param integer $target
+     * @return integer
+     */
+
+    function search($nums, $target) {
+        $foundKey = -1;
+        foreach ($nums as $key => $value) {
+            if ($value === $target) {
+                $foundKey = $key;
+            }
+        }
+        return $foundKey;
+    }
+}
 ```
 
 <!-- tabs:end -->

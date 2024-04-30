@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1480.Running%20Sum%20of%201d%20Array/README_EN.md)
 
+<!-- tags:数组,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

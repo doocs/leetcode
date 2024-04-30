@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0721.Accounts%20Merge/README.md)
 
+<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Array,Hash Table,String,Sorting -->
+
 ## Description
 
 <p>Given a list of <code>accounts</code> where each element <code>accounts[i]</code> is a list of strings, where the first element <code>accounts[i][0]</code> is a name, and the rest of the elements are <strong>emails</strong> representing emails of the account.</p>

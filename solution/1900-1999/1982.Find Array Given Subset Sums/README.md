@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1982.Find%20Array%20Given%20Subset%20Sums/README_EN.md)
 
+<!-- tags:数组,分治 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

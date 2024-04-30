@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1923.Longest%20Common%20Subpath/README.md)
 
+<!-- tags:Array,Binary Search,Suffix Array,Hash Function,Rolling Hash -->
+
 ## Description
 
 <p>There is a country of <code>n</code> cities numbered from <code>0</code> to <code>n - 1</code>. In this country, there is a road connecting <b>every pair</b> of cities.</p>

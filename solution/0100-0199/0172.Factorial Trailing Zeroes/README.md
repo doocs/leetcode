@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0172.Factorial%20Trailing%20Zeroes/README_EN.md)
 
+<!-- tags:数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

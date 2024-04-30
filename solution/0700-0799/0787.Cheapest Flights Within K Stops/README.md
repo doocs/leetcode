@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0787.Cheapest%20Flights%20Within%20K%20Stops/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,图,动态规划,最短路,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

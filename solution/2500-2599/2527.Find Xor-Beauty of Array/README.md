@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2527.Find%20Xor-Beauty%20of%20Array/README_EN.md)
 
+<!-- tags:位运算,数组,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

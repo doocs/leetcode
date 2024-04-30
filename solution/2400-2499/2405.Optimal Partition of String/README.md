@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2405.Optimal%20Partition%20of%20String/README_EN.md)
 
+<!-- tags:贪心,哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -1,6 +1,8 @@
-# [2988. 最大部门的经理](https://leetcode.cn/problems/manager-of-the-largest-department)
+# [2988. 最大部门的经理 🔒](https://leetcode.cn/problems/manager-of-the-largest-department)
 
 [English Version](/solution/2900-2999/2988.Manager%20of%20the%20Largest%20Department/README_EN.md)
+
+<!-- tags:数据库 -->
 
 ## 题目描述
 

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0932.Beautiful%20Array/README.md)
 
+<!-- tags:Array,Math,Divide and Conquer -->
+
 ## Description
 
 <p>An array <code>nums</code> of length <code>n</code> is <strong>beautiful</strong> if:</p>

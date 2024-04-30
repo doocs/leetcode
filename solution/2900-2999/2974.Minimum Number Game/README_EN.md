@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2974.Minimum%20Number%20Game/README.md)
 
+<!-- tags:Array,Sorting,Simulation,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of <strong>even</strong> length and there is also an empty array <code>arr</code>. Alice and Bob decided to play a game where in every round Alice and Bob will do one move. The rules of the game are as follows:</p>
@@ -36,7 +38,7 @@ At the begining of round two, nums = [5,4]. Now, first Alice removes 4 and then 
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= nums.length &lt;= 100</code></li>
+	<li><code>2 &lt;= nums.length &lt;= 100</code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 100</code></li>
 	<li><code>nums.length % 2 == 0</code></li>
 </ul>

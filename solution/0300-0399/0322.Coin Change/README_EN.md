@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0322.Coin%20Change/README.md)
 
+<!-- tags:Breadth-First Search,Array,Dynamic Programming -->
+
 ## Description
 
 <p>You are given an integer array <code>coins</code> representing coins of different denominations and an integer <code>amount</code> representing a total amount of money.</p>
@@ -44,7 +46,33 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Dynamic Programming (Complete Knapsack)
+
+We define $f[i][j]$ as the minimum number of coins needed to make up the amount $j$ using the first $i$ types of coins. Initially, $f[0][0] = 0$, and the values of other positions are all positive infinity.
+
+We can enumerate the quantity $k$ of the last coin used, then we have:
+
+$$
+f[i][j] = \min(f[i - 1][j], f[i - 1][j - x] + 1, \cdots, f[i - 1][j - k \times x] + k)
+$$
+
+where $x$ represents the face value of the $i$-th type of coin.
+
+Let $j = j - x$, then we have:
+
+$$
+f[i][j - x] = \min(f[i - 1][j - x], f[i - 1][j - 2 \times x] + 1, \cdots, f[i - 1][j - k \times x] + k - 1)
+$$
+
+Substituting the second equation into the first one, we can get the following state transition equation:
+
+$$
+f[i][j] = \min(f[i - 1][j], f[i][j - x] + 1)
+$$
+
+The final answer is $f[m][n]$.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of types of coins and the total amount, respectively.
 
 <!-- tabs:start -->
 
@@ -201,7 +229,11 @@ var coinChange = function (coins, amount) {
 
 <!-- tabs:end -->
 
-### Solution 2
+We notice that $f[i][j]$ is only related to $f[i - 1][j]$ and $f[i][j - x]$. Therefore, we can optimize the two-dimensional array into a one-dimensional array, reducing the space complexity to $O(n)$.
+
+Similar problems:
+
+-   [279. Perfect Squares](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0279.Perfect%20Squares/README_EN.md)
 
 <!-- tabs:start -->
 

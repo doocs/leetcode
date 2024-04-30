@@ -1,6 +1,8 @@
-# [2794. Create Object from Two Arrays](https://leetcode.com/problems/create-object-from-two-arrays)
+# [2794. Create Object from Two Arrays 🔒](https://leetcode.com/problems/create-object-from-two-arrays)
 
 [中文文档](/solution/2700-2799/2794.Create%20Object%20from%20Two%20Arrays/README.md)
+
+<!-- tags: -->
 
 ## Description
 

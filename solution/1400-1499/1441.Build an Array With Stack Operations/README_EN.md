@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1441.Build%20an%20Array%20With%20Stack%20Operations/README.md)
 
+<!-- tags:Stack,Array,Simulation -->
+
 ## Description
 
 <p>You are given an integer array <code>target</code> and an integer <code>n</code>.</p>

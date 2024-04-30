@@ -1,6 +1,8 @@
-# [1065. 字符串的索引对](https://leetcode.cn/problems/index-pairs-of-a-string)
+# [1065. 字符串的索引对 🔒](https://leetcode.cn/problems/index-pairs-of-a-string)
 
 [English Version](/solution/1000-1099/1065.Index%20Pairs%20of%20a%20String/README_EN.md)
+
+<!-- tags:字典树,数组,字符串,排序 -->
 
 ## 题目描述
 

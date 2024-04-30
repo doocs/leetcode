@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0174.Dungeon%20Game/README.md)
 
+<!-- tags:Array,Dynamic Programming,Matrix -->
+
 ## Description
 
 <p>The demons had captured the princess and imprisoned her in <strong>the bottom-right corner</strong> of a <code>dungeon</code>. The <code>dungeon</code> consists of <code>m x n</code> rooms laid out in a 2D grid. Our valiant knight was initially positioned in <strong>the top-left room</strong> and must fight his way through <code>dungeon</code> to rescue the princess.</p>
@@ -44,7 +46,17 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $dp[i][j]$ as the minimum initial value needed from $(i, j)$ to the end point. The value of $dp[i][j]$ can be obtained from $dp[i+1][j]$ and $dp[i][j+1]$, that is:
+
+$$
+dp[i][j] = \max(\min(dp[i+1][j], dp[i][j+1]) - dungeon[i][j], 1)
+$$
+
+Initially, $dp[m][n-1]$ and $dp[m-1][n]$ are both $1$, and the values at other positions are maximum.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the dungeon, respectively.
 
 <!-- tabs:start -->
 

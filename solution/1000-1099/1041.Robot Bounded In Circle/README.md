@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1041.Robot%20Bounded%20In%20Circle/README_EN.md)
 
+<!-- tags:数学,字符串,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

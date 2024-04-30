@@ -1,6 +1,8 @@
-# [2175. The Change in Global Rankings](https://leetcode.com/problems/the-change-in-global-rankings)
+# [2175. The Change in Global Rankings 🔒](https://leetcode.com/problems/the-change-in-global-rankings)
 
 [中文文档](/solution/2100-2199/2175.The%20Change%20in%20Global%20Rankings/README.md)
+
+<!-- tags:Database -->
 
 ## Description
 

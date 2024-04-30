@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2259.Remove%20Digit%20From%20Number%20to%20Maximize%20Result/README_EN.md)
 
+<!-- tags:贪心,字符串,枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

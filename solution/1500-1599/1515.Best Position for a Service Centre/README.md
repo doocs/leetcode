@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1515.Best%20Position%20for%20a%20Service%20Centre/README_EN.md)
 
+<!-- tags:几何,数学,随机化 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

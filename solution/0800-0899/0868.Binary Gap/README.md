@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0868.Binary%20Gap/README_EN.md)
 
+<!-- tags:位运算 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

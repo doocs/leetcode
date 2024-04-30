@@ -1,6 +1,8 @@
-# [305. Number of Islands II](https://leetcode.com/problems/number-of-islands-ii)
+# [305. Number of Islands II 🔒](https://leetcode.com/problems/number-of-islands-ii)
 
 [中文文档](/solution/0300-0399/0305.Number%20of%20Islands%20II/README.md)
+
+<!-- tags:Union Find,Array -->
 
 ## Description
 

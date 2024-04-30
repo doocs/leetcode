@@ -1,6 +1,8 @@
-# [2792. 计算满足条件的节点数](https://leetcode.cn/problems/count-nodes-that-are-great-enough)
+# [2792. 计算足够大的节点数 🔒](https://leetcode.cn/problems/count-nodes-that-are-great-enough)
 
 [English Version](/solution/2700-2799/2792.Count%20Nodes%20That%20Are%20Great%20Enough/README_EN.md)
+
+<!-- tags:树,深度优先搜索,分治,二叉树 -->
 
 ## 题目描述
 
@@ -13,7 +15,7 @@
 	<li>它的值 <strong>大于</strong> 其子树中 <strong>至少</strong> <code>k</code> 个节点的值。</li>
 </ul>
 
-<p>返回满足条件的节点数。</p>
+<p>返回足够大的节点数。</p>
 
 <p>如果 <code>u == v</code> 或者 <code>v</code> 是 <code>u</code> 的祖先，则节点 <code>u</code> 在节点 <code>v</code> 的 <strong>子树</strong> 中。</p>
 

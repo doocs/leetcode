@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0493.Reverse%20Pairs/README.md)
 
+<!-- tags:Binary Indexed Tree,Segment Tree,Array,Binary Search,Divide and Conquer,Ordered Set,Merge Sort -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, return <em>the number of <strong>reverse pairs</strong> in the array</em>.</p>

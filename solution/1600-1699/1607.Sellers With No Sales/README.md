@@ -1,6 +1,8 @@
-# [1607. 没有卖出的卖家](https://leetcode.cn/problems/sellers-with-no-sales)
+# [1607. 没有卖出的卖家 🔒](https://leetcode.cn/problems/sellers-with-no-sales)
 
 [English Version](/solution/1600-1699/1607.Sellers%20With%20No%20Sales/README_EN.md)
+
+<!-- tags:数据库 -->
 
 ## 题目描述
 

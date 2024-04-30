@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1587.Bank%20Account%20Summary%20II/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Users</code></p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2030.Smallest%20K-Length%20Subsequence%20With%20Occurrences%20of%20a%20Letter/README.md)
 
+<!-- tags:Stack,Greedy,String,Monotonic Stack -->
+
 ## Description
 
 <p>You are given a string <code>s</code>, an integer <code>k</code>, a letter <code>letter</code>, and an integer <code>repetition</code>.</p>

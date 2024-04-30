@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1410.HTML%20Entity%20Parser/README.md)
 
+<!-- tags:Hash Table,String -->
+
 ## Description
 
 <p><strong>HTML entity parser</strong> is the parser that takes HTML code as input and replace all the entities of the special characters by the characters itself.</p>

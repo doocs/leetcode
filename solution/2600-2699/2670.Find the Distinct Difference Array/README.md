@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2670.Find%20the%20Distinct%20Difference%20Array/README_EN.md)
 
+<!-- tags:数组,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -53,7 +55,13 @@
 
 ## 解法
 
-### 方法一
+### 方法一：哈希表 + 预处理后缀
+
+我们可以预处理出一个后缀数组 $suf$，其中 $suf[i]$ 表示后缀 $nums[i, ..., n - 1]$ 中不同元素的数目，在预处理过程中，我们使用一个哈希表 $s$ 来维护后缀中出现过的元素，这样我们就可以在 $O(1)$ 的时间内查询后缀中不同元素的数目。
+
+预处理完后缀数组 $suf$ 后，我们清空哈希表 $s$，然后再次遍历数组 $nums$，用哈希表 $s$ 来维护前缀中出现过的元素，那么位置 $i$ 的答案就是 $s$ 中不同元素的数目减去 $suf[i + 1]$，即 $|s| - suf[i + 1]$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
 
@@ -61,11 +69,16 @@
 class Solution:
     def distinctDifferenceArray(self, nums: List[int]) -> List[int]:
         n = len(nums)
+        suf = [0] * (n + 1)
+        s = set()
+        for i in range(n - 1, -1, -1):
+            s.add(nums[i])
+            suf[i] = len(s)
+        s.clear()
         ans = [0] * n
-        for i in range(n):
-            a = len(set(nums[: i + 1]))
-            b = len(set(nums[i + 1 :]))
-            ans[i] = a - b
+        for i, x in enumerate(nums):
+            s.add(x)
+            ans[i] = len(s) - suf[i + 1]
         return ans
 ```
 
@@ -134,14 +147,14 @@ func distinctDifferenceArray(nums []int) []int {
 ```ts
 function distinctDifferenceArray(nums: number[]): number[] {
     const n = nums.length;
-    const suf: number[] = new Array(n + 1).fill(0);
+    const suf: number[] = Array(n + 1).fill(0);
     const s: Set<number> = new Set();
     for (let i = n - 1; i >= 0; --i) {
         s.add(nums[i]);
         suf[i] = s.size;
     }
     s.clear();
-    const ans: number[] = new Array(n);
+    const ans: number[] = Array(n).fill(0);
     for (let i = 0; i < n; ++i) {
         s.add(nums[i]);
         ans[i] = s.size - suf[i + 1];
@@ -155,74 +168,20 @@ use std::collections::HashSet;
 
 impl Solution {
     pub fn distinct_difference_array(nums: Vec<i32>) -> Vec<i32> {
-        let mut ans: Vec<i32> = Vec::new();
-
-        for i in 0..nums.len() {
-            let mut j = 0;
-            let mut hash1 = HashSet::new();
-            while j <= i {
-                hash1.insert(nums[j]);
-                j += 1;
-            }
-
-            let mut k = i + 1;
-            let mut hash2 = HashSet::new();
-            while k < nums.len() {
-                hash2.insert(nums[k]);
-                k += 1;
-            }
-
-            ans.push((hash1.len() - hash2.len()) as i32);
-        }
-
-        ans
-    }
-}
-```
-
-<!-- tabs:end -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def distinctDifferenceArray(self, nums: List[int]) -> List[int]:
-        n = len(nums)
-        suf = [0] * (n + 1)
-        s = set()
-        for i in range(n - 1, -1, -1):
-            s.add(nums[i])
-            suf[i] = len(s)
-
-        s.clear()
-        ans = [0] * n
-        for i, x in enumerate(nums):
-            s.add(x)
-            ans[i] = len(s) - suf[i + 1]
-        return ans
-```
-
-```rust
-use std::collections::HashSet;
-
-impl Solution {
-    pub fn distinct_difference_array(nums: Vec<i32>) -> Vec<i32> {
         let n = nums.len();
-        let mut s = vec![0; n + 1];
-        let mut set = HashSet::new();
+        let mut suf = vec![0; n + 1];
+        let mut s = HashSet::new();
 
         for i in (0..n).rev() {
-            set.insert(nums[i]);
-            s[i] = set.len();
+            s.insert(nums[i]);
+            suf[i] = s.len();
         }
 
         let mut ans = Vec::new();
-        set.clear();
+        s.clear();
         for i in 0..n {
-            set.insert(nums[i]);
-            ans.push((set.len() - s[i + 1]) as i32);
+            s.insert(nums[i]);
+            ans.push((s.len() - suf[i + 1]) as i32);
         }
 
         ans

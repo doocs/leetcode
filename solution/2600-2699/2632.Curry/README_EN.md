@@ -1,6 +1,8 @@
-# [2632. Curry](https://leetcode.com/problems/curry)
+# [2632. Curry 🔒](https://leetcode.com/problems/curry)
 
-[中文文档](/solution/2600-2699/2632.Curry/README.md)
+[中文文档](/solution/2600-2699/2632.Curry 🔒/README.md)
+
+<!-- tags: -->
 
 ## Description
 

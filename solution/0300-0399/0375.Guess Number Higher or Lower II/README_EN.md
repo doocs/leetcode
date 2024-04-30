@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0375.Guess%20Number%20Higher%20or%20Lower%20II/README.md)
 
+<!-- tags:Math,Dynamic Programming,Game Theory -->
+
 ## Description
 
 <p>We are playing the Guessing Game. The game will work as follows:</p>

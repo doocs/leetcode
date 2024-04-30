@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1674.Minimum%20Moves%20to%20Make%20Array%20Complementary/README.md)
 
+<!-- tags:Array,Hash Table,Prefix Sum -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> of <strong>even</strong> length <code>n</code> and an integer <code>limit</code>. In one move, you can replace any integer from <code>nums</code> with another integer between <code>1</code> and <code>limit</code>, inclusive.</p>
@@ -188,6 +190,35 @@ func minMoves(nums []int, limit int) int {
 		}
 	}
 	return ans
+}
+```
+
+```ts
+function minMoves(nums: number[], limit: number): number {
+    const n = nums.length;
+    const d: number[] = Array(limit * 2 + 2).fill(0);
+    for (let i = 0; i < n >> 1; ++i) {
+        const a = Math.min(nums[i], nums[n - i - 1]);
+        const b = Math.max(nums[i], nums[n - i - 1]);
+
+        d[2] += 2;
+        d[limit * 2 + 1] -= 2;
+
+        d[a + 1] -= 1;
+        d[b + limit + 1] += 1;
+
+        d[a + b] -= 1;
+        d[a + b + 1] += 1;
+    }
+    let ans = n;
+    let s = 0;
+    for (let i = 2; i <= limit * 2; ++i) {
+        s += d[i];
+        if (ans > s) {
+            ans = s;
+        }
+    }
+    return ans;
 }
 ```
 

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2171.Removing%20Minimum%20Number%20of%20Magic%20Beans/README_EN.md)
 
+<!-- tags:贪心,数组,枚举,前缀和,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

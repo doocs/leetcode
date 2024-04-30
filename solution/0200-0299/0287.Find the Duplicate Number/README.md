@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0287.Find%20the%20Duplicate%20Number/README_EN.md)
 
+<!-- tags:位运算,数组,双指针,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -27,6 +29,15 @@
 <strong>输入：</strong>nums = [3,1,3,4,2]
 <strong>输出：</strong>3
 </pre>
+
+<p><strong>示例 3 :</strong></p>
+
+<pre>
+<strong>输入：</strong>nums = [3,3,3,3,3]
+<strong>输出：</strong>3
+</pre>
+
+<p>&nbsp;</p>
 
 <p>&nbsp;</p>
 

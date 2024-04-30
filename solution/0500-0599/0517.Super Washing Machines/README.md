@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0517.Super%20Washing%20Machines/README_EN.md)
 
+<!-- tags:贪心,数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

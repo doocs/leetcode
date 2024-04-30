@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2081.Sum%20of%20k-Mirror%20Numbers/README_EN.md)
 
+<!-- tags:数学,枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0659.Split%20Array%20into%20Consecutive%20Subsequences/README_EN.md)
 
+<!-- tags:贪心,数组,哈希表,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

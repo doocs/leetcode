@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2375.Construct%20Smallest%20Number%20From%20DI%20String/README_EN.md)
 
+<!-- tags:栈,贪心,字符串,回溯 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

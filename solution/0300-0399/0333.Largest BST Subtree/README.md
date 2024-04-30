@@ -1,12 +1,14 @@
-# [333. 最大 BST 子树](https://leetcode.cn/problems/largest-bst-subtree)
+# [333. 最大二叉搜索子树 🔒](https://leetcode.cn/problems/largest-bst-subtree)
 
 [English Version](/solution/0300-0399/0333.Largest%20BST%20Subtree/README_EN.md)
+
+<!-- tags:树,深度优先搜索,二叉搜索树,动态规划,二叉树 -->
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个二叉树，找到其中最大的二叉搜索树（BST）子树，并返回该子树的大小。其中，最大指的是子树节点数最多的。</p>
+<p>给定一个二叉树，找到其中最大的二叉搜索树（BST）子树，并返回该<span data-keyword="subtree">子树</span>的大小。其中，最大指的是子树节点数最多的。</p>
 
 <p><strong>二叉搜索树（BST）</strong>中的所有节点都具备以下属性：</p>
 

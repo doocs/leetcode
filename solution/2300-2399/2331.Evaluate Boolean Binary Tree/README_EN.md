@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2331.Evaluate%20Boolean%20Binary%20Tree/README.md)
 
+<!-- tags:Tree,Depth-First Search,Binary Tree -->
+
 ## Description
 
 <p>You are given the <code>root</code> of a <strong>full binary tree</strong> with the following properties:</p>

@@ -1,6 +1,8 @@
-# [1917. Leetcodify Friends Recommendations](https://leetcode.com/problems/leetcodify-friends-recommendations)
+# [1917. Leetcodify Friends Recommendations 🔒](https://leetcode.com/problems/leetcodify-friends-recommendations)
 
 [中文文档](/solution/1900-1999/1917.Leetcodify%20Friends%20Recommendations/README.md)
+
+<!-- tags:Database -->
 
 ## Description
 

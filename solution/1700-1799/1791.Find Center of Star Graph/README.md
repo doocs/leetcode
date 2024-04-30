@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1791.Find%20Center%20of%20Star%20Graph/README_EN.md)
 
+<!-- tags:图 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

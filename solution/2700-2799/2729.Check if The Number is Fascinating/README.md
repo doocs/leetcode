@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2729.Check%20if%20The%20Number%20is%20Fascinating/README_EN.md)
 
+<!-- tags:哈希表,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

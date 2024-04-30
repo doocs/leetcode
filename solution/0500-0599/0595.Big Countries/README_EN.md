@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0595.Big%20Countries/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>World</code></p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2733.Neither%20Minimum%20nor%20Maximum/README.md)
 
+<!-- tags:Array,Sorting -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> containing <strong>distinct</strong> <strong>positive</strong> integers, find and return <strong>any</strong> number from the array that is neither the <strong>minimum</strong> nor the <strong>maximum</strong> value in the array, or <strong><code>-1</code></strong> if there is no such number.</p>
@@ -44,14 +46,19 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Simulation
+
+First, we find the minimum and maximum values in the array, denoted as $mi$ and $mx$ respectively. Then, we traverse the array and find the first number that is not equal to $mi$ and not equal to $mx$, and return it.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def findNonMinOrMax(self, nums: List[int]) -> int:
-        return -1 if len(nums) < 3 else sorted(nums)[1]
+        mi, mx = min(nums), max(nums)
+        return next((x for x in nums if x != mi and x != mx), -1)
 ```
 
 ```java
@@ -76,10 +83,9 @@ class Solution {
 class Solution {
 public:
     int findNonMinOrMax(vector<int>& nums) {
-        int mi = *min_element(nums.begin(), nums.end());
-        int mx = *max_element(nums.begin(), nums.end());
+        auto [mi, mx] = minmax_element(nums.begin(), nums.end());
         for (int x : nums) {
-            if (x != mi && x != mx) {
+            if (x != *mi && x != *mx) {
                 return x;
             }
         }

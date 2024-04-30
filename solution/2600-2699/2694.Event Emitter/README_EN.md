@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2694.Event%20Emitter/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Design an <code>EventEmitter</code> class. This interface&nbsp;is similar (but with some differences) to the one found in Node.js or the Event Target interface of the DOM. The <code>EventEmitter</code> should allow for subscribing to events and emitting them.</p>

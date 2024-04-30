@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0450.Delete%20Node%20in%20a%20BST/README.md)
 
+<!-- tags:Tree,Binary Search Tree,Binary Tree -->
+
 ## Description
 
 <p>Given a root node reference of a BST and a key, delete the node with the given key in the BST. Return <em>the <strong>root node reference</strong> (possibly updated) of the BST</em>.</p>

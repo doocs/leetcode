@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0083.Remove%20Duplicates%20from%20Sorted%20List/README_EN.md)
 
+<!-- tags:链表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

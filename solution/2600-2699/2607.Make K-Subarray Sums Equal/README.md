@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2607.Make%20K-Subarray%20Sums%20Equal/README_EN.md)
 
+<!-- tags:数组,数学,数论,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

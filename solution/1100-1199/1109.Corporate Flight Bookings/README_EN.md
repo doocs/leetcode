@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1109.Corporate%20Flight%20Bookings/README.md)
 
+<!-- tags:Array,Prefix Sum -->
+
 ## Description
 
 <p>There are <code>n</code> flights that are labeled from <code>1</code> to <code>n</code>.</p>

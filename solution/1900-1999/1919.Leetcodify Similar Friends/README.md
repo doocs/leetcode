@@ -1,6 +1,8 @@
-# [1919. 兴趣相同的朋友](https://leetcode.cn/problems/leetcodify-similar-friends)
+# [1919. 兴趣相同的朋友 🔒](https://leetcode.cn/problems/leetcodify-similar-friends)
 
 [English Version](/solution/1900-1999/1919.Leetcodify%20Similar%20Friends/README_EN.md)
+
+<!-- tags:数据库 -->
 
 ## 题目描述
 

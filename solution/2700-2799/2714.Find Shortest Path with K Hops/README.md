@@ -1,6 +1,8 @@
-# [2714. 找到最短路径的 K 次跨越](https://leetcode.cn/problems/find-shortest-path-with-k-hops)
+# [2714. 找到最短路径的 K 次跨越 🔒](https://leetcode.cn/problems/find-shortest-path-with-k-hops)
 
 [English Version](/solution/2700-2799/2714.Find%20Shortest%20Path%20with%20K%20Hops/README_EN.md)
+
+<!-- tags:图,最短路,堆（优先队列） -->
 
 ## 题目描述
 

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2485.Find%20the%20Pivot%20Integer/README.md)
 
+<!-- tags:Math,Prefix Sum -->
+
 ## Description
 
 <p>Given a positive integer <code>n</code>, find the <strong>pivot integer</strong> <code>x</code> such that:</p>

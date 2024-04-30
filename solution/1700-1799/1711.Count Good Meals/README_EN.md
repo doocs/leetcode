@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1711.Count%20Good%20Meals/README.md)
 
+<!-- tags:Array,Hash Table -->
+
 ## Description
 
 <p>A <strong>good meal</strong> is a meal that contains <strong>exactly two different food items</strong> with a sum of deliciousness equal to a power of two.</p>

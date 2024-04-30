@@ -2,6 +2,8 @@
 
 [中文文档](/solution/3000-3099/3005.Count%20Elements%20With%20Maximum%20Frequency/README.md)
 
+<!-- tags:Array,Hash Table,Counting -->
+
 ## Description
 
 <p>You are given an array <code>nums</code> consisting of <strong>positive</strong> integers.</p>

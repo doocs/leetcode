@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0341.Flatten%20Nested%20List%20Iterator/README_EN.md)
 
+<!-- tags:栈,树,深度优先搜索,设计,队列,迭代器 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

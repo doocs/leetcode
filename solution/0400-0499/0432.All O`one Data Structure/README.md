@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0432.All%20O%60one%20Data%20Structure/README_EN.md)
 
+<!-- tags:设计,哈希表,链表,双向链表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

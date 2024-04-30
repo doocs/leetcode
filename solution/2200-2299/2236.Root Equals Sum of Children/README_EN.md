@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2236.Root%20Equals%20Sum%20of%20Children/README.md)
 
+<!-- tags:Tree,Binary Tree -->
+
 ## Description
 
 <p>You are given the <code>root</code> of a <strong>binary tree</strong> that consists of exactly <code>3</code> nodes: the root, its left child, and its right child.</p>

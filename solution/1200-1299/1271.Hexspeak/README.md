@@ -1,6 +1,8 @@
-# [1271. 十六进制魔术数字](https://leetcode.cn/problems/hexspeak)
+# [1271. 十六进制魔术数字 🔒](https://leetcode.cn/problems/hexspeak)
 
 [English Version](/solution/1200-1299/1271.Hexspeak/README_EN.md)
+
+<!-- tags:数学,字符串 -->
 
 ## 题目描述
 

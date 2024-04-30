@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2644.Find%20the%20Maximum%20Divisibility%20Score/README.md)
 
+<!-- tags:Array -->
+
 ## Description
 
 <p>You are given two <strong>0-indexed</strong> integer arrays <code>nums</code> and <code>divisors</code>.</p>
@@ -56,7 +58,16 @@ Since divisors[0] and divisors[1] both have the maximum divisibility score, we r
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Enumeration
+
+We can enumerate each element $div$ in $divisors$, and calculate how many elements in $nums$ can be divided by $div$, denoted as $cnt$.
+
+-   If $cnt$ is greater than the current maximum divisibility score $mx$, then update $mx = cnt$, and update $ans = div$.
+-   If $cnt$ equals $mx$ and $div$ is less than $ans$, then update $ans = div$.
+
+Finally, return $ans$.
+
+The time complexity is $O(m \times n)$, where $m$ and $n$ are the lengths of $nums$ and $divisors$ respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

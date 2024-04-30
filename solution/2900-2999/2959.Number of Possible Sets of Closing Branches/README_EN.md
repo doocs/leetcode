@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2959.Number%20of%20Possible%20Sets%20of%20Closing%20Branches/README.md)
 
+<!-- tags:Bit Manipulation,Graph,Enumeration,Shortest Path,Heap (Priority Queue) -->
+
 ## Description
 
 <p>There is a company with <code>n</code> branches across the country, some of which are connected by roads. Initially, all branches are reachable from each other by traveling some roads.</p>

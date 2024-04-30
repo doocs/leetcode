@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1787.Make%20the%20XOR%20of%20All%20Segments%20Equal%20to%20Zero/README.md)
 
+<!-- tags:Bit Manipulation,Array,Dynamic Programming -->
+
 ## Description
 
 <p>You are given an array <code>nums</code>​​​ and an integer <code>k</code>​​​​​. The <font face="monospace">XOR</font> of a segment <code>[left, right]</code> where <code>left &lt;= right</code> is the <code>XOR</code> of all the elements with indices between <code>left</code> and <code>right</code>, inclusive: <code>nums[left] XOR nums[left+1] XOR ... XOR nums[right]</code>.</p>
@@ -42,7 +44,33 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+Notice that after modifying the array `nums`, the XOR result of any interval of length $k$ is equal to $0$. Therefore, for any $i$, we have:
+
+$$
+nums[i] \oplus nums[i+1] \oplus ... \oplus nums[i+k-1] = 0
+$$
+
+and
+
+$$
+nums[i+1] \oplus nums[i+2] \oplus ... \oplus nums[i+k] = 0
+$$
+
+Combining the two equations and the properties of XOR operation, we can get $nums[i] \oplus nums[i+k] = 0$, which means $nums[i]=nums[i+k]$. We find that the elements in the modified array `nums` are cyclic with a period of $k$. The numbers congruent modulo $k$ can only take a fixed value, and the XOR result of the first $k$ numbers must be $0$.
+
+First, we count each group $i$, the number of elements in each group is $size[i]$, and the number of elements with value $v$ in each group is $cnt[i][v]$.
+
+Next, we can use dynamic programming to solve it. Let $f[i][j]$ represent the minimum number of modifications with the XOR sum of the first $i+1$ groups being $j$. Since the value of each group is only related to the value of the previous group, we can use a rolling array to optimize the space complexity.
+
+Redefine $f[j]$ to represent the minimum number of modifications with the XOR sum being $j$ when processing to the current group.
+
+When transitioning states, there are two choices: one is to modify all the numbers in the current group to the same value, then we can choose the one with the smallest previous cost, plus the number of elements $size[i]$ in this group, the cost is $\min{f[0..n]} + size[i]$; the second is to modify all the numbers in the current group to some value $j$ of the current group, enumerate $j$ and the element $v$ of the current group, then the previous cost is $f[j \oplus v]$, the cost is $f[j \oplus v] + size[i] - cnt[i][v]$. Take the minimum value.
+
+The final answer is $f[0]$.
+
+The time complexity is $O(2^{C}\times k + n)$. Where $n$ is the length of the array `nums`, and $C$ is the maximum number of bits in the binary representation of the elements in `nums`, in this problem $C=10$.
 
 <!-- tabs:start -->
 

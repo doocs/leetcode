@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2880.Select%20Data/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <pre>

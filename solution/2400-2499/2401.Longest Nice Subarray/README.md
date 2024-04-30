@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2401.Longest%20Nice%20Subarray/README_EN.md)
 
+<!-- tags:位运算,数组,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -138,6 +140,44 @@ function longestNiceSubarray(nums: number[]): number {
         mask |= nums[i];
     }
     return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn longest_nice_subarray(nums: Vec<i32>) -> i32 {
+        let mut ans = 0;
+        let mut mask = 0;
+        let mut j = 0;
+
+        for (i, &x) in nums.iter().enumerate() {
+            let mut x = x;
+            while (mask & x) != 0 {
+                mask ^= nums[j];
+                j += 1;
+            }
+            ans = ans.max(i - j + 1);
+            mask |= x;
+        }
+
+        ans as i32
+    }
+}
+```
+
+```cs
+public class Solution {
+    public int LongestNiceSubarray(int[] nums) {
+        int ans = 0, mask = 0;
+        for (int i = 0, j = 0; i < nums.Length; ++i) {
+            while ((mask & nums[i]) != 0) {
+                mask ^= nums[j++];
+            }
+            ans = Math.Max(ans, i - j + 1);
+            mask |= nums[i];
+        }
+        return ans;
+    }
 }
 ```
 

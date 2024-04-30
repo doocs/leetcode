@@ -2,6 +2,8 @@
 
 [中文文档](/solution/3000-3099/3011.Find%20if%20Array%20Can%20Be%20Sorted/README.md)
 
+<!-- tags:Bit Manipulation,Array,Sorting -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array of <strong>positive</strong> integers <code>nums</code>.</p>

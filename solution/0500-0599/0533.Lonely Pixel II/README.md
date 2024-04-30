@@ -1,6 +1,8 @@
-# [533. 孤独像素 II](https://leetcode.cn/problems/lonely-pixel-ii)
+# [533. 孤独像素 II 🔒](https://leetcode.cn/problems/lonely-pixel-ii)
 
 [English Version](/solution/0500-0599/0533.Lonely%20Pixel%20II/README_EN.md)
+
+<!-- tags:数组,哈希表,矩阵 -->
 
 ## 题目描述
 
@@ -49,87 +51,75 @@
 
 ## 解法
 
-### 方法一
+### 方法一：计数
+
+题目中条件二相当于要求对于每一列中所有包含黑色像素的行，这些行完全相同。
+
+因此，我们可以用一个邻接表 $g$ 来存储每一列中所有包含黑色像素的行，即 $g[j]$ 表示第 $j$ 列中所有包含黑色像素的行的集合。另外，用一个数组 $rows$ 来存储每一行中黑色像素的数量。
+
+接下来，我们遍历每一列，对于每一列，我们找到第一个包含黑色像素的行 $i_1$，如果这一行中黑色像素的数量不等于 $target$，那么这一列不可能包含孤独像素，直接跳过。否则，我们检查这一列中所有包含黑色像素的行是否和第 $i_1$ 行完全相同，如果是，则这一列中所有的黑色像素都是孤独像素，答案加上 $target$。
+
+遍历结束后，返回答案即可。
+
+时间复杂度 $O(m \times n^2)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def findBlackPixel(self, picture: List[List[str]], target: int) -> int:
-        m, n = len(picture), len(picture[0])
-        rows = [0] * m
-        cols = defaultdict(list)
-        for i in range(m):
-            for j in range(n):
-                if picture[i][j] == 'B':
+        rows = [0] * len(picture)
+        g = defaultdict(list)
+        for i, row in enumerate(picture):
+            for j, x in enumerate(row):
+                if x == "B":
                     rows[i] += 1
-                    cols[j].append(i)
-        t = [[False] * m for _ in range(m)]
-        for i in range(m):
-            for k in range(i, m):
-                if i == k:
-                    t[i][k] = True
-                else:
-                    t[i][k] = all([picture[i][j] == picture[k][j] for j in range(n)])
-                t[k][i] = t[i][k]
-        res = 0
-        for i in range(m):
-            if rows[i] == target:
-                for j in range(n):
-                    if len(cols[j]) == target and all([t[i][k] for k in cols[j]]):
-                        res += 1
-        return res
+                    g[j].append(i)
+        ans = 0
+        for j in g:
+            i1 = g[j][0]
+            if rows[i1] != target:
+                continue
+            if len(g[j]) == rows[i1] and all(picture[i2] == picture[i1] for i2 in g[j]):
+                ans += target
+        return ans
 ```
 
 ```java
 class Solution {
     public int findBlackPixel(char[][] picture, int target) {
-        int m = picture.length, n = picture[0].length;
+        int m = picture.length;
+        int n = picture[0].length;
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
         int[] rows = new int[m];
-        Map<Integer, List<Integer>> cols = new HashMap<>();
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (picture[i][j] == 'B') {
                     ++rows[i];
-                    cols.computeIfAbsent(j, k -> new ArrayList<>()).add(i);
+                    g[j].add(i);
                 }
             }
         }
-        boolean[][] t = new boolean[m][m];
-        for (int i = 0; i < m; ++i) {
-            for (int k = i; k < m; ++k) {
-                t[i][k] = i == k || all(picture[i], picture[k]);
-                t[k][i] = t[i][k];
+        int ans = 0;
+        for (int j = 0; j < n; ++j) {
+            if (g[j].isEmpty() || (rows[g[j].get(0)] != target)) {
+                continue;
             }
-        }
-        int res = 0;
-        for (int i = 0; i < m; ++i) {
-            if (rows[i] == target) {
-                for (int j = 0; j < n; ++j) {
-                    List<Integer> col = cols.get(j);
-                    if (col != null && col.size() == target) {
-                        boolean check = true;
-                        for (int k : col) {
-                            check = check && t[i][k];
-                        }
-                        if (check) {
-                            ++res;
-                        }
+            int i1 = g[j].get(0);
+            int ok = 0;
+            if (g[j].size() == rows[i1]) {
+                ok = target;
+                for (int i2 : g[j]) {
+                    if (!Arrays.equals(picture[i1], picture[i2])) {
+                        ok = 0;
+                        break;
                     }
                 }
             }
+            ans += ok;
         }
-        return res;
-    }
-
-    private boolean all(char[] row1, char[] row2) {
-        int n = row1.length;
-        for (int j = 0; j < n; ++j) {
-            if (row1[j] != row2[j]) {
-                return false;
-            }
-        }
-        return true;
+        return ans;
     }
 }
 ```
@@ -138,103 +128,112 @@ class Solution {
 class Solution {
 public:
     int findBlackPixel(vector<vector<char>>& picture, int target) {
-        int m = picture.size(), n = picture[0].size();
+        int m = picture.size();
+        int n = picture[0].size();
+        vector<int> g[n];
         vector<int> rows(m);
-        unordered_map<int, vector<int>> cols;
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (picture[i][j] == 'B') {
                     ++rows[i];
-                    cols[j].push_back(i);
+                    g[j].push_back(i);
                 }
             }
         }
-        vector<vector<bool>> t(m, vector<bool>(m, false));
-        for (int i = 0; i < m; ++i) {
-            for (int k = i; k < m; ++k) {
-                t[i][k] = i == k || all(picture[i], picture[k]);
-                t[k][i] = t[i][k];
+
+        int ans = 0;
+        for (int j = 0; j < n; ++j) {
+            if (g[j].empty() || (rows[g[j][0]] != target)) {
+                continue;
             }
-        }
-        int res = 0;
-        for (int i = 0; i < m; ++i) {
-            if (rows[i] == target) {
-                for (int j = 0; j < n; ++j) {
-                    if (cols[j].size() == target) {
-                        bool check = true;
-                        for (int k : cols[j]) check = check && t[i][k];
-                        if (check) ++res;
+            int i1 = g[j][0];
+            int ok = 0;
+            if (g[j].size() == rows[i1]) {
+                ok = target;
+                for (int i2 : g[j]) {
+                    if (picture[i1] != picture[i2]) {
+                        ok = 0;
+                        break;
                     }
                 }
             }
+            ans += ok;
         }
-        return res;
-    }
-
-    bool all(vector<char>& row1, vector<char>& row2) {
-        int n = row1.size();
-        for (int j = 0; j < n; ++j)
-            if (row1[j] != row2[j]) return false;
-        return true;
+        return ans;
     }
 };
 ```
 
 ```go
-func findBlackPixel(picture [][]byte, target int) int {
-	m, n := len(picture), len(picture[0])
+func findBlackPixel(picture [][]byte, target int) (ans int) {
+	m := len(picture)
+	n := len(picture[0])
+	g := make([][]int, n)
 	rows := make([]int, m)
-	cols := make(map[int][]int)
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			if picture[i][j] == 'B' {
+	for i, row := range picture {
+		for j, x := range row {
+			if x == 'B' {
 				rows[i]++
-				cols[j] = append(cols[j], i)
+				g[j] = append(g[j], i)
 			}
 		}
 	}
-	t := make([][]bool, m)
-	for i := 0; i < m; i++ {
-		t[i] = make([]bool, m)
-	}
-	for i := 0; i < m; i++ {
-		for k := i; k < m; k++ {
-			if i == k {
-				t[i][k] = true
-			} else {
-				t[i][k] = all(picture[i], picture[k])
-			}
-			t[k][i] = t[i][k]
+	for j := 0; j < n; j++ {
+		if len(g[j]) == 0 || rows[g[j][0]] != target {
+			continue
 		}
-	}
-	res := 0
-	for i := 0; i < m; i++ {
-		if rows[i] == target {
-			for j := 0; j < n; j++ {
-				col, ok := cols[j]
-				if ok && len(col) == target {
-					check := true
-					for _, k := range col {
-						check = check && t[i][k]
-					}
-					if check {
-						res++
-					}
+		i1 := g[j][0]
+		ok := 0
+		if len(g[j]) == rows[i1] {
+			ok = target
+			for _, i2 := range g[j] {
+				if !bytes.Equal(picture[i1], picture[i2]) {
+					ok = 0
+					break
 				}
 			}
 		}
+		ans += ok
 	}
-	return res
+	return
 }
+```
 
-func all(row1, row2 []byte) bool {
-	n := len(row1)
-	for i := 0; i < n; i++ {
-		if row1[i] != row2[i] {
-			return false
-		}
-	}
-	return true
+```ts
+function findBlackPixel(picture: string[][], target: number): number {
+    const m: number = picture.length;
+    const n: number = picture[0].length;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    const rows: number[] = Array(m).fill(0);
+
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (picture[i][j] === 'B') {
+                ++rows[i];
+                g[j].push(i);
+            }
+        }
+    }
+
+    let ans: number = 0;
+    for (let j = 0; j < n; ++j) {
+        if (g[j].length === 0 || rows[g[j][0]] !== target) {
+            continue;
+        }
+        const i1: number = g[j][0];
+        let ok: number = 0;
+        if (g[j].length === rows[i1]) {
+            ok = target;
+            for (const i2 of g[j]) {
+                if (picture[i1].join('') !== picture[i2].join('')) {
+                    ok = 0;
+                    break;
+                }
+            }
+        }
+        ans += ok;
+    }
+    return ans;
 }
 ```
 

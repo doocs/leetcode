@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1697.Checking%20Existence%20of%20Edge%20Length%20Limited%20Paths/README.md)
 
+<!-- tags:Union Find,Graph,Array,Two Pointers,Sorting -->
+
 ## Description
 
 <p>An undirected graph of <code>n</code> nodes is defined by <code>edgeList</code>, where <code>edgeList[i] = [u<sub>i</sub>, v<sub>i</sub>, dis<sub>i</sub>]</code> denotes an edge between nodes <code>u<sub>i</sub></code> and <code>v<sub>i</sub></code> with distance <code>dis<sub>i</sub></code>. Note that there may be <strong>multiple</strong> edges between two nodes.</p>
@@ -46,7 +48,15 @@ For the second query, there is a path (0 -&gt; 1 -&gt; 2) of two edges with dist
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Offline Queries + Union-Find
+
+According to the problem requirements, we need to judge each query $queries[i]$, that is, to determine whether there is a path with edge weight less than or equal to $limit$ between the two points $a$ and $b$ of the current query.
+
+The connectivity of two points can be determined by a union-find set. Moreover, since the order of queries does not affect the result, we can sort all queries in ascending order by $limit$, and also sort all edges in ascending order by edge weight.
+
+Then for each query, we start from the edge with the smallest weight, add all edges with weights strictly less than $limit$ to the union-find set, and then use the query operation of the union-find set to determine whether the two points are connected.
+
+The time complexity is $O(m \times \log m + q \times \log q)$, where $m$ and $q$ are the number of edges and queries, respectively.
 
 <!-- tabs:start -->
 
@@ -250,6 +260,113 @@ impl Solution {
         let p_d = Solution::find(d, d_set);
         p_s == p_d
     }
+}
+```
+
+<!-- tabs:end -->
+
+Union-Find is a tree-like data structure that, as the name suggests, is used to handle some disjoint set **merge** and **query** problems. It supports two operations:
+
+1. Find: Determine which subset an element belongs to. The time complexity of a single operation is $O(\alpha(n))$.
+2. Union: Merge two subsets into one set. The time complexity of a single operation is $O(\alpha(n))$.
+
+Here, $\alpha$ is the inverse Ackermann function, which grows extremely slowly. In other words, the average running time of its single operation can be considered a very small constant.
+
+Below is a common template for Union-Find, which needs to be mastered proficiently. Where:
+
+-   `n` represents the number of nodes.
+-   `p` stores the parent node of each point. Initially, the parent node of each point is itself.
+-   `size` only makes sense when the node is an ancestor node, indicating the number of points in the set where the ancestor node is located.
+-   `find(x)` function is used to find the ancestor node of the set where $x$ is located.
+-   `union(a, b)` function is used to merge the sets where $a$ and $b$ are located.
+
+<!-- tabs:start -->
+
+```python
+p = list(range(n))
+size = [1] * n
+
+def find(x):
+    if p[x] != x:
+        p[x] = find(p[x])
+    return p[x]
+
+
+def union(a, b):
+    pa, pb = find(a), find(b)
+    if pa == pb:
+        return
+    p[pa] = pb
+    size[pb] += size[pa]
+```
+
+```java
+int[] p = new int[n];
+int[] size = new int[n];
+for (int i = 0; i < n; ++i) {
+    p[i] = i;
+    size[i] = 1;
+}
+
+int find(int x) {
+    if (p[x] != x) {
+        p[x] = find(p[x]);
+    }
+    return p[x];
+}
+
+void union(int a, int b) {
+    int pa = find(a), pb = find(b);
+    if (pa == pb) {
+        return;
+    }
+    p[pa] = pb;
+    size[pb] += size[pa];
+}
+```
+
+```cpp
+vector<int> p(n);
+iota(p.begin(), p.end(), 0);
+vector<int> size(n, 1);
+
+int find(int x) {
+    if (p[x] != x) {
+        p[x] = find(p[x]);
+    }
+    return p[x];
+}
+
+void unite(int a, int b) {
+    int pa = find(a), pb = find(b);
+    if (pa == pb) return;
+    p[pa] = pb;
+    size[pb] += size[pa];
+}
+```
+
+```go
+p := make([]int, n)
+size := make([]int, n)
+for i := range p {
+    p[i] = i
+    size[i] = 1
+}
+
+func find(x int) int {
+    if p[x] != x {
+        p[x] = find(p[x])
+    }
+    return p[x]
+}
+
+func union(a, b int) {
+    pa, pb := find(a), find(b)
+    if pa == pb {
+        return
+    }
+    p[pa] = pb
+    size[pb] += size[pa]
 }
 ```
 

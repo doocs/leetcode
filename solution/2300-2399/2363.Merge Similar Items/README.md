@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2363.Merge%20Similar%20Items/README_EN.md)
 
+<!-- tags:数组,哈希表,有序集合,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

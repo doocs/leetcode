@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0193.Valid%20Phone%20Numbers/README_EN.md)
 
+<!-- tags: -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -32,5 +34,16 @@
 </pre>
 
 ## 解法
+
+### 方法一：awk
+
+<!-- tabs:start -->
+
+```bash
+# Read from the file file.txt and output all valid phone numbers to stdout.
+awk '/^([0-9]{3}-|\([0-9]{3}\) )[0-9]{3}-[0-9]{4}$/' file.txt
+```
+
+<!-- tabs:end -->
 
 <!-- end -->

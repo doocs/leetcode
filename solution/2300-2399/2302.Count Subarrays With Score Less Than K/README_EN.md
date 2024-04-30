@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2302.Count%20Subarrays%20With%20Score%20Less%20Than%20K/README.md)
 
+<!-- tags:Array,Binary Search,Prefix Sum,Sliding Window -->
+
 ## Description
 
 <p>The <strong>score</strong> of an array is defined as the <strong>product</strong> of its sum and its length.</p>

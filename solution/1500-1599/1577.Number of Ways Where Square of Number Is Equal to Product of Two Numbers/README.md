@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1577.Number%20of%20Ways%20Where%20Square%20of%20Number%20Is%20Equal%20to%20Product%20of%20Two%20Numbers/README_EN.md)
 
+<!-- tags:数组,哈希表,数学,双指针 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

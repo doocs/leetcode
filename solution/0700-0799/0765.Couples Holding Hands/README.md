@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0765.Couples%20Holding%20Hands/README_EN.md)
 
+<!-- tags:贪心,深度优先搜索,广度优先搜索,并查集,图 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

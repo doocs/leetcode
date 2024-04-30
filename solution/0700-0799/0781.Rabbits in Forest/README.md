@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0781.Rabbits%20in%20Forest/README_EN.md)
 
+<!-- tags:贪心,数组,哈希表,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

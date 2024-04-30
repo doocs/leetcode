@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1581.Customer%20Who%20Visited%20but%20Did%20Not%20Make%20Any%20Transactions/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Visits</code></p>

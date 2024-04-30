@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0809.Expressive%20Words/README_EN.md)
 
+<!-- tags:数组,双指针,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

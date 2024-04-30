@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1739.Building%20Boxes/README_EN.md)
 
+<!-- tags:贪心,数学,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2843.Count%20Symmetric%20Integers/README_EN.md)
 
+<!-- tags:数学,枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

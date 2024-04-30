@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1283.Find%20the%20Smallest%20Divisor%20Given%20a%20Threshold/README_EN.md)
 
+<!-- tags:数组,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -74,6 +76,16 @@ class Solution:
             else:
                 l = mid + 1
         return l
+```
+
+```python
+class Solution:
+    def smallestDivisor(self, nums: List[int], threshold: int) -> int:
+        def f(v: int) -> bool:
+            v += 1
+            return sum((x + v - 1) // v for x in nums) <= threshold
+
+        return bisect_left(range(max(nums)), True, key=f) + 1
 ```
 
 ```java
@@ -198,22 +210,6 @@ public class Solution {
         return l;
     }
 }
-```
-
-<!-- tabs:end -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def smallestDivisor(self, nums: List[int], threshold: int) -> int:
-        def f(v: int) -> bool:
-            v += 1
-            return sum((x + v - 1) // v for x in nums) <= threshold
-
-        return bisect_left(range(max(nums)), True, key=f) + 1
 ```
 
 <!-- tabs:end -->

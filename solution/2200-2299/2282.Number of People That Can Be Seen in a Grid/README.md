@@ -1,6 +1,8 @@
-# [2282. 在一个网格中可以看到的人数](https://leetcode.cn/problems/number-of-people-that-can-be-seen-in-a-grid)
+# [2282. 在一个网格中可以看到的人数 🔒](https://leetcode.cn/problems/number-of-people-that-can-be-seen-in-a-grid)
 
 [English Version](/solution/2200-2299/2282.Number%20of%20People%20That%20Can%20Be%20Seen%20in%20a%20Grid/README_EN.md)
+
+<!-- tags:栈,数组,矩阵,单调栈 -->
 
 ## 题目描述
 

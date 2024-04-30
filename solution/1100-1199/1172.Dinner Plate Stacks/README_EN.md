@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1172.Dinner%20Plate%20Stacks/README.md)
 
+<!-- tags:Stack,Design,Hash Table,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You have an infinite number of stacks arranged in a row and numbered (left to right) from <code>0</code>, each of the stacks has the same maximum capacity.</p>

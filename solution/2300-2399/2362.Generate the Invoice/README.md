@@ -1,6 +1,8 @@
-# [2362. 生成发票](https://leetcode.cn/problems/generate-the-invoice)
+# [2362. 生成发票 🔒](https://leetcode.cn/problems/generate-the-invoice)
 
 [English Version](/solution/2300-2399/2362.Generate%20the%20Invoice/README_EN.md)
+
+<!-- tags:数据库 -->
 
 ## 题目描述
 

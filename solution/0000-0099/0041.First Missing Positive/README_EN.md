@@ -2,9 +2,11 @@
 
 [中文文档](/solution/0000-0099/0041.First%20Missing%20Positive/README.md)
 
+<!-- tags:Array,Hash Table -->
+
 ## Description
 
-<p>Given an unsorted integer array <code>nums</code>, return the smallest missing positive integer.</p>
+<p>Given an unsorted integer array <code>nums</code>. Return the <em>smallest positive integer</em> that is <em>not present</em> in <code>nums</code>.</p>
 
 <p>You must implement an algorithm that runs in <code>O(n)</code> time and uses <code>O(1)</code> auxiliary space.</p>
 
@@ -176,79 +178,80 @@ impl Solution {
 ```cs
 public class Solution {
     public int FirstMissingPositive(int[] nums) {
-        var i = 0;
-        while (i < nums.Length)
-        {
-            if (nums[i] > 0 && nums[i] <= nums.Length)
-            {
-                var index = nums[i] -1;
-                if (index != i && nums[index] != nums[i])
-                {
-                    var temp = nums[i];
-                    nums[i] = nums[index];
-                    nums[index] = temp;
-                }
-                else
-                {
-                    ++i;
-                }
-            }
-            else
-            {
-                ++i;
+        int n = nums.Length;
+        for (int i = 0; i < n; ++i) {
+            while (nums[i] >= 1 && nums[i] <= n && nums[i] != nums[nums[i] - 1]) {
+                Swap(nums, i, nums[i] - 1);
             }
         }
-
-        for (i = 0; i < nums.Length; ++i)
-        {
-            if (nums[i] != i + 1)
-            {
+        for (int i = 0; i < n; ++i) {
+            if (i + 1 != nums[i]) {
                 return i + 1;
             }
         }
-        return nums.Length + 1;
+        return n + 1;
+    }
+
+    private void Swap(int[] nums, int i, int j) {
+        int t = nums[i];
+        nums[i] = nums[j];
+        nums[j] = t;
     }
 }
 ```
 
 ```c
 int firstMissingPositive(int* nums, int numsSize) {
-
-    int Max = nums[0], i, *Count;
-
-    for (i = 1; i < numsSize; i++) {
-        Max = (Max < nums[i]) ? nums[i] : Max;
-    }
-
-    Count = (int*) calloc(Max + 1, sizeof(int));
-    for (i = 0; i < numsSize; i++) {
-        if (nums[i] > 0) {
-            Count[nums[i]]++;
+    for (int i = 0; i < numsSize; ++i) {
+        while (nums[i] >= 1 && nums[i] <= numsSize && nums[i] != nums[nums[i] - 1]) {
+            swap(&nums[i], &nums[nums[i] - 1]);
         }
     }
-
-    i = 1;
-    while (Count[i] != 0) {
-        i++;
+    for (int i = 0; i < numsSize; ++i) {
+        if (i + 1 != nums[i]) {
+            return i + 1;
+        }
     }
+    return numsSize + 1;
+}
 
-    return i;
+void swap(int* a, int* b) {
+    int t = *a;
+    *a = *b;
+    *b = t;
 }
 ```
 
-<!-- tabs:end -->
+```php
+class Solution {
+    /**
+     * @param integer[] $nums
+     * @return integer
+     */
 
-### Solution 2
+    function firstMissingPositive($nums) {
+        $n = count($nums);
 
-<!-- tabs:start -->
+        for ($i = 0; $i < $n; $i++) {
+            if ($nums[$i] <= 0) {
+                $nums[$i] = $n + 1;
+            }
+        }
 
-```ts
-function firstMissingPositive(nums: number[]): number {
-    const set = new Set(nums);
-    let ans = 1;
-    while (true) {
-        if (!set.has(ans)) return ans;
-        ans++;
+        for ($i = 0; $i < $n; $i++) {
+            $num = abs($nums[$i]);
+            if ($num <= $n) {
+                $nums[$num - 1] = -abs($nums[$num - 1]);
+            }
+        }
+
+        for ($i = 0; $i < $n; $i++) {
+            if ($nums[$i] > 0) {
+                return $i + 1;
+            }
+        }
+
+        return $n + 1;
     }
 }
 ```

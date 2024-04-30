@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1952.Three%20Divisors/README.md)
 
+<!-- tags:Math,Enumeration,Number Theory -->
+
 ## Description
 
 <p>Given an integer <code>n</code>, return <code>true</code><em> if </em><code>n</code><em> has <strong>exactly three positive divisors</strong>. Otherwise, return </em><code>false</code>.</p>

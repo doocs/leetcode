@@ -1,6 +1,8 @@
-# [2823. 深度对象筛选](https://leetcode.cn/problems/deep-object-filter)
+# [2823. 深度对象筛选 🔒](https://leetcode.cn/problems/deep-object-filter)
 
 [English Version](/solution/2800-2899/2823.Deep%20Object%20Filter/README_EN.md)
+
+<!-- tags: -->
 
 ## 题目描述
 

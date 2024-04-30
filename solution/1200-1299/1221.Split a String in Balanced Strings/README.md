@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1221.Split%20a%20String%20in%20Balanced%20Strings/README_EN.md)
 
+<!-- tags:贪心,字符串,计数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

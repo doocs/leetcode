@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2336.Smallest%20Number%20in%20Infinite%20Set/README_EN.md)
 
+<!-- tags:设计,哈希表,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

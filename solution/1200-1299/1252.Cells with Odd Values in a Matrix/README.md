@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1252.Cells%20with%20Odd%20Values%20in%20a%20Matrix/README_EN.md)
 
+<!-- tags:数组,数学,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

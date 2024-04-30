@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1418.Display%20Table%20of%20Food%20Orders%20in%20a%20Restaurant/README_EN.md)
 
+<!-- tags:数组,哈希表,字符串,有序集合,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

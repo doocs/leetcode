@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1948.Delete%20Duplicate%20Folders%20in%20System/README.md)
 
+<!-- tags:Trie,Array,Hash Table,String,Hash Function -->
+
 ## Description
 
 <p>Due to a bug, there are many duplicate folders in a file system. You are given a 2D array <code>paths</code>, where <code>paths[i]</code> is an array representing an absolute path to the <code>i<sup>th</sup></code> folder in the file system.</p>

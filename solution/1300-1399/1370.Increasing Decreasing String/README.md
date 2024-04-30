@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1370.Increasing%20Decreasing%20String/README_EN.md)
 
+<!-- tags:哈希表,字符串,计数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

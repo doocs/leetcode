@@ -1,6 +1,8 @@
-# [2987. Find Expensive Cities](https://leetcode.com/problems/find-expensive-cities)
+# [2987. Find Expensive Cities 🔒](https://leetcode.com/problems/find-expensive-cities)
 
 [中文文档](/solution/2900-2999/2987.Find%20Expensive%20Cities/README.md)
+
+<!-- tags:Database -->
 
 ## Description
 

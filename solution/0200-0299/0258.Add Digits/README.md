@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0258.Add%20Digits/README_EN.md)
 
+<!-- tags:数学,数论,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

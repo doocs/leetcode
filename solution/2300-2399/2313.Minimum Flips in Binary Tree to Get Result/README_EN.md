@@ -1,6 +1,8 @@
-# [2313. Minimum Flips in Binary Tree to Get Result](https://leetcode.com/problems/minimum-flips-in-binary-tree-to-get-result)
+# [2313. Minimum Flips in Binary Tree to Get Result 🔒](https://leetcode.com/problems/minimum-flips-in-binary-tree-to-get-result)
 
 [中文文档](/solution/2300-2399/2313.Minimum%20Flips%20in%20Binary%20Tree%20to%20Get%20Result/README.md)
+
+<!-- tags:Tree,Depth-First Search,Dynamic Programming,Binary Tree -->
 
 ## Description
 

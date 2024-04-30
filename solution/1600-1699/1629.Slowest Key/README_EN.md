@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1629.Slowest%20Key/README.md)
 
+<!-- tags:Array,String -->
+
 ## Description
 
 <p>A newly designed keypad was tested, where a tester pressed a sequence of <code>n</code> keys, one at a time.</p>

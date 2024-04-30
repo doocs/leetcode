@@ -1,6 +1,8 @@
-# [534. 游戏玩法分析 III](https://leetcode.cn/problems/game-play-analysis-iii)
+# [534. 游戏玩法分析 III 🔒](https://leetcode.cn/problems/game-play-analysis-iii)
 
 [English Version](/solution/0500-0599/0534.Game%20Play%20Analysis%20III/README_EN.md)
+
+<!-- tags:数据库 -->
 
 ## 题目描述
 

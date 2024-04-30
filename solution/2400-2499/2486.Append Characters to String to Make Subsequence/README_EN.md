@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2486.Append%20Characters%20to%20String%20to%20Make%20Subsequence/README.md)
 
+<!-- tags:Greedy,Two Pointers,String -->
+
 ## Description
 
 <p>You are given two strings <code>s</code> and <code>t</code> consisting of only lowercase English letters.</p>

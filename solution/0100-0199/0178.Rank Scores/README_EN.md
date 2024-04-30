@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0178.Rank%20Scores/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Scores</code></p>

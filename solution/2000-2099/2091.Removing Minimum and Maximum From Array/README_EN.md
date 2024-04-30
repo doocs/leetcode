@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2091.Removing%20Minimum%20and%20Maximum%20From%20Array/README.md)
 
+<!-- tags:Greedy,Array -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array of <strong>distinct</strong> integers <code>nums</code>.</p>

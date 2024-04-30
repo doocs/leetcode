@@ -1,6 +1,8 @@
-# [2832. 每个元素为最大值的最大范围](https://leetcode.cn/problems/maximal-range-that-each-element-is-maximum-in-it)
+# [2832. 每个元素为最大值的最大范围 🔒](https://leetcode.cn/problems/maximal-range-that-each-element-is-maximum-in-it)
 
 [English Version](/solution/2800-2899/2832.Maximal%20Range%20That%20Each%20Element%20Is%20Maximum%20in%20It/README_EN.md)
+
+<!-- tags:栈,数组,单调栈 -->
 
 ## 题目描述
 

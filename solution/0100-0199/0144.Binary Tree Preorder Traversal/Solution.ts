@@ -13,14 +13,15 @@
  */
 
 function preorderTraversal(root: TreeNode | null): number[] {
-    let ans = [];
-    if (!root) return ans;
-    let stk = [root];
-    while (stk.length) {
-        let node = stk.pop();
-        ans.push(node.val);
-        if (node.right) stk.push(node.right);
-        if (node.left) stk.push(node.left);
-    }
+    const ans: number[] = [];
+    const dfs = (root: TreeNode | null) => {
+        if (!root) {
+            return;
+        }
+        ans.push(root.val);
+        dfs(root.left);
+        dfs(root.right);
+    };
+    dfs(root);
     return ans;
 }

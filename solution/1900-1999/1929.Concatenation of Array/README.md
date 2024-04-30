@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1929.Concatenation%20of%20Array/README_EN.md)
 
+<!-- tags:数组,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

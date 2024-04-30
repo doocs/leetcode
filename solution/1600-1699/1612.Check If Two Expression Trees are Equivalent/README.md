@@ -1,6 +1,8 @@
-# [1612. 检查两棵二叉表达式树是否等价](https://leetcode.cn/problems/check-if-two-expression-trees-are-equivalent)
+# [1612. 检查两棵二叉表达式树是否等价 🔒](https://leetcode.cn/problems/check-if-two-expression-trees-are-equivalent)
 
 [English Version](/solution/1600-1699/1612.Check%20If%20Two%20Expression%20Trees%20are%20Equivalent/README_EN.md)
+
+<!-- tags:树,深度优先搜索,二叉树 -->
 
 ## 题目描述
 

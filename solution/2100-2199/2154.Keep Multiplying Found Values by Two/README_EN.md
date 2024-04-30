@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2154.Keep%20Multiplying%20Found%20Values%20by%20Two/README.md)
 
+<!-- tags:Array,Hash Table,Sorting,Simulation -->
+
 ## Description
 
 <p>You are given an array of integers <code>nums</code>. You are also given an integer <code>original</code> which is the first number that needs to be searched for in <code>nums</code>.</p>

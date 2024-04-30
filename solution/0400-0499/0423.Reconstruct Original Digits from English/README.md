@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0423.Reconstruct%20Original%20Digits%20from%20English/README_EN.md)
 
+<!-- tags:哈希表,数学,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

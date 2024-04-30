@@ -18,6 +18,11 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '00 23 * * 0'
+
+concurrency:
+  group: ${{github.workflow}} - ${{github.ref}}
+  cancel-in-progress: true
+
 jobs:
   build:
     name: calibreapp/image-actions

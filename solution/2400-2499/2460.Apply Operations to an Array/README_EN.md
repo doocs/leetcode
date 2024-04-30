@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2460.Apply%20Operations%20to%20an%20Array/README.md)
 
+<!-- tags:Array,Simulation -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> of size <code>n</code> consisting of <strong>non-negative</strong> integers.</p>

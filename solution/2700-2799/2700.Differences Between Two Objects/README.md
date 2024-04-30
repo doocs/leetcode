@@ -1,6 +1,8 @@
-# [2700. 两个对象之间的差异](https://leetcode.cn/problems/differences-between-two-objects)
+# [2700. 两个对象之间的差异 🔒](https://leetcode.cn/problems/differences-between-two-objects)
 
 [English Version](/solution/2700-2799/2700.Differences%20Between%20Two%20Objects/README_EN.md)
+
+<!-- tags: -->
 
 ## 题目描述
 

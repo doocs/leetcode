@@ -1,6 +1,8 @@
-# [2992. 自整除排列的数量](https://leetcode.cn/problems/number-of-self-divisible-permutations)
+# [2992. 自整除排列的数量 🔒](https://leetcode.cn/problems/number-of-self-divisible-permutations)
 
 [English Version](/solution/2900-2999/2992.Number%20of%20Self-Divisible%20Permutations/README_EN.md)
+
+<!-- tags:位运算,递归,数组,动态规划,状态压缩 -->
 
 ## 题目描述
 

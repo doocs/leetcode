@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0048.Rotate%20Image/README_EN.md)
 
+<!-- tags:数组,数学,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

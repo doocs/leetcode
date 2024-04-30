@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0519.Random%20Flip%20Matrix/README_EN.md)
 
+<!-- tags:水塘抽样,哈希表,数学,随机化 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -1,6 +1,8 @@
-# [578. 查询回答率最高的问题](https://leetcode.cn/problems/get-highest-answer-rate-question)
+# [578. 查询回答率最高的问题 🔒](https://leetcode.cn/problems/get-highest-answer-rate-question)
 
 [English Version](/solution/0500-0599/0578.Get%20Highest%20Answer%20Rate%20Question/README_EN.md)
+
+<!-- tags:数据库 -->
 
 ## 题目描述
 

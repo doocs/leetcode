@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0103.Binary%20Tree%20Zigzag%20Level%20Order%20Traversal/README.md)
 
+<!-- tags:Tree,Breadth-First Search,Binary Tree -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary tree, return <em>the zigzag level order traversal of its nodes&#39; values</em>. (i.e., from left to right, then right to left for the next level and alternate between).</p>
@@ -139,7 +141,9 @@ class Solution {
 public:
     vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
         vector<vector<int>> ans;
-        if (!root) return ans;
+        if (!root) {
+            return ans;
+        }
         queue<TreeNode*> q{{root}};
         int left = 1;
         while (!q.empty()) {
@@ -148,10 +152,16 @@ public:
                 auto node = q.front();
                 q.pop();
                 t.emplace_back(node->val);
-                if (node->left) q.push(node->left);
-                if (node->right) q.push(node->right);
+                if (node->left) {
+                    q.push(node->left);
+                }
+                if (node->right) {
+                    q.push(node->right);
+                }
             }
-            if (!left) reverse(t.begin(), t.end());
+            if (!left) {
+                reverse(t.begin(), t.end());
+            }
             ans.emplace_back(t);
             left ^= 1;
         }
@@ -216,23 +226,25 @@ func zigzagLevelOrder(root *TreeNode) (ans [][]int) {
  */
 
 function zigzagLevelOrder(root: TreeNode | null): number[][] {
-    const res = [];
-    if (root == null) {
-        return res;
+    const ans: number[][] = [];
+    if (!root) {
+        return ans;
     }
-    let isDesc = false;
-    const queue = [root];
-    while (queue.length !== 0) {
-        const arr = queue.slice().map(() => {
-            const { val, left, right } = queue.shift();
-            left && queue.push(left);
-            right && queue.push(right);
-            return val;
-        });
-        res.push(isDesc ? arr.reverse() : arr);
-        isDesc = !isDesc;
+    const q: TreeNode[] = [root];
+    let left: number = 1;
+    while (q.length) {
+        const t: number[] = [];
+        const qq: TreeNode[] = [];
+        for (const { val, left, right } of q) {
+            t.push(val);
+            left && qq.push(left);
+            right && qq.push(right);
+        }
+        ans.push(left ? t : t.reverse());
+        q.splice(0, q.length, ...qq);
+        left ^= 1;
     }
-    return res;
+    return ans;
 }
 ```
 
@@ -260,34 +272,33 @@ use std::cell::RefCell;
 use std::collections::VecDeque;
 impl Solution {
     pub fn zigzag_level_order(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Vec<i32>> {
-        let mut res = vec![];
-        if root.is_none() {
-            return res;
-        }
-        let mut is_desc = false;
-        let mut q = VecDeque::new();
-        q.push_back(root);
-        while !q.is_empty() {
-            let mut arr = vec![];
-            for _ in 0..q.len() {
-                if let Some(node) = q.pop_front().unwrap() {
-                    let mut node = node.borrow_mut();
-                    arr.push(node.val);
-                    if node.left.is_some() {
-                        q.push_back(node.left.take());
-                    }
-                    if node.right.is_some() {
-                        q.push_back(node.right.take());
+        let mut ans = Vec::new();
+        let mut left = true;
+        if let Some(root_node) = root {
+            let mut q = VecDeque::new();
+            q.push_back(root_node);
+            while !q.is_empty() {
+                let mut t = Vec::new();
+                for _ in 0..q.len() {
+                    if let Some(node) = q.pop_front() {
+                        let node_ref = node.borrow();
+                        t.push(node_ref.val);
+                        if let Some(ref left) = node_ref.left {
+                            q.push_back(Rc::clone(left));
+                        }
+                        if let Some(ref right) = node_ref.right {
+                            q.push_back(Rc::clone(right));
+                        }
                     }
                 }
+                if !left {
+                    t.reverse();
+                }
+                ans.push(t);
+                left = !left;
             }
-            if is_desc {
-                arr.reverse();
-            }
-            is_desc = !is_desc;
-            res.push(arr);
         }
-        res
+        ans
     }
 }
 ```
@@ -314,20 +325,14 @@ var zigzagLevelOrder = function (root) {
     let left = 1;
     while (q.length) {
         const t = [];
-        for (let n = q.length; n; --n) {
-            const node = q.shift();
-            t.push(node.val);
-            if (node.left) {
-                q.push(node.left);
-            }
-            if (node.right) {
-                q.push(node.right);
-            }
+        const qq = [];
+        for (const { val, left, right } of q) {
+            t.push(val);
+            left && qq.push(left);
+            right && qq.push(right);
         }
-        if (!left) {
-            t.reverse();
-        }
-        ans.push(t);
+        ans.push(left ? t : t.reverse());
+        q.splice(0, q.length, ...qq);
         left ^= 1;
     }
     return ans;

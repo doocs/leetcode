@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2902.Count%20of%20Sub-Multisets%20With%20Bounded%20Sum/README.md)
 
+<!-- tags:Array,Hash Table,Dynamic Programming,Sliding Window -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> of non-negative integers, and two integers <code>l</code> and <code>r</code>.</p>
@@ -128,6 +130,100 @@ class Solution {
         }
         return ans;
     }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int countSubMultisets(const vector<int> &nums, int l, int r) {
+        int cnt[20001] = {};
+        int memo[20001] = {};
+        const int mod = 1000000007;
+        for (int n : nums) {
+            ++cnt[n];
+        }
+        fill_n(memo, cnt[1] + 1, 1);
+        for (int n = 2, total = cnt[1]; n <= r; ++n) {
+            if (!cnt[n]) {
+                continue;
+            }
+            int top = (cnt[n] + 1) * n;
+            total += n * cnt[n];
+            for (int i = n, ii = min(total, r); i <= ii; ++i) {
+                memo[i] = (memo[i] + memo[i - n]) % mod;
+            }
+            for (int i = min(total, r); i >= top; --i) {
+                memo[i] = (mod + memo[i] - memo[i - top]) % mod;
+            }
+        }
+        return accumulate(memo + l, memo + r + 1, 0LL) * (cnt[0] + 1) % mod;
+    }
+};
+```
+
+```go
+func countSubMultisets(nums []int, l int, r int) int {
+	multiset := make(map[int]int)
+	for _, num := range nums {
+		multiset[num]++
+	}
+	mem := make([]int, r+1)
+	mem[0] = 1
+	prefix := make([]int, len(mem))
+	for num, occ := range multiset {
+		copy(prefix, mem)
+		for sum := num; sum <= r; sum++ {
+			prefix[sum] = (prefix[sum] + prefix[sum-num]) % mod
+		}
+		for sum := r; sum >= 0; sum-- {
+			if num > 0 {
+				mem[sum] = prefix[sum]
+				if sum >= num*(occ+1) {
+					mem[sum] = (mem[sum] - prefix[sum-num*(occ+1)] + mod) % mod
+				}
+			} else {
+				mem[sum] = (mem[sum] * (occ + 1)) % mod
+			}
+		}
+	}
+	var result int
+	for sum := l; sum <= r; sum++ {
+		result = (result + mem[sum]) % mod
+	}
+	return result
+}
+var mod int = 1e9 + 7
+```
+
+```ts
+function countSubMultisets(nums: number[], l: number, r: number): number {
+    const cnt: number[] = Array(20001).fill(0);
+    const memo: number[] = Array(20001).fill(0);
+    const mod: number = 1000000007;
+    for (const n of nums) {
+        cnt[n]++;
+    }
+    memo.fill(1, 0, cnt[1] + 1);
+    let total: number = cnt[1];
+    for (let n = 2; n <= r; ++n) {
+        if (!cnt[n]) {
+            continue;
+        }
+        const top: number = (cnt[n] + 1) * n;
+        total += n * cnt[n];
+        for (let i = n, ii = Math.min(total, r); i <= ii; ++i) {
+            memo[i] = (memo[i] + memo[i - n]) % mod;
+        }
+        for (let i = Math.min(total, r); i >= top; --i) {
+            memo[i] = (mod + memo[i] - memo[i - top]) % mod;
+        }
+    }
+    let result: number = 0;
+    for (let i = l; i <= r; i++) {
+        result = (result + memo[i]) % mod;
+    }
+    return (result * (cnt[0] + 1)) % mod;
 }
 ```
 

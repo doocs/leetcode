@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1584.Min%20Cost%20to%20Connect%20All%20Points/README.md)
 
+<!-- tags:Union Find,Graph,Array,Minimum Spanning Tree -->
+
 ## Description
 
 <p>You are given an array <code>points</code> representing integer coordinates of some points on a 2D-plane, where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>.</p>

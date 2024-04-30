@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0390.Elimination%20Game/README_EN.md)
 
+<!-- tags:递归,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

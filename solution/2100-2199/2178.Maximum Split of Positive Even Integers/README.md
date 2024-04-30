@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2178.Maximum%20Split%20of%20Positive%20Even%20Integers/README_EN.md)
 
+<!-- tags:贪心,数学,回溯 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

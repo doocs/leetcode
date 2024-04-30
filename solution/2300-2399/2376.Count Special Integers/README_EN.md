@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2376.Count%20Special%20Integers/README.md)
 
+<!-- tags:Math,Dynamic Programming -->
+
 ## Description
 
 <p>We call a positive integer <strong>special</strong> if all of its digits are <strong>distinct</strong>.</p>

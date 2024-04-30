@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2812.Find%20the%20Safest%20Path%20in%20a%20Grid/README.md)
 
+<!-- tags:Breadth-First Search,Union Find,Array,Binary Search,Matrix -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> 2D matrix <code>grid</code> of size <code>n x n</code>, where <code>(r, c)</code> represents:</p>

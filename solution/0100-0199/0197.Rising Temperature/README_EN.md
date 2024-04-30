@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0197.Rising%20Temperature/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Weather</code></p>
@@ -15,6 +17,7 @@
 | temperature   | int     |
 +---------------+---------+
 id is the column with unique values for this table.
+There are no different rows with the same recordDate.
 This table contains information about the temperature on a certain day.
 </pre>
 

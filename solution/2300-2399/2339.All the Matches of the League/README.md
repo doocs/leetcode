@@ -1,6 +1,8 @@
-# [2339. 联赛的所有比赛](https://leetcode.cn/problems/all-the-matches-of-the-league)
+# [2339. 联赛的所有比赛 🔒](https://leetcode.cn/problems/all-the-matches-of-the-league)
 
 [English Version](/solution/2300-2399/2339.All%20the%20Matches%20of%20the%20League/README_EN.md)
+
+<!-- tags:数据库 -->
 
 ## 题目描述
 

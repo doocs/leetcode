@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0020.Valid%20Parentheses/README_EN.md)
 
+<!-- tags:栈,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -248,6 +250,37 @@ def is_valid(s)
   end
   stack == ''
 end
+```
+
+```php
+class Solution {
+    /**
+     * @param string $s
+     * @return boolean
+     */
+
+    function isValid($s) {
+        $stack = [];
+        $brackets = [
+            ')' => '(',
+            '}' => '{',
+            ']' => '[',
+        ];
+
+        for ($i = 0; $i < strlen($s); $i++) {
+            $char = $s[$i];
+            if (array_key_exists($char, $brackets)) {
+                if (empty($stack) || $stack[count($stack) - 1] !== $brackets[$char]) {
+                    return false;
+                }
+                array_pop($stack);
+            } else {
+                array_push($stack, $char);
+            }
+        }
+        return empty($stack);
+    }
+}
 ```
 
 <!-- tabs:end -->

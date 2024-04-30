@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2379.Minimum%20Recolors%20to%20Get%20K%20Consecutive%20Black%20Blocks/README_EN.md)
 
+<!-- tags:字符串,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -59,7 +61,7 @@
 
 遍历结束后即可得到答案。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $blocks$ 的长度。
+时间复杂度 $O(n)$，其中 $n$ 为字符串 $blocks$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2465.Number%20of%20Distinct%20Averages/README_EN.md)
 
+<!-- tags:数组,哈希表,双指针,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

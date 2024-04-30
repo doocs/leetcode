@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1970.Last%20Day%20Where%20You%20Can%20Still%20Cross/README.md)
 
+<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Array,Binary Search,Matrix -->
+
 ## Description
 
 <p>There is a <strong>1-based</strong> binary matrix where <code>0</code> represents land and <code>1</code> represents water. You are given integers <code>row</code> and <code>col</code> representing the number of rows and columns in the matrix, respectively.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2957.Remove%20Adjacent%20Almost-Equal%20Characters/README_EN.md)
 
+<!-- tags:贪心,字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

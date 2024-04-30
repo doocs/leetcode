@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0051.N-Queens/README.md)
 
+<!-- tags:Array,Backtracking -->
+
 ## Description
 
 <p>The <strong>n-queens</strong> puzzle is the problem of placing <code>n</code> queens on an <code>n x n</code> chessboard such that no two queens attack each other.</p>
@@ -188,13 +190,11 @@ func solveNQueens(n int) (ans [][]string) {
 
 ```ts
 function solveNQueens(n: number): string[][] {
-    const col: number[] = new Array(n).fill(0);
-    const dg: number[] = new Array(n << 1).fill(0);
-    const udg: number[] = new Array(n << 1).fill(0);
+    const col: number[] = Array(n).fill(0);
+    const dg: number[] = Array(n << 1).fill(0);
+    const udg: number[] = Array(n << 1).fill(0);
     const ans: string[][] = [];
-    const t: string[][] = Array(n)
-        .fill(0)
-        .map(() => Array(n).fill('.'));
+    const t: string[][] = Array.from({ length: n }, () => Array(n).fill('.'));
     const dfs = (i: number) => {
         if (i === n) {
             ans.push(t.map(x => x.join('')));

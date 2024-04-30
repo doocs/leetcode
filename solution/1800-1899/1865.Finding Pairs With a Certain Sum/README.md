@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1865.Finding%20Pairs%20With%20a%20Certain%20Sum/README_EN.md)
 
+<!-- tags:设计,数组,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2801.Count%20Stepping%20Numbers%20in%20Range/README.md)
 
+<!-- tags:String,Dynamic Programming -->
+
 ## Description
 
 <p>Given two positive integers <code>low</code> and <code>high</code> represented as strings, find the count of <strong>stepping numbers</strong> in the inclusive range <code>[low, high]</code>.</p>

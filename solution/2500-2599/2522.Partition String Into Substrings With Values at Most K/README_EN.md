@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2522.Partition%20String%20Into%20Substrings%20With%20Values%20at%20Most%20K/README.md)
 
+<!-- tags:Greedy,String,Dynamic Programming -->
+
 ## Description
 
 <p>You are given a string <code>s</code> consisting of digits from <code>1</code> to <code>9</code> and an integer <code>k</code>.</p>

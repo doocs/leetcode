@@ -1,6 +1,8 @@
-# [2686. Immediate Food Delivery III](https://leetcode.com/problems/immediate-food-delivery-iii)
+# [2686. Immediate Food Delivery III 🔒](https://leetcode.com/problems/immediate-food-delivery-iii)
 
 [中文文档](/solution/2600-2699/2686.Immediate%20Food%20Delivery%20III/README.md)
+
+<!-- tags:Database -->
 
 ## Description
 

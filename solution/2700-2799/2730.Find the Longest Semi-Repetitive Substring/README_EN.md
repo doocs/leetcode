@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2730.Find%20the%20Longest%20Semi-Repetitive%20Substring/README.md)
 
+<!-- tags:String,Sliding Window -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string <code>s</code> that consists of digits from <code>0</code> to <code>9</code>.</p>
@@ -47,21 +49,25 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Two Pointers
+
+We use two pointers to maintain a range $s[j..i]$ such that there is at most one pair of adjacent characters that are equal, initially $j = 0$, $i = 1$. Initialize the answer $ans = 1$.
+
+We use $cnt$ to record the number of pairs of adjacent characters that are equal in the range. If $cnt > 1$, then we need to move the left pointer $j$ until $cnt \le 1$. Each time, we update the answer as $ans = \max(ans, i - j + 1)$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def longestSemiRepetitiveSubstring(self, s: str) -> int:
-        n = len(s)
-        ans = cnt = j = 0
-        for i in range(n):
-            if i and s[i] == s[i - 1]:
-                cnt += 1
+        ans, n = 1, len(s)
+        cnt = j = 0
+        for i in range(1, n):
+            cnt += s[i] == s[i - 1]
             while cnt > 1:
-                if s[j] == s[j + 1]:
-                    cnt -= 1
+                cnt -= s[j] == s[j + 1]
                 j += 1
             ans = max(ans, i - j + 1)
         return ans
@@ -70,17 +76,11 @@ class Solution:
 ```java
 class Solution {
     public int longestSemiRepetitiveSubstring(String s) {
-        int n = s.length();
-        int ans = 0;
-        for (int i = 0, j = 0, cnt = 0; i < n; ++i) {
-            if (i > 0 && s.charAt(i) == s.charAt(i - 1)) {
-                ++cnt;
-            }
-            while (cnt > 1) {
-                if (s.charAt(j) == s.charAt(j + 1)) {
-                    --cnt;
-                }
-                ++j;
+        int ans = 1, n = s.length();
+        for (int i = 1, j = 0, cnt = 0; i < n; ++i) {
+            cnt += s.charAt(i) == s.charAt(i - 1) ? 1 : 0;
+            for (; cnt > 1; ++j) {
+                cnt -= s.charAt(j) == s.charAt(j + 1) ? 1 : 0;
             }
             ans = Math.max(ans, i - j + 1);
         }
@@ -93,17 +93,11 @@ class Solution {
 class Solution {
 public:
     int longestSemiRepetitiveSubstring(string s) {
-        int n = s.size();
-        int ans = 0;
-        for (int i = 0, j = 0, cnt = 0; i < n; ++i) {
-            if (i && s[i] == s[i - 1]) {
-                ++cnt;
-            }
-            while (cnt > 1) {
-                if (s[j] == s[j + 1]) {
-                    --cnt;
-                }
-                ++j;
+        int ans = 1, n = s.size();
+        for (int i = 1, j = 0, cnt = 0; i < n; ++i) {
+            cnt += s[i] == s[i - 1] ? 1 : 0;
+            for (; cnt > 1; ++j) {
+                cnt -= s[j] == s[j + 1] ? 1 : 0;
             }
             ans = max(ans, i - j + 1);
         }
@@ -114,16 +108,15 @@ public:
 
 ```go
 func longestSemiRepetitiveSubstring(s string) (ans int) {
-	n := len(s)
-	for i, j, cnt := 0, 0, 0; i < n; i++ {
-		if i > 0 && s[i] == s[i-1] {
+	ans = 1
+	for i, j, cnt := 1, 0, 0; i < len(s); i++ {
+		if s[i] == s[i-1] {
 			cnt++
 		}
-		for cnt > 1 {
+		for ; cnt > 1; j++ {
 			if s[j] == s[j+1] {
 				cnt--
 			}
-			j++
 		}
 		ans = max(ans, i-j+1)
 	}
@@ -134,16 +127,11 @@ func longestSemiRepetitiveSubstring(s string) (ans int) {
 ```ts
 function longestSemiRepetitiveSubstring(s: string): number {
     const n = s.length;
-    let ans = 0;
-    for (let i = 0, j = 0, cnt = 0; i < n; ++i) {
-        if (i > 0 && s[i] === s[i - 1]) {
-            ++cnt;
-        }
-        while (cnt > 1) {
-            if (s[j] === s[j + 1]) {
-                --cnt;
-            }
-            ++j;
+    let ans = 1;
+    for (let i = 1, j = 0, cnt = 0; i < n; ++i) {
+        cnt += s[i] === s[i - 1] ? 1 : 0;
+        for (; cnt > 1; ++j) {
+            cnt -= s[j] === s[j + 1] ? 1 : 0;
         }
         ans = Math.max(ans, i - j + 1);
     }

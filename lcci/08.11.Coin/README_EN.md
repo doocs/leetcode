@@ -75,8 +75,6 @@ The final answer is $f[4][n]$.
 
 The time complexity is $O(C \times n)$, and the space complexity is $O(C \times n)$, where $C$ is the number of types of coins.
 
-We notice that the calculation of $f[i][j]$ is only related to $f[i−1][..]$, so we can remove the first dimension and optimize the space complexity to $O(n)$.
-
 <!-- tabs:start -->
 
 ```python
@@ -161,9 +159,7 @@ func waysToChange(n int) int {
 function waysToChange(n: number): number {
     const mod = 10 ** 9 + 7;
     const coins: number[] = [25, 10, 5, 1];
-    const f: number[][] = Array(5)
-        .fill(0)
-        .map(() => Array(n + 1).fill(0));
+    const f: number[][] = Array.from({ length: 5 }, () => Array(n + 1).fill(0));
     f[0][0] = 1;
     for (let i = 1; i <= 4; ++i) {
         for (let j = 0; j <= n; ++j) {
@@ -179,7 +175,9 @@ function waysToChange(n: number): number {
 
 <!-- tabs:end -->
 
-### Solution 2
+### Solution 2: Dynamic Programming (Space Optimization)
+
+We notice that the calculation of $f[i][j]$ is only related to $f[i−1][..]$. Therefore, we can remove the first dimension and optimize the space complexity to $O(n)$.
 
 <!-- tabs:start -->
 

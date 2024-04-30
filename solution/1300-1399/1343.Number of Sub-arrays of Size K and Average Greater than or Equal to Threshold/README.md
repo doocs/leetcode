@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1343.Number%20of%20Sub-arrays%20of%20Size%20K%20and%20Average%20Greater%20than%20or%20Equal%20to%20Threshold/README_EN.md)
 
+<!-- tags:数组,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -43,37 +45,38 @@
 
 ### 方法一：滑动窗口
 
-我们可以维护一个长度为 $k$ 的滑动窗口，窗口内的元素之和为 $s$，每次判断 $\frac{s}{k}$ 是否大于等于 $threshold$，如果大于等于，则满足条件的子数组个数加一。
+不妨将 `threshold` 乘以 $k$，这样我们就可以直接比较窗口内的和与 `threshold` 的大小关系。
 
-最后返回满足条件的子数组个数即可。
+我们维护一个长度为 $k$ 的滑动窗口，每次计算窗口内的和 $s$，如果 $s$ 大于等于 `threshold`，则答案加一。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $arr$ 的长度。
+时间复杂度 $O(n)$，其中 $n$ 为数组 `arr` 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def numOfSubarrays(self, arr: List[int], k: int, threshold: int) -> int:
+        threshold *= k
         s = sum(arr[:k])
-        ans = int(s / k >= threshold)
+        ans = int(s >= threshold)
         for i in range(k, len(arr)):
-            s += arr[i]
-            s -= arr[i - k]
-            ans += int(s / k >= threshold)
+            s += arr[i] - arr[i - k]
+            ans += int(s >= threshold)
         return ans
 ```
 
 ```java
 class Solution {
     public int numOfSubarrays(int[] arr, int k, int threshold) {
+        threshold *= k;
         int s = 0;
         for (int i = 0; i < k; ++i) {
             s += arr[i];
         }
-        int ans = s / k >= threshold ? 1 : 0;
+        int ans = s >= threshold ? 1 : 0;
         for (int i = k; i < arr.length; ++i) {
             s += arr[i] - arr[i - k];
-            ans += s / k >= threshold ? 1 : 0;
+            ans += s >= threshold ? 1 : 0;
         }
         return ans;
     }
@@ -84,11 +87,12 @@ class Solution {
 class Solution {
 public:
     int numOfSubarrays(vector<int>& arr, int k, int threshold) {
+        threshold *= k;
         int s = accumulate(arr.begin(), arr.begin() + k, 0);
-        int ans = s >= k * threshold;
+        int ans = s >= threshold;
         for (int i = k; i < arr.size(); ++i) {
             s += arr[i] - arr[i - k];
-            ans += s >= k * threshold;
+            ans += s >= threshold;
         }
         return ans;
     }
@@ -97,16 +101,17 @@ public:
 
 ```go
 func numOfSubarrays(arr []int, k int, threshold int) (ans int) {
+	threshold *= k
 	s := 0
 	for _, x := range arr[:k] {
 		s += x
 	}
-	if s/k >= threshold {
+	if s >= threshold {
 		ans++
 	}
 	for i := k; i < len(arr); i++ {
 		s += arr[i] - arr[i-k]
-		if s/k >= threshold {
+		if s >= threshold {
 			ans++
 		}
 	}
@@ -116,11 +121,12 @@ func numOfSubarrays(arr []int, k int, threshold int) (ans int) {
 
 ```ts
 function numOfSubarrays(arr: number[], k: number, threshold: number): number {
+    threshold *= k;
     let s = arr.slice(0, k).reduce((acc, cur) => acc + cur, 0);
-    let ans = s >= k * threshold ? 1 : 0;
+    let ans = s >= threshold ? 1 : 0;
     for (let i = k; i < arr.length; ++i) {
         s += arr[i] - arr[i - k];
-        ans += s >= k * threshold ? 1 : 0;
+        ans += s >= threshold ? 1 : 0;
     }
     return ans;
 }

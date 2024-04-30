@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2193.Minimum%20Number%20of%20Moves%20to%20Make%20Palindrome/README_EN.md)
 
+<!-- tags:贪心,树状数组,双指针,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

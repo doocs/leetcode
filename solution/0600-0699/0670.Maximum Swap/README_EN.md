@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0670.Maximum%20Swap/README.md)
 
+<!-- tags:Greedy,Math -->
+
 ## Description
 
 <p>You are given an integer <code>num</code>. You can swap two digits at most once to get the maximum valued number.</p>

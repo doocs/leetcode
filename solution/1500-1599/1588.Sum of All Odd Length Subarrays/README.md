@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1588.Sum%20of%20All%20Odd%20Length%20Subarrays/README_EN.md)
 
+<!-- tags:数组,数学,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

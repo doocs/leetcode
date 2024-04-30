@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0433.Minimum%20Genetic%20Mutation/README_EN.md)
 
+<!-- tags:广度优先搜索,哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

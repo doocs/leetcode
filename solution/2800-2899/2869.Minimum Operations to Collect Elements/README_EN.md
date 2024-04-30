@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2869.Minimum%20Operations%20to%20Collect%20Elements/README.md)
 
+<!-- tags:Bit Manipulation,Array,Hash Table -->
+
 ## Description
 
 <p>You are given an array <code>nums</code> of positive integers and an integer <code>k</code>.</p>

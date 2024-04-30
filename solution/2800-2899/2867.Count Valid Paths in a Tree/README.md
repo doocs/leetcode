@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2867.Count%20Valid%20Paths%20in%20a%20Tree/README_EN.md)
 
+<!-- tags:树,深度优先搜索,数学,动态规划,数论 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

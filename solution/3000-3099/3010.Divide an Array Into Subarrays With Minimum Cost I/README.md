@@ -2,6 +2,8 @@
 
 [English Version](/solution/3000-3099/3010.Divide%20an%20Array%20Into%20Subarrays%20With%20Minimum%20Cost%20I/README_EN.md)
 
+<!-- tags:数组,枚举,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -12,7 +14,7 @@
 
 <p>你需要将&nbsp;<code>nums</code>&nbsp;分成&nbsp;<code>3</code>&nbsp;个&nbsp;<strong>连续且没有交集</strong>&nbsp;的子数组。</p>
 
-<p>请你返回这些子数组的 <strong>最小</strong>&nbsp;代价&nbsp;<b>总和</b>&nbsp;。</p>
+<p>请你返回这些<span data-keyword="subarray">子数组</span>的 <strong>最小</strong>&nbsp;代价&nbsp;<b>总和</b>&nbsp;。</p>
 
 <p>&nbsp;</p>
 

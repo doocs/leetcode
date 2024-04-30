@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2210.Count%20Hills%20and%20Valleys%20in%20an%20Array/README_EN.md)
 
+<!-- tags:数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -54,21 +56,33 @@
 
 ## 解法
 
-### 方法一
+### 方法一：遍历
+
+我们初始化一个指针 $j$ 指向下标 $0$ 的位置，然后在 $[1, n-1]$ 的范围内遍历数组。对于每一个位置 $i$：
+
+-   如果 $nums[i] = nums[i+1]$，则跳过。
+-   否则，如果 $nums[i]$ 大于 $nums[j]$ 且 $nums[i]$ 大于 $nums[i+1]$，则 $i$ 是一个峰；如果 $nums[i]$ 小于 $nums[j]$ 且 $nums[i]$ 小于 $nums[i+1]$，则 $i$ 是一个谷。
+-   然后，我们将 $j$ 更新为 $i$，继续遍历。
+
+遍历结束后，我们就可以得到峰和谷的数量。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def countHillValley(self, nums: List[int]) -> int:
-        arr = [nums[0]]
-        for v in nums[1:]:
-            if v != arr[-1]:
-                arr.append(v)
-        return sum(
-            (arr[i] < arr[i - 1]) == (arr[i] < arr[i + 1])
-            for i in range(1, len(arr) - 1)
-        )
+        ans = j = 0
+        for i in range(1, len(nums) - 1):
+            if nums[i] == nums[i + 1]:
+                continue
+            if nums[i] > nums[j] and nums[i] > nums[i + 1]:
+                ans += 1
+            if nums[i] < nums[j] and nums[i] < nums[i + 1]:
+                ans += 1
+            j = i
+        return ans
 ```
 
 ```java
@@ -98,9 +112,15 @@ public:
     int countHillValley(vector<int>& nums) {
         int ans = 0;
         for (int i = 1, j = 0; i < nums.size() - 1; ++i) {
-            if (nums[i] == nums[i + 1]) continue;
-            if (nums[i] > nums[j] && nums[i] > nums[i + 1]) ++ans;
-            if (nums[i] < nums[j] && nums[i] < nums[i + 1]) ++ans;
+            if (nums[i] == nums[i + 1]) {
+                continue;
+            }
+            if (nums[i] > nums[j] && nums[i] > nums[i + 1]) {
+                ++ans;
+            }
+            if (nums[i] < nums[j] && nums[i] < nums[i + 1]) {
+                ++ans;
+            }
             j = i;
         }
         return ans;
@@ -129,65 +149,45 @@ func countHillValley(nums []int) int {
 
 ```ts
 function countHillValley(nums: number[]): number {
-    const n = nums.length;
-    let res = 0;
-    let prev = nums[0];
-    for (let i = 1; i < n - 1; i++) {
-        const num = nums[i];
-        const next = nums[i + 1];
-        if (num == next) {
+    let ans = 0;
+    for (let i = 1, j = 0; i < nums.length - 1; ++i) {
+        if (nums[i] === nums[i + 1]) {
             continue;
         }
-        if ((num > prev && num > next) || (num < prev && num < next)) {
-            res += 1;
+        if (nums[i] > nums[j] && nums[i] > nums[i + 1]) {
+            ans++;
         }
-        prev = num;
+        if (nums[i] < nums[j] && nums[i] < nums[i + 1]) {
+            ans++;
+        }
+        j = i;
     }
-    return res;
+    return ans;
 }
 ```
 
 ```rust
 impl Solution {
     pub fn count_hill_valley(nums: Vec<i32>) -> i32 {
-        let n = nums.len();
-        let mut res = 0;
-        let mut prev = nums[0];
-        for i in 1..n - 1 {
-            let num = nums[i];
-            let next = nums[i + 1];
-            if num == next {
+        let mut ans = 0;
+        let mut j = 0;
+
+        for i in 1..nums.len() - 1 {
+            if nums[i] == nums[i + 1] {
                 continue;
             }
-            if (num > prev && num > next) || (num < prev && num < next) {
-                res += 1;
+            if nums[i] > nums[j] && nums[i] > nums[i + 1] {
+                ans += 1;
             }
-            prev = num;
+            if nums[i] < nums[j] && nums[i] < nums[i + 1] {
+                ans += 1;
+            }
+            j = i;
         }
-        res
+
+        ans
     }
 }
-```
-
-<!-- tabs:end -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def countHillValley(self, nums: List[int]) -> int:
-        ans = j = 0
-        for i in range(1, len(nums) - 1):
-            if nums[i] == nums[i + 1]:
-                continue
-            if nums[i] > nums[j] and nums[i] > nums[i + 1]:
-                ans += 1
-            if nums[i] < nums[j] and nums[i] < nums[i + 1]:
-                ans += 1
-            j = i
-        return ans
 ```
 
 <!-- tabs:end -->

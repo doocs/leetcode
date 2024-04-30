@@ -136,15 +136,15 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 | 段位 | 比例 | 段位名   | 国服分数线  | 勋章                                                                                                                    |
 | ---- | ---- | -------- | ----------- | ----------------------------------------------------------------------------------------------------------------------- |
-| LV3  | 5%   | Guardian | &ge;2254.76 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Guardian.gif" style="width: 80px;" /></p> |
-| LV2  | 20%  | Knight   | &ge;1882.78 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Knight.gif" style="width: 80px;" /></p>   |
+| LV3  | 5%   | Guardian | &ge;2278.34 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Guardian.gif" style="width: 80px;" /></p> |
+| LV2  | 20%  | Knight   | &ge;1889.36 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Knight.gif" style="width: 80px;" /></p>   |
 | LV1  | 75%  | -        | -           | -                                                                                                                       |
 
 力扣竞赛 **全国排名前 10** 的用户，全站用户名展示为品牌橙色。
 
 ## 赛后估分网站
 
--   https://lccn.lbao.site
+如果你想在比赛结束后估算自己的积分变化，可以访问网站 [LeetCode Contest Rating Predictor](https://lccn.lbao.site/)。
 
 ## 往期竞赛
 
@@ -179,7 +179,7 @@ For top 10 users (excluding LCCN users), your LeetCode ID will be colored orange
 
 ## Rating Predictor
 
-Get your rating changes right after the completion of LeetCode contests, https://lccn.lbao.site
+If you want to estimate your score changes after the contest ends, you can visit the website [LeetCode Contest Rating Predictor](https://lccn.lbao.site/).
 
 ## Past Contests
 
@@ -194,6 +194,8 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 # [{}. {}]({})
 
 [English Version]({})
+
+<!-- tags:{} -->
 
 ## 题目描述
 
@@ -237,6 +239,8 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 [中文文档]({})
 
+<!-- tags:{} -->
+
 ## Description
 
 {}
@@ -276,6 +280,8 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 # [{}. {}]({})
 
 [English Version]({})
+
+<!-- tags:{} -->
 
 ## 题目描述
 
@@ -319,6 +325,8 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 [中文文档]({})
 
+<!-- tags:{} -->
+
 ## Description
 
 {}
@@ -359,6 +367,8 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 [English Version]({})
 
+<!-- tags:{} -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -389,6 +399,8 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 [中文文档]({})
 
+<!-- tags:{} -->
+
 ## Description
 
 {}
@@ -416,6 +428,8 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 # [{}. {}]({})
 
 [English Version]({})
+
+<!-- tags:{} -->
 
 ## 题目描述
 
@@ -446,6 +460,8 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 # [{}. {}]({})
 
 [中文文档]({})
+
+<!-- tags:{} -->
 
 ## Description
 

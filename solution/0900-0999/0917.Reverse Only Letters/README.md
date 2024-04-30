@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0917.Reverse%20Only%20Letters/README_EN.md)
 
+<!-- tags:双指针,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -59,47 +61,51 @@
 
 ## 解法
 
-### 方法一
+### 方法一：双指针
+
+我们用两个指针 $i$ 和 $j$ 分别指向字符串的头部和尾部。当 $i < j$ 时，我们不断地移动 $i$ 和 $j$，直到 $i$ 指向一个英文字母，并且 $j$ 指向一个英文字母，然后交换 $s[i]$ 和 $s[j]$。最后返回字符串即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串的长度。
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def reverseOnlyLetters(self, s: str) -> str:
-        s = list(s)
-        i, j = 0, len(s) - 1
+        cs = list(s)
+        i, j = 0, len(cs) - 1
         while i < j:
-            while i < j and not s[i].isalpha():
+            while i < j and not cs[i].isalpha():
                 i += 1
-            while i < j and not s[j].isalpha():
+            while i < j and not cs[j].isalpha():
                 j -= 1
             if i < j:
-                s[i], s[j] = s[j], s[i]
+                cs[i], cs[j] = cs[j], cs[i]
                 i, j = i + 1, j - 1
-        return ''.join(s)
+        return "".join(cs)
 ```
 
 ```java
 class Solution {
     public String reverseOnlyLetters(String s) {
-        char[] chars = s.toCharArray();
-        int i = 0, j = s.length() - 1;
+        char[] cs = s.toCharArray();
+        int i = 0, j = cs.length - 1;
         while (i < j) {
-            while (i < j && !Character.isLetter(chars[i])) {
+            while (i < j && !Character.isLetter(cs[i])) {
                 ++i;
             }
-            while (i < j && !Character.isLetter(chars[j])) {
+            while (i < j && !Character.isLetter(cs[j])) {
                 --j;
             }
             if (i < j) {
-                char t = chars[i];
-                chars[i] = chars[j];
-                chars[j] = t;
+                char t = cs[i];
+                cs[i] = cs[j];
+                cs[j] = t;
                 ++i;
                 --j;
             }
         }
-        return new String(chars);
+        return new String(cs);
     }
 }
 ```
@@ -110,12 +116,14 @@ public:
     string reverseOnlyLetters(string s) {
         int i = 0, j = s.size() - 1;
         while (i < j) {
-            while (i < j && !isalpha(s[i])) ++i;
-            while (i < j && !isalpha(s[j])) --j;
-            if (i < j) {
-                swap(s[i], s[j]);
+            while (i < j && !isalpha(s[i])) {
                 ++i;
+            }
+            while (i < j && !isalpha(s[j])) {
                 --j;
+            }
+            if (i < j) {
+                swap(s[i++], s[j--]);
             }
         }
         return s;
@@ -125,39 +133,41 @@ public:
 
 ```go
 func reverseOnlyLetters(s string) string {
-	ans := []rune(s)
+	cs := []rune(s)
 	i, j := 0, len(s)-1
 	for i < j {
-		for i < j && !unicode.IsLetter(ans[i]) {
+		for i < j && !unicode.IsLetter(cs[i]) {
 			i++
 		}
-		for i < j && !unicode.IsLetter(ans[j]) {
+		for i < j && !unicode.IsLetter(cs[j]) {
 			j--
 		}
 		if i < j {
-			ans[i], ans[j] = ans[j], ans[i]
+			cs[i], cs[j] = cs[j], cs[i]
 			i++
 			j--
 		}
 	}
-	return string(ans)
+	return string(cs)
 }
 ```
 
 ```ts
 function reverseOnlyLetters(s: string): string {
-    const n = s.length;
-    let i = 0,
-        j = n - 1;
-    let ans = [...s];
+    const cs = [...s];
+    let [i, j] = [0, cs.length - 1];
     while (i < j) {
-        while (!/[a-zA-Z]/.test(ans[i]) && i < j) i++;
-        while (!/[a-zA-Z]/.test(ans[j]) && i < j) j--;
-        [ans[i], ans[j]] = [ans[j], ans[i]];
+        while (!/[a-zA-Z]/.test(cs[i]) && i < j) {
+            i++;
+        }
+        while (!/[a-zA-Z]/.test(cs[j]) && i < j) {
+            j--;
+        }
+        [cs[i], cs[j]] = [cs[j], cs[i]];
         i++;
         j--;
     }
-    return ans.join('');
+    return cs.join('');
 }
 ```
 

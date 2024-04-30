@@ -1,6 +1,8 @@
-# [1841. League Statistics](https://leetcode.com/problems/league-statistics)
+# [1841. League Statistics 🔒](https://leetcode.com/problems/league-statistics)
 
 [中文文档](/solution/1800-1899/1841.League%20Statistics/README.md)
+
+<!-- tags:Database -->
 
 ## Description
 

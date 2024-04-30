@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2126.Destroying%20Asteroids/README_EN.md)
 
+<!-- tags:贪心,数组,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

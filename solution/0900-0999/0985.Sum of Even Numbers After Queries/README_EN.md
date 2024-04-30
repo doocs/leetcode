@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0985.Sum%20of%20Even%20Numbers%20After%20Queries/README.md)
 
+<!-- tags:Array,Simulation -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> and an array <code>queries</code> where <code>queries[i] = [val<sub>i</sub>, index<sub>i</sub>]</code>.</p>

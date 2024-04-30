@@ -1,6 +1,8 @@
-# [660. 移除 9](https://leetcode.cn/problems/remove-9)
+# [660. 移除 9 🔒](https://leetcode.cn/problems/remove-9)
 
 [English Version](/solution/0600-0699/0660.Remove%209/README_EN.md)
+
+<!-- tags:数学 -->
 
 ## 题目描述
 

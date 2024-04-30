@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1735.Count%20Ways%20to%20Make%20Array%20With%20Product/README_EN.md)
 
+<!-- tags:数组,数学,动态规划,组合数学,数论 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

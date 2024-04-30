@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0036.Valid%20Sudoku/README.md)
 
+<!-- tags:Array,Hash Table,Matrix -->
+
 ## Description
 
 <p>Determine if a&nbsp;<code>9 x 9</code> Sudoku board&nbsp;is valid.&nbsp;Only the filled cells need to be validated&nbsp;<strong>according to the following rules</strong>:</p>
@@ -230,6 +232,48 @@ var isValidSudoku = function (board) {
     }
     return true;
 };
+```
+
+```php
+class Solution {
+    /**
+     * @param string[][] $board
+     * @return boolean
+     */
+
+    function isValidSudoku($board) {
+        $rows = [];
+        $columns = [];
+        $boxes = [];
+
+        for ($i = 0; $i < 9; $i++) {
+            $rows[$i] = [];
+            $columns[$i] = [];
+            $boxes[$i] = [];
+        }
+
+        for ($row = 0; $row < 9; $row++) {
+            for ($column = 0; $column < 9; $column++) {
+                $cell = $board[$row][$column];
+
+                if ($cell != '.') {
+                    if (
+                        in_array($cell, $rows[$row]) ||
+                        in_array($cell, $columns[$column]) ||
+                        in_array($cell, $boxes[floor($row / 3) * 3 + floor($column / 3)])
+                    ) {
+                        return false;
+                    }
+
+                    $rows[$row][] = $cell;
+                    $columns[$column][] = $cell;
+                    $boxes[floor($row / 3) * 3 + floor($column / 3)][] = $cell;
+                }
+            }
+        }
+        return true;
+    }
+}
 ```
 
 <!-- tabs:end -->

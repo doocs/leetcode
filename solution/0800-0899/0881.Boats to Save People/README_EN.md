@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0881.Boats%20to%20Save%20People/README.md)
 
+<!-- tags:Greedy,Array,Two Pointers,Sorting -->
+
 ## Description
 
 <p>You are given an array <code>people</code> where <code>people[i]</code> is the weight of the <code>i<sup>th</sup></code> person, and an <strong>infinite number of boats</strong> where each boat can carry a maximum weight of <code>limit</code>. Each boat carries at most two people at the same time, provided the sum of the weight of those people is at most <code>limit</code>.</p>
@@ -43,7 +45,11 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Greedy + Two Pointers
+
+After sorting, use two pointers to point to the beginning and end of the array respectively. Each time, compare the sum of the elements pointed to by the two pointers with `limit`. If it is less than or equal to `limit`, then both pointers move one step towards the middle. Otherwise, only the right pointer moves. Accumulate the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array `people`.
 
 <!-- tabs:start -->
 
@@ -105,6 +111,20 @@ func numRescueBoats(people []int, limit int) int {
 		ans++
 	}
 	return ans
+}
+```
+
+```ts
+function numRescueBoats(people: number[], limit: number): number {
+    people.sort((a, b) => a - b);
+    let ans = 0;
+    for (let i = 0, j = people.length - 1; i <= j; --j) {
+        if (people[i] + people[j] <= limit) {
+            ++i;
+        }
+        ++ans;
+    }
+    return ans;
 }
 ```
 

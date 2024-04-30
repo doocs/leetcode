@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0257.Binary%20Tree%20Paths/README.md)
 
+<!-- tags:Tree,Depth-First Search,String,Backtracking,Binary Tree -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary tree, return <em>all root-to-leaf paths in <strong>any order</strong></em>.</p>

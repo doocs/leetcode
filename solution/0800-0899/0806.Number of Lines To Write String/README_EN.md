@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0806.Number%20of%20Lines%20To%20Write%20String/README.md)
 
+<!-- tags:Array,String -->
+
 ## Description
 
 <p>You are given a string <code>s</code> of lowercase English letters and an array <code>widths</code> denoting <strong>how many pixels wide</strong> each lowercase English letter is. Specifically, <code>widths[0]</code> is the width of <code>&#39;a&#39;</code>, <code>widths[1]</code> is the width of <code>&#39;b&#39;</code>, and so on.</p>
@@ -49,40 +51,45 @@ There are a total of 2 lines, and the last line is 4 pixels wide.</pre>
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Simulation
+
+We define two variables `lines` and `last`, representing the number of lines and the width of the last line, respectively. Initially, `lines = 1` and `last = 0`.
+
+We iterate through the string $s$. For each character $c$, we calculate its width $w$. If $last + w \leq 100$, we add $w$ to `last`. Otherwise, we increment `lines` by one and reset `last` to $w$.
+
+Finally, we return an array consisting of `lines` and `last`.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def numberOfLines(self, widths: List[int], s: str) -> List[int]:
-        last, row = 0, 1
-        for c in s:
-            w = widths[ord(c) - ord('a')]
+        lines, last = 1, 0
+        for w in map(lambda c: widths[ord(c) - ord("a")], s):
             if last + w <= 100:
                 last += w
             else:
-                row += 1
+                lines += 1
                 last = w
-        return [row, last]
+        return [lines, last]
 ```
 
 ```java
 class Solution {
-    private static final int MAX_WIDTH = 100;
-
     public int[] numberOfLines(int[] widths, String s) {
-        int last = 0, row = 1;
-        for (char c : s.toCharArray()) {
-            int w = widths[c - 'a'];
-            if (last + w <= MAX_WIDTH) {
+        int lines = 1, last = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            int w = widths[s.charAt(i) - 'a'];
+            if (last + w <= 100) {
                 last += w;
             } else {
-                ++row;
+                ++lines;
                 last = w;
             }
         }
-        return new int[] {row, last};
+        return new int[] {lines, last};
     }
 }
 ```
@@ -90,54 +97,72 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    const int MAX_WIDTH = 100;
-
     vector<int> numberOfLines(vector<int>& widths, string s) {
-        int last = 0, row = 1;
+        int lines = 1, last = 0;
         for (char c : s) {
             int w = widths[c - 'a'];
-            if (last + w <= MAX_WIDTH)
+            if (last + w <= 100) {
                 last += w;
-            else {
-                ++row;
+            } else {
+                ++lines;
                 last = w;
             }
         }
-        return {row, last};
+        return {lines, last};
     }
 };
 ```
 
 ```go
 func numberOfLines(widths []int, s string) []int {
-	last, row := 0, 1
+	lines, last := 1, 0
 	for _, c := range s {
 		w := widths[c-'a']
 		if last+w <= 100 {
 			last += w
 		} else {
-			row++
+			lines++
 			last = w
 		}
 	}
-	return []int{row, last}
+	return []int{lines, last}
+}
+```
+
+```ts
+function numberOfLines(widths: number[], s: string): number[] {
+    let [lines, last] = [1, 0];
+    for (const c of s) {
+        const w = widths[c.charCodeAt(0) - 'a'.charCodeAt(0)];
+        if (last + w <= 100) {
+            last += w;
+        } else {
+            ++lines;
+            last = w;
+        }
+    }
+    return [lines, last];
 }
 ```
 
 ```rust
 impl Solution {
     pub fn number_of_lines(widths: Vec<i32>, s: String) -> Vec<i32> {
-        let mut count = 1;
-        let mut sum = 0;
-        for c in s.as_bytes() {
-            let width = widths[(c - b'a') as usize];
-            if sum + width > 100 {
-                sum = 0;
-                count += 1;
+        let mut lines = 1;
+        let mut last = 0;
+
+        for c in s.chars() {
+            let idx = ((c as u8) - b'a') as usize;
+            let w = widths[idx];
+            if last + w <= 100 {
+                last += w;
+            } else {
+                lines += 1;
+                last = w;
             }
-            sum += width;
         }
-        vec![count, sum]
+
+        vec![lines, last]
     }
 }
 ```

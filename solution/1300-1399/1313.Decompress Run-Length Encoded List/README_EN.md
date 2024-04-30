@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1313.Decompress%20Run-Length%20Encoded%20List/README.md)
 
+<!-- tags:Array -->
+
 ## Description
 
 <p>We are given a list <code>nums</code> of integers representing a list compressed with run-length encoding.</p>

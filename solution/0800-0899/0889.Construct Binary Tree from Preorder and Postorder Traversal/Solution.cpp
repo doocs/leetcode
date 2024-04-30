@@ -11,22 +11,26 @@
  */
 class Solution {
 public:
-    unordered_map<int, int> postMap;
     TreeNode* constructFromPrePost(vector<int>& preorder, vector<int>& postorder) {
-        for (int i = 0; i < postorder.size(); i++) {
-            postMap[postorder[i]] = i;
+        unordered_map<int, int> pos;
+        int n = postorder.size();
+        for (int i = 0; i < n; ++i) {
+            pos[postorder[i]] = i;
         }
-        return build(preorder, 0, preorder.size() - 1, postorder, 0, postorder.size() - 1);
-    }
-
-    TreeNode* build(vector<int>& preorder, int prel, int prer, vector<int>& postorder, int postl, int postr) {
-        if (prel > prer) return nullptr;
-        TreeNode* root = new TreeNode(preorder[prel]);
-        if (prel == prer) return root;
-        int leftRootIndex = postMap[preorder[prel + 1]];
-        int leftLength = leftRootIndex - postl + 1;
-        root->left = build(preorder, prel + 1, prel + leftLength, postorder, postl, leftRootIndex);
-        root->right = build(preorder, prel + leftLength + 1, prer, postorder, leftRootIndex + 1, postr - 1);
-        return root;
+        function<TreeNode*(int, int, int, int)> dfs = [&](int a, int b, int c, int d) -> TreeNode* {
+            if (a > b) {
+                return nullptr;
+            }
+            TreeNode* root = new TreeNode(preorder[a]);
+            if (a == b) {
+                return root;
+            }
+            int i = pos[preorder[a + 1]];
+            int m = i - c + 1;
+            root->left = dfs(a + 1, a + m, c, i);
+            root->right = dfs(a + m + 1, b, i + 1, d - 1);
+            return root;
+        };
+        return dfs(0, n - 1, 0, n - 1);
     }
 };

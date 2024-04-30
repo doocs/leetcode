@@ -10,34 +10,34 @@ func replaceValueInTree(root *TreeNode) *TreeNode {
 	root.Val = 0
 	q := []*TreeNode{root}
 	for len(q) > 0 {
-		p := q
-		q = []*TreeNode{}
+		t := []*TreeNode{}
 		s := 0
-		for _, node := range p {
+		for _, node := range q {
 			if node.Left != nil {
-				q = append(q, node.Left)
+				t = append(t, node.Left)
 				s += node.Left.Val
 			}
 			if node.Right != nil {
-				q = append(q, node.Right)
+				t = append(t, node.Right)
 				s += node.Right.Val
 			}
 		}
-		for _, node := range p {
-			t := 0
+		for _, node := range q {
+			sub := 0
 			if node.Left != nil {
-				t += node.Left.Val
+				sub += node.Left.Val
 			}
 			if node.Right != nil {
-				t += node.Right.Val
+				sub += node.Right.Val
 			}
 			if node.Left != nil {
-				node.Left.Val = s - t
+				node.Left.Val = s - sub
 			}
 			if node.Right != nil {
-				node.Right.Val = s - t
+				node.Right.Val = s - sub
 			}
 		}
+		q = t
 	}
 	return root
 }

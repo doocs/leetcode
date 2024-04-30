@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1382.Balance%20a%20Binary%20Search%20Tree/README_EN.md)
 
+<!-- tags:贪心,树,深度优先搜索,二叉搜索树,分治,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

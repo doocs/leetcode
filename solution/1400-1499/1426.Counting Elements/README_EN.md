@@ -1,6 +1,8 @@
-# [1426. Counting Elements](https://leetcode.com/problems/counting-elements)
+# [1426. Counting Elements 🔒](https://leetcode.com/problems/counting-elements)
 
 [中文文档](/solution/1400-1499/1426.Counting%20Elements/README.md)
+
+<!-- tags:Array,Hash Table -->
 
 ## Description
 

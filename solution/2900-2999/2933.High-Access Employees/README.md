@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2933.High-Access%20Employees/README_EN.md)
 
+<!-- tags:数组,哈希表,字符串,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

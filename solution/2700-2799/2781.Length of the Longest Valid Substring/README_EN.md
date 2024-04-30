@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2781.Length%20of%20the%20Longest%20Valid%20Substring/README.md)
 
+<!-- tags:Array,Hash Table,String,Sliding Window -->
+
 ## Description
 
 <p>You are given a string <code>word</code> and an array of strings <code>forbidden</code>.</p>

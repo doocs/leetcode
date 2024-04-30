@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2460.Apply%20Operations%20to%20an%20Array/README_EN.md)
 
+<!-- tags:数组,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

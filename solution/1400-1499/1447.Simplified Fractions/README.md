@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1447.Simplified%20Fractions/README_EN.md)
 
+<!-- tags:数学,字符串,数论 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

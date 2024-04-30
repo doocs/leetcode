@@ -1,6 +1,8 @@
-# [291. Word Pattern II](https://leetcode.com/problems/word-pattern-ii)
+# [291. Word Pattern II 🔒](https://leetcode.com/problems/word-pattern-ii)
 
 [中文文档](/solution/0200-0299/0291.Word%20Pattern%20II/README.md)
+
+<!-- tags:Hash Table,String,Backtracking -->
 
 ## Description
 

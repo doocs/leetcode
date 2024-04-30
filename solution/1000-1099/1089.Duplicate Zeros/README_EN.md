@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1089.Duplicate%20Zeros/README.md)
 
+<!-- tags:Array,Two Pointers -->
+
 ## Description
 
 <p>Given a fixed-length integer array <code>arr</code>, duplicate each occurrence of zero, shifting the remaining elements to the right.</p>

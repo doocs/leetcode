@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2050.Parallel%20Courses%20III/README.md)
 
+<!-- tags:Graph,Topological Sort,Array,Dynamic Programming -->
+
 ## Description
 
 <p>You are given an integer <code>n</code>, which indicates that there are <code>n</code> courses labeled from <code>1</code> to <code>n</code>. You are also given a 2D integer array <code>relations</code> where <code>relations[j] = [prevCourse<sub>j</sub>, nextCourse<sub>j</sub>]</code> denotes that course <code>prevCourse<sub>j</sub></code> has to be completed <strong>before</strong> course <code>nextCourse<sub>j</sub></code> (prerequisite relationship). Furthermore, you are given a <strong>0-indexed</strong> integer array <code>time</code> where <code>time[i]</code> denotes how many <strong>months</strong> it takes to complete the <code>(i+1)<sup>th</sup></code> course.</p>
@@ -61,7 +63,22 @@ Thus, the minimum time needed to complete all the courses is 7 + 5 = 12 months.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Topological Sorting + Dynamic Programming
+
+First, we construct a directed acyclic graph based on the given prerequisite course relationships, perform topological sorting on this graph, and then use dynamic programming to find the minimum time required to complete all courses according to the results of the topological sorting.
+
+We define the following data structures or variables:
+
+-   Adjacency list $g$ stores the directed acyclic graph, and an array $indeg$ stores the in-degree of each node;
+-   Queue $q$ stores all nodes with an in-degree of $0$;
+-   Array $f$ stores the earliest completion time of each node, initially $f[i] = 0$;
+-   Variable $ans$ records the final answer, initially $ans = 0$;
+
+When $q$ is not empty, take out the head node $i$ in turn, traverse each node $j$ in $g[i]$, update $f[j] = \max(f[j], f[i] + time[j])$, update $ans = \max(ans, f[j])$ at the same time, and reduce the in-degree of $j$ by $1$. If the in-degree of $j$ is $0$ at this time, add $j$ to the queue $q$;
+
+Finally, return $ans$.
+
+The time complexity is $O(m + n)$, and the space complexity is $O(m + n)$. Where $m$ is the length of the array $relations$.
 
 <!-- tabs:start -->
 

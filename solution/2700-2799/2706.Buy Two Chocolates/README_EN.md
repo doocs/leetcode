@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2706.Buy%20Two%20Chocolates/README.md)
 
+<!-- tags:Array,Sorting -->
+
 ## Description
 
 <p>You are given an integer array <code>prices</code> representing the prices of various chocolates in a store. You are also given a single integer <code>money</code>, which represents your initial amount of money.</p>

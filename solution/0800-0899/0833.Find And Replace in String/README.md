@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0833.Find%20And%20Replace%20in%20String/README_EN.md)
 
+<!-- tags:数组,字符串,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

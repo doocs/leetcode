@@ -1,6 +1,8 @@
-# [651. 四个键的键盘](https://leetcode.cn/problems/4-keys-keyboard)
+# [651. 四个键的键盘 🔒](https://leetcode.cn/problems/4-keys-keyboard)
 
 [English Version](/solution/0600-0699/0651.4%20Keys%20Keyboard/README_EN.md)
+
+<!-- tags:数学,动态规划 -->
 
 ## 题目描述
 

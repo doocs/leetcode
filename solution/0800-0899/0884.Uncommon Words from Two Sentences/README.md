@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0884.Uncommon%20Words%20from%20Two%20Sentences/README_EN.md)
 
+<!-- tags:哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -66,10 +68,10 @@ class Solution {
     public String[] uncommonFromSentences(String s1, String s2) {
         Map<String, Integer> cnt = new HashMap<>();
         for (String s : s1.split(" ")) {
-            cnt.put(s, cnt.getOrDefault(s, 0) + 1);
+            cnt.merge(s, 1, Integer::sum);
         }
         for (String s : s2.split(" ")) {
-            cnt.put(s, cnt.getOrDefault(s, 0) + 1);
+            cnt.merge(s, 1, Integer::sum);
         }
         List<String> ans = new ArrayList<>();
         for (var e : cnt.entrySet()) {

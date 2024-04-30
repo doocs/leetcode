@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2059.Minimum%20Operations%20to%20Convert%20Number/README.md)
 
+<!-- tags:Breadth-First Search,Array -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> containing <strong>distinct</strong> numbers, an integer <code>start</code>, and an integer <code>goal</code>. There is an integer <code>x</code> that is initially set to <code>start</code>, and you want to perform operations on <code>x</code> such that it is converted to <code>goal</code>. You can perform the following operation repeatedly on the number <code>x</code>:</p>

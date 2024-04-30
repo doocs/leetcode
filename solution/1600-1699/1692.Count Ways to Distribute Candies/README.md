@@ -1,6 +1,8 @@
-# [1692. 计算分配糖果的不同方式](https://leetcode.cn/problems/count-ways-to-distribute-candies)
+# [1692. 计算分配糖果的不同方式 🔒](https://leetcode.cn/problems/count-ways-to-distribute-candies)
 
 [English Version](/solution/1600-1699/1692.Count%20Ways%20to%20Distribute%20Candies/README_EN.md)
+
+<!-- tags:动态规划 -->
 
 ## 题目描述
 

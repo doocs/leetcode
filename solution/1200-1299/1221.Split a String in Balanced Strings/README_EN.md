@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1221.Split%20a%20String%20in%20Balanced%20Strings/README.md)
 
+<!-- tags:Greedy,String,Counting -->
+
 ## Description
 
 <p><strong>Balanced</strong> strings are those that have an equal quantity of <code>&#39;L&#39;</code> and <code>&#39;R&#39;</code> characters.</p>

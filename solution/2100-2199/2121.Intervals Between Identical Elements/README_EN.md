@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2121.Intervals%20Between%20Identical%20Elements/README.md)
 
+<!-- tags:Array,Hash Table,Prefix Sum -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array of <code>n</code> integers <code>arr</code>.</p>

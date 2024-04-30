@@ -1,6 +1,8 @@
-# [2783. Flight Occupancy and Waitlist Analysis](https://leetcode.com/problems/flight-occupancy-and-waitlist-analysis)
+# [2783. Flight Occupancy and Waitlist Analysis 🔒](https://leetcode.com/problems/flight-occupancy-and-waitlist-analysis)
 
 [中文文档](/solution/2700-2799/2783.Flight%20Occupancy%20and%20Waitlist%20Analysis/README.md)
+
+<!-- tags:Database -->
 
 ## Description
 

@@ -1,6 +1,8 @@
-# [604. 迭代压缩字符串](https://leetcode.cn/problems/design-compressed-string-iterator)
+# [604. 迭代压缩字符串 🔒](https://leetcode.cn/problems/design-compressed-string-iterator)
 
 [English Version](/solution/0600-0699/0604.Design%20Compressed%20String%20Iterator/README_EN.md)
+
+<!-- tags:设计,数组,字符串,迭代器 -->
 
 ## 题目描述
 

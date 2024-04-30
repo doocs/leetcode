@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1697.Checking%20Existence%20of%20Edge%20Length%20Limited%20Paths/README_EN.md)
 
+<!-- tags:并查集,图,数组,双指针,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -59,115 +61,6 @@
 然后对于每个查询，我们从边权最小的边开始，将边权严格小于 $limit$ 的所有边加入并查集，接着利用并查集的查询操作判断两点是否连通即可。
 
 时间复杂度 $O(m \times \log m + q \times \log q)$，其中 $m$ 和 $q$ 分别为边数和查询数。
-
-附并查集相关介绍以及常用模板：
-
-并查集是一种树形的数据结构，顾名思义，它用于处理一些不交集的**合并**及**查询**问题。 它支持两种操作：
-
-1. 查找（Find）：确定某个元素处于哪个子集，单次操作时间复杂度 $O(\alpha(n))$
-1. 合并（Union）：将两个子集合并成一个集合，单次操作时间复杂度 $O(\alpha(n))$
-
-其中 $\alpha$ 为阿克曼函数的反函数，其增长极其缓慢，也就是说其单次操作的平均运行时间可以认为是一个很小的常数。
-
-以下是并查集的常用模板，需要熟练掌握。其中：
-
--   `n` 表示节点数
--   `p` 存储每个点的父节点，初始时每个点的父节点都是自己
--   `size` 只有当节点是祖宗节点时才有意义，表示祖宗节点所在集合中，点的数量
--   `find(x)` 函数用于查找 $x$ 所在集合的祖宗节点
--   `union(a, b)` 函数用于合并 $a$ 和 $b$ 所在的集合
-
-```python [sol1-Python3 模板]
-p = list(range(n))
-size = [1] * n
-
-def find(x):
-    if p[x] != x:
-        # 路径压缩
-        p[x] = find(p[x])
-    return p[x]
-
-
-def union(a, b):
-    pa, pb = find(a), find(b)
-    if pa == pb:
-        return
-    p[pa] = pb
-    size[pb] += size[pa]
-```
-
-```java [sol1-Java 模板]
-int[] p = new int[n];
-int[] size = new int[n];
-for (int i = 0; i < n; ++i) {
-    p[i] = i;
-    size[i] = 1;
-}
-
-int find(int x) {
-    if (p[x] != x) {
-        // 路径压缩
-        p[x] = find(p[x]);
-    }
-    return p[x];
-}
-
-void union(int a, int b) {
-    int pa = find(a), pb = find(b);
-    if (pa == pb) {
-        return;
-    }
-    p[pa] = pb;
-    size[pb] += size[pa];
-}
-```
-
-```cpp [sol1-C++ 模板]
-vector<int> p(n);
-iota(p.begin(), p.end(), 0);
-vector<int> size(n, 1);
-
-int find(int x) {
-    if (p[x] != x) {
-        // 路径压缩
-        p[x] = find(p[x]);
-    }
-    return p[x];
-}
-
-void unite(int a, int b) {
-    int pa = find(a), pb = find(b);
-    if (pa == pb) return;
-    p[pa] = pb;
-    size[pb] += size[pa];
-}
-```
-
-```go [sol1-Go 模板]
-p := make([]int, n)
-size := make([]int, n)
-for i := range p {
-    p[i] = i
-    size[i] = 1
-}
-
-func find(x int) int {
-    if p[x] != x {
-        // 路径压缩
-        p[x] = find(p[x])
-    }
-    return p[x]
-}
-
-func union(a, b int) {
-    pa, pb := find(a), find(b)
-    if pa == pb {
-        return
-    }
-    p[pa] = pb
-    size[pb] += size[pa]
-}
-```
 
 <!-- tabs:start -->
 
@@ -371,6 +264,119 @@ impl Solution {
         let p_d = Solution::find(d, d_set);
         p_s == p_d
     }
+}
+```
+
+<!-- tabs:end -->
+
+附并查集相关介绍以及常用模板：
+
+并查集是一种树形的数据结构，顾名思义，它用于处理一些不交集的**合并**及**查询**问题。 它支持两种操作：
+
+1. 查找（Find）：确定某个元素处于哪个子集，单次操作时间复杂度 $O(\alpha(n))$
+1. 合并（Union）：将两个子集合并成一个集合，单次操作时间复杂度 $O(\alpha(n))$
+
+其中 $\alpha$ 为阿克曼函数的反函数，其增长极其缓慢，也就是说其单次操作的平均运行时间可以认为是一个很小的常数。
+
+以下是并查集的常用模板，需要熟练掌握。其中：
+
+-   `n` 表示节点数
+-   `p` 存储每个点的父节点，初始时每个点的父节点都是自己
+-   `size` 只有当节点是祖宗节点时才有意义，表示祖宗节点所在集合中，点的数量
+-   `find(x)` 函数用于查找 $x$ 所在集合的祖宗节点
+-   `union(a, b)` 函数用于合并 $a$ 和 $b$ 所在的集合
+
+<!-- tabs:start -->
+
+```python
+p = list(range(n))
+size = [1] * n
+
+def find(x):
+    if p[x] != x:
+        # 路径压缩
+        p[x] = find(p[x])
+    return p[x]
+
+
+def union(a, b):
+    pa, pb = find(a), find(b)
+    if pa == pb:
+        return
+    p[pa] = pb
+    size[pb] += size[pa]
+```
+
+```java
+int[] p = new int[n];
+int[] size = new int[n];
+for (int i = 0; i < n; ++i) {
+    p[i] = i;
+    size[i] = 1;
+}
+
+int find(int x) {
+    if (p[x] != x) {
+        // 路径压缩
+        p[x] = find(p[x]);
+    }
+    return p[x];
+}
+
+void union(int a, int b) {
+    int pa = find(a), pb = find(b);
+    if (pa == pb) {
+        return;
+    }
+    p[pa] = pb;
+    size[pb] += size[pa];
+}
+```
+
+```cpp
+vector<int> p(n);
+iota(p.begin(), p.end(), 0);
+vector<int> size(n, 1);
+
+int find(int x) {
+    if (p[x] != x) {
+        // 路径压缩
+        p[x] = find(p[x]);
+    }
+    return p[x];
+}
+
+void unite(int a, int b) {
+    int pa = find(a), pb = find(b);
+    if (pa == pb) return;
+    p[pa] = pb;
+    size[pb] += size[pa];
+}
+```
+
+```go
+p := make([]int, n)
+size := make([]int, n)
+for i := range p {
+    p[i] = i
+    size[i] = 1
+}
+
+func find(x int) int {
+    if p[x] != x {
+        // 路径压缩
+        p[x] = find(p[x])
+    }
+    return p[x]
+}
+
+func union(a, b int) {
+    pa, pb := find(a), find(b)
+    if pa == pb {
+        return
+    }
+    p[pa] = pb
+    size[pb] += size[pa]
 }
 ```
 

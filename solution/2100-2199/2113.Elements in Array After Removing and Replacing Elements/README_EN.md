@@ -1,6 +1,8 @@
-# [2113. Elements in Array After Removing and Replacing Elements](https://leetcode.com/problems/elements-in-array-after-removing-and-replacing-elements)
+# [2113. Elements in Array After Removing and Replacing Elements 🔒](https://leetcode.com/problems/elements-in-array-after-removing-and-replacing-elements)
 
 [中文文档](/solution/2100-2199/2113.Elements%20in%20Array%20After%20Removing%20and%20Replacing%20Elements/README.md)
+
+<!-- tags:Array -->
 
 ## Description
 

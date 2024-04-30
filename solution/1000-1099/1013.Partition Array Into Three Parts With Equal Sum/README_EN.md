@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1013.Partition%20Array%20Into%20Three%20Parts%20With%20Equal%20Sum/README.md)
 
+<!-- tags:Greedy,Array -->
+
 ## Description
 
 <p>Given an array of integers <code>arr</code>, return <code>true</code> if we can partition the array into three <strong>non-empty</strong> parts with equal sums.</p>

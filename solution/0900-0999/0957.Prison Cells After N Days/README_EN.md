@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0957.Prison%20Cells%20After%20N%20Days/README.md)
 
+<!-- tags:Bit Manipulation,Array,Hash Table,Math -->
+
 ## Description
 
 <p>There are <code>8</code> prison cells in a row and each cell is either occupied or vacant.</p>

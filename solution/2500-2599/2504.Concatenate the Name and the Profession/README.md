@@ -1,6 +1,8 @@
-# [2504. 把名字和职业联系起来](https://leetcode.cn/problems/concatenate-the-name-and-the-profession)
+# [2504. 把名字和职业联系起来 🔒](https://leetcode.cn/problems/concatenate-the-name-and-the-profession)
 
 [English Version](/solution/2500-2599/2504.Concatenate%20the%20Name%20and%20the%20Profession/README_EN.md)
+
+<!-- tags:数据库 -->
 
 ## 题目描述
 

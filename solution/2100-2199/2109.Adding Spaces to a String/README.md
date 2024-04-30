@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2109.Adding%20Spaces%20to%20a%20String/README_EN.md)
 
+<!-- tags:数组,双指针,字符串,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

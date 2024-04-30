@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0636.Exclusive%20Time%20of%20Functions/README.md)
 
+<!-- tags:Stack,Array -->
+
 ## Description
 
 <p>On a <strong>single-threaded</strong> CPU, we execute a program containing <code>n</code> functions. Each function has a unique ID between <code>0</code> and <code>n-1</code>.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0680.Valid%20Palindrome%20II/README_EN.md)
 
+<!-- tags:贪心,双指针,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

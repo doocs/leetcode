@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2374.Node%20With%20Highest%20Edge%20Score/README.md)
 
+<!-- tags:Graph,Hash Table -->
+
 ## Description
 
 <p>You are given a directed graph with <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code>, where each node has <strong>exactly one</strong> outgoing edge.</p>

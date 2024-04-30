@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0257.Binary%20Tree%20Paths/README_EN.md)
 
+<!-- tags:树,深度优先搜索,字符串,回溯,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

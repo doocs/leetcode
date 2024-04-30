@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1876.Substrings%20of%20Size%20Three%20with%20Distinct%20Characters/README.md)
 
+<!-- tags:Hash Table,String,Counting,Sliding Window -->
+
 ## Description
 
 <p>A string is <strong>good</strong> if there are no repeated characters.</p>

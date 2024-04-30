@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0936.Stamping%20The%20Sequence/README.md)
 
+<!-- tags:Stack,Greedy,Queue,String -->
+
 ## Description
 
 <p>You are given two strings <code>stamp</code> and <code>target</code>. Initially, there is a string <code>s</code> of length <code>target.length</code> with all <code>s[i] == &#39;?&#39;</code>.</p>

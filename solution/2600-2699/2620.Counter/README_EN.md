@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2620.Counter/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Given an integer&nbsp;<code>n</code>,&nbsp;return a <code>counter</code> function. This <code>counter</code> function initially returns&nbsp;<code>n</code>&nbsp;and then returns 1 more than the previous value every subsequent time it is called (<code>n</code>, <code>n + 1</code>, <code>n + 2</code>, etc).</p>

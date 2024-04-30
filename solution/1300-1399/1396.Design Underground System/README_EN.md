@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1396.Design%20Underground%20System/README.md)
 
+<!-- tags:Design,Hash Table,String -->
+
 ## Description
 
 <p>An underground railway system is keeping track of customer travel times between different stations. They are using this data to calculate the average time it takes to travel from one station to another.</p>

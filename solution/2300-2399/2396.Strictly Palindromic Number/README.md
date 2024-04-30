@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2396.Strictly%20Palindromic%20Number/README_EN.md)
 
+<!-- tags:脑筋急转弯,数学,双指针 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

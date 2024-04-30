@@ -1,6 +1,8 @@
-# [2219. Maximum Sum Score of Array](https://leetcode.com/problems/maximum-sum-score-of-array)
+# [2219. Maximum Sum Score of Array 🔒](https://leetcode.com/problems/maximum-sum-score-of-array)
 
 [中文文档](/solution/2200-2299/2219.Maximum%20Sum%20Score%20of%20Array/README.md)
+
+<!-- tags:Array,Prefix Sum -->
 
 ## Description
 

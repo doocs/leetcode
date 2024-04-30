@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2924.Find%20Champion%20II/README.md)
 
+<!-- tags:Graph -->
+
 ## Description
 
 <p>There are <code>n</code> teams numbered from <code>0</code> to <code>n - 1</code> in a tournament; each team is also a node in a <strong>DAG</strong>.</p>

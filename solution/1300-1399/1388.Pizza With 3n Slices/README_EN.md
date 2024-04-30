@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1388.Pizza%20With%203n%20Slices/README.md)
 
+<!-- tags:Greedy,Array,Dynamic Programming,Heap (Priority Queue) -->
+
 ## Description
 
 <p>There is a pizza with <code>3n</code> slices of varying size, you and your friends will take slices of pizza as follows:</p>

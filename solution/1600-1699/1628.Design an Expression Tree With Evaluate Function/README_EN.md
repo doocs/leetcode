@@ -1,6 +1,8 @@
-# [1628. Design an Expression Tree With Evaluate Function](https://leetcode.com/problems/design-an-expression-tree-with-evaluate-function)
+# [1628. Design an Expression Tree With Evaluate Function 🔒](https://leetcode.com/problems/design-an-expression-tree-with-evaluate-function)
 
 [中文文档](/solution/1600-1699/1628.Design%20an%20Expression%20Tree%20With%20Evaluate%20Function/README.md)
+
+<!-- tags:Stack,Tree,Design,Math,Binary Tree -->
 
 ## Description
 

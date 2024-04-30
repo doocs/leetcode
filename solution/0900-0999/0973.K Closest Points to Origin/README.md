@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0973.K%20Closest%20Points%20to%20Origin/README_EN.md)
 
+<!-- tags:几何,数组,数学,分治,快速选择,排序,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

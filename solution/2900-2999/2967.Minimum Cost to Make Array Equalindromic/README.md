@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2967.Minimum%20Cost%20to%20Make%20Array%20Equalindromic/README_EN.md)
 
+<!-- tags:贪心,数组,数学,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -69,6 +71,10 @@
 接下来，我们对数组 $nums$ 进行排序，然后取 $nums$ 的中位数 $x$，我们只需要通过二分查找，在回文数组 $ps$ 中，找到一个与 $x$ 最接近的数，然后计算 $nums$ 变成这个数的代价，即可得到答案。
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(M)$。其中 $n$ 是数组 $nums$ 的长度，而 $M$ 是回文数组 $ps$ 的长度。
+
+相似题目：
+
+-   [906. 超级回文数](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0906.Super%20Palindromes/README.md)
 
 <!-- tabs:start -->
 

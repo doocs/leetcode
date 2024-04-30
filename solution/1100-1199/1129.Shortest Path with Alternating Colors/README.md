@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1129.Shortest%20Path%20with%20Alternating%20Colors/README_EN.md)
 
+<!-- tags:广度优先搜索,图 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

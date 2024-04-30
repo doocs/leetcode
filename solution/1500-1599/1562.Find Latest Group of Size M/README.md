@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1562.Find%20Latest%20Group%20of%20Size%20M/README_EN.md)
 
+<!-- tags:数组,二分查找,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

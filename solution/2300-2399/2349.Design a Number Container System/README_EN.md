@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2349.Design%20a%20Number%20Container%20System/README.md)
 
+<!-- tags:Design,Hash Table,Ordered Set,Heap (Priority Queue) -->
+
 ## Description
 
 <p>Design a number container system that can do the following:</p>

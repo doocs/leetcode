@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2876.Count%20Visited%20Nodes%20in%20a%20Directed%20Graph/README_EN.md)
 
+<!-- tags:图,记忆化搜索,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

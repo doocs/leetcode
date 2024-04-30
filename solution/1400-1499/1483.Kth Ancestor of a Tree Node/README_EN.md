@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1483.Kth%20Ancestor%20of%20a%20Tree%20Node/README.md)
 
+<!-- tags:Tree,Depth-First Search,Breadth-First Search,Design,Binary Search,Dynamic Programming -->
+
 ## Description
 
 <p>You are given a tree with <code>n</code> nodes numbered from <code>0</code> to <code>n - 1</code> in the form of a parent array <code>parent</code> where <code>parent[i]</code> is the parent of <code>i<sup>th</sup></code> node. The root of the tree is node <code>0</code>. Find the <code>k<sup>th</sup></code> ancestor of a given node.</p>
@@ -258,6 +260,54 @@ class TreeAncestor {
  * Your TreeAncestor object will be instantiated and called as such:
  * var obj = new TreeAncestor(n, parent)
  * var param_1 = obj.getKthAncestor(node,k)
+ */
+```
+
+```cs
+public class TreeAncestor {
+    private int[][] p;
+
+    public TreeAncestor(int n, int[] parent) {
+        p = new int[n][];
+        for (int i = 0; i < n; i++) {
+            p[i] = new int[18];
+            for (int j = 0; j < 18; j++) {
+                p[i][j] = -1;
+            }
+        }
+
+        for (int i = 0; i < n; ++i) {
+            p[i][0] = parent[i];
+        }
+
+        for (int j = 1; j < 18; ++j) {
+            for (int i = 0; i < n; ++i) {
+                if (p[i][j - 1] == -1) {
+                    continue;
+                }
+                p[i][j] = p[p[i][j - 1]][j - 1];
+            }
+        }
+    }
+
+    public int GetKthAncestor(int node, int k) {
+        for (int i = 17; i >= 0; --i) {
+            if (((k >> i) & 1) == 1) {
+                node = p[node][i];
+                if (node == -1) {
+                    break;
+                }
+            }
+        }
+        return node;
+    }
+}
+
+
+/**
+ * Your TreeAncestor object will be instantiated and called as such:
+ * TreeAncestor obj = new TreeAncestor(n, parent);
+ * int param_1 = obj.GetKthAncestor(node,k);
  */
 ```
 

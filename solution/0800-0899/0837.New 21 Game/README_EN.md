@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0837.New%2021%20Game/README.md)
 
+<!-- tags:Math,Dynamic Programming,Sliding Window,Probability and Statistics -->
+
 ## Description
 
 <p>Alice plays the following game, loosely based on the card game <strong>&quot;21&quot;</strong>.</p>

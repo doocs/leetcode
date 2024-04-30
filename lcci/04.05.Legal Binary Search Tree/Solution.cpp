@@ -4,29 +4,28 @@
  *     int val;
  *     TreeNode *left;
  *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
 class Solution {
 public:
     bool isValidBST(TreeNode* root) {
-        TreeNode* pre = nullptr;
-        TreeNode* cur = root;
-        stack<TreeNode*> stk;
-        while (cur || !stk.empty()) {
-            if (cur) {
-                stk.push(cur);
-                cur = cur->left;
-            } else {
-                cur = stk.top();
-                stk.pop();
-                if (pre && pre->val >= cur->val) {
-                    return false;
-                }
-                pre = cur;
-                cur = cur->right;
+        TreeNode* prev = nullptr;
+        function<bool(TreeNode*)> dfs = [&](TreeNode* root) {
+            if (!root) {
+                return true;
             }
-        }
-        return true;
+            if (!dfs(root->left)) {
+                return false;
+            }
+            if (prev && prev->val >= root->val) {
+                return false;
+            }
+            prev = root;
+            return dfs(root->right);
+        };
+        return dfs(root);
     }
 };

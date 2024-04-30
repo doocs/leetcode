@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0035.Search%20Insert%20Position/README.md)
 
+<!-- tags:Array,Binary Search -->
+
 ## Description
 
 <p>Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.</p>
@@ -160,7 +162,11 @@ var searchInsert = function (nums, target) {
 
 <!-- tabs:end -->
 
-### Solution 2
+### Solution 2: Binary Search (Built-in Function)
+
+We can also directly use the built-in function for binary search.
+
+The time complexity is $O(\log n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -168,6 +174,15 @@ var searchInsert = function (nums, target) {
 class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
         return bisect_left(nums, target)
+```
+
+```java
+class Solution {
+    public int searchInsert(int[] nums, int target) {
+        int i = Arrays.binarySearch(nums, target);
+        return i < 0 ? -i - 1 : i;
+    }
+}
 ```
 
 ```cpp
@@ -182,6 +197,27 @@ public:
 ```go
 func searchInsert(nums []int, target int) int {
 	return sort.SearchInts(nums, target)
+}
+```
+
+```php
+class Solution {
+    /**
+     * @param integer[] $nums
+     * @param integer $target
+     * @return integer
+     */
+
+    function searchInsert($nums, $target) {
+        $key = array_search($target, $nums);
+        if ($key !== false) {
+            return $key;
+        }
+
+        $nums[] = $target;
+        sort($nums);
+        return array_search($target, $nums);
+    }
 }
 ```
 

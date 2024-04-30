@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0904.Fruit%20Into%20Baskets/README_EN.md)
 
+<!-- tags:数组,哈希表,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -89,7 +91,7 @@ j   i
   j     i
 ```
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `fruits` 的长度。
+时间复杂度 $O(n)$，其中 $n$ 为数组 `fruits` 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -117,11 +119,10 @@ class Solution {
         int ans = 0;
         for (int i = 0, j = 0; i < fruits.length; ++i) {
             int x = fruits[i];
-            cnt.put(x, cnt.getOrDefault(x, 0) + 1);
+            cnt.merge(x, 1, Integer::sum);
             while (cnt.size() > 2) {
                 int y = fruits[j++];
-                cnt.put(y, cnt.get(y) - 1);
-                if (cnt.get(y) == 0) {
+                if (cnt.merge(y, -1, Integer::sum) == 0) {
                     cnt.remove(y);
                 }
             }
@@ -143,7 +144,9 @@ public:
             ++cnt[x];
             while (cnt.size() > 2) {
                 int y = fruits[j++];
-                if (--cnt[y] == 0) cnt.erase(y);
+                if (--cnt[y] == 0) {
+                    cnt.erase(y);
+                }
             }
             ans = max(ans, i - j + 1);
         }
@@ -174,49 +177,47 @@ func totalFruit(fruits []int) int {
 ```ts
 function totalFruit(fruits: number[]): number {
     const n = fruits.length;
-    const map = new Map<number, number>();
-    let res = 0;
-    let left = 0;
-    let right = 0;
-    while (right < n) {
-        map.set(fruits[right], (map.get(fruits[right]) ?? 0) + 1);
-        right++;
-        while (map.size > 2) {
-            const k = fruits[left++];
-            map.set(k, map.get(k) - 1);
-            if (map.get(k) === 0) {
-                map.delete(k);
+    const cnt: Map<number, number> = new Map();
+    let ans = 0;
+    for (let i = 0, j = 0; i < n; ++i) {
+        cnt.set(fruits[i], (cnt.get(fruits[i]) || 0) + 1);
+        for (; cnt.size > 2; ++j) {
+            cnt.set(fruits[j], cnt.get(fruits[j])! - 1);
+            if (!cnt.get(fruits[j])) {
+                cnt.delete(fruits[j]);
             }
         }
-        res = Math.max(res, right - left);
+        ans = Math.max(ans, i - j + 1);
     }
-    return res;
+    return ans;
 }
 ```
 
 ```rust
 use std::collections::HashMap;
+
 impl Solution {
     pub fn total_fruit(fruits: Vec<i32>) -> i32 {
-        let n = fruits.len();
-        let mut map = HashMap::new();
-        let mut res = 0;
-        let mut left = 0;
-        let mut right = 0;
-        while right < n {
-            *map.entry(fruits[right]).or_insert(0) += 1;
-            right += 1;
-            while map.len() > 2 {
-                let k = fruits[left];
-                map.insert(k, map[&k] - 1);
-                if map[&k] == 0 {
-                    map.remove(&k);
+        let mut cnt = HashMap::new();
+        let mut ans = 0;
+        let mut j = 0;
+
+        for (i, &x) in fruits.iter().enumerate() {
+            *cnt.entry(x).or_insert(0) += 1;
+
+            while cnt.len() > 2 {
+                let y = fruits[j];
+                j += 1;
+                *cnt.get_mut(&y).unwrap() -= 1;
+                if cnt[&y] == 0 {
+                    cnt.remove(&y);
                 }
-                left += 1;
             }
-            res = res.max(right - left);
+
+            ans = ans.max(i - j + 1);
         }
-        res as i32
+
+        ans as i32
     }
 }
 ```
@@ -229,7 +230,7 @@ impl Solution {
 
 但本题实际上求的是水果的最大数目，也就是“最大”的窗口，我们没有必要缩小窗口，只需要让窗口单调增大。于是代码就少了每次更新答案的操作，只需要在遍历结束后将此时的窗口大小作为答案返回即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `fruits` 的长度。
+时间复杂度 $O(n)$，其中 $n$ 为数组 `fruits` 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -255,11 +256,10 @@ class Solution {
         Map<Integer, Integer> cnt = new HashMap<>();
         int j = 0, n = fruits.length;
         for (int x : fruits) {
-            cnt.put(x, cnt.getOrDefault(x, 0) + 1);
+            cnt.merge(x, 1, Integer::sum);
             if (cnt.size() > 2) {
                 int y = fruits[j++];
-                cnt.put(y, cnt.get(y) - 1);
-                if (cnt.get(y) == 0) {
+                if (cnt.merge(y, -1, Integer::sum) == 0) {
                     cnt.remove(y);
                 }
             }
@@ -279,7 +279,9 @@ public:
             ++cnt[x];
             if (cnt.size() > 2) {
                 int y = fruits[j++];
-                if (--cnt[y] == 0) cnt.erase(y);
+                if (--cnt[y] == 0) {
+                    cnt.erase(y);
+                }
             }
         }
         return n - j;
@@ -309,41 +311,44 @@ func totalFruit(fruits []int) int {
 ```ts
 function totalFruit(fruits: number[]): number {
     const n = fruits.length;
-    const map = new Map<number, number>();
-    let i = 0;
-    for (const fruit of fruits) {
-        map.set(fruit, (map.get(fruit) ?? 0) + 1);
-        if (map.size > 2) {
-            const k = fruits[i++];
-            map.set(k, map.get(k) - 1);
-            if (map.get(k) == 0) {
-                map.delete(k);
+    const cnt: Map<number, number> = new Map();
+    let j = 0;
+    for (const x of fruits) {
+        cnt.set(x, (cnt.get(x) || 0) + 1);
+        if (cnt.size > 2) {
+            cnt.set(fruits[j], cnt.get(fruits[j])! - 1);
+            if (!cnt.get(fruits[j])) {
+                cnt.delete(fruits[j]);
             }
+            ++j;
         }
     }
-    return n - i;
+    return n - j;
 }
 ```
 
 ```rust
 use std::collections::HashMap;
+
 impl Solution {
     pub fn total_fruit(fruits: Vec<i32>) -> i32 {
+        let mut cnt = HashMap::new();
+        let mut j = 0;
         let n = fruits.len();
-        let mut map = HashMap::new();
-        let mut i = 0;
-        for &fruit in fruits.iter() {
-            *map.entry(fruit).or_insert(0) += 1;
-            if map.len() > 2 {
-                let k = fruits[i];
-                map.insert(k, map[&k] - 1);
-                if map[&k] == 0 {
-                    map.remove(&k);
+
+        for &x in &fruits {
+            *cnt.entry(x).or_insert(0) += 1;
+            if cnt.len() > 2 {
+                let y = fruits[j];
+                j += 1;
+                *cnt.get_mut(&y).unwrap() -= 1;
+                if cnt[&y] == 0 {
+                    cnt.remove(&y);
                 }
-                i += 1;
             }
         }
-        (n - i) as i32
+
+        (n - j) as i32
     }
 }
 ```

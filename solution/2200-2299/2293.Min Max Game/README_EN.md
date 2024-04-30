@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2293.Min%20Max%20Game/README.md)
 
+<!-- tags:Array,Simulation -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> whose length is a power of <code>2</code>.</p>

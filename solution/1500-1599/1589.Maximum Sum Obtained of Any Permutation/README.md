@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1589.Maximum%20Sum%20Obtained%20of%20Any%20Permutation/README_EN.md)
 
+<!-- tags:贪心,数组,前缀和,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

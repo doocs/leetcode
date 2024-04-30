@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2810.Faulty%20Keyboard/README_EN.md)
 
+<!-- tags:字符串,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

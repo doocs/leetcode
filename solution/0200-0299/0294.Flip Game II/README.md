@@ -1,6 +1,8 @@
-# [294. 翻转游戏 II](https://leetcode.cn/problems/flip-game-ii)
+# [294. 翻转游戏 II 🔒](https://leetcode.cn/problems/flip-game-ii)
 
 [English Version](/solution/0200-0299/0294.Flip%20Game%20II/README_EN.md)
+
+<!-- tags:记忆化搜索,数学,动态规划,回溯,博弈 -->
 
 ## 题目描述
 

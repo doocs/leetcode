@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2785.Sort%20Vowels%20in%20a%20String/README.md)
 
+<!-- tags:String,Sorting -->
+
 ## Description
 
 <p>Given a <strong>0-indexed</strong> string <code>s</code>, <strong>permute</strong> <code>s</code> to get a new string <code>t</code> such that:</p>
@@ -42,7 +44,13 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Sorting
+
+First, we store all the vowels in the string into an array or list $vs$, then we sort $vs$.
+
+Next, we traverse the string $s$, keeping the consonants unchanged. If it is a vowel, we replace it in order with the letters in the $vs$ array.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

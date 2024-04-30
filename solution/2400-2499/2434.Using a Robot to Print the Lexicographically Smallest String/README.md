@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2434.Using%20a%20Robot%20to%20Print%20the%20Lexicographically%20Smallest%20String/README_EN.md)
 
+<!-- tags:栈,贪心,哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

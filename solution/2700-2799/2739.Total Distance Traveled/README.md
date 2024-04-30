@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2739.Total%20Distance%20Traveled/README_EN.md)
 
+<!-- tags:数学,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -140,6 +142,23 @@ impl Solution {
         ans
     }
 }
+```
+
+```js
+var distanceTraveled = function (mainTank, additionalTank) {
+    let ans = 0,
+        cur = 0;
+    while (mainTank) {
+        cur++;
+        ans += 10;
+        mainTank--;
+        if (cur % 5 === 0 && additionalTank) {
+            additionalTank--;
+            mainTank++;
+        }
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->

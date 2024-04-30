@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2612.Minimum%20Reverse%20Operations/README_EN.md)
 
+<!-- tags:广度优先搜索,数组,有序集合 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

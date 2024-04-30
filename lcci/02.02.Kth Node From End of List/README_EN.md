@@ -22,7 +22,11 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Two Pointers
+
+We define two pointers `slow` and `fast`, both initially pointing to the head node `head`. Then the `fast` pointer moves forward $k$ steps first, and then the `slow` and `fast` pointers move forward together until the `fast` pointer points to the end of the list. At this point, the node pointed to by the `slow` pointer is the $k$-th node from the end of the list.
+
+The time complexity is $O(n)$, where $n$ is the length of the list. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -40,7 +44,8 @@ class Solution:
         for _ in range(k):
             fast = fast.next
         while fast:
-            slow, fast = slow.next, fast.next
+            slow = slow.next
+            fast = fast.next
         return slow.val
 ```
 
@@ -82,7 +87,7 @@ public:
     int kthToLast(ListNode* head, int k) {
         ListNode* fast = head;
         ListNode* slow = head;
-        while (k-- > 0) {
+        while (k--) {
             fast = fast->next;
         }
         while (fast) {
@@ -95,9 +100,16 @@ public:
 ```
 
 ```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
 func kthToLast(head *ListNode, k int) int {
 	slow, fast := head, head
-	for i := 0; i < k; i++ {
+	for ; k > 0; k-- {
 		fast = fast.Next
 	}
 	for fast != nil {
@@ -105,6 +117,32 @@ func kthToLast(head *ListNode, k int) int {
 		fast = fast.Next
 	}
 	return slow.Val
+}
+```
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function kthToLast(head: ListNode | null, k: number): number {
+    let [slow, fast] = [head, head];
+    while (k--) {
+        fast = fast.next;
+    }
+    while (fast !== null) {
+        slow = slow.next;
+        fast = fast.next;
+    }
+    return slow.val;
 }
 ```
 
@@ -155,17 +193,50 @@ impl Solution {
  * @return {number}
  */
 var kthToLast = function (head, k) {
-    let fast = head,
-        slow = head;
-    for (let i = 0; i < k; i++) {
+    let [slow, fast] = [head, head];
+    while (k--) {
         fast = fast.next;
     }
-    while (fast != null) {
-        fast = fast.next;
+    while (fast !== null) {
         slow = slow.next;
+        fast = fast.next;
     }
     return slow.val;
 };
+```
+
+```swift
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     var val: Int
+ *     var next: ListNode?
+ *     init(_ x: Int, _ next: ListNode? = nil) {
+ *         self.val = x
+ *         self.next = next
+ *     }
+ * }
+ */
+
+class Solution {
+    func kthToLast(_ head: ListNode?, _ k: Int) -> Int {
+        var slow = head
+        var fast = head
+        var k = k
+
+        while k > 0 {
+            fast = fast?.next
+            k -= 1
+        }
+
+        while fast != nil {
+            slow = slow?.next
+            fast = fast?.next
+        }
+
+        return slow?.val ?? 0
+    }
+}
 ```
 
 <!-- tabs:end -->

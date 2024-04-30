@@ -1,8 +1,28 @@
 name: clang-format-linter
 
 on:
-  push: {}
-  pull_request: {}
+  push:
+    paths:
+      - solution/**
+      - lcs/**
+      - lcp/**
+      - lcof2/**
+      - lcof/**
+      - lcci/**
+      - basic/**
+  pull_request:
+    paths:
+      - solution/**
+      - lcs/**
+      - lcp/**
+      - lcof2/**
+      - lcof/**
+      - lcci/**
+      - basic/**
+
+concurrency: 
+  group: ${{github.workflow}} - ${{github.ref}}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -10,7 +30,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - uses: DoozyX/clang-format-lint-action@v0.16.2
+    - uses: DoozyX/clang-format-lint-action@v0.17
       with:
         source: '.'
         extensions: 'c,cpp,java'

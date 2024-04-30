@@ -2,24 +2,20 @@ use std::collections::HashSet;
 
 impl Solution {
     pub fn distinct_difference_array(nums: Vec<i32>) -> Vec<i32> {
-        let mut ans: Vec<i32> = Vec::new();
+        let n = nums.len();
+        let mut suf = vec![0; n + 1];
+        let mut s = HashSet::new();
 
-        for i in 0..nums.len() {
-            let mut j = 0;
-            let mut hash1 = HashSet::new();
-            while j <= i {
-                hash1.insert(nums[j]);
-                j += 1;
-            }
+        for i in (0..n).rev() {
+            s.insert(nums[i]);
+            suf[i] = s.len();
+        }
 
-            let mut k = i + 1;
-            let mut hash2 = HashSet::new();
-            while k < nums.len() {
-                hash2.insert(nums[k]);
-                k += 1;
-            }
-
-            ans.push((hash1.len() - hash2.len()) as i32);
+        let mut ans = Vec::new();
+        s.clear();
+        for i in 0..n {
+            s.insert(nums[i]);
+            ans.push((s.len() - suf[i + 1]) as i32);
         }
 
         ans

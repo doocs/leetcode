@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2934.Minimum%20Operations%20to%20Maximize%20Last%20Elements%20in%20Arrays/README.md)
 
+<!-- tags:Array,Enumeration -->
+
 ## Description
 
 <p>You are given two <strong>0-indexed</strong> integer arrays, <code>nums1</code> and <code>nums2</code>, both having length <code>n</code>.</p>

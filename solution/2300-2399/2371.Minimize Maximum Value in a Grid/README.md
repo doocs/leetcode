@@ -1,6 +1,8 @@
-# [2371. 最小化网格中的最大值](https://leetcode.cn/problems/minimize-maximum-value-in-a-grid)
+# [2371. 最小化网格中的最大值 🔒](https://leetcode.cn/problems/minimize-maximum-value-in-a-grid)
 
 [English Version](/solution/2300-2399/2371.Minimize%20Maximum%20Value%20in%20a%20Grid/README_EN.md)
+
+<!-- tags:并查集,图,拓扑排序,数组,矩阵,排序 -->
 
 ## 题目描述
 

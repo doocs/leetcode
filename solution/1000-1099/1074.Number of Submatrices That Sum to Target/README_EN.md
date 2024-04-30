@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1074.Number%20of%20Submatrices%20That%20Sum%20to%20Target/README.md)
 
+<!-- tags:Array,Hash Table,Matrix,Prefix Sum -->
+
 ## Description
 
 <p>Given a <code>matrix</code>&nbsp;and a <code>target</code>, return the number of non-empty submatrices that sum to <font face="monospace">target</font>.</p>
@@ -40,7 +42,7 @@
 <ul>
 	<li><code>1 &lt;= matrix.length &lt;= 100</code></li>
 	<li><code>1 &lt;= matrix[0].length &lt;= 100</code></li>
-	<li><code>-1000 &lt;= matrix[i] &lt;= 1000</code></li>
+	<li><code>-1000 &lt;= matrix[i][j] &lt;= 1000</code></li>
 	<li><code>-10^8 &lt;= target &lt;= 10^8</code></li>
 </ul>
 

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2768.Number%20of%20Black%20Blocks/README.md)
 
+<!-- tags:Array,Hash Table,Enumeration -->
+
 ## Description
 
 <p>You are given two integers <code>m</code> and <code>n</code> representing the dimensions of a&nbsp;<strong>0-indexed</strong>&nbsp;<code>m x n</code> grid.</p>

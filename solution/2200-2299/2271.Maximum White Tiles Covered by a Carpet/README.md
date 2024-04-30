@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2271.Maximum%20White%20Tiles%20Covered%20by%20a%20Carpet/README_EN.md)
 
+<!-- tags:贪心,数组,二分查找,前缀和,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2491.Divide%20Players%20Into%20Teams%20of%20Equal%20Skill/README.md)
 
+<!-- tags:Array,Hash Table,Two Pointers,Sorting -->
+
 ## Description
 
 <p>You are given a positive integer array <code>skill</code> of <strong>even</strong> length <code>n</code> where <code>skill[i]</code> denotes the skill of the <code>i<sup>th</sup></code> player. Divide the players into <code>n / 2</code> teams of size <code>2</code> such that the total skill of each team is <strong>equal</strong>.</p>
@@ -51,7 +53,15 @@ There is no way to divide the players into teams such that the total skill of ea
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Sorting
+
+To make all 2-person teams have equal skill points, the minimum value must match the maximum value. Therefore, we sort the `skill` array, and then use two pointers $i$ and $j$ to point to the beginning and end of the array respectively, match them in pairs, and judge whether their sum is the same number.
+
+If not, it means that the skill points cannot be equal, and we directly return $-1$. Otherwise, we add the chemical reaction to the answer.
+
+At the end of the traversal, we return the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the `skill` array.
 
 <!-- tabs:start -->
 
@@ -173,7 +183,9 @@ var dividePlayers = function (skill) {
 
 <!-- tabs:end -->
 
-### Solution 2
+### Solution 2: Counting
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the `skill` array.
 
 <!-- tabs:start -->
 

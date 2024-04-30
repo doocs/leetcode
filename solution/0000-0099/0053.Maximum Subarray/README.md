@@ -2,13 +2,15 @@
 
 [English Version](/solution/0000-0099/0053.Maximum%20Subarray/README_EN.md)
 
+<!-- tags:数组,分治,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
 
 <p>给你一个整数数组 <code>nums</code> ，请你找出一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。</p>
 
-<p><strong>子数组 </strong>是数组中的一个连续部分。</p>
+<p><strong><span data-keyword="subarray-nonempty">子数组 </span></strong>是数组中的一个连续部分。</p>
 
 <p>&nbsp;</p>
 

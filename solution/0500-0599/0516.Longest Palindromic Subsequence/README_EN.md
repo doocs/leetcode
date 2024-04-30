@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0516.Longest%20Palindromic%20Subsequence/README.md)
 
+<!-- tags:String,Dynamic Programming -->
+
 ## Description
 
 <p>Given a string <code>s</code>, find <em>the longest palindromic <strong>subsequence</strong>&#39;s length in</em> <code>s</code>.</p>
@@ -35,7 +37,17 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[i][j]$ as the length of the longest palindromic subsequence from the $i$-th character to the $j$-th character in string $s$. Initially, $f[i][i] = 1$, and the values of other positions are all $0$.
+
+If $s[i] = s[j]$, then $f[i][j] = f[i + 1][j - 1] + 2$; otherwise, $f[i][j] = \max(f[i + 1][j], f[i][j - 1])$.
+
+Since the value of $f[i][j]$ is related to $f[i + 1][j - 1]$, $f[i + 1][j]$, and $f[i][j - 1]$, we should enumerate $i$ from large to small, and enumerate $j$ from small to large.
+
+The answer is $f[0][n - 1]$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 
@@ -43,36 +55,36 @@
 class Solution:
     def longestPalindromeSubseq(self, s: str) -> int:
         n = len(s)
-        dp = [[0] * n for _ in range(n)]
+        f = [[0] * n for _ in range(n)]
         for i in range(n):
-            dp[i][i] = 1
-        for j in range(1, n):
-            for i in range(j - 1, -1, -1):
+            f[i][i] = 1
+        for i in range(n - 1, -1, -1):
+            for j in range(i + 1, n):
                 if s[i] == s[j]:
-                    dp[i][j] = dp[i + 1][j - 1] + 2
+                    f[i][j] = f[i + 1][j - 1] + 2
                 else:
-                    dp[i][j] = max(dp[i + 1][j], dp[i][j - 1])
-        return dp[0][-1]
+                    f[i][j] = max(f[i + 1][j], f[i][j - 1])
+        return f[0][-1]
 ```
 
 ```java
 class Solution {
     public int longestPalindromeSubseq(String s) {
         int n = s.length();
-        int[][] dp = new int[n][n];
+        int[][] f = new int[n][n];
         for (int i = 0; i < n; ++i) {
-            dp[i][i] = 1;
+            f[i][i] = 1;
         }
-        for (int j = 1; j < n; ++j) {
-            for (int i = j - 1; i >= 0; --i) {
+        for (int i = n - 1; i >= 0; --i) {
+            for (int j = i + 1; j < n; ++j) {
                 if (s.charAt(i) == s.charAt(j)) {
-                    dp[i][j] = dp[i + 1][j - 1] + 2;
+                    f[i][j] = f[i + 1][j - 1] + 2;
                 } else {
-                    dp[i][j] = Math.max(dp[i + 1][j], dp[i][j - 1]);
+                    f[i][j] = Math.max(f[i + 1][j], f[i][j - 1]);
                 }
             }
         }
-        return dp[0][n - 1];
+        return f[0][n - 1];
     }
 }
 ```
@@ -82,20 +94,21 @@ class Solution {
 public:
     int longestPalindromeSubseq(string s) {
         int n = s.size();
-        vector<vector<int>> dp(n, vector<int>(n, 0));
+        int f[n][n];
+        memset(f, 0, sizeof(f));
         for (int i = 0; i < n; ++i) {
-            dp[i][i] = 1;
+            f[i][i] = 1;
         }
-        for (int j = 1; j < n; ++j) {
-            for (int i = j - 1; i >= 0; --i) {
+        for (int i = n - 1; ~i; --i) {
+            for (int j = i + 1; j < n; ++j) {
                 if (s[i] == s[j]) {
-                    dp[i][j] = dp[i + 1][j - 1] + 2;
+                    f[i][j] = f[i + 1][j - 1] + 2;
                 } else {
-                    dp[i][j] = max(dp[i + 1][j], dp[i][j - 1]);
+                    f[i][j] = max(f[i + 1][j], f[i][j - 1]);
                 }
             }
         }
-        return dp[0][n - 1];
+        return f[0][n - 1];
     }
 };
 ```
@@ -103,21 +116,41 @@ public:
 ```go
 func longestPalindromeSubseq(s string) int {
 	n := len(s)
-	dp := make([][]int, n)
-	for i := 0; i < n; i++ {
-		dp[i] = make([]int, n)
-		dp[i][i] = 1
+	f := make([][]int, n)
+	for i := range f {
+		f[i] = make([]int, n)
+		f[i][i] = 1
 	}
-	for j := 1; j < n; j++ {
-		for i := j - 1; i >= 0; i-- {
+	for i := n - 2; i >= 0; i-- {
+		for j := i + 1; j < n; j++ {
 			if s[i] == s[j] {
-				dp[i][j] = dp[i+1][j-1] + 2
+				f[i][j] = f[i+1][j-1] + 2
 			} else {
-				dp[i][j] = max(dp[i+1][j], dp[i][j-1])
+				f[i][j] = max(f[i+1][j], f[i][j-1])
 			}
 		}
 	}
-	return dp[0][n-1]
+	return f[0][n-1]
+}
+```
+
+```ts
+function longestPalindromeSubseq(s: string): number {
+    const n = s.length;
+    const f: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
+    for (let i = 0; i < n; ++i) {
+        f[i][i] = 1;
+    }
+    for (let i = n - 2; ~i; --i) {
+        for (let j = i + 1; j < n; ++j) {
+            if (s[i] === s[j]) {
+                f[i][j] = f[i + 1][j - 1] + 2;
+            } else {
+                f[i][j] = Math.max(f[i + 1][j], f[i][j - 1]);
+            }
+        }
+    }
+    return f[0][n - 1];
 }
 ```
 

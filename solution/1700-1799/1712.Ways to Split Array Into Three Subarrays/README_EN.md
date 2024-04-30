@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1712.Ways%20to%20Split%20Array%20Into%20Three%20Subarrays/README.md)
 
+<!-- tags:Array,Two Pointers,Binary Search,Prefix Sum -->
+
 ## Description
 
 <p>A split of an integer array is <strong>good</strong> if:</p>

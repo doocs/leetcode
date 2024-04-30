@@ -1,6 +1,8 @@
-# [800. 相似 RGB 颜色](https://leetcode.cn/problems/similar-rgb-color)
+# [800. 相似 RGB 颜色 🔒](https://leetcode.cn/problems/similar-rgb-color)
 
 [English Version](/solution/0800-0899/0800.Similar%20RGB%20Color/README_EN.md)
+
+<!-- tags:数学,字符串,枚举 -->
 
 ## 题目描述
 

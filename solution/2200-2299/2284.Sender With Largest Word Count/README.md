@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2284.Sender%20With%20Largest%20Word%20Count/README_EN.md)
 
+<!-- tags:数组,哈希表,字符串,计数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

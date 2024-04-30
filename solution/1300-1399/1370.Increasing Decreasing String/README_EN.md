@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1370.Increasing%20Decreasing%20String/README.md)
 
+<!-- tags:Hash Table,String,Counting -->
+
 ## Description
 
 <p>You are given a string <code>s</code>. Reorder the string using the following algorithm:</p>

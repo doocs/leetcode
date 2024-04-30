@@ -1,6 +1,8 @@
-# [2628. 完全相等的 JSON 字符串](https://leetcode.cn/problems/json-deep-equal)
+# [2628. 完全相等的 JSON 字符串 🔒](https://leetcode.cn/problems/json-deep-equal)
 
 [English Version](/solution/2600-2699/2628.JSON%20Deep%20Equal/README_EN.md)
+
+<!-- tags: -->
 
 ## 题目描述
 

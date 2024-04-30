@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2560.House%20Robber%20IV/README_EN.md)
 
+<!-- tags:数组,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

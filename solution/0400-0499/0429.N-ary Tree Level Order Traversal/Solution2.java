@@ -18,13 +18,14 @@ class Node {
 */
 
 class Solution {
+    private List<List<Integer>> ans = new ArrayList<>();
+
     public List<List<Integer>> levelOrder(Node root) {
-        List<List<Integer>> ans = new ArrayList<>();
-        dfs(root, 0, ans);
+        dfs(root, 0);
         return ans;
     }
 
-    private void dfs(Node root, int i, List<List<Integer>> ans) {
+    private void dfs(Node root, int i) {
         if (root == null) {
             return;
         }
@@ -33,7 +34,7 @@ class Solution {
         }
         ans.get(i++).add(root.val);
         for (Node child : root.children) {
-            dfs(child, i, ans);
+            dfs(child, i);
         }
     }
 }

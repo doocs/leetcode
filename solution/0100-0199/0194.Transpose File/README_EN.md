@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0194.Transpose%20File/README.md)
 
+<!-- tags:Shell -->
+
 ## Description
 
 <p>Given a text file <code>file.txt</code>, transpose its content.</p>
@@ -26,5 +28,30 @@ age 21 30
 </pre>
 
 ## Solutions
+
+### Solution 1: awk
+
+<!-- tabs:start -->
+
+```bash
+# Read from the file file.txt and print its transposed content to stdout.
+awk '
+{
+  for (i=1; i<=NF; i++) {
+    if(NR == 1) {
+      res[i] = re$i
+    } else {
+      res[i] = res[i]" "$i
+    }
+  }
+}END {
+  for (i=1;i<=NF;i++) {
+    print res[i]
+  }
+}
+' file.txt
+```
+
+<!-- tabs:end -->
 
 <!-- end -->

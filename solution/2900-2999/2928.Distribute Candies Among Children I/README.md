@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2928.Distribute%20Candies%20Among%20Children%20I/README_EN.md)
 
+<!-- tags:数学,组合数学,枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -1,6 +1,8 @@
-# [248. 中心对称数 III](https://leetcode.cn/problems/strobogrammatic-number-iii)
+# [248. 中心对称数 III 🔒](https://leetcode.cn/problems/strobogrammatic-number-iii)
 
 [English Version](/solution/0200-0299/0248.Strobogrammatic%20Number%20III/README_EN.md)
+
+<!-- tags:递归,数组,字符串 -->
 
 ## 题目描述
 

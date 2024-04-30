@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2496.Maximum%20Value%20of%20a%20String%20in%20an%20Array/README.md)
 
+<!-- tags:Array,String -->
+
 ## Description
 
 <p>The <strong>value</strong> of an alphanumeric string can be defined as:</p>

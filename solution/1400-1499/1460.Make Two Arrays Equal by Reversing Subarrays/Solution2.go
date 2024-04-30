@@ -7,10 +7,5 @@ func canBeEqual(target []int, arr []int) bool {
 	for _, v := range arr {
 		cnt2[v]++
 	}
-	for i, v := range cnt1 {
-		if v != cnt2[i] {
-			return false
-		}
-	}
-	return true
+	return reflect.DeepEqual(cnt1, cnt2)
 }

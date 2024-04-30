@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2421.Number%20of%20Good%20Paths/README.md)
 
+<!-- tags:Tree,Union Find,Graph,Array,Hash Table,Sorting -->
+
 ## Description
 
 <p>There is a tree (i.e. a connected, undirected graph with no cycles) consisting of <code>n</code> nodes numbered from <code>0</code> to <code>n - 1</code> and exactly <code>n - 1</code> edges.</p>

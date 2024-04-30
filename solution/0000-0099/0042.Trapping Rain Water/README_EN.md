@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0042.Trapping%20Rain%20Water/README.md)
 
+<!-- tags:Stack,Array,Two Pointers,Dynamic Programming,Monotonic Stack -->
+
 ## Description
 
 <p>Given <code>n</code> non-negative integers representing an elevation map where the width of each bar is <code>1</code>, compute how much water it can trap after raining.</p>
@@ -35,7 +37,7 @@
 
 ### Solution 1: Dynamic Programming
 
-We define $left[i]$ as the height of the highest bar to the left of and including the position at index $i$, and $right[i]$ as the height of the highest bar to the right of and including the position at index $i$. Therefore, the amount of rainwater that can be trapped at index $i$ is $min(left[i], right[i]) - height[i]$. We traverse the array to calculate $left[i]$ and $right[i]$, and the final answer is $\sum_{i=0}^{n-1} min(left[i], right[i]) - height[i]$.
+We define $left[i]$ as the height of the highest bar to the left of and including the position at index $i$, and $right[i]$ as the height of the highest bar to the right of and including the position at index $i$. Therefore, the amount of rainwater that can be trapped at index $i$ is $min(left[i], right[i]) - height[i]$. We traverse the array to calculate $left[i]$ and $right[i]$, and the final answer is $\sum_{i=0}^{n-1} \min(left[i], right[i]) - height[i]$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
 
@@ -175,6 +177,48 @@ public class Solution {
             ans += Math.Min(left[i], right[i]) - height[i];
         }
         return ans;
+    }
+}
+```
+
+```php
+class Solution {
+    /**
+     * @param integer[] $height
+     * @return integer
+     */
+
+    function trap($height) {
+        $n = count($height);
+
+        if ($n == 0) {
+            return 0;
+        }
+
+        $left = 0;
+        $right = $n - 1;
+        $leftMax = 0;
+        $rightMax = 0;
+        $ans = 0;
+
+        while ($left < $right) {
+            if ($height[$left] < $height[$right]) {
+                if ($height[$left] > $leftMax) {
+                    $leftMax = $height[$left];
+                } else {
+                    $ans += $leftMax - $height[$left];
+                }
+                $left++;
+            } else {
+                if ($height[$right] > $rightMax) {
+                    $rightMax = $height[$right];
+                } else {
+                    $ans += $rightMax - $height[$right];
+                }
+                $right--;
+            }
+        }
+        return $ans;
     }
 }
 ```

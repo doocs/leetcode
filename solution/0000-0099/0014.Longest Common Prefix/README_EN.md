@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0014.Longest%20Common%20Prefix/README.md)
 
+<!-- tags:Trie,String -->
+
 ## Description
 
 <p>Write a function to find the longest common prefix string amongst an array of strings.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1787.Make%20the%20XOR%20of%20All%20Segments%20Equal%20to%20Zero/README_EN.md)
 
+<!-- tags:位运算,数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

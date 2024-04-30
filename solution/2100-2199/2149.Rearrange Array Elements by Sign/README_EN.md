@@ -2,11 +2,13 @@
 
 [中文文档](/solution/2100-2199/2149.Rearrange%20Array%20Elements%20by%20Sign/README.md)
 
+<!-- tags:Array,Two Pointers,Simulation -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of <strong>even</strong> length consisting of an <strong>equal</strong> number of positive and negative integers.</p>
 
-<p>You should <strong>rearrange</strong> the elements of <code>nums</code> such that the modified array follows the given conditions:</p>
+<p>You should return the array of nums such that the the array follows the given conditions:</p>
 
 <ol>
 	<li>Every <strong>consecutive pair</strong> of integers have <strong>opposite signs</strong>.</li>
@@ -47,6 +49,9 @@ So nums is rearranged to [1,-1].
 	<li><code>1 &lt;= |nums[i]| &lt;= 10<sup>5</sup></code></li>
 	<li><code>nums</code> consists of <strong>equal</strong> number of positive and negative integers.</li>
 </ul>
+
+<p>&nbsp;</p>
+It is not required to do the modifications in-place.
 
 ## Solutions
 

@@ -1,6 +1,8 @@
-# [1788. 最大化花园的美观度](https://leetcode.cn/problems/maximize-the-beauty-of-the-garden)
+# [1788. 最大化花园的美观度 🔒](https://leetcode.cn/problems/maximize-the-beauty-of-the-garden)
 
 [English Version](/solution/1700-1799/1788.Maximize%20the%20Beauty%20of%20the%20Garden/README_EN.md)
+
+<!-- tags:贪心,数组,前缀和 -->
 
 ## 题目描述
 

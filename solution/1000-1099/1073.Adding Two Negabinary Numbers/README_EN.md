@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1073.Adding%20Two%20Negabinary%20Numbers/README.md)
 
+<!-- tags:Array,Math -->
+
 ## Description
 
 <p>Given two numbers <code>arr1</code> and <code>arr2</code> in base <strong>-2</strong>, return the result of adding them together.</p>

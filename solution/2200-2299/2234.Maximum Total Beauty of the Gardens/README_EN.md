@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2234.Maximum%20Total%20Beauty%20of%20the%20Gardens/README.md)
 
+<!-- tags:Greedy,Array,Two Pointers,Binary Search,Sorting -->
+
 ## Description
 
 <p>Alice is a caretaker of <code>n</code> gardens and she wants to plant flowers to maximize the total beauty of all her gardens.</p>

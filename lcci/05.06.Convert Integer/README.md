@@ -31,7 +31,7 @@
 
 ### 方法一：位运算
 
-我们将 A 和 B 进行异或运算，得到的结果中 $1$ 的个数即为需要改变的位数。
+我们将 A 和 B 进行异或运算，得到的结果的二进制表示中 $1$ 的个数即为需要改变的位数。
 
 时间复杂度 $O(\log n)$，其中 $n$ 为 A 和 B 的最大值。空间复杂度 $O(1)$。
 
@@ -87,6 +87,14 @@ function convertInteger(A: number, B: number): number {
 impl Solution {
     pub fn convert_integer(a: i32, b: i32) -> i32 {
         (a ^ b).count_ones() as i32
+    }
+}
+```
+
+```swift
+class Solution {
+    func convertInteger(_ A: Int, _ B: Int) -> Int {
+        return (Int32(A) ^ Int32(B)).nonzeroBitCount
     }
 }
 ```

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2363.Merge%20Similar%20Items/README.md)
 
+<!-- tags:Array,Hash Table,Ordered Set,Sorting -->
+
 ## Description
 
 <p>You are given two 2D integer arrays, <code>items1</code> and <code>items2</code>, representing two sets of items. Each array <code>items</code> has the following properties:</p>
@@ -64,7 +66,11 @@ Therefore, we return [[1,7],[2,4],[7,1]].
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Hash Table or Array
+
+We can use a hash table or array `cnt` to count the total weight of each item in `items1` and `items2`. Then, we traverse the values in ascending order, adding each value and its corresponding total weight to the result array.
+
+The time complexity is $O(n + m)$ and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of `items1` and `items2` respectively.
 
 <!-- tabs:start -->
 

@@ -1,6 +1,8 @@
-# [2941. Maximum GCD-Sum of a Subarray](https://leetcode.com/problems/maximum-gcd-sum-of-a-subarray)
+# [2941. Maximum GCD-Sum of a Subarray 🔒](https://leetcode.com/problems/maximum-gcd-sum-of-a-subarray)
 
 [中文文档](/solution/2900-2999/2941.Maximum%20GCD-Sum%20of%20a%20Subarray/README.md)
+
+<!-- tags:Array,Math,Binary Search,Number Theory -->
 
 ## Description
 

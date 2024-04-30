@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0001.Two%20Sum/README_EN.md)
 
+<!-- tags:数组,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -143,14 +145,13 @@ use std::collections::HashMap;
 
 impl Solution {
     pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
-        let mut map = HashMap::new();
-        for (i, item) in nums.iter().enumerate() {
-            if map.contains_key(item) {
-                return vec![i as i32, map[item]];
-            } else {
-                let x = target - nums[i];
-                map.insert(x, i as i32);
+        let mut m = HashMap::new();
+        for (i, &x) in nums.iter().enumerate() {
+            let y = target - x;
+            if let Some(&j) = m.get(&y) {
+                return vec![j as i32, i as i32];
             }
+            m.insert(x, i as i32);
         }
         unreachable!()
     }
@@ -202,12 +203,13 @@ class Solution {
      * @return Integer[]
      */
     function twoSum($nums, $target) {
-        foreach ($nums as $key => $x) {
+        $m = [];
+        foreach ($nums as $i => $x) {
             $y = $target - $x;
-            if (isset($hashtable[$y])) {
-                return [$hashtable[$y], $key];
+            if (isset($m[$y])) {
+                return [$m[$y], $i];
             }
-            $hashtable[$x] = $key;
+            $m[$x] = $i;
         }
     }
 }

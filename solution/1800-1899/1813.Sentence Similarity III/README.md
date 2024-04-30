@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1813.Sentence%20Similarity%20III/README_EN.md)
 
+<!-- tags:数组,双指针,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0482.License%20Key%20Formatting/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>You are given a license key represented as a string <code>s</code> that consists of only alphanumeric characters and dashes. The string is separated into <code>n + 1</code> groups by <code>n</code> dashes. You are also given an integer <code>k</code>.</p>

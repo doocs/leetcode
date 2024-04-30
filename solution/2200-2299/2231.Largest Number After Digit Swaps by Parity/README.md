@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2231.Largest%20Number%20After%20Digit%20Swaps%20by%20Parity/README_EN.md)
 
+<!-- tags:排序,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -154,10 +156,10 @@ func largestInteger(num int) int {
 
 ```ts
 function largestInteger(num: number): number {
-    let arrs = String(num).split('').map(Number);
-    let odds = []; // 奇数
-    let evens = [];
-    for (let i of arrs) {
+    const arrs: number[] = String(num).split('').map(Number);
+    const odds: number[] = []; // 奇数
+    const evens: number[] = [];
+    for (const i of arrs) {
         if ((i & 1) == 1) {
             odds.push(i);
         } else {
@@ -166,9 +168,9 @@ function largestInteger(num: number): number {
     }
     odds.sort((a, b) => a - b);
     evens.sort((a, b) => a - b);
-    let ans = [];
-    for (let i of arrs) {
-        ans.push((i & 1) == 1 ? odds.pop() : evens.pop());
+    const ans: number[] = [];
+    for (const i of arrs) {
+        ans.push((i & 1) === 1 ? odds.pop() : evens.pop());
     }
     return Number(ans.join(''));
 }

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0205.Isomorphic%20Strings/README.md)
 
+<!-- tags:Hash Table,String -->
+
 ## Description
 
 <p>Given two strings <code>s</code> and <code>t</code>, <em>determine if they are isomorphic</em>.</p>

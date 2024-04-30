@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0852.Peak%20Index%20in%20a%20Mountain%20Array/README.md)
 
+<!-- tags:Array,Binary Search -->
+
 ## Description
 
 <p>An array <code>arr</code> is a <strong>mountain</strong> if the following properties hold:</p>

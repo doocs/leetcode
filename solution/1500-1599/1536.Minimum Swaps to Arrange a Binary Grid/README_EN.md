@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1536.Minimum%20Swaps%20to%20Arrange%20a%20Binary%20Grid/README.md)
 
+<!-- tags:Greedy,Array,Matrix -->
+
 ## Description
 
 <p>Given an <code>n x n</code> binary <code>grid</code>, in one step you can choose two <strong>adjacent rows</strong> of the grid and swap them.</p>

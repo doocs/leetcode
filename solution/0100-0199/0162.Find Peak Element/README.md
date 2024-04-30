@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0162.Find%20Peak%20Element/README_EN.md)
 
+<!-- tags:数组,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1392.Longest%20Happy%20Prefix/README.md)
 
+<!-- tags:String,String Matching,Hash Function,Rolling Hash -->
+
 ## Description
 
 <p>A string is called a <strong>happy prefix</strong> if is a <strong>non-empty</strong> prefix which is also a suffix (excluding itself).</p>

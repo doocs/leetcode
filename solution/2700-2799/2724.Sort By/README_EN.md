@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2724.Sort%20By/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Given an array <code>arr</code> and a function <code>fn</code>, return a sorted array <code>sortedArr</code>. You can assume&nbsp;<code>fn</code>&nbsp;only returns numbers and those numbers determine the sort order of&nbsp;<code>sortedArr</code>. <code>sortedArray</code> must be sorted in <strong>ascending order</strong> by <code>fn</code> output.</p>

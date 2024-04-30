@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0141.Linked%20List%20Cycle/README.md)
 
+<!-- tags:Hash Table,Linked List,Two Pointers -->
+
 ## Description
 
 <p>Given <code>head</code>, the head of a linked list, determine if the linked list has a cycle in it.</p>
@@ -49,7 +51,136 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Hash Table
+
+We can traverse the linked list and use a hash table $s$ to record each node. When a node appears for the second time, it indicates that there is a cycle, and we directly return `true`. Otherwise, when the linked list traversal ends, we return `false`.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the linked list.
+
+<!-- tabs:start -->
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+
+class Solution:
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+        s = set()
+        while head:
+            if head in s:
+                return True
+            s.add(head)
+            head = head.next
+        return False
+```
+
+```java
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+        Set<ListNode> s = new HashSet<>();
+        for (; head != null; head = head.next) {
+            if (!s.add(head)) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+```
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool hasCycle(ListNode* head) {
+        unordered_set<ListNode*> s;
+        for (; head; head = head->next) {
+            if (s.contains(head)) {
+                return true;
+            }
+            s.insert(head);
+        }
+        return false;
+    }
+};
+```
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func hasCycle(head *ListNode) bool {
+	s := map[*ListNode]bool{}
+	for ; head != nil; head = head.Next {
+		if s[head] {
+			return true
+		}
+		s[head] = true
+	}
+	return false
+}
+```
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function hasCycle(head: ListNode | null): boolean {
+    const s: Set<ListNode> = new Set();
+    for (; head; head = head.next) {
+        if (s.has(head)) {
+            return true;
+        }
+        s.add(head);
+    }
+    return false;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Fast and Slow Pointers
+
+We define two pointers, $fast$ and $slow$, both initially pointing to $head$.
+
+The fast pointer moves two steps at a time, and the slow pointer moves one step at a time, in a continuous loop. When the fast and slow pointers meet, it indicates that there is a cycle in the linked list. If the loop ends without the pointers meeting, it indicates that there is no cycle in the linked list.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of nodes in the linked list.
 
 <!-- tabs:start -->
 
@@ -159,14 +290,14 @@ func hasCycle(head *ListNode) bool {
  */
 
 function hasCycle(head: ListNode | null): boolean {
-    const set = new Set<ListNode>();
-    let node = head;
-    while (node !== null) {
-        if (set.has(node)) {
+    let slow = head;
+    let fast = head;
+    while (fast !== null && fast.next !== null) {
+        slow = slow.next;
+        fast = fast.next.next;
+        if (slow === fast) {
             return true;
         }
-        set.add(node);
-        node = node.next;
     }
     return false;
 }
@@ -224,39 +355,6 @@ public class Solution {
         }
         return false;
     }
-}
-```
-
-<!-- tabs:end -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-```ts
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     val: number
- *     next: ListNode | null
- *     constructor(val?: number, next?: ListNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.next = (next===undefined ? null : next)
- *     }
- * }
- */
-
-function hasCycle(head: ListNode | null): boolean {
-    let slow = head;
-    let fast = head;
-    while (fast !== null && fast.next !== null) {
-        slow = slow.next;
-        fast = fast.next.next;
-        if (slow === fast) {
-            return true;
-        }
-    }
-    return false;
 }
 ```
 

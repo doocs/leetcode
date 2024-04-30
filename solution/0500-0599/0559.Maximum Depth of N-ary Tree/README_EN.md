@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0559.Maximum%20Depth%20of%20N-ary%20Tree/README.md)
 
+<!-- tags:Tree,Depth-First Search,Breadth-First Search -->
+
 ## Description
 
 <p>Given a n-ary tree, find its maximum depth.</p>

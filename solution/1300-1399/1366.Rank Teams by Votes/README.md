@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1366.Rank%20Teams%20by%20Votes/README_EN.md)
 
+<!-- tags:数组,哈希表,字符串,计数,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

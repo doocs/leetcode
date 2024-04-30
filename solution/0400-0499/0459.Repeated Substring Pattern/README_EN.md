@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0459.Repeated%20Substring%20Pattern/README.md)
 
+<!-- tags:String,String Matching -->
+
 ## Description
 
 <p>Given a string <code>s</code>, check if it can be constructed by taking a substring of it and appending multiple copies of the substring together.</p>

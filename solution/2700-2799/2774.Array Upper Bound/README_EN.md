@@ -1,6 +1,8 @@
-# [2774. Array Upper Bound](https://leetcode.com/problems/array-upper-bound)
+# [2774. Array Upper Bound 🔒](https://leetcode.com/problems/array-upper-bound)
 
 [中文文档](/solution/2700-2799/2774.Array%20Upper%20Bound/README.md)
+
+<!-- tags: -->
 
 ## Description
 

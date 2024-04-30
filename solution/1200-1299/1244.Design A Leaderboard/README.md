@@ -1,6 +1,8 @@
-# [1244. 力扣排行榜](https://leetcode.cn/problems/design-a-leaderboard)
+# [1244. 力扣排行榜 🔒](https://leetcode.cn/problems/design-a-leaderboard)
 
 [English Version](/solution/1200-1299/1244.Design%20A%20Leaderboard/README_EN.md)
+
+<!-- tags:设计,哈希表,排序 -->
 
 ## 题目描述
 

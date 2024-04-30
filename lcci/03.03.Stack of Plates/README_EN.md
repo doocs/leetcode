@@ -39,7 +39,15 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Simulation
+
+We can use a list of stacks $stk$ to simulate this process, initially $stk$ is empty.
+
+-   When the `push` method is called, if $cap$ is 0, return directly. Otherwise, if $stk$ is empty or the length of the last stack in $stk$ is greater than or equal to $cap$, then create a new stack. Then add the element $val$ to the last stack in $stk$. The time complexity is $O(1)$.
+-   When the `pop` method is called, return the result of `popAt(|stk| - 1)`. The time complexity is $O(1)$.
+-   When the `popAt` method is called, if $index$ is not in the range $[0, |stk|)$, return -1. Otherwise, return the top element of $stk[index]$ and pop it out. If $stk[index]$ is empty after popping, remove it from $stk$. The time complexity is $O(1)$.
+
+The space complexity is $O(n)$, where $n$ is the number of elements.
 
 <!-- tabs:start -->
 
@@ -127,9 +135,13 @@ public:
     }
 
     void push(int val) {
-        if (!cap) return;
-        if (stk.empty() || stk[stk.size() - 1].size() >= cap) stk.emplace_back(stack<int>());
-        stk[stk.size() - 1].push(val);
+        if (!cap) {
+            return;
+        }
+        if (stk.empty() || stk.back().size() >= cap) {
+            stk.emplace_back(stack<int>());
+        }
+        stk.back().push(val);
     }
 
     int pop() {
@@ -149,8 +161,8 @@ public:
     }
 
 private:
-    vector<stack<int>> stk;
     int cap;
+    vector<stack<int>> stk;
 };
 
 /**
@@ -258,6 +270,51 @@ class StackOfPlates {
  * obj.push(val)
  * var param_2 = obj.pop()
  * var param_3 = obj.popAt(index)
+ */
+```
+
+```swift
+class StackOfPlates {
+    private var stacks: [[Int]]
+    private var cap: Int
+
+    init(_ cap: Int) {
+        self.cap = cap
+        self.stacks = []
+    }
+
+    func push(_ val: Int) {
+        if cap == 0 {
+            return
+        }
+        if stacks.isEmpty || stacks.last!.count >= cap {
+            stacks.append([])
+        }
+        stacks[stacks.count - 1].append(val)
+    }
+
+    func pop() -> Int {
+        return popAt(stacks.count - 1)
+    }
+
+    func popAt(_ index: Int) -> Int {
+        guard index >= 0, index < stacks.count, !stacks[index].isEmpty else {
+            return -1
+        }
+        let value = stacks[index].removeLast()
+        if stacks[index].isEmpty {
+            stacks.remove(at: index)
+        }
+        return value
+    }
+}
+
+/**
+ * Your StackOfPlates object will be instantiated and called as such:
+ * let obj = new StackOfPlates(cap);
+ * obj.push(val);
+ * let param_2 = obj.pop();
+ * let param_3 = obj.popAt(index);
  */
 ```
 

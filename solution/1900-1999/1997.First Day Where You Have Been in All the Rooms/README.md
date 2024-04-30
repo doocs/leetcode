@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1997.First%20Day%20Where%20You%20Have%20Been%20in%20All%20the%20Rooms/README_EN.md)
 
+<!-- tags:数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -128,6 +130,32 @@ func firstDayBeenInAllRooms(nextVisit []int) int {
 		f[i] = (f[i-1] + 1 + f[i-1] - f[nextVisit[i-1]] + 1 + mod) % mod
 	}
 	return f[n-1]
+}
+```
+
+```ts
+function firstDayBeenInAllRooms(nextVisit: number[]): number {
+    const n = nextVisit.length;
+    const mod = 1e9 + 7;
+    const f: number[] = new Array<number>(n).fill(0);
+    for (let i = 1; i < n; ++i) {
+        f[i] = (f[i - 1] + 1 + f[i - 1] - f[nextVisit[i - 1]] + 1 + mod) % mod;
+    }
+    return f[n - 1];
+}
+```
+
+```cs
+public class Solution {
+    public int FirstDayBeenInAllRooms(int[] nextVisit) {
+        int n = nextVisit.Length;
+        long[] f = new long[n];
+        int mod = (int)1e9 + 7;
+        for (int i = 1; i < n; ++i) {
+            f[i] = (f[i - 1] + 1 + f[i - 1] - f[nextVisit[i - 1]] + 1 + mod) % mod;
+        }
+        return (int)f[n - 1];
+    }
 }
 ```
 

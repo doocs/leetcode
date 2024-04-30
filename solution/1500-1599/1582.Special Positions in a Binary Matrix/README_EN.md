@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1582.Special%20Positions%20in%20a%20Binary%20Matrix/README.md)
 
+<!-- tags:Array,Matrix -->
+
 ## Description
 
 <p>Given an <code>m x n</code> binary matrix <code>mat</code>, return <em>the number of special positions in </em><code>mat</code><em>.</em></p>

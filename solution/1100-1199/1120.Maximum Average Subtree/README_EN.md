@@ -1,6 +1,8 @@
-# [1120. Maximum Average Subtree](https://leetcode.com/problems/maximum-average-subtree)
+# [1120. Maximum Average Subtree 🔒](https://leetcode.com/problems/maximum-average-subtree)
 
 [中文文档](/solution/1100-1199/1120.Maximum%20Average%20Subtree/README.md)
+
+<!-- tags:Tree,Depth-First Search,Binary Tree -->
 
 ## Description
 

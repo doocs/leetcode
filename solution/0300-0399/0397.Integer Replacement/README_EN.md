@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0397.Integer%20Replacement/README.md)
 
+<!-- tags:Greedy,Bit Manipulation,Memoization,Dynamic Programming -->
+
 ## Description
 
 <p>Given a positive integer <code>n</code>,&nbsp;you can apply one of the following&nbsp;operations:</p>

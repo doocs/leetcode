@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2242.Maximum%20Score%20of%20a%20Node%20Sequence/README_EN.md)
 
+<!-- tags:图,数组,枚举,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

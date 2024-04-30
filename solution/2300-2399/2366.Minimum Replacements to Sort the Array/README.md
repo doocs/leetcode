@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2366.Minimum%20Replacements%20to%20Sort%20the%20Array/README_EN.md)
 
+<!-- tags:贪心,数组,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -57,7 +59,7 @@
 
 遍历结束，返回总的操作次数即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $nums$ 的长度。
+时间复杂度 $O(n)$，其中 $n$ 为数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 

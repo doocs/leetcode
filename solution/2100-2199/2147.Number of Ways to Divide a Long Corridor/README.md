@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2147.Number%20of%20Ways%20to%20Divide%20a%20Long%20Corridor/README_EN.md)
 
+<!-- tags:数学,字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

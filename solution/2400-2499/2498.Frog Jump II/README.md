@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2498.Frog%20Jump%20II/README_EN.md)
 
+<!-- tags:贪心,数组,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1125.Smallest%20Sufficient%20Team/README.md)
 
+<!-- tags:Bit Manipulation,Array,Dynamic Programming,Bitmask -->
+
 ## Description
 
 <p>In a project, you have a list of required skills <code>req_skills</code>, and a list of people. The <code>i<sup>th</sup></code> person <code>people[i]</code> contains a list of skills that the person has.</p>

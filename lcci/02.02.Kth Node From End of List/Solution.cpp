@@ -11,7 +11,7 @@ public:
     int kthToLast(ListNode* head, int k) {
         ListNode* fast = head;
         ListNode* slow = head;
-        while (k-- > 0) {
+        while (k--) {
             fast = fast->next;
         }
         while (fast) {

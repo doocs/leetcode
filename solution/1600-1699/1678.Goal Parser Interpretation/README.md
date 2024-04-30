@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1678.Goal%20Parser%20Interpretation/README_EN.md)
 
+<!-- tags:字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -49,6 +51,8 @@ G -&gt; G
 ### 方法一：字符串替换
 
 根据题意，只需要将字符串 `command` 中的 `"()"` 替换为 `'o'`，`"(al)"` 替换为 `"al"` 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $command$ 的长度。
 
 <!-- tabs:start -->
 
@@ -133,7 +137,7 @@ char* interpret(char* command) {
 
 遍历结束，返回结果串即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，其中 $n$ 是字符串 $command$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 

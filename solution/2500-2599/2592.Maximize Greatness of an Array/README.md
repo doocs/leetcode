@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2592.Maximize%20Greatness%20of%20an%20Array/README_EN.md)
 
+<!-- tags:贪心,数组,双指针,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

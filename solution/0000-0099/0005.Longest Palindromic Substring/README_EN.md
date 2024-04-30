@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0005.Longest%20Palindromic%20Substring/README.md)
 
+<!-- tags:Two Pointers,String,Dynamic Programming -->
+
 ## Description
 
 <p>Given a string <code>s</code>, return <em>the longest</em> <span data-keyword="palindromic-string"><em>palindromic</em></span> <span data-keyword="substring-nonempty"><em>substring</em></span> in <code>s</code>.</p>

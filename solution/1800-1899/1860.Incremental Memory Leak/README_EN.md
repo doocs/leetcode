@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1860.Incremental%20Memory%20Leak/README.md)
 
+<!-- tags:Math,Simulation -->
+
 ## Description
 
 <p>You are given two integers <code>memory1</code> and <code>memory2</code> representing the available memory in bits on two memory sticks. There is currently a faulty program running that consumes an increasing amount of memory every second.</p>

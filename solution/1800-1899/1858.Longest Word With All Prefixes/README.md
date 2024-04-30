@@ -1,6 +1,8 @@
-# [1858. 包含所有前缀的最长单词](https://leetcode.cn/problems/longest-word-with-all-prefixes)
+# [1858. 包含所有前缀的最长单词 🔒](https://leetcode.cn/problems/longest-word-with-all-prefixes)
 
 [English Version](/solution/1800-1899/1858.Longest%20Word%20With%20All%20Prefixes/README_EN.md)
+
+<!-- tags:深度优先搜索,字典树 -->
 
 ## 题目描述
 

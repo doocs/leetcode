@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0192.Word%20Frequency/README.md)
 
+<!-- tags:Shell -->
+
 ## Description
 
 <p>Write a bash script to calculate the <span data-keyword="frequency-textfile">frequency</span> of each word in a text file <code>words.txt</code>.</p>
@@ -40,5 +42,16 @@ day 1
 </ul>
 
 ## Solutions
+
+### Solution 1: awk
+
+<!-- tabs:start -->
+
+```bash
+# Read from the file words.txt and output the word frequency list to stdout.
+cat words.txt | tr -s ' ' '\n' | sort | uniq -c | sort -nr | awk '{print $2, $1}'
+```
+
+<!-- tabs:end -->
 
 <!-- end -->

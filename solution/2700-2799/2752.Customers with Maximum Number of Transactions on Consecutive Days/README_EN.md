@@ -1,6 +1,8 @@
-# [2752. Customers with Maximum Number of Transactions on Consecutive Days](https://leetcode.com/problems/customers-with-maximum-number-of-transactions-on-consecutive-days)
+# [2752. Customers with Maximum Number of Transactions on Consecutive Days 🔒](https://leetcode.com/problems/customers-with-maximum-number-of-transactions-on-consecutive-days)
 
 [中文文档](/solution/2700-2799/2752.Customers%20with%20Maximum%20Number%20of%20Transactions%20on%20Consecutive%20Days/README.md)
+
+<!-- tags:Database -->
 
 ## Description
 

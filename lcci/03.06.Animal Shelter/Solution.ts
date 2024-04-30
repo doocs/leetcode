@@ -1,42 +1,31 @@
 class AnimalShelf {
-    private cats: number[];
-    private dogs: number[];
-
-    constructor() {
-        this.cats = [];
-        this.dogs = [];
-    }
+    private q: number[][] = [[], []];
+    constructor() {}
 
     enqueue(animal: number[]): void {
         const [i, j] = animal;
-        this[j === 0 ? 'cats' : 'dogs'].push(i);
+        this.q[j].push(i);
     }
 
     dequeueAny(): number[] {
-        const n = this.dogs.length;
-        const m = this.cats.length;
-        if (n === 0 && m === 0) {
-            return [-1, -1];
+        if (this.q[0].length === 0 || (this.q[1].length > 0 && this.q[0][0] > this.q[1][0])) {
+            return this.dequeueDog();
         }
-        if ((this.dogs[0] ?? Infinity) < (this.cats[0] ?? Infinity)) {
-            return [this.dogs.shift(), 1];
-        } else {
-            return [this.cats.shift(), 0];
-        }
+        return this.dequeueCat();
     }
 
     dequeueDog(): number[] {
-        if (this.dogs.length === 0) {
+        if (this.q[1].length === 0) {
             return [-1, -1];
         }
-        return [this.dogs.shift(), 1];
+        return [this.q[1].shift()!, 1];
     }
 
     dequeueCat(): number[] {
-        if (this.cats.length === 0) {
+        if (this.q[0].length === 0) {
             return [-1, -1];
         }
-        return [this.cats.shift(), 0];
+        return [this.q[0].shift()!, 0];
     }
 }
 

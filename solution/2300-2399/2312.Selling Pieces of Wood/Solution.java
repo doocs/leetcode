@@ -1,32 +1,27 @@
 class Solution {
-    private long[][] memo;
     private int[][] d;
+    private Long[][] f;
 
     public long sellingWood(int m, int n, int[][] prices) {
         d = new int[m + 1][n + 1];
-        memo = new long[m + 1][n + 1];
-        for (long[] e : memo) {
-            Arrays.fill(e, -1);
-        }
-        for (int[] p : prices) {
+        f = new Long[m + 1][n + 1];
+        for (var p : prices) {
             d[p[0]][p[1]] = p[2];
         }
         return dfs(m, n);
     }
 
-    private long dfs(int m, int n) {
-        if (memo[m][n] != -1) {
-            return memo[m][n];
+    private long dfs(int h, int w) {
+        if (f[h][w] != null) {
+            return f[h][w];
         }
-
-        long ans = d[m][n];
-        for (int i = 1; i < m / 2 + 1; ++i) {
-            ans = Math.max(ans, dfs(i, n) + dfs(m - i, n));
+        long ans = d[h][w];
+        for (int i = 1; i < h / 2 + 1; ++i) {
+            ans = Math.max(ans, dfs(i, w) + dfs(h - i, w));
         }
-        for (int i = 1; i < n / 2 + 1; ++i) {
-            ans = Math.max(ans, dfs(m, i) + dfs(m, n - i));
+        for (int i = 1; i < w / 2 + 1; ++i) {
+            ans = Math.max(ans, dfs(h, i) + dfs(h, w - i));
         }
-        memo[m][n] = ans;
-        return ans;
+        return f[h][w] = ans;
     }
 }

@@ -1,6 +1,8 @@
-# [249. 移位字符串分组](https://leetcode.cn/problems/group-shifted-strings)
+# [249. 移位字符串分组 🔒](https://leetcode.cn/problems/group-shifted-strings)
 
 [English Version](/solution/0200-0299/0249.Group%20Shifted%20Strings/README_EN.md)
+
+<!-- tags:数组,哈希表,字符串 -->
 
 ## 题目描述
 
@@ -28,45 +30,50 @@
 
 ## 解法
 
-### 方法一
+### 方法一：哈希表
+
+我们用一个哈希表 $g$ 来存储每个字符串移位后且首位为 '`a`' 的字符串。即 $g[t]$ 表示所有字符串移位后字符串为 $t$ 的字符串集合。
+
+我们遍历每个字符串，对于每个字符串，我们计算其移位后的字符串 $t$，然后将其加入到 $g[t]$ 中。
+
+最后，我们将 $g$ 中的所有值取出来，即为答案。
+
+时间复杂度 $O(L)$，空间复杂度 $O(L)$，其中 $L$ 为所有字符串的长度之和。
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def groupStrings(self, strings: List[str]) -> List[List[str]]:
-        mp = defaultdict(list)
+        g = defaultdict(list)
         for s in strings:
+            diff = ord(s[0]) - ord("a")
             t = []
-            diff = ord(s[0]) - ord('a')
             for c in s:
-                d = ord(c) - diff
-                if d < ord('a'):
-                    d += 26
-                t.append(chr(d))
-            k = ''.join(t)
-            mp[k].append(s)
-        return list(mp.values())
+                c = ord(c) - diff
+                if c < ord("a"):
+                    c += 26
+                t.append(chr(c))
+            g["".join(t)].append(s)
+        return list(g.values())
 ```
 
 ```java
 class Solution {
     public List<List<String>> groupStrings(String[] strings) {
-        Map<String, List<String>> mp = new HashMap<>();
-        for (String s : strings) {
-            int diff = s.charAt(0) - 'a';
+        Map<String, List<String>> g = new HashMap<>();
+        for (var s : strings) {
             char[] t = s.toCharArray();
+            int diff = t[0] - 'a';
             for (int i = 0; i < t.length; ++i) {
-                char d = (char) (t[i] - diff);
-                if (d < 'a') {
-                    d += 26;
+                t[i] = (char) (t[i] - diff);
+                if (t[i] < 'a') {
+                    t[i] += 26;
                 }
-                t[i] = d;
             }
-            String key = new String(t);
-            mp.computeIfAbsent(key, k -> new ArrayList<>()).add(s);
+            g.computeIfAbsent(new String(t), k -> new ArrayList<>()).add(s);
         }
-        return new ArrayList<>(mp.values());
+        return new ArrayList<>(g.values());
     }
 }
 ```
@@ -75,21 +82,23 @@ class Solution {
 class Solution {
 public:
     vector<vector<string>> groupStrings(vector<string>& strings) {
-        unordered_map<string, vector<string>> mp;
+        unordered_map<string, vector<string>> g;
         for (auto& s : strings) {
+            string t;
             int diff = s[0] - 'a';
-            string t = s;
-            for (int i = 0; i < t.size(); ++i) {
-                char d = t[i] - diff;
-                if (d < 'a') d += 26;
-                t[i] = d;
+            for (int i = 0; i < s.size(); ++i) {
+                char c = s[i] - diff;
+                if (c < 'a') {
+                    c += 26;
+                }
+                t.push_back(c);
             }
-            cout << t << endl;
-            mp[t].push_back(s);
+            g[t].emplace_back(s);
         }
         vector<vector<string>> ans;
-        for (auto& e : mp)
-            ans.push_back(e.second);
+        for (auto& p : g) {
+            ans.emplace_back(move(p.second));
+        }
         return ans;
     }
 };
@@ -97,16 +106,20 @@ public:
 
 ```go
 func groupStrings(strings []string) [][]string {
-	mp := make(map[string][]string)
+	g := make(map[string][]string)
 	for _, s := range strings {
-		k := ""
-		for i := range s {
-			k += string((s[i]-s[0]+26)%26 + 'a')
+		t := []byte(s)
+		diff := t[0] - 'a'
+		for i := range t {
+			t[i] -= diff
+			if t[i] < 'a' {
+				t[i] += 26
+			}
 		}
-		mp[k] = append(mp[k], s)
+		g[string(t)] = append(g[string(t)], s)
 	}
-	var ans [][]string
-	for _, v := range mp {
+	ans := make([][]string, 0, len(g))
+	for _, v := range g {
 		ans = append(ans, v)
 	}
 	return ans

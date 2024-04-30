@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1195.Fizz%20Buzz%20Multithreaded/README.md)
 
+<!-- tags:Concurrency -->
+
 ## Description
 
 <p>You have the four functions:</p>

@@ -1,6 +1,8 @@
-# [2613. 美数对](https://leetcode.cn/problems/beautiful-pairs)
+# [2613. 美数对 🔒](https://leetcode.cn/problems/beautiful-pairs)
 
 [English Version](/solution/2600-2699/2613.Beautiful%20Pairs/README_EN.md)
+
+<!-- tags:几何,数组,数学,分治,有序集合,排序 -->
 
 ## 题目描述
 

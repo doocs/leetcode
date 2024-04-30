@@ -1,6 +1,8 @@
-# [1056. 易混淆数](https://leetcode.cn/problems/confusing-number)
+# [1056. 易混淆数 🔒](https://leetcode.cn/problems/confusing-number)
 
 [English Version](/solution/1000-1099/1056.Confusing%20Number/README_EN.md)
+
+<!-- tags:数学 -->
 
 ## 题目描述
 

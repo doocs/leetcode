@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1591.Strange%20Printer%20II/README.md)
 
+<!-- tags:Graph,Topological Sort,Array,Matrix -->
+
 ## Description
 
 <p>There is a strange printer with the following two special requirements:</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0287.Find%20the%20Duplicate%20Number/README.md)
 
+<!-- tags:Bit Manipulation,Array,Two Pointers,Binary Search -->
+
 ## Description
 
 <p>Given an array of integers <code>nums</code> containing&nbsp;<code>n + 1</code> integers where each integer is in the range <code>[1, n]</code> inclusive.</p>
@@ -24,6 +26,12 @@
 <strong>Input:</strong> nums = [3,1,3,4,2]
 <strong>Output:</strong> 3
 </pre>
+
+<p><strong class="example">Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [3,3,3,3,3]
+<strong>Output:</strong> 3</pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>

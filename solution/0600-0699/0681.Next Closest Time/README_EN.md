@@ -1,6 +1,8 @@
-# [681. Next Closest Time](https://leetcode.com/problems/next-closest-time)
+# [681. Next Closest Time 🔒](https://leetcode.com/problems/next-closest-time)
 
 [中文文档](/solution/0600-0699/0681.Next%20Closest%20Time/README.md)
+
+<!-- tags:Hash Table,String,Backtracking,Enumeration -->
 
 ## Description
 

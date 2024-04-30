@@ -1,6 +1,8 @@
-# [1623. All Valid Triplets That Can Represent a Country](https://leetcode.com/problems/all-valid-triplets-that-can-represent-a-country)
+# [1623. All Valid Triplets That Can Represent a Country 🔒](https://leetcode.com/problems/all-valid-triplets-that-can-represent-a-country)
 
 [中文文档](/solution/1600-1699/1623.All%20Valid%20Triplets%20That%20Can%20Represent%20a%20Country/README.md)
+
+<!-- tags:Database -->
 
 ## Description
 

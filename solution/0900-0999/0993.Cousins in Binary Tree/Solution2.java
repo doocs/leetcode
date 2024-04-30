@@ -15,8 +15,8 @@
  */
 class Solution {
     private int x, y;
-    private TreeNode p1, p2;
     private int d1, d2;
+    private TreeNode p1, p2;
 
     public boolean isCousins(TreeNode root, int x, int y) {
         this.x = x;
@@ -25,19 +25,18 @@ class Solution {
         return p1 != p2 && d1 == d2;
     }
 
-    private void dfs(TreeNode root, TreeNode p, int d) {
+    private void dfs(TreeNode root, TreeNode parent, int depth) {
         if (root == null) {
             return;
         }
         if (root.val == x) {
-            p1 = p;
-            d1 = d;
+            d1 = depth;
+            p1 = parent;
+        } else if (root.val == y) {
+            d2 = depth;
+            p2 = parent;
         }
-        if (root.val == y) {
-            p2 = p;
-            d2 = d;
-        }
-        dfs(root.left, root, d + 1);
-        dfs(root.right, root, d + 1);
+        dfs(root.left, root, depth + 1);
+        dfs(root.right, root, depth + 1);
     }
 }

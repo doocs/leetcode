@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0048.Rotate%20Image/README.md)
 
+<!-- tags:Array,Math,Matrix -->
+
 ## Description
 
 <p>You are given an <code>n x n</code> 2D <code>matrix</code> representing an image, rotate the image by <strong>90</strong> degrees (clockwise).</p>

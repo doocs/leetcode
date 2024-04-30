@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2830.Maximize%20the%20Profit%20as%20the%20Salesman/README.md)
 
+<!-- tags:Array,Hash Table,Binary Search,Dynamic Programming,Sorting -->
+
 ## Description
 
 <p>You are given an integer <code>n</code> representing the number of houses on a number line, numbered from <code>0</code> to <code>n - 1</code>.</p>

@@ -1,6 +1,8 @@
-# [1852. Distinct Numbers in Each Subarray](https://leetcode.com/problems/distinct-numbers-in-each-subarray)
+# [1852. Distinct Numbers in Each Subarray 🔒](https://leetcode.com/problems/distinct-numbers-in-each-subarray)
 
 [中文文档](/solution/1800-1899/1852.Distinct%20Numbers%20in%20Each%20Subarray/README.md)
+
+<!-- tags:Array,Hash Table,Sliding Window -->
 
 ## Description
 
@@ -9,52 +11,74 @@
 <p>Return <em>the array </em><code>ans</code>.</p>
 
 <p>&nbsp;</p>
+
 <p><strong class="example">Example 1:</strong></p>
 
 <pre>
+
 <strong>Input:</strong> nums = [1,2,3,2,2,1,3], k = 3
+
 <strong>Output:</strong> [3,2,2,2,3]
+
 <strong>Explanation: </strong>The number of distinct elements in each subarray goes as follows:
+
 - nums[0:2] = [1,2,3] so ans[0] = 3
+
 - nums[1:3] = [2,3,2] so ans[1] = 2
+
 - nums[2:4] = [3,2,2] so ans[2] = 2
+
 - nums[3:5] = [2,2,1] so ans[3] = 2
+
 - nums[4:6] = [2,1,3] so ans[4] = 3
+
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
 
 <pre>
+
 <strong>Input:</strong> nums = [1,1,1,1,2,3,4], k = 4
+
 <strong>Output:</strong> [1,2,3,4]
+
 <strong>Explanation: </strong>The number of distinct elements in each subarray goes as follows:
+
 - nums[0:3] = [1,1,1,1] so ans[0] = 1
+
 - nums[1:4] = [1,1,1,2] so ans[1] = 2
+
 - nums[2:5] = [1,1,2,3] so ans[2] = 3
+
 - nums[3:6] = [1,2,3,4] so ans[3] = 4
+
 </pre>
 
 <p>&nbsp;</p>
+
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= k &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
+
+    <li><code>1 &lt;= k &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
+
+    <li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
+
 </ul>
 
 ## Solutions
 
-### Solution 1: Sliding Window + Hash Table or Array
+### Solution 1: Sliding Window + Hash Table
 
-We use a hash table or array $cnt$ to record the occurrence of each number in each subarray of length $k$.
+We use a hash table $cnt$ to record the occurrence times of each number in the subarray of length $k$.
 
-Next, we first traverse the first $k$ elements of the array, record the occurrence of each element, and update the number of types $v$. After traversing, we first add $v$ to the answer array.
+Next, we first traverse the first $k$ elements of the array, record the occurrence times of each element, and after the traversal, we take the size of the hash table as the first element of the answer array.
 
-Then, we continue to traverse the array from index $k$. Each time we traverse, we increase the occurrence of the current element by one, and decrease the occurrence of the element on the left of the current element by one. If the occurrence after decrementing is $0$, we remove it from the hash table or array, then update the number of types $v$, and add it to the answer array.
+Then, we continue to traverse the array from the index $k$. Each time we traverse, we increase the occurrence times of the current element by one, and decrease the occurrence times of the element on the left of the current element by one. If the occurrence times of the left element become $0$ after subtraction, we remove it from the hash table. Then we take the size of the hash table as the next element of the answer array, and continue to traverse.
 
-After the traversal is over, we return the answer array.
+After the traversal, we return the answer array.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$ or $O(M)$. Where $n$ is the length of the array $nums$; and $M$ is the maximum value in the array $nums$, in this problem $M \le 10^5$.
+The time complexity is $O(n)$, and the space complexity is $O(k)$. Where $n$ is the length of the array $nums$, and $k$ is the parameter given by the problem.
 
 <!-- tabs:start -->
 
@@ -157,7 +181,11 @@ function distinctNumbers(nums: number[], k: number): number[] {
 
 <!-- tabs:end -->
 
-### Solution 2
+### Solution 2: Sliding Window + Array
+
+We can also use an array to replace the hash table, which can improve performance to some extent.
+
+The time complexity is $O(n)$, and the space complexity is $O(M)$. Where $n$ is the length of the array $nums$, and $M$ is the maximum value in the array $nums$. In this problem, $M \leq 10^5$.
 
 <!-- tabs:start -->
 

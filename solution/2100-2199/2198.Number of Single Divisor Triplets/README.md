@@ -1,6 +1,8 @@
-# [2198. 单因数三元组](https://leetcode.cn/problems/number-of-single-divisor-triplets)
+# [2198. 单因数三元组 🔒](https://leetcode.cn/problems/number-of-single-divisor-triplets)
 
 [English Version](/solution/2100-2199/2198.Number%20of%20Single%20Divisor%20Triplets/README_EN.md)
+
+<!-- tags:数学 -->
 
 ## 题目描述
 
@@ -56,68 +58,69 @@
 
 ## 解法
 
-### 方法一
+### 方法一：计数 + 枚举
+
+我们注意到，数组 $\textit{nums}$ 的元素的范围是 $[1, 100]$，因此我们可以枚举三个数 $a, b, c$，其中 $a, b, c \in [1, 100]$，然后判断 $a + b + c$ 是否只能被 $a, b, c$ 中的一个数整除。如果是，则我们可以计算出以 $a, b, c$ 为元素的单因数三元组的个数。具体计算方法如下：
+
+-   如果 $a = b$，那么以 $a, b, c$ 为元素的单因数三元组的个数为 $x \times (x - 1) \times z$，其中 $x$, $y$, $z$ 分别表示 $a$, $b$, $c$ 在数组 $\textit{nums}$ 中出现的次数。
+-   如果 $a = c$，那么以 $a, b, c$ 为元素的单因数三元组的个数为 $x \times (x - 1) \times y$。
+-   如果 $b = c$，那么以 $a, b, c$ 为元素的单因数三元组的个数为 $x \times y \times (y - 1)$。
+-   如果 $a, b, c$ 互不相等，那么以 $a, b, c$ 为元素的单因数三元组的个数为 $x \times y \times z$。
+
+最后，我们将所有的单因数三元组的个数相加即可。
+
+时间复杂度 $O(M^3)$，空间复杂度 $O(M)$。其中 $M$ 为数组 $\textit{nums}$ 中元素的取值范围。
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def singleDivisorTriplet(self, nums: List[int]) -> int:
-        def check(a, b, c):
-            s = a + b + c
-            return sum(s % x == 0 for x in [a, b, c]) == 1
-
-        counter = Counter(nums)
+        cnt = Counter(nums)
         ans = 0
-        for a, cnt1 in counter.items():
-            for b, cnt2 in counter.items():
-                for c, cnt3 in counter.items():
-                    if check(a, b, c):
+        for a, x in cnt.items():
+            for b, y in cnt.items():
+                for c, z in cnt.items():
+                    s = a + b + c
+                    if sum(s % v == 0 for v in (a, b, c)) == 1:
                         if a == b:
-                            ans += cnt1 * (cnt1 - 1) * cnt3
+                            ans += x * (x - 1) * z
                         elif a == c:
-                            ans += cnt1 * (cnt1 - 1) * cnt2
+                            ans += x * (x - 1) * y
                         elif b == c:
-                            ans += cnt1 * cnt2 * (cnt2 - 1)
+                            ans += x * y * (y - 1)
                         else:
-                            ans += cnt1 * cnt2 * cnt3
+                            ans += x * y * z
         return ans
 ```
 
 ```java
 class Solution {
     public long singleDivisorTriplet(int[] nums) {
-        int[] counter = new int[101];
+        int[] cnt = new int[101];
         for (int x : nums) {
-            ++counter[x];
+            ++cnt[x];
         }
         long ans = 0;
-        for (int i = 1; i <= 100; ++i) {
-            for (int j = 1; j <= 100; ++j) {
-                for (int k = 1; k <= 100; ++k) {
-                    int cnt1 = counter[i], cnt2 = counter[j], cnt3 = counter[k];
-                    int s = i + j + k;
-                    int cnt = 0;
-                    if (s % i == 0) {
-                        ++cnt;
-                    }
-                    if (s % j == 0) {
-                        ++cnt;
-                    }
-                    if (s % k == 0) {
-                        ++cnt;
-                    }
-                    if (cnt != 1) {
-                        continue;
-                    }
-                    if (i == j) {
-                        ans += (long) cnt1 * (cnt1 - 1) * cnt3;
-                    } else if (i == k) {
-                        ans += (long) cnt1 * (cnt1 - 1) * cnt2;
-                    } else if (j == k) {
-                        ans += (long) cnt1 * cnt2 * (cnt2 - 1);
-                    } else {
-                        ans += (long) cnt1 * cnt2 * cnt3;
+        for (int a = 1; a <= 100; ++a) {
+            for (int b = 1; b <= 100; ++b) {
+                for (int c = 1; c <= 100; ++c) {
+                    int s = a + b + c;
+                    int x = cnt[a], y = cnt[b], z = cnt[c];
+                    int t = 0;
+                    t += s % a == 0 ? 1 : 0;
+                    t += s % b == 0 ? 1 : 0;
+                    t += s % c == 0 ? 1 : 0;
+                    if (t == 1) {
+                        if (a == b) {
+                            ans += 1L * x * (x - 1) * z;
+                        } else if (a == c) {
+                            ans += 1L * x * (x - 1) * y;
+                        } else if (b == c) {
+                            ans += 1L * x * y * (y - 1);
+                        } else {
+                            ans += 1L * x * y * z;
+                        }
                     }
                 }
             }
@@ -131,24 +134,28 @@ class Solution {
 class Solution {
 public:
     long long singleDivisorTriplet(vector<int>& nums) {
-        vector<int> counter(101);
-        for (int& x : nums) ++counter[x];
+        int cnt[101]{};
+        for (int x : nums) {
+            ++cnt[x];
+        }
         long long ans = 0;
-        for (int i = 1; i <= 100; ++i) {
-            for (int j = 1; j <= 100; ++j) {
-                for (int k = 1; k <= 100; ++k) {
-                    int cnt1 = counter[i], cnt2 = counter[j], cnt3 = counter[k];
-                    int s = i + j + k;
-                    int cnt = (s % i == 0) + (s % j == 0) + (s % k == 0);
-                    if (cnt != 1) continue;
-                    if (i == j)
-                        ans += 1ll * cnt1 * (cnt1 - 1) * cnt3;
-                    else if (i == k)
-                        ans += 1ll * cnt1 * (cnt1 - 1) * cnt2;
-                    else if (j == k)
-                        ans += 1ll * cnt1 * cnt2 * (cnt2 - 1);
-                    else
-                        ans += 1ll * cnt1 * cnt2 * cnt3;
+        for (int a = 1; a <= 100; ++a) {
+            for (int b = 1; b <= 100; ++b) {
+                for (int c = 1; c <= 100; ++c) {
+                    int s = a + b + c;
+                    int x = cnt[a], y = cnt[b], z = cnt[c];
+                    int t = (s % a == 0) + (s % b == 0) + (s % c == 0);
+                    if (t == 1) {
+                        if (a == b) {
+                            ans += 1LL * x * (x - 1) * z;
+                        } else if (a == c) {
+                            ans += 1LL * x * (x - 1) * y;
+                        } else if (b == c) {
+                            ans += 1LL * x * y * (y - 1);
+                        } else {
+                            ans += 1LL * x * y * z;
+                        }
+                    }
                 }
             }
         }
@@ -158,45 +165,68 @@ public:
 ```
 
 ```go
-func singleDivisorTriplet(nums []int) int64 {
-	counter := make([]int, 101)
+func singleDivisorTriplet(nums []int) (ans int64) {
+	cnt := [101]int{}
 	for _, x := range nums {
-		counter[x]++
+		cnt[x]++
 	}
-	var ans int64
-	check := func(a, b, c int) bool {
-		s := a + b + c
-		cnt := 0
-		if s%a == 0 {
-			cnt++
+	f := func(a, b int) int {
+		if a%b == 0 {
+			return 1
 		}
-		if s%b == 0 {
-			cnt++
-		}
-		if s%c == 0 {
-			cnt++
-		}
-		return cnt == 1
+		return 0
 	}
-	for i := 1; i <= 100; i++ {
-		for j := 1; j <= 100; j++ {
-			for k := 1; k <= 100; k++ {
-				if check(i, j, k) {
-					cnt1, cnt2, cnt3 := counter[i], counter[j], counter[k]
-					if i == j {
-						ans += int64(cnt1 * (cnt1 - 1) * cnt3)
-					} else if i == k {
-						ans += int64(cnt1 * (cnt1 - 1) * cnt2)
-					} else if j == k {
-						ans += int64(cnt1 * cnt2 * (cnt2 - 1))
+	for a := 1; a <= 100; a++ {
+		for b := 1; b <= 100; b++ {
+			for c := 1; c <= 100; c++ {
+				s := a + b + c
+				t := f(s, a) + f(s, b) + f(s, c)
+				if t == 1 {
+					if a == b {
+						ans += int64(cnt[a] * (cnt[a] - 1) * cnt[c])
+					} else if a == c {
+						ans += int64(cnt[a] * (cnt[a] - 1) * cnt[b])
+					} else if b == c {
+						ans += int64(cnt[b] * (cnt[b] - 1) * cnt[a])
 					} else {
-						ans += int64(cnt1 * cnt2 * cnt3)
+						ans += int64(cnt[a] * cnt[b] * cnt[c])
 					}
 				}
 			}
 		}
 	}
-	return ans
+	return
+}
+```
+
+```ts
+function singleDivisorTriplet(nums: number[]): number {
+    const cnt: number[] = Array(101).fill(0);
+    for (const x of nums) {
+        ++cnt[x];
+    }
+    let ans = 0;
+    const f = (a: number, b: number) => (a % b === 0 ? 1 : 0);
+    for (let a = 1; a <= 100; ++a) {
+        for (let b = 1; b <= 100; ++b) {
+            for (let c = 1; c <= 100; ++c) {
+                const s = a + b + c;
+                const t = f(s, a) + f(s, b) + f(s, c);
+                if (t === 1) {
+                    if (a === b) {
+                        ans += cnt[a] * (cnt[a] - 1) * cnt[c];
+                    } else if (a === c) {
+                        ans += cnt[a] * (cnt[a] - 1) * cnt[b];
+                    } else if (b === c) {
+                        ans += cnt[b] * (cnt[b] - 1) * cnt[a];
+                    } else {
+                        ans += cnt[a] * cnt[b] * cnt[c];
+                    }
+                }
+            }
+        }
+    }
+    return ans;
 }
 ```
 

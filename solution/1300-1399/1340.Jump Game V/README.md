@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1340.Jump%20Game%20V/README_EN.md)
 
+<!-- tags:数组,动态规划,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

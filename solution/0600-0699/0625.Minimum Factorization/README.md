@@ -1,6 +1,8 @@
-# [625. 最小因式分解](https://leetcode.cn/problems/minimum-factorization)
+# [625. 最小因式分解 🔒](https://leetcode.cn/problems/minimum-factorization)
 
 [English Version](/solution/0600-0699/0625.Minimum%20Factorization/README_EN.md)
+
+<!-- tags:贪心,数学 -->
 
 ## 题目描述
 

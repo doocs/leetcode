@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1026.Maximum%20Difference%20Between%20Node%20and%20Ancestor/README.md)
 
+<!-- tags:Tree,Depth-First Search,Binary Tree -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary tree, find the maximum value <code>v</code> for which there exist <strong>different</strong> nodes <code>a</code> and <code>b</code> where <code>v = |a.val - b.val|</code> and <code>a</code> is an ancestor of <code>b</code>.</p>
@@ -38,7 +40,21 @@ Among all possible differences, the maximum value of 7 is obtained by |8 - 1| = 
 
 ## Solutions
 
-### Solution 1
+### Solution 1: DFS
+
+For each node, to find the maximum difference with its ancestor nodes, we only need to find the difference between the maximum and minimum values of the ancestor nodes. The maximum difference among all nodes and their ancestor nodes is the answer.
+
+Therefore, we design a function $dfs(root, mi, mx)$, where the current node being searched is $root$, the maximum value of its ancestor nodes is $mx$, and the minimum value is $mi$. The function updates the maximum difference $ans$.
+
+The logic of the function $dfs(root, mi, mx)$ is as follows:
+
+-   If $root$ is null, return directly.
+-   Otherwise, we update $ans = max(ans, |mi - root.val|, |mx - root.val|)$.
+-   Then update $mi = min(mi, root.val)$, $mx = max(mx, root.val)$, and recursively search the left and right subtrees.
+
+In the main function, we call $dfs(root, root.val, root.val)$, and finally return $ans$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 
@@ -51,7 +67,7 @@ Among all possible differences, the maximum value of 7 is obtained by |8 - 1| = 
 #         self.right = right
 class Solution:
     def maxAncestorDiff(self, root: Optional[TreeNode]) -> int:
-        def dfs(root, mi, mx):
+        def dfs(root: Optional[TreeNode], mi: int, mx: int):
             if root is None:
                 return
             nonlocal ans
@@ -229,6 +245,42 @@ var maxAncestorDiff = function (root) {
     dfs(root, root.val, root.val);
     return ans;
 };
+```
+
+```cs
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left;
+ *     public TreeNode right;
+ *     public TreeNode(int val=0, TreeNode left=null, TreeNode right=null) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+public class Solution {
+    private int ans;
+
+    public int MaxAncestorDiff(TreeNode root) {
+        dfs(root, root.val, root.val);
+        return ans;
+    }
+
+    private void dfs(TreeNode root, int mi, int mx) {
+        if (root == null) {
+            return;
+        }
+        int x = Math.Max(Math.Abs(mi - root.val), Math.Abs(mx - root.val));
+        ans = Math.Max(ans, x);
+        mi = Math.Min(mi, root.val);
+        mx = Math.Max(mx, root.val);
+        dfs(root.left, mi, mx);
+        dfs(root.right, mi, mx);
+    }
+}
 ```
 
 <!-- tabs:end -->

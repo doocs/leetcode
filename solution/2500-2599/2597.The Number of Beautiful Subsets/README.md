@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2597.The%20Number%20of%20Beautiful%20Subsets/README_EN.md)
 
+<!-- tags:数组,动态规划,回溯,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

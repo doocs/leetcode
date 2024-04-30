@@ -1,30 +1,30 @@
 class SortedStack {
-    stack: number[];
-    constructor() {
-        this.stack = [];
-    }
+    private stk: number[] = [];
+    constructor() {}
 
     push(val: number): void {
-        let t = [];
-        while (!this.isEmpty() && this.peek() < val) {
-            t.push(this.stack.pop());
+        const t: number[] = [];
+        while (this.stk.length > 0 && this.stk.at(-1)! < val) {
+            t.push(this.stk.pop()!);
         }
-        this.stack.push(val);
+        this.stk.push(val);
         while (t.length > 0) {
-            this.stack.push(t.pop());
+            this.stk.push(t.pop()!);
         }
     }
 
     pop(): void {
-        this.stack.pop();
+        if (!this.isEmpty()) {
+            this.stk.pop();
+        }
     }
 
     peek(): number {
-        return this.isEmpty() ? -1 : this.stack[this.stack.length - 1];
+        return this.isEmpty() ? -1 : this.stk.at(-1)!;
     }
 
     isEmpty(): boolean {
-        return this.stack.length == 0;
+        return this.stk.length === 0;
     }
 }
 

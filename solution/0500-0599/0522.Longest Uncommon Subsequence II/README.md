@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0522.Longest%20Uncommon%20Subsequence%20II/README_EN.md)
 
+<!-- tags:数组,哈希表,双指针,字符串,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -12,22 +12,22 @@
 class Solution {
 public:
     bool isCousins(TreeNode* root, int x, int y) {
-        TreeNode *p1, *p2;
         int d1, d2;
-        function<void(TreeNode*, TreeNode*, int)> dfs = [&](TreeNode* root, TreeNode* fa, int d) {
+        TreeNode* p1;
+        TreeNode* p2;
+        function<void(TreeNode*, TreeNode*, int)> dfs = [&](TreeNode* root, TreeNode* parent, int depth) {
             if (!root) {
                 return;
             }
             if (root->val == x) {
-                p1 = fa;
-                d1 = d;
+                d1 = depth;
+                p1 = parent;
+            } else if (root->val == y) {
+                d2 = depth;
+                p2 = parent;
             }
-            if (root->val == y) {
-                p2 = fa;
-                d2 = d;
-            }
-            dfs(root->left, root, d + 1);
-            dfs(root->right, root, d + 1);
+            dfs(root->left, root, depth + 1);
+            dfs(root->right, root, depth + 1);
         };
         dfs(root, nullptr, 0);
         return p1 != p2 && d1 == d2;

@@ -1,42 +1,47 @@
-# [760. 找出变位映射](https://leetcode.cn/problems/find-anagram-mappings)
+# [760. 找出变位映射 🔒](https://leetcode.cn/problems/find-anagram-mappings)
 
 [English Version](/solution/0700-0799/0760.Find%20Anagram%20Mappings/README_EN.md)
+
+<!-- tags:数组,哈希表 -->
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
 
-<p>给定两个列表 <code>A</code>and <code>B</code>，并且 <code>B</code> 是 <code>A</code> 的变位（即&nbsp;<code>B</code> 是由&nbsp;<code>A</code> 中的元素随机排列后组成的新列表）。</p>
+<p>给你两个整数数组 <code>nums1</code> 和 <code>nums2</code>，其中 <code>nums2</code> 是 <code>nums1</code> 的一个<strong> 变位词 </strong>。两个数组都可能包含重复元素。</p>
 
-<p>我们希望找出一个从 <code>A</code> 到 <code>B</code>&nbsp;的索引映射 <code>P</code> 。一个映射 <code>P[i] = j</code>&nbsp;指的是列表&nbsp;<code>A</code> 中的第 <code>i</code> 个元素出现于列表&nbsp;<code>B</code> 中的第 <code>j</code> 个元素上。</p>
+<p>返回一个下标映射数组 <code>mapping</code>，它将 <code>nums1</code> 映射到 <code>nums2</code>，其中 <code>mapping[i] = j</code> 表示 <code>nums1</code> 中的第 <code>i</code> 个元素出现在 <code>nums2</code> 的第 <code>j</code> 个下标上。如果有多个答案，返回 <strong>任意一个 </strong>。</p>
 
-<p>列表 <code>A</code> 和 <code>B</code> 可能出现重复元素。如果有多于一种答案，输出任意一种。</p>
+<p>数组 <code>a</code> 是数组 <code>b</code> 的一个 <strong>变位词 </strong>意味着 <code>b</code> 是通过将 <code>a</code> 中元素的顺序随机打乱生成的。</p>
 
-<p>例如，给定</p>
+<p>&nbsp;</p>
 
-<pre>A = [12, 28, 46, 32, 50]
-B = [50, 12, 32, 46, 28]
+<p><strong class="example">示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>nums1 = [12,28,46,32,50], nums2 = [50,12,32,46,28]
+<strong>输出：</strong>[1,4,3,2,0]
+<strong>解释：</strong>因为 nums1 中的第 0 个元素出现在 nums2[1] 上，所以 mapping[0] = 1，而 nums1 中的第 1 个元素出现在 nums2[4] 上，所以 mapping[1] = 4，以此类推。
+</pre>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>nums1 = [84,46], nums2 = [84,46]
+<strong>输出：</strong>[0,1]
 </pre>
 
 <p>&nbsp;</p>
 
-<p>需要返回</p>
+<p><strong>提示：</strong></p>
 
-<pre>[1, 4, 3, 2, 0]
-</pre>
-
-<p><code>P[0] = 1</code>&nbsp;，因为 <code>A</code> 中的第 <code>0</code> 个元素出现于 <code>B[1]</code>，而且 <code>P[1] = 4</code> 因为 <code>A</code> 中第 <code>1</code> 个元素出现于 <code>B[4]</code>，以此类推。</p>
-
-<p>&nbsp;</p>
-
-<p><strong>注：</strong></p>
-
-<ol>
-	<li><code>A, B</code>&nbsp;有相同的长度，范围为&nbsp;<code>[1, 100]</code>。</li>
-	<li><code>A[i], B[i]</code> 都是范围在&nbsp;<code>[0, 10^5]</code> 的整数。</li>
-</ol>
-
-<p>&nbsp;</p>
+<ul>
+	<li><code>1 &lt;= nums1.length &lt;= 100</code></li>
+	<li><code>nums2.length == nums1.length</code></li>
+	<li><code>0 &lt;= nums1[i], nums2[i] &lt;= 10<sup>5</sup></code></li>
+	<li><code>nums2</code> 是 <code>nums1</code> 的一个变位词。</li>
+</ul>
+<!-- 保持注释以帮助理解题目要求 -->
 
 ## 解法
 

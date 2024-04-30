@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2478.Number%20of%20Beautiful%20Partitions/README.md)
 
+<!-- tags:String,Dynamic Programming -->
+
 ## Description
 
 <p>You are given a string <code>s</code> that consists of the digits <code>&#39;1&#39;</code> to <code>&#39;9&#39;</code> and two integers <code>k</code> and <code>minLength</code>.</p>
@@ -56,7 +58,30 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[i][j]$ as the number of schemes for dividing the first $i$ characters into $j$ sections. Initialize $f[0][0] = 1$, and the rest $f[i][j] = 0$.
+
+First, we need to determine whether the $i$th character can be the last character of the $j$th section, it needs to meet the following conditions simultaneously:
+
+1. The $i$th character is a non-prime number;
+1. The $i+1$th character is a prime number, or the $i$th character is the last character of the entire string.
+
+If the $i$th character cannot be the last character of the $j$th section, then $f[i][j]=0$. Otherwise, we have:
+
+$$
+f[i][j]=\sum_{t=0}^{i-minLength}f[t][j-1]
+$$
+
+That is to say, we need to enumerate which character is the end of the previous section. Here we use the prefix sum array $g[i][j] = \sum_{t=0}^{i}f[t][j]$ to optimize the time complexity of enumeration.
+
+Then we have:
+
+$$
+f[i][j]=g[i-minLength][j-1]
+$$
+
+The time complexity is $O(n \times k)$, and the space complexity is $O(n \times k)$. Where $n$ and $k$ are the length of the string $s$ and the number of sections to be divided, respectively.
 
 <!-- tabs:start -->
 
@@ -82,8 +107,6 @@ class Solution:
 
 ```java
 class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-
     public int beautifulPartitions(String s, int k, int minLength) {
         int n = s.length();
         if (!prime(s.charAt(0)) || prime(s.charAt(n - 1))) {
@@ -93,6 +116,7 @@ class Solution {
         int[][] g = new int[n + 1][k + 1];
         f[0][0] = 1;
         g[0][0] = 1;
+        final int mod = (int) 1e9 + 7;
         for (int i = 1; i <= n; ++i) {
             if (i >= minLength && !prime(s.charAt(i - 1)) && (i == n || prime(s.charAt(i)))) {
                 for (int j = 1; j <= k; ++j) {
@@ -100,7 +124,7 @@ class Solution {
                 }
             }
             for (int j = 0; j <= k; ++j) {
-                g[i][j] = (g[i - 1][j] + f[i][j]) % MOD;
+                g[i][j] = (g[i - 1][j] + f[i][j]) % mod;
             }
         }
         return f[n][k];
@@ -115,8 +139,6 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    const int mod = 1e9 + 7;
-
     int beautifulPartitions(string s, int k, int minLength) {
         int n = s.size();
         auto prime = [](char c) {
@@ -126,6 +148,7 @@ public:
         vector<vector<int>> f(n + 1, vector<int>(k + 1));
         vector<vector<int>> g(n + 1, vector<int>(k + 1));
         f[0][0] = g[0][0] = 1;
+        const int mod = 1e9 + 7;
         for (int i = 1; i <= n; ++i) {
             if (i >= minLength && !prime(s[i - 1]) && (i == n || prime(s[i]))) {
                 for (int j = 1; j <= k; ++j) {
@@ -169,6 +192,36 @@ func beautifulPartitions(s string, k int, minLength int) int {
 		}
 	}
 	return f[n][k]
+}
+```
+
+```ts
+function beautifulPartitions(s: string, k: number, minLength: number): number {
+    const prime = (c: string): boolean => {
+        return c === '2' || c === '3' || c === '5' || c === '7';
+    };
+
+    const n: number = s.length;
+    if (!prime(s[0]) || prime(s[n - 1])) return 0;
+
+    const f: number[][] = new Array(n + 1).fill(0).map(() => new Array(k + 1).fill(0));
+    const g: number[][] = new Array(n + 1).fill(0).map(() => new Array(k + 1).fill(0));
+    const mod: number = 1e9 + 7;
+
+    f[0][0] = g[0][0] = 1;
+
+    for (let i = 1; i <= n; ++i) {
+        if (i >= minLength && !prime(s[i - 1]) && (i === n || prime(s[i]))) {
+            for (let j = 1; j <= k; ++j) {
+                f[i][j] = g[i - minLength][j - 1];
+            }
+        }
+        for (let j = 0; j <= k; ++j) {
+            g[i][j] = (g[i - 1][j] + f[i][j]) % mod;
+        }
+    }
+
+    return f[n][k];
 }
 ```
 

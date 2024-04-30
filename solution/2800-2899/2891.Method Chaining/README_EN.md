@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2891.Method%20Chaining/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <pre>

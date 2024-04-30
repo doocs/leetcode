@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0166.Fraction%20to%20Recurring%20Decimal/README_EN.md)
 
+<!-- tags:哈希表,数学,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -48,7 +50,21 @@
 
 ## 解法
 
-### 方法一
+### 方法一：数学 + 哈希表
+
+我们首先判断 $numerator$ 是否为 $0$，如果是，则直接返回 `"0"`。
+
+接着我们判断 $numerator$ 和 $denominator$ 是否异号，如果是，则结果为负数，我们将结果的第一个字符设为 `"-"`。
+
+然后我们将 $numerator$ 和 $denominator$ 取绝对值，分别记为 $a$ 和 $b$。由于分子和分母的范围为 $[-2^{31}, 2^{31} - 1]$，直接取绝对值可能会溢出，因此我们将 $a$ 和 $b$ 都转换为长整型。
+
+接着我们计算整数部分，即 $a$ 除以 $b$ 的整数部分，将其转换为字符串并添加到结果中。然后我们将 $a$ 取余 $b$，记为 $a$。
+
+如果 $a$ 为 $0$，说明结果为整数，直接返回结果。
+
+接着我们计算小数部分，我们使用哈希表 $d$ 记录每个余数对应的结果的长度。我们不断将 $a$ 乘以 $10$，然后将 $a$ 除以 $b$ 的整数部分添加到结果中，然后将 $a$ 取余 $b$，记为 $a$。如果 $a$ 为 $0$，说明结果为有限小数，直接返回结果。如果 $a$ 在哈希表中出现过，说明结果为循环小数，我们找到循环的起始位置，将结果插入括号中，然后返回结果。
+
+时间复杂度 $O(l)$，空间复杂度 $O(l)$，其中 $l$ 为结果的长度，本题中 $l < 10^4$。
 
 <!-- tabs:start -->
 
@@ -56,29 +72,28 @@
 class Solution:
     def fractionToDecimal(self, numerator: int, denominator: int) -> str:
         if numerator == 0:
-            return '0'
-        res = []
+            return "0"
+        ans = []
         neg = (numerator > 0) ^ (denominator > 0)
         if neg:
-            res.append('-')
-        num, d = abs(numerator), abs(denominator)
-        res.append(str(num // d))
-        num %= d
-        if num == 0:
-            return ''.join(res)
-        res.append('.')
-        mp = {}
-        while num != 0:
-            mp[num] = len(res)
-            num *= 10
-            res.append(str(num // d))
-            num %= d
-            if num in mp:
-                idx = mp[num]
-                res.insert(idx, '(')
-                res.append(')')
+            ans.append("-")
+        a, b = abs(numerator), abs(denominator)
+        ans.append(str(a // b))
+        a %= b
+        if a == 0:
+            return "".join(ans)
+        ans.append(".")
+        d = {}
+        while a:
+            d[a] = len(ans)
+            a *= 10
+            ans.append(str(a // b))
+            a %= b
+            if a in d:
+                ans.insert(d[a], "(")
+                ans.append(")")
                 break
-        return ''.join(res)
+        return "".join(ans)
 ```
 
 ```java
@@ -90,23 +105,21 @@ class Solution {
         StringBuilder sb = new StringBuilder();
         boolean neg = (numerator > 0) ^ (denominator > 0);
         sb.append(neg ? "-" : "");
-        long num = Math.abs((long) numerator);
-        long d = Math.abs((long) denominator);
-        sb.append(num / d);
-        num %= d;
-        if (num == 0) {
+        long a = Math.abs((long) numerator), b = Math.abs((long) denominator);
+        sb.append(a / b);
+        a %= b;
+        if (a == 0) {
             return sb.toString();
         }
         sb.append(".");
-        Map<Long, Integer> mp = new HashMap<>();
-        while (num != 0) {
-            mp.put(num, sb.length());
-            num *= 10;
-            sb.append(num / d);
-            num %= d;
-            if (mp.containsKey(num)) {
-                int idx = mp.get(num);
-                sb.insert(idx, "(");
+        Map<Long, Integer> d = new HashMap<>();
+        while (a != 0) {
+            d.put(a, sb.length());
+            a *= 10;
+            sb.append(a / b);
+            a %= b;
+            if (d.containsKey(a)) {
+                sb.insert(d.get(a), "(");
                 sb.append(")");
                 break;
             }
@@ -117,35 +130,37 @@ class Solution {
 ```
 
 ```cpp
-using LL = long long;
-
 class Solution {
 public:
     string fractionToDecimal(int numerator, int denominator) {
-        if (numerator == 0) return "0";
-        string res = "";
+        if (numerator == 0) {
+            return "0";
+        }
+        string ans;
         bool neg = (numerator > 0) ^ (denominator > 0);
-        if (neg) res += "-";
-        LL num = abs(numerator);
-        LL d = abs(denominator);
-        res += to_string(num / d);
-        num %= d;
-        if (num == 0) return res;
-        res += ".";
-        unordered_map<LL, int> mp;
-        while (num) {
-            mp[num] = res.size();
-            num *= 10;
-            res += to_string(num / d);
-            num %= d;
-            if (mp.count(num)) {
-                int idx = mp[num];
-                res.insert(idx, "(");
-                res += ")";
+        if (neg) {
+            ans += "-";
+        }
+        long long a = abs(1LL * numerator), b = abs(1LL * denominator);
+        ans += to_string(a / b);
+        a %= b;
+        if (a == 0) {
+            return ans;
+        }
+        ans += ".";
+        unordered_map<long long, int> d;
+        while (a) {
+            d[a] = ans.size();
+            a *= 10;
+            ans += to_string(a / b);
+            a %= b;
+            if (d.contains(a)) {
+                ans.insert(d[a], "(");
+                ans += ")";
                 break;
             }
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -155,37 +170,35 @@ func fractionToDecimal(numerator int, denominator int) string {
 	if numerator == 0 {
 		return "0"
 	}
-	res := []byte{}
-	neg := numerator*denominator < 0
-	if neg {
-		res = append(res, '-')
+	ans := ""
+	if (numerator > 0) != (denominator > 0) {
+		ans += "-"
 	}
-	num := abs(numerator)
-	d := abs(denominator)
-	res = append(res, strconv.Itoa(num/d)...)
-	num %= d
-	if num == 0 {
-		return string(res)
+	a := int64(numerator)
+	b := int64(denominator)
+	a = abs(a)
+	b = abs(b)
+	ans += strconv.FormatInt(a/b, 10)
+	a %= b
+	if a == 0 {
+		return ans
 	}
-	mp := make(map[int]int)
-	res = append(res, '.')
-	for num != 0 {
-		mp[num] = len(res)
-		num *= 10
-		res = append(res, strconv.Itoa(num/d)...)
-		num %= d
-		if mp[num] > 0 {
-			idx := mp[num]
-			res = append(res[:idx], append([]byte{'('}, res[idx:]...)...)
-			res = append(res, ')')
+	ans += "."
+	d := make(map[int64]int)
+	for a != 0 {
+		if pos, ok := d[a]; ok {
+			ans = ans[:pos] + "(" + ans[pos:] + ")"
 			break
 		}
+		d[a] = len(ans)
+		a *= 10
+		ans += strconv.FormatInt(a/b, 10)
+		a %= b
 	}
-
-	return string(res)
+	return ans
 }
 
-func abs(x int) int {
+func abs(x int64) int64 {
 	if x < 0 {
 		return -x
 	}
@@ -193,59 +206,64 @@ func abs(x int) int {
 }
 ```
 
+```ts
+function fractionToDecimal(numerator: number, denominator: number): string {
+    if (numerator === 0) {
+        return '0';
+    }
+    const sb: string[] = [];
+    const neg: boolean = numerator > 0 !== denominator > 0;
+    sb.push(neg ? '-' : '');
+    let a: number = Math.abs(numerator),
+        b: number = Math.abs(denominator);
+    sb.push(Math.floor(a / b).toString());
+    a %= b;
+    if (a === 0) {
+        return sb.join('');
+    }
+    sb.push('.');
+    const d: Map<number, number> = new Map();
+    while (a !== 0) {
+        d.set(a, sb.length);
+        a *= 10;
+        sb.push(Math.floor(a / b).toString());
+        a %= b;
+        if (d.has(a)) {
+            sb.splice(d.get(a)!, 0, '(');
+            sb.push(')');
+            break;
+        }
+    }
+    return sb.join('');
+}
+```
+
 ```cs
-﻿// https://leetcode.com/problems/fraction-to-recurring-decimal/
-
-using System.Collections.Generic;
-using System.Text;
-
-public partial class Solution
-{
-    public string FractionToDecimal(int numerator, int denominator)
-    {
-        var n = (long)numerator;
-        var d = (long)denominator;
-        var sb = new StringBuilder();
-        if (n < 0)
-        {
-            n = -n;
-            if (d < 0)
-            {
-                d = -d;
-            }
-            else
-            {
-                sb.Append('-');
-            }
+public class Solution {
+    public string FractionToDecimal(int numerator, int denominator) {
+        if (numerator == 0) {
+            return "0";
         }
-        else if (n > 0 && d < 0)
-        {
-            d = -d;
-            sb.Append('-');
+        StringBuilder sb = new StringBuilder();
+        bool neg = (numerator > 0) ^ (denominator > 0);
+        sb.Append(neg ? "-" : "");
+        long a = Math.Abs((long)numerator), b = Math.Abs((long)denominator);
+        sb.Append(a / b);
+        a %= b;
+        if (a == 0) {
+            return sb.ToString();
         }
-
-        sb.Append(n / d);
-        n = n % d;
-        if (n != 0)
-        {
-            sb.Append('.');
-            var dict = new Dictionary<long, int>();
-            while (n != 0)
-            {
-                int index;
-                if (dict.TryGetValue(n, out index))
-                {
-                    sb.Insert(index, '(');
-                    sb.Append(')');
-                    break;
-                }
-                else
-                {
-                    dict.Add(n, sb.Length);
-                    n *= 10;
-                    sb.Append(n / d);
-                    n %= d;
-                }
+        sb.Append(".");
+        Dictionary<long, int> d = new Dictionary<long, int>();
+        while (a != 0) {
+            d[a] = sb.Length;
+            a *= 10;
+            sb.Append(a / b);
+            a %= b;
+            if (d.ContainsKey(a)) {
+                sb.Insert(d[a], "(");
+                sb.Append(")");
+                break;
             }
         }
         return sb.ToString();

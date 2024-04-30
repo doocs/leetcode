@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0045.Jump%20Game%20II/README.md)
 
+<!-- tags:Greedy,Array,Dynamic Programming -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array of integers <code>nums</code> of length <code>n</code>. You are initially positioned at <code>nums[0]</code>.</p>
@@ -182,6 +184,30 @@ int jump(int* nums, int numsSize) {
         }
     }
     return dp[numsSize - 1];
+}
+```
+
+```php
+class Solution {
+    /**
+     * @param integer[] $nums
+     * @return integer
+     */
+
+    function jump($nums) {
+        $maxReach = 0;
+        $steps = 0;
+        $lastJump = 0;
+        for ($i = 0; $i <= count($nums) - 2; $i++) {
+            $maxReach = max($maxReach, $i + $nums[$i]);
+            if ($i == $lastJump) {
+                $lastJump = $maxReach;
+                $steps++;
+            }
+        }
+
+        return $steps;
+    }
 }
 ```
 

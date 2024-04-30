@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1766.Tree%20of%20Coprimes/README.md)
 
+<!-- tags:Tree,Array,Math,Number Theory -->
+
 ## Description
 
 <p>There is a tree (i.e.,&nbsp;a connected, undirected graph that has no cycles) consisting of <code>n</code> nodes numbered from <code>0</code> to <code>n - 1</code> and exactly <code>n - 1</code> edges. Each node has a value associated with it, and the <strong>root</strong> of the tree is node <code>0</code>.</p>
@@ -55,7 +57,13 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Preprocessing + Enumeration + Stack + Backtracking
+
+Since the range of $nums[i]$ in the problem is $[1, 50]$, we can preprocess all the coprime numbers for each number and record them in the array $f$, where $f[i]$ represents all the coprime numbers of $i$.
+
+Next, we can use a backtracking method to traverse the entire tree from the root node. For each node $i$, we can get all the coprime numbers of $nums[i]$ through the array $f$. Then we enumerate all the coprime numbers of $nums[i]$, find the ancestor node $t$ that has appeared and has the maximum depth, which is the nearest coprime ancestor node of $i$. Here we can use a stack array $stks$ of length $51$ to get each appeared value $v$ and its depth. The top element of each stack $stks[v]$ is the nearest ancestor node with the maximum depth.
+
+The time complexity is $O(n \times M)$, and the space complexity is $O(M^2 + n)$. Where $n$ is the number of nodes, and $M$ is the maximum value of $nums[i]$, in this problem $M = 50$.
 
 <!-- tabs:start -->
 

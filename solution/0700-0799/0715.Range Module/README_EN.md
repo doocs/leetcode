@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0715.Range%20Module/README.md)
 
+<!-- tags:Design,Segment Tree,Ordered Set -->
+
 ## Description
 
 <p>A Range Module is a module that tracks ranges of numbers. Design a data structure to track the ranges represented as <strong>half-open intervals</strong> and query about them.</p>

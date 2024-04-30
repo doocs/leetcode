@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1982.Find%20Array%20Given%20Subset%20Sums/README.md)
 
+<!-- tags:Array,Divide and Conquer -->
+
 ## Description
 
 <p>You are given an integer <code>n</code> representing the length of an unknown array that you are trying to recover. You are also given an array <code>sums</code> containing the values of all <code>2<sup>n</sup></code> <strong>subset sums</strong> of the unknown array (in no particular order).</p>

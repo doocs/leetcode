@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0865.Smallest%20Subtree%20with%20all%20the%20Deepest%20Nodes/README_EN.md)
 
+<!-- tags:树,深度优先搜索,广度优先搜索,哈希表,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

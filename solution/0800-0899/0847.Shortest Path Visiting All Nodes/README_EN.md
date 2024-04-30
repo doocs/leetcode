@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0847.Shortest%20Path%20Visiting%20All%20Nodes/README.md)
 
+<!-- tags:Bit Manipulation,Breadth-First Search,Graph,Dynamic Programming,Bitmask -->
+
 ## Description
 
 <p>You have an undirected, connected graph of <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code>. You are given an array <code>graph</code> where <code>graph[i]</code> is a list of all the nodes connected with node <code>i</code> by an edge.</p>

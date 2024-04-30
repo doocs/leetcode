@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0024.Swap%20Nodes%20in%20Pairs/README_EN.md)
 
+<!-- tags:递归,链表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -417,6 +419,46 @@ var swapPairs = function (head) {
     }
     return dummy.next;
 };
+```
+
+```php
+# Definition for singly-linked list.
+# class ListNode {
+#    public $val;
+#    public $next;
+#    public function __construct($val = 0, $next = null)
+#    {
+#        $this->val = $val;
+#        $this->next = $next;
+#    }
+# }
+
+class Solution {
+    /**
+     * @param ListNode $head
+     * @return ListNode
+     */
+
+    function swapPairs($head) {
+        $dummy = new ListNode(0);
+        $dummy->next = $head;
+        $prev = $dummy;
+
+        while ($head !== null && $head->next !== null) {
+            $first = $head;
+            $second = $head->next;
+
+            $first->next = $second->next;
+            $second->next = $first;
+            $prev->next = $second;
+
+            $prev = $first;
+            $head = $first->next;
+        }
+
+        return $dummy->next;
+    }
+}
 ```
 
 <!-- tabs:end -->

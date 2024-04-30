@@ -1,6 +1,8 @@
-# [1607. Sellers With No Sales](https://leetcode.com/problems/sellers-with-no-sales)
+# [1607. Sellers With No Sales 🔒](https://leetcode.com/problems/sellers-with-no-sales)
 
 [中文文档](/solution/1600-1699/1607.Sellers%20With%20No%20Sales/README.md)
+
+<!-- tags:Database -->
 
 ## Description
 

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2242.Maximum%20Score%20of%20a%20Node%20Sequence/README.md)
 
+<!-- tags:Graph,Array,Enumeration,Sorting -->
+
 ## Description
 
 <p>There is an <strong>undirected</strong> graph with <code>n</code> nodes, numbered from <code>0</code> to <code>n - 1</code>.</p>

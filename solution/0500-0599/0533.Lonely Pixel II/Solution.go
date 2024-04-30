@@ -1,55 +1,32 @@
-func findBlackPixel(picture [][]byte, target int) int {
-	m, n := len(picture), len(picture[0])
+func findBlackPixel(picture [][]byte, target int) (ans int) {
+	m := len(picture)
+	n := len(picture[0])
+	g := make([][]int, n)
 	rows := make([]int, m)
-	cols := make(map[int][]int)
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			if picture[i][j] == 'B' {
+	for i, row := range picture {
+		for j, x := range row {
+			if x == 'B' {
 				rows[i]++
-				cols[j] = append(cols[j], i)
+				g[j] = append(g[j], i)
 			}
 		}
 	}
-	t := make([][]bool, m)
-	for i := 0; i < m; i++ {
-		t[i] = make([]bool, m)
-	}
-	for i := 0; i < m; i++ {
-		for k := i; k < m; k++ {
-			if i == k {
-				t[i][k] = true
-			} else {
-				t[i][k] = all(picture[i], picture[k])
-			}
-			t[k][i] = t[i][k]
+	for j := 0; j < n; j++ {
+		if len(g[j]) == 0 || rows[g[j][0]] != target {
+			continue
 		}
-	}
-	res := 0
-	for i := 0; i < m; i++ {
-		if rows[i] == target {
-			for j := 0; j < n; j++ {
-				col, ok := cols[j]
-				if ok && len(col) == target {
-					check := true
-					for _, k := range col {
-						check = check && t[i][k]
-					}
-					if check {
-						res++
-					}
+		i1 := g[j][0]
+		ok := 0
+		if len(g[j]) == rows[i1] {
+			ok = target
+			for _, i2 := range g[j] {
+				if !bytes.Equal(picture[i1], picture[i2]) {
+					ok = 0
+					break
 				}
 			}
 		}
+		ans += ok
 	}
-	return res
-}
-
-func all(row1, row2 []byte) bool {
-	n := len(row1)
-	for i := 0; i < n; i++ {
-		if row1[i] != row2[i] {
-			return false
-		}
-	}
-	return true
+	return
 }

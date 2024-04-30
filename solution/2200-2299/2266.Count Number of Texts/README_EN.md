@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2266.Count%20Number%20of%20Texts/README.md)
 
+<!-- tags:Hash Table,Math,String,Dynamic Programming -->
+
 ## Description
 
 <p>Alice is texting Bob using her phone. The <strong>mapping</strong> of digits to letters is shown in the figure below.</p>

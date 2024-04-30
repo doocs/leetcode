@@ -2,13 +2,15 @@
 
 [English Version](/solution/0800-0899/0899.Orderly%20Queue/README_EN.md)
 
+<!-- tags:数学,字符串,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
 
 <p>给定一个字符串 <code>s</code> 和一个整数 <code>k</code>&nbsp;。你可以从 <code>s</code> 的前 <code>k</code> 个字母中选择一个，并把它加到字符串的末尾。</p>
 
-<p>返回 <em>在应用上述步骤的任意数量的移动后，字典上最小的字符串&nbsp;</em>。</p>
+<p>返回 <em>在应用上述步骤的任意数量的移动后，字典序最小的字符串&nbsp;</em>。</p>
 
 <p>&nbsp;</p>
 

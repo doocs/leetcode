@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0139.Word%20Break/README_EN.md)
 
+<!-- tags:字典树,记忆化搜索,数组,哈希表,字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -25,7 +27,7 @@
 <pre>
 <strong>输入:</strong> s = "applepenapple", wordDict = ["apple", "pen"]
 <strong>输出:</strong> true
-<strong>解释:</strong> 返回 true 因为 <code>"</code>applepenapple<code>"</code> 可以由 <code>"</code>apple" "pen" "apple<code>" 拼接成</code>。
+<strong>解释:</strong> 返回 true 因为 "applepenapple" 可以由 "apple" "pen" "apple" 拼接成。
 &nbsp;    注意，你可以重复使用字典中的单词。
 </pre>
 

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2522.Partition%20String%20Into%20Substrings%20With%20Values%20at%20Most%20K/README_EN.md)
 
+<!-- tags:贪心,字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -4,28 +4,33 @@
  *     int val;
  *     TreeNode left;
  *     TreeNode right;
- *     TreeNode(int x) { val = x; }
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
  * }
  */
 class Solution {
-    private boolean res = true;
-    private Integer t = null;
+    private TreeNode prev;
+
     public boolean isValidBST(TreeNode root) {
-        isValid(root);
-        return res;
+        return dfs(root);
     }
 
-    private void isValid(TreeNode root) {
+    private boolean dfs(TreeNode root) {
         if (root == null) {
-            return;
+            return true;
         }
-        isValid(root.left);
-        if (t == null || t < root.val) {
-            t = root.val;
-        } else {
-            res = false;
-            return;
+        if (!dfs(root.left)) {
+            return false;
         }
-        isValid(root.right);
+        if (prev != null && prev.val >= root.val) {
+            return false;
+        }
+        prev = root;
+        return dfs(root.right);
     }
 }

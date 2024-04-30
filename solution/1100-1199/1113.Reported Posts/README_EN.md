@@ -1,6 +1,8 @@
-# [1113. Reported Posts](https://leetcode.com/problems/reported-posts)
+# [1113. Reported Posts 🔒](https://leetcode.com/problems/reported-posts)
 
 [中文文档](/solution/1100-1199/1113.Reported%20Posts/README.md)
+
+<!-- tags:Database -->
 
 ## Description
 

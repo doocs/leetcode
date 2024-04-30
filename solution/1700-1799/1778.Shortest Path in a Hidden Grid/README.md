@@ -1,6 +1,8 @@
-# [1778. 未知网格中的最短路径](https://leetcode.cn/problems/shortest-path-in-a-hidden-grid)
+# [1778. 未知网格中的最短路径 🔒](https://leetcode.cn/problems/shortest-path-in-a-hidden-grid)
 
 [English Version](/solution/1700-1799/1778.Shortest%20Path%20in%20a%20Hidden%20Grid/README_EN.md)
+
+<!-- tags:深度优先搜索,广度优先搜索,图,交互 -->
 
 ## 题目描述
 

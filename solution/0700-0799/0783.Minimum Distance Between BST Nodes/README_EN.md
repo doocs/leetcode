@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0783.Minimum%20Distance%20Between%20BST%20Nodes/README.md)
 
+<!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Search Tree,Binary Tree -->
+
 ## Description
 
 <p>Given the <code>root</code> of a Binary Search Tree (BST), return <em>the minimum difference between the values of any two different nodes in the tree</em>.</p>
@@ -167,6 +169,24 @@ func abs(x int) int {
 	}
 	return x
 }
+```
+
+```js
+var minDiffInBST = function (root) {
+    let ans = Number.MAX_SAFE_INTEGER,
+        prev = Number.MAX_SAFE_INTEGER;
+    const dfs = root => {
+        if (!root) {
+            return;
+        }
+        dfs(root.left);
+        ans = Math.min(ans, Math.abs(root.val - prev));
+        prev = root.val;
+        dfs(root.right);
+    };
+    dfs(root);
+    return ans;
+};
 ```
 
 <!-- tabs:end -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2584.Split%20the%20Array%20to%20Make%20Coprime%20Products/README_EN.md)
 
+<!-- tags:数组,哈希表,数学,数论 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

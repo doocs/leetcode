@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0414.Third%20Maximum%20Number/README.md)
 
+<!-- tags:Array,Sorting -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, return <em>the <strong>third distinct maximum</strong> number in this array. If the third maximum does not exist, return the <strong>maximum</strong> number</em>.</p>

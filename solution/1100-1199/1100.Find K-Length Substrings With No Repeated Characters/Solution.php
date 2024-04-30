@@ -5,18 +5,32 @@ class Solution {
      * @return Integer
      */
     function numKLenSubstrNoRepeats($s, $k) {
-        $sum = ($k * ($k + 1)) / 2 - $k;
-        $cnt = $tmp = 0;
-        for ($i = 0; $i < strlen($s) - $k + 1; $i++) {
-            $str = substr($s, $i, $k);
-            for ($j = 0; $j < $k; $j++) {
-                $tmp += strpos($str, $str[$j]);
-            }
-            if ($tmp === $sum) {
-                $cnt++;
-            }
-            $tmp = 0;
+        $n = strlen($s);
+        if ($n < $k) {
+            return 0;
         }
-        return $cnt;
+        $cnt = [];
+        for ($i = 0; $i < $k; ++$i) {
+            if (!isset($cnt[$s[$i]])) {
+                $cnt[$s[$i]] = 1;
+            } else {
+                $cnt[$s[$i]]++;
+            }
+        }
+        $ans = count($cnt) == $k ? 1 : 0;
+        for ($i = $k; $i < $n; ++$i) {
+            if (!isset($cnt[$s[$i]])) {
+                $cnt[$s[$i]] = 1;
+            } else {
+                $cnt[$s[$i]]++;
+            }
+            if ($cnt[$s[$i - $k]] - 1 == 0) {
+                unset($cnt[$s[$i - $k]]);
+            } else {
+                $cnt[$s[$i - $k]]--;
+            }
+            $ans += count($cnt) == $k ? 1 : 0;
+        }
+        return $ans;
     }
 }

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2761.Prime%20Pairs%20With%20Target%20Sum/README_EN.md)
 
+<!-- tags:数组,数学,枚举,数论 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

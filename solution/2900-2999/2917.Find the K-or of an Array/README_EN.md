@@ -2,48 +2,110 @@
 
 [中文文档](/solution/2900-2999/2917.Find%20the%20K-or%20of%20an%20Array/README.md)
 
+<!-- tags:Bit Manipulation,Array -->
+
 ## Description
 
-<p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>, and an integer <code>k</code>.</p>
+<p>You are given an integer array <code>nums</code>, and an integer <code>k</code>. Let&#39;s introduce&nbsp;<strong>K-or</strong> operation by extending the standard bitwise OR. In K-or, a bit position in the result is set to <code>1</code>&nbsp;if at least <code>k</code> numbers in <code>nums</code> have a <code>1</code> in that position.</p>
 
-<p>The <strong>K-or</strong> of <code>nums</code> is a non-negative integer that satisfies the following:</p>
-
-<ul>
-	<li>The <code>i<sup>th</sup></code> bit is set in the K-or <strong>if and only if</strong> there are at least <code>k</code> elements of nums in which bit <code>i</code> is set.</li>
-</ul>
-
-<p>Return <em>the <strong> K-or</strong> of</em> <code>nums</code>.</p>
-
-<p><strong>Note</strong> that a bit <code>i</code> is set in <code>x</code> if <code>(2<sup>i</sup> AND x) == 2<sup>i</sup></code>, where <code>AND</code> is the bitwise <code>AND</code> operator.</p>
+<p>Return <em>the K-or of</em> <code>nums</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+<p><strong class="example">Example 1: </strong></p>
 
-<pre>
-<strong>Input:</strong> nums = [7,12,9,8,9,15], k = 4
-<strong>Output:</strong> 9
-<strong>Explanation:</strong> Bit 0 is set at nums[0], nums[2], nums[4], and nums[5].
-Bit 1 is set at nums[0], and nums[5].
-Bit 2 is set at nums[0], nums[1], and nums[5].
-Bit 3 is set at nums[1], nums[2], nums[3], nums[4], and nums[5].
-Only bits 0 and 3 are set in at least k elements of the array, and bits i &gt;= 4 are not set in any of the array&#39;s elements. Hence, the answer is 2^0 + 2^3 = 9.
-</pre>
+<div class="example-block" style="border-color: var(--border-tertiary); border-left-width: 2px; color: var(--text-secondary); font-size: .875rem; margin-bottom: 1rem; margin-top: 1rem; overflow: visible; padding-left: 1rem;">
+<p><strong>Input:</strong><span class="example-io" style="font-family: Menlo,sans-serif; font-size: 0.85rem;"> nums = [7,12,9,8,9,15], k = 4 </span></p>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong>Output:</strong><span class="example-io" style="font-family: Menlo,sans-serif; font-size: 0.85rem;"> 9 </span></p>
 
-<pre>
-<strong>Input:</strong> nums = [2,12,1,11,4,5], k = 6
-<strong>Output:</strong> 0
-<strong>Explanation:</strong> Since k == 6 == nums.length, the 6-or of the array is equal to the bitwise AND of all its elements. Hence, the answer is 2 AND 12 AND 1 AND 11 AND 4 AND 5 = 0.
-</pre>
+<p><strong>Explanation: </strong></p>
 
-<p><strong class="example">Example 3:</strong></p>
+<p>Represent numbers in binary:</p>
 
-<pre>
-<strong>Input:</strong> nums = [10,8,5,9,11,6,8], k = 1
-<strong>Output:</strong> 15
-<strong>Explanation:</strong> Since k == 1, the 1-or of the array is equal to the bitwise OR of all its elements. Hence, the answer is 10 OR 8 OR 5 OR 9 OR 11 OR 6 OR 8 = 15.
-</pre>
+<table style="text-indent:10px; margin-bottom=20px;">
+	<tbody>
+		<tr>
+			<th><b>Number</b></th>
+			<th>Bit 3</th>
+			<th>Bit 2</th>
+			<th>Bit 1</th>
+			<th>Bit 0</th>
+		</tr>
+		<tr>
+			<td><b>7</b></td>
+			<td>0</td>
+			<td>1</td>
+			<td>1</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td><b>12</b></td>
+			<td>1</td>
+			<td>1</td>
+			<td>0</td>
+			<td>0</td>
+		</tr>
+		<tr>
+			<td><b>9</b></td>
+			<td>1</td>
+			<td>0</td>
+			<td>0</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td><b>8</b></td>
+			<td>1</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+		</tr>
+		<tr>
+			<td><b>9</b></td>
+			<td>1</td>
+			<td>0</td>
+			<td>0</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td><b>15</b></td>
+			<td>1</td>
+			<td>1</td>
+			<td>1</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td><b>Result = 9</b></td>
+			<td>1</td>
+			<td>0</td>
+			<td>0</td>
+			<td>1</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>Bit 0 is set in 7, 9, 9, and 15. Bit 3 is set in 12, 9, 8, 9, and 15.<br />
+Only bits 0 and 3 qualify. The result is <code>(1001)<sub>2</sub> = 9</code>.</p>
+</div>
+
+<p><strong class="example">Example 2: </strong></p>
+
+<div class="example-block" style="border-color: var(--border-tertiary); border-left-width: 2px; color: var(--text-secondary); font-size: .875rem; margin-bottom: 1rem; margin-top: 1rem; overflow: visible; padding-left: 1rem;">
+<p><strong>Input:</strong><span class="example-io" style="font-family: Menlo,sans-serif; font-size: 0.85rem;"> nums = [2,12,1,11,4,5], k = 6 </span></p>
+
+<p><strong>Output:</strong><span class="example-io" style="font-family: Menlo,sans-serif; font-size: 0.85rem;"> 0 </span></p>
+
+<p><strong>Explanation:&nbsp;</strong>No bit appears as 1 in all six array numbers, as required for K-or with <code>k = 6</code>. Thus, the result is 0.</p>
+</div>
+
+<p><strong class="example">Example 3: </strong></p>
+
+<div class="example-block" style="border-color: var(--border-tertiary); border-left-width: 2px; color: var(--text-secondary); font-size: .875rem; margin-bottom: 1rem; margin-top: 1rem; overflow: visible; padding-left: 1rem;">
+<p><strong>Input:</strong><span class="example-io" style="font-family: Menlo,sans-serif; font-size: 0.85rem;"> nums = [10,8,5,9,11,6,8], k = 1 </span></p>
+
+<p><strong>Output:</strong><span class="example-io" style="font-family: Menlo,sans-serif; font-size: 0.85rem;"> 15 </span></p>
+
+<p><strong>Explanation: </strong> Since <code>k == 1</code>, the 1-or of the array is equal to the bitwise OR of all its elements. Hence, the answer is <code>10 OR 8 OR 5 OR 9 OR 11 OR 6 OR 8 = 15</code>.</p>
+</div>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
@@ -142,6 +204,24 @@ function findKOr(nums: number[], k: number): number {
         }
     }
     return ans;
+}
+```
+
+```cs
+public class Solution {
+    public int FindKOr(int[] nums, int k) {
+        int ans = 0;
+        for (int i = 0; i < 32; ++i) {
+            int cnt = 0;
+            foreach (int x in nums) {
+                cnt += (x >> i & 1);
+            }
+            if (cnt >= k) {
+                ans |= 1 << i;
+            }
+        }
+        return ans;
+    }
 }
 ```
 

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2712.Minimum%20Cost%20to%20Make%20All%20Characters%20Equal/README.md)
 
+<!-- tags:Greedy,String,Dynamic Programming -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> binary string <code>s</code> of length <code>n</code> on which you can apply two types of operations:</p>

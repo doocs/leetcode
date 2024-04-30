@@ -1,6 +1,8 @@
-# [1543. 产品名称格式修复](https://leetcode.cn/problems/fix-product-name-format)
+# [1543. 产品名称格式修复 🔒](https://leetcode.cn/problems/fix-product-name-format)
 
 [English Version](/solution/1500-1599/1543.Fix%20Product%20Name%20Format/README_EN.md)
+
+<!-- tags:数据库 -->
 
 ## 题目描述
 

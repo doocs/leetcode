@@ -1,6 +1,8 @@
-# [2377. 整理奥运表](https://leetcode.cn/problems/sort-the-olympic-table)
+# [2377. 整理奥运表 🔒](https://leetcode.cn/problems/sort-the-olympic-table)
 
 [English Version](/solution/2300-2399/2377.Sort%20the%20Olympic%20Table/README_EN.md)
+
+<!-- tags:数据库 -->
 
 ## 题目描述
 

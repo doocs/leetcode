@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0322.Coin%20Change/README_EN.md)
 
+<!-- tags:广度优先搜索,数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -73,12 +75,6 @@ $$
 最后答案即为 $f[m][n]$。
 
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为硬币的种类数和总金额。
-
-注意到 $f[i][j]$ 只与 $f[i - 1][j]$ 和 $f[i][j - x]$ 有关，因此我们可以将二维数组优化为一维数组，空间复杂度降为 $O(n)$。
-
-相似题目：
-
--   [279. 完全平方数](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0279.Perfect%20Squares/README.md)
 
 <!-- tabs:start -->
 
@@ -235,7 +231,11 @@ var coinChange = function (coins, amount) {
 
 <!-- tabs:end -->
 
-### 方法二
+我们注意到 $f[i][j]$ 只与 $f[i - 1][j]$ 和 $f[i][j - x]$ 有关，因此我们可以将二维数组优化为一维数组，空间复杂度降为 $O(n)$。
+
+相似题目：
+
+-   [279. 完全平方数](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0279.Perfect%20Squares/README.md)
 
 <!-- tabs:start -->
 

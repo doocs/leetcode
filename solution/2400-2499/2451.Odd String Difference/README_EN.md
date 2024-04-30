@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2451.Odd%20String%20Difference/README.md)
 
+<!-- tags:Array,Hash Table,String -->
+
 ## Description
 
 <p>You are given an array of equal-length strings <code>words</code>. Assume that the length of each string is <code>n</code>.</p>

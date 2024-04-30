@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0678.Valid%20Parenthesis%20String/README_EN.md)
 
+<!-- tags:栈,贪心,字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

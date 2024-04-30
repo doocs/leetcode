@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1527.Patients%20With%20a%20Condition/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Patients</code></p>

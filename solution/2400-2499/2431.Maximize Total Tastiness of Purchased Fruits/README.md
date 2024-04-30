@@ -1,6 +1,8 @@
-# [2431. 最大限度地提高购买水果的口味](https://leetcode.cn/problems/maximize-total-tastiness-of-purchased-fruits)
+# [2431. 最大限度地提高购买水果的口味 🔒](https://leetcode.cn/problems/maximize-total-tastiness-of-purchased-fruits)
 
 [English Version](/solution/2400-2499/2431.Maximize%20Total%20Tastiness%20of%20Purchased%20Fruits/README_EN.md)
+
+<!-- tags:数组,动态规划 -->
 
 ## 题目描述
 

@@ -1,6 +1,8 @@
-# [1216. Valid Palindrome III](https://leetcode.com/problems/valid-palindrome-iii)
+# [1216. Valid Palindrome III 🔒](https://leetcode.com/problems/valid-palindrome-iii)
 
 [中文文档](/solution/1200-1299/1216.Valid%20Palindrome%20III/README.md)
+
+<!-- tags:String,Dynamic Programming -->
 
 ## Description
 

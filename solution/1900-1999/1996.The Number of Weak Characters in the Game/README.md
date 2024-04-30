@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1996.The%20Number%20of%20Weak%20Characters%20in%20the%20Game/README_EN.md)
 
+<!-- tags:栈,贪心,数组,排序,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

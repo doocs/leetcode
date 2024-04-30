@@ -2,6 +2,8 @@
 
 [English Version](/solution/3000-3099/3019.Number%20of%20Changing%20Keys/README_EN.md)
 
+<!-- tags:字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -46,24 +48,71 @@
 
 ## 解法
 
-### 方法一
+### 方法一：一次遍历
+
+我们可以遍历字符串，每次判断当前字符的小写形式是否与前一个字符的小写形式相同，如果不同则说明发生了按键变更，将答案加一即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def countKeyChanges(self, s: str) -> int:
+        return sum(a.lower() != b.lower() for a, b in pairwise(s))
 ```
 
 ```java
-
+class Solution {
+    public int countKeyChanges(String s) {
+        int ans = 0;
+        for (int i = 1; i < s.length(); ++i) {
+            if (Character.toLowerCase(s.charAt(i)) != Character.toLowerCase(s.charAt(i - 1))) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int countKeyChanges(string s) {
+        transform(s.begin(), s.end(), s.begin(), ::tolower);
+        int ans = 0;
+        for (int i = 1; i < s.size(); ++i) {
+            ans += s[i] != s[i - 1];
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func countKeyChanges(s string) (ans int) {
+	s = strings.ToLower(s)
+	for i, c := range s[1:] {
+		if byte(c) != s[i] {
+			ans++
+		}
+	}
+	return
+}
+```
 
+```ts
+function countKeyChanges(s: string): number {
+    s = s.toLowerCase();
+    let ans = 0;
+    for (let i = 1; i < s.length; ++i) {
+        if (s[i] !== s[i - 1]) {
+            ++ans;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

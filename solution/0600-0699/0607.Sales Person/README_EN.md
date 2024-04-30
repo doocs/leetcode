@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0607.Sales%20Person/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>SalesPerson</code></p>

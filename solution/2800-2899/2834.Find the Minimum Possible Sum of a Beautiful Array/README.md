@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2834.Find%20the%20Minimum%20Possible%20Sum%20of%20a%20Beautiful%20Array/README_EN.md)
 
+<!-- tags:贪心,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -62,44 +64,43 @@ nums = [1,3,4] 是美丽数组。
 
 ## 解法
 
-### 方法一：贪心 + 哈希表
+### 方法一：贪心 + 数学
 
-我们从正整数 $i=1$ 开始，依次判断 $i$ 是否可以加入数组中，如果可以加入，则将 $i$ 加入数组中，累加到答案中，然后将 $target-i$ 置为已访问，表示 $target-i$ 不能加入数组中。循环直到数组长度为 $n$。
+我们可以贪心地从 $x = 1$ 开始构造数组 $nums$，每次选择 $x$，并且排除 $target - x$。
 
-时间复杂度 $O(n + target)$，空间复杂度 $O(n + target)$。其中 $n$ 为数组长度。
+我们不妨记 $m = \left\lfloor \frac{target}{2} \right\rfloor$。
+
+如果 $x <= m$，那么我们可以选择的数有 $1, 2, \cdots, n$，所以数组的和为 $\left\lfloor \frac{(1+n)n}{2} \right\rfloor$。
+
+如果 $x > m$，那么我们可以选择的数有 $1, 2, \cdots, m$，共 $m$ 个数，以及 $n - m$ 个从 $target$ 开始的数，所以数组的和为 $\left\lfloor \frac{(1+m)m}{2} \right\rfloor + \left\lfloor \frac{(target + target + n - m - 1)(n-m)}{2} \right\rfloor$。
+
+注意，我们需要对结果取模 $10^9 + 7$。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def minimumPossibleSum(self, n: int, target: int) -> int:
-        vis = set()
-        ans = 0
-        i = 1
-        for _ in range(n):
-            while i in vis:
-                i += 1
-            ans += i
-            vis.add(target - i)
-            i += 1
-        return ans
+        mod = 10**9 + 7
+        m = target // 2
+        if n <= m:
+            return ((1 + n) * n // 2) % mod
+        return ((1 + m) * m // 2 + (target + target + n - m - 1) * (n - m) // 2) % mod
 ```
 
 ```java
 class Solution {
-    public long minimumPossibleSum(int n, int target) {
-        boolean[] vis = new boolean[n + target];
-        long ans = 0;
-        for (int i = 1; n > 0; --n, ++i) {
-            while (vis[i]) {
-                ++i;
-            }
-            ans += i;
-            if (target >= i) {
-                vis[target - i] = true;
-            }
+    public int minimumPossibleSum(int n, int target) {
+        final int mod = (int) 1e9 + 7;
+        int m = target / 2;
+        if (n <= m) {
+            return (int) ((1L + n) * n / 2 % mod);
         }
-        return ans;
+        long a = (1L + m) * m / 2 % mod;
+        long b = ((1L * target + target + n - m - 1) * (n - m) / 2) % mod;
+        return (int) ((a + b) % mod);
     }
 }
 ```
@@ -107,54 +108,55 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    long long minimumPossibleSum(int n, int target) {
-        bool vis[n + target];
-        memset(vis, false, sizeof(vis));
-        long long ans = 0;
-        for (int i = 1; n; ++i, --n) {
-            while (vis[i]) {
-                ++i;
-            }
-            ans += i;
-            if (target >= i) {
-                vis[target - i] = true;
-            }
+    int minimumPossibleSum(int n, int target) {
+        const int mod = 1e9 + 7;
+        int m = target / 2;
+        if (n <= m) {
+            return (1LL + n) * n / 2 % mod;
         }
-        return ans;
+        long long a = (1LL + m) * m / 2 % mod;
+        long long b = (1LL * target + target + n - m - 1) * (n - m) / 2 % mod;
+        return (a + b) % mod;
     }
 };
 ```
 
 ```go
-func minimumPossibleSum(n int, target int) (ans int64) {
-	vis := make([]bool, n+target)
-	for i := 1; n > 0; i, n = i+1, n-1 {
-		for vis[i] {
-			i++
-		}
-		ans += int64(i)
-		if target >= i {
-			vis[target-i] = true
-		}
+func minimumPossibleSum(n int, target int) int {
+	const mod int = 1e9 + 7
+	m := target / 2
+	if n <= m {
+		return (n + 1) * n / 2 % mod
 	}
-	return
+	a := (m + 1) * m / 2 % mod
+	b := (target + target + n - m - 1) * (n - m) / 2 % mod
+	return (a + b) % mod
 }
 ```
 
 ```ts
 function minimumPossibleSum(n: number, target: number): number {
-    const vis: boolean[] = Array(n + target).fill(false);
-    let ans = 0;
-    for (let i = 1; n; ++i, --n) {
-        while (vis[i]) {
-            ++i;
-        }
-        ans += i;
-        if (target >= i) {
-            vis[target - i] = true;
-        }
+    const mod = 10 ** 9 + 7;
+    const m = target >> 1;
+    if (n <= m) {
+        return (((1 + n) * n) / 2) % mod;
     }
-    return ans;
+    return (((1 + m) * m) / 2 + ((target + target + n - m - 1) * (n - m)) / 2) % mod;
+}
+```
+
+```cs
+public class Solution {
+    public int MinimumPossibleSum(int n, int target) {
+        const int mod = (int) 1e9 + 7;
+        int m = target / 2;
+        if (n <= m) {
+            return (int) ((1L + n) * n / 2 % mod);
+        }
+        long a = (1L + m) * m / 2 % mod;
+        long b = ((1L * target + target + n - m - 1) * (n - m) / 2) % mod;
+        return (int) ((a + b) % mod);
+    }
 }
 ```
 

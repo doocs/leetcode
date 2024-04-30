@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0903.Valid%20Permutations%20for%20DI%20Sequence/README_EN.md)
 
+<!-- tags:字符串,动态规划,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -70,8 +72,6 @@
 最终的答案即为 $\sum_{j=0}^n f[n][j]$。
 
 时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 是字符串的长度。
-
-我们可以用前缀和优化时间复杂度，使得时间复杂度降低到 $O(n^2)$。另外，我们也可以用滚动数组优化空间复杂度，使得空间复杂度降低到 $O(n)$。
 
 <!-- tabs:start -->
 
@@ -222,7 +222,7 @@ function numPermsDISequence(s: string): number {
 
 <!-- tabs:end -->
 
-### 方法二
+我们可以用前缀和优化时间复杂度，使得时间复杂度降低到 $O(n^2)$。
 
 <!-- tabs:start -->
 
@@ -370,7 +370,7 @@ function numPermsDISequence(s: string): number {
 
 <!-- tabs:end -->
 
-### 方法三
+另外，我们也可以用滚动数组优化空间复杂度，使得空间复杂度降低到 $O(n)$。
 
 <!-- tabs:start -->
 

@@ -1,6 +1,8 @@
-# [2061. 扫地机器人清扫过的空间个数](https://leetcode.cn/problems/number-of-spaces-cleaning-robot-cleaned)
+# [2061. 扫地机器人清扫过的空间个数 🔒](https://leetcode.cn/problems/number-of-spaces-cleaning-robot-cleaned)
 
 [English Version](/solution/2000-2099/2061.Number%20of%20Spaces%20Cleaning%20Robot%20Cleaned/README_EN.md)
+
+<!-- tags:数组,矩阵,模拟 -->
 
 ## 题目描述
 

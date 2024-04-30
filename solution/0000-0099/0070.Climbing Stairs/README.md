@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0070.Climbing%20Stairs/README_EN.md)
 
+<!-- tags:记忆化搜索,数学,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

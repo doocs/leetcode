@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0792.Number%20of%20Matching%20Subsequences/README.md)
 
+<!-- tags:Trie,Array,Hash Table,String,Binary Search,Dynamic Programming,Sorting -->
+
 ## Description
 
 <p>Given a string <code>s</code> and an array of strings <code>words</code>, return <em>the number of</em> <code>words[i]</code> <em>that is a subsequence of</em> <code>s</code>.</p>

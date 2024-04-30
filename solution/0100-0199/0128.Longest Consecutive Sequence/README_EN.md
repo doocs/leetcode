@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0128.Longest%20Consecutive%20Sequence/README.md)
 
+<!-- tags:Union Find,Array,Hash Table -->
+
 ## Description
 
 <p>Given an unsorted array of integers <code>nums</code>, return <em>the length of the longest consecutive elements sequence.</em></p>

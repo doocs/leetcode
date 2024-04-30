@@ -1,6 +1,8 @@
-# [294. Flip Game II](https://leetcode.com/problems/flip-game-ii)
+# [294. Flip Game II 🔒](https://leetcode.com/problems/flip-game-ii)
 
 [中文文档](/solution/0200-0299/0294.Flip%20Game%20II/README.md)
+
+<!-- tags:Memoization,Math,Dynamic Programming,Backtracking,Game Theory -->
 
 ## Description
 

@@ -1,7 +1,7 @@
 class Solution:
     def stoneGameVII(self, stones: List[int]) -> int:
         @cache
-        def dfs(i, j):
+        def dfs(i: int, j: int) -> int:
             if i > j:
                 return 0
             a = s[j + 1] - s[i + 1] - dfs(i + 1, j)

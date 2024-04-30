@@ -1,6 +1,8 @@
-# [2173. 最多连胜的次数](https://leetcode.cn/problems/longest-winning-streak)
+# [2173. 最多连胜的次数 🔒](https://leetcode.cn/problems/longest-winning-streak)
 
 [English Version](/solution/2100-2199/2173.Longest%20Winning%20Streak/README_EN.md)
+
+<!-- tags:数据库 -->
 
 ## 题目描述
 

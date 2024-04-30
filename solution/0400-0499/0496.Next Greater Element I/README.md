@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0496.Next%20Greater%20Element%20I/README_EN.md)
 
+<!-- tags:栈,数组,哈希表,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0986.Interval%20List%20Intersections/README_EN.md)
 
+<!-- tags:数组,双指针 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

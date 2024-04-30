@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1275.Find%20Winner%20on%20a%20Tic%20Tac%20Toe%20Game/README.md)
 
+<!-- tags:Array,Hash Table,Matrix,Simulation -->
+
 ## Description
 
 <p><strong>Tic-tac-toe</strong> is played by two players <code>A</code> and <code>B</code> on a <code>3 x 3</code> grid. The rules of Tic-Tac-Toe are:</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2312.Selling%20Pieces%20of%20Wood/README.md)
 
+<!-- tags:Memoization,Array,Dynamic Programming -->
+
 ## Description
 
 <p>You are given two integers <code>m</code> and <code>n</code> that represent the height and width of a rectangular piece of wood. You are also given a 2D integer array <code>prices</code>, where <code>prices[i] = [h<sub>i</sub>, w<sub>i</sub>, price<sub>i</sub>]</code> indicates you can sell a rectangular piece of wood of height <code>h<sub>i</sub></code> and width <code>w<sub>i</sub></code> for <code>price<sub>i</sub></code> dollars.</p>
@@ -53,7 +55,18 @@ Notice that we cannot rotate the 1 x 4 piece of wood to obtain a 4 x 1 piece of 
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Memoization Search
+
+First, we define a 2D array $d$, where $d[i][j]$ represents the price of a wood block with height $i$ and width $j$.
+
+Then, we design a function $dfs(h, w)$ to denote the maximum amount of money obtained by cutting a wood block with height $h$ and width $w$. The answer will be $dfs(m, n)$.
+
+The process of function $dfs(h, w)$ is as follows:
+
+-   If $(h, w)$ has been calculated before, return the answer directly.
+-   Otherwise, initialize the answer as $d[h][w]$, then enumerate the cutting positions, calculate the maximum amount of money obtained by cutting the wood block into two pieces, and take the maximum value.
+
+The time complexity is $O(m \times n \times (m + n) + p)$, and the space complexity is $O(m \times n)$. Here, $p$ represents the length of the price array, while $m$ and $n$ represent the height and width of the wood blocks, respectively.
 
 <!-- tabs:start -->
 
@@ -61,7 +74,7 @@ Notice that we cannot rotate the 1 x 4 piece of wood to obtain a 4 x 1 piece of 
 class Solution:
     def sellingWood(self, m: int, n: int, prices: List[List[int]]) -> int:
         @cache
-        def dfs(h, w):
+        def dfs(h: int, w: int) -> int:
             ans = d[h].get(w, 0)
             for i in range(1, h // 2 + 1):
                 ans = max(ans, dfs(i, w) + dfs(h - i, w))
@@ -77,98 +90,141 @@ class Solution:
 
 ```java
 class Solution {
-    private long[][] memo;
     private int[][] d;
+    private Long[][] f;
 
     public long sellingWood(int m, int n, int[][] prices) {
         d = new int[m + 1][n + 1];
-        memo = new long[m + 1][n + 1];
-        for (long[] e : memo) {
-            Arrays.fill(e, -1);
-        }
-        for (int[] p : prices) {
+        f = new Long[m + 1][n + 1];
+        for (var p : prices) {
             d[p[0]][p[1]] = p[2];
         }
         return dfs(m, n);
     }
 
-    private long dfs(int m, int n) {
-        if (memo[m][n] != -1) {
-            return memo[m][n];
+    private long dfs(int h, int w) {
+        if (f[h][w] != null) {
+            return f[h][w];
         }
-
-        long ans = d[m][n];
-        for (int i = 1; i < m / 2 + 1; ++i) {
-            ans = Math.max(ans, dfs(i, n) + dfs(m - i, n));
+        long ans = d[h][w];
+        for (int i = 1; i < h / 2 + 1; ++i) {
+            ans = Math.max(ans, dfs(i, w) + dfs(h - i, w));
         }
-        for (int i = 1; i < n / 2 + 1; ++i) {
-            ans = Math.max(ans, dfs(m, i) + dfs(m, n - i));
+        for (int i = 1; i < w / 2 + 1; ++i) {
+            ans = Math.max(ans, dfs(h, i) + dfs(h, w - i));
         }
-        memo[m][n] = ans;
-        return ans;
+        return f[h][w] = ans;
     }
 }
 ```
 
 ```cpp
-using ll = long long;
-
 class Solution {
 public:
     long long sellingWood(int m, int n, vector<vector<int>>& prices) {
-        vector<vector<ll>> memo(m + 1, vector<ll>(n + 1, -1));
-        vector<vector<int>> d(m + 1, vector<int>(n + 1));
-        for (auto& p : prices) d[p[0]][p[1]] = p[2];
-        return dfs(m, n, d, memo);
-    }
-
-    ll dfs(int m, int n, vector<vector<int>>& d, vector<vector<ll>>& memo) {
-        if (memo[m][n] != -1) return memo[m][n];
-        ll ans = d[m][n];
-        for (int i = 1; i < m / 2 + 1; ++i) ans = max(ans, dfs(i, n, d, memo) + dfs(m - i, n, d, memo));
-        for (int i = 1; i < n / 2 + 1; ++i) ans = max(ans, dfs(m, i, d, memo) + dfs(m, n - i, d, memo));
-        memo[m][n] = ans;
-        return ans;
+        using ll = long long;
+        ll f[m + 1][n + 1];
+        int d[m + 1][n + 1];
+        memset(f, -1, sizeof(f));
+        memset(d, 0, sizeof(d));
+        for (auto& p : prices) {
+            d[p[0]][p[1]] = p[2];
+        }
+        function<ll(int, int)> dfs = [&](int h, int w) -> ll {
+            if (f[h][w] != -1) {
+                return f[h][w];
+            }
+            ll ans = d[h][w];
+            for (int i = 1; i < h / 2 + 1; ++i) {
+                ans = max(ans, dfs(i, w) + dfs(h - i, w));
+            }
+            for (int i = 1; i < w / 2 + 1; ++i) {
+                ans = max(ans, dfs(h, i) + dfs(h, w - i));
+            }
+            return f[h][w] = ans;
+        };
+        return dfs(m, n);
     }
 };
 ```
 
 ```go
 func sellingWood(m int, n int, prices [][]int) int64 {
-	memo := make([][]int, m+1)
+	f := make([][]int64, m+1)
 	d := make([][]int, m+1)
-	for i := range memo {
-		memo[i] = make([]int, n+1)
-		d[i] = make([]int, n+1)
-		for j := range memo[i] {
-			memo[i][j] = -1
+	for i := range f {
+		f[i] = make([]int64, n+1)
+		for j := range f[i] {
+			f[i][j] = -1
 		}
+		d[i] = make([]int, n+1)
 	}
 	for _, p := range prices {
 		d[p[0]][p[1]] = p[2]
 	}
-	var dfs func(int, int) int
-	dfs = func(m, n int) int {
-		if memo[m][n] != -1 {
-			return memo[m][n]
+	var dfs func(int, int) int64
+	dfs = func(h, w int) int64 {
+		if f[h][w] != -1 {
+			return f[h][w]
 		}
-		ans := d[m][n]
-		for i := 1; i < m/2+1; i++ {
-			ans = max(ans, dfs(i, n)+dfs(m-i, n))
+		ans := int64(d[h][w])
+		for i := 1; i < h/2+1; i++ {
+			ans = max(ans, dfs(i, w)+dfs(h-i, w))
 		}
-		for i := 1; i < n/2+1; i++ {
-			ans = max(ans, dfs(m, i)+dfs(m, n-i))
+		for i := 1; i < w/2+1; i++ {
+			ans = max(ans, dfs(h, i)+dfs(h, w-i))
 		}
-		memo[m][n] = ans
+		f[h][w] = ans
 		return ans
 	}
-	return int64(dfs(m, n))
+	return dfs(m, n)
+}
+```
+
+```ts
+function sellingWood(m: number, n: number, prices: number[][]): number {
+    const f: number[][] = Array.from({ length: m + 1 }, () => Array(n + 1).fill(-1));
+    const d: number[][] = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+    for (const [h, w, p] of prices) {
+        d[h][w] = p;
+    }
+
+    const dfs = (h: number, w: number): number => {
+        if (f[h][w] !== -1) {
+            return f[h][w];
+        }
+
+        let ans = d[h][w];
+        for (let i = 1; i <= Math.floor(h / 2); i++) {
+            ans = Math.max(ans, dfs(i, w) + dfs(h - i, w));
+        }
+        for (let i = 1; i <= Math.floor(w / 2); i++) {
+            ans = Math.max(ans, dfs(h, i) + dfs(h, w - i));
+        }
+        return (f[h][w] = ans);
+    };
+
+    return dfs(m, n);
 }
 ```
 
 <!-- tabs:end -->
 
-### Solution 2
+### Solution 2: Dynamic Programming
+
+We can transform the memoization search in Solution 1 into dynamic programming.
+
+Similar to Solution 1, we define a 2D array $d$, where $d[i][j]$ represents the price of a wood block with height $i$ and width $j$. Initially, we iterate through the price array $prices$ and store the price $p$ of each wood block $(h, w, p)$ in $d[h][w]$, while the rest of the prices are set to $0$.
+
+Then, we define another 2D array $f$, where $f[i][j]$ represents the maximum amount of money obtained by cutting a wood block with height $i$ and width $j$. The answer will be $f[m][n]$.
+
+Considering how $f[i][j]$ transitions, initially $f[i][j] = d[i][j]$. We enumerate the cutting positions, calculate the maximum amount of money obtained by cutting the wood block into two pieces, and take the maximum value.
+
+The time complexity is $O(m \times n \times (m + n) + p)$, and the space complexity is $O(m \times n)$. Here, $p$ represents the length of the price array, while $m$ and $n$ represent the height and width of the wood blocks, respectively.
+
+Similar problems:
+
+-   [1444. Number of Ways of Cutting a Pizza](https://github.com/doocs/leetcode/blob/main/solution/1400-1499/1444.Number%20of%20Ways%20of%20Cutting%20a%20Pizza/README_EN.md)
 
 <!-- tabs:start -->
 
@@ -178,37 +234,37 @@ class Solution:
         d = defaultdict(dict)
         for h, w, p in prices:
             d[h][w] = p
-        dp = [[0] * (n + 1) for _ in range(m + 1)]
+        f = [[0] * (n + 1) for _ in range(m + 1)]
         for i in range(1, m + 1):
             for j in range(1, n + 1):
-                dp[i][j] = d[i].get(j, 0)
+                f[i][j] = d[i].get(j, 0)
                 for k in range(1, i):
-                    dp[i][j] = max(dp[i][j], dp[k][j] + dp[i - k][j])
+                    f[i][j] = max(f[i][j], f[k][j] + f[i - k][j])
                 for k in range(1, j):
-                    dp[i][j] = max(dp[i][j], dp[i][k] + dp[i][j - k])
-        return dp[-1][-1]
+                    f[i][j] = max(f[i][j], f[i][k] + f[i][j - k])
+        return f[m][n]
 ```
 
 ```java
 class Solution {
     public long sellingWood(int m, int n, int[][] prices) {
         int[][] d = new int[m + 1][n + 1];
-        long[][] dp = new long[m + 1][n + 1];
+        long[][] f = new long[m + 1][n + 1];
         for (int[] p : prices) {
             d[p[0]][p[1]] = p[2];
         }
         for (int i = 1; i <= m; ++i) {
             for (int j = 1; j <= n; ++j) {
-                dp[i][j] = d[i][j];
+                f[i][j] = d[i][j];
                 for (int k = 1; k < i; ++k) {
-                    dp[i][j] = Math.max(dp[i][j], dp[k][j] + dp[i - k][j]);
+                    f[i][j] = Math.max(f[i][j], f[k][j] + f[i - k][j]);
                 }
                 for (int k = 1; k < j; ++k) {
-                    dp[i][j] = Math.max(dp[i][j], dp[i][k] + dp[i][j - k]);
+                    f[i][j] = Math.max(f[i][j], f[i][k] + f[i][j - k]);
                 }
             }
         }
-        return dp[m][n];
+        return f[m][n];
     }
 }
 ```
@@ -217,17 +273,25 @@ class Solution {
 class Solution {
 public:
     long long sellingWood(int m, int n, vector<vector<int>>& prices) {
-        vector<vector<int>> d(m + 1, vector<int>(n + 1));
-        vector<vector<long long>> dp(m + 1, vector<long long>(n + 1));
-        for (auto& p : prices) d[p[0]][p[1]] = p[2];
+        long long f[m + 1][n + 1];
+        int d[m + 1][n + 1];
+        memset(f, -1, sizeof(f));
+        memset(d, 0, sizeof(d));
+        for (auto& p : prices) {
+            d[p[0]][p[1]] = p[2];
+        }
         for (int i = 1; i <= m; ++i) {
             for (int j = 1; j <= n; ++j) {
-                dp[i][j] = d[i][j];
-                for (int k = 1; k < i; ++k) dp[i][j] = max(dp[i][j], dp[k][j] + dp[i - k][j]);
-                for (int k = 1; k < j; ++k) dp[i][j] = max(dp[i][j], dp[i][k] + dp[i][j - k]);
+                f[i][j] = d[i][j];
+                for (int k = 1; k < i; ++k) {
+                    f[i][j] = max(f[i][j], f[k][j] + f[i - k][j]);
+                }
+                for (int k = 1; k < j; ++k) {
+                    f[i][j] = max(f[i][j], f[i][k] + f[i][j - k]);
+                }
             }
         }
-        return dp[m][n];
+        return f[m][n];
     }
 };
 ```
@@ -235,26 +299,50 @@ public:
 ```go
 func sellingWood(m int, n int, prices [][]int) int64 {
 	d := make([][]int, m+1)
-	dp := make([][]int, m+1)
+	f := make([][]int64, m+1)
 	for i := range d {
 		d[i] = make([]int, n+1)
-		dp[i] = make([]int, n+1)
+		f[i] = make([]int64, n+1)
 	}
 	for _, p := range prices {
 		d[p[0]][p[1]] = p[2]
 	}
 	for i := 1; i <= m; i++ {
 		for j := 1; j <= n; j++ {
-			dp[i][j] = d[i][j]
+			f[i][j] = int64(d[i][j])
 			for k := 1; k < i; k++ {
-				dp[i][j] = max(dp[i][j], dp[k][j]+dp[i-k][j])
+				f[i][j] = max(f[i][j], f[k][j]+f[i-k][j])
 			}
 			for k := 1; k < j; k++ {
-				dp[i][j] = max(dp[i][j], dp[i][k]+dp[i][j-k])
+				f[i][j] = max(f[i][j], f[i][k]+f[i][j-k])
 			}
 		}
 	}
-	return int64(dp[m][n])
+	return f[m][n]
+}
+```
+
+```ts
+function sellingWood(m: number, n: number, prices: number[][]): number {
+    const f: number[][] = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+    const d: number[][] = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+    for (const [h, w, p] of prices) {
+        d[h][w] = p;
+    }
+
+    for (let i = 1; i <= m; i++) {
+        for (let j = 1; j <= n; j++) {
+            f[i][j] = d[i][j];
+            for (let k = 1; k < i; k++) {
+                f[i][j] = Math.max(f[i][j], f[k][j] + f[i - k][j]);
+            }
+            for (let k = 1; k < j; k++) {
+                f[i][j] = Math.max(f[i][j], f[i][k] + f[i][j - k]);
+            }
+        }
+    }
+
+    return f[m][n];
 }
 ```
 

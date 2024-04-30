@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0605.Can%20Place%20Flowers/README_EN.md)
 
+<!-- tags:贪心,数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

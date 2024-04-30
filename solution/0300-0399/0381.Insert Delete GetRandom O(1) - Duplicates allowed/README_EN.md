@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0381.Insert%20Delete%20GetRandom%20O%281%29%20-%20Duplicates%20allowed/README.md)
 
+<!-- tags:Design,Array,Hash Table,Math,Randomized -->
+
 ## Description
 
 <p><code>RandomizedCollection</code> is a data structure that contains a collection of numbers, possibly duplicates (i.e., a multiset). It should support inserting and removing specific elements and also reporting a random element.</p>

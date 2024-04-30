@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2231.Largest%20Number%20After%20Digit%20Swaps%20by%20Parity/README.md)
 
+<!-- tags:Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given a positive integer <code>num</code>. You may swap any two digits of <code>num</code> that have the same <strong>parity</strong> (i.e. both odd digits or both even digits).</p>
@@ -152,10 +154,10 @@ func largestInteger(num int) int {
 
 ```ts
 function largestInteger(num: number): number {
-    let arrs = String(num).split('').map(Number);
-    let odds = []; // 奇数
-    let evens = [];
-    for (let i of arrs) {
+    const arrs: number[] = String(num).split('').map(Number);
+    const odds: number[] = []; // 奇数
+    const evens: number[] = [];
+    for (const i of arrs) {
         if ((i & 1) == 1) {
             odds.push(i);
         } else {
@@ -164,9 +166,9 @@ function largestInteger(num: number): number {
     }
     odds.sort((a, b) => a - b);
     evens.sort((a, b) => a - b);
-    let ans = [];
-    for (let i of arrs) {
-        ans.push((i & 1) == 1 ? odds.pop() : evens.pop());
+    const ans: number[] = [];
+    for (const i of arrs) {
+        ans.push((i & 1) === 1 ? odds.pop() : evens.pop());
     }
     return Number(ans.join(''));
 }

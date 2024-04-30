@@ -1,6 +1,8 @@
-# [293. 翻转游戏](https://leetcode.cn/problems/flip-game)
+# [293. 翻转游戏 🔒](https://leetcode.cn/problems/flip-game)
 
 [English Version](/solution/0200-0299/0293.Flip%20Game/README_EN.md)
+
+<!-- tags:字符串 -->
 
 ## 题目描述
 
@@ -39,7 +41,13 @@
 
 ## 解法
 
-### 方法一
+### 方法一：遍历 + 模拟
+
+我们遍历字符串，如果当前字符和下一个字符都是 `+`，那么我们就将这两个字符变成 `-`，然后将结果加入到结果数组中，再将这两个字符变回 `+`。
+
+遍历结束后，返回结果数组即可。
+
+时间复杂度 $O(n^2)$，其中 $n$ 是字符串长度。忽略答案数组的空间复杂度，空间复杂度 $O(n)$ 或 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -48,8 +56,8 @@ class Solution:
     def generatePossibleNextMoves(self, currentState: str) -> List[str]:
         s = list(currentState)
         ans = []
-        for i, c in enumerate(s[:-1]):
-            if c == "+" and s[i + 1] == "+":
+        for i, (a, b) in enumerate(pairwise(s)):
+            if a == b == "+":
                 s[i] = s[i + 1] = "-"
                 ans.append("".join(s))
                 s[i] = s[i + 1] = "+"
@@ -59,15 +67,15 @@ class Solution:
 ```java
 class Solution {
     public List<String> generatePossibleNextMoves(String currentState) {
-        char[] cs = currentState.toCharArray();
         List<String> ans = new ArrayList<>();
-        for (int i = 0; i < cs.length - 1; ++i) {
-            if (cs[i] == '+' && cs[i + 1] == '+') {
-                cs[i] = '-';
-                cs[i + 1] = '-';
-                ans.add(String.valueOf(cs));
-                cs[i] = '+';
-                cs[i + 1] = '+';
+        char[] s = currentState.toCharArray();
+        for (int i = 0; i < s.length - 1; ++i) {
+            if (s[i] == '+' && s[i + 1] == '+') {
+                s[i] = '-';
+                s[i + 1] = '-';
+                ans.add(new String(s));
+                s[i] = '+';
+                s[i + 1] = '+';
             }
         }
         return ans;
@@ -78,15 +86,13 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<string> generatePossibleNextMoves(string currentState) {
+    vector<string> generatePossibleNextMoves(string s) {
         vector<string> ans;
-        for (int i = 0; i < currentState.size() - 1; ++i) {
-            if (currentState[i] == '+' && currentState[i + 1] == '+') {
-                currentState[i] = '-';
-                currentState[i + 1] = '-';
-                ans.push_back(currentState);
-                currentState[i] = '+';
-                currentState[i + 1] = '+';
+        for (int i = 0; i < s.size() - 1; ++i) {
+            if (s[i] == '+' && s[i + 1] == '+') {
+                s[i] = s[i + 1] = '-';
+                ans.emplace_back(s);
+                s[i] = s[i + 1] = '+';
             }
         }
         return ans;
@@ -95,17 +101,31 @@ public:
 ```
 
 ```go
-func generatePossibleNextMoves(currentState string) []string {
-	ans := []string{}
-	cs := []byte(currentState)
-	for i, c := range cs[1:] {
-		if c == '+' && cs[i] == '+' {
-			cs[i], cs[i+1] = '-', '-'
-			ans = append(ans, string(cs))
-			cs[i], cs[i+1] = '+', '+'
+func generatePossibleNextMoves(currentState string) (ans []string) {
+	s := []byte(currentState)
+	for i := 0; i < len(s)-1; i++ {
+		if s[i] == '+' && s[i+1] == '+' {
+			s[i], s[i+1] = '-', '-'
+			ans = append(ans, string(s))
+			s[i], s[i+1] = '+', '+'
 		}
 	}
-	return ans
+	return
+}
+```
+
+```ts
+function generatePossibleNextMoves(currentState: string): string[] {
+    const s = currentState.split('');
+    const ans: string[] = [];
+    for (let i = 0; i < s.length - 1; ++i) {
+        if (s[i] === '+' && s[i + 1] === '+') {
+            s[i] = s[i + 1] = '-';
+            ans.push(s.join(''));
+            s[i] = s[i + 1] = '+';
+        }
+    }
+    return ans;
 }
 ```
 

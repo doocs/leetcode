@@ -1,6 +1,8 @@
-# [1132. 报告的记录 II](https://leetcode.cn/problems/reported-posts-ii)
+# [1132. 报告的记录 II 🔒](https://leetcode.cn/problems/reported-posts-ii)
 
 [English Version](/solution/1100-1199/1132.Reported%20Posts%20II/README_EN.md)
+
+<!-- tags:数据库 -->
 
 ## 题目描述
 

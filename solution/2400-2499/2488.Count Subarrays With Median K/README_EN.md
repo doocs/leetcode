@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2488.Count%20Subarrays%20With%20Median%20K/README.md)
 
+<!-- tags:Array,Hash Table,Prefix Sum -->
+
 ## Description
 
 <p>You are given an array <code>nums</code> of size <code>n</code> consisting of <strong>distinct </strong>integers from <code>1</code> to <code>n</code> and a positive integer <code>k</code>.</p>
@@ -50,7 +52,21 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Traversal + Counting
+
+First, we find the position $i$ of the median $k$ in the array, and then start traversing from $i$ to both sides, counting the number of subarrays with a median of $k$.
+
+Define an answer variable $ans$, which represents the number of subarrays with a median of $k$. Initially, $ans = 1$, which means that there is currently a subarray of length $1$ with a median of $k$. In addition, define a counter $cnt$, used to count the number of differences between the "number of elements larger than $k$" and the "number of elements smaller than $k$" in the currently traversed array.
+
+Next, start traversing to the right from $i + 1$. We maintain a variable $x$, which represents the difference between the "number of elements larger than $k$" and the "number of elements smaller than $k$" in the current right subarray. If $x \in [0, 1]$, then the median of the current right subarray is $k$, and the answer variable $ans$ is incremented by $1$. Then, we add the value of $x$ to the counter $cnt$.
+
+Similarly, start traversing to the left from $i - 1$, also maintaining a variable $x$, which represents the difference between the "number of elements larger than $k$" and the "number of elements smaller than $k$" in the current left subarray. If $x \in [0, 1]$, then the median of the current left subarray is $k$, and the answer variable $ans$ is incremented by $1$. If $-x$ or $-x + 1$ is also in the counter, it means that there is currently a subarray that spans both sides of $i$, with a median of $k$, and the answer variable $ans$ increases the corresponding value in the counter, that is, $ans += cnt[-x] + cnt[-x + 1]$.
+
+Finally, return the answer variable $ans$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
+
+> In coding, we can directly open an array of length $2 \times n + 1$, used to count the difference between the "number of elements larger than $k$" and the "number of elements smaller than $k$" in the current array. Each time we add the difference by $n$, we can convert the range of the difference from $[-n, n]$ to $[0, 2n]$.
 
 <!-- tabs:start -->
 

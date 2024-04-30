@@ -1,6 +1,8 @@
-# [711. 不同岛屿的数量 II](https://leetcode.cn/problems/number-of-distinct-islands-ii)
+# [711. 不同岛屿的数量 II 🔒](https://leetcode.cn/problems/number-of-distinct-islands-ii)
 
 [English Version](/solution/0700-0799/0711.Number%20of%20Distinct%20Islands%20II/README_EN.md)
+
+<!-- tags:深度优先搜索,广度优先搜索,并查集,哈希表,哈希函数 -->
 
 ## 题目描述
 

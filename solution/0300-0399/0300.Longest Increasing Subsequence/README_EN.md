@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README.md)
 
+<!-- tags:Array,Binary Search,Dynamic Programming -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, return <em>the length of the longest <strong>strictly increasing </strong></em><span data-keyword="subsequence-array"><em><strong>subsequence</strong></em></span>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0817.Linked%20List%20Components/README.md)
 
+<!-- tags:Array,Hash Table,Linked List -->
+
 ## Description
 
 <p>You are given the <code>head</code> of a linked list containing unique integer values and an integer array <code>nums</code> that is a subset of the linked list values.</p>

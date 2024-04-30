@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2894.Divisible%20and%20Non-divisible%20Sums%20Difference/README.md)
 
+<!-- tags:Math -->
+
 ## Description
 
 <p>You are given positive integers <code>n</code> and <code>m</code>.</p>

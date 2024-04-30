@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1486.XOR%20Operation%20in%20an%20Array/README.md)
 
+<!-- tags:Bit Manipulation,Math -->
+
 ## Description
 
 <p>You are given an integer <code>n</code> and an integer <code>start</code>.</p>

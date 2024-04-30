@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2002.Maximum%20Product%20of%20the%20Length%20of%20Two%20Palindromic%20Subsequences/README.md)
 
+<!-- tags:Bit Manipulation,String,Dynamic Programming,Backtracking,Bitmask -->
+
 ## Description
 
 <p>Given a string <code>s</code>, find two <strong>disjoint palindromic subsequences</strong> of <code>s</code> such that the <strong>product</strong> of their lengths is <strong>maximized</strong>. The two subsequences are <strong>disjoint</strong> if they do not both pick a character at the same index.</p>

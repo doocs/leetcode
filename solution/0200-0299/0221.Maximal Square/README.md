@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0221.Maximal%20Square/README_EN.md)
 
+<!-- tags:数组,动态规划,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

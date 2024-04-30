@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2218.Maximum%20Value%20of%20K%20Coins%20From%20Piles/README.md)
 
+<!-- tags:Array,Dynamic Programming,Prefix Sum -->
+
 ## Description
 
 <p>There are <code>n</code> <strong>piles</strong> of coins on a table. Each pile consists of a <strong>positive number</strong> of coins of assorted denominations.</p>

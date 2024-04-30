@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0034.Find%20First%20and%20Last%20Position%20of%20Element%20in%20Sorted%20Array/README.md)
 
+<!-- tags:Array,Binary Search -->
+
 ## Description
 
 <p>Given an array of integers <code>nums</code> sorted in non-decreasing order, find the starting and ending position of a given <code>target</code> value.</p>
@@ -217,6 +219,33 @@ var searchRange = function (nums, target) {
     const r = search(target + 1);
     return l == r ? [-1, -1] : [l, r - 1];
 };
+```
+
+```php
+class Solution {
+    /**
+     * @param integer[] $nums
+     * @param integer $target
+     * @return integer[]
+     */
+
+    function searchRange($nums, $target) {
+        $min = -1;
+        $max = -1;
+        foreach ($nums as $key => $value) {
+            if ($value == $target) {
+                if ($min == -1) {
+                    $min = $key;
+                }
+
+                if ($key > $max) {
+                    $max = $key;
+                }
+            }
+        }
+        return [$min, $max];
+    }
+}
 ```
 
 <!-- tabs:end -->

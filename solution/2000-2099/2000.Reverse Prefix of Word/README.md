@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2000.Reverse%20Prefix%20of%20Word/README_EN.md)
 
+<!-- tags:双指针,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -156,27 +158,6 @@ class Solution {
         $rs = strrev($rs);
         $rs = $rs . substr($word, strlen($rs));
         return $rs;
-    }
-}
-```
-
-<!-- tabs:end -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-```java
-class Solution {
-    public String reversePrefix(String word, char ch) {
-        int j = word.indexOf(ch);
-        if (j == -1) {
-            return word;
-        }
-        return new StringBuilder(word.substring(0, j + 1))
-            .reverse()
-            .append(word.substring(j + 1))
-            .toString();
     }
 }
 ```

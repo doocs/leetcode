@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0997.Find%20the%20Town%20Judge/README.md)
 
+<!-- tags:Graph,Array,Hash Table -->
+
 ## Description
 
 <p>In a town, there are <code>n</code> people labeled from <code>1</code> to <code>n</code>. There is a rumor that one of these people is secretly the town judge.</p>

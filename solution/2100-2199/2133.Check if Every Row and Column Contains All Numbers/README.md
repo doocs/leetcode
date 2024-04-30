@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2133.Check%20if%20Every%20Row%20and%20Column%20Contains%20All%20Numbers/README_EN.md)
 
+<!-- tags:数组,哈希表,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

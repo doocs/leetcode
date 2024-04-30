@@ -1,6 +1,8 @@
-# [1107. New Users Daily Count](https://leetcode.com/problems/new-users-daily-count)
+# [1107. New Users Daily Count 🔒](https://leetcode.com/problems/new-users-daily-count)
 
 [中文文档](/solution/1100-1199/1107.New%20Users%20Daily%20Count/README.md)
+
+<!-- tags:Database -->
 
 ## Description
 

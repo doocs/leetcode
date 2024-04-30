@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1689.Partitioning%20Into%20Minimum%20Number%20Of%20Deci-Binary%20Numbers/README.md)
 
+<!-- tags:Greedy,String -->
+
 ## Description
 
 <p>A decimal number is called <strong>deci-binary</strong> if each of its digits is either <code>0</code> or <code>1</code> without any leading zeros. For example, <code>101</code> and <code>1100</code> are <strong>deci-binary</strong>, while <code>112</code> and <code>3001</code> are not.</p>
@@ -73,7 +75,9 @@ class Solution {
 public:
     int minPartitions(string n) {
         int ans = 0;
-        for (char& c : n) ans = max(ans, c - '0');
+        for (char& c : n) {
+            ans = max(ans, c - '0');
+        }
         return ans;
     }
 };
@@ -92,9 +96,7 @@ func minPartitions(n string) (ans int) {
 
 ```ts
 function minPartitions(n: string): number {
-    let nums = n.split('').map(d => parseInt(d));
-    let ans = Math.max(...nums);
-    return ans;
+    return Math.max(...n.split('').map(d => parseInt(d)));
 }
 ```
 

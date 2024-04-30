@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2278.Percentage%20of%20Letter%20in%20String/README_EN.md)
 
+<!-- tags:字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

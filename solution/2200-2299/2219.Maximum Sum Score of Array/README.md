@@ -1,6 +1,8 @@
-# [2219. 数组的最大总分](https://leetcode.cn/problems/maximum-sum-score-of-array)
+# [2219. 数组的最大总分 🔒](https://leetcode.cn/problems/maximum-sum-score-of-array)
 
 [English Version](/solution/2200-2299/2219.Maximum%20Sum%20Score%20of%20Array/README_EN.md)
+
+<!-- tags:数组,前缀和 -->
 
 ## 题目描述
 

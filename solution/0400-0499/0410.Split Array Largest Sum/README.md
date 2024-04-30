@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0410.Split%20Array%20Largest%20Sum/README_EN.md)
 
+<!-- tags:贪心,数组,二分查找,动态规划,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

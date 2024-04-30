@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2366.Minimum%20Replacements%20to%20Sort%20the%20Array/README.md)
 
+<!-- tags:Greedy,Array,Math -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. In one operation you can replace any element of the array with <strong>any two</strong> elements that <strong>sum</strong> to it.</p>
@@ -43,7 +45,18 @@ There are 2 steps to sort the array in non-decreasing order. Therefore, we retur
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Greedy Approach
+
+We observe that to make the array $nums$ non-decreasing or monotonically increasing, the elements towards the end of the array should be as large as possible. Therefore, it is unnecessary to replace the last element $nums[n-1]$ of the array $nums$ with multiple smaller numbers.
+
+In other words, we can traverse the array $nums$ from the end to the beginning, maintaining the current maximum value $mx$, initially $mx = nums[n-1]$.
+
+-   If the current element $nums[i] \leq mx$, there is no need to replace $nums[i]$. We simply update $mx = nums[i]$.
+-   Otherwise, we need to replace $nums[i]$ with multiple numbers that sum to $nums[i]$. The maximum of these numbers is $mx$, and the total number of replacements is $k=\left \lceil \frac{nums[i]}{mx} \right \rceil$. Therefore, we need to perform $k-1$ operations, which are added to the answer. Among these $k$ numbers, the smallest number is $\left \lfloor \frac{nums[i]}{k} \right \rfloor$. Therefore, we update $mx = \left \lfloor \frac{nums[i]}{k} \right \rfloor$.
+
+After the traversal, we return the total number of operations.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0997.Find%20the%20Town%20Judge/README_EN.md)
 
+<!-- tags:图,数组,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

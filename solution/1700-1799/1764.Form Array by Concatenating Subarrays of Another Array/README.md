@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1764.Form%20Array%20by%20Concatenating%20Subarrays%20of%20Another%20Array/README_EN.md)
 
+<!-- tags:贪心,数组,双指针,字符串匹配 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

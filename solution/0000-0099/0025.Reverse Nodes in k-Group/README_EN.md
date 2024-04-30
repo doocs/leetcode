@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0025.Reverse%20Nodes%20in%20k-Group/README.md)
 
+<!-- tags:Recursion,Linked List -->
+
 ## Description
 
 <p>Given the <code>head</code> of a linked list, reverse the nodes of the list <code>k</code> at a time, and return <em>the modified list</em>.</p>
@@ -317,6 +319,60 @@ public class Solution {
             p = q;
         }
         return pre;
+    }
+}
+```
+
+```php
+# Definition for singly-linked list.
+# class ListNode {
+#     public $val;
+#     public $next;
+#     public function __construct($val = 0, $next = null)
+#     {
+#         $this->val = $val;
+#         $this->next = $next;
+#     }
+# }
+
+class Solution {
+    /**
+     * @param ListNode $head
+     * @param int $k
+     * @return ListNode
+     */
+
+    function reverseKGroup($head, $k) {
+        $dummy = new ListNode(0);
+        $dummy->next = $head;
+        $prevGroupTail = $dummy;
+
+        while ($head !== null) {
+            $count = 0;
+            $groupHead = $head;
+            $groupTail = $head;
+
+            while ($count < $k && $head !== null) {
+                $head = $head->next;
+                $count++;
+            }
+            if ($count < $k) {
+                $prevGroupTail->next = $groupHead;
+                break;
+            }
+
+            $prev = null;
+            for ($i = 0; $i < $k; $i++) {
+                $next = $groupHead->next;
+                $groupHead->next = $prev;
+                $prev = $groupHead;
+                $groupHead = $next;
+            }
+            $prevGroupTail->next = $prev;
+            $prevGroupTail = $groupTail;
+        }
+
+        return $dummy->next;
     }
 }
 ```

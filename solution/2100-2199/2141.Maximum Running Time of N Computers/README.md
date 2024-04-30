@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2141.Maximum%20Running%20Time%20of%20N%20Computers/README_EN.md)
 
+<!-- tags:贪心,数组,二分查找,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

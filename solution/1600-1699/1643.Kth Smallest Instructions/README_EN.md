@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1643.Kth%20Smallest%20Instructions/README.md)
 
+<!-- tags:Array,Math,Dynamic Programming,Combinatorics -->
+
 ## Description
 
 <p>Bob is standing at cell <code>(0, 0)</code>, and he wants to reach <code>destination</code>: <code>(row, column)</code>. He can only travel <strong>right</strong> and <strong>down</strong>. You are going to help Bob by providing <strong>instructions</strong> for him to reach <code>destination</code>.</p>

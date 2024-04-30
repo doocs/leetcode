@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2642.Design%20Graph%20With%20Shortest%20Path%20Calculator/README_EN.md)
 
+<!-- tags:图,设计,最短路,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -310,28 +312,26 @@ class Graph {
 ```cs
 public class Graph {
     private int n;
-    private int[][] g;
+    private int[,] g;
     private readonly int inf = 1 << 29;
 
     public Graph(int n, int[][] edges) {
         this.n = n;
-        g = new int[n][];
-        for (int i = 0; i < n; i++)
-        {
-            g[i] = new int[n];
-            for (int j = 0; j < n; j++)
-            {
-                g[i][j] = inf;
+        g = new int[n, n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                g[i, j] = inf;
             }
         }
-        foreach (int[] e in edges)
-        {
-            g[e[0]][e[1]] = e[2];
+        foreach (var e in edges) {
+            int f = e[0], t = e[1], c = e[2];
+            g[f, t] = c;
         }
     }
 
     public void AddEdge(int[] edge) {
-        g[edge[0]][edge[1]] = edge[2];
+        int f = edge[0], t = edge[1], c = edge[2];
+        g[f, t] = c;
     }
 
     public int ShortestPath(int node1, int node2) {
@@ -339,19 +339,16 @@ public class Graph {
         bool[] vis = new bool[n];
         Array.Fill(dist, inf);
         dist[node1] = 0;
-
-        for (int i = 0; i < n; i++)
-        {
+        for (int i = 0; i < n; ++i) {
             int t = -1;
-            for (int j = 0; j < n; j++)
-            {
-                if (!vis[j] && (t == -1 || dist[t] > dist[j]))
+            for (int j = 0; j < n; ++j) {
+                if (!vis[j] && (t == -1 || dist[t] > dist[j])) {
                     t = j;
+                }
             }
             vis[t] = true;
-            for (int j = 0; j < n; j++)
-            {
-                dist[j] = Math.Min(dist[j], dist[t] + g[t][j]);
+            for (int j = 0; j < n; ++j) {
+                dist[j] = Math.Min(dist[j], dist[t] + g[t, j]);
             }
         }
         return dist[node2] >= inf ? -1 : dist[node2];

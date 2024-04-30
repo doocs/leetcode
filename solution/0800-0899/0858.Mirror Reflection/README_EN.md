@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0858.Mirror%20Reflection/README.md)
 
+<!-- tags:Geometry,Math,Number Theory -->
+
 ## Description
 
 <p>There is a special square room with mirrors on each of the four walls. Except for the southwest corner, there are receptors on each of the remaining corners, numbered <code>0</code>, <code>1</code>, and <code>2</code>.</p>

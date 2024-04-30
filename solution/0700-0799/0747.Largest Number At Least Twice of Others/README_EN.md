@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0747.Largest%20Number%20At%20Least%20Twice%20of%20Others/README.md)
 
+<!-- tags:Array,Sorting -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> where the largest integer is <strong>unique</strong>.</p>

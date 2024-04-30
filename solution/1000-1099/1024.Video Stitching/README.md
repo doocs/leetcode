@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1024.Video%20Stitching/README_EN.md)
 
+<!-- tags:贪心,数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

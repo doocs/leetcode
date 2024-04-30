@@ -2,11 +2,13 @@
 
 [中文文档](/solution/0400-0499/0442.Find%20All%20Duplicates%20in%20an%20Array/README.md)
 
+<!-- tags:Array,Hash Table -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> of length <code>n</code> where all the integers of <code>nums</code> are in the range <code>[1, n]</code> and each integer appears <strong>once</strong> or <strong>twice</strong>, return <em>an array of all the integers that appears <strong>twice</strong></em>.</p>
 
-<p>You must write an algorithm that runs in&nbsp;<code>O(n)&nbsp;</code>time and uses only constant extra space.</p>
+<p>You must write an algorithm that runs in&nbsp;<code>O(n)</code>&nbsp;time and uses only constant extra space.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

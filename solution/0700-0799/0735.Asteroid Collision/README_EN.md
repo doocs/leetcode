@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0735.Asteroid%20Collision/README.md)
 
+<!-- tags:Stack,Array,Simulation -->
+
 ## Description
 
 <p>We are given an array <code>asteroids</code> of integers representing asteroids in a row.</p>

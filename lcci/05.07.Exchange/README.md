@@ -29,7 +29,11 @@
 
 ## 解法
 
-### 方法一
+### 方法一：位运算
+
+我们可以将 $\text{num}$ 与 $\text{0x55555555}$ 进行与运算，得到的结果是 $\text{num}$ 的偶数位，然后将其左移一位。再将 $\text{num}$ 与 $\text{0xaaaaaaaa}$ 进行与运算，得到的结果是 $\text{num}$ 的奇数位，然后将其右移一位。最后将两个结果进行或运算，即可得到答案。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -62,21 +66,29 @@ func exchangeBits(num int) int {
 }
 ```
 
+```ts
+function exchangeBits(num: number): number {
+    return ((num & 0x55555555) << 1) | ((num & 0xaaaaaaaa) >>> 1);
+}
+```
+
 ```rust
 impl Solution {
-    pub fn exchange_bits(mut num: i32) -> i32 {
-        let mut res = 0;
-        let mut i = 0;
-        while num != 0 {
-            let a = num & 1;
-            num >>= 1;
-            let b = num & 1;
-            num >>= 1;
-            res |= a << (i + 1);
-            res |= b << i;
-            i += 2;
-        }
-        res
+    pub fn exchange_bits(num: i32) -> i32 {
+        let num = num as u32;
+        (((num & 0x55555555) << 1) | ((num & 0xaaaaaaaa) >> 1)) as i32
+    }
+}
+```
+
+```swift
+class Solution {
+    func exchangeBits(_ num: Int) -> Int {
+        let oddShifted = (num & 0x55555555) << 1
+
+        let evenShifted = (num & 0xaaaaaaaa) >> 1
+
+        return oddShifted | evenShifted
     }
 }
 ```

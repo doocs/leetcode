@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2744.Find%20Maximum%20Number%20of%20String%20Pairs/README.md)
 
+<!-- tags:Array,Hash Table,String,Simulation -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array <code>words</code> consisting of <strong>distinct</strong> strings.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2503.Maximum%20Number%20of%20Points%20From%20Grid%20Queries/README.md)
 
+<!-- tags:Breadth-First Search,Union Find,Array,Two Pointers,Matrix,Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> integer matrix <code>grid</code> and an array <code>queries</code> of size <code>k</code>.</p>

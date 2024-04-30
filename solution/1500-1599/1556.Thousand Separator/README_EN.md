@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1556.Thousand%20Separator/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>Given an integer <code>n</code>, add a dot (&quot;.&quot;) as the thousands separator and return it in string format.</p>

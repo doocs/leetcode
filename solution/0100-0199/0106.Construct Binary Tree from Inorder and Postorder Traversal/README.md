@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0106.Construct%20Binary%20Tree%20from%20Inorder%20and%20Postorder%20Traversal/README_EN.md)
 
+<!-- tags:树,数组,哈希表,分治,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -40,9 +42,15 @@
 
 ## 解法
 
-### 方法一：递归
+### 方法一：哈希表 + 递归
 
-思路同 [105. 从前序与中序遍历序列构造二叉树](https://github.com/doocs/leetcode/blob/main/solution/0100-0199/0105.Construct%20Binary%20Tree%20from%20Preorder%20and%20Inorder%20Traversal/README.md)。
+后序遍历的最后一个节点是根节点，我们可以根据这个特点找到根节点在中序遍历中的位置，然后递归地构造左右子树。
+
+具体地，我们先用一个哈希表 $d$ 存储中序遍历中每个节点的位置。然后我们设计一个递归函数 $dfs(i, j, n)$，其中 $i$ 和 $j$ 分别表示中序遍历和后序遍历的起点，而 $n$ 表示子树包含的节点数。函数的逻辑如下：
+
+-   如果 $n \leq 0$，说明子树为空，返回空节点。
+-   否则，取出后序遍历的最后一个节点 $v$，然后我们在哈希表 $d$ 中找到 $v$ 在中序遍历中的位置，设为 $k$。那么左子树包含的节点数为 $k - i$，右子树包含的节点数为 $n - k + i - 1$。
+-   递归构造左子树 $dfs(i, j, k - i)$ 和右子树 $dfs(k + 1, j + k - i, n - k + i - 1)$，并连接到根节点上，最后返回根节点。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。
 
@@ -56,15 +64,18 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
-        if not postorder:
-            return None
-        v = postorder[-1]
-        root = TreeNode(val=v)
-        i = inorder.index(v)
-        root.left = self.buildTree(inorder[:i], postorder[:i])
-        root.right = self.buildTree(inorder[i + 1 :], postorder[i:-1])
-        return root
+    def buildTree(self, inorder: List[int], postorder: List[int]) -> Optional[TreeNode]:
+        def dfs(i: int, j: int, n: int) -> Optional[TreeNode]:
+            if n <= 0:
+                return None
+            v = postorder[j + n - 1]
+            k = d[v]
+            l = dfs(i, j, k - i)
+            r = dfs(k + 1, j + k - i, n - k + i - 1)
+            return TreeNode(v, l, r)
+
+        d = {v: i for i, v in enumerate(inorder)}
+        return dfs(0, 0, len(inorder))
 ```
 
 ```java
@@ -84,25 +95,27 @@ class Solution:
  * }
  */
 class Solution {
-    private Map<Integer, Integer> indexes = new HashMap<>();
+    private Map<Integer, Integer> d = new HashMap<>();
+    private int[] postorder;
 
     public TreeNode buildTree(int[] inorder, int[] postorder) {
-        for (int i = 0; i < inorder.length; ++i) {
-            indexes.put(inorder[i], i);
+        this.postorder = postorder;
+        int n = inorder.length;
+        for (int i = 0; i < n; ++i) {
+            d.put(inorder[i], i);
         }
-        return dfs(inorder, postorder, 0, 0, inorder.length);
+        return dfs(0, 0, n);
     }
 
-    private TreeNode dfs(int[] inorder, int[] postorder, int i, int j, int n) {
+    private TreeNode dfs(int i, int j, int n) {
         if (n <= 0) {
             return null;
         }
         int v = postorder[j + n - 1];
-        int k = indexes.get(v);
-        TreeNode root = new TreeNode(v);
-        root.left = dfs(inorder, postorder, i, j, k - i);
-        root.right = dfs(inorder, postorder, k + 1, j + k - i, n - k + i - 1);
-        return root;
+        int k = d.get(v);
+        TreeNode l = dfs(i, j, k - i);
+        TreeNode r = dfs(k + 1, j + k - i, n - k + i - 1);
+        return new TreeNode(v, l, r);
     }
 }
 ```
@@ -121,21 +134,23 @@ class Solution {
  */
 class Solution {
 public:
-    unordered_map<int, int> indexes;
-
     TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
-        for (int i = 0; i < inorder.size(); ++i) indexes[inorder[i]] = i;
-        return dfs(inorder, postorder, 0, 0, inorder.size());
-    }
-
-    TreeNode* dfs(vector<int>& inorder, vector<int>& postorder, int i, int j, int n) {
-        if (n <= 0) return nullptr;
-        int v = postorder[j + n - 1];
-        int k = indexes[v];
-        TreeNode* root = new TreeNode(v);
-        root->left = dfs(inorder, postorder, i, j, k - i);
-        root->right = dfs(inorder, postorder, k + 1, j + k - i, n - k + i - 1);
-        return root;
+        unordered_map<int, int> d;
+        int n = inorder.size();
+        for (int i = 0; i < n; ++i) {
+            d[inorder[i]] = i;
+        }
+        function<TreeNode*(int, int, int)> dfs = [&](int i, int j, int n) -> TreeNode* {
+            if (n <= 0) {
+                return nullptr;
+            }
+            int v = postorder[j + n - 1];
+            int k = d[v];
+            auto l = dfs(i, j, k - i);
+            auto r = dfs(k + 1, j + k - i, n - k + i - 1);
+            return new TreeNode(v, l, r);
+        };
+        return dfs(0, 0, n);
     }
 };
 ```
@@ -150,9 +165,9 @@ public:
  * }
  */
 func buildTree(inorder []int, postorder []int) *TreeNode {
-	indexes := make(map[int]int)
+	d := map[int]int{}
 	for i, v := range inorder {
-		indexes[v] = i
+		d[v] = i
 	}
 	var dfs func(i, j, n int) *TreeNode
 	dfs = func(i, j, n int) *TreeNode {
@@ -160,11 +175,10 @@ func buildTree(inorder []int, postorder []int) *TreeNode {
 			return nil
 		}
 		v := postorder[j+n-1]
-		k := indexes[v]
-		root := &TreeNode{Val: v}
-		root.Left = dfs(i, j, k-i)
-		root.Right = dfs(k+1, j+k-i, n-k+i-1)
-		return root
+		k := d[v]
+		l := dfs(i, j, k-i)
+		r := dfs(k+1, j+k-i, n-k+i-1)
+		return &TreeNode{v, l, r}
 	}
 	return dfs(0, 0, len(inorder))
 }
@@ -186,17 +200,22 @@ func buildTree(inorder []int, postorder []int) *TreeNode {
  */
 
 function buildTree(inorder: number[], postorder: number[]): TreeNode | null {
-    const n = postorder.length;
-    if (n == 0) {
-        return null;
+    const n = inorder.length;
+    const d: Record<number, number> = {};
+    for (let i = 0; i < n; i++) {
+        d[inorder[i]] = i;
     }
-    const val = postorder[n - 1];
-    const index = inorder.indexOf(val);
-    return new TreeNode(
-        val,
-        buildTree(inorder.slice(0, index), postorder.slice(0, index)),
-        buildTree(inorder.slice(index + 1), postorder.slice(index, n - 1)),
-    );
+    const dfs = (i: number, j: number, n: number): TreeNode | null => {
+        if (n <= 0) {
+            return null;
+        }
+        const v = postorder[j + n - 1];
+        const k = d[v];
+        const l = dfs(i, j, k - i);
+        const r = dfs(k + 1, j + k - i, n - 1 - (k - i));
+        return new TreeNode(v, l, r);
+    };
+    return dfs(0, 0, n);
 }
 ```
 
@@ -221,51 +240,31 @@ function buildTree(inorder: number[], postorder: number[]): TreeNode | null {
 // }
 use std::rc::Rc;
 use std::cell::RefCell;
+use std::collections::HashMap;
 impl Solution {
-    fn reset(
-        inorder: &Vec<i32>,
-        i_left: usize,
-        i_right: usize,
-        postorder: &Vec<i32>,
-        p_left: usize,
-        p_right: usize
-    ) -> Option<Rc<RefCell<TreeNode>>> {
-        if i_left == i_right {
-            return None;
-        }
-        let val = postorder[p_right - 1];
-        let index = inorder
-            .iter()
-            .position(|&v| v == val)
-            .unwrap();
-        Some(
-            Rc::new(
-                RefCell::new(TreeNode {
-                    val,
-                    left: Self::reset(
-                        inorder,
-                        i_left,
-                        index,
-                        postorder,
-                        p_left,
-                        p_left + index - i_left
-                    ),
-                    right: Self::reset(
-                        inorder,
-                        index + 1,
-                        i_right,
-                        postorder,
-                        p_left + index - i_left,
-                        p_right - 1
-                    ),
-                })
-            )
-        )
-    }
-
     pub fn build_tree(inorder: Vec<i32>, postorder: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
         let n = inorder.len();
-        Self::reset(&inorder, 0, n, &postorder, 0, n)
+        let mut d: HashMap<i32, usize> = HashMap::new();
+        for i in 0..n {
+            d.insert(inorder[i], i);
+        }
+        fn dfs(
+            postorder: &[i32],
+            d: &HashMap<i32, usize>,
+            i: usize,
+            j: usize,
+            n: usize
+        ) -> Option<Rc<RefCell<TreeNode>>> {
+            if n <= 0 {
+                return None;
+            }
+            let val = postorder[j + n - 1];
+            let k = *d.get(&val).unwrap();
+            let left = dfs(postorder, d, i, j, k - i);
+            let right = dfs(postorder, d, k + 1, j + k - i, n - 1 - (k - i));
+            Some(Rc::new(RefCell::new(TreeNode { val, left, right })))
+        }
+        dfs(&postorder, &d, 0, 0, n)
     }
 }
 ```

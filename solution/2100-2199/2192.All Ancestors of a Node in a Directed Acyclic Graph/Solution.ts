@@ -9,7 +9,7 @@ function getAncestors(n: number, edges: number[][]): number[][] {
         const vis: boolean[] = Array.from({ length: n }, () => false);
         vis[s] = true;
         while (q.length) {
-            const i = q.shift()!;
+            const i = q.pop()!;
             for (const j of g[i]) {
                 if (!vis[j]) {
                     vis[j] = true;

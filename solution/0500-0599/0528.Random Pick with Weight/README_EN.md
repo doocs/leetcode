@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0528.Random%20Pick%20with%20Weight/README.md)
 
+<!-- tags:Array,Math,Binary Search,Prefix Sum,Randomized -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array of positive integers <code>w</code> where <code>w[i]</code> describes the <strong>weight</strong> of the <code>i<sup>th</sup></code> index.</p>

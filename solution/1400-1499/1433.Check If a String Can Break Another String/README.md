@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1433.Check%20If%20a%20String%20Can%20Break%20Another%20String/README_EN.md)
 
+<!-- tags:贪心,字符串,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

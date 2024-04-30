@@ -1,6 +1,8 @@
-# [2168. Unique Substrings With Equal Digit Frequency](https://leetcode.com/problems/unique-substrings-with-equal-digit-frequency)
+# [2168. Unique Substrings With Equal Digit Frequency 🔒](https://leetcode.com/problems/unique-substrings-with-equal-digit-frequency)
 
 [中文文档](/solution/2100-2199/2168.Unique%20Substrings%20With%20Equal%20Digit%20Frequency/README.md)
+
+<!-- tags:Hash Table,String,Counting,Hash Function,Rolling Hash -->
 
 ## Description
 

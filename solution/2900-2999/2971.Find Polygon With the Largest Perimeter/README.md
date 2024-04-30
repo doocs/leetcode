@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2971.Find%20Polygon%20With%20the%20Largest%20Perimeter/README_EN.md)
 
+<!-- tags:贪心,数组,前缀和,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

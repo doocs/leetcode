@@ -1,11 +1,9 @@
 func minEatingSpeed(piles []int, h int) int {
-	return sort.Search(1e9, func(i int) bool {
-		if i == 0 {
-			return false
-		}
+	return 1 + sort.Search(slices.Max(piles), func(k int) bool {
+		k++
 		s := 0
 		for _, x := range piles {
-			s += (x + i - 1) / i
+			s += (x + k - 1) / k
 		}
 		return s <= h
 	})

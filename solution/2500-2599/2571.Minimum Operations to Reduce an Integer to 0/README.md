@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2571.Minimum%20Operations%20to%20Reduce%20an%20Integer%20to%200/README_EN.md)
 
+<!-- tags:贪心,位运算,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

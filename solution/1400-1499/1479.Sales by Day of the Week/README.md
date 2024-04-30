@@ -1,6 +1,8 @@
-# [1479. 周内每天的销售情况](https://leetcode.cn/problems/sales-by-day-of-the-week)
+# [1479. 周内每天的销售情况 🔒](https://leetcode.cn/problems/sales-by-day-of-the-week)
 
 [English Version](/solution/1400-1499/1479.Sales%20by%20Day%20of%20the%20Week/README_EN.md)
+
+<!-- tags:数据库 -->
 
 ## 题目描述
 

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0232.Implement%20Queue%20using%20Stacks/README.md)
 
+<!-- tags:Stack,Design,Queue -->
+
 ## Description
 
 <p>Implement a first in first out (FIFO) queue using only two stacks. The implemented queue should support all the functions of a normal queue (<code>push</code>, <code>peek</code>, <code>pop</code>, and <code>empty</code>).</p>
@@ -55,7 +57,17 @@ myQueue.empty(); // return false
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Double Stack
+
+We use two stacks, where `stk1` is used for enqueue, and another stack `stk2` is used for dequeue.
+
+When enqueueing, we directly push the element into `stk1`. The time complexity is $O(1)$.
+
+When dequeueing, we first check whether `stk2` is empty. If it is empty, we pop all elements from `stk1` and push them into `stk2`, and then pop an element from `stk2`. If `stk2` is not empty, we directly pop an element from `stk2`. The amortized time complexity is $O(1)$.
+
+When getting the front element, we first check whether `stk2` is empty. If it is empty, we pop all elements from `stk1` and push them into `stk2`, and then get the top element from `stk2`. If `stk2` is not empty, we directly get the top element from `stk2`. The amortized time complexity is $O(1)$.
+
+When checking whether the queue is empty, we only need to check whether both stacks are empty. The time complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -258,7 +270,7 @@ class MyQueue {
 
     peek(): number {
         this.move();
-        return this.stk2[this.stk2.length - 1];
+        return this.stk2.at(-1);
     }
 
     empty(): boolean {
@@ -268,7 +280,7 @@ class MyQueue {
     move(): void {
         if (!this.stk2.length) {
             while (this.stk1.length) {
-                this.stk2.push(this.stk1.pop());
+                this.stk2.push(this.stk1.pop()!);
             }
         }
     }
@@ -285,50 +297,43 @@ class MyQueue {
 ```
 
 ```rust
+use std::collections::VecDeque;
+
 struct MyQueue {
-    in_stack: Vec<i32>,
-    out_stack: Vec<i32>,
+    stk1: Vec<i32>,
+    stk2: Vec<i32>,
 }
 
-/**
- * `&self` means the method takes an immutable reference.
- * If you need a mutable reference, change it to `&mut self` instead.
- */
 impl MyQueue {
     fn new() -> Self {
-        Self {
-            in_stack: vec![],
-            out_stack: vec![],
+        MyQueue {
+            stk1: Vec::new(),
+            stk2: Vec::new(),
         }
     }
 
     fn push(&mut self, x: i32) {
-        self.in_stack.push(x);
+        self.stk1.push(x);
     }
 
     fn pop(&mut self) -> i32 {
-        if self.out_stack.is_empty() {
-            self.fill_out();
-        }
-        self.out_stack.pop().unwrap()
+        self.move_elements();
+        self.stk2.pop().unwrap()
     }
 
     fn peek(&mut self) -> i32 {
-        if self.out_stack.is_empty() {
-            self.fill_out();
-        }
-        *self.out_stack.last().unwrap()
+        self.move_elements();
+        *self.stk2.last().unwrap()
     }
 
     fn empty(&self) -> bool {
-        self.in_stack.is_empty() && self.out_stack.is_empty()
+        self.stk1.is_empty() && self.stk2.is_empty()
     }
 
-    fn fill_out(&mut self) {
-        let MyQueue { in_stack, out_stack } = self;
-        if out_stack.is_empty() {
-            while !in_stack.is_empty() {
-                out_stack.push(in_stack.pop().unwrap());
+    fn move_elements(&mut self) {
+        if self.stk2.is_empty() {
+            while let Some(element) = self.stk1.pop() {
+                self.stk2.push(element);
             }
         }
     }

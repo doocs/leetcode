@@ -1,6 +1,8 @@
-# [2773. 特殊二叉树的高度](https://leetcode.cn/problems/height-of-special-binary-tree)
+# [2773. 特殊二叉树的高度 🔒](https://leetcode.cn/problems/height-of-special-binary-tree)
 
 [English Version](/solution/2700-2799/2773.Height%20of%20Special%20Binary%20Tree/README_EN.md)
+
+<!-- tags:树,深度优先搜索,广度优先搜索,二叉树 -->
 
 ## 题目描述
 

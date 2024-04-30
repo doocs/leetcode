@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2062.Count%20Vowel%20Substrings%20of%20a%20String/README.md)
 
+<!-- tags:Hash Table,String -->
+
 ## Description
 
 <p>A <strong>substring</strong> is a contiguous (non-empty) sequence of characters within a string.</p>

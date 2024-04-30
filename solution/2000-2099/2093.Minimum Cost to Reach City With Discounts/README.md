@@ -1,6 +1,8 @@
-# [2093. 前往目标城市的最小费用](https://leetcode.cn/problems/minimum-cost-to-reach-city-with-discounts)
+# [2093. 前往目标城市的最小费用 🔒](https://leetcode.cn/problems/minimum-cost-to-reach-city-with-discounts)
 
 [English Version](/solution/2000-2099/2093.Minimum%20Cost%20to%20Reach%20City%20With%20Discounts/README_EN.md)
+
+<!-- tags:图,最短路,堆（优先队列） -->
 
 ## 题目描述
 

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1110.Delete%20Nodes%20And%20Return%20Forest/README.md)
 
+<!-- tags:Tree,Depth-First Search,Array,Hash Table,Binary Tree -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary tree, each node in the tree has a distinct value.</p>

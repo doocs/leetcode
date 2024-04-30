@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2262.Total%20Appeal%20of%20A%20String/README.md)
 
+<!-- tags:Hash Table,String,Dynamic Programming -->
+
 ## Description
 
 <p>The <b>appeal</b> of a string is the number of <strong>distinct</strong> characters found in the string.</p>

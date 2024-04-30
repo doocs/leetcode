@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1643.Kth%20Smallest%20Instructions/README_EN.md)
 
+<!-- tags:数组,数学,动态规划,组合数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

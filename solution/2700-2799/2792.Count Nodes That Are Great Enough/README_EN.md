@@ -1,6 +1,8 @@
-# [2792. Count Nodes That Are Great Enough](https://leetcode.com/problems/count-nodes-that-are-great-enough)
+# [2792. Count Nodes That Are Great Enough 🔒](https://leetcode.com/problems/count-nodes-that-are-great-enough)
 
 [中文文档](/solution/2700-2799/2792.Count%20Nodes%20That%20Are%20Great%20Enough/README.md)
+
+<!-- tags:Tree,Depth-First Search,Divide and Conquer,Binary Tree -->
 
 ## Description
 

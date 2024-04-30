@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0894.All%20Possible%20Full%20Binary%20Trees/README_EN.md)
 
+<!-- tags:树,递归,记忆化搜索,动态规划,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -46,7 +48,7 @@
 
 此过程可以用记忆化搜索，避免重复计算。
 
-时间复杂度 $O(2^n)$，空间复杂度 $O(2^n)$。其中 $n$ 是节点数量。
+时间复杂度 $O(\frac{2^n}{\sqrt{n}})$，空间复杂度 $O(\frac{2^n}{\sqrt{n}})$。其中 $n$ 是节点数量。
 
 <!-- tabs:start -->
 
@@ -252,65 +254,93 @@ function allPossibleFBT(n: number): Array<TreeNode | null> {
 //     }
 //   }
 // }
-
-impl TreeNode {
-    pub fn new_with_node(
-        left: Option<Rc<RefCell<TreeNode>>>,
-        right: Option<Rc<RefCell<TreeNode>>>
-    ) -> Self {
-        Self {
-            val: 0,
-            left,
-            right,
-        }
-    }
-}
-
 use std::rc::Rc;
 use std::cell::RefCell;
 impl Solution {
-    #[allow(dead_code)]
     pub fn all_possible_fbt(n: i32) -> Vec<Option<Rc<RefCell<TreeNode>>>> {
-        let mut record_vec = vec![vec![]; n as usize + 1];
-        Self::dfs(n, &mut record_vec)
+        let mut f: Vec<Option<Vec<Option<Rc<RefCell<TreeNode>>>>>> = vec![None; (n + 1) as usize];
+        Self::dfs(n, &mut f)
     }
 
-    #[allow(dead_code)]
     fn dfs(
         n: i32,
-        record_vec: &mut Vec<Vec<Option<Rc<RefCell<TreeNode>>>>>
+        f: &mut Vec<Option<Vec<Option<Rc<RefCell<TreeNode>>>>>>
     ) -> Vec<Option<Rc<RefCell<TreeNode>>>> {
-        if record_vec[n as usize].len() != 0 {
-            return record_vec[n as usize].clone();
+        if let Some(ref result) = f[n as usize] {
+            return result.clone();
         }
-        if n == 1 {
-            // Just directly return a single node
-            return vec![Some(Rc::new(RefCell::new(TreeNode::new(0))))];
-        }
-        // Otherwise, need to construct return vector
-        let mut ret_vec = Vec::new();
 
-        // Enumerate the node number for left subtree from 0 -> n - 1
+        let mut ans = Vec::new();
+        if n == 1 {
+            ans.push(Some(Rc::new(RefCell::new(TreeNode::new(0)))));
+            return ans;
+        }
+
         for i in 0..n - 1 {
-            // The number of right subtree node
-            let j = n - i - 1;
-            for left in Self::dfs(i, record_vec) {
-                for right in Self::dfs(j, record_vec) {
-                    // Construct the ret vector
-                    ret_vec.push(
-                        Some(
-                            Rc::new(
-                                RefCell::new(TreeNode::new_with_node(left.clone(), right.clone()))
-                            )
+            let j = n - 1 - i;
+            for left in Self::dfs(i, f).iter() {
+                for right in Self::dfs(j, f).iter() {
+                    let new_node = Some(
+                        Rc::new(
+                            RefCell::new(TreeNode {
+                                val: 0,
+                                left: left.clone(),
+                                right: right.clone(),
+                            })
                         )
                     );
+                    ans.push(new_node);
                 }
             }
         }
+        f[n as usize] = Some(ans.clone());
+        ans
+    }
+}
+```
 
-        record_vec[n as usize] = ret_vec;
+```cs
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left;
+ *     public TreeNode right;
+ *     public TreeNode(int val=0, TreeNode left=null, TreeNode right=null) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+public class Solution {
+    private List<TreeNode>[] f;
 
-        record_vec[n as usize].clone()
+    public IList<TreeNode> AllPossibleFBT(int n) {
+        f = new List<TreeNode>[n + 1];
+        return Dfs(n);
+    }
+
+    private IList<TreeNode> Dfs(int n) {
+        if (f[n] != null) {
+            return f[n];
+        }
+
+        if (n == 1) {
+            return new List<TreeNode> { new TreeNode() };
+        }
+
+        List<TreeNode> ans = new List<TreeNode>();
+        for (int i = 0; i < n - 1; ++i) {
+            int j = n - 1 - i;
+            foreach (var left in Dfs(i)) {
+                foreach (var right in Dfs(j)) {
+                    ans.Add(new TreeNode(0, left, right));
+                }
+            }
+        }
+        f[n] = ans;
+        return ans;
     }
 }
 ```

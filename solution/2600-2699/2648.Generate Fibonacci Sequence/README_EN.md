@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2648.Generate%20Fibonacci%20Sequence/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Write a generator function that returns a generator object which yields the&nbsp;<strong>fibonacci sequence</strong>.</p>

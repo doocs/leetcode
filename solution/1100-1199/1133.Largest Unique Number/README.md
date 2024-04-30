@@ -1,6 +1,8 @@
-# [1133. 最大唯一数](https://leetcode.cn/problems/largest-unique-number)
+# [1133. 最大唯一数 🔒](https://leetcode.cn/problems/largest-unique-number)
 
 [English Version](/solution/1100-1199/1133.Largest%20Unique%20Number/README_EN.md)
+
+<!-- tags:数组,哈希表,排序 -->
 
 ## 题目描述
 

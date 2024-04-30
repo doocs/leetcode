@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0195.Tenth%20Line/README_EN.md)
 
+<!-- tags: -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -34,5 +36,16 @@ Line 10
 2. 至少有三种不同的解法，请尝试尽可能多的方法来解题。</p>
 
 ## 解法
+
+### 方法一：sed
+
+<!-- tabs:start -->
+
+```bash
+# Read from the file file.txt and output the tenth line to stdout.
+sed -n 10p file.txt
+```
+
+<!-- tabs:end -->
 
 <!-- end -->

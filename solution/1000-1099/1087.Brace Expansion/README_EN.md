@@ -1,6 +1,8 @@
-# [1087. Brace Expansion](https://leetcode.com/problems/brace-expansion)
+# [1087. Brace Expansion 🔒](https://leetcode.com/problems/brace-expansion)
 
 [中文文档](/solution/1000-1099/1087.Brace%20Expansion/README.md)
+
+<!-- tags:Breadth-First Search,String,Backtracking -->
 
 ## Description
 

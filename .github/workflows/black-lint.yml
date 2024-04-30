@@ -1,8 +1,28 @@
 name: black-linter
 
 on:
-  push: {}
-  pull_request: {}
+  push:
+    paths:
+      - solution/**
+      - lcs/**
+      - lcp/**
+      - lcof2/**
+      - lcof/**
+      - lcci/**
+      - basic/**
+  pull_request:
+    paths:
+      - solution/**
+      - lcs/**
+      - lcp/**
+      - lcof2/**
+      - lcof/**
+      - lcci/**
+      - basic/**
+
+concurrency: 
+  group: ${{github.workflow}} - ${{github.ref}}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -10,6 +30,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - uses: jpetrucciani/black-check@master
+    - uses: jpetrucciani/black-check@24.2.0
       with:
         black_flags: '-S'

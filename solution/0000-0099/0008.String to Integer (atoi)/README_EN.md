@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0008.String%20to%20Integer%20%28atoi%29/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>Implement the <code>myAtoi(string s)</code> function, which converts a string to a 32-bit signed integer (similar to C/C++&#39;s <code>atoi</code> function).</p>

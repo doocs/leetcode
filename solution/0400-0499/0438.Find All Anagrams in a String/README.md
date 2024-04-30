@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0438.Find%20All%20Anagrams%20in%20a%20String/README_EN.md)
 
+<!-- tags:哈希表,字符串,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -362,8 +364,8 @@ function findAnagrams(s: string, p: string): number[] {
     if (m < n) {
         return ans;
     }
-    const cnt1: number[] = new Array(26).fill(0);
-    const cnt2: number[] = new Array(26).fill(0);
+    const cnt1: number[] = Array(26).fill(0);
+    const cnt2: number[] = Array(26).fill(0);
     const idx = (c: string) => c.charCodeAt(0) - 'a'.charCodeAt(0);
     for (const c of p) {
         ++cnt1[idx(c)];

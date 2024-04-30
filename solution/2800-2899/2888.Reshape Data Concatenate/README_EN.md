@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2888.Reshape%20Data%20Concatenate/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <pre>

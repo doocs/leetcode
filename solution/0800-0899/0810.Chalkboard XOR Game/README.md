@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0810.Chalkboard%20XOR%20Game/README_EN.md)
 
+<!-- tags:位运算,脑筋急转弯,数组,数学,博弈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

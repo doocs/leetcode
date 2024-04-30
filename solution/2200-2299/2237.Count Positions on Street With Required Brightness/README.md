@@ -1,6 +1,8 @@
-# [2237. 计算街道上满足所需亮度的位置数量](https://leetcode.cn/problems/count-positions-on-street-with-required-brightness)
+# [2237. 计算街道上满足所需亮度的位置数量 🔒](https://leetcode.cn/problems/count-positions-on-street-with-required-brightness)
 
 [English Version](/solution/2200-2299/2237.Count%20Positions%20on%20Street%20With%20Required%20Brightness/README_EN.md)
+
+<!-- tags:数组,前缀和 -->
 
 ## 题目描述
 

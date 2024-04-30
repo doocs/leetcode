@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2581.Count%20Number%20of%20Possible%20Root%20Nodes/README.md)
 
+<!-- tags:Tree,Depth-First Search,Hash Table,Dynamic Programming -->
+
 ## Description
 
 <p>Alice has an undirected tree with <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code>. The tree is represented as a 2D integer array <code>edges</code> of length <code>n - 1</code> where <code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> indicates that there is an edge between nodes <code>a<sub>i</sub></code> and <code>b<sub>i</sub></code> in the tree.</p>
@@ -186,7 +188,7 @@ class Solution {
 public:
     int rootCount(vector<vector<int>>& edges, vector<vector<int>>& guesses, int k) {
         int n = edges.size() + 1;
-        vector<vector<int>> g(n);
+        vector<int> g[n];
         unordered_map<long long, int> gs;
         auto f = [&](int i, int j) {
             return 1LL * i * n + j;
@@ -280,6 +282,50 @@ func rootCount(edges [][]int, guesses [][]int, k int) (ans int) {
 	dfs1(0, -1)
 	dfs2(0, -1)
 	return
+}
+```
+
+```ts
+function rootCount(edges: number[][], guesses: number[][], k: number): number {
+    const n = edges.length + 1;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    const gs: Map<number, number> = new Map();
+    const f = (i: number, j: number) => i * n + j;
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    for (const [a, b] of guesses) {
+        const x = f(a, b);
+        gs.set(x, gs.has(x) ? gs.get(x)! + 1 : 1);
+    }
+    let ans = 0;
+    let cnt = 0;
+    const dfs1 = (i: number, fa: number): void => {
+        for (const j of g[i]) {
+            if (j !== fa) {
+                cnt += gs.get(f(i, j)) || 0;
+                dfs1(j, i);
+            }
+        }
+    };
+    const dfs2 = (i: number, fa: number): void => {
+        ans += cnt >= k ? 1 : 0;
+        for (const j of g[i]) {
+            if (j !== fa) {
+                const a = gs.get(f(i, j)) || 0;
+                const b = gs.get(f(j, i)) || 0;
+                cnt -= a;
+                cnt += b;
+                dfs2(j, i);
+                cnt -= b;
+                cnt += a;
+            }
+        }
+    };
+    dfs1(0, -1);
+    dfs2(0, -1);
+    return ans;
 }
 ```
 

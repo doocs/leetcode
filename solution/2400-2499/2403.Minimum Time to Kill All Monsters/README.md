@@ -1,6 +1,8 @@
-# [2403. 杀死所有怪物的最短时间](https://leetcode.cn/problems/minimum-time-to-kill-all-monsters)
+# [2403. 杀死所有怪物的最短时间 🔒](https://leetcode.cn/problems/minimum-time-to-kill-all-monsters)
 
 [English Version](/solution/2400-2499/2403.Minimum%20Time%20to%20Kill%20All%20Monsters/README_EN.md)
+
+<!-- tags:位运算,数组,动态规划,状态压缩 -->
 
 ## 题目描述
 

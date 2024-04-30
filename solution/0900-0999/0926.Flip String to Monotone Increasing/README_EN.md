@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0926.Flip%20String%20to%20Monotone%20Increasing/README.md)
 
+<!-- tags:String,Dynamic Programming -->
+
 ## Description
 
 <p>A binary string is monotone increasing if it consists of some number of <code>0</code>&#39;s (possibly none), followed by some number of <code>1</code>&#39;s (also possibly none).</p>
@@ -45,22 +47,26 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Prefix Sum + Enumeration
+
+First, we count the number of '0's in string $s$, denoted as $tot$. We define a variable $ans$ for the answer, initially set $ans = tot$, which represents the number of flips to change all '0's to '1's.
+
+Then, we can enumerate each position $i$, change all '1's to the left of position $i$ (including $i$) to '0', and change all '0's to the right of position $i$ to '1'. We calculate the number of flips in this case, which is $i + 1 - cur + tot - cur$, where $cur$ represents the number of '0's to the left of position $i$ (including $i$). We update the answer $ans = \min(ans, i + 1 - cur + tot - cur)$.
+
+Finally, return the answer $ans$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def minFlipsMonoIncr(self, s: str) -> int:
-        n = len(s)
-        left, right = [0] * (n + 1), [0] * (n + 1)
-        ans = 0x3F3F3F3F
-        for i in range(1, n + 1):
-            left[i] = left[i - 1] + (1 if s[i - 1] == '1' else 0)
-        for i in range(n - 1, -1, -1):
-            right[i] = right[i + 1] + (1 if s[i] == '0' else 0)
-        for i in range(0, n + 1):
-            ans = min(ans, left[i] + right[i])
+        tot = s.count("0")
+        ans, cur = tot, 0
+        for i, c in enumerate(s, 1):
+            cur += int(c == "0")
+            ans = min(ans, i - cur + tot - cur)
         return ans
 ```
 
@@ -68,17 +74,18 @@ class Solution:
 class Solution {
     public int minFlipsMonoIncr(String s) {
         int n = s.length();
-        int[] left = new int[n + 1];
-        int[] right = new int[n + 1];
-        int ans = Integer.MAX_VALUE;
-        for (int i = 1; i <= n; i++) {
-            left[i] = left[i - 1] + (s.charAt(i - 1) == '1' ? 1 : 0);
+        int tot = 0;
+        for (int i = 0; i < n; ++i) {
+            if (s.charAt(i) == '0') {
+                ++tot;
+            }
         }
-        for (int i = n - 1; i >= 0; i--) {
-            right[i] = right[i + 1] + (s.charAt(i) == '0' ? 1 : 0);
-        }
-        for (int i = 0; i <= n; i++) {
-            ans = Math.min(ans, left[i] + right[i]);
+        int ans = tot, cur = 0;
+        for (int i = 1; i <= n; ++i) {
+            if (s.charAt(i - 1) == '0') {
+                ++cur;
+            }
+            ans = Math.min(ans, i - cur + tot - cur);
         }
         return ans;
     }
@@ -89,17 +96,11 @@ class Solution {
 class Solution {
 public:
     int minFlipsMonoIncr(string s) {
-        int n = s.size();
-        vector<int> left(n + 1, 0), right(n + 1, 0);
-        int ans = INT_MAX;
-        for (int i = 1; i <= n; ++i) {
-            left[i] = left[i - 1] + (s[i - 1] == '1');
-        }
-        for (int i = n - 1; i >= 0; --i) {
-            right[i] = right[i + 1] + (s[i] == '0');
-        }
-        for (int i = 0; i <= n; i++) {
-            ans = min(ans, left[i] + right[i]);
+        int tot = count(s.begin(), s.end(), '0');
+        int ans = tot, cur = 0;
+        for (int i = 1; i <= s.size(); ++i) {
+            cur += s[i - 1] == '0';
+            ans = min(ans, i - cur + tot - cur);
         }
         return ans;
     }
@@ -108,25 +109,30 @@ public:
 
 ```go
 func minFlipsMonoIncr(s string) int {
-	n := len(s)
-	left, right := make([]int, n+1), make([]int, n+1)
-	ans := math.MaxInt32
-	for i := 1; i <= n; i++ {
-		left[i] = left[i-1]
-		if s[i-1] == '1' {
-			left[i]++
+	tot := strings.Count(s, "0")
+	ans, cur := tot, 0
+	for i, c := range s {
+		if c == '0' {
+			cur++
 		}
-	}
-	for i := n - 1; i >= 0; i-- {
-		right[i] = right[i+1]
-		if s[i] == '0' {
-			right[i]++
-		}
-	}
-	for i := 0; i <= n; i++ {
-		ans = min(ans, left[i]+right[i])
+		ans = min(ans, i+1-cur+tot-cur)
 	}
 	return ans
+}
+```
+
+```ts
+function minFlipsMonoIncr(s: string): number {
+    let tot = 0;
+    for (const c of s) {
+        tot += c === '0' ? 1 : 0;
+    }
+    let [ans, cur] = [tot, 0];
+    for (let i = 1; i <= s.length; ++i) {
+        cur += s[i - 1] === '0' ? 1 : 0;
+        ans = Math.min(ans, i - cur + tot - cur);
+    }
+    return ans;
 }
 ```
 
@@ -136,82 +142,17 @@ func minFlipsMonoIncr(s string) int {
  * @return {number}
  */
 var minFlipsMonoIncr = function (s) {
-    const n = s.length;
-    let presum = new Array(n + 1).fill(0);
-    for (let i = 0; i < n; ++i) {
-        presum[i + 1] = presum[i] + (s[i] == '1');
+    let tot = 0;
+    for (const c of s) {
+        tot += c === '0' ? 1 : 0;
     }
-    let ans = presum[n];
-    for (let i = 0; i < n; ++i) {
-        ans = Math.min(ans, presum[i] + n - i - (presum[n] - presum[i]));
+    let [ans, cur] = [tot, 0];
+    for (let i = 1; i <= s.length; ++i) {
+        cur += s[i - 1] === '0' ? 1 : 0;
+        ans = Math.min(ans, i - cur + tot - cur);
     }
     return ans;
 };
-```
-
-<!-- tabs:end -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def minFlipsMonoIncr(self, s: str) -> int:
-        n = len(s)
-        presum = [0] * (n + 1)
-        for i, c in enumerate(s):
-            presum[i + 1] = presum[i] + int(c)
-        ans = presum[-1]
-        for i in range(n):
-            ans = min(ans, presum[i] + n - i - (presum[-1] - presum[i]))
-        return ans
-```
-
-```java
-class Solution {
-    public int minFlipsMonoIncr(String s) {
-        int n = s.length();
-        int[] presum = new int[n + 1];
-        for (int i = 0; i < n; ++i) {
-            presum[i + 1] = presum[i] + (s.charAt(i) - '0');
-        }
-        int ans = presum[n];
-        for (int i = 0; i < n; ++i) {
-            ans = Math.min(ans, presum[i] + n - i - (presum[n] - presum[i]));
-        }
-        return ans;
-    }
-}
-```
-
-```cpp
-class Solution {
-public:
-    int minFlipsMonoIncr(string s) {
-        int n = s.size();
-        vector<int> presum(n + 1);
-        for (int i = 0; i < n; ++i) presum[i + 1] = presum[i] + (s[i] == '1');
-        int ans = presum[n];
-        for (int i = 0; i < n; ++i) ans = min(ans, presum[i] + n - i - (presum[n] - presum[i]));
-        return ans;
-    }
-};
-```
-
-```go
-func minFlipsMonoIncr(s string) int {
-	n := len(s)
-	presum := make([]int, n+1)
-	for i, c := range s {
-		presum[i+1] = presum[i] + int(c-'0')
-	}
-	ans := presum[n]
-	for i := range s {
-		ans = min(ans, presum[i]+n-i-(presum[n]-presum[i]))
-	}
-	return ans
-}
 ```
 
 <!-- tabs:end -->

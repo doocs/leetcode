@@ -13,9 +13,17 @@
  */
 
 function postorderTraversal(root: TreeNode | null): number[] {
-    if (root == null) {
-        return [];
+    const ans: number[] = [];
+    if (!root) {
+        return ans;
     }
-    const { val, left, right } = root;
-    return [...postorderTraversal(left), ...postorderTraversal(right), val];
+    const stk: TreeNode[] = [root];
+    while (stk.length) {
+        const { left, right, val } = stk.pop();
+        ans.push(val);
+        left && stk.push(left);
+        right && stk.push(right);
+    }
+    ans.reverse();
+    return ans;
 }

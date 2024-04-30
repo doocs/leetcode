@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2685.Count%20the%20Number%20of%20Complete%20Components/README.md)
 
+<!-- tags:Depth-First Search,Breadth-First Search,Graph -->
+
 ## Description
 
 <p>You are given an integer <code>n</code>. There is an <strong>undirected</strong> graph with <code>n</code> vertices, numbered from <code>0</code> to <code>n - 1</code>. You are given a 2D integer array <code>edges</code> where <code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> denotes that there exists an <strong>undirected</strong> edge connecting vertices <code>a<sub>i</sub></code> and <code>b<sub>i</sub></code>.</p>

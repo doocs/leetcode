@@ -1,6 +1,8 @@
-# [359. 日志速率限制器](https://leetcode.cn/problems/logger-rate-limiter)
+# [359. 日志速率限制器 🔒](https://leetcode.cn/problems/logger-rate-limiter)
 
 [English Version](/solution/0300-0399/0359.Logger%20Rate%20Limiter/README_EN.md)
+
+<!-- tags:设计,哈希表,数据流 -->
 
 ## 题目描述
 

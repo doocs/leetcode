@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1901.Find%20a%20Peak%20Element%20II/README.md)
 
+<!-- tags:Array,Binary Search,Matrix -->
+
 ## Description
 
 <p>A <strong>peak</strong> element in a 2D grid is an element that is <strong>strictly greater</strong> than all of its <strong>adjacent </strong>neighbors to the left, right, top, and bottom.</p>

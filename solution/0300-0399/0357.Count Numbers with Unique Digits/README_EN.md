@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0357.Count%20Numbers%20with%20Unique%20Digits/README.md)
 
+<!-- tags:Math,Dynamic Programming,Backtracking -->
+
 ## Description
 
 <p>Given an integer <code>n</code>, return the count of all numbers with unique digits, <code>x</code>, where <code>0 &lt;= x &lt; 10<sup>n</sup></code>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2716.Minimize%20String%20Length/README.md)
 
+<!-- tags:Hash Table,String -->
+
 ## Description
 
 <p>Given a <strong>0-indexed</strong> string <code>s</code>, repeatedly perform the following operation <strong>any</strong> number of times:</p>

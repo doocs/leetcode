@@ -2,9 +2,13 @@
 
 [中文文档](/solution/2600-2699/2677.Chunk%20Array/README.md)
 
+<!-- tags: -->
+
 ## Description
 
-<p>Given an array <code>arr</code> and&nbsp;a chunk size&nbsp;<code>size</code>, return a&nbsp;<strong>chunked</strong> array. A&nbsp;<strong>chunked</strong>&nbsp;array contains the original elements in&nbsp;<code>arr</code>, but&nbsp;consists of subarrays each of length&nbsp;<code>size</code>. The length of the last subarray may be less than&nbsp;<code>size</code>&nbsp;if <code>arr.length</code>&nbsp;is not evenly divisible by <code>size</code>.</p>
+<p>Given an array <code>arr</code> and&nbsp;a chunk size&nbsp;<code>size</code>, return a&nbsp;<strong>chunked</strong> array.</p>
+
+<p>A&nbsp;<strong>chunked</strong>&nbsp;array contains the original elements in&nbsp;<code>arr</code>, but&nbsp;consists of subarrays each of length&nbsp;<code>size</code>. The length of the last subarray may be less than&nbsp;<code>size</code>&nbsp;if <code>arr.length</code>&nbsp;is not evenly divisible by <code>size</code>.</p>
 
 <p>You may assume the&nbsp;array&nbsp;is&nbsp;the output of&nbsp;<code>JSON.parse</code>. In other words, it is valid JSON.</p>
 

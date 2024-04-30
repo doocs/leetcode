@@ -1,6 +1,8 @@
-# [2690. 无穷方法对象](https://leetcode.cn/problems/infinite-method-object)
+# [2690. 无穷方法对象 🔒](https://leetcode.cn/problems/infinite-method-object)
 
 [English Version](/solution/2600-2699/2690.Infinite%20Method%20Object/README_EN.md)
+
+<!-- tags: -->
 
 ## 题目描述
 

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0572.Subtree%20of%20Another%20Tree/README.md)
 
+<!-- tags:Tree,Depth-First Search,Binary Tree,String Matching,Hash Function -->
+
 ## Description
 
 <p>Given the roots of two binary trees <code>root</code> and <code>subRoot</code>, return <code>true</code> if there is a subtree of <code>root</code> with the same structure and node values of<code> subRoot</code> and <code>false</code> otherwise.</p>

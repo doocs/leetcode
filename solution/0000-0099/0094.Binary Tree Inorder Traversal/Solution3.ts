@@ -13,26 +13,25 @@
  */
 
 function inorderTraversal(root: TreeNode | null): number[] {
-    const res = [];
-    while (root != null) {
-        const { val, left, right } = root;
-        if (left == null) {
-            res.push(val);
-            root = right;
+    const ans: number[] = [];
+    while (root) {
+        if (!root.left) {
+            ans.push(root.val);
+            root = root.right;
         } else {
-            let mostRight = left;
-            while (mostRight.right != null && mostRight.right != root) {
-                mostRight = mostRight.right;
+            let prev = root.left;
+            while (prev.right && prev.right != root) {
+                prev = prev.right;
             }
-            if (mostRight.right == root) {
-                res.push(val);
-                mostRight.right = null;
-                root = right;
+            if (!prev.right) {
+                prev.right = root;
+                root = root.left;
             } else {
-                mostRight.right = root;
-                root = left;
+                ans.push(root.val);
+                prev.right = null;
+                root = root.right;
             }
         }
     }
-    return res;
+    return ans;
 }

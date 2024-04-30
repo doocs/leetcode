@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0846.Hand%20of%20Straights/README_EN.md)
 
+<!-- tags:贪心,数组,哈希表,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

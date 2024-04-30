@@ -1,6 +1,8 @@
-# [254. 因子的组合](https://leetcode.cn/problems/factor-combinations)
+# [254. 因子的组合 🔒](https://leetcode.cn/problems/factor-combinations)
 
 [English Version](/solution/0200-0299/0254.Factor%20Combinations/README_EN.md)
+
+<!-- tags:回溯 -->
 
 ## 题目描述
 

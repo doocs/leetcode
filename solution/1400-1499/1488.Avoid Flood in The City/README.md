@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1488.Avoid%20Flood%20in%20The%20City/README_EN.md)
 
+<!-- tags:贪心,数组,哈希表,二分查找,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

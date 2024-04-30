@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2212.Maximum%20Points%20in%20an%20Archery%20Competition/README_EN.md)
 
+<!-- tags:位运算,数组,回溯,枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

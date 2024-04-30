@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1764.Form%20Array%20by%20Concatenating%20Subarrays%20of%20Another%20Array/README.md)
 
+<!-- tags:Greedy,Array,Two Pointers,String Matching -->
+
 ## Description
 
 <p>You are given a 2D integer array <code>groups</code> of length <code>n</code>. You are also given an integer array <code>nums</code>.</p>

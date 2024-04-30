@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2657.Find%20the%20Prefix%20Common%20Array%20of%20Two%20Arrays/README.md)
 
+<!-- tags:Bit Manipulation,Array,Hash Table -->
+
 ## Description
 
 <p>You are given two <strong>0-indexed </strong>integer<strong> </strong>permutations <code>A</code> and <code>B</code> of length <code>n</code>.</p>

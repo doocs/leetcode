@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1881.Maximum%20Value%20after%20Insertion/README_EN.md)
 
+<!-- tags:贪心,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

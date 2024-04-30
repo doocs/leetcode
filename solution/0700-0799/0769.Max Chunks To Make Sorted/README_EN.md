@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0769.Max%20Chunks%20To%20Make%20Sorted/README.md)
 
+<!-- tags:Stack,Greedy,Array,Sorting,Monotonic Stack -->
+
 ## Description
 
 <p>You are given an integer array <code>arr</code> of length <code>n</code> that represents a permutation of the integers in the range <code>[0, n - 1]</code>.</p>

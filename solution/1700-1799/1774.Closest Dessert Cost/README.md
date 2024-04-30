@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1774.Closest%20Dessert%20Cost/README_EN.md)
 
+<!-- tags:数组,动态规划,回溯 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0783.Minimum%20Distance%20Between%20BST%20Nodes/README_EN.md)
 
+<!-- tags:树,深度优先搜索,广度优先搜索,二叉搜索树,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -180,6 +182,24 @@ func abs(x int) int {
 	}
 	return x
 }
+```
+
+```js
+var minDiffInBST = function (root) {
+    let ans = Number.MAX_SAFE_INTEGER,
+        prev = Number.MAX_SAFE_INTEGER;
+    const dfs = root => {
+        if (!root) {
+            return;
+        }
+        dfs(root.left);
+        ans = Math.min(ans, Math.abs(root.val - prev));
+        prev = root.val;
+        dfs(root.right);
+    };
+    dfs(root);
+    return ans;
+};
 ```
 
 <!-- tabs:end -->

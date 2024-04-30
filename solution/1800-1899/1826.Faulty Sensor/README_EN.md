@@ -1,6 +1,8 @@
-# [1826. Faulty Sensor](https://leetcode.com/problems/faulty-sensor)
+# [1826. Faulty Sensor 🔒](https://leetcode.com/problems/faulty-sensor)
 
 [中文文档](/solution/1800-1899/1826.Faulty%20Sensor/README.md)
+
+<!-- tags:Array,Two Pointers -->
 
 ## Description
 

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1912.Design%20Movie%20Rental%20System/README_EN.md)
 
+<!-- tags:设计,数组,哈希表,有序集合,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

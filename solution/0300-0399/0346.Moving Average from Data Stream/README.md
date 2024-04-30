@@ -1,6 +1,8 @@
-# [346. 数据流中的移动平均值](https://leetcode.cn/problems/moving-average-from-data-stream)
+# [346. 数据流中的移动平均值 🔒](https://leetcode.cn/problems/moving-average-from-data-stream)
 
 [English Version](/solution/0300-0399/0346.Moving%20Average%20from%20Data%20Stream/README_EN.md)
+
+<!-- tags:设计,队列,数组,数据流 -->
 
 ## 题目描述
 

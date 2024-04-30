@@ -1,6 +1,8 @@
-# [2052. 将句子分隔成行的最低成本](https://leetcode.cn/problems/minimum-cost-to-separate-sentence-into-rows)
+# [2052. 将句子分隔成行的最低成本 🔒](https://leetcode.cn/problems/minimum-cost-to-separate-sentence-into-rows)
 
 [English Version](/solution/2000-2099/2052.Minimum%20Cost%20to%20Separate%20Sentence%20Into%20Rows/README_EN.md)
+
+<!-- tags:数组,动态规划 -->
 
 ## 题目描述
 

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1206.Design%20Skiplist/README.md)
 
+<!-- tags:Design,Linked List -->
+
 ## Description
 
 <p>Design a <strong>Skiplist</strong> without using any built-in libraries.</p>

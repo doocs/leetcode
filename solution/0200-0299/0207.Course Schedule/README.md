@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0207.Course%20Schedule/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,图,拓扑排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2367.Number%20of%20Arithmetic%20Triplets/README_EN.md)
 
+<!-- tags:数组,哈希表,双指针,枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

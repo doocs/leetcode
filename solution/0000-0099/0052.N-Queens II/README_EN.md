@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0052.N-Queens%20II/README.md)
 
+<!-- tags:Backtracking -->
+
 ## Description
 
 <p>The <strong>n-queens</strong> puzzle is the problem of placing <code>n</code> queens on an <code>n x n</code> chessboard such that no two queens attack each other.</p>
@@ -185,6 +187,36 @@ function totalNQueens(n: number): number {
     };
     dfs(0);
     return ans;
+}
+```
+
+```cs
+public class Solution {
+    public int TotalNQueens(int n) {
+        bool[] cols = new bool[10];
+        bool[] dg = new bool[20];
+        bool[] udg = new bool[20];
+        int ans = 0;
+
+        void dfs(int i) {
+            if (i == n) {
+                ans++;
+                return;
+            }
+            for (int j = 0; j < n; j++) {
+                int a = i + j, b = i - j + n;
+                if (cols[j] || dg[a] || udg[b]) {
+                    continue;
+                }
+                cols[j] = dg[a] = udg[b] = true;
+                dfs(i + 1);
+                cols[j] = dg[a] = udg[b] = false;
+            }
+        }
+
+        dfs(0);
+        return ans;
+    }
 }
 ```
 

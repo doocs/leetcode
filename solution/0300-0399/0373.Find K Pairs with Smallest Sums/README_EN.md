@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0373.Find%20K%20Pairs%20with%20Smallest%20Sums/README.md)
 
+<!-- tags:Array,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given two integer arrays <code>nums1</code> and <code>nums2</code> sorted in <strong>non-decreasing&nbsp;order</strong> and an integer <code>k</code>.</p>
@@ -25,14 +27,6 @@
 <strong>Input:</strong> nums1 = [1,1,2], nums2 = [1,2,3], k = 2
 <strong>Output:</strong> [[1,1],[1,1]]
 <strong>Explanation:</strong> The first 2 pairs are returned from the sequence: [1,1],[1,1],[1,2],[2,1],[1,2],[2,2],[1,3],[1,3],[2,3]
-</pre>
-
-<p><strong class="example">Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums1 = [1,2], nums2 = [3], k = 3
-<strong>Output:</strong> [[1,3],[2,3]]
-<strong>Explanation:</strong> All possible pairs are returned from the sequence: [1,3],[2,3]
 </pre>
 
 <p>&nbsp;</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2983.Palindrome%20Rearrangement%20Queries/README.md)
 
+<!-- tags:Hash Table,String,Prefix Sum -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string <code>s</code> having an <strong>even</strong> length <code>n</code>.</p>

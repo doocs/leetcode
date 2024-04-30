@@ -1,6 +1,8 @@
-# [418. 屏幕可显示句子的数量](https://leetcode.cn/problems/sentence-screen-fitting)
+# [418. 屏幕可显示句子的数量 🔒](https://leetcode.cn/problems/sentence-screen-fitting)
 
 [English Version](/solution/0400-0499/0418.Sentence%20Screen%20Fitting/README_EN.md)
+
+<!-- tags:数组,字符串,动态规划 -->
 
 ## 题目描述
 
@@ -8,72 +10,60 @@
 
 <p>给你一个 <code>rows x cols</code> 的屏幕和一个用 <strong>非空 </strong>的单词列表组成的句子，请你计算出给定句子可以在屏幕上完整显示的次数。</p>
 
-<p><strong>注意：</strong></p>
-
-<ol>
-	<li>一个单词不能拆分成两行。</li>
-	<li>单词在句子中的顺序必须保持不变。</li>
-	<li><strong>在一行中 </strong>的两个连续单词必须用一个空格符分隔。</li>
-	<li>句子中的单词总量不会超过 100。</li>
-	<li>每个单词的长度大于 0 且不会超过 10。</li>
-	<li>1 &le; <code>rows</code>, <code>cols</code> &le; 20,000.</li>
-</ol>
+<p>句子中的单词顺序必须保持不变，并且不能将一个单词分成两行。一行中的两个连续单词必须用空白分开。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>
-rows = 2, cols = 8, 句子 sentence = [&quot;hello&quot;, &quot;world&quot;]
-
-<strong>输出：</strong>
-1
-
+<pre>
+<strong>输入：</strong>sentence = ["hello", "world"], rows = 2, cols = 8
+<strong>输出：</strong>1
 <strong>解释：</strong>
 hello---
 world---
-
-<strong>字符 &#39;-&#39; 表示屏幕上的一个空白位置。</strong>
+字符 '-' 表示屏幕上的一个空白位置。
 </pre>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>
-rows = 3, cols = 6, 句子 sentence = [&quot;a&quot;, &quot;bcd&quot;, &quot;e&quot;]
-
-<strong>输出：</strong>
-2
-
+<pre>
+<strong>输入：</strong>sentence = ["a", "bcd", "e"], rows = 3, cols = 6
+<strong>输出：</strong>2
 <strong>解释：</strong>
 a-bcd- 
 e-a---
 bcd-e-
-
-<strong>字符 &#39;-&#39; 表示屏幕上的一个空白位置。</strong>
+字符 '-' 表示屏幕上的一个空白位置。
 </pre>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>
-rows = 4, cols = 5, 句子 sentence = [&quot;I&quot;, &quot;had&quot;, &quot;apple&quot;, &quot;pie&quot;]
-
-<strong>输出：</strong>
-1
-
+<pre>
+<strong>输入：</strong>sentence = ["I", "had", "apple", "pie"], rows = 4, cols = 5
+<strong>输出：</strong>1
 <strong>解释：</strong>
 I-had
 apple
 pie-I
 had--
-
-<strong>字符 &#39;-&#39; 表示屏幕上的一个空白位置。</strong>
+字符 '-' 表示屏幕上的一个空白位置。
 </pre>
 
 <p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 &lt;= sentence.length &lt;= 100</code></li>
+	<li><code>1 &lt;= sentence[i].length &lt;= 10</code></li>
+	<li><code>sentence[i]</code>&nbsp;由小写英文字母组成。</li>
+	<li><code>1 &lt;= rows, cols &lt;= 2 * 10<sup>4</sup></code></li>
+</ul>
 
 ## 解法
 

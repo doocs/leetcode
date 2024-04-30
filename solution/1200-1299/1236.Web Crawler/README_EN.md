@@ -1,6 +1,8 @@
-# [1236. Web Crawler](https://leetcode.com/problems/web-crawler)
+# [1236. Web Crawler 🔒](https://leetcode.com/problems/web-crawler)
 
 [中文文档](/solution/1200-1299/1236.Web%20Crawler/README.md)
+
+<!-- tags:Depth-First Search,Breadth-First Search,String,Interactive -->
 
 ## Description
 

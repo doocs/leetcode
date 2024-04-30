@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0263.Ugly%20Number/README_EN.md)
 
+<!-- tags:数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

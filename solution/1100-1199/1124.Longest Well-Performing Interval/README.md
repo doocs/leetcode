@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1124.Longest%20Well-Performing%20Interval/README_EN.md)
 
+<!-- tags:栈,数组,哈希表,前缀和,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

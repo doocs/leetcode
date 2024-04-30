@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0872.Leaf-Similar%20Trees/README_EN.md)
 
+<!-- tags:树,深度优先搜索,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -220,6 +222,24 @@ impl Solution {
             node.as_ref().unwrap().borrow().right.is_none()
     }
 }
+```
+
+```js
+var leafSimilar = function (root1, root2) {
+    const dfs = root => {
+        if (!root) {
+            return [];
+        }
+        let ans = [...dfs(root.left), ...dfs(root.right)];
+        if (!ans.length) {
+            ans = [root.val];
+        }
+        return ans;
+    };
+    const l1 = dfs(root1);
+    const l2 = dfs(root2);
+    return l1.toString() === l2.toString();
+};
 ```
 
 <!-- tabs:end -->

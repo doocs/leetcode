@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0118.Pascal%27s%20Triangle/README.md)
 
+<!-- tags:Array,Dynamic Programming -->
+
 ## Description
 
 <p>Given an integer <code>numRows</code>, return the first numRows of <strong>Pascal&#39;s triangle</strong>.</p>

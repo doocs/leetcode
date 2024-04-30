@@ -1,6 +1,8 @@
-# [2394. Employees With Deductions](https://leetcode.com/problems/employees-with-deductions)
+# [2394. Employees With Deductions 🔒](https://leetcode.com/problems/employees-with-deductions)
 
 [中文文档](/solution/2300-2399/2394.Employees%20With%20Deductions/README.md)
+
+<!-- tags:Database -->
 
 ## Description
 

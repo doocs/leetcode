@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2707.Extra%20Characters%20in%20a%20String/README_EN.md)
 
+<!-- tags:字典树,数组,哈希表,字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

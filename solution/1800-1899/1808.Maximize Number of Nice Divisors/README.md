@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1808.Maximize%20Number%20of%20Nice%20Divisors/README_EN.md)
 
+<!-- tags:递归,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -1,6 +1,8 @@
-# [1230. Toss Strange Coins](https://leetcode.com/problems/toss-strange-coins)
+# [1230. Toss Strange Coins 🔒](https://leetcode.com/problems/toss-strange-coins)
 
 [中文文档](/solution/1200-1299/1230.Toss%20Strange%20Coins/README.md)
+
+<!-- tags:Array,Math,Dynamic Programming,Probability and Statistics -->
 
 ## Description
 

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2430.Maximum%20Deletions%20on%20a%20String/README_EN.md)
 
+<!-- tags:字符串,动态规划,字符串匹配,哈希函数,滚动哈希 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

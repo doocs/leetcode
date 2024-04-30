@@ -1,6 +1,8 @@
-# [624. 数组列表中的最大距离](https://leetcode.cn/problems/maximum-distance-in-arrays)
+# [624. 数组列表中的最大距离 🔒](https://leetcode.cn/problems/maximum-distance-in-arrays)
 
 [English Version](/solution/0600-0699/0624.Maximum%20Distance%20in%20Arrays/README_EN.md)
+
+<!-- tags:贪心,数组 -->
 
 ## 题目描述
 

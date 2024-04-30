@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1872.Stone%20Game%20VIII/README_EN.md)
 
+<!-- tags:数组,数学,动态规划,博弈,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

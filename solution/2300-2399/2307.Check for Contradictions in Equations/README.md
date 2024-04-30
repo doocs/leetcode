@@ -1,6 +1,8 @@
-# [2307. 检查方程中的矛盾之处](https://leetcode.cn/problems/check-for-contradictions-in-equations)
+# [2307. 检查方程中的矛盾之处 🔒](https://leetcode.cn/problems/check-for-contradictions-in-equations)
 
 [English Version](/solution/2300-2399/2307.Check%20for%20Contradictions%20in%20Equations/README_EN.md)
+
+<!-- tags:深度优先搜索,并查集,图,数组 -->
 
 ## 题目描述
 

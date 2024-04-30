@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0306.Additive%20Number/README.md)
 
+<!-- tags:String,Backtracking -->
+
 ## Description
 
 <p>An <strong>additive number</strong> is a string whose digits can form an <strong>additive sequence</strong>.</p>

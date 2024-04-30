@@ -6,26 +6,16 @@
  *     Right *TreeNode
  * }
  */
-func preorderTraversal(root *TreeNode) []int {
-	var ans []int
-	for root != nil {
-		if root.Left == nil {
-			ans = append(ans, root.Val)
-			root = root.Right
-		} else {
-			prev := root.Left
-			for prev.Right != nil && prev.Right != root {
-				prev = prev.Right
-			}
-			if prev.Right == nil {
-				ans = append(ans, root.Val)
-				prev.Right = root
-				root = root.Left
-			} else {
-				prev.Right = nil
-				root = root.Right
-			}
+func preorderTraversal(root *TreeNode) (ans []int) {
+	var dfs func(*TreeNode)
+	dfs = func(root *TreeNode) {
+		if root == nil {
+			return
 		}
+		ans = append(ans, root.Val)
+		dfs(root.Left)
+		dfs(root.Right)
 	}
-	return ans
+	dfs(root)
+	return
 }

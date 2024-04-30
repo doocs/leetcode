@@ -1,6 +1,8 @@
-# [2758. 下一天](https://leetcode.cn/problems/next-day)
+# [2758. 下一天 🔒](https://leetcode.cn/problems/next-day)
 
 [English Version](/solution/2700-2799/2758.Next%20Day/README_EN.md)
+
+<!-- tags: -->
 
 ## 题目描述
 

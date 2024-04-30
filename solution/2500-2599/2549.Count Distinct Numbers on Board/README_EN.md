@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2549.Count%20Distinct%20Numbers%20on%20Board/README.md)
 
+<!-- tags:Array,Hash Table,Math,Simulation -->
+
 ## Description
 
 <p>You are given a positive integer <code>n</code>, that is initially placed on a board. Every day, for <code>10<sup>9</sup></code> days, you perform the following procedure:</p>
@@ -86,10 +88,7 @@ public:
 
 ```go
 func distinctIntegers(n int) int {
-	if n == 1 {
-		return 1
-	}
-	return n - 1
+	return max(1, n-1)
 }
 ```
 
@@ -102,11 +101,7 @@ function distinctIntegers(n: number): number {
 ```rust
 impl Solution {
     pub fn distinct_integers(n: i32) -> i32 {
-        if n == 1 {
-            return 1;
-        }
-
-        n - 1
+        (1).max(n - 1)
     }
 }
 ```

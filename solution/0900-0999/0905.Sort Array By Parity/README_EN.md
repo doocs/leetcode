@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0905.Sort%20Array%20By%20Parity/README.md)
 
+<!-- tags:Array,Two Pointers,Sorting -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, move all the even integers at the beginning of the array followed by all the odd integers.</p>

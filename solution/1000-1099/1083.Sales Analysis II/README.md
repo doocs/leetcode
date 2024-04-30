@@ -1,6 +1,8 @@
-# [1083. 销售分析 II](https://leetcode.cn/problems/sales-analysis-ii)
+# [1083. 销售分析 II 🔒](https://leetcode.cn/problems/sales-analysis-ii)
 
 [English Version](/solution/1000-1099/1083.Sales%20Analysis%20II/README_EN.md)
+
+<!-- tags:数据库 -->
 
 ## 题目描述
 

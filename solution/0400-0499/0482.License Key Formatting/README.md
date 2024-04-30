@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0482.License%20Key%20Formatting/README_EN.md)
 
+<!-- tags:字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2851.String%20Transformation/README.md)
 
+<!-- tags:Math,String,Dynamic Programming,String Matching -->
+
 ## Description
 
 <p>You are given two strings <code>s</code> and <code>t</code> of equal length <code>n</code>. You can perform the following operation on the string <code>s</code>:</p>

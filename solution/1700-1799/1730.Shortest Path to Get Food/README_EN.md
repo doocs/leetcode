@@ -1,6 +1,8 @@
-# [1730. Shortest Path to Get Food](https://leetcode.com/problems/shortest-path-to-get-food)
+# [1730. Shortest Path to Get Food 🔒](https://leetcode.com/problems/shortest-path-to-get-food)
 
 [中文文档](/solution/1700-1799/1730.Shortest%20Path%20to%20Get%20Food/README.md)
+
+<!-- tags:Breadth-First Search,Array,Matrix -->
 
 ## Description
 
@@ -56,7 +58,15 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: BFS (Breadth-First Search)
+
+According to the problem, we need to start from `*`, find the nearest `#`, and return the shortest path length.
+
+First, we traverse the entire two-dimensional array to find the position of `*`, which will be the starting point for BFS, and put it into the queue.
+
+Then, we start BFS, traversing the elements in the queue. Each time we traverse an element, we add the elements in the four directions (up, down, left, and right) of it into the queue, until we encounter `#`, and return the current layer number.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(1)$. Here, $m$ and $n$ are the number of rows and columns of the two-dimensional array, respectively.
 
 <!-- tabs:start -->
 

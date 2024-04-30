@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0520.Detect%20Capital/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>We define the usage of capitals in a word to be right when one of the following cases holds:</p>
@@ -32,17 +34,22 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Count the Number of Uppercase Letters
+
+We can count the number of uppercase letters in the string, and then determine whether it meets the requirements of the problem based on the number of uppercase letters.
+
+-   If the number of uppercase letters is 0 or equal to the length of the string, then return `true`.
+-   If the number of uppercase letters is 1 and the first letter is an uppercase letter, then return `true`.
+-   Otherwise, return `false`.
+
+The time complexity is $O(n)$, where $n$ is the length of the string `word`. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def detectCapitalUse(self, word: str) -> bool:
-        cnt = 0
-        for c in word:
-            if c.isupper():
-                cnt += 1
+        cnt = sum(c.isupper() for c in word)
         return cnt == 0 or cnt == len(word) or (cnt == 1 and word[0].isupper())
 ```
 
@@ -65,10 +72,8 @@ class Solution {
 class Solution {
 public:
     bool detectCapitalUse(string word) {
-        int cnt = 0;
-        for (char c : word)
-            if (isupper(c)) ++cnt;
-        return cnt == 0 || cnt == word.size() || (cnt == 1 && isupper(word[0]));
+        int cnt = count_if(word.begin(), word.end(), [](char c) { return isupper(c); });
+        return cnt == 0 || cnt == word.length() || (cnt == 1 && isupper(word[0]));
     }
 };
 ```
@@ -82,6 +87,13 @@ func detectCapitalUse(word string) bool {
 		}
 	}
 	return cnt == 0 || cnt == len(word) || (cnt == 1 && unicode.IsUpper(rune(word[0])))
+}
+```
+
+```ts
+function detectCapitalUse(word: string): boolean {
+    const cnt = word.split('').reduce((acc, c) => acc + (c === c.toUpperCase() ? 1 : 0), 0);
+    return cnt === 0 || cnt === word.length || (cnt === 1 && word[0] === word[0].toUpperCase());
 }
 ```
 

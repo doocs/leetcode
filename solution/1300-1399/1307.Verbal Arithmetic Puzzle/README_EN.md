@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1307.Verbal%20Arithmetic%20Puzzle/README.md)
 
+<!-- tags:Array,Math,String,Backtracking -->
+
 ## Description
 
 <p>Given an equation, represented by <code>words</code> on the left side and the <code>result</code> on the right side.</p>

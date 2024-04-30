@@ -1,6 +1,8 @@
-# [1066. 校园自行车分配 II](https://leetcode.cn/problems/campus-bikes-ii)
+# [1066. 校园自行车分配 II 🔒](https://leetcode.cn/problems/campus-bikes-ii)
 
 [English Version](/solution/1000-1099/1066.Campus%20Bikes%20II/README_EN.md)
+
+<!-- tags:位运算,数组,动态规划,回溯,状态压缩 -->
 
 ## 题目描述
 

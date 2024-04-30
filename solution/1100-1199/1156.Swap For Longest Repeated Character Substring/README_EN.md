@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1156.Swap%20For%20Longest%20Repeated%20Character%20Substring/README.md)
 
+<!-- tags:Hash Table,String,Sliding Window -->
+
 ## Description
 
 <p>You are given a string <code>text</code>. You can swap two of the characters in the <code>text</code>.</p>

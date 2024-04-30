@@ -1,6 +1,8 @@
-# [2754. 将函数绑定到上下文](https://leetcode.cn/problems/bind-function-to-context)
+# [2754. 将函数绑定到上下文 🔒](https://leetcode.cn/problems/bind-function-to-context)
 
 [English Version](/solution/2700-2799/2754.Bind%20Function%20to%20Context/README_EN.md)
+
+<!-- tags: -->
 
 ## 题目描述
 

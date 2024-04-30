@@ -1,6 +1,8 @@
-# [2691. 不可变辅助工具](https://leetcode.cn/problems/immutability-helper)
+# [2691. 不可变辅助工具 🔒](https://leetcode.cn/problems/immutability-helper)
 
 [English Version](/solution/2600-2699/2691.Immutability%20Helper/README_EN.md)
+
+<!-- tags: -->
 
 ## 题目描述
 

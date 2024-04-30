@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0303.Range%20Sum%20Query%20-%20Immutable/README.md)
 
+<!-- tags:Design,Array,Prefix Sum -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, handle multiple queries of the following type:</p>

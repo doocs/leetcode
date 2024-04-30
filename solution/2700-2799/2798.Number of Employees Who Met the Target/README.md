@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2798.Number%20of%20Employees%20Who%20Met%20the%20Target/README_EN.md)
 
+<!-- tags:数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -82,11 +84,7 @@ class Solution {
 class Solution {
 public:
     int numberOfEmployeesWhoMetTarget(vector<int>& hours, int target) {
-        int ans = 0;
-        for (int x : hours) {
-            ans += x >= target;
-        }
-        return ans;
+        return count_if(hours.begin(), hours.end(), [target](int h) { return h >= target; });
     }
 };
 ```
@@ -104,26 +102,17 @@ func numberOfEmployeesWhoMetTarget(hours []int, target int) (ans int) {
 
 ```ts
 function numberOfEmployeesWhoMetTarget(hours: number[], target: number): number {
-    let ans = 0;
-    for (const x of hours) {
-        if (x >= target) {
-            ++ans;
-        }
-    }
-    return ans;
+    return hours.filter(x => x >= target).length;
 }
 ```
 
 ```rust
 impl Solution {
     pub fn number_of_employees_who_met_target(hours: Vec<i32>, target: i32) -> i32 {
-        let mut ans = 0;
-        for &v in hours.iter() {
-            if v >= target {
-                ans += 1;
-            }
-        }
-        ans
+        hours
+            .iter()
+            .filter(|&x| *x >= target)
+            .count() as i32
     }
 }
 ```

@@ -1,6 +1,8 @@
-# [2495. Number of Subarrays Having Even Product](https://leetcode.com/problems/number-of-subarrays-having-even-product)
+# [2495. Number of Subarrays Having Even Product 🔒](https://leetcode.com/problems/number-of-subarrays-having-even-product)
 
 [中文文档](/solution/2400-2499/2495.Number%20of%20Subarrays%20Having%20Even%20Product/README.md)
+
+<!-- tags:Array,Math,Dynamic Programming -->
 
 ## Description
 
@@ -39,7 +41,13 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Single Pass
+
+We know that the product of a subarray is even if and only if there is at least one even number in the subarray.
+
+Therefore, we can traverse the array, record the index `last` of the most recent even number, then the number of subarrays ending with the current element and having an even product is `last + 1`. We can add this to the result.
+
+The time complexity is $O(n)$, where $n$ is the length of the array `nums`. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

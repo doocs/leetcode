@@ -1,6 +1,8 @@
-# [1062. 最长重复子串](https://leetcode.cn/problems/longest-repeating-substring)
+# [1062. 最长重复子串 🔒](https://leetcode.cn/problems/longest-repeating-substring)
 
 [English Version](/solution/1000-1099/1062.Longest%20Repeating%20Substring/README_EN.md)
+
+<!-- tags:字符串,二分查找,动态规划,后缀数组,哈希函数,滚动哈希 -->
 
 ## 题目描述
 
@@ -50,7 +52,7 @@
 
 ### 方法一：动态规划
 
-定义 $dp[i][j]$ 表示以 $s[i]$ 和 $s[j]$ 结尾的最长重复子串的长度。状态转移方程为：
+定义 $dp[i][j]$ 表示以 $s[i]$ 和 $s[j]$ 结尾的最长重复子串 🔒 的长度。状态转移方程为：
 
 $$
 dp[i][j]=
@@ -67,7 +69,7 @@ $$
 
 相似题目：
 
--   [1044. 最长重复子串](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1044.Longest%20Duplicate%20Substring/README.md)
+-   [1044. 最长重复子串 🔒](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1044.Longest%20Duplicate%20Substring/README.md)
 
 <!-- tabs:start -->
 

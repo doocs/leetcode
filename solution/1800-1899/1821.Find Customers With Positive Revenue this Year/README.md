@@ -1,6 +1,8 @@
-# [1821. 寻找今年具有正收入的客户](https://leetcode.cn/problems/find-customers-with-positive-revenue-this-year)
+# [1821. 寻找今年具有正收入的客户 🔒](https://leetcode.cn/problems/find-customers-with-positive-revenue-this-year)
 
 [English Version](/solution/1800-1899/1821.Find%20Customers%20With%20Positive%20Revenue%20this%20Year/README_EN.md)
+
+<!-- tags:数据库 -->
 
 ## 题目描述
 

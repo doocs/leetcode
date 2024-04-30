@@ -1,6 +1,8 @@
-# [582. 杀掉进程](https://leetcode.cn/problems/kill-process)
+# [582. 杀掉进程 🔒](https://leetcode.cn/problems/kill-process)
 
 [English Version](/solution/0500-0599/0582.Kill%20Process/README_EN.md)
+
+<!-- tags:树,深度优先搜索,广度优先搜索,数组,哈希表 -->
 
 ## 题目描述
 

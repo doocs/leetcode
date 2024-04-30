@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1492.The%20kth%20Factor%20of%20n/README_EN.md)
 
+<!-- tags:数学,数论 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

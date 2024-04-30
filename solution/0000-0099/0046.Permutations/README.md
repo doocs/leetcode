@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0046.Permutations/README_EN.md)
 
+<!-- tags:数组,回溯 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -59,6 +61,28 @@
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
         return list(permutations(nums))
+```
+
+```python
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        def dfs(i):
+            if i == n:
+                ans.append(t[:])
+                return
+            for j in range(n):
+                if not vis[j]:
+                    vis[j] = True
+                    t[i] = nums[j]
+                    dfs(i + 1)
+                    vis[j] = False
+
+        n = len(nums)
+        vis = [False] * n
+        t = [0] * n
+        ans = []
+        dfs(0)
+        return ans
 ```
 
 ```java
@@ -244,103 +268,6 @@ public class Solution {
         }
     }
 }
-```
-
-<!-- tabs:end -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def permute(self, nums: List[int]) -> List[List[int]]:
-        def dfs(i):
-            if i == n:
-                ans.append(t[:])
-                return
-            for j in range(n):
-                if not vis[j]:
-                    vis[j] = True
-                    t[i] = nums[j]
-                    dfs(i + 1)
-                    vis[j] = False
-
-        n = len(nums)
-        vis = [False] * n
-        t = [0] * n
-        ans = []
-        dfs(0)
-        return ans
-```
-
-```rust
-impl Solution {
-    #[allow(dead_code)]
-    pub fn permute(nums: Vec<i32>) -> Vec<Vec<i32>> {
-        let mut ret = Vec::new();
-        let mut cur_vec = Vec::new();
-        let mut vis = vec![false; nums.len() + 1];
-        Self::dfs(&nums, &mut vis, 0, &mut cur_vec, &mut ret);
-        ret
-    }
-
-    #[allow(dead_code)]
-    fn dfs(
-        nums: &Vec<i32>,
-        vis: &mut Vec<bool>,
-        index: i32,
-        cur_vec: &mut Vec<i32>,
-        ans: &mut Vec<Vec<i32>>
-    ) {
-        let n = nums.len();
-        if (index as usize) == n {
-            ans.push(cur_vec.clone());
-            return;
-        }
-        // Otherwise, let's iterate the nums vector
-        for i in 0..n {
-            if !vis[i] {
-                // If this number hasn't been visited, then visit it
-                vis[i] = true;
-                cur_vec.push(nums[i]);
-                Self::dfs(nums, vis, index + 1, cur_vec, ans);
-                // Reset the changes
-                cur_vec.pop().unwrap();
-                vis[i] = false;
-            }
-        }
-    }
-}
-```
-
-<!-- tabs:end -->
-
-### 方法三
-
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def permute(self, nums: List[int]) -> List[List[int]]:
-        def dfs(i):
-            nonlocal mask
-            if i == n:
-                ans.append(t[:])
-                return
-            for j in range(n):
-                if (mask >> j & 1) == 0:
-                    mask |= 1 << j
-                    t[i] = nums[j]
-                    dfs(i + 1)
-                    mask ^= 1 << j
-
-        n = len(nums)
-        mask = 0
-        t = [0] * n
-        ans = []
-        dfs(0)
-        return ans
 ```
 
 <!-- tabs:end -->

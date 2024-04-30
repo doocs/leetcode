@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0447.Number%20of%20Boomerangs/README_EN.md)
 
+<!-- tags:数组,哈希表,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

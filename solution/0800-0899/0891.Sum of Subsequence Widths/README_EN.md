@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0891.Sum%20of%20Subsequence%20Widths/README.md)
 
+<!-- tags:Array,Math,Sorting -->
+
 ## Description
 
 <p>The <strong>width</strong> of a sequence is the difference between the maximum and minimum elements in the sequence.</p>

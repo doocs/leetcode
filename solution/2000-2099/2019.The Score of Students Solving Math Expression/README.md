@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2019.The%20Score%20of%20Students%20Solving%20Math%20Expression/README_EN.md)
 
+<!-- tags:栈,记忆化搜索,数组,数学,字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

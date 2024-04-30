@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0710.Random%20Pick%20with%20Blacklist/README_EN.md)
 
+<!-- tags:数组,哈希表,数学,二分查找,排序,随机化 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

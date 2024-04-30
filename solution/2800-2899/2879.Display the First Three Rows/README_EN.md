@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2879.Display%20the%20First%20Three%20Rows/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <pre>

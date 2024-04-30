@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2866.Beautiful%20Towers%20II/README_EN.md)
 
+<!-- tags:栈,数组,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

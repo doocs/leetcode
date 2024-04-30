@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2617.Minimum%20Number%20of%20Visited%20Cells%20in%20a%20Grid/README_EN.md)
 
+<!-- tags:栈,广度优先搜索,并查集,数组,动态规划,矩阵,单调栈,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1457.Pseudo-Palindromic%20Paths%20in%20a%20Binary%20Tree/README_EN.md)
 
+<!-- tags:位运算,树,深度优先搜索,广度优先搜索,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

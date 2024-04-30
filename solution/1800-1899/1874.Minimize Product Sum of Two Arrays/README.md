@@ -1,6 +1,8 @@
-# [1874. 两个数组的最小乘积和](https://leetcode.cn/problems/minimize-product-sum-of-two-arrays)
+# [1874. 两个数组的最小乘积和 🔒](https://leetcode.cn/problems/minimize-product-sum-of-two-arrays)
 
 [English Version](/solution/1800-1899/1874.Minimize%20Product%20Sum%20of%20Two%20Arrays/README_EN.md)
+
+<!-- tags:贪心,数组,排序 -->
 
 ## 题目描述
 

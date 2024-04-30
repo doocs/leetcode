@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0677.Map%20Sum%20Pairs/README.md)
 
+<!-- tags:Design,Trie,Hash Table,String -->
+
 ## Description
 
 <p>Design a map that allows you to do the following:</p>

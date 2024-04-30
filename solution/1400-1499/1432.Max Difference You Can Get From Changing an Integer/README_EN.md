@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1432.Max%20Difference%20You%20Can%20Get%20From%20Changing%20an%20Integer/README.md)
 
+<!-- tags:Greedy,Math -->
+
 ## Description
 
 <p>You are given an integer <code>num</code>. You will apply the following steps exactly <strong>two</strong> times:</p>

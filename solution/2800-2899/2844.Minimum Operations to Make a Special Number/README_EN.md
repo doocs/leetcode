@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2844.Minimum%20Operations%20to%20Make%20a%20Special%20Number/README.md)
 
+<!-- tags:Greedy,Math,String,Enumeration -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string <code>num</code> representing a non-negative integer.</p>

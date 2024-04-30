@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2384.Largest%20Palindromic%20Number/README.md)
 
+<!-- tags:Greedy,Hash Table,String -->
+
 ## Description
 
 <p>You are given a string <code>num</code> consisting of digits only.</p>

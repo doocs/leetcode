@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2171.Removing%20Minimum%20Number%20of%20Magic%20Beans/README.md)
 
+<!-- tags:Greedy,Array,Enumeration,Prefix Sum,Sorting -->
+
 ## Description
 
 <p>You are given an array of <strong>positive</strong> integers <code>beans</code>, where each integer represents the number of magic beans found in a particular magic bag.</p>

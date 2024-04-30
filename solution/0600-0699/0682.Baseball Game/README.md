@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0682.Baseball%20Game/README_EN.md)
 
+<!-- tags:栈,数组,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

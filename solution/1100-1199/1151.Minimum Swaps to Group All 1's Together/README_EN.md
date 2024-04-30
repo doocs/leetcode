@@ -1,6 +1,8 @@
-# [1151. Minimum Swaps to Group All 1's Together](https://leetcode.com/problems/minimum-swaps-to-group-all-1s-together)
+# [1151. Minimum Swaps to Group All 1's Together 🔒](https://leetcode.com/problems/minimum-swaps-to-group-all-1s-together)
 
 [中文文档](/solution/1100-1199/1151.Minimum%20Swaps%20to%20Group%20All%201%27s%20Together/README.md)
+
+<!-- tags:Array,Sliding Window -->
 
 ## Description
 
@@ -57,8 +59,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is 
 class Solution:
     def minSwaps(self, data: List[int]) -> int:
         k = data.count(1)
-        t = sum(data[:k])
-        mx = t
+        mx = t = sum(data[:k])
         for i in range(k, len(data)):
             t += data[i]
             t -= data[i - k]
@@ -141,6 +142,22 @@ function minSwaps(data: number[]): number {
         mx = Math.max(mx, t);
     }
     return k - mx;
+}
+```
+
+```cs
+public class Solution {
+    public int MinSwaps(int[] data) {
+        int k = data.Count(x => x == 1);
+        int t = data.Take(k).Sum();
+        int mx = t;
+        for (int i = k; i < data.Length; ++i) {
+            t += data[i];
+            t -= data[i - k];
+            mx = Math.Max(mx, t);
+        }
+        return k - mx;
+    }
 }
 ```
 

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2545.Sort%20the%20Students%20by%20Their%20Kth%20Score/README_EN.md)
 
+<!-- tags:数组,矩阵,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

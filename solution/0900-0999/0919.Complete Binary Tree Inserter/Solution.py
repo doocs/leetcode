@@ -5,7 +5,8 @@
 #         self.left = left
 #         self.right = right
 class CBTInserter:
-    def __init__(self, root: TreeNode):
+
+    def __init__(self, root: Optional[TreeNode]):
         self.tree = []
         q = deque([root])
         while q:
@@ -18,17 +19,16 @@ class CBTInserter:
                     q.append(node.right)
 
     def insert(self, val: int) -> int:
-        pid = (len(self.tree) - 1) >> 1
+        p = self.tree[(len(self.tree) - 1) // 2]
         node = TreeNode(val)
         self.tree.append(node)
-        p = self.tree[pid]
         if p.left is None:
             p.left = node
         else:
             p.right = node
         return p.val
 
-    def get_root(self) -> TreeNode:
+    def get_root(self) -> Optional[TreeNode]:
         return self.tree[0]
 
 

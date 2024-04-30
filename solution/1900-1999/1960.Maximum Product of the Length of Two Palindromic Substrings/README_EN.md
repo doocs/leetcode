@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1960.Maximum%20Product%20of%20the%20Length%20of%20Two%20Palindromic%20Substrings/README.md)
 
+<!-- tags:String,Hash Function,Rolling Hash -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string <code>s</code> and are tasked with finding two <strong>non-intersecting palindromic </strong>substrings of <strong>odd</strong> length such that the product of their lengths is maximized.</p>

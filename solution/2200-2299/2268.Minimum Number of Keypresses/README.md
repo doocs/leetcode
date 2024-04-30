@@ -1,6 +1,8 @@
-# [2268. 最少按键次数](https://leetcode.cn/problems/minimum-number-of-keypresses)
+# [2268. 最少按键次数 🔒](https://leetcode.cn/problems/minimum-number-of-keypresses)
 
 [English Version](/solution/2200-2299/2268.Minimum%20Number%20of%20Keypresses/README_EN.md)
+
+<!-- tags:贪心,哈希表,字符串,计数,排序 -->
 
 ## 题目描述
 

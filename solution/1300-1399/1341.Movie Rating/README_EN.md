@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1341.Movie%20Rating/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Movies</code></p>

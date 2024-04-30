@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0477.Total%20Hamming%20Distance/README_EN.md)
 
+<!-- tags:位运算,数组,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

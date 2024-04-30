@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2536.Increment%20Submatrices%20by%20One/README.md)
 
+<!-- tags:Array,Matrix,Prefix Sum -->
+
 ## Description
 
 <p>You are given a positive integer <code>n</code>, indicating that we initially have an <code>n x n</code>&nbsp;<strong>0-indexed</strong> integer matrix <code>mat</code> filled with zeroes.</p>

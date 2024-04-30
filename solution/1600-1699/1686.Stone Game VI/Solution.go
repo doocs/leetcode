@@ -1,23 +1,23 @@
 func stoneGameVI(aliceValues []int, bobValues []int) int {
-	arr := make([][]int, len(aliceValues))
+	vals := make([][2]int, len(aliceValues))
 	for i, a := range aliceValues {
-		b := bobValues[i]
-		arr[i] = []int{a + b, i}
+		vals[i] = [2]int{a + bobValues[i], i}
 	}
-	sort.Slice(arr, func(i, j int) bool { return arr[i][0] > arr[j][0] })
+	slices.SortFunc(vals, func(a, b [2]int) int { return b[0] - a[0] })
 	a, b := 0, 0
-	for i, v := range arr {
-		if i%2 == 0 {
-			a += aliceValues[v[1]]
+	for k, v := range vals {
+		i := v[1]
+		if k%2 == 0 {
+			a += aliceValues[i]
 		} else {
-			b += bobValues[v[1]]
+			b += bobValues[i]
 		}
-	}
-	if a == b {
-		return 0
 	}
 	if a > b {
 		return 1
 	}
-	return -1
+	if a < b {
+		return -1
+	}
+	return 0
 }

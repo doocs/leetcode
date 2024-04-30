@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0945.Minimum%20Increment%20to%20Make%20Array%20Unique/README_EN.md)
 
+<!-- tags:贪心,数组,计数,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

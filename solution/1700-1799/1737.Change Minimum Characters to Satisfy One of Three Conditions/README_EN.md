@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1737.Change%20Minimum%20Characters%20to%20Satisfy%20One%20of%20Three%20Conditions/README.md)
 
+<!-- tags:Hash Table,String,Counting,Prefix Sum -->
+
 ## Description
 
 <p>You are given two strings <code>a</code> and <code>b</code> that consist of lowercase letters. In one operation, you can change any character in <code>a</code> or <code>b</code> to <strong>any lowercase letter</strong>.</p>

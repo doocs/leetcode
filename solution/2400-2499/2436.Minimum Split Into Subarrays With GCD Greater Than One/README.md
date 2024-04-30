@@ -1,6 +1,8 @@
-# [2436. 使子数组最大公约数大于一的最小分割数](https://leetcode.cn/problems/minimum-split-into-subarrays-with-gcd-greater-than-one)
+# [2436. 使子数组最大公约数大于一的最小分割数 🔒](https://leetcode.cn/problems/minimum-split-into-subarrays-with-gcd-greater-than-one)
 
 [English Version](/solution/2400-2499/2436.Minimum%20Split%20Into%20Subarrays%20With%20GCD%20Greater%20Than%20One/README_EN.md)
+
+<!-- tags:贪心,数组,数学,动态规划,数论 -->
 
 ## 题目描述
 

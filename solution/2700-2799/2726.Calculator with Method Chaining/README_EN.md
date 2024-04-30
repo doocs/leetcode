@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2726.Calculator%20with%20Method%20Chaining/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Design a <code>Calculator</code> class. The class should provide the&nbsp;mathematical operations of&nbsp;addition, subtraction, multiplication, division, and exponentiation. It should also allow consecutive operations to be performed using method chaining.&nbsp;The <code>Calculator</code> class constructor should accept a number&nbsp;which serves as the&nbsp;initial value of <code>result</code>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0341.Flatten%20Nested%20List%20Iterator/README.md)
 
+<!-- tags:Stack,Tree,Depth-First Search,Design,Queue,Iterator -->
+
 ## Description
 
 <p>You are given a nested list of integers <code>nestedList</code>. Each element is either an integer or a list whose elements may also be integers or other lists. Implement an iterator to flatten it.</p>

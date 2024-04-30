@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0619.Biggest%20Single%20Number/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>MyNumbers</code></p>

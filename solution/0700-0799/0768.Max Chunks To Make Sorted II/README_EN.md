@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0768.Max%20Chunks%20To%20Make%20Sorted%20II/README.md)
 
+<!-- tags:Stack,Greedy,Array,Sorting,Monotonic Stack -->
+
 ## Description
 
 <p>You are given an integer array <code>arr</code>.</p>

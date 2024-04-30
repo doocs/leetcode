@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2071.Maximum%20Number%20of%20Tasks%20You%20Can%20Assign/README_EN.md)
 
+<!-- tags:贪心,队列,数组,二分查找,排序,单调队列 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

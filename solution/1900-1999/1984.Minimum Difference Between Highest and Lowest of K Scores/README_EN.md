@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1984.Minimum%20Difference%20Between%20Highest%20and%20Lowest%20of%20K%20Scores/README.md)
 
+<!-- tags:Array,Sorting,Sliding Window -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>, where <code>nums[i]</code> represents the score of the <code>i<sup>th</sup></code> student. You are also given an integer <code>k</code>.</p>
@@ -45,7 +47,13 @@ The minimum possible difference is 2.</pre>
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Sorting + Sliding Window
+
+We can sort the students' scores in ascending order, then use a sliding window of size $k$ to calculate the difference between the maximum and minimum values in the window, and finally take the minimum of the differences of all windows.
+
+Why do we take the scores of $k$ consecutive students? Because if they are not consecutive, the difference between the maximum and minimum values may remain the same or increase, but it will definitely not decrease. Therefore, we only need to consider the scores of $k$ consecutive students after sorting.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of students.
 
 <!-- tabs:start -->
 
@@ -75,8 +83,9 @@ public:
     int minimumDifference(vector<int>& nums, int k) {
         sort(nums.begin(), nums.end());
         int ans = 1e5;
-        for (int i = 0; i < nums.size() - k + 1; ++i)
+        for (int i = 0; i < nums.size() - k + 1; ++i) {
             ans = min(ans, nums[i + k - 1] - nums[i]);
+        }
         return ans;
     }
 };
@@ -128,11 +137,11 @@ class Solution {
      */
     function minimumDifference($nums, $k) {
         sort($nums);
-        $rs = 10 ** 5;
+        $ans = 10 ** 5;
         for ($i = 0; $i < count($nums) - $k + 1; $i++) {
-            $rs = min($rs, $nums[$i + $k - 1] - $nums[$i]);
+            $ans = min($ans, $nums[$i + $k - 1] - $nums[$i]);
         }
-        return $rs;
+        return $ans;
     }
 }
 ```

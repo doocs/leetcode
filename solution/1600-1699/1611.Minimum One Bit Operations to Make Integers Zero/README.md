@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1611.Minimum%20One%20Bit%20Operations%20to%20Make%20Integers%20Zero/README_EN.md)
 
+<!-- tags:位运算,记忆化搜索,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

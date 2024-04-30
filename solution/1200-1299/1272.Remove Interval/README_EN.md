@@ -1,6 +1,8 @@
-# [1272. Remove Interval](https://leetcode.com/problems/remove-interval)
+# [1272. Remove Interval 🔒](https://leetcode.com/problems/remove-interval)
 
 [中文文档](/solution/1200-1299/1272.Remove%20Interval/README.md)
+
+<!-- tags:Array -->
 
 ## Description
 

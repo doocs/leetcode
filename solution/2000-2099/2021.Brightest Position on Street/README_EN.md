@@ -1,6 +1,8 @@
-# [2021. Brightest Position on Street](https://leetcode.com/problems/brightest-position-on-street)
+# [2021. Brightest Position on Street 🔒](https://leetcode.com/problems/brightest-position-on-street)
 
 [中文文档](/solution/2000-2099/2021.Brightest%20Position%20on%20Street/README.md)
+
+<!-- tags:Array,Ordered Set,Prefix Sum -->
 
 ## Description
 

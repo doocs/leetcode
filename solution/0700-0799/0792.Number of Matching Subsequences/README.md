@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0792.Number%20of%20Matching%20Subsequences/README_EN.md)
 
+<!-- tags:字典树,数组,哈希表,字符串,二分查找,动态规划,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

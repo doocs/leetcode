@@ -1,6 +1,8 @@
-# [1308. 不同性别每日分数总计](https://leetcode.cn/problems/running-total-for-different-genders)
+# [1308. 不同性别每日分数总计 🔒](https://leetcode.cn/problems/running-total-for-different-genders)
 
 [English Version](/solution/1300-1399/1308.Running%20Total%20for%20Different%20Genders/README_EN.md)
+
+<!-- tags:数据库 -->
 
 ## 题目描述
 

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0264.Ugly%20Number%20II/README.md)
 
+<!-- tags:Hash Table,Math,Dynamic Programming,Heap (Priority Queue) -->
+
 ## Description
 
 <p>An <strong>ugly number</strong> is a positive integer whose prime factors are limited to <code>2</code>, <code>3</code>, and <code>5</code>.</p>

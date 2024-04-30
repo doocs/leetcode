@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1765.Map%20of%20Highest%20Peak/README.md)
 
+<!-- tags:Breadth-First Search,Array,Matrix -->
+
 ## Description
 
 <p>You are given an integer matrix <code>isWater</code> of size <code>m x n</code> that represents a map of <strong>land</strong> and <strong>water</strong> cells.</p>

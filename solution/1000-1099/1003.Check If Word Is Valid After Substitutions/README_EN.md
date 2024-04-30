@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1003.Check%20If%20Word%20Is%20Valid%20After%20Substitutions/README.md)
 
+<!-- tags:Stack,String -->
+
 ## Description
 
 <p>Given a string <code>s</code>, determine if it is <strong>valid</strong>.</p>

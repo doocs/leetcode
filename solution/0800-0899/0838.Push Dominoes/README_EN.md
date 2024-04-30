@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0838.Push%20Dominoes/README.md)
 
+<!-- tags:Two Pointers,String,Dynamic Programming -->
+
 ## Description
 
 <p>There are <code>n</code> dominoes in a line, and we place each domino vertically upright. In the beginning, we simultaneously push some of the dominoes either to the left or to the right.</p>

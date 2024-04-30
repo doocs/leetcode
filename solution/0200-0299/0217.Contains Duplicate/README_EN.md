@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0217.Contains%20Duplicate/README.md)
 
+<!-- tags:Array,Hash Table,Sorting -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, return <code>true</code> if any value appears <strong>at least twice</strong> in the array, and return <code>false</code> if every element is distinct.</p>

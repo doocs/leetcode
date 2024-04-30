@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2592.Maximize%20Greatness%20of%20an%20Array/README.md)
 
+<!-- tags:Greedy,Array,Two Pointers,Sorting -->
+
 ## Description
 
 <p>You are given a 0-indexed integer array <code>nums</code>. You are allowed to permute <code>nums</code> into a new array <code>perm</code> of your choosing.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2615.Sum%20of%20Distances/README_EN.md)
 
+<!-- tags:数组,哈希表,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

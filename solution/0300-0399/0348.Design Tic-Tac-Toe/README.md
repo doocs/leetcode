@@ -1,6 +1,8 @@
-# [348. 设计井字棋](https://leetcode.cn/problems/design-tic-tac-toe)
+# [348. 设计井字棋 🔒](https://leetcode.cn/problems/design-tic-tac-toe)
 
 [English Version](/solution/0300-0399/0348.Design%20Tic-Tac-Toe/README_EN.md)
+
+<!-- tags:设计,数组,哈希表,矩阵,模拟 -->
 
 ## 题目描述
 

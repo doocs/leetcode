@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0589.N-ary%20Tree%20Preorder%20Traversal/README.md)
 
+<!-- tags:Stack,Tree,Depth-First Search -->
+
 ## Description
 
 <p>Given the <code>root</code> of an n-ary tree, return <em>the preorder traversal of its nodes&#39; values</em>.</p>
@@ -41,7 +43,213 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Recursion
+
+We can recursively traverse the entire tree. For each node, we first add the node's value to the answer, then recursively call the function for each of the node's children.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+
+<!-- tabs:start -->
+
+```python
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val=None, children=None):
+        self.val = val
+        self.children = children
+"""
+
+
+class Solution:
+    def preorder(self, root: "Node") -> List[int]:
+        def dfs(root):
+            if root is None:
+                return
+            ans.append(root.val)
+            for child in root.children:
+                dfs(child)
+
+        ans = []
+        dfs(root)
+        return ans
+```
+
+```java
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public List<Node> children;
+
+    public Node() {}
+
+    public Node(int _val) {
+        val = _val;
+    }
+
+    public Node(int _val, List<Node> _children) {
+        val = _val;
+        children = _children;
+    }
+};
+*/
+
+class Solution {
+    private List<Integer> ans = new ArrayList<>();
+
+    public List<Integer> preorder(Node root) {
+        dfs(root);
+        return ans;
+    }
+
+    private void dfs(Node root) {
+        if (root == null) {
+            return;
+        }
+        ans.add(root.val);
+        for (Node child : root.children) {
+            dfs(child);
+        }
+    }
+}
+```
+
+```cpp
+/*
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    vector<Node*> children;
+
+    Node() {}
+
+    Node(int _val) {
+        val = _val;
+    }
+
+    Node(int _val, vector<Node*> _children) {
+        val = _val;
+        children = _children;
+    }
+};
+*/
+
+class Solution {
+public:
+    vector<int> preorder(Node* root) {
+        vector<int> ans;
+        function<void(Node*)> dfs = [&](Node* root) {
+            if (!root) {
+                return;
+            }
+            ans.push_back(root->val);
+            for (auto& child : root->children) {
+                dfs(child);
+            }
+        };
+        dfs(root);
+        return ans;
+    }
+};
+```
+
+```go
+/**
+ * Definition for a Node.
+ * type Node struct {
+ *     Val int
+ *     Children []*Node
+ * }
+ */
+
+func preorder(root *Node) (ans []int) {
+	var dfs func(*Node)
+	dfs = func(root *Node) {
+		if root == nil {
+			return
+		}
+		ans = append(ans, root.Val)
+		for _, child := range root.Children {
+			dfs(child)
+		}
+	}
+	dfs(root)
+	return
+}
+```
+
+```ts
+/**
+ * Definition for node.
+ * class Node {
+ *     val: number
+ *     children: Node[]
+ *     constructor(val?: number) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.children = []
+ *     }
+ * }
+ */
+
+function preorder(root: Node | null): number[] {
+    const ans: number[] = [];
+    const dfs = (root: Node | null) => {
+        if (!root) {
+            return;
+        }
+        ans.push(root.val);
+        for (const child of root.children) {
+            dfs(child);
+        }
+    };
+    dfs(root);
+    return ans;
+}
+```
+
+```c
+/**
+ * Definition for a Node.
+ * struct Node {
+ *     int val;
+ *     int numChildren;
+ *     struct Node** children;
+ * };
+ */
+
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+
+void dfs(struct Node* root, int* ans, int* i) {
+    if (!root) {
+        return;
+    }
+    ans[(*i)++] = root->val;
+    for (int j = 0; j < root->numChildren; j++) {
+        dfs(root->children[j], ans, i);
+    }
+}
+
+int* preorder(struct Node* root, int* returnSize) {
+    int* ans = malloc(sizeof(int) * 10000);
+    *returnSize = 0;
+    dfs(root, ans, returnSize);
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Iteration (Stack Implementation)
+
+We can also solve this problem iteratively.
+
+We use a stack to help us get the pre-order traversal. We first push the root node into the stack. Since the pre-order traversal is root, left subtree, right subtree, and the characteristic of the stack is first in last out, we first add the node's value to the answer, then push each of the node's children into the stack in the order from right to left. We continue this process until the stack is empty.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
 
 <!-- tabs:start -->
 
@@ -159,10 +367,9 @@ public:
  * }
  */
 
-func preorder(root *Node) []int {
-	var ans []int
+func preorder(root *Node) (ans []int) {
 	if root == nil {
-		return ans
+		return
 	}
 	stk := []*Node{root}
 	for len(stk) > 0 {
@@ -174,7 +381,7 @@ func preorder(root *Node) []int {
 			stk = append(stk, children[i])
 		}
 	}
-	return ans
+	return
 }
 ```
 
@@ -192,86 +399,18 @@ func preorder(root *Node) []int {
  */
 
 function preorder(root: Node | null): number[] {
-    const res = [];
-    if (root == null) {
-        return res;
-    }
-    const stack = [root];
-    while (stack.length !== 0) {
-        const { val, children } = stack.pop();
-        res.push(val);
-        const n = children.length;
-        for (let i = n - 1; i >= 0; i--) {
-            stack.push(children[i]);
-        }
-    }
-    return res;
-}
-```
-
-```c
-/**
- * Definition for a Node.
- * struct Node {
- *     int val;
- *     int numChildren;
- *     struct Node** children;
- * };
- */
-
-/**
- * Note: The returned array must be malloced, assume caller calls free().
- */
-
-void dfs(struct Node* root, int* ans, int* i) {
+    const ans: number[] = [];
     if (!root) {
-        return;
+        return ans;
     }
-    ans[(*i)++] = root->val;
-    for (int j = 0; j < root->numChildren; j++) {
-        dfs(root->children[j], ans, i);
+    const stk: Node[] = [root];
+    while (stk.length) {
+        const { val, children } = stk.pop()!;
+        ans.push(val);
+        for (let i = children.length - 1; i >= 0; i--) {
+            stk.push(children[i]);
+        }
     }
-}
-
-int* preorder(struct Node* root, int* returnSize) {
-    int* ans = malloc(sizeof(int) * 10000);
-    *returnSize = 0;
-    dfs(root, ans, returnSize);
-    return ans;
-}
-```
-
-<!-- tabs:end -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-```ts
-/**
- * Definition for node.
- * class Node {
- *     val: number
- *     children: Node[]
- *     constructor(val?: number) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.children = []
- *     }
- * }
- */
-
-function preorder(root: Node | null): number[] {
-    const ans = [];
-    const dfs = (root: Node | null) => {
-        if (root == null) {
-            return;
-        }
-        ans.push(root.val);
-        for (const node of root.children) {
-            dfs(node);
-        }
-    };
-    dfs(root);
     return ans;
 }
 ```

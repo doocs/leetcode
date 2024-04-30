@@ -1,6 +1,8 @@
-# [2991. Top Three Wineries](https://leetcode.com/problems/top-three-wineries)
+# [2991. Top Three Wineries 🔒](https://leetcode.com/problems/top-three-wineries)
 
 [中文文档](/solution/2900-2999/2991.Top%20Three%20Wineries/README.md)
+
+<!-- tags:Database -->
 
 ## Description
 
@@ -30,7 +32,7 @@ This table contains id, country, points, and winery.
 
 <pre>
 <strong>Input:</strong> 
-Sessions table:
+Wineries table:
 +-----+-----------+--------+-----------------+
 | id  | country   | points | winery          | 
 +-----+-----------+--------+-----------------+

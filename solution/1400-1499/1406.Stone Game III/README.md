@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1406.Stone%20Game%20III/README_EN.md)
 
+<!-- tags:数组,数学,动态规划,博弈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

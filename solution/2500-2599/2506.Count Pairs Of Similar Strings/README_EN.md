@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2506.Count%20Pairs%20Of%20Similar%20Strings/README.md)
 
+<!-- tags:Bit Manipulation,Array,Hash Table,String -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string array <code>words</code>.</p>

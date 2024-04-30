@@ -2,6 +2,8 @@
 
 [中文文档](/solution/3000-3099/3019.Number%20of%20Changing%20Keys/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed </strong>string <code>s</code> typed by a user. Changing a key is defined as using a key different from the last used key. For example, <code>s = &quot;ab&quot;</code> has a change of a key while <code>s = &quot;bBBb&quot;</code> does not have any.</p>
@@ -43,24 +45,71 @@ From s[4] = &#39;c&#39; to s[5] = &#39;C&#39;, there is no change of key as caps
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Single Pass
+
+We can traverse the string, each time checking whether the lowercase form of the current character is the same as the lowercase form of the previous character. If they are different, it means that the key has been changed, and we can increment the answer accordingly.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def countKeyChanges(self, s: str) -> int:
+        return sum(a.lower() != b.lower() for a, b in pairwise(s))
 ```
 
 ```java
-
+class Solution {
+    public int countKeyChanges(String s) {
+        int ans = 0;
+        for (int i = 1; i < s.length(); ++i) {
+            if (Character.toLowerCase(s.charAt(i)) != Character.toLowerCase(s.charAt(i - 1))) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int countKeyChanges(string s) {
+        transform(s.begin(), s.end(), s.begin(), ::tolower);
+        int ans = 0;
+        for (int i = 1; i < s.size(); ++i) {
+            ans += s[i] != s[i - 1];
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func countKeyChanges(s string) (ans int) {
+	s = strings.ToLower(s)
+	for i, c := range s[1:] {
+		if byte(c) != s[i] {
+			ans++
+		}
+	}
+	return
+}
+```
 
+```ts
+function countKeyChanges(s: string): number {
+    s = s.toLowerCase();
+    let ans = 0;
+    for (let i = 1; i < s.length; ++i) {
+        if (s[i] !== s[i - 1]) {
+            ++ans;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

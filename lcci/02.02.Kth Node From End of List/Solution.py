@@ -11,5 +11,6 @@ class Solution:
         for _ in range(k):
             fast = fast.next
         while fast:
-            slow, fast = slow.next, fast.next
+            slow = slow.next
+            fast = fast.next
         return slow.val

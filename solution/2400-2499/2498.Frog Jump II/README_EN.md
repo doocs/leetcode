@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2498.Frog%20Jump%20II/README.md)
 
+<!-- tags:Greedy,Array,Binary Search -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>stones</code> sorted in <strong>strictly increasing order</strong> representing the positions of stones in a river.</p>

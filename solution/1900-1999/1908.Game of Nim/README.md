@@ -1,6 +1,8 @@
-# [1908. Nim 游戏 II](https://leetcode.cn/problems/game-of-nim)
+# [1908. Nim 游戏 II 🔒](https://leetcode.cn/problems/game-of-nim)
 
 [English Version](/solution/1900-1999/1908.Game%20of%20Nim/README_EN.md)
+
+<!-- tags:位运算,脑筋急转弯,数组,数学,动态规划,博弈 -->
 
 ## 题目描述
 

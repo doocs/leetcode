@@ -1,6 +1,8 @@
-# [2987. 寻找房价最贵的城市](https://leetcode.cn/problems/find-expensive-cities)
+# [2987. 寻找房价最贵的城市 🔒](https://leetcode.cn/problems/find-expensive-cities)
 
 [English Version](/solution/2900-2999/2987.Find%20Expensive%20Cities/README_EN.md)
+
+<!-- tags:数据库 -->
 
 ## 题目描述
 

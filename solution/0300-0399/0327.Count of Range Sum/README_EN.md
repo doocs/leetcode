@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0327.Count%20of%20Range%20Sum/README.md)
 
+<!-- tags:Binary Indexed Tree,Segment Tree,Array,Binary Search,Divide and Conquer,Ordered Set,Merge Sort -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> and two integers <code>lower</code> and <code>upper</code>, return <em>the number of range sums that lie in</em> <code>[lower, upper]</code> <em>inclusive</em>.</p>

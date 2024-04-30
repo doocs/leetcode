@@ -1,6 +1,8 @@
-# [339. 嵌套列表加权和](https://leetcode.cn/problems/nested-list-weight-sum)
+# [339. 嵌套列表加权和 🔒](https://leetcode.cn/problems/nested-list-weight-sum)
 
 [English Version](/solution/0300-0399/0339.Nested%20List%20Weight%20Sum/README_EN.md)
+
+<!-- tags:深度优先搜索,广度优先搜索 -->
 
 ## 题目描述
 

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1934.Confirmation%20Rate/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Signups</code></p>

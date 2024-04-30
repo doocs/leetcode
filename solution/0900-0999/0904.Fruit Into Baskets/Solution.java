@@ -4,11 +4,10 @@ class Solution {
         int ans = 0;
         for (int i = 0, j = 0; i < fruits.length; ++i) {
             int x = fruits[i];
-            cnt.put(x, cnt.getOrDefault(x, 0) + 1);
+            cnt.merge(x, 1, Integer::sum);
             while (cnt.size() > 2) {
                 int y = fruits[j++];
-                cnt.put(y, cnt.get(y) - 1);
-                if (cnt.get(y) == 0) {
+                if (cnt.merge(y, -1, Integer::sum) == 0) {
                     cnt.remove(y);
                 }
             }

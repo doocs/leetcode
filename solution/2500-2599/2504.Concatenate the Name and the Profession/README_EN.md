@@ -1,6 +1,8 @@
-# [2504. Concatenate the Name and the Profession](https://leetcode.com/problems/concatenate-the-name-and-the-profession)
+# [2504. Concatenate the Name and the Profession 🔒](https://leetcode.com/problems/concatenate-the-name-and-the-profession)
 
 [中文文档](/solution/2500-2599/2504.Concatenate%20the%20Name%20and%20the%20Profession/README.md)
+
+<!-- tags:Database -->
 
 ## Description
 

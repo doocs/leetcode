@@ -2,7 +2,7 @@ class Solution:
     def findMinHeightTrees(self, n: int, edges: List[List[int]]) -> List[int]:
         if n == 1:
             return [0]
-        g = defaultdict(list)
+        g = [[] for _ in range(n)]
         degree = [0] * n
         for a, b in edges:
             g[a].append(b)

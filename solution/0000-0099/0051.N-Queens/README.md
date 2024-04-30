@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0051.N-Queens/README_EN.md)
 
+<!-- tags:数组,回溯 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -198,13 +200,11 @@ func solveNQueens(n int) (ans [][]string) {
 
 ```ts
 function solveNQueens(n: number): string[][] {
-    const col: number[] = new Array(n).fill(0);
-    const dg: number[] = new Array(n << 1).fill(0);
-    const udg: number[] = new Array(n << 1).fill(0);
+    const col: number[] = Array(n).fill(0);
+    const dg: number[] = Array(n << 1).fill(0);
+    const udg: number[] = Array(n << 1).fill(0);
     const ans: string[][] = [];
-    const t: string[][] = Array(n)
-        .fill(0)
-        .map(() => Array(n).fill('.'));
+    const t: string[][] = Array.from({ length: n }, () => Array(n).fill('.'));
     const dfs = (i: number) => {
         if (i === n) {
             ans.push(t.map(x => x.join('')));

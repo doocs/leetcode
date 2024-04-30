@@ -1,6 +1,8 @@
-# [2403. Minimum Time to Kill All Monsters](https://leetcode.com/problems/minimum-time-to-kill-all-monsters)
+# [2403. Minimum Time to Kill All Monsters 🔒](https://leetcode.com/problems/minimum-time-to-kill-all-monsters)
 
 [中文文档](/solution/2400-2499/2403.Minimum%20Time%20to%20Kill%20All%20Monsters/README.md)
+
+<!-- tags:Bit Manipulation,Array,Dynamic Programming,Bitmask -->
 
 ## Description
 

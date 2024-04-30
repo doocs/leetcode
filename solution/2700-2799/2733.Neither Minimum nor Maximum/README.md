@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2733.Neither%20Minimum%20nor%20Maximum/README_EN.md)
 
+<!-- tags:数组,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -45,14 +47,19 @@
 
 ## 解法
 
-### 方法一
+### 方法一：模拟
+
+我们可以先找到数组中的最小值和最大值，分别记为 $mi$ 和 $mx$。然后遍历数组，找到第一个不等于 $mi$ 且不等于 $mx$ 的数字，返回即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def findNonMinOrMax(self, nums: List[int]) -> int:
-        return -1 if len(nums) < 3 else sorted(nums)[1]
+        mi, mx = min(nums), max(nums)
+        return next((x for x in nums if x != mi and x != mx), -1)
 ```
 
 ```java
@@ -77,10 +84,9 @@ class Solution {
 class Solution {
 public:
     int findNonMinOrMax(vector<int>& nums) {
-        int mi = *min_element(nums.begin(), nums.end());
-        int mx = *max_element(nums.begin(), nums.end());
+        auto [mi, mx] = minmax_element(nums.begin(), nums.end());
         for (int x : nums) {
-            if (x != mi && x != mx) {
+            if (x != *mi && x != *mx) {
                 return x;
             }
         }

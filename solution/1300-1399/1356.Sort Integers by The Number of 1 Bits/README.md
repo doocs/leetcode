@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1356.Sort%20Integers%20by%20The%20Number%20of%201%20Bits/README_EN.md)
 
+<!-- tags:位运算,数组,计数,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

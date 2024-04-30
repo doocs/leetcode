@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2976.Minimum%20Cost%20to%20Convert%20String%20I/README_EN.md)
 
+<!-- tags:图,数组,字符串,最短路 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

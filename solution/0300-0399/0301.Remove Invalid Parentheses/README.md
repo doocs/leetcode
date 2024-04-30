@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0301.Remove%20Invalid%20Parentheses/README_EN.md)
 
+<!-- tags:广度优先搜索,字符串,回溯 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

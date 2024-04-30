@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0040.Combination%20Sum%20II/README.md)
 
+<!-- tags:Array,Backtracking -->
+
 ## Description
 
 <p>Given a collection of candidate numbers (<code>candidates</code>) and a target number (<code>target</code>), find all unique combinations in <code>candidates</code>&nbsp;where the candidate numbers sum to <code>target</code>.</p>
@@ -46,7 +48,7 @@
 
 ## Solutions
 
-### Solution 1: Sorting + Pruning + Backtracking (Two Implementations)
+### Solution 1: Sorting + Pruning + Backtracking
 
 We can first sort the array to facilitate pruning and skipping duplicate numbers.
 
@@ -304,7 +306,11 @@ public class Solution {
 
 <!-- tabs:end -->
 
-### Solution 2
+### Solution 2: Sorting + Pruning + Backtracking(Another Form)
+
+We can also change the implementation logic of the function $dfs(i, s)$ to another form. If we choose the current number, we add the current number to the search path $t$, then recursively call the function $dfs(i + 1, s - candidates[i])$, and after the recursion ends, we remove the current number from the search path $t$. If we do not choose the current number, we can skip all numbers that are the same as the current number, then recursively call the function $dfs(j, s)$, where $j$ is the index of the first number that is different from the current number.
+
+The time complexity is $O(2^n \times n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $candidates$. Due to pruning, the actual time complexity is much less than $O(2^n \times n)$.
 
 <!-- tabs:start -->
 
@@ -539,6 +545,54 @@ public class Solution {
             ++i;
         }
         dfs(i, s);
+    }
+}
+```
+
+```php
+class Solution {
+    /**
+     * @param integer[] $candidates
+     * @param integer $target
+     * @return integer[][]
+     */
+
+    function combinationSum2($candidates, $target) {
+        $result = [];
+        $currentCombination = [];
+        $startIndex = 0;
+
+        sort($candidates);
+        $this->findCombinations($candidates, $target, $startIndex, $currentCombination, $result);
+        return $result;
+    }
+
+    function findCombinations($candidates, $target, $startIndex, $currentCombination, &$result) {
+        if ($target === 0) {
+            $result[] = $currentCombination;
+            return;
+        }
+
+        for ($i = $startIndex; $i < count($candidates); $i++) {
+            $num = $candidates[$i];
+            if ($num > $target) {
+                break;
+            }
+
+            if ($i > $startIndex && $candidates[$i] === $candidates[$i - 1]) {
+                continue;
+            }
+            $currentCombination[] = $num;
+
+            $this->findCombinations(
+                $candidates,
+                $target - $num,
+                $i + 1,
+                $currentCombination,
+                $result,
+            );
+            array_pop($currentCombination);
+        }
     }
 }
 ```

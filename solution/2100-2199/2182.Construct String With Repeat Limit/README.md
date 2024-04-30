@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2182.Construct%20String%20With%20Repeat%20Limit/README_EN.md)
 
+<!-- tags:贪心,字符串,计数,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

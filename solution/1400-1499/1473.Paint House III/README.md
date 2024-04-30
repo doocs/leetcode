@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1473.Paint%20House%20III/README_EN.md)
 
+<!-- tags:数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

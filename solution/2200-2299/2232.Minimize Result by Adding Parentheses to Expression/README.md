@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2232.Minimize%20Result%20by%20Adding%20Parentheses%20to%20Expression/README_EN.md)
 
+<!-- tags:字符串,枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

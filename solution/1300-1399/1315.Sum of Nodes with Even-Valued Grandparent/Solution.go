@@ -6,28 +6,22 @@
  *     Right *TreeNode
  * }
  */
-
-var res int
-
 func sumEvenGrandparent(root *TreeNode) int {
-	res = 0
-	dfs(root, root.Left)
-	dfs(root, root.Right)
-	return res
-}
-
-func dfs(g, p *TreeNode) {
-	if p == nil {
-		return
-	}
-	if g.Val%2 == 0 {
-		if p.Left != nil {
-			res += p.Left.Val
+	var dfs func(*TreeNode, int) int
+	dfs = func(root *TreeNode, x int) int {
+		if root == nil {
+			return 0
 		}
-		if p.Right != nil {
-			res += p.Right.Val
+		ans := dfs(root.Left, root.Val) + dfs(root.Right, root.Val)
+		if x%2 == 0 {
+			if root.Left != nil {
+				ans += root.Left.Val
+			}
+			if root.Right != nil {
+				ans += root.Right.Val
+			}
 		}
+		return ans
 	}
-	dfs(p, p.Left)
-	dfs(p, p.Right)
+	return dfs(root, 1)
 }

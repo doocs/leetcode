@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2059.Minimum%20Operations%20to%20Convert%20Number/README_EN.md)
 
+<!-- tags:广度优先搜索,数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

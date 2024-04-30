@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1722.Minimize%20Hamming%20Distance%20After%20Swap%20Operations/README_EN.md)
 
+<!-- tags:深度优先搜索,并查集,数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

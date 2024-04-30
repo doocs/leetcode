@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2034.Stock%20Price%20Fluctuation/README.md)
 
+<!-- tags:Design,Hash Table,Data Stream,Ordered Set,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given a stream of <strong>records</strong> about a particular stock. Each record contains a <strong>timestamp</strong> and the corresponding <strong>price</strong> of the stock at that timestamp.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0164.Maximum%20Gap/README.md)
 
+<!-- tags:Array,Bucket Sort,Radix Sort,Sorting -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, return <em>the maximum difference between two successive elements in its sorted form</em>. If the array contains less than two elements, return <code>0</code>.</p>
@@ -35,7 +37,20 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Discuss Different Cases
+
+Let $m$ represent the length of string $s$, and $n$ represent the length of string $t$. We can assume that $m$ is always greater than or equal to $n$.
+
+If $m-n > 1$, return false directly;
+
+Otherwise, iterate through $s$ and $t$, if $s[i]$ is not equal to $t[i]$:
+
+-   If $m \neq n$, compare $s[i+1:]$ with $t[i:]$, return true if they are equal, otherwise return false;
+-   If $m = n$, compare $s[i:]$ with $t[i:]$, return true if they are equal, otherwise return false.
+
+If the iteration ends, it means that all the characters of $s$ and $t$ that have been iterated are equal, at this time it needs to satisfy $m=n+1$.
+
+The time complexity is $O(m)$, where $m$ is the length of string $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0818.Race%20Car/README.md)
 
+<!-- tags:Dynamic Programming -->
+
 ## Description
 
 <p>Your car starts at position <code>0</code> and speed <code>+1</code> on an infinite number line. Your car can go into negative positions. Your car drives automatically according to a sequence of instructions <code>&#39;A&#39;</code> (accelerate) and <code>&#39;R&#39;</code> (reverse):</p>

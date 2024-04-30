@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1367.Linked%20List%20in%20Binary%20Tree/README_EN.md)
 
+<!-- tags:树,深度优先搜索,广度优先搜索,链表,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

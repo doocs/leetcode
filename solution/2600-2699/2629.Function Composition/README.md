@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2629.Function%20Composition/README_EN.md)
 
+<!-- tags: -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -32,8 +34,8 @@ Starting with x = 4.
 <p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<b>输出：</b>functions = [x =&gt; 10 * x, x =&gt; 10 * x, x =&gt; 10 * x], x = 1
-<b>输入：</b>1000
+<b>输入：</b>functions = [x =&gt; 10 * x, x =&gt; 10 * x, x =&gt; 10 * x], x = 1
+<b>输出：</b>1000
 <strong>解释：</strong>
 从右向左计算......
 10 * (1) = 10

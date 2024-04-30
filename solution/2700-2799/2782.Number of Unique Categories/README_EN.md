@@ -1,6 +1,8 @@
-# [2782. Number of Unique Categories](https://leetcode.com/problems/number-of-unique-categories)
+# [2782. Number of Unique Categories 🔒](https://leetcode.com/problems/number-of-unique-categories)
 
 [中文文档](/solution/2700-2799/2782.Number%20of%20Unique%20Categories/README.md)
+
+<!-- tags:Union Find,Counting,Interactive -->
 
 ## Description
 

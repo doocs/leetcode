@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0077.Combinations/README.md)
 
+<!-- tags:Backtracking -->
+
 ## Description
 
 <p>Given two integers <code>n</code> and <code>k</code>, return <em>all possible combinations of</em> <code>k</code> <em>numbers chosen from the range</em> <code>[1, n]</code>.</p>

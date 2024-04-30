@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1032.Stream%20of%20Characters/README_EN.md)
 
+<!-- tags:设计,字典树,数组,字符串,数据流 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2787.Ways%20to%20Express%20an%20Integer%20as%20Sum%20of%20Powers/README.md)
 
+<!-- tags:Dynamic Programming -->
+
 ## Description
 
 <p>Given two <strong>positive</strong> integers <code>n</code> and <code>x</code>.</p>

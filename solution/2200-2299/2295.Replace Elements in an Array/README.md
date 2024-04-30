@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2295.Replace%20Elements%20in%20an%20Array/README_EN.md)
 
+<!-- tags:数组,哈希表,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

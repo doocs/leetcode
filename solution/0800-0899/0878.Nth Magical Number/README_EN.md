@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0878.Nth%20Magical%20Number/README.md)
 
+<!-- tags:Math,Binary Search -->
+
 ## Description
 
 <p>A positive integer is <em>magical</em> if it is divisible by either <code>a</code> or <code>b</code>.</p>

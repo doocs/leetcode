@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1226.The%20Dining%20Philosophers/README_EN.md)
 
+<!-- tags:多线程 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

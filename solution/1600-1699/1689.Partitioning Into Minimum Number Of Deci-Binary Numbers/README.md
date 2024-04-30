@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1689.Partitioning%20Into%20Minimum%20Number%20Of%20Deci-Binary%20Numbers/README_EN.md)
 
+<!-- tags:贪心,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -74,7 +76,9 @@ class Solution {
 public:
     int minPartitions(string n) {
         int ans = 0;
-        for (char& c : n) ans = max(ans, c - '0');
+        for (char& c : n) {
+            ans = max(ans, c - '0');
+        }
         return ans;
     }
 };
@@ -93,9 +97,7 @@ func minPartitions(n string) (ans int) {
 
 ```ts
 function minPartitions(n: string): number {
-    let nums = n.split('').map(d => parseInt(d));
-    let ans = Math.max(...nums);
-    return ans;
+    return Math.max(...n.split('').map(d => parseInt(d)));
 }
 ```
 

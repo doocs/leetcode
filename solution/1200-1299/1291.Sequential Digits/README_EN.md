@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1291.Sequential%20Digits/README.md)
 
+<!-- tags:Enumeration -->
+
 ## Description
 
 <p>An&nbsp;integer has <em>sequential digits</em> if and only if each digit in the number is one more than the previous digit.</p>

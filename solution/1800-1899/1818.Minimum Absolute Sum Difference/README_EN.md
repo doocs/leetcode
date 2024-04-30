@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1818.Minimum%20Absolute%20Sum%20Difference/README.md)
 
+<!-- tags:Array,Binary Search,Ordered Set,Sorting -->
+
 ## Description
 
 <p>You are given two positive integer arrays <code>nums1</code> and <code>nums2</code>, both of length <code>n</code>.</p>

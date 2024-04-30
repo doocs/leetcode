@@ -1,6 +1,8 @@
-# [1843. 可疑银行账户](https://leetcode.cn/problems/suspicious-bank-accounts)
+# [1843. 可疑银行账户 🔒](https://leetcode.cn/problems/suspicious-bank-accounts)
 
 [English Version](/solution/1800-1899/1843.Suspicious%20Bank%20Accounts/README_EN.md)
+
+<!-- tags:数据库 -->
 
 ## 题目描述
 

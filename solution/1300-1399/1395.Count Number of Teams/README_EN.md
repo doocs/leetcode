@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1395.Count%20Number%20of%20Teams/README.md)
 
+<!-- tags:Binary Indexed Tree,Array,Dynamic Programming -->
+
 ## Description
 
 <p>There are <code>n</code> soldiers standing in a line. Each soldier is assigned a <strong>unique</strong> <code>rating</code> value.</p>

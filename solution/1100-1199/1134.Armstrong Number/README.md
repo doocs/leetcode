@@ -1,6 +1,8 @@
-# [1134. 阿姆斯特朗数](https://leetcode.cn/problems/armstrong-number)
+# [1134. 阿姆斯特朗数 🔒](https://leetcode.cn/problems/armstrong-number)
 
 [English Version](/solution/1100-1199/1134.Armstrong%20Number/README_EN.md)
+
+<!-- tags:数学 -->
 
 ## 题目描述
 

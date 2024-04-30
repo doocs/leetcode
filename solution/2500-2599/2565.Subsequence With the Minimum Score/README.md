@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2565.Subsequence%20With%20the%20Minimum%20Score/README_EN.md)
 
+<!-- tags:双指针,字符串,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2980.Check%20if%20Bitwise%20OR%20Has%20Trailing%20Zeros/README.md)
 
+<!-- tags:Bit Manipulation,Array -->
+
 ## Description
 
 <p>You are given an array of <strong>positive</strong> integers <code>nums</code>.</p>

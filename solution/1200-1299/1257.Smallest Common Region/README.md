@@ -1,6 +1,8 @@
-# [1257. 最小公共区域](https://leetcode.cn/problems/smallest-common-region)
+# [1257. 最小公共区域 🔒](https://leetcode.cn/problems/smallest-common-region)
 
 [English Version](/solution/1200-1299/1257.Smallest%20Common%20Region/README_EN.md)
+
+<!-- tags:树,深度优先搜索,广度优先搜索,数组,哈希表,字符串 -->
 
 ## 题目描述
 

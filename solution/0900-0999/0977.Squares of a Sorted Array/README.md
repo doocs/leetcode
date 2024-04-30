@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0977.Squares%20of%20a%20Sorted%20Array/README_EN.md)
 
+<!-- tags:数组,双指针,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -48,42 +50,48 @@
 
 ## 解法
 
-### 方法一
+### 方法一：双指针
+
+由于数组 $nums$ 已经按照非递减顺序排好序，所以数组中负数的平方值是递减的，正数的平方值是递增的。我们可以使用双指针，分别指向数组的两端，每次比较两个指针指向的元素的平方值，将较大的平方值放入结果数组的末尾。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def sortedSquares(self, nums: List[int]) -> List[int]:
-        n = len(nums)
-        res = [0] * n
-        i, j, k = 0, n - 1, n - 1
+        ans = []
+        i, j = 0, len(nums) - 1
         while i <= j:
-            if nums[i] * nums[i] > nums[j] * nums[j]:
-                res[k] = nums[i] * nums[i]
+            a = nums[i] * nums[i]
+            b = nums[j] * nums[j]
+            if a > b:
+                ans.append(a)
                 i += 1
             else:
-                res[k] = nums[j] * nums[j]
+                ans.append(b)
                 j -= 1
-            k -= 1
-        return res
+        return ans[::-1]
 ```
 
 ```java
 class Solution {
     public int[] sortedSquares(int[] nums) {
         int n = nums.length;
-        int[] res = new int[n];
-        for (int i = 0, j = n - 1, k = n - 1; i <= j;) {
-            if (nums[i] * nums[i] > nums[j] * nums[j]) {
-                res[k--] = nums[i] * nums[i];
+        int[] ans = new int[n];
+        for (int i = 0, j = n - 1, k = n - 1; i <= j; --k) {
+            int a = nums[i] * nums[i];
+            int b = nums[j] * nums[j];
+            if (a > b) {
+                ans[k] = a;
                 ++i;
             } else {
-                res[k--] = nums[j] * nums[j];
+                ans[k] = b;
                 --j;
             }
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -93,17 +101,19 @@ class Solution {
 public:
     vector<int> sortedSquares(vector<int>& nums) {
         int n = nums.size();
-        vector<int> res(n);
-        for (int i = 0, j = n - 1, k = n - 1; i <= j;) {
-            if (nums[i] * nums[i] > nums[j] * nums[j]) {
-                res[k--] = nums[i] * nums[i];
+        vector<int> ans(n);
+        for (int i = 0, j = n - 1, k = n - 1; i <= j; --k) {
+            int a = nums[i] * nums[i];
+            int b = nums[j] * nums[j];
+            if (a > b) {
+                ans[k] = a;
                 ++i;
             } else {
-                res[k--] = nums[j] * nums[j];
+                ans[k] = b;
                 --j;
             }
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -111,18 +121,19 @@ public:
 ```go
 func sortedSquares(nums []int) []int {
 	n := len(nums)
-	res := make([]int, n)
-	for i, j, k := 0, n-1, n-1; i <= j; {
-		if nums[i]*nums[i] > nums[j]*nums[j] {
-			res[k] = nums[i] * nums[i]
+	ans := make([]int, n)
+	for i, j, k := 0, n-1, n-1; i <= j; k-- {
+		a := nums[i] * nums[i]
+		b := nums[j] * nums[j]
+		if a > b {
+			ans[k] = a
 			i++
 		} else {
-			res[k] = nums[j] * nums[j]
+			ans[k] = b
 			j--
 		}
-		k--
 	}
-	return res
+	return ans
 }
 ```
 
@@ -130,21 +141,20 @@ func sortedSquares(nums []int) []int {
 impl Solution {
     pub fn sorted_squares(nums: Vec<i32>) -> Vec<i32> {
         let n = nums.len();
-        let mut l = 0;
-        let mut r = n - 1;
-        let mut res = vec![0; n];
-        for i in (0..n).rev() {
-            let a = nums[l] * nums[l];
-            let b = nums[r] * nums[r];
-            if a < b {
-                res[i] = b;
-                r -= 1;
+        let mut ans = vec![0; n];
+        let (mut i, mut j) = (0, n - 1);
+        for k in (0..n).rev() {
+            let a = nums[i] * nums[i];
+            let b = nums[j] * nums[j];
+            if a > b {
+                ans[k] = a;
+                i += 1;
             } else {
-                res[i] = a;
-                l += 1;
+                ans[k] = b;
+                j -= 1;
             }
         }
-        res
+        ans
     }
 }
 ```
@@ -156,17 +166,18 @@ impl Solution {
  */
 var sortedSquares = function (nums) {
     const n = nums.length;
-    const res = new Array(n);
-    for (let i = 0, j = n - 1, k = n - 1; i <= j; ) {
-        if (nums[i] * nums[i] > nums[j] * nums[j]) {
-            res[k--] = nums[i] * nums[i];
+    const ans = Array(n).fill(0);
+    for (let i = 0, j = n - 1, k = n - 1; i <= j; --k) {
+        const [a, b] = [nums[i] * nums[i], nums[j] * nums[j]];
+        if (a > b) {
+            ans[k] = a;
             ++i;
         } else {
-            res[k--] = nums[j] * nums[j];
+            ans[k] = b;
             --j;
         }
     }
-    return res;
+    return ans;
 };
 ```
 
@@ -177,22 +188,20 @@ class Solution {
      * @return Integer[]
      */
     function sortedSquares($nums) {
-        $i = 0;
-        $j = $k = count($nums) - 1;
-        $rs = array_fill(0, count($nums), -1);
-        while ($i <= $j) {
-            $max1 = $nums[$i] * $nums[$i];
-            $max2 = $nums[$j] * $nums[$j];
-            if ($max1 > $max2) {
-                $rs[$k] = $max1;
-                $i++;
+        $n = count($nums);
+        $ans = array_fill(0, $n, 0);
+        for ($i = 0, $j = $n - 1, $k = $n - 1; $i <= $j; --$k) {
+            $a = $nums[$i] * $nums[$i];
+            $b = $nums[$j] * $nums[$j];
+            if ($a > $b) {
+                $ans[$k] = $a;
+                ++$i;
             } else {
-                $rs[$k] = $max2;
-                $j--;
+                $ans[$k] = $b;
+                --$j;
             }
-            $k--;
         }
-        return $rs;
+        return $ans;
     }
 }
 ```

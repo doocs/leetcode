@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2500.Delete%20Greatest%20Value%20in%20Each%20Row/README.md)
 
+<!-- tags:Array,Matrix,Sorting,Simulation,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> matrix <code>grid</code> consisting of positive integers.</p>

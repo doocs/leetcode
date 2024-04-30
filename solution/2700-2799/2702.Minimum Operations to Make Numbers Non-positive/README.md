@@ -1,6 +1,8 @@
-# [2702. 使数字变为非正数的最小操作次数](https://leetcode.cn/problems/minimum-operations-to-make-numbers-non-positive)
+# [2702. 使数字变为非正数的最小操作次数 🔒](https://leetcode.cn/problems/minimum-operations-to-make-numbers-non-positive)
 
 [English Version](/solution/2700-2799/2702.Minimum%20Operations%20to%20Make%20Numbers%20Non-positive/README_EN.md)
+
+<!-- tags:数组,二分查找 -->
 
 ## 题目描述
 

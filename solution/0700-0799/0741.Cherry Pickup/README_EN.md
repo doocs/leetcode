@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0741.Cherry%20Pickup/README.md)
 
+<!-- tags:Array,Dynamic Programming,Matrix -->
+
 ## Description
 
 <p>You are given an <code>n x n</code> <code>grid</code> representing a field of cherries, each cell is one of three possible integers.</p>

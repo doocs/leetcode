@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0664.Strange%20Printer/README.md)
 
+<!-- tags:String,Dynamic Programming -->
+
 ## Description
 
 <p>There is a strange printer with the following two special properties:</p>

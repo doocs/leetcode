@@ -1,6 +1,8 @@
-# [253. Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii)
+# [253. Meeting Rooms II 🔒](https://leetcode.com/problems/meeting-rooms-ii)
 
 [中文文档](/solution/0200-0299/0253.Meeting%20Rooms%20II/README.md)
+
+<!-- tags:Greedy,Array,Two Pointers,Prefix Sum,Sorting,Heap (Priority Queue) -->
 
 ## Description
 

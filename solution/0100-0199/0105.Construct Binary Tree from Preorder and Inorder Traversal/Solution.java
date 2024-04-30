@@ -15,13 +15,11 @@
  */
 class Solution {
     private int[] preorder;
-    private int[] inorder;
     private Map<Integer, Integer> d = new HashMap<>();
 
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         int n = preorder.length;
         this.preorder = preorder;
-        this.inorder = inorder;
         for (int i = 0; i < n; ++i) {
             d.put(inorder[i], i);
         }

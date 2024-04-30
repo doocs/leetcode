@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0011.Container%20With%20Most%20Water/README.md)
 
+<!-- tags:Greedy,Array,Two Pointers -->
+
 ## Description
 
 <p>You are given an integer array <code>height</code> of length <code>n</code>. There are <code>n</code> vertical lines drawn such that the two endpoints of the <code>i<sup>th</sup></code> line are <code>(i, 0)</code> and <code>(i, height[i])</code>.</p>
@@ -144,16 +146,16 @@ impl Solution {
     pub fn max_area(height: Vec<i32>) -> i32 {
         let mut i = 0;
         let mut j = height.len() - 1;
-        let mut res = 0;
+        let mut ans = 0;
         while i < j {
-            res = res.max(height[i].min(height[j]) * ((j - i) as i32));
+            ans = ans.max(height[i].min(height[j]) * ((j - i) as i32));
             if height[i] <= height[j] {
                 i += 1;
             } else {
                 j -= 1;
             }
         }
-        res
+        ans
     }
 }
 ```
@@ -195,6 +197,30 @@ public class Solution {
             }
         }
         return ans;
+    }
+}
+```
+
+```php
+class Solution {
+    /**
+     * @param Integer[] $height
+     * @return Integer
+     */
+    function maxArea($height) {
+        $i = 0;
+        $j = count($height) - 1;
+        $ans = 0;
+        while ($i < $j) {
+            $t = min($height[$i], $height[$j]) * ($j - $i);
+            $ans = max($ans, $t);
+            if ($height[$i] < $height[$j]) {
+                ++$i;
+            } else {
+                --$j;
+            }
+        }
+        return $ans;
     }
 }
 ```

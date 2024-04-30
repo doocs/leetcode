@@ -1,6 +1,8 @@
-# [2990. Loan Types](https://leetcode.com/problems/loan-types)
+# [2990. Loan Types 🔒](https://leetcode.com/problems/loan-types)
 
 [中文文档](/solution/2900-2999/2990.Loan%20Types/README.md)
+
+<!-- tags:Database -->
 
 ## Description
 
@@ -29,7 +31,7 @@ This table contains loan_id, user_id, and loan_type.
 
 <pre>
 <strong>Input:</strong>
-Sessions table:
+Loans table:
 +---------+---------+-----------+
 | loan_id | user_id | loan_type |
 +---------+---------+-----------+

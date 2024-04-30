@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2609.Find%20the%20Longest%20Balanced%20Substring%20of%20a%20Binary%20String/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>You are given a binary string <code>s</code> consisting only of zeroes and ones.</p>

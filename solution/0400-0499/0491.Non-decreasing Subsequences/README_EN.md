@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0491.Non-decreasing%20Subsequences/README.md)
 
+<!-- tags:Bit Manipulation,Array,Hash Table,Backtracking -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, return <em>all the different possible non-decreasing subsequences of the given array with at least two elements</em>. You may return the answer in <strong>any order</strong>.</p>

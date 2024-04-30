@@ -2,16 +2,18 @@
 
 [English Version](/solution/0100-0199/0192.Word%20Frequency/README_EN.md)
 
+<!-- tags: -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
 
-<p>写一个 bash 脚本以统计一个文本文件&nbsp;<code>words.txt</code>&nbsp;中每个单词出现的频率。</p>
+<p>写一个 bash 脚本以统计一个文本文件&nbsp;<code>words.txt</code>&nbsp;中每个单词出现的<span data-keyword="frequency-textfile">频率</span>。</p>
 
 <p>为了简单起见，你可以假设：</p>
 
 <ul>
-	<li><code>words.txt</code>只包括小写字母和&nbsp;<code>&#39; &#39;</code>&nbsp;。</li>
+	<li><code>words.txt</code>只包括小写字母和&nbsp;<code>' '</code>&nbsp;。</li>
 	<li>每个单词只由小写字母组成。</li>
 	<li>单词间由一个或多个空格字符分隔。</li>
 </ul>
@@ -20,13 +22,15 @@
 
 <p>假设 <code>words.txt</code> 内容如下：</p>
 
-<pre>the day is sunny the the
+<pre>
+the day is sunny the the
 the sunny is is
 </pre>
 
 <p>你的脚本应当输出（以词频降序排列）：</p>
 
-<pre>the 4
+<pre>
+the 4
 is 3
 sunny 2
 day 1
@@ -40,5 +44,16 @@ day 1
 </ul>
 
 ## 解法
+
+### 方法一：awk
+
+<!-- tabs:start -->
+
+```bash
+# Read from the file words.txt and output the word frequency list to stdout.
+cat words.txt | tr -s ' ' '\n' | sort | uniq -c | sort -nr | awk '{print $2, $1}'
+```
+
+<!-- tabs:end -->
 
 <!-- end -->

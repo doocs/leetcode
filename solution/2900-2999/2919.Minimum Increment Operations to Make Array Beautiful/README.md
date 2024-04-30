@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2919.Minimum%20Increment%20Operations%20to%20Make%20Array%20Beautiful/README_EN.md)
 
+<!-- tags:数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -150,6 +152,21 @@ function minIncrementOperations(nums: number[], k: number): number {
         [f, g, h] = [g, h, Math.min(f, g, h) + Math.max(k - x, 0)];
     }
     return Math.min(f, g, h);
+}
+```
+
+```cs
+public class Solution {
+    public long MinIncrementOperations(int[] nums, int k) {
+        long f = 0, g = 0, h = 0;
+        foreach (int x in nums) {
+            long hh = Math.Min(Math.Min(f, g), h) + Math.Max(k - x, 0);
+            f = g;
+            g = h;
+            h = hh;
+        }
+        return Math.Min(Math.Min(f, g), h);
+    }
 }
 ```
 

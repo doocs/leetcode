@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1036.Escape%20a%20Large%20Maze/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,数组,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

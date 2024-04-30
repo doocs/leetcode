@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1604.Alert%20Using%20Same%20Key-Card%20Three%20or%20More%20Times%20in%20a%20One%20Hour%20Period/README_EN.md)
 
+<!-- tags:数组,哈希表,字符串,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -57,7 +59,7 @@
 
 最后，将答案数组按照字典序排序，即可得到答案。
 
-时间复杂度 $O(n \times \log n)$，其中 $n$ 是数组 $keyName$ 的长度。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是打卡记录的数量。
 
 <!-- tabs:start -->
 
@@ -166,6 +168,38 @@ func alertNames(keyName []string, keyTime []string) (ans []string) {
 	}
 	sort.Strings(ans)
 	return
+}
+```
+
+```ts
+function alertNames(keyName: string[], keyTime: string[]): string[] {
+    const d: { [name: string]: number[] } = {};
+    for (let i = 0; i < keyName.length; ++i) {
+        const name = keyName[i];
+        const t = keyTime[i];
+        const minutes = +t.slice(0, 2) * 60 + +t.slice(3);
+        if (d[name] === undefined) {
+            d[name] = [];
+        }
+        d[name].push(minutes);
+    }
+    const ans: string[] = [];
+    for (const name in d) {
+        if (d.hasOwnProperty(name)) {
+            const ts = d[name];
+            if (ts.length > 2) {
+                ts.sort((a, b) => a - b);
+                for (let i = 0; i < ts.length - 2; ++i) {
+                    if (ts[i + 2] - ts[i] <= 60) {
+                        ans.push(name);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    ans.sort();
+    return ans;
 }
 ```
 

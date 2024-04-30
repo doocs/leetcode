@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2906.Construct%20Product%20Matrix/README_EN.md)
 
+<!-- tags:数组,矩阵,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

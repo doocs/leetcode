@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1863.Sum%20of%20All%20Subset%20XOR%20Totals/README.md)
 
+<!-- tags:Bit Manipulation,Array,Math,Backtracking,Combinatorics -->
+
 ## Description
 
 <p>The <strong>XOR total</strong> of an array is defined as the bitwise <code>XOR</code> of<strong> all its elements</strong>, or <code>0</code> if the array is<strong> empty</strong>.</p>

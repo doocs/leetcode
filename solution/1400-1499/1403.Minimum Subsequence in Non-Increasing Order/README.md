@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1403.Minimum%20Subsequence%20in%20Non-Increasing%20Order/README_EN.md)
 
+<!-- tags:贪心,数组,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -18,22 +20,18 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>nums = [4,3,10,9,8]
+<pre>
+<strong>输入：</strong>nums = [4,3,10,9,8]
 <strong>输出：</strong>[10,9] 
 <strong>解释：</strong>子序列 [10,9] 和 [10,8] 是最小的、满足元素之和大于其他各元素之和的子序列。但是 [10,9] 的元素之和最大。&nbsp;
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>nums = [4,4,7,6,7]
+<pre>
+<strong>输入：</strong>nums = [4,4,7,6,7]
 <strong>输出：</strong>[7,7,6] 
 <strong>解释：</strong>子序列 [7,7] 的和为 14 ，不严格大于剩下的其他元素之和（14 = 4 + 4 + 6）。因此，[7,6,7] 是满足题意的最小子序列。注意，元素按非递增顺序返回。  
-</pre>
-
-<p><strong>示例 3：</strong></p>
-
-<pre><strong>输入：</strong>nums = [6]
-<strong>输出：</strong>[6]
 </pre>
 
 <p>&nbsp;</p>

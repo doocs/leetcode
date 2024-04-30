@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1396.Design%20Underground%20System/README_EN.md)
 
+<!-- tags:设计,哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

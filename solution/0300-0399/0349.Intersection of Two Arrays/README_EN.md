@@ -2,9 +2,11 @@
 
 [中文文档](/solution/0300-0399/0349.Intersection%20of%20Two%20Arrays/README.md)
 
+<!-- tags:Array,Hash Table,Two Pointers,Binary Search,Sorting -->
+
 ## Description
 
-<p>Given two integer arrays <code>nums1</code> and <code>nums2</code>, return <em>an array of their intersection</em>. Each element in the result must be <strong>unique</strong> and you may return the result in <strong>any order</strong>.</p>
+<p>Given two integer arrays <code>nums1</code> and <code>nums2</code>, return <em>an array of their <span data-keyword="array-intersection">intersection</span></em>. Each element in the result must be <strong>unique</strong> and you may return the result in <strong>any order</strong>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

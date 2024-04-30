@@ -1,6 +1,8 @@
-# [247. 中心对称数 II](https://leetcode.cn/problems/strobogrammatic-number-ii)
+# [247. 中心对称数 II 🔒](https://leetcode.cn/problems/strobogrammatic-number-ii)
 
 [English Version](/solution/0200-0299/0247.Strobogrammatic%20Number%20II/README_EN.md)
+
+<!-- tags:递归,数组,字符串 -->
 
 ## 题目描述
 
@@ -53,7 +55,7 @@
 
 相似题目：
 
--   [248. 中心对称数 III](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0248.Strobogrammatic%20Number%20III/README.md)
+-   [248. 中心对称数 III 🔒](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0248.Strobogrammatic%20Number%20III/README.md)
 
 <!-- tabs:start -->
 

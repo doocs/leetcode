@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1964.Find%20the%20Longest%20Valid%20Obstacle%20Course%20at%20Each%20Position/README_EN.md)
 
+<!-- tags:树状数组,数组,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

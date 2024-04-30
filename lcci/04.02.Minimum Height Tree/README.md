@@ -11,9 +11,15 @@
 
 ### 方法一：递归
 
-先找到数组的中间点，作为二叉搜索树的根节点，然后递归左右子树即可。
+我们设计一个函数 $\text{dfs}(l, r)$，表示构造出从 $l$ 到 $r$ 的子树，那么答案就是 $\text{dfs}(0, \text{len}(nums) - 1)$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组长度。
+函数 $\text{dfs}(l, r)$ 的执行过程如下：
+
+1. 如果 $l > r$，返回 $\text{None}$。
+2. 否则，我们计算出中间位置 $mid = \frac{l + r}{2}$，然后构造出根节点，左子树为 $\text{dfs}(l, mid - 1)$，右子树为 $\text{dfs}(mid + 1, r)$。
+3. 最后返回根节点。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
 
@@ -28,7 +34,7 @@
 
 class Solution:
     def sortedArrayToBST(self, nums: List[int]) -> TreeNode:
-        def dfs(l, r):
+        def dfs(l: int, r: int) -> TreeNode:
             if l > r:
                 return None
             mid = (l + r) >> 1
@@ -79,7 +85,9 @@ class Solution {
 public:
     TreeNode* sortedArrayToBST(vector<int>& nums) {
         function<TreeNode*(int, int)> dfs = [&](int l, int r) -> TreeNode* {
-            if (l > r) return nullptr;
+            if (l > r) {
+                return nullptr;
+            }
             int mid = l + r >> 1;
             return new TreeNode(nums[mid], dfs(l, mid - 1), dfs(mid + 1, r));
         };
@@ -160,24 +168,23 @@ function sortedArrayToBST(nums: number[]): TreeNode | null {
 use std::rc::Rc;
 use std::cell::RefCell;
 impl Solution {
-    fn dfs(nums: &Vec<i32>, start: usize, end: usize) -> Option<Rc<RefCell<TreeNode>>> {
-        if start >= end {
+    fn dfs(nums: &Vec<i32>, l: usize, r: usize) -> Option<Rc<RefCell<TreeNode>>> {
+        if l >= r {
             return None;
         }
-        let mid = start + (end - start) / 2;
+        let mid = (l + r) >> 1;
         Some(
             Rc::new(
                 RefCell::new(TreeNode {
                     val: nums[mid],
-                    left: Self::dfs(nums, start, mid),
-                    right: Self::dfs(nums, mid + 1, end),
+                    left: Self::dfs(nums, l, mid),
+                    right: Self::dfs(nums, mid + 1, r),
                 })
             )
         )
     }
     pub fn sorted_array_to_bst(nums: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
-        let end = nums.len();
-        Self::dfs(&nums, 0, end)
+        Self::dfs(&nums, 0, nums.len())
     }
 }
 ```
@@ -205,6 +212,39 @@ var sortedArrayToBST = function (nums) {
 
     return dfs(0, nums.length - 1);
 };
+```
+
+```swift
+/**
+* class TreeNode {
+*     var val: Int
+*     var left: TreeNode?
+*     var right: TreeNode?
+*
+*     init(_ val: Int, _ left: TreeNode? = nil, _ right: TreeNode? = nil) {
+*         self.val = val
+*         self.left = left
+*         self.right = right
+*     }
+* }
+*/
+
+class Solution {
+    private var nums: [Int]!
+
+    func sortedArrayToBST(_ nums: [Int]) -> TreeNode? {
+        self.nums = nums
+        return dfs(0, nums.count - 1)
+    }
+
+    private func dfs(_ l: Int, _ r: Int) -> TreeNode? {
+        if l > r {
+            return nil
+        }
+        let mid = (l + r) / 2
+        return TreeNode(nums[mid], dfs(l, mid - 1), dfs(mid + 1, r))
+    }
+}
 ```
 
 <!-- tabs:end -->

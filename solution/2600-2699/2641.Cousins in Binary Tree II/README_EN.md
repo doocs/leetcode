@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2641.Cousins%20in%20Binary%20Tree%20II/README.md)
 
+<!-- tags:Tree,Depth-First Search,Breadth-First Search,Hash Table,Binary Tree -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary tree, replace the value of each node in the tree with the <strong>sum of all its cousins&#39; values</strong>.</p>
@@ -48,7 +50,13 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Two DFS Traversals
+
+We create a list $s$ to record the sum of the node values at each level of the binary tree, where $s[depth]$ represents the sum of the node values at the $depth$-th level (the root node is at level $0$).
+
+Next, we perform a DFS traversal to calculate the values in the array $s$. Then, we perform another DFS traversal to update the values of each node's children. The value of a child node is equal to the sum of the node values at its level minus the value of the child node and its sibling nodes.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 
@@ -61,32 +69,31 @@
 #         self.right = right
 class Solution:
     def replaceValueInTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
-        def dfs1(root, d):
+        def dfs1(root: Optional[TreeNode], depth: int):
             if root is None:
                 return
-            if len(s) <= d:
+            if len(s) <= depth:
                 s.append(0)
-            s[d] += root.val
-            dfs1(root.left, d + 1)
-            dfs1(root.right, d + 1)
+            s[depth] += root.val
+            dfs1(root.left, depth + 1)
+            dfs1(root.right, depth + 1)
 
-        def dfs2(root, d):
-            if root is None:
-                return
-            t = (root.left.val if root.left else 0) + (
+        def dfs2(root: Optional[TreeNode], depth: int):
+            sub = (root.left.val if root.left else 0) + (
                 root.right.val if root.right else 0
             )
+            depth += 1
             if root.left:
-                root.left.val = s[d] - t
+                root.left.val = s[depth] - sub
+                dfs2(root.left, depth)
             if root.right:
-                root.right.val = s[d] - t
-            dfs2(root.left, d + 1)
-            dfs2(root.right, d + 1)
+                root.right.val = s[depth] - sub
+                dfs2(root.right, depth)
 
         s = []
         dfs1(root, 0)
         root.val = 0
-        dfs2(root, 1)
+        dfs2(root, 0)
         return root
 ```
 
@@ -112,36 +119,35 @@ class Solution {
     public TreeNode replaceValueInTree(TreeNode root) {
         dfs1(root, 0);
         root.val = 0;
-        dfs2(root, 1);
+        dfs2(root, 0);
         return root;
     }
 
-    private void dfs1(TreeNode root, int d) {
+    private void dfs1(TreeNode root, int depth) {
         if (root == null) {
             return;
         }
-        if (s.size() <= d) {
+        if (s.size() <= depth) {
             s.add(0);
         }
-        s.set(d, s.get(d) + root.val);
-        dfs1(root.left, d + 1);
-        dfs1(root.right, d + 1);
+        s.set(depth, s.get(depth) + root.val);
+        dfs1(root.left, depth + 1);
+        dfs1(root.right, depth + 1);
     }
 
-    private void dfs2(TreeNode root, int d) {
-        if (root == null) {
-            return;
-        }
+    private void dfs2(TreeNode root, int depth) {
         int l = root.left == null ? 0 : root.left.val;
         int r = root.right == null ? 0 : root.right.val;
+        int sub = l + r;
+        ++depth;
         if (root.left != null) {
-            root.left.val = s.get(d) - l - r;
+            root.left.val = s.get(depth) - sub;
+            dfs2(root.left, depth);
         }
         if (root.right != null) {
-            root.right.val = s.get(d) - l - r;
+            root.right.val = s.get(depth) - sub;
+            dfs2(root.right, depth);
         }
-        dfs2(root.left, d + 1);
-        dfs2(root.right, d + 1);
     }
 }
 ```
@@ -161,38 +167,38 @@ class Solution {
 class Solution {
 public:
     TreeNode* replaceValueInTree(TreeNode* root) {
-        vector<int> s;
-        function<void(TreeNode*, int)> dfs1 = [&](TreeNode* root, int d) {
-            if (!root) {
-                return;
-            }
-            if (s.size() <= d) {
-                s.push_back(0);
-            }
-            s[d] += root->val;
-            dfs1(root->left, d + 1);
-            dfs1(root->right, d + 1);
-        };
-        function<void(TreeNode*, int)> dfs2 = [&](TreeNode* root, int d) {
-            if (!root) {
-                return;
-            }
-            int l = root->left ? root->left->val : 0;
-            int r = root->right ? root->right->val : 0;
-            if (root->left) {
-                root->left->val = s[d] - l - r;
-            }
-            if (root->right) {
-                root->right->val = s[d] - l - r;
-            }
-            dfs2(root->left, d + 1);
-            dfs2(root->right, d + 1);
-        };
+        memset(s, 0, sizeof(s));
         dfs1(root, 0);
         root->val = 0;
-        dfs2(root, 1);
+        dfs2(root, 0);
         return root;
     }
+
+private:
+    int s[100010];
+    void dfs1(TreeNode* root, int depth) {
+        if (!root) {
+            return;
+        }
+        s[depth] += root->val;
+        dfs1(root->left, depth + 1);
+        dfs1(root->right, depth + 1);
+    };
+
+    void dfs2(TreeNode* root, int depth) {
+        int l = root->left ? root->left->val : 0;
+        int r = root->right ? root->right->val : 0;
+        int sub = l + r;
+        ++depth;
+        if (root->left) {
+            root->left->val = s[depth] - sub;
+            dfs2(root->left, depth);
+        }
+        if (root->right) {
+            root->right->val = s[depth] - sub;
+            dfs2(root->right, depth);
+        }
+    };
 };
 ```
 
@@ -208,22 +214,19 @@ public:
 func replaceValueInTree(root *TreeNode) *TreeNode {
 	s := []int{}
 	var dfs1 func(*TreeNode, int)
-	dfs1 = func(root *TreeNode, d int) {
+	dfs1 = func(root *TreeNode, depth int) {
 		if root == nil {
 			return
 		}
-		if len(s) <= d {
+		if len(s) <= depth {
 			s = append(s, 0)
 		}
-		s[d] += root.Val
-		dfs1(root.Left, d+1)
-		dfs1(root.Right, d+1)
+		s[depth] += root.Val
+		dfs1(root.Left, depth+1)
+		dfs1(root.Right, depth+1)
 	}
 	var dfs2 func(*TreeNode, int)
-	dfs2 = func(root *TreeNode, d int) {
-		if root == nil {
-			return
-		}
+	dfs2 = func(root *TreeNode, depth int) {
 		l, r := 0, 0
 		if root.Left != nil {
 			l = root.Left.Val
@@ -231,18 +234,20 @@ func replaceValueInTree(root *TreeNode) *TreeNode {
 		if root.Right != nil {
 			r = root.Right.Val
 		}
+		sub := l + r
+		depth++
 		if root.Left != nil {
-			root.Left.Val = s[d] - l - r
+			root.Left.Val = s[depth] - sub
+			dfs2(root.Left, depth)
 		}
 		if root.Right != nil {
-			root.Right.Val = s[d] - l - r
+			root.Right.Val = s[depth] - sub
+			dfs2(root.Right, depth)
 		}
-		dfs2(root.Left, d+1)
-		dfs2(root.Right, d+1)
 	}
 	dfs1(root, 0)
 	root.Val = 0
-	dfs2(root, 1)
+	dfs2(root, 0)
 	return root
 }
 ```
@@ -264,41 +269,47 @@ func replaceValueInTree(root *TreeNode) *TreeNode {
 
 function replaceValueInTree(root: TreeNode | null): TreeNode | null {
     const s: number[] = [];
-    const dfs1 = (root: TreeNode | null, d: number): void => {
+    const dfs1 = (root: TreeNode | null, depth: number) => {
         if (!root) {
             return;
         }
-        if (s.length <= d) {
+        if (s.length <= depth) {
             s.push(0);
         }
-        s[d] += root.val;
-        dfs1(root.left, d + 1);
-        dfs1(root.right, d + 1);
+        s[depth] += root.val;
+        dfs1(root.left, depth + 1);
+        dfs1(root.right, depth + 1);
     };
-    const dfs2 = (root: TreeNode | null, d: number): void => {
-        if (!root) {
-            return;
-        }
-        const t = (root.left?.val ?? 0) + (root.right?.val ?? 0);
+    const dfs2 = (root: TreeNode | null, depth: number) => {
+        const sub = (root.left?.val || 0) + (root.right?.val || 0);
+        ++depth;
         if (root.left) {
-            root.left.val = s[d] - t;
+            root.left.val = s[depth] - sub;
+            dfs2(root.left, depth);
         }
         if (root.right) {
-            root.right.val = s[d] - t;
+            root.right.val = s[depth] - sub;
+            dfs2(root.right, depth);
         }
-        dfs2(root.left, d + 1);
-        dfs2(root.right, d + 1);
     };
     dfs1(root, 0);
     root.val = 0;
-    dfs2(root, 1);
+    dfs2(root, 0);
     return root;
 }
 ```
 
 <!-- tabs:end -->
 
-### Solution 2
+### Solution 2: Breadth-First Search (BFS)
+
+First, we update the root node's value to $0$, and use a queue $q$ to store all nodes at each level, initially enqueueing the root node.
+
+Then, we traverse the queue, calculate the sum $s$ of all child nodes' values at each level, then calculate the sum $sub$ of each child node and its sibling nodes' values, and then update each child node's value to $s - sub$.
+
+After the traversal ends, we return the root node.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 
@@ -314,24 +325,24 @@ class Solution:
         root.val = 0
         q = [root]
         while q:
+            t = []
             s = 0
-            p = q
-            q = []
-            for node in p:
+            for node in q:
                 if node.left:
-                    q.append(node.left)
+                    t.append(node.left)
                     s += node.left.val
                 if node.right:
-                    q.append(node.right)
+                    t.append(node.right)
                     s += node.right.val
-            for node in p:
-                t = (node.left.val if node.left else 0) + (
+            for node in q:
+                sub = (node.left.val if node.left else 0) + (
                     node.right.val if node.right else 0
                 )
                 if node.left:
-                    node.left.val = s - t
+                    node.left.val = s - sub
                 if node.right:
-                    node.right.val = s - t
+                    node.right.val = s - sub
+            q = t
         return root
 ```
 
@@ -356,29 +367,29 @@ class Solution {
         root.val = 0;
         List<TreeNode> q = List.of(root);
         while (!q.isEmpty()) {
-            List<TreeNode> p = q;
-            q = new ArrayList<>();
+            List<TreeNode> t = new ArrayList<>();
             int s = 0;
-            for (TreeNode node : p) {
+            for (TreeNode node : q) {
                 if (node.left != null) {
-                    q.add(node.left);
+                    t.add(node.left);
                     s += node.left.val;
                 }
                 if (node.right != null) {
-                    q.add(node.right);
+                    t.add(node.right);
                     s += node.right.val;
                 }
             }
-            for (TreeNode node : p) {
-                int t = (node.left == null ? 0 : node.left.val)
+            for (TreeNode node : q) {
+                int sub = (node.left == null ? 0 : node.left.val)
                     + (node.right == null ? 0 : node.right.val);
                 if (node.left != null) {
-                    node.left.val = s - t;
+                    node.left.val = s - sub;
                 }
                 if (node.right != null) {
-                    node.right.val = s - t;
+                    node.right.val = s - sub;
                 }
             }
+            q = t;
         }
         return root;
     }
@@ -401,31 +412,30 @@ class Solution {
 public:
     TreeNode* replaceValueInTree(TreeNode* root) {
         root->val = 0;
-        vector<TreeNode*> q;
-        q.emplace_back(root);
+        vector<TreeNode*> q = {root};
         while (!q.empty()) {
-            vector<TreeNode*> p = q;
-            q.clear();
+            vector<TreeNode*> t;
             int s = 0;
-            for (TreeNode* node : p) {
+            for (TreeNode* node : q) {
                 if (node->left) {
-                    q.emplace_back(node->left);
+                    t.emplace_back(node->left);
                     s += node->left->val;
                 }
                 if (node->right) {
-                    q.emplace_back(node->right);
+                    t.emplace_back(node->right);
                     s += node->right->val;
                 }
             }
-            for (TreeNode* node : p) {
-                int t = (node->left ? node->left->val : 0) + (node->right ? node->right->val : 0);
+            for (TreeNode* node : q) {
+                int sub = (node->left ? node->left->val : 0) + (node->right ? node->right->val : 0);
                 if (node->left) {
-                    node->left->val = s - t;
+                    node->left->val = s - sub;
                 }
                 if (node->right) {
-                    node->right->val = s - t;
+                    node->right->val = s - sub;
                 }
             }
+            q = move(t);
         }
         return root;
     }
@@ -445,34 +455,34 @@ func replaceValueInTree(root *TreeNode) *TreeNode {
 	root.Val = 0
 	q := []*TreeNode{root}
 	for len(q) > 0 {
-		p := q
-		q = []*TreeNode{}
+		t := []*TreeNode{}
 		s := 0
-		for _, node := range p {
+		for _, node := range q {
 			if node.Left != nil {
-				q = append(q, node.Left)
+				t = append(t, node.Left)
 				s += node.Left.Val
 			}
 			if node.Right != nil {
-				q = append(q, node.Right)
+				t = append(t, node.Right)
 				s += node.Right.Val
 			}
 		}
-		for _, node := range p {
-			t := 0
+		for _, node := range q {
+			sub := 0
 			if node.Left != nil {
-				t += node.Left.Val
+				sub += node.Left.Val
 			}
 			if node.Right != nil {
-				t += node.Right.Val
+				sub += node.Right.Val
 			}
 			if node.Left != nil {
-				node.Left.Val = s - t
+				node.Left.Val = s - sub
 			}
 			if node.Right != nil {
-				node.Right.Val = s - t
+				node.Right.Val = s - sub
 			}
 		}
+		q = t
 	}
 	return root
 }
@@ -495,30 +505,30 @@ func replaceValueInTree(root *TreeNode) *TreeNode {
 
 function replaceValueInTree(root: TreeNode | null): TreeNode | null {
     root.val = 0;
-    let q: TreeNode[] = [root];
-    while (q.length) {
-        const p: TreeNode[] = q;
-        q = [];
-        let s: number = 0;
-        for (const { left, right } of p) {
+    const q: TreeNode[] = [root];
+    while (q.length > 0) {
+        const t: TreeNode[] = [];
+        let s = 0;
+        for (const { left, right } of q) {
             if (left) {
-                q.push(left);
+                t.push(left);
                 s += left.val;
             }
             if (right) {
-                q.push(right);
+                t.push(right);
                 s += right.val;
             }
         }
-        for (const { left, right } of p) {
-            const t: number = (left?.val ?? 0) + (right?.val ?? 0);
+        for (const { left, right } of q) {
+            const sub = (left?.val || 0) + (right?.val || 0);
             if (left) {
-                left.val = s - t;
+                left.val = s - sub;
             }
             if (right) {
-                right.val = s - t;
+                right.val = s - sub;
             }
         }
+        q.splice(0, q.length, ...t);
     }
     return root;
 }

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0691.Stickers%20to%20Spell%20Word/README.md)
 
+<!-- tags:Bit Manipulation,Array,String,Dynamic Programming,Backtracking,Bitmask -->
+
 ## Description
 
 <p>We are given <code>n</code> different types of <code>stickers</code>. Each sticker has a lowercase English word on it.</p>

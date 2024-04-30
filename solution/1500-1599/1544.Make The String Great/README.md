@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1544.Make%20The%20String%20Great/README_EN.md)
 
+<!-- tags:栈,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

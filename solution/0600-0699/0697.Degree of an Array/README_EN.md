@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0697.Degree%20of%20an%20Array/README.md)
 
+<!-- tags:Array,Hash Table -->
+
 ## Description
 
 <p>Given a non-empty array of non-negative integers <code>nums</code>, the <b>degree</b> of this array is defined as the maximum frequency of any one of its elements.</p>

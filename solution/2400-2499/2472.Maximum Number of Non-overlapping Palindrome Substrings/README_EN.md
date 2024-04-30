@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2472.Maximum%20Number%20of%20Non-overlapping%20Palindrome%20Substrings/README.md)
 
+<!-- tags:String,Dynamic Programming -->
+
 ## Description
 
 <p>You are given a string <code>s</code> and a <strong>positive</strong> integer <code>k</code>.</p>

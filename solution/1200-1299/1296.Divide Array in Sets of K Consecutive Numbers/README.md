@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1296.Divide%20Array%20in%20Sets%20of%20K%20Consecutive%20Numbers/README_EN.md)
 
+<!-- tags:贪心,数组,哈希表,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

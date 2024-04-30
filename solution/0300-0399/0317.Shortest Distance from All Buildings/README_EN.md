@@ -1,6 +1,8 @@
-# [317. Shortest Distance from All Buildings](https://leetcode.com/problems/shortest-distance-from-all-buildings)
+# [317. Shortest Distance from All Buildings 🔒](https://leetcode.com/problems/shortest-distance-from-all-buildings)
 
 [中文文档](/solution/0300-0399/0317.Shortest%20Distance%20from%20All%20Buildings/README.md)
+
+<!-- tags:Breadth-First Search,Array,Matrix -->
 
 ## Description
 

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1855.Maximum%20Distance%20Between%20a%20Pair%20of%20Values/README.md)
 
+<!-- tags:Array,Two Pointers,Binary Search -->
+
 ## Description
 
 <p>You are given two <strong>non-increasing 0-indexed </strong>integer arrays <code>nums1</code>​​​​​​ and <code>nums2</code>​​​​​​.</p>

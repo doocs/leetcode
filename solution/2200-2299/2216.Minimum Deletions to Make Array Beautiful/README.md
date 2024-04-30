@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2216.Minimum%20Deletions%20to%20Make%20Array%20Beautiful/README_EN.md)
 
+<!-- tags:栈,贪心,数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

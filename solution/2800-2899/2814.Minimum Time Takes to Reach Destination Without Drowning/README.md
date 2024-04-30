@@ -1,6 +1,8 @@
-# [2814. 避免淹死并到达目的地的最短时间](https://leetcode.cn/problems/minimum-time-takes-to-reach-destination-without-drowning)
+# [2814. 避免淹死并到达目的地的最短时间 🔒](https://leetcode.cn/problems/minimum-time-takes-to-reach-destination-without-drowning)
 
 [English Version](/solution/2800-2899/2814.Minimum%20Time%20Takes%20to%20Reach%20Destination%20Without%20Drowning/README_EN.md)
+
+<!-- tags:广度优先搜索,数组,矩阵 -->
 
 ## 题目描述
 

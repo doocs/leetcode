@@ -1,6 +1,8 @@
-# [253. 会议室 II](https://leetcode.cn/problems/meeting-rooms-ii)
+# [253. 会议室 II 🔒](https://leetcode.cn/problems/meeting-rooms-ii)
 
 [English Version](/solution/0200-0299/0253.Meeting%20Rooms%20II/README_EN.md)
+
+<!-- tags:贪心,数组,双指针,前缀和,排序,堆（优先队列） -->
 
 ## 题目描述
 

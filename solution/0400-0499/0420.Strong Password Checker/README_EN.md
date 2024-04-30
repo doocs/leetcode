@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0420.Strong%20Password%20Checker/README.md)
 
+<!-- tags:Greedy,String,Heap (Priority Queue) -->
+
 ## Description
 
 <p>A password is considered strong if the below conditions are all met:</p>

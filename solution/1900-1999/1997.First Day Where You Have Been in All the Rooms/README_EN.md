@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1997.First%20Day%20Where%20You%20Have%20Been%20in%20All%20the%20Rooms/README.md)
 
+<!-- tags:Array,Dynamic Programming -->
+
 ## Description
 
 <p>There are <code>n</code> rooms you need to visit, labeled from <code>0</code> to <code>n - 1</code>. Each day is labeled, starting from <code>0</code>. You will go in and visit one room a day.</p>
@@ -61,7 +63,17 @@ Day 6 is the first day where you have been in all the rooms.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[i]$ as the date number of the first visit to the $i$-th room, so the answer is $f[n - 1]$.
+
+Consider the date number of the first arrival at the $(i-1)$-th room, denoted as $f[i-1]$. At this time, it takes one day to return to the $nextVisit[i-1]$-th room. Why return? Because the problem restricts $0 \leq nextVisit[i] \leq i$.
+
+After returning, the $nextVisit[i-1]$-th room is visited an odd number of times, and the rooms from $nextVisit[i-1]+1$ to $i-1$ are visited an even number of times. At this time, we go to the $(i-1)$-th room again from the $nextVisit[i-1]$-th room, which takes $f[i-1] - f[nextVisit[i-1]]$ days, and then it takes one more day to reach the $i$-th room. Therefore, $f[i] = f[i-1] + 1 + f[i-1] - f[nextVisit[i-1]] + 1$. Since $f[i]$ may be very large, we need to take the remainder of $10^9 + 7$, and to prevent negative numbers, we need to add $10^9 + 7$.
+
+Finally, return $f[n-1]$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of rooms.
 
 <!-- tabs:start -->
 
@@ -114,6 +126,32 @@ func firstDayBeenInAllRooms(nextVisit []int) int {
 		f[i] = (f[i-1] + 1 + f[i-1] - f[nextVisit[i-1]] + 1 + mod) % mod
 	}
 	return f[n-1]
+}
+```
+
+```ts
+function firstDayBeenInAllRooms(nextVisit: number[]): number {
+    const n = nextVisit.length;
+    const mod = 1e9 + 7;
+    const f: number[] = new Array<number>(n).fill(0);
+    for (let i = 1; i < n; ++i) {
+        f[i] = (f[i - 1] + 1 + f[i - 1] - f[nextVisit[i - 1]] + 1 + mod) % mod;
+    }
+    return f[n - 1];
+}
+```
+
+```cs
+public class Solution {
+    public int FirstDayBeenInAllRooms(int[] nextVisit) {
+        int n = nextVisit.Length;
+        long[] f = new long[n];
+        int mod = (int)1e9 + 7;
+        for (int i = 1; i < n; ++i) {
+            f[i] = (f[i - 1] + 1 + f[i - 1] - f[nextVisit[i - 1]] + 1 + mod) % mod;
+        }
+        return (int)f[n - 1];
+    }
 }
 ```
 

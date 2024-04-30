@@ -2,6 +2,8 @@
 
 [English Version](/solution/3000-3099/3020.Find%20the%20Maximum%20Number%20of%20Elements%20in%20Subset/README_EN.md)
 
+<!-- tags:数组,哈希表,枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -45,24 +47,124 @@
 
 ## 解法
 
-### 方法一
+### 方法一：哈希表 + 枚举
+
+我们用一个哈希表 $cnt$ 记录数组 $nums$ 中每个元素出现的次数。对于每个元素 $x$，我们可以将其不断平方，直到其值在哈希表 $cnt$ 中的出现次数小于 $2$ 为止。此时，我们判断 $x$ 在哈希表 $cnt$ 中的出现次数是否为 $1$，如果是则说明 $x$ 仍然可以被选入子集中，否则我们需要从子集中删除一个元素，确保子集个数为奇数。然后我们更新答案。继续枚举下一个元素。
+
+注意我们需要特殊处理 $x = 1$ 的情况。
+
+时间复杂度 $O(n \times \log \log M)$，空间复杂度 $O(n)$。其中 $n$ 和 $M$ 分别是数组 $nums$ 的长度和数组 $nums$ 中的最大值。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def maximumLength(self, nums: List[int]) -> int:
+        cnt = Counter(nums)
+        ans = cnt[1] - (cnt[1] % 2 ^ 1)
+        del cnt[1]
+        for x in cnt:
+            t = 0
+            while cnt[x] > 1:
+                x = x * x
+                t += 2
+            t += 1 if cnt[x] else -1
+            ans = max(ans, t)
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public int maximumLength(int[] nums) {
+        Map<Long, Integer> cnt = new HashMap<>();
+        for (int x : nums) {
+            cnt.merge((long) x, 1, Integer::sum);
+        }
+        Integer t = cnt.remove(1L);
+        int ans = t == null ? 0 : t - (t % 2 ^ 1);
+        for (long x : cnt.keySet()) {
+            t = 0;
+            while (cnt.getOrDefault(x, 0) > 1) {
+                x = x * x;
+                t += 2;
+            }
+            t += cnt.getOrDefault(x, -1);
+            ans = Math.max(ans, t);
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int maximumLength(vector<int>& nums) {
+        unordered_map<long long, int> cnt;
+        for (int x : nums) {
+            ++cnt[x];
+        }
+        int ans = cnt[1] - (cnt[1] % 2 ^ 1);
+        cnt.erase(1);
+        for (auto [v, _] : cnt) {
+            int t = 0;
+            long long x = v;
+            while (cnt.count(x) && cnt[x] > 1) {
+                x = x * x;
+                t += 2;
+            }
+            t += cnt.count(x) ? 1 : -1;
+            ans = max(ans, t);
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func maximumLength(nums []int) (ans int) {
+	cnt := map[int]int{}
+	for _, x := range nums {
+		cnt[x]++
+	}
+	ans = cnt[1] - (cnt[1]%2 ^ 1)
+	delete(cnt, 1)
+	for x := range cnt {
+		t := 0
+		for cnt[x] > 1 {
+			x = x * x
+			t += 2
+		}
+		if cnt[x] > 0 {
+			t += 1
+		} else {
+			t -= 1
+		}
+		ans = max(ans, t)
+	}
+	return
+}
+```
 
+```ts
+function maximumLength(nums: number[]): number {
+    const cnt: Map<number, number> = new Map();
+    for (const x of nums) {
+        cnt.set(x, (cnt.get(x) ?? 0) + 1);
+    }
+    let ans = cnt.has(1) ? cnt.get(1)! - (cnt.get(1)! % 2 ^ 1) : 0;
+    cnt.delete(1);
+    for (let [x, _] of cnt) {
+        let t = 0;
+        while (cnt.has(x) && cnt.get(x)! > 1) {
+            x = x * x;
+            t += 2;
+        }
+        t += cnt.has(x) ? 1 : -1;
+        ans = Math.max(ans, t);
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

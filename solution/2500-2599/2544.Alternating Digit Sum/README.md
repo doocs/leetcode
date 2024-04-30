@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2544.Alternating%20Digit%20Sum/README_EN.md)
 
+<!-- tags:数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2157.Groups%20of%20Strings/README_EN.md)
 
+<!-- tags:位运算,并查集,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

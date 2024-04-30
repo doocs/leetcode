@@ -2,13 +2,15 @@
 
 [English Version](/solution/0000-0099/0032.Longest%20Valid%20Parentheses/README_EN.md)
 
+<!-- tags:栈,字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
 
-<p>给你一个只包含 <code>'('</code> 和 <code>')'</code> 的字符串，找出最长有效（格式正确且连续）括号子串的长度。</p>
+<p>给你一个只包含 <code>'('</code>&nbsp;和 <code>')'</code>&nbsp;的字符串，找出最长有效（格式正确且连续）括号<span data-keyword="substring">子串</span>的长度。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <div class="original__bRMd">
 <div>
@@ -35,12 +37,12 @@
 <strong>输出：</strong>0
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>0 <= s.length <= 3 * 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= s.length &lt;= 3 * 10<sup>4</sup></code></li>
 	<li><code>s[i]</code> 为 <code>'('</code> 或 <code>')'</code></li>
 </ul>
 </div>
@@ -381,6 +383,37 @@ var longestValidParentheses = function (s) {
     }
     return ans;
 };
+```
+
+```php
+class Solution {
+    /**
+     * @param string $s
+     * @return integer
+     */
+
+    function longestValidParentheses($s) {
+        $stack = [];
+        $maxLength = 0;
+
+        array_push($stack, -1);
+        for ($i = 0; $i < strlen($s); $i++) {
+            if ($s[$i] === '(') {
+                array_push($stack, $i);
+            } else {
+                array_pop($stack);
+
+                if (empty($stack)) {
+                    array_push($stack, $i);
+                } else {
+                    $length = $i - end($stack);
+                    $maxLength = max($maxLength, $length);
+                }
+            }
+        }
+        return $maxLength;
+    }
+}
 ```
 
 <!-- tabs:end -->

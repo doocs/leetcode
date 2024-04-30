@@ -1,6 +1,8 @@
-# [2046. Sort Linked List Already Sorted Using Absolute Values](https://leetcode.com/problems/sort-linked-list-already-sorted-using-absolute-values)
+# [2046. Sort Linked List Already Sorted Using Absolute Values 🔒](https://leetcode.com/problems/sort-linked-list-already-sorted-using-absolute-values)
 
 [中文文档](/solution/2000-2099/2046.Sort%20Linked%20List%20Already%20Sorted%20Using%20Absolute%20Values/README.md)
+
+<!-- tags:Linked List,Two Pointers,Sorting -->
 
 ## Description
 
@@ -52,7 +54,11 @@ The linked list is already sorted in non-decreasing order.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Head Insertion Method
+
+We first assume that the first node is already sorted. Starting from the second node, when we encounter a node with a negative value, we use the head insertion method. For non-negative values, we continue to traverse down.
+
+The time complexity is $O(n)$, where $n$ is the length of the linked list. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -163,6 +169,36 @@ func sortLinkedList(head *ListNode) *ListNode {
 		}
 	}
 	return head
+}
+```
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function sortLinkedList(head: ListNode | null): ListNode | null {
+    let [prev, curr] = [head, head.next];
+    while (curr !== null) {
+        if (curr.val < 0) {
+            const t = curr.next;
+            prev.next = t;
+            curr.next = head;
+            head = curr;
+            curr = t;
+        } else {
+            [prev, curr] = [curr, curr.next];
+        }
+    }
+    return head;
 }
 ```
 

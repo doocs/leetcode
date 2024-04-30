@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2981.Find%20Longest%20Special%20Substring%20That%20Occurs%20Thrice%20I/README_EN.md)
 
+<!-- tags:哈希表,字符串,二分查找,计数,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

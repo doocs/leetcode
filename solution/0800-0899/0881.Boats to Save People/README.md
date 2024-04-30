@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0881.Boats%20to%20Save%20People/README_EN.md)
 
+<!-- tags:贪心,数组,双指针,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -52,7 +54,7 @@
 
 排序后，使用双指针分别指向数组首尾，每次取两个指针指向的元素之和与 `limit` 比较，如果小于等于 `limit`，则两个指针同时向中间移动一位，否则只移动右指针。累加答案即可。
 
-时间复杂度 $O(n\log n)$，其中 $n$ 为数组 `people` 的长度。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 `people` 的长度。
 
 <!-- tabs:start -->
 
@@ -114,6 +116,20 @@ func numRescueBoats(people []int, limit int) int {
 		ans++
 	}
 	return ans
+}
+```
+
+```ts
+function numRescueBoats(people: number[], limit: number): number {
+    people.sort((a, b) => a - b);
+    let ans = 0;
+    for (let i = 0, j = people.length - 1; i <= j; --j) {
+        if (people[i] + people[j] <= limit) {
+            ++i;
+        }
+        ++ans;
+    }
+    return ans;
 }
 ```
 

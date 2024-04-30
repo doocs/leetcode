@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2944.Minimum%20Number%20of%20Coins%20for%20Fruits/README_EN.md)
 
+<!-- tags:队列,数组,动态规划,单调队列,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -13,7 +15,7 @@
 <p>水果超市有如下促销活动：</p>
 
 <ul>
-	<li>如果你花费 <code>price[i]</code>&nbsp;购买了水果&nbsp;<code>i</code>&nbsp;，那么接下来的 <code>i</code>&nbsp;个水果你都可以免费获得。</li>
+	<li>如果你花费 <code>price[i]</code>&nbsp;购买了水果&nbsp;<code>i</code>&nbsp;，那么后面的&nbsp;<code>i</code>&nbsp;个水果你可以免费获得。</li>
 </ul>
 
 <p><strong>注意</strong>&nbsp;，即使你&nbsp;<strong>可以</strong>&nbsp;免费获得水果&nbsp;<code>j</code>&nbsp;，你仍然可以花费&nbsp;<code>prices[j]</code>&nbsp;个金币去购买它以便能免费获得接下来的 <code>j</code>&nbsp;个水果。</p>

@@ -1,6 +1,8 @@
-# [379. 电话目录管理系统](https://leetcode.cn/problems/design-phone-directory)
+# [379. 电话目录管理系统 🔒](https://leetcode.cn/problems/design-phone-directory)
 
 [English Version](/solution/0300-0399/0379.Design%20Phone%20Directory/README_EN.md)
+
+<!-- tags:设计,队列,数组,哈希表,链表 -->
 
 ## 题目描述
 

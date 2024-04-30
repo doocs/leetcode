@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1345.Jump%20Game%20IV/README.md)
 
+<!-- tags:Breadth-First Search,Array,Hash Table -->
+
 ## Description
 
 <p>Given an array of&nbsp;integers <code>arr</code>, you are initially positioned at the first index of the array.</p>

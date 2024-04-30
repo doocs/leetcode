@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2831.Find%20the%20Longest%20Equal%20Subarray/README.md)
 
+<!-- tags:Array,Hash Table,Binary Search,Sliding Window -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and an integer <code>k</code>.</p>

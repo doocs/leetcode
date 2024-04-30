@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2421.Number%20of%20Good%20Paths/README_EN.md)
 
+<!-- tags:树,并查集,图,数组,哈希表,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

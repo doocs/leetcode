@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1345.Jump%20Game%20IV/README_EN.md)
 
+<!-- tags:广度优先搜索,数组,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0565.Array%20Nesting/README.md)
 
+<!-- tags:Depth-First Search,Array -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> of length <code>n</code> where <code>nums</code> is a permutation of the numbers in the range <code>[0, n - 1]</code>.</p>

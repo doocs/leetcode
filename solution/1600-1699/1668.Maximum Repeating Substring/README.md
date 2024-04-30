@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1668.Maximum%20Repeating%20Substring/README_EN.md)
 
+<!-- tags:字符串,动态规划,字符串匹配 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1359.Count%20All%20Valid%20Pickup%20and%20Delivery%20Options/README.md)
 
+<!-- tags:Math,Dynamic Programming,Combinatorics -->
+
 ## Description
 
 <p>Given <code>n</code> orders, each order consists of a pickup and a delivery service.</p>

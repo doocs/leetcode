@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2871.Split%20Array%20Into%20Maximum%20Number%20of%20Subarrays/README.md)
 
+<!-- tags:Greedy,Bit Manipulation,Array -->
+
 ## Description
 
 <p>You are given an array <code>nums</code> consisting of <strong>non-negative</strong> integers.</p>

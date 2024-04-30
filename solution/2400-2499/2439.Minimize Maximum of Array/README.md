@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2439.Minimize%20Maximum%20of%20Array/README_EN.md)
 
+<!-- tags:贪心,数组,二分查找,动态规划,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

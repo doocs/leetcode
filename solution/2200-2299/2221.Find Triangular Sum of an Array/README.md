@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2221.Find%20Triangular%20Sum%20of%20an%20Array/README_EN.md)
 
+<!-- tags:数组,数学,组合数学,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

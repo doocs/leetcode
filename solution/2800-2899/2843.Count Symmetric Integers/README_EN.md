@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2843.Count%20Symmetric%20Integers/README.md)
 
+<!-- tags:Math,Enumeration -->
+
 ## Description
 
 <p>You are given two positive integers <code>low</code> and <code>high</code>.</p>

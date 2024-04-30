@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1525.Number%20of%20Good%20Ways%20to%20Split%20a%20String/README.md)
 
+<!-- tags:Bit Manipulation,String,Dynamic Programming -->
+
 ## Description
 
 <p>You are given a string <code>s</code>.</p>

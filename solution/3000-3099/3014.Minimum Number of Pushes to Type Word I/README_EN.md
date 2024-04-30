@@ -2,6 +2,8 @@
 
 [中文文档](/solution/3000-3099/3014.Minimum%20Number%20of%20Pushes%20to%20Type%20Word%20I/README.md)
 
+<!-- tags:Greedy,Math,String -->
+
 ## Description
 
 <p>You are given a string <code>word</code> containing <strong>distinct</strong> lowercase English letters.</p>

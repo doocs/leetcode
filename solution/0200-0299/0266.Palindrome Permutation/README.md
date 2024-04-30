@@ -1,12 +1,14 @@
-# [266. 回文排列](https://leetcode.cn/problems/palindrome-permutation)
+# [266. 回文排列 🔒](https://leetcode.cn/problems/palindrome-permutation)
 
 [English Version](/solution/0200-0299/0266.Palindrome%20Permutation/README_EN.md)
+
+<!-- tags:位运算,哈希表,字符串 -->
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
 
-<p>给你一个字符串 <code>s</code> ，如果该字符串的某个排列是 <strong>回文</strong> ，则返回 <code>true</code> ；否则，返回<em> </em><code>false</code><em> </em>。</p>
+<p>给你一个字符串 <code>s</code> ，如果该字符串的某个排列是 <span data-keyword="palindrome-string">回文串</span> ，则返回 <code>true</code> ；否则，返回<em> </em><code>false</code><em> </em>。</p>
 
 <p>&nbsp;</p>
 
@@ -128,13 +130,5 @@ var canPermutePalindrome = function (s) {
 ```
 
 <!-- tabs:end -->
-
-### 方法二：哈希表
-
-利用哈希表来维护元素。遍历字符串每个字母 $s[i]$，若 $s[i]$ 在哈希表中，则将 $s[i]$ 从哈希表中删除，否则将 $s[i]$ 加入哈希表。
-
-遍历结束，若哈希表中元素个数不超过 $1$，则返回 $true$，否则返回 $false$。
-
-时间复杂度 $O(n)$，空间复杂度 $O(|\Sigma|)$。其中 $n$ 是字符串的长度，而 $|\Sigma|$ 是字符集的大小，本题中字符集为小写字母，因此 $|\Sigma|=26$。
 
 <!-- end -->

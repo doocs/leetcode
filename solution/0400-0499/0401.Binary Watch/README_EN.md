@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0401.Binary%20Watch/README.md)
 
+<!-- tags:Bit Manipulation,Backtracking -->
+
 ## Description
 
 <p>A binary watch has 4 LEDs on the top to represent the hours (0-11), and 6 LEDs on the bottom to represent&nbsp;the minutes (0-59). Each LED represents a zero or one, with the least significant bit on the right.</p>

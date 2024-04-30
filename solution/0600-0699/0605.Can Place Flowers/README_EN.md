@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0605.Can%20Place%20Flowers/README.md)
 
+<!-- tags:Greedy,Array -->
+
 ## Description
 
 <p>You have a long flowerbed in which some of the plots are planted, and some are not. However, flowers cannot be planted in <strong>adjacent</strong> plots.</p>

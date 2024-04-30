@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0901.Online%20Stock%20Span/README_EN.md)
 
+<!-- tags:栈,设计,数据流,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -1,6 +1,8 @@
-# [1564. Put Boxes Into the Warehouse I](https://leetcode.com/problems/put-boxes-into-the-warehouse-i)
+# [1564. Put Boxes Into the Warehouse I 🔒](https://leetcode.com/problems/put-boxes-into-the-warehouse-i)
 
 [中文文档](/solution/1500-1599/1564.Put%20Boxes%20Into%20the%20Warehouse%20I/README.md)
+
+<!-- tags:Greedy,Array,Sorting -->
 
 ## Description
 

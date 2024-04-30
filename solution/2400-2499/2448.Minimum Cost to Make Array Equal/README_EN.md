@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2448.Minimum%20Cost%20to%20Make%20Array%20Equal/README.md)
 
+<!-- tags:Greedy,Array,Binary Search,Prefix Sum,Sorting -->
+
 ## Description
 
 <p>You are given two <strong>0-indexed</strong> arrays <code>nums</code> and <code>cost</code> consisting each of <code>n</code> <strong>positive</strong> integers.</p>

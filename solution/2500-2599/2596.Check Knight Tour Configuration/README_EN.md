@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2596.Check%20Knight%20Tour%20Configuration/README.md)
 
+<!-- tags:Depth-First Search,Breadth-First Search,Array,Matrix,Simulation -->
+
 ## Description
 
 <p>There is a knight on an <code>n x n</code> chessboard. In a valid configuration, the knight starts <strong>at the top-left cell</strong> of the board and visits every cell on the board <strong>exactly once</strong>.</p>

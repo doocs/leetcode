@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2968.Apply%20Operations%20to%20Maximize%20Frequency%20Score/README_EN.md)
 
+<!-- tags:数组,二分查找,前缀和,排序,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

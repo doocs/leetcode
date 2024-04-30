@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2681.Power%20of%20Heroes/README.md)
 
+<!-- tags:Array,Math,Dynamic Programming,Prefix Sum,Sorting -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> representing the strength of some heroes. The<b> power</b> of a group of heroes is defined as follows:</p>

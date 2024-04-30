@@ -1,6 +1,8 @@
-# [369. 给单链表加一](https://leetcode.cn/problems/plus-one-linked-list)
+# [369. 给单链表加一 🔒](https://leetcode.cn/problems/plus-one-linked-list)
 
 [English Version](/solution/0300-0399/0369.Plus%20One%20Linked%20List/README_EN.md)
+
+<!-- tags:链表,数学 -->
 
 ## 题目描述
 

@@ -35,7 +35,18 @@
 
 ## 解法
 
-### 方法一
+### 方法一：二分搜索
+
+二叉搜索树的中序遍历是一个升序序列，因此可以使用二分搜索的方法。
+
+二叉搜索树节点 $p$ 的中序后继节点满足：
+
+1. 中序后继的节点值大于 $p$ 的节点值
+2. 中序后继是所有大于 $p$ 的节点中值最小的节点
+
+因此，对于当前节点 $root$，如果 $root.val \gt p.val$，则 $root$ 可能是 $p$ 的中序后继节点，将 $root$ 记为 $ans$，然后搜索左子树，即 $root = root.left$；如果 $root.val \leq p.val$，则 $root$ 不能是 $p$ 的中序后继节点，搜索右子树，即 $root = root.right$。
+
+时间复杂度 $O(h)$，其中 $h$ 为二叉搜索树的高度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -49,19 +60,14 @@
 
 
 class Solution:
-    def inorderSuccessor(self, root: TreeNode, p: TreeNode) -> TreeNode:
-        def dfs(root):
-            if root is None:
-                return
-            dfs(root.left)
-            nonlocal ans, prev
-            if prev == p:
+    def inorderSuccessor(self, root: TreeNode, p: TreeNode) -> Optional[TreeNode]:
+        ans = None
+        while root:
+            if root.val > p.val:
                 ans = root
-            prev = root
-            dfs(root.right)
-
-        ans = prev = None
-        dfs(root)
+                root = root.left
+            else:
+                root = root.right
         return ans
 ```
 
@@ -76,28 +82,17 @@ class Solution:
  * }
  */
 class Solution {
-    private TreeNode prev;
-    private TreeNode p;
-    private TreeNode ans;
-
     public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
-        prev = null;
-        ans = null;
-        this.p = p;
-        dfs(root);
+        TreeNode ans = null;
+        while (root != null) {
+            if (root.val > p.val) {
+                ans = root;
+                root = root.left;
+            } else {
+                root = root.right;
+            }
+        }
         return ans;
-    }
-
-    private void dfs(TreeNode root) {
-        if (root == null) {
-            return;
-        }
-        dfs(root.left);
-        if (prev == p) {
-            ans = root;
-        }
-        prev = root;
-        dfs(root.right);
     }
 }
 ```
@@ -114,22 +109,17 @@ class Solution {
  */
 class Solution {
 public:
-    TreeNode* prev;
-    TreeNode* p;
-    TreeNode* ans;
-
     TreeNode* inorderSuccessor(TreeNode* root, TreeNode* p) {
-        this->p = p;
-        dfs(root);
+        TreeNode* ans = nullptr;
+        while (root) {
+            if (root->val > p->val) {
+                ans = root;
+                root = root->left;
+            } else {
+                root = root->right;
+            }
+        }
         return ans;
-    }
-
-    void dfs(TreeNode* root) {
-        if (!root) return;
-        dfs(root->left);
-        if (prev == p) ans = root;
-        prev = root;
-        dfs(root->right);
     }
 };
 ```
@@ -143,22 +133,45 @@ public:
  *     Right *TreeNode
  * }
  */
-func inorderSuccessor(root *TreeNode, p *TreeNode) *TreeNode {
-	var prev, ans *TreeNode
-	var dfs func(root *TreeNode)
-	dfs = func(root *TreeNode) {
-		if root == nil {
-			return
-		}
-		dfs(root.Left)
-		if prev == p {
+func inorderSuccessor(root *TreeNode, p *TreeNode) (ans *TreeNode) {
+	for root != nil {
+		if root.Val > p.Val {
 			ans = root
+			root = root.Left
+		} else {
+			root = root.Right
 		}
-		prev = root
-		dfs(root.Right)
 	}
-	dfs(root)
-	return ans
+	return
+}
+```
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function inorderSuccessor(root: TreeNode | null, p: TreeNode | null): TreeNode | null {
+    let ans: TreeNode | null = null;
+    while (root) {
+        if (root.val > p.val) {
+            ans = root;
+            root = root.left;
+        } else {
+            root = root.right;
+        }
+    }
+    return ans;
 }
 ```
 
@@ -176,90 +189,49 @@ func inorderSuccessor(root *TreeNode, p *TreeNode) *TreeNode {
  * @return {TreeNode}
  */
 var inorderSuccessor = function (root, p) {
-    if (root == null) {
-        return root;
-    }
-    const { val, left, right } = root;
-    const res = inorderSuccessor(left, p);
-    if (res != null) {
-        return res;
-    }
-    if (val > p.val) {
-        return root;
-    }
-    return inorderSuccessor(right, p);
-};
-```
-
-<!-- tabs:end -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-class Solution {
-public:
-    TreeNode* inorderSuccessor(TreeNode* root, TreeNode* p) {
-        stack<TreeNode*> stk;
-        TreeNode* cur = root;
-        while (cur != nullptr || !stk.empty()) {
-            if (cur == nullptr) {
-                cur = stk.top();
-                stk.pop();
-                if (cur->val > p->val) {
-                    return cur;
-                }
-                cur = cur->right;
-            } else {
-                stk.push(cur);
-                cur = cur->left;
-            }
-        }
-        return cur;
-    }
-};
-```
-
-```js
-/**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
- */
-/**
- * @param {TreeNode} root
- * @param {TreeNode} p
- * @return {TreeNode}
- */
-var inorderSuccessor = function (root, p) {
-    const stack = [];
-    let cur = root;
-    while (cur != null || stack.length !== 0) {
-        if (cur == null) {
-            cur = stack.pop();
-            if (cur.val > p.val) {
-                return cur;
-            }
-            cur = cur.right;
+    let ans = null;
+    while (root) {
+        if (root.val > p.val) {
+            ans = root;
+            root = root.left;
         } else {
-            stack.push(cur);
-            cur = cur.left;
+            root = root.right;
         }
     }
-    return cur;
+    return ans;
 };
+```
+
+```swift
+/* class TreeNode {
+*    var val: Int
+*    var left: TreeNode?
+*    var right: TreeNode?
+*
+*    init(_ val: Int) {
+*        self.val = val
+*        self.left = nil
+*        self.right = nil
+*    }
+* }
+*/
+
+class Solution {
+    func inorderSuccessor(_ root: TreeNode?, _ p: TreeNode?) -> TreeNode? {
+        var current = root
+        var successor: TreeNode? = nil
+
+        while let node = current {
+            if node.val > p!.val {
+                successor = node
+                current = node.left
+            } else {
+                current = node.right
+            }
+        }
+        return successor
+    }
+}
 ```
 
 <!-- tabs:end -->

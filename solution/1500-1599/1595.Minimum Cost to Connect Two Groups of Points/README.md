@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1595.Minimum%20Cost%20to%20Connect%20Two%20Groups%20of%20Points/README_EN.md)
 
+<!-- tags:位运算,数组,动态规划,状态压缩,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

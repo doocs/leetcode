@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2512.Reward%20Top%20K%20Students/README.md)
 
+<!-- tags:Array,Hash Table,String,Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given two string arrays <code>positive_feedback</code> and <code>negative_feedback</code>, containing the words denoting positive and negative feedback, respectively. Note that <strong>no</strong> word is both positive and negative.</p>

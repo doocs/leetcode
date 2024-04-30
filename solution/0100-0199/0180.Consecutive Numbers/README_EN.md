@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0180.Consecutive%20Numbers/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Logs</code></p>

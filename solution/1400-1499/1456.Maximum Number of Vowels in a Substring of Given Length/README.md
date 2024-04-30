@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1456.Maximum%20Number%20of%20Vowels%20in%20a%20Substring%20of%20Given%20Length/README_EN.md)
 
+<!-- tags:字符串,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -62,43 +64,45 @@
 
 ### 方法一：滑动窗口
 
-找出所有窗口为 $k$ 中的元音字母数目，并记录最大值。
+我们首先统计前 $k$ 个字符中元音字母的个数，记为 $cnt$，初始化答案 $ans$ 为 $cnt$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。
+然后我们从 $k$ 开始遍历字符串，每次遍历时，我们将当前字符加入窗口，如果当前字符是元音字母，则 $cnt$ 加一；将窗口第一个字符移出窗口，如果移除的字符是元音字母，则 $cnt$ 减一。然后，我们更新答案 $ans = \max(ans, cnt)$。
+
+遍历结束后，返回答案即可。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def maxVowels(self, s: str, k: int) -> int:
-        vowels = set('aeiou')
-        t = sum(c in vowels for c in s[:k])
-        ans = t
+        vowels = set("aeiou")
+        ans = cnt = sum(c in vowels for c in s[:k])
         for i in range(k, len(s)):
-            t += s[i] in vowels
-            t -= s[i - k] in vowels
-            ans = max(ans, t)
+            cnt += int(s[i] in vowels) - int(s[i - k] in vowels)
+            ans = max(ans, cnt)
         return ans
 ```
 
 ```java
 class Solution {
     public int maxVowels(String s, int k) {
-        int t = 0, n = s.length();
+        int cnt = 0;
         for (int i = 0; i < k; ++i) {
             if (isVowel(s.charAt(i))) {
-                ++t;
+                ++cnt;
             }
         }
-        int ans = t;
-        for (int i = k; i < n; ++i) {
+        int ans = cnt;
+        for (int i = k; i < s.length(); ++i) {
             if (isVowel(s.charAt(i))) {
-                ++t;
+                ++cnt;
             }
             if (isVowel(s.charAt(i - k))) {
-                --t;
+                --cnt;
             }
-            ans = Math.max(ans, t);
+            ans = Math.max(ans, cnt);
         }
         return ans;
     }
@@ -113,19 +117,16 @@ class Solution {
 class Solution {
 public:
     int maxVowels(string s, int k) {
-        int t = 0, n = s.size();
-        for (int i = 0; i < k; ++i) t += isVowel(s[i]);
-        int ans = t;
-        for (int i = k; i < n; ++i) {
-            t += isVowel(s[i]);
-            t -= isVowel(s[i - k]);
-            ans = max(ans, t);
+        auto isVowel = [](char c) {
+            return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+        };
+        int cnt = count_if(s.begin(), s.begin() + k, isVowel);
+        int ans = cnt;
+        for (int i = k; i < s.size(); ++i) {
+            cnt += isVowel(s[i]) - isVowel(s[i - k]);
+            ans = max(ans, cnt);
         }
         return ans;
-    }
-
-    bool isVowel(char c) {
-        return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
     }
 };
 ```
@@ -135,21 +136,21 @@ func maxVowels(s string, k int) int {
 	isVowel := func(c byte) bool {
 		return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'
 	}
-	t := 0
+	cnt := 0
 	for i := 0; i < k; i++ {
 		if isVowel(s[i]) {
-			t++
+			cnt++
 		}
 	}
-	ans := t
+	ans := cnt
 	for i := k; i < len(s); i++ {
-		if isVowel(s[i]) {
-			t++
-		}
 		if isVowel(s[i-k]) {
-			t--
+			cnt--
 		}
-		ans = max(ans, t)
+		if isVowel(s[i]) {
+			cnt++
+		}
+		ans = max(ans, cnt)
 	}
 	return ans
 }
@@ -157,24 +158,22 @@ func maxVowels(s string, k int) int {
 
 ```ts
 function maxVowels(s: string, k: number): number {
-    function isVowel(c) {
-        return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
-    }
-    let t = 0;
-    for (let i = 0; i < k; ++i) {
-        if (isVowel(s.charAt(i))) {
-            t++;
+    const isVowel = (c: string) => ['a', 'e', 'i', 'o', 'u'].includes(c);
+    let cnt = 0;
+    for (let i = 0; i < k; i++) {
+        if (isVowel(s[i])) {
+            cnt++;
         }
     }
-    let ans = t;
-    for (let i = k; i < s.length; ++i) {
-        if (isVowel(s.charAt(i))) {
-            t++;
+    let ans = cnt;
+    for (let i = k; i < s.length; i++) {
+        if (isVowel(s[i])) {
+            cnt++;
         }
-        if (isVowel(s.charAt(i - k))) {
-            t--;
+        if (isVowel(s[i - k])) {
+            cnt--;
         }
-        ans = Math.max(ans, t);
+        ans = Math.max(ans, cnt);
     }
     return ans;
 }
@@ -192,13 +191,12 @@ class Solution {
     }
     function maxVowels($s, $k) {
         $cnt = 0;
-        $rs = 0;
         for ($i = 0; $i < $k; $i++) {
             if ($this->isVowel($s[$i])) {
                 $cnt++;
             }
         }
-        $rs = $cnt;
+        $ans = $cnt;
         for ($j = $k; $j < strlen($s); $j++) {
             if ($this->isVowel($s[$j - $k])) {
                 $cnt--;
@@ -206,9 +204,9 @@ class Solution {
             if ($this->isVowel($s[$j])) {
                 $cnt++;
             }
-            $rs = max($rs, $cnt);
+            $ans = max($ans, $cnt);
         }
-        return $rs;
+        return $ans;
     }
 }
 ```

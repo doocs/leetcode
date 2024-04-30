@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2024.Maximize%20the%20Confusion%20of%20an%20Exam/README.md)
 
+<!-- tags:String,Binary Search,Prefix Sum,Sliding Window -->
+
 ## Description
 
 <p>A teacher is writing a test with <code>n</code> true/false questions, with <code>&#39;T&#39;</code> denoting true and <code>&#39;F&#39;</code> denoting false. He wants to confuse the students by <strong>maximizing</strong> the number of <strong>consecutive</strong> questions with the <strong>same</strong> answer (multiple trues or multiple falses in a row).</p>
@@ -56,45 +58,55 @@ In both cases, there are five consecutive &#39;T&#39;s.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Two Pointers
+
+We design a function $f(c)$, which represents the longest length of consecutive characters under the condition that at most $k$ characters $c$ are replaced, where $c$ can be 'T' or 'F'. The answer is $\max(f('T'), f('F'))$.
+
+We use two pointers to maintain a range $[j, i]$ such that the number of characters $c$ in the range does not exceed $k$. When the number of characters $c$ in the range exceeds $k$, we move the left pointer $j$ until the number of characters $c$ in the range does not exceed $k$, then update the answer $ans = \max(ans, i - j + 1)$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def maxConsecutiveAnswers(self, answerKey: str, k: int) -> int:
-        def get(c, k):
-            l = r = -1
-            while r < len(answerKey) - 1:
-                r += 1
-                if answerKey[r] == c:
-                    k -= 1
-                if k < 0:
-                    l += 1
-                    if answerKey[l] == c:
-                        k += 1
-            return r - l
+        def f(c: str) -> int:
+            cnt = j = 0
+            ans = 0
+            for i, ch in enumerate(answerKey):
+                cnt += ch == c
+                while cnt > k:
+                    cnt -= answerKey[j] == c
+                    j += 1
+                ans = max(ans, i - j + 1)
+            return ans
 
-        return max(get('T', k), get('F', k))
+        return max(f("T"), f("F"))
 ```
 
 ```java
 class Solution {
+    private char[] s;
+    private int k;
+
     public int maxConsecutiveAnswers(String answerKey, int k) {
-        return Math.max(get('T', k, answerKey), get('F', k, answerKey));
+        s = answerKey.toCharArray();
+        this.k = k;
+        return Math.max(f('T'), f('F'));
     }
 
-    public int get(char c, int k, String answerKey) {
-        int l = 0, r = 0;
-        while (r < answerKey.length()) {
-            if (answerKey.charAt(r++) == c) {
-                --k;
+    private int f(char c) {
+        int cnt = 0, ans = 0;
+        for (int i = 0, j = 0; i < s.length; ++i) {
+            cnt += s[i] == c ? 1 : 0;
+            while (cnt > k) {
+                cnt -= s[j] == c ? 1 : 0;
+                ++j;
             }
-            if (k < 0 && answerKey.charAt(l++) == c) {
-                ++k;
-            }
+            ans = Math.max(ans, i - j + 1);
         }
-        return r - l;
+        return ans;
     }
 }
 ```
@@ -103,84 +115,81 @@ class Solution {
 class Solution {
 public:
     int maxConsecutiveAnswers(string answerKey, int k) {
-        return max(get('T', k, answerKey), get('F', k, answerKey));
-    }
-
-    int get(char c, int k, string& answerKey) {
-        int l = 0, r = 0;
-        while (r < answerKey.size()) {
-            if (answerKey[r++] == c) --k;
-            if (k < 0 && answerKey[l++] == c) ++k;
-        }
-        return r - l;
+        auto f = [&](char c) {
+            int ans = 0, cnt = 0;
+            for (int i = 0, j = 0; i < answerKey.size(); ++i) {
+                cnt += answerKey[i] == c;
+                while (cnt > k) {
+                    cnt -= answerKey[j++] == c;
+                }
+                ans = max(ans, i - j + 1);
+            }
+            return ans;
+        };
+        return max(f('T'), f('F'));
     }
 };
 ```
 
 ```go
 func maxConsecutiveAnswers(answerKey string, k int) int {
-	get := func(c byte, k int) int {
-		l, r := -1, -1
-		for r < len(answerKey)-1 {
-			r++
-			if answerKey[r] == c {
-				k--
+	f := func(c byte) int {
+		var ans, cnt, j int
+		for i := range answerKey {
+			if answerKey[i] == c {
+				cnt++
 			}
-			if k < 0 {
-				l++
-				if answerKey[l] == c {
-					k++
+			for cnt > k {
+				if answerKey[j] == c {
+					cnt--
 				}
+				j++
 			}
+			ans = max(ans, i-j+1)
 		}
-		return r - l
+		return ans
 	}
-	return max(get('T', k), get('F', k))
+	return max(f('T'), f('F'))
 }
 ```
 
 ```ts
 function maxConsecutiveAnswers(answerKey: string, k: number): number {
     const n = answerKey.length;
-    const getMaxCount = (target: 'T' | 'F'): number => {
-        let l = 0;
-        let u = k;
-        for (const c of answerKey) {
-            if (c !== target) {
-                u--;
+    const f = (c: string): number => {
+        let [ans, cnt, j] = [0, 0, 0];
+        for (let i = 0; i < n; ++i) {
+            cnt += answerKey[i] === c ? 0 : 1;
+            while (cnt > k) {
+                cnt -= answerKey[j++] === c ? 0 : 1;
             }
-            if (u < 0 && answerKey[l++] !== target) {
-                u++;
-            }
+            ans = Math.max(ans, i - j + 1);
         }
-        return n - l;
+        return ans;
     };
-    return Math.max(getMaxCount('T'), getMaxCount('F'));
+    return Math.max(f('T'), f('F'));
 }
 ```
 
 ```rust
 impl Solution {
     pub fn max_consecutive_answers(answer_key: String, k: i32) -> i32 {
-        let bs = answer_key.as_bytes();
-        let n = bs.len();
-        let get_max_count = |target| {
-            let mut l = 0;
-            let mut u = k;
-            for b in bs.iter() {
-                if b != &target {
-                    u -= 1;
+        let s: Vec<char> = answer_key.chars().collect();
+        let f = |c: char| -> i32 {
+            let mut cnt = 0;
+            let mut j = 0;
+            let mut ans = 0;
+            for i in 0..s.len() {
+                cnt += if s[i] == c { 1 } else { 0 };
+                while cnt > k {
+                    cnt -= if s[j] == c { 1 } else { 0 };
+                    j += 1;
                 }
-                if u < 0 {
-                    if bs[l] != target {
-                        u += 1;
-                    }
-                    l += 1;
-                }
+                ans = ans.max((i - j + 1) as i32);
             }
-            n - l
+            ans
         };
-        get_max_count(b'T').max(get_max_count(b'F')) as i32
+        f('T').max(f('F'))
     }
 }
 ```

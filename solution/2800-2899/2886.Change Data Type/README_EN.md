@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2886.Change%20Data%20Type/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <pre>

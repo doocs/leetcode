@@ -1,6 +1,8 @@
-# [1151. 最少交换次数来组合所有的 1](https://leetcode.cn/problems/minimum-swaps-to-group-all-1s-together)
+# [1151. 最少交换次数来组合所有的 1 🔒](https://leetcode.cn/problems/minimum-swaps-to-group-all-1s-together)
 
 [English Version](/solution/1100-1199/1151.Minimum%20Swaps%20to%20Group%20All%201%27s%20Together/README_EN.md)
+
+<!-- tags:数组,滑动窗口 -->
 
 ## 题目描述
 
@@ -62,7 +64,7 @@
 
 我们先统计数组中 $1$ 的个数，记为 $k$。然后我们使用滑动窗口，窗口大小为 $k$，窗口右边界从左向右移动，统计窗口内 $1$ 的个数，记为 $t$。每次移动窗口时，都更新 $t$ 的值，最后窗口右边界移动到数组末尾时，窗口内 $1$ 的个数最多，记为 $mx$。最后答案为 $k - mx$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
+时间复杂度 $O(n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -70,8 +72,7 @@
 class Solution:
     def minSwaps(self, data: List[int]) -> int:
         k = data.count(1)
-        t = sum(data[:k])
-        mx = t
+        mx = t = sum(data[:k])
         for i in range(k, len(data)):
             t += data[i]
             t -= data[i - k]
@@ -154,6 +155,22 @@ function minSwaps(data: number[]): number {
         mx = Math.max(mx, t);
     }
     return k - mx;
+}
+```
+
+```cs
+public class Solution {
+    public int MinSwaps(int[] data) {
+        int k = data.Count(x => x == 1);
+        int t = data.Take(k).Sum();
+        int mx = t;
+        for (int i = k; i < data.Length; ++i) {
+            t += data[i];
+            t -= data[i - k];
+            mx = Math.Max(mx, t);
+        }
+        return k - mx;
+    }
 }
 ```
 

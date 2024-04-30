@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1547.Minimum%20Cost%20to%20Cut%20a%20Stick/README.md)
 
+<!-- tags:Array,Dynamic Programming,Sorting -->
+
 ## Description
 
 <p>Given a wooden stick of length <code>n</code> units. The stick is labelled from <code>0</code> to <code>n</code>. For example, a stick of length <strong>6</strong> is labelled as follows:</p>

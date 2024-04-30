@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0890.Find%20and%20Replace%20Pattern/README_EN.md)
 
+<!-- tags:数组,哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

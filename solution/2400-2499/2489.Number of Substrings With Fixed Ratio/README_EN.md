@@ -1,6 +1,8 @@
-# [2489. Number of Substrings With Fixed Ratio](https://leetcode.com/problems/number-of-substrings-with-fixed-ratio)
+# [2489. Number of Substrings With Fixed Ratio 🔒](https://leetcode.com/problems/number-of-substrings-with-fixed-ratio)
 
 [中文文档](/solution/2400-2499/2489.Number%20of%20Substrings%20With%20Fixed%20Ratio/README.md)
+
+<!-- tags:Hash Table,Math,String,Prefix Sum -->
 
 ## Description
 
@@ -54,7 +56,25 @@ It can be shown that there are no more ratio substrings.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Prefix Sum + Counting
+
+We use $one[i]$ to represent the number of $1$s in the substring $s[0,..i]$, and $zero[i]$ to represent the number of $0$s in the substring $s[0,..i]$. A substring meets the condition if
+
+$$
+\frac{zero[j] - zero[i]}{one[j] - one[i]} = \frac{num1}{num2}
+$$
+
+where $i < j$. We can transform the above equation into
+
+$$
+one[j] \times num1 - zero[j] \times num2 = one[i] \times num1 - zero[i] \times num2
+$$
+
+When we iterate to index $j$, we only need to count how many indices $i$ satisfy the above equation. Therefore, we can use a hash table to record the number of occurrences of $one[i] \times num1 - zero[i] \times num2$, and when we iterate to index $j$, we only need to count the number of occurrences of $one[j] \times num1 - zero[j] \times num2$.
+
+The hash table initially only has one key-value pair $(0, 1)$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

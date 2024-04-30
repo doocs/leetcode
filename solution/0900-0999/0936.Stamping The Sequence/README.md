@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0936.Stamping%20The%20Sequence/README_EN.md)
 
+<!-- tags:栈,贪心,队列,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

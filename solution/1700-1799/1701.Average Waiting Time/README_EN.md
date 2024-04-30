@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1701.Average%20Waiting%20Time/README.md)
 
+<!-- tags:Array,Simulation -->
+
 ## Description
 
 <p>There is a restaurant with a single chef. You are given an array <code>customers</code>, where <code>customers[i] = [arrival<sub>i</sub>, time<sub>i</sub>]:</code></p>
@@ -116,6 +118,17 @@ func averageWaitingTime(customers [][]int) float64 {
 		tot += t - a
 	}
 	return float64(tot) / float64(len(customers))
+}
+```
+
+```ts
+function averageWaitingTime(customers: number[][]): number {
+    let [tot, t] = [0, 0];
+    for (const [a, b] of customers) {
+        t = Math.max(t, a) + b;
+        tot += t - a;
+    }
+    return tot / customers.length;
 }
 ```
 

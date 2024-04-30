@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2514.Count%20Anagrams/README_EN.md)
 
+<!-- tags:哈希表,数学,字符串,组合数学,计数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

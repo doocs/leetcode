@@ -1,6 +1,8 @@
-# [1660. 纠正二叉树](https://leetcode.cn/problems/correct-a-binary-tree)
+# [1660. 纠正二叉树 🔒](https://leetcode.cn/problems/correct-a-binary-tree)
 
 [English Version](/solution/1600-1699/1660.Correct%20a%20Binary%20Tree/README_EN.md)
+
+<!-- tags:树,深度优先搜索,广度优先搜索,哈希表,二叉树 -->
 
 ## 题目描述
 

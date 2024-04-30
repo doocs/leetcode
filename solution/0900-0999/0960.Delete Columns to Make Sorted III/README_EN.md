@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0960.Delete%20Columns%20to%20Make%20Sorted%20III/README.md)
 
+<!-- tags:Array,String,Dynamic Programming -->
+
 ## Description
 
 <p>You are given an array of <code>n</code> strings <code>strs</code>, all of the same length.</p>

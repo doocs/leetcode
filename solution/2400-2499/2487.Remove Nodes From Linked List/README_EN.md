@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2487.Remove%20Nodes%20From%20Linked%20List/README.md)
 
+<!-- tags:Stack,Recursion,Linked List,Monotonic Stack -->
+
 ## Description
 
 <p>You are given the <code>head</code> of a linked list.</p>

@@ -1,6 +1,8 @@
-# [2941. 子数组的最大 GCD-Sum](https://leetcode.cn/problems/maximum-gcd-sum-of-a-subarray)
+# [2941. 子数组的最大 GCD-Sum 🔒](https://leetcode.cn/problems/maximum-gcd-sum-of-a-subarray)
 
 [English Version](/solution/2900-2999/2941.Maximum%20GCD-Sum%20of%20a%20Subarray/README_EN.md)
+
+<!-- tags:数组,数学,二分查找,数论 -->
 
 ## 题目描述
 

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2251.Number%20of%20Flowers%20in%20Full%20Bloom/README_EN.md)
 
+<!-- tags:数组,哈希表,二分查找,有序集合,前缀和,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

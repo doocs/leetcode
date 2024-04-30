@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2140.Solving%20Questions%20With%20Brainpower/README_EN.md)
 
+<!-- tags:数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

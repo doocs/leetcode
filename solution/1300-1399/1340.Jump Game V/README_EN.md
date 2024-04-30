@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1340.Jump%20Game%20V/README.md)
 
+<!-- tags:Array,Dynamic Programming,Sorting -->
+
 ## Description
 
 <p>Given an array of&nbsp;integers <code>arr</code> and an integer <code>d</code>. In one step you can jump from index <code>i</code> to index:</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0901.Online%20Stock%20Span/README.md)
 
+<!-- tags:Stack,Design,Data Stream,Monotonic Stack -->
+
 ## Description
 
 <p>Design an algorithm that collects daily price quotes for some stock and returns <strong>the span</strong> of that stock&#39;s price for the current day.</p>

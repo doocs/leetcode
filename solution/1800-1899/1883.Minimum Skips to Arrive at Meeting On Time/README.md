@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1883.Minimum%20Skips%20to%20Arrive%20at%20Meeting%20On%20Time/README_EN.md)
 
+<!-- tags:数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -100,6 +102,24 @@ class Solution:
                     f[i][j] = min(f[i][j], f[i - 1][j - 1] + x / speed)
         for j in range(n + 1):
             if f[n][j] <= hoursBefore + eps:
+                return j
+        return -1
+```
+
+```python
+class Solution:
+    def minSkips(self, dist: List[int], speed: int, hoursBefore: int) -> int:
+        n = len(dist)
+        f = [[inf] * (n + 1) for _ in range(n + 1)]
+        f[0][0] = 0
+        for i, x in enumerate(dist, 1):
+            for j in range(i + 1):
+                if j < i:
+                    f[i][j] = min(f[i][j], ((f[i - 1][j] + x - 1) // speed + 1) * speed)
+                if j:
+                    f[i][j] = min(f[i][j], f[i - 1][j - 1] + x)
+        for j in range(n + 1):
+            if f[n][j] <= hoursBefore * speed:
                 return j
         return -1
 ```
@@ -217,30 +237,6 @@ function minSkips(dist: number[], speed: number, hoursBefore: number): number {
     }
     return -1;
 }
-```
-
-<!-- tabs:end -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def minSkips(self, dist: List[int], speed: int, hoursBefore: int) -> int:
-        n = len(dist)
-        f = [[inf] * (n + 1) for _ in range(n + 1)]
-        f[0][0] = 0
-        for i, x in enumerate(dist, 1):
-            for j in range(i + 1):
-                if j < i:
-                    f[i][j] = min(f[i][j], ((f[i - 1][j] + x - 1) // speed + 1) * speed)
-                if j:
-                    f[i][j] = min(f[i][j], f[i - 1][j - 1] + x)
-        for j in range(n + 1):
-            if f[n][j] <= hoursBefore * speed:
-                return j
-        return -1
 ```
 
 <!-- tabs:end -->

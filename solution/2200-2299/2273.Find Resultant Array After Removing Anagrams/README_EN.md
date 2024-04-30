@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2273.Find%20Resultant%20Array%20After%20Removing%20Anagrams/README.md)
 
+<!-- tags:Array,Hash Table,String,Sorting -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string array <code>words</code>, where <code>words[i]</code> consists of lowercase English letters.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0227.Basic%20Calculator%20II/README.md)
 
+<!-- tags:Stack,Math,String -->
+
 ## Description
 
 <p>Given a string <code>s</code> which represents an expression, <em>evaluate this expression and return its value</em>.&nbsp;</p>

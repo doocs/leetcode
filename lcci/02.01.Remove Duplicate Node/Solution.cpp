@@ -9,19 +9,16 @@
 class Solution {
 public:
     ListNode* removeDuplicateNodes(ListNode* head) {
-        if (head == nullptr || head->next == nullptr) {
-            return head;
-        }
-        unordered_set<int> cache = {head->val};
-        ListNode* cur = head;
-        for (ListNode* p = head->next; p != nullptr; p = p->next) {
-            if (!cache.count(p->val)) {
-                cur->next = p;
-                cur = cur->next;
-                cache.insert(p->val);
+        unordered_set<int> vis;
+        ListNode* pre = new ListNode(0, head);
+        while (pre->next) {
+            if (vis.count(pre->next->val)) {
+                pre->next = pre->next->next;
+            } else {
+                vis.insert(pre->next->val);
+                pre = pre->next;
             }
         }
-        cur->next = nullptr;
         return head;
     }
 };

@@ -1,10 +1,16 @@
-# [2777. Date Range Generator](https://leetcode.com/problems/date-range-generator)
+# [2777. Date Range Generator 🔒](https://leetcode.com/problems/date-range-generator)
 
 [中文文档](/solution/2700-2799/2777.Date%20Range%20Generator/README.md)
 
+<!-- tags: -->
+
 ## Description
 
-<p>Given a start date <code>start</code>, an end date <code>end</code>, and a positive integer&nbsp;<code>step</code>, return a generator object that yields&nbsp;dates in the range from <code>start</code> to <code>end</code>&nbsp;inclusive. All dates&nbsp;are in the string format&nbsp;<code>YYYY-MM-DD</code>. The value of&nbsp;<code>step</code>&nbsp;indicates the number of days between consecutive yielded values.</p>
+<p>Given a start date <code>start</code>, an end date <code>end</code>, and a positive integer&nbsp;<code>step</code>, return a generator object that yields&nbsp;dates in the range from <code>start</code> to <code>end</code>&nbsp;inclusive.</p>
+
+<p>The value of&nbsp;<code>step</code>&nbsp;indicates the number of days between consecutive yielded values.</p>
+
+<p>All yielded dates&nbsp;must be in the string format&nbsp;<code>YYYY-MM-DD</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -46,8 +52,9 @@ g.next().value // &#39;2023-04-10&#39;
 
 <ul>
 	<li><code>new Date(start) &lt;= new Date(end)</code></li>
-	<li><code>0 &lt;= The difference in days between the start date and the end date &lt;= 1000</code></li>
-	<li><code>1 &lt;= step &lt;= 100</code></li>
+	<li><code>start</code> and <code>end</code> dates&nbsp;are in the string format&nbsp;<code>YYYY-MM-DD</code></li>
+	<li><code>0 &lt;= The difference in days between the start date and the end date &lt;= 1500</code></li>
+	<li><code>1 &lt;= step &lt;= 1000</code></li>
 </ul>
 
 ## Solutions

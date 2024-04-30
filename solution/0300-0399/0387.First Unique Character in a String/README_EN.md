@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0387.First%20Unique%20Character%20in%20a%20String/README.md)
 
+<!-- tags:Queue,Hash Table,String,Counting -->
+
 ## Description
 
 <p>Given a string <code>s</code>, <em>find the first non-repeating character in it and return its index</em>. If it does not exist, return <code>-1</code>.</p>

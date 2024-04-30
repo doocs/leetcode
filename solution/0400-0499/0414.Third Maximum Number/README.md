@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0414.Third%20Maximum%20Number/README_EN.md)
 
+<!-- tags:数组,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

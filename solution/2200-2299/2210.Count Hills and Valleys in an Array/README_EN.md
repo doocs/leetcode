@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2210.Count%20Hills%20and%20Valleys%20in%20an%20Array/README.md)
 
+<!-- tags:Array -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. An index <code>i</code> is part of a <strong>hill</strong> in <code>nums</code> if the closest non-equal neighbors of <code>i</code> are smaller than <code>nums[i]</code>. Similarly, an index <code>i</code> is part of a <strong>valley</strong> in <code>nums</code> if the closest non-equal neighbors of <code>i</code> are larger than <code>nums[i]</code>. Adjacent indices <code>i</code> and <code>j</code> are part of the <strong>same</strong> hill or valley if <code>nums[i] == nums[j]</code>.</p>
@@ -51,21 +53,33 @@ There are 0 hills and valleys so we return 0.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Traversal
+
+We initialize a pointer $j$ to point to the position with index $0$, and then traverse the array in the range $[1, n-1]$. For each position $i$:
+
+-   If $nums[i] = nums[i+1]$, then skip.
+-   Otherwise, if $nums[i]$ is greater than $nums[j]$ and $nums[i]$ is greater than $nums[i+1]$, then $i$ is a peak; if $nums[i]$ is less than $nums[j]$ and $nums[i]$ is less than $nums[i+1]$, then $i$ is a valley.
+-   Then, we update $j$ to $i$ and continue to traverse.
+
+After the traversal, we can get the number of peaks and valleys.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def countHillValley(self, nums: List[int]) -> int:
-        arr = [nums[0]]
-        for v in nums[1:]:
-            if v != arr[-1]:
-                arr.append(v)
-        return sum(
-            (arr[i] < arr[i - 1]) == (arr[i] < arr[i + 1])
-            for i in range(1, len(arr) - 1)
-        )
+        ans = j = 0
+        for i in range(1, len(nums) - 1):
+            if nums[i] == nums[i + 1]:
+                continue
+            if nums[i] > nums[j] and nums[i] > nums[i + 1]:
+                ans += 1
+            if nums[i] < nums[j] and nums[i] < nums[i + 1]:
+                ans += 1
+            j = i
+        return ans
 ```
 
 ```java
@@ -95,9 +109,15 @@ public:
     int countHillValley(vector<int>& nums) {
         int ans = 0;
         for (int i = 1, j = 0; i < nums.size() - 1; ++i) {
-            if (nums[i] == nums[i + 1]) continue;
-            if (nums[i] > nums[j] && nums[i] > nums[i + 1]) ++ans;
-            if (nums[i] < nums[j] && nums[i] < nums[i + 1]) ++ans;
+            if (nums[i] == nums[i + 1]) {
+                continue;
+            }
+            if (nums[i] > nums[j] && nums[i] > nums[i + 1]) {
+                ++ans;
+            }
+            if (nums[i] < nums[j] && nums[i] < nums[i + 1]) {
+                ++ans;
+            }
             j = i;
         }
         return ans;
@@ -126,65 +146,45 @@ func countHillValley(nums []int) int {
 
 ```ts
 function countHillValley(nums: number[]): number {
-    const n = nums.length;
-    let res = 0;
-    let prev = nums[0];
-    for (let i = 1; i < n - 1; i++) {
-        const num = nums[i];
-        const next = nums[i + 1];
-        if (num == next) {
+    let ans = 0;
+    for (let i = 1, j = 0; i < nums.length - 1; ++i) {
+        if (nums[i] === nums[i + 1]) {
             continue;
         }
-        if ((num > prev && num > next) || (num < prev && num < next)) {
-            res += 1;
+        if (nums[i] > nums[j] && nums[i] > nums[i + 1]) {
+            ans++;
         }
-        prev = num;
+        if (nums[i] < nums[j] && nums[i] < nums[i + 1]) {
+            ans++;
+        }
+        j = i;
     }
-    return res;
+    return ans;
 }
 ```
 
 ```rust
 impl Solution {
     pub fn count_hill_valley(nums: Vec<i32>) -> i32 {
-        let n = nums.len();
-        let mut res = 0;
-        let mut prev = nums[0];
-        for i in 1..n - 1 {
-            let num = nums[i];
-            let next = nums[i + 1];
-            if num == next {
+        let mut ans = 0;
+        let mut j = 0;
+
+        for i in 1..nums.len() - 1 {
+            if nums[i] == nums[i + 1] {
                 continue;
             }
-            if (num > prev && num > next) || (num < prev && num < next) {
-                res += 1;
+            if nums[i] > nums[j] && nums[i] > nums[i + 1] {
+                ans += 1;
             }
-            prev = num;
+            if nums[i] < nums[j] && nums[i] < nums[i + 1] {
+                ans += 1;
+            }
+            j = i;
         }
-        res
+
+        ans
     }
 }
-```
-
-<!-- tabs:end -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def countHillValley(self, nums: List[int]) -> int:
-        ans = j = 0
-        for i in range(1, len(nums) - 1):
-            if nums[i] == nums[i + 1]:
-                continue
-            if nums[i] > nums[j] and nums[i] > nums[i + 1]:
-                ans += 1
-            if nums[i] < nums[j] and nums[i] < nums[i + 1]:
-                ans += 1
-            j = i
-        return ans
 ```
 
 <!-- tabs:end -->

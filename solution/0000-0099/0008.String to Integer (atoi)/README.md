@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0008.String%20to%20Integer%20%28atoi%29/README_EN.md)
 
+<!-- tags:字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

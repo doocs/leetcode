@@ -1,6 +1,8 @@
-# [269. 火星词典](https://leetcode.cn/problems/alien-dictionary)
+# [269. 火星词典 🔒](https://leetcode.cn/problems/alien-dictionary)
 
 [English Version](/solution/0200-0299/0269.Alien%20Dictionary/README_EN.md)
+
+<!-- tags:深度优先搜索,广度优先搜索,图,拓扑排序,数组,字符串 -->
 
 ## 题目描述
 
@@ -8,7 +10,7 @@
 
 <p>现有一种使用英语字母的火星语言，这门语言的字母顺序对你来说是未知的。</p>
 
-<p>给你一个来自这种外星语言字典的字符串列表 <code>words</code> ，<code>words</code> 中的字符串已经 <strong>按这门新语言的字母顺序进行了排序</strong> 。</p>
+<p>给你一个来自这种外星语言字典的字符串列表 <code>words</code> ，<code>words</code> 中的字符串已经 <strong>按这门新语言的<span data-keyword="lexicographically-smaller-string-alien">字典序</span>进行了排序</strong> 。</p>
 
 <p>如果这种说法是错误的，并且给出的 <code>words</code> 不能对应任何字母的顺序，则返回 <code>""</code> 。</p>
 

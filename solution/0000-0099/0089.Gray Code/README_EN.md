@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0089.Gray%20Code/README.md)
 
+<!-- tags:Bit Manipulation,Math,Backtracking -->
+
 ## Description
 
 <p>An <strong>n-bit gray code sequence</strong> is a sequence of <code>2<sup>n</sup></code> integers where:</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0903.Valid%20Permutations%20for%20DI%20Sequence/README.md)
 
+<!-- tags:String,Dynamic Programming,Prefix Sum -->
+
 ## Description
 
 <p>You are given a string <code>s</code> of length <code>n</code> where <code>s[i]</code> is either:</p>
@@ -65,8 +67,6 @@ If the $i$th character $s[i-1]$ is `'I'`, then $f[i][j]$ can be transferred from
 The final answer is $\sum_{j=0}^n f[n][j]$.
 
 The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the string.
-
-We can optimize the time complexity to $O(n^2)$ using prefix sums. Additionally, we can optimize the space complexity to $O(n)$ using a rolling array.
 
 <!-- tabs:start -->
 
@@ -217,7 +217,7 @@ function numPermsDISequence(s: string): number {
 
 <!-- tabs:end -->
 
-### Solution 2
+We can optimize the time complexity to $O(n^2)$ using prefix sums.
 
 <!-- tabs:start -->
 
@@ -365,7 +365,7 @@ function numPermsDISequence(s: string): number {
 
 <!-- tabs:end -->
 
-### Solution 3
+Additionally, we can optimize the space complexity to $O(n)$ using a rolling array.
 
 <!-- tabs:start -->
 

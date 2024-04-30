@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2923.Find%20Champion%20I/README_EN.md)
 
+<!-- tags:数组,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

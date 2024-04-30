@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2011.Final%20Value%20of%20Variable%20After%20Performing%20Operations/README_EN.md)
 
+<!-- tags:数组,字符串,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

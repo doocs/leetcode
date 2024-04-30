@@ -1,6 +1,8 @@
-# [2417. Closest Fair Integer](https://leetcode.com/problems/closest-fair-integer)
+# [2417. Closest Fair Integer 🔒](https://leetcode.com/problems/closest-fair-integer)
 
 [中文文档](/solution/2400-2499/2417.Closest%20Fair%20Integer/README.md)
+
+<!-- tags:Math,Enumeration -->
 
 ## Description
 

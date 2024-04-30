@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0713.Subarray%20Product%20Less%20Than%20K/README.md)
 
+<!-- tags:Array,Sliding Window -->
+
 ## Description
 
 <p>Given an array of integers <code>nums</code> and an integer <code>k</code>, return <em>the number of contiguous subarrays where the product of all the elements in the subarray is strictly less than </em><code>k</code>.</p>

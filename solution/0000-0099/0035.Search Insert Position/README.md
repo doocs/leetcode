@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0035.Search%20Insert%20Position/README_EN.md)
 
+<!-- tags:数组,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -164,7 +166,11 @@ var searchInsert = function (nums, target) {
 
 <!-- tabs:end -->
 
-### 方法二
+### 方法二：二分查找（内置函数）
+
+我们也可以直接使用内置函数进行二分查找。
+
+时间复杂度 $O(\log n)$，其中 $n$ 为数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -172,6 +178,15 @@ var searchInsert = function (nums, target) {
 class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
         return bisect_left(nums, target)
+```
+
+```java
+class Solution {
+    public int searchInsert(int[] nums, int target) {
+        int i = Arrays.binarySearch(nums, target);
+        return i < 0 ? -i - 1 : i;
+    }
+}
 ```
 
 ```cpp
@@ -186,6 +201,27 @@ public:
 ```go
 func searchInsert(nums []int, target int) int {
 	return sort.SearchInts(nums, target)
+}
+```
+
+```php
+class Solution {
+    /**
+     * @param integer[] $nums
+     * @param integer $target
+     * @return integer
+     */
+
+    function searchInsert($nums, $target) {
+        $key = array_search($target, $nums);
+        if ($key !== false) {
+            return $key;
+        }
+
+        $nums[] = $target;
+        sort($nums);
+        return array_search($target, $nums);
+    }
 }
 ```
 

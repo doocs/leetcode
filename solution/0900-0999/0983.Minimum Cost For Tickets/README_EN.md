@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0983.Minimum%20Cost%20For%20Tickets/README.md)
 
+<!-- tags:Array,Dynamic Programming -->
+
 ## Description
 
 <p>You have planned some train traveling one year in advance. The days of the year in which you will travel are given as an integer array <code>days</code>. Each day is an integer from <code>1</code> to <code>365</code>.</p>

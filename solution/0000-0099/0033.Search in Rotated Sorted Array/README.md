@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0033.Search%20in%20Rotated%20Sorted%20Array/README_EN.md)
 
+<!-- tags:数组,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -250,6 +252,26 @@ var search = function (nums, target) {
     }
     return nums[left] == target ? left : -1;
 };
+```
+
+```php
+class Solution {
+    /**
+     * @param integer[] $nums
+     * @param integer $target
+     * @return integer
+     */
+
+    function search($nums, $target) {
+        $foundKey = -1;
+        foreach ($nums as $key => $value) {
+            if ($value === $target) {
+                $foundKey = $key;
+            }
+        }
+        return $foundKey;
+    }
+}
 ```
 
 <!-- tabs:end -->

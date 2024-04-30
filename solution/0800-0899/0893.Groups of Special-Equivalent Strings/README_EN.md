@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0893.Groups%20of%20Special-Equivalent%20Strings/README.md)
 
+<!-- tags:Array,Hash Table,String,Sorting -->
+
 ## Description
 
 <p>You are given an array of strings of the same length <code>words</code>.</p>

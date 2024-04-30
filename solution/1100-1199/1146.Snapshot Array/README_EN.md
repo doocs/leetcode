@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1146.Snapshot%20Array/README.md)
 
+<!-- tags:Design,Array,Hash Table,Binary Search -->
+
 ## Description
 
 <p>Implement a SnapshotArray that supports the following interface:</p>
@@ -42,33 +44,35 @@ snapshotArr.get(0,0);  // Get the value of array[0] with snap_id = 0, return 5</
 
 ### Solution 1: Array + Binary Search
 
-Maintain an array, each element of which is a list storing the values set each time and their corresponding snapshot IDs.
+We maintain an array of length `length`. Each element in the array is a list, which is used to store the value set each time and the corresponding snapshot ID.
 
-Each time a value is set, add the value and snapshot ID to the list at the corresponding index.
+When the `set` method is called, we add the value and snapshot ID to the list at the corresponding index. The time complexity is $O(1)$.
 
-Each time a value is retrieved, use binary search to find the first value in the corresponding position that is greater than the snapshot ID `snap_id`, and then return the previous value.
+When the `snap` method is called, we first increment the snapshot ID, then return the snapshot ID minus one. The time complexity is $O(1)$.
 
-In terms of time complexity, the time complexity of setting a value is $O(1)$, the time complexity of a snapshot is $O(1)$, and the time complexity of getting a value is $O(\log n)$.
+When the `get` method is called, we use binary search to find the first snapshot ID greater than `snap_id` at the corresponding position, and then return the previous value. If it cannot be found, return 0. The time complexity is $O(\log n)$.
+
+The space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
 ```python
 class SnapshotArray:
+
     def __init__(self, length: int):
-        self.idx = 0
-        self.arr = defaultdict(list)
+        self.arr = [[] for _ in range(length)]
+        self.i = 0
 
     def set(self, index: int, val: int) -> None:
-        self.arr[index].append((self.idx, val))
+        self.arr[index].append((self.i, val))
 
     def snap(self) -> int:
-        self.idx += 1
-        return self.idx - 1
+        self.i += 1
+        return self.i - 1
 
     def get(self, index: int, snap_id: int) -> int:
-        vals = self.arr[index]
-        i = bisect_right(vals, (snap_id, inf)) - 1
-        return 0 if i < 0 else vals[i][1]
+        i = bisect_left(self.arr[index], (snap_id, inf)) - 1
+        return 0 if i < 0 else self.arr[index][i][1]
 
 
 # Your SnapshotArray object will be instantiated and called as such:
@@ -97,17 +101,17 @@ class SnapshotArray {
     }
 
     public int get(int index, int snap_id) {
-        var vals = arr[index];
-        int left = 0, right = vals.size();
-        while (left < right) {
-            int mid = (left + right) >> 1;
-            if (vals.get(mid)[0] > snap_id) {
-                right = mid;
+        int l = 0, r = arr[index].size();
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (arr[index].get(mid)[0] > snap_id) {
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return left == 0 ? 0 : vals.get(left - 1)[1];
+        --l;
+        return l < 0 ? 0 : arr[index].get(l)[1];
     }
 }
 
@@ -124,35 +128,25 @@ class SnapshotArray {
 class SnapshotArray {
 public:
     SnapshotArray(int length) {
-        idx = 0;
-        arr = vector<vector<pair<int, int>>>(length);
+        arr.resize(length);
     }
 
     void set(int index, int val) {
-        arr[index].push_back({idx, val});
+        arr[index].emplace_back(i, val);
     }
 
     int snap() {
-        return idx++;
+        return i++;
     }
 
     int get(int index, int snap_id) {
-        auto& vals = arr[index];
-        int left = 0, right = vals.size();
-        while (left < right) {
-            int mid = (left + right) >> 1;
-            if (vals[mid].first > snap_id) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        return left == 0 ? 0 : vals[left - 1].second;
+        auto it = upper_bound(arr[index].begin(), arr[index].end(), make_pair(snap_id, INT_MAX));
+        return it == arr[index].begin() ? 0 : prev(it)->second;
     }
 
 private:
     vector<vector<pair<int, int>>> arr;
-    int idx;
+    int i = 0;
 };
 
 /**
@@ -166,33 +160,30 @@ private:
 
 ```go
 type SnapshotArray struct {
-	idx int
-	arr [][]pair
+	arr [][][2]int
+	i   int
 }
 
 func Constructor(length int) SnapshotArray {
-	return SnapshotArray{0, make([][]pair, length)}
+	return SnapshotArray{make([][][2]int, length), 0}
 }
 
 func (this *SnapshotArray) Set(index int, val int) {
-	this.arr[index] = append(this.arr[index], pair{this.idx, val})
+	this.arr[index] = append(this.arr[index], [2]int{this.i, val})
 }
 
 func (this *SnapshotArray) Snap() int {
-	this.idx++
-	return this.idx - 1
+	this.i++
+	return this.i - 1
 }
 
 func (this *SnapshotArray) Get(index int, snap_id int) int {
-	vals := this.arr[index]
-	i := sort.Search(len(vals), func(i int) bool { return vals[i].i > snap_id })
-	if i == 0 {
+	i := sort.Search(len(this.arr[index]), func(i int) bool { return this.arr[index][i][0] > snap_id }) - 1
+	if i < 0 {
 		return 0
 	}
-	return vals[i-1].v
+	return this.arr[index][i][1]
 }
-
-type pair struct{ i, v int }
 
 /**
  * Your SnapshotArray object will be instantiated and called as such:
@@ -200,6 +191,46 @@ type pair struct{ i, v int }
  * obj.Set(index,val);
  * param_2 := obj.Snap();
  * param_3 := obj.Get(index,snap_id);
+ */
+```
+
+```ts
+class SnapshotArray {
+    private arr: [number, number][][];
+    private i: number = 0;
+    constructor(length: number) {
+        this.arr = Array.from({ length }, () => []);
+    }
+
+    set(index: number, val: number): void {
+        this.arr[index].push([this.i, val]);
+    }
+
+    snap(): number {
+        return this.i++;
+    }
+
+    get(index: number, snap_id: number): number {
+        let [l, r] = [0, this.arr[index].length];
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            if (this.arr[index][mid][0] > snap_id) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        --l;
+        return l < 0 ? 0 : this.arr[index][l][1];
+    }
+}
+
+/**
+ * Your SnapshotArray object will be instantiated and called as such:
+ * var obj = new SnapshotArray(length)
+ * obj.set(index,val)
+ * var param_2 = obj.snap()
+ * var param_3 = obj.get(index,snap_id)
  */
 ```
 

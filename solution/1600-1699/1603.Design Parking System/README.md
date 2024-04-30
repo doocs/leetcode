@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1603.Design%20Parking%20System/README_EN.md)
 
+<!-- tags:设计,计数,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -98,17 +100,20 @@ class ParkingSystem {
 ```cpp
 class ParkingSystem {
 public:
-    vector<int> cnt;
-
     ParkingSystem(int big, int medium, int small) {
         cnt = {0, big, medium, small};
     }
 
     bool addCar(int carType) {
-        if (cnt[carType] == 0) return false;
+        if (cnt[carType] == 0) {
+            return false;
+        }
         --cnt[carType];
         return true;
     }
+
+private:
+    vector<int> cnt;
 };
 
 /**

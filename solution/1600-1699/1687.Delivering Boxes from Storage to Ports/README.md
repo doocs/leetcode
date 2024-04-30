@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1687.Delivering%20Boxes%20from%20Storage%20to%20Ports/README_EN.md)
 
+<!-- tags:线段树,队列,数组,动态规划,前缀和,单调队列,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -116,6 +118,8 @@ $$
 
 代码实现如下：
 
+<!-- tabs:start -->
+
 ```python
 # 33/39 个通过测试用例，超出时间限制
 class Solution:
@@ -222,6 +226,8 @@ func boxDelivering(boxes [][]int, portsCount int, maxBoxes int, maxWeight int) i
 	return f[n]
 }
 ```
+
+<!-- tabs:end -->
 
 本题数据规模达到 $10^5$，而以上代码的时间复杂度为 $O(n^2)$，会超出时间限制。我们仔细观察：
 

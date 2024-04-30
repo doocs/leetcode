@@ -1,6 +1,8 @@
-# [1120. 子树的最大平均值](https://leetcode.cn/problems/maximum-average-subtree)
+# [1120. 子树的最大平均值 🔒](https://leetcode.cn/problems/maximum-average-subtree)
 
 [English Version](/solution/1100-1199/1120.Maximum%20Average%20Subtree/README_EN.md)
+
+<!-- tags:树,深度优先搜索,二叉树 -->
 
 ## 题目描述
 

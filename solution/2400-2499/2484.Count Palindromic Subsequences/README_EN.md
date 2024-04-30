@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2484.Count%20Palindromic%20Subsequences/README.md)
 
+<!-- tags:String,Dynamic Programming -->
+
 ## Description
 
 <p>Given a string of digits <code>s</code>, return <em>the number of <strong>palindromic subsequences</strong> of</em> <code>s</code><em> having length </em><code>5</code>. Since the answer may be very large, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>
@@ -50,7 +52,9 @@ Two of them (both equal to &quot;10301&quot;) are palindromic.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Enumeration + Counting
+
+The time complexity is $O(100 \times n)$, and the space complexity is $O(100 \times n)$. Where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2618.Check%20if%20Object%20Instance%20of%20Class/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Write a function that checks if a given value&nbsp;is an instance of a given class or superclass. For this problem, an object is considered an instance of a given class if that object has access to that class&#39;s methods.</p>

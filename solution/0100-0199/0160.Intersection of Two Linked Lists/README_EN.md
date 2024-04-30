@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0160.Intersection%20of%20Two%20Linked%20Lists/README.md)
 
+<!-- tags:Hash Table,Linked List,Two Pointers -->
+
 ## Description
 
 <p>Given the heads of two singly linked-lists <code>headA</code> and <code>headB</code>, return <em>the node at which the two lists intersect</em>. If the two linked lists have no intersection at all, return <code>null</code>.</p>
@@ -74,7 +76,15 @@ Explanation: The two lists do not intersect, so return null.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Two Pointers
+
+We use two pointers $a$ and $b$ to point to two linked lists $headA$ and $headB$ respectively.
+
+We traverse the linked lists simultaneously. When $a$ reaches the end of the linked list $headA$, it is repositioned to the head node of the linked list $headB$. When $b$ reaches the end of the linked list $headB$, it is repositioned to the head node of the linked list $headA$.
+
+If the two pointers meet, the node they point to is the first common node. If they don't meet, it means that the two linked lists have no common nodes. At this time, both pointers point to `null`, and we can return either one.
+
+The time complexity is $O(m+n)$, where $m$ and $n$ are the lengths of the linked lists $headA$ and $headB$ respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

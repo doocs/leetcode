@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1712.Ways%20to%20Split%20Array%20Into%20Three%20Subarrays/README_EN.md)
 
+<!-- tags:数组,双指针,二分查找,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -1,6 +1,8 @@
-# [1549. 每件商品的最新订单](https://leetcode.cn/problems/the-most-recent-orders-for-each-product)
+# [1549. 每件商品的最新订单 🔒](https://leetcode.cn/problems/the-most-recent-orders-for-each-product)
 
 [English Version](/solution/1500-1599/1549.The%20Most%20Recent%20Orders%20for%20Each%20Product/README_EN.md)
+
+<!-- tags:数据库 -->
 
 ## 题目描述
 

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2209.Minimum%20White%20Tiles%20After%20Covering%20With%20Carpets/README_EN.md)
 
+<!-- tags:字符串,动态规划,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -55,7 +57,7 @@
 
 ### 方法一：记忆化搜索
 
-设计函数 $dfs(i, j)$ 表示从下标 $i$ 开始，使用 $j$ 条地毯，最少有多少个白色砖块没有被覆盖。答案即为 $dfs(0, numCarpets)$。
+我们设计一个函数 $dfs(i, j)$ 表示从下标 $i$ 开始，使用 $j$ 条地毯，最少有多少个白色砖块没有被覆盖。答案即为 $dfs(0, numCarpets)$。
 
 对于下标 $i$，我们分情况讨论：
 

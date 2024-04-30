@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1663.Smallest%20String%20With%20A%20Given%20Numeric%20Value/README.md)
 
+<!-- tags:Greedy,String -->
+
 ## Description
 
 <p>The <strong>numeric value</strong> of a <strong>lowercase character</strong> is defined as its position <code>(1-indexed)</code> in the alphabet, so the numeric value of <code>a</code> is <code>1</code>, the numeric value of <code>b</code> is <code>2</code>, the numeric value of <code>c</code> is <code>3</code>, and so on.</p>
@@ -38,7 +40,13 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Greedy
+
+First, we initialize each character of the string to `'a'`, leaving a remaining value of $d=k-n$.
+
+Then, we traverse the string from back to front. In each iteration, we greedily replace the current character with the character `'z'` that can minimize the remaining number, until the remaining number does not exceed $25$. Finally, we add the remaining number to the position we have traversed.
+
+The time complexity is $O(n)$, where $n$ is the length of the string. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

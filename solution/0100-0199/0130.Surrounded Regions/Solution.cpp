@@ -2,27 +2,32 @@ class Solution {
 public:
     void solve(vector<vector<char>>& board) {
         int m = board.size(), n = board[0].size();
-        for (int i = 0; i < m; ++i)
-            for (int j = 0; j < n; ++j)
-                if ((i == 0 || i == m - 1 || j == 0 || j == n - 1) && board[i][j] == 'O')
-                    dfs(board, i, j);
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (board[i][j] == '.')
-                    board[i][j] = 'O';
-                else if (board[i][j] == 'O')
-                    board[i][j] = 'X';
+        int dirs[5] = {-1, 0, 1, 0, -1};
+        function<void(int, int)> dfs = [&](int i, int j) {
+            if (i < 0 || i >= m || j < 0 || j >= n || board[i][j] != 'O') {
+                return;
             }
+            board[i][j] = '.';
+            for (int k = 0; k < 4; ++k) {
+                dfs(i + dirs[k], j + dirs[k + 1]);
+            }
+        };
+        for (int i = 0; i < m; ++i) {
+            dfs(i, 0);
+            dfs(i, n - 1);
         }
-    }
-
-    void dfs(vector<vector<char>>& board, int i, int j) {
-        board[i][j] = '.';
-        vector<int> dirs = {-1, 0, 1, 0, -1};
-        for (int k = 0; k < 4; ++k) {
-            int x = i + dirs[k], y = j + dirs[k + 1];
-            if (x >= 0 && x < board.size() && y >= 0 && y < board[0].size() && board[x][y] == 'O')
-                dfs(board, x, y);
+        for (int j = 1; j < n - 1; ++j) {
+            dfs(0, j);
+            dfs(m - 1, j);
+        }
+        for (auto& row : board) {
+            for (auto& c : row) {
+                if (c == '.') {
+                    c = 'O';
+                } else if (c == 'O') {
+                    c = 'X';
+                }
+            }
         }
     }
 };

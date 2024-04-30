@@ -1,6 +1,8 @@
-# [634. 寻找数组的错位排列](https://leetcode.cn/problems/find-the-derangement-of-an-array)
+# [634. 寻找数组的错位排列 🔒](https://leetcode.cn/problems/find-the-derangement-of-an-array)
 
 [English Version](/solution/0600-0699/0634.Find%20the%20Derangement%20of%20An%20Array/README_EN.md)
+
+<!-- tags:数学,动态规划 -->
 
 ## 题目描述
 
@@ -54,9 +56,7 @@ $$
 
 最终答案即为 $f[n]$。注意答案的取模操作。
 
-我们发现，状态转移方程中只与 $f[i - 1]$ 和 $f[i - 2]$ 有关，因此我们可以使用两个变量 $a$ 和 $b$ 来分别表示 $f[i - 1]$ 和 $f[i - 2]$，从而将空间复杂度降低到 $O(1)$。
-
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。
+时间复杂度 $O(n)$，其中 $n$ 为数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -114,7 +114,9 @@ func findDerangement(n int) int {
 
 <!-- tabs:end -->
 
-### 方法二
+### 方法二：动态规划（空间优化）
+
+我们发现，状态转移方程中只与 $f[i - 1]$ 和 $f[i - 2]$ 有关，因此我们可以使用两个变量 $a$ 和 $b$ 来分别表示 $f[i - 1]$ 和 $f[i - 2]$，从而将空间复杂度降低到 $O(1)$。
 
 <!-- tabs:start -->
 

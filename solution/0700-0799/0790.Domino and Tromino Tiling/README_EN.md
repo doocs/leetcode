@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0790.Domino%20and%20Tromino%20Tiling/README.md)
 
+<!-- tags:Dynamic Programming -->
+
 ## Description
 
 <p>You have two types of tiles: a <code>2 x 1</code> domino shape and a tromino shape. You may rotate these shapes.</p>

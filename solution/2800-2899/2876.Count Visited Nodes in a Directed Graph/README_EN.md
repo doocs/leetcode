@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2876.Count%20Visited%20Nodes%20in%20a%20Directed%20Graph/README.md)
 
+<!-- tags:Graph,Memoization,Dynamic Programming -->
+
 ## Description
 
 <p>There is a <strong>directed</strong> graph consisting of <code>n</code> nodes numbered from <code>0</code> to <code>n - 1</code> and <code>n</code> directed edges.</p>

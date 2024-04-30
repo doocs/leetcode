@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0756.Pyramid%20Transition%20Matrix/README_EN.md)
 
+<!-- tags:位运算,深度优先搜索,广度优先搜索 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

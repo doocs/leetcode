@@ -1,6 +1,8 @@
-# [471. Encode String with Shortest Length](https://leetcode.com/problems/encode-string-with-shortest-length)
+# [471. Encode String with Shortest Length 🔒](https://leetcode.com/problems/encode-string-with-shortest-length)
 
 [中文文档](/solution/0400-0499/0471.Encode%20String%20with%20Shortest%20Length/README.md)
+
+<!-- tags:String,Dynamic Programming -->
 
 ## Description
 

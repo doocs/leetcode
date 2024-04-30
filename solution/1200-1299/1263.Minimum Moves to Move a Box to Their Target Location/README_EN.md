@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1263.Minimum%20Moves%20to%20Move%20a%20Box%20to%20Their%20Target%20Location/README.md)
 
+<!-- tags:Breadth-First Search,Array,Matrix,Heap (Priority Queue) -->
+
 ## Description
 
 <p>A storekeeper is a game in which the player pushes boxes around in a warehouse trying to get them to target locations.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0197.Rising%20Temperature/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -19,6 +21,7 @@
 | temperature   | int     |
 +---------------+---------+
 id 是该表具有唯一值的列。
+没有具有相同 recordDate 的不同行。
 该表包含特定日期的温度信息</pre>
 
 <p>&nbsp;</p>
@@ -34,8 +37,8 @@ id 是该表具有唯一值的列。
 <p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<code><strong>输入：</strong>
-Weather 表：</code>
+<strong>输入：</strong>
+Weather 表：
 +----+------------+-------------+
 | id | recordDate | Temperature |
 +----+------------+-------------+

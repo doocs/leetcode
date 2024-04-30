@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0704.Binary%20Search/README_EN.md)
 
+<!-- tags:数组,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -35,7 +37,18 @@
 
 ## 解法
 
-### 方法一
+### 方法一：二分查找
+
+我们定义二分查找的左边界 $left=0$，右边界 $right=n-1$。
+
+每一次循环，我们计算中间位置 $mid=(left+right)/2$，然后判断 $nums[mid]$ 和 $target$ 的大小关系：
+
+-   如果 $nums[mid] \geq target$，则说明 $target$ 在 $[left, mid]$ 之间，我们将 $right$ 更新为 $mid$；
+-   否则，说明 $target$ 在 $[mid+1, right]$ 之间，我们将 $left$ 更新为 $mid+1$。
+
+当 $left \geq right$ 时，我们判断 $nums[left]$ 是否等于 $target$，如果等于则返回 $left$，否则返回 $-1$。
+
+时间复杂度 $O(\log n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -151,31 +164,19 @@ var search = function (nums, target) {
 };
 ```
 
-<!-- tabs:end -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-```rust
-use std::cmp::Ordering;
-
-impl Solution {
-    fn binary_search(nums: Vec<i32>, target: i32, l: usize, r: usize) -> i32 {
-        if l == r {
-            return if nums[l] == target { l as i32 } else { -1 };
+```cs
+public class Solution {
+    public int Search(int[] nums, int target) {
+        int left = 0, right = nums.Length - 1;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (nums[mid] >= target) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
         }
-        let mid = (l + r) >> 1;
-        match nums[mid].cmp(&target) {
-            Ordering::Less => Self::binary_search(nums, target, mid + 1, r),
-            Ordering::Greater => Self::binary_search(nums, target, l, mid),
-            Ordering::Equal => mid as i32,
-        }
-    }
-
-    pub fn search(nums: Vec<i32>, target: i32) -> i32 {
-        let r = nums.len() - 1;
-        Self::binary_search(nums, target, 0, r)
+        return nums[left] == target ? left : -1;
     }
 }
 ```

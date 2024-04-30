@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1898.Maximum%20Number%20of%20Removable%20Characters/README_EN.md)
 
+<!-- tags:数组,双指针,字符串,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

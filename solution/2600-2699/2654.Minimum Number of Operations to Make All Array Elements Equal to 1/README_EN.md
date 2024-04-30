@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2654.Minimum%20Number%20of%20Operations%20to%20Make%20All%20Array%20Elements%20Equal%20to%201/README.md)
 
+<!-- tags:Array,Math,Number Theory -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong>&nbsp;array <code>nums</code> consisiting of <strong>positive</strong> integers. You can do the following operation on the array <strong>any</strong> number of times:</p>
@@ -42,11 +44,6 @@
 	<li><code>2 &lt;= nums.length &lt;= 50</code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
-
-<p>&nbsp;</p>
-<p><b>Follow-up:</b></p>
-
-<p>The <code>O(n)</code> time complexity&nbsp;solution works, but could you find an <code>O(1)</code> constant time complexity solution?</p>
 
 ## Solutions
 

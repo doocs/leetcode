@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1185.Day%20of%20the%20Week/README.md)
 
+<!-- tags:Math -->
+
 ## Description
 
 <p>Given a date, return the corresponding day of the week for that date.</p>

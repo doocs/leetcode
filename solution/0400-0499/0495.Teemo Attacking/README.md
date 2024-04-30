@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0495.Teemo%20Attacking/README_EN.md)
 
+<!-- tags:数组,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

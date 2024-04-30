@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0224.Basic%20Calculator/README.md)
 
+<!-- tags:Stack,Recursion,Math,String -->
+
 ## Description
 
 <p>Given a string <code>s</code> representing a valid expression, implement a basic calculator to evaluate it, and return <em>the result of the evaluation</em>.</p>

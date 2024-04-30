@@ -1,6 +1,8 @@
-# [254. Factor Combinations](https://leetcode.com/problems/factor-combinations)
+# [254. Factor Combinations 🔒](https://leetcode.com/problems/factor-combinations)
 
 [中文文档](/solution/0200-0299/0254.Factor%20Combinations/README.md)
+
+<!-- tags:Backtracking -->
 
 ## Description
 

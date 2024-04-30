@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0922.Sort%20Array%20By%20Parity%20II/README.md)
 
+<!-- tags:Array,Two Pointers,Sorting -->
+
 ## Description
 
 <p>Given an array of integers <code>nums</code>, half of the integers in <code>nums</code> are <strong>odd</strong>, and the other half are <strong>even</strong>.</p>
@@ -41,7 +43,13 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Two Pointers
+
+We use two pointers $i$ and $j$ to point to even and odd indices respectively.
+
+When $i$ points to an even index, if $nums[i]$ is odd, then we need to find an odd index $j$ such that $nums[j]$ is even, and then swap $nums[i]$ and $nums[j]$. Continue to iterate until $i$ points to the end of the array.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -50,8 +58,8 @@ class Solution:
     def sortArrayByParityII(self, nums: List[int]) -> List[int]:
         n, j = len(nums), 1
         for i in range(0, n, 2):
-            if (nums[i] & 1) == 1:
-                while (nums[j] & 1) == 1:
+            if nums[i] % 2:
+                while nums[j] % 2:
                     j += 2
                 nums[i], nums[j] = nums[j], nums[i]
         return nums
@@ -61,8 +69,8 @@ class Solution:
 class Solution {
     public int[] sortArrayByParityII(int[] nums) {
         for (int i = 0, j = 1; i < nums.length; i += 2) {
-            if ((nums[i] & 1) == 1) {
-                while ((nums[j] & 1) == 1) {
+            if (nums[i] % 2 == 1) {
+                while (nums[j] % 2 == 1) {
                     j += 2;
                 }
                 int t = nums[i];
@@ -80,8 +88,8 @@ class Solution {
 public:
     vector<int> sortArrayByParityII(vector<int>& nums) {
         for (int i = 0, j = 1; i < nums.size(); i += 2) {
-            if ((nums[i] & 1) == 1) {
-                while ((nums[j] & 1) == 1) {
+            if (nums[i] % 2) {
+                while (nums[j] % 2) {
                     j += 2;
                 }
                 swap(nums[i], nums[j]);
@@ -95,14 +103,28 @@ public:
 ```go
 func sortArrayByParityII(nums []int) []int {
 	for i, j := 0, 1; i < len(nums); i += 2 {
-		if (nums[i] & 1) == 1 {
-			for (nums[j] & 1) == 1 {
+		if nums[i]%2 == 1 {
+			for nums[j]%2 == 1 {
 				j += 2
 			}
 			nums[i], nums[j] = nums[j], nums[i]
 		}
 	}
 	return nums
+}
+```
+
+```ts
+function sortArrayByParityII(nums: number[]): number[] {
+    for (let i = 0, j = 1; i < nums.length; i += 2) {
+        if (nums[i] % 2) {
+            while (nums[j] % 2) {
+                j += 2;
+            }
+            [nums[i], nums[j]] = [nums[j], nums[i]];
+        }
+    }
+    return nums;
 }
 ```
 
@@ -113,8 +135,8 @@ func sortArrayByParityII(nums []int) []int {
  */
 var sortArrayByParityII = function (nums) {
     for (let i = 0, j = 1; i < nums.length; i += 2) {
-        if ((nums[i] & 1) == 1) {
-            while ((nums[j] & 1) == 1) {
+        if (nums[i] % 2) {
+            while (nums[j] % 2) {
                 j += 2;
             }
             [nums[i], nums[j]] = [nums[j], nums[i]];

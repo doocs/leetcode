@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1603.Design%20Parking%20System/README.md)
 
+<!-- tags:Design,Counting,Simulation -->
+
 ## Description
 
 <p>Design a parking system for a parking lot. The parking lot has three kinds of parking spaces: big, medium, and small, with a fixed number of slots for each size.</p>
@@ -90,17 +92,20 @@ class ParkingSystem {
 ```cpp
 class ParkingSystem {
 public:
-    vector<int> cnt;
-
     ParkingSystem(int big, int medium, int small) {
         cnt = {0, big, medium, small};
     }
 
     bool addCar(int carType) {
-        if (cnt[carType] == 0) return false;
+        if (cnt[carType] == 0) {
+            return false;
+        }
         --cnt[carType];
         return true;
     }
+
+private:
+    vector<int> cnt;
 };
 
 /**

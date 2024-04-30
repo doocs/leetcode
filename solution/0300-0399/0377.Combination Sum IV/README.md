@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0377.Combination%20Sum%20IV/README_EN.md)
 
+<!-- tags:数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -129,7 +131,7 @@ func combinationSum4(nums []int, target int) int {
 
 ```ts
 function combinationSum4(nums: number[], target: number): number {
-    const f: number[] = new Array(target + 1).fill(0);
+    const f: number[] = Array(target + 1).fill(0);
     f[0] = 1;
     for (let i = 1; i <= target; ++i) {
         for (const x of nums) {
@@ -149,7 +151,7 @@ function combinationSum4(nums: number[], target: number): number {
  * @return {number}
  */
 var combinationSum4 = function (nums, target) {
-    const f = new Array(target + 1).fill(0);
+    const f = Array(target + 1).fill(0);
     f[0] = 1;
     for (let i = 1; i <= target; ++i) {
         for (const x of nums) {

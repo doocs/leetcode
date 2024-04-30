@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2203.Minimum%20Weighted%20Subgraph%20With%20the%20Required%20Paths/README_EN.md)
 
+<!-- tags:图,最短路 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

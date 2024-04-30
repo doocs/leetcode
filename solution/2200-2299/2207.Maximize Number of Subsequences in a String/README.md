@@ -1,6 +1,8 @@
-# [2207. 字符串中最多数目的子字符串](https://leetcode.cn/problems/maximize-number-of-subsequences-in-a-string)
+# [2207. 字符串中最多数目的子序列](https://leetcode.cn/problems/maximize-number-of-subsequences-in-a-string)
 
 [English Version](/solution/2200-2299/2207.Maximize%20Number%20of%20Subsequences%20in%20a%20String/README_EN.md)
+
+<!-- tags:贪心,字符串,前缀和 -->
 
 ## 题目描述
 

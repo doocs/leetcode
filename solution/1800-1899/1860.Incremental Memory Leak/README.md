@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1860.Incremental%20Memory%20Leak/README_EN.md)
 
+<!-- tags:数学,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

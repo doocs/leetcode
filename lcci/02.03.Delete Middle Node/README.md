@@ -25,7 +25,11 @@
 
 ## 解法
 
-### 方法一
+### 方法一：节点赋值
+
+我们可以将当前节点的值替换为下一个节点的值，然后删除下一个节点。这样就可以达到删除当前节点的目的。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -39,10 +43,6 @@
 
 class Solution:
     def deleteNode(self, node):
-        """
-        :type node: ListNode
-        :rtype: void Do not return anything, modify node in-place instead.
-        """
         node.val = node.next.val
         node.next = node.next.next
 ```
@@ -112,6 +112,26 @@ var deleteNode = function (node) {
     node.val = node.next.val;
     node.next = node.next.next;
 };
+```
+
+```swift
+/**
+*    public class ListNode {
+*        var val: Int
+*        var next: ListNode?
+*        init(_ x: Int) {
+*            self.val = x
+*            self.next = nil
+*        }
+*    }
+*/
+class Solution {
+    func deleteNode(_ node: ListNode?) {
+        guard let node = node, let next = node.next else { return }
+        node.val = next.val
+        node.next = next.next
+    }
+}
 ```
 
 <!-- tabs:end -->

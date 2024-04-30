@@ -7,23 +7,23 @@
  * }
  */
 func constructFromPrePost(preorder []int, postorder []int) *TreeNode {
-	postMap := make(map[int]int)
-	for index, v := range postorder {
-		postMap[v] = index
+	pos := map[int]int{}
+	for i, x := range postorder {
+		pos[x] = i
 	}
-	var dfs func(prel, prer, postl, postr int) *TreeNode
-	dfs = func(prel, prer, postl, postr int) *TreeNode {
-		if prel > prer {
+	var dfs func(int, int, int, int) *TreeNode
+	dfs = func(a, b, c, d int) *TreeNode {
+		if a > b {
 			return nil
 		}
-		root := &TreeNode{Val: preorder[prel]}
-		if prel == prer {
+		root := &TreeNode{Val: preorder[a]}
+		if a == b {
 			return root
 		}
-		leftRootIndex := postMap[preorder[prel+1]]
-		leftLength := leftRootIndex - postl + 1
-		root.Left = dfs(prel+1, prel+leftLength, postl, leftRootIndex)
-		root.Right = dfs(prel+leftLength+1, prer, leftRootIndex+1, postr-1)
+		i := pos[preorder[a+1]]
+		m := i - c + 1
+		root.Left = dfs(a+1, a+m, c, i)
+		root.Right = dfs(a+m+1, b, i+1, d-1)
 		return root
 	}
 	return dfs(0, len(preorder)-1, 0, len(postorder)-1)

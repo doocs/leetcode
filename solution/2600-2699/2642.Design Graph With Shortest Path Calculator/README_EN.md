@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2642.Design%20Graph%20With%20Shortest%20Path%20Calculator/README.md)
 
+<!-- tags:Graph,Design,Shortest Path,Heap (Priority Queue) -->
+
 ## Description
 
 <p>There is a <strong>directed weighted</strong> graph that consists of <code>n</code> nodes numbered from <code>0</code> to <code>n - 1</code>. The edges of the graph are initially represented by the given array <code>edges</code> where <code>edges[i] = [from<sub>i</sub>, to<sub>i</sub>, edgeCost<sub>i</sub>]</code> meaning that there is an edge from <code>from<sub>i</sub></code> to <code>to<sub>i</sub></code> with the cost <code>edgeCost<sub>i</sub></code>.</p>
@@ -49,7 +51,15 @@ g.shortestPath(0, 3); // return 6. The shortest path from 0 to 3 now is 0 -&gt; 
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Dijsktra's Algorithm
+
+In the initialization function, we first use the adjacency matrix $g$ to store the edge weights of the graph, where $g_{ij}$ represents the edge weight from node $i$ to node $j$. If there is no edge between $i$ and $j$, the value of $g_{ij}$ is $\infty$.
+
+In the `addEdge` function, we update the value of $g_{ij}$ to $edge[2]$.
+
+In the `shortestPath` function, we use Dijsktra's algorithm to find the shortest path from node $node1$ to node $node2$. Here, $dist[i]$ represents the shortest path from node $node1$ to node $i$, and $vis[i]$ indicates whether node $i$ has been visited. We initialize $dist[node1]$ to $0$, and the rest of $dist[i]$ are all $\infty$. Then we iterate $n$ times, each time finding the current unvisited node $t$ such that $dist[t]$ is the smallest. Then we mark node $t$ as visited, and then update the value of $dist[i]$ to $min(dist[i], dist[t] + g_{ti})$. Finally, we return $dist[node2]$. If $dist[node2]$ is $\infty$, it means that there is no path from node $node1$ to node $node2$, so we return $-1$.
+
+The time complexity is $O(n^2 \times q)$, and the space complexity is $O(n^2)$. Where $n$ is the number of nodes, and $q$ is the number of calls to the `shortestPath` function.
 
 <!-- tabs:start -->
 
@@ -298,28 +308,26 @@ class Graph {
 ```cs
 public class Graph {
     private int n;
-    private int[][] g;
+    private int[,] g;
     private readonly int inf = 1 << 29;
 
     public Graph(int n, int[][] edges) {
         this.n = n;
-        g = new int[n][];
-        for (int i = 0; i < n; i++)
-        {
-            g[i] = new int[n];
-            for (int j = 0; j < n; j++)
-            {
-                g[i][j] = inf;
+        g = new int[n, n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                g[i, j] = inf;
             }
         }
-        foreach (int[] e in edges)
-        {
-            g[e[0]][e[1]] = e[2];
+        foreach (var e in edges) {
+            int f = e[0], t = e[1], c = e[2];
+            g[f, t] = c;
         }
     }
 
     public void AddEdge(int[] edge) {
-        g[edge[0]][edge[1]] = edge[2];
+        int f = edge[0], t = edge[1], c = edge[2];
+        g[f, t] = c;
     }
 
     public int ShortestPath(int node1, int node2) {
@@ -327,19 +335,16 @@ public class Graph {
         bool[] vis = new bool[n];
         Array.Fill(dist, inf);
         dist[node1] = 0;
-
-        for (int i = 0; i < n; i++)
-        {
+        for (int i = 0; i < n; ++i) {
             int t = -1;
-            for (int j = 0; j < n; j++)
-            {
-                if (!vis[j] && (t == -1 || dist[t] > dist[j]))
+            for (int j = 0; j < n; ++j) {
+                if (!vis[j] && (t == -1 || dist[t] > dist[j])) {
                     t = j;
+                }
             }
             vis[t] = true;
-            for (int j = 0; j < n; j++)
-            {
-                dist[j] = Math.Min(dist[j], dist[t] + g[t][j]);
+            for (int j = 0; j < n; ++j) {
+                dist[j] = Math.Min(dist[j], dist[t] + g[t, j]);
             }
         }
         return dist[node2] >= inf ? -1 : dist[node2];

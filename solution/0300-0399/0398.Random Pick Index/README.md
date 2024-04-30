@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0398.Random%20Pick%20Index/README_EN.md)
 
+<!-- tags:水塘抽样,哈希表,数学,随机化 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

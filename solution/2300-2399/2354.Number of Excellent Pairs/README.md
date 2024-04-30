@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2354.Number%20of%20Excellent%20Pairs/README_EN.md)
 
+<!-- tags:位运算,数组,哈希表,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

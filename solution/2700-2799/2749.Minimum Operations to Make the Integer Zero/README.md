@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2749.Minimum%20Operations%20to%20Make%20the%20Integer%20Zero/README_EN.md)
 
+<!-- tags:位运算,脑筋急转弯 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

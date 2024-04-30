@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0519.Random%20Flip%20Matrix/README.md)
 
+<!-- tags:Reservoir Sampling,Hash Table,Math,Randomized -->
+
 ## Description
 
 <p>There is an <code>m x n</code> binary grid <code>matrix</code> with all the values set <code>0</code> initially. Design an algorithm to randomly pick an index <code>(i, j)</code> where <code>matrix[i][j] == 0</code> and flips it to <code>1</code>. All the indices <code>(i, j)</code> where <code>matrix[i][j] == 0</code> should be equally likely to be returned.</p>

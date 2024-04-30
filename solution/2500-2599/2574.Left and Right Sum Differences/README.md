@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2574.Left%20and%20Right%20Sum%20Differences/README_EN.md)
 
+<!-- tags:数组,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

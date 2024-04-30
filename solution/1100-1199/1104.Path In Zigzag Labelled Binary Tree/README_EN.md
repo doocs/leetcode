@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1104.Path%20In%20Zigzag%20Labelled%20Binary%20Tree/README.md)
 
+<!-- tags:Tree,Math,Binary Tree -->
+
 ## Description
 
 <p>In an infinite binary tree where every node has two children, the nodes are labelled in row order.</p>

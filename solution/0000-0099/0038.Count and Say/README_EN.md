@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0038.Count%20and%20Say/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>The <strong>count-and-say</strong> sequence is a sequence of digit strings defined by the recursive formula:</p>
@@ -250,6 +252,38 @@ public class Solution {
             --n;
         }
         return s;
+    }
+}
+```
+
+```php
+class Solution {
+    /**
+     * @param integer $n
+     * @return string
+     */
+
+    function countAndSay($n) {
+        if ($n <= 0) {
+            return '';
+        }
+
+        $result = '1';
+        for ($i = 2; $i <= $n; $i++) {
+            $count = 1;
+            $say = '';
+            for ($j = 1; $j < strlen($result); $j++) {
+                if ($result[$j] == $result[$j - 1]) {
+                    $count++;
+                } else {
+                    $say .= $count . $result[$j - 1];
+                    $count = 1;
+                }
+            }
+            $say .= $count . $result[strlen($result) - 1];
+            $result = $say;
+        }
+        return $result;
     }
 }
 ```

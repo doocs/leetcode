@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1540.Can%20Convert%20String%20in%20K%20Moves/README.md)
 
+<!-- tags:Hash Table,String -->
+
 ## Description
 
 <p>Given two strings&nbsp;<code>s</code>&nbsp;and&nbsp;<code>t</code>, your goal is to convert&nbsp;<code>s</code>&nbsp;into&nbsp;<code>t</code>&nbsp;in&nbsp;<code>k</code><strong>&nbsp;</strong>moves or less.</p>

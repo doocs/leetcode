@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2574.Left%20and%20Right%20Sum%20Differences/README.md)
 
+<!-- tags:Array,Prefix Sum -->
+
 ## Description
 
 <p>Given a <strong>0-indexed</strong> integer array <code>nums</code>, find a <strong>0-indexed </strong>integer array <code>answer</code> where:</p>

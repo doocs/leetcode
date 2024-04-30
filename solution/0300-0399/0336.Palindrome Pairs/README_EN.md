@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0336.Palindrome%20Pairs/README.md)
 
+<!-- tags:Trie,Array,Hash Table,String -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array of <strong>unique</strong> strings <code>words</code>.</p>

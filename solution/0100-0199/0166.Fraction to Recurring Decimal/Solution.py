@@ -1,26 +1,25 @@
 class Solution:
     def fractionToDecimal(self, numerator: int, denominator: int) -> str:
         if numerator == 0:
-            return '0'
-        res = []
+            return "0"
+        ans = []
         neg = (numerator > 0) ^ (denominator > 0)
         if neg:
-            res.append('-')
-        num, d = abs(numerator), abs(denominator)
-        res.append(str(num // d))
-        num %= d
-        if num == 0:
-            return ''.join(res)
-        res.append('.')
-        mp = {}
-        while num != 0:
-            mp[num] = len(res)
-            num *= 10
-            res.append(str(num // d))
-            num %= d
-            if num in mp:
-                idx = mp[num]
-                res.insert(idx, '(')
-                res.append(')')
+            ans.append("-")
+        a, b = abs(numerator), abs(denominator)
+        ans.append(str(a // b))
+        a %= b
+        if a == 0:
+            return "".join(ans)
+        ans.append(".")
+        d = {}
+        while a:
+            d[a] = len(ans)
+            a *= 10
+            ans.append(str(a // b))
+            a %= b
+            if a in d:
+                ans.insert(d[a], "(")
+                ans.append(")")
                 break
-        return ''.join(res)
+        return "".join(ans)

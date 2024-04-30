@@ -1,6 +1,8 @@
-# [2158. 每天绘制新区域的数量](https://leetcode.cn/problems/amount-of-new-area-painted-each-day)
+# [2158. 每天绘制新区域的数量 🔒](https://leetcode.cn/problems/amount-of-new-area-painted-each-day)
 
 [English Version](/solution/2100-2199/2158.Amount%20of%20New%20Area%20Painted%20Each%20Day/README_EN.md)
+
+<!-- tags:线段树,数组,有序集合 -->
 
 ## 题目描述
 

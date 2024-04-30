@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0396.Rotate%20Function/README.md)
 
+<!-- tags:Array,Math,Dynamic Programming -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> of length <code>n</code>.</p>

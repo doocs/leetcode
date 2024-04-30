@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2487.Remove%20Nodes%20From%20Linked%20List/README_EN.md)
 
+<!-- tags:栈,递归,链表,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

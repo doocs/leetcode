@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2612.Minimum%20Reverse%20Operations/README.md)
 
+<!-- tags:Breadth-First Search,Array,Ordered Set -->
+
 ## Description
 
 <p>You are given an integer <code>n</code> and an integer <code>p</code> in the range <code>[<font face="monospace">0</font>, n - 1]</code>. Representing a <strong>0-indexed</strong> array <code>arr</code>&nbsp;of length <code>n</code> where all positions are set to <code>0</code>&#39;s, except position <code>p</code> which is set to <code>1</code>.</p>

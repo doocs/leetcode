@@ -1,6 +1,8 @@
-# [1225. 报告系统状态的连续日期](https://leetcode.cn/problems/report-contiguous-dates)
+# [1225. 报告系统状态的连续日期 🔒](https://leetcode.cn/problems/report-contiguous-dates)
 
 [English Version](/solution/1200-1299/1225.Report%20Contiguous%20Dates/README_EN.md)
+
+<!-- tags:数据库 -->
 
 ## 题目描述
 

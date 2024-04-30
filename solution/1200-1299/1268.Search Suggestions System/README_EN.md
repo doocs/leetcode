@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1268.Search%20Suggestions%20System/README.md)
 
+<!-- tags:Trie,Array,String,Binary Search,Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given an array of strings <code>products</code> and a string <code>searchWord</code>.</p>

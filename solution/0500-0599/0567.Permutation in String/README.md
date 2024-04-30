@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0567.Permutation%20in%20String/README_EN.md)
 
+<!-- tags:哈希表,双指针,字符串,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

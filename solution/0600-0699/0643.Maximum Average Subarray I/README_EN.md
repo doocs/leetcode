@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0643.Maximum%20Average%20Subarray%20I/README.md)
 
+<!-- tags:Array,Sliding Window -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> consisting of <code>n</code> elements, and an integer <code>k</code>.</p>
@@ -35,15 +37,18 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Sliding Window
+
+We maintain a sliding window of length $k$, and for each window, we calculate the sum $s$ of the numbers within the window. We take the maximum sum $s$ as the answer.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def findMaxAverage(self, nums: List[int], k: int) -> float:
-        s = sum(nums[:k])
-        ans = s
+        ans = s = sum(nums[:k])
         for i in range(k, len(nums)):
             s += nums[i] - nums[i - k]
             ans = max(ans, s)
@@ -67,19 +72,46 @@ class Solution {
 }
 ```
 
+```cpp
+class Solution {
+public:
+    double findMaxAverage(vector<int>& nums, int k) {
+        int s = accumulate(nums.begin(), nums.begin() + k, 0);
+        int ans = s;
+        for (int i = k; i < nums.size(); ++i) {
+            s += nums[i] - nums[i - k];
+            ans = max(ans, s);
+        }
+        return static_cast<double>(ans) / k;
+    }
+};
+```
+
+```go
+func findMaxAverage(nums []int, k int) float64 {
+	s := 0
+	for _, x := range nums[:k] {
+		s += x
+	}
+	ans := s
+	for i := k; i < len(nums); i++ {
+		s += nums[i] - nums[i-k]
+		ans = max(ans, s)
+	}
+	return float64(ans) / float64(k)
+}
+```
+
 ```ts
 function findMaxAverage(nums: number[], k: number): number {
-    let n = nums.length;
-    let ans = 0;
-    let sum = 0;
-    // 前k
-    for (let i = 0; i < k; i++) {
-        sum += nums[i];
+    let s = 0;
+    for (let i = 0; i < k; ++i) {
+        s += nums[i];
     }
-    ans = sum;
-    for (let i = k; i < n; i++) {
-        sum += nums[i] - nums[i - k];
-        ans = Math.max(ans, sum);
+    let ans = s;
+    for (let i = k; i < nums.length; ++i) {
+        s += nums[i] - nums[i - k];
+        ans = Math.max(ans, s);
     }
     return ans / k;
 }
@@ -90,13 +122,13 @@ impl Solution {
     pub fn find_max_average(nums: Vec<i32>, k: i32) -> f64 {
         let k = k as usize;
         let n = nums.len();
-        let mut sum = nums.iter().take(k).sum::<i32>();
-        let mut max = sum;
+        let mut s = nums.iter().take(k).sum::<i32>();
+        let mut ans = s;
         for i in k..n {
-            sum += nums[i] - nums[i - k];
-            max = max.max(sum);
+            s += nums[i] - nums[i - k];
+            ans = ans.max(s);
         }
-        f64::from(max) / f64::from(k as i32)
+        f64::from(ans) / f64::from(k as i32)
     }
 }
 ```
@@ -109,16 +141,16 @@ class Solution {
      * @return Float
      */
     function findMaxAverage($nums, $k) {
-        $sum = 0;
+        $s = 0;
         for ($i = 0; $i < $k; $i++) {
-            $sum += $nums[$i];
+            $s += $nums[$i];
         }
-        $max = $sum;
+        $ans = $s;
         for ($j = $k; $j < count($nums); $j++) {
-            $sum = $sum - $nums[$j - $k] + $nums[$j];
-            $max = max($max, $sum);
+            $s = $s - $nums[$j - $k] + $nums[$j];
+            $ans = max($ans, $s);
         }
-        return $max / $k;
+        return $ans / $k;
     }
 }
 ```

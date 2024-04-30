@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1204.Last%20Person%20to%20Fit%20in%20the%20Bus/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Queue</code></p>

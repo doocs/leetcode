@@ -1,14 +1,14 @@
 class Solution:
     def findMagicIndex(self, nums: List[int]) -> int:
-        def find(nums, left, right):
-            if left > right:
+        def dfs(i: int, j: int) -> int:
+            if i > j:
                 return -1
-            mid = (left + right) >> 1
-            left_index = find(nums, left, mid - 1)
-            if left_index != -1:
-                return left_index
+            mid = (i + j) >> 1
+            l = dfs(i, mid - 1)
+            if l != -1:
+                return l
             if nums[mid] == mid:
                 return mid
-            return find(nums, mid + 1, right)
+            return dfs(mid + 1, j)
 
-        return find(nums, 0, len(nums) - 1)
+        return dfs(0, len(nums) - 1)

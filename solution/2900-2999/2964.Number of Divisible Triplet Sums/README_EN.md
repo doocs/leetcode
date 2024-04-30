@@ -1,6 +1,8 @@
-# [2964. Number of Divisible Triplet Sums](https://leetcode.com/problems/number-of-divisible-triplet-sums)
+# [2964. Number of Divisible Triplet Sums 🔒](https://leetcode.com/problems/number-of-divisible-triplet-sums)
 
 [中文文档](/solution/2900-2999/2964.Number%20of%20Divisible%20Triplet%20Sums/README.md)
+
+<!-- tags:Array,Hash Table -->
 
 ## Description
 

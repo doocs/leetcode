@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1639.Number%20of%20Ways%20to%20Form%20a%20Target%20String%20Given%20a%20Dictionary/README.md)
 
+<!-- tags:Array,String,Dynamic Programming -->
+
 ## Description
 
 <p>You are given a list of strings of the <strong>same length</strong> <code>words</code> and a string <code>target</code>.</p>

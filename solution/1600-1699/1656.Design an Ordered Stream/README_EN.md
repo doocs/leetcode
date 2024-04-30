@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1656.Design%20an%20Ordered%20Stream/README.md)
 
+<!-- tags:Design,Array,Hash Table,Data Stream -->
+
 ## Description
 
 <p>There is a stream of <code>n</code> <code>(idKey, value)</code> pairs arriving in an <strong>arbitrary</strong> order, where <code>idKey</code> is an integer between <code>1</code> and <code>n</code> and <code>value</code> is a string. No two pairs have the same <code>id</code>.</p>

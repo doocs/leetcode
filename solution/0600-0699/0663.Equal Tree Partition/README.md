@@ -1,6 +1,8 @@
-# [663. 均匀树划分](https://leetcode.cn/problems/equal-tree-partition)
+# [663. 均匀树划分 🔒](https://leetcode.cn/problems/equal-tree-partition)
 
 [English Version](/solution/0600-0699/0663.Equal%20Tree%20Partition/README_EN.md)
+
+<!-- tags:树,深度优先搜索,二叉树 -->
 
 ## 题目描述
 

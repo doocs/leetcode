@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1839.Longest%20Substring%20Of%20All%20Vowels%20in%20Order/README.md)
 
+<!-- tags:String,Sliding Window -->
+
 ## Description
 
 <p>A string is considered <strong>beautiful</strong> if it satisfies the following conditions:</p>

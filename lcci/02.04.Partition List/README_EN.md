@@ -18,7 +18,19 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Concatenating Lists
+
+We create two lists, `left` and `right`, to store nodes that are less than `x` and nodes that are greater than or equal to `x`, respectively.
+
+Then we use two pointers `p1` and `p2` to point to the last node of `left` and `right` respectively, initially both `p1` and `p2` point to a dummy head node.
+
+Next, we traverse the list `head`. If the value of the current node is less than `x`, we add the current node to the end of the `left` list, i.e., `p1.next = head`, and then set `p1 = p1.next`; otherwise, we add the current node to the end of the `right` list, i.e., `p2.next = head`, and then set `p2 = p2.next`.
+
+After the traversal, we point the tail node of the `left` list to the first valid node of the `right` list, i.e., `p1.next = right.next`, and then point the tail node of the `right` list to a null node, i.e., `p2.next = null`.
+
+Finally, we return the first valid node of the `left` list.
+
+The time complexity is $O(n)$, where $n$ is the length of the list. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -32,19 +44,19 @@
 
 class Solution:
     def partition(self, head: ListNode, x: int) -> ListNode:
-        l1, l2 = ListNode(0), ListNode(0)
-        cur1, cur2 = l1, l2
+        left, right = ListNode(0), ListNode(0)
+        p1, p2 = left, right
         while head:
             if head.val < x:
-                cur1.next = head
-                cur1 = cur1.next
+                p1.next = head
+                p1 = p1.next
             else:
-                cur2.next = head
-                cur2 = cur2.next
+                p2.next = head
+                p2 = p2.next
             head = head.next
-        cur1.next = l2.next
-        cur2.next = None
-        return l1.next
+        p1.next = right.next
+        p2.next = None
+        return left.next
 ```
 
 ```java
@@ -53,29 +65,27 @@ class Solution:
  * public class ListNode {
  *     int val;
  *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ *     ListNode(int x) { val = x; }
  * }
  */
 class Solution {
     public ListNode partition(ListNode head, int x) {
-        ListNode l1 = new ListNode(0);
-        ListNode l2 = new ListNode(0);
-        ListNode cur1 = l1, cur2 = l2;
-        while (head != null) {
+        ListNode left = new ListNode(0);
+        ListNode right = new ListNode(0);
+        ListNode p1 = left;
+        ListNode p2 = right;
+        for (; head != null; head = head.next) {
             if (head.val < x) {
-                cur1.next = head;
-                cur1 = cur1.next;
+                p1.next = head;
+                p1 = p1.next;
             } else {
-                cur2.next = head;
-                cur2 = cur2.next;
+                p2.next = head;
+                p2 = p2.next;
             }
-            head = head.next;
         }
-        cur1.next = l2.next;
-        cur2.next = null;
-        return l1.next;
+        p1.next = right.next;
+        p2.next = null;
+        return left.next;
     }
 }
 ```
@@ -86,33 +96,56 @@ class Solution {
  * struct ListNode {
  *     int val;
  *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
 class Solution {
 public:
     ListNode* partition(ListNode* head, int x) {
-        ListNode* l1 = new ListNode();
-        ListNode* l2 = new ListNode();
-        ListNode* cur1 = l1;
-        ListNode* cur2 = l2;
-        while (head != nullptr) {
+        ListNode* left = new ListNode(0);
+        ListNode* right = new ListNode(0);
+        ListNode* p1 = left;
+        ListNode* p2 = right;
+        for (; head; head = head->next) {
             if (head->val < x) {
-                cur1->next = head;
-                cur1 = cur1->next;
+                p1->next = head;
+                p1 = p1->next;
             } else {
-                cur2->next = head;
-                cur2 = cur2->next;
+                p2->next = head;
+                p2 = p2->next;
             }
-            head = head->next;
         }
-        cur1->next = l2->next;
-        cur2->next = nullptr;
-        return l1->next;
+        p1->next = right->next;
+        p2->next = nullptr;
+        return left->next;
     }
 };
+```
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func partition(head *ListNode, x int) *ListNode {
+	left, right := &ListNode{}, &ListNode{}
+	p1, p2 := left, right
+	for ; head != nil; head = head.Next {
+		if head.Val < x {
+			p1.Next = head
+			p1 = p1.Next
+		} else {
+			p2.Next = head
+			p2 = p2.Next
+		}
+	}
+	p1.Next = right.Next
+	p2.Next = nil
+	return left.Next
+}
 ```
 
 ```ts
@@ -129,19 +162,58 @@ public:
  */
 
 function partition(head: ListNode | null, x: number): ListNode | null {
-    if (head == null) {
-        return head;
-    }
-    let cur = head;
-    while (cur.next != null) {
-        let node = cur.next;
-        if (node.val < x) {
-            [head, node.next, cur.next] = [node, head, node.next];
+    const [left, right] = [new ListNode(), new ListNode()];
+    let [p1, p2] = [left, right];
+    for (; head; head = head.next) {
+        if (head.val < x) {
+            p1.next = head;
+            p1 = p1.next;
         } else {
-            cur = cur.next;
+            p2.next = head;
+            p2 = p2.next;
         }
     }
-    return head;
+    p1.next = right.next;
+    p2.next = null;
+    return left.next;
+}
+```
+
+```swift
+/** public class ListNode {
+*    var val: Int
+*    var next: ListNode?
+*    init(_ x: Int) {
+*        self.val = x
+*        self.next = nil
+*    }
+* }
+*/
+
+class Solution {
+    func partition(_ head: ListNode?, _ x: Int) -> ListNode? {
+        let leftDummy = ListNode(0)
+        let rightDummy = ListNode(0)
+        var left = leftDummy
+        var right = rightDummy
+        var head = head
+
+        while let current = head {
+            if current.val < x {
+                left.next = current
+                left = left.next!
+            } else {
+                right.next = current
+                right = right.next!
+            }
+            head = head?.next
+        }
+
+        right.next = nil
+        left.next = rightDummy.next
+
+        return leftDummy.next
+    }
 }
 ```
 

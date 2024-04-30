@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2261.K%20Divisible%20Elements%20Subarrays/README.md)
 
+<!-- tags:Trie,Array,Hash Table,Enumeration,Hash Function,Rolling Hash -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> and two integers <code>k</code> and <code>p</code>, return <em>the number of <strong>distinct subarrays,</strong> which have <strong>at most</strong></em> <code>k</code> <em>elements </em>that are <em>divisible by</em> <code>p</code>.</p>

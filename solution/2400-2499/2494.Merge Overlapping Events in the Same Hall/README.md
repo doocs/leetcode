@@ -1,6 +1,8 @@
-# [2494. 合并在同一个大厅重叠的活动](https://leetcode.cn/problems/merge-overlapping-events-in-the-same-hall)
+# [2494. 合并在同一个大厅重叠的活动 🔒](https://leetcode.cn/problems/merge-overlapping-events-in-the-same-hall)
 
 [English Version](/solution/2400-2499/2494.Merge%20Overlapping%20Events%20in%20the%20Same%20Hall/README_EN.md)
+
+<!-- tags:数据库 -->
 
 ## 题目描述
 

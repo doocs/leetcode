@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0232.Implement%20Queue%20using%20Stacks/README_EN.md)
 
+<!-- tags:栈,设计,队列 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -69,7 +71,7 @@ myQueue.empty(); // return false
 
 ### 方法一：双栈
 
-使用两个栈，其中栈 `stk1`用于入队，另一个栈 `stk2` 用于出队。
+我们使用两个栈，其中栈 `stk1`用于入队，另一个栈 `stk2` 用于出队。
 
 入队时，直接将元素入栈 `stk1`。时间复杂度 $O(1)$。
 
@@ -280,7 +282,7 @@ class MyQueue {
 
     peek(): number {
         this.move();
-        return this.stk2[this.stk2.length - 1];
+        return this.stk2.at(-1);
     }
 
     empty(): boolean {
@@ -290,7 +292,7 @@ class MyQueue {
     move(): void {
         if (!this.stk2.length) {
             while (this.stk1.length) {
-                this.stk2.push(this.stk1.pop());
+                this.stk2.push(this.stk1.pop()!);
             }
         }
     }
@@ -307,50 +309,43 @@ class MyQueue {
 ```
 
 ```rust
+use std::collections::VecDeque;
+
 struct MyQueue {
-    in_stack: Vec<i32>,
-    out_stack: Vec<i32>,
+    stk1: Vec<i32>,
+    stk2: Vec<i32>,
 }
 
-/**
- * `&self` means the method takes an immutable reference.
- * If you need a mutable reference, change it to `&mut self` instead.
- */
 impl MyQueue {
     fn new() -> Self {
-        Self {
-            in_stack: vec![],
-            out_stack: vec![],
+        MyQueue {
+            stk1: Vec::new(),
+            stk2: Vec::new(),
         }
     }
 
     fn push(&mut self, x: i32) {
-        self.in_stack.push(x);
+        self.stk1.push(x);
     }
 
     fn pop(&mut self) -> i32 {
-        if self.out_stack.is_empty() {
-            self.fill_out();
-        }
-        self.out_stack.pop().unwrap()
+        self.move_elements();
+        self.stk2.pop().unwrap()
     }
 
     fn peek(&mut self) -> i32 {
-        if self.out_stack.is_empty() {
-            self.fill_out();
-        }
-        *self.out_stack.last().unwrap()
+        self.move_elements();
+        *self.stk2.last().unwrap()
     }
 
     fn empty(&self) -> bool {
-        self.in_stack.is_empty() && self.out_stack.is_empty()
+        self.stk1.is_empty() && self.stk2.is_empty()
     }
 
-    fn fill_out(&mut self) {
-        let MyQueue { in_stack, out_stack } = self;
-        if out_stack.is_empty() {
-            while !in_stack.is_empty() {
-                out_stack.push(in_stack.pop().unwrap());
+    fn move_elements(&mut self) {
+        if self.stk2.is_empty() {
+            while let Some(element) = self.stk1.pop() {
+                self.stk2.push(element);
             }
         }
     }

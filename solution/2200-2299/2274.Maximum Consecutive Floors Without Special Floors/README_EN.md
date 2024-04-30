@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2274.Maximum%20Consecutive%20Floors%20Without%20Special%20Floors/README.md)
 
+<!-- tags:Array,Sorting -->
+
 ## Description
 
 <p>Alice manages a company and has rented some floors of a building as office space. Alice has decided some of these floors should be <strong>special floors</strong>, used for relaxation only.</p>

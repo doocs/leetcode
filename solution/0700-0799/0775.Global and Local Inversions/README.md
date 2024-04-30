@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0775.Global%20and%20Local%20Inversions/README_EN.md)
 
+<!-- tags:数组,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

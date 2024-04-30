@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2213.Longest%20Substring%20of%20One%20Repeating%20Character/README_EN.md)
 
+<!-- tags:线段树,数组,字符串,有序集合 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

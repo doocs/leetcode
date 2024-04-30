@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2379.Minimum%20Recolors%20to%20Get%20K%20Consecutive%20Black%20Blocks/README.md)
 
+<!-- tags:String,Sliding Window -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string <code>blocks</code> of length <code>n</code>, where <code>blocks[i]</code> is either <code>&#39;W&#39;</code> or <code>&#39;B&#39;</code>, representing the color of the <code>i<sup>th</sup></code> block. The characters <code>&#39;W&#39;</code> and <code>&#39;B&#39;</code> denote the colors white and black, respectively.</p>
@@ -47,7 +49,15 @@ Therefore, we return 0.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Sliding Window
+
+We observe that what the problem actually asks for is the minimum number of white blocks in a sliding window of size $k$.
+
+Therefore, we only need to traverse the string $blocks$, use a variable $cnt$ to count the number of white blocks in the current window, and then use a variable $ans$ to maintain the minimum value.
+
+After the traversal ends, we can get the answer.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $blocks$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

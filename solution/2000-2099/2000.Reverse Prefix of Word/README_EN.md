@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2000.Reverse%20Prefix%20of%20Word/README.md)
 
+<!-- tags:Two Pointers,String -->
+
 ## Description
 
 <p>Given a <strong>0-indexed</strong> string <code>word</code> and a character <code>ch</code>, <strong>reverse</strong> the segment of <code>word</code> that starts at index <code>0</code> and ends at the index of the <strong>first occurrence</strong> of <code>ch</code> (<strong>inclusive</strong>). If the character <code>ch</code> does not exist in <code>word</code>, do nothing.</p>
@@ -155,27 +157,6 @@ class Solution {
         $rs = strrev($rs);
         $rs = $rs . substr($word, strlen($rs));
         return $rs;
-    }
-}
-```
-
-<!-- tabs:end -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-```java
-class Solution {
-    public String reversePrefix(String word, char ch) {
-        int j = word.indexOf(ch);
-        if (j == -1) {
-            return word;
-        }
-        return new StringBuilder(word.substring(0, j + 1))
-            .reverse()
-            .append(word.substring(j + 1))
-            .toString();
     }
 }
 ```

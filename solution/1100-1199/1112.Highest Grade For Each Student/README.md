@@ -1,6 +1,8 @@
-# [1112. 每位学生的最高成绩](https://leetcode.cn/problems/highest-grade-for-each-student)
+# [1112. 每位学生的最高成绩 🔒](https://leetcode.cn/problems/highest-grade-for-each-student)
 
 [English Version](/solution/1100-1199/1112.Highest%20Grade%20For%20Each%20Student/README_EN.md)
+
+<!-- tags:数据库 -->
 
 ## 题目描述
 

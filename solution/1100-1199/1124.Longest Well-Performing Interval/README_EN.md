@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1124.Longest%20Well-Performing%20Interval/README.md)
 
+<!-- tags:Stack,Array,Hash Table,Prefix Sum,Monotonic Stack -->
+
 ## Description
 
 <p>We are given <code>hours</code>, a list of the number of hours worked per day for a given employee.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1969.Minimum%20Non-Zero%20Product%20of%20the%20Array%20Elements/README.md)
 
+<!-- tags:Greedy,Recursion,Math -->
+
 ## Description
 
 <p>You are given a positive integer <code>p</code>. Consider an array <code>nums</code> (<strong>1-indexed</strong>) that consists of the integers in the <strong>inclusive</strong> range <code>[1, 2<sup>p</sup> - 1]</code> in their binary representations. You are allowed to do the following operation <strong>any</strong> number of times:</p>
@@ -59,7 +61,15 @@ The array product is 1 * 6 * 1 * 6 * 1 * 6 * 7 = 1512, which is the minimum poss
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Greedy + Fast Power
+
+We notice that each operation does not change the sum of the elements. When the sum of the elements remains unchanged, to minimize the product, we should maximize the difference between the elements as much as possible.
+
+Since the largest element is $2^p - 1$, no matter which element it exchanges with, it will not increase the difference. Therefore, we do not need to consider the case of exchanging with the largest element.
+
+For the other elements in $[1,..2^p-2]$, we pair the first and last elements one by one, that is, pair $x$ with $2^p-1-x$. After several operations, each pair of elements becomes $(1, 2^p-2)$. The final product is $(2^p-1) \times (2^p-2)^{2^{p-1}-1}$.
+
+The time complexity is $O(p)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

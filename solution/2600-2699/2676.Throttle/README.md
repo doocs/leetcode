@@ -1,6 +1,8 @@
-# [2676. 节流](https://leetcode.cn/problems/throttle)
+# [2676. 节流 🔒](https://leetcode.cn/problems/throttle)
 
-[English Version](/solution/2600-2699/2676.节流/README_EN.md)
+[English Version](/solution/2600-2699/2676.节流🔒/README_EN.md)
+
+<!-- tags: -->
 
 ## 题目描述
 
@@ -10,7 +12,13 @@
 
 <p><strong>节流</strong> 函数首先立即被调用，然后在 <code>t</code> 毫秒的时间间隔内不能再次执行，但应该存储最新的函数参数，以便在延迟结束后使用这些参数调用 <code>fn</code> 。</p>
 
-<p>例如，<code>t = 50ms</code> ，并且函数在 <code>30ms</code> 、 <code>40ms</code> 和 <code>60ms</code> 时被调用。第一次函数调用会在接下来的 <code>t</code> 毫秒内阻止调用函数。第二次函数调用会保存参数，而第三次调用的参数应该覆盖当前保存的第二次调用的参数，因为第二次和第三次调用发生在 <code>80ms</code> 之前。一旦延迟时间过去，节流函数应该使用延迟期间提供的最新参数进行调用，并且还应创建另一个延迟期间，时长为 <code>80ms + t</code> 。</p>
+<p>例如，<code>t = 50ms</code> ，并且函数在 <code>30ms</code> 、 <code>40ms</code> 和 <code>60ms</code> 时被调用。</p>
+
+<p>在 <code>30ms</code>，<strong>节流</strong> 函数 <code>fn</code>&nbsp;会以这些函数调用，并且对 <strong>节流</strong> 函数&nbsp;<code>fn</code> 的调用在接下来的&nbsp;<code>t</code> 毫秒会被阻塞。</p>
+
+<p>在 <code>40ms</code>，函数应当只是存储参数。</p>
+
+<p>在 <code>60ms</code>，参数应该覆盖第二次调用中当前存储的参数，因为第二次和第三次调用是在 <code>80ms</code> 之前进行的。延迟结束后，应该使用延迟期间提供的最新参数来调用 <strong>节流</strong> 函数 <code>fn</code>，并且它还应该创建另一个 <code>80ms + t</code> 的延迟。</p>
 
 <p><img alt="Throttle Diagram" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2600-2699/2676.Throttle/images/screen-shot-2023-04-08-at-120313-pm.png" style="width: 1156px; height: 372px;" />上面的图示展示了节流如何转换事件。每个矩形代表100毫秒，节流时间为400毫秒。每种颜色代表不同的输入集合。</p>
 
@@ -19,7 +27,10 @@
 <p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<b>输入：</b>t = 100, calls = [{"t":20,"inputs":[1]}]
+<b>输入：</b>t = 100, 
+calls = [
+&nbsp; {"t":20,"inputs":[1]}
+]
 <b>输出：</b>[{"t":20,"inputs":[1]}]
 <b>解释：</b>第一次调用总是立即执行，没有延迟。
 </pre>
@@ -27,7 +38,11 @@
 <p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<b>输入：</b>t = 50, calls = [{"t":50,"inputs":[1]},{"t":75,"inputs":[2]}]
+<b>输入：</b>t = 50, 
+calls = [
+  {"t":50,"inputs":[1]},
+  {"t":75,"inputs":[2]}
+]
 <b>输出：</b>[{"t":50,"inputs":[1]},{"t":100,"inputs":[2]}]
 <b>解释：</b>
 第一次调用立即执行带有参数 (1) 的函数。 
@@ -37,7 +52,14 @@
 <p><strong class="example">示例 3：</strong></p>
 
 <pre>
-<b>输入：</b>t = 70, calls = [{"t":50,"inputs":[1]},{"t":75,"inputs":[2]},{"t":90,"inputs":[8]},{"t": 140, "inputs":[5,7]},{"t": 300, "inputs": [9,4]}]
+<b>输入：</b>t = 70, 
+calls = [
+  {"t":50,"inputs":[1]},
+  {"t":75,"inputs":[2]},
+  {"t":90,"inputs":[8]},
+  {"t": 140, "inputs":[5,7]},
+  {"t": 300, "inputs": [9,4]}
+]
 <b>输出：</b>[{"t":50,"inputs":[1]},{"t":120,"inputs":[8]},{"t":190,"inputs":[5,7]},{"t":300,"inputs":[9,4]}]
 <b>解释：</b>
 第一次调用立即执行带有参数 (1) 的函数。 
