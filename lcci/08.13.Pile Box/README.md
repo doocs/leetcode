@@ -142,11 +142,11 @@ class Solution {
                 return $0[0] < $1[0]
             }
         }
-        
+
         let n = boxes.count
         var f = Array(repeating: 0, count: n)
         var ans = 0
-        
+
         for i in 0..<n {
             f[i] = boxes[i][2]
             for j in 0..<i {
@@ -156,7 +156,7 @@ class Solution {
             }
             ans = max(ans, f[i])
         }
-        
+
         return ans
     }
 }
