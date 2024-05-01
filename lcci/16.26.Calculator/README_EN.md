@@ -37,7 +37,13 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Stack
+
+We can use a stack to store numbers. Each time we encounter an operator, we push the number into the stack. For addition and subtraction, since their priority is the lowest, we can directly push the numbers into the stack. For multiplication and division, since their priority is higher, we need to take out the top element of the stack, perform multiplication or division with the current number, and then push the result back into the stack.
+
+Finally, the sum of all elements in the stack is the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

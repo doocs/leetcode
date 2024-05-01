@@ -61,13 +61,13 @@
 
 ### Solution 1: Hash Table + Simulation
 
-We use a hash table $black$ to record the positions of all black squares, and a hash table $dirs$ to record the four directions of the ant. We use variables $x, y$ to record the position of the ant, and variable $p$ to record the direction of the ant. We use variables $x1, y1, x2, y2$ to record the minimum horizontal coordinate, minimum vertical coordinate, maximum horizontal coordinate, and maximum vertical coordinate of all black squares.
+We use a hash table `black` to record the positions of all black squares, and a hash table `dirs` to record the four directions of the ant. We use variables $x$, $y$ to record the position of the ant, and variable $p$ to record the direction of the ant. We use variables $x_1$, $y_1$, $x_2$, $y_2$ to record the minimum x-coordinate, minimum y-coordinate, maximum x-coordinate, and maximum y-coordinate of all black squares, respectively.
 
-We simulate the ant's walking process. If the square where the ant is located is white, the ant turns right by $90$ degrees, paints the square black, and moves forward one unit. If the square where the ant is located is black, the ant turns left by $90$ degrees, paints the square white, and moves forward one unit. During the simulation, we continuously update the values of $x1, y1, x2, y2$ so that they can contain all the squares the ant has walked through.
+We simulate the walking process of the ant. If the square where the ant is located is white, then the ant turns right by $90$ degrees, paints the square black, and moves forward one unit. If the square where the ant is located is black, then the ant turns left by $90$ degrees, paints the square white, and moves forward one unit. During the simulation process, we continuously update the values of $x_1$, $y_1$, $x_2$, $y_2$ so that they can include all the squares that the ant has walked through.
 
-After the simulation is over, we construct the answer matrix $g$ based on the values of $x1, y1, x2, y2$. Then, we paint the direction of the ant on the square where the ant is located, paint all black squares with $X$, and finally return the answer matrix.
+After the simulation, we construct the answer matrix $g$ based on the values of $x_1$, $y_1$, $x_2$, $y_2$. Then, we paint the direction of the ant at the ant's position, and paint all black squares with $X$, and finally return the answer matrix.
 
-The time complexity is $O(K)$, and the space complexity is $O(K)$. Here, $K$ is the number of steps the ant walks.
+The time complexity is $O(K)$, and the space complexity is $O(K)$. Where $K$ is the number of steps the ant walks.
 
 <!-- tabs:start -->
 

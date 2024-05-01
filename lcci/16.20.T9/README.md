@@ -45,6 +45,13 @@ class Solution:
         return [w for w in words if check(w)]
 ```
 
+```python
+class Solution:
+    def getValidT9Words(self, num: str, words: List[str]) -> List[str]:
+        trans = str.maketrans(ascii_lowercase, "22233344455566677778889999")
+        return [w for w in words if w.translate(trans) == num]
+```
+
 ```java
 class Solution {
     public List<String> getValidT9Words(String num, String[] words) {
@@ -145,19 +152,6 @@ function getValidT9Words(num: string, words: string[]): string[] {
     }
     return ans;
 }
-```
-
-<!-- tabs:end -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def getValidT9Words(self, num: str, words: List[str]) -> List[str]:
-        trans = str.maketrans(ascii_lowercase, "22233344455566677778889999")
-        return [w for w in words if w.translate(trans) == num]
 ```
 
 <!-- tabs:end -->
