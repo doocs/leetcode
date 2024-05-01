@@ -53,7 +53,18 @@ lRUCache.get(4);    // return 4
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Hash Table + Doubly Linked List
+
+We can implement an LRU (Least Recently Used) cache using a "hash table" and a "doubly linked list".
+
+-   Hash Table: Used to store the key and its corresponding node location.
+-   Doubly Linked List: Used to store node data, sorted by access time.
+
+When accessing a node, if the node exists, we delete it from its original position and reinsert it at the head of the list. This ensures that the node stored at the tail of the list is the least recently used node. When the number of nodes exceeds the maximum cache space, we eliminate the node at the tail of the list.
+
+When inserting a node, if the node exists, we delete it from its original position and reinsert it at the head of the list. If it does not exist, we first check if the cache is full. If it is full, we delete the node at the tail of the list and insert the new node at the head of the list.
+
+The time complexity is $O(1)$, and the space complexity is $O(\text{capacity})$.
 
 <!-- tabs:start -->
 
