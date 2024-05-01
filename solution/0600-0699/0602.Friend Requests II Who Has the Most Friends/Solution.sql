@@ -1,12 +1,12 @@
 # Write your MySQL query statement below
 WITH
-    base AS (
-        SELECT requester_id AS id FROM RequestAccepted
+    T AS (
+        SELECT requester_id, accepter_id FROM RequestAccepted
         UNION ALL
-        SELECT accepter_id AS id FROM RequestAccepted
+        SELECT accepter_id, requester_id FROM RequestAccepted
     )
-SELECT id, count(*) AS num
-FROM base
+SELECT requester_id AS id, COUNT(1) AS num
+FROM T
 GROUP BY 1
 ORDER BY 2 DESC
 LIMIT 1;
