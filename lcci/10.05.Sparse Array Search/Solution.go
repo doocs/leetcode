@@ -1,18 +1,17 @@
 func findString(words []string, s string) int {
-	left, right := 0, len(words)-1
-	for left < right {
-		mid := (left + right) >> 1
-		for left < mid && words[mid] == "" {
-			mid--
+	var dfs func(i, j int) int
+	dfs = func(i, j int) int {
+		if i > j {
+			return -1
 		}
-		if s <= words[mid] {
-			right = mid
-		} else {
-			left = mid + 1
+		mid := (i + j) >> 1
+		if l := dfs(i, mid-1); l != -1 {
+			return l
 		}
+		if words[mid] == s {
+			return mid
+		}
+		return dfs(mid+1, j)
 	}
-	if words[left] == s {
-		return left
-	}
-	return -1
+	return dfs(0, len(words)-1)
 }

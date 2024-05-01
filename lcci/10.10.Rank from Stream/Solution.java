@@ -4,35 +4,28 @@ class BinaryIndexedTree {
 
     public BinaryIndexedTree(int n) {
         this.n = n;
-        c = new int[n + 1];
-    }
-
-    public static int lowbit(int x) {
-        return x & -x;
+        this.c = new int[n + 1];
     }
 
     public void update(int x, int delta) {
-        while (x <= n) {
+        for (; x <= n; x += x & -x) {
             c[x] += delta;
-            x += lowbit(x);
         }
     }
 
     public int query(int x) {
         int s = 0;
-        while (x > 0) {
+        for (; x > 0; x -= x & -x) {
             s += c[x];
-            x -= lowbit(x);
         }
         return s;
     }
 }
 
 class StreamRank {
-    private BinaryIndexedTree tree;
+    private BinaryIndexedTree tree = new BinaryIndexedTree(50010);
 
     public StreamRank() {
-        tree = new BinaryIndexedTree(50010);
     }
 
     public void track(int x) {

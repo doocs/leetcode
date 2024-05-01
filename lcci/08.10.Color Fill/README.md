@@ -31,11 +31,9 @@ sr = 1, sc = 1, newColor = 2
 
 ## 解法
 
-### 方法一：Flood fill 算法
+### 方法一：DFS
 
-Flood fill 算法是从一个区域中提取若干个连通的点与其他相邻区域区分开（或分别染成不同颜色）的经典算法。因为其思路类似洪水从一个区域扩散到所有能到达的区域而得名。
-
-最简单的实现方法是采用 DFS 的递归方法，也可以采用 BFS 的迭代来实现。
+我们设计一个函数 $dfs(i, j)$，表示从 $(i, j)$ 开始填充颜色。如果 $(i, j)$ 不在图像范围内，或者 $(i, j)$ 的颜色不是原来的颜色，或者 $(i, j)$ 的颜色已经被填充成新的颜色，就返回。否则，将 $(i, j)$ 的颜色填充成新的颜色，然后递归搜索 $(i, j)$ 的上下左右四个方向。
 
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为图像的行数和列数。
 
@@ -135,6 +133,32 @@ func floodFill(image [][]int, sr int, sc int, newColor int) [][]int {
 }
 ```
 
+```ts
+function floodFill(image: number[][], sr: number, sc: number, newColor: number): number[][] {
+    const dfs = (i: number, j: number): void => {
+        if (i < 0 || i >= m) {
+            return;
+        }
+        if (j < 0 || j >= n) {
+            return;
+        }
+        if (image[i][j] !== oc || image[i][j] === nc) {
+            return;
+        }
+        image[i][j] = nc;
+        for (let k = 0; k < 4; ++k) {
+            dfs(i + dirs[k], j + dirs[k + 1]);
+        }
+    };
+    const dirs: number[] = [-1, 0, 1, 0, -1];
+    const [m, n] = [image.length, image[0].length];
+    const oc = image[sr][sc];
+    const nc = newColor;
+    dfs(sr, sc);
+    return image;
+}
+```
+
 ```rust
 impl Solution {
     fn dfs(i: usize, j: usize, target: i32, new_color: i32, image: &mut Vec<Vec<i32>>) {
@@ -168,9 +192,40 @@ impl Solution {
 }
 ```
 
+```swift
+class Solution {
+    private var dirs = [-1, 0, 1, 0, -1]
+    private var image: [[Int]] = []
+    private var nc: Int = 0
+    private var oc: Int = 0
+
+    func floodFill(_ image: inout [[Int]], _ sr: Int, _ sc: Int, _ newColor: Int) -> [[Int]] {
+        self.nc = newColor
+        self.oc = image[sr][sc]
+        self.image = image
+        dfs(sr, sc)
+        return self.image
+    }
+
+    private func dfs(_ i: Int, _ j: Int) {
+        if i < 0 || i >= image.count || j < 0 || j >= image[0].count || image[i][j] != oc || image[i][j] == nc {
+            return
+        }
+        image[i][j] = nc
+        for k in 0..<4 {
+            dfs(i + dirs[k], j + dirs[k + 1])
+        }
+    }
+}
+```
+
 <!-- tabs:end -->
 
-### 方法二
+### 方法二：BFS
+
+我们可以使用广度优先搜索的方法，从起始点开始，将起始点的颜色填充成新的颜色，然后将起始点加入队列。每次从队列中取出一个点，然后将其上下左右四个方向的点加入队列，直到队列为空。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为图像的行数和列数。
 
 <!-- tabs:start -->
 
@@ -271,6 +326,29 @@ func floodFill(image [][]int, sr int, sc int, newColor int) [][]int {
 		}
 	}
 	return image
+}
+```
+
+```ts
+function floodFill(image: number[][], sr: number, sc: number, newColor: number): number[][] {
+    if (image[sr][sc] === newColor) {
+        return image;
+    }
+    const q: number[][] = [[sr, sc]];
+    const oc = image[sr][sc];
+    image[sr][sc] = newColor;
+    const dirs: number[] = [-1, 0, 1, 0, -1];
+    while (q.length) {
+        const [i, j] = q.pop()!;
+        for (let k = 0; k < 4; ++k) {
+            const [x, y] = [i + dirs[k], j + dirs[k + 1]];
+            if (x >= 0 && x < image.length && y >= 0 && y < image[0].length && image[x][y] === oc) {
+                q.push([x, y]);
+                image[x][y] = newColor;
+            }
+        }
+    }
+    return image;
 }
 ```
 

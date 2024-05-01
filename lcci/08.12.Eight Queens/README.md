@@ -29,73 +29,84 @@
 
 ## 解法
 
-### 方法一
+### 方法一：DFS(回溯)
+
+我们定义三个数组 $col$, $dg$ 和 $udg$，分别表示列、正对角线和反对角线上的是否有皇后，如果位置 $(i, j)$ 有皇后，那么 $col[j]$, $dg[i + j]$ 和 $udg[n - i + j]$ 都为 $1$。另外，我们用一个数组 $g$ 记录当前棋盘的状态，初始时 $g$ 中的所有元素都是 `'.'`。
+
+接下来，我们定义一个函数 $dfs(i)$，表示从第 $i$ 行开始放置皇后。
+
+在 $dfs(i)$ 中，如果 $i=n$，说明我们已经完成了所有皇后的放置，我们将当前 $g$ 放入答案数组中，递归结束。
+
+否则，我们枚举当前行的每一列 $j$，如果位置 $(i, j)$ 没有皇后，即 $col[j]$, $dg[i + j]$ 和 $udg[n - i + j]$ 都为 $0$，那么我们可以放置皇后，即把 $g[i][j]$ 改为 `'Q'`，并将 $col[j]$, $dg[i + j]$ 和 $udg[n - i + j]$ 都置为 $1$，然后继续搜索下一行，即调用 $dfs(i + 1)$，递归结束后，我们需要将 $g[i][j]$ 改回 `'.'` 并将 $col[j]$, $dg[i + j]$ 和 $udg[n - i + j]$ 都置为 $0$。
+
+在主函数中，我们调用 $dfs(0)$ 开始递归，最后返回答案数组即可。
+
+时间复杂度 $(n^2 \times n!)$，空间复杂度 $O(n)$。其中 $n$ 是题目给定的整数。
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def solveNQueens(self, n: int) -> List[List[str]]:
-        res = []
-        g = [['.'] * n for _ in range(n)]
-        col = [False] * n
-        dg = [False] * (2 * n)
-        udg = [False] * (2 * n)
-
-        def dfs(u):
-            if u == n:
-                res.append([''.join(item) for item in g])
+        def dfs(i: int):
+            if i == n:
+                ans.append(["".join(row) for row in g])
                 return
-            for i in range(n):
-                if not col[i] and not dg[u + i] and not udg[n - u + i]:
-                    g[u][i] = 'Q'
-                    col[i] = dg[u + i] = udg[n - u + i] = True
-                    dfs(u + 1)
-                    g[u][i] = '.'
-                    col[i] = dg[u + i] = udg[n - u + i] = False
+            for j in range(n):
+                if col[j] + dg[i + j] + udg[n - i + j] == 0:
+                    g[i][j] = "Q"
+                    col[j] = dg[i + j] = udg[n - i + j] = 1
+                    dfs(i + 1)
+                    col[j] = dg[i + j] = udg[n - i + j] = 0
+                    g[i][j] = "."
 
+        ans = []
+        g = [["."] * n for _ in range(n)]
+        col = [0] * n
+        dg = [0] * (n << 1)
+        udg = [0] * (n << 1)
         dfs(0)
-        return res
+        return ans
 ```
 
 ```java
 class Solution {
+    private List<List<String>> ans = new ArrayList<>();
+    private int[] col;
+    private int[] dg;
+    private int[] udg;
+    private String[][] g;
+    private int n;
+
     public List<List<String>> solveNQueens(int n) {
-        List<List<String>> res = new ArrayList<>();
-        String[][] g = new String[n][n];
+        this.n = n;
+        col = new int[n];
+        dg = new int[n << 1];
+        udg = new int[n << 1];
+        g = new String[n][n];
         for (int i = 0; i < n; ++i) {
-            String[] t = new String[n];
-            Arrays.fill(t, ".");
-            g[i] = t;
+            Arrays.fill(g[i], ".");
         }
-        // 列是否已经有值
-        boolean[] col = new boolean[n];
-        // 斜线是否已经有值
-        boolean[] dg = new boolean[2 * n];
-        // 反斜线是否已经有值
-        boolean[] udg = new boolean[2 * n];
-        // 从第一行开始搜索
-        dfs(0, n, col, dg, udg, g, res);
-        return res;
+        dfs(0);
+        return ans;
     }
 
-    private void dfs(int u, int n, boolean[] col, boolean[] dg, boolean[] udg, String[][] g,
-        List<List<String>> res) {
-        if (u == n) {
+    private void dfs(int i) {
+        if (i == n) {
             List<String> t = new ArrayList<>();
-            for (String[] e : g) {
-                t.add(String.join("", e));
+            for (int j = 0; j < n; ++j) {
+                t.add(String.join("", g[j]));
             }
-            res.add(t);
+            ans.add(t);
             return;
         }
-        for (int i = 0; i < n; ++i) {
-            if (!col[i] && !dg[u + i] && !udg[n - u + i]) {
-                g[u][i] = "Q";
-                col[i] = dg[u + i] = udg[n - u + i] = true;
-                dfs(u + 1, n, col, dg, udg, g, res);
-                g[u][i] = ".";
-                col[i] = dg[u + i] = udg[n - u + i] = false;
+        for (int j = 0; j < n; ++j) {
+            if (col[j] + dg[i + j] + udg[n - i + j] == 0) {
+                g[i][j] = "Q";
+                col[j] = dg[i + j] = udg[n - i + j] = 1;
+                dfs(i + 1);
+                col[j] = dg[i + j] = udg[n - i + j] = 0;
+                g[i][j] = ".";
             }
         }
     }
@@ -106,119 +117,131 @@ class Solution {
 class Solution {
 public:
     vector<vector<string>> solveNQueens(int n) {
-        vector<vector<string>> res;
-        vector<string> g(n, string(n, '.'));
-        vector<bool> col(n, false);
-        vector<bool> dg(2 * n, false);
-        vector<bool> udg(2 * n, false);
-        dfs(0, n, col, dg, udg, g, res);
-        return res;
-    }
-
-    void dfs(int u, int n, vector<bool>& col, vector<bool>& dg, vector<bool>& udg, vector<string>& g, vector<vector<string>>& res) {
-        if (u == n) {
-            res.push_back(g);
-            return;
-        }
-        for (int i = 0; i < n; ++i) {
-            if (!col[i] && !dg[u + i] && !udg[n - u + i]) {
-                g[u][i] = 'Q';
-                col[i] = dg[u + i] = udg[n - u + i] = true;
-                dfs(u + 1, n, col, dg, udg, g, res);
-                g[u][i] = '.';
-                col[i] = dg[u + i] = udg[n - u + i] = false;
+        vector<int> col(n);
+        vector<int> dg(n << 1);
+        vector<int> udg(n << 1);
+        vector<vector<string>> ans;
+        vector<string> t(n, string(n, '.'));
+        function<void(int)> dfs = [&](int i) -> void {
+            if (i == n) {
+                ans.push_back(t);
+                return;
             }
-        }
+            for (int j = 0; j < n; ++j) {
+                if (col[j] + dg[i + j] + udg[n - i + j] == 0) {
+                    t[i][j] = 'Q';
+                    col[j] = dg[i + j] = udg[n - i + j] = 1;
+                    dfs(i + 1);
+                    col[j] = dg[i + j] = udg[n - i + j] = 0;
+                    t[i][j] = '.';
+                }
+            }
+        };
+        dfs(0);
+        return ans;
     }
 };
 ```
 
 ```go
-func solveNQueens(n int) [][]string {
-	res := [][]string{}
-	g := make([][]string, n)
-	for i := range g {
-		g[i] = make([]string, n)
-		for j := range g[i] {
-			g[i][j] = "."
+func solveNQueens(n int) (ans [][]string) {
+	col := make([]int, n)
+	dg := make([]int, n<<1)
+	udg := make([]int, n<<1)
+	t := make([][]byte, n)
+	for i := range t {
+		t[i] = make([]byte, n)
+		for j := range t[i] {
+			t[i][j] = '.'
 		}
 	}
-	col := make([]bool, n)
-	dg := make([]bool, 2*n)
-	udg := make([]bool, 2*n)
-	dfs(0, n, col, dg, udg, g, &res)
-	return res
+	var dfs func(int)
+	dfs = func(i int) {
+		if i == n {
+			tmp := make([]string, n)
+			for i := range tmp {
+				tmp[i] = string(t[i])
+			}
+			ans = append(ans, tmp)
+			return
+		}
+		for j := 0; j < n; j++ {
+			if col[j]+dg[i+j]+udg[n-i+j] == 0 {
+				col[j], dg[i+j], udg[n-i+j] = 1, 1, 1
+				t[i][j] = 'Q'
+				dfs(i + 1)
+				t[i][j] = '.'
+				col[j], dg[i+j], udg[n-i+j] = 0, 0, 0
+			}
+		}
+	}
+	dfs(0)
+	return
 }
+```
 
-func dfs(u, n int, col, dg, udg []bool, g [][]string, res *[][]string) {
-	if u == n {
-		t := make([]string, n)
-		for i := 0; i < n; i++ {
-			t[i] = strings.Join(g[i], "")
-		}
-		*res = append(*res, t)
-		return
-	}
-	for i := 0; i < n; i++ {
-		if !col[i] && !dg[u+i] && !udg[n-u+i] {
-			g[u][i] = "Q"
-			col[i], dg[u+i], udg[n-u+i] = true, true, true
-			dfs(u+1, n, col, dg, udg, g, res)
-			g[u][i] = "."
-			col[i], dg[u+i], udg[n-u+i] = false, false, false
-		}
-	}
+```ts
+function solveNQueens(n: number): string[][] {
+    const col: number[] = Array(n).fill(0);
+    const dg: number[] = Array(n << 1).fill(0);
+    const udg: number[] = Array(n << 1).fill(0);
+    const ans: string[][] = [];
+    const t: string[][] = Array.from({ length: n }, () => Array(n).fill('.'));
+    const dfs = (i: number) => {
+        if (i === n) {
+            ans.push(t.map(x => x.join('')));
+            return;
+        }
+        for (let j = 0; j < n; ++j) {
+            if (col[j] + dg[i + j] + udg[n - i + j] === 0) {
+                t[i][j] = 'Q';
+                col[j] = dg[i + j] = udg[n - i + j] = 1;
+                dfs(i + 1);
+                col[j] = dg[i + j] = udg[n - i + j] = 0;
+                t[i][j] = '.';
+            }
+        }
+    };
+    dfs(0);
+    return ans;
 }
 ```
 
 ```cs
-using System.Collections.Generic;
-using System.Text;
-
 public class Solution {
-    private IList<IList<string>> results = new List<IList<string>>();
     private int n;
+    private int[] col;
+    private int[] dg;
+    private int[] udg;
+    private IList<IList<string>> ans = new List<IList<string>>();
+    private IList<string> t = new List<string>();
 
     public IList<IList<string>> SolveNQueens(int n) {
         this.n = n;
-        Search(new List<int>(), 0, 0, 0);
-        return results;
+        col = new int[n];
+        dg = new int[n << 1];
+        udg = new int[n << 1];
+        dfs(0);
+        return ans;
     }
 
-    private void Search(IList<int> state, int left, int right, int vertical)
-    {
-        if (state.Count == n)
-        {
-            Print(state);
+    private void dfs(int i) {
+        if (i == n) {
+            ans.Add(new List<string>(t));
             return;
         }
-        int available = ~(left | right | vertical) & ((1 << n) - 1);
-        while (available != 0)
-        {
-            int x = available & -available;
-            state.Add(x);
-            Search(state, (left | x ) << 1, (right | x ) >> 1, vertical | x);
-            state.RemoveAt(state.Count - 1);
-            available &= ~x;
-        }
-    }
-
-    private void Print(IList<int> state)
-    {
-        var result = new List<string>();
-        var sb = new StringBuilder(n);
-        foreach (var s in state)
-        {
-            var x = s;
-            for (var i = 0; i < n; ++i)
-            {
-                sb.Append((x & 1) != 0 ? 'Q': '.');
-                x >>= 1;
+        for (int j = 0; j < n; ++j) {
+            if (col[j] + dg[i + j] + udg[n - i + j] == 0) {
+                char[] row = new char[n];
+                Array.Fill(row, '.');
+                row[j] = 'Q';
+                t.Add(new string(row));
+                col[j] = dg[i + j] = udg[n - i + j] = 1;
+                dfs(i + 1);
+                col[j] = dg[i + j] = udg[n - i + j] = 0;
+                t.RemoveAt(t.Count - 1);
             }
-            result.Add(sb.ToString());
-            sb.Clear();
         }
-        results.Add(result);
     }
 }
 ```

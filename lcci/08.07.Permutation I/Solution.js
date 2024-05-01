@@ -3,27 +3,26 @@
  * @return {string[]}
  */
 var permutation = function (S) {
-    let res = [];
-    let arr = [...S];
-    let prev = [];
-    let record = new Array(S.length).fill(false);
-    dfs(arr, 0, prev, record, res);
-    return res;
-};
-
-function dfs(arr, depth, prev, record, res) {
-    if (depth == arr.length) {
-        res.push(prev.join(''));
-        return;
-    }
-    for (let i = 0; i < arr.length; i++) {
-        if (record[i]) {
-            continue;
+    const n = S.length;
+    const vis = Array(n).fill(false);
+    const ans = [];
+    const t = [];
+    const dfs = i => {
+        if (i >= n) {
+            ans.push(t.join(''));
+            return;
         }
-        prev.push(arr[i]);
-        record[i] = true;
-        dfs(arr, depth + 1, prev, record, res);
-        prev.pop();
-        record[i] = false;
-    }
-}
+        for (let j = 0; j < n; ++j) {
+            if (vis[j]) {
+                continue;
+            }
+            vis[j] = true;
+            t.push(S[j]);
+            dfs(i + 1);
+            t.pop();
+            vis[j] = false;
+        }
+    };
+    dfs(0);
+    return ans;
+};

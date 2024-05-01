@@ -33,45 +33,37 @@
 
 ### 方法一：树状数组
 
-树状数组，也称作“二叉索引树”（Binary Indexed Tree）或 Fenwick 树。 它可以高效地实现如下两个操作：
+我们可以使用树状数组维护添加过的数字中，有多少个数字小于等于当前数字。
 
-1. **单点更新** `update(x, delta)`： 把序列 x 位置的数加上一个值 delta；
-1. **前缀和查询** `query(x)`：查询序列 `[1,...x]` 区间的区间和，即位置 x 的前缀和。
+我们创建一个长度为 $50010$ 的树状数组，对于 `track` 方法，我们将当前数字加一，添加到树状数组中，对于 `getRankOfNumber` 方法，我们直接查询树状数组中小于等于 $x + 1$ 的数字个数。
 
-这两个操作的时间复杂度均为 $O(\log n)$。
-
-树状数组最基本的功能就是求比某点 x 小的点的个数（这里的比较是抽象的概念，可以是数的大小、坐标的大小、质量的大小等等）。
-
-比如给定数组 `a[5] = {2, 5, 3, 4, 1}`，求 `b[i] = 位置 i 左边小于等于 a[i] 的数的个数`。对于此例，`b[5] = {0, 1, 1, 2, 0}`。
-
-解决方案是直接遍历数组，每个位置先求出 `query(a[i])`，然后再修改树状数组 `update(a[i], 1)` 即可。当数的范围比较大时，需要进行离散化，即先进行去重并排序，然后对每个数字进行编号。
+时间复杂度方面，树状数组的更新和查询操作的时间复杂度均为 $O(\log n)$，其中 $n$ 为树状数组的长度。
 
 <!-- tabs:start -->
 
 ```python
 class BinaryIndexedTree:
-    def __init__(self, n):
+    __slots__ = "n", "c"
+
+    def __init__(self, n: int):
         self.n = n
         self.c = [0] * (n + 1)
 
-    @staticmethod
-    def lowbit(x):
-        return x & -x
-
-    def update(self, x, delta):
+    def update(self, x: int, delta: int) -> None:
         while x <= self.n:
             self.c[x] += delta
-            x += BinaryIndexedTree.lowbit(x)
+            x += x & -x
 
-    def query(self, x):
+    def query(self, x: int) -> int:
         s = 0
-        while x > 0:
+        while x:
             s += self.c[x]
-            x -= BinaryIndexedTree.lowbit(x)
+            x -= x & -x
         return s
 
 
 class StreamRank:
+
     def __init__(self):
         self.tree = BinaryIndexedTree(50010)
 
@@ -95,35 +87,29 @@ class BinaryIndexedTree {
 
     public BinaryIndexedTree(int n) {
         this.n = n;
-        c = new int[n + 1];
-    }
-
-    public static int lowbit(int x) {
-        return x & -x;
+        this.c = new int[n + 1];
     }
 
     public void update(int x, int delta) {
-        while (x <= n) {
+        for (; x <= n; x += x & -x) {
             c[x] += delta;
-            x += lowbit(x);
         }
     }
 
     public int query(int x) {
         int s = 0;
-        while (x > 0) {
+        for (; x > 0; x -= x & -x) {
             s += c[x];
-            x -= lowbit(x);
         }
         return s;
     }
 }
 
 class StreamRank {
-    private BinaryIndexedTree tree;
+    private BinaryIndexedTree tree = new BinaryIndexedTree(50010);
 
     public StreamRank() {
-        tree = new BinaryIndexedTree(50010);
+
     }
 
     public void track(int x) {
@@ -145,41 +131,33 @@ class StreamRank {
 
 ```cpp
 class BinaryIndexedTree {
-public:
+private:
     int n;
     vector<int> c;
 
-    BinaryIndexedTree(int _n)
-        : n(_n)
-        , c(_n + 1) {}
+public:
+    BinaryIndexedTree(int n)
+        : n(n)
+        , c(n + 1) {}
 
     void update(int x, int delta) {
-        while (x <= n) {
+        for (; x <= n; x += x & -x) {
             c[x] += delta;
-            x += lowbit(x);
         }
     }
 
     int query(int x) {
         int s = 0;
-        while (x > 0) {
+        for (; x > 0; x -= x & -x) {
             s += c[x];
-            x -= lowbit(x);
         }
         return s;
-    }
-
-    int lowbit(int x) {
-        return x & -x;
     }
 };
 
 class StreamRank {
 public:
-    BinaryIndexedTree* tree;
-
     StreamRank() {
-        tree = new BinaryIndexedTree(50010);
     }
 
     void track(int x) {
@@ -189,6 +167,9 @@ public:
     int getRankOfNumber(int x) {
         return tree->query(x + 1);
     }
+
+private:
+    BinaryIndexedTree* tree = new BinaryIndexedTree(50010);
 };
 
 /**
@@ -205,27 +186,20 @@ type BinaryIndexedTree struct {
 	c []int
 }
 
-func newBinaryIndexedTree(n int) *BinaryIndexedTree {
-	c := make([]int, n+1)
-	return &BinaryIndexedTree{n, c}
+func NewBinaryIndexedTree(n int) *BinaryIndexedTree {
+	return &BinaryIndexedTree{n: n, c: make([]int, n+1)}
 }
 
-func (this *BinaryIndexedTree) lowbit(x int) int {
-	return x & -x
-}
-
-func (this *BinaryIndexedTree) update(x, delta int) {
-	for x <= this.n {
-		this.c[x] += delta
-		x += this.lowbit(x)
+func (bit *BinaryIndexedTree) update(x, delta int) {
+	for ; x <= bit.n; x += x & -x {
+		bit.c[x] += delta
 	}
 }
 
-func (this *BinaryIndexedTree) query(x int) int {
+func (bit *BinaryIndexedTree) query(x int) int {
 	s := 0
-	for x > 0 {
-		s += this.c[x]
-		x -= this.lowbit(x)
+	for ; x > 0; x -= x & -x {
+		s += bit.c[x]
 	}
 	return s
 }
@@ -235,8 +209,7 @@ type StreamRank struct {
 }
 
 func Constructor() StreamRank {
-	tree := newBinaryIndexedTree(50010)
-	return StreamRank{tree}
+	return StreamRank{NewBinaryIndexedTree(50010)}
 }
 
 func (this *StreamRank) Track(x int) {
@@ -252,6 +225,53 @@ func (this *StreamRank) GetRankOfNumber(x int) int {
  * obj := Constructor();
  * obj.Track(x);
  * param_2 := obj.GetRankOfNumber(x);
+ */
+```
+
+```ts
+class BinaryIndexedTree {
+    private n: number;
+    private c: number[];
+
+    constructor(n: number) {
+        this.n = n;
+        this.c = Array(n + 1).fill(0);
+    }
+
+    update(x: number, delta: number): void {
+        for (; x <= this.n; x += x & -x) {
+            this.c[x] += delta;
+        }
+    }
+
+    query(x: number): number {
+        let s = 0;
+        for (; x > 0; x -= x & -x) {
+            s += this.c[x];
+        }
+        return s;
+    }
+}
+
+class StreamRank {
+    private tree: BinaryIndexedTree = new BinaryIndexedTree(50010);
+
+    constructor() {}
+
+    track(x: number): void {
+        this.tree.update(x + 1, 1);
+    }
+
+    getRankOfNumber(x: number): number {
+        return this.tree.query(x + 1);
+    }
+}
+
+/**
+ * Your StreamRank object will be instantiated and called as such:
+ * var obj = new StreamRank()
+ * obj.track(x)
+ * var param_2 = obj.getRankOfNumber(x)
  */
 ```
 
