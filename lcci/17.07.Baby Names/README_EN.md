@@ -22,7 +22,15 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Hash Table + DFS
+
+For each pair of synonyms, we establish bidirectional edges between the two names and store them in the adjacency list $g$. Then, we traverse all names, store them in the set $s$, and store their frequencies in the hash table $cnt$.
+
+Next, we traverse each name in the set $s$. If the name has not been visited, we perform a depth-first search to find all names in the connected component where the name is located. We use the name with the smallest lexicographic order as the real name, and the sum of their frequencies is the frequency of the real name. Then, we store this name and its frequency in the answer array.
+
+After traversing all names, the answer array is what we seek.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the lengths of the name array and the synonym array, respectively.
 
 <!-- tabs:start -->
 

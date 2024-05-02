@@ -40,7 +40,20 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Prefix Sum + Hash Table
+
+The problem requires finding the longest subarray with an equal number of characters and digits. We can treat characters as $1$ and digits as $-1$, transforming the problem into finding the longest subarray with a sum of $0$.
+
+We can use the idea of prefix sums and a hash table `vis` to record the first occurrence of each prefix sum. We use variables `mx` and `k` to record the length and the left endpoint of the longest subarray that meets the conditions, respectively.
+
+Next, we iterate through the array, calculating the prefix sum `s` at the current position `i`:
+
+-   If the prefix sum `s` at the current position exists in the hash table `vis`, we denote the first occurrence of `s` as `j`, then the sum of the subarray in the interval $[j + 1,..,i]$ is $0$. If the length of the current subarray is greater than the length of the longest subarray found so far, i.e., $mx < i - j$, we update `mx = i - j` and `k = j + 1`.
+-   Otherwise, we store the current prefix sum `s` as the key and the current position `i` as the value in the hash table `vis`.
+
+After the iteration, we return the subarray with a left endpoint of `k` and a length of `mx`.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
