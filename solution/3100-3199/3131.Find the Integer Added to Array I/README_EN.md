@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3100-3199/3131.Find%20the%20Integer%20Added%20to%20Array%20I/README.md)
 
-<!-- tags: -->
+<!-- tags:Array -->
 
 ## Description
 

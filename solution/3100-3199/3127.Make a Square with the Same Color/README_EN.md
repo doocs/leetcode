@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3100-3199/3127.Make%20a%20Square%20with%20the%20Same%20Color/README.md)
 
-<!-- tags: -->
+<!-- tags:Array,Enumeration,Matrix -->
 
 ## Description
 

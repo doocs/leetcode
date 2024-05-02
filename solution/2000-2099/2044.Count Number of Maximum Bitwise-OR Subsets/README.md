@@ -2,7 +2,7 @@
 
 [English Version](/solution/2000-2099/2044.Count%20Number%20of%20Maximum%20Bitwise-OR%20Subsets/README_EN.md)
 
-<!-- tags:位运算,数组,回溯 -->
+<!-- tags:位运算,数组,回溯,枚举 -->
 
 ## 题目描述
 

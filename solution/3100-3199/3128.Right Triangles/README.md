@@ -2,7 +2,7 @@
 
 [English Version](/solution/3100-3199/3128.Right%20Triangles/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:数组,哈希表,数学,组合数学,计数 -->
 
 ## 题目描述
 

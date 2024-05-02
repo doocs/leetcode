@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3100-3199/3132.Find%20the%20Integer%20Added%20to%20Array%20II/README.md)
 
-<!-- tags: -->
+<!-- tags:Array,Two Pointers,Enumeration,Sorting -->
 
 ## Description
 

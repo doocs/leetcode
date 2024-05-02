@@ -2,7 +2,7 @@
 
 [中文文档](/solution/2700-2799/2708.Maximum%20Strength%20of%20a%20Group/README.md)
 
-<!-- tags:Greedy,Array,Backtracking,Sorting -->
+<!-- tags:Greedy,Bit Manipulation,Array,Dynamic Programming,Backtracking,Enumeration,Sorting -->
 
 ## Description
 

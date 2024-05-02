@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3100-3199/3129.Find%20All%20Possible%20Stable%20Binary%20Arrays%20I/README.md)
 
-<!-- tags: -->
+<!-- tags:Dynamic Programming,Prefix Sum -->
 
 ## Description
 
