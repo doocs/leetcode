@@ -21,7 +21,13 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Sorting + Discretization + Binary Indexed Tree
+
+First, we sort all people in ascending order by height. If the heights are the same, we sort them in descending order by weight. This way, we can transform the problem into finding the longest increasing subsequence of the weight array.
+
+The longest increasing subsequence problem can be solved using dynamic programming with a time complexity of $O(n^2)$. However, we can optimize the solution process using a Binary Indexed Tree, which reduces the time complexity to $O(n \log n)$.
+
+The space complexity is $O(n)$, where $n$ is the number of people.
 
 <!-- tabs:start -->
 
