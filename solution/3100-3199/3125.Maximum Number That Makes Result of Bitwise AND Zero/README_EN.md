@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3100-3199/3125.Maximum%20Number%20That%20Makes%20Result%20of%20Bitwise%20AND%20Zero/README.md)
 
-<!-- tags: -->
+<!-- tags:Greedy,String,Sorting -->
 
 ## Description
 

@@ -2,7 +2,7 @@
 
 [English Version](/solution/3100-3199/3132.Find%20the%20Integer%20Added%20to%20Array%20II/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:数组,双指针,枚举,排序 -->
 
 ## 题目描述
 

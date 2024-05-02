@@ -2,7 +2,7 @@
 
 [中文文档](/solution/2900-2999/2947.Count%20Beautiful%20Substrings%20I/README.md)
 
-<!-- tags:String,Enumeration,Prefix Sum -->
+<!-- tags:Hash Table,Math,String,Enumeration,Number Theory,Prefix Sum -->
 
 ## Description
 

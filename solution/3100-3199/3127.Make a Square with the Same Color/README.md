@@ -2,7 +2,7 @@
 
 [English Version](/solution/3100-3199/3127.Make%20a%20Square%20with%20the%20Same%20Color/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:数组,枚举,矩阵 -->
 
 ## 题目描述
 

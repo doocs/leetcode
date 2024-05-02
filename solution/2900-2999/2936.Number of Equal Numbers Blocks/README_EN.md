@@ -2,7 +2,7 @@
 
 [中文文档](/solution/2900-2999/2936.Number%20of%20Equal%20Numbers%20Blocks/README.md)
 
-<!-- tags:Array,Binary Search,Divide and Conquer,Interactive -->
+<!-- tags:Array,Binary Search,Interactive -->
 
 ## Description
 

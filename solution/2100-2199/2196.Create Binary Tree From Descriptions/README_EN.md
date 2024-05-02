@@ -2,7 +2,7 @@
 
 [中文文档](/solution/2100-2199/2196.Create%20Binary%20Tree%20From%20Descriptions/README.md)
 
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Array,Hash Table,Binary Tree -->
+<!-- tags:Tree,Array,Hash Table,Binary Tree -->
 
 ## Description
 

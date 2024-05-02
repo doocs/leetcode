@@ -2,7 +2,7 @@
 
 [English Version](/solution/3100-3199/3102.Minimize%20Manhattan%20Distances/README_EN.md)
 
-<!-- tags:数组,数学 -->
+<!-- tags:几何,数组,数学,有序集合,排序 -->
 
 ## 题目描述
 

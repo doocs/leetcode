@@ -2,7 +2,7 @@
 
 [English Version](/solution/3100-3199/3130.Find%20All%20Possible%20Stable%20Binary%20Arrays%20II/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:动态规划,前缀和 -->
 
 ## 题目描述
 
