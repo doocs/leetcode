@@ -13,8 +13,7 @@ public:
             ans = min(ans, t);
             if (idx1[i] < idx2[j]) {
                 ++i;
-            }
-            else {
+            } else {
                 ++j;
             }
         }
