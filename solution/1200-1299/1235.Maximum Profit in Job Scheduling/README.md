@@ -260,16 +260,13 @@ class Solution:
     def jobScheduling(
         self, startTime: List[int], endTime: List[int], profit: List[int]
     ) -> int:
-        @cache
-        def dfs(i: int) -> int:
-            if i >= n:
-                return 0
-            j = bisect_left(idx, endTime[idx[i]], key=lambda i: startTime[i])
-            return max(dfs(i + 1), profit[idx[i]] + dfs(j))
-
-        n = len(startTime)
-        idx = sorted(range(n), key=lambda i: startTime[i])
-        return dfs(0)
+        jobs = sorted(zip(endTime, startTime, profit))
+        n = len(profit)
+        dp = [0] * (n + 1)
+        for i, (_, s, p) in enumerate(jobs):
+            j = bisect_right(jobs, s, hi=i, key=lambda x: x[0])
+            dp[i + 1] = max(dp[i], dp[j] + p)
+        return dp[n]
 ```
 
 ```java
@@ -341,24 +338,34 @@ func jobScheduling(startTime []int, endTime []int, profit []int) int {
 }
 ```
 
-<!-- tabs:end -->
-
-### 方法三
-
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def jobScheduling(
-        self, startTime: List[int], endTime: List[int], profit: List[int]
-    ) -> int:
-        jobs = sorted(zip(endTime, startTime, profit))
-        n = len(profit)
-        dp = [0] * (n + 1)
-        for i, (_, s, p) in enumerate(jobs):
-            j = bisect_right(jobs, s, hi=i, key=lambda x: x[0])
-            dp[i + 1] = max(dp[i], dp[j] + p)
-        return dp[n]
+```ts
+function jobScheduling(startTime: number[], endTime: number[], profit: number[]): number {
+    const n = profit.length;
+    const jobs: [number, number, number][] = Array.from({ length: n }, (_, i) => [
+        startTime[i],
+        endTime[i],
+        profit[i],
+    ]);
+    jobs.sort((a, b) => a[1] - b[1]);
+    const dp: number[] = Array.from({ length: n + 1 }, () => 0);
+    const search = (x: number, right: number): number => {
+        let left = 0;
+        while (left < right) {
+            const mid = (left + right) >> 1;
+            if (jobs[mid][1] > x) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    };
+    for (let i = 0; i < n; ++i) {
+        const j = search(jobs[i][0], i);
+        dp[i + 1] = Math.max(dp[i], dp[j] + jobs[i][2]);
+    }
+    return dp[n];
+}
 ```
 
 <!-- tabs:end -->
