@@ -5,9 +5,9 @@ func findClosest(words []string, word1 string, word2 string) int {
 	}
 	idx1, idx2 := d[word1], d[word2]
 	i, j, m, n := 0, 0, len(idx1), len(idx2)
-	ans := 100000
+	ans := 1 << 30
 	for i < m && j < n {
-		t := abs(idx1[i] - idx2[j])
+		t := max(idx1[i]-idx2[j], idx2[j]-idx1[i])
 		if t < ans {
 			ans = t
 		}
@@ -18,11 +18,4 @@ func findClosest(words []string, word1 string, word2 string) int {
 		}
 	}
 	return ans
-}
-
-func abs(x int) int {
-	if x < 0 {
-		return -x
-	}
-	return x
 }

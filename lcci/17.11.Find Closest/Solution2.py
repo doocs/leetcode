@@ -3,7 +3,7 @@ class Solution:
         d = defaultdict(list)
         for i, w in enumerate(words):
             d[w].append(i)
-        ans = 1e5
+        ans = inf
         idx1, idx2 = d[word1], d[word2]
         i, j, m, n = 0, 0, len(idx1), len(idx2)
         while i < m and j < n:
