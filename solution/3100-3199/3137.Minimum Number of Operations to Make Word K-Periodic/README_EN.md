@@ -92,24 +92,76 @@ font-size: 0.85rem;
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Counting
+
+We can divide the string `word` into substrings of length $k$, then count the occurrence of each substring, and finally return $n/k$ minus the count of the most frequently occurring substring.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string `word`.
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def minimumOperationsToMakeKPeriodic(self, word: str, k: int) -> int:
+        n = len(word)
+        return n // k - max(Counter(word[i : i + k] for i in range(0, n, k)).values())
 ```
 
 ```java
-
+class Solution {
+    public int minimumOperationsToMakeKPeriodic(String word, int k) {
+        Map<String, Integer> cnt = new HashMap<>();
+        int n = word.length();
+        int mx = 0;
+        for (int i = 0; i < n; i += k) {
+            mx = Math.max(mx, cnt.merge(word.substring(i, i + k), 1, Integer::sum));
+        }
+        return n / k - mx;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int minimumOperationsToMakeKPeriodic(string word, int k) {
+        unordered_map<string, int> cnt;
+        int n = word.size();
+        int mx = 0;
+        for (int i = 0; i < n; i += k) {
+            mx = max(mx, ++cnt[word.substr(i, k)]);
+        }
+        return n / k - mx;
+    }
+};
 ```
 
 ```go
+func minimumOperationsToMakeKPeriodic(word string, k int) int {
+	cnt := map[string]int{}
+	n := len(word)
+	mx := 0
+	for i := 0; i < n; i += k {
+		s := word[i : i+k]
+		cnt[s]++
+		mx = max(mx, cnt[s])
+	}
+	return n/k - mx
+}
+```
 
+```ts
+function minimumOperationsToMakeKPeriodic(word: string, k: number): number {
+    const cnt: Map<string, number> = new Map();
+    const n: number = word.length;
+    let mx: number = 0;
+    for (let i = 0; i < n; i += k) {
+        const s = word.slice(i, i + k);
+        cnt.set(s, (cnt.get(s) || 0) + 1);
+        mx = Math.max(mx, cnt.get(s)!);
+    }
+    return Math.floor(n / k) - mx;
+}
 ```
 
 <!-- tabs:end -->

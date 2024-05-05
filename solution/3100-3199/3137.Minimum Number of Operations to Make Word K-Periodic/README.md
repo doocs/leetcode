@@ -103,24 +103,76 @@ font-size: 0.85rem;
 
 ## 解法
 
-### 方法一
+### 方法一：计数
+
+我们可以将字符串 `word` 按照长度为 $k$ 的子串进行分组，然后统计每个子串出现的次数，最后返回 $n/k$ 减去出现次数最多的子串的次数即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 `word` 的长度。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def minimumOperationsToMakeKPeriodic(self, word: str, k: int) -> int:
+        n = len(word)
+        return n // k - max(Counter(word[i : i + k] for i in range(0, n, k)).values())
 ```
 
 ```java
-
+class Solution {
+    public int minimumOperationsToMakeKPeriodic(String word, int k) {
+        Map<String, Integer> cnt = new HashMap<>();
+        int n = word.length();
+        int mx = 0;
+        for (int i = 0; i < n; i += k) {
+            mx = Math.max(mx, cnt.merge(word.substring(i, i + k), 1, Integer::sum));
+        }
+        return n / k - mx;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int minimumOperationsToMakeKPeriodic(string word, int k) {
+        unordered_map<string, int> cnt;
+        int n = word.size();
+        int mx = 0;
+        for (int i = 0; i < n; i += k) {
+            mx = max(mx, ++cnt[word.substr(i, k)]);
+        }
+        return n / k - mx;
+    }
+};
 ```
 
 ```go
+func minimumOperationsToMakeKPeriodic(word string, k int) int {
+	cnt := map[string]int{}
+	n := len(word)
+	mx := 0
+	for i := 0; i < n; i += k {
+		s := word[i : i+k]
+		cnt[s]++
+		mx = max(mx, cnt[s])
+	}
+	return n/k - mx
+}
+```
 
+```ts
+function minimumOperationsToMakeKPeriodic(word: string, k: number): number {
+    const cnt: Map<string, number> = new Map();
+    const n: number = word.length;
+    let mx: number = 0;
+    for (let i = 0; i < n; i += k) {
+        const s = word.slice(i, i + k);
+        cnt.set(s, (cnt.get(s) || 0) + 1);
+        mx = Math.max(mx, cnt.get(s)!);
+    }
+    return Math.floor(n / k) - mx;
+}
 ```
 
 <!-- tabs:end -->
