@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 396 场周赛(2024-05-05 10:30, 90 分钟) 参赛人数 2931
+
+- [3136. 有效单词](/solution/3100-3199/3136.Valid%20Word/README.md)
+- [3137. K 周期字符串需要的最少操作次数](/solution/3100-3199/3137.Minimum%20Number%20of%20Operations%20to%20Make%20Word%20K-Periodic/README.md)
+- [3138. 同位字符串连接的最小长度](/solution/3100-3199/3138.Minimum%20Length%20of%20Anagram%20Concatenation/README.md)
+- [3139. 使数组中所有元素相等的最小开销](/solution/3100-3199/3139.Minimum%20Cost%20to%20Equalize%20Array/README.md)
+
 #### 第 395 场周赛(2024-04-28 10:30, 90 分钟) 参赛人数 2968
 
 - [3131. 找出与数组相加的整数 I](/solution/3100-3199/3131.Find%20the%20Integer%20Added%20to%20Array%20I/README.md)

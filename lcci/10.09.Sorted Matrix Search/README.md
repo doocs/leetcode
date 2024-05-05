@@ -187,11 +187,11 @@ class Solution {
         }
         return false
     }
-    
+
     private func binarySearch(_ array: [Int], _ target: Int) -> Bool {
         var left = 0
         var right = array.count - 1
-        
+
         while left <= right {
             let mid = left + (right - left) / 2
             if array[mid] == target {
@@ -202,7 +202,7 @@ class Solution {
                 right = mid - 1
             }
         }
-        
+
         return false
     }
 }

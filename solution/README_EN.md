@@ -3144,6 +3144,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3133  |  [Minimum Array End](/solution/3100-3199/3133.Minimum%20Array%20End/README_EN.md)  |  `Bit Manipulation`  |  Medium  |  Weekly Contest 395  |
 |  3134  |  [Find the Median of the Uniqueness Array](/solution/3100-3199/3134.Find%20the%20Median%20of%20the%20Uniqueness%20Array/README_EN.md)  |  `Array`,`Hash Table`,`Binary Search`,`Sliding Window`  |  Hard  |  Weekly Contest 395  |
 |  3135  |  [Equalize Strings by Adding or Removing Characters at Ends](/solution/3100-3199/3135.Equalize%20Strings%20by%20Adding%20or%20Removing%20Characters%20at%20Ends/README_EN.md)  |    |  Medium  |  🔒  |
+|  3136  |  [Valid Word](/solution/3100-3199/3136.Valid%20Word/README_EN.md)  |    |  Easy  |  Weekly Contest 396  |
+|  3137  |  [Minimum Number of Operations to Make Word K-Periodic](/solution/3100-3199/3137.Minimum%20Number%20of%20Operations%20to%20Make%20Word%20K-Periodic/README_EN.md)  |    |  Medium  |  Weekly Contest 396  |
+|  3138  |  [Minimum Length of Anagram Concatenation](/solution/3100-3199/3138.Minimum%20Length%20of%20Anagram%20Concatenation/README_EN.md)  |    |  Medium  |  Weekly Contest 396  |
+|  3139  |  [Minimum Cost to Equalize Array](/solution/3100-3199/3139.Minimum%20Cost%20to%20Equalize%20Array/README_EN.md)  |    |  Hard  |  Weekly Contest 396  |
 
 ## Copyright
 
