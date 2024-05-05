@@ -6,15 +6,16 @@ function decrypt(code: number[], k: number): number[] {
         return ans;
     }
 
+    const s: number[] = Array((n << 1) | 1).fill(0);
+    for (let i = 0; i < n << 1; ++i) {
+        s[i + 1] = s[i] + code[i % n];
+    }
+
     for (let i = 0; i < n; ++i) {
         if (k > 0) {
-            for (let j = i + 1; j < i + k + 1; ++j) {
-                ans[i] += code[j % n];
-            }
+            ans[i] = s[i + k + 1] - s[i + 1];
         } else {
-            for (let j = i + k; j < i; ++j) {
-                ans[i] += code[(j + n) % n];
-            }
+            ans[i] = s[i + n] - s[i + k + n];
         }
     }
 
