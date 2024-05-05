@@ -3146,6 +3146,10 @@
 |  3133  |  [数组最后一个元素的最小值](/solution/3100-3199/3133.Minimum%20Array%20End/README.md)  |  `位运算`  |  中等  |  第 395 场周赛  |
 |  3134  |  [找出唯一性数组的中位数](/solution/3100-3199/3134.Find%20the%20Median%20of%20the%20Uniqueness%20Array/README.md)  |  `数组`,`哈希表`,`二分查找`,`滑动窗口`  |  困难  |  第 395 场周赛  |
 |  3135  |  [Equalize Strings by Adding or Removing Characters at Ends](/solution/3100-3199/3135.Equalize%20Strings%20by%20Adding%20or%20Removing%20Characters%20at%20Ends/README.md)  |    |  中等  |  🔒  |
+|  3136  |  [有效单词](/solution/3100-3199/3136.Valid%20Word/README.md)  |    |  简单  |  第 396 场周赛  |
+|  3137  |  [K 周期字符串需要的最少操作次数](/solution/3100-3199/3137.Minimum%20Number%20of%20Operations%20to%20Make%20Word%20K-Periodic/README.md)  |    |  中等  |  第 396 场周赛  |
+|  3138  |  [同位字符串连接的最小长度](/solution/3100-3199/3138.Minimum%20Length%20of%20Anagram%20Concatenation/README.md)  |    |  中等  |  第 396 场周赛  |
+|  3139  |  [使数组中所有元素相等的最小开销](/solution/3100-3199/3139.Minimum%20Cost%20to%20Equalize%20Array/README.md)  |    |  困难  |  第 396 场周赛  |
 
 ## 版权
 

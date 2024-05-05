@@ -25,6 +25,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 396
+
+- [3136. Valid Word](/solution/3100-3199/3136.Valid%20Word/README_EN.md)
+- [3137. Minimum Number of Operations to Make Word K-Periodic](/solution/3100-3199/3137.Minimum%20Number%20of%20Operations%20to%20Make%20Word%20K-Periodic/README_EN.md)
+- [3138. Minimum Length of Anagram Concatenation](/solution/3100-3199/3138.Minimum%20Length%20of%20Anagram%20Concatenation/README_EN.md)
+- [3139. Minimum Cost to Equalize Array](/solution/3100-3199/3139.Minimum%20Cost%20to%20Equalize%20Array/README_EN.md)
+
 #### Weekly Contest 395
 
 - [3131. Find the Integer Added to Array I](/solution/3100-3199/3131.Find%20the%20Integer%20Added%20to%20Array%20I/README_EN.md)
