@@ -7,40 +7,39 @@
  * }
  */
 func findClosestLeaf(root *TreeNode, k int) int {
-	g := make(map[*TreeNode][]*TreeNode)
-	var dfs func(root, p *TreeNode)
-	dfs = func(root, p *TreeNode) {
-		if root == nil {
-			return
+	g := map[*TreeNode][]*TreeNode{}
+	var dfs func(*TreeNode, *TreeNode)
+	dfs = func(root, fa *TreeNode) {
+		if root != nil {
+			g[root] = append(g[root], fa)
+			g[fa] = append(g[fa], root)
+			dfs(root.Left, root)
+			dfs(root.Right, root)
 		}
-		g[root] = append(g[root], p)
-		g[p] = append(g[p], root)
-		dfs(root.Left, root)
-		dfs(root.Right, root)
 	}
 	dfs(root, nil)
-	var q []*TreeNode
-	for t, _ := range g {
-		if t != nil && t.Val == k {
-			q = append(q, t)
+	q := []*TreeNode{}
+	vis := map[*TreeNode]bool{}
+	for node := range g {
+		if node != nil && node.Val == k {
+			q = append(q, node)
+			vis[node] = true
 			break
 		}
 	}
-	seen := make(map[*TreeNode]bool)
-	for len(q) > 0 {
+	for {
 		node := q[0]
 		q = q[1:]
-		seen[node] = true
 		if node != nil {
-			if node.Left == nil && node.Right == nil {
+			if node.Left == node.Right {
 				return node.Val
 			}
-			for _, next := range g[node] {
-				if !seen[next] {
-					q = append(q, next)
+			for _, nxt := range g[node] {
+				if !vis[nxt] {
+					vis[nxt] = true
+					q = append(q, nxt)
 				}
 			}
 		}
 	}
-	return 0
 }

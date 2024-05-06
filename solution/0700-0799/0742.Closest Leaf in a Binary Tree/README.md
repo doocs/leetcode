@@ -57,7 +57,11 @@
 
 ## 解法
 
-### 方法一
+### 方法一：DFS + BFS
+
+我们首先使用深度优先搜索构建一个无向图 $g$，其中 $g[node]$ 表示与节点 $node$ 相邻的节点集合。然后我们从节点 $k$ 开始进行广度优先搜索，直到找到一个叶节点为止，即为答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树节点个数。
 
 <!-- tabs:start -->
 
@@ -69,27 +73,27 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def findClosestLeaf(self, root: TreeNode, k: int) -> int:
-        def dfs(root, p):
+    def findClosestLeaf(self, root: Optional[TreeNode], k: int) -> int:
+        def dfs(root: Optional[TreeNode], fa: Optional[TreeNode]):
             if root:
-                g[root].append(p)
-                g[p].append(root)
+                g[root].append(fa)
+                g[fa].append(root)
                 dfs(root.left, root)
                 dfs(root.right, root)
 
         g = defaultdict(list)
         dfs(root, None)
-        q = deque([node for node in g if node and node.val == k])
-        seen = set()
-        while q:
+        q = deque(node for node in g if node and node.val == k)
+        vis = set(q)
+        while 1:
             node = q.popleft()
-            seen.add(node)
             if node:
-                if node.left is None and node.right is None:
+                if node.left == node.right:
                     return node.val
-                for next in g[node]:
-                    if next not in seen:
-                        q.append(next)
+                for nxt in g[node]:
+                    if nxt not in vis:
+                        vis.add(nxt)
+                        q.append(nxt)
 ```
 
 ```java
@@ -109,40 +113,38 @@ class Solution:
  * }
  */
 class Solution {
-    private Map<TreeNode, List<TreeNode>> g;
+    private Map<TreeNode, List<TreeNode>> g = new HashMap<>();
 
     public int findClosestLeaf(TreeNode root, int k) {
-        g = new HashMap<>();
         dfs(root, null);
         Deque<TreeNode> q = new LinkedList<>();
-        for (Map.Entry<TreeNode, List<TreeNode>> entry : g.entrySet()) {
-            if (entry.getKey() != null && entry.getKey().val == k) {
-                q.offer(entry.getKey());
+        Set<TreeNode> vis = new HashSet<>(q.size());
+        for (TreeNode node : g.keySet()) {
+            if (node != null && node.val == k) {
+                vis.add(node);
+                q.offer(node);
                 break;
             }
         }
-        Set<TreeNode> seen = new HashSet<>();
-        while (!q.isEmpty()) {
+        while (true) {
             TreeNode node = q.poll();
-            seen.add(node);
             if (node != null) {
-                if (node.left == null && node.right == null) {
+                if (node.left == node.right) {
                     return node.val;
                 }
-                for (TreeNode next : g.get(node)) {
-                    if (!seen.contains(next)) {
-                        q.offer(next);
+                for (TreeNode nxt : g.get(node)) {
+                    if (vis.add(nxt)) {
+                        q.offer(nxt);
                     }
                 }
             }
         }
-        return 0;
     }
 
-    private void dfs(TreeNode root, TreeNode p) {
+    private void dfs(TreeNode root, TreeNode fa) {
         if (root != null) {
-            g.computeIfAbsent(root, k -> new ArrayList<>()).add(p);
-            g.computeIfAbsent(p, k -> new ArrayList<>()).add(root);
+            g.computeIfAbsent(root, k -> new ArrayList<>()).add(fa);
+            g.computeIfAbsent(fa, k -> new ArrayList<>()).add(root);
             dfs(root.left, root);
             dfs(root.right, root);
         }
@@ -164,39 +166,41 @@ class Solution {
  */
 class Solution {
 public:
-    unordered_map<TreeNode*, vector<TreeNode*>> g;
-
     int findClosestLeaf(TreeNode* root, int k) {
+        unordered_map<TreeNode*, vector<TreeNode*>> g;
+        function<void(TreeNode*, TreeNode*)> dfs = [&](TreeNode* root, TreeNode* fa) {
+            if (root) {
+                g[root].push_back(fa);
+                g[fa].push_back(root);
+                dfs(root->left, root);
+                dfs(root->right, root);
+            }
+        };
         dfs(root, nullptr);
         queue<TreeNode*> q;
-        for (auto& e : g) {
-            if (e.first && e.first->val == k) {
-                q.push(e.first);
-                break;
+        unordered_set<TreeNode*> vis;
+        for (auto& [node, _] : g) {
+            if (node && node->val == k) {
+                q.push(node);
+                vis.insert(node);
             }
         }
-        unordered_set<TreeNode*> seen;
-        while (!q.empty()) {
+        while (1) {
             auto node = q.front();
             q.pop();
-            seen.insert(node);
             if (node) {
-                if (!node->left && !node->right) return node->val;
-                for (auto next : g[node]) {
-                    if (!seen.count(next))
-                        q.push(next);
+                if (node->left == node->right) {
+                    return node->val;
+                }
+                for (auto& nxt : g[node]) {
+                    if (vis.count(nxt)) {
+                        continue;
+                    }
+                    q.push(nxt);
+                    vis.insert(nxt);
                 }
             }
         }
-        return 0;
-    }
-
-    void dfs(TreeNode* root, TreeNode* p) {
-        if (!root) return;
-        g[root].push_back(p);
-        g[p].push_back(root);
-        dfs(root->left, root);
-        dfs(root->right, root);
     }
 };
 ```
@@ -211,42 +215,41 @@ public:
  * }
  */
 func findClosestLeaf(root *TreeNode, k int) int {
-	g := make(map[*TreeNode][]*TreeNode)
-	var dfs func(root, p *TreeNode)
-	dfs = func(root, p *TreeNode) {
-		if root == nil {
-			return
+	g := map[*TreeNode][]*TreeNode{}
+	var dfs func(*TreeNode, *TreeNode)
+	dfs = func(root, fa *TreeNode) {
+		if root != nil {
+			g[root] = append(g[root], fa)
+			g[fa] = append(g[fa], root)
+			dfs(root.Left, root)
+			dfs(root.Right, root)
 		}
-		g[root] = append(g[root], p)
-		g[p] = append(g[p], root)
-		dfs(root.Left, root)
-		dfs(root.Right, root)
 	}
 	dfs(root, nil)
-	var q []*TreeNode
-	for t, _ := range g {
-		if t != nil && t.Val == k {
-			q = append(q, t)
+	q := []*TreeNode{}
+	vis := map[*TreeNode]bool{}
+	for node := range g {
+		if node != nil && node.Val == k {
+			q = append(q, node)
+			vis[node] = true
 			break
 		}
 	}
-	seen := make(map[*TreeNode]bool)
-	for len(q) > 0 {
+	for {
 		node := q[0]
 		q = q[1:]
-		seen[node] = true
 		if node != nil {
-			if node.Left == nil && node.Right == nil {
+			if node.Left == node.Right {
 				return node.Val
 			}
-			for _, next := range g[node] {
-				if !seen[next] {
-					q = append(q, next)
+			for _, nxt := range g[node] {
+				if !vis[nxt] {
+					vis[nxt] = true
+					q = append(q, nxt)
 				}
 			}
 		}
 	}
-	return 0
 }
 ```
 
