@@ -217,12 +217,6 @@ class WordsFrequency {
         return cnt[word, default: 0]
     }
 }
-
-/**
- * Your WordsFrequency object will be instantiated and called as such:
- * let obj = WordsFrequency(book)
- * let param_1 = obj.get(word)
- */
 ```
 
 <!-- tabs:end -->
