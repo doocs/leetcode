@@ -48,19 +48,19 @@ class Solution {
         if a == 0 || b == 0 {
             return 0
         }
-        
+
         let absA = a > 0 ? a : minus(0, a)
         let absB = b > 0 ? b : minus(0, b)
         var result = 0
-        
+
         for _ in 0..<absB {
             result += absA
         }
-        
+
         if (a > 0) != (b > 0) {
             result = minus(0, result)
         }
-        
+
         return result
     }
 
@@ -69,16 +69,16 @@ class Solution {
         let absB = b > 0 ? b : minus(0, b)
         var result = 0
         var sum = absB
-        
+
         while sum <= absA {
             result += 1
             sum += absB
         }
-        
+
         if (a > 0) != (b > 0) {
             result = minus(0, result)
         }
-        
+
         return result
     }
 }
