@@ -48,36 +48,31 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Binary Search
+
+Since `letters` is sorted in non-decreasing order, we can use binary search to find the smallest character that is larger than `target`.
+
+We define the left boundary of the binary search as $l = 0$, and the right boundary as $r = n$. For each binary search, we calculate the middle position $mid = (l + r) / 2$. If $letters[mid] > \text{target}$, it means we need to continue searching in the left half, so we set $r = mid$. Otherwise, we need to continue searching in the right half, so we set $l = mid + 1$.
+
+Finally, we return $letters[l \mod n]$.
+
+The time complexity is $O(\log n)$, where $n$ is the length of `letters`. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def nextGreatestLetter(self, letters: List[str], target: str) -> str:
-        left, right = 0, len(letters)
-        while left < right:
-            mid = (left + right) >> 1
-            if ord(letters[mid]) > ord(target):
-                right = mid
-            else:
-                left = mid + 1
-        return letters[left % len(letters)]
+        i = bisect_right(letters, ord(target), key=lambda c: ord(c))
+        return letters[i % len(letters)]
 ```
 
 ```java
 class Solution {
     public char nextGreatestLetter(char[] letters, char target) {
-        int left = 0, right = letters.length;
-        while (left < right) {
-            int mid = (left + right) >> 1;
-            if (letters[mid] > target) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        return letters[left % letters.length];
+        int i = Arrays.binarySearch(letters, (char) (target + 1));
+        i = i < 0 ? -i - 1 : i;
+        return letters[i % letters.length];
     }
 }
 ```
@@ -86,59 +81,48 @@ class Solution {
 class Solution {
 public:
     char nextGreatestLetter(vector<char>& letters, char target) {
-        int left = 0, right = letters.size();
-        while (left < right) {
-            int mid = left + right >> 1;
-            if (letters[mid] > target) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        return letters[left % letters.size()];
+        int i = upper_bound(letters.begin(), letters.end(), target) - letters.begin();
+        return letters[i % letters.size()];
     }
 };
 ```
 
 ```go
 func nextGreatestLetter(letters []byte, target byte) byte {
-	left, right := 0, len(letters)
-	for left < right {
-		mid := (left + right) >> 1
-		if letters[mid] > target {
-			right = mid
-		} else {
-			left = mid + 1
-		}
-	}
-	return letters[left%len(letters)]
+	i := sort.Search(len(letters), func(i int) bool { return letters[i] > target })
+	return letters[i%len(letters)]
 }
 ```
 
 ```ts
 function nextGreatestLetter(letters: string[], target: string): string {
-    const n = letters.length;
-    let left = 0;
-    let right = letters.length;
-    while (left < right) {
-        let mid = (left + right) >>> 1;
+    let [l, r] = [0, letters.length];
+    while (l < r) {
+        const mid = (l + r) >> 1;
         if (letters[mid] > target) {
-            right = mid;
+            r = mid;
         } else {
-            left = mid + 1;
+            l = mid + 1;
         }
     }
-    return letters[left % n];
+    return letters[l % letters.length];
 }
 ```
 
 ```rust
 impl Solution {
     pub fn next_greatest_letter(letters: Vec<char>, target: char) -> char {
-        *letters
-            .iter()
-            .find(|&&c| c > target)
-            .unwrap_or(&letters[0])
+        let mut l = 0;
+        let mut r = letters.len();
+        while l < r {
+            let mid = l + (r - l) / 2;
+            if letters[mid] > target {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        letters[l % letters.len()]
     }
 }
 ```
@@ -151,46 +135,17 @@ class Solution {
      * @return String
      */
     function nextGreatestLetter($letters, $target) {
-        $left = 0;
-        $right = count($letters);
-        while ($left <= $right) {
-            $mid = floor($left + ($right - $left) / 2);
+        $l = 0;
+        $r = count($letters);
+        while ($l < $r) {
+            $mid = $l + $r >> 1;
             if ($letters[$mid] > $target) {
-                $right = $mid - 1;
+                $r = $mid;
             } else {
-                $left = $mid + 1;
+                $l = $mid + 1;
             }
         }
-        if ($left >= count($letters)) {
-            return $letters[0];
-        } else {
-            return $letters[$left];
-        }
-    }
-}
-```
-
-<!-- tabs:end -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-```rust
-impl Solution {
-    pub fn next_greatest_letter(letters: Vec<char>, target: char) -> char {
-        let n = letters.len();
-        let mut left = 0;
-        let mut right = n;
-        while left < right {
-            let mid = left + (right - left) / 2;
-            if letters[mid] > target {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        letters[left % n]
+        return $letters[$l % count($letters)];
     }
 }
 ```
