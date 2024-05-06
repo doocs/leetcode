@@ -1,14 +1,12 @@
 function nextGreatestLetter(letters: string[], target: string): string {
-    const n = letters.length;
-    let left = 0;
-    let right = letters.length;
-    while (left < right) {
-        let mid = (left + right) >>> 1;
+    let [l, r] = [0, letters.length];
+    while (l < r) {
+        const mid = (l + r) >> 1;
         if (letters[mid] > target) {
-            right = mid;
+            r = mid;
         } else {
-            left = mid + 1;
+            l = mid + 1;
         }
     }
-    return letters[left % n];
+    return letters[l % letters.length];
 }

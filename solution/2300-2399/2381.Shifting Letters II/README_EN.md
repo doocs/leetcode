@@ -144,7 +144,7 @@ function shiftingLetters(s: string, shifts: number[][]): string {
     const n: number = s.length;
     const d: number[] = new Array(n + 1).fill(0);
 
-    for (let  [i, j, v] of shifts) {
+    for (let [i, j, v] of shifts) {
         if (v === 0) {
             v--;
         }
