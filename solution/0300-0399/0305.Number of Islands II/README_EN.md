@@ -2,7 +2,7 @@
 
 [中文文档](/solution/0300-0399/0305.Number%20of%20Islands%20II/README.md)
 
-<!-- tags:Union Find,Array -->
+<!-- tags:Union Find,Array,Hash Table -->
 
 ## Description
 

@@ -2,7 +2,7 @@
 
 [中文文档](/solution/1000-1099/1058.Minimize%20Rounding%20Error%20to%20Meet%20Target/README.md)
 
-<!-- tags:Greedy,Array,Math,String -->
+<!-- tags:Greedy,Array,Math,String,Sorting -->
 
 ## Description
 

@@ -10,7 +10,7 @@
 
 <ul>
 	<li>It contains a <strong>minimum</strong> of 3 characters.</li>
-	<li>It consists of the digits 0-9, and the uppercase and lowercase English letters. (Not necessary to have all of them.)</li>
+	<li>It contains only digits (0-9), and English letters (uppercase and lowercase).</li>
 	<li>It includes <strong>at least</strong> one <strong>vowel</strong>.</li>
 	<li>It includes <strong>at least</strong> one <strong>consonant</strong>.</li>
 </ul>

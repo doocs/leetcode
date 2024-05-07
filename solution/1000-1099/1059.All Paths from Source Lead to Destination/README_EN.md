@@ -2,7 +2,7 @@
 
 [中文文档](/solution/1000-1099/1059.All%20Paths%20from%20Source%20Lead%20to%20Destination/README.md)
 
-<!-- tags:Depth-First Search,Graph -->
+<!-- tags:Graph,Topological Sort -->
 
 ## Description
 

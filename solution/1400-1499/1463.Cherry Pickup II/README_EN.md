@@ -60,7 +60,21 @@ Total of cherries: 17 + 11 = 28.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[i][j_1][j_2]$ as the maximum number of cherries that can be picked when the two robots are at positions $j_1$ and $j_2$ in the $i$-th row. Initially, $f[0][0][n-1] = grid[0][0] + grid[0][n-1]$, and the other values are $-1$. The answer is $\max_{0 \leq j_1, j_2 < n} f[m-1][j_1][j_2]$.
+
+Consider $f[i][j_1][j_2]$. If $j_1 \neq j_2$, then the number of cherries that the robots can pick in the $i$-th row is $grid[i][j_1] + grid[i][j_2]$. If $j_1 = j_2$, then the number of cherries that the robots can pick in the $i$-th row is $grid[i][j_1]$. We can enumerate the previous state of the two robots $f[i-1][y1][y2]$, where $y_1, y_2$ are the positions of the two robots in the $(i-1)$-th row, then $y_1 \in \{j_1-1, j_1, j_1+1\}$ and $y_2 \in \{j_2-1, j_2, j_2+1\}$. The state transition equation is as follows:
+
+$$
+f[i][j_1][j_2] = \max_{y_1 \in \{j_1-1, j_1, j_1+1\}, y_2 \in \{j_2-1, j_2, j_2+1\}} f[i-1][y_1][y_2] + \begin{cases} grid[i][j_1] + grid[i][j_2], & j_1 \neq j_2 \\ grid[i][j_1], & j_1 = j_2 \end{cases}
+$$
+
+Where $f[i-1][y_1][y_2]$ is ignored when it is $-1$.
+
+The final answer is $\max_{0 \leq j_1, j_2 < n} f[m-1][j_1][j_2]$.
+
+The time complexity is $O(m \times n^2)$, and the space complexity is $O(m \times n^2)$. Where $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
 
@@ -151,7 +165,7 @@ public:
 ```
 
 ```go
-func cherryPickup(grid [][]int) int {
+func cherryPickup(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
 	f := make([][][]int, m)
 	for i := range f {
@@ -181,13 +195,10 @@ func cherryPickup(grid [][]int) int {
 			}
 		}
 	}
-	ans := 0
 	for j1 := 0; j1 < n; j1++ {
-		for j2 := 0; j2 < n; j2++ {
-			ans = max(ans, f[m-1][j1][j2])
-		}
+		ans = max(ans, slices.Max(f[m-1][j1]))
 	}
-	return ans
+	return
 }
 ```
 
@@ -195,9 +206,9 @@ func cherryPickup(grid [][]int) int {
 function cherryPickup(grid: number[][]): number {
     const m = grid.length;
     const n = grid[0].length;
-    const f: number[][][] = new Array(m)
-        .fill(0)
-        .map(() => new Array(n).fill(0).map(() => new Array(n).fill(-1)));
+    const f = Array.from({ length: m }, () =>
+        Array.from({ length: n }, () => Array.from({ length: n }, () => -1)),
+    );
     f[0][0][n - 1] = grid[0][0] + grid[0][n - 1];
     for (let i = 1; i < m; ++i) {
         for (let j1 = 0; j1 < n; ++j1) {
@@ -213,19 +224,15 @@ function cherryPickup(grid: number[][]): number {
             }
         }
     }
-    let ans = 0;
-    for (let j1 = 0; j1 < n; ++j1) {
-        for (let j2 = 0; j2 < n; ++j2) {
-            ans = Math.max(ans, f[m - 1][j1][j2]);
-        }
-    }
-    return ans;
+    return Math.max(...f[m - 1].flat());
 }
 ```
 
 <!-- tabs:end -->
 
-### Solution 2
+### Solution 2: Dynamic Programming (Space Optimization)
+
+Notice that the calculation of $f[i][j_1][j_2]$ is only related to $f[i-1][y_1][y_2]$. Therefore, we can use a rolling array to optimize the space complexity. After optimizing the space complexity, the time complexity is $O(n^2)$.
 
 <!-- tabs:start -->
 
@@ -322,7 +329,7 @@ public:
 ```
 
 ```go
-func cherryPickup(grid [][]int) int {
+func cherryPickup(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
 	f := make([][]int, n)
 	g := make([][]int, n)
@@ -353,13 +360,10 @@ func cherryPickup(grid [][]int) int {
 		}
 		f, g = g, f
 	}
-	ans := 0
 	for j1 := 0; j1 < n; j1++ {
-		for j2 := 0; j2 < n; j2++ {
-			ans = max(ans, f[j1][j2])
-		}
+		ans = max(ans, slices.Max(f[j1]))
 	}
-	return ans
+	return
 }
 ```
 
@@ -367,8 +371,8 @@ func cherryPickup(grid [][]int) int {
 function cherryPickup(grid: number[][]): number {
     const m = grid.length;
     const n = grid[0].length;
-    let f: number[][] = new Array(n).fill(0).map(() => new Array(n).fill(-1));
-    let g: number[][] = new Array(n).fill(0).map(() => new Array(n).fill(-1));
+    let f: number[][] = Array.from({ length: n }, () => Array.from({ length: n }, () => -1));
+    let g: number[][] = Array.from({ length: n }, () => Array.from({ length: n }, () => -1));
     f[0][n - 1] = grid[0][0] + grid[0][n - 1];
     for (let i = 1; i < m; ++i) {
         for (let j1 = 0; j1 < n; ++j1) {
@@ -385,13 +389,7 @@ function cherryPickup(grid: number[][]): number {
         }
         [f, g] = [g, f];
     }
-    let ans = 0;
-    for (let j1 = 0; j1 < n; ++j1) {
-        for (let j2 = 0; j2 < n; ++j2) {
-            ans = Math.max(ans, f[j1][j2]);
-        }
-    }
-    return ans;
+    return Math.max(...f.flat());
 }
 ```
 

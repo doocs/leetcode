@@ -2,7 +2,7 @@
 
 [English Version](/solution/0300-0399/0305.Number%20of%20Islands%20II/README_EN.md)
 
-<!-- tags:并查集,数组 -->
+<!-- tags:并查集,数组,哈希表 -->
 
 ## 题目描述
 

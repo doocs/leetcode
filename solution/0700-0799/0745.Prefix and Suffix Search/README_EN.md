@@ -2,7 +2,7 @@
 
 [中文文档](/solution/0700-0799/0745.Prefix%20and%20Suffix%20Search/README.md)
 
-<!-- tags:Design,Trie,Hash Table,String -->
+<!-- tags:Design,Trie,Array,Hash Table,String -->
 
 ## Description
 

@@ -89,8 +89,6 @@ $$
 
 时间复杂度 $O(m \times n^2)$，空间复杂度 $O(m \times n^2)$。其中 $m$ 和 $n$ 分别是网格的行数和列数。
 
-注意到 $f[i][j_1][j_2]$ 的计算只和 $f[i-1][y_1][y_2]$ 有关，因此我们可以使用滚动数组优化空间复杂度，空间复杂度优化后的时间复杂度为 $O(n^2)$。
-
 <!-- tabs:start -->
 
 ```python
@@ -180,7 +178,7 @@ public:
 ```
 
 ```go
-func cherryPickup(grid [][]int) int {
+func cherryPickup(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
 	f := make([][][]int, m)
 	for i := range f {
@@ -210,13 +208,10 @@ func cherryPickup(grid [][]int) int {
 			}
 		}
 	}
-	ans := 0
 	for j1 := 0; j1 < n; j1++ {
-		for j2 := 0; j2 < n; j2++ {
-			ans = max(ans, f[m-1][j1][j2])
-		}
+		ans = max(ans, slices.Max(f[m-1][j1]))
 	}
-	return ans
+	return
 }
 ```
 
@@ -224,9 +219,9 @@ func cherryPickup(grid [][]int) int {
 function cherryPickup(grid: number[][]): number {
     const m = grid.length;
     const n = grid[0].length;
-    const f: number[][][] = new Array(m)
-        .fill(0)
-        .map(() => new Array(n).fill(0).map(() => new Array(n).fill(-1)));
+    const f = Array.from({ length: m }, () =>
+        Array.from({ length: n }, () => Array.from({ length: n }, () => -1)),
+    );
     f[0][0][n - 1] = grid[0][0] + grid[0][n - 1];
     for (let i = 1; i < m; ++i) {
         for (let j1 = 0; j1 < n; ++j1) {
@@ -242,19 +237,15 @@ function cherryPickup(grid: number[][]): number {
             }
         }
     }
-    let ans = 0;
-    for (let j1 = 0; j1 < n; ++j1) {
-        for (let j2 = 0; j2 < n; ++j2) {
-            ans = Math.max(ans, f[m - 1][j1][j2]);
-        }
-    }
-    return ans;
+    return Math.max(...f[m - 1].flat());
 }
 ```
 
 <!-- tabs:end -->
 
-### 方法二
+### 方法二：动态规划（空间优化）
+
+注意到 $f[i][j_1][j_2]$ 的计算只和 $f[i-1][y_1][y_2]$ 有关，因此我们可以使用滚动数组优化空间复杂度，空间复杂度优化后的时间复杂度为 $O(n^2)$。
 
 <!-- tabs:start -->
 
@@ -351,7 +342,7 @@ public:
 ```
 
 ```go
-func cherryPickup(grid [][]int) int {
+func cherryPickup(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
 	f := make([][]int, n)
 	g := make([][]int, n)
@@ -382,13 +373,10 @@ func cherryPickup(grid [][]int) int {
 		}
 		f, g = g, f
 	}
-	ans := 0
 	for j1 := 0; j1 < n; j1++ {
-		for j2 := 0; j2 < n; j2++ {
-			ans = max(ans, f[j1][j2])
-		}
+		ans = max(ans, slices.Max(f[j1]))
 	}
-	return ans
+	return
 }
 ```
 
@@ -396,8 +384,8 @@ func cherryPickup(grid [][]int) int {
 function cherryPickup(grid: number[][]): number {
     const m = grid.length;
     const n = grid[0].length;
-    let f: number[][] = new Array(n).fill(0).map(() => new Array(n).fill(-1));
-    let g: number[][] = new Array(n).fill(0).map(() => new Array(n).fill(-1));
+    let f: number[][] = Array.from({ length: n }, () => Array.from({ length: n }, () => -1));
+    let g: number[][] = Array.from({ length: n }, () => Array.from({ length: n }, () => -1));
     f[0][n - 1] = grid[0][0] + grid[0][n - 1];
     for (let i = 1; i < m; ++i) {
         for (let j1 = 0; j1 < n; ++j1) {
@@ -414,13 +402,7 @@ function cherryPickup(grid: number[][]): number {
         }
         [f, g] = [g, f];
     }
-    let ans = 0;
-    for (let j1 = 0; j1 < n; ++j1) {
-        for (let j2 = 0; j2 < n; ++j2) {
-            ans = Math.max(ans, f[j1][j2]);
-        }
-    }
-    return ans;
+    return Math.max(...f.flat());
 }
 ```
 

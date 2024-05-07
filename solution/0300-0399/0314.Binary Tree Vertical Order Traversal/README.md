@@ -2,7 +2,7 @@
 
 [English Version](/solution/0300-0399/0314.Binary%20Tree%20Vertical%20Order%20Traversal/README_EN.md)
 
-<!-- tags:树,深度优先搜索,广度优先搜索,哈希表,二叉树 -->
+<!-- tags:树,深度优先搜索,广度优先搜索,哈希表,二叉树,排序 -->
 
 ## 题目描述
 

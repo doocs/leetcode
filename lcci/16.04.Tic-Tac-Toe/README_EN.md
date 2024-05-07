@@ -251,7 +251,7 @@ class Solution {
         var cols = Array(repeating: 0, count: n)
         var diagonal = 0, antiDiagonal = 0
         var hasEmptyGrid = false
-        
+
         for i in 0..<n {
             for j in 0..<n {
                 let c = Array(board[i])[j]
@@ -273,7 +273,7 @@ class Solution {
                 }
             }
         }
-        
+
         return hasEmptyGrid ? "Pending" : "Draw"
     }
 }
