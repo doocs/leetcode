@@ -2,7 +2,7 @@
 
 [中文文档](/solution/2500-2599/2517.Maximum%20Tastiness%20of%20Candy%20Basket/README.md)
 
-<!-- tags:Array,Binary Search,Sorting -->
+<!-- tags:Greedy,Array,Binary Search,Sorting -->
 
 ## Description
 

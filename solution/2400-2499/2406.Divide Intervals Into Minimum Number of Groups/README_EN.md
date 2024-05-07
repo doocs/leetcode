@@ -62,12 +62,12 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 ```python
 class Solution:
     def minGroups(self, intervals: List[List[int]]) -> int:
-        h = []
-        for a, b in sorted(intervals):
-            if h and h[0] < a:
-                heappop(h)
-            heappush(h, b)
-        return len(h)
+        q = []
+        for left, right in sorted(intervals):
+            if q and q[0] < left:
+                heappop(q)
+            heappush(q, right)
+        return len(q)
 ```
 
 ```java
@@ -124,6 +124,20 @@ func (h *hp) Pop() any {
 	v := a[len(a)-1]
 	h.IntSlice = a[:len(a)-1]
 	return v
+}
+```
+
+```ts
+function minGroups(intervals: number[][]): number {
+    intervals.sort((a, b) => a[0] - b[0]);
+    const q = new PriorityQueue({ compare: (a, b) => a - b });
+    for (const [left, right] of intervals) {
+        if (!q.isEmpty() && q.front() < left) {
+            q.dequeue();
+        }
+        q.enqueue(right);
+    }
+    return q.size();
 }
 ```
 

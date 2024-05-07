@@ -1,22 +1,21 @@
 class Solution:
     def solveNQueens(self, n: int) -> List[List[str]]:
-        res = []
-        g = [['.'] * n for _ in range(n)]
-        col = [False] * n
-        dg = [False] * (2 * n)
-        udg = [False] * (2 * n)
-
-        def dfs(u):
-            if u == n:
-                res.append([''.join(item) for item in g])
+        def dfs(i: int):
+            if i == n:
+                ans.append(["".join(row) for row in g])
                 return
-            for i in range(n):
-                if not col[i] and not dg[u + i] and not udg[n - u + i]:
-                    g[u][i] = 'Q'
-                    col[i] = dg[u + i] = udg[n - u + i] = True
-                    dfs(u + 1)
-                    g[u][i] = '.'
-                    col[i] = dg[u + i] = udg[n - u + i] = False
+            for j in range(n):
+                if col[j] + dg[i + j] + udg[n - i + j] == 0:
+                    g[i][j] = "Q"
+                    col[j] = dg[i + j] = udg[n - i + j] = 1
+                    dfs(i + 1)
+                    col[j] = dg[i + j] = udg[n - i + j] = 0
+                    g[i][j] = "."
 
+        ans = []
+        g = [["."] * n for _ in range(n)]
+        col = [0] * n
+        dg = [0] * (n << 1)
+        udg = [0] * (n << 1)
         dfs(0)
-        return res
+        return ans

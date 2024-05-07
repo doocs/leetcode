@@ -203,12 +203,12 @@ function nextLargerNodes(head: ListNode | null): number[] {
     }
     const stk: number[] = [];
     const n = nums.length;
-    const ans: number[] = new Array(n).fill(0);
+    const ans: number[] = Array(n).fill(0);
     for (let i = n - 1; ~i; --i) {
-        while (stk.length && stk[stk.length - 1] <= nums[i]) {
+        while (stk.length && stk.at(-1)! <= nums[i]) {
             stk.pop();
         }
-        ans[i] = stk.length ? stk[stk.length - 1] : 0;
+        ans[i] = stk.length ? stk.at(-1)! : 0;
         stk.push(nums[i]);
     }
     return ans;
@@ -232,32 +232,29 @@ function nextLargerNodes(head: ListNode | null): number[] {
 //     }
 //   }
 // }
-struct Item {
-    index: usize,
-    val: i32,
-}
-
+use std::collections::VecDeque;
 impl Solution {
     pub fn next_larger_nodes(head: Option<Box<ListNode>>) -> Vec<i32> {
-        let mut res = Vec::new();
-        let mut stack: Vec<Item> = Vec::new();
-        let mut cur = &head;
-        for i in 0..usize::MAX {
-            if cur.is_none() {
-                break;
-            }
-            res.push(0);
-            let node = cur.as_ref().unwrap();
-            while !stack.is_empty() && stack.last().unwrap().val < node.val {
-                res[stack.pop().unwrap().index] = node.val;
-            }
-            stack.push(Item {
-                index: i,
-                val: node.val,
-            });
-            cur = &node.next;
+        let mut nums = Vec::new();
+        let mut current = &head;
+        while let Some(node) = current {
+            nums.push(node.val);
+            current = &node.next;
         }
-        res
+
+        let mut stk = VecDeque::new();
+        let n = nums.len();
+        let mut ans = vec![0; n];
+        for i in (0..n).rev() {
+            while !stk.is_empty() && stk.back().copied().unwrap() <= nums[i] {
+                stk.pop_back();
+            }
+            if let Some(&top) = stk.back() {
+                ans[i] = top;
+            }
+            stk.push_back(nums[i]);
+        }
+        ans
     }
 }
 ```
@@ -292,50 +289,6 @@ var nextLargerNodes = function (head) {
     }
     return ans;
 };
-```
-
-<!-- tabs:end -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-```ts
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     val: number
- *     next: ListNode | null
- *     constructor(val?: number, next?: ListNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.next = (next===undefined ? null : next)
- *     }
- * }
- */
-
-interface Item {
-    index: number;
-    val: number;
-}
-
-function nextLargerNodes(head: ListNode | null): number[] {
-    const res: number[] = [];
-    const stack: Item[] = [];
-    let cur = head;
-    for (let i = 0; cur != null; i++) {
-        res.push(0);
-        const { val, next } = cur;
-        while (stack.length !== 0 && stack[stack.length - 1].val < val) {
-            res[stack.pop().index] = val;
-        }
-        stack.push({
-            val,
-            index: i,
-        });
-        cur = next;
-    }
-    return res;
-}
 ```
 
 <!-- tabs:end -->

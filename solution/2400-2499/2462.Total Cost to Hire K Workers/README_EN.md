@@ -62,78 +62,77 @@ The total hiring cost is 4.
 
 ### Solution 1: Priority Queue (Min Heap)
 
-We maintain a priority queue (min heap) for the current candidate workers, and use variables $i$ and $j$ to mark the minimum index of the frontmost worker and the minimum index of the rearmost worker. Initially, $i = \text{candidates} - 1$ and $j = n - \text{candidates}$.
+First, we check if $candidates \times 2$ is greater than or equal to $n$. If it is, we directly return the sum of the costs of the first $k$ smallest workers.
 
-First, we put the costs of the first $candidates$ workers into the priority queue, then we put the costs of the last $candidates$ workers into the priority queue. Before putting them in, we need to check whether they are already in the priority queue according to $i$ or $j$. If they are, we don't need to put them in again.
+Otherwise, we use a min heap $pq$ to maintain the costs of the first $candidates$ workers and the last $candidates$ workers.
 
-We loop $k$ times, each time taking out the worker with the smallest cost from the priority queue and accumulating the cost. If the index $x$ of the current worker is in the index range $[0,..i]$ of the frontmost workers, we move $i$ one step to the right, and then check whether we need to put the cost of the worker corresponding to $i$ into the priority queue; if the index is in the index range $[j,..n-1]$ of the rearmost workers, we move $j$ one step to the left, and then check whether we need to put the cost of the worker corresponding to $j$ into the priority queue.
+We first add the costs and corresponding indices of the first $candidates$ workers to the min heap $pq$, and then add the costs and corresponding indices of the last $candidates$ workers to the min heap $pq$. We use two pointers $l$ and $r$ to point to the indices of the front and back candidates, initially $l = candidates$, $r = n - candidates - 1$.
 
-After the traversal ends, we return the accumulated cost as the answer.
+Then we perform $k$ iterations, each time taking the worker with the smallest cost from the min heap $pq$ and adding its cost to the answer. If $l > r$, it means that all the front and back candidates have been selected, and we skip directly. Otherwise, if the index of the current worker is less than $l$, it means it is a worker from the front, we add the cost and index of the $l$-th worker to the min heap $pq$, and then increment $l$; otherwise, we add the cost and index of the $r$-th worker to the min heap $pq$, and then decrement $r$.
 
-The time complexity is $O(n \times \log n)$, where $n$ is the length of the array $costs$.
+After the loop ends, we return the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $costs$.
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def totalCost(self, costs: List[int], k: int, candidates: int) -> int:
-        q = []
         n = len(costs)
-        i, j = candidates - 1, n - candidates
-        for h in range(candidates):
-            q.append((costs[h], h))
-        for h in range(n - candidates, n):
-            if h > i:
-                q.append((costs[h], h))
-        heapify(q)
+        if candidates * 2 >= n:
+            return sum(sorted(costs)[:k])
+        pq = []
+        for i, c in enumerate(costs[:candidates]):
+            heappush(pq, (c, i))
+        for i in range(n - candidates, n):
+            heappush(pq, (costs[i], i))
+        heapify(pq)
+        l, r = candidates, n - candidates - 1
         ans = 0
         for _ in range(k):
-            c, x = heappop(q)
+            c, i = heappop(pq)
             ans += c
-            if x <= i:
-                i += 1
-                if i < j:
-                    heappush(q, (costs[i], i))
-            if x >= j:
-                j -= 1
-                if i < j:
-                    heappush(q, (costs[j], j))
+            if l > r:
+                continue
+            if i < l:
+                heappush(pq, (costs[l], l))
+                l += 1
+            else:
+                heappush(pq, (costs[r], r))
+                r -= 1
         return ans
 ```
 
 ```java
 class Solution {
     public long totalCost(int[] costs, int k, int candidates) {
-        PriorityQueue<int[]> q = new PriorityQueue<>((a, b) -> {
-            if (a[0] == b[0]) {
-                return a[1] - b[1];
-            }
-            return a[0] - b[0];
-        });
         int n = costs.length;
-        int i = candidates - 1, j = n - candidates;
-        for (int h = 0; h < candidates; ++h) {
-            q.offer(new int[] {costs[h], h});
-        }
-        for (int h = n - candidates; h < n; ++h) {
-            if (h > i) {
-                q.offer(new int[] {costs[h], h});
-            }
-        }
         long ans = 0;
-        while (k-- > 0) {
-            var e = q.poll();
-            int c = e[0], x = e[1];
-            ans += c;
-            if (x <= i) {
-                if (++i < j) {
-                    q.offer(new int[] {costs[i], i});
-                }
+        if (candidates * 2 >= n) {
+            Arrays.sort(costs);
+            for (int i = 0; i < k; ++i) {
+                ans += costs[i];
             }
-            if (x >= j) {
-                if (--j > i) {
-                    q.offer(new int[] {costs[j], j});
-                }
+            return ans;
+        }
+        PriorityQueue<int[]> pq
+            = new PriorityQueue<>((a, b) -> a[0] == b[0] ? a[1] - b[1] : a[0] - b[0]);
+        for (int i = 0; i < candidates; ++i) {
+            pq.offer(new int[] {costs[i], i});
+            pq.offer(new int[] {costs[n - i - 1], n - i - 1});
+        }
+        int l = candidates, r = n - candidates - 1;
+        while (k-- > 0) {
+            var p = pq.poll();
+            ans += p[0];
+            if (l > r) {
+                continue;
+            }
+            if (p[1] < l) {
+                pq.offer(new int[] {costs[l], l++});
+            } else {
+                pq.offer(new int[] {costs[r], r--});
             }
         }
         return ans;
@@ -142,31 +141,33 @@ class Solution {
 ```
 
 ```cpp
-using pii = pair<int, int>;
-
 class Solution {
 public:
     long long totalCost(vector<int>& costs, int k, int candidates) {
-        priority_queue<pii, vector<pii>, greater<pii>> q;
         int n = costs.size();
-        int i = candidates - 1, j = n - candidates;
-        for (int h = 0; h < candidates; ++h) q.push({costs[h], h});
-        for (int h = n - candidates; h < n; ++h)
-            if (h > i) q.push({costs[h], h});
+        if (candidates * 2 > n) {
+            sort(costs.begin(), costs.end());
+            return accumulate(costs.begin(), costs.begin() + k, 0LL);
+        }
+        using pii = pair<int, int>;
+        priority_queue<pii, vector<pii>, greater<pii>> pq;
+        for (int i = 0; i < candidates; ++i) {
+            pq.emplace(costs[i], i);
+            pq.emplace(costs[n - i - 1], n - i - 1);
+        }
         long long ans = 0;
+        int l = candidates, r = n - candidates - 1;
         while (k--) {
-            auto [c, x] = q.top();
-            q.pop();
-            ans += c;
-            if (x <= i) {
-                if (++i < j) {
-                    q.push({costs[i], i});
-                }
+            auto [cost, i] = pq.top();
+            pq.pop();
+            ans += cost;
+            if (l > r) {
+                continue;
             }
-            if (x >= j) {
-                if (--j > i) {
-                    q.push({costs[j], j});
-                }
+            if (i < l) {
+                pq.emplace(costs[l], l++);
+            } else {
+                pq.emplace(costs[r], r--);
             }
         }
         return ans;
@@ -175,48 +176,80 @@ public:
 ```
 
 ```go
-func totalCost(costs []int, k int, candidates int) int64 {
-	q := hp{}
+func totalCost(costs []int, k int, candidates int) (ans int64) {
 	n := len(costs)
-	i, j := candidates-1, n-candidates
-	for h := 0; h < candidates; h++ {
-		heap.Push(&q, pair{costs[h], h})
+	if candidates*2 > n {
+		sort.Ints(costs)
+		for _, x := range costs[:k] {
+			ans += int64(x)
+		}
+		return
 	}
-	for h := n - candidates; h < n; h++ {
-		if h > i {
-			heap.Push(&q, pair{costs[h], h})
+	pq := hp{}
+	for i, x := range costs[:candidates] {
+		heap.Push(&pq, pair{x, i})
+		heap.Push(&pq, pair{costs[n-i-1], n - i - 1})
+	}
+	l, r := candidates, n-candidates-1
+	for ; k > 0; k-- {
+		p := heap.Pop(&pq).(pair)
+		ans += int64(p.cost)
+		if l > r {
+			continue
+		}
+		if p.i < l {
+			heap.Push(&pq, pair{costs[l], l})
+			l++
+		} else {
+			heap.Push(&pq, pair{costs[r], r})
+			r--
 		}
 	}
-	ans := 0
-	for k > 0 {
-		p := heap.Pop(&q).(pair)
-		c, x := p.c, p.x
-		ans += c
-		if x <= i {
-			i++
-			if i < j {
-				heap.Push(&q, pair{costs[i], i})
-			}
-		}
-		if x >= j {
-			j--
-			if i < j {
-				heap.Push(&q, pair{costs[j], j})
-			}
-		}
-		k--
-	}
-	return int64(ans)
+	return
 }
 
-type pair struct{ c, x int }
+type pair struct{ cost, i int }
 type hp []pair
 
-func (h hp) Len() int           { return len(h) }
-func (h hp) Less(i, j int) bool { return h[i].c < h[j].c || h[i].c == h[j].c && h[i].x < h[j].x }
-func (h hp) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
-func (h *hp) Push(v any)        { *h = append(*h, v.(pair)) }
-func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
+func (h hp) Len() int { return len(h) }
+func (h hp) Less(i, j int) bool {
+	return h[i].cost < h[j].cost || (h[i].cost == h[j].cost && h[i].i < h[j].i)
+}
+func (h hp) Swap(i, j int) { h[i], h[j] = h[j], h[i] }
+func (h *hp) Push(v any)   { *h = append(*h, v.(pair)) }
+func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
+```
+
+```ts
+function totalCost(costs: number[], k: number, candidates: number): number {
+    const n = costs.length;
+    if (candidates * 2 >= n) {
+        costs.sort((a, b) => a - b);
+        return costs.slice(0, k).reduce((acc, x) => acc + x, 0);
+    }
+    const pq = new PriorityQueue({
+        compare: (a, b) => (a[0] === b[0] ? a[1] - b[1] : a[0] - b[0]),
+    });
+    for (let i = 0; i < candidates; ++i) {
+        pq.enqueue([costs[i], i]);
+        pq.enqueue([costs[n - i - 1], n - i - 1]);
+    }
+    let [l, r] = [candidates, n - candidates - 1];
+    let ans = 0;
+    while (k--) {
+        const [cost, i] = pq.dequeue()!;
+        ans += cost;
+        if (l > r) {
+            continue;
+        }
+        if (i < l) {
+            pq.enqueue([costs[l], l++]);
+        } else {
+            pq.enqueue([costs[r], r--]);
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

@@ -11,38 +11,40 @@
  */
 class Solution {
 public:
-    unordered_map<TreeNode*, vector<TreeNode*>> g;
-
     int findClosestLeaf(TreeNode* root, int k) {
+        unordered_map<TreeNode*, vector<TreeNode*>> g;
+        function<void(TreeNode*, TreeNode*)> dfs = [&](TreeNode* root, TreeNode* fa) {
+            if (root) {
+                g[root].push_back(fa);
+                g[fa].push_back(root);
+                dfs(root->left, root);
+                dfs(root->right, root);
+            }
+        };
         dfs(root, nullptr);
         queue<TreeNode*> q;
-        for (auto& e : g) {
-            if (e.first && e.first->val == k) {
-                q.push(e.first);
-                break;
+        unordered_set<TreeNode*> vis;
+        for (auto& [node, _] : g) {
+            if (node && node->val == k) {
+                q.push(node);
+                vis.insert(node);
             }
         }
-        unordered_set<TreeNode*> seen;
-        while (!q.empty()) {
+        while (1) {
             auto node = q.front();
             q.pop();
-            seen.insert(node);
             if (node) {
-                if (!node->left && !node->right) return node->val;
-                for (auto next : g[node]) {
-                    if (!seen.count(next))
-                        q.push(next);
+                if (node->left == node->right) {
+                    return node->val;
+                }
+                for (auto& nxt : g[node]) {
+                    if (vis.count(nxt)) {
+                        continue;
+                    }
+                    q.push(nxt);
+                    vis.insert(nxt);
                 }
             }
         }
-        return 0;
-    }
-
-    void dfs(TreeNode* root, TreeNode* p) {
-        if (!root) return;
-        g[root].push_back(p);
-        g[p].push_back(root);
-        dfs(root->left, root);
-        dfs(root->right, root);
     }
 };

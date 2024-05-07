@@ -1,8 +1,8 @@
 class Solution:
     def cherryPickup(self, grid: List[List[int]]) -> int:
         n = len(grid)
-        dp = [[[-inf] * n for _ in range(n)] for _ in range((n << 1) - 1)]
-        dp[0][0][0] = grid[0][0]
+        f = [[[-inf] * n for _ in range(n)] for _ in range((n << 1) - 1)]
+        f[0][0][0] = grid[0][0]
         for k in range(1, (n << 1) - 1):
             for i1 in range(n):
                 for i2 in range(n):
@@ -20,7 +20,5 @@ class Solution:
                     for x1 in range(i1 - 1, i1 + 1):
                         for x2 in range(i2 - 1, i2 + 1):
                             if x1 >= 0 and x2 >= 0:
-                                dp[k][i1][i2] = max(
-                                    dp[k][i1][i2], dp[k - 1][x1][x2] + t
-                                )
-        return max(0, dp[-1][-1][-1])
+                                f[k][i1][i2] = max(f[k][i1][i2], f[k - 1][x1][x2] + t)
+        return max(0, f[-1][-1][-1])

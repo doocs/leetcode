@@ -57,7 +57,24 @@ The entire array forms a non-decreasing subarray of length 2, making it the maxi
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define two variables $f$ and $g$, which represent the length of the longest non-decreasing subarray at the current position. Here, $f$ represents the length of the longest non-decreasing subarray ending with an element from $nums1$, and $g$ represents the length of the longest non-decreasing subarray ending with an element from $nums2$. Initially, $f = g = 1$, and the initial answer $ans = 1$.
+
+Next, we iterate over the array elements in the range $i \in [1, n)$, and for each $i$, we define two variables $ff$ and $gg$, which represent the length of the longest non-decreasing subarray ending with $nums1[i]$ and $nums2[i]$ respectively. When initialized, $ff = gg = 1$.
+
+We can calculate the values of $ff$ and $gg$ based on the values of $f$ and $g$:
+
+-   If $nums1[i] \ge nums1[i - 1]$, then $ff = \max(ff, f + 1)$;
+-   If $nums1[i] \ge nums2[i - 1]$, then $ff = \max(ff, g + 1)$;
+-   If $nums2[i] \ge nums1[i - 1]$, then $gg = \max(gg, f + 1)$;
+-   If $nums2[i] \ge nums2[i - 1]$, then $gg = \max(gg, g + 1)$.
+
+Then, we update $f = ff$ and $g = gg$, and update $ans$ to $\max(ans, f, g)$.
+
+After the iteration ends, we return $ans$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

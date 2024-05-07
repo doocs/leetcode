@@ -41,17 +41,18 @@ Where &quot;^&quot; corresponds to bitwise XOR operator.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Simulation
+
+We can directly simulate to calculate the XOR result of all elements in the array.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def xorOperation(self, n: int, start: int) -> int:
-        ans = 0
-        for i in range(n):
-            ans ^= start + 2 * i
-        return ans
+        return reduce(xor, ((start + 2 * i) for i in range(n)))
 ```
 
 ```java
@@ -88,16 +89,14 @@ func xorOperation(n int, start int) (ans int) {
 }
 ```
 
-<!-- tabs:end -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def xorOperation(self, n: int, start: int) -> int:
-        return reduce(xor, ((start + 2 * i) for i in range(n)))
+```ts
+function xorOperation(n: number, start: number): number {
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        ans ^= start + 2 * i;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

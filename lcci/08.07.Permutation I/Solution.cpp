@@ -1,25 +1,27 @@
 class Solution {
 public:
     vector<string> permutation(string S) {
-        unordered_set<char> vis;
+        int n = S.size();
+        vector<bool> vis(n);
         vector<string> ans;
-        string t = "";
-        dfs(0, S, t, ans, vis);
+        string t;
+        function<void(int)> dfs = [&](int i) {
+            if (i >= n) {
+                ans.push_back(t);
+                return;
+            }
+            for (int j = 0; j < n; ++j) {
+                if (vis[j]) {
+                    continue;
+                }
+                vis[j] = true;
+                t.push_back(S[j]);
+                dfs(i + 1);
+                t.pop_back();
+                vis[j] = false;
+            }
+        };
+        dfs(0);
         return ans;
-    }
-
-    void dfs(int u, string& S, string& t, vector<string>& ans, unordered_set<char>& vis) {
-        if (u == S.size()) {
-            ans.push_back(t);
-            return;
-        }
-        for (char& c : S) {
-            if (vis.count(c)) continue;
-            vis.insert(c);
-            t.push_back(c);
-            dfs(u + 1, S, t, ans, vis);
-            vis.erase(c);
-            t.pop_back();
-        }
     }
 };

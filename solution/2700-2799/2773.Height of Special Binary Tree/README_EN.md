@@ -62,7 +62,11 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: DFS
+
+The key to the problem is how to determine whether a node is a leaf node. We design a function $dfs(root, d)$, where $root$ represents the current node, and $d$ represents the depth of the current node. Each time we search, we update the answer $ans = \max(ans, d)$, and then determine whether the current node is a leaf node. If the current node has a left child, and the right child of the left child is not the current node, then we recursively call $dfs(root.left, d + 1)$. If the current node has a right child, and the left child of the right child is not the current node, then we recursively call $dfs(root.right, d + 1)$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

@@ -1,4 +1,8 @@
 class Solution:
     def checkIfExist(self, arr: List[int]) -> bool:
-        m = {v: i for i, v in enumerate(arr)}
-        return any(v << 1 in m and m[v << 1] != i for i, v in enumerate(arr))
+        s = set()
+        for x in arr:
+            if x * 2 in s or (x % 2 == 0 and x // 2 in s):
+                return True
+            s.add(x)
+        return False

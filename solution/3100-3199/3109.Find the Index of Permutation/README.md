@@ -2,7 +2,7 @@
 
 [English Version](/solution/3100-3199/3109.Find%20the%20Index%20of%20Permutation/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:树状数组,线段树,数组,二分查找,分治,有序集合,归并排序 -->
 
 ## 题目描述
 

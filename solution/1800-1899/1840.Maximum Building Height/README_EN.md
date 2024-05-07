@@ -2,7 +2,7 @@
 
 [中文文档](/solution/1800-1899/1840.Maximum%20Building%20Height/README.md)
 
-<!-- tags:Array,Math -->
+<!-- tags:Array,Math,Sorting -->
 
 ## Description
 

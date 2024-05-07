@@ -62,11 +62,19 @@
 
 ### 方法一：动态规划
 
-线性 DP。题目中，玩家从 `(0, 0)` 到 `(N-1, N-1)` 后又重新返回到起始点 `(0, 0)`，我们可以视为玩家两次从 `(0, 0)` 出发到 `(N-1, N-1)`。
+根据题目描述，玩家从 $(0, 0)$ 出发，到达 $(n-1, n-1)$ 后，又重新返回到起始点 $(0, 0)$，我们可以视为玩家两次从 $(0, 0)$ 出发，到达 $(n-1, n-1)$。
 
-定义 `dp[k][i1][i2]` 表示两次路径同时走了 k 步，并且第一次走到 `(i1, k-i1)`，第二次走到 `(i2, k-i2)` 的所有路径中，可获得的樱桃数量的最大值。
+因此，我们定义 $f[k][i_1][i_2]$ 表示两次都走了 $k$ 步，分别到达 $(i_1, k-i_1)$ 和 $(i_2, k-i_2)$ 时，能够摘到的最多樱桃数。初始时 $f[0][0][0] = grid[0][0]$。其余 $f[k][i_1][i_2]$ 的初始值为负无穷。答案为 $\max(0, f[2n-2][n-1][n-1])$。
 
-类似题型：方格取数、传纸条。
+我们可以根据题目描述，得到状态转移方程：
+
+$$
+f[k][i_1][i_2] = \max(f[k-1][x_1][x_2] + t, f[k][i_1][i_2])
+$$
+
+其中 $t$ 表示 $(i_1, k-i_1)$ 和 $(i_2, k-i_2)$ 位置上的樱桃数，而 $x_1, x_2$ 分别表示 $(i_1, k-i_1)$ 和 $(i_2, k-i_2)$ 的前一步位置。
+
+时间复杂度 $O(n^3)$，空间复杂度 $O(n^3)$。其中 $n$ 表示网格的边长。
 
 <!-- tabs:start -->
 
@@ -74,8 +82,8 @@
 class Solution:
     def cherryPickup(self, grid: List[List[int]]) -> int:
         n = len(grid)
-        dp = [[[-inf] * n for _ in range(n)] for _ in range((n << 1) - 1)]
-        dp[0][0][0] = grid[0][0]
+        f = [[[-inf] * n for _ in range(n)] for _ in range((n << 1) - 1)]
+        f[0][0][0] = grid[0][0]
         for k in range(1, (n << 1) - 1):
             for i1 in range(n):
                 for i2 in range(n):
@@ -93,23 +101,21 @@ class Solution:
                     for x1 in range(i1 - 1, i1 + 1):
                         for x2 in range(i2 - 1, i2 + 1):
                             if x1 >= 0 and x2 >= 0:
-                                dp[k][i1][i2] = max(
-                                    dp[k][i1][i2], dp[k - 1][x1][x2] + t
-                                )
-        return max(0, dp[-1][-1][-1])
+                                f[k][i1][i2] = max(f[k][i1][i2], f[k - 1][x1][x2] + t)
+        return max(0, f[-1][-1][-1])
 ```
 
 ```java
 class Solution {
     public int cherryPickup(int[][] grid) {
         int n = grid.length;
-        int[][][] dp = new int[n * 2][n][n];
-        dp[0][0][0] = grid[0][0];
+        int[][][] f = new int[n * 2][n][n];
+        f[0][0][0] = grid[0][0];
         for (int k = 1; k < n * 2 - 1; ++k) {
             for (int i1 = 0; i1 < n; ++i1) {
                 for (int i2 = 0; i2 < n; ++i2) {
                     int j1 = k - i1, j2 = k - i2;
-                    dp[k][i1][i2] = Integer.MIN_VALUE;
+                    f[k][i1][i2] = Integer.MIN_VALUE;
                     if (j1 < 0 || j1 >= n || j2 < 0 || j2 >= n || grid[i1][j1] == -1
                         || grid[i2][j2] == -1) {
                         continue;
@@ -121,14 +127,14 @@ class Solution {
                     for (int x1 = i1 - 1; x1 <= i1; ++x1) {
                         for (int x2 = i2 - 1; x2 <= i2; ++x2) {
                             if (x1 >= 0 && x2 >= 0) {
-                                dp[k][i1][i2] = Math.max(dp[k][i1][i2], dp[k - 1][x1][x2] + t);
+                                f[k][i1][i2] = Math.max(f[k][i1][i2], f[k - 1][x1][x2] + t);
                             }
                         }
                     }
                 }
             }
         }
-        return Math.max(0, dp[n * 2 - 2][n - 1][n - 1]);
+        return Math.max(0, f[n * 2 - 2][n - 1][n - 1]);
     }
 }
 ```
@@ -138,23 +144,30 @@ class Solution {
 public:
     int cherryPickup(vector<vector<int>>& grid) {
         int n = grid.size();
-        vector<vector<vector<int>>> dp(n << 1, vector<vector<int>>(n, vector<int>(n, -1e9)));
-        dp[0][0][0] = grid[0][0];
+        vector<vector<vector<int>>> f(n << 1, vector<vector<int>>(n, vector<int>(n, -1e9)));
+        f[0][0][0] = grid[0][0];
         for (int k = 1; k < n * 2 - 1; ++k) {
             for (int i1 = 0; i1 < n; ++i1) {
                 for (int i2 = 0; i2 < n; ++i2) {
                     int j1 = k - i1, j2 = k - i2;
-                    if (j1 < 0 || j1 >= n || j2 < 0 || j2 >= n || grid[i1][j1] == -1 || grid[i2][j2] == -1) continue;
+                    if (j1 < 0 || j1 >= n || j2 < 0 || j2 >= n || grid[i1][j1] == -1 || grid[i2][j2] == -1) {
+                        continue;
+                    }
                     int t = grid[i1][j1];
-                    if (i1 != i2) t += grid[i2][j2];
-                    for (int x1 = i1 - 1; x1 <= i1; ++x1)
-                        for (int x2 = i2 - 1; x2 <= i2; ++x2)
-                            if (x1 >= 0 && x2 >= 0)
-                                dp[k][i1][i2] = max(dp[k][i1][i2], dp[k - 1][x1][x2] + t);
+                    if (i1 != i2) {
+                        t += grid[i2][j2];
+                    }
+                    for (int x1 = i1 - 1; x1 <= i1; ++x1) {
+                        for (int x2 = i2 - 1; x2 <= i2; ++x2) {
+                            if (x1 >= 0 && x2 >= 0) {
+                                f[k][i1][i2] = max(f[k][i1][i2], f[k - 1][x1][x2] + t);
+                            }
+                        }
+                    }
                 }
             }
         }
-        return max(0, dp[n * 2 - 2][n - 1][n - 1]);
+        return max(0, f[n * 2 - 2][n - 1][n - 1]);
     }
 };
 ```
@@ -162,18 +175,18 @@ public:
 ```go
 func cherryPickup(grid [][]int) int {
 	n := len(grid)
-	dp := make([][][]int, (n<<1)-1)
-	for i := range dp {
-		dp[i] = make([][]int, n)
-		for j := range dp[i] {
-			dp[i][j] = make([]int, n)
+	f := make([][][]int, (n<<1)-1)
+	for i := range f {
+		f[i] = make([][]int, n)
+		for j := range f[i] {
+			f[i][j] = make([]int, n)
 		}
 	}
-	dp[0][0][0] = grid[0][0]
+	f[0][0][0] = grid[0][0]
 	for k := 1; k < (n<<1)-1; k++ {
 		for i1 := 0; i1 < n; i1++ {
 			for i2 := 0; i2 < n; i2++ {
-				dp[k][i1][i2] = int(-1e9)
+				f[k][i1][i2] = int(-1e9)
 				j1, j2 := k-i1, k-i2
 				if j1 < 0 || j1 >= n || j2 < 0 || j2 >= n || grid[i1][j1] == -1 || grid[i2][j2] == -1 {
 					continue
@@ -185,37 +198,28 @@ func cherryPickup(grid [][]int) int {
 				for x1 := i1 - 1; x1 <= i1; x1++ {
 					for x2 := i2 - 1; x2 <= i2; x2++ {
 						if x1 >= 0 && x2 >= 0 {
-							dp[k][i1][i2] = max(dp[k][i1][i2], dp[k-1][x1][x2]+t)
+							f[k][i1][i2] = max(f[k][i1][i2], f[k-1][x1][x2]+t)
 						}
 					}
 				}
 			}
 		}
 	}
-	return max(0, dp[n*2-2][n-1][n-1])
+	return max(0, f[n*2-2][n-1][n-1])
 }
 ```
 
-```js
-/**
- * @param {number[][]} grid
- * @return {number}
- */
-var cherryPickup = function (grid) {
-    const n = grid.length;
-    let dp = new Array(n * 2 - 1);
-    for (let k = 0; k < dp.length; ++k) {
-        dp[k] = new Array(n);
-        for (let i = 0; i < n; ++i) {
-            dp[k][i] = new Array(n).fill(-1e9);
-        }
-    }
-    dp[0][0][0] = grid[0][0];
+```ts
+function cherryPickup(grid: number[][]): number {
+    const n: number = grid.length;
+    const f: number[][][] = Array.from({ length: n * 2 - 1 }, () =>
+        Array.from({ length: n }, () => Array.from({ length: n }, () => -Infinity)),
+    );
+    f[0][0][0] = grid[0][0];
     for (let k = 1; k < n * 2 - 1; ++k) {
         for (let i1 = 0; i1 < n; ++i1) {
             for (let i2 = 0; i2 < n; ++i2) {
-                const j1 = k - i1,
-                    j2 = k - i2;
+                const [j1, j2]: [number, number] = [k - i1, k - i2];
                 if (
                     j1 < 0 ||
                     j1 >= n ||
@@ -226,21 +230,58 @@ var cherryPickup = function (grid) {
                 ) {
                     continue;
                 }
-                let t = grid[i1][j1];
-                if (i1 != i2) {
-                    t += grid[i2][j2];
-                }
+                const t: number = grid[i1][j1] + (i1 != i2 ? grid[i2][j2] : 0);
                 for (let x1 = i1 - 1; x1 <= i1; ++x1) {
                     for (let x2 = i2 - 1; x2 <= i2; ++x2) {
                         if (x1 >= 0 && x2 >= 0) {
-                            dp[k][i1][i2] = Math.max(dp[k][i1][i2], dp[k - 1][x1][x2] + t);
+                            f[k][i1][i2] = Math.max(f[k][i1][i2], f[k - 1][x1][x2] + t);
                         }
                     }
                 }
             }
         }
     }
-    return Math.max(0, dp[n * 2 - 2][n - 1][n - 1]);
+    return Math.max(0, f[n * 2 - 2][n - 1][n - 1]);
+}
+```
+
+```js
+/**
+ * @param {number[][]} grid
+ * @return {number}
+ */
+var cherryPickup = function (grid) {
+    const n = grid.length;
+    const f = Array.from({ length: n * 2 - 1 }, () =>
+        Array.from({ length: n }, () => Array.from({ length: n }, () => -Infinity)),
+    );
+    f[0][0][0] = grid[0][0];
+    for (let k = 1; k < n * 2 - 1; ++k) {
+        for (let i1 = 0; i1 < n; ++i1) {
+            for (let i2 = 0; i2 < n; ++i2) {
+                const [j1, j2] = [k - i1, k - i2];
+                if (
+                    j1 < 0 ||
+                    j1 >= n ||
+                    j2 < 0 ||
+                    j2 >= n ||
+                    grid[i1][j1] == -1 ||
+                    grid[i2][j2] == -1
+                ) {
+                    continue;
+                }
+                const t = grid[i1][j1] + (i1 != i2 ? grid[i2][j2] : 0);
+                for (let x1 = i1 - 1; x1 <= i1; ++x1) {
+                    for (let x2 = i2 - 1; x2 <= i2; ++x2) {
+                        if (x1 >= 0 && x2 >= 0) {
+                            f[k][i1][i2] = Math.max(f[k][i1][i2], f[k - 1][x1][x2] + t);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return Math.max(0, f[n * 2 - 2][n - 1][n - 1]);
 };
 ```
 

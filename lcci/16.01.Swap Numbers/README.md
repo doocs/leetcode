@@ -89,16 +89,15 @@ function swapNumbers(numbers: number[]): number[] {
 }
 ```
 
-<!-- tabs:end -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-```ts
-function swapNumbers(numbers: number[]): number[] {
-    [numbers[0], numbers[1]] = [numbers[1], numbers[0]];
-    return numbers;
+```swift
+class Solution {
+    func swapNumbers(_ numbers: [Int]) -> [Int] {
+        var numbers = numbers
+        numbers[0] ^= numbers[1]
+        numbers[1] ^= numbers[0]
+        numbers[0] ^= numbers[1]
+        return numbers
+    }
 }
 ```
 

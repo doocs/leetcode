@@ -22,6 +22,27 @@
 
 ## 往期竞赛
 
+#### 第 396 场周赛(2024-05-05 10:30, 90 分钟) 参赛人数 2931
+
+- [3136. 有效单词](/solution/3100-3199/3136.Valid%20Word/README.md)
+- [3137. K 周期字符串需要的最少操作次数](/solution/3100-3199/3137.Minimum%20Number%20of%20Operations%20to%20Make%20Word%20K-Periodic/README.md)
+- [3138. 同位字符串连接的最小长度](/solution/3100-3199/3138.Minimum%20Length%20of%20Anagram%20Concatenation/README.md)
+- [3139. 使数组中所有元素相等的最小开销](/solution/3100-3199/3139.Minimum%20Cost%20to%20Equalize%20Array/README.md)
+
+#### 第 395 场周赛(2024-04-28 10:30, 90 分钟) 参赛人数 2968
+
+- [3131. 找出与数组相加的整数 I](/solution/3100-3199/3131.Find%20the%20Integer%20Added%20to%20Array%20I/README.md)
+- [3132. 找出与数组相加的整数 II](/solution/3100-3199/3132.Find%20the%20Integer%20Added%20to%20Array%20II/README.md)
+- [3133. 数组最后一个元素的最小值](/solution/3100-3199/3133.Minimum%20Array%20End/README.md)
+- [3134. 找出唯一性数组的中位数](/solution/3100-3199/3134.Find%20the%20Median%20of%20the%20Uniqueness%20Array/README.md)
+
+#### 第 129 场双周赛(2024-04-27 22:30, 90 分钟) 参赛人数 2510
+
+- [3127. 构造相同颜色的正方形](/solution/3100-3199/3127.Make%20a%20Square%20with%20the%20Same%20Color/README.md)
+- [3128. 直角三角形](/solution/3100-3199/3128.Right%20Triangles/README.md)
+- [3129. 找出所有稳定的二进制数组 I](/solution/3100-3199/3129.Find%20All%20Possible%20Stable%20Binary%20Arrays%20I/README.md)
+- [3130. 找出所有稳定的二进制数组 II](/solution/3100-3199/3130.Find%20All%20Possible%20Stable%20Binary%20Arrays%20II/README.md)
+
 #### 第 394 场周赛(2024-04-21 10:30, 90 分钟) 参赛人数 3957
 
 - [3120. 统计特殊字母的数量 I](/solution/3100-3199/3120.Count%20the%20Number%20of%20Special%20Characters%20I/README.md)

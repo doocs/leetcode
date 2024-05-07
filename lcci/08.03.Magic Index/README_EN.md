@@ -34,47 +34,55 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Binary Search
+
+We design a function $dfs(i, j)$ to find the magic index in the array $nums[i, j]$. If found, return the value of the magic index, otherwise return $-1$. So the answer is $dfs(0, n-1)$.
+
+The implementation of the function $dfs(i, j)$ is as follows:
+
+1. If $i > j$, return $-1$.
+2. Otherwise, we take the middle position $mid = (i + j) / 2$, then recursively call $dfs(i, mid-1)$. If the return value is not $-1$, it means that the magic index is found in the left half, return it directly. Otherwise, if $nums[mid] = mid$, it means that the magic index is found, return it directly. Otherwise, recursively call $dfs(mid+1, j)$ and return.
+
+In the worst case, the time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def findMagicIndex(self, nums: List[int]) -> int:
-        def find(nums, left, right):
-            if left > right:
+        def dfs(i: int, j: int) -> int:
+            if i > j:
                 return -1
-            mid = (left + right) >> 1
-            left_index = find(nums, left, mid - 1)
-            if left_index != -1:
-                return left_index
+            mid = (i + j) >> 1
+            l = dfs(i, mid - 1)
+            if l != -1:
+                return l
             if nums[mid] == mid:
                 return mid
-            return find(nums, mid + 1, right)
+            return dfs(mid + 1, j)
 
-        return find(nums, 0, len(nums) - 1)
+        return dfs(0, len(nums) - 1)
 ```
 
 ```java
 class Solution {
     public int findMagicIndex(int[] nums) {
-        int left = 0, right = nums.length - 1;
-        return find(nums, left, right);
+        return dfs(nums, 0, nums.length - 1);
     }
 
-    private int find(int[] nums, int left, int right) {
-        if (left > right) {
+    private int dfs(int[] nums, int i, int j) {
+        if (i > j) {
             return -1;
         }
-        int mid = (left + right) >> 1;
-        int leftIndex = find(nums, left, mid - 1);
-        if (leftIndex != -1) {
-            return leftIndex;
+        int mid = (i + j) >> 1;
+        int l = dfs(nums, i, mid - 1);
+        if (l != -1) {
+            return l;
         }
         if (nums[mid] == mid) {
             return mid;
         }
-        return find(nums, mid + 1, right);
+        return dfs(nums, mid + 1, j);
     }
 }
 ```
@@ -83,91 +91,86 @@ class Solution {
 class Solution {
 public:
     int findMagicIndex(vector<int>& nums) {
-        return find(nums, 0, nums.size() - 1);
-    }
-
-    int find(vector<int>& nums, int left, int right) {
-        if (left > right) {
-            return -1;
-        }
-        int mid = left + right >> 1;
-        int leftIndex = find(nums, left, mid - 1);
-        if (leftIndex != -1) {
-            return leftIndex;
-        }
-        if (nums[mid] == mid) {
-            return mid;
-        }
-        return find(nums, mid + 1, right);
+        function<int(int, int)> dfs = [&](int i, int j) {
+            if (i > j) {
+                return -1;
+            }
+            int mid = (i + j) >> 1;
+            int l = dfs(i, mid - 1);
+            if (l != -1) {
+                return l;
+            }
+            if (nums[mid] == mid) {
+                return mid;
+            }
+            return dfs(mid + 1, j);
+        };
+        return dfs(0, nums.size() - 1);
     }
 };
 ```
 
 ```go
 func findMagicIndex(nums []int) int {
-	return find(nums, 0, len(nums)-1)
-}
-
-func find(nums []int, left, right int) int {
-	if left > right {
-		return -1
+	var dfs func(i, j int) int
+	dfs = func(i, j int) int {
+		if i > j {
+			return -1
+		}
+		mid := (i + j) >> 1
+		if l := dfs(i, mid-1); l != -1 {
+			return l
+		}
+		if nums[mid] == mid {
+			return mid
+		}
+		return dfs(mid+1, j)
 	}
-	mid := (left + right) >> 1
-	leftIndex := find(nums, left, mid-1)
-	if leftIndex != -1 {
-		return leftIndex
-	}
-	if nums[mid] == mid {
-		return mid
-	}
-	return find(nums, mid+1, right)
+	return dfs(0, len(nums)-1)
 }
 ```
 
 ```ts
 function findMagicIndex(nums: number[]): number {
-    const n = nums.length;
-    const find = (l: number, r: number): number => {
-        if (l > r || nums[r] < 0) {
+    const dfs = (i: number, j: number): number => {
+        if (i > j) {
             return -1;
         }
-        const mid = l + Math.floor((r - l) / 2);
-        if (nums[mid] >= l) {
-            const res = find(l, mid - 1);
-            if (res !== -1) {
-                return res;
-            }
+        const mid = (i + j) >> 1;
+        const l = dfs(i, mid - 1);
+        if (l !== -1) {
+            return l;
         }
         if (nums[mid] === mid) {
             return mid;
         }
-        return find(mid + 1, r);
+        return dfs(mid + 1, j);
     };
-    return find(0, n - 1);
+    return dfs(0, nums.length - 1);
 }
 ```
 
 ```rust
 impl Solution {
-    fn find(nums: &Vec<i32>, l: usize, r: usize) -> i32 {
-        if l >= r || nums[r - 1] < 0 {
+    fn dfs(nums: &Vec<i32>, i: usize, j: usize) -> i32 {
+        if i >= j || nums[j - 1] < 0 {
             return -1;
         }
-        let mid = l + (r - l) / 2;
-        if nums[mid] >= (l as i32) {
-            let res = Self::find(nums, l, mid);
-            if res != -1 {
-                return res;
+        let mid = (i + j) >> 1;
+        if nums[mid] >= (i as i32) {
+            let l = Self::dfs(nums, i, mid);
+            if l != -1 {
+                return l;
             }
         }
         if nums[mid] == (mid as i32) {
             return mid as i32;
         }
-        Self::find(nums, mid + 1, r)
+        Self::dfs(nums, mid + 1, j)
     }
 
     pub fn find_magic_index(nums: Vec<i32>) -> i32 {
-        Self::find(&nums, 0, nums.len())
+        Self::dfs(&nums, 0, nums.len())
     }
 }
 ```
@@ -178,52 +181,43 @@ impl Solution {
  * @return {number}
  */
 var findMagicIndex = function (nums) {
-    return helper(nums, 0, nums.length - 1);
+    const dfs = (i, j) => {
+        if (i > j) {
+            return -1;
+        }
+        const mid = (i + j) >> 1;
+        const l = dfs(i, mid - 1);
+        if (l !== -1) {
+            return l;
+        }
+        if (nums[mid] === mid) {
+            return mid;
+        }
+        return dfs(mid + 1, j);
+    };
+    return dfs(0, nums.length - 1);
 };
-
-function helper(nums, left, right) {
-    if (left > right) return -1;
-    let mid = Math.floor((left + right) / 2);
-    let leftIndex = helper(nums, left, mid - 1);
-    if (leftIndex != -1) return leftIndex;
-    if (nums[mid] == mid) return mid;
-    return helper(nums, mid + 1, right);
-}
 ```
 
-<!-- tabs:end -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-```ts
-function findMagicIndex(nums: number[]): number {
-    const n = nums.length;
-    let i = 0;
-    while (i < n) {
-        if (nums[i] === i) {
-            return i;
-        }
-        i = Math.max(nums[i], i + 1);
+```swift
+class Solution {
+    func findMagicIndex(_ nums: [Int]) -> Int {
+        return find(nums, 0, nums.count - 1)
     }
-    return -1;
-}
-```
 
-```rust
-impl Solution {
-    pub fn find_magic_index(nums: Vec<i32>) -> i32 {
-        let n = nums.len();
-        let mut i = 0 as i32;
-        while (i as usize) < n {
-            let num = nums[i as usize];
-            if num == i {
-                return i;
-            }
-            i = num.max(i + 1);
+    private func find(_ nums: [Int], _ i: Int, _ j: Int) -> Int {
+        if i > j {
+            return -1
         }
-        -1
+        let mid = (i + j) >> 1
+        let l = find(nums, i, mid - 1)
+        if l != -1 {
+            return l
+        }
+        if nums[mid] == mid {
+            return mid
+        }
+        return find(nums, mid + 1, j)
     }
 }
 ```

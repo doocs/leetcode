@@ -66,12 +66,12 @@ nums3 = [nums1[0], nums1[1]] =&gt; [1,1]
 
 我们可以通过 $f$ 和 $g$ 的值来计算出 $ff$ 和 $gg$ 的值：
 
--   如果 $nums1[i] \ge nums1[i - 1]$，那么 $ff = max(ff, f + 1)$；
--   如果 $nums1[i] \ge nums2[i - 1]$，那么 $ff = max(ff, g + 1)$；
--   如果 $nums2[i] \ge nums1[i - 1]$，那么 $gg = max(gg, f + 1)$；
--   如果 $nums2[i] \ge nums2[i - 1]$，那么 $gg = max(gg, g + 1)$。
+-   如果 $nums1[i] \ge nums1[i - 1]$，那么 $ff = \max(ff, f + 1)$；
+-   如果 $nums1[i] \ge nums2[i - 1]$，那么 $ff = \max(ff, g + 1)$；
+-   如果 $nums2[i] \ge nums1[i - 1]$，那么 $gg = \max(gg, f + 1)$；
+-   如果 $nums2[i] \ge nums2[i - 1]$，那么 $gg = \max(gg, g + 1)$。
 
-然后，我们更新 $f = ff$ 和 $g = gg$，并将 $ans$ 更新为 $max(ans, f, g)$。
+然后，我们更新 $f = ff$ 和 $g = gg$，并将 $ans$ 更新为 $\max(ans, f, g)$。
 
 遍历结束后，我们返回 $ans$ 即可。
 

@@ -2,7 +2,7 @@
 
 [English Version](/solution/0700-0799/0745.Prefix%20and%20Suffix%20Search/README_EN.md)
 
-<!-- tags:设计,字典树,哈希表,字符串 -->
+<!-- tags:设计,字典树,数组,哈希表,字符串 -->
 
 ## 题目描述
 

@@ -2,7 +2,7 @@
 
 [中文文档](/solution/2700-2799/2708.Maximum%20Strength%20of%20a%20Group/README.md)
 
-<!-- tags:Greedy,Array,Backtracking,Sorting -->
+<!-- tags:Greedy,Bit Manipulation,Array,Dynamic Programming,Backtracking,Enumeration,Sorting -->
 
 ## Description
 
@@ -37,7 +37,112 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Binary Enumeration
+
+The problem is actually to find the maximum product of all subsets. Since the length of the array does not exceed $13$, we can consider using the method of binary enumeration.
+
+We enumerate all subsets in the range of $[1, 2^n)$, and for each subset, we calculate its product, and finally return the maximum value.
+
+The time complexity is $O(2^n \times n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maxStrength(self, nums: List[int]) -> int:
+        ans = -inf
+        for i in range(1, 1 << len(nums)):
+            t = 1
+            for j, x in enumerate(nums):
+                if i >> j & 1:
+                    t *= x
+            ans = max(ans, t)
+        return ans
+```
+
+```java
+class Solution {
+    public long maxStrength(int[] nums) {
+        long ans = (long) -1e14;
+        int n = nums.length;
+        for (int i = 1; i < 1 << n; ++i) {
+            long t = 1;
+            for (int j = 0; j < n; ++j) {
+                if ((i >> j & 1) == 1) {
+                    t *= nums[j];
+                }
+            }
+            ans = Math.max(ans, t);
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    long long maxStrength(vector<int>& nums) {
+        long long ans = -1e14;
+        int n = nums.size();
+        for (int i = 1; i < 1 << n; ++i) {
+            long long t = 1;
+            for (int j = 0; j < n; ++j) {
+                if (i >> j & 1) {
+                    t *= nums[j];
+                }
+            }
+            ans = max(ans, t);
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func maxStrength(nums []int) int64 {
+	ans := int64(-1e14)
+	for i := 1; i < 1<<len(nums); i++ {
+		var t int64 = 1
+		for j, x := range nums {
+			if i>>j&1 == 1 {
+				t *= int64(x)
+			}
+		}
+		ans = max(ans, t)
+	}
+	return ans
+}
+```
+
+```ts
+function maxStrength(nums: number[]): number {
+    let ans = -Infinity;
+    const n = nums.length;
+    for (let i = 1; i < 1 << n; ++i) {
+        let t = 1;
+        for (let j = 0; j < n; ++j) {
+            if ((i >> j) & 1) {
+                t *= nums[j];
+            }
+        }
+        ans = Math.max(ans, t);
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Sorting + Greedy
+
+First, we can sort the array. Based on the characteristics of the array, we can draw the following conclusions:
+
+-   If there is only one element in the array, then the maximum strength value is this element.
+-   If there are two or more elements in the array, and $nums[1] = nums[n - 1] = 0$, then the maximum strength value is $0$.
+-   Otherwise, we traverse the array from small to large. If the current element is less than $0$ and the next element is also less than $0$, then we multiply these two elements and accumulate the product into the answer. Otherwise, if the current element is less than or equal to $0$, we skip it directly. If the current element is greater than $0$, we multiply this element into the answer. Finally, we return the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

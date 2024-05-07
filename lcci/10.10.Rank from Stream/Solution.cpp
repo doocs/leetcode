@@ -1,39 +1,31 @@
 class BinaryIndexedTree {
-public:
+private:
     int n;
     vector<int> c;
 
-    BinaryIndexedTree(int _n)
-        : n(_n)
-        , c(_n + 1) {}
+public:
+    BinaryIndexedTree(int n)
+        : n(n)
+        , c(n + 1) {}
 
     void update(int x, int delta) {
-        while (x <= n) {
+        for (; x <= n; x += x & -x) {
             c[x] += delta;
-            x += lowbit(x);
         }
     }
 
     int query(int x) {
         int s = 0;
-        while (x > 0) {
+        for (; x > 0; x -= x & -x) {
             s += c[x];
-            x -= lowbit(x);
         }
         return s;
-    }
-
-    int lowbit(int x) {
-        return x & -x;
     }
 };
 
 class StreamRank {
 public:
-    BinaryIndexedTree* tree;
-
     StreamRank() {
-        tree = new BinaryIndexedTree(50010);
     }
 
     void track(int x) {
@@ -43,6 +35,9 @@ public:
     int getRankOfNumber(int x) {
         return tree->query(x + 1);
     }
+
+private:
+    BinaryIndexedTree* tree = new BinaryIndexedTree(50010);
 };
 
 /**

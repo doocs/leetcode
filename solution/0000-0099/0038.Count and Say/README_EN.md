@@ -10,35 +10,42 @@
 
 <ul>
 	<li><code>countAndSay(1) = &quot;1&quot;</code></li>
-	<li><code>countAndSay(n)</code> is the way you would &quot;say&quot; the digit string from <code>countAndSay(n-1)</code>, which is then converted into a different digit string.</li>
+	<li><code>countAndSay(n)</code> is the run-length encoding of <code>countAndSay(n - 1)</code>.</li>
 </ul>
 
-<p>To determine how you &quot;say&quot; a digit string, split it into the <strong>minimal</strong> number of substrings such that each substring contains exactly <strong>one</strong> unique digit. Then for each substring, say the number of digits, then say the digit. Finally, concatenate every said digit.</p>
+<p><a href="http://en.wikipedia.org/wiki/Run-length_encoding" target="_blank">Run-length encoding</a> (RLE) is a string compression method that works by replacing consecutive identical characters (repeated 2 or more times) with the concatenation of the character and the number marking the count of the characters (length of the run). For example, to compress the string <code>&quot;3322251&quot;</code> we replace <code>&quot;33&quot;</code> with <code>&quot;23&quot;</code>, replace <code>&quot;222&quot;</code> with <code>&quot;32&quot;</code>, replace <code>&quot;5&quot;</code> with <code>&quot;15&quot;</code> and replace <code>&quot;1&quot;</code> with <code>&quot;11&quot;</code>. Thus the compressed string becomes <code>&quot;23321511&quot;</code>.</p>
 
-<p>For example, the saying and conversion for digit string <code>&quot;3322251&quot;</code>:</p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0038.Count%20and%20Say/images/countandsay.jpg" style="width: 581px; height: 172px;" />
-<p>Given a positive integer <code>n</code>, return <em>the </em><code>n<sup>th</sup></code><em> term of the <strong>count-and-say</strong> sequence</em>.</p>
+<p>Given a positive integer <code>n</code>, return <em>the </em><code>n<sup>th</sup></code><em> element of the <strong>count-and-say</strong> sequence</em>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">n = 4</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">&quot;1211&quot;</span></p>
+
+<p><strong>Explanation:</strong></p>
+
 <pre>
-<strong>Input:</strong> n = 1
-<strong>Output:</strong> &quot;1&quot;
-<strong>Explanation:</strong> This is the base case.
+countAndSay(1) = &quot;1&quot;
+countAndSay(2) = RLE of &quot;1&quot; = &quot;11&quot;
+countAndSay(3) = RLE of &quot;11&quot; = &quot;21&quot;
+countAndSay(4) = RLE of &quot;21&quot; = &quot;1211&quot;
 </pre>
+</div>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre>
-<strong>Input:</strong> n = 4
-<strong>Output:</strong> &quot;1211&quot;
-<strong>Explanation:</strong>
-countAndSay(1) = &quot;1&quot;
-countAndSay(2) = say &quot;1&quot; = one 1 = &quot;11&quot;
-countAndSay(3) = say &quot;11&quot; = two 1&#39;s = &quot;21&quot;
-countAndSay(4) = say &quot;21&quot; = one 2 + one 1 = &quot;12&quot; + &quot;11&quot; = &quot;1211&quot;
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">n = 1</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">&quot;1&quot;</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>This is the base case.</p>
+</div>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
@@ -46,6 +53,9 @@ countAndSay(4) = say &quot;21&quot; = one 2 + one 1 = &quot;12&quot; + &quot;11&
 <ul>
 	<li><code>1 &lt;= n &lt;= 30</code></li>
 </ul>
+
+<p>&nbsp;</p>
+<strong>Follow up:</strong> Could you solve it iteratively?
 
 ## Solutions
 

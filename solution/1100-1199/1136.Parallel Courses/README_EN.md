@@ -187,7 +187,7 @@ func minimumSemesters(n int, relations [][]int) (ans int) {
 
 ```ts
 function minimumSemesters(n: number, relations: number[][]): number {
-    const g = Array.from({ length: n }, () => []);
+    const g: number[][] = Array.from({ length: n }, () => []);
     const indeg = new Array(n).fill(0);
     for (const [prev, nxt] of relations) {
         g[prev - 1].push(nxt - 1);

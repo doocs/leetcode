@@ -1,26 +1,25 @@
 class BinaryIndexedTree:
-    def __init__(self, n):
+    __slots__ = "n", "c"
+
+    def __init__(self, n: int):
         self.n = n
         self.c = [0] * (n + 1)
 
-    @staticmethod
-    def lowbit(x):
-        return x & -x
-
-    def update(self, x, delta):
+    def update(self, x: int, delta: int) -> None:
         while x <= self.n:
             self.c[x] += delta
-            x += BinaryIndexedTree.lowbit(x)
+            x += x & -x
 
-    def query(self, x):
+    def query(self, x: int) -> int:
         s = 0
-        while x > 0:
+        while x:
             s += self.c[x]
-            x -= BinaryIndexedTree.lowbit(x)
+            x -= x & -x
         return s
 
 
 class StreamRank:
+
     def __init__(self):
         self.tree = BinaryIndexedTree(50010)
 

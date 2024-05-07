@@ -169,35 +169,26 @@ func decrypt(code []int, k int) []int {
 
 ```ts
 function decrypt(code: number[], k: number): number[] {
-    const n = code.length;
-    if (k === 0) {
-        return code.fill(0);
-    }
-    const isPrefix = k < 0;
-    if (isPrefix) {
-        k *= -1;
-    }
-    const map = new Map<number, [number, number]>();
-    let prefix = 0;
-    let suffix = 0;
-    for (let i = 1; i <= k; i++) {
-        prefix += code[n - i];
-        suffix += code[i];
-    }
-    map.set(0, [prefix, suffix]);
+    const n: number = code.length;
+    const ans: number[] = Array(n).fill(0);
 
-    for (let i = 1; i < n; i++) {
-        let [p, s] = map.get(i - 1);
-        p -= code[n - k - 1 + i] ?? code[i - k - 1];
-        p += code[i - 1];
-        s -= code[i];
-        s += code[i + k] ?? code[i + k - n];
-        map.set(i, [p, s]);
+    if (k === 0) {
+        return ans;
     }
-    for (let i = 0; i < n; i++) {
-        code[i] = map.get(i)[Number(!isPrefix)];
+
+    for (let i = 0; i < n; ++i) {
+        if (k > 0) {
+            for (let j = i + 1; j < i + k + 1; ++j) {
+                ans[i] += code[j % n];
+            }
+        } else {
+            for (let j = i + k; j < i; ++j) {
+                ans[i] += code[(j + n) % n];
+            }
+        }
     }
-    return code;
+
+    return ans;
 }
 ```
 
@@ -301,6 +292,32 @@ func decrypt(code []int, k int) []int {
 		}
 	}
 	return ans
+}
+```
+
+```ts
+function decrypt(code: number[], k: number): number[] {
+    const n: number = code.length;
+    const ans: number[] = Array(n).fill(0);
+
+    if (k === 0) {
+        return ans;
+    }
+
+    const s: number[] = Array((n << 1) | 1).fill(0);
+    for (let i = 0; i < n << 1; ++i) {
+        s[i + 1] = s[i] + code[i % n];
+    }
+
+    for (let i = 0; i < n; ++i) {
+        if (k > 0) {
+            ans[i] = s[i + k + 1] - s[i + 1];
+        } else {
+            ans[i] = s[i + n] - s[i + k + n];
+        }
+    }
+
+    return ans;
 }
 ```
 

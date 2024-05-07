@@ -35,57 +35,65 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: DFS (Backtracking)
+
+We design a function $dfs(i)$ to represent that the first $i$ positions have been filled, and now the $i+1$ position needs to be filled. We enumerate all possible characters, if this character has not been filled, we fill in this character, and then continue to fill the next position until all positions are filled.
+
+The time complexity is $O(n \times n!)$, where $n$ is the length of the string. There are $n!$ permutations in total, and each permutation takes $O(n)$ time to construct.
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def permutation(self, S: str) -> List[str]:
-        def dfs(u, t):
-            if u == n:
-                ans.append(''.join(t))
+        def dfs(i: int):
+            if i == n:
+                ans.append("".join(t))
                 return
-            for i in range(n):
-                if vis[i]:
+            for j, c in enumerate(S):
+                if vis[j]:
                     continue
-                vis[i] = True
-                t.append(S[i])
-                dfs(u + 1, t)
+                vis[j] = True
+                t.append(c)
+                dfs(i + 1)
                 t.pop()
-                vis[i] = False
+                vis[j] = False
 
         n = len(S)
         vis = [False] * n
         ans = []
-        dfs(0, [])
+        t = []
+        dfs(0)
         return ans
 ```
 
 ```java
 class Solution {
+    private char[] s;
+    private boolean[] vis = new boolean['z' + 1];
+    private List<String> ans = new ArrayList<>();
+    private StringBuilder t = new StringBuilder();
+
     public String[] permutation(String S) {
-        Set<Character> vis = new HashSet<>();
-        List<String> ans = new ArrayList<>();
-        StringBuilder t = new StringBuilder();
-        dfs(0, S, t, ans, vis);
+        s = S.toCharArray();
+        dfs(0);
         return ans.toArray(new String[0]);
     }
 
-    private void dfs(int u, String S, StringBuilder t, List<String> ans, Set<Character> vis) {
-        if (u == S.length()) {
+    private void dfs(int i) {
+        if (i == s.length) {
             ans.add(t.toString());
             return;
         }
-        for (char c : S.toCharArray()) {
-            if (vis.contains(c)) {
+        for (char c : s) {
+            if (vis[c]) {
                 continue;
             }
-            vis.add(c);
+            vis[c] = true;
             t.append(c);
-            dfs(u + 1, S, t, ans, vis);
+            dfs(i + 1);
             t.deleteCharAt(t.length() - 1);
-            vis.remove(c);
+            vis[c] = false;
         }
     }
 }
@@ -95,54 +103,82 @@ class Solution {
 class Solution {
 public:
     vector<string> permutation(string S) {
-        unordered_set<char> vis;
+        int n = S.size();
+        vector<bool> vis(n);
         vector<string> ans;
-        string t = "";
-        dfs(0, S, t, ans, vis);
+        string t;
+        function<void(int)> dfs = [&](int i) {
+            if (i >= n) {
+                ans.push_back(t);
+                return;
+            }
+            for (int j = 0; j < n; ++j) {
+                if (vis[j]) {
+                    continue;
+                }
+                vis[j] = true;
+                t.push_back(S[j]);
+                dfs(i + 1);
+                t.pop_back();
+                vis[j] = false;
+            }
+        };
+        dfs(0);
         return ans;
-    }
-
-    void dfs(int u, string& S, string& t, vector<string>& ans, unordered_set<char>& vis) {
-        if (u == S.size()) {
-            ans.push_back(t);
-            return;
-        }
-        for (char& c : S) {
-            if (vis.count(c)) continue;
-            vis.insert(c);
-            t.push_back(c);
-            dfs(u + 1, S, t, ans, vis);
-            vis.erase(c);
-            t.pop_back();
-        }
     }
 };
 ```
 
 ```go
-func permutation(S string) []string {
-	vis := make(map[byte]bool)
-	var ans []string
-	var t []byte
-	var dfs func(u int, t []byte)
-	dfs = func(u int, t []byte) {
-		if u == len(S) {
+func permutation(S string) (ans []string) {
+	t := []byte{}
+	vis := make([]bool, len(S))
+	var dfs func(int)
+	dfs = func(i int) {
+		if i >= len(S) {
 			ans = append(ans, string(t))
 			return
 		}
-		for i := range S {
-			if vis[S[i]] {
+		for j := range S {
+			if vis[j] {
 				continue
 			}
-			vis[S[i]] = true
-			t = append(t, S[i])
-			dfs(u+1, t)
-			vis[S[i]] = false
+			vis[j] = true
+			t = append(t, S[j])
+			dfs(i + 1)
 			t = t[:len(t)-1]
+			vis[j] = false
 		}
 	}
-	dfs(0, t)
-	return ans
+	dfs(0)
+	return
+}
+```
+
+```ts
+function permutation(S: string): string[] {
+    const n = S.length;
+    const vis: boolean[] = Array(n).fill(false);
+    const ans: string[] = [];
+    const t: string[] = [];
+    const dfs = (i: number) => {
+        if (i >= n) {
+            ans.push(t.join(''));
+            return;
+        }
+        for (let j = 0; j < n; ++j) {
+            if (vis[j]) {
+                continue;
+            }
+            vis[j] = true;
+            t.push(S[j]);
+            dfs(i + 1);
+            t.pop();
+            vis[j] = false;
+        }
+    };
+    dfs(0);
+    return ans;
 }
 ```
 
@@ -152,28 +188,60 @@ func permutation(S string) []string {
  * @return {string[]}
  */
 var permutation = function (S) {
-    let res = [];
-    let arr = [...S];
-    let prev = [];
-    let record = new Array(S.length).fill(false);
-    dfs(arr, 0, prev, record, res);
-    return res;
-};
-
-function dfs(arr, depth, prev, record, res) {
-    if (depth == arr.length) {
-        res.push(prev.join(''));
-        return;
-    }
-    for (let i = 0; i < arr.length; i++) {
-        if (record[i]) {
-            continue;
+    const n = S.length;
+    const vis = Array(n).fill(false);
+    const ans = [];
+    const t = [];
+    const dfs = i => {
+        if (i >= n) {
+            ans.push(t.join(''));
+            return;
         }
-        prev.push(arr[i]);
-        record[i] = true;
-        dfs(arr, depth + 1, prev, record, res);
-        prev.pop();
-        record[i] = false;
+        for (let j = 0; j < n; ++j) {
+            if (vis[j]) {
+                continue;
+            }
+            vis[j] = true;
+            t.push(S[j]);
+            dfs(i + 1);
+            t.pop();
+            vis[j] = false;
+        }
+    };
+    dfs(0);
+    return ans;
+};
+```
+
+```swift
+class Solution {
+    private var s: [Character] = []
+    private var vis: [Bool] = Array(repeating: false, count: 128)
+    private var ans: [String] = []
+    private var t: String = ""
+
+    func permutation(_ S: String) -> [String] {
+        s = Array(S)
+        dfs(0)
+        return ans
+    }
+
+    private func dfs(_ i: Int) {
+        if i == s.count {
+            ans.append(t)
+            return
+        }
+        for c in s {
+            let index = Int(c.asciiValue!)
+            if vis[index] {
+                continue
+            }
+            vis[index] = true
+            t.append(c)
+            dfs(i + 1)
+            t.removeLast()
+            vis[index] = false
+        }
     }
 }
 ```

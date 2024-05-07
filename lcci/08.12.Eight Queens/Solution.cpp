@@ -1,28 +1,27 @@
 class Solution {
 public:
     vector<vector<string>> solveNQueens(int n) {
-        vector<vector<string>> res;
-        vector<string> g(n, string(n, '.'));
-        vector<bool> col(n, false);
-        vector<bool> dg(2 * n, false);
-        vector<bool> udg(2 * n, false);
-        dfs(0, n, col, dg, udg, g, res);
-        return res;
-    }
-
-    void dfs(int u, int n, vector<bool>& col, vector<bool>& dg, vector<bool>& udg, vector<string>& g, vector<vector<string>>& res) {
-        if (u == n) {
-            res.push_back(g);
-            return;
-        }
-        for (int i = 0; i < n; ++i) {
-            if (!col[i] && !dg[u + i] && !udg[n - u + i]) {
-                g[u][i] = 'Q';
-                col[i] = dg[u + i] = udg[n - u + i] = true;
-                dfs(u + 1, n, col, dg, udg, g, res);
-                g[u][i] = '.';
-                col[i] = dg[u + i] = udg[n - u + i] = false;
+        vector<int> col(n);
+        vector<int> dg(n << 1);
+        vector<int> udg(n << 1);
+        vector<vector<string>> ans;
+        vector<string> t(n, string(n, '.'));
+        function<void(int)> dfs = [&](int i) -> void {
+            if (i == n) {
+                ans.push_back(t);
+                return;
             }
-        }
+            for (int j = 0; j < n; ++j) {
+                if (col[j] + dg[i + j] + udg[n - i + j] == 0) {
+                    t[i][j] = 'Q';
+                    col[j] = dg[i + j] = udg[n - i + j] = 1;
+                    dfs(i + 1);
+                    col[j] = dg[i + j] = udg[n - i + j] = 0;
+                    t[i][j] = '.';
+                }
+            }
+        };
+        dfs(0);
+        return ans;
     }
 };

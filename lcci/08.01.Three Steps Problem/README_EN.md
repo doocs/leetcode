@@ -143,6 +143,26 @@ int waysToStep(int n) {
 }
 ```
 
+```swift
+class Solution {
+    func waysToStep(_ n: Int) -> Int {
+        let mod = Int(1e9) + 7
+        var a = 1, b = 2, c = 4
+        if n == 1 { return a }
+        if n == 2 { return b }
+        if n == 3 { return c }
+
+        for _ in 1..<n {
+            let t = a
+            a = b
+            b = c
+            c = ((a + b) % mod + t) % mod
+        }
+        return a
+    }
+}
+```
+
 <!-- tabs:end -->
 
 ### Solution 2: Matrix Quick Power to Accelerate Recursion
@@ -200,6 +220,26 @@ class Solution:
             return 2 ** (n - 1)
         a = [[1, 1, 0], [1, 0, 1], [1, 0, 0]]
         return sum(pow(a, n - 4)[0]) % mod
+```
+
+```python
+import numpy as np
+
+
+class Solution:
+    def waysToStep(self, n: int) -> int:
+        if n < 4:
+            return 2 ** (n - 1)
+        mod = 10**9 + 7
+        factor = np.mat([(1, 1, 0), (1, 0, 1), (1, 0, 0)], np.dtype("O"))
+        res = np.mat([(4, 2, 1)], np.dtype("O"))
+        n -= 4
+        while n:
+            if n & 1:
+                res = res * factor % mod
+            factor = factor * factor % mod
+            n >>= 1
+        return res.sum() % mod
 ```
 
 ```java
@@ -386,32 +426,6 @@ function pow(a, n) {
     }
     return res;
 }
-```
-
-<!-- tabs:end -->
-
-### Solution 3
-
-<!-- tabs:start -->
-
-```python
-import numpy as np
-
-
-class Solution:
-    def waysToStep(self, n: int) -> int:
-        if n < 4:
-            return 2 ** (n - 1)
-        mod = 10**9 + 7
-        factor = np.mat([(1, 1, 0), (1, 0, 1), (1, 0, 0)], np.dtype("O"))
-        res = np.mat([(4, 2, 1)], np.dtype("O"))
-        n -= 4
-        while n:
-            if n & 1:
-                res = res * factor % mod
-            factor = factor * factor % mod
-            n >>= 1
-        return res.sum() % mod
 ```
 
 <!-- tabs:end -->

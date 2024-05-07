@@ -43,7 +43,13 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Binary Search
+
+Since all elements in each row are sorted in ascending order, we can use binary search to find the first element that is greater than or equal to `target` for each row, and then check if this element is equal to `target`. If it equals `target`, it means the target value has been found, and we directly return `true`. If it does not equal `target`, it means all elements in this row are less than `target`, and we should continue to search the next row.
+
+If all rows have been searched and the target value has not been found, it means the target value does not exist, so we return `false`.
+
+The time complexity is $O(m \times \log n)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -190,7 +196,17 @@ public class Solution {
 
 <!-- tabs:end -->
 
-### Solution 2
+### Solution 2: Search from the Bottom Left or Top Right
+
+Here, we start searching from the bottom left corner and move towards the top right direction, comparing the current element `matrix[i][j]` with `target`:
+
+-   If $\text{matrix}[i][j] = \text{target}$, it means the target value has been found, and we directly return `true`.
+-   If $\text{matrix}[i][j] > \text{target}$, it means all elements in this column from the current position upwards are greater than `target`, so we should move the $i$ pointer upwards, i.e., $i \leftarrow i - 1$.
+-   If $\text{matrix}[i][j] < \text{target}$, it means all elements in this row from the current position to the right are less than `target`, so we should move the $j$ pointer to the right, i.e., $j \leftarrow j + 1$.
+
+If the search ends and the `target` is still not found, return `false`.
+
+The time complexity is $O(m + n)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -270,14 +286,13 @@ func searchMatrix(matrix [][]int, target int) bool {
 
 ```ts
 function searchMatrix(matrix: number[][], target: number): boolean {
-    let m = matrix.length,
-        n = matrix[0].length;
-    let i = m - 1,
-        j = 0;
+    const [m, n] = [matrix.length, matrix[0].length];
+    let [i, j] = [m - 1, 0];
     while (i >= 0 && j < n) {
-        let cur = matrix[i][j];
-        if (cur == target) return true;
-        if (cur > target) {
+        if (matrix[i][j] === target) {
+            return true;
+        }
+        if (matrix[i][j] > target) {
             --i;
         } else {
             ++j;

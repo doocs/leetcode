@@ -2,7 +2,7 @@
 
 [中文文档](/solution/1700-1799/1766.Tree%20of%20Coprimes/README.md)
 
-<!-- tags:Tree,Array,Math,Number Theory -->
+<!-- tags:Tree,Depth-First Search,Array,Math,Number Theory -->
 
 ## Description
 

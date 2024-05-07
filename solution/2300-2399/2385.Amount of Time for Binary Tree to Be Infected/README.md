@@ -2,7 +2,7 @@
 
 [English Version](/solution/2300-2399/2385.Amount%20of%20Time%20for%20Binary%20Tree%20to%20Be%20Infected/README_EN.md)
 
-<!-- tags:树,深度优先搜索,广度优先搜索,二叉树 -->
+<!-- tags:树,深度优先搜索,广度优先搜索,哈希表,二叉树 -->
 
 ## 题目描述
 

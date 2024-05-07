@@ -46,7 +46,7 @@ The time complexity is $O(n + M)$, and the space complexity is $O(M)$. Here, $n$
 class Solution:
     def largestUniqueNumber(self, nums: List[int]) -> int:
         cnt = Counter(nums)
-        return next((x for x in range(1000, -1, -1) if cnt[x] == 1), -1)
+        return max((x for x, v in cnt.items() if v == 1), default=-1)
 ```
 
 ```java
@@ -101,12 +101,12 @@ func largestUniqueNumber(nums []int) int {
 
 ```ts
 function largestUniqueNumber(nums: number[]): number {
-    const cnt = new Array(1001).fill(0);
+    const cnt = Array(1001).fill(0);
     for (const x of nums) {
         ++cnt[x];
     }
     for (let x = 1000; x >= 0; --x) {
-        if (cnt[x] == 1) {
+        if (cnt[x] === 1) {
             return x;
         }
     }
@@ -120,30 +120,17 @@ function largestUniqueNumber(nums: number[]): number {
  * @return {number}
  */
 var largestUniqueNumber = function (nums) {
-    const cnt = new Array(1001).fill(0);
+    const cnt = Array(1001).fill(0);
     for (const x of nums) {
         ++cnt[x];
     }
     for (let x = 1000; x >= 0; --x) {
-        if (cnt[x] == 1) {
+        if (cnt[x] === 1) {
             return x;
         }
     }
     return -1;
 };
-```
-
-<!-- tabs:end -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def largestUniqueNumber(self, nums: List[int]) -> int:
-        cnt = Counter(nums)
-        return max((x for x, v in cnt.items() if v == 1), default=-1)
 ```
 
 <!-- tabs:end -->

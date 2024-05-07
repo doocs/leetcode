@@ -49,7 +49,11 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Brute Force Enumeration
+
+A "factor" is a number that can divide another number. Therefore, we only need to enumerate from $1$ to $n$, find all numbers that can divide $n$, and then return the $k$-th one.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -81,18 +85,9 @@ class Solution {
 class Solution {
 public:
     int kthFactor(int n, int k) {
-        int i = 1;
-        for (; i < n / i; ++i) {
+        for (int i = 1; i <= n; ++i) {
             if (n % i == 0 && (--k == 0)) {
                 return i;
-            }
-        }
-        if (i * i != n) {
-            --i;
-        }
-        for (; i > 0; --i) {
-            if (n % (n / i) == 0 && (--k == 0)) {
-                return n / i;
             }
         }
         return -1;
@@ -114,9 +109,26 @@ func kthFactor(n int, k int) int {
 }
 ```
 
+```ts
+function kthFactor(n: number, k: number): number {
+    for (let i = 1; i <= n; ++i) {
+        if (n % i === 0 && --k === 0) {
+            return i;
+        }
+    }
+    return -1;
+}
+```
+
 <!-- tabs:end -->
 
-### Solution 2
+### Solution 2: Optimized Enumeration
+
+We can observe that if $n$ has a factor $x$, then $n$ must also have a factor $n/x$.
+
+Therefore, we first need to enumerate $[1,2,...\left \lfloor \sqrt{n}  \right \rfloor]$, find all numbers that can divide $n$. If we find the $k$-th factor, then we can return it directly. If we do not find the $k$-th factor, then we need to enumerate $[\left \lfloor \sqrt{n}  \right \rfloor ,..1]$ in reverse order, and find the $k$-th factor.
+
+The time complexity is $O(\sqrt{n})$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -163,6 +175,29 @@ class Solution {
 }
 ```
 
+```cpp
+class Solution {
+public:
+    int kthFactor(int n, int k) {
+        int i = 1;
+        for (; i < n / i; ++i) {
+            if (n % i == 0 && (--k == 0)) {
+                return i;
+            }
+        }
+        if (i * i != n) {
+            --i;
+        }
+        for (; i > 0; --i) {
+            if (n % (n / i) == 0 && (--k == 0)) {
+                return n / i;
+            }
+        }
+        return -1;
+    }
+};
+```
+
 ```go
 func kthFactor(n int, k int) int {
 	i := 1
@@ -186,6 +221,26 @@ func kthFactor(n int, k int) int {
 		}
 	}
 	return -1
+}
+```
+
+```ts
+function kthFactor(n: number, k: number): number {
+    let i: number = 1;
+    for (; i < n / i; ++i) {
+        if (n % i === 0 && --k === 0) {
+            return i;
+        }
+    }
+    if (i * i !== n) {
+        --i;
+    }
+    for (; i > 0; --i) {
+        if (n % Math.floor(n / i) === 0 && --k === 0) {
+            return Math.floor(n / i);
+        }
+    }
+    return -1;
 }
 ```
 

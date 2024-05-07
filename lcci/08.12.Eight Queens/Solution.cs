@@ -1,49 +1,36 @@
-using System.Collections.Generic;
-using System.Text;
-
 public class Solution {
-    private IList<IList<string>> results = new List<IList<string>>();
     private int n;
+    private int[] col;
+    private int[] dg;
+    private int[] udg;
+    private IList<IList<string>> ans = new List<IList<string>>();
+    private IList<string> t = new List<string>();
 
     public IList<IList<string>> SolveNQueens(int n) {
         this.n = n;
-        Search(new List<int>(), 0, 0, 0);
-        return results;
+        col = new int[n];
+        dg = new int[n << 1];
+        udg = new int[n << 1];
+        dfs(0);
+        return ans;
     }
 
-    private void Search(IList<int> state, int left, int right, int vertical)
-    {
-        if (state.Count == n)
-        {
-            Print(state);
+    private void dfs(int i) {
+        if (i == n) {
+            ans.Add(new List<string>(t));
             return;
         }
-        int available = ~(left | right | vertical) & ((1 << n) - 1);
-        while (available != 0)
-        {
-            int x = available & -available;
-            state.Add(x);
-            Search(state, (left | x ) << 1, (right | x ) >> 1, vertical | x);
-            state.RemoveAt(state.Count - 1);
-            available &= ~x;
-        }
-    }
-
-    private void Print(IList<int> state)
-    {
-        var result = new List<string>();
-        var sb = new StringBuilder(n);
-        foreach (var s in state)
-        {
-            var x = s;
-            for (var i = 0; i < n; ++i)
-            {
-                sb.Append((x & 1) != 0 ? 'Q': '.');
-                x >>= 1;
+        for (int j = 0; j < n; ++j) {
+            if (col[j] + dg[i + j] + udg[n - i + j] == 0) {
+                char[] row = new char[n];
+                Array.Fill(row, '.');
+                row[j] = 'Q';
+                t.Add(new string(row));
+                col[j] = dg[i + j] = udg[n - i + j] = 1;
+                dfs(i + 1);
+                col[j] = dg[i + j] = udg[n - i + j] = 0;
+                t.RemoveAt(t.Count - 1);
             }
-            result.Add(sb.ToString());
-            sb.Clear();
         }
-        results.Add(result);
     }
 }

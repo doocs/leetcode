@@ -2,7 +2,7 @@
 
 [中文文档](/solution/2000-2099/2044.Count%20Number%20of%20Maximum%20Bitwise-OR%20Subsets/README.md)
 
-<!-- tags:Bit Manipulation,Array,Backtracking -->
+<!-- tags:Bit Manipulation,Array,Backtracking,Enumeration -->
 
 ## Description
 

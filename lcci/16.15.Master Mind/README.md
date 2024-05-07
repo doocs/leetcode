@@ -23,7 +23,7 @@
 
 ### 方法一：哈希表
 
-同时遍历两个字符串，算出对应位置字符相同的个数，累加到 $x$ 中，然后将两个字符串出现的字符以及出现的次数分别记录在哈希表 $cnt1$ 和 $cnt2$ 中。
+我们同时遍历两个字符串，算出对应位置字符相同的个数，累加到 $x$ 中，然后将两个字符串出现的字符以及出现的次数分别记录在哈希表 $cnt1$ 和 $cnt2$ 中。
 
 接着遍历两个哈希表，算出有多少共同出现的字符，累加到 $y$ 中。那么答案就是 $[x, y - x]$。
 
@@ -120,6 +120,35 @@ var masterMind = function (solution, guess) {
     let res2 = Object.keys(counts1).reduce((a, c) => a + Math.min(counts1[c], counts2[c]), 0);
     return [res1, res2];
 };
+```
+
+```swift
+class Solution {
+    func masterMind(_ solution: String, _ guess: String) -> [Int] {
+        var x = 0
+        var y = 0
+        var cnt1: [Character: Int] = [:]
+        var cnt2: [Character: Int] = [:]
+        
+        for i in solution.indices {
+            let a = solution[i]
+            let b = guess[i]
+            if a == b {
+                x += 1
+            }
+            cnt1[a, default: 0] += 1
+            cnt2[b, default: 0] += 1
+        }
+        
+        let colors = "RYGB"
+        for c in colors {
+            let minCount = min(cnt1[c, default: 0], cnt2[c, default: 0])
+            y += minCount
+        }
+        
+        return [x, y - x]
+    }
+}
 ```
 
 <!-- tabs:end -->

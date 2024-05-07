@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3100-3199/3102.Minimize%20Manhattan%20Distances/README.md)
 
-<!-- tags:Array,Math -->
+<!-- tags:Geometry,Array,Math,Ordered Set,Sorting -->
 
 ## Description
 

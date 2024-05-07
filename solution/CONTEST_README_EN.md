@@ -25,6 +25,27 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 396
+
+- [3136. Valid Word](/solution/3100-3199/3136.Valid%20Word/README_EN.md)
+- [3137. Minimum Number of Operations to Make Word K-Periodic](/solution/3100-3199/3137.Minimum%20Number%20of%20Operations%20to%20Make%20Word%20K-Periodic/README_EN.md)
+- [3138. Minimum Length of Anagram Concatenation](/solution/3100-3199/3138.Minimum%20Length%20of%20Anagram%20Concatenation/README_EN.md)
+- [3139. Minimum Cost to Equalize Array](/solution/3100-3199/3139.Minimum%20Cost%20to%20Equalize%20Array/README_EN.md)
+
+#### Weekly Contest 395
+
+- [3131. Find the Integer Added to Array I](/solution/3100-3199/3131.Find%20the%20Integer%20Added%20to%20Array%20I/README_EN.md)
+- [3132. Find the Integer Added to Array II](/solution/3100-3199/3132.Find%20the%20Integer%20Added%20to%20Array%20II/README_EN.md)
+- [3133. Minimum Array End](/solution/3100-3199/3133.Minimum%20Array%20End/README_EN.md)
+- [3134. Find the Median of the Uniqueness Array](/solution/3100-3199/3134.Find%20the%20Median%20of%20the%20Uniqueness%20Array/README_EN.md)
+
+#### Biweekly Contest 129
+
+- [3127. Make a Square with the Same Color](/solution/3100-3199/3127.Make%20a%20Square%20with%20the%20Same%20Color/README_EN.md)
+- [3128. Right Triangles](/solution/3100-3199/3128.Right%20Triangles/README_EN.md)
+- [3129. Find All Possible Stable Binary Arrays I](/solution/3100-3199/3129.Find%20All%20Possible%20Stable%20Binary%20Arrays%20I/README_EN.md)
+- [3130. Find All Possible Stable Binary Arrays II](/solution/3100-3199/3130.Find%20All%20Possible%20Stable%20Binary%20Arrays%20II/README_EN.md)
+
 #### Weekly Contest 394
 
 - [3120. Count the Number of Special Characters I](/solution/3100-3199/3120.Count%20the%20Number%20of%20Special%20Characters%20I/README_EN.md)

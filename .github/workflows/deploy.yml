@@ -5,6 +5,16 @@ on:
     branches:
       - main
       - docs
+    paths:
+      - package.json
+      - requirements.txt
+      - solution/**
+      - lcs/**
+      - lcp/**
+      - lcof2/**
+      - lcof/**
+      - lcci/**
+      - basic/**
   workflow_dispatch:
 
 env:
@@ -13,9 +23,14 @@ env:
 permissions:
   contents: write
 
+concurrency:
+  group: ${{github.workflow}} - ${{github.ref}}
+  cancel-in-progress: true
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    if: github.repository == 'doocs/leetcode'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/checkout@v4

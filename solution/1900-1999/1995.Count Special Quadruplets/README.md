@@ -2,7 +2,7 @@
 
 [English Version](/solution/1900-1999/1995.Count%20Special%20Quadruplets/README_EN.md)
 
-<!-- tags:数组,枚举 -->
+<!-- tags:数组,哈希表,枚举 -->
 
 ## 题目描述
 
