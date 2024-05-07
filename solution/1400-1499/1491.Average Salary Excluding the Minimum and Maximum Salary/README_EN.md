@@ -40,7 +40,13 @@ Average salary excluding minimum and maximum salary is (2000) / 1 = 2000
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Simulation
+
+Simulate according to the problem's requirements.
+
+Traverse the array, find the maximum and minimum values, and accumulate the sum. Then calculate the average value after removing the maximum and minimum values.
+
+The time complexity is $O(n)$, where $n$ is the length of the array `salary`. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
