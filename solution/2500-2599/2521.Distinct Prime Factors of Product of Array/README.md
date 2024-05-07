@@ -51,7 +51,7 @@ nums 中所有元素的乘积是：2 * 4 * 8 * 16 = 1024 = 2<sup>10</sup> 。
 
 对于数组中的每个元素，先对其进行质因数分解，然后将分解出的质因数加入哈希表中。最后返回哈希表的大小即可。
 
-时间复杂度 $O(n\sqrt{m})$，其中 $n$ 和 $m$ 分别是数组的长度和数组中元素的最大值。
+时间复杂度 $O(n \times \sqrt{m})$，空间复杂度 $O(\frac{m}{\log m})$，其中 $n$ 和 $m$ 分别为数组的长度和数组中元素的最大值。
 
 <!-- tabs:start -->
 
@@ -134,6 +134,28 @@ func distinctPrimeFactors(nums []int) int {
 		}
 	}
 	return len(s)
+}
+```
+
+```ts
+function distinctPrimeFactors(nums: number[]): number {
+    const s: Set<number> = new Set();
+    for (let n of nums) {
+        let i = 2;
+        while (i <= n / i) {
+            if (n % i === 0) {
+                s.add(i);
+                while (n % i === 0) {
+                    n = Math.floor(n / i);
+                }
+            }
+            ++i;
+        }
+        if (n > 1) {
+            s.add(n);
+        }
+    }
+    return s.size;
 }
 ```
 
