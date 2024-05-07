@@ -70,6 +70,10 @@ It can be shown that there are only 3 beautiful substrings in the given string.
 
 ## Solutions
 
+### Solution 1: Prefix Sum + Hash Table
+
+<!-- tabs:start -->
+
 ```ts
 function beautifulSubstrings(s: string, k: number): number {
     const l = pSqrt(k * 4);
@@ -109,5 +113,7 @@ function pSqrt(n: number) {
     return res;
 }
 ```
+
+<!-- tabs:end -->
 
 <!-- end -->
