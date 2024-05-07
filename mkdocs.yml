@@ -85,6 +85,7 @@ hooks:
   - hooks/edit_url.py
   - hooks/tags.py
   - hooks/committer.py
+  - hooks/fix_markdown_block.py
 
 markdown_extensions:
   - admonition
