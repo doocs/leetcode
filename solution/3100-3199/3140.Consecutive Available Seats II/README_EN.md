@@ -91,18 +91,13 @@ WITH
         SELECT
             MIN(seat_id) AS first_seat_id,
             MAX(seat_id) AS last_seat_id,
-            COUNT(1) AS consecutive_seats_len
+            COUNT(1) AS consecutive_seats_len,
+            RANK() OVER (ORDER BY COUNT(1) DESC) AS rk
         FROM T
         GROUP BY gid
-    ),
-    S AS (
-        SELECT
-            *,
-            RANK() OVER (ORDER BY consecutive_seats_len DESC) AS rk
-        FROM P
     )
 SELECT first_seat_id, last_seat_id, consecutive_seats_len
-FROM S
+FROM P
 WHERE rk = 1
 ORDER BY 1;
 ```
