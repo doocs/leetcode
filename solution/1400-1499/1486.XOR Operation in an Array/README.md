@@ -105,6 +105,16 @@ func xorOperation(n int, start int) (ans int) {
 }
 ```
 
+```ts
+function xorOperation(n: number, start: number): number {
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        ans ^= start + 2 * i;
+    }
+    return ans;
+}
+```
+
 <!-- tabs:end -->
 
 ### 方法二
