@@ -1,26 +1,16 @@
 class Solution {
 public:
     long long maxStrength(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
+        long long ans = -1e14;
         int n = nums.size();
-        if (n == 1) {
-            return nums[0];
-        }
-        if (nums[1] == 0 && nums[n - 1] == 0) {
-            return 0;
-        }
-        long long ans = 1;
-        int i = 0;
-        while (i < n) {
-            if (nums[i] < 0 && i + 1 < n && nums[i + 1] < 0) {
-                ans *= nums[i] * nums[i + 1];
-                i += 2;
-            } else if (nums[i] <= 0) {
-                i += 1;
-            } else {
-                ans *= nums[i];
-                i += 1;
+        for (int i = 1; i < 1 << n; ++i) {
+            long long t = 1;
+            for (int j = 0; j < n; ++j) {
+                if (i >> j & 1) {
+                    t *= nums[j];
+                }
             }
+            ans = max(ans, t);
         }
         return ans;
     }
