@@ -2,7 +2,7 @@
 
 [English Version](/solution/1700-1799/1766.Tree%20of%20Coprimes/README_EN.md)
 
-<!-- tags:树,数组,数学,数论 -->
+<!-- tags:树,深度优先搜索,数组,数学,数论 -->
 
 ## 题目描述
 

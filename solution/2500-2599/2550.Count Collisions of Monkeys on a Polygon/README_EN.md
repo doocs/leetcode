@@ -8,39 +8,36 @@
 
 <p>There is a regular convex polygon with <code>n</code> vertices. The vertices are labeled from <code>0</code> to <code>n - 1</code> in a clockwise direction, and each vertex has <strong>exactly one monkey</strong>. The following figure shows a convex polygon of <code>6</code> vertices.</p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2500-2599/2550.Count%20Collisions%20of%20Monkeys%20on%20a%20Polygon/images/hexagon.jpg" style="width: 300px; height: 293px;" />
-<p>Each monkey moves simultaneously to a neighboring vertex. A neighboring vertex for a vertex <code>i</code> can be:</p>
+<p>Simultaneously, each monkey moves to a neighboring vertex. A <strong>collision</strong> happens if at least two monkeys reside on the same vertex after the movement or intersect on an edge.</p>
 
-<ul>
-	<li>the vertex <code>(i + 1) % n</code> in the clockwise direction, or</li>
-	<li>the vertex <code>(i - 1 + n) % n</code> in the counter-clockwise direction.</li>
-</ul>
-
-<p>A <strong>collision</strong> happens if at least two monkeys reside on the same vertex after the movement or intersect&nbsp;on an edge.</p>
-
-<p>Return <em>the number of ways the monkeys can move so that at least <strong>one collision</strong></em> <em> happens</em>. Since the answer may be very large, return it modulo <code>10<sup>9 </sup>+ 7</code>.</p>
-
-<p><strong>Note</strong> that each monkey can only move once.</p>
+<p>Return the number of ways the monkeys can move so that at least <strong>one collision</strong> happens. Since the answer may be very large, return it modulo <code>10<sup>9 </sup>+ 7</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre>
-<strong>Input:</strong> n = 3
-<strong>Output:</strong> 6
-<strong>Explanation:</strong> There are 8 total possible movements.
-Two ways such that they collide at some point are:
-- Monkey 1 moves in a clockwise direction; monkey 2 moves in an anticlockwise direction; monkey 3 moves in a clockwise direction. Monkeys 1 and 2 collide.
-- Monkey 1 moves in an anticlockwise direction; monkey 2 moves in an anticlockwise direction; monkey 3 moves in a clockwise direction. Monkeys 1 and 3 collide.
-It can be shown 6 total movements result in a collision.
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">n = 3</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">6</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>There are 8 total possible movements.<br />
+Two ways such that they collide at some point are:</p>
+
+<ul>
+	<li>Monkey 1 moves in a clockwise direction; monkey 2 moves in an anticlockwise direction; monkey 3 moves in a clockwise direction. Monkeys 1 and 2 collide.</li>
+	<li>Monkey 1 moves in an anticlockwise direction; monkey 2 moves in an anticlockwise direction; monkey 3 moves in a clockwise direction. Monkeys 1 and 3 collide.</li>
+</ul>
+</div>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre>
-<strong>Input:</strong> n = 4
-<strong>Output:</strong> 14
-<strong>Explanation:</strong> It can be shown that there are 14 ways for the monkeys to collide.
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">n = 4</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">14</span></p>
+</div>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>

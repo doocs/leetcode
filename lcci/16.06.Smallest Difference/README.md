@@ -146,7 +146,7 @@ class Solution {
     func smallestDifference(_ a: [Int], _ b: [Int]) -> Int {
         let sortedB = b.sorted()
         var ans = Int.max
-        
+
         for x in a {
             let j = search(sortedB, x)
             if j < sortedB.count {
@@ -156,10 +156,10 @@ class Solution {
                 ans = min(ans, abs(x - sortedB[j - 1]))
             }
         }
-        
+
         return ans
     }
-    
+
     private func search(_ nums: [Int], _ x: Int) -> Int {
         var l = 0
         var r = nums.count

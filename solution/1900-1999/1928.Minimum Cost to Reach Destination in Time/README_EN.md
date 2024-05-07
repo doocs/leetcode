@@ -2,7 +2,7 @@
 
 [中文文档](/solution/1900-1999/1928.Minimum%20Cost%20to%20Reach%20Destination%20in%20Time/README.md)
 
-<!-- tags:Graph,Dynamic Programming -->
+<!-- tags:Graph,Array,Dynamic Programming -->
 
 ## Description
 

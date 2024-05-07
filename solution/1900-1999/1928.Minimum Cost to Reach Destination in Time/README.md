@@ -2,7 +2,7 @@
 
 [English Version](/solution/1900-1999/1928.Minimum%20Cost%20to%20Reach%20Destination%20in%20Time/README_EN.md)
 
-<!-- tags:图,动态规划 -->
+<!-- tags:图,数组,动态规划 -->
 
 ## 题目描述
 

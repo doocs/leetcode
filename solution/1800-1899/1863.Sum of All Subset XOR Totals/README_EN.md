@@ -2,7 +2,7 @@
 
 [中文文档](/solution/1800-1899/1863.Sum%20of%20All%20Subset%20XOR%20Totals/README.md)
 
-<!-- tags:Bit Manipulation,Array,Math,Backtracking,Combinatorics -->
+<!-- tags:Bit Manipulation,Array,Math,Backtracking,Combinatorics,Enumeration -->
 
 ## Description
 
