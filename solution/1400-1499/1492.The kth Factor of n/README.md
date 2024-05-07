@@ -60,7 +60,7 @@
 
 “因子”是指能整除某个数的数。因此，我们只需要从小到大枚举 $[1,2,..n]$，找到所有能整除 $n$ 的数，然后返回第 $k$ 个即可。
 
-时间复杂度 $O(n)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -92,18 +92,9 @@ class Solution {
 class Solution {
 public:
     int kthFactor(int n, int k) {
-        int i = 1;
-        for (; i < n / i; ++i) {
+        for (int i = 1; i <= n; ++i) {
             if (n % i == 0 && (--k == 0)) {
                 return i;
-            }
-        }
-        if (i * i != n) {
-            --i;
-        }
-        for (; i > 0; --i) {
-            if (n % (n / i) == 0 && (--k == 0)) {
-                return n / i;
             }
         }
         return -1;
@@ -125,6 +116,17 @@ func kthFactor(n int, k int) int {
 }
 ```
 
+```ts
+function kthFactor(n: number, k: number): number {
+    for (let i = 1; i <= n; ++i) {
+        if (n % i === 0 && --k === 0) {
+            return i;
+        }
+    }
+    return -1;
+}
+```
+
 <!-- tabs:end -->
 
 ### 方法二：枚举优化
@@ -133,7 +135,7 @@ func kthFactor(n int, k int) int {
 
 因此，我们先需要枚举 $[1,2,...\left \lfloor \sqrt{n}  \right \rfloor]$，找到所有能整除 $n$ 的数，如果找到第 $k$ 个因子，那么直接返回即可。如果没有找到第 $k$ 个因子，那么我们再倒序枚举 $[\left \lfloor \sqrt{n}  \right \rfloor ,..1]$，找到第 $k$ 个因子即可。
 
-时间复杂度 $O(\sqrt{n})$。
+时间复杂度 $O(\sqrt{n})$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -180,6 +182,29 @@ class Solution {
 }
 ```
 
+```cpp
+class Solution {
+public:
+    int kthFactor(int n, int k) {
+        int i = 1;
+        for (; i < n / i; ++i) {
+            if (n % i == 0 && (--k == 0)) {
+                return i;
+            }
+        }
+        if (i * i != n) {
+            --i;
+        }
+        for (; i > 0; --i) {
+            if (n % (n / i) == 0 && (--k == 0)) {
+                return n / i;
+            }
+        }
+        return -1;
+    }
+};
+```
+
 ```go
 func kthFactor(n int, k int) int {
 	i := 1
@@ -203,6 +228,26 @@ func kthFactor(n int, k int) int {
 		}
 	}
 	return -1
+}
+```
+
+```ts
+function kthFactor(n: number, k: number): number {
+    let i: number = 1;
+    for (; i < n / i; ++i) {
+        if (n % i === 0 && --k === 0) {
+            return i;
+        }
+    }
+    if (i * i !== n) {
+        --i;
+    }
+    for (; i > 0; --i) {
+        if (n % Math.floor(n / i) === 0 && --k === 0) {
+            return Math.floor(n / i);
+        }
+    }
+    return -1;
 }
 ```
 

@@ -58,17 +58,14 @@
 
 我们可以直接模拟算出数组中所有元素的异或结果。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
+时间复杂度 $O(n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def xorOperation(self, n: int, start: int) -> int:
-        ans = 0
-        for i in range(n):
-            ans ^= start + 2 * i
-        return ans
+        return reduce(xor, ((start + 2 * i) for i in range(n)))
 ```
 
 ```java
@@ -113,18 +110,6 @@ function xorOperation(n: number, start: number): number {
     }
     return ans;
 }
-```
-
-<!-- tabs:end -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def xorOperation(self, n: int, start: int) -> int:
-        return reduce(xor, ((start + 2 * i) for i in range(n)))
 ```
 
 <!-- tabs:end -->
