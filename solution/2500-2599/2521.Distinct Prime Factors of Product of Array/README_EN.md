@@ -46,7 +46,11 @@ There is 1 distinct prime factor so we return 1.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Hash Table + Prime Factorization
+
+For each element in the array, first perform prime factorization on it, and then add the decomposed prime factors to the hash table. Finally, return the size of the hash table.
+
+The time complexity is $O(n \times \sqrt{m})$, and the space complexity is $O(\frac{m}{\log m})$. Where $n$ and $m$ are the length of the array and the maximum value in the array, respectively.
 
 <!-- tabs:start -->
 
@@ -129,6 +133,28 @@ func distinctPrimeFactors(nums []int) int {
 		}
 	}
 	return len(s)
+}
+```
+
+```ts
+function distinctPrimeFactors(nums: number[]): number {
+    const s: Set<number> = new Set();
+    for (let n of nums) {
+        let i = 2;
+        while (i <= n / i) {
+            if (n % i === 0) {
+                s.add(i);
+                while (n % i === 0) {
+                    n = Math.floor(n / i);
+                }
+            }
+            ++i;
+        }
+        if (n > 1) {
+            s.add(n);
+        }
+    }
+    return s.size;
 }
 ```
 
