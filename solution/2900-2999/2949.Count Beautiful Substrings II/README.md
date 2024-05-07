@@ -74,6 +74,10 @@
 
 ## 解法
 
+### 方法一：前缀和 + 哈希表 + 分解质因子
+
+<!-- tabs:start -->
+
 ```ts
 function beautifulSubstrings(s: string, k: number): number {
     const l = pSqrt(k * 4);
@@ -113,5 +117,7 @@ function pSqrt(n: number) {
     return res;
 }
 ```
+
+<!-- tabs:end -->
 
 <!-- end -->
