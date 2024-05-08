@@ -131,7 +131,7 @@ class Solution {
     func pairSums(_ nums: [Int], _ target: Int) -> [[Int]] {
         var countMap = [Int: Int]()
         var ans = [[Int]]()
-        
+
         for x in nums {
             let y = target - x
             if let yCount = countMap[y], yCount > 0 {
