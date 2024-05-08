@@ -1,14 +1,14 @@
 class RangeFreqQuery:
+
     def __init__(self, arr: List[int]):
-        self.mp = defaultdict(list)
+        self.g = defaultdict(list)
         for i, x in enumerate(arr):
-            self.mp[x].append(i)
+            self.g[x].append(i)
 
     def query(self, left: int, right: int, value: int) -> int:
-        if value not in self.mp:
-            return 0
-        arr = self.mp[value]
-        l, r = bisect_right(arr, left - 1), bisect_right(arr, right)
+        idx = self.g[value]
+        l = bisect_left(idx, left)
+        r = bisect_left(idx, right + 1)
         return r - l
 
 

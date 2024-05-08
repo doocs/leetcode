@@ -1,20 +1,22 @@
 type RangeFreqQuery struct {
-	mp map[int][]int
+	g map[int][]int
 }
 
 func Constructor(arr []int) RangeFreqQuery {
-	mp := make(map[int][]int)
+	g := make(map[int][]int)
 	for i, v := range arr {
-		mp[v] = append(mp[v], i)
+		g[v] = append(g[v], i)
 	}
-	return RangeFreqQuery{mp}
+	return RangeFreqQuery{g}
 }
 
 func (this *RangeFreqQuery) Query(left int, right int, value int) int {
-	arr := this.mp[value]
-	l := sort.SearchInts(arr, left)
-	r := sort.SearchInts(arr, right+1)
-	return r - l
+	if idx, ok := this.g[value]; ok {
+		l := sort.SearchInts(idx, left)
+		r := sort.SearchInts(idx, right+1)
+		return r - l
+	}
+	return 0
 }
 
 /**
