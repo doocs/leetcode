@@ -1,33 +1,22 @@
 class RangeFreqQuery {
-    private Map<Integer, List<Integer>> mp = new HashMap<>();
+    private Map<Integer, List<Integer>> g = new HashMap<>();
 
     public RangeFreqQuery(int[] arr) {
         for (int i = 0; i < arr.length; ++i) {
-            mp.computeIfAbsent(arr[i], k -> new ArrayList<>()).add(i);
+            g.computeIfAbsent(arr[i], k -> new ArrayList<>()).add(i);
         }
     }
 
     public int query(int left, int right, int value) {
-        if (!mp.containsKey(value)) {
+        if (!g.containsKey(value)) {
             return 0;
         }
-        List<Integer> arr = mp.get(value);
-        int l = search(arr, left - 1);
-        int r = search(arr, right);
+        var idx = g.get(value);
+        int l = Collections.binarySearch(idx, left);
+        l = l < 0 ? -l - 1 : l;
+        int r = Collections.binarySearch(idx, right + 1);
+        r = r < 0 ? -r - 1 : r;
         return r - l;
-    }
-
-    private int search(List<Integer> arr, int val) {
-        int left = 0, right = arr.size();
-        while (left < right) {
-            int mid = (left + right) >> 1;
-            if (arr.get(mid) > val) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        return left;
     }
 }
 
