@@ -122,10 +122,13 @@ var missingNumber = function (nums) {
 ```swift
 class Solution {
     func missingNumber(_ nums: [Int]) -> Int {
-        let n = nums.count
-        let expectedSum = n * (n + 1) / 2
-        let actualSum = nums.reduce(0, +)
-        return expectedSum - actualSum
+        let nums = nums.sorted()
+        for (i, x) in nums.enumerated() {
+            if i != x {
+                return i
+            }
+        }
+        return nums.count
     }
 }
 ```
@@ -215,6 +218,15 @@ var missingNumber = function (nums) {
     }
     return ans;
 };
+```
+
+```swift
+class Solution {
+    func missingNumber(_ nums: [Int]) -> Int {
+        let n = nums.count
+        return n * (n + 1) / 2 - nums.reduce(0, +)
+    }
+}
 ```
 
 <!-- tabs:end -->
