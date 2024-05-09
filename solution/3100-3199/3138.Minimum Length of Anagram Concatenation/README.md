@@ -2,7 +2,7 @@
 
 [English Version](/solution/3100-3199/3138.Minimum%20Length%20of%20Anagram%20Concatenation/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:哈希表,字符串,计数 -->
 
 ## 题目描述
 

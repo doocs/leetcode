@@ -2,7 +2,7 @@
 
 [English Version](/solution/3100-3199/3135.Equalize%20Strings%20by%20Adding%20or%20Removing%20Characters%20at%20Ends/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:字符串,二分查找,动态规划,滑动窗口,哈希函数 -->
 
 ## 题目描述
 

@@ -277,7 +277,7 @@
 | 3118 | [Friday Purchase III](/solution/3100-3199/3118.Friday%20Purchase%20III/README.md)                                                                            | `数据库` | 中等 | 🔒   |
 | 3124 | [查找最长的电话](/solution/3100-3199/3124.Find%20Longest%20Calls/README.md)                                                                                  | `数据库` | 中等 | 🔒   |
 | 3126 | [Server Utilization Time](/solution/3100-3199/3126.Server%20Utilization%20Time/README.md)                                                                    | `数据库` | 中等 | 🔒   |
-| 3140 | [Consecutive Available Seats II](/solution/3100-3199/3140.Consecutive%20Available%20Seats%20II/README.md)                                                    |          | 中等 | 🔒   |
+| 3140 | [Consecutive Available Seats II](/solution/3100-3199/3140.Consecutive%20Available%20Seats%20II/README.md)                                                    | `数据库` | 中等 | 🔒   |
 
 ## 版权
 

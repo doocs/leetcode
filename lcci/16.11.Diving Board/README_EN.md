@@ -131,7 +131,7 @@ class Solution {
         if shorter == longer {
             return [shorter * k]
         }
-        
+
         var ans = [Int](repeating: 0, count: k + 1)
         for i in 0...k {
             ans[i] = longer * i + shorter * (k - i)

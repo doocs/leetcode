@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3100-3199/3137.Minimum%20Number%20of%20Operations%20to%20Make%20Word%20K-Periodic/README.md)
 
-<!-- tags: -->
+<!-- tags:Hash Table,String,Counting -->
 
 ## Description
 

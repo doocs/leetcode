@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3100-3199/3135.Equalize%20Strings%20by%20Adding%20or%20Removing%20Characters%20at%20Ends/README.md)
 
-<!-- tags: -->
+<!-- tags:String,Binary Search,Dynamic Programming,Sliding Window,Hash Function -->
 
 ## Description
 

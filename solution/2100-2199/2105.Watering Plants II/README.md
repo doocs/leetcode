@@ -72,63 +72,55 @@
 
 ## 解法
 
-### 方法一
+### 方法一：双指针 + 模拟
+
+我们用两个变量 $a$ 和 $b$ 分别表示 Alice 和 Bob 的水量，初始时 $a = \text{capacityA}$, $b = \text{capacityB}$。然后用两个指针 $i$ 和 $j$ 分别指向植物数组的头尾，然后模拟 Alice 和 Bob 从两端向中间浇水的过程。
+
+当 $i < j$ 时，我们分别判断 Alice 和 Bob 的水量是否足够浇水，如果不够，我们就重新灌满水罐。然后更新 $a$ 和 $b$ 的水量，同时移动指针 $i$ 和 $j$。最后我们还需要判断 $i$ 和 $j$ 是否相等，如果相等，我们还需要判断 $\max(a, b)$ 是否小于植物的水量，如果小于，我们需要再次重新灌满水罐。
+
+时间复杂度 $O(n)$，其中 $n$ 是植物数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def minimumRefill(self, plants: List[int], capacityA: int, capacityB: int) -> int:
-        i, j = 0, len(plants) - 1
-        ans = 0
         a, b = capacityA, capacityB
-        while i <= j:
-            if i == j:
-                if max(capacityA, capacityB) < plants[i]:
-                    ans += 1
-                break
-            if capacityA < plants[i]:
-                capacityA = a - plants[i]
+        ans = 0
+        i, j = 0, len(plants) - 1
+        while i < j:
+            if a < plants[i]:
                 ans += 1
-            else:
-                capacityA -= plants[i]
-            if capacityB < plants[j]:
-                capacityB = b - plants[j]
+                a = capacityA
+            a -= plants[i]
+            if b < plants[j]:
                 ans += 1
-            else:
-                capacityB -= plants[j]
-            i += 1
-            j -= 1
+                b = capacityB
+            b -= plants[j]
+            i, j = i + 1, j - 1
+        ans += i == j and max(a, b) < plants[i]
         return ans
 ```
 
 ```java
 class Solution {
     public int minimumRefill(int[] plants, int capacityA, int capacityB) {
+        int a = capacityA, b = capacityB;
+        int ans = 0;
         int i = 0, j = plants.length - 1;
-        int ans = 0, a = capacityA, b = capacityB;
-        while (i <= j) {
-            if (i == j) {
-                if (Math.max(capacityA, capacityB) < plants[i]) {
-                    ++ans;
-                }
-                break;
-            }
-            if (capacityA < plants[i]) {
-                capacityA = a - plants[i];
+        for (; i < j; ++i, --j) {
+            if (a < plants[i]) {
                 ++ans;
-            } else {
-                capacityA -= plants[i];
+                a = capacityA;
             }
-            if (capacityB < plants[j]) {
-                capacityB = b - plants[j];
+            a -= plants[i];
+            if (b < plants[j]) {
                 ++ans;
-            } else {
-                capacityB -= plants[j];
+                b = capacityB;
             }
-            ++i;
-            --j;
+            b -= plants[j];
         }
+        ans += i == j && Math.max(a, b) < plants[i] ? 1 : 0;
         return ans;
     }
 }
@@ -138,59 +130,104 @@ class Solution {
 class Solution {
 public:
     int minimumRefill(vector<int>& plants, int capacityA, int capacityB) {
+        int a = capacityA, b = capacityB;
+        int ans = 0;
         int i = 0, j = plants.size() - 1;
-        int ans = 0, a = capacityA, b = capacityB;
-        while (i <= j) {
-            if (i == j) {
-                if (max(capacityA, capacityB) < plants[i]) ++ans;
-                break;
+        for (; i < j; ++i, --j) {
+            if (a < plants[i]) {
+                ++ans;
+                a = capacityA;
             }
-            if (capacityA < plants[i]) {
-                capacityA = a - plants[i];
+            a -= plants[i];
+            if (b < plants[j]) {
                 ++ans;
-            } else
-                capacityA -= plants[i];
-
-            if (capacityB < plants[j]) {
-                capacityB = b - plants[j];
-                ++ans;
-            } else
-                capacityB -= plants[j];
-            ++i;
-            --j;
+                b = capacityB;
+            }
+            b -= plants[j];
         }
+        ans += i == j && max(a, b) < plants[i];
         return ans;
     }
 };
 ```
 
 ```go
-func minimumRefill(plants []int, capacityA int, capacityB int) int {
+func minimumRefill(plants []int, capacityA int, capacityB int) (ans int) {
+	a, b := capacityA, capacityB
 	i, j := 0, len(plants)-1
-	ans, a, b := 0, capacityA, capacityB
-	for i <= j {
-		if i == j {
-			if max(capacityA, capacityB) < plants[i] {
-				ans++
-			}
-			break
-		}
-		if capacityA < plants[i] {
-			capacityA = a - plants[i]
+	for ; i < j; i, j = i+1, j-1 {
+		if a < plants[i] {
 			ans++
-		} else {
-			capacityA -= plants[i]
+			a = capacityA
 		}
-		if capacityB < plants[j] {
-			capacityB = b - plants[j]
+		a -= plants[i]
+		if b < plants[j] {
 			ans++
-		} else {
-			capacityB -= plants[j]
+			b = capacityB
 		}
-		i++
-		j--
+		b -= plants[j]
 	}
-	return ans
+	if i == j && max(a, b) < plants[i] {
+		ans++
+	}
+	return
+}
+```
+
+```ts
+function minimumRefill(plants: number[], capacityA: number, capacityB: number): number {
+    let [a, b] = [capacityA, capacityB];
+    let ans = 0;
+    let [i, j] = [0, plants.length - 1];
+    for (; i < j; ++i, --j) {
+        if (a < plants[i]) {
+            ++ans;
+            a = capacityA;
+        }
+        a -= plants[i];
+        if (b < plants[j]) {
+            ++ans;
+            b = capacityB;
+        }
+        b -= plants[j];
+    }
+    ans += i === j && Math.max(a, b) < plants[i] ? 1 : 0;
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn minimum_refill(plants: Vec<i32>, capacity_a: i32, capacity_b: i32) -> i32 {
+        let mut a = capacity_a;
+        let mut b = capacity_b;
+        let mut ans = 0;
+        let mut i = 0;
+        let mut j = plants.len() - 1;
+
+        while i < j {
+            if a < plants[i] {
+                ans += 1;
+                a = capacity_a;
+            }
+            a -= plants[i];
+
+            if b < plants[j] {
+                ans += 1;
+                b = capacity_b;
+            }
+            b -= plants[j];
+
+            i += 1;
+            j -= 1;
+        }
+
+        if i == j && a.max(b) < plants[i] {
+            ans += 1;
+        }
+
+        ans
+    }
 }
 ```
 
