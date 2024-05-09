@@ -119,6 +119,20 @@ var missingNumber = function (nums) {
 };
 ```
 
+```swift
+class Solution {
+    func missingNumber(_ nums: [Int]) -> Int {
+        let nums = nums.sorted()
+        for (i, x) in nums.enumerated() {
+            if i != x {
+                return i
+            }
+        }
+        return nums.count
+    }
+}
+```
+
 <!-- tabs:end -->
 
 ### Solution 2
@@ -200,6 +214,15 @@ var missingNumber = function (nums) {
     }
     return ans;
 };
+```
+
+```swift
+class Solution {
+    func missingNumber(_ nums: [Int]) -> Int {
+        let n = nums.count
+        return n * (n + 1) / 2 - nums.reduce(0, +)
+    }
+}
 ```
 
 <!-- tabs:end -->
