@@ -64,24 +64,165 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Reverse Thinking + BFS
+
+The problem requires us to find the maximum Hamming distance between each element and other elements in the array. We can think in reverse: for each element, we take its complement and find the minimum Hamming distance to other elements in the array. Then, the maximum Hamming distance we are looking for is $m$ minus this minimum Hamming distance.
+
+We can use Breadth-First Search (BFS) to find the minimum Hamming distance from each complemented element to other elements.
+
+The specific steps are as follows:
+
+1. Initialize an array $\text{dist}$ with a length of $2^m$ to record the minimum Hamming distance from each complemented element to other elements. Initially, all are set to $-1$.
+2. Traverse the array $\text{nums}$, set the complement of each element to $0$, and add it to the queue $\text{q}$.
+3. Starting from $k = 1$, continuously traverse the queue $\text{q}$. Each time, take out the elements in the queue, perform $m$ complement operations on them, add the complemented elements to the queue $\text{t}$, and set the minimum Hamming distance to the original element to $k$.
+4. Repeat step 3 until the queue is empty.
+
+Finally, we traverse the array $\text{nums}$, take the complement of each element as the index, and take out the corresponding minimum Hamming distance from the $\text{dist}$ array. Then, $m$ minus this value is the maximum Hamming distance we are looking for.
+
+The time complexity is $O(2^m)$, and the space complexity is $O(2^m)$, where $m$ is the integer given in the problem.
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def maxHammingDistances(self, nums: List[int], m: int) -> List[int]:
+        dist = [-1] * (1 << m)
+        for x in nums:
+            dist[x] = 0
+        q = nums
+        k = 1
+        while q:
+            t = []
+            for x in q:
+                for i in range(m):
+                    y = x ^ (1 << i)
+                    if dist[y] == -1:
+                        t.append(y)
+                        dist[y] = k
+            q = t
+            k += 1
+        return [m - dist[x ^ ((1 << m) - 1)] for x in nums]
 ```
 
 ```java
-
+class Solution {
+    public int[] maxHammingDistances(int[] nums, int m) {
+        int[] dist = new int[1 << m];
+        Arrays.fill(dist, -1);
+        Deque<Integer> q = new ArrayDeque<>();
+        for (int x : nums) {
+            dist[x] = 0;
+            q.offer(x);
+        }
+        for (int k = 1; !q.isEmpty(); ++k) {
+            for (int t = q.size(); t > 0; --t) {
+                int x = q.poll();
+                for (int i = 0; i < m; ++i) {
+                    int y = x ^ (1 << i);
+                    if (dist[y] == -1) {
+                        q.offer(y);
+                        dist[y] = k;
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < nums.length; ++i) {
+            nums[i] = m - dist[nums[i] ^ ((1 << m) - 1)];
+        }
+        return nums;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> maxHammingDistances(vector<int>& nums, int m) {
+        int dist[1 << m];
+        memset(dist, -1, sizeof(dist));
+        queue<int> q;
+        for (int x : nums) {
+            dist[x] = 0;
+            q.push(x);
+        }
+        for (int k = 1; q.size(); ++k) {
+            for (int t = q.size(); t; --t) {
+                int x = q.front();
+                q.pop();
+                for (int i = 0; i < m; ++i) {
+                    int y = x ^ (1 << i);
+                    if (dist[y] == -1) {
+                        dist[y] = k;
+                        q.push(y);
+                    }
+                }
+            }
+        }
+        for (int& x : nums) {
+            x = m - dist[x ^ ((1 << m) - 1)];
+        }
+        return nums;
+    }
+};
 ```
 
 ```go
+func maxHammingDistances(nums []int, m int) []int {
+	dist := make([]int, 1<<m)
+	for i := range dist {
+		dist[i] = -1
+	}
+	q := []int{}
+	for _, x := range nums {
+		dist[x] = 0
+		q = append(q, x)
+	}
+	for k := 1; len(q) > 0; k++ {
+		t := []int{}
+		for _, x := range q {
+			for i := 0; i < m; i++ {
+				y := x ^ (1 << i)
+				if dist[y] == -1 {
+					dist[y] = k
+					t = append(t, y)
+				}
+			}
+		}
+		q = t
+	}
+	for i, x := range nums {
+		nums[i] = m - dist[x^(1<<m-1)]
+	}
+	return nums
+}
+```
 
+```ts
+function maxHammingDistances(nums: number[], m: number): number[] {
+    const dist: number[] = Array.from({ length: 1 << m }, () => -1);
+    const q: number[] = [];
+    for (const x of nums) {
+        dist[x] = 0;
+        q.push(x);
+    }
+    for (let k = 1; q.length; ++k) {
+        const t: number[] = [];
+        for (const x of q) {
+            for (let i = 0; i < m; ++i) {
+                const y = x ^ (1 << i);
+                if (dist[y] === -1) {
+                    dist[y] = k;
+                    t.push(y);
+                }
+            }
+        }
+        q.splice(0, q.length, ...t);
+    }
+    for (let i = 0; i < nums.length; ++i) {
+        nums[i] = m - dist[nums[i] ^ ((1 << m) - 1)];
+    }
+    return nums;
+}
 ```
 
 <!-- tabs:end -->

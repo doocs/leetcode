@@ -8,11 +8,11 @@
 
 <p>There are <code>n</code> workers. You are given two integer arrays <code>quality</code> and <code>wage</code> where <code>quality[i]</code> is the quality of the <code>i<sup>th</sup></code> worker and <code>wage[i]</code> is the minimum wage expectation for the <code>i<sup>th</sup></code> worker.</p>
 
-<p>We want to hire exactly <code>k</code> workers to form a paid group. To hire a group of <code>k</code> workers, we must pay them according to the following rules:</p>
+<p>We want to hire exactly <code>k</code> workers to form a <strong>paid group</strong>. To hire a group of <code>k</code> workers, we must pay them according to the following rules:</p>
 
 <ol>
-	<li>Every worker in the paid group should be paid in the ratio of their quality compared to other workers in the paid group.</li>
 	<li>Every worker in the paid group must be paid at least their minimum wage expectation.</li>
+	<li>In the group, each worker&#39;s pay must be directly proportional to their quality. This means if a worker&rsquo;s quality is double that of another worker in the group, then they must be paid twice as much as the other worker.</li>
 </ol>
 
 <p>Given the integer <code>k</code>, return <em>the least amount of money needed to form a paid group satisfying the above conditions</em>. Answers within <code>10<sup>-5</sup></code> of the actual answer will be accepted.</p>
