@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3100-3199/3140.Consecutive%20Available%20Seats%20II/README.md)
 
-<!-- tags: -->
+<!-- tags:Database -->
 
 ## Description
 

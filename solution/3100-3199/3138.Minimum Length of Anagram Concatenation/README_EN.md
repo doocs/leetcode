@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3100-3199/3138.Minimum%20Length%20of%20Anagram%20Concatenation/README.md)
 
-<!-- tags: -->
+<!-- tags:Hash Table,String,Counting -->
 
 ## Description
 

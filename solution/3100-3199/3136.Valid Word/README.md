@@ -2,7 +2,7 @@
 
 [English Version](/solution/3100-3199/3136.Valid%20Word/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:字符串 -->
 
 ## 题目描述
 

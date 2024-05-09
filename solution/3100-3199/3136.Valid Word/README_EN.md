@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3100-3199/3136.Valid%20Word/README.md)
 
-<!-- tags: -->
+<!-- tags:String -->
 
 ## Description
 

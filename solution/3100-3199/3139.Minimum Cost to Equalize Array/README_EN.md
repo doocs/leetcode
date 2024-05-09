@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3100-3199/3139.Minimum%20Cost%20to%20Equalize%20Array/README.md)
 
-<!-- tags: -->
+<!-- tags:Greedy,Array,Enumeration -->
 
 ## Description
 

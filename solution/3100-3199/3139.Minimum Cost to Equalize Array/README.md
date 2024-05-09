@@ -2,7 +2,7 @@
 
 [English Version](/solution/3100-3199/3139.Minimum%20Cost%20to%20Equalize%20Array/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:贪心,数组,枚举 -->
 
 ## 题目描述
 
