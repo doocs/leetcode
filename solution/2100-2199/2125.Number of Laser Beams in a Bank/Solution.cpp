@@ -1,16 +1,12 @@
 class Solution {
 public:
     int numberOfBeams(vector<string>& bank) {
-        int ans = 0;
-        int last = 0;
-        for (auto& b : bank) {
-            int t = 0;
-            for (char& c : b)
-                if (c == '1')
-                    ++t;
-            if (t) {
-                ans += last * t;
-                last = t;
+        int ans = 0, pre = 0;
+        for (auto& row : bank) {
+            int cur = count(row.begin(), row.end(), '1');
+            if (cur) {
+                ans += pre * cur;
+                pre = cur;
             }
         }
         return ans;
