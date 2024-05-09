@@ -25,8 +25,6 @@ grade 不会为 NULL。</pre>
 
 <p>编写解决方案，找出每位学生获得的最高成绩和它所对应的科目，若科目成绩并列，取&nbsp;<code>course_id</code>&nbsp;最小的一门。查询结果需按&nbsp;<code>student_id</code>&nbsp;增序进行排序。</p>
 
-<p>以 <strong>任意顺序</strong> 返回结果表。</p>
-
 <p>查询结果格式如下所示。</p>
 
 <p>&nbsp;</p>

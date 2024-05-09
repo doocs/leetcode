@@ -14,11 +14,9 @@
 
 <ul>
 	<li>&nbsp;Alice 按 <strong>从左到右</strong> 的顺序给植物浇水，从植物 <code>0</code> 开始。Bob 按 <strong>从右到左</strong> 的顺序给植物浇水，从植物 <code>n - 1</code> 开始。他们 <strong>同时</strong> 给植物浇水。</li>
-	<li>如果没有足够的水 <strong>完全</strong> 浇灌下一株植物，他 / 她会立即重新灌满浇水罐。</li>
-	<li>不管植物需要多少水，浇水所耗费的时间都是一样的。</li>
-	<li><strong>不能</strong> 提前重新灌满水罐。</li>
-	<li>每株植物都可以由 Alice 或者 Bob 来浇水。</li>
-	<li>如果 Alice 和 Bob 到达同一株植物，那么当前水罐中水更多的人会给这株植物浇水。如果他俩水量相同，那么 Alice 会给这株植物浇水。</li>
+	<li>无论需要多少水，为每株植物浇水所需的时间都是相同的。</li>
+	<li>如果 Alice/Bob 水罐中的水足以 <strong>完全</strong> 灌溉植物，他们 <strong>必须</strong> 给植物浇水。否则，他们 <strong>首先</strong>（立即）重新装满罐子，然后给植物浇水。</li>
+	<li>如果 Alice 和 Bob 到达同一株植物，那么当前水罐中水 <strong>更多</strong> 的人会给这株植物浇水。如果他俩水量相同，那么 Alice 会给这株植物浇水。</li>
 </ul>
 
 <p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>plants</code> ，数组由 <code>n</code> 个整数组成。其中，<code>plants[i]</code> 为第 <code>i</code> 株植物需要的水量。另有两个整数 <code>capacityA</code> 和&nbsp;<code>capacityB</code> 分别表示 Alice 和 Bob 水罐的容量。返回两人浇灌所有植物过程中重新灌满水罐的 <strong>次数</strong> 。</p>

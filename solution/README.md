@@ -3151,7 +3151,7 @@
 |  3138  |  [同位字符串连接的最小长度](/solution/3100-3199/3138.Minimum%20Length%20of%20Anagram%20Concatenation/README.md)  |  `哈希表`,`字符串`,`计数`  |  中等  |  第 396 场周赛  |
 |  3139  |  [使数组中所有元素相等的最小开销](/solution/3100-3199/3139.Minimum%20Cost%20to%20Equalize%20Array/README.md)  |  `贪心`,`数组`,`枚举`  |  困难  |  第 396 场周赛  |
 |  3140  |  [Consecutive Available Seats II](/solution/3100-3199/3140.Consecutive%20Available%20Seats%20II/README.md)  |  `数据库`  |  中等  |  🔒  |
-|  3141  |  [Maximum Hamming Distances](/solution/3100-3199/3141.Maximum%20Hamming%20Distances/README.md)  |    |  困难  |  🔒  |
+|  3141  |  [最大海明距离](/solution/3100-3199/3141.Maximum%20Hamming%20Distances/README.md)  |    |  困难  |  🔒  |
 
 ## 版权
 
