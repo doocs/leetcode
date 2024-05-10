@@ -238,38 +238,31 @@ class Trie {
 }
 
 class Solution {
-    private let trie = Trie()
-
     func longestWord(_ words: [String]) -> String {
-        let sortedWords = words.sorted { a, b in
-            if a.count != b.count {
-                return a.count < b.count
-            }
-            return a > b
-        }
-
-        var ans = ""
-        for word in sortedWords {
-            if dfs(word, "") {
-                ans = word
-            }
-            trie.insert(word)
-        }
-        return ans
-    }
-
-    private func dfs(_ word: String, _ prefix: String) -> Bool {
-        if prefix.isEmpty {
-            return true
-        }
-        for i in 1...prefix.count {
-            let index = prefix.index(prefix.startIndex, offsetBy: i)
-            let subPrefix = String(prefix[..<index])
-            if trie.search(subPrefix) && dfs(word, String(prefix[index...])) {
+        var words = words.sorted(by: { $0.count < $1.count || ($0.count == $1.count && $0 > $1) })
+        let trie = Trie()
+        
+        var dfs: ((String) -> Bool)!
+        dfs = { w in
+            if w.isEmpty {
                 return true
             }
+            for i in 1...w.count {
+                if trie.search(String(w.prefix(i))) && dfs(String(w.suffix(w.count - i))) {
+                    return true
+                }
+            }
+            return false
         }
-        return false
+        
+        var ans = ""
+        for w in words {
+            if dfs(w) {
+                ans = w
+            }
+            trie.insert(w)
+        }
+        return ans
     }
 }
 ```
