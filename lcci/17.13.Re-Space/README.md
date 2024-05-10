@@ -150,7 +150,7 @@ class Solution {
         let n = chars.count
         var dp = Array(repeating: Int.max, count: n + 1)
         dp[0] = 0
-        
+
         for i in 1...n {
             dp[i] = dp[i - 1] + 1
             for j in 0..<i {
