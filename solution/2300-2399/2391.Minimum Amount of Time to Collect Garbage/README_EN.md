@@ -66,44 +66,52 @@ It takes a total of 7 + 15 + 15 = 37 minutes to collect all the garbage.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Hash Table + Prefix Sum
+
+According to the problem description, each garbage truck starts from house $0$, collects one type of garbage, and moves forward in order until it reaches the house index where this type of garbage last appears.
+
+Therefore, we can use a hash table $\text{last}$ to record the house index where each type of garbage last appears. We assume that the $i$-th type of garbage last appears in the $j$-th house, then the driving time required for the $i$-th truck is $\text{travel}[0] + \text{travel}[1] + \cdots + \text{travel}[j-1]$. This can be calculated by prefix sum. We accumulate the driving time of all vehicles, add the total collection time of each type of garbage, and we can get the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(k)$, where $n$ and $k$ are the number and types of garbage, respectively. In this problem, $k = 3$.
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def garbageCollection(self, garbage: List[str], travel: List[int]) -> int:
-        ans = 0
         last = {}
+        ans = 0
         for i, s in enumerate(garbage):
             ans += len(s)
             for c in s:
                 last[c] = i
-        s = list(accumulate(travel, initial=0))
-        ans += sum(s[i] for i in last.values())
+        ts = 0
+        for i, t in enumerate(travel, 1):
+            ts += t
+            ans += sum(ts for j in last.values() if i == j)
         return ans
 ```
 
 ```java
 class Solution {
     public int garbageCollection(String[] garbage, int[] travel) {
-        int[] last = new int[26];
-        int n = garbage.length;
+        Map<Character, Integer> last = new HashMap<>(3);
         int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            int k = garbage[i].length();
-            ans += k;
-            for (int j = 0; j < k; ++j) {
-                last[garbage[i].charAt(j) - 'A'] = i;
+        for (int i = 0; i < garbage.length; ++i) {
+            String s = garbage[i];
+            ans += s.length();
+            for (char c : s.toCharArray()) {
+                last.put(c, i);
             }
         }
-        int m = travel.length;
-        int[] s = new int[m + 1];
-        for (int i = 0; i < m; ++i) {
-            s[i + 1] = s[i] + travel[i];
-        }
-        for (int i : last) {
-            ans += s[i];
+        int ts = 0;
+        for (int i = 1; i <= travel.length; ++i) {
+            ts += travel[i - 1];
+            for (int j : last.values()) {
+                if (i == j) {
+                    ans += ts;
+                }
+            }
         }
         return ans;
     }
@@ -114,22 +122,23 @@ class Solution {
 class Solution {
 public:
     int garbageCollection(vector<string>& garbage, vector<int>& travel) {
-        int n = garbage.size(), m = travel.size();
-        int last[26]{};
+        unordered_map<char, int> last;
         int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            ans += garbage[i].size();
-            for (char& c : garbage[i]) {
-                last[c - 'A'] = i;
+        for (int i = 0; i < garbage.size(); ++i) {
+            auto& s = garbage[i];
+            ans += s.size();
+            for (char& c : s) {
+                last[c] = i;
             }
         }
-        int s[m + 1];
-        s[0] = 0;
-        for (int i = 1; i <= m; ++i) {
-            s[i] = s[i - 1] + travel[i - 1];
-        }
-        for (int i : last) {
-            ans += s[i];
+        int ts = 0;
+        for (int i = 1; i <= travel.size(); ++i) {
+            ts += travel[i - 1];
+            for (auto& [_, j] : last) {
+                if (i == j) {
+                    ans += ts;
+                }
+            }
         }
         return ans;
     }
@@ -138,19 +147,21 @@ public:
 
 ```go
 func garbageCollection(garbage []string, travel []int) (ans int) {
-	last := [26]int{}
+	last := map[byte]int{}
 	for i, s := range garbage {
 		ans += len(s)
-		for _, c := range s {
-			last[c-'A'] = i
+		for j := range s {
+			last[s[j]] = i
 		}
 	}
-	s := make([]int, len(travel)+1)
-	for i, x := range travel {
-		s[i+1] = s[i] + x
-	}
-	for _, i := range last {
-		ans += s[i]
+	ts := 0
+	for i := 1; i <= len(travel); i++ {
+		ts += travel[i-1]
+		for _, j := range last {
+			if i == j {
+				ans += ts
+			}
+		}
 	}
 	return
 }
@@ -158,57 +169,51 @@ func garbageCollection(garbage []string, travel []int) (ans int) {
 
 ```ts
 function garbageCollection(garbage: string[], travel: number[]): number {
-    const n = garbage.length;
-    const m = travel.length;
+    const last: Map<string, number> = new Map();
     let ans = 0;
-    const last = new Array(26).fill(0);
-    for (let i = 0; i < n; ++i) {
-        ans += garbage[i].length;
-        for (const c of garbage[i]) {
-            last[c.charCodeAt(0) - 'A'.charCodeAt(0)] = i;
+    for (let i = 0; i < garbage.length; ++i) {
+        const s = garbage[i];
+        ans += s.length;
+        for (const c of s) {
+            last.set(c, i);
         }
     }
-    const s = new Array(m + 1).fill(0);
-    for (let i = 1; i <= m; ++i) {
-        s[i] = s[i - 1] + travel[i - 1];
-    }
-    for (const i of last) {
-        ans += s[i];
+    let ts = 0;
+    for (let i = 1; i <= travel.length; ++i) {
+        ts += travel[i - 1];
+        for (const [_, j] of last) {
+            if (i === j) {
+                ans += ts;
+            }
+        }
     }
     return ans;
 }
 ```
 
 ```rust
+use std::collections::HashMap;
+
 impl Solution {
     pub fn garbage_collection(garbage: Vec<String>, travel: Vec<i32>) -> i32 {
-        let n = garbage.len();
-        let cs = [b'M', b'P', b'G'];
-        let mut count = [0, 0, 0];
-        for s in garbage.iter() {
-            for c in s.as_bytes().iter() {
-                count[if c == &b'M' { 0 } else if c == &b'P' { 1 } else { 2 }] += 1;
+        let mut last: HashMap<char, usize> = HashMap::new();
+        let mut ans = 0;
+        for (i, s) in garbage.iter().enumerate() {
+            ans += s.len() as i32;
+            for c in s.chars() {
+                last.insert(c, i);
             }
         }
-
-        let mut res = 0;
-        for i in 0..3 {
-            for j in 0..n {
-                let s = &garbage[j];
-                for c in s.as_bytes().iter() {
-                    if c == &cs[i] {
-                        res += 1;
-                        count[i] -= 1;
-                    }
+        let mut ts = 0;
+        for (i, t) in travel.iter().enumerate() {
+            ts += t;
+            for &j in last.values() {
+                if i + 1 == j {
+                    ans += ts;
                 }
-                if count[i] == 0 {
-                    break;
-                }
-
-                res += travel[j];
             }
         }
-        res
+        ans
     }
 }
 ```
@@ -216,150 +221,25 @@ impl Solution {
 ```cs
 public class Solution {
     public int GarbageCollection(string[] garbage, int[] travel) {
-        int len = garbage.Length;
-        int res = 0;
-        HashSet<char> s = new HashSet<char>();
-        for (int i = len - 1; i >= 0; i--) {
-            foreach (char ch in garbage[i].ToCharArray()) {
-                if (!s.Contains(ch))
-                    s.Add(ch);
-            }
-            res += garbage[i].Length;
-            res += i > 0 ? s.Count * travel[i - 1] : 0;
-        }
-        return res;
-    }
-}
-```
-
-<!-- tabs:end -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def garbageCollection(self, garbage: List[str], travel: List[int]) -> int:
-        def f(x: str) -> int:
-            ans = 0
-            st = 0
-            for i, s in enumerate(garbage):
-                if t := s.count(x):
-                    ans += t + st
-                    st = 0
-                if i < len(travel):
-                    st += travel[i]
-            return ans
-
-        return f('M') + f('P') + f('G')
-```
-
-```java
-class Solution {
-    private String[] garbage;
-    private int[] travel;
-
-    public int garbageCollection(String[] garbage, int[] travel) {
-        this.garbage = garbage;
-        this.travel = travel;
-        return f('M') + f('P') + f('G');
-    }
-
-    private int f(char c) {
+        Dictionary<char, int> last = new Dictionary<char, int>();
         int ans = 0;
-        int st = 0;
-        for (int i = 0; i < garbage.length; ++i) {
-            int cnt = 0;
-            for (int j = 0; j < garbage[i].length(); ++j) {
-                if (garbage[i].charAt(j) == c) {
-                    ++cnt;
+        for (int i = 0; i < garbage.Length; ++i) {
+            ans += garbage[i].Length;
+            foreach (char c in garbage[i]) {
+                last[c] = i;
+            }
+        }
+        int ts = 0;
+        for (int i = 1; i <= travel.Length; ++i) {
+            ts += travel[i - 1];
+            foreach (int j in last.Values) {
+                if (i == j) {
+                    ans += ts;
                 }
-            }
-            if (cnt > 0) {
-                ans += cnt + st;
-                st = 0;
-            }
-            if (i < travel.length) {
-                st += travel[i];
             }
         }
         return ans;
     }
-}
-```
-
-```cpp
-class Solution {
-public:
-    int garbageCollection(vector<string>& garbage, vector<int>& travel) {
-        auto f = [&](char x) {
-            int ans = 0, st = 0;
-            for (int i = 0; i < garbage.size(); ++i) {
-                int cnt = 0;
-                for (char& c : garbage[i]) {
-                    if (c == x) {
-                        ++cnt;
-                    }
-                }
-                if (cnt > 0) {
-                    ans += cnt + st;
-                    st = 0;
-                }
-                if (i < travel.size()) {
-                    st += travel[i];
-                }
-            }
-            return ans;
-        };
-        return f('M') + f('P') + f('G');
-    }
-};
-```
-
-```go
-func garbageCollection(garbage []string, travel []int) (ans int) {
-	f := func(x rune) int {
-		ans, st := 0, 0
-		for i, s := range garbage {
-			cnt := strings.Count(s, string(x))
-			if cnt > 0 {
-				ans += cnt + st
-				st = 0
-			}
-			if i < len(travel) {
-				st += travel[i]
-			}
-		}
-		return ans
-	}
-	return f('M') + f('P') + f('G')
-}
-```
-
-```ts
-function garbageCollection(garbage: string[], travel: number[]): number {
-    const f = (x: string) => {
-        let ans = 0;
-        let st = 0;
-        for (let i = 0; i < garbage.length; ++i) {
-            let cnt = 0;
-            for (const c of garbage[i]) {
-                if (c === x) {
-                    ++cnt;
-                }
-            }
-            if (cnt > 0) {
-                ans += cnt + st;
-                st = 0;
-            }
-            if (i < travel.length) {
-                st += travel[i];
-            }
-        }
-        return ans;
-    };
-    return f('M') + f('P') + f('G');
 }
 ```
 
