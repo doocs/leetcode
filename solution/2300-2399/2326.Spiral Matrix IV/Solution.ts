@@ -11,26 +11,24 @@
  */
 
 function spiralMatrix(m: number, n: number, head: ListNode | null): number[][] {
-    const dirs = [
-        [0, 1],
-        [1, 0],
-        [0, -1],
-        [-1, 0],
-    ];
-    let ans = Array.from({ length: m }, v => new Array(n).fill(-1));
-    let i = 0,
-        j = 0,
-        k = 0;
-    while (head) {
+    const ans: number[][] = Array.from({ length: m }, () => Array(n).fill(-1));
+    const dirs: number[] = [0, 1, 0, -1, 0];
+    let [i, j, k] = [0, 0, 0];
+    while (1) {
         ans[i][j] = head.val;
         head = head.next;
-        let x = i + dirs[k][0];
-        let y = j + dirs[k][1];
-        if (x < 0 || x > m - 1 || y < 0 || y > n - 1 || ans[x][y] != -1) {
+        if (!head) {
+            break;
+        }
+        while (1) {
+            const [x, y] = [i + dirs[k], j + dirs[k + 1]];
+            if (x >= 0 && x < m && y >= 0 && y < n && ans[x][y] === -1) {
+                i = x;
+                j = y;
+                break;
+            }
             k = (k + 1) % 4;
         }
-        i = i + dirs[k][0];
-        j = j + dirs[k][1];
     }
     return ans;
 }
