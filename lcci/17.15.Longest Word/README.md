@@ -233,7 +233,7 @@ class Solution {
     func longestWord(_ words: [String]) -> String {
         var words = words.sorted(by: { $0.count < $1.count || ($0.count == $1.count && $0 > $1) })
         let trie = Trie()
-        
+
         var dfs: ((String) -> Bool)!
         dfs = { w in
             if w.isEmpty {
@@ -246,7 +246,7 @@ class Solution {
             }
             return false
         }
-        
+
         var ans = ""
         for w in words {
             if dfs(w) {
