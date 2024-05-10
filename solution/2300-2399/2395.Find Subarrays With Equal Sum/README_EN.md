@@ -48,7 +48,13 @@ Note that even though the subarrays have the same content, the two subarrays are
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Hash Table
+
+We can traverse the array $nums$, and use a hash table $vis$ to record the sum of every two adjacent elements in the array. If the sum of the current two elements has already appeared in the hash table, then return `true`. Otherwise, add the sum of the current two elements to the hash table.
+
+If we finish traversing and haven't found two subarrays that meet the condition, return `false`.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
