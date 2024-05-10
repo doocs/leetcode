@@ -1,6 +1,6 @@
 class Solution {
     public int garbageCollection(String[] garbage, int[] travel) {
-        Map<Character, Integer> last =  new HashMap<>(3);
+        Map<Character, Integer> last = new HashMap<>(3);
         int ans = 0;
         for (int i = 0; i < garbage.length; ++i) {
             String s = garbage[i];
