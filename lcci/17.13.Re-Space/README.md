@@ -144,13 +144,13 @@ class Trie {
 
 class Solution {
     func respace(_ dictionary: [String], _ sentence: String) -> Int {
+        let n = sentence.count
+        guard n > 0 else { return 0 }
         let trie = Trie()
         dictionary.forEach { trie.insert($0) }
         let chars = Array(sentence)
-        let n = chars.count
         var dp = Array(repeating: Int.max, count: n + 1)
         dp[0] = 0
-
         for i in 1...n {
             dp[i] = dp[i - 1] + 1
             for j in 0..<i {
