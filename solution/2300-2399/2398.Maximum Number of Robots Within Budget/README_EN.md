@@ -44,7 +44,15 @@ It can be shown that it is not possible to run more than 3 consecutive robots wi
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Two Pointers + Monotonic Queue
+
+The problem is essentially finding the maximum value within a sliding window, which can be solved using a monotonic queue.
+
+We only need to use binary search to enumerate the size of the window $k$, and find the largest $k$ that satisfies the problem requirements.
+
+In the implementation process, we don't actually need to perform binary search enumeration. We just need to change the fixed window to a non-fixed window with double pointers.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of robots in the problem.
 
 <!-- tabs:start -->
 

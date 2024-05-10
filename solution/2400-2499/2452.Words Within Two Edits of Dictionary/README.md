@@ -52,9 +52,9 @@
 
 ### 方法一：暴力枚举
 
-遍历 `queries` 中的每个单词，对于每个单词，遍历 `dictionary` 中的每个单词，判断两个单词不同字符的位置数是否小于 $3$，如果是，则将该单词加入结果集。
+我们直接遍历数组 $\text{queries}$ 中的每个单词 $s$，再遍历数组 $\text{dictionary}$ 中的每个单词 $t$，如果存在一个单词 $t$ 与 $s$ 的编辑距离小于 $3$，则将 $s$ 加入答案数组中，然后退出内层循环的遍历。如果不存在这样的单词 $t$，则继续遍历下一个单词 $s$。
 
-时间复杂度 $O(m\times n\times k)$。其中 $m$ 和 $n$ 分别是 `queries` 和 `dictionary` 的长度，而 $k$ 是 `queries` 和 `dictionary` 中单词的长度。
+时间复杂度 $O(m \times n \times l)$，其中 $m$ 和 $n$ 分别是数组 $\text{queries}$ 和 $\text{dictionary}$ 的长度，而 $l$ 是单词的长度。
 
 <!-- tabs:start -->
 
@@ -102,7 +102,9 @@ public:
         for (auto& s : queries) {
             for (auto& t : dictionary) {
                 int cnt = 0;
-                for (int i = 0; i < s.size(); ++i) cnt += s[i] != t[i];
+                for (int i = 0; i < s.size(); ++i) {
+                    cnt += s[i] != t[i];
+                }
                 if (cnt < 3) {
                     ans.emplace_back(s);
                     break;
@@ -137,15 +139,15 @@ func twoEditWords(queries []string, dictionary []string) (ans []string) {
 ```ts
 function twoEditWords(queries: string[], dictionary: string[]): string[] {
     const n = queries[0].length;
-    return queries.filter(querie => {
-        for (const s of dictionary) {
+    return queries.filter(s => {
+        for (const t of dictionary) {
             let diff = 0;
-            for (let i = 0; i < n; i++) {
-                if (querie[i] !== s[i] && ++diff > 2) {
-                    break;
+            for (let i = 0; i < n; ++i) {
+                if (s[i] !== t[i]) {
+                    ++diff;
                 }
             }
-            if (diff <= 2) {
+            if (diff < 3) {
                 return true;
             }
         }
@@ -157,24 +159,41 @@ function twoEditWords(queries: string[], dictionary: string[]): string[] {
 ```rust
 impl Solution {
     pub fn two_edit_words(queries: Vec<String>, dictionary: Vec<String>) -> Vec<String> {
-        let n = queries[0].len();
         queries
             .into_iter()
-            .filter(|querie| {
-                for s in dictionary.iter() {
-                    let mut diff = 0;
-                    for i in 0..n {
-                        if querie.as_bytes()[i] != s.as_bytes()[i] {
-                            diff += 1;
-                        }
-                    }
-                    if diff <= 2 {
-                        return true;
-                    }
-                }
-                false
+            .filter(|s| {
+                dictionary.iter().any(|t| {
+                    s
+                        .chars()
+                        .zip(t.chars())
+                        .filter(|&(a, b)| a != b)
+                        .count() < 3
+                })
             })
             .collect()
+    }
+}
+```
+
+```cs
+public class Solution {
+    public IList<string> TwoEditWords(string[] queries, string[] dictionary) {
+        var ans = new List<string>();
+        foreach (var s in queries) {
+            foreach (var t in dictionary) {
+                int cnt = 0;
+                for (int i = 0; i < s.Length; i++) {
+                    if (s[i] != t[i]) {
+                        cnt++;
+                    }
+                }
+                if (cnt < 3) {
+                    ans.Add(s);
+                    break;
+                }
+            }
+        }
+        return ans;
     }
 }
 ```

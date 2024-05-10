@@ -43,7 +43,15 @@ Therefore, we return false.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Quick Thinking
+
+When $n = 4$, its binary representation is $100$, which is not a palindrome;
+
+When $n \gt 4$, its $(n - 2)$-ary representation is $12$, which is not a palindrome.
+
+Therefore, we can directly return `false`.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
