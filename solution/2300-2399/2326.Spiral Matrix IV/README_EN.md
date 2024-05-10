@@ -44,7 +44,17 @@ The last space in the matrix is set to -1.</pre>
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Simulation
+
+We define a two-dimensional array $\text{ans}$ to store the elements in the linked list, initially all filled with $-1$. We define three variables $i, j, k$, representing the current row, column, and direction respectively. We define an array $\text{dirs}$ to represent the offsets of the four directions.
+
+Then we start traversing the linked list. Each time we traverse a node, we fill the current node's value into $\text{ans}[i][j]$, then update the linked list pointer. If the linked list is empty, it means all elements have been filled and we exit the loop.
+
+Otherwise, we need to find the position of the next element. We can calculate the next position $(x, y)$ through the current position $(i, j)$ and the current direction $k$. If $(x, y)$ is within the range of the matrix, and $\text{ans}[x][y]$ is $-1$, it means $(x, y)$ has not been filled yet, so we take $(x, y)$ as the next position. Otherwise, we need to change the direction.
+
+After traversing the linked list, we get a spiral matrix and return it.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$, where $m$ and $n$ represent the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 
@@ -57,20 +67,19 @@ The last space in the matrix is set to -1.</pre>
 class Solution:
     def spiralMatrix(self, m: int, n: int, head: Optional[ListNode]) -> List[List[int]]:
         ans = [[-1] * n for _ in range(m)]
-        i = j = p = 0
-        dirs = [[0, 1], [1, 0], [0, -1], [-1, 0]]
+        i = j = k = 0
+        dirs = (0, 1, 0, -1, 0)
         while 1:
             ans[i][j] = head.val
             head = head.next
-            if not head:
+            if head is None:
                 break
             while 1:
-                x, y = i + dirs[p][0], j + dirs[p][1]
-                if x < 0 or y < 0 or x >= m or y >= n or ~ans[x][y]:
-                    p = (p + 1) % 4
-                else:
+                x, y = i + dirs[k], j + dirs[k + 1]
+                if 0 <= x < m and 0 <= y < n and ans[x][y] == -1:
                     i, j = x, y
                     break
+                k = (k + 1) % 4
         return ans
 ```
 
@@ -88,11 +97,11 @@ class Solution:
 class Solution {
     public int[][] spiralMatrix(int m, int n, ListNode head) {
         int[][] ans = new int[m][n];
-        for (int[] row : ans) {
+        for (var row : ans) {
             Arrays.fill(row, -1);
         }
-        int i = 0, j = 0, p = 0;
-        int[][] dirs = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+        int i = 0, j = 0, k = 0;
+        final int[] dirs = {0, 1, 0, -1, 0};
         while (true) {
             ans[i][j] = head.val;
             head = head.next;
@@ -100,14 +109,13 @@ class Solution {
                 break;
             }
             while (true) {
-                int x = i + dirs[p][0], y = j + dirs[p][1];
-                if (x < 0 || y < 0 || x >= m || y >= n || ans[x][y] >= 0) {
-                    p = (p + 1) % 4;
-                } else {
+                int x = i + dirs[k], y = j + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && ans[x][y] == -1) {
                     i = x;
                     j = y;
                     break;
                 }
+                k = (k + 1) % 4;
             }
         }
         return ans;
@@ -130,20 +138,22 @@ class Solution {
 public:
     vector<vector<int>> spiralMatrix(int m, int n, ListNode* head) {
         vector<vector<int>> ans(m, vector<int>(n, -1));
-        int i = 0, j = 0, p = 0;
-        vector<vector<int>> dirs = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+        int i = 0, j = 0, k = 0;
+        const int dirs[5] = {0, 1, 0, -1, 0};
         while (1) {
             ans[i][j] = head->val;
             head = head->next;
-            if (!head) break;
+            if (!head) {
+                break;
+            }
             while (1) {
-                int x = i + dirs[p][0], y = j + dirs[p][1];
-                if (x < 0 || y < 0 || x >= m || y >= n || ans[x][y] >= 0)
-                    p = (p + 1) % 4;
-                else {
-                    i = x, j = y;
+                int x = i + dirs[k], y = j + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && ans[x][y] == -1) {
+                    i = x;
+                    j = y;
                     break;
                 }
+                k = (k + 1) % 4;
             }
         }
         return ans;
@@ -167,22 +177,20 @@ func spiralMatrix(m int, n int, head *ListNode) [][]int {
 			ans[i][j] = -1
 		}
 	}
-	i, j, p := 0, 0, 0
-	dirs := [][]int{{0, 1}, {1, 0}, {0, -1}, {-1, 0}}
+	i, j, k := 0, 0, 0
+	dirs := [5]int{0, 1, 0, -1, 0}
 	for {
 		ans[i][j] = head.Val
-		head = head.Next
-		if head == nil {
+		if head = head.Next; head == nil {
 			break
 		}
 		for {
-			x, y := i+dirs[p][0], j+dirs[p][1]
-			if x < 0 || y < 0 || x >= m || y >= n || ans[x][y] >= 0 {
-				p = (p + 1) % 4
-			} else {
+			x, y := i+dirs[k], j+dirs[k+1]
+			if x >= 0 && x < m && y >= 0 && y < n && ans[x][y] == -1 {
 				i, j = x, y
 				break
 			}
+			k = (k + 1) % 4
 		}
 	}
 	return ans
@@ -203,26 +211,24 @@ func spiralMatrix(m int, n int, head *ListNode) [][]int {
  */
 
 function spiralMatrix(m: number, n: number, head: ListNode | null): number[][] {
-    const dirs = [
-        [0, 1],
-        [1, 0],
-        [0, -1],
-        [-1, 0],
-    ];
-    let ans = Array.from({ length: m }, v => new Array(n).fill(-1));
-    let i = 0,
-        j = 0,
-        k = 0;
-    while (head) {
+    const ans: number[][] = Array.from({ length: m }, () => Array(n).fill(-1));
+    const dirs: number[] = [0, 1, 0, -1, 0];
+    let [i, j, k] = [0, 0, 0];
+    while (1) {
         ans[i][j] = head.val;
         head = head.next;
-        let x = i + dirs[k][0];
-        let y = j + dirs[k][1];
-        if (x < 0 || x > m - 1 || y < 0 || y > n - 1 || ans[x][y] != -1) {
+        if (!head) {
+            break;
+        }
+        while (1) {
+            const [x, y] = [i + dirs[k], j + dirs[k + 1]];
+            if (x >= 0 && x < m && y >= 0 && y < n && ans[x][y] === -1) {
+                i = x;
+                j = y;
+                break;
+            }
             k = (k + 1) % 4;
         }
-        i = i + dirs[k][0];
-        j = j + dirs[k][1];
     }
     return ans;
 }

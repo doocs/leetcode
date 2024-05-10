@@ -207,7 +207,7 @@ class Solution {
         var sign: Character = "+"
         var stk = [Int]()
         let sArray = Array(s)
-        
+
         for i in 0..<n {
             let c = sArray[i]
             if c.isNumber {
@@ -234,7 +234,7 @@ class Solution {
                 sign = c
             }
         }
-        
+
         return stk.reduce(0, +)
     }
 }

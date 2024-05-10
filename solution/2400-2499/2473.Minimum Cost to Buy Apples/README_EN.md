@@ -40,7 +40,7 @@
 
 <ul>
 	<li><code>2 &lt;= n &lt;= 1000</code></li>
-	<li><code>1 &lt;= roads.length &lt;= 1000</code></li>
+	<li><code>1 &lt;= roads.length &lt;= 2000</code></li>
 	<li><code>1 &lt;= a<sub>i</sub>, b<sub>i</sub> &lt;= n</code></li>
 	<li><code>a<sub>i</sub> != b<sub>i</sub></code></li>
 	<li><code>1 &lt;= cost<sub>i</sub> &lt;= 10<sup>5</sup></code></li>
