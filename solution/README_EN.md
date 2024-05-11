@@ -3150,6 +3150,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3139  |  [Minimum Cost to Equalize Array](/solution/3100-3199/3139.Minimum%20Cost%20to%20Equalize%20Array/README_EN.md)  |  `Greedy`,`Array`,`Enumeration`  |  Hard  |  Weekly Contest 396  |
 |  3140  |  [Consecutive Available Seats II](/solution/3100-3199/3140.Consecutive%20Available%20Seats%20II/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
 |  3141  |  [Maximum Hamming Distances](/solution/3100-3199/3141.Maximum%20Hamming%20Distances/README_EN.md)  |    |  Hard  |  🔒  |
+|  3142  |  [Check if Grid Satisfies Conditions](/solution/3100-3199/3142.Check%20if%20Grid%20Satisfies%20Conditions/README_EN.md)  |    |  Easy  |  Biweekly Contest 130  |
+|  3143  |  [Maximum Points Inside the Square](/solution/3100-3199/3143.Maximum%20Points%20Inside%20the%20Square/README_EN.md)  |    |  Medium  |  Biweekly Contest 130  |
+|  3144  |  [Minimum Substring Partition of Equal Character Frequency](/solution/3100-3199/3144.Minimum%20Substring%20Partition%20of%20Equal%20Character%20Frequency/README_EN.md)  |    |  Medium  |  Biweekly Contest 130  |
+|  3145  |  [Find Products of Elements of Big Array](/solution/3100-3199/3145.Find%20Products%20of%20Elements%20of%20Big%20Array/README_EN.md)  |    |  Hard  |  Biweekly Contest 130  |
 
 ## Copyright
 
