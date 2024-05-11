@@ -38,7 +38,11 @@ There does not exist any integer present both in nums[0] and nums[1], so we retu
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Counting
+
+Traverse the array `nums`. For each sub-array `arr`, count the occurrence of each number in `arr`. Then traverse the count array, count the numbers that appear as many times as the length of the array `nums`, which are the answers.
+
+The time complexity is $O(N)$, and the space complexity is $O(1000)$. Where $N$ is the total number of numbers in the array `nums`.
 
 <!-- tabs:start -->
 
