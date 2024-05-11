@@ -1,18 +1,11 @@
-func minimalKSum(nums []int, k int) int64 {
-	nums = append(nums, 0, 2e9)
+func minimalKSum(nums []int, k int) (ans int64) {
+	nums = append(nums, []int{0, 2e9}...)
 	sort.Ints(nums)
-	ans := 0
-	for i := 1; i < len(nums); i++ {
-		a, b := nums[i-1], nums[i]
-		n := min(k, b-a-1)
-		if n <= 0 {
-			continue
-		}
-		k -= n
-		ans += (a + 1 + a + n) * n / 2
-		if k == 0 {
-			break
-		}
+	for i, b := range nums[1:] {
+		a := nums[i]
+		m := max(0, min(k, b-a-1))
+		ans += int64(a+1+a+m) * int64(m) / 2
+		k -= m
 	}
-	return int64(ans)
+	return ans
 }
