@@ -48,7 +48,15 @@ So the minimum time needed to complete 1 trip is 2.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Binary Search
+
+We notice that if we can complete at least $totalTrips$ trips in $t$ time, then we can also complete at least $totalTrips$ trips in $t' > t$ time. Therefore, we can use the method of binary search to find the smallest $t$.
+
+We define the left boundary of the binary search as $l = 1$, and the right boundary as $r = \min(time) \times totalTrips$. For each binary search, we calculate the middle value $\text{mid} = \frac{l + r}{2}$, and then calculate the number of trips that can be completed in $\text{mid}$ time. If this number is greater than or equal to $totalTrips$, then we reduce the right boundary to $\text{mid}$, otherwise we increase the left boundary to $\text{mid} + 1$.
+
+Finally, return the left boundary.
+
+The time complexity is $O(n \times \log(m \times k))$, where $n$ and $k$ are the length of the array $time$ and $totalTrips$ respectively, and $m$ is the minimum value in the array $time$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -91,15 +99,18 @@ class Solution {
 public:
     long long minimumTime(vector<int>& time, int totalTrips) {
         int mi = *min_element(time.begin(), time.end());
-        long long left = 1, right = (long long) mi * totalTrips;
+        long long left = 1, right = 1LL * mi * totalTrips;
         while (left < right) {
             long long cnt = 0;
             long long mid = (left + right) >> 1;
-            for (int v : time) cnt += mid / v;
-            if (cnt >= totalTrips)
+            for (int v : time) {
+                cnt += mid / v;
+            }
+            if (cnt >= totalTrips) {
                 right = mid;
-            else
+            } else {
                 left = mid + 1;
+            }
         }
         return left;
     }
@@ -108,20 +119,31 @@ public:
 
 ```go
 func minimumTime(time []int, totalTrips int) int64 {
-	left, right := 1, slices.Min(time)*totalTrips
-	for left < right {
-		mid := (left + right) >> 1
+	mx := slices.Min(time) * totalTrips
+	return int64(sort.Search(mx, func(x int) bool {
 		cnt := 0
 		for _, v := range time {
-			cnt += mid / v
+			cnt += x / v
 		}
-		if cnt >= totalTrips {
-			right = mid
-		} else {
-			left = mid + 1
-		}
-	}
-	return int64(left)
+		return cnt >= totalTrips
+	}))
+}
+```
+
+```ts
+function minimumTime(time: number[], totalTrips: number): number {
+    let left = 1n;
+    let right = BigInt(Math.min(...time)) * BigInt(totalTrips);
+    while (left < right) {
+        const mid = (left + right) >> 1n;
+        const cnt = time.reduce((acc, v) => acc + mid / BigInt(v), 0n);
+        if (cnt >= BigInt(totalTrips)) {
+            right = mid;
+        } else {
+            left = mid + 1n;
+        }
+    }
+    return Number(left);
 }
 ```
 
