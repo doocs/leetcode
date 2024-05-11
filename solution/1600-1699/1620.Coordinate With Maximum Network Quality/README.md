@@ -34,7 +34,7 @@
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1620.Coordinate%20With%20Maximum%20Network%20Quality/images/untitled-diagram.png" style="width: 176px; height: 176px;" />
 <pre>
 <b>输入：</b>towers = [[1,2,5],[2,1,7],[3,1,9]], radius = 2
@@ -46,14 +46,14 @@
 - 塔 (3, 1) 强度参数为 9 ，在该点强度为 ⌊9 / (1 + sqrt(1)⌋ = ⌊4.5⌋ = 4
 没有别的坐标有更大的信号强度。</pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
 <b>输入：</b>towers = [[23,11,21]], radius = 9
 <b>输出：</b>[23,11]
 <strong>解释：</strong>由于仅存在一座信号塔，所以塔的位置信号强度最大。</pre>
 
-<p><strong>示例 3：</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <pre>
 <b>输入：</b>towers = [[1,2,13],[2,1,7],[0,1,9]], radius = 2

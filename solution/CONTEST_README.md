@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 130 场双周赛(2024-05-11 22:30, 90 分钟) 参赛人数 2603
+
+- [3142. 判断矩阵是否满足条件](/solution/3100-3199/3142.Check%20if%20Grid%20Satisfies%20Conditions/README.md)
+- [3143. 正方形中的最多点数](/solution/3100-3199/3143.Maximum%20Points%20Inside%20the%20Square/README.md)
+- [3144. 分割字符频率相等的最少子字符串](/solution/3100-3199/3144.Minimum%20Substring%20Partition%20of%20Equal%20Character%20Frequency/README.md)
+- [3145. 大数组元素的乘积](/solution/3100-3199/3145.Find%20Products%20of%20Elements%20of%20Big%20Array/README.md)
+
 #### 第 396 场周赛(2024-05-05 10:30, 90 分钟) 参赛人数 2931
 
 - [3136. 有效单词](/solution/3100-3199/3136.Valid%20Word/README.md)

@@ -1,4 +1,4 @@
-# [3141. 最大海明距离 🔒](https://leetcode.cn/problems/maximum-hamming-distances)
+# [3141. 最大汉明距离 🔒](https://leetcode.cn/problems/maximum-hamming-distances)
 
 [English Version](/solution/3100-3199/3141.Maximum%20Hamming%20Distances/README_EN.md)
 
@@ -8,9 +8,9 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个数组&nbsp;<code>nums</code>&nbsp;和一个整数&nbsp;<code>m</code>，每个元素&nbsp;<code>nums[i]</code>&nbsp;满足&nbsp;<code>0 &lt;= nums[i] &lt; 2<sup>m</sup></code>，返回数组&nbsp;<code>answer</code>。<code>answer</code>&nbsp;数组应该与&nbsp;<code>nums</code>&nbsp; 有相同的长度，每个元素&nbsp;<code>answer[i]</code>&nbsp;表示&nbsp;<code>nums[i]</code>&nbsp;和数组中其它任何元素&nbsp;<code>nums[j]</code>&nbsp;的最大 <strong>海明距离</strong>。</p>
+<p>给定一个数组&nbsp;<code>nums</code>&nbsp;和一个整数&nbsp;<code>m</code>，每个元素&nbsp;<code>nums[i]</code>&nbsp;满足&nbsp;<code>0 &lt;= nums[i] &lt; 2<sup>m</sup></code>，返回数组&nbsp;<code>answer</code>。<code>answer</code>&nbsp;数组应该与&nbsp;<code>nums</code>&nbsp; 有相同的长度，每个元素&nbsp;<code>answer[i]</code>&nbsp;表示&nbsp;<code>nums[i]</code>&nbsp;和数组中其它任何元素&nbsp;<code>nums[j]</code>&nbsp;的最大 <strong>汉明距离</strong>。</p>
 
-<p>两个二进制整数之间的&nbsp;<strong>海明距离</strong> 定义为对应位上二进制位不同的数量（如果需要，添加前置零）。</p>
+<p>两个二进制整数之间的&nbsp;<strong>汉明距离</strong> 定义为对应位上二进制位不同的数量（如果需要，添加前置零）。</p>
 
 <p>&nbsp;</p>
 
@@ -25,7 +25,7 @@
 
 <p>二进制表示为&nbsp;<code>nums = [1001,1100,1001,1011]</code>。</p>
 
-<p>每个下标的最大海明距离为：</p>
+<p>每个下标的最大汉明距离为：</p>
 
 <ul>
 	<li><code>nums[0]</code>：1001 与 1100 距离为 2。</li>
@@ -46,7 +46,7 @@
 
 <p>二进制表示为 <code>nums = [0011,0100,0110,1010]</code>。</p>
 
-<p>每个下标的最大海明距离为：</p>
+<p>每个下标的最大汉明距离为：</p>
 
 <ul>
 	<li><code>nums[0]</code>：0011 与 0100 距离为 3。</li>
