@@ -42,7 +42,13 @@ It can be shown that all the tasks cannot be completed in fewer than 4 rounds, s
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Hash Table
+
+We use a hash table to count the number of tasks for each difficulty level. Then we traverse the hash table. For each difficulty level, if the number of tasks is $1$, then it is impossible to complete all tasks, so we return $-1$. Otherwise, we calculate the number of rounds needed to complete tasks of this difficulty level and add it to the answer.
+
+Finally, we return the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the `tasks` array.
 
 <!-- tabs:start -->
 
@@ -131,6 +137,28 @@ function minimumRounds(tasks: number[]): number {
         ans += Math.floor(v / 3) + (v % 3 === 0 ? 0 : 1);
     }
     return ans;
+}
+```
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn minimum_rounds(tasks: Vec<i32>) -> i32 {
+        let mut cnt = HashMap::new();
+        for &t in tasks.iter() {
+            let count = cnt.entry(t).or_insert(0);
+            *count += 1;
+        }
+        let mut ans = 0;
+        for &v in cnt.values() {
+            if v == 1 {
+                return -1;
+            }
+            ans += v / 3 + (if v % 3 == 0 { 0 } else { 1 });
+        }
+        ans
+    }
 }
 ```
 
