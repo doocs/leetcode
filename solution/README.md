@@ -3156,6 +3156,10 @@
 |  3143  |  [正方形中的最多点数](/solution/3100-3199/3143.Maximum%20Points%20Inside%20the%20Square/README.md)  |    |  中等  |  第 130 场双周赛  |
 |  3144  |  [分割字符频率相等的最少子字符串](/solution/3100-3199/3144.Minimum%20Substring%20Partition%20of%20Equal%20Character%20Frequency/README.md)  |    |  中等  |  第 130 场双周赛  |
 |  3145  |  [大数组元素的乘积](/solution/3100-3199/3145.Find%20Products%20of%20Elements%20of%20Big%20Array/README.md)  |    |  困难  |  第 130 场双周赛  |
+|  3146  |  [两个字符串的排列差](/solution/3100-3199/3146.Permutation%20Difference%20between%20Two%20Strings/README.md)  |    |  简单  |  第 397 场周赛  |
+|  3147  |  [从魔法师身上吸取的最大能量](/solution/3100-3199/3147.Taking%20Maximum%20Energy%20From%20the%20Mystic%20Dungeon/README.md)  |    |  中等  |  第 397 场周赛  |
+|  3148  |  [矩阵中的最大得分](/solution/3100-3199/3148.Maximum%20Difference%20Score%20in%20a%20Grid/README.md)  |    |  中等  |  第 397 场周赛  |
+|  3149  |  [找出分数最低的排列](/solution/3100-3199/3149.Find%20the%20Minimum%20Cost%20Array%20Permutation/README.md)  |    |  困难  |  第 397 场周赛  |
 
 ## 版权
 

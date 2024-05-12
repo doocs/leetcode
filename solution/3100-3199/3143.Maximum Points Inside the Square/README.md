@@ -78,24 +78,143 @@
 
 ## 解法
 
-### 方法一
+### 方法一：哈希表 + 排序
+
+对于一个点 $(x, y)$，我们可以将其映射到以原点为中心的第一象限，即 $(\max(|x|, |y|), \max(|x|, |y|))$。这样，我们就可以将所有的点映射到第一象限，然后按照点到原点的距离进行排序。
+
+我们可以使用哈希表 $g$ 来存储所有点到原点的距离，然后按照距离进行排序。对于每个距离 $d$，我们将所有距离为 $d$ 的点放在一起，然后遍历这些点，如果有两个点的标签相同，那么这个正方形是不合法的，直接返回答案。否则，我们将这些点加入到答案中。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是点的数量。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def maxPointsInsideSquare(self, points: List[List[int]], s: str) -> int:
+        g = defaultdict(list)
+        for i, (x, y) in enumerate(points):
+            g[max(abs(x), abs(y))].append(i)
+        vis = set()
+        ans = 0
+        for d in sorted(g):
+            idx = g[d]
+            for i in idx:
+                if s[i] in vis:
+                    return ans
+                vis.add(s[i])
+            ans += len(idx)
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public int maxPointsInsideSquare(int[][] points, String s) {
+        TreeMap<Integer, List<Integer>> g = new TreeMap<>();
+        for (int i = 0; i < points.length; ++i) {
+            int x = points[i][0], y = points[i][1];
+            int key = Math.max(Math.abs(x), Math.abs(y));
+            g.computeIfAbsent(key, k -> new ArrayList<>()).add(i);
+        }
+        boolean[] vis = new boolean[26];
+        int ans = 0;
+        for (var idx : g.values()) {
+            for (int i : idx) {
+                int j = s.charAt(i) - 'a';
+                if (vis[j]) {
+                    return ans;
+                }
+                vis[j] = true;
+            }
+            ans += idx.size();
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int maxPointsInsideSquare(vector<vector<int>>& points, string s) {
+        map<int, vector<int>> g;
+        for (int i = 0; i < points.size(); ++i) {
+            auto& p = points[i];
+            int key = max(abs(p[0]), abs(p[1]));
+            g[key].push_back(i);
+        }
+        bool vis[26]{};
+        int ans = 0;
+        for (auto& [_, idx] : g) {
+            for (int i : idx) {
+                int j = s[i] - 'a';
+                if (vis[j]) {
+                    return ans;
+                }
+                vis[j] = true;
+            }
+            ans += idx.size();
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func maxPointsInsideSquare(points [][]int, s string) (ans int) {
+	g := map[int][]int{}
+	for i, p := range points {
+		key := max(p[0], -p[0], p[1], -p[1])
+		g[key] = append(g[key], i)
+	}
+	vis := [26]bool{}
+	keys := []int{}
+	for k := range g {
+		keys = append(keys, k)
+	}
+	sort.Ints(keys)
+	for _, k := range keys {
+		idx := g[k]
+		for _, i := range idx {
+			j := s[i] - 'a'
+			if vis[j] {
+				return
+			}
+			vis[j] = true
+		}
+		ans += len(idx)
+	}
+	return
+}
+```
 
+```ts
+function maxPointsInsideSquare(points: number[][], s: string): number {
+    const n = points.length;
+    const g: Map<number, number[]> = new Map();
+    for (let i = 0; i < n; ++i) {
+        const [x, y] = points[i];
+        const key = Math.max(Math.abs(x), Math.abs(y));
+        if (!g.has(key)) {
+            g.set(key, []);
+        }
+        g.get(key)!.push(i);
+    }
+    const keys = Array.from(g.keys()).sort((a, b) => a - b);
+    const vis: boolean[] = Array(26).fill(false);
+    let ans = 0;
+    for (const key of keys) {
+        const idx = g.get(key)!;
+        for (const i of idx) {
+            const j = s.charCodeAt(i) - 'a'.charCodeAt(0);
+            if (vis[j]) {
+                return ans;
+            }
+            vis[j] = true;
+        }
+        ans += idx.length;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

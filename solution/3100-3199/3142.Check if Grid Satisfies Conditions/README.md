@@ -72,24 +72,98 @@
 
 ## 解法
 
-### 方法一
+### 方法一：模拟
+
+我们可以遍历每一个格子，判断其是否满足题目条件，如果有一个格子不满足条件，我们就返回 `false`，否则返回 `true`。
+
+时间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别是矩阵 `grid` 的行数和列数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def satisfiesConditions(self, grid: List[List[int]]) -> bool:
+        m, n = len(grid), len(grid[0])
+        for i, row in enumerate(grid):
+            for j, x in enumerate(row):
+                if i + 1 < m and x != grid[i + 1][j]:
+                    return False
+                if j + 1 < n and x == grid[i][j + 1]:
+                    return False
+        return True
 ```
 
 ```java
-
+class Solution {
+    public boolean satisfiesConditions(int[][] grid) {
+        int m = grid.length, n = grid[0].length;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (i + 1 < m && grid[i][j] != grid[i + 1][j]) {
+                    return false;
+                }
+                if (j + 1 < n && grid[i][j] == grid[i][j + 1]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    bool satisfiesConditions(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (i + 1 < m && grid[i][j] != grid[i + 1][j]) {
+                    return false;
+                }
+                if (j + 1 < n && grid[i][j] == grid[i][j + 1]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+};
 ```
 
 ```go
+func satisfiesConditions(grid [][]int) bool {
+	m, n := len(grid), len(grid[0])
+	for i, row := range grid {
+		for j, x := range row {
+			if i+1 < m && x != grid[i+1][j] {
+				return false
+			}
+			if j+1 < n && x == grid[i][j+1] {
+				return false
+			}
+		}
+	}
+	return true
+}
+```
 
+```ts
+function satisfiesConditions(grid: number[][]): boolean {
+    const [m, n] = [grid.length, grid[0].length];
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (i + 1 < m && grid[i][j] !== grid[i + 1][j]) {
+                return false;
+            }
+            if (j + 1 < n && grid[i][j] === grid[i][j + 1]) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
 ```
 
 <!-- tabs:end -->
