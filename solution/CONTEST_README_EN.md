@@ -25,6 +25,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 397
+
+- [3146. Permutation Difference between Two Strings](/solution/3100-3199/3146.Permutation%20Difference%20between%20Two%20Strings/README_EN.md)
+- [3147. Taking Maximum Energy From the Mystic Dungeon](/solution/3100-3199/3147.Taking%20Maximum%20Energy%20From%20the%20Mystic%20Dungeon/README_EN.md)
+- [3148. Maximum Difference Score in a Grid](/solution/3100-3199/3148.Maximum%20Difference%20Score%20in%20a%20Grid/README_EN.md)
+- [3149. Find the Minimum Cost Array Permutation](/solution/3100-3199/3149.Find%20the%20Minimum%20Cost%20Array%20Permutation/README_EN.md)
+
 #### Biweekly Contest 130
 
 - [3142. Check if Grid Satisfies Conditions](/solution/3100-3199/3142.Check%20if%20Grid%20Satisfies%20Conditions/README_EN.md)

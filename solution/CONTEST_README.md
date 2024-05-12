@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 397 场周赛(2024-05-12 10:30, 90 分钟) 参赛人数 3365
+
+- [3146. 两个字符串的排列差](/solution/3100-3199/3146.Permutation%20Difference%20between%20Two%20Strings/README.md)
+- [3147. 从魔法师身上吸取的最大能量](/solution/3100-3199/3147.Taking%20Maximum%20Energy%20From%20the%20Mystic%20Dungeon/README.md)
+- [3148. 矩阵中的最大得分](/solution/3100-3199/3148.Maximum%20Difference%20Score%20in%20a%20Grid/README.md)
+- [3149. 找出分数最低的排列](/solution/3100-3199/3149.Find%20the%20Minimum%20Cost%20Array%20Permutation/README.md)
+
 #### 第 130 场双周赛(2024-05-11 22:30, 90 分钟) 参赛人数 2603
 
 - [3142. 判断矩阵是否满足条件](/solution/3100-3199/3142.Check%20if%20Grid%20Satisfies%20Conditions/README.md)

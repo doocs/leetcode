@@ -68,24 +68,98 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Simulation
+
+We can iterate through each cell and determine whether it meets the conditions specified in the problem. If there is a cell that does not meet the conditions, we return `false`, otherwise, we return `true`.
+
+The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix `grid` respectively. The space complexity is $O(1)`.
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def satisfiesConditions(self, grid: List[List[int]]) -> bool:
+        m, n = len(grid), len(grid[0])
+        for i, row in enumerate(grid):
+            for j, x in enumerate(row):
+                if i + 1 < m and x != grid[i + 1][j]:
+                    return False
+                if j + 1 < n and x == grid[i][j + 1]:
+                    return False
+        return True
 ```
 
 ```java
-
+class Solution {
+    public boolean satisfiesConditions(int[][] grid) {
+        int m = grid.length, n = grid[0].length;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (i + 1 < m && grid[i][j] != grid[i + 1][j]) {
+                    return false;
+                }
+                if (j + 1 < n && grid[i][j] == grid[i][j + 1]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    bool satisfiesConditions(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (i + 1 < m && grid[i][j] != grid[i + 1][j]) {
+                    return false;
+                }
+                if (j + 1 < n && grid[i][j] == grid[i][j + 1]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+};
 ```
 
 ```go
+func satisfiesConditions(grid [][]int) bool {
+	m, n := len(grid), len(grid[0])
+	for i, row := range grid {
+		for j, x := range row {
+			if i+1 < m && x != grid[i+1][j] {
+				return false
+			}
+			if j+1 < n && x == grid[i][j+1] {
+				return false
+			}
+		}
+	}
+	return true
+}
+```
 
+```ts
+function satisfiesConditions(grid: number[][]): boolean {
+    const [m, n] = [grid.length, grid[0].length];
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (i + 1 < m && grid[i][j] !== grid[i + 1][j]) {
+                return false;
+            }
+            if (j + 1 < n && grid[i][j] === grid[i][j + 1]) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
 ```
 
 <!-- tabs:end -->
