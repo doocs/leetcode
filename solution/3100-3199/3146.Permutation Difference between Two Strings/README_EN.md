@@ -60,19 +60,73 @@
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def findPermutationDifference(self, s: str, t: str) -> int:
+        d = {c: i for i, c in enumerate(s)}
+        return sum(abs(d[c] - i) for i, c in enumerate(t))
 ```
 
 ```java
-
+class Solution {
+    public int findPermutationDifference(String s, String t) {
+        int[] d = new int[26];
+        int n = s.length();
+        for (int i = 0; i < n; ++i) {
+            d[s.charAt(i) - 'a'] = i;
+        }
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans += Math.abs(d[t.charAt(i) - 'a'] - i);
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int findPermutationDifference(string s, string t) {
+        int d[26]{};
+        int n = s.size();
+        for (int i = 0; i < n; ++i) {
+            d[s[i] - 'a'] = i;
+        }
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans += abs(d[t[i] - 'a'] - i);
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func findPermutationDifference(s string, t string) (ans int) {
+	d := [26]int{}
+	for i, c := range s {
+		d[c-'a'] = i
+	}
+	for i, c := range t {
+		ans += max(d[c-'a']-i, i-d[c-'a'])
+	}
+	return
+}
+```
 
+```ts
+function findPermutationDifference(s: string, t: string): number {
+    const d: number[] = Array(26).fill(0);
+    const n = s.length;
+    for (let i = 0; i < n; ++i) {
+        d[s.charCodeAt(i) - 'a'.charCodeAt(0)] = i;
+    }
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        ans += Math.abs(d[t.charCodeAt(i) - 'a'.charCodeAt(0)] - i);
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
