@@ -3158,6 +3158,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3147  |  [Taking Maximum Energy From the Mystic Dungeon](/solution/3100-3199/3147.Taking%20Maximum%20Energy%20From%20the%20Mystic%20Dungeon/README_EN.md)  |    |  Medium  |  Weekly Contest 397  |
 |  3148  |  [Maximum Difference Score in a Grid](/solution/3100-3199/3148.Maximum%20Difference%20Score%20in%20a%20Grid/README_EN.md)  |    |  Medium  |  Weekly Contest 397  |
 |  3149  |  [Find the Minimum Cost Array Permutation](/solution/3100-3199/3149.Find%20the%20Minimum%20Cost%20Array%20Permutation/README_EN.md)  |    |  Hard  |  Weekly Contest 397  |
+|  3150  |  [Invalid Tweets II](/solution/3100-3199/3150.Invalid%20Tweets%20II/README_EN.md)  |    |  Easy  |  🔒  |
 
 ## Copyright
 

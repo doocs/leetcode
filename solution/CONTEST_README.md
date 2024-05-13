@@ -29,7 +29,7 @@
 - [3148. 矩阵中的最大得分](/solution/3100-3199/3148.Maximum%20Difference%20Score%20in%20a%20Grid/README.md)
 - [3149. 找出分数最低的排列](/solution/3100-3199/3149.Find%20the%20Minimum%20Cost%20Array%20Permutation/README.md)
 
-#### 第 130 场双周赛(2024-05-11 22:30, 90 分钟) 参赛人数 2603
+#### 第 130 场双周赛(2024-05-11 22:30, 90 分钟) 参赛人数 2604
 
 - [3142. 判断矩阵是否满足条件](/solution/3100-3199/3142.Check%20if%20Grid%20Satisfies%20Conditions/README.md)
 - [3143. 正方形中的最多点数](/solution/3100-3199/3143.Maximum%20Points%20Inside%20the%20Square/README.md)
@@ -2073,7 +2073,7 @@
 - [1558. 得到目标数组的最少函数调用次数](/solution/1500-1599/1558.Minimum%20Numbers%20of%20Function%20Calls%20to%20Make%20Target%20Array/README.md)
 - [1559. 二维网格图中探测环](/solution/1500-1599/1559.Detect%20Cycles%20in%202D%20Grid/README.md)
 
-#### 第 202 场周赛(2020-08-16 10:30, 90 分钟) 参赛人数 4989
+#### 第 202 场周赛(2020-08-16 10:30, 90 分钟) 参赛人数 4990
 
 - [1550. 存在连续三个奇数的数组](/solution/1500-1599/1550.Three%20Consecutive%20Odds/README.md)
 - [1551. 使数组中所有元素相等的最小操作数](/solution/1500-1599/1551.Minimum%20Operations%20to%20Make%20Array%20Equal/README.md)
