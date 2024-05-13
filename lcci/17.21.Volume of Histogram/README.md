@@ -163,10 +163,10 @@ class Solution {
         if n < 3 {
             return 0
         }
-        
+
         var left = [Int](repeating: 0, count: n)
         var right = [Int](repeating: 0, count: n)
-        
+
         left[0] = height[0]
         right[n - 1] = height[n - 1]
 
@@ -182,7 +182,7 @@ class Solution {
         for i in 0..<n {
             ans += min(left[i], right[i]) - height[i]
         }
-        
+
         return ans
     }
 }
