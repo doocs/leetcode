@@ -51,24 +51,136 @@ The total score is <code>2 + 7 = 9</code>.</p>
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+According to the problem description, if the values of the cells we pass through are $c_1, c_2, \cdots, c_k$, then our score is $c_2 - c_1 + c_3 - c_2 + \cdots + c_k - c_{k-1} = c_k - c_1$. Therefore, the problem is transformed into: for each cell $(i, j)$ of the matrix, if we take it as the endpoint, what is the minimum value of the starting point.
+
+We can use dynamic programming to solve this problem. We define $f[i][j]$ as the minimum value of the path with $(i, j)$ as the endpoint. Then we can get the state transition equation:
+
+$$
+f[i][j] = \min(f[i-1][j], f[i][j-1], grid[i][j])
+$$
+
+So the answer is the maximum value of $\text{grid}[i][j] - \min(f[i-1][j], f[i][j-1])$.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def maxScore(self, grid: List[List[int]]) -> int:
+        f = [[0] * len(grid[0]) for _ in range(len(grid))]
+        ans = -inf
+        for i, row in enumerate(grid):
+            for j, x in enumerate(row):
+                mi = inf
+                if i:
+                    mi = min(mi, f[i - 1][j])
+                if j:
+                    mi = min(mi, f[i][j - 1])
+                ans = max(ans, x - mi)
+                f[i][j] = min(x, mi)
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public int maxScore(List<List<Integer>> grid) {
+        int m = grid.size(), n = grid.get(0).size();
+        final int inf = 1 << 30;
+        int ans = -inf;
+        int[][] f = new int[m][n];
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                int mi = inf;
+                if (i > 0) {
+                    mi = Math.min(mi, f[i - 1][j]);
+                }
+                if (j > 0) {
+                    mi = Math.min(mi, f[i][j - 1]);
+                }
+                ans = Math.max(ans, grid.get(i).get(j) - mi);
+                f[i][j] = Math.min(grid.get(i).get(j), mi);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int maxScore(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        const int inf = 1 << 30;
+        int ans = -inf;
+        int f[m][n];
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                int mi = inf;
+                if (i) {
+                    mi = min(mi, f[i - 1][j]);
+                }
+                if (j) {
+                    mi = min(mi, f[i][j - 1]);
+                }
+                ans = max(ans, grid[i][j] - mi);
+                f[i][j] = min(grid[i][j], mi);
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func maxScore(grid [][]int) int {
+	m, n := len(grid), len(grid[0])
+	f := make([][]int, m)
+	for i := range f {
+		f[i] = make([]int, n)
+	}
+	const inf int = 1 << 30
+	ans := -inf
+	for i, row := range grid {
+		for j, x := range row {
+			mi := inf
+			if i > 0 {
+				mi = min(mi, f[i-1][j])
+			}
+			if j > 0 {
+				mi = min(mi, f[i][j-1])
+			}
+			ans = max(ans, x-mi)
+			f[i][j] = min(x, mi)
+		}
+	}
+	return ans
+}
+```
 
+```ts
+function maxScore(grid: number[][]): number {
+    const [m, n] = [grid.length, grid[0].length];
+    const f: number[][] = Array.from({ length: m }, () => Array.from({ length: n }, () => 0));
+    let ans = -Infinity;
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            let mi = Infinity;
+            if (i) {
+                mi = Math.min(mi, f[i - 1][j]);
+            }
+            if (j) {
+                mi = Math.min(mi, f[i][j - 1]);
+            }
+            ans = Math.max(ans, grid[i][j] - mi);
+            f[i][j] = Math.min(mi, grid[i][j]);
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

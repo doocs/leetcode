@@ -55,24 +55,136 @@
 
 ## 解法
 
-### 方法一
+### 方法一：动态规划
+
+根据题目描述，如果我们经过的单元格的值依次是 $c_1, c_2, \cdots, c_k$，那么我们的得分就是 $c_2 - c_1 + c_3 - c_2 + \cdots + c_k - c_{k-1} = c_k - c_1$。因此，问题转化为：对于矩阵的每个单元格 $(i, j)$，如果我们将其作为终点，那么起点的最小值是多少。
+
+我们可以使用动态规划来解决这个问题。我们定义 $f[i][j]$ 表示以 $(i, j)$ 为终点的路径的最小值。那么我们可以得到状态转移方程：
+
+$$
+f[i][j] = \min(f[i-1][j], f[i][j-1], grid[i][j])
+$$
+
+那么答案为 $\text{grid}[i][j] - \min(f[i-1][j], f[i][j-1])$ 的最大值。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def maxScore(self, grid: List[List[int]]) -> int:
+        f = [[0] * len(grid[0]) for _ in range(len(grid))]
+        ans = -inf
+        for i, row in enumerate(grid):
+            for j, x in enumerate(row):
+                mi = inf
+                if i:
+                    mi = min(mi, f[i - 1][j])
+                if j:
+                    mi = min(mi, f[i][j - 1])
+                ans = max(ans, x - mi)
+                f[i][j] = min(x, mi)
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public int maxScore(List<List<Integer>> grid) {
+        int m = grid.size(), n = grid.get(0).size();
+        final int inf = 1 << 30;
+        int ans = -inf;
+        int[][] f = new int[m][n];
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                int mi = inf;
+                if (i > 0) {
+                    mi = Math.min(mi, f[i - 1][j]);
+                }
+                if (j > 0) {
+                    mi = Math.min(mi, f[i][j - 1]);
+                }
+                ans = Math.max(ans, grid.get(i).get(j) - mi);
+                f[i][j] = Math.min(grid.get(i).get(j), mi);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int maxScore(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        const int inf = 1 << 30;
+        int ans = -inf;
+        int f[m][n];
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                int mi = inf;
+                if (i) {
+                    mi = min(mi, f[i - 1][j]);
+                }
+                if (j) {
+                    mi = min(mi, f[i][j - 1]);
+                }
+                ans = max(ans, grid[i][j] - mi);
+                f[i][j] = min(grid[i][j], mi);
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func maxScore(grid [][]int) int {
+	m, n := len(grid), len(grid[0])
+	f := make([][]int, m)
+	for i := range f {
+		f[i] = make([]int, n)
+	}
+	const inf int = 1 << 30
+	ans := -inf
+	for i, row := range grid {
+		for j, x := range row {
+			mi := inf
+			if i > 0 {
+				mi = min(mi, f[i-1][j])
+			}
+			if j > 0 {
+				mi = min(mi, f[i][j-1])
+			}
+			ans = max(ans, x-mi)
+			f[i][j] = min(x, mi)
+		}
+	}
+	return ans
+}
+```
 
+```ts
+function maxScore(grid: number[][]): number {
+    const [m, n] = [grid.length, grid[0].length];
+    const f: number[][] = Array.from({ length: m }, () => Array.from({ length: n }, () => 0));
+    let ans = -Infinity;
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            let mi = Infinity;
+            if (i) {
+                mi = Math.min(mi, f[i - 1][j]);
+            }
+            if (j) {
+                mi = Math.min(mi, f[i][j - 1]);
+            }
+            ans = Math.max(ans, grid[i][j] - mi);
+            f[i][j] = Math.min(mi, grid[i][j]);
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
