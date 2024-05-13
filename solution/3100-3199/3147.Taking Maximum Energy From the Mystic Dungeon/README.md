@@ -82,24 +82,87 @@
 
 ## 解法
 
-### 方法一
+### 方法一：枚举 + 后缀和
+
+我们可以在 $[n - k, n)$ 的范围内枚举终点，然后从终点开始向前遍历，每次累加间隔为 $k$ 的魔法师的能量值，更新答案。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 `energy` 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def maximumEnergy(self, energy: List[int], k: int) -> int:
+        ans = -inf
+        n = len(energy)
+        for i in range(n - k, n):
+            j, s = i, 0
+            while j >= 0:
+                s += energy[j]
+                ans = max(ans, s)
+                j -= k
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public int maximumEnergy(int[] energy, int k) {
+        int ans = -(1 << 30);
+        int n = energy.length;
+        for (int i = n - k; i < n; ++i) {
+            for (int j = i, s = 0; j >= 0; j -= k) {
+                s += energy[j];
+                ans = Math.max(ans, s);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int maximumEnergy(vector<int>& energy, int k) {
+        int ans = -(1 << 30);
+        int n = energy.size();
+        for (int i = n - k; i < n; ++i) {
+            for (int j = i, s = 0; j >= 0; j -= k) {
+                s += energy[j];
+                ans = max(ans, s);
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func maximumEnergy(energy []int, k int) int {
+	ans := -(1 << 30)
+	n := len(energy)
+	for i := n - k; i < n; i++ {
+		for j, s := i, 0; j >= 0; j -= k {
+			s += energy[j]
+			ans = max(ans, s)
+		}
+	}
+	return ans
+}
+```
 
+```ts
+function maximumEnergy(energy: number[], k: number): number {
+    const n = energy.length;
+    let ans = -Infinity;
+    for (let i = n - k; i < n; ++i) {
+        for (let j = i, s = 0; j >= 0; j -= k) {
+            s += energy[j];
+            ans = Math.max(ans, s);
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

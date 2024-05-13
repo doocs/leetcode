@@ -79,24 +79,87 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Enumeration + Suffix Sum
+
+We can enumerate the endpoint in the range of $[n - k, n)$, then start from the endpoint and traverse backwards, adding the energy value of the magician at each $k$ interval, and update the answer.
+
+The time complexity is $O(n)$, where $n$ is the length of the array `energy`. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def maximumEnergy(self, energy: List[int], k: int) -> int:
+        ans = -inf
+        n = len(energy)
+        for i in range(n - k, n):
+            j, s = i, 0
+            while j >= 0:
+                s += energy[j]
+                ans = max(ans, s)
+                j -= k
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public int maximumEnergy(int[] energy, int k) {
+        int ans = -(1 << 30);
+        int n = energy.length;
+        for (int i = n - k; i < n; ++i) {
+            for (int j = i, s = 0; j >= 0; j -= k) {
+                s += energy[j];
+                ans = Math.max(ans, s);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int maximumEnergy(vector<int>& energy, int k) {
+        int ans = -(1 << 30);
+        int n = energy.size();
+        for (int i = n - k; i < n; ++i) {
+            for (int j = i, s = 0; j >= 0; j -= k) {
+                s += energy[j];
+                ans = max(ans, s);
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func maximumEnergy(energy []int, k int) int {
+	ans := -(1 << 30)
+	n := len(energy)
+	for i := n - k; i < n; i++ {
+		for j, s := i, 0; j >= 0; j -= k {
+			s += energy[j]
+			ans = max(ans, s)
+		}
+	}
+	return ans
+}
+```
 
+```ts
+function maximumEnergy(energy: number[], k: number): number {
+    const n = energy.length;
+    let ans = -Infinity;
+    for (let i = n - k; i < n; ++i) {
+        for (let j = i, s = 0; j >= 0; j -= k) {
+            s += energy[j];
+            ans = Math.max(ans, s);
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

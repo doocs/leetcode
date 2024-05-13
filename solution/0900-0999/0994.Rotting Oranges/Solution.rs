@@ -2,50 +2,51 @@ use std::collections::VecDeque;
 
 impl Solution {
     pub fn oranges_rotting(mut grid: Vec<Vec<i32>>) -> i32 {
-        let mut queue = VecDeque::new();
         let m = grid.len();
         let n = grid[0].len();
-        // 新鲜橘子数量
-        let mut count = 0;
+        let mut q = VecDeque::new();
+        let mut cnt = 0;
+
         for i in 0..m {
             for j in 0..n {
-                match grid[i][j] {
-                    1 => {
-                        count += 1;
-                    }
-                    2 => queue.push_back([i as i32, j as i32]),
-                    _ => (),
+                if grid[i][j] == 1 {
+                    cnt += 1;
+                } else if grid[i][j] == 2 {
+                    q.push_back(vec![i as i32, j as i32]);
                 }
             }
         }
-        let mut res = 0;
-        let dirs = [1, 0, -1, 0, 1];
-        while count != 0 && queue.len() != 0 {
-            let mut len = queue.len();
-            while len != 0 {
-                let [x, y] = queue.pop_front().unwrap();
-                for i in 0..4 {
-                    let new_x = x + dirs[i];
-                    let new_y = y + dirs[i + 1];
+
+        let dirs: [i32; 5] = [-1, 0, 1, 0, -1];
+        let mut ans = 0;
+
+        while !q.is_empty() && cnt > 0 {
+            let q_size = q.len();
+            for _ in 0..q_size {
+                let p = q.pop_front().unwrap();
+                for d in 0..4 {
+                    let x = p[0] + dirs[d];
+                    let y = p[1] + dirs[d + 1];
                     if
-                        new_x >= 0 &&
-                        new_x < (m as i32) &&
-                        new_y >= 0 &&
-                        new_y < (n as i32) &&
-                        grid[new_x as usize][new_y as usize] == 1
+                        x >= 0 &&
+                        x < (m as i32) &&
+                        y >= 0 &&
+                        y < (n as i32) &&
+                        grid[x as usize][y as usize] == 1
                     {
-                        grid[new_x as usize][new_y as usize] = 2;
-                        queue.push_back([new_x, new_y]);
-                        count -= 1;
+                        grid[x as usize][y as usize] = 2;
+                        q.push_back(vec![x, y]);
+                        cnt -= 1;
                     }
                 }
-                len -= 1;
             }
-            res += 1;
+            ans += 1;
         }
-        if count != 0 {
+
+        if cnt > 0 {
             return -1;
         }
-        res
+
+        ans
     }
 }
