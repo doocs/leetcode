@@ -177,8 +177,8 @@ func findSquare(matrix [][]int) []int {
 ```ts
 function findSquare(matrix: number[][]): number[] {
     const n = matrix.length;
-    const down: number[][] = new Array(n).fill(0).map(() => new Array(n).fill(0));
-    const right: number[][] = new Array(n).fill(0).map(() => new Array(n).fill(0));
+    const down: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
+    const right: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
     for (let i = n - 1; i >= 0; --i) {
         for (let j = n - 1; j >= 0; --j) {
             if (matrix[i][j] === 0) {
