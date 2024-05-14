@@ -1,31 +1,23 @@
-import json
 import os
 import re
-import requests
+import yaml
 from collections import defaultdict
 
 
-def load_ratings():
-    res = {}
-    if os.path.exists("rating.json"):
-        with open("rating.json", "r", encoding="utf-8") as f:
-            ratings = json.loads(f.read())
-            for item in ratings:
-                res[str(item["ID"])] = item
-
-    url = "https://zerotrac.github.io/leetcode_problem_rating/data.json"
-    try:
-        resp = requests.get(url)
-        if resp.status_code == 200:
-            ratings = resp.json()
-            for item in ratings:
-                res[str(item["ID"])] = item
-    except Exception as e:
-        print(f"Failed to fetch ratings: {e}")
-    return res
-
-
-rating_dict = load_ratings()
+def extract_metadata(content: str):
+    # 检查是否包含 YAML front matter
+    if content.startswith("---\n"):
+        # 使用正则表达式匹配 YAML front matter
+        match = re.match(r"^---\n(.*?)\n---\n", content, re.DOTALL)
+        if match:
+            yaml_content = match.group(1)
+            # 解析 YAML 内容
+            metadata = yaml.safe_load(yaml_content)
+            # 获取剩余的 Markdown 内容
+            remaining_content = content[match.end() :]
+            return metadata, remaining_content
+    # 如果没有 metadata，返回空字典和原始内容
+    return {}, content
 
 
 for contest_file in ["docs/contest.md", "docs-en/contest.md"]:
@@ -108,10 +100,9 @@ for dir in dirs:
     for p in sorted(get_paths(dir, m)):
         # example:
         # p = 'solution/0000-0099/0003.Longest Substring Without Repeating Characters/README.md'
-        edit_url = f"https://github.com/doocs/leetcode/edit/main/{p}"
         with open(p, "r", encoding="utf-8") as f:
             content = f.read()
-
+            metadata, content = extract_metadata(content)
             # [中文文档](/lcci/01.01.Is%20Unique/README.md)
             # 正则匹配 [中文文档](xxx) 并且移除
             content = re.sub(r"\[中文文档]\((.*?)\)", "", content)
@@ -144,10 +135,6 @@ for dir in dirs:
             elif num.endswith("- I"):
                 num = num[:-3] + ".1"
             num = ".".join([x.strip(" ").lstrip("0") for x in num.split(".")])
-            rat = -1
-            if target_dir == "lc" and num in rating_dict:
-                rat = int(rating_dict[num]["Rating"])
-                print(f"Rating: {num} {rat}")
             is_en = "README_EN" in p
             if is_en:
                 navdata_en[dir].append(f"    - {num}. {name}: {target_dir}/{num}.md")
@@ -179,26 +166,12 @@ for dir in dirs:
                 os.makedirs(docs_dir)
             new_path = os.path.join(docs_dir, f"{num}.md")
 
-            # 获取 tags
-            match = re.search(r"<!-- tags:(.*?) -->", content)
-            tag_headers = ""
-            if match:
-                tags = match.group(1).split(",")
-                if tags and tags != [""]:
-                    tag_headers = "tags:\n"
-                    tag_headers += "".join([f"  - {tag}\n" for tag in tags])
-                    tag_headers += "\n"
-
-            # 开启评论
-            """
-            ---
-            comments: true
-            ---
-            """
-            content = (
-                f"---\ncomments: true\nedit_url: {edit_url}\n{tag_headers}---\n\n"
-                + content
+            yaml_metadata = yaml.dump(
+                metadata, default_flow_style=False, allow_unicode=True
             )
+            print(metadata)
+            metadata_section = f"---\n{yaml_metadata}---\n\n"
+            content = metadata_section + content
             with open(new_path, "w", encoding="utf-8") as f:
                 f.write(content)
 
