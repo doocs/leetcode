@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0094.Binary%20Tree%20Inorder%20Traversal/README_EN.md
+tags:
+    - Stack
+    - Tree
+    - Depth-First Search
+    - Binary Tree
+---
+
 # [94. Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal)
 
 [中文文档](/solution/0000-0099/0094.Binary%20Tree%20Inorder%20Traversal/README.md)
-
-<!-- tags:Stack,Tree,Depth-First Search,Binary Tree -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

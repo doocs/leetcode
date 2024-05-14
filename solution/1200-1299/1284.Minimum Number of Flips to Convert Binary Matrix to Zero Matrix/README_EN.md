@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1284.Minimum%20Number%20of%20Flips%20to%20Convert%20Binary%20Matrix%20to%20Zero%20Matrix/README_EN.md
+rating: 1810
+tags:
+    - Bit Manipulation
+    - Breadth-First Search
+    - Array
+    - Hash Table
+    - Matrix
+---
+
 # [1284. Minimum Number of Flips to Convert Binary Matrix to Zero Matrix](https://leetcode.com/problems/minimum-number-of-flips-to-convert-binary-matrix-to-zero-matrix)
 
 [中文文档](/solution/1200-1299/1284.Minimum%20Number%20of%20Flips%20to%20Convert%20Binary%20Matrix%20to%20Zero%20Matrix/README.md)
-
-<!-- tags:Bit Manipulation,Breadth-First Search,Array,Hash Table,Matrix -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

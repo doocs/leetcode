@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1029.Two%20City%20Scheduling/README.md
+rating: 1348
+tags:
+    - 贪心
+    - 数组
+    - 排序
+---
+
 # [1029. 两地调度](https://leetcode.cn/problems/two-city-scheduling)
 
 [English Version](/solution/1000-1099/1029.Two%20City%20Scheduling/README_EN.md)
-
-<!-- tags:贪心,数组,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

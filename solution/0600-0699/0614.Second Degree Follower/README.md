@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0614.Second%20Degree%20Follower/README.md
+tags:
+    - 数据库
+---
+
 # [614. 二级关注者 🔒](https://leetcode.cn/problems/second-degree-follower)
 
 [English Version](/solution/0600-0699/0614.Second%20Degree%20Follower/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2162.Minimum%20Cost%20to%20Set%20Cooking%20Time/README.md
+rating: 1851
+tags:
+    - 数学
+    - 枚举
+---
+
 # [2162. 设置时间的最少代价](https://leetcode.cn/problems/minimum-cost-to-set-cooking-time)
 
 [English Version](/solution/2100-2199/2162.Minimum%20Cost%20to%20Set%20Cooking%20Time/README_EN.md)
-
-<!-- tags:数学,枚举 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

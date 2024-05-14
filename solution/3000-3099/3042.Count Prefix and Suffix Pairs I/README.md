@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3042.Count%20Prefix%20and%20Suffix%20Pairs%20I/README.md
+rating: 1214
+tags:
+    - 字典树
+    - 数组
+    - 字符串
+    - 字符串匹配
+    - 哈希函数
+    - 滚动哈希
+---
+
 # [3042. 统计前后缀下标对 I](https://leetcode.cn/problems/count-prefix-and-suffix-pairs-i)
 
 [English Version](/solution/3000-3099/3042.Count%20Prefix%20and%20Suffix%20Pairs%20I/README_EN.md)
-
-<!-- tags:字典树,数组,字符串,字符串匹配,哈希函数,滚动哈希 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

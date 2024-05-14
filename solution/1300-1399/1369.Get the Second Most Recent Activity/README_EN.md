@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1369.Get%20the%20Second%20Most%20Recent%20Activity/README_EN.md
+tags:
+    - Database
+---
+
 # [1369. Get the Second Most Recent Activity 🔒](https://leetcode.com/problems/get-the-second-most-recent-activity)
 
 [中文文档](/solution/1300-1399/1369.Get%20the%20Second%20Most%20Recent%20Activity/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

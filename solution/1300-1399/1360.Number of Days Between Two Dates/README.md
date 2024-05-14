@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1360.Number%20of%20Days%20Between%20Two%20Dates/README.md
+rating: 1421
+tags:
+    - 数学
+    - 字符串
+---
+
 # [1360. 日期之间隔几天](https://leetcode.cn/problems/number-of-days-between-two-dates)
 
 [English Version](/solution/1300-1399/1360.Number%20of%20Days%20Between%20Two%20Dates/README_EN.md)
-
-<!-- tags:数学,字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1907.Count%20Salary%20Categories/README_EN.md
+tags:
+    - Database
+---
+
 # [1907. Count Salary Categories](https://leetcode.com/problems/count-salary-categories)
 
 [中文文档](/solution/1900-1999/1907.Count%20Salary%20Categories/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

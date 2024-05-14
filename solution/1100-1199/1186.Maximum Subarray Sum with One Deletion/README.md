@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1186.Maximum%20Subarray%20Sum%20with%20One%20Deletion/README.md
+rating: 1799
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [1186. 删除一次得到子数组最大和](https://leetcode.cn/problems/maximum-subarray-sum-with-one-deletion)
 
 [English Version](/solution/1100-1199/1186.Maximum%20Subarray%20Sum%20with%20One%20Deletion/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

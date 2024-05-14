@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1179.Reformat%20Department%20Table/README_EN.md
+tags:
+    - Database
+---
+
 # [1179. Reformat Department Table](https://leetcode.com/problems/reformat-department-table)
 
 [中文文档](/solution/1100-1199/1179.Reformat%20Department%20Table/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

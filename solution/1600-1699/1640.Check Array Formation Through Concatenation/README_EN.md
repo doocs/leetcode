@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1640.Check%20Array%20Formation%20Through%20Concatenation/README_EN.md
+rating: 1524
+tags:
+    - Array
+    - Hash Table
+---
+
 # [1640. Check Array Formation Through Concatenation](https://leetcode.com/problems/check-array-formation-through-concatenation)
 
 [中文文档](/solution/1600-1699/1640.Check%20Array%20Formation%20Through%20Concatenation/README.md)
-
-<!-- tags:Array,Hash Table -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

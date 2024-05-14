@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0168.Excel%20Sheet%20Column%20Title/README_EN.md
+tags:
+    - Math
+    - String
+---
+
 # [168. Excel Sheet Column Title](https://leetcode.com/problems/excel-sheet-column-title)
 
 [中文文档](/solution/0100-0199/0168.Excel%20Sheet%20Column%20Title/README.md)
-
-<!-- tags:Math,String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

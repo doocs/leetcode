@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1806.Minimum%20Number%20of%20Operations%20to%20Reinitialize%20a%20Permutation/README.md
+rating: 1491
+tags:
+    - 数组
+    - 数学
+    - 模拟
+---
+
 # [1806. 还原排列的最少操作步数](https://leetcode.cn/problems/minimum-number-of-operations-to-reinitialize-a-permutation)
 
 [English Version](/solution/1800-1899/1806.Minimum%20Number%20of%20Operations%20to%20Reinitialize%20a%20Permutation/README_EN.md)
-
-<!-- tags:数组,数学,模拟 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

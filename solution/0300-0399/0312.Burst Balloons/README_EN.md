@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0312.Burst%20Balloons/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [312. Burst Balloons](https://leetcode.com/problems/burst-balloons)
 
 [中文文档](/solution/0300-0399/0312.Burst%20Balloons/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

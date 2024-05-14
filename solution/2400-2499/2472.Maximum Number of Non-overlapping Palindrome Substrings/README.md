@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2472.Maximum%20Number%20of%20Non-overlapping%20Palindrome%20Substrings/README.md
+rating: 2013
+tags:
+    - 字符串
+    - 动态规划
+---
+
 # [2472. 不重叠回文子字符串的最大数目](https://leetcode.cn/problems/maximum-number-of-non-overlapping-palindrome-substrings)
 
 [English Version](/solution/2400-2499/2472.Maximum%20Number%20of%20Non-overlapping%20Palindrome%20Substrings/README_EN.md)
-
-<!-- tags:字符串,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

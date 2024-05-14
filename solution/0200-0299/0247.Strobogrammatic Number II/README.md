@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0247.Strobogrammatic%20Number%20II/README.md
+tags:
+    - 递归
+    - 数组
+    - 字符串
+---
+
 # [247. 中心对称数 II 🔒](https://leetcode.cn/problems/strobogrammatic-number-ii)
 
 [English Version](/solution/0200-0299/0247.Strobogrammatic%20Number%20II/README_EN.md)
-
-<!-- tags:递归,数组,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

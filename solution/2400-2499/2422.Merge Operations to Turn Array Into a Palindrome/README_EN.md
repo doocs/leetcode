@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2422.Merge%20Operations%20to%20Turn%20Array%20Into%20a%20Palindrome/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Two Pointers
+---
+
 # [2422. Merge Operations to Turn Array Into a Palindrome 🔒](https://leetcode.com/problems/merge-operations-to-turn-array-into-a-palindrome)
 
 [中文文档](/solution/2400-2499/2422.Merge%20Operations%20to%20Turn%20Array%20Into%20a%20Palindrome/README.md)
-
-<!-- tags:Greedy,Array,Two Pointers -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2757.Generate%20Circular%20Array%20Values/README.md
+---
+
 # [2757. 生成循环数组的值 🔒](https://leetcode.cn/problems/generate-circular-array-values)
 
 [English Version](/solution/2700-2799/2757.Generate%20Circular%20Array%20Values/README_EN.md)
-
-<!-- tags: -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

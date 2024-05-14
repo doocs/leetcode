@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3026.Maximum%20Good%20Subarray%20Sum/README.md
+rating: 1816
+tags:
+    - 数组
+    - 哈希表
+    - 前缀和
+---
+
 # [3026. 最大好子数组和](https://leetcode.cn/problems/maximum-good-subarray-sum)
 
 [English Version](/solution/3000-3099/3026.Maximum%20Good%20Subarray%20Sum/README_EN.md)
-
-<!-- tags:数组,哈希表,前缀和 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

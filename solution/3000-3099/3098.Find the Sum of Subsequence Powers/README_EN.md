@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3098.Find%20the%20Sum%20of%20Subsequence%20Powers/README_EN.md
+rating: 2552
+tags:
+    - Array
+    - Dynamic Programming
+    - Sorting
+---
+
 # [3098. Find the Sum of Subsequence Powers](https://leetcode.com/problems/find-the-sum-of-subsequence-powers)
 
 [中文文档](/solution/3000-3099/3098.Find%20the%20Sum%20of%20Subsequence%20Powers/README.md)
-
-<!-- tags:Array,Dynamic Programming,Sorting -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

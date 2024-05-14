@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0284.Peeking%20Iterator/README_EN.md
+tags:
+    - Design
+    - Array
+    - Iterator
+---
+
 # [284. Peeking Iterator](https://leetcode.com/problems/peeking-iterator)
 
 [中文文档](/solution/0200-0299/0284.Peeking%20Iterator/README.md)
-
-<!-- tags:Design,Array,Iterator -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

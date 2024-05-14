@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1811.Find%20Interview%20Candidates/README.md
+tags:
+    - 数据库
+---
+
 # [1811. 寻找面试候选人 🔒](https://leetcode.cn/problems/find-interview-candidates)
 
 [English Version](/solution/1800-1899/1811.Find%20Interview%20Candidates/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

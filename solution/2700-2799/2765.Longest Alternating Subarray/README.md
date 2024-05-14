@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2765.Longest%20Alternating%20Subarray/README.md
+rating: 1580
+tags:
+    - 数组
+    - 枚举
+---
+
 # [2765. 最长交替子数组](https://leetcode.cn/problems/longest-alternating-subarray)
 
 [English Version](/solution/2700-2799/2765.Longest%20Alternating%20Subarray/README_EN.md)
-
-<!-- tags:数组,枚举 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

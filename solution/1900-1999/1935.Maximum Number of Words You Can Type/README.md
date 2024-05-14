@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1935.Maximum%20Number%20of%20Words%20You%20Can%20Type/README.md
+rating: 1226
+tags:
+    - 哈希表
+    - 字符串
+---
+
 # [1935. 可以输入的最大单词数](https://leetcode.cn/problems/maximum-number-of-words-you-can-type)
 
 [English Version](/solution/1900-1999/1935.Maximum%20Number%20of%20Words%20You%20Can%20Type/README_EN.md)
-
-<!-- tags:哈希表,字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

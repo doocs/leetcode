@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1191.K-Concatenation%20Maximum%20Sum/README_EN.md
+rating: 1747
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [1191. K-Concatenation Maximum Sum](https://leetcode.com/problems/k-concatenation-maximum-sum)
 
 [中文文档](/solution/1100-1199/1191.K-Concatenation%20Maximum%20Sum/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1350.Students%20With%20Invalid%20Departments/README_EN.md
+tags:
+    - Database
+---
+
 # [1350. Students With Invalid Departments 🔒](https://leetcode.com/problems/students-with-invalid-departments)
 
 [中文文档](/solution/1300-1399/1350.Students%20With%20Invalid%20Departments/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0639.Decode%20Ways%20II/README_EN.md
+tags:
+    - String
+    - Dynamic Programming
+---
+
 # [639. Decode Ways II](https://leetcode.com/problems/decode-ways-ii)
 
 [中文文档](/solution/0600-0699/0639.Decode%20Ways%20II/README.md)
-
-<!-- tags:String,Dynamic Programming -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

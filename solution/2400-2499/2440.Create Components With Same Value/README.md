@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2440.Create%20Components%20With%20Same%20Value/README.md
+rating: 2460
+tags:
+    - 树
+    - 深度优先搜索
+    - 数组
+    - 数学
+    - 枚举
+---
+
 # [2440. 创建价值相同的连通块](https://leetcode.cn/problems/create-components-with-same-value)
 
 [English Version](/solution/2400-2499/2440.Create%20Components%20With%20Same%20Value/README_EN.md)
-
-<!-- tags:树,深度优先搜索,数组,数学,枚举 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

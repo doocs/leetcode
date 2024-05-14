@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3117.Minimum%20Sum%20of%20Values%20by%20Dividing%20Array/README.md
+rating: 2735
+tags:
+    - 位运算
+    - 线段树
+    - 队列
+    - 数组
+    - 二分查找
+    - 动态规划
+---
+
 # [3117. 划分数组得到最小的值之和](https://leetcode.cn/problems/minimum-sum-of-values-by-dividing-array)
 
 [English Version](/solution/3100-3199/3117.Minimum%20Sum%20of%20Values%20by%20Dividing%20Array/README_EN.md)
-
-<!-- tags:位运算,线段树,队列,数组,二分查找,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

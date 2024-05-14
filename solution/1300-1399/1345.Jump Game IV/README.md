@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1345.Jump%20Game%20IV/README.md
+rating: 1809
+tags:
+    - 广度优先搜索
+    - 数组
+    - 哈希表
+---
+
 # [1345. 跳跃游戏 IV](https://leetcode.cn/problems/jump-game-iv)
 
 [English Version](/solution/1300-1399/1345.Jump%20Game%20IV/README_EN.md)
-
-<!-- tags:广度优先搜索,数组,哈希表 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

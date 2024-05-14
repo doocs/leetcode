@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2985.Calculate%20Compressed%20Mean/README_EN.md
+tags:
+    - Database
+---
+
 # [2985. Calculate Compressed Mean 🔒](https://leetcode.com/problems/calculate-compressed-mean)
 
 [中文文档](/solution/2900-2999/2985.Calculate%20Compressed%20Mean/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

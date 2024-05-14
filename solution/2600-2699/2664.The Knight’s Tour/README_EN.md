@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2664.The%20Knight%E2%80%99s%20Tour/README_EN.md
+tags:
+    - Array
+    - Backtracking
+    - Matrix
+---
+
 # [2664. The Knight’s Tour 🔒](https://leetcode.com/problems/the-knights-tour)
 
 [中文文档](/solution/2600-2699/2664.The%20Knight%E2%80%99s%20Tour/README.md)
-
-<!-- tags:Array,Backtracking,Matrix -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

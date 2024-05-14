@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1012.Numbers%20With%20Repeated%20Digits/README_EN.md
+rating: 2230
+tags:
+    - Math
+    - Dynamic Programming
+---
+
 # [1012. Numbers With Repeated Digits](https://leetcode.com/problems/numbers-with-repeated-digits)
 
 [中文文档](/solution/1000-1099/1012.Numbers%20With%20Repeated%20Digits/README.md)
-
-<!-- tags:Math,Dynamic Programming -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

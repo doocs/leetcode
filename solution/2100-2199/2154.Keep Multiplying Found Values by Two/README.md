@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2154.Keep%20Multiplying%20Found%20Values%20by%20Two/README.md
+rating: 1235
+tags:
+    - 数组
+    - 哈希表
+    - 排序
+    - 模拟
+---
+
 # [2154. 将找到的值乘以 2](https://leetcode.cn/problems/keep-multiplying-found-values-by-two)
 
 [English Version](/solution/2100-2199/2154.Keep%20Multiplying%20Found%20Values%20by%20Two/README_EN.md)
-
-<!-- tags:数组,哈希表,排序,模拟 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

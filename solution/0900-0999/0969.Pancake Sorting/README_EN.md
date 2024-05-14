@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0969.Pancake%20Sorting/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Two Pointers
+    - Sorting
+---
+
 # [969. Pancake Sorting](https://leetcode.com/problems/pancake-sorting)
 
 [中文文档](/solution/0900-0999/0969.Pancake%20Sorting/README.md)
-
-<!-- tags:Greedy,Array,Two Pointers,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

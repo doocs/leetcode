@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2344.Minimum%20Deletions%20to%20Make%20Array%20Divisible/README_EN.md
+rating: 1640
+tags:
+    - Array
+    - Math
+    - Number Theory
+    - Sorting
+    - Heap (Priority Queue)
+---
+
 # [2344. Minimum Deletions to Make Array Divisible](https://leetcode.com/problems/minimum-deletions-to-make-array-divisible)
 
 [中文文档](/solution/2300-2399/2344.Minimum%20Deletions%20to%20Make%20Array%20Divisible/README.md)
-
-<!-- tags:Array,Math,Number Theory,Sorting,Heap (Priority Queue) -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

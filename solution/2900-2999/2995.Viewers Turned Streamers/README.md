@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2995.Viewers%20Turned%20Streamers/README.md
+tags:
+    - 数据库
+---
+
 # [2995. 观众变主播 🔒](https://leetcode.cn/problems/viewers-turned-streamers)
 
 [English Version](/solution/2900-2999/2995.Viewers%20Turned%20Streamers/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

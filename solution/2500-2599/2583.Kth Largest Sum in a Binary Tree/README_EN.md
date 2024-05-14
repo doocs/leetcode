@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2583.Kth%20Largest%20Sum%20in%20a%20Binary%20Tree/README_EN.md
+rating: 1374
+tags:
+    - Tree
+    - Breadth-First Search
+    - Binary Tree
+    - Sorting
+---
+
 # [2583. Kth Largest Sum in a Binary Tree](https://leetcode.com/problems/kth-largest-sum-in-a-binary-tree)
 
 [中文文档](/solution/2500-2599/2583.Kth%20Largest%20Sum%20in%20a%20Binary%20Tree/README.md)
-
-<!-- tags:Tree,Breadth-First Search,Binary Tree,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

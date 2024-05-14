@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1959.Minimum%20Total%20Space%20Wasted%20With%20K%20Resizing%20Operations/README_EN.md
+rating: 2310
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [1959. Minimum Total Space Wasted With K Resizing Operations](https://leetcode.com/problems/minimum-total-space-wasted-with-k-resizing-operations)
 
 [中文文档](/solution/1900-1999/1959.Minimum%20Total%20Space%20Wasted%20With%20K%20Resizing%20Operations/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

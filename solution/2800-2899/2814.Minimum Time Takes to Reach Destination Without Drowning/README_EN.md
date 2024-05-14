@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2814.Minimum%20Time%20Takes%20to%20Reach%20Destination%20Without%20Drowning/README_EN.md
+tags:
+    - Breadth-First Search
+    - Array
+    - Matrix
+---
+
 # [2814. Minimum Time Takes to Reach Destination Without Drowning 🔒](https://leetcode.com/problems/minimum-time-takes-to-reach-destination-without-drowning)
 
 [中文文档](/solution/2800-2899/2814.Minimum%20Time%20Takes%20to%20Reach%20Destination%20Without%20Drowning/README.md)
-
-<!-- tags:Breadth-First Search,Array,Matrix -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

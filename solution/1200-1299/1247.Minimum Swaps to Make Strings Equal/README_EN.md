@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1247.Minimum%20Swaps%20to%20Make%20Strings%20Equal/README_EN.md
+rating: 1597
+tags:
+    - Greedy
+    - Math
+    - String
+---
+
 # [1247. Minimum Swaps to Make Strings Equal](https://leetcode.com/problems/minimum-swaps-to-make-strings-equal)
 
 [中文文档](/solution/1200-1299/1247.Minimum%20Swaps%20to%20Make%20Strings%20Equal/README.md)
-
-<!-- tags:Greedy,Math,String -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

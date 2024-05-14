@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2696.Minimum%20String%20Length%20After%20Removing%20Substrings/README.md
+rating: 1282
+tags:
+    - 栈
+    - 字符串
+    - 模拟
+---
+
 # [2696. 删除子串后的字符串最小长度](https://leetcode.cn/problems/minimum-string-length-after-removing-substrings)
 
 [English Version](/solution/2600-2699/2696.Minimum%20String%20Length%20After%20Removing%20Substrings/README_EN.md)
-
-<!-- tags:栈,字符串,模拟 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0432.All%20O%60one%20Data%20Structure/README.md
+tags:
+    - 设计
+    - 哈希表
+    - 链表
+    - 双向链表
+---
+
 # [432. 全 O(1) 的数据结构](https://leetcode.cn/problems/all-oone-data-structure)
 
 [English Version](/solution/0400-0499/0432.All%20O%60one%20Data%20Structure/README_EN.md)
-
-<!-- tags:设计,哈希表,链表,双向链表 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

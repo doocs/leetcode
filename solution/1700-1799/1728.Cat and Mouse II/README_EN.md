@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1728.Cat%20and%20Mouse%20II/README_EN.md
+rating: 2849
+tags:
+    - Graph
+    - Topological Sort
+    - Memoization
+    - Array
+    - Math
+    - Dynamic Programming
+    - Game Theory
+    - Matrix
+---
+
 # [1728. Cat and Mouse II](https://leetcode.com/problems/cat-and-mouse-ii)
 
 [中文文档](/solution/1700-1799/1728.Cat%20and%20Mouse%20II/README.md)
-
-<!-- tags:Graph,Topological Sort,Memoization,Array,Math,Dynamic Programming,Game Theory,Matrix -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

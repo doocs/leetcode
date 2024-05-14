@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1125.Smallest%20Sufficient%20Team/README_EN.md
+rating: 2250
+tags:
+    - Bit Manipulation
+    - Array
+    - Dynamic Programming
+    - Bitmask
+---
+
 # [1125. Smallest Sufficient Team](https://leetcode.com/problems/smallest-sufficient-team)
 
 [中文文档](/solution/1100-1199/1125.Smallest%20Sufficient%20Team/README.md)
-
-<!-- tags:Bit Manipulation,Array,Dynamic Programming,Bitmask -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

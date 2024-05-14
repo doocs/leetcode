@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0653.Two%20Sum%20IV%20-%20Input%20is%20a%20BST/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Binary Search Tree
+    - Hash Table
+    - Two Pointers
+    - Binary Tree
+---
+
 # [653. Two Sum IV - Input is a BST](https://leetcode.com/problems/two-sum-iv-input-is-a-bst)
 
 [中文文档](/solution/0600-0699/0653.Two%20Sum%20IV%20-%20Input%20is%20a%20BST/README.md)
-
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Search Tree,Hash Table,Two Pointers,Binary Tree -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

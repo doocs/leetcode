@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1797.Design%20Authentication%20Manager/README.md
+rating: 1534
+tags:
+    - 设计
+    - 哈希表
+---
+
 # [1797. 设计一个验证系统](https://leetcode.cn/problems/design-authentication-manager)
 
 [English Version](/solution/1700-1799/1797.Design%20Authentication%20Manager/README_EN.md)
-
-<!-- tags:设计,哈希表 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

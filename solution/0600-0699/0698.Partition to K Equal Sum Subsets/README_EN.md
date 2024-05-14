@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0698.Partition%20to%20K%20Equal%20Sum%20Subsets/README_EN.md
+tags:
+    - Bit Manipulation
+    - Memoization
+    - Array
+    - Dynamic Programming
+    - Backtracking
+    - Bitmask
+---
+
 # [698. Partition to K Equal Sum Subsets](https://leetcode.com/problems/partition-to-k-equal-sum-subsets)
 
 [中文文档](/solution/0600-0699/0698.Partition%20to%20K%20Equal%20Sum%20Subsets/README.md)
-
-<!-- tags:Bit Manipulation,Memoization,Array,Dynamic Programming,Backtracking,Bitmask -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

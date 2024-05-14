@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2788.Split%20Strings%20by%20Separator/README.md
+rating: 1239
+tags:
+    - 数组
+    - 字符串
+---
+
 # [2788. 按分隔符拆分字符串](https://leetcode.cn/problems/split-strings-by-separator)
 
 [English Version](/solution/2700-2799/2788.Split%20Strings%20by%20Separator/README_EN.md)
-
-<!-- tags:数组,字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

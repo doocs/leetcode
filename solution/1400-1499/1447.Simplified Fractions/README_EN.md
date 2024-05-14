@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1447.Simplified%20Fractions/README_EN.md
+rating: 1268
+tags:
+    - Math
+    - String
+    - Number Theory
+---
+
 # [1447. Simplified Fractions](https://leetcode.com/problems/simplified-fractions)
 
 [中文文档](/solution/1400-1499/1447.Simplified%20Fractions/README.md)
-
-<!-- tags:Math,String,Number Theory -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

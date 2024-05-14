@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0176.Second%20Highest%20Salary/README.md
+tags:
+    - 数据库
+---
+
 # [176. 第二高的薪水](https://leetcode.cn/problems/second-highest-salary)
 
 [English Version](/solution/0100-0199/0176.Second%20Highest%20Salary/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0519.Random%20Flip%20Matrix/README_EN.md
+tags:
+    - Reservoir Sampling
+    - Hash Table
+    - Math
+    - Randomized
+---
+
 # [519. Random Flip Matrix](https://leetcode.com/problems/random-flip-matrix)
 
 [中文文档](/solution/0500-0599/0519.Random%20Flip%20Matrix/README.md)
-
-<!-- tags:Reservoir Sampling,Hash Table,Math,Randomized -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

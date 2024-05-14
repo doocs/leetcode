@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2736.Maximum%20Sum%20Queries/README.md
+rating: 2533
+tags:
+    - 栈
+    - 树状数组
+    - 线段树
+    - 数组
+    - 二分查找
+    - 排序
+    - 单调栈
+---
+
 # [2736. 最大和查询](https://leetcode.cn/problems/maximum-sum-queries)
 
 [English Version](/solution/2700-2799/2736.Maximum%20Sum%20Queries/README_EN.md)
-
-<!-- tags:栈,树状数组,线段树,数组,二分查找,排序,单调栈 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

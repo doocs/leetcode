@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.15.Master%20Mind/README_EN.md
+---
+
 # [16.15. Master Mind](https://leetcode.cn/problems/master-mind-lcci)
 
 [中文文档](/lcci/16.15.Master%20Mind/README.md)

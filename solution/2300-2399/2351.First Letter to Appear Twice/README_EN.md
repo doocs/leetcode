@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2351.First%20Letter%20to%20Appear%20Twice/README_EN.md
+rating: 1155
+tags:
+    - Bit Manipulation
+    - Hash Table
+    - String
+    - Counting
+---
+
 # [2351. First Letter to Appear Twice](https://leetcode.com/problems/first-letter-to-appear-twice)
 
 [中文文档](/solution/2300-2399/2351.First%20Letter%20to%20Appear%20Twice/README.md)
-
-<!-- tags:Bit Manipulation,Hash Table,String,Counting -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

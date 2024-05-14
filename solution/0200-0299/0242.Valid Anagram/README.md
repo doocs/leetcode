@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0242.Valid%20Anagram/README.md
+tags:
+    - 哈希表
+    - 字符串
+    - 排序
+---
+
 # [242. 有效的字母异位词](https://leetcode.cn/problems/valid-anagram)
 
 [English Version](/solution/0200-0299/0242.Valid%20Anagram/README_EN.md)
-
-<!-- tags:哈希表,字符串,排序 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0675.Cut%20Off%20Trees%20for%20Golf%20Event/README_EN.md
+tags:
+    - Breadth-First Search
+    - Array
+    - Matrix
+    - Heap (Priority Queue)
+---
+
 # [675. Cut Off Trees for Golf Event](https://leetcode.com/problems/cut-off-trees-for-golf-event)
 
 [中文文档](/solution/0600-0699/0675.Cut%20Off%20Trees%20for%20Golf%20Event/README.md)
-
-<!-- tags:Breadth-First Search,Array,Matrix,Heap (Priority Queue) -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

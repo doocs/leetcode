@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2180.Count%20Integers%20With%20Even%20Digit%20Sum/README.md
+rating: 1257
+tags:
+    - 数学
+    - 模拟
+---
+
 # [2180. 统计各位数字之和为偶数的整数个数](https://leetcode.cn/problems/count-integers-with-even-digit-sum)
 
 [English Version](/solution/2100-2199/2180.Count%20Integers%20With%20Even%20Digit%20Sum/README_EN.md)
-
-<!-- tags:数学,模拟 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

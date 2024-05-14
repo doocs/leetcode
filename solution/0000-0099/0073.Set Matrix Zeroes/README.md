@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0073.Set%20Matrix%20Zeroes/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 矩阵
+---
+
 # [73. 矩阵置零](https://leetcode.cn/problems/set-matrix-zeroes)
 
 [English Version](/solution/0000-0099/0073.Set%20Matrix%20Zeroes/README_EN.md)
-
-<!-- tags:数组,哈希表,矩阵 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

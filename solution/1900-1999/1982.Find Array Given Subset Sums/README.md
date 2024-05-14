@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1982.Find%20Array%20Given%20Subset%20Sums/README.md
+rating: 2872
+tags:
+    - 数组
+    - 分治
+---
+
 # [1982. 从子集的和还原数组](https://leetcode.cn/problems/find-array-given-subset-sums)
 
 [English Version](/solution/1900-1999/1982.Find%20Array%20Given%20Subset%20Sums/README_EN.md)
-
-<!-- tags:数组,分治 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

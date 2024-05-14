@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0476.Number%20Complement/README.md
+tags:
+    - 位运算
+---
+
 # [476. 数字的补数](https://leetcode.cn/problems/number-complement)
 
 [English Version](/solution/0400-0499/0476.Number%20Complement/README_EN.md)
-
-<!-- tags:位运算 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2724.Sort%20By/README_EN.md
+---
+
 # [2724. Sort By](https://leetcode.com/problems/sort-by)
 
 [中文文档](/solution/2700-2799/2724.Sort%20By/README.md)
-
-<!-- tags: -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

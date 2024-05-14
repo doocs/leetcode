@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2326.Spiral%20Matrix%20IV/README_EN.md
+rating: 1421
+tags:
+    - Array
+    - Linked List
+    - Matrix
+    - Simulation
+---
+
 # [2326. Spiral Matrix IV](https://leetcode.com/problems/spiral-matrix-iv)
 
 [中文文档](/solution/2300-2399/2326.Spiral%20Matrix%20IV/README.md)
-
-<!-- tags:Array,Linked List,Matrix,Simulation -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

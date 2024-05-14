@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1685.Sum%20of%20Absolute%20Differences%20in%20a%20Sorted%20Array/README.md
+rating: 1495
+tags:
+    - 数组
+    - 数学
+    - 前缀和
+---
+
 # [1685. 有序数组中差绝对值之和](https://leetcode.cn/problems/sum-of-absolute-differences-in-a-sorted-array)
 
 [English Version](/solution/1600-1699/1685.Sum%20of%20Absolute%20Differences%20in%20a%20Sorted%20Array/README_EN.md)
-
-<!-- tags:数组,数学,前缀和 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

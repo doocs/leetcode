@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2209.Minimum%20White%20Tiles%20After%20Covering%20With%20Carpets/README.md
+rating: 2105
+tags:
+    - 字符串
+    - 动态规划
+    - 前缀和
+---
+
 # [2209. 用地毯覆盖后的最少白色砖块](https://leetcode.cn/problems/minimum-white-tiles-after-covering-with-carpets)
 
 [English Version](/solution/2200-2299/2209.Minimum%20White%20Tiles%20After%20Covering%20With%20Carpets/README_EN.md)
-
-<!-- tags:字符串,动态规划,前缀和 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

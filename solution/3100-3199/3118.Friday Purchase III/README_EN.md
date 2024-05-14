@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3118.Friday%20Purchase%20III/README_EN.md
+tags:
+    - Database
+---
+
 # [3118. Friday Purchase III 🔒](https://leetcode.com/problems/friday-purchase-iii)
 
 [中文文档](/solution/3100-3199/3118.Friday%20Purchase%20III/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1965.Employees%20With%20Missing%20Information/README_EN.md
+tags:
+    - Database
+---
+
 # [1965. Employees With Missing Information](https://leetcode.com/problems/employees-with-missing-information)
 
 [中文文档](/solution/1900-1999/1965.Employees%20With%20Missing%20Information/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

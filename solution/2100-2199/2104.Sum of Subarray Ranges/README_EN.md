@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2104.Sum%20of%20Subarray%20Ranges/README_EN.md
+rating: 1504
+tags:
+    - Stack
+    - Array
+    - Monotonic Stack
+---
+
 # [2104. Sum of Subarray Ranges](https://leetcode.com/problems/sum-of-subarray-ranges)
 
 [中文文档](/solution/2100-2199/2104.Sum%20of%20Subarray%20Ranges/README.md)
-
-<!-- tags:Stack,Array,Monotonic Stack -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

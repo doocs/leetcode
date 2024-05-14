@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0039.Combination%20Sum/README_EN.md
+tags:
+    - Array
+    - Backtracking
+---
+
 # [39. Combination Sum](https://leetcode.com/problems/combination-sum)
 
 [中文文档](/solution/0000-0099/0039.Combination%20Sum/README.md)
-
-<!-- tags:Array,Backtracking -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

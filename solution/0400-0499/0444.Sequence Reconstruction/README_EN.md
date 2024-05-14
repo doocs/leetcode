@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0444.Sequence%20Reconstruction/README_EN.md
+tags:
+    - Graph
+    - Topological Sort
+    - Array
+---
+
 # [444. Sequence Reconstruction 🔒](https://leetcode.com/problems/sequence-reconstruction)
 
 [中文文档](/solution/0400-0499/0444.Sequence%20Reconstruction/README.md)
-
-<!-- tags:Graph,Topological Sort,Array -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

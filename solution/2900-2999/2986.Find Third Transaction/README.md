@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2986.Find%20Third%20Transaction/README.md
+tags:
+    - 数据库
+---
+
 # [2986. 找到第三笔交易 🔒](https://leetcode.cn/problems/find-third-transaction)
 
 [English Version](/solution/2900-2999/2986.Find%20Third%20Transaction/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

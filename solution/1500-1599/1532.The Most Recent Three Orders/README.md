@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1532.The%20Most%20Recent%20Three%20Orders/README.md
+tags:
+    - 数据库
+---
+
 # [1532. 最近的三笔订单 🔒](https://leetcode.cn/problems/the-most-recent-three-orders)
 
 [English Version](/solution/1500-1599/1532.The%20Most%20Recent%20Three%20Orders/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2320.Count%20Number%20of%20Ways%20to%20Place%20Houses/README.md
+rating: 1607
+tags:
+    - 动态规划
+---
+
 # [2320. 统计放置房子的方式数](https://leetcode.cn/problems/count-number-of-ways-to-place-houses)
 
 [English Version](/solution/2300-2399/2320.Count%20Number%20of%20Ways%20to%20Place%20Houses/README_EN.md)
-
-<!-- tags:动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

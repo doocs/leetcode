@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2883.Drop%20Missing%20Data/README.md
+---
+
 # [2883. 删去丢失的数据](https://leetcode.cn/problems/drop-missing-data)
 
 [English Version](/solution/2800-2899/2883.Drop%20Missing%20Data/README_EN.md)
-
-<!-- tags: -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

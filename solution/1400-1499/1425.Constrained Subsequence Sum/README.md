@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1425.Constrained%20Subsequence%20Sum/README.md
+rating: 2032
+tags:
+    - 队列
+    - 数组
+    - 动态规划
+    - 滑动窗口
+    - 单调队列
+    - 堆（优先队列）
+---
+
 # [1425. 带限制的子序列和](https://leetcode.cn/problems/constrained-subsequence-sum)
 
 [English Version](/solution/1400-1499/1425.Constrained%20Subsequence%20Sum/README_EN.md)
-
-<!-- tags:队列,数组,动态规划,滑动窗口,单调队列,堆（优先队列） -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

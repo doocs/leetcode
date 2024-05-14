@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2675.Array%20of%20Objects%20to%20Matrix/README_EN.md
+---
+
 # [2675. Array of Objects to Matrix 🔒](https://leetcode.com/problems/array-of-objects-to-matrix)
 
 [中文文档](/solution/2600-2699/2675.Array%20of%20Objects%20to%20Matrix/README.md)
-
-<!-- tags: -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

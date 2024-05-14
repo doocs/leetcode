@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0027.Remove%20Element/README.md
+tags:
+    - 数组
+    - 双指针
+---
+
 # [27. 移除元素](https://leetcode.cn/problems/remove-element)
 
 [English Version](/solution/0000-0099/0027.Remove%20Element/README_EN.md)
-
-<!-- tags:数组,双指针 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

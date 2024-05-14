@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1586.Binary%20Search%20Tree%20Iterator%20II/README.md
+tags:
+    - 栈
+    - 树
+    - 设计
+    - 二叉搜索树
+    - 二叉树
+    - 迭代器
+---
+
 # [1586. 二叉搜索树迭代器 II 🔒](https://leetcode.cn/problems/binary-search-tree-iterator-ii)
 
 [English Version](/solution/1500-1599/1586.Binary%20Search%20Tree%20Iterator%20II/README_EN.md)
-
-<!-- tags:栈,树,设计,二叉搜索树,二叉树,迭代器 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

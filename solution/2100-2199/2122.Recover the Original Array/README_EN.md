@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2122.Recover%20the%20Original%20Array/README_EN.md
+rating: 2158
+tags:
+    - Array
+    - Hash Table
+    - Enumeration
+    - Sorting
+---
+
 # [2122. Recover the Original Array](https://leetcode.com/problems/recover-the-original-array)
 
 [中文文档](/solution/2100-2199/2122.Recover%20the%20Original%20Array/README.md)
-
-<!-- tags:Array,Hash Table,Enumeration,Sorting -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

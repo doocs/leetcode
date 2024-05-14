@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1649.Create%20Sorted%20Array%20through%20Instructions/README.md
+rating: 2207
+tags:
+    - 树状数组
+    - 线段树
+    - 数组
+    - 二分查找
+    - 分治
+    - 有序集合
+    - 归并排序
+---
+
 # [1649. 通过指令创建有序数组](https://leetcode.cn/problems/create-sorted-array-through-instructions)
 
 [English Version](/solution/1600-1699/1649.Create%20Sorted%20Array%20through%20Instructions/README_EN.md)
-
-<!-- tags:树状数组,线段树,数组,二分查找,分治,有序集合,归并排序 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

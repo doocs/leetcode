@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2846.Minimum%20Edge%20Weight%20Equilibrium%20Queries%20in%20a%20Tree/README.md
+rating: 2507
+tags:
+    - 树
+    - 图
+    - 数组
+    - 强连通分量
+---
+
 # [2846. 边权重均等查询](https://leetcode.cn/problems/minimum-edge-weight-equilibrium-queries-in-a-tree)
 
 [English Version](/solution/2800-2899/2846.Minimum%20Edge%20Weight%20Equilibrium%20Queries%20in%20a%20Tree/README_EN.md)
-
-<!-- tags:树,图,数组,强连通分量 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

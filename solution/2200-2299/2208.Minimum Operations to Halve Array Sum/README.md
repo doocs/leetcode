@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2208.Minimum%20Operations%20to%20Halve%20Array%20Sum/README.md
+rating: 1550
+tags:
+    - 贪心
+    - 数组
+    - 堆（优先队列）
+---
+
 # [2208. 将数组和减半的最少操作次数](https://leetcode.cn/problems/minimum-operations-to-halve-array-sum)
 
 [English Version](/solution/2200-2299/2208.Minimum%20Operations%20to%20Halve%20Array%20Sum/README_EN.md)
-
-<!-- tags:贪心,数组,堆（优先队列） -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2626.Array%20Reduce%20Transformation/README.md
+---
+
 # [2626. 数组归约运算](https://leetcode.cn/problems/array-reduce-transformation)
 
 [English Version](/solution/2600-2699/2626.Array%20Reduce%20Transformation/README_EN.md)
-
-<!-- tags: -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

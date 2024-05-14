@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1492.The%20kth%20Factor%20of%20n/README.md
+rating: 1231
+tags:
+    - 数学
+    - 数论
+---
+
 # [1492. n 的第 k 个因子](https://leetcode.cn/problems/the-kth-factor-of-n)
 
 [English Version](/solution/1400-1499/1492.The%20kth%20Factor%20of%20n/README_EN.md)
-
-<!-- tags:数学,数论 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1812.Determine%20Color%20of%20a%20Chessboard%20Square/README_EN.md
+rating: 1328
+tags:
+    - Math
+    - String
+---
+
 # [1812. Determine Color of a Chessboard Square](https://leetcode.com/problems/determine-color-of-a-chessboard-square)
 
 [中文文档](/solution/1800-1899/1812.Determine%20Color%20of%20a%20Chessboard%20Square/README.md)
-
-<!-- tags:Math,String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

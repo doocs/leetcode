@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2917.Find%20the%20K-or%20of%20an%20Array/README.md
+rating: 1388
+tags:
+    - 位运算
+    - 数组
+---
+
 # [2917. 找出数组中的 K-or 值](https://leetcode.cn/problems/find-the-k-or-of-an-array)
 
 [English Version](/solution/2900-2999/2917.Find%20the%20K-or%20of%20an%20Array/README_EN.md)
-
-<!-- tags:位运算,数组 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

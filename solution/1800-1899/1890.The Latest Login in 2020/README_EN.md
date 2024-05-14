@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1890.The%20Latest%20Login%20in%202020/README_EN.md
+tags:
+    - Database
+---
+
 # [1890. The Latest Login in 2020](https://leetcode.com/problems/the-latest-login-in-2020)
 
 [中文文档](/solution/1800-1899/1890.The%20Latest%20Login%20in%202020/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

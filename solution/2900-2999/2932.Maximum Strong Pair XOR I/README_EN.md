@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2932.Maximum%20Strong%20Pair%20XOR%20I/README_EN.md
+rating: 1246
+tags:
+    - Bit Manipulation
+    - Trie
+    - Array
+    - Hash Table
+    - Sliding Window
+---
+
 # [2932. Maximum Strong Pair XOR I](https://leetcode.com/problems/maximum-strong-pair-xor-i)
 
 [中文文档](/solution/2900-2999/2932.Maximum%20Strong%20Pair%20XOR%20I/README.md)
-
-<!-- tags:Bit Manipulation,Trie,Array,Hash Table,Sliding Window -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

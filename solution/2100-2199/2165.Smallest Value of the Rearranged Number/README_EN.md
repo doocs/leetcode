@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2165.Smallest%20Value%20of%20the%20Rearranged%20Number/README_EN.md
+rating: 1361
+tags:
+    - Math
+    - Sorting
+---
+
 # [2165. Smallest Value of the Rearranged Number](https://leetcode.com/problems/smallest-value-of-the-rearranged-number)
 
 [中文文档](/solution/2100-2199/2165.Smallest%20Value%20of%20the%20Rearranged%20Number/README.md)
-
-<!-- tags:Math,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

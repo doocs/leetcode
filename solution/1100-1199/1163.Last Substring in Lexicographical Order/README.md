@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1163.Last%20Substring%20in%20Lexicographical%20Order/README.md
+rating: 1864
+tags:
+    - 双指针
+    - 字符串
+---
+
 # [1163. 按字典序排在最后的子串](https://leetcode.cn/problems/last-substring-in-lexicographical-order)
 
 [English Version](/solution/1100-1199/1163.Last%20Substring%20in%20Lexicographical%20Order/README_EN.md)
-
-<!-- tags:双指针,字符串 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

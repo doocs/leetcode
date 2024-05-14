@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0854.K-Similar%20Strings/README.md
+tags:
+    - 广度优先搜索
+    - 字符串
+---
+
 # [854. 相似度为 K 的字符串](https://leetcode.cn/problems/k-similar-strings)
 
 [English Version](/solution/0800-0899/0854.K-Similar%20Strings/README_EN.md)
-
-<!-- tags:广度优先搜索,字符串 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1442.Count%20Triplets%20That%20Can%20Form%20Two%20Arrays%20of%20Equal%20XOR/README_EN.md
+rating: 1524
+tags:
+    - Bit Manipulation
+    - Array
+    - Hash Table
+    - Math
+    - Prefix Sum
+---
+
 # [1442. Count Triplets That Can Form Two Arrays of Equal XOR](https://leetcode.com/problems/count-triplets-that-can-form-two-arrays-of-equal-xor)
 
 [中文文档](/solution/1400-1499/1442.Count%20Triplets%20That%20Can%20Form%20Two%20Arrays%20of%20Equal%20XOR/README.md)
-
-<!-- tags:Bit Manipulation,Array,Hash Table,Math,Prefix Sum -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

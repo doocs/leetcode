@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2263.Make%20Array%20Non-decreasing%20or%20Non-increasing/README_EN.md
+tags:
+    - Greedy
+    - Dynamic Programming
+---
+
 # [2263. Make Array Non-decreasing or Non-increasing 🔒](https://leetcode.com/problems/make-array-non-decreasing-or-non-increasing)
 
 [中文文档](/solution/2200-2299/2263.Make%20Array%20Non-decreasing%20or%20Non-increasing/README.md)
-
-<!-- tags:Greedy,Dynamic Programming -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

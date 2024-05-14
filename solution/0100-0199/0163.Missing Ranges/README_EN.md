@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0163.Missing%20Ranges/README_EN.md
+tags:
+    - Array
+---
+
 # [163. Missing Ranges 🔒](https://leetcode.com/problems/missing-ranges)
 
 [中文文档](/solution/0100-0199/0163.Missing%20Ranges/README.md)
-
-<!-- tags:Array -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

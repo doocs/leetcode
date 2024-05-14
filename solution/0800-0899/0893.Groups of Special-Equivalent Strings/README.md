@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0893.Groups%20of%20Special-Equivalent%20Strings/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+    - 排序
+---
+
 # [893. 特殊等价字符串组](https://leetcode.cn/problems/groups-of-special-equivalent-strings)
 
 [English Version](/solution/0800-0899/0893.Groups%20of%20Special-Equivalent%20Strings/README_EN.md)
-
-<!-- tags:数组,哈希表,字符串,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0631.Design%20Excel%20Sum%20Formula/README_EN.md
+tags:
+    - Graph
+    - Design
+    - Topological Sort
+    - Array
+    - Matrix
+---
+
 # [631. Design Excel Sum Formula 🔒](https://leetcode.com/problems/design-excel-sum-formula)
 
 [中文文档](/solution/0600-0699/0631.Design%20Excel%20Sum%20Formula/README.md)
-
-<!-- tags:Graph,Design,Topological Sort,Array,Matrix -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

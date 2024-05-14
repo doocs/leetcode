@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1563.Stone%20Game%20V/README.md
+rating: 2087
+tags:
+    - 数组
+    - 数学
+    - 动态规划
+    - 博弈
+---
+
 # [1563. 石子游戏 V](https://leetcode.cn/problems/stone-game-v)
 
 [English Version](/solution/1500-1599/1563.Stone%20Game%20V/README_EN.md)
-
-<!-- tags:数组,数学,动态规划,博弈 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

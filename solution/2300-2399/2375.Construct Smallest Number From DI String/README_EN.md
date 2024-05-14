@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2375.Construct%20Smallest%20Number%20From%20DI%20String/README_EN.md
+rating: 1641
+tags:
+    - Stack
+    - Greedy
+    - String
+    - Backtracking
+---
+
 # [2375. Construct Smallest Number From DI String](https://leetcode.com/problems/construct-smallest-number-from-di-string)
 
 [中文文档](/solution/2300-2399/2375.Construct%20Smallest%20Number%20From%20DI%20String/README.md)
-
-<!-- tags:Stack,Greedy,String,Backtracking -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1674.Minimum%20Moves%20to%20Make%20Array%20Complementary/README_EN.md
+rating: 2333
+tags:
+    - Array
+    - Hash Table
+    - Prefix Sum
+---
+
 # [1674. Minimum Moves to Make Array Complementary](https://leetcode.com/problems/minimum-moves-to-make-array-complementary)
 
 [中文文档](/solution/1600-1699/1674.Minimum%20Moves%20to%20Make%20Array%20Complementary/README.md)
-
-<!-- tags:Array,Hash Table,Prefix Sum -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

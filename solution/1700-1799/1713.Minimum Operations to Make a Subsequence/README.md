@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1713.Minimum%20Operations%20to%20Make%20a%20Subsequence/README.md
+rating: 2350
+tags:
+    - 贪心
+    - 数组
+    - 哈希表
+    - 二分查找
+---
+
 # [1713. 得到子序列的最少操作次数](https://leetcode.cn/problems/minimum-operations-to-make-a-subsequence)
 
 [English Version](/solution/1700-1799/1713.Minimum%20Operations%20to%20Make%20a%20Subsequence/README_EN.md)
-
-<!-- tags:贪心,数组,哈希表,二分查找 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

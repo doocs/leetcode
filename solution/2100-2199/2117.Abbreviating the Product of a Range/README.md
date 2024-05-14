@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2117.Abbreviating%20the%20Product%20of%20a%20Range/README.md
+rating: 2476
+tags:
+    - 数学
+---
+
 # [2117. 一个区间内所有数乘积的缩写](https://leetcode.cn/problems/abbreviating-the-product-of-a-range)
 
 [English Version](/solution/2100-2199/2117.Abbreviating%20the%20Product%20of%20a%20Range/README_EN.md)
-
-<!-- tags:数学 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

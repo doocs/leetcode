@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1622.Fancy%20Sequence/README.md
+rating: 2476
+tags:
+    - 设计
+    - 线段树
+    - 数学
+---
+
 # [1622. 奇妙序列](https://leetcode.cn/problems/fancy-sequence)
 
 [English Version](/solution/1600-1699/1622.Fancy%20Sequence/README_EN.md)
-
-<!-- tags:设计,线段树,数学 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2368.Reachable%20Nodes%20With%20Restrictions/README_EN.md
+rating: 1476
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Union Find
+    - Graph
+    - Array
+    - Hash Table
+---
+
 # [2368. Reachable Nodes With Restrictions](https://leetcode.com/problems/reachable-nodes-with-restrictions)
 
 [中文文档](/solution/2300-2399/2368.Reachable%20Nodes%20With%20Restrictions/README.md)
-
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Union Find,Graph,Array,Hash Table -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

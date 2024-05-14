@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2731.Movement%20of%20Robots/README_EN.md
+rating: 1922
+tags:
+    - Brainteaser
+    - Array
+    - Prefix Sum
+    - Sorting
+---
+
 # [2731. Movement of Robots](https://leetcode.com/problems/movement-of-robots)
 
 [中文文档](/solution/2700-2799/2731.Movement%20of%20Robots/README.md)
-
-<!-- tags:Brainteaser,Array,Prefix Sum,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

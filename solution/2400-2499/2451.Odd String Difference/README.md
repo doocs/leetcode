@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2451.Odd%20String%20Difference/README.md
+rating: 1406
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+---
+
 # [2451. 差值数组不同的字符串](https://leetcode.cn/problems/odd-string-difference)
 
 [English Version](/solution/2400-2499/2451.Odd%20String%20Difference/README_EN.md)
-
-<!-- tags:数组,哈希表,字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

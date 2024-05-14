@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2525.Categorize%20Box%20According%20to%20Criteria/README.md
+rating: 1301
+tags:
+    - 数学
+---
+
 # [2525. 根据规则将箱子分类](https://leetcode.cn/problems/categorize-box-according-to-criteria)
 
 [English Version](/solution/2500-2599/2525.Categorize%20Box%20According%20to%20Criteria/README_EN.md)
-
-<!-- tags:数学 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

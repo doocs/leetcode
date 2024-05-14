@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2301.Match%20Substring%20After%20Replacement/README_EN.md
+rating: 1860
+tags:
+    - Array
+    - Hash Table
+    - String
+    - String Matching
+---
+
 # [2301. Match Substring After Replacement](https://leetcode.com/problems/match-substring-after-replacement)
 
 [中文文档](/solution/2300-2399/2301.Match%20Substring%20After%20Replacement/README.md)
-
-<!-- tags:Array,Hash Table,String,String Matching -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2060.%20%E5%8A%9B%E6%89%A3%E6%B3%A1%E6%B3%A1%E9%BE%99/README.md
+---
+
 # [LCP 60. 力扣泡泡龙](https://leetcode.cn/problems/WInSav)
 
 ## 题目描述

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1091.Shortest%20Path%20in%20Binary%20Matrix/README.md
+rating: 1658
+tags:
+    - 广度优先搜索
+    - 数组
+    - 矩阵
+---
+
 # [1091. 二进制矩阵中的最短路径](https://leetcode.cn/problems/shortest-path-in-binary-matrix)
 
 [English Version](/solution/1000-1099/1091.Shortest%20Path%20in%20Binary%20Matrix/README_EN.md)
-
-<!-- tags:广度优先搜索,数组,矩阵 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

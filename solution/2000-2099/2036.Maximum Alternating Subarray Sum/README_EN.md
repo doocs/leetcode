@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2036.Maximum%20Alternating%20Subarray%20Sum/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [2036. Maximum Alternating Subarray Sum 🔒](https://leetcode.com/problems/maximum-alternating-subarray-sum)
 
 [中文文档](/solution/2000-2099/2036.Maximum%20Alternating%20Subarray%20Sum/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

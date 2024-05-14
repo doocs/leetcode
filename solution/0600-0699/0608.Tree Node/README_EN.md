@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0608.Tree%20Node/README_EN.md
+tags:
+    - Database
+---
+
 # [608. Tree Node](https://leetcode.com/problems/tree-node)
 
 [中文文档](/solution/0600-0699/0608.Tree%20Node/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

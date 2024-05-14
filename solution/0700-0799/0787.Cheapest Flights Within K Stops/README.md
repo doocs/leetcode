@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0787.Cheapest%20Flights%20Within%20K%20Stops/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 图
+    - 动态规划
+    - 最短路
+    - 堆（优先队列）
+---
+
 # [787. K 站中转内最便宜的航班](https://leetcode.cn/problems/cheapest-flights-within-k-stops)
 
 [English Version](/solution/0700-0799/0787.Cheapest%20Flights%20Within%20K%20Stops/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,图,动态规划,最短路,堆（优先队列） -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

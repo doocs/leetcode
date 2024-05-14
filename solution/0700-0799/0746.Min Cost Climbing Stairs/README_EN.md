@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0746.Min%20Cost%20Climbing%20Stairs/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [746. Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs)
 
 [中文文档](/solution/0700-0799/0746.Min%20Cost%20Climbing%20Stairs/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

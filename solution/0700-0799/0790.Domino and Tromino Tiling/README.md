@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0790.Domino%20and%20Tromino%20Tiling/README.md
+tags:
+    - 动态规划
+---
+
 # [790. 多米诺和托米诺平铺](https://leetcode.cn/problems/domino-and-tromino-tiling)
 
 [English Version](/solution/0700-0799/0790.Domino%20and%20Tromino%20Tiling/README_EN.md)
-
-<!-- tags:动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

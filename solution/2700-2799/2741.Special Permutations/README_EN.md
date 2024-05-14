@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2741.Special%20Permutations/README_EN.md
+rating: 2020
+tags:
+    - Bit Manipulation
+    - Array
+    - Bitmask
+---
+
 # [2741. Special Permutations](https://leetcode.com/problems/special-permutations)
 
 [中文文档](/solution/2700-2799/2741.Special%20Permutations/README.md)
-
-<!-- tags:Bit Manipulation,Array,Bitmask -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

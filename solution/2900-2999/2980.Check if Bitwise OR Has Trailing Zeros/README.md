@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2980.Check%20if%20Bitwise%20OR%20Has%20Trailing%20Zeros/README.md
+rating: 1233
+tags:
+    - 位运算
+    - 数组
+---
+
 # [2980. 检查按位或是否存在尾随零](https://leetcode.cn/problems/check-if-bitwise-or-has-trailing-zeros)
 
 [English Version](/solution/2900-2999/2980.Check%20if%20Bitwise%20OR%20Has%20Trailing%20Zeros/README_EN.md)
-
-<!-- tags:位运算,数组 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

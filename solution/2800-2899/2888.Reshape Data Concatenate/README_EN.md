@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2888.Reshape%20Data%20Concatenate/README_EN.md
+---
+
 # [2888. Reshape Data Concatenate](https://leetcode.com/problems/reshape-data-concatenate)
 
 [中文文档](/solution/2800-2899/2888.Reshape%20Data%20Concatenate/README.md)
-
-<!-- tags: -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1792.Maximum%20Average%20Pass%20Ratio/README.md
+rating: 1817
+tags:
+    - 贪心
+    - 数组
+    - 堆（优先队列）
+---
+
 # [1792. 最大平均通过率](https://leetcode.cn/problems/maximum-average-pass-ratio)
 
 [English Version](/solution/1700-1799/1792.Maximum%20Average%20Pass%20Ratio/README_EN.md)
-
-<!-- tags:贪心,数组,堆（优先队列） -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

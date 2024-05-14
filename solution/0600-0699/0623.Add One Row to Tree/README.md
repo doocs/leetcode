@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0623.Add%20One%20Row%20to%20Tree/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 二叉树
+---
+
 # [623. 在二叉树中增加一行](https://leetcode.cn/problems/add-one-row-to-tree)
 
 [English Version](/solution/0600-0699/0623.Add%20One%20Row%20to%20Tree/README_EN.md)
-
-<!-- tags:树,深度优先搜索,广度优先搜索,二叉树 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2791.Count%20Paths%20That%20Can%20Form%20a%20Palindrome%20in%20a%20Tree/README_EN.md
+rating: 2677
+tags:
+    - Bit Manipulation
+    - Tree
+    - Depth-First Search
+    - Dynamic Programming
+    - Bitmask
+---
+
 # [2791. Count Paths That Can Form a Palindrome in a Tree](https://leetcode.com/problems/count-paths-that-can-form-a-palindrome-in-a-tree)
 
 [中文文档](/solution/2700-2799/2791.Count%20Paths%20That%20Can%20Form%20a%20Palindrome%20in%20a%20Tree/README.md)
-
-<!-- tags:Bit Manipulation,Tree,Depth-First Search,Dynamic Programming,Bitmask -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

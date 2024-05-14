@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0193.Valid%20Phone%20Numbers/README_EN.md
+tags:
+    - Shell
+---
+
 # [193. Valid Phone Numbers](https://leetcode.com/problems/valid-phone-numbers)
 
 [中文文档](/solution/0100-0199/0193.Valid%20Phone%20Numbers/README.md)
-
-<!-- tags:Shell -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

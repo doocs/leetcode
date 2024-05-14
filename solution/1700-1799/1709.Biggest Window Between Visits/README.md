@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1709.Biggest%20Window%20Between%20Visits/README.md
+tags:
+    - 数据库
+---
+
 # [1709. 访问日期之间最大的空档期 🔒](https://leetcode.cn/problems/biggest-window-between-visits)
 
 [English Version](/solution/1700-1799/1709.Biggest%20Window%20Between%20Visits/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

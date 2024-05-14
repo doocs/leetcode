@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1992.Find%20All%20Groups%20of%20Farmland/README.md
+rating: 1539
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 数组
+    - 矩阵
+---
+
 # [1992. 找到所有的农场组](https://leetcode.cn/problems/find-all-groups-of-farmland)
 
 [English Version](/solution/1900-1999/1992.Find%20All%20Groups%20of%20Farmland/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,数组,矩阵 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

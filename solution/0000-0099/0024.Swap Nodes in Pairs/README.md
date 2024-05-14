@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0024.Swap%20Nodes%20in%20Pairs/README.md
+tags:
+    - 递归
+    - 链表
+---
+
 # [24. 两两交换链表中的节点](https://leetcode.cn/problems/swap-nodes-in-pairs)
 
 [English Version](/solution/0000-0099/0024.Swap%20Nodes%20in%20Pairs/README_EN.md)
-
-<!-- tags:递归,链表 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

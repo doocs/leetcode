@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2683.Neighboring%20Bitwise%20XOR/README_EN.md
+rating: 1517
+tags:
+    - Bit Manipulation
+    - Array
+---
+
 # [2683. Neighboring Bitwise XOR](https://leetcode.com/problems/neighboring-bitwise-xor)
 
 [中文文档](/solution/2600-2699/2683.Neighboring%20Bitwise%20XOR/README.md)
-
-<!-- tags:Bit Manipulation,Array -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

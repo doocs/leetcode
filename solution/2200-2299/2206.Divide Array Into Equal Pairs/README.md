@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2206.Divide%20Array%20Into%20Equal%20Pairs/README.md
+rating: 1223
+tags:
+    - 位运算
+    - 数组
+    - 哈希表
+    - 计数
+---
+
 # [2206. 将数组划分成相等数对](https://leetcode.cn/problems/divide-array-into-equal-pairs)
 
 [English Version](/solution/2200-2299/2206.Divide%20Array%20Into%20Equal%20Pairs/README_EN.md)
-
-<!-- tags:位运算,数组,哈希表,计数 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

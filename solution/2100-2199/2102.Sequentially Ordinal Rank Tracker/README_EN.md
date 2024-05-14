@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2102.Sequentially%20Ordinal%20Rank%20Tracker/README_EN.md
+rating: 2158
+tags:
+    - Design
+    - Data Stream
+    - Ordered Set
+    - Heap (Priority Queue)
+---
+
 # [2102. Sequentially Ordinal Rank Tracker](https://leetcode.com/problems/sequentially-ordinal-rank-tracker)
 
 [中文文档](/solution/2100-2199/2102.Sequentially%20Ordinal%20Rank%20Tracker/README.md)
-
-<!-- tags:Design,Data Stream,Ordered Set,Heap (Priority Queue) -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

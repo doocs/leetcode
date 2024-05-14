@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0770.Basic%20Calculator%20IV/README.md
+tags:
+    - 栈
+    - 递归
+    - 哈希表
+    - 数学
+    - 字符串
+---
+
 # [770. 基本计算器 IV](https://leetcode.cn/problems/basic-calculator-iv)
 
 [English Version](/solution/0700-0799/0770.Basic%20Calculator%20IV/README_EN.md)
-
-<!-- tags:栈,递归,哈希表,数学,字符串 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

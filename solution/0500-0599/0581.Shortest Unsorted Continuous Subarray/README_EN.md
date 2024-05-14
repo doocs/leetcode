@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0581.Shortest%20Unsorted%20Continuous%20Subarray/README_EN.md
+tags:
+    - Stack
+    - Greedy
+    - Array
+    - Two Pointers
+    - Sorting
+    - Monotonic Stack
+---
+
 # [581. Shortest Unsorted Continuous Subarray](https://leetcode.com/problems/shortest-unsorted-continuous-subarray)
 
 [中文文档](/solution/0500-0599/0581.Shortest%20Unsorted%20Continuous%20Subarray/README.md)
-
-<!-- tags:Stack,Greedy,Array,Two Pointers,Sorting,Monotonic Stack -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

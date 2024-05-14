@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0191.Number%20of%201%20Bits/README.md
+tags:
+    - 位运算
+    - 分治
+---
+
 # [191. 位 1 的个数](https://leetcode.cn/problems/number-of-1-bits)
 
 [English Version](/solution/0100-0199/0191.Number%20of%201%20Bits/README_EN.md)
-
-<!-- tags:位运算,分治 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

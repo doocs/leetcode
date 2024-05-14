@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0960.Delete%20Columns%20to%20Make%20Sorted%20III/README.md
+tags:
+    - 数组
+    - 字符串
+    - 动态规划
+---
+
 # [960. 删列造序 III](https://leetcode.cn/problems/delete-columns-to-make-sorted-iii)
 
 [English Version](/solution/0900-0999/0960.Delete%20Columns%20to%20Make%20Sorted%20III/README_EN.md)
-
-<!-- tags:数组,字符串,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

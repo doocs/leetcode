@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1018.Binary%20Prefix%20Divisible%20By%205/README.md
+rating: 1376
+tags:
+    - 位运算
+    - 数组
+---
+
 # [1018. 可被 5 整除的二进制前缀](https://leetcode.cn/problems/binary-prefix-divisible-by-5)
 
 [English Version](/solution/1000-1099/1018.Binary%20Prefix%20Divisible%20By%205/README_EN.md)
-
-<!-- tags:位运算,数组 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

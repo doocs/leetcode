@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1854.Maximum%20Population%20Year/README_EN.md
+rating: 1370
+tags:
+    - Array
+    - Counting
+    - Prefix Sum
+---
+
 # [1854. Maximum Population Year](https://leetcode.com/problems/maximum-population-year)
 
 [中文文档](/solution/1800-1899/1854.Maximum%20Population%20Year/README.md)
-
-<!-- tags:Array,Counting,Prefix Sum -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1086.High%20Five/README.md
+rating: 1327
+tags:
+    - 数组
+    - 哈希表
+    - 排序
+    - 堆（优先队列）
+---
+
 # [1086. 前五科的均分 🔒](https://leetcode.cn/problems/high-five)
 
 [English Version](/solution/1000-1099/1086.High%20Five/README_EN.md)
-
-<!-- tags:数组,哈希表,排序,堆（优先队列） -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

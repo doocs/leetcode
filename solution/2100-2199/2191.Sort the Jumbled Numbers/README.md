@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2191.Sort%20the%20Jumbled%20Numbers/README.md
+rating: 1496
+tags:
+    - 数组
+    - 排序
+---
+
 # [2191. 将杂乱无章的数字排序](https://leetcode.cn/problems/sort-the-jumbled-numbers)
 
 [English Version](/solution/2100-2199/2191.Sort%20the%20Jumbled%20Numbers/README_EN.md)
-
-<!-- tags:数组,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

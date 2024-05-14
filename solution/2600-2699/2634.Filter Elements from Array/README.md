@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2634.Filter%20Elements%20from%20Array/README.md
+---
+
 # [2634. 过滤数组中的元素](https://leetcode.cn/problems/filter-elements-from-array)
 
 [English Version](/solution/2600-2699/2634.Filter%20Elements%20from%20Array/README_EN.md)
-
-<!-- tags: -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

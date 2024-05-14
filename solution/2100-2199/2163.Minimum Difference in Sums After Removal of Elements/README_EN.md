@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2163.Minimum%20Difference%20in%20Sums%20After%20Removal%20of%20Elements/README_EN.md
+rating: 2225
+tags:
+    - Array
+    - Dynamic Programming
+    - Heap (Priority Queue)
+---
+
 # [2163. Minimum Difference in Sums After Removal of Elements](https://leetcode.com/problems/minimum-difference-in-sums-after-removal-of-elements)
 
 [中文文档](/solution/2100-2199/2163.Minimum%20Difference%20in%20Sums%20After%20Removal%20of%20Elements/README.md)
-
-<!-- tags:Array,Dynamic Programming,Heap (Priority Queue) -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0815.Bus%20Routes/README_EN.md
+tags:
+    - Breadth-First Search
+    - Array
+    - Hash Table
+---
+
 # [815. Bus Routes](https://leetcode.com/problems/bus-routes)
 
 [中文文档](/solution/0800-0899/0815.Bus%20Routes/README.md)
-
-<!-- tags:Breadth-First Search,Array,Hash Table -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

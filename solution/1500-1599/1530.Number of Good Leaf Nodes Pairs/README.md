@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1530.Number%20of%20Good%20Leaf%20Nodes%20Pairs/README.md
+rating: 1745
+tags:
+    - 树
+    - 深度优先搜索
+    - 二叉树
+---
+
 # [1530. 好叶子节点对的数量](https://leetcode.cn/problems/number-of-good-leaf-nodes-pairs)
 
 [English Version](/solution/1500-1599/1530.Number%20of%20Good%20Leaf%20Nodes%20Pairs/README_EN.md)
-
-<!-- tags:树,深度优先搜索,二叉树 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

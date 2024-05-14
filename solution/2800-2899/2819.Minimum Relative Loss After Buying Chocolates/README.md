@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2819.Minimum%20Relative%20Loss%20After%20Buying%20Chocolates/README.md
+tags:
+    - 数组
+    - 二分查找
+    - 前缀和
+    - 排序
+---
+
 # [2819. 购买巧克力后的最小相对损失 🔒](https://leetcode.cn/problems/minimum-relative-loss-after-buying-chocolates)
 
 [English Version](/solution/2800-2899/2819.Minimum%20Relative%20Loss%20After%20Buying%20Chocolates/README_EN.md)
-
-<!-- tags:数组,二分查找,前缀和,排序 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

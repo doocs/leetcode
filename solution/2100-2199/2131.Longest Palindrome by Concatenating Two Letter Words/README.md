@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2131.Longest%20Palindrome%20by%20Concatenating%20Two%20Letter%20Words/README.md
+rating: 1556
+tags:
+    - 贪心
+    - 数组
+    - 哈希表
+    - 字符串
+    - 计数
+---
+
 # [2131. 连接两字母单词得到的最长回文串](https://leetcode.cn/problems/longest-palindrome-by-concatenating-two-letter-words)
 
 [English Version](/solution/2100-2199/2131.Longest%20Palindrome%20by%20Concatenating%20Two%20Letter%20Words/README_EN.md)
-
-<!-- tags:贪心,数组,哈希表,字符串,计数 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

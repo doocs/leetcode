@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2953.Count%20Complete%20Substrings/README.md
+rating: 2449
+tags:
+    - 哈希表
+    - 字符串
+    - 滑动窗口
+---
+
 # [2953. 统计完全子字符串](https://leetcode.cn/problems/count-complete-substrings)
 
 [English Version](/solution/2900-2999/2953.Count%20Complete%20Substrings/README_EN.md)
-
-<!-- tags:哈希表,字符串,滑动窗口 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

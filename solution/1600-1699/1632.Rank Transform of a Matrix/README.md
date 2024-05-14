@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1632.Rank%20Transform%20of%20a%20Matrix/README.md
+rating: 2529
+tags:
+    - 并查集
+    - 图
+    - 拓扑排序
+    - 数组
+    - 矩阵
+    - 排序
+---
+
 # [1632. 矩阵转换后的秩](https://leetcode.cn/problems/rank-transform-of-a-matrix)
 
 [English Version](/solution/1600-1699/1632.Rank%20Transform%20of%20a%20Matrix/README_EN.md)
-
-<!-- tags:并查集,图,拓扑排序,数组,矩阵,排序 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

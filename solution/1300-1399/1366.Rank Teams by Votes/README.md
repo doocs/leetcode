@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1366.Rank%20Teams%20by%20Votes/README.md
+rating: 1626
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+    - 计数
+    - 排序
+---
+
 # [1366. 通过投票对团队排名](https://leetcode.cn/problems/rank-teams-by-votes)
 
 [English Version](/solution/1300-1399/1366.Rank%20Teams%20by%20Votes/README_EN.md)
-
-<!-- tags:数组,哈希表,字符串,计数,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

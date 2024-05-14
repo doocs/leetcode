@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3008.Find%20Beautiful%20Indices%20in%20the%20Given%20Array%20II/README_EN.md
+rating: 2016
+tags:
+    - Two Pointers
+    - String
+    - Binary Search
+    - String Matching
+    - Hash Function
+    - Rolling Hash
+---
+
 # [3008. Find Beautiful Indices in the Given Array II](https://leetcode.com/problems/find-beautiful-indices-in-the-given-array-ii)
 
 [中文文档](/solution/3000-3099/3008.Find%20Beautiful%20Indices%20in%20the%20Given%20Array%20II/README.md)
-
-<!-- tags:Two Pointers,String,Binary Search,String Matching,Hash Function,Rolling Hash -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20077.%20%E9%93%BE%E8%A1%A8%E6%8E%92%E5%BA%8F/README.md
+---
+
 # [剑指 Offer II 077. 链表排序](https://leetcode.cn/problems/7WHec2)
 
 ## 题目描述

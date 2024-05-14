@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0349.Intersection%20of%20Two%20Arrays/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Two Pointers
+    - Binary Search
+    - Sorting
+---
+
 # [349. Intersection of Two Arrays](https://leetcode.com/problems/intersection-of-two-arrays)
 
 [中文文档](/solution/0300-0399/0349.Intersection%20of%20Two%20Arrays/README.md)
-
-<!-- tags:Array,Hash Table,Two Pointers,Binary Search,Sorting -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

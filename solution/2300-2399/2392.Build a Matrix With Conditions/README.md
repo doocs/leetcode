@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2392.Build%20a%20Matrix%20With%20Conditions/README.md
+rating: 1960
+tags:
+    - 图
+    - 拓扑排序
+    - 数组
+    - 矩阵
+---
+
 # [2392. 给定条件下构造矩阵](https://leetcode.cn/problems/build-a-matrix-with-conditions)
 
 [English Version](/solution/2300-2399/2392.Build%20a%20Matrix%20With%20Conditions/README_EN.md)
-
-<!-- tags:图,拓扑排序,数组,矩阵 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

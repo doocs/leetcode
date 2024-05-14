@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0696.Count%20Binary%20Substrings/README_EN.md
+tags:
+    - Two Pointers
+    - String
+---
+
 # [696. Count Binary Substrings](https://leetcode.com/problems/count-binary-substrings)
 
 [中文文档](/solution/0600-0699/0696.Count%20Binary%20Substrings/README.md)
-
-<!-- tags:Two Pointers,String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

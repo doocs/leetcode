@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2559.Count%20Vowel%20Strings%20in%20Ranges/README.md
+rating: 1435
+tags:
+    - 数组
+    - 字符串
+    - 前缀和
+---
+
 # [2559. 统计范围内的元音字符串数](https://leetcode.cn/problems/count-vowel-strings-in-ranges)
 
 [English Version](/solution/2500-2599/2559.Count%20Vowel%20Strings%20in%20Ranges/README_EN.md)
-
-<!-- tags:数组,字符串,前缀和 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

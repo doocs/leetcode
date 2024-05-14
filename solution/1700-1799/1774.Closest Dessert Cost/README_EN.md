@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1774.Closest%20Dessert%20Cost/README_EN.md
+rating: 1701
+tags:
+    - Array
+    - Dynamic Programming
+    - Backtracking
+---
+
 # [1774. Closest Dessert Cost](https://leetcode.com/problems/closest-dessert-cost)
 
 [中文文档](/solution/1700-1799/1774.Closest%20Dessert%20Cost/README.md)
-
-<!-- tags:Array,Dynamic Programming,Backtracking -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

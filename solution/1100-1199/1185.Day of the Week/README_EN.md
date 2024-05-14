@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1185.Day%20of%20the%20Week/README_EN.md
+rating: 1382
+tags:
+    - Math
+---
+
 # [1185. Day of the Week](https://leetcode.com/problems/day-of-the-week)
 
 [中文文档](/solution/1100-1199/1185.Day%20of%20the%20Week/README.md)
-
-<!-- tags:Math -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

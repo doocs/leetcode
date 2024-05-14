@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2593.Find%20Score%20of%20an%20Array%20After%20Marking%20All%20Elements/README_EN.md
+rating: 1665
+tags:
+    - Array
+    - Sorting
+    - Simulation
+    - Heap (Priority Queue)
+---
+
 # [2593. Find Score of an Array After Marking All Elements](https://leetcode.com/problems/find-score-of-an-array-after-marking-all-elements)
 
 [中文文档](/solution/2500-2599/2593.Find%20Score%20of%20an%20Array%20After%20Marking%20All%20Elements/README.md)
-
-<!-- tags:Array,Sorting,Simulation,Heap (Priority Queue) -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

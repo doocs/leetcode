@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1172.Dinner%20Plate%20Stacks/README_EN.md
+rating: 2109
+tags:
+    - Stack
+    - Design
+    - Hash Table
+    - Heap (Priority Queue)
+---
+
 # [1172. Dinner Plate Stacks](https://leetcode.com/problems/dinner-plate-stacks)
 
 [中文文档](/solution/1100-1199/1172.Dinner%20Plate%20Stacks/README.md)
-
-<!-- tags:Stack,Design,Hash Table,Heap (Priority Queue) -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

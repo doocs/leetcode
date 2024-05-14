@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0906.Super%20Palindromes/README_EN.md
+tags:
+    - Math
+    - Enumeration
+---
+
 # [906. Super Palindromes](https://leetcode.com/problems/super-palindromes)
 
 [中文文档](/solution/0900-0999/0906.Super%20Palindromes/README.md)
-
-<!-- tags:Math,Enumeration -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

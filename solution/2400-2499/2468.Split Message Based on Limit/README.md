@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2468.Split%20Message%20Based%20on%20Limit/README.md
+rating: 2381
+tags:
+    - 字符串
+    - 二分查找
+---
+
 # [2468. 根据限制分割消息](https://leetcode.cn/problems/split-message-based-on-limit)
 
 [English Version](/solution/2400-2499/2468.Split%20Message%20Based%20on%20Limit/README_EN.md)
-
-<!-- tags:字符串,二分查找 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

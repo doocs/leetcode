@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0020.Valid%20Parentheses/README.md
+tags:
+    - 栈
+    - 字符串
+---
+
 # [20. 有效的括号](https://leetcode.cn/problems/valid-parentheses)
 
 [English Version](/solution/0000-0099/0020.Valid%20Parentheses/README_EN.md)
-
-<!-- tags:栈,字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

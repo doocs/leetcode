@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2579.Count%20Total%20Number%20of%20Colored%20Cells/README.md
+rating: 1356
+tags:
+    - 数学
+---
+
 # [2579. 统计染色格子数](https://leetcode.cn/problems/count-total-number-of-colored-cells)
 
 [English Version](/solution/2500-2599/2579.Count%20Total%20Number%20of%20Colored%20Cells/README_EN.md)
-
-<!-- tags:数学 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

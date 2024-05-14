@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2795.Parallel%20Execution%20of%20Promises%20for%20Individual%20Results%20Retrieval/README_EN.md
+---
+
 # [2795. Parallel Execution of Promises for Individual Results Retrieval 🔒](https://leetcode.com/problems/parallel-execution-of-promises-for-individual-results-retrieval)
 
 [中文文档](/solution/2700-2799/2795.Parallel%20Execution%20of%20Promises%20for%20Individual%20Results%20Retrieval/README.md)
-
-<!-- tags: -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2979.Most%20Expensive%20Item%20That%20Can%20Not%20Be%20Bought/README.md
+tags:
+    - 数学
+    - 动态规划
+    - 数论
+---
+
 # [2979. 最贵的无法购买的商品 🔒](https://leetcode.cn/problems/most-expensive-item-that-can-not-be-bought)
 
 [English Version](/solution/2900-2999/2979.Most%20Expensive%20Item%20That%20Can%20Not%20Be%20Bought/README_EN.md)
-
-<!-- tags:数学,动态规划,数论 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

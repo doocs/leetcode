@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0174.Dungeon%20Game/README.md
+tags:
+    - 数组
+    - 动态规划
+    - 矩阵
+---
+
 # [174. 地下城游戏](https://leetcode.cn/problems/dungeon-game)
 
 [English Version](/solution/0100-0199/0174.Dungeon%20Game/README_EN.md)
-
-<!-- tags:数组,动态规划,矩阵 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2617.Minimum%20Number%20of%20Visited%20Cells%20in%20a%20Grid/README_EN.md
+rating: 2581
+tags:
+    - Stack
+    - Breadth-First Search
+    - Union Find
+    - Array
+    - Dynamic Programming
+    - Matrix
+    - Monotonic Stack
+    - Heap (Priority Queue)
+---
+
 # [2617. Minimum Number of Visited Cells in a Grid](https://leetcode.com/problems/minimum-number-of-visited-cells-in-a-grid)
 
 [中文文档](/solution/2600-2699/2617.Minimum%20Number%20of%20Visited%20Cells%20in%20a%20Grid/README.md)
-
-<!-- tags:Stack,Breadth-First Search,Union Find,Array,Dynamic Programming,Matrix,Monotonic Stack,Heap (Priority Queue) -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

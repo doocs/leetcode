@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1945.Sum%20of%20Digits%20of%20String%20After%20Convert/README.md
+rating: 1254
+tags:
+    - 字符串
+    - 模拟
+---
+
 # [1945. 字符串转化后的各位数字之和](https://leetcode.cn/problems/sum-of-digits-of-string-after-convert)
 
 [English Version](/solution/1900-1999/1945.Sum%20of%20Digits%20of%20String%20After%20Convert/README_EN.md)
-
-<!-- tags:字符串,模拟 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

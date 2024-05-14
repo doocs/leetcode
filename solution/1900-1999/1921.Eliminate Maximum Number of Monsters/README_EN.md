@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1921.Eliminate%20Maximum%20Number%20of%20Monsters/README_EN.md
+rating: 1527
+tags:
+    - Greedy
+    - Array
+    - Sorting
+---
+
 # [1921. Eliminate Maximum Number of Monsters](https://leetcode.com/problems/eliminate-maximum-number-of-monsters)
 
 [中文文档](/solution/1900-1999/1921.Eliminate%20Maximum%20Number%20of%20Monsters/README.md)
-
-<!-- tags:Greedy,Array,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

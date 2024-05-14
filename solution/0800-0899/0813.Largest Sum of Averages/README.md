@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0813.Largest%20Sum%20of%20Averages/README.md
+tags:
+    - 数组
+    - 动态规划
+    - 前缀和
+---
+
 # [813. 最大平均值和的分组](https://leetcode.cn/problems/largest-sum-of-averages)
 
 [English Version](/solution/0800-0899/0813.Largest%20Sum%20of%20Averages/README_EN.md)
-
-<!-- tags:数组,动态规划,前缀和 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

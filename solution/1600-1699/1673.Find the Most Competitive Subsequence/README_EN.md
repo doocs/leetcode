@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1673.Find%20the%20Most%20Competitive%20Subsequence/README_EN.md
+rating: 1802
+tags:
+    - Stack
+    - Greedy
+    - Array
+    - Monotonic Stack
+---
+
 # [1673. Find the Most Competitive Subsequence](https://leetcode.com/problems/find-the-most-competitive-subsequence)
 
 [中文文档](/solution/1600-1699/1673.Find%20the%20Most%20Competitive%20Subsequence/README.md)
-
-<!-- tags:Stack,Greedy,Array,Monotonic Stack -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

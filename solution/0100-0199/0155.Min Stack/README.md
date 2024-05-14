@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0155.Min%20Stack/README.md
+tags:
+    - 栈
+    - 设计
+---
+
 # [155. 最小栈](https://leetcode.cn/problems/min-stack)
 
 [English Version](/solution/0100-0199/0155.Min%20Stack/README_EN.md)
-
-<!-- tags:栈,设计 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0545.Boundary%20of%20Binary%20Tree/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 二叉树
+---
+
 # [545. 二叉树的边界 🔒](https://leetcode.cn/problems/boundary-of-binary-tree)
 
 [English Version](/solution/0500-0599/0545.Boundary%20of%20Binary%20Tree/README_EN.md)
-
-<!-- tags:树,深度优先搜索,二叉树 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

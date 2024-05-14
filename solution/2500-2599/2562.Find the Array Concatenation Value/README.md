@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2562.Find%20the%20Array%20Concatenation%20Value/README.md
+rating: 1259
+tags:
+    - 数组
+    - 双指针
+    - 模拟
+---
+
 # [2562. 找出数组的串联值](https://leetcode.cn/problems/find-the-array-concatenation-value)
 
 [English Version](/solution/2500-2599/2562.Find%20the%20Array%20Concatenation%20Value/README_EN.md)
-
-<!-- tags:数组,双指针,模拟 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

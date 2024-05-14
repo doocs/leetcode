@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1034.Coloring%20A%20Border/README.md
+rating: 1578
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 数组
+    - 矩阵
+---
+
 # [1034. 边界着色](https://leetcode.cn/problems/coloring-a-border)
 
 [English Version](/solution/1000-1099/1034.Coloring%20A%20Border/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,数组,矩阵 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

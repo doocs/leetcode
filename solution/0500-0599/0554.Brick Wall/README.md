@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0554.Brick%20Wall/README.md
+tags:
+    - 数组
+    - 哈希表
+---
+
 # [554. 砖墙](https://leetcode.cn/problems/brick-wall)
 
 [English Version](/solution/0500-0599/0554.Brick%20Wall/README_EN.md)
-
-<!-- tags:数组,哈希表 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 
@@ -31,6 +36,8 @@
 <strong>输入：</strong>wall = [[1],[1],[1]]
 <strong>输出：</strong>3
 </pre>
+
+
 
 <p><strong>提示：</strong></p>
 

@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0466.Count%20The%20Repetitions/README_EN.md
+tags:
+    - String
+    - Dynamic Programming
+---
+
 # [466. Count The Repetitions](https://leetcode.com/problems/count-the-repetitions)
 
 [中文文档](/solution/0400-0499/0466.Count%20The%20Repetitions/README.md)
-
-<!-- tags:String,Dynamic Programming -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

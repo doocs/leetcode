@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2709.Greatest%20Common%20Divisor%20Traversal/README.md
+rating: 2171
+tags:
+    - 并查集
+    - 数组
+    - 数学
+    - 数论
+---
+
 # [2709. 最大公约数遍历](https://leetcode.cn/problems/greatest-common-divisor-traversal)
 
 [English Version](/solution/2700-2799/2709.Greatest%20Common%20Divisor%20Traversal/README_EN.md)
-
-<!-- tags:并查集,数组,数学,数论 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

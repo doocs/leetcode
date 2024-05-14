@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3038.Maximum%20Number%20of%20Operations%20With%20the%20Same%20Score%20I/README.md
+rating: 1201
+tags:
+    - 数组
+    - 模拟
+---
+
 # [3038. 相同分数的最大操作数目 I](https://leetcode.cn/problems/maximum-number-of-operations-with-the-same-score-i)
 
 [English Version](/solution/3000-3099/3038.Maximum%20Number%20of%20Operations%20With%20the%20Same%20Score%20I/README_EN.md)
-
-<!-- tags:数组,模拟 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

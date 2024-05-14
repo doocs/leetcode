@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0867.Transpose%20Matrix/README.md
+tags:
+    - 数组
+    - 矩阵
+    - 模拟
+---
+
 # [867. 转置矩阵](https://leetcode.cn/problems/transpose-matrix)
 
 [English Version](/solution/0800-0899/0867.Transpose%20Matrix/README_EN.md)
-
-<!-- tags:数组,矩阵,模拟 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

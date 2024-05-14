@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0782.Transform%20to%20Chessboard/README.md
+tags:
+    - 位运算
+    - 数组
+    - 数学
+    - 矩阵
+---
+
 # [782. 变为棋盘](https://leetcode.cn/problems/transform-to-chessboard)
 
 [English Version](/solution/0700-0799/0782.Transform%20to%20Chessboard/README_EN.md)
-
-<!-- tags:位运算,数组,数学,矩阵 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

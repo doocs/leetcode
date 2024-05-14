@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2678.Number%20of%20Senior%20Citizens/README.md
+rating: 1198
+tags:
+    - 数组
+    - 字符串
+---
+
 # [2678. 老人的数目](https://leetcode.cn/problems/number-of-senior-citizens)
 
 [English Version](/solution/2600-2699/2678.Number%20of%20Senior%20Citizens/README_EN.md)
-
-<!-- tags:数组,字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

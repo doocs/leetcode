@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2446.Determine%20if%20Two%20Events%20Have%20Conflict/README_EN.md
+rating: 1322
+tags:
+    - Array
+    - String
+---
+
 # [2446. Determine if Two Events Have Conflict](https://leetcode.com/problems/determine-if-two-events-have-conflict)
 
 [中文文档](/solution/2400-2499/2446.Determine%20if%20Two%20Events%20Have%20Conflict/README.md)
-
-<!-- tags:Array,String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

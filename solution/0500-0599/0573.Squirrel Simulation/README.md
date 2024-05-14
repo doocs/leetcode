@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0573.Squirrel%20Simulation/README.md
+tags:
+    - 数组
+    - 数学
+---
+
 # [573. 松鼠模拟 🔒](https://leetcode.cn/problems/squirrel-simulation)
 
 [English Version](/solution/0500-0599/0573.Squirrel%20Simulation/README_EN.md)
-
-<!-- tags:数组,数学 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

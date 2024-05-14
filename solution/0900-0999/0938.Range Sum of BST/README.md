@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0938.Range%20Sum%20of%20BST/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 二叉搜索树
+    - 二叉树
+---
+
 # [938. 二叉搜索树的范围和](https://leetcode.cn/problems/range-sum-of-bst)
 
 [English Version](/solution/0900-0999/0938.Range%20Sum%20of%20BST/README_EN.md)
-
-<!-- tags:树,深度优先搜索,二叉搜索树,二叉树 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

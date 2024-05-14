@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1695.Maximum%20Erasure%20Value/README.md
+rating: 1528
+tags:
+    - 数组
+    - 哈希表
+    - 滑动窗口
+---
+
 # [1695. 删除子数组的最大得分](https://leetcode.cn/problems/maximum-erasure-value)
 
 [English Version](/solution/1600-1699/1695.Maximum%20Erasure%20Value/README_EN.md)
-
-<!-- tags:数组,哈希表,滑动窗口 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

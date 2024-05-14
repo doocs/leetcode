@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0772.Basic%20Calculator%20III/README.md
+tags:
+    - 栈
+    - 递归
+    - 数学
+    - 字符串
+---
+
 # [772. 基本计算器 III 🔒](https://leetcode.cn/problems/basic-calculator-iii)
 
 [English Version](/solution/0700-0799/0772.Basic%20Calculator%20III/README_EN.md)
-
-<!-- tags:栈,递归,数学,字符串 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

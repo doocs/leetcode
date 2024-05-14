@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2347.Best%20Poker%20Hand/README_EN.md
+rating: 1241
+tags:
+    - Array
+    - Hash Table
+    - Counting
+---
+
 # [2347. Best Poker Hand](https://leetcode.com/problems/best-poker-hand)
 
 [中文文档](/solution/2300-2399/2347.Best%20Poker%20Hand/README.md)
-
-<!-- tags:Array,Hash Table,Counting -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

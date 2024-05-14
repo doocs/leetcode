@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1453.Maximum%20Number%20of%20Darts%20Inside%20of%20a%20Circular%20Dartboard/README_EN.md
+rating: 2201
+tags:
+    - Geometry
+    - Array
+    - Math
+---
+
 # [1453. Maximum Number of Darts Inside of a Circular Dartboard](https://leetcode.com/problems/maximum-number-of-darts-inside-of-a-circular-dartboard)
 
 [中文文档](/solution/1400-1499/1453.Maximum%20Number%20of%20Darts%20Inside%20of%20a%20Circular%20Dartboard/README.md)
-
-<!-- tags:Geometry,Array,Math -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

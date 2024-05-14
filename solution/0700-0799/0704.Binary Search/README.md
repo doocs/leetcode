@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0704.Binary%20Search/README.md
+tags:
+    - 数组
+    - 二分查找
+---
+
 # [704. 二分查找](https://leetcode.cn/problems/binary-search)
 
 [English Version](/solution/0700-0799/0704.Binary%20Search/README_EN.md)
-
-<!-- tags:数组,二分查找 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

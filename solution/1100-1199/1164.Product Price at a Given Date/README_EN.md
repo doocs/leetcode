@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1164.Product%20Price%20at%20a%20Given%20Date/README_EN.md
+tags:
+    - Database
+---
+
 # [1164. Product Price at a Given Date](https://leetcode.com/problems/product-price-at-a-given-date)
 
 [中文文档](/solution/1100-1199/1164.Product%20Price%20at%20a%20Given%20Date/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

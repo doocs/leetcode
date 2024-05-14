@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1114.Print%20in%20Order/README_EN.md
+tags:
+    - Concurrency
+---
+
 # [1114. Print in Order](https://leetcode.com/problems/print-in-order)
 
 [中文文档](/solution/1100-1199/1114.Print%20in%20Order/README.md)
-
-<!-- tags:Concurrency -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

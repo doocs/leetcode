@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0574.Winning%20Candidate/README_EN.md
+tags:
+    - Database
+---
+
 # [574. Winning Candidate 🔒](https://leetcode.com/problems/winning-candidate)
 
 [中文文档](/solution/0500-0599/0574.Winning%20Candidate/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1651.Hopper%20Company%20Queries%20III/README.md
+tags:
+    - 数据库
+---
+
 # [1651. Hopper 公司查询 III 🔒](https://leetcode.cn/problems/hopper-company-queries-iii)
 
 [English Version](/solution/1600-1699/1651.Hopper%20Company%20Queries%20III/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

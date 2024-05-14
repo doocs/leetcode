@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2476.Closest%20Nodes%20Queries%20in%20a%20Binary%20Search%20Tree/README.md
+rating: 1596
+tags:
+    - 树
+    - 深度优先搜索
+    - 二叉搜索树
+    - 数组
+    - 二分查找
+    - 二叉树
+---
+
 # [2476. 二叉搜索树最近节点查询](https://leetcode.cn/problems/closest-nodes-queries-in-a-binary-search-tree)
 
 [English Version](/solution/2400-2499/2476.Closest%20Nodes%20Queries%20in%20a%20Binary%20Search%20Tree/README_EN.md)
-
-<!-- tags:树,深度优先搜索,二叉搜索树,数组,二分查找,二叉树 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

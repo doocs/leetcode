@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2902.Count%20of%20Sub-Multisets%20With%20Bounded%20Sum/README.md
+rating: 2758
+tags:
+    - 数组
+    - 哈希表
+    - 动态规划
+    - 滑动窗口
+---
+
 # [2902. 和带限制的子多重集合的数目](https://leetcode.cn/problems/count-of-sub-multisets-with-bounded-sum)
 
 [English Version](/solution/2900-2999/2902.Count%20of%20Sub-Multisets%20With%20Bounded%20Sum/README_EN.md)
-
-<!-- tags:数组,哈希表,动态规划,滑动窗口 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

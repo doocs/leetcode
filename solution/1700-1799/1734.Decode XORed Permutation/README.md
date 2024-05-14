@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1734.Decode%20XORed%20Permutation/README.md
+rating: 2024
+tags:
+    - 位运算
+    - 数组
+---
+
 # [1734. 解码异或后的排列](https://leetcode.cn/problems/decode-xored-permutation)
 
 [English Version](/solution/1700-1799/1734.Decode%20XORed%20Permutation/README_EN.md)
-
-<!-- tags:位运算,数组 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

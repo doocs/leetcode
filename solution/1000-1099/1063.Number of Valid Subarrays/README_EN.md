@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1063.Number%20of%20Valid%20Subarrays/README_EN.md
+tags:
+    - Stack
+    - Array
+    - Monotonic Stack
+---
+
 # [1063. Number of Valid Subarrays 🔒](https://leetcode.com/problems/number-of-valid-subarrays)
 
 [中文文档](/solution/1000-1099/1063.Number%20of%20Valid%20Subarrays/README.md)
-
-<!-- tags:Stack,Array,Monotonic Stack -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

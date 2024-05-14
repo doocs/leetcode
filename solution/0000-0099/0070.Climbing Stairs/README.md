@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0070.Climbing%20Stairs/README.md
+tags:
+    - 记忆化搜索
+    - 数学
+    - 动态规划
+---
+
 # [70. 爬楼梯](https://leetcode.cn/problems/climbing-stairs)
 
 [English Version](/solution/0000-0099/0070.Climbing%20Stairs/README_EN.md)
-
-<!-- tags:记忆化搜索,数学,动态规划 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0043.Multiply%20Strings/README.md
+tags:
+    - 数学
+    - 字符串
+    - 模拟
+---
+
 # [43. 字符串相乘](https://leetcode.cn/problems/multiply-strings)
 
 [English Version](/solution/0000-0099/0043.Multiply%20Strings/README_EN.md)
-
-<!-- tags:数学,字符串,模拟 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

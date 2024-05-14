@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3111.Minimum%20Rectangles%20to%20Cover%20Points/README.md
+rating: 1401
+tags:
+    - 贪心
+    - 数组
+    - 排序
+---
+
 # [3111. 覆盖所有点的最少矩形数目](https://leetcode.cn/problems/minimum-rectangles-to-cover-points)
 
 [English Version](/solution/3100-3199/3111.Minimum%20Rectangles%20to%20Cover%20Points/README_EN.md)
-
-<!-- tags:贪心,数组,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

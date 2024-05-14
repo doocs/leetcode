@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1053.Previous%20Permutation%20With%20One%20Swap/README_EN.md
+rating: 1633
+tags:
+    - Greedy
+    - Array
+---
+
 # [1053. Previous Permutation With One Swap](https://leetcode.com/problems/previous-permutation-with-one-swap)
 
 [中文文档](/solution/1000-1099/1053.Previous%20Permutation%20With%20One%20Swap/README.md)
-
-<!-- tags:Greedy,Array -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

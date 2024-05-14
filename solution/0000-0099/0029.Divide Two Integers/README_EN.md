@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0029.Divide%20Two%20Integers/README_EN.md
+tags:
+    - Bit Manipulation
+    - Math
+---
+
 # [29. Divide Two Integers](https://leetcode.com/problems/divide-two-integers)
 
 [中文文档](/solution/0000-0099/0029.Divide%20Two%20Integers/README.md)
-
-<!-- tags:Bit Manipulation,Math -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

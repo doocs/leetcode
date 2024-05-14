@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0439.Ternary%20Expression%20Parser/README_EN.md
+tags:
+    - Stack
+    - Recursion
+    - String
+---
+
 # [439. Ternary Expression Parser 🔒](https://leetcode.com/problems/ternary-expression-parser)
 
 [中文文档](/solution/0400-0499/0439.Ternary%20Expression%20Parser/README.md)
-
-<!-- tags:Stack,Recursion,String -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

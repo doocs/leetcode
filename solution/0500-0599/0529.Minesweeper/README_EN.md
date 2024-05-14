@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0529.Minesweeper/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Array
+    - Matrix
+---
+
 # [529. Minesweeper](https://leetcode.com/problems/minesweeper)
 
 [中文文档](/solution/0500-0599/0529.Minesweeper/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Array,Matrix -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

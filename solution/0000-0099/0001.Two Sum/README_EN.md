@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0001.Two%20Sum/README_EN.md
+tags:
+    - Array
+    - Hash Table
+---
+
 # [1. Two Sum](https://leetcode.com/problems/two-sum)
 
 [中文文档](/solution/0000-0099/0001.Two%20Sum/README.md)
-
-<!-- tags:Array,Hash Table -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0800.Similar%20RGB%20Color/README.md
+tags:
+    - 数学
+    - 字符串
+    - 枚举
+---
+
 # [800. 相似 RGB 颜色 🔒](https://leetcode.cn/problems/similar-rgb-color)
 
 [English Version](/solution/0800-0899/0800.Similar%20RGB%20Color/README_EN.md)
-
-<!-- tags:数学,字符串,枚举 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

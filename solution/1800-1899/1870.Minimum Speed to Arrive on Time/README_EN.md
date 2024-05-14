@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1870.Minimum%20Speed%20to%20Arrive%20on%20Time/README_EN.md
+rating: 1675
+tags:
+    - Array
+    - Binary Search
+---
+
 # [1870. Minimum Speed to Arrive on Time](https://leetcode.com/problems/minimum-speed-to-arrive-on-time)
 
 [中文文档](/solution/1800-1899/1870.Minimum%20Speed%20to%20Arrive%20on%20Time/README.md)
-
-<!-- tags:Array,Binary Search -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

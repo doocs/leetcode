@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2233.Maximum%20Product%20After%20K%20Increments/README_EN.md
+rating: 1685
+tags:
+    - Greedy
+    - Array
+    - Heap (Priority Queue)
+---
+
 # [2233. Maximum Product After K Increments](https://leetcode.com/problems/maximum-product-after-k-increments)
 
 [中文文档](/solution/2200-2299/2233.Maximum%20Product%20After%20K%20Increments/README.md)
-
-<!-- tags:Greedy,Array,Heap (Priority Queue) -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

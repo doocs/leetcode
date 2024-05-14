@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1166.Design%20File%20System/README_EN.md
+rating: 1479
+tags:
+    - Design
+    - Trie
+    - Hash Table
+    - String
+---
+
 # [1166. Design File System 🔒](https://leetcode.com/problems/design-file-system)
 
 [中文文档](/solution/1100-1199/1166.Design%20File%20System/README.md)
-
-<!-- tags:Design,Trie,Hash Table,String -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

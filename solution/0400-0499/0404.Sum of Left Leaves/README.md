@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0404.Sum%20of%20Left%20Leaves/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 二叉树
+---
+
 # [404. 左叶子之和](https://leetcode.cn/problems/sum-of-left-leaves)
 
 [English Version](/solution/0400-0499/0404.Sum%20of%20Left%20Leaves/README_EN.md)
-
-<!-- tags:树,深度优先搜索,广度优先搜索,二叉树 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

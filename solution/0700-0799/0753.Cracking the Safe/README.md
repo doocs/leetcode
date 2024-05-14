@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0753.Cracking%20the%20Safe/README.md
+tags:
+    - 深度优先搜索
+    - 图
+    - 欧拉回路
+---
+
 # [753. 破解保险箱](https://leetcode.cn/problems/cracking-the-safe)
 
 [English Version](/solution/0700-0799/0753.Cracking%20the%20Safe/README_EN.md)
-
-<!-- tags:深度优先搜索,图,欧拉回路 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0693.Binary%20Number%20with%20Alternating%20Bits/README.md
+tags:
+    - 位运算
+---
+
 # [693. 交替位二进制数](https://leetcode.cn/problems/binary-number-with-alternating-bits)
 
 [English Version](/solution/0600-0699/0693.Binary%20Number%20with%20Alternating%20Bits/README_EN.md)
-
-<!-- tags:位运算 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1746.Maximum%20Subarray%20Sum%20After%20One%20Operation/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [1746. Maximum Subarray Sum After One Operation 🔒](https://leetcode.com/problems/maximum-subarray-sum-after-one-operation)
 
 [中文文档](/solution/1700-1799/1746.Maximum%20Subarray%20Sum%20After%20One%20Operation/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

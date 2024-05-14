@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0647.Palindromic%20Substrings/README_EN.md
+tags:
+    - Two Pointers
+    - String
+    - Dynamic Programming
+---
+
 # [647. Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings)
 
 [中文文档](/solution/0600-0699/0647.Palindromic%20Substrings/README.md)
-
-<!-- tags:Two Pointers,String,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

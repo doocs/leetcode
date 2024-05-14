@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2429.Minimize%20XOR/README.md
+rating: 1532
+tags:
+    - 贪心
+    - 位运算
+---
+
 # [2429. 最小异或](https://leetcode.cn/problems/minimize-xor)
 
 [English Version](/solution/2400-2499/2429.Minimize%20XOR/README_EN.md)
-
-<!-- tags:贪心,位运算 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

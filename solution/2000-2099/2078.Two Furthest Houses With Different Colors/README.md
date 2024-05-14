@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2078.Two%20Furthest%20Houses%20With%20Different%20Colors/README.md
+rating: 1240
+tags:
+    - 贪心
+    - 数组
+---
+
 # [2078. 两栋颜色不同且距离最远的房子](https://leetcode.cn/problems/two-furthest-houses-with-different-colors)
 
 [English Version](/solution/2000-2099/2078.Two%20Furthest%20Houses%20With%20Different%20Colors/README_EN.md)
-
-<!-- tags:贪心,数组 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

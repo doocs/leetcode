@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2924.Find%20Champion%20II/README_EN.md
+rating: 1430
+tags:
+    - Graph
+---
+
 # [2924. Find Champion II](https://leetcode.com/problems/find-champion-ii)
 
 [中文文档](/solution/2900-2999/2924.Find%20Champion%20II/README.md)
-
-<!-- tags:Graph -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

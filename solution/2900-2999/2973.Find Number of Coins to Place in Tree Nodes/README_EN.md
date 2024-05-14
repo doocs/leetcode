@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2973.Find%20Number%20of%20Coins%20to%20Place%20in%20Tree%20Nodes/README_EN.md
+rating: 2276
+tags:
+    - Tree
+    - Depth-First Search
+    - Dynamic Programming
+    - Sorting
+    - Heap (Priority Queue)
+---
+
 # [2973. Find Number of Coins to Place in Tree Nodes](https://leetcode.com/problems/find-number-of-coins-to-place-in-tree-nodes)
 
 [中文文档](/solution/2900-2999/2973.Find%20Number%20of%20Coins%20to%20Place%20in%20Tree%20Nodes/README.md)
-
-<!-- tags:Tree,Depth-First Search,Dynamic Programming,Sorting,Heap (Priority Queue) -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

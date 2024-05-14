@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1380.Lucky%20Numbers%20in%20a%20Matrix/README.md
+rating: 1207
+tags:
+    - 数组
+    - 矩阵
+---
+
 # [1380. 矩阵中的幸运数](https://leetcode.cn/problems/lucky-numbers-in-a-matrix)
 
 [English Version](/solution/1300-1399/1380.Lucky%20Numbers%20in%20a%20Matrix/README_EN.md)
-
-<!-- tags:数组,矩阵 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

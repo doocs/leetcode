@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0472.Concatenated%20Words/README.md
+tags:
+    - 深度优先搜索
+    - 字典树
+    - 数组
+    - 字符串
+    - 动态规划
+---
+
 # [472. 连接词](https://leetcode.cn/problems/concatenated-words)
 
 [English Version](/solution/0400-0499/0472.Concatenated%20Words/README_EN.md)
-
-<!-- tags:深度优先搜索,字典树,数组,字符串,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

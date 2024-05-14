@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0083.Remove%20Duplicates%20from%20Sorted%20List/README.md
+tags:
+    - 链表
+---
+
 # [83. 删除排序链表中的重复元素](https://leetcode.cn/problems/remove-duplicates-from-sorted-list)
 
 [English Version](/solution/0000-0099/0083.Remove%20Duplicates%20from%20Sorted%20List/README_EN.md)
-
-<!-- tags:链表 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

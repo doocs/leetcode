@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1234.Replace%20the%20Substring%20for%20Balanced%20String/README.md
+rating: 1877
+tags:
+    - 字符串
+    - 滑动窗口
+---
+
 # [1234. 替换子串得到平衡字符串](https://leetcode.cn/problems/replace-the-substring-for-balanced-string)
 
 [English Version](/solution/1200-1299/1234.Replace%20the%20Substring%20for%20Balanced%20String/README_EN.md)
-
-<!-- tags:字符串,滑动窗口 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

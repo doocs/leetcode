@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2286.Booking%20Concert%20Tickets%20in%20Groups/README.md
+rating: 2470
+tags:
+    - 设计
+    - 树状数组
+    - 线段树
+    - 二分查找
+---
+
 # [2286. 以组为单位订音乐会的门票](https://leetcode.cn/problems/booking-concert-tickets-in-groups)
 
 [English Version](/solution/2200-2299/2286.Booking%20Concert%20Tickets%20in%20Groups/README_EN.md)
-
-<!-- tags:设计,树状数组,线段树,二分查找 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

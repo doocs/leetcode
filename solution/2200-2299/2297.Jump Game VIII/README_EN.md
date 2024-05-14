@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2297.Jump%20Game%20VIII/README_EN.md
+tags:
+    - Stack
+    - Graph
+    - Array
+    - Dynamic Programming
+    - Shortest Path
+    - Monotonic Stack
+---
+
 # [2297. Jump Game VIII 🔒](https://leetcode.com/problems/jump-game-viii)
 
 [中文文档](/solution/2200-2299/2297.Jump%20Game%20VIII/README.md)
-
-<!-- tags:Stack,Graph,Array,Dynamic Programming,Shortest Path,Monotonic Stack -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1079.Letter%20Tile%20Possibilities/README_EN.md
+rating: 1740
+tags:
+    - Hash Table
+    - String
+    - Backtracking
+    - Counting
+---
+
 # [1079. Letter Tile Possibilities](https://leetcode.com/problems/letter-tile-possibilities)
 
 [中文文档](/solution/1000-1099/1079.Letter%20Tile%20Possibilities/README.md)
-
-<!-- tags:Hash Table,String,Backtracking,Counting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

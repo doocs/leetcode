@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3116.Kth%20Smallest%20Amount%20With%20Single%20Denomination%20Combination/README_EN.md
+rating: 2387
+tags:
+    - Bit Manipulation
+    - Array
+    - Math
+    - Binary Search
+    - Combinatorics
+    - Number Theory
+---
+
 # [3116. Kth Smallest Amount With Single Denomination Combination](https://leetcode.com/problems/kth-smallest-amount-with-single-denomination-combination)
 
 [中文文档](/solution/3100-3199/3116.Kth%20Smallest%20Amount%20With%20Single%20Denomination%20Combination/README.md)
-
-<!-- tags:Bit Manipulation,Array,Math,Binary Search,Combinatorics,Number Theory -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

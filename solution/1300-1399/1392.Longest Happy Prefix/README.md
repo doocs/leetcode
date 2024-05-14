@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1392.Longest%20Happy%20Prefix/README.md
+rating: 1876
+tags:
+    - 字符串
+    - 字符串匹配
+    - 哈希函数
+    - 滚动哈希
+---
+
 # [1392. 最长快乐前缀](https://leetcode.cn/problems/longest-happy-prefix)
 
 [English Version](/solution/1300-1399/1392.Longest%20Happy%20Prefix/README_EN.md)
-
-<!-- tags:字符串,字符串匹配,哈希函数,滚动哈希 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

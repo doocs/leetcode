@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1073.Adding%20Two%20Negabinary%20Numbers/README_EN.md
+rating: 1806
+tags:
+    - Array
+    - Math
+---
+
 # [1073. Adding Two Negabinary Numbers](https://leetcode.com/problems/adding-two-negabinary-numbers)
 
 [中文文档](/solution/1000-1099/1073.Adding%20Two%20Negabinary%20Numbers/README.md)
-
-<!-- tags:Array,Math -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

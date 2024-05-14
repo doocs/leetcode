@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2451.Odd%20String%20Difference/README_EN.md
+rating: 1406
+tags:
+    - Array
+    - Hash Table
+    - String
+---
+
 # [2451. Odd String Difference](https://leetcode.com/problems/odd-string-difference)
 
 [中文文档](/solution/2400-2499/2451.Odd%20String%20Difference/README.md)
-
-<!-- tags:Array,Hash Table,String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

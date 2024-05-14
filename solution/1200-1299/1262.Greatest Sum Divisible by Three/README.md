@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1262.Greatest%20Sum%20Divisible%20by%20Three/README.md
+rating: 1762
+tags:
+    - 贪心
+    - 数组
+    - 动态规划
+    - 排序
+---
+
 # [1262. 可被三整除的最大和](https://leetcode.cn/problems/greatest-sum-divisible-by-three)
 
 [English Version](/solution/1200-1299/1262.Greatest%20Sum%20Divisible%20by%20Three/README_EN.md)
-
-<!-- tags:贪心,数组,动态规划,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

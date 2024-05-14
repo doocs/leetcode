@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2616.Minimize%20the%20Maximum%20Difference%20of%20Pairs/README_EN.md
+rating: 2155
+tags:
+    - Greedy
+    - Array
+    - Binary Search
+---
+
 # [2616. Minimize the Maximum Difference of Pairs](https://leetcode.com/problems/minimize-the-maximum-difference-of-pairs)
 
 [中文文档](/solution/2600-2699/2616.Minimize%20the%20Maximum%20Difference%20of%20Pairs/README.md)
-
-<!-- tags:Greedy,Array,Binary Search -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

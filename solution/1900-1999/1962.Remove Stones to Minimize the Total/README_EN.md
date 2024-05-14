@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1962.Remove%20Stones%20to%20Minimize%20the%20Total/README_EN.md
+rating: 1418
+tags:
+    - Greedy
+    - Array
+    - Heap (Priority Queue)
+---
+
 # [1962. Remove Stones to Minimize the Total](https://leetcode.com/problems/remove-stones-to-minimize-the-total)
 
 [中文文档](/solution/1900-1999/1962.Remove%20Stones%20to%20Minimize%20the%20Total/README.md)
-
-<!-- tags:Greedy,Array,Heap (Priority Queue) -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

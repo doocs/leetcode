@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0413.Arithmetic%20Slices/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [413. Arithmetic Slices](https://leetcode.com/problems/arithmetic-slices)
 
 [中文文档](/solution/0400-0499/0413.Arithmetic%20Slices/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

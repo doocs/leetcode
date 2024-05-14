@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2060.Check%20if%20an%20Original%20String%20Exists%20Given%20Two%20Encoded%20Strings/README_EN.md
+rating: 2803
+tags:
+    - String
+    - Dynamic Programming
+---
+
 # [2060. Check if an Original String Exists Given Two Encoded Strings](https://leetcode.com/problems/check-if-an-original-string-exists-given-two-encoded-strings)
 
 [中文文档](/solution/2000-2099/2060.Check%20if%20an%20Original%20String%20Exists%20Given%20Two%20Encoded%20Strings/README.md)
-
-<!-- tags:String,Dynamic Programming -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

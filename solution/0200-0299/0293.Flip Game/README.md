@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0293.Flip%20Game/README.md
+tags:
+    - 字符串
+---
+
 # [293. 翻转游戏 🔒](https://leetcode.cn/problems/flip-game)
 
 [English Version](/solution/0200-0299/0293.Flip%20Game/README_EN.md)
-
-<!-- tags:字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

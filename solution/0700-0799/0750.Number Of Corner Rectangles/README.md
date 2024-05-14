@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0750.Number%20Of%20Corner%20Rectangles/README.md
+tags:
+    - 数组
+    - 数学
+    - 动态规划
+    - 矩阵
+---
+
 # [750. 角矩形的数量 🔒](https://leetcode.cn/problems/number-of-corner-rectangles)
 
 [English Version](/solution/0700-0799/0750.Number%20Of%20Corner%20Rectangles/README_EN.md)
-
-<!-- tags:数组,数学,动态规划,矩阵 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

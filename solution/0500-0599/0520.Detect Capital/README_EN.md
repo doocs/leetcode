@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0520.Detect%20Capital/README_EN.md
+tags:
+    - String
+---
+
 # [520. Detect Capital](https://leetcode.com/problems/detect-capital)
 
 [中文文档](/solution/0500-0599/0520.Detect%20Capital/README.md)
-
-<!-- tags:String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

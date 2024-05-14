@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0973.K%20Closest%20Points%20to%20Origin/README_EN.md
+tags:
+    - Geometry
+    - Array
+    - Math
+    - Divide and Conquer
+    - Quickselect
+    - Sorting
+    - Heap (Priority Queue)
+---
+
 # [973. K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin)
 
 [中文文档](/solution/0900-0999/0973.K%20Closest%20Points%20to%20Origin/README.md)
-
-<!-- tags:Geometry,Array,Math,Divide and Conquer,Quickselect,Sorting,Heap (Priority Queue) -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

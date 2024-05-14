@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1015.Smallest%20Integer%20Divisible%20by%20K/README_EN.md
+rating: 1874
+tags:
+    - Hash Table
+    - Math
+---
+
 # [1015. Smallest Integer Divisible by K](https://leetcode.com/problems/smallest-integer-divisible-by-k)
 
 [中文文档](/solution/1000-1099/1015.Smallest%20Integer%20Divisible%20by%20K/README.md)
-
-<!-- tags:Hash Table,Math -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

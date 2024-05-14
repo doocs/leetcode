@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1393.Capital%20GainLoss/README_EN.md
+tags:
+    - Database
+---
+
 # [1393. Capital GainLoss](https://leetcode.com/problems/capital-gainloss)
 
 [中文文档](/solution/1300-1399/1393.Capital%20GainLoss/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

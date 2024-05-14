@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0112.Path%20Sum/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Binary Tree
+---
+
 # [112. Path Sum](https://leetcode.com/problems/path-sum)
 
 [中文文档](/solution/0100-0199/0112.Path%20Sum/README.md)
-
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Tree -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

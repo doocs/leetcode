@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2334.Subarray%20With%20Elements%20Greater%20Than%20Varying%20Threshold/README.md
+rating: 2381
+tags:
+    - 栈
+    - 并查集
+    - 数组
+    - 单调栈
+---
+
 # [2334. 元素值大于变化阈值的子数组](https://leetcode.cn/problems/subarray-with-elements-greater-than-varying-threshold)
 
 [English Version](/solution/2300-2399/2334.Subarray%20With%20Elements%20Greater%20Than%20Varying%20Threshold/README_EN.md)
-
-<!-- tags:栈,并查集,数组,单调栈 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

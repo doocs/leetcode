@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2288.Apply%20Discount%20to%20Prices/README.md
+rating: 1577
+tags:
+    - 字符串
+---
+
 # [2288. 价格减免](https://leetcode.cn/problems/apply-discount-to-prices)
 
 [English Version](/solution/2200-2299/2288.Apply%20Discount%20to%20Prices/README_EN.md)
-
-<!-- tags:字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

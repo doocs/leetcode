@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2944.Minimum%20Number%20of%20Coins%20for%20Fruits/README.md
+rating: 1708
+tags:
+    - 队列
+    - 数组
+    - 动态规划
+    - 单调队列
+    - 堆（优先队列）
+---
+
 # [2944. 购买水果需要的最少金币数](https://leetcode.cn/problems/minimum-number-of-coins-for-fruits)
 
 [English Version](/solution/2900-2999/2944.Minimum%20Number%20of%20Coins%20for%20Fruits/README_EN.md)
-
-<!-- tags:队列,数组,动态规划,单调队列,堆（优先队列） -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

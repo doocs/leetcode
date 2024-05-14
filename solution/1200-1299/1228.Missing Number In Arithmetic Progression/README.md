@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1228.Missing%20Number%20In%20Arithmetic%20Progression/README.md
+rating: 1244
+tags:
+    - 数组
+    - 数学
+---
+
 # [1228. 等差数列中缺失的数字 🔒](https://leetcode.cn/problems/missing-number-in-arithmetic-progression)
 
 [English Version](/solution/1200-1299/1228.Missing%20Number%20In%20Arithmetic%20Progression/README_EN.md)
-
-<!-- tags:数组,数学 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

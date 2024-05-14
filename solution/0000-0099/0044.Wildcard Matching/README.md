@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0044.Wildcard%20Matching/README.md
+tags:
+    - 贪心
+    - 递归
+    - 字符串
+    - 动态规划
+---
+
 # [44. 通配符匹配](https://leetcode.cn/problems/wildcard-matching)
 
 [English Version](/solution/0000-0099/0044.Wildcard%20Matching/README_EN.md)
-
-<!-- tags:贪心,递归,字符串,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

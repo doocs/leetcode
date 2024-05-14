@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1572.Matrix%20Diagonal%20Sum/README.md
+rating: 1280
+tags:
+    - 数组
+    - 矩阵
+---
+
 # [1572. 矩阵对角线元素的和](https://leetcode.cn/problems/matrix-diagonal-sum)
 
 [English Version](/solution/1500-1599/1572.Matrix%20Diagonal%20Sum/README_EN.md)
-
-<!-- tags:数组,矩阵 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

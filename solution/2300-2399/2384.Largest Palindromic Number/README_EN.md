@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2384.Largest%20Palindromic%20Number/README_EN.md
+rating: 1636
+tags:
+    - Greedy
+    - Hash Table
+    - String
+---
+
 # [2384. Largest Palindromic Number](https://leetcode.com/problems/largest-palindromic-number)
 
 [中文文档](/solution/2300-2399/2384.Largest%20Palindromic%20Number/README.md)
-
-<!-- tags:Greedy,Hash Table,String -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

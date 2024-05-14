@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1302.Deepest%20Leaves%20Sum/README.md
+rating: 1387
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 二叉树
+---
+
 # [1302. 层数最深叶子节点的和](https://leetcode.cn/problems/deepest-leaves-sum)
 
 [English Version](/solution/1300-1399/1302.Deepest%20Leaves%20Sum/README_EN.md)
-
-<!-- tags:树,深度优先搜索,广度优先搜索,二叉树 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

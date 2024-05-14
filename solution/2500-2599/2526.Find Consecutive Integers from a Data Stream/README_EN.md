@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2526.Find%20Consecutive%20Integers%20from%20a%20Data%20Stream/README_EN.md
+rating: 1444
+tags:
+    - Design
+    - Queue
+    - Hash Table
+    - Counting
+    - Data Stream
+---
+
 # [2526. Find Consecutive Integers from a Data Stream](https://leetcode.com/problems/find-consecutive-integers-from-a-data-stream)
 
 [中文文档](/solution/2500-2599/2526.Find%20Consecutive%20Integers%20from%20a%20Data%20Stream/README.md)
-
-<!-- tags:Design,Queue,Hash Table,Counting,Data Stream -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

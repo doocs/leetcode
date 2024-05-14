@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20092.%20%E7%BF%BB%E8%BD%AC%E5%AD%97%E7%AC%A6/README.md
+---
+
 # [剑指 Offer II 092. 翻转字符](https://leetcode.cn/problems/cyJERH)
 
 ## 题目描述

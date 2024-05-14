@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0698.Partition%20to%20K%20Equal%20Sum%20Subsets/README.md
+tags:
+    - 位运算
+    - 记忆化搜索
+    - 数组
+    - 动态规划
+    - 回溯
+    - 状态压缩
+---
+
 # [698. 划分为 k 个相等的子集](https://leetcode.cn/problems/partition-to-k-equal-sum-subsets)
 
 [English Version](/solution/0600-0699/0698.Partition%20to%20K%20Equal%20Sum%20Subsets/README_EN.md)
-
-<!-- tags:位运算,记忆化搜索,数组,动态规划,回溯,状态压缩 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

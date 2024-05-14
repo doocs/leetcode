@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1216.Valid%20Palindrome%20III/README.md
+rating: 1753
+tags:
+    - 字符串
+    - 动态规划
+---
+
 # [1216. 验证回文串 III 🔒](https://leetcode.cn/problems/valid-palindrome-iii)
 
 [English Version](/solution/1200-1299/1216.Valid%20Palindrome%20III/README_EN.md)
-
-<!-- tags:字符串,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0681.Next%20Closest%20Time/README.md
+tags:
+    - 哈希表
+    - 字符串
+    - 回溯
+    - 枚举
+---
+
 # [681. 最近时刻 🔒](https://leetcode.cn/problems/next-closest-time)
 
 [English Version](/solution/0600-0699/0681.Next%20Closest%20Time/README_EN.md)
-
-<!-- tags:哈希表,字符串,回溯,枚举 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

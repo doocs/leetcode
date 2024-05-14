@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1853.Convert%20Date%20Format/README.md
+tags:
+    - 数据库
+---
+
 # [1853. 转换日期格式 🔒](https://leetcode.cn/problems/convert-date-format)
 
 [English Version](/solution/1800-1899/1853.Convert%20Date%20Format/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

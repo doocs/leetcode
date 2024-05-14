@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0966.Vowel%20Spellchecker/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+---
+
 # [966. 元音拼写检查器](https://leetcode.cn/problems/vowel-spellchecker)
 
 [English Version](/solution/0900-0999/0966.Vowel%20Spellchecker/README_EN.md)
-
-<!-- tags:数组,哈希表,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

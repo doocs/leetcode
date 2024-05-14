@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0512.Game%20Play%20Analysis%20II/README_EN.md
+tags:
+    - Database
+---
+
 # [512. Game Play Analysis II 🔒](https://leetcode.com/problems/game-play-analysis-ii)
 
 [中文文档](/solution/0500-0599/0512.Game%20Play%20Analysis%20II/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

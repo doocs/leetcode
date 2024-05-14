@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0051.N-Queens/README_EN.md
+tags:
+    - Array
+    - Backtracking
+---
+
 # [51. N-Queens](https://leetcode.com/problems/n-queens)
 
 [中文文档](/solution/0000-0099/0051.N-Queens/README.md)
-
-<!-- tags:Array,Backtracking -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

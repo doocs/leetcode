@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2428.Maximum%20Sum%20of%20an%20Hourglass/README_EN.md
+rating: 1289
+tags:
+    - Array
+    - Matrix
+    - Prefix Sum
+---
+
 # [2428. Maximum Sum of an Hourglass](https://leetcode.com/problems/maximum-sum-of-an-hourglass)
 
 [中文文档](/solution/2400-2499/2428.Maximum%20Sum%20of%20an%20Hourglass/README.md)
-
-<!-- tags:Array,Matrix,Prefix Sum -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

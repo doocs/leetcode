@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3092.Most%20Frequent%20IDs/README.md
+rating: 1793
+tags:
+    - 数组
+    - 哈希表
+    - 有序集合
+    - 堆（优先队列）
+---
+
 # [3092. 最高频率的 ID](https://leetcode.cn/problems/most-frequent-ids)
 
 [English Version](/solution/3000-3099/3092.Most%20Frequent%20IDs/README_EN.md)
-
-<!-- tags:数组,哈希表,有序集合,堆（优先队列） -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

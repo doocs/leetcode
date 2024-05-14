@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1700.Number%20of%20Students%20Unable%20to%20Eat%20Lunch/README_EN.md
+rating: 1404
+tags:
+    - Stack
+    - Queue
+    - Array
+    - Simulation
+---
+
 # [1700. Number of Students Unable to Eat Lunch](https://leetcode.com/problems/number-of-students-unable-to-eat-lunch)
 
 [中文文档](/solution/1700-1799/1700.Number%20of%20Students%20Unable%20to%20Eat%20Lunch/README.md)
-
-<!-- tags:Stack,Queue,Array,Simulation -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2907.Maximum%20Profitable%20Triplets%20With%20Increasing%20Prices%20I/README_EN.md
+tags:
+    - Binary Indexed Tree
+    - Segment Tree
+    - Array
+---
+
 # [2907. Maximum Profitable Triplets With Increasing Prices I 🔒](https://leetcode.com/problems/maximum-profitable-triplets-with-increasing-prices-i)
 
 [中文文档](/solution/2900-2999/2907.Maximum%20Profitable%20Triplets%20With%20Increasing%20Prices%20I/README.md)
-
-<!-- tags:Binary Indexed Tree,Segment Tree,Array -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

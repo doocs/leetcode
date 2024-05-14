@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1834.Single-Threaded%20CPU/README.md
+rating: 1797
+tags:
+    - 数组
+    - 排序
+    - 堆（优先队列）
+---
+
 # [1834. 单线程 CPU](https://leetcode.cn/problems/single-threaded-cpu)
 
 [English Version](/solution/1800-1899/1834.Single-Threaded%20CPU/README_EN.md)
-
-<!-- tags:数组,排序,堆（优先队列） -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

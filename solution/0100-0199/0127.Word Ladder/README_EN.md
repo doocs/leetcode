@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0127.Word%20Ladder/README_EN.md
+tags:
+    - Breadth-First Search
+    - Hash Table
+    - String
+---
+
 # [127. Word Ladder](https://leetcode.com/problems/word-ladder)
 
 [中文文档](/solution/0100-0199/0127.Word%20Ladder/README.md)
-
-<!-- tags:Breadth-First Search,Hash Table,String -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1876.Substrings%20of%20Size%20Three%20with%20Distinct%20Characters/README.md
+rating: 1248
+tags:
+    - 哈希表
+    - 字符串
+    - 计数
+    - 滑动窗口
+---
+
 # [1876. 长度为三且各字符不同的子字符串](https://leetcode.cn/problems/substrings-of-size-three-with-distinct-characters)
 
 [English Version](/solution/1800-1899/1876.Substrings%20of%20Size%20Three%20with%20Distinct%20Characters/README_EN.md)
-
-<!-- tags:哈希表,字符串,计数,滑动窗口 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

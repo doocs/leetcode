@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1597.Build%20Binary%20Expression%20Tree%20From%20Infix%20Expression/README.md
+tags:
+    - 栈
+    - 树
+    - 字符串
+    - 二叉树
+---
+
 # [1597. 根据中缀表达式构造二叉表达式树 🔒](https://leetcode.cn/problems/build-binary-expression-tree-from-infix-expression)
 
 [English Version](/solution/1500-1599/1597.Build%20Binary%20Expression%20Tree%20From%20Infix%20Expression/README_EN.md)
-
-<!-- tags:栈,树,字符串,二叉树 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

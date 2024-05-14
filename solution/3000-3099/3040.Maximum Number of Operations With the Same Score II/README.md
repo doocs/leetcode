@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3040.Maximum%20Number%20of%20Operations%20With%20the%20Same%20Score%20II/README.md
+rating: 1708
+tags:
+    - 记忆化搜索
+    - 数组
+    - 动态规划
+---
+
 # [3040. 相同分数的最大操作数目 II](https://leetcode.cn/problems/maximum-number-of-operations-with-the-same-score-ii)
 
 [English Version](/solution/3000-3099/3040.Maximum%20Number%20of%20Operations%20With%20the%20Same%20Score%20II/README_EN.md)
-
-<!-- tags:记忆化搜索,数组,动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

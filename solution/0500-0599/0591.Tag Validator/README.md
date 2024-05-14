@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0591.Tag%20Validator/README.md
+tags:
+    - 栈
+    - 字符串
+---
+
 # [591. 标签验证器](https://leetcode.cn/problems/tag-validator)
 
 [English Version](/solution/0500-0599/0591.Tag%20Validator/README_EN.md)
-
-<!-- tags:栈,字符串 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

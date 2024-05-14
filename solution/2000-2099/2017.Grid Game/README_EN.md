@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2017.Grid%20Game/README_EN.md
+rating: 1718
+tags:
+    - Array
+    - Matrix
+    - Prefix Sum
+---
+
 # [2017. Grid Game](https://leetcode.com/problems/grid-game)
 
 [中文文档](/solution/2000-2099/2017.Grid%20Game/README.md)
-
-<!-- tags:Array,Matrix,Prefix Sum -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

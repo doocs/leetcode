@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1053.Previous%20Permutation%20With%20One%20Swap/README.md
+rating: 1633
+tags:
+    - 贪心
+    - 数组
+---
+
 # [1053. 交换一次的先前排列](https://leetcode.cn/problems/previous-permutation-with-one-swap)
 
 [English Version](/solution/1000-1099/1053.Previous%20Permutation%20With%20One%20Swap/README_EN.md)
-
-<!-- tags:贪心,数组 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

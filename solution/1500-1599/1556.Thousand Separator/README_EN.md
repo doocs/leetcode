@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1556.Thousand%20Separator/README_EN.md
+rating: 1271
+tags:
+    - String
+---
+
 # [1556. Thousand Separator](https://leetcode.com/problems/thousand-separator)
 
 [中文文档](/solution/1500-1599/1556.Thousand%20Separator/README.md)
-
-<!-- tags:String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0819.Most%20Common%20Word/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+    - 计数
+---
+
 # [819. 最常见的单词](https://leetcode.cn/problems/most-common-word)
 
 [English Version](/solution/0800-0899/0819.Most%20Common%20Word/README_EN.md)
-
-<!-- tags:数组,哈希表,字符串,计数 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

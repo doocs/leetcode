@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0670.Maximum%20Swap/README.md
+tags:
+    - 贪心
+    - 数学
+---
+
 # [670. 最大交换](https://leetcode.cn/problems/maximum-swap)
 
 [English Version](/solution/0600-0699/0670.Maximum%20Swap/README_EN.md)
-
-<!-- tags:贪心,数学 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

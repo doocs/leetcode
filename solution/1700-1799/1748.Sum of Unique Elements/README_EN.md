@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1748.Sum%20of%20Unique%20Elements/README_EN.md
+rating: 1228
+tags:
+    - Array
+    - Hash Table
+    - Counting
+---
+
 # [1748. Sum of Unique Elements](https://leetcode.com/problems/sum-of-unique-elements)
 
 [中文文档](/solution/1700-1799/1748.Sum%20of%20Unique%20Elements/README.md)
-
-<!-- tags:Array,Hash Table,Counting -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

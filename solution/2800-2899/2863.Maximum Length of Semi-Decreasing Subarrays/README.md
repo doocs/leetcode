@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2863.Maximum%20Length%20of%20Semi-Decreasing%20Subarrays/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 排序
+---
+
 # [2863. 最长半递减数组 🔒](https://leetcode.cn/problems/maximum-length-of-semi-decreasing-subarrays)
 
 [English Version](/solution/2800-2899/2863.Maximum%20Length%20of%20Semi-Decreasing%20Subarrays/README_EN.md)
-
-<!-- tags:数组,哈希表,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

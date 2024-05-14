@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0441.Arranging%20Coins/README.md
+tags:
+    - 数学
+    - 二分查找
+---
+
 # [441. 排列硬币](https://leetcode.cn/problems/arranging-coins)
 
 [English Version](/solution/0400-0499/0441.Arranging%20Coins/README_EN.md)
-
-<!-- tags:数学,二分查找 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

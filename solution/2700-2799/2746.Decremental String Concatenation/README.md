@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2746.Decremental%20String%20Concatenation/README.md
+rating: 2126
+tags:
+    - 数组
+    - 字符串
+    - 动态规划
+---
+
 # [2746. 字符串连接删减字母](https://leetcode.cn/problems/decremental-string-concatenation)
 
 [English Version](/solution/2700-2799/2746.Decremental%20String%20Concatenation/README_EN.md)
-
-<!-- tags:数组,字符串,动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

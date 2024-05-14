@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3122.Minimum%20Number%20of%20Operations%20to%20Satisfy%20Conditions/README.md
+rating: 1904
+tags:
+    - 数组
+    - 动态规划
+    - 矩阵
+---
+
 # [3122. 使矩阵满足条件的最少操作次数](https://leetcode.cn/problems/minimum-number-of-operations-to-satisfy-conditions)
 
 [English Version](/solution/3100-3199/3122.Minimum%20Number%20of%20Operations%20to%20Satisfy%20Conditions/README_EN.md)
-
-<!-- tags:数组,动态规划,矩阵 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

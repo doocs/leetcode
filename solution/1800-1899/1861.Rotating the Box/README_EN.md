@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1861.Rotating%20the%20Box/README_EN.md
+rating: 1536
+tags:
+    - Array
+    - Two Pointers
+    - Matrix
+---
+
 # [1861. Rotating the Box](https://leetcode.com/problems/rotating-the-box)
 
 [中文文档](/solution/1800-1899/1861.Rotating%20the%20Box/README.md)
-
-<!-- tags:Array,Two Pointers,Matrix -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

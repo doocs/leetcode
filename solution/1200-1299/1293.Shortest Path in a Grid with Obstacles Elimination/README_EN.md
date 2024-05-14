@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1293.Shortest%20Path%20in%20a%20Grid%20with%20Obstacles%20Elimination/README_EN.md
+rating: 1967
+tags:
+    - Breadth-First Search
+    - Array
+    - Matrix
+---
+
 # [1293. Shortest Path in a Grid with Obstacles Elimination](https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination)
 
 [中文文档](/solution/1200-1299/1293.Shortest%20Path%20in%20a%20Grid%20with%20Obstacles%20Elimination/README.md)
-
-<!-- tags:Breadth-First Search,Array,Matrix -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

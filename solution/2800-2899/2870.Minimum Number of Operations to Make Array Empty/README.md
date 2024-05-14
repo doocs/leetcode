@@ -1,10 +1,18 @@
-# [2870. 使数组为空的最少操作次数](https://leetcode.cn/problems/minimum-number-of-operations-to-make-array-empty/)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2870.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20Empty/README.md
+rating: 1392
+tags:
+    - 贪心
+    - 数组
+    - 哈希表
+    - 计数
+---
+
+# [2870. 使数组为空的最少操作次数](https://leetcode.cn/problems/minimum-number-of-operations-to-make-array-empty)
 
 [English Version](/solution/2800-2899/2870.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20Empty/README_EN.md)
-
-<!-- tags:贪心,数组,哈希表,计数 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

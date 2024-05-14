@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1417.Reformat%20The%20String/README_EN.md
+rating: 1241
+tags:
+    - String
+---
+
 # [1417. Reformat The String](https://leetcode.com/problems/reformat-the-string)
 
 [中文文档](/solution/1400-1499/1417.Reformat%20The%20String/README.md)
-
-<!-- tags:String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

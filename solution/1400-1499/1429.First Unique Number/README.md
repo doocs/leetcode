@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1429.First%20Unique%20Number/README.md
+tags:
+    - 设计
+    - 队列
+    - 数组
+    - 哈希表
+    - 数据流
+---
+
 # [1429. 第一个唯一数字 🔒](https://leetcode.cn/problems/first-unique-number)
 
 [English Version](/solution/1400-1499/1429.First%20Unique%20Number/README_EN.md)
-
-<!-- tags:设计,队列,数组,哈希表,数据流 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

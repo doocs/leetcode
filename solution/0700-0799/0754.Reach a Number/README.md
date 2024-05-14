@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0754.Reach%20a%20Number/README.md
+tags:
+    - 数学
+    - 二分查找
+---
+
 # [754. 到达终点数字](https://leetcode.cn/problems/reach-a-number)
 
 [English Version](/solution/0700-0799/0754.Reach%20a%20Number/README_EN.md)
-
-<!-- tags:数学,二分查找 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

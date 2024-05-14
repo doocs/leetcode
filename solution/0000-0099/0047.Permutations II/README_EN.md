@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0047.Permutations%20II/README_EN.md
+tags:
+    - Array
+    - Backtracking
+---
+
 # [47. Permutations II](https://leetcode.com/problems/permutations-ii)
 
 [中文文档](/solution/0000-0099/0047.Permutations%20II/README.md)
-
-<!-- tags:Array,Backtracking -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

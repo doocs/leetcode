@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1716.Calculate%20Money%20in%20Leetcode%20Bank/README.md
+rating: 1294
+tags:
+    - 数学
+---
+
 # [1716. 计算力扣银行的钱](https://leetcode.cn/problems/calculate-money-in-leetcode-bank)
 
 [English Version](/solution/1700-1799/1716.Calculate%20Money%20in%20Leetcode%20Bank/README_EN.md)
-
-<!-- tags:数学 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

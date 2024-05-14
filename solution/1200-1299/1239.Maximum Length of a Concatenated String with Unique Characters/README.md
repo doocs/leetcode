@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1239.Maximum%20Length%20of%20a%20Concatenated%20String%20with%20Unique%20Characters/README.md
+rating: 1719
+tags:
+    - 位运算
+    - 数组
+    - 字符串
+    - 回溯
+---
+
 # [1239. 串联字符串的最大长度](https://leetcode.cn/problems/maximum-length-of-a-concatenated-string-with-unique-characters)
 
 [English Version](/solution/1200-1299/1239.Maximum%20Length%20of%20a%20Concatenated%20String%20with%20Unique%20Characters/README_EN.md)
-
-<!-- tags:位运算,数组,字符串,回溯 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

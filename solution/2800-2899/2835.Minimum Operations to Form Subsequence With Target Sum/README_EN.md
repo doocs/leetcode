@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2835.Minimum%20Operations%20to%20Form%20Subsequence%20With%20Target%20Sum/README_EN.md
+rating: 2207
+tags:
+    - Greedy
+    - Bit Manipulation
+    - Array
+---
+
 # [2835. Minimum Operations to Form Subsequence With Target Sum](https://leetcode.com/problems/minimum-operations-to-form-subsequence-with-target-sum)
 
 [中文文档](/solution/2800-2899/2835.Minimum%20Operations%20to%20Form%20Subsequence%20With%20Target%20Sum/README.md)
-
-<!-- tags:Greedy,Bit Manipulation,Array -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

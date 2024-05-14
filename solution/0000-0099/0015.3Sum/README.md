@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0015.3Sum/README.md
+tags:
+    - 数组
+    - 双指针
+    - 排序
+---
+
 # [15. 三数之和](https://leetcode.cn/problems/3sum)
 
 [English Version](/solution/0000-0099/0015.3Sum/README_EN.md)
-
-<!-- tags:数组,双指针,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

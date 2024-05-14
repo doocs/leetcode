@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0392.Is%20Subsequence/README.md
+tags:
+    - 双指针
+    - 字符串
+    - 动态规划
+---
+
 # [392. 判断子序列](https://leetcode.cn/problems/is-subsequence)
 
 [English Version](/solution/0300-0399/0392.Is%20Subsequence/README_EN.md)
-
-<!-- tags:双指针,字符串,动态规划 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

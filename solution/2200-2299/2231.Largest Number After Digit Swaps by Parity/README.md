@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2231.Largest%20Number%20After%20Digit%20Swaps%20by%20Parity/README.md
+rating: 1365
+tags:
+    - 排序
+    - 堆（优先队列）
+---
+
 # [2231. 按奇偶性交换后的最大数字](https://leetcode.cn/problems/largest-number-after-digit-swaps-by-parity)
 
 [English Version](/solution/2200-2299/2231.Largest%20Number%20After%20Digit%20Swaps%20by%20Parity/README_EN.md)
-
-<!-- tags:排序,堆（优先队列） -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

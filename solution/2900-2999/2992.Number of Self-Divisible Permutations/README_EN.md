@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2992.Number%20of%20Self-Divisible%20Permutations/README_EN.md
+tags:
+    - Bit Manipulation
+    - Recursion
+    - Array
+    - Dynamic Programming
+    - Bitmask
+---
+
 # [2992. Number of Self-Divisible Permutations 🔒](https://leetcode.com/problems/number-of-self-divisible-permutations)
 
 [中文文档](/solution/2900-2999/2992.Number%20of%20Self-Divisible%20Permutations/README.md)
-
-<!-- tags:Bit Manipulation,Recursion,Array,Dynamic Programming,Bitmask -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

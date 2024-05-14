@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0477.Total%20Hamming%20Distance/README_EN.md
+tags:
+    - Bit Manipulation
+    - Array
+    - Math
+---
+
 # [477. Total Hamming Distance](https://leetcode.com/problems/total-hamming-distance)
 
 [中文文档](/solution/0400-0499/0477.Total%20Hamming%20Distance/README.md)
-
-<!-- tags:Bit Manipulation,Array,Math -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

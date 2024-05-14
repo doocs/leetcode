@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2302.Count%20Subarrays%20With%20Score%20Less%20Than%20K/README_EN.md
+rating: 1808
+tags:
+    - Array
+    - Binary Search
+    - Prefix Sum
+    - Sliding Window
+---
+
 # [2302. Count Subarrays With Score Less Than K](https://leetcode.com/problems/count-subarrays-with-score-less-than-k)
 
 [中文文档](/solution/2300-2399/2302.Count%20Subarrays%20With%20Score%20Less%20Than%20K/README.md)
-
-<!-- tags:Array,Binary Search,Prefix Sum,Sliding Window -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

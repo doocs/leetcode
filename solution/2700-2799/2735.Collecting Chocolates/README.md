@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2735.Collecting%20Chocolates/README.md
+rating: 2043
+tags:
+    - 数组
+    - 枚举
+---
+
 # [2735. 收集巧克力](https://leetcode.cn/problems/collecting-chocolates)
 
 [English Version](/solution/2700-2799/2735.Collecting%20Chocolates/README_EN.md)
-
-<!-- tags:数组,枚举 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0727.Minimum%20Window%20Subsequence/README_EN.md
+tags:
+    - String
+    - Dynamic Programming
+    - Sliding Window
+---
+
 # [727. Minimum Window Subsequence 🔒](https://leetcode.com/problems/minimum-window-subsequence)
 
 [中文文档](/solution/0700-0799/0727.Minimum%20Window%20Subsequence/README.md)
-
-<!-- tags:String,Dynamic Programming,Sliding Window -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

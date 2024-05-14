@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1362.Closest%20Divisors/README.md
+rating: 1533
+tags:
+    - 数学
+---
+
 # [1362. 最接近的因数](https://leetcode.cn/problems/closest-divisors)
 
 [English Version](/solution/1300-1399/1362.Closest%20Divisors/README_EN.md)
-
-<!-- tags:数学 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3035.Maximum%20Palindromes%20After%20Operations/README_EN.md
+rating: 1856
+tags:
+    - Greedy
+    - Array
+    - Hash Table
+    - String
+    - Counting
+    - Sorting
+---
+
 # [3035. Maximum Palindromes After Operations](https://leetcode.com/problems/maximum-palindromes-after-operations)
 
 [中文文档](/solution/3000-3099/3035.Maximum%20Palindromes%20After%20Operations/README.md)
-
-<!-- tags:Greedy,Array,Hash Table,String,Counting,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

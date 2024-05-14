@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0299.Bulls%20and%20Cows/README.md
+tags:
+    - 哈希表
+    - 字符串
+    - 计数
+---
+
 # [299. 猜数字游戏](https://leetcode.cn/problems/bulls-and-cows)
 
 [English Version](/solution/0200-0299/0299.Bulls%20and%20Cows/README_EN.md)
-
-<!-- tags:哈希表,字符串,计数 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

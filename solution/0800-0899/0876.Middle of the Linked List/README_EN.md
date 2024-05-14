@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0876.Middle%20of%20the%20Linked%20List/README_EN.md
+tags:
+    - Linked List
+    - Two Pointers
+---
+
 # [876. Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list)
 
 [中文文档](/solution/0800-0899/0876.Middle%20of%20the%20Linked%20List/README.md)
-
-<!-- tags:Linked List,Two Pointers -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

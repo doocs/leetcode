@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1386.Cinema%20Seat%20Allocation/README.md
+rating: 1636
+tags:
+    - 贪心
+    - 位运算
+    - 数组
+    - 哈希表
+---
+
 # [1386. 安排电影院座位](https://leetcode.cn/problems/cinema-seat-allocation)
 
 [English Version](/solution/1300-1399/1386.Cinema%20Seat%20Allocation/README_EN.md)
-
-<!-- tags:贪心,位运算,数组,哈希表 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

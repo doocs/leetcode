@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2547.Minimum%20Cost%20to%20Split%20an%20Array/README.md
+rating: 2019
+tags:
+    - 数组
+    - 哈希表
+    - 动态规划
+    - 计数
+---
+
 # [2547. 拆分数组的最小代价](https://leetcode.cn/problems/minimum-cost-to-split-an-array)
 
 [English Version](/solution/2500-2599/2547.Minimum%20Cost%20to%20Split%20an%20Array/README_EN.md)
-
-<!-- tags:数组,哈希表,动态规划,计数 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

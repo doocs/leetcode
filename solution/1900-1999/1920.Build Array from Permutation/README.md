@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1920.Build%20Array%20from%20Permutation/README.md
+rating: 1160
+tags:
+    - 数组
+    - 模拟
+---
+
 # [1920. 基于排列构建数组](https://leetcode.cn/problems/build-array-from-permutation)
 
 [English Version](/solution/1900-1999/1920.Build%20Array%20from%20Permutation/README_EN.md)
-
-<!-- tags:数组,模拟 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1461.Check%20If%20a%20String%20Contains%20All%20Binary%20Codes%20of%20Size%20K/README.md
+rating: 1504
+tags:
+    - 位运算
+    - 哈希表
+    - 字符串
+    - 哈希函数
+    - 滚动哈希
+---
+
 # [1461. 检查一个字符串是否包含所有长度为 K 的二进制子串](https://leetcode.cn/problems/check-if-a-string-contains-all-binary-codes-of-size-k)
 
 [English Version](/solution/1400-1499/1461.Check%20If%20a%20String%20Contains%20All%20Binary%20Codes%20of%20Size%20K/README_EN.md)
-
-<!-- tags:位运算,哈希表,字符串,哈希函数,滚动哈希 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

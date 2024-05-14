@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1260.Shift%202D%20Grid/README.md
+rating: 1337
+tags:
+    - 数组
+    - 矩阵
+    - 模拟
+---
+
 # [1260. 二维网格迁移](https://leetcode.cn/problems/shift-2d-grid)
 
 [English Version](/solution/1200-1299/1260.Shift%202D%20Grid/README_EN.md)
-
-<!-- tags:数组,矩阵,模拟 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

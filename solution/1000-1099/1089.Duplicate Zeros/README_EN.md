@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1089.Duplicate%20Zeros/README_EN.md
+rating: 1262
+tags:
+    - Array
+    - Two Pointers
+---
+
 # [1089. Duplicate Zeros](https://leetcode.com/problems/duplicate-zeros)
 
 [中文文档](/solution/1000-1099/1089.Duplicate%20Zeros/README.md)
-
-<!-- tags:Array,Two Pointers -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

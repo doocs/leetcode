@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3096.Minimum%20Levels%20to%20Gain%20More%20Points/README_EN.md
+rating: 1500
+tags:
+    - Array
+    - Prefix Sum
+---
+
 # [3096. Minimum Levels to Gain More Points](https://leetcode.com/problems/minimum-levels-to-gain-more-points)
 
 [中文文档](/solution/3000-3099/3096.Minimum%20Levels%20to%20Gain%20More%20Points/README.md)
-
-<!-- tags:Array,Prefix Sum -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

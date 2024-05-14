@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0150.Evaluate%20Reverse%20Polish%20Notation/README.md
+tags:
+    - 栈
+    - 数组
+    - 数学
+---
+
 # [150. 逆波兰表达式求值](https://leetcode.cn/problems/evaluate-reverse-polish-notation)
 
 [English Version](/solution/0100-0199/0150.Evaluate%20Reverse%20Polish%20Notation/README_EN.md)
-
-<!-- tags:栈,数组,数学 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

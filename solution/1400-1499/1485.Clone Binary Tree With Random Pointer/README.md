@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1485.Clone%20Binary%20Tree%20With%20Random%20Pointer/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 哈希表
+    - 二叉树
+---
+
 # [1485. 克隆含随机指针的二叉树 🔒](https://leetcode.cn/problems/clone-binary-tree-with-random-pointer)
 
 [English Version](/solution/1400-1499/1485.Clone%20Binary%20Tree%20With%20Random%20Pointer/README_EN.md)
-
-<!-- tags:树,深度优先搜索,广度优先搜索,哈希表,二叉树 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

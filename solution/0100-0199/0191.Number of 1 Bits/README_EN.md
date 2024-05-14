@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0191.Number%20of%201%20Bits/README_EN.md
+tags:
+    - Bit Manipulation
+    - Divide and Conquer
+---
+
 # [191. Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits)
 
 [中文文档](/solution/0100-0199/0191.Number%20of%201%20Bits/README.md)
-
-<!-- tags:Bit Manipulation,Divide and Conquer -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

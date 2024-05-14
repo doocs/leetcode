@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0057.Insert%20Interval/README.md
+tags:
+    - 数组
+---
+
 # [57. 插入区间](https://leetcode.cn/problems/insert-interval)
 
 [English Version](/solution/0000-0099/0057.Insert%20Interval/README_EN.md)
-
-<!-- tags:数组 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

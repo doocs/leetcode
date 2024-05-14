@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0617.Merge%20Two%20Binary%20Trees/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 二叉树
+---
+
 # [617. 合并二叉树](https://leetcode.cn/problems/merge-two-binary-trees)
 
 [English Version](/solution/0600-0699/0617.Merge%20Two%20Binary%20Trees/README_EN.md)
-
-<!-- tags:树,深度优先搜索,广度优先搜索,二叉树 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

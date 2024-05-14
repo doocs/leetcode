@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0624.Maximum%20Distance%20in%20Arrays/README.md
+tags:
+    - 贪心
+    - 数组
+---
+
 # [624. 数组列表中的最大距离 🔒](https://leetcode.cn/problems/maximum-distance-in-arrays)
 
 [English Version](/solution/0600-0699/0624.Maximum%20Distance%20in%20Arrays/README_EN.md)
-
-<!-- tags:贪心,数组 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

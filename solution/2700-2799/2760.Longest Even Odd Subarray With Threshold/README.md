@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2760.Longest%20Even%20Odd%20Subarray%20With%20Threshold/README.md
+rating: 1420
+tags:
+    - 数组
+    - 滑动窗口
+---
+
 # [2760. 最长奇偶子数组](https://leetcode.cn/problems/longest-even-odd-subarray-with-threshold)
 
 [English Version](/solution/2700-2799/2760.Longest%20Even%20Odd%20Subarray%20With%20Threshold/README_EN.md)
-
-<!-- tags:数组,滑动窗口 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.01.Sorted%20Merge/README.md
+---
+
 # [面试题 10.01. 合并排序的数组](https://leetcode.cn/problems/sorted-merge-lcci)
 
 [English Version](/lcci/10.01.Sorted%20Merge/README_EN.md)

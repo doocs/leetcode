@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1153.String%20Transforms%20Into%20Another%20String/README_EN.md
+rating: 1949
+tags:
+    - Hash Table
+    - String
+---
+
 # [1153. String Transforms Into Another String 🔒](https://leetcode.com/problems/string-transforms-into-another-string)
 
 [中文文档](/solution/1100-1199/1153.String%20Transforms%20Into%20Another%20String/README.md)
-
-<!-- tags:Hash Table,String -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

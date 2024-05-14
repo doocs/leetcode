@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0242.Valid%20Anagram/README_EN.md
+tags:
+    - Hash Table
+    - String
+    - Sorting
+---
+
 # [242. Valid Anagram](https://leetcode.com/problems/valid-anagram)
 
 [中文文档](/solution/0200-0299/0242.Valid%20Anagram/README.md)
-
-<!-- tags:Hash Table,String,Sorting -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1258.Synonymous%20Sentences/README.md
+rating: 1847
+tags:
+    - 并查集
+    - 数组
+    - 哈希表
+    - 字符串
+    - 回溯
+---
+
 # [1258. 近义词句子 🔒](https://leetcode.cn/problems/synonymous-sentences)
 
 [English Version](/solution/1200-1299/1258.Synonymous%20Sentences/README_EN.md)
-
-<!-- tags:并查集,数组,哈希表,字符串,回溯 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

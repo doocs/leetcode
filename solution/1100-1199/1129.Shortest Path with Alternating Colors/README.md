@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1129.Shortest%20Path%20with%20Alternating%20Colors/README.md
+rating: 1779
+tags:
+    - 广度优先搜索
+    - 图
+---
+
 # [1129. 颜色交替的最短路径](https://leetcode.cn/problems/shortest-path-with-alternating-colors)
 
 [English Version](/solution/1100-1199/1129.Shortest%20Path%20with%20Alternating%20Colors/README_EN.md)
-
-<!-- tags:广度优先搜索,图 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

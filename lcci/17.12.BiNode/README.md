@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.12.BiNode/README.md
+---
+
 # [面试题 17.12. BiNode](https://leetcode.cn/problems/binode-lcci)
 
 [English Version](/lcci/17.12.BiNode/README_EN.md)

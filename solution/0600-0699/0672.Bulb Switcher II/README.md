@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0672.Bulb%20Switcher%20II/README.md
+tags:
+    - 位运算
+    - 深度优先搜索
+    - 广度优先搜索
+    - 数学
+---
+
 # [672. 灯泡开关 Ⅱ](https://leetcode.cn/problems/bulb-switcher-ii)
 
 [English Version](/solution/0600-0699/0672.Bulb%20Switcher%20II/README_EN.md)
-
-<!-- tags:位运算,深度优先搜索,广度优先搜索,数学 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

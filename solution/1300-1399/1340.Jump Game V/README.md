@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1340.Jump%20Game%20V/README.md
+rating: 1866
+tags:
+    - 数组
+    - 动态规划
+    - 排序
+---
+
 # [1340. 跳跃游戏 V](https://leetcode.cn/problems/jump-game-v)
 
 [English Version](/solution/1300-1399/1340.Jump%20Game%20V/README_EN.md)
-
-<!-- tags:数组,动态规划,排序 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1897.Redistribute%20Characters%20to%20Make%20All%20Strings%20Equal/README.md
+rating: 1309
+tags:
+    - 哈希表
+    - 字符串
+    - 计数
+---
+
 # [1897. 重新分配字符使所有字符串都相等](https://leetcode.cn/problems/redistribute-characters-to-make-all-strings-equal)
 
 [English Version](/solution/1800-1899/1897.Redistribute%20Characters%20to%20Make%20All%20Strings%20Equal/README_EN.md)
-
-<!-- tags:哈希表,字符串,计数 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

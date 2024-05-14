@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1319.Number%20of%20Operations%20to%20Make%20Network%20Connected/README.md
+rating: 1633
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 并查集
+    - 图
+---
+
 # [1319. 连通网络的操作次数](https://leetcode.cn/problems/number-of-operations-to-make-network-connected)
 
 [English Version](/solution/1300-1399/1319.Number%20of%20Operations%20to%20Make%20Network%20Connected/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,并查集,图 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0370.Range%20Addition/README.md
+tags:
+    - 数组
+    - 前缀和
+---
+
 # [370. 区间加法 🔒](https://leetcode.cn/problems/range-addition)
 
 [English Version](/solution/0300-0399/0370.Range%20Addition/README_EN.md)
-
-<!-- tags:数组,前缀和 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0788.Rotated%20Digits/README_EN.md
+tags:
+    - Math
+    - Dynamic Programming
+---
+
 # [788. Rotated Digits](https://leetcode.com/problems/rotated-digits)
 
 [中文文档](/solution/0700-0799/0788.Rotated%20Digits/README.md)
-
-<!-- tags:Math,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

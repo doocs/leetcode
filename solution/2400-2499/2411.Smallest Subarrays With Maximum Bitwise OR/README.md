@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2411.Smallest%20Subarrays%20With%20Maximum%20Bitwise%20OR/README.md
+rating: 1938
+tags:
+    - 位运算
+    - 数组
+    - 二分查找
+    - 滑动窗口
+---
+
 # [2411. 按位或最大的最小子数组长度](https://leetcode.cn/problems/smallest-subarrays-with-maximum-bitwise-or)
 
 [English Version](/solution/2400-2499/2411.Smallest%20Subarrays%20With%20Maximum%20Bitwise%20OR/README_EN.md)
-
-<!-- tags:位运算,数组,二分查找,滑动窗口 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1789.Primary%20Department%20for%20Each%20Employee/README.md
+tags:
+    - 数据库
+---
+
 # [1789. 员工的直属部门](https://leetcode.cn/problems/primary-department-for-each-employee)
 
 [English Version](/solution/1700-1799/1789.Primary%20Department%20for%20Each%20Employee/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

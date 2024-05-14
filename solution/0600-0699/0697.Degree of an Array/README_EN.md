@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0697.Degree%20of%20an%20Array/README_EN.md
+tags:
+    - Array
+    - Hash Table
+---
+
 # [697. Degree of an Array](https://leetcode.com/problems/degree-of-an-array)
 
 [中文文档](/solution/0600-0699/0697.Degree%20of%20an%20Array/README.md)
-
-<!-- tags:Array,Hash Table -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

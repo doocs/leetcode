@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1348.Tweet%20Counts%20Per%20Frequency/README.md
+rating: 2036
+tags:
+    - 设计
+    - 哈希表
+    - 二分查找
+    - 有序集合
+    - 排序
+---
+
 # [1348. 推文计数](https://leetcode.cn/problems/tweet-counts-per-frequency)
 
 [English Version](/solution/1300-1399/1348.Tweet%20Counts%20Per%20Frequency/README_EN.md)
-
-<!-- tags:设计,哈希表,二分查找,有序集合,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

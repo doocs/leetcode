@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2272.Substring%20With%20Largest%20Variance/README.md
+rating: 2515
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [2272. 最大波动的子字符串](https://leetcode.cn/problems/substring-with-largest-variance)
 
 [English Version](/solution/2200-2299/2272.Substring%20With%20Largest%20Variance/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

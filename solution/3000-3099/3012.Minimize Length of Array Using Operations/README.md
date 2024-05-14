@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3012.Minimize%20Length%20of%20Array%20Using%20Operations/README.md
+rating: 1832
+tags:
+    - 贪心
+    - 数组
+    - 数学
+    - 数论
+---
+
 # [3012. 通过操作使数组长度最小](https://leetcode.cn/problems/minimize-length-of-array-using-operations)
 
 [English Version](/solution/3000-3099/3012.Minimize%20Length%20of%20Array%20Using%20Operations/README_EN.md)
-
-<!-- tags:贪心,数组,数学,数论 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

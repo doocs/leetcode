@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1291.Sequential%20Digits/README_EN.md
+rating: 1373
+tags:
+    - Enumeration
+---
+
 # [1291. Sequential Digits](https://leetcode.com/problems/sequential-digits)
 
 [中文文档](/solution/1200-1299/1291.Sequential%20Digits/README.md)
-
-<!-- tags:Enumeration -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

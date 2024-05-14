@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1200.Minimum%20Absolute%20Difference/README.md
+rating: 1198
+tags:
+    - 数组
+    - 排序
+---
+
 # [1200. 最小绝对差](https://leetcode.cn/problems/minimum-absolute-difference)
 
 [English Version](/solution/1200-1299/1200.Minimum%20Absolute%20Difference/README_EN.md)
-
-<!-- tags:数组,排序 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

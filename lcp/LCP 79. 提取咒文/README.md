@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2079.%20%E6%8F%90%E5%8F%96%E5%92%92%E6%96%87/README.md
+---
+
 # [LCP 79. 提取咒文](https://leetcode.cn/problems/kjpLFZ)
 
 ## 题目描述

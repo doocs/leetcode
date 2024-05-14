@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0897.Increasing%20Order%20Search%20Tree/README.md
+tags:
+    - 栈
+    - 树
+    - 深度优先搜索
+    - 二叉搜索树
+    - 二叉树
+---
+
 # [897. 递增顺序搜索树](https://leetcode.cn/problems/increasing-order-search-tree)
 
 [English Version](/solution/0800-0899/0897.Increasing%20Order%20Search%20Tree/README_EN.md)
-
-<!-- tags:栈,树,深度优先搜索,二叉搜索树,二叉树 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1136.Parallel%20Courses/README.md
+rating: 1710
+tags:
+    - 图
+    - 拓扑排序
+---
+
 # [1136. 并行课程 🔒](https://leetcode.cn/problems/parallel-courses)
 
 [English Version](/solution/1100-1199/1136.Parallel%20Courses/README_EN.md)
-
-<!-- tags:图,拓扑排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

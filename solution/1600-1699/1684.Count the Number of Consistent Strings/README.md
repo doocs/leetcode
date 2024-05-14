@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1684.Count%20the%20Number%20of%20Consistent%20Strings/README.md
+rating: 1288
+tags:
+    - 位运算
+    - 数组
+    - 哈希表
+    - 字符串
+---
+
 # [1684. 统计一致字符串的数目](https://leetcode.cn/problems/count-the-number-of-consistent-strings)
 
 [English Version](/solution/1600-1699/1684.Count%20the%20Number%20of%20Consistent%20Strings/README_EN.md)
-
-<!-- tags:位运算,数组,哈希表,字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

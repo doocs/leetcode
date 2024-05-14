@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2552.Count%20Increasing%20Quadruplets/README.md
+rating: 2432
+tags:
+    - 树状数组
+    - 数组
+    - 动态规划
+    - 枚举
+    - 前缀和
+---
+
 # [2552. 统计上升四元组](https://leetcode.cn/problems/count-increasing-quadruplets)
 
 [English Version](/solution/2500-2599/2552.Count%20Increasing%20Quadruplets/README_EN.md)
-
-<!-- tags:树状数组,数组,动态规划,枚举,前缀和 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

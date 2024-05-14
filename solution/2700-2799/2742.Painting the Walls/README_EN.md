@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2742.Painting%20the%20Walls/README_EN.md
+rating: 2424
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [2742. Painting the Walls](https://leetcode.com/problems/painting-the-walls)
 
 [中文文档](/solution/2700-2799/2742.Painting%20the%20Walls/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

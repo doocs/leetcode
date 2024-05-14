@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2719.Count%20of%20Integers/README_EN.md
+rating: 2354
+tags:
+    - Math
+    - String
+    - Dynamic Programming
+---
+
 # [2719. Count of Integers](https://leetcode.com/problems/count-of-integers)
 
 [中文文档](/solution/2700-2799/2719.Count%20of%20Integers/README.md)
-
-<!-- tags:Math,String,Dynamic Programming -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

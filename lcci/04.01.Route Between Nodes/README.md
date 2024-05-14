@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.01.Route%20Between%20Nodes/README.md
+---
+
 # [面试题 04.01. 节点间通路](https://leetcode.cn/problems/route-between-nodes-lcci)
 
 [English Version](/lcci/04.01.Route%20Between%20Nodes/README_EN.md)

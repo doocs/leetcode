@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1182.Shortest%20Distance%20to%20Target%20Color/README_EN.md
+rating: 1626
+tags:
+    - Array
+    - Binary Search
+    - Dynamic Programming
+---
+
 # [1182. Shortest Distance to Target Color 🔒](https://leetcode.com/problems/shortest-distance-to-target-color)
 
 [中文文档](/solution/1100-1199/1182.Shortest%20Distance%20to%20Target%20Color/README.md)
-
-<!-- tags:Array,Binary Search,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

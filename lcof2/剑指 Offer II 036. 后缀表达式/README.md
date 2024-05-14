@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20036.%20%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F/README.md
+---
+
 # [剑指 Offer II 036. 后缀表达式](https://leetcode.cn/problems/8Zf90G)
 
 ## 题目描述

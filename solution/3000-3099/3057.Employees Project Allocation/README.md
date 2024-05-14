@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3057.Employees%20Project%20Allocation/README.md
+tags:
+    - 数据库
+---
+
 # [3057. 员工项目分配 🔒](https://leetcode.cn/problems/employees-project-allocation)
 
 [English Version](/solution/3000-3099/3057.Employees%20Project%20Allocation/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

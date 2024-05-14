@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1484.Group%20Sold%20Products%20By%20The%20Date/README.md
+tags:
+    - 数据库
+---
+
 # [1484. 按日期分组销售产品](https://leetcode.cn/problems/group-sold-products-by-the-date)
 
 [English Version](/solution/1400-1499/1484.Group%20Sold%20Products%20By%20The%20Date/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2828.Check%20if%20a%20String%20Is%20an%20Acronym%20of%20Words/README.md
+rating: 1151
+tags:
+    - 数组
+    - 字符串
+---
+
 # [2828. 判别首字母缩略词](https://leetcode.cn/problems/check-if-a-string-is-an-acronym-of-words)
 
 [English Version](/solution/2800-2899/2828.Check%20if%20a%20String%20Is%20an%20Acronym%20of%20Words/README_EN.md)
-
-<!-- tags:数组,字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

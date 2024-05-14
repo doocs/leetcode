@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2524.Maximum%20Frequency%20Score%20of%20a%20Subarray/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 数学
+    - 滑动窗口
+---
+
 # [2524. 子数组的最大频率分数 🔒](https://leetcode.cn/problems/maximum-frequency-score-of-a-subarray)
 
 [English Version](/solution/2500-2599/2524.Maximum%20Frequency%20Score%20of%20a%20Subarray/README_EN.md)
-
-<!-- tags:数组,哈希表,数学,滑动窗口 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

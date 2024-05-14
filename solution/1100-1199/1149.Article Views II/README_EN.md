@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1149.Article%20Views%20II/README_EN.md
+tags:
+    - Database
+---
+
 # [1149. Article Views II 🔒](https://leetcode.com/problems/article-views-ii)
 
 [中文文档](/solution/1100-1199/1149.Article%20Views%20II/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

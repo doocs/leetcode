@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0907.Sum%20of%20Subarray%20Minimums/README_EN.md
+tags:
+    - Stack
+    - Array
+    - Dynamic Programming
+    - Monotonic Stack
+---
+
 # [907. Sum of Subarray Minimums](https://leetcode.com/problems/sum-of-subarray-minimums)
 
 [中文文档](/solution/0900-0999/0907.Sum%20of%20Subarray%20Minimums/README.md)
-
-<!-- tags:Stack,Array,Dynamic Programming,Monotonic Stack -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

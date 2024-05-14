@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1733.Minimum%20Number%20of%20People%20to%20Teach/README.md
+rating: 1983
+tags:
+    - 贪心
+    - 数组
+    - 哈希表
+---
+
 # [1733. 需要教语言的最少人数](https://leetcode.cn/problems/minimum-number-of-people-to-teach)
 
 [English Version](/solution/1700-1799/1733.Minimum%20Number%20of%20People%20to%20Teach/README_EN.md)
-
-<!-- tags:贪心,数组,哈希表 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2195.Append%20K%20Integers%20With%20Minimal%20Sum/README.md
+rating: 1658
+tags:
+    - 贪心
+    - 数组
+    - 数学
+    - 排序
+---
+
 # [2195. 向数组中追加 K 个整数](https://leetcode.cn/problems/append-k-integers-with-minimal-sum)
 
 [English Version](/solution/2100-2199/2195.Append%20K%20Integers%20With%20Minimal%20Sum/README_EN.md)
-
-<!-- tags:贪心,数组,数学,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

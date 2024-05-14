@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0232.Implement%20Queue%20using%20Stacks/README_EN.md
+tags:
+    - Stack
+    - Design
+    - Queue
+---
+
 # [232. Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks)
 
 [中文文档](/solution/0200-0299/0232.Implement%20Queue%20using%20Stacks/README.md)
-
-<!-- tags:Stack,Design,Queue -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2771.Longest%20Non-decreasing%20Subarray%20From%20Two%20Arrays/README.md
+rating: 1791
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [2771. 构造最长非递减子数组](https://leetcode.cn/problems/longest-non-decreasing-subarray-from-two-arrays)
 
 [English Version](/solution/2700-2799/2771.Longest%20Non-decreasing%20Subarray%20From%20Two%20Arrays/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

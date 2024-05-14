@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1504.Count%20Submatrices%20With%20All%20Ones/README_EN.md
+rating: 1845
+tags:
+    - Stack
+    - Array
+    - Dynamic Programming
+    - Matrix
+    - Monotonic Stack
+---
+
 # [1504. Count Submatrices With All Ones](https://leetcode.com/problems/count-submatrices-with-all-ones)
 
 [中文文档](/solution/1500-1599/1504.Count%20Submatrices%20With%20All%20Ones/README.md)
-
-<!-- tags:Stack,Array,Dynamic Programming,Matrix,Monotonic Stack -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

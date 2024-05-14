@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0507.Perfect%20Number/README_EN.md
+tags:
+    - Math
+---
+
 # [507. Perfect Number](https://leetcode.com/problems/perfect-number)
 
 [中文文档](/solution/0500-0599/0507.Perfect%20Number/README.md)
-
-<!-- tags:Math -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

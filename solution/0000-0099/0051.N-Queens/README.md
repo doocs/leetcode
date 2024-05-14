@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0051.N-Queens/README.md
+tags:
+    - 数组
+    - 回溯
+---
+
 # [51. N 皇后](https://leetcode.cn/problems/n-queens)
 
 [English Version](/solution/0000-0099/0051.N-Queens/README_EN.md)
-
-<!-- tags:数组,回溯 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

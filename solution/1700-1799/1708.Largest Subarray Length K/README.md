@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1708.Largest%20Subarray%20Length%20K/README.md
+tags:
+    - 贪心
+    - 数组
+---
+
 # [1708. 长度为 K 的最大子数组 🔒](https://leetcode.cn/problems/largest-subarray-length-k)
 
 [English Version](/solution/1700-1799/1708.Largest%20Subarray%20Length%20K/README_EN.md)
-
-<!-- tags:贪心,数组 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

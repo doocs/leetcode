@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1168.Optimize%20Water%20Distribution%20in%20a%20Village/README.md
+rating: 2069
+tags:
+    - 并查集
+    - 图
+    - 最小生成树
+    - 堆（优先队列）
+---
+
 # [1168. 水资源分配优化 🔒](https://leetcode.cn/problems/optimize-water-distribution-in-a-village)
 
 [English Version](/solution/1100-1199/1168.Optimize%20Water%20Distribution%20in%20a%20Village/README_EN.md)
-
-<!-- tags:并查集,图,最小生成树,堆（优先队列） -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

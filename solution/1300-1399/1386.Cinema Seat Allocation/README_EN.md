@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1386.Cinema%20Seat%20Allocation/README_EN.md
+rating: 1636
+tags:
+    - Greedy
+    - Bit Manipulation
+    - Array
+    - Hash Table
+---
+
 # [1386. Cinema Seat Allocation](https://leetcode.com/problems/cinema-seat-allocation)
 
 [中文文档](/solution/1300-1399/1386.Cinema%20Seat%20Allocation/README.md)
-
-<!-- tags:Greedy,Bit Manipulation,Array,Hash Table -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

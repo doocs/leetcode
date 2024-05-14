@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1376.Time%20Needed%20to%20Inform%20All%20Employees/README.md
+rating: 1561
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+---
+
 # [1376. 通知所有员工所需的时间](https://leetcode.cn/problems/time-needed-to-inform-all-employees)
 
 [English Version](/solution/1300-1399/1376.Time%20Needed%20to%20Inform%20All%20Employees/README_EN.md)
-
-<!-- tags:树,深度优先搜索,广度优先搜索 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

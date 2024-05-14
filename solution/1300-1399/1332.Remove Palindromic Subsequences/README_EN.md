@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1332.Remove%20Palindromic%20Subsequences/README_EN.md
+rating: 1628
+tags:
+    - Two Pointers
+    - String
+---
+
 # [1332. Remove Palindromic Subsequences](https://leetcode.com/problems/remove-palindromic-subsequences)
 
 [中文文档](/solution/1300-1399/1332.Remove%20Palindromic%20Subsequences/README.md)
-
-<!-- tags:Two Pointers,String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

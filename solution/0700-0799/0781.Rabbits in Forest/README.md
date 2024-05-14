@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0781.Rabbits%20in%20Forest/README.md
+tags:
+    - 贪心
+    - 数组
+    - 哈希表
+    - 数学
+---
+
 # [781. 森林中的兔子](https://leetcode.cn/problems/rabbits-in-forest)
 
 [English Version](/solution/0700-0799/0781.Rabbits%20in%20Forest/README_EN.md)
-
-<!-- tags:贪心,数组,哈希表,数学 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

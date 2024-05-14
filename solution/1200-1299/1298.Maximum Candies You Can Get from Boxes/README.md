@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1298.Maximum%20Candies%20You%20Can%20Get%20from%20Boxes/README.md
+rating: 1824
+tags:
+    - 广度优先搜索
+    - 图
+    - 数组
+---
+
 # [1298. 你能从盒子里获得的最大糖果数](https://leetcode.cn/problems/maximum-candies-you-can-get-from-boxes)
 
 [English Version](/solution/1200-1299/1298.Maximum%20Candies%20You%20Can%20Get%20from%20Boxes/README_EN.md)
-
-<!-- tags:广度优先搜索,图,数组 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

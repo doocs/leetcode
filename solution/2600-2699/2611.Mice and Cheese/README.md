@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2611.Mice%20and%20Cheese/README.md
+rating: 1663
+tags:
+    - 贪心
+    - 数组
+    - 排序
+    - 堆（优先队列）
+---
+
 # [2611. 老鼠和奶酪](https://leetcode.cn/problems/mice-and-cheese)
 
 [English Version](/solution/2600-2699/2611.Mice%20and%20Cheese/README_EN.md)
-
-<!-- tags:贪心,数组,排序,堆（优先队列） -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

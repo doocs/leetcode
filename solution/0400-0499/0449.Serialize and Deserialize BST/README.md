@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0449.Serialize%20and%20Deserialize%20BST/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 设计
+    - 二叉搜索树
+    - 字符串
+    - 二叉树
+---
+
 # [449. 序列化和反序列化二叉搜索树](https://leetcode.cn/problems/serialize-and-deserialize-bst)
 
 [English Version](/solution/0400-0499/0449.Serialize%20and%20Deserialize%20BST/README_EN.md)
-
-<!-- tags:树,深度优先搜索,广度优先搜索,设计,二叉搜索树,字符串,二叉树 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

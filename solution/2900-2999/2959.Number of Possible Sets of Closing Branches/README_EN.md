@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2959.Number%20of%20Possible%20Sets%20of%20Closing%20Branches/README_EN.md
+rating: 2077
+tags:
+    - Bit Manipulation
+    - Graph
+    - Enumeration
+    - Shortest Path
+    - Heap (Priority Queue)
+---
+
 # [2959. Number of Possible Sets of Closing Branches](https://leetcode.com/problems/number-of-possible-sets-of-closing-branches)
 
 [中文文档](/solution/2900-2999/2959.Number%20of%20Possible%20Sets%20of%20Closing%20Branches/README.md)
-
-<!-- tags:Bit Manipulation,Graph,Enumeration,Shortest Path,Heap (Priority Queue) -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

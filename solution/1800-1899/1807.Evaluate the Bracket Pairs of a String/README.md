@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1807.Evaluate%20the%20Bracket%20Pairs%20of%20a%20String/README.md
+rating: 1481
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+---
+
 # [1807. 替换字符串中的括号内容](https://leetcode.cn/problems/evaluate-the-bracket-pairs-of-a-string)
 
 [English Version](/solution/1800-1899/1807.Evaluate%20the%20Bracket%20Pairs%20of%20a%20String/README_EN.md)
-
-<!-- tags:数组,哈希表,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

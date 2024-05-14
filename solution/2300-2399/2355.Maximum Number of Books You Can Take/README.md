@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2355.Maximum%20Number%20of%20Books%20You%20Can%20Take/README.md
+tags:
+    - 栈
+    - 数组
+    - 动态规划
+    - 单调栈
+---
+
 # [2355. 你能拿走的最大图书数量 🔒](https://leetcode.cn/problems/maximum-number-of-books-you-can-take)
 
 [English Version](/solution/2300-2399/2355.Maximum%20Number%20of%20Books%20You%20Can%20Take/README_EN.md)
-
-<!-- tags:栈,数组,动态规划,单调栈 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

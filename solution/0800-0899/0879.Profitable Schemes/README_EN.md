@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0879.Profitable%20Schemes/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [879. Profitable Schemes](https://leetcode.com/problems/profitable-schemes)
 
 [中文文档](/solution/0800-0899/0879.Profitable%20Schemes/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0590.N-ary%20Tree%20Postorder%20Traversal/README.md
+tags:
+    - 栈
+    - 树
+    - 深度优先搜索
+---
+
 # [590. N 叉树的后序遍历](https://leetcode.cn/problems/n-ary-tree-postorder-traversal)
 
 [English Version](/solution/0500-0599/0590.N-ary%20Tree%20Postorder%20Traversal/README_EN.md)
-
-<!-- tags:栈,树,深度优先搜索 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

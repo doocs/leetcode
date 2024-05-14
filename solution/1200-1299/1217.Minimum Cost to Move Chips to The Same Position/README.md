@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1217.Minimum%20Cost%20to%20Move%20Chips%20to%20The%20Same%20Position/README.md
+rating: 1407
+tags:
+    - 贪心
+    - 数组
+    - 数学
+---
+
 # [1217. 玩筹码](https://leetcode.cn/problems/minimum-cost-to-move-chips-to-the-same-position)
 
 [English Version](/solution/1200-1299/1217.Minimum%20Cost%20to%20Move%20Chips%20to%20The%20Same%20Position/README_EN.md)
-
-<!-- tags:贪心,数组,数学 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

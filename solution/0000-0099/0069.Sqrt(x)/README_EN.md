@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0069.Sqrt%28x%29/README_EN.md
+tags:
+    - Math
+    - Binary Search
+---
+
 # [69. Sqrt(x)](https://leetcode.com/problems/sqrtx)
 
 [中文文档](/solution/0000-0099/0069.Sqrt%28x%29/README.md)
-
-<!-- tags:Math,Binary Search -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1365.How%20Many%20Numbers%20Are%20Smaller%20Than%20the%20Current%20Number/README_EN.md
+rating: 1152
+tags:
+    - Array
+    - Hash Table
+    - Counting
+    - Sorting
+---
+
 # [1365. How Many Numbers Are Smaller Than the Current Number](https://leetcode.com/problems/how-many-numbers-are-smaller-than-the-current-number)
 
 [中文文档](/solution/1300-1399/1365.How%20Many%20Numbers%20Are%20Smaller%20Than%20the%20Current%20Number/README.md)
-
-<!-- tags:Array,Hash Table,Counting,Sorting -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

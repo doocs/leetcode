@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2608.Shortest%20Cycle%20in%20a%20Graph/README_EN.md
+rating: 1904
+tags:
+    - Breadth-First Search
+    - Graph
+---
+
 # [2608. Shortest Cycle in a Graph](https://leetcode.com/problems/shortest-cycle-in-a-graph)
 
 [中文文档](/solution/2600-2699/2608.Shortest%20Cycle%20in%20a%20Graph/README.md)
-
-<!-- tags:Breadth-First Search,Graph -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

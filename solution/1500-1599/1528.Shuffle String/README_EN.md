@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1528.Shuffle%20String/README_EN.md
+rating: 1193
+tags:
+    - Array
+    - String
+---
+
 # [1528. Shuffle String](https://leetcode.com/problems/shuffle-string)
 
 [中文文档](/solution/1500-1599/1528.Shuffle%20String/README.md)
-
-<!-- tags:Array,String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

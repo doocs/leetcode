@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1307.Verbal%20Arithmetic%20Puzzle/README_EN.md
+rating: 2250
+tags:
+    - Array
+    - Math
+    - String
+    - Backtracking
+---
+
 # [1307. Verbal Arithmetic Puzzle](https://leetcode.com/problems/verbal-arithmetic-puzzle)
 
 [中文文档](/solution/1300-1399/1307.Verbal%20Arithmetic%20Puzzle/README.md)
-
-<!-- tags:Array,Math,String,Backtracking -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

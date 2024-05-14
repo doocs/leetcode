@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2283.Check%20if%20Number%20Has%20Equal%20Digit%20Count%20and%20Digit%20Value/README.md
+rating: 1253
+tags:
+    - 哈希表
+    - 字符串
+    - 计数
+---
+
 # [2283. 判断一个数的数字计数是否等于数位的值](https://leetcode.cn/problems/check-if-number-has-equal-digit-count-and-digit-value)
 
 [English Version](/solution/2200-2299/2283.Check%20if%20Number%20Has%20Equal%20Digit%20Count%20and%20Digit%20Value/README_EN.md)
-
-<!-- tags:哈希表,字符串,计数 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2523.Closest%20Prime%20Numbers%20in%20Range/README.md
+rating: 1649
+tags:
+    - 数学
+    - 数论
+---
+
 # [2523. 范围内最接近的两个质数](https://leetcode.cn/problems/closest-prime-numbers-in-range)
 
 [English Version](/solution/2500-2599/2523.Closest%20Prime%20Numbers%20in%20Range/README_EN.md)
-
-<!-- tags:数学,数论 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

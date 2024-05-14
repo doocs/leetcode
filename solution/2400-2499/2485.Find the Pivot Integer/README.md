@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2485.Find%20the%20Pivot%20Integer/README.md
+rating: 1207
+tags:
+    - 数学
+    - 前缀和
+---
+
 # [2485. 找出中枢整数](https://leetcode.cn/problems/find-the-pivot-integer)
 
 [English Version](/solution/2400-2499/2485.Find%20the%20Pivot%20Integer/README_EN.md)
-
-<!-- tags:数学,前缀和 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

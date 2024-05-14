@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2757.Generate%20Circular%20Array%20Values/README_EN.md
+---
+
 # [2757. Generate Circular Array Values 🔒](https://leetcode.com/problems/generate-circular-array-values)
 
 [中文文档](/solution/2700-2799/2757.Generate%20Circular%20Array%20Values/README.md)
-
-<!-- tags: -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

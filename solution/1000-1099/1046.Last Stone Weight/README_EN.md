@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1046.Last%20Stone%20Weight/README_EN.md
+rating: 1172
+tags:
+    - Array
+    - Heap (Priority Queue)
+---
+
 # [1046. Last Stone Weight](https://leetcode.com/problems/last-stone-weight)
 
 [中文文档](/solution/1000-1099/1046.Last%20Stone%20Weight/README.md)
-
-<!-- tags:Array,Heap (Priority Queue) -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

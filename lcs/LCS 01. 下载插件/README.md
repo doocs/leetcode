@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcs/LCS%2001.%20%E4%B8%8B%E8%BD%BD%E6%8F%92%E4%BB%B6/README.md
+---
+
 # [LCS 01. 下载插件](https://leetcode.cn/problems/Ju9Xwi/)
 
 ## 题目描述

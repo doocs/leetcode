@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1943.Describe%20the%20Painting/README_EN.md
+rating: 1969
+tags:
+    - Array
+    - Hash Table
+    - Prefix Sum
+    - Sorting
+---
+
 # [1943. Describe the Painting](https://leetcode.com/problems/describe-the-painting)
 
 [中文文档](/solution/1900-1999/1943.Describe%20the%20Painting/README.md)
-
-<!-- tags:Array,Hash Table,Prefix Sum,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

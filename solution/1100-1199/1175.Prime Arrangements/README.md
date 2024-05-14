@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1175.Prime%20Arrangements/README.md
+rating: 1489
+tags:
+    - 数学
+---
+
 # [1175. 质数排列](https://leetcode.cn/problems/prime-arrangements)
 
 [English Version](/solution/1100-1199/1175.Prime%20Arrangements/README_EN.md)
-
-<!-- tags:数学 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2381.Shifting%20Letters%20II/README.md
+rating: 1793
+tags:
+    - 数组
+    - 字符串
+    - 前缀和
+---
+
 # [2381. 字母移位 II](https://leetcode.cn/problems/shifting-letters-ii)
 
 [English Version](/solution/2300-2399/2381.Shifting%20Letters%20II/README_EN.md)
-
-<!-- tags:数组,字符串,前缀和 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

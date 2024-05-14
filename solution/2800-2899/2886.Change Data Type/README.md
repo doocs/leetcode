@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2886.Change%20Data%20Type/README.md
+---
+
 # [2886. 改变数据类型](https://leetcode.cn/problems/change-data-type)
 
 [English Version](/solution/2800-2899/2886.Change%20Data%20Type/README_EN.md)
-
-<!-- tags: -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

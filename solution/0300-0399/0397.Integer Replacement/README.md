@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0397.Integer%20Replacement/README.md
+tags:
+    - 贪心
+    - 位运算
+    - 记忆化搜索
+    - 动态规划
+---
+
 # [397. 整数替换](https://leetcode.cn/problems/integer-replacement)
 
 [English Version](/solution/0300-0399/0397.Integer%20Replacement/README_EN.md)
-
-<!-- tags:贪心,位运算,记忆化搜索,动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

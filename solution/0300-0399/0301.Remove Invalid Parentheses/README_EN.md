@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0301.Remove%20Invalid%20Parentheses/README_EN.md
+tags:
+    - Breadth-First Search
+    - String
+    - Backtracking
+---
+
 # [301. Remove Invalid Parentheses](https://leetcode.com/problems/remove-invalid-parentheses)
 
 [中文文档](/solution/0300-0399/0301.Remove%20Invalid%20Parentheses/README.md)
-
-<!-- tags:Breadth-First Search,String,Backtracking -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

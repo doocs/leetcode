@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1694.Reformat%20Phone%20Number/README_EN.md
+rating: 1321
+tags:
+    - String
+---
+
 # [1694. Reformat Phone Number](https://leetcode.com/problems/reformat-phone-number)
 
 [中文文档](/solution/1600-1699/1694.Reformat%20Phone%20Number/README.md)
-
-<!-- tags:String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0614.Second%20Degree%20Follower/README_EN.md
+tags:
+    - Database
+---
+
 # [614. Second Degree Follower 🔒](https://leetcode.com/problems/second-degree-follower)
 
 [中文文档](/solution/0600-0699/0614.Second%20Degree%20Follower/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

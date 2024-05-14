@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.09.BST%20Sequences/README_EN.md
+---
+
 # [04.09. BST Sequences](https://leetcode.cn/problems/bst-sequences-lcci)
 
 [中文文档](/lcci/04.09.BST%20Sequences/README.md)

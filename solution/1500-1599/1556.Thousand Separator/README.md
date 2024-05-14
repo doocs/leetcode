@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1556.Thousand%20Separator/README.md
+rating: 1271
+tags:
+    - 字符串
+---
+
 # [1556. 千位分隔数](https://leetcode.cn/problems/thousand-separator)
 
 [English Version](/solution/1500-1599/1556.Thousand%20Separator/README_EN.md)
-
-<!-- tags:字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

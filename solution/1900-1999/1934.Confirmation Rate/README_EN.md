@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1934.Confirmation%20Rate/README_EN.md
+tags:
+    - Database
+---
+
 # [1934. Confirmation Rate](https://leetcode.com/problems/confirmation-rate)
 
 [中文文档](/solution/1900-1999/1934.Confirmation%20Rate/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0234.Palindrome%20Linked%20List/README_EN.md
+tags:
+    - Stack
+    - Recursion
+    - Linked List
+    - Two Pointers
+---
+
 # [234. Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list)
 
 [中文文档](/solution/0200-0299/0234.Palindrome%20Linked%20List/README.md)
-
-<!-- tags:Stack,Recursion,Linked List,Two Pointers -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

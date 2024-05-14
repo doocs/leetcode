@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2989.Class%20Performance/README_EN.md
+tags:
+    - Database
+---
+
 # [2989. Class Performance 🔒](https://leetcode.com/problems/class-performance)
 
 [中文文档](/solution/2900-2999/2989.Class%20Performance/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

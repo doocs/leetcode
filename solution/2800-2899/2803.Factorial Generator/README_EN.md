@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2803.Factorial%20Generator/README_EN.md
+---
+
 # [2803. Factorial Generator 🔒](https://leetcode.com/problems/factorial-generator)
 
 [中文文档](/solution/2800-2899/2803.Factorial%20Generator/README.md)
-
-<!-- tags: -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

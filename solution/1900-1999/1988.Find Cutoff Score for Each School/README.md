@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1988.Find%20Cutoff%20Score%20for%20Each%20School/README.md
+tags:
+    - 数据库
+---
+
 # [1988. 找出每所学校的最低分数要求 🔒](https://leetcode.cn/problems/find-cutoff-score-for-each-school)
 
 [English Version](/solution/1900-1999/1988.Find%20Cutoff%20Score%20for%20Each%20School/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

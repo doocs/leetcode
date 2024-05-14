@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1268.Search%20Suggestions%20System/README.md
+rating: 1573
+tags:
+    - 字典树
+    - 数组
+    - 字符串
+    - 二分查找
+    - 排序
+    - 堆（优先队列）
+---
+
 # [1268. 搜索推荐系统](https://leetcode.cn/problems/search-suggestions-system)
 
 [English Version](/solution/1200-1299/1268.Search%20Suggestions%20System/README_EN.md)
-
-<!-- tags:字典树,数组,字符串,二分查找,排序,堆（优先队列） -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

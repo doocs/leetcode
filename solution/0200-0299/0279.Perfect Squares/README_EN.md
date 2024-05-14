@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0279.Perfect%20Squares/README_EN.md
+tags:
+    - Breadth-First Search
+    - Math
+    - Dynamic Programming
+---
+
 # [279. Perfect Squares](https://leetcode.com/problems/perfect-squares)
 
 [中文文档](/solution/0200-0299/0279.Perfect%20Squares/README.md)
-
-<!-- tags:Breadth-First Search,Math,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

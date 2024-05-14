@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1971.Find%20if%20Path%20Exists%20in%20Graph/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Union Find
+    - Graph
+---
+
 # [1971. Find if Path Exists in Graph](https://leetcode.com/problems/find-if-path-exists-in-graph)
 
 [中文文档](/solution/1900-1999/1971.Find%20if%20Path%20Exists%20in%20Graph/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Graph -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

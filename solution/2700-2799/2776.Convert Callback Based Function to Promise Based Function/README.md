@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2776.Convert%20Callback%20Based%20Function%20to%20Promise%20Based%20Function/README.md
+---
+
 # [2776. 转换回调函数为 Promise 函数 🔒](https://leetcode.cn/problems/convert-callback-based-function-to-promise-based-function)
 
 [English Version](/solution/2700-2799/2776.Convert%20Callback%20Based%20Function%20to%20Promise%20Based%20Function/README_EN.md)
-
-<!-- tags: -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

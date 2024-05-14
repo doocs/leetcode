@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1995.Count%20Special%20Quadruplets/README.md
+rating: 1352
+tags:
+    - 数组
+    - 哈希表
+    - 枚举
+---
+
 # [1995. 统计特殊四元组](https://leetcode.cn/problems/count-special-quadruplets)
 
 [English Version](/solution/1900-1999/1995.Count%20Special%20Quadruplets/README_EN.md)
-
-<!-- tags:数组,哈希表,枚举 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

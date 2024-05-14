@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0951.Flip%20Equivalent%20Binary%20Trees/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 二叉树
+---
+
 # [951. 翻转等价二叉树](https://leetcode.cn/problems/flip-equivalent-binary-trees)
 
 [English Version](/solution/0900-0999/0951.Flip%20Equivalent%20Binary%20Trees/README_EN.md)
-
-<!-- tags:树,深度优先搜索,二叉树 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

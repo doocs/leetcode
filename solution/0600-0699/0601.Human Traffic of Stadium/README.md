@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0601.Human%20Traffic%20of%20Stadium/README.md
+tags:
+    - 数据库
+---
+
 # [601. 体育馆的人流量](https://leetcode.cn/problems/human-traffic-of-stadium)
 
 [English Version](/solution/0600-0699/0601.Human%20Traffic%20of%20Stadium/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

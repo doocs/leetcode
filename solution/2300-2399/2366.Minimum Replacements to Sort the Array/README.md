@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2366.Minimum%20Replacements%20to%20Sort%20the%20Array/README.md
+rating: 2060
+tags:
+    - 贪心
+    - 数组
+    - 数学
+---
+
 # [2366. 将数组排序的最少替换次数](https://leetcode.cn/problems/minimum-replacements-to-sort-the-array)
 
 [English Version](/solution/2300-2399/2366.Minimum%20Replacements%20to%20Sort%20the%20Array/README_EN.md)
-
-<!-- tags:贪心,数组,数学 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

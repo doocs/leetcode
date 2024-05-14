@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1736.Latest%20Time%20by%20Replacing%20Hidden%20Digits/README.md
+rating: 1264
+tags:
+    - 贪心
+    - 字符串
+---
+
 # [1736. 替换隐藏数字得到的最晚时间](https://leetcode.cn/problems/latest-time-by-replacing-hidden-digits)
 
 [English Version](/solution/1700-1799/1736.Latest%20Time%20by%20Replacing%20Hidden%20Digits/README_EN.md)
-
-<!-- tags:贪心,字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

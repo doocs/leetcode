@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2728.Count%20Houses%20in%20a%20Circular%20Street/README_EN.md
+tags:
+    - Array
+    - Interactive
+---
+
 # [2728. Count Houses in a Circular Street 🔒](https://leetcode.com/problems/count-houses-in-a-circular-street)
 
 [中文文档](/solution/2700-2799/2728.Count%20Houses%20in%20a%20Circular%20Street/README.md)
-
-<!-- tags:Array,Interactive -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

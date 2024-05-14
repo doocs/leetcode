@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2057.Smallest%20Index%20With%20Equal%20Value/README.md
+rating: 1167
+tags:
+    - 数组
+---
+
 # [2057. 值相等的最小索引](https://leetcode.cn/problems/smallest-index-with-equal-value)
 
 [English Version](/solution/2000-2099/2057.Smallest%20Index%20With%20Equal%20Value/README_EN.md)
-
-<!-- tags:数组 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

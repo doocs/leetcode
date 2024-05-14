@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1332.Remove%20Palindromic%20Subsequences/README.md
+rating: 1628
+tags:
+    - 双指针
+    - 字符串
+---
+
 # [1332. 删除回文子序列](https://leetcode.cn/problems/remove-palindromic-subsequences)
 
 [English Version](/solution/1300-1399/1332.Remove%20Palindromic%20Subsequences/README_EN.md)
-
-<!-- tags:双指针,字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

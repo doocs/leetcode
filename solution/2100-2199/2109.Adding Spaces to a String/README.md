@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2109.Adding%20Spaces%20to%20a%20String/README.md
+rating: 1315
+tags:
+    - 数组
+    - 双指针
+    - 字符串
+    - 模拟
+---
+
 # [2109. 向字符串添加空格](https://leetcode.cn/problems/adding-spaces-to-a-string)
 
 [English Version](/solution/2100-2199/2109.Adding%20Spaces%20to%20a%20String/README_EN.md)
-
-<!-- tags:数组,双指针,字符串,模拟 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

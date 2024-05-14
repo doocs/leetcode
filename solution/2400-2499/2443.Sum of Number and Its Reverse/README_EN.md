@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2443.Sum%20of%20Number%20and%20Its%20Reverse/README_EN.md
+rating: 1376
+tags:
+    - Math
+    - Enumeration
+---
+
 # [2443. Sum of Number and Its Reverse](https://leetcode.com/problems/sum-of-number-and-its-reverse)
 
 [中文文档](/solution/2400-2499/2443.Sum%20of%20Number%20and%20Its%20Reverse/README.md)
-
-<!-- tags:Math,Enumeration -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

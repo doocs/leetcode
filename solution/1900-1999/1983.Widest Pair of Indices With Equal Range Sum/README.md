@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1983.Widest%20Pair%20of%20Indices%20With%20Equal%20Range%20Sum/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 前缀和
+---
+
 # [1983. 范围和相等的最宽索引对 🔒](https://leetcode.cn/problems/widest-pair-of-indices-with-equal-range-sum)
 
 [English Version](/solution/1900-1999/1983.Widest%20Pair%20of%20Indices%20With%20Equal%20Range%20Sum/README_EN.md)
-
-<!-- tags:数组,哈希表,前缀和 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

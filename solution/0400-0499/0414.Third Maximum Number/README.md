@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0414.Third%20Maximum%20Number/README.md
+tags:
+    - 数组
+    - 排序
+---
+
 # [414. 第三大的数](https://leetcode.cn/problems/third-maximum-number)
 
 [English Version](/solution/0400-0499/0414.Third%20Maximum%20Number/README_EN.md)
-
-<!-- tags:数组,排序 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

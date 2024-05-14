@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1476.Subrectangle%20Queries/README.md
+rating: 1326
+tags:
+    - 设计
+    - 数组
+    - 矩阵
+---
+
 # [1476. 子矩形查询](https://leetcode.cn/problems/subrectangle-queries)
 
 [English Version](/solution/1400-1499/1476.Subrectangle%20Queries/README_EN.md)
-
-<!-- tags:设计,数组,矩阵 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

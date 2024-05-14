@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0627.Swap%20Salary/README_EN.md
+tags:
+    - Database
+---
+
 # [627. Swap Salary](https://leetcode.com/problems/swap-salary)
 
 [中文文档](/solution/0600-0699/0627.Swap%20Salary/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

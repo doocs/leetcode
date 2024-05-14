@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1064.Fixed%20Point/README.md
+rating: 1307
+tags:
+    - 数组
+    - 二分查找
+---
+
 # [1064. 不动点 🔒](https://leetcode.cn/problems/fixed-point)
 
 [English Version](/solution/1000-1099/1064.Fixed%20Point/README_EN.md)
-
-<!-- tags:数组,二分查找 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

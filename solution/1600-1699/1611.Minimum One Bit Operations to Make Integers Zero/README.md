@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1611.Minimum%20One%20Bit%20Operations%20to%20Make%20Integers%20Zero/README.md
+rating: 2345
+tags:
+    - 位运算
+    - 记忆化搜索
+    - 动态规划
+---
+
 # [1611. 使整数变为 0 的最少操作次数](https://leetcode.cn/problems/minimum-one-bit-operations-to-make-integers-zero)
 
 [English Version](/solution/1600-1699/1611.Minimum%20One%20Bit%20Operations%20to%20Make%20Integers%20Zero/README_EN.md)
-
-<!-- tags:位运算,记忆化搜索,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

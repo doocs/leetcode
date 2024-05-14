@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0371.Sum%20of%20Two%20Integers/README_EN.md
+tags:
+    - Bit Manipulation
+    - Math
+---
+
 # [371. Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers)
 
 [中文文档](/solution/0300-0399/0371.Sum%20of%20Two%20Integers/README.md)
-
-<!-- tags:Bit Manipulation,Math -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

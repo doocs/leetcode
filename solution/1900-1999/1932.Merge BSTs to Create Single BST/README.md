@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1932.Merge%20BSTs%20to%20Create%20Single%20BST/README.md
+rating: 2483
+tags:
+    - 树
+    - 深度优先搜索
+    - 哈希表
+    - 二分查找
+    - 二叉树
+---
+
 # [1932. 合并多棵二叉搜索树](https://leetcode.cn/problems/merge-bsts-to-create-single-bst)
 
 [English Version](/solution/1900-1999/1932.Merge%20BSTs%20to%20Create%20Single%20BST/README_EN.md)
-
-<!-- tags:树,深度优先搜索,哈希表,二分查找,二叉树 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

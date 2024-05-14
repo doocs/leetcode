@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0533.Lonely%20Pixel%20II/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 矩阵
+---
+
 # [533. 孤独像素 II 🔒](https://leetcode.cn/problems/lonely-pixel-ii)
 
 [English Version](/solution/0500-0599/0533.Lonely%20Pixel%20II/README_EN.md)
-
-<!-- tags:数组,哈希表,矩阵 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

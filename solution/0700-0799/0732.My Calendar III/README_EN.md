@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0732.My%20Calendar%20III/README_EN.md
+tags:
+    - Design
+    - Segment Tree
+    - Binary Search
+    - Ordered Set
+---
+
 # [732. My Calendar III](https://leetcode.com/problems/my-calendar-iii)
 
 [中文文档](/solution/0700-0799/0732.My%20Calendar%20III/README.md)
-
-<!-- tags:Design,Segment Tree,Binary Search,Ordered Set -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

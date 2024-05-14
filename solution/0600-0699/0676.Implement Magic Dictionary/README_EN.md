@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0676.Implement%20Magic%20Dictionary/README_EN.md
+tags:
+    - Depth-First Search
+    - Design
+    - Trie
+    - Hash Table
+    - String
+---
+
 # [676. Implement Magic Dictionary](https://leetcode.com/problems/implement-magic-dictionary)
 
 [中文文档](/solution/0600-0699/0676.Implement%20Magic%20Dictionary/README.md)
-
-<!-- tags:Depth-First Search,Design,Trie,Hash Table,String -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

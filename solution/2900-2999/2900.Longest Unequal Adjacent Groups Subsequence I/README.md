@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2900.Longest%20Unequal%20Adjacent%20Groups%20Subsequence%20I/README.md
+rating: 1468
+tags:
+    - 贪心
+    - 数组
+    - 字符串
+    - 动态规划
+---
+
 # [2900. 最长相邻不相等子序列 I](https://leetcode.cn/problems/longest-unequal-adjacent-groups-subsequence-i)
 
 [English Version](/solution/2900-2999/2900.Longest%20Unequal%20Adjacent%20Groups%20Subsequence%20I/README_EN.md)
-
-<!-- tags:贪心,数组,字符串,动态规划 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

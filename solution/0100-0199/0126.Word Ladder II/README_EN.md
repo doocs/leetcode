@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0126.Word%20Ladder%20II/README_EN.md
+tags:
+    - Breadth-First Search
+    - Hash Table
+    - String
+    - Backtracking
+---
+
 # [126. Word Ladder II](https://leetcode.com/problems/word-ladder-ii)
 
 [中文文档](/solution/0100-0199/0126.Word%20Ladder%20II/README.md)
-
-<!-- tags:Breadth-First Search,Hash Table,String,Backtracking -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

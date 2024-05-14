@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2844.Minimum%20Operations%20to%20Make%20a%20Special%20Number/README_EN.md
+rating: 1588
+tags:
+    - Greedy
+    - Math
+    - String
+    - Enumeration
+---
+
 # [2844. Minimum Operations to Make a Special Number](https://leetcode.com/problems/minimum-operations-to-make-a-special-number)
 
 [中文文档](/solution/2800-2899/2844.Minimum%20Operations%20to%20Make%20a%20Special%20Number/README.md)
-
-<!-- tags:Greedy,Math,String,Enumeration -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

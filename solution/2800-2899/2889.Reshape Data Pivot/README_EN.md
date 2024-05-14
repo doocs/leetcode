@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2889.Reshape%20Data%20Pivot/README_EN.md
+---
+
 # [2889. Reshape Data Pivot](https://leetcode.com/problems/reshape-data-pivot)
 
 [中文文档](/solution/2800-2899/2889.Reshape%20Data%20Pivot/README.md)
-
-<!-- tags: -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

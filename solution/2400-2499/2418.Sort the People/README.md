@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2418.Sort%20the%20People/README.md
+rating: 1193
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+    - 排序
+---
+
 # [2418. 按身高排序](https://leetcode.cn/problems/sort-the-people)
 
 [English Version](/solution/2400-2499/2418.Sort%20the%20People/README_EN.md)
-
-<!-- tags:数组,哈希表,字符串,排序 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

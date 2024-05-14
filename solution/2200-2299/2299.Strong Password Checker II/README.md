@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2299.Strong%20Password%20Checker%20II/README.md
+rating: 1241
+tags:
+    - 字符串
+---
+
 # [2299. 强密码检验器 II](https://leetcode.cn/problems/strong-password-checker-ii)
 
 [English Version](/solution/2200-2299/2299.Strong%20Password%20Checker%20II/README_EN.md)
-
-<!-- tags:字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

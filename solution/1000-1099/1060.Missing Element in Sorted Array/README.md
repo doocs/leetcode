@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1060.Missing%20Element%20in%20Sorted%20Array/README.md
+tags:
+    - 数组
+    - 二分查找
+---
+
 # [1060. 有序数组中的缺失元素 🔒](https://leetcode.cn/problems/missing-element-in-sorted-array)
 
 [English Version](/solution/1000-1099/1060.Missing%20Element%20in%20Sorted%20Array/README_EN.md)
-
-<!-- tags:数组,二分查找 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2172.Maximum%20AND%20Sum%20of%20Array/README.md
+rating: 2392
+tags:
+    - 位运算
+    - 数组
+    - 动态规划
+    - 状态压缩
+---
+
 # [2172. 数组的最大与和](https://leetcode.cn/problems/maximum-and-sum-of-array)
 
 [English Version](/solution/2100-2199/2172.Maximum%20AND%20Sum%20of%20Array/README_EN.md)
-
-<!-- tags:位运算,数组,动态规划,状态压缩 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

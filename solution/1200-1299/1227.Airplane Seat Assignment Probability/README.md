@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1227.Airplane%20Seat%20Assignment%20Probability/README.md
+tags:
+    - 脑筋急转弯
+    - 数学
+    - 动态规划
+    - 概率与统计
+---
+
 # [1227. 飞机座位分配概率](https://leetcode.cn/problems/airplane-seat-assignment-probability)
 
 [English Version](/solution/1200-1299/1227.Airplane%20Seat%20Assignment%20Probability/README_EN.md)
-
-<!-- tags:脑筋急转弯,数学,动态规划,概率与统计 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

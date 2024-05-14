@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2963.Count%20the%20Number%20of%20Good%20Partitions/README.md
+rating: 1984
+tags:
+    - 数组
+    - 哈希表
+    - 数学
+    - 组合数学
+---
+
 # [2963. 统计好分割方案的数目](https://leetcode.cn/problems/count-the-number-of-good-partitions)
 
 [English Version](/solution/2900-2999/2963.Count%20the%20Number%20of%20Good%20Partitions/README_EN.md)
-
-<!-- tags:数组,哈希表,数学,组合数学 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

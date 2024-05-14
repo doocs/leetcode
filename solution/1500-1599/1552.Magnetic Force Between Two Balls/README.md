@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1552.Magnetic%20Force%20Between%20Two%20Balls/README.md
+rating: 1919
+tags:
+    - 数组
+    - 二分查找
+    - 排序
+---
+
 # [1552. 两球之间的磁力](https://leetcode.cn/problems/magnetic-force-between-two-balls)
 
 [English Version](/solution/1500-1599/1552.Magnetic%20Force%20Between%20Two%20Balls/README_EN.md)
-
-<!-- tags:数组,二分查找,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

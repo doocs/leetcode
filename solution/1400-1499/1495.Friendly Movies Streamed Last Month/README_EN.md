@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1495.Friendly%20Movies%20Streamed%20Last%20Month/README_EN.md
+tags:
+    - Database
+---
+
 # [1495. Friendly Movies Streamed Last Month 🔒](https://leetcode.com/problems/friendly-movies-streamed-last-month)
 
 [中文文档](/solution/1400-1499/1495.Friendly%20Movies%20Streamed%20Last%20Month/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

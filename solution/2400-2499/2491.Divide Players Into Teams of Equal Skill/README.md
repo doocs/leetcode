@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2491.Divide%20Players%20Into%20Teams%20of%20Equal%20Skill/README.md
+rating: 1323
+tags:
+    - 数组
+    - 哈希表
+    - 双指针
+    - 排序
+---
+
 # [2491. 划分技能点相等的团队](https://leetcode.cn/problems/divide-players-into-teams-of-equal-skill)
 
 [English Version](/solution/2400-2499/2491.Divide%20Players%20Into%20Teams%20of%20Equal%20Skill/README_EN.md)
-
-<!-- tags:数组,哈希表,双指针,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

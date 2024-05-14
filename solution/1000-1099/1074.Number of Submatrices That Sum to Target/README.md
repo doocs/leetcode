@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1074.Number%20of%20Submatrices%20That%20Sum%20to%20Target/README.md
+rating: 2189
+tags:
+    - 数组
+    - 哈希表
+    - 矩阵
+    - 前缀和
+---
+
 # [1074. 元素和为目标值的子矩阵数量](https://leetcode.cn/problems/number-of-submatrices-that-sum-to-target)
 
 [English Version](/solution/1000-1099/1074.Number%20of%20Submatrices%20That%20Sum%20to%20Target/README_EN.md)
-
-<!-- tags:数组,哈希表,矩阵,前缀和 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

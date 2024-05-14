@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3041.Maximize%20Consecutive%20Elements%20in%20an%20Array%20After%20Modification/README.md
+rating: 2231
+tags:
+    - 数组
+    - 动态规划
+    - 排序
+---
+
 # [3041. 修改数组后最大化数组中的连续元素数目](https://leetcode.cn/problems/maximize-consecutive-elements-in-an-array-after-modification)
 
 [English Version](/solution/3000-3099/3041.Maximize%20Consecutive%20Elements%20in%20an%20Array%20After%20Modification/README_EN.md)
-
-<!-- tags:数组,动态规划,排序 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0009.Palindrome%20Number/README.md
+tags:
+    - 数学
+---
+
 # [9. 回文数](https://leetcode.cn/problems/palindrome-number)
 
 [English Version](/solution/0000-0099/0009.Palindrome%20Number/README_EN.md)
-
-<!-- tags:数学 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

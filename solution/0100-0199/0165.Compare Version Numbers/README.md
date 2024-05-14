@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0165.Compare%20Version%20Numbers/README.md
+tags:
+    - 双指针
+    - 字符串
+---
+
 # [165. 比较版本号](https://leetcode.cn/problems/compare-version-numbers)
 
 [English Version](/solution/0100-0199/0165.Compare%20Version%20Numbers/README_EN.md)
-
-<!-- tags:双指针,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

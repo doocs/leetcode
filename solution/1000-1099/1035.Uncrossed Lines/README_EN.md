@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1035.Uncrossed%20Lines/README_EN.md
+rating: 1805
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [1035. Uncrossed Lines](https://leetcode.com/problems/uncrossed-lines)
 
 [中文文档](/solution/1000-1099/1035.Uncrossed%20Lines/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

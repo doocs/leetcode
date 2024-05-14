@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3022.Minimize%20OR%20of%20Remaining%20Elements%20Using%20Operations/README_EN.md
+rating: 2917
+tags:
+    - Greedy
+    - Bit Manipulation
+    - Array
+---
+
 # [3022. Minimize OR of Remaining Elements Using Operations](https://leetcode.com/problems/minimize-or-of-remaining-elements-using-operations)
 
 [中文文档](/solution/3000-3099/3022.Minimize%20OR%20of%20Remaining%20Elements%20Using%20Operations/README.md)
-
-<!-- tags:Greedy,Bit Manipulation,Array -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

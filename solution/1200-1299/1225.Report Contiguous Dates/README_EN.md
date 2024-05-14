@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1225.Report%20Contiguous%20Dates/README_EN.md
+tags:
+    - Database
+---
+
 # [1225. Report Contiguous Dates 🔒](https://leetcode.com/problems/report-contiguous-dates)
 
 [中文文档](/solution/1200-1299/1225.Report%20Contiguous%20Dates/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

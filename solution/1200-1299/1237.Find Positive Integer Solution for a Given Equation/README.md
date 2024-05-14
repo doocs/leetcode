@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1237.Find%20Positive%20Integer%20Solution%20for%20a%20Given%20Equation/README.md
+rating: 1404
+tags:
+    - 数学
+    - 双指针
+    - 二分查找
+    - 交互
+---
+
 # [1237. 找出给定方程的正整数解](https://leetcode.cn/problems/find-positive-integer-solution-for-a-given-equation)
 
 [English Version](/solution/1200-1299/1237.Find%20Positive%20Integer%20Solution%20for%20a%20Given%20Equation/README_EN.md)
-
-<!-- tags:数学,双指针,二分查找,交互 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

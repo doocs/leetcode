@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0301.Remove%20Invalid%20Parentheses/README.md
+tags:
+    - 广度优先搜索
+    - 字符串
+    - 回溯
+---
+
 # [301. 删除无效的括号](https://leetcode.cn/problems/remove-invalid-parentheses)
 
 [English Version](/solution/0300-0399/0301.Remove%20Invalid%20Parentheses/README_EN.md)
-
-<!-- tags:广度优先搜索,字符串,回溯 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

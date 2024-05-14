@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3102.Minimize%20Manhattan%20Distances/README_EN.md
+rating: 2215
+tags:
+    - Geometry
+    - Array
+    - Math
+    - Ordered Set
+    - Sorting
+---
+
 # [3102. Minimize Manhattan Distances](https://leetcode.com/problems/minimize-manhattan-distances)
 
 [中文文档](/solution/3100-3199/3102.Minimize%20Manhattan%20Distances/README.md)
-
-<!-- tags:Geometry,Array,Math,Ordered Set,Sorting -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

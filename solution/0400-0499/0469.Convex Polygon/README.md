@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0469.Convex%20Polygon/README.md
+tags:
+    - 几何
+    - 数学
+---
+
 # [469. 凸多边形 🔒](https://leetcode.cn/problems/convex-polygon)
 
 [English Version](/solution/0400-0499/0469.Convex%20Polygon/README_EN.md)
-
-<!-- tags:几何,数学 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

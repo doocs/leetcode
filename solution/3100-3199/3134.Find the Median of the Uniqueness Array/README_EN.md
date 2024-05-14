@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3134.Find%20the%20Median%20of%20the%20Uniqueness%20Array/README_EN.md
+rating: 2451
+tags:
+    - Array
+    - Hash Table
+    - Binary Search
+    - Sliding Window
+---
+
 # [3134. Find the Median of the Uniqueness Array](https://leetcode.com/problems/find-the-median-of-the-uniqueness-array)
 
 [中文文档](/solution/3100-3199/3134.Find%20the%20Median%20of%20the%20Uniqueness%20Array/README.md)
-
-<!-- tags:Array,Hash Table,Binary Search,Sliding Window -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

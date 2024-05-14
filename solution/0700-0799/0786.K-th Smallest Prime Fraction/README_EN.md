@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0786.K-th%20Smallest%20Prime%20Fraction/README_EN.md
+tags:
+    - Array
+    - Two Pointers
+    - Binary Search
+    - Sorting
+    - Heap (Priority Queue)
+---
+
 # [786. K-th Smallest Prime Fraction](https://leetcode.com/problems/k-th-smallest-prime-fraction)
 
 [中文文档](/solution/0700-0799/0786.K-th%20Smallest%20Prime%20Fraction/README.md)
-
-<!-- tags:Array,Two Pointers,Binary Search,Sorting,Heap (Priority Queue) -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

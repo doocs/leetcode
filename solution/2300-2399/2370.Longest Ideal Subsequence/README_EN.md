@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2370.Longest%20Ideal%20Subsequence/README_EN.md
+rating: 1834
+tags:
+    - Hash Table
+    - String
+    - Dynamic Programming
+---
+
 # [2370. Longest Ideal Subsequence](https://leetcode.com/problems/longest-ideal-subsequence)
 
 [中文文档](/solution/2300-2399/2370.Longest%20Ideal%20Subsequence/README.md)
-
-<!-- tags:Hash Table,String,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

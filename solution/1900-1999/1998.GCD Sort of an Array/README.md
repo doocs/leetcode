@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1998.GCD%20Sort%20of%20an%20Array/README.md
+rating: 2429
+tags:
+    - 并查集
+    - 数组
+    - 数学
+    - 数论
+    - 排序
+---
+
 # [1998. 数组的最大公因数排序](https://leetcode.cn/problems/gcd-sort-of-an-array)
 
 [English Version](/solution/1900-1999/1998.GCD%20Sort%20of%20an%20Array/README_EN.md)
-
-<!-- tags:并查集,数组,数学,数论,排序 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

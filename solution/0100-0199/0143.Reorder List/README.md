@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0143.Reorder%20List/README.md
+tags:
+    - 栈
+    - 递归
+    - 链表
+    - 双指针
+---
+
 # [143. 重排链表](https://leetcode.cn/problems/reorder-list)
 
 [English Version](/solution/0100-0199/0143.Reorder%20List/README_EN.md)
-
-<!-- tags:栈,递归,链表,双指针 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

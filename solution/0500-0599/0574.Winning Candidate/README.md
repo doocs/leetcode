@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0574.Winning%20Candidate/README.md
+tags:
+    - 数据库
+---
+
 # [574. 当选者 🔒](https://leetcode.cn/problems/winning-candidate)
 
 [English Version](/solution/0500-0599/0574.Winning%20Candidate/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

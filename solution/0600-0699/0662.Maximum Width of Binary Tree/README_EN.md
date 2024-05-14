@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0662.Maximum%20Width%20of%20Binary%20Tree/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Binary Tree
+---
+
 # [662. Maximum Width of Binary Tree](https://leetcode.com/problems/maximum-width-of-binary-tree)
 
 [中文文档](/solution/0600-0699/0662.Maximum%20Width%20of%20Binary%20Tree/README.md)
-
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Tree -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

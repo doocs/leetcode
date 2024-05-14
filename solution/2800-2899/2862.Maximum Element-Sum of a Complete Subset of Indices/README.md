@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2862.Maximum%20Element-Sum%20of%20a%20Complete%20Subset%20of%20Indices/README.md
+rating: 2291
+tags:
+    - 数组
+    - 数学
+    - 数论
+---
+
 # [2862. 完全子集的最大元素和](https://leetcode.cn/problems/maximum-element-sum-of-a-complete-subset-of-indices)
 
 [English Version](/solution/2800-2899/2862.Maximum%20Element-Sum%20of%20a%20Complete%20Subset%20of%20Indices/README_EN.md)
-
-<!-- tags:数组,数学,数论 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

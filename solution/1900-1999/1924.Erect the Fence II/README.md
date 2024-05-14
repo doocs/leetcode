@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1924.Erect%20the%20Fence%20II/README.md
+tags:
+    - 几何
+    - 数组
+    - 数学
+---
+
 # [1924. 安装栅栏 II 🔒](https://leetcode.cn/problems/erect-the-fence-ii)
 
 [English Version](/solution/1900-1999/1924.Erect%20the%20Fence%20II/README_EN.md)
-
-<!-- tags:几何,数组,数学 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0938.Range%20Sum%20of%20BST/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Binary Search Tree
+    - Binary Tree
+---
+
 # [938. Range Sum of BST](https://leetcode.com/problems/range-sum-of-bst)
 
 [中文文档](/solution/0900-0999/0938.Range%20Sum%20of%20BST/README.md)
-
-<!-- tags:Tree,Depth-First Search,Binary Search Tree,Binary Tree -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

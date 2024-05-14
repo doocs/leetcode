@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2676.Throttle/README.md
+---
+
 # [2676. 节流 🔒](https://leetcode.cn/problems/throttle)
 
-[English Version](/solution/2600-2699/2676.节流🔒/README_EN.md)
-
-<!-- tags: -->
-
-<!-- difficulty:中等 -->
+[English Version](/solution/2600-2699/2676.Throttle/README_EN.md)
 
 ## 题目描述
 

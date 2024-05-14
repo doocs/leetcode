@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0292.Nim%20Game/README.md
+tags:
+    - 脑筋急转弯
+    - 数学
+    - 博弈
+---
+
 # [292. Nim 游戏](https://leetcode.cn/problems/nim-game)
 
 [English Version](/solution/0200-0299/0292.Nim%20Game/README_EN.md)
-
-<!-- tags:脑筋急转弯,数学,博弈 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

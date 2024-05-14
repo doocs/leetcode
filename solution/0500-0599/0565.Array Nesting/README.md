@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0565.Array%20Nesting/README.md
+tags:
+    - 深度优先搜索
+    - 数组
+---
+
 # [565. 数组嵌套](https://leetcode.cn/problems/array-nesting)
 
 [English Version](/solution/0500-0599/0565.Array%20Nesting/README_EN.md)
-
-<!-- tags:深度优先搜索,数组 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

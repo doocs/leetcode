@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0506.Relative%20Ranks/README_EN.md
+tags:
+    - Array
+    - Sorting
+    - Heap (Priority Queue)
+---
+
 # [506. Relative Ranks](https://leetcode.com/problems/relative-ranks)
 
 [中文文档](/solution/0500-0599/0506.Relative%20Ranks/README.md)
-
-<!-- tags:Array,Sorting,Heap (Priority Queue) -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

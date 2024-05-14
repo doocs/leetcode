@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2281.Sum%20of%20Total%20Strength%20of%20Wizards/README.md
+rating: 2621
+tags:
+    - 栈
+    - 数组
+    - 前缀和
+    - 单调栈
+---
+
 # [2281. 巫师的总力量和](https://leetcode.cn/problems/sum-of-total-strength-of-wizards)
 
 [English Version](/solution/2200-2299/2281.Sum%20of%20Total%20Strength%20of%20Wizards/README_EN.md)
-
-<!-- tags:栈,数组,前缀和,单调栈 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

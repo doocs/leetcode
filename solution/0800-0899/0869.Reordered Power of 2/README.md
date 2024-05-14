@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0869.Reordered%20Power%20of%202/README.md
+tags:
+    - 哈希表
+    - 数学
+    - 计数
+    - 枚举
+    - 排序
+---
+
 # [869. 重新排序得到 2 的幂](https://leetcode.cn/problems/reordered-power-of-2)
 
 [English Version](/solution/0800-0899/0869.Reordered%20Power%20of%202/README_EN.md)
-
-<!-- tags:哈希表,数学,计数,枚举,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0102.Binary%20Tree%20Level%20Order%20Traversal/README_EN.md
+tags:
+    - Tree
+    - Breadth-First Search
+    - Binary Tree
+---
+
 # [102. Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal)
 
 [中文文档](/solution/0100-0199/0102.Binary%20Tree%20Level%20Order%20Traversal/README.md)
-
-<!-- tags:Tree,Breadth-First Search,Binary Tree -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

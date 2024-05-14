@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0980.Unique%20Paths%20III/README.md
+tags:
+    - 位运算
+    - 数组
+    - 回溯
+    - 矩阵
+---
+
 # [980. 不同路径 III](https://leetcode.cn/problems/unique-paths-iii)
 
 [English Version](/solution/0900-0999/0980.Unique%20Paths%20III/README_EN.md)
-
-<!-- tags:位运算,数组,回溯,矩阵 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

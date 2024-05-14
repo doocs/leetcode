@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0781.Rabbits%20in%20Forest/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Hash Table
+    - Math
+---
+
 # [781. Rabbits in Forest](https://leetcode.com/problems/rabbits-in-forest)
 
 [中文文档](/solution/0700-0799/0781.Rabbits%20in%20Forest/README.md)
-
-<!-- tags:Greedy,Array,Hash Table,Math -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

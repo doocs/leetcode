@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2465.Number%20of%20Distinct%20Averages/README_EN.md
+rating: 1250
+tags:
+    - Array
+    - Hash Table
+    - Two Pointers
+    - Sorting
+---
+
 # [2465. Number of Distinct Averages](https://leetcode.com/problems/number-of-distinct-averages)
 
 [中文文档](/solution/2400-2499/2465.Number%20of%20Distinct%20Averages/README.md)
-
-<!-- tags:Array,Hash Table,Two Pointers,Sorting -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

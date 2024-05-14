@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1942.The%20Number%20of%20the%20Smallest%20Unoccupied%20Chair/README.md
+rating: 1695
+tags:
+    - 数组
+    - 哈希表
+    - 堆（优先队列）
+---
+
 # [1942. 最小未被占据椅子的编号](https://leetcode.cn/problems/the-number-of-the-smallest-unoccupied-chair)
 
 [English Version](/solution/1900-1999/1942.The%20Number%20of%20the%20Smallest%20Unoccupied%20Chair/README_EN.md)
-
-<!-- tags:数组,哈希表,堆（优先队列） -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

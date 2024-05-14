@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1394.Find%20Lucky%20Integer%20in%20an%20Array/README_EN.md
+rating: 1118
+tags:
+    - Array
+    - Hash Table
+    - Counting
+---
+
 # [1394. Find Lucky Integer in an Array](https://leetcode.com/problems/find-lucky-integer-in-an-array)
 
 [中文文档](/solution/1300-1399/1394.Find%20Lucky%20Integer%20in%20an%20Array/README.md)
-
-<!-- tags:Array,Hash Table,Counting -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

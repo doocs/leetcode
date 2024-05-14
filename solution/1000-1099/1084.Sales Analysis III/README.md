@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1084.Sales%20Analysis%20III/README.md
+tags:
+    - 数据库
+---
+
 # [1084. 销售分析 III](https://leetcode.cn/problems/sales-analysis-iii)
 
 [English Version](/solution/1000-1099/1084.Sales%20Analysis%20III/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

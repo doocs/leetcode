@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0350.Intersection%20of%20Two%20Arrays%20II/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 双指针
+    - 二分查找
+    - 排序
+---
+
 # [350. 两个数组的交集 II](https://leetcode.cn/problems/intersection-of-two-arrays-ii)
 
 [English Version](/solution/0300-0399/0350.Intersection%20of%20Two%20Arrays%20II/README_EN.md)
-
-<!-- tags:数组,哈希表,双指针,二分查找,排序 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0546.Remove%20Boxes/README.md
+tags:
+    - 记忆化搜索
+    - 数组
+    - 动态规划
+---
+
 # [546. 移除盒子](https://leetcode.cn/problems/remove-boxes)
 
 [English Version](/solution/0500-0599/0546.Remove%20Boxes/README_EN.md)
-
-<!-- tags:记忆化搜索,数组,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1277.Count%20Square%20Submatrices%20with%20All%20Ones/README_EN.md
+rating: 1613
+tags:
+    - Array
+    - Dynamic Programming
+    - Matrix
+---
+
 # [1277. Count Square Submatrices with All Ones](https://leetcode.com/problems/count-square-submatrices-with-all-ones)
 
 [中文文档](/solution/1200-1299/1277.Count%20Square%20Submatrices%20with%20All%20Ones/README.md)
-
-<!-- tags:Array,Dynamic Programming,Matrix -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

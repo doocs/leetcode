@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1106.Parsing%20A%20Boolean%20Expression/README.md
+rating: 1880
+tags:
+    - 栈
+    - 递归
+    - 字符串
+---
+
 # [1106. 解析布尔表达式](https://leetcode.cn/problems/parsing-a-boolean-expression)
 
 [English Version](/solution/1100-1199/1106.Parsing%20A%20Boolean%20Expression/README_EN.md)
-
-<!-- tags:栈,递归,字符串 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

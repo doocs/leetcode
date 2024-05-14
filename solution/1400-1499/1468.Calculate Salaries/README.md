@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1468.Calculate%20Salaries/README.md
+tags:
+    - 数据库
+---
+
 # [1468. 计算税后工资 🔒](https://leetcode.cn/problems/calculate-salaries)
 
 [English Version](/solution/1400-1499/1468.Calculate%20Salaries/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

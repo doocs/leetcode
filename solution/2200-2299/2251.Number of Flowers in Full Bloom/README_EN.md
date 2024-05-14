@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2251.Number%20of%20Flowers%20in%20Full%20Bloom/README_EN.md
+rating: 2022
+tags:
+    - Array
+    - Hash Table
+    - Binary Search
+    - Ordered Set
+    - Prefix Sum
+    - Sorting
+---
+
 # [2251. Number of Flowers in Full Bloom](https://leetcode.com/problems/number-of-flowers-in-full-bloom)
 
 [中文文档](/solution/2200-2299/2251.Number%20of%20Flowers%20in%20Full%20Bloom/README.md)
-
-<!-- tags:Array,Hash Table,Binary Search,Ordered Set,Prefix Sum,Sorting -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

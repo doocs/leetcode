@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2958.Length%20of%20Longest%20Subarray%20With%20at%20Most%20K%20Frequency/README.md
+rating: 1535
+tags:
+    - 数组
+    - 哈希表
+    - 滑动窗口
+---
+
 # [2958. 最多 K 个重复元素的最长子数组](https://leetcode.cn/problems/length-of-longest-subarray-with-at-most-k-frequency)
 
 [English Version](/solution/2900-2999/2958.Length%20of%20Longest%20Subarray%20With%20at%20Most%20K%20Frequency/README_EN.md)
-
-<!-- tags:数组,哈希表,滑动窗口 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

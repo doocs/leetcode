@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2976.Minimum%20Cost%20to%20Convert%20String%20I/README_EN.md
+rating: 1882
+tags:
+    - Graph
+    - Array
+    - String
+    - Shortest Path
+---
+
 # [2976. Minimum Cost to Convert String I](https://leetcode.com/problems/minimum-cost-to-convert-string-i)
 
 [中文文档](/solution/2900-2999/2976.Minimum%20Cost%20to%20Convert%20String%20I/README.md)
-
-<!-- tags:Graph,Array,String,Shortest Path -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

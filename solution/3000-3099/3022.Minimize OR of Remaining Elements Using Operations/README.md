@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3022.Minimize%20OR%20of%20Remaining%20Elements%20Using%20Operations/README.md
+rating: 2917
+tags:
+    - 贪心
+    - 位运算
+    - 数组
+---
+
 # [3022. 给定操作次数内使剩余元素的或值最小](https://leetcode.cn/problems/minimize-or-of-remaining-elements-using-operations)
 
 [English Version](/solution/3000-3099/3022.Minimize%20OR%20of%20Remaining%20Elements%20Using%20Operations/README_EN.md)
-
-<!-- tags:贪心,位运算,数组 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

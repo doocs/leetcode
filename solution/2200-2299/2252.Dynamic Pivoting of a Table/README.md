@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2252.Dynamic%20Pivoting%20of%20a%20Table/README.md
+tags:
+    - 数据库
+---
+
 # [2252. 表的动态旋转 🔒](https://leetcode.cn/problems/dynamic-pivoting-of-a-table)
 
 [English Version](/solution/2200-2299/2252.Dynamic%20Pivoting%20of%20a%20Table/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

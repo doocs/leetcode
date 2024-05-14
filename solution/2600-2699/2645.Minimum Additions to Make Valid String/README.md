@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2645.Minimum%20Additions%20to%20Make%20Valid%20String/README.md
+rating: 1477
+tags:
+    - 栈
+    - 贪心
+    - 字符串
+    - 动态规划
+---
+
 # [2645. 构造有效字符串的最少插入数](https://leetcode.cn/problems/minimum-additions-to-make-valid-string)
 
 [English Version](/solution/2600-2699/2645.Minimum%20Additions%20to%20Make%20Valid%20String/README_EN.md)
-
-<!-- tags:栈,贪心,字符串,动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

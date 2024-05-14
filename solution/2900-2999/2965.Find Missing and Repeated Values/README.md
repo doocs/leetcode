@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2965.Find%20Missing%20and%20Repeated%20Values/README.md
+rating: 1244
+tags:
+    - 数组
+    - 哈希表
+    - 数学
+    - 矩阵
+---
+
 # [2965. 找出缺失和重复的数字](https://leetcode.cn/problems/find-missing-and-repeated-values)
 
 [English Version](/solution/2900-2999/2965.Find%20Missing%20and%20Repeated%20Values/README_EN.md)
-
-<!-- tags:数组,哈希表,数学,矩阵 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

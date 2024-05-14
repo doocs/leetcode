@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0540.Single%20Element%20in%20a%20Sorted%20Array/README.md
+tags:
+    - 数组
+    - 二分查找
+---
+
 # [540. 有序数组中的单一元素](https://leetcode.cn/problems/single-element-in-a-sorted-array)
 
 [English Version](/solution/0500-0599/0540.Single%20Element%20in%20a%20Sorted%20Array/README_EN.md)
-
-<!-- tags:数组,二分查找 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

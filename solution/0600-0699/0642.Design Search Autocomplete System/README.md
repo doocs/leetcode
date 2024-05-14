@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0642.Design%20Search%20Autocomplete%20System/README.md
+tags:
+    - 设计
+    - 字典树
+    - 字符串
+    - 数据流
+    - 排序
+    - 堆（优先队列）
+---
+
 # [642. 设计搜索自动补全系统 🔒](https://leetcode.cn/problems/design-search-autocomplete-system)
 
 [English Version](/solution/0600-0699/0642.Design%20Search%20Autocomplete%20System/README_EN.md)
-
-<!-- tags:设计,字典树,字符串,数据流,排序,堆（优先队列） -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

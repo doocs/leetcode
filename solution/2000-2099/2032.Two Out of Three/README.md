@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2032.Two%20Out%20of%20Three/README.md
+rating: 1269
+tags:
+    - 位运算
+    - 数组
+    - 哈希表
+---
+
 # [2032. 至少在两个数组中出现的值](https://leetcode.cn/problems/two-out-of-three)
 
 [English Version](/solution/2000-2099/2032.Two%20Out%20of%20Three/README_EN.md)
-
-<!-- tags:位运算,数组,哈希表 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0953.Verifying%20an%20Alien%20Dictionary/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+---
+
 # [953. 验证外星语词典](https://leetcode.cn/problems/verifying-an-alien-dictionary)
 
 [English Version](/solution/0900-0999/0953.Verifying%20an%20Alien%20Dictionary/README_EN.md)
-
-<!-- tags:数组,哈希表,字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0861.Score%20After%20Flipping%20Matrix/README.md
+tags:
+    - 贪心
+    - 位运算
+    - 数组
+    - 矩阵
+---
+
 # [861. 翻转矩阵后的得分](https://leetcode.cn/problems/score-after-flipping-matrix)
 
 [English Version](/solution/0800-0899/0861.Score%20After%20Flipping%20Matrix/README_EN.md)
-
-<!-- tags:贪心,位运算,数组,矩阵 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

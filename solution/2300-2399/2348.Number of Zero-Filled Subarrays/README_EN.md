@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2348.Number%20of%20Zero-Filled%20Subarrays/README_EN.md
+rating: 1315
+tags:
+    - Array
+    - Math
+---
+
 # [2348. Number of Zero-Filled Subarrays](https://leetcode.com/problems/number-of-zero-filled-subarrays)
 
 [中文文档](/solution/2300-2399/2348.Number%20of%20Zero-Filled%20Subarrays/README.md)
-
-<!-- tags:Array,Math -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

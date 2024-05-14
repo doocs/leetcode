@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1497.Check%20If%20Array%20Pairs%20Are%20Divisible%20by%20k/README_EN.md
+rating: 1787
+tags:
+    - Array
+    - Hash Table
+    - Counting
+---
+
 # [1497. Check If Array Pairs Are Divisible by k](https://leetcode.com/problems/check-if-array-pairs-are-divisible-by-k)
 
 [中文文档](/solution/1400-1499/1497.Check%20If%20Array%20Pairs%20Are%20Divisible%20by%20k/README.md)
-
-<!-- tags:Array,Hash Table,Counting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

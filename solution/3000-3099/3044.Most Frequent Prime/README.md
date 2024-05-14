@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3044.Most%20Frequent%20Prime/README.md
+rating: 1737
+tags:
+    - 数组
+    - 哈希表
+    - 数学
+    - 计数
+    - 枚举
+    - 矩阵
+    - 数论
+---
+
 # [3044. 出现频率最高的质数](https://leetcode.cn/problems/most-frequent-prime)
 
 [English Version](/solution/3000-3099/3044.Most%20Frequent%20Prime/README_EN.md)
-
-<!-- tags:数组,哈希表,数学,计数,枚举,矩阵,数论 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0745.Prefix%20and%20Suffix%20Search/README.md
+tags:
+    - 设计
+    - 字典树
+    - 数组
+    - 哈希表
+    - 字符串
+---
+
 # [745. 前缀和后缀搜索](https://leetcode.cn/problems/prefix-and-suffix-search)
 
 [English Version](/solution/0700-0799/0745.Prefix%20and%20Suffix%20Search/README_EN.md)
-
-<!-- tags:设计,字典树,数组,哈希表,字符串 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

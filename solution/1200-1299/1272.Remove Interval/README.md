@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1272.Remove%20Interval/README.md
+rating: 1524
+tags:
+    - 数组
+---
+
 # [1272. 删除区间 🔒](https://leetcode.cn/problems/remove-interval)
 
 [English Version](/solution/1200-1299/1272.Remove%20Interval/README_EN.md)
-
-<!-- tags:数组 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

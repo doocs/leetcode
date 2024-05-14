@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2025.Maximum%20Number%20of%20Ways%20to%20Partition%20an%20Array/README_EN.md
+rating: 2217
+tags:
+    - Array
+    - Hash Table
+    - Counting
+    - Enumeration
+    - Prefix Sum
+---
+
 # [2025. Maximum Number of Ways to Partition an Array](https://leetcode.com/problems/maximum-number-of-ways-to-partition-an-array)
 
 [中文文档](/solution/2000-2099/2025.Maximum%20Number%20of%20Ways%20to%20Partition%20an%20Array/README.md)
-
-<!-- tags:Array,Hash Table,Counting,Enumeration,Prefix Sum -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

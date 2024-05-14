@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0422.Valid%20Word%20Square/README.md
+tags:
+    - 数组
+    - 矩阵
+---
+
 # [422. 有效的单词方块 🔒](https://leetcode.cn/problems/valid-word-square)
 
 [English Version](/solution/0400-0499/0422.Valid%20Word%20Square/README_EN.md)
-
-<!-- tags:数组,矩阵 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

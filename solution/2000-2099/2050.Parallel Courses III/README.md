@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2050.Parallel%20Courses%20III/README.md
+rating: 2084
+tags:
+    - 图
+    - 拓扑排序
+    - 数组
+    - 动态规划
+---
+
 # [2050. 并行课程 III](https://leetcode.cn/problems/parallel-courses-iii)
 
 [English Version](/solution/2000-2099/2050.Parallel%20Courses%20III/README_EN.md)
-
-<!-- tags:图,拓扑排序,数组,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3009.Maximum%20Number%20of%20Intersections%20on%20the%20Chart/README_EN.md
+tags:
+    - Binary Indexed Tree
+    - Geometry
+    - Array
+    - Math
+---
+
 # [3009. Maximum Number of Intersections on the Chart 🔒](https://leetcode.com/problems/maximum-number-of-intersections-on-the-chart)
 
 [中文文档](/solution/3000-3099/3009.Maximum%20Number%20of%20Intersections%20on%20the%20Chart/README.md)
-
-<!-- tags:Binary Indexed Tree,Geometry,Array,Math -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

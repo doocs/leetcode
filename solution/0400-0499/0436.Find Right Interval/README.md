@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0436.Find%20Right%20Interval/README.md
+tags:
+    - 数组
+    - 二分查找
+    - 排序
+---
+
 # [436. 寻找右区间](https://leetcode.cn/problems/find-right-interval)
 
 [English Version](/solution/0400-0499/0436.Find%20Right%20Interval/README_EN.md)
-
-<!-- tags:数组,二分查找,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

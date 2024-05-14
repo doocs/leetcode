@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0338.Counting%20Bits/README_EN.md
+tags:
+    - Bit Manipulation
+    - Dynamic Programming
+---
+
 # [338. Counting Bits](https://leetcode.com/problems/counting-bits)
 
 [中文文档](/solution/0300-0399/0338.Counting%20Bits/README.md)
-
-<!-- tags:Bit Manipulation,Dynamic Programming -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

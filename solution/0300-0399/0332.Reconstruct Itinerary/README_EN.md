@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0332.Reconstruct%20Itinerary/README_EN.md
+tags:
+    - Depth-First Search
+    - Graph
+    - Eulerian Circuit
+---
+
 # [332. Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary)
 
 [中文文档](/solution/0300-0399/0332.Reconstruct%20Itinerary/README.md)
-
-<!-- tags:Depth-First Search,Graph,Eulerian Circuit -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

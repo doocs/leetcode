@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2820.Election%20Results/README.md
+---
+
 # [2820. 选举结果 🔒](https://leetcode.cn/problems/election-results)
 
 [English Version](/solution/2800-2899/2820.Election%20Results/README_EN.md)
-
-<!-- tags: -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

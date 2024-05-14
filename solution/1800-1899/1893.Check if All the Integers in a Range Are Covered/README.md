@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1893.Check%20if%20All%20the%20Integers%20in%20a%20Range%20Are%20Covered/README.md
+rating: 1307
+tags:
+    - 数组
+    - 哈希表
+    - 前缀和
+---
+
 # [1893. 检查是否区域内所有整数都被覆盖](https://leetcode.cn/problems/check-if-all-the-integers-in-a-range-are-covered)
 
 [English Version](/solution/1800-1899/1893.Check%20if%20All%20the%20Integers%20in%20a%20Range%20Are%20Covered/README_EN.md)
-
-<!-- tags:数组,哈希表,前缀和 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

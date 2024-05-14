@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1555.Bank%20Account%20Summary/README_EN.md
+tags:
+    - Database
+---
+
 # [1555. Bank Account Summary 🔒](https://leetcode.com/problems/bank-account-summary)
 
 [中文文档](/solution/1500-1599/1555.Bank%20Account%20Summary/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

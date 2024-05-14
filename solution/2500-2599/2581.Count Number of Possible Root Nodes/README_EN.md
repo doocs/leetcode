@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2581.Count%20Number%20of%20Possible%20Root%20Nodes/README_EN.md
+rating: 2228
+tags:
+    - Tree
+    - Depth-First Search
+    - Hash Table
+    - Dynamic Programming
+---
+
 # [2581. Count Number of Possible Root Nodes](https://leetcode.com/problems/count-number-of-possible-root-nodes)
 
 [中文文档](/solution/2500-2599/2581.Count%20Number%20of%20Possible%20Root%20Nodes/README.md)
-
-<!-- tags:Tree,Depth-First Search,Hash Table,Dynamic Programming -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

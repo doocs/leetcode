@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0021.Merge%20Two%20Sorted%20Lists/README.md
+tags:
+    - 递归
+    - 链表
+---
+
 # [21. 合并两个有序链表](https://leetcode.cn/problems/merge-two-sorted-lists)
 
 [English Version](/solution/0000-0099/0021.Merge%20Two%20Sorted%20Lists/README_EN.md)
-
-<!-- tags:递归,链表 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

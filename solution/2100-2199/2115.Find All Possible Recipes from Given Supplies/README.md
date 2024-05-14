@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2115.Find%20All%20Possible%20Recipes%20from%20Given%20Supplies/README.md
+rating: 1678
+tags:
+    - 图
+    - 拓扑排序
+    - 数组
+    - 哈希表
+    - 字符串
+---
+
 # [2115. 从给定原材料中找到所有可以做出的菜](https://leetcode.cn/problems/find-all-possible-recipes-from-given-supplies)
 
 [English Version](/solution/2100-2199/2115.Find%20All%20Possible%20Recipes%20from%20Given%20Supplies/README_EN.md)
-
-<!-- tags:图,拓扑排序,数组,哈希表,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

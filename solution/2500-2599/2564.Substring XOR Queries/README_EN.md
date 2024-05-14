@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2564.Substring%20XOR%20Queries/README_EN.md
+rating: 1959
+tags:
+    - Bit Manipulation
+    - Array
+    - Hash Table
+    - String
+---
+
 # [2564. Substring XOR Queries](https://leetcode.com/problems/substring-xor-queries)
 
 [中文文档](/solution/2500-2599/2564.Substring%20XOR%20Queries/README.md)
-
-<!-- tags:Bit Manipulation,Array,Hash Table,String -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

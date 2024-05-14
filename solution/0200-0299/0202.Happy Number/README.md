@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0202.Happy%20Number/README.md
+tags:
+    - 哈希表
+    - 数学
+    - 双指针
+---
+
 # [202. 快乐数](https://leetcode.cn/problems/happy-number)
 
 [English Version](/solution/0200-0299/0202.Happy%20Number/README_EN.md)
-
-<!-- tags:哈希表,数学,双指针 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

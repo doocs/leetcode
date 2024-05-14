@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0798.Smallest%20Rotation%20with%20Highest%20Score/README_EN.md
+tags:
+    - Array
+    - Prefix Sum
+---
+
 # [798. Smallest Rotation with Highest Score](https://leetcode.com/problems/smallest-rotation-with-highest-score)
 
 [中文文档](/solution/0700-0799/0798.Smallest%20Rotation%20with%20Highest%20Score/README.md)
-
-<!-- tags:Array,Prefix Sum -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

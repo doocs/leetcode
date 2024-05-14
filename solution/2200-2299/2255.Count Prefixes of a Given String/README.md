@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2255.Count%20Prefixes%20of%20a%20Given%20String/README.md
+rating: 1260
+tags:
+    - 数组
+    - 字符串
+---
+
 # [2255. 统计是给定字符串前缀的字符串数目](https://leetcode.cn/problems/count-prefixes-of-a-given-string)
 
 [English Version](/solution/2200-2299/2255.Count%20Prefixes%20of%20a%20Given%20String/README_EN.md)
-
-<!-- tags:数组,字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

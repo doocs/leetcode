@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2569.Handling%20Sum%20Queries%20After%20Update/README.md
+rating: 2397
+tags:
+    - 线段树
+    - 数组
+---
+
 # [2569. 更新数组后处理求和查询](https://leetcode.cn/problems/handling-sum-queries-after-update)
 
 [English Version](/solution/2500-2599/2569.Handling%20Sum%20Queries%20After%20Update/README_EN.md)
-
-<!-- tags:线段树,数组 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0829.Consecutive%20Numbers%20Sum/README_EN.md
+tags:
+    - Math
+    - Enumeration
+---
+
 # [829. Consecutive Numbers Sum](https://leetcode.com/problems/consecutive-numbers-sum)
 
 [中文文档](/solution/0800-0899/0829.Consecutive%20Numbers%20Sum/README.md)
-
-<!-- tags:Math,Enumeration -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

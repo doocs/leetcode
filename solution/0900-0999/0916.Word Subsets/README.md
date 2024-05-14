@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0916.Word%20Subsets/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+---
+
 # [916. 单词子集](https://leetcode.cn/problems/word-subsets)
 
 [English Version](/solution/0900-0999/0916.Word%20Subsets/README_EN.md)
-
-<!-- tags:数组,哈希表,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

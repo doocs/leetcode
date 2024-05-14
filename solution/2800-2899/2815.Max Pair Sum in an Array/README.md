@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2815.Max%20Pair%20Sum%20in%20an%20Array/README.md
+rating: 1295
+tags:
+    - 数组
+    - 哈希表
+---
+
 # [2815. 数组中的最大数对和](https://leetcode.cn/problems/max-pair-sum-in-an-array)
 
 [English Version](/solution/2800-2899/2815.Max%20Pair%20Sum%20in%20an%20Array/README_EN.md)
-
-<!-- tags:数组,哈希表 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

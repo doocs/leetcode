@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1138.Alphabet%20Board%20Path/README.md
+rating: 1410
+tags:
+    - 哈希表
+    - 字符串
+---
+
 # [1138. 字母板上的路径](https://leetcode.cn/problems/alphabet-board-path)
 
 [English Version](/solution/1100-1199/1138.Alphabet%20Board%20Path/README_EN.md)
-
-<!-- tags:哈希表,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

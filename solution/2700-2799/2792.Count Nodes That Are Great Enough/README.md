@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2792.Count%20Nodes%20That%20Are%20Great%20Enough/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 分治
+    - 二叉树
+---
+
 # [2792. 计算足够大的节点数 🔒](https://leetcode.cn/problems/count-nodes-that-are-great-enough)
 
 [English Version](/solution/2700-2799/2792.Count%20Nodes%20That%20Are%20Great%20Enough/README_EN.md)
-
-<!-- tags:树,深度优先搜索,分治,二叉树 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

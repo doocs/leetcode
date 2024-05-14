@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0039.Combination%20Sum/README.md
+tags:
+    - 数组
+    - 回溯
+---
+
 # [39. 组合总和](https://leetcode.cn/problems/combination-sum)
 
 [English Version](/solution/0000-0099/0039.Combination%20Sum/README_EN.md)
-
-<!-- tags:数组,回溯 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

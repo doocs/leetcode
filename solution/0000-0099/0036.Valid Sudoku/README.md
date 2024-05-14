@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0036.Valid%20Sudoku/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 矩阵
+---
+
 # [36. 有效的数独](https://leetcode.cn/problems/valid-sudoku)
 
 [English Version](/solution/0000-0099/0036.Valid%20Sudoku/README_EN.md)
-
-<!-- tags:数组,哈希表,矩阵 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

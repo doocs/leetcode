@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2816.Double%20a%20Number%20Represented%20as%20a%20Linked%20List/README.md
+rating: 1393
+tags:
+    - 栈
+    - 链表
+    - 数学
+---
+
 # [2816. 翻倍以链表形式表示的数字](https://leetcode.cn/problems/double-a-number-represented-as-a-linked-list)
 
 [English Version](/solution/2800-2899/2816.Double%20a%20Number%20Represented%20as%20a%20Linked%20List/README_EN.md)
-
-<!-- tags:栈,链表,数学 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2119.A%20Number%20After%20a%20Double%20Reversal/README.md
+rating: 1187
+tags:
+    - 数学
+---
+
 # [2119. 反转两次的数字](https://leetcode.cn/problems/a-number-after-a-double-reversal)
 
 [English Version](/solution/2100-2199/2119.A%20Number%20After%20a%20Double%20Reversal/README_EN.md)
-
-<!-- tags:数学 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

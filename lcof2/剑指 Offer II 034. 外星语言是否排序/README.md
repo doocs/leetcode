@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20034.%20%E5%A4%96%E6%98%9F%E8%AF%AD%E8%A8%80%E6%98%AF%E5%90%A6%E6%8E%92%E5%BA%8F/README.md
+---
+
 # [剑指 Offer II 034. 外星语言是否排序](https://leetcode.cn/problems/lwyVBB)
 
 ## 题目描述

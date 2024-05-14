@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0270.Closest%20Binary%20Search%20Tree%20Value/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Binary Search Tree
+    - Binary Search
+    - Binary Tree
+---
+
 # [270. Closest Binary Search Tree Value 🔒](https://leetcode.com/problems/closest-binary-search-tree-value)
 
 [中文文档](/solution/0200-0299/0270.Closest%20Binary%20Search%20Tree%20Value/README.md)
-
-<!-- tags:Tree,Depth-First Search,Binary Search Tree,Binary Search,Binary Tree -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

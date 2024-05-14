@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1651.Hopper%20Company%20Queries%20III/README_EN.md
+tags:
+    - Database
+---
+
 # [1651. Hopper Company Queries III 🔒](https://leetcode.com/problems/hopper-company-queries-iii)
 
 [中文文档](/solution/1600-1699/1651.Hopper%20Company%20Queries%20III/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

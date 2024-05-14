@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0126.Word%20Ladder%20II/README.md
+tags:
+    - 广度优先搜索
+    - 哈希表
+    - 字符串
+    - 回溯
+---
+
 # [126. 单词接龙 II](https://leetcode.cn/problems/word-ladder-ii)
 
 [English Version](/solution/0100-0199/0126.Word%20Ladder%20II/README_EN.md)
-
-<!-- tags:广度优先搜索,哈希表,字符串,回溯 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

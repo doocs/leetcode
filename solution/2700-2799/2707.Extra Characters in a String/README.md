@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2707.Extra%20Characters%20in%20a%20String/README.md
+rating: 1735
+tags:
+    - 字典树
+    - 数组
+    - 哈希表
+    - 字符串
+    - 动态规划
+---
+
 # [2707. 字符串中的额外字符](https://leetcode.cn/problems/extra-characters-in-a-string)
 
 [English Version](/solution/2700-2799/2707.Extra%20Characters%20in%20a%20String/README_EN.md)
-
-<!-- tags:字典树,数组,哈希表,字符串,动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

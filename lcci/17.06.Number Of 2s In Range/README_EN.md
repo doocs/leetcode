@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.06.Number%20Of%202s%20In%20Range/README_EN.md
+---
+
 # [17.06. Number Of 2s In Range](https://leetcode.cn/problems/number-of-2s-in-range-lcci)
 
 [中文文档](/lcci/17.06.Number%20Of%202s%20In%20Range/README.md)

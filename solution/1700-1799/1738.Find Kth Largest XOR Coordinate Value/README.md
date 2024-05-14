@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1738.Find%20Kth%20Largest%20XOR%20Coordinate%20Value/README.md
+rating: 1671
+tags:
+    - 位运算
+    - 数组
+    - 分治
+    - 矩阵
+    - 前缀和
+    - 快速选择
+    - 排序
+    - 堆（优先队列）
+---
+
 # [1738. 找出第 K 大的异或坐标值](https://leetcode.cn/problems/find-kth-largest-xor-coordinate-value)
 
 [English Version](/solution/1700-1799/1738.Find%20Kth%20Largest%20XOR%20Coordinate%20Value/README_EN.md)
-
-<!-- tags:位运算,数组,分治,矩阵,前缀和,快速选择,排序,堆（优先队列） -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

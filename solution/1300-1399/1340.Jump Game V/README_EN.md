@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1340.Jump%20Game%20V/README_EN.md
+rating: 1866
+tags:
+    - Array
+    - Dynamic Programming
+    - Sorting
+---
+
 # [1340. Jump Game V](https://leetcode.com/problems/jump-game-v)
 
 [中文文档](/solution/1300-1399/1340.Jump%20Game%20V/README.md)
-
-<!-- tags:Array,Dynamic Programming,Sorting -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

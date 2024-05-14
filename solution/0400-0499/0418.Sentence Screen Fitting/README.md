@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0418.Sentence%20Screen%20Fitting/README.md
+tags:
+    - 数组
+    - 字符串
+    - 动态规划
+---
+
 # [418. 屏幕可显示句子的数量 🔒](https://leetcode.cn/problems/sentence-screen-fitting)
 
 [English Version](/solution/0400-0499/0418.Sentence%20Screen%20Fitting/README_EN.md)
-
-<!-- tags:数组,字符串,动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

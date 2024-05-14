@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3125.Maximum%20Number%20That%20Makes%20Result%20of%20Bitwise%20AND%20Zero/README.md
+tags:
+    - 贪心
+    - 字符串
+    - 排序
+---
+
 # [3125. 使得按位与结果为 0 的最大数字 🔒](https://leetcode.cn/problems/maximum-number-that-makes-result-of-bitwise-and-zero)
 
 [English Version](/solution/3100-3199/3125.Maximum%20Number%20That%20Makes%20Result%20of%20Bitwise%20AND%20Zero/README_EN.md)
-
-<!-- tags:贪心,字符串,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

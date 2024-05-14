@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2311.Longest%20Binary%20Subsequence%20Less%20Than%20or%20Equal%20to%20K/README.md
+rating: 1839
+tags:
+    - 贪心
+    - 记忆化搜索
+    - 字符串
+    - 动态规划
+---
+
 # [2311. 小于等于 K 的最长二进制子序列](https://leetcode.cn/problems/longest-binary-subsequence-less-than-or-equal-to-k)
 
 [English Version](/solution/2300-2399/2311.Longest%20Binary%20Subsequence%20Less%20Than%20or%20Equal%20to%20K/README_EN.md)
-
-<!-- tags:贪心,记忆化搜索,字符串,动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

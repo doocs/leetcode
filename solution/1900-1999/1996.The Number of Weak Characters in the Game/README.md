@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1996.The%20Number%20of%20Weak%20Characters%20in%20the%20Game/README.md
+rating: 1860
+tags:
+    - 栈
+    - 贪心
+    - 数组
+    - 排序
+    - 单调栈
+---
+
 # [1996. 游戏中弱角色的数量](https://leetcode.cn/problems/the-number-of-weak-characters-in-the-game)
 
 [English Version](/solution/1900-1999/1996.The%20Number%20of%20Weak%20Characters%20in%20the%20Game/README_EN.md)
-
-<!-- tags:栈,贪心,数组,排序,单调栈 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

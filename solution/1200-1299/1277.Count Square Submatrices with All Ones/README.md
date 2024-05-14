@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1277.Count%20Square%20Submatrices%20with%20All%20Ones/README.md
+rating: 1613
+tags:
+    - 数组
+    - 动态规划
+    - 矩阵
+---
+
 # [1277. 统计全为 1 的正方形子矩阵](https://leetcode.cn/problems/count-square-submatrices-with-all-ones)
 
 [English Version](/solution/1200-1299/1277.Count%20Square%20Submatrices%20with%20All%20Ones/README_EN.md)
-
-<!-- tags:数组,动态规划,矩阵 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

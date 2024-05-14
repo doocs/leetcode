@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1994.The%20Number%20of%20Good%20Subsets/README_EN.md
+rating: 2464
+tags:
+    - Bit Manipulation
+    - Array
+    - Math
+    - Dynamic Programming
+    - Bitmask
+---
+
 # [1994. The Number of Good Subsets](https://leetcode.com/problems/the-number-of-good-subsets)
 
 [中文文档](/solution/1900-1999/1994.The%20Number%20of%20Good%20Subsets/README.md)
-
-<!-- tags:Bit Manipulation,Array,Math,Dynamic Programming,Bitmask -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

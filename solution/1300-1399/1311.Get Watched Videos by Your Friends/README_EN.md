@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1311.Get%20Watched%20Videos%20by%20Your%20Friends/README_EN.md
+rating: 1652
+tags:
+    - Breadth-First Search
+    - Graph
+    - Array
+    - Hash Table
+    - Sorting
+---
+
 # [1311. Get Watched Videos by Your Friends](https://leetcode.com/problems/get-watched-videos-by-your-friends)
 
 [中文文档](/solution/1300-1399/1311.Get%20Watched%20Videos%20by%20Your%20Friends/README.md)
-
-<!-- tags:Breadth-First Search,Graph,Array,Hash Table,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

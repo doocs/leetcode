@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3019.Number%20of%20Changing%20Keys/README.md
+rating: 1175
+tags:
+    - 字符串
+---
+
 # [3019. 按键变更的次数](https://leetcode.cn/problems/number-of-changing-keys)
 
 [English Version](/solution/3000-3099/3019.Number%20of%20Changing%20Keys/README_EN.md)
-
-<!-- tags:字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

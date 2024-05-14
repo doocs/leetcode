@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0968.Binary%20Tree%20Cameras/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Dynamic Programming
+    - Binary Tree
+---
+
 # [968. Binary Tree Cameras](https://leetcode.com/problems/binary-tree-cameras)
 
 [中文文档](/solution/0900-0999/0968.Binary%20Tree%20Cameras/README.md)
-
-<!-- tags:Tree,Depth-First Search,Dynamic Programming,Binary Tree -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

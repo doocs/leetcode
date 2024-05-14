@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1100.Find%20K-Length%20Substrings%20With%20No%20Repeated%20Characters/README.md
+rating: 1348
+tags:
+    - 哈希表
+    - 字符串
+    - 滑动窗口
+---
+
 # [1100. 长度为 K 的无重复字符子串 🔒](https://leetcode.cn/problems/find-k-length-substrings-with-no-repeated-characters)
 
 [English Version](/solution/1100-1199/1100.Find%20K-Length%20Substrings%20With%20No%20Repeated%20Characters/README_EN.md)
-
-<!-- tags:哈希表,字符串,滑动窗口 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

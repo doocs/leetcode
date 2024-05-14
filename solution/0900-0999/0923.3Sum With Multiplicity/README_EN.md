@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0923.3Sum%20With%20Multiplicity/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Two Pointers
+    - Counting
+    - Sorting
+---
+
 # [923. 3Sum With Multiplicity](https://leetcode.com/problems/3sum-with-multiplicity)
 
 [中文文档](/solution/0900-0999/0923.3Sum%20With%20Multiplicity/README.md)
-
-<!-- tags:Array,Hash Table,Two Pointers,Counting,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

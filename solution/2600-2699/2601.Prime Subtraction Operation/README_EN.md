@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2601.Prime%20Subtraction%20Operation/README_EN.md
+rating: 1779
+tags:
+    - Greedy
+    - Array
+    - Math
+    - Binary Search
+    - Number Theory
+---
+
 # [2601. Prime Subtraction Operation](https://leetcode.com/problems/prime-subtraction-operation)
 
 [中文文档](/solution/2600-2699/2601.Prime%20Subtraction%20Operation/README.md)
-
-<!-- tags:Greedy,Array,Math,Binary Search,Number Theory -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3139.Minimum%20Cost%20to%20Equalize%20Array/README_EN.md
+rating: 2666
+tags:
+    - Greedy
+    - Array
+    - Enumeration
+---
+
 # [3139. Minimum Cost to Equalize Array](https://leetcode.com/problems/minimum-cost-to-equalize-array)
 
 [中文文档](/solution/3100-3199/3139.Minimum%20Cost%20to%20Equalize%20Array/README.md)
-
-<!-- tags:Greedy,Array,Enumeration -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

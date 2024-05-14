@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2822.Inversion%20of%20Object/README_EN.md
+---
+
 # [2822. Inversion of Object 🔒](https://leetcode.com/problems/inversion-of-object)
 
 [中文文档](/solution/2800-2899/2822.Inversion%20of%20Object/README.md)
-
-<!-- tags: -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

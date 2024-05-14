@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1014.Best%20Sightseeing%20Pair/README.md
+rating: 1730
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [1014. 最佳观光组合](https://leetcode.cn/problems/best-sightseeing-pair)
 
 [English Version](/solution/1000-1099/1014.Best%20Sightseeing%20Pair/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

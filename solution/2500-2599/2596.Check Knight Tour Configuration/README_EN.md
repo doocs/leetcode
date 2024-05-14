@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2596.Check%20Knight%20Tour%20Configuration/README_EN.md
+rating: 1448
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Array
+    - Matrix
+    - Simulation
+---
+
 # [2596. Check Knight Tour Configuration](https://leetcode.com/problems/check-knight-tour-configuration)
 
 [中文文档](/solution/2500-2599/2596.Check%20Knight%20Tour%20Configuration/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Array,Matrix,Simulation -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

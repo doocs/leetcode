@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2115.Find%20All%20Possible%20Recipes%20from%20Given%20Supplies/README_EN.md
+rating: 1678
+tags:
+    - Graph
+    - Topological Sort
+    - Array
+    - Hash Table
+    - String
+---
+
 # [2115. Find All Possible Recipes from Given Supplies](https://leetcode.com/problems/find-all-possible-recipes-from-given-supplies)
 
 [中文文档](/solution/2100-2199/2115.Find%20All%20Possible%20Recipes%20from%20Given%20Supplies/README.md)
-
-<!-- tags:Graph,Topological Sort,Array,Hash Table,String -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

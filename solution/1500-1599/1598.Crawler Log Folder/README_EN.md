@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1598.Crawler%20Log%20Folder/README_EN.md
+rating: 1297
+tags:
+    - Stack
+    - Array
+    - String
+---
+
 # [1598. Crawler Log Folder](https://leetcode.com/problems/crawler-log-folder)
 
 [中文文档](/solution/1500-1599/1598.Crawler%20Log%20Folder/README.md)
-
-<!-- tags:Stack,Array,String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1753.Maximum%20Score%20From%20Removing%20Stones/README_EN.md
+rating: 1487
+tags:
+    - Greedy
+    - Math
+    - Heap (Priority Queue)
+---
+
 # [1753. Maximum Score From Removing Stones](https://leetcode.com/problems/maximum-score-from-removing-stones)
 
 [中文文档](/solution/1700-1799/1753.Maximum%20Score%20From%20Removing%20Stones/README.md)
-
-<!-- tags:Greedy,Math,Heap (Priority Queue) -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

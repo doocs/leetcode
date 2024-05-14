@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2070.Most%20Beautiful%20Item%20for%20Each%20Query/README.md
+rating: 1724
+tags:
+    - 数组
+    - 二分查找
+    - 排序
+---
+
 # [2070. 每一个查询的最大美丽值](https://leetcode.cn/problems/most-beautiful-item-for-each-query)
 
 [English Version](/solution/2000-2099/2070.Most%20Beautiful%20Item%20for%20Each%20Query/README_EN.md)
-
-<!-- tags:数组,二分查找,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

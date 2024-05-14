@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0205.Isomorphic%20Strings/README_EN.md
+tags:
+    - Hash Table
+    - String
+---
+
 # [205. Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings)
 
 [中文文档](/solution/0200-0299/0205.Isomorphic%20Strings/README.md)
-
-<!-- tags:Hash Table,String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

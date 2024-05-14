@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1980.Find%20Unique%20Binary%20String/README_EN.md
+rating: 1361
+tags:
+    - Array
+    - Hash Table
+    - String
+    - Backtracking
+---
+
 # [1980. Find Unique Binary String](https://leetcode.com/problems/find-unique-binary-string)
 
 [中文文档](/solution/1900-1999/1980.Find%20Unique%20Binary%20String/README.md)
-
-<!-- tags:Array,Hash Table,String,Backtracking -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

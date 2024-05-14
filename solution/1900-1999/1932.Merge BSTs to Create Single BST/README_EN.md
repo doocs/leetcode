@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1932.Merge%20BSTs%20to%20Create%20Single%20BST/README_EN.md
+rating: 2483
+tags:
+    - Tree
+    - Depth-First Search
+    - Hash Table
+    - Binary Search
+    - Binary Tree
+---
+
 # [1932. Merge BSTs to Create Single BST](https://leetcode.com/problems/merge-bsts-to-create-single-bst)
 
 [中文文档](/solution/1900-1999/1932.Merge%20BSTs%20to%20Create%20Single%20BST/README.md)
-
-<!-- tags:Tree,Depth-First Search,Hash Table,Binary Search,Binary Tree -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

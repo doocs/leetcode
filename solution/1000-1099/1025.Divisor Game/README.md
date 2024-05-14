@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1025.Divisor%20Game/README.md
+rating: 1435
+tags:
+    - 脑筋急转弯
+    - 数学
+    - 动态规划
+    - 博弈
+---
+
 # [1025. 除数博弈](https://leetcode.cn/problems/divisor-game)
 
 [English Version](/solution/1000-1099/1025.Divisor%20Game/README_EN.md)
-
-<!-- tags:脑筋急转弯,数学,动态规划,博弈 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

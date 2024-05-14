@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2372.Calculate%20the%20Influence%20of%20Each%20Salesperson/README.md
+tags:
+    - 数据库
+---
+
 # [2372. 计算每个销售人员的影响力 🔒](https://leetcode.cn/problems/calculate-the-influence-of-each-salesperson)
 
 [English Version](/solution/2300-2399/2372.Calculate%20the%20Influence%20of%20Each%20Salesperson/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

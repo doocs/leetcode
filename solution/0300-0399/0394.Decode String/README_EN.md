@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0394.Decode%20String/README_EN.md
+tags:
+    - Stack
+    - Recursion
+    - String
+---
+
 # [394. Decode String](https://leetcode.com/problems/decode-string)
 
 [中文文档](/solution/0300-0399/0394.Decode%20String/README.md)
-
-<!-- tags:Stack,Recursion,String -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

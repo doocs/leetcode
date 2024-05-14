@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0331.Verify%20Preorder%20Serialization%20of%20a%20Binary%20Tree/README_EN.md
+tags:
+    - Stack
+    - Tree
+    - String
+    - Binary Tree
+---
+
 # [331. Verify Preorder Serialization of a Binary Tree](https://leetcode.com/problems/verify-preorder-serialization-of-a-binary-tree)
 
 [中文文档](/solution/0300-0399/0331.Verify%20Preorder%20Serialization%20of%20a%20Binary%20Tree/README.md)
-
-<!-- tags:Stack,Tree,String,Binary Tree -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

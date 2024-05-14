@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2422.Merge%20Operations%20to%20Turn%20Array%20Into%20a%20Palindrome/README.md
+tags:
+    - 贪心
+    - 数组
+    - 双指针
+---
+
 # [2422. 使用合并操作将数组转换为回文序列 🔒](https://leetcode.cn/problems/merge-operations-to-turn-array-into-a-palindrome)
 
 [English Version](/solution/2400-2499/2422.Merge%20Operations%20to%20Turn%20Array%20Into%20a%20Palindrome/README_EN.md)
-
-<!-- tags:贪心,数组,双指针 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

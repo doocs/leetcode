@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1751.Maximum%20Number%20of%20Events%20That%20Can%20Be%20Attended%20II/README_EN.md
+rating: 2040
+tags:
+    - Array
+    - Binary Search
+    - Dynamic Programming
+    - Sorting
+---
+
 # [1751. Maximum Number of Events That Can Be Attended II](https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended-ii)
 
 [中文文档](/solution/1700-1799/1751.Maximum%20Number%20of%20Events%20That%20Can%20Be%20Attended%20II/README.md)
-
-<!-- tags:Array,Binary Search,Dynamic Programming,Sorting -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

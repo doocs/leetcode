@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2028.Find%20Missing%20Observations/README_EN.md
+rating: 1444
+tags:
+    - Array
+    - Math
+    - Simulation
+---
+
 # [2028. Find Missing Observations](https://leetcode.com/problems/find-missing-observations)
 
 [中文文档](/solution/2000-2099/2028.Find%20Missing%20Observations/README.md)
-
-<!-- tags:Array,Math,Simulation -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

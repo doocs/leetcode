@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0984.String%20Without%20AAA%20or%20BBB/README_EN.md
+tags:
+    - Greedy
+    - String
+---
+
 # [984. String Without AAA or BBB](https://leetcode.com/problems/string-without-aaa-or-bbb)
 
 [中文文档](/solution/0900-0999/0984.String%20Without%20AAA%20or%20BBB/README.md)
-
-<!-- tags:Greedy,String -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

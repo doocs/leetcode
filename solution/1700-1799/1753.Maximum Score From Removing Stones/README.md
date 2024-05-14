@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1753.Maximum%20Score%20From%20Removing%20Stones/README.md
+rating: 1487
+tags:
+    - 贪心
+    - 数学
+    - 堆（优先队列）
+---
+
 # [1753. 移除石子的最大得分](https://leetcode.cn/problems/maximum-score-from-removing-stones)
 
 [English Version](/solution/1700-1799/1753.Maximum%20Score%20From%20Removing%20Stones/README_EN.md)
-
-<!-- tags:贪心,数学,堆（优先队列） -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

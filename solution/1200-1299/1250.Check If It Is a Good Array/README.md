@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1250.Check%20If%20It%20Is%20a%20Good%20Array/README.md
+rating: 1983
+tags:
+    - 数组
+    - 数学
+    - 数论
+---
+
 # [1250. 检查「好数组」](https://leetcode.cn/problems/check-if-it-is-a-good-array)
 
 [English Version](/solution/1200-1299/1250.Check%20If%20It%20Is%20a%20Good%20Array/README_EN.md)
-
-<!-- tags:数组,数学,数论 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

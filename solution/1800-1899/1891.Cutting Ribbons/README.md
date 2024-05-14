@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1891.Cutting%20Ribbons/README.md
+tags:
+    - 数组
+    - 二分查找
+---
+
 # [1891. 割绳子 🔒](https://leetcode.cn/problems/cutting-ribbons)
 
 [English Version](/solution/1800-1899/1891.Cutting%20Ribbons/README_EN.md)
-
-<!-- tags:数组,二分查找 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

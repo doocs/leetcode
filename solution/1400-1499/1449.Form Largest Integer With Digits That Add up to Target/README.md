@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1449.Form%20Largest%20Integer%20With%20Digits%20That%20Add%20up%20to%20Target/README.md
+rating: 1927
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [1449. 数位成本和为目标值的最大数字](https://leetcode.cn/problems/form-largest-integer-with-digits-that-add-up-to-target)
 
 [English Version](/solution/1400-1499/1449.Form%20Largest%20Integer%20With%20Digits%20That%20Add%20up%20to%20Target/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

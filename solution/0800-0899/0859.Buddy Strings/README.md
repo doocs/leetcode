@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0859.Buddy%20Strings/README.md
+tags:
+    - 哈希表
+    - 字符串
+---
+
 # [859. 亲密字符串](https://leetcode.cn/problems/buddy-strings)
 
 [English Version](/solution/0800-0899/0859.Buddy%20Strings/README_EN.md)
-
-<!-- tags:哈希表,字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1160.Find%20Words%20That%20Can%20Be%20Formed%20by%20Characters/README_EN.md
+rating: 1205
+tags:
+    - Array
+    - Hash Table
+    - String
+---
+
 # [1160. Find Words That Can Be Formed by Characters](https://leetcode.com/problems/find-words-that-can-be-formed-by-characters)
 
 [中文文档](/solution/1100-1199/1160.Find%20Words%20That%20Can%20Be%20Formed%20by%20Characters/README.md)
-
-<!-- tags:Array,Hash Table,String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

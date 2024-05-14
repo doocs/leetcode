@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2848.Points%20That%20Intersect%20With%20Cars/README_EN.md
+rating: 1229
+tags:
+    - Array
+    - Hash Table
+    - Prefix Sum
+---
+
 # [2848. Points That Intersect With Cars](https://leetcode.com/problems/points-that-intersect-with-cars)
 
 [中文文档](/solution/2800-2899/2848.Points%20That%20Intersect%20With%20Cars/README.md)
-
-<!-- tags:Array,Hash Table,Prefix Sum -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

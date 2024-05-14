@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0229.Majority%20Element%20II/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Counting
+    - Sorting
+---
+
 # [229. Majority Element II](https://leetcode.com/problems/majority-element-ii)
 
 [中文文档](/solution/0200-0299/0229.Majority%20Element%20II/README.md)
-
-<!-- tags:Array,Hash Table,Counting,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

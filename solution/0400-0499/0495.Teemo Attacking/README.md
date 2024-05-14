@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0495.Teemo%20Attacking/README.md
+tags:
+    - 数组
+    - 模拟
+---
+
 # [495. 提莫攻击](https://leetcode.cn/problems/teemo-attacking)
 
 [English Version](/solution/0400-0499/0495.Teemo%20Attacking/README_EN.md)
-
-<!-- tags:数组,模拟 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

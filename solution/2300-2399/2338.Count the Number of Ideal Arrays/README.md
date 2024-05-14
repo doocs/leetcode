@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2338.Count%20the%20Number%20of%20Ideal%20Arrays/README.md
+rating: 2615
+tags:
+    - 数学
+    - 动态规划
+    - 组合数学
+    - 数论
+---
+
 # [2338. 统计理想数组的数目](https://leetcode.cn/problems/count-the-number-of-ideal-arrays)
 
 [English Version](/solution/2300-2399/2338.Count%20the%20Number%20of%20Ideal%20Arrays/README_EN.md)
-
-<!-- tags:数学,动态规划,组合数学,数论 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

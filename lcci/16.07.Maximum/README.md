@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.07.Maximum/README.md
+---
+
 # [面试题 16.07. 最大数值](https://leetcode.cn/problems/maximum-lcci)
 
 [English Version](/lcci/16.07.Maximum/README_EN.md)

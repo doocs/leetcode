@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0734.Sentence%20Similarity/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+---
+
 # [734. 句子相似性 🔒](https://leetcode.cn/problems/sentence-similarity)
 
 [English Version](/solution/0700-0799/0734.Sentence%20Similarity/README_EN.md)
-
-<!-- tags:数组,哈希表,字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

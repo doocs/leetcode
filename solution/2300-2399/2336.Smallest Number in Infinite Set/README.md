@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2336.Smallest%20Number%20in%20Infinite%20Set/README.md
+rating: 1375
+tags:
+    - 设计
+    - 哈希表
+    - 堆（优先队列）
+---
+
 # [2336. 无限集中的最小数字](https://leetcode.cn/problems/smallest-number-in-infinite-set)
 
 [English Version](/solution/2300-2399/2336.Smallest%20Number%20in%20Infinite%20Set/README_EN.md)
-
-<!-- tags:设计,哈希表,堆（优先队列） -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

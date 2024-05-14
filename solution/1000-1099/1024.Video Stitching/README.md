@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1024.Video%20Stitching/README.md
+rating: 1746
+tags:
+    - 贪心
+    - 数组
+    - 动态规划
+---
+
 # [1024. 视频拼接](https://leetcode.cn/problems/video-stitching)
 
 [English Version](/solution/1000-1099/1024.Video%20Stitching/README_EN.md)
-
-<!-- tags:贪心,数组,动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

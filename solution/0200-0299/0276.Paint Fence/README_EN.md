@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0276.Paint%20Fence/README_EN.md
+tags:
+    - Dynamic Programming
+---
+
 # [276. Paint Fence 🔒](https://leetcode.com/problems/paint-fence)
 
 [中文文档](/solution/0200-0299/0276.Paint%20Fence/README.md)
-
-<!-- tags:Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2420.Find%20All%20Good%20Indices/README.md
+rating: 1695
+tags:
+    - 数组
+    - 动态规划
+    - 前缀和
+---
+
 # [2420. 找到所有好下标](https://leetcode.cn/problems/find-all-good-indices)
 
 [English Version](/solution/2400-2499/2420.Find%20All%20Good%20Indices/README_EN.md)
-
-<!-- tags:数组,动态规划,前缀和 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

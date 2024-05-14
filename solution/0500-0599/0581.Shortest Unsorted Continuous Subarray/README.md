@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0581.Shortest%20Unsorted%20Continuous%20Subarray/README.md
+tags:
+    - 栈
+    - 贪心
+    - 数组
+    - 双指针
+    - 排序
+    - 单调栈
+---
+
 # [581. 最短无序连续子数组](https://leetcode.cn/problems/shortest-unsorted-continuous-subarray)
 
 [English Version](/solution/0500-0599/0581.Shortest%20Unsorted%20Continuous%20Subarray/README_EN.md)
-
-<!-- tags:栈,贪心,数组,双指针,排序,单调栈 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

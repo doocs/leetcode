@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0720.Longest%20Word%20in%20Dictionary/README_EN.md
+tags:
+    - Trie
+    - Array
+    - Hash Table
+    - String
+    - Sorting
+---
+
 # [720. Longest Word in Dictionary](https://leetcode.com/problems/longest-word-in-dictionary)
 
 [中文文档](/solution/0700-0799/0720.Longest%20Word%20in%20Dictionary/README.md)
-
-<!-- tags:Trie,Array,Hash Table,String,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

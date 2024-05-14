@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0405.Convert%20a%20Number%20to%20Hexadecimal/README.md
+tags:
+    - 位运算
+    - 数学
+---
+
 # [405. 数字转换为十六进制数](https://leetcode.cn/problems/convert-a-number-to-hexadecimal)
 
 [English Version](/solution/0400-0499/0405.Convert%20a%20Number%20to%20Hexadecimal/README_EN.md)
-
-<!-- tags:位运算,数学 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

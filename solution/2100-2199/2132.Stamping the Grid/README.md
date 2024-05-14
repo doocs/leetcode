@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2132.Stamping%20the%20Grid/README.md
+rating: 2364
+tags:
+    - 贪心
+    - 数组
+    - 矩阵
+    - 前缀和
+---
+
 # [2132. 用邮票贴满网格图](https://leetcode.cn/problems/stamping-the-grid)
 
 [English Version](/solution/2100-2199/2132.Stamping%20the%20Grid/README_EN.md)
-
-<!-- tags:贪心,数组,矩阵,前缀和 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

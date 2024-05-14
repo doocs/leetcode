@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1993.Operations%20on%20Tree/README.md
+rating: 1861
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 设计
+    - 数组
+    - 哈希表
+---
+
 # [1993. 树上的操作](https://leetcode.cn/problems/operations-on-tree)
 
 [English Version](/solution/1900-1999/1993.Operations%20on%20Tree/README_EN.md)
-
-<!-- tags:树,深度优先搜索,广度优先搜索,设计,数组,哈希表 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

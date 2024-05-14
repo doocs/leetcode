@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2460.Apply%20Operations%20to%20an%20Array/README_EN.md
+rating: 1223
+tags:
+    - Array
+    - Two Pointers
+    - Simulation
+---
+
 # [2460. Apply Operations to an Array](https://leetcode.com/problems/apply-operations-to-an-array)
 
 [中文文档](/solution/2400-2499/2460.Apply%20Operations%20to%20an%20Array/README.md)
-
-<!-- tags:Array,Two Pointers,Simulation -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

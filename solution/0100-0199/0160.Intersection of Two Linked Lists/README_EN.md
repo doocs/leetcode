@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0160.Intersection%20of%20Two%20Linked%20Lists/README_EN.md
+tags:
+    - Hash Table
+    - Linked List
+    - Two Pointers
+---
+
 # [160. Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists)
 
 [中文文档](/solution/0100-0199/0160.Intersection%20of%20Two%20Linked%20Lists/README.md)
-
-<!-- tags:Hash Table,Linked List,Two Pointers -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

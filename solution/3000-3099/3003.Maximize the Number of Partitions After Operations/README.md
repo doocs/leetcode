@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3003.Maximize%20the%20Number%20of%20Partitions%20After%20Operations/README.md
+rating: 3039
+tags:
+    - 位运算
+    - 字符串
+    - 动态规划
+    - 状态压缩
+---
+
 # [3003. 执行操作后的最大分割数量](https://leetcode.cn/problems/maximize-the-number-of-partitions-after-operations)
 
 [English Version](/solution/3000-3099/3003.Maximize%20the%20Number%20of%20Partitions%20After%20Operations/README_EN.md)
-
-<!-- tags:位运算,字符串,动态规划,状态压缩 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

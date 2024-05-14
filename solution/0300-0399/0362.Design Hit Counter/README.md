@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0362.Design%20Hit%20Counter/README.md
+tags:
+    - 设计
+    - 队列
+    - 数组
+    - 二分查找
+    - 数据流
+---
+
 # [362. 敲击计数器 🔒](https://leetcode.cn/problems/design-hit-counter)
 
 [English Version](/solution/0300-0399/0362.Design%20Hit%20Counter/README_EN.md)
-
-<!-- tags:设计,队列,数组,二分查找,数据流 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2412.Minimum%20Money%20Required%20Before%20Transactions/README.md
+rating: 2092
+tags:
+    - 贪心
+    - 数组
+    - 排序
+---
+
 # [2412. 完成所有交易的初始最少钱数](https://leetcode.cn/problems/minimum-money-required-before-transactions)
 
 [English Version](/solution/2400-2499/2412.Minimum%20Money%20Required%20Before%20Transactions/README_EN.md)
-
-<!-- tags:贪心,数组,排序 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

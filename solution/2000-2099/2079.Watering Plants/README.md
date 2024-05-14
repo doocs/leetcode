@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2079.Watering%20Plants/README.md
+rating: 1320
+tags:
+    - 数组
+    - 模拟
+---
+
 # [2079. 给植物浇水](https://leetcode.cn/problems/watering-plants)
 
 [English Version](/solution/2000-2099/2079.Watering%20Plants/README_EN.md)
-
-<!-- tags:数组,模拟 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

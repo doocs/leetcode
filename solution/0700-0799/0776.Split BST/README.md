@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0776.Split%20BST/README.md
+tags:
+    - 树
+    - 二叉搜索树
+    - 递归
+    - 二叉树
+---
+
 # [776. 拆分二叉搜索树 🔒](https://leetcode.cn/problems/split-bst)
 
 [English Version](/solution/0700-0799/0776.Split%20BST/README_EN.md)
-
-<!-- tags:树,二叉搜索树,递归,二叉树 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

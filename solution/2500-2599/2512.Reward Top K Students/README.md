@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2512.Reward%20Top%20K%20Students/README.md
+rating: 1636
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+    - 排序
+    - 堆（优先队列）
+---
+
 # [2512. 奖励最顶尖的 K 名学生](https://leetcode.cn/problems/reward-top-k-students)
 
 [English Version](/solution/2500-2599/2512.Reward%20Top%20K%20Students/README_EN.md)
-
-<!-- tags:数组,哈希表,字符串,排序,堆（优先队列） -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

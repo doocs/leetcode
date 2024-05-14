@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2268.Minimum%20Number%20of%20Keypresses/README_EN.md
+tags:
+    - Greedy
+    - Hash Table
+    - String
+    - Counting
+    - Sorting
+---
+
 # [2268. Minimum Number of Keypresses 🔒](https://leetcode.com/problems/minimum-number-of-keypresses)
 
 [中文文档](/solution/2200-2299/2268.Minimum%20Number%20of%20Keypresses/README.md)
-
-<!-- tags:Greedy,Hash Table,String,Counting,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

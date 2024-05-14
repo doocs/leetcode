@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2256.Minimum%20Average%20Difference/README_EN.md
+rating: 1394
+tags:
+    - Array
+    - Prefix Sum
+---
+
 # [2256. Minimum Average Difference](https://leetcode.com/problems/minimum-average-difference)
 
 [中文文档](/solution/2200-2299/2256.Minimum%20Average%20Difference/README.md)
-
-<!-- tags:Array,Prefix Sum -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

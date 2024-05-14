@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1707.Maximum%20XOR%20With%20an%20Element%20From%20Array/README.md
+rating: 2358
+tags:
+    - 位运算
+    - 字典树
+    - 数组
+---
+
 # [1707. 与数组中元素的最大异或值](https://leetcode.cn/problems/maximum-xor-with-an-element-from-array)
 
 [English Version](/solution/1700-1799/1707.Maximum%20XOR%20With%20an%20Element%20From%20Array/README_EN.md)
-
-<!-- tags:位运算,字典树,数组 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

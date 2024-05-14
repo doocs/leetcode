@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0622.Design%20Circular%20Queue/README_EN.md
+tags:
+    - Design
+    - Queue
+    - Array
+    - Linked List
+---
+
 # [622. Design Circular Queue](https://leetcode.com/problems/design-circular-queue)
 
 [中文文档](/solution/0600-0699/0622.Design%20Circular%20Queue/README.md)
-
-<!-- tags:Design,Queue,Array,Linked List -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

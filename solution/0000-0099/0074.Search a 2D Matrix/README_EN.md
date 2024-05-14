@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0074.Search%20a%202D%20Matrix/README_EN.md
+tags:
+    - Array
+    - Binary Search
+    - Matrix
+---
+
 # [74. Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix)
 
 [中文文档](/solution/0000-0099/0074.Search%20a%202D%20Matrix/README.md)
-
-<!-- tags:Array,Binary Search,Matrix -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

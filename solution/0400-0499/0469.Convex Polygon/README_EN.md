@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0469.Convex%20Polygon/README_EN.md
+tags:
+    - Geometry
+    - Math
+---
+
 # [469. Convex Polygon 🔒](https://leetcode.com/problems/convex-polygon)
 
 [中文文档](/solution/0400-0499/0469.Convex%20Polygon/README.md)
-
-<!-- tags:Geometry,Math -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

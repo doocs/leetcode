@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2059.Minimum%20Operations%20to%20Convert%20Number/README.md
+rating: 1849
+tags:
+    - 广度优先搜索
+    - 数组
+---
+
 # [2059. 转化数字的最小运算数](https://leetcode.cn/problems/minimum-operations-to-convert-number)
 
 [English Version](/solution/2000-2099/2059.Minimum%20Operations%20to%20Convert%20Number/README_EN.md)
-
-<!-- tags:广度优先搜索,数组 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

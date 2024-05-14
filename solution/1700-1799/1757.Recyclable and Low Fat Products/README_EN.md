@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1757.Recyclable%20and%20Low%20Fat%20Products/README_EN.md
+tags:
+    - Database
+---
+
 # [1757. Recyclable and Low Fat Products](https://leetcode.com/problems/recyclable-and-low-fat-products)
 
 [中文文档](/solution/1700-1799/1757.Recyclable%20and%20Low%20Fat%20Products/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

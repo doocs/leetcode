@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1302.Deepest%20Leaves%20Sum/README_EN.md
+rating: 1387
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Binary Tree
+---
+
 # [1302. Deepest Leaves Sum](https://leetcode.com/problems/deepest-leaves-sum)
 
 [中文文档](/solution/1300-1399/1302.Deepest%20Leaves%20Sum/README.md)
-
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Tree -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

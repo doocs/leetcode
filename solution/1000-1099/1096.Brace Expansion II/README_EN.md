@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1096.Brace%20Expansion%20II/README_EN.md
+rating: 2348
+tags:
+    - Stack
+    - Breadth-First Search
+    - String
+    - Backtracking
+---
+
 # [1096. Brace Expansion II](https://leetcode.com/problems/brace-expansion-ii)
 
 [中文文档](/solution/1000-1099/1096.Brace%20Expansion%20II/README.md)
-
-<!-- tags:Stack,Breadth-First Search,String,Backtracking -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

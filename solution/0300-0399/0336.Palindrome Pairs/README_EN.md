@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0336.Palindrome%20Pairs/README_EN.md
+tags:
+    - Trie
+    - Array
+    - Hash Table
+    - String
+---
+
 # [336. Palindrome Pairs](https://leetcode.com/problems/palindrome-pairs)
 
 [中文文档](/solution/0300-0399/0336.Palindrome%20Pairs/README.md)
-
-<!-- tags:Trie,Array,Hash Table,String -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

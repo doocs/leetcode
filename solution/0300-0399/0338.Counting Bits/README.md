@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0338.Counting%20Bits/README.md
+tags:
+    - 位运算
+    - 动态规划
+---
+
 # [338. 比特位计数](https://leetcode.cn/problems/counting-bits)
 
 [English Version](/solution/0300-0399/0338.Counting%20Bits/README_EN.md)
-
-<!-- tags:位运算,动态规划 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

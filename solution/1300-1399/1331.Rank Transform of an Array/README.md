@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1331.Rank%20Transform%20of%20an%20Array/README.md
+rating: 1355
+tags:
+    - 数组
+    - 哈希表
+    - 排序
+---
+
 # [1331. 数组序号转换](https://leetcode.cn/problems/rank-transform-of-an-array)
 
 [English Version](/solution/1300-1399/1331.Rank%20Transform%20of%20an%20Array/README_EN.md)
-
-<!-- tags:数组,哈希表,排序 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2479.Maximum%20XOR%20of%20Two%20Non-Overlapping%20Subtrees/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 图
+    - 字典树
+---
+
 # [2479. 两个不重叠子树的最大异或值 🔒](https://leetcode.cn/problems/maximum-xor-of-two-non-overlapping-subtrees)
 
 [English Version](/solution/2400-2499/2479.Maximum%20XOR%20of%20Two%20Non-Overlapping%20Subtrees/README_EN.md)
-
-<!-- tags:树,深度优先搜索,图,字典树 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

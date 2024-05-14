@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0086.Partition%20List/README.md
+tags:
+    - 链表
+    - 双指针
+---
+
 # [86. 分隔链表](https://leetcode.cn/problems/partition-list)
 
 [English Version](/solution/0000-0099/0086.Partition%20List/README_EN.md)
-
-<!-- tags:链表,双指针 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

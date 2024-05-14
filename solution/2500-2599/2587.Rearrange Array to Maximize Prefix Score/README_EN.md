@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2587.Rearrange%20Array%20to%20Maximize%20Prefix%20Score/README_EN.md
+rating: 1336
+tags:
+    - Greedy
+    - Array
+    - Prefix Sum
+    - Sorting
+---
+
 # [2587. Rearrange Array to Maximize Prefix Score](https://leetcode.com/problems/rearrange-array-to-maximize-prefix-score)
 
 [中文文档](/solution/2500-2599/2587.Rearrange%20Array%20to%20Maximize%20Prefix%20Score/README.md)
-
-<!-- tags:Greedy,Array,Prefix Sum,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

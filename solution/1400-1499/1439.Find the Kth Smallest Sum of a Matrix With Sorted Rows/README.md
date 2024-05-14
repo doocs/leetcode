@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1439.Find%20the%20Kth%20Smallest%20Sum%20of%20a%20Matrix%20With%20Sorted%20Rows/README.md
+rating: 2133
+tags:
+    - 数组
+    - 二分查找
+    - 矩阵
+    - 堆（优先队列）
+---
+
 # [1439. 有序矩阵中的第 k 个最小数组和](https://leetcode.cn/problems/find-the-kth-smallest-sum-of-a-matrix-with-sorted-rows)
 
 [English Version](/solution/1400-1499/1439.Find%20the%20Kth%20Smallest%20Sum%20of%20a%20Matrix%20With%20Sorted%20Rows/README_EN.md)
-
-<!-- tags:数组,二分查找,矩阵,堆（优先队列） -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2621.Sleep/README_EN.md
+---
+
 # [2621. Sleep](https://leetcode.com/problems/sleep)
 
 [中文文档](/solution/2600-2699/2621.Sleep/README.md)
-
-<!-- tags: -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

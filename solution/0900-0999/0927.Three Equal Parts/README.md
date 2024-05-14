@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0927.Three%20Equal%20Parts/README.md
+tags:
+    - 数组
+    - 数学
+---
+
 # [927. 三等分](https://leetcode.cn/problems/three-equal-parts)
 
 [English Version](/solution/0900-0999/0927.Three%20Equal%20Parts/README_EN.md)
-
-<!-- tags:数组,数学 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

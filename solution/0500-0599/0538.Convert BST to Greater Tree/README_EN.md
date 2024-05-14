@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0538.Convert%20BST%20to%20Greater%20Tree/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Binary Search Tree
+    - Binary Tree
+---
+
 # [538. Convert BST to Greater Tree](https://leetcode.com/problems/convert-bst-to-greater-tree)
 
 [中文文档](/solution/0500-0599/0538.Convert%20BST%20to%20Greater%20Tree/README.md)
-
-<!-- tags:Tree,Depth-First Search,Binary Search Tree,Binary Tree -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

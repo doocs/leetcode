@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0585.Investments%20in%202016/README_EN.md
+tags:
+    - Database
+---
+
 # [585. Investments in 2016](https://leetcode.com/problems/investments-in-2016)
 
 [中文文档](/solution/0500-0599/0585.Investments%20in%202016/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

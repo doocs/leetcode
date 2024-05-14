@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2037.Minimum%20Number%20of%20Moves%20to%20Seat%20Everyone/README.md
+rating: 1356
+tags:
+    - 贪心
+    - 数组
+    - 排序
+---
+
 # [2037. 使每位学生都有座位的最少移动次数](https://leetcode.cn/problems/minimum-number-of-moves-to-seat-everyone)
 
 [English Version](/solution/2000-2099/2037.Minimum%20Number%20of%20Moves%20to%20Seat%20Everyone/README_EN.md)
-
-<!-- tags:贪心,数组,排序 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

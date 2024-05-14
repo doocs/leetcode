@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1158.Market%20Analysis%20I/README_EN.md
+tags:
+    - Database
+---
+
 # [1158. Market Analysis I](https://leetcode.com/problems/market-analysis-i)
 
 [中文文档](/solution/1100-1199/1158.Market%20Analysis%20I/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

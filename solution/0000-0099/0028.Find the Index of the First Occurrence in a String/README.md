@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0028.Find%20the%20Index%20of%20the%20First%20Occurrence%20in%20a%20String/README.md
+tags:
+    - 双指针
+    - 字符串
+    - 字符串匹配
+---
+
 # [28. 找出字符串中第一个匹配项的下标](https://leetcode.cn/problems/find-the-index-of-the-first-occurrence-in-a-string)
 
 [English Version](/solution/0000-0099/0028.Find%20the%20Index%20of%20the%20First%20Occurrence%20in%20a%20String/README_EN.md)
-
-<!-- tags:双指针,字符串,字符串匹配 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

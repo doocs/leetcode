@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0539.Minimum%20Time%20Difference/README.md
+tags:
+    - 数组
+    - 数学
+    - 字符串
+    - 排序
+---
+
 # [539. 最小时间差](https://leetcode.cn/problems/minimum-time-difference)
 
 [English Version](/solution/0500-0599/0539.Minimum%20Time%20Difference/README_EN.md)
-
-<!-- tags:数组,数学,字符串,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

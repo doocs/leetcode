@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1382.Balance%20a%20Binary%20Search%20Tree/README_EN.md
+rating: 1540
+tags:
+    - Greedy
+    - Tree
+    - Depth-First Search
+    - Binary Search Tree
+    - Divide and Conquer
+    - Binary Tree
+---
+
 # [1382. Balance a Binary Search Tree](https://leetcode.com/problems/balance-a-binary-search-tree)
 
 [中文文档](/solution/1300-1399/1382.Balance%20a%20Binary%20Search%20Tree/README.md)
-
-<!-- tags:Greedy,Tree,Depth-First Search,Binary Search Tree,Divide and Conquer,Binary Tree -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

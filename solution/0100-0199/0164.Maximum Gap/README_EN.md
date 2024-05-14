@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0164.Maximum%20Gap/README_EN.md
+tags:
+    - Array
+    - Bucket Sort
+    - Radix Sort
+    - Sorting
+---
+
 # [164. Maximum Gap](https://leetcode.com/problems/maximum-gap)
 
 [中文文档](/solution/0100-0199/0164.Maximum%20Gap/README.md)
-
-<!-- tags:Array,Bucket Sort,Radix Sort,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3132.Find%20the%20Integer%20Added%20to%20Array%20II/README.md
+rating: 1620
+tags:
+    - 数组
+    - 双指针
+    - 枚举
+    - 排序
+---
+
 # [3132. 找出与数组相加的整数 II](https://leetcode.cn/problems/find-the-integer-added-to-array-ii)
 
 [English Version](/solution/3100-3199/3132.Find%20the%20Integer%20Added%20to%20Array%20II/README_EN.md)
-
-<!-- tags:数组,双指针,枚举,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

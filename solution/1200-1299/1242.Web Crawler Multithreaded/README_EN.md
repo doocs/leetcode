@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1242.Web%20Crawler%20Multithreaded/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Concurrency
+---
+
 # [1242. Web Crawler Multithreaded 🔒](https://leetcode.com/problems/web-crawler-multithreaded)
 
 [中文文档](/solution/1200-1299/1242.Web%20Crawler%20Multithreaded/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Concurrency -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

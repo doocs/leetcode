@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1513.Number%20of%20Substrings%20With%20Only%201s/README.md
+rating: 1351
+tags:
+    - 数学
+    - 字符串
+---
+
 # [1513. 仅含 1 的子串数](https://leetcode.cn/problems/number-of-substrings-with-only-1s)
 
 [English Version](/solution/1500-1599/1513.Number%20of%20Substrings%20With%20Only%201s/README_EN.md)
-
-<!-- tags:数学,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

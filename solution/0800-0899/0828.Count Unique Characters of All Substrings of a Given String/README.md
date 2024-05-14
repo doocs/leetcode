@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0828.Count%20Unique%20Characters%20of%20All%20Substrings%20of%20a%20Given%20String/README.md
+tags:
+    - 哈希表
+    - 字符串
+    - 动态规划
+---
+
 # [828. 统计子串中的唯一字符](https://leetcode.cn/problems/count-unique-characters-of-all-substrings-of-a-given-string)
 
 [English Version](/solution/0800-0899/0828.Count%20Unique%20Characters%20of%20All%20Substrings%20of%20a%20Given%20String/README_EN.md)
-
-<!-- tags:哈希表,字符串,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

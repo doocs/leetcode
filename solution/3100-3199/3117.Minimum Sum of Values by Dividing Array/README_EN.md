@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3117.Minimum%20Sum%20of%20Values%20by%20Dividing%20Array/README_EN.md
+rating: 2735
+tags:
+    - Bit Manipulation
+    - Segment Tree
+    - Queue
+    - Array
+    - Binary Search
+    - Dynamic Programming
+---
+
 # [3117. Minimum Sum of Values by Dividing Array](https://leetcode.com/problems/minimum-sum-of-values-by-dividing-array)
 
 [中文文档](/solution/3100-3199/3117.Minimum%20Sum%20of%20Values%20by%20Dividing%20Array/README.md)
-
-<!-- tags:Bit Manipulation,Segment Tree,Queue,Array,Binary Search,Dynamic Programming -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

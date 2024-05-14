@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2121.Intervals%20Between%20Identical%20Elements/README_EN.md
+rating: 1760
+tags:
+    - Array
+    - Hash Table
+    - Prefix Sum
+---
+
 # [2121. Intervals Between Identical Elements](https://leetcode.com/problems/intervals-between-identical-elements)
 
 [中文文档](/solution/2100-2199/2121.Intervals%20Between%20Identical%20Elements/README.md)
-
-<!-- tags:Array,Hash Table,Prefix Sum -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

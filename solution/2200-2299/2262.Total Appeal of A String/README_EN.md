@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2262.Total%20Appeal%20of%20A%20String/README_EN.md
+rating: 2033
+tags:
+    - Hash Table
+    - String
+    - Dynamic Programming
+---
+
 # [2262. Total Appeal of A String](https://leetcode.com/problems/total-appeal-of-a-string)
 
 [中文文档](/solution/2200-2299/2262.Total%20Appeal%20of%20A%20String/README.md)
-
-<!-- tags:Hash Table,String,Dynamic Programming -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

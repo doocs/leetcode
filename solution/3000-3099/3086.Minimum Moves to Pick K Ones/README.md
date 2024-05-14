@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3086.Minimum%20Moves%20to%20Pick%20K%20Ones/README.md
+rating: 2672
+tags:
+    - 贪心
+    - 数组
+    - 前缀和
+    - 滑动窗口
+---
+
 # [3086. 拾起 K 个 1 需要的最少行动次数](https://leetcode.cn/problems/minimum-moves-to-pick-k-ones)
 
 [English Version](/solution/3000-3099/3086.Minimum%20Moves%20to%20Pick%20K%20Ones/README_EN.md)
-
-<!-- tags:贪心,数组,前缀和,滑动窗口 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

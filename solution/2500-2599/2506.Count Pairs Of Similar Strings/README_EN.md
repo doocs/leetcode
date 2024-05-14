@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2506.Count%20Pairs%20Of%20Similar%20Strings/README_EN.md
+rating: 1335
+tags:
+    - Bit Manipulation
+    - Array
+    - Hash Table
+    - String
+---
+
 # [2506. Count Pairs Of Similar Strings](https://leetcode.com/problems/count-pairs-of-similar-strings)
 
 [中文文档](/solution/2500-2599/2506.Count%20Pairs%20Of%20Similar%20Strings/README.md)
-
-<!-- tags:Bit Manipulation,Array,Hash Table,String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

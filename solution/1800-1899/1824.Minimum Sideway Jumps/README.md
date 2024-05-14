@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1824.Minimum%20Sideway%20Jumps/README.md
+rating: 1778
+tags:
+    - 贪心
+    - 数组
+    - 动态规划
+---
+
 # [1824. 最少侧跳次数](https://leetcode.cn/problems/minimum-sideway-jumps)
 
 [English Version](/solution/1800-1899/1824.Minimum%20Sideway%20Jumps/README_EN.md)
-
-<!-- tags:贪心,数组,动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

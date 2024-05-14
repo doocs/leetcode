@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0821.Shortest%20Distance%20to%20a%20Character/README.md
+tags:
+    - 数组
+    - 双指针
+    - 字符串
+---
+
 # [821. 字符的最短距离](https://leetcode.cn/problems/shortest-distance-to-a-character)
 
 [English Version](/solution/0800-0899/0821.Shortest%20Distance%20to%20a%20Character/README_EN.md)
-
-<!-- tags:数组,双指针,字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

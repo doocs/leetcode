@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0864.Shortest%20Path%20to%20Get%20All%20Keys/README.md
+tags:
+    - 位运算
+    - 广度优先搜索
+    - 数组
+    - 矩阵
+---
+
 # [864. 获取所有钥匙的最短路径](https://leetcode.cn/problems/shortest-path-to-get-all-keys)
 
 [English Version](/solution/0800-0899/0864.Shortest%20Path%20to%20Get%20All%20Keys/README_EN.md)
-
-<!-- tags:位运算,广度优先搜索,数组,矩阵 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

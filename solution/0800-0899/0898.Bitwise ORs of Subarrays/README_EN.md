@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0898.Bitwise%20ORs%20of%20Subarrays/README_EN.md
+tags:
+    - Bit Manipulation
+    - Array
+    - Dynamic Programming
+---
+
 # [898. Bitwise ORs of Subarrays](https://leetcode.com/problems/bitwise-ors-of-subarrays)
 
 [中文文档](/solution/0800-0899/0898.Bitwise%20ORs%20of%20Subarrays/README.md)
-
-<!-- tags:Bit Manipulation,Array,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

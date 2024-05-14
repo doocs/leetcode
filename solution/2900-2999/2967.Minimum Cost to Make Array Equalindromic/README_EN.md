@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2967.Minimum%20Cost%20to%20Make%20Array%20Equalindromic/README_EN.md
+rating: 2116
+tags:
+    - Greedy
+    - Array
+    - Math
+    - Sorting
+---
+
 # [2967. Minimum Cost to Make Array Equalindromic](https://leetcode.com/problems/minimum-cost-to-make-array-equalindromic)
 
 [中文文档](/solution/2900-2999/2967.Minimum%20Cost%20to%20Make%20Array%20Equalindromic/README.md)
-
-<!-- tags:Greedy,Array,Math,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

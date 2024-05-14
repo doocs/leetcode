@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3086.Minimum%20Moves%20to%20Pick%20K%20Ones/README_EN.md
+rating: 2672
+tags:
+    - Greedy
+    - Array
+    - Prefix Sum
+    - Sliding Window
+---
+
 # [3086. Minimum Moves to Pick K Ones](https://leetcode.com/problems/minimum-moves-to-pick-k-ones)
 
 [中文文档](/solution/3000-3099/3086.Minimum%20Moves%20to%20Pick%20K%20Ones/README.md)
-
-<!-- tags:Greedy,Array,Prefix Sum,Sliding Window -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

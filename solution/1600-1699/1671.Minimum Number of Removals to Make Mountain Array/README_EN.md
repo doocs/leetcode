@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1671.Minimum%20Number%20of%20Removals%20to%20Make%20Mountain%20Array/README_EN.md
+rating: 1912
+tags:
+    - Greedy
+    - Array
+    - Binary Search
+    - Dynamic Programming
+---
+
 # [1671. Minimum Number of Removals to Make Mountain Array](https://leetcode.com/problems/minimum-number-of-removals-to-make-mountain-array)
 
 [中文文档](/solution/1600-1699/1671.Minimum%20Number%20of%20Removals%20to%20Make%20Mountain%20Array/README.md)
-
-<!-- tags:Greedy,Array,Binary Search,Dynamic Programming -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

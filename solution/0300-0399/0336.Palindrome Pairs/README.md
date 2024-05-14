@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0336.Palindrome%20Pairs/README.md
+tags:
+    - 字典树
+    - 数组
+    - 哈希表
+    - 字符串
+---
+
 # [336. 回文对](https://leetcode.cn/problems/palindrome-pairs)
 
 [English Version](/solution/0300-0399/0336.Palindrome%20Pairs/README_EN.md)
-
-<!-- tags:字典树,数组,哈希表,字符串 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

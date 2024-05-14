@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0836.Rectangle%20Overlap/README_EN.md
+tags:
+    - Geometry
+    - Math
+---
+
 # [836. Rectangle Overlap](https://leetcode.com/problems/rectangle-overlap)
 
 [中文文档](/solution/0800-0899/0836.Rectangle%20Overlap/README.md)
-
-<!-- tags:Geometry,Math -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

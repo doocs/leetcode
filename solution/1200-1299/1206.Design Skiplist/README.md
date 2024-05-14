@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1206.Design%20Skiplist/README.md
+tags:
+    - 设计
+    - 链表
+---
+
 # [1206. 设计跳表](https://leetcode.cn/problems/design-skiplist)
 
 [English Version](/solution/1200-1299/1206.Design%20Skiplist/README_EN.md)
-
-<!-- tags:设计,链表 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

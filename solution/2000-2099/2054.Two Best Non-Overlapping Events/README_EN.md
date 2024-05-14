@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2054.Two%20Best%20Non-Overlapping%20Events/README_EN.md
+rating: 1883
+tags:
+    - Array
+    - Binary Search
+    - Dynamic Programming
+    - Sorting
+    - Heap (Priority Queue)
+---
+
 # [2054. Two Best Non-Overlapping Events](https://leetcode.com/problems/two-best-non-overlapping-events)
 
 [中文文档](/solution/2000-2099/2054.Two%20Best%20Non-Overlapping%20Events/README.md)
-
-<!-- tags:Array,Binary Search,Dynamic Programming,Sorting,Heap (Priority Queue) -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

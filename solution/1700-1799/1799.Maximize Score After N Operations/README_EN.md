@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1799.Maximize%20Score%20After%20N%20Operations/README_EN.md
+rating: 2072
+tags:
+    - Bit Manipulation
+    - Array
+    - Math
+    - Dynamic Programming
+    - Backtracking
+    - Bitmask
+    - Number Theory
+---
+
 # [1799. Maximize Score After N Operations](https://leetcode.com/problems/maximize-score-after-n-operations)
 
 [中文文档](/solution/1700-1799/1799.Maximize%20Score%20After%20N%20Operations/README.md)
-
-<!-- tags:Bit Manipulation,Array,Math,Dynamic Programming,Backtracking,Bitmask,Number Theory -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

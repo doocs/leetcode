@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1023.Camelcase%20Matching/README_EN.md
+rating: 1537
+tags:
+    - Trie
+    - Array
+    - Two Pointers
+    - String
+    - String Matching
+---
+
 # [1023. Camelcase Matching](https://leetcode.com/problems/camelcase-matching)
 
 [中文文档](/solution/1000-1099/1023.Camelcase%20Matching/README.md)
-
-<!-- tags:Trie,Array,Two Pointers,String,String Matching -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

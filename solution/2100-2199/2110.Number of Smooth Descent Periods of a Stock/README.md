@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2110.Number%20of%20Smooth%20Descent%20Periods%20of%20a%20Stock/README.md
+rating: 1408
+tags:
+    - 数组
+    - 数学
+    - 动态规划
+---
+
 # [2110. 股票平滑下跌阶段的数目](https://leetcode.cn/problems/number-of-smooth-descent-periods-of-a-stock)
 
 [English Version](/solution/2100-2199/2110.Number%20of%20Smooth%20Descent%20Periods%20of%20a%20Stock/README_EN.md)
-
-<!-- tags:数组,数学,动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

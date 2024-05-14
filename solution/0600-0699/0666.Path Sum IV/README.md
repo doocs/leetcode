@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0666.Path%20Sum%20IV/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 数组
+    - 哈希表
+    - 二叉树
+---
+
 # [666. 路径总和 IV 🔒](https://leetcode.cn/problems/path-sum-iv)
 
 [English Version](/solution/0600-0699/0666.Path%20Sum%20IV/README_EN.md)
-
-<!-- tags:树,深度优先搜索,数组,哈希表,二叉树 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

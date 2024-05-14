@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2684.Maximum%20Number%20of%20Moves%20in%20a%20Grid/README.md
+rating: 1625
+tags:
+    - 数组
+    - 动态规划
+    - 矩阵
+---
+
 # [2684. 矩阵中移动的最大次数](https://leetcode.cn/problems/maximum-number-of-moves-in-a-grid)
 
 [English Version](/solution/2600-2699/2684.Maximum%20Number%20of%20Moves%20in%20a%20Grid/README_EN.md)
-
-<!-- tags:数组,动态规划,矩阵 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

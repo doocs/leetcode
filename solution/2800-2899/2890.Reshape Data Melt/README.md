@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2890.Reshape%20Data%20Melt/README.md
+---
+
 # [2890. 重塑数据：融合](https://leetcode.cn/problems/reshape-data-melt)
 
 [English Version](/solution/2800-2899/2890.Reshape%20Data%20Melt/README_EN.md)
-
-<!-- tags: -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

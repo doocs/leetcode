@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1627.Graph%20Connectivity%20With%20Threshold/README.md
+rating: 2221
+tags:
+    - 并查集
+    - 数组
+    - 数学
+    - 数论
+---
+
 # [1627. 带阈值的图连通性](https://leetcode.cn/problems/graph-connectivity-with-threshold)
 
 [English Version](/solution/1600-1699/1627.Graph%20Connectivity%20With%20Threshold/README_EN.md)
-
-<!-- tags:并查集,数组,数学,数论 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0421.Maximum%20XOR%20of%20Two%20Numbers%20in%20an%20Array/README_EN.md
+tags:
+    - Bit Manipulation
+    - Trie
+    - Array
+    - Hash Table
+---
+
 # [421. Maximum XOR of Two Numbers in an Array](https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array)
 
 [中文文档](/solution/0400-0499/0421.Maximum%20XOR%20of%20Two%20Numbers%20in%20an%20Array/README.md)
-
-<!-- tags:Bit Manipulation,Trie,Array,Hash Table -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

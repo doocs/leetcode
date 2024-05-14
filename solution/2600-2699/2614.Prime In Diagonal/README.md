@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2614.Prime%20In%20Diagonal/README.md
+rating: 1375
+tags:
+    - 数组
+    - 数学
+    - 矩阵
+    - 数论
+---
+
 # [2614. 对角线上的质数](https://leetcode.cn/problems/prime-in-diagonal)
 
 [English Version](/solution/2600-2699/2614.Prime%20In%20Diagonal/README_EN.md)
-
-<!-- tags:数组,数学,矩阵,数论 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0458.Poor%20Pigs/README_EN.md
+tags:
+    - Math
+    - Dynamic Programming
+    - Combinatorics
+---
+
 # [458. Poor Pigs](https://leetcode.com/problems/poor-pigs)
 
 [中文文档](/solution/0400-0499/0458.Poor%20Pigs/README.md)
-
-<!-- tags:Math,Dynamic Programming,Combinatorics -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2842.Count%20K-Subsequences%20of%20a%20String%20With%20Maximum%20Beauty/README_EN.md
+rating: 2091
+tags:
+    - Greedy
+    - Hash Table
+    - Math
+    - String
+    - Combinatorics
+---
+
 # [2842. Count K-Subsequences of a String With Maximum Beauty](https://leetcode.com/problems/count-k-subsequences-of-a-string-with-maximum-beauty)
 
 [中文文档](/solution/2800-2899/2842.Count%20K-Subsequences%20of%20a%20String%20With%20Maximum%20Beauty/README.md)
-
-<!-- tags:Greedy,Hash Table,Math,String,Combinatorics -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

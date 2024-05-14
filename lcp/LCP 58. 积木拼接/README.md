@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2058.%20%E7%A7%AF%E6%9C%A8%E6%8B%BC%E6%8E%A5/README.md
+---
+
 # [LCP 58. 积木拼接](https://leetcode.cn/problems/De4qBB)
 
 ## 题目描述

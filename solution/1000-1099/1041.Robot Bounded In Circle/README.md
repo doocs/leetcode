@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1041.Robot%20Bounded%20In%20Circle/README.md
+rating: 1521
+tags:
+    - 数学
+    - 字符串
+    - 模拟
+---
+
 # [1041. 困于环中的机器人](https://leetcode.cn/problems/robot-bounded-in-circle)
 
 [English Version](/solution/1000-1099/1041.Robot%20Bounded%20In%20Circle/README_EN.md)
-
-<!-- tags:数学,字符串,模拟 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1165.Single-Row%20Keyboard/README_EN.md
+rating: 1199
+tags:
+    - Hash Table
+    - String
+---
+
 # [1165. Single-Row Keyboard 🔒](https://leetcode.com/problems/single-row-keyboard)
 
 [中文文档](/solution/1100-1199/1165.Single-Row%20Keyboard/README.md)
-
-<!-- tags:Hash Table,String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

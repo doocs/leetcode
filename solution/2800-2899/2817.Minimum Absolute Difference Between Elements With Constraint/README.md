@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2817.Minimum%20Absolute%20Difference%20Between%20Elements%20With%20Constraint/README.md
+rating: 1889
+tags:
+    - 数组
+    - 二分查找
+    - 有序集合
+---
+
 # [2817. 限制条件下元素之间的最小绝对差](https://leetcode.cn/problems/minimum-absolute-difference-between-elements-with-constraint)
 
 [English Version](/solution/2800-2899/2817.Minimum%20Absolute%20Difference%20Between%20Elements%20With%20Constraint/README_EN.md)
-
-<!-- tags:数组,二分查找,有序集合 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

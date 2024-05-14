@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0843.Guess%20the%20Word/README_EN.md
+tags:
+    - Array
+    - Math
+    - String
+    - Game Theory
+    - Interactive
+---
+
 # [843. Guess the Word](https://leetcode.com/problems/guess-the-word)
 
 [中文文档](/solution/0800-0899/0843.Guess%20the%20Word/README.md)
-
-<!-- tags:Array,Math,String,Game Theory,Interactive -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

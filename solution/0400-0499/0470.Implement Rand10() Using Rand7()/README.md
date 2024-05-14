@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0470.Implement%20Rand10%28%29%20Using%20Rand7%28%29/README.md
+tags:
+    - 数学
+    - 拒绝采样
+    - 概率与统计
+    - 随机化
+---
+
 # [470. 用 Rand7() 实现 Rand10()](https://leetcode.cn/problems/implement-rand10-using-rand7)
 
 [English Version](/solution/0400-0499/0470.Implement%20Rand10%28%29%20Using%20Rand7%28%29/README_EN.md)
-
-<!-- tags:数学,拒绝采样,概率与统计,随机化 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 
@@ -165,7 +172,6 @@ function rand10(): number {
 ```
 
 ```rust
-
 /**
  * The rand7() API is already defined for you.
  * @return a random integer in the range 1 to 7

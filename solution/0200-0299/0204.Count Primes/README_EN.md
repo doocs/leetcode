@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0204.Count%20Primes/README_EN.md
+tags:
+    - Array
+    - Math
+    - Enumeration
+    - Number Theory
+---
+
 # [204. Count Primes](https://leetcode.com/problems/count-primes)
 
 [中文文档](/solution/0200-0299/0204.Count%20Primes/README.md)
-
-<!-- tags:Array,Math,Enumeration,Number Theory -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

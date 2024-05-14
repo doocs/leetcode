@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2938.Separate%20Black%20and%20White%20Balls/README.md
+rating: 1422
+tags:
+    - 贪心
+    - 双指针
+    - 字符串
+---
+
 # [2938. 区分黑球与白球](https://leetcode.cn/problems/separate-black-and-white-balls)
 
 [English Version](/solution/2900-2999/2938.Separate%20Black%20and%20White%20Balls/README_EN.md)
-
-<!-- tags:贪心,双指针,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3030.Find%20the%20Grid%20of%20Region%20Average/README_EN.md
+rating: 1896
+tags:
+    - Array
+    - Matrix
+---
+
 # [3030. Find the Grid of Region Average](https://leetcode.com/problems/find-the-grid-of-region-average)
 
 [中文文档](/solution/3000-3099/3030.Find%20the%20Grid%20of%20Region%20Average/README.md)
-
-<!-- tags:Array,Matrix -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

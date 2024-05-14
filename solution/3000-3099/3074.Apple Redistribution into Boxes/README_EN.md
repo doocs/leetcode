@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3074.Apple%20Redistribution%20into%20Boxes/README_EN.md
+rating: 1197
+tags:
+    - Greedy
+    - Array
+    - Sorting
+---
+
 # [3074. Apple Redistribution into Boxes](https://leetcode.com/problems/apple-redistribution-into-boxes)
 
 [中文文档](/solution/3000-3099/3074.Apple%20Redistribution%20into%20Boxes/README.md)
-
-<!-- tags:Greedy,Array,Sorting -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

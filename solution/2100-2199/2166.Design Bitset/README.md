@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2166.Design%20Bitset/README.md
+rating: 1751
+tags:
+    - 设计
+    - 数组
+    - 哈希表
+    - 字符串
+---
+
 # [2166. 设计位集](https://leetcode.cn/problems/design-bitset)
 
 [English Version](/solution/2100-2199/2166.Design%20Bitset/README_EN.md)
-
-<!-- tags:设计,数组,哈希表,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

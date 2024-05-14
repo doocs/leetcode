@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2875.Minimum%20Size%20Subarray%20in%20Infinite%20Array/README_EN.md
+rating: 1913
+tags:
+    - Array
+    - Hash Table
+    - Prefix Sum
+    - Sliding Window
+---
+
 # [2875. Minimum Size Subarray in Infinite Array](https://leetcode.com/problems/minimum-size-subarray-in-infinite-array)
 
 [中文文档](/solution/2800-2899/2875.Minimum%20Size%20Subarray%20in%20Infinite%20Array/README.md)
-
-<!-- tags:Array,Hash Table,Prefix Sum,Sliding Window -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1749.Maximum%20Absolute%20Sum%20of%20Any%20Subarray/README.md
+rating: 1541
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [1749. 任意子数组和的绝对值的最大值](https://leetcode.cn/problems/maximum-absolute-sum-of-any-subarray)
 
 [English Version](/solution/1700-1799/1749.Maximum%20Absolute%20Sum%20of%20Any%20Subarray/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

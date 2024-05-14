@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0518.Coin%20Change%20II/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [518. Coin Change II](https://leetcode.com/problems/coin-change-ii)
 
 [中文文档](/solution/0500-0599/0518.Coin%20Change%20II/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

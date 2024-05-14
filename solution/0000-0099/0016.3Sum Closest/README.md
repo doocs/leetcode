@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0016.3Sum%20Closest/README.md
+tags:
+    - 数组
+    - 双指针
+    - 排序
+---
+
 # [16. 最接近的三数之和](https://leetcode.cn/problems/3sum-closest)
 
 [English Version](/solution/0000-0099/0016.3Sum%20Closest/README_EN.md)
-
-<!-- tags:数组,双指针,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2500.Delete%20Greatest%20Value%20in%20Each%20Row/README.md
+rating: 1309
+tags:
+    - 数组
+    - 矩阵
+    - 排序
+    - 模拟
+    - 堆（优先队列）
+---
+
 # [2500. 删除每行中的最大值](https://leetcode.cn/problems/delete-greatest-value-in-each-row)
 
 [English Version](/solution/2500-2599/2500.Delete%20Greatest%20Value%20in%20Each%20Row/README_EN.md)
-
-<!-- tags:数组,矩阵,排序,模拟,堆（优先队列） -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

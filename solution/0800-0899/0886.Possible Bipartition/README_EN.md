@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0886.Possible%20Bipartition/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Union Find
+    - Graph
+---
+
 # [886. Possible Bipartition](https://leetcode.com/problems/possible-bipartition)
 
 [中文文档](/solution/0800-0899/0886.Possible%20Bipartition/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Graph -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

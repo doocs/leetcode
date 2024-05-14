@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0610.Triangle%20Judgement/README.md
+tags:
+    - 数据库
+---
+
 # [610. 判断三角形](https://leetcode.cn/problems/triangle-judgement)
 
 [English Version](/solution/0600-0699/0610.Triangle%20Judgement/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

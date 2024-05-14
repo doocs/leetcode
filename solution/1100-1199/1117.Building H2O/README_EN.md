@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1117.Building%20H2O/README_EN.md
+tags:
+    - Concurrency
+---
+
 # [1117. Building H2O](https://leetcode.com/problems/building-h2o)
 
 [中文文档](/solution/1100-1199/1117.Building%20H2O/README.md)
-
-<!-- tags:Concurrency -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

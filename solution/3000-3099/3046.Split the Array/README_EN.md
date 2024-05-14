@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3046.Split%20the%20Array/README_EN.md
+rating: 1212
+tags:
+    - Array
+    - Hash Table
+    - Counting
+---
+
 # [3046. Split the Array](https://leetcode.com/problems/split-the-array)
 
 [中文文档](/solution/3000-3099/3046.Split%20the%20Array/README.md)
-
-<!-- tags:Array,Hash Table,Counting -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

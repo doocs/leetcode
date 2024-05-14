@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1446.Consecutive%20Characters/README_EN.md
+rating: 1165
+tags:
+    - String
+---
+
 # [1446. Consecutive Characters](https://leetcode.com/problems/consecutive-characters)
 
 [中文文档](/solution/1400-1499/1446.Consecutive%20Characters/README.md)
-
-<!-- tags:String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

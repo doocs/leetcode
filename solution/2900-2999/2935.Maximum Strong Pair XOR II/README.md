@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2935.Maximum%20Strong%20Pair%20XOR%20II/README.md
+rating: 2348
+tags:
+    - 位运算
+    - 字典树
+    - 数组
+    - 哈希表
+    - 滑动窗口
+---
+
 # [2935. 找出强数对的最大异或值 II](https://leetcode.cn/problems/maximum-strong-pair-xor-ii)
 
 [English Version](/solution/2900-2999/2935.Maximum%20Strong%20Pair%20XOR%20II/README_EN.md)
-
-<!-- tags:位运算,字典树,数组,哈希表,滑动窗口 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

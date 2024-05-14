@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2459.Sort%20Array%20by%20Moving%20Items%20to%20Empty%20Space/README.md
+tags:
+    - 贪心
+    - 数组
+    - 排序
+---
+
 # [2459. 通过移动项目到空白区域来排序数组 🔒](https://leetcode.cn/problems/sort-array-by-moving-items-to-empty-space)
 
 [English Version](/solution/2400-2499/2459.Sort%20Array%20by%20Moving%20Items%20to%20Empty%20Space/README_EN.md)
-
-<!-- tags:贪心,数组,排序 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

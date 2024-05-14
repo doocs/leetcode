@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README_EN.md
+rating: 1655
+tags:
+    - Array
+    - Binary Search
+    - Prefix Sum
+    - Sliding Window
+---
+
 # [1004. Max Consecutive Ones III](https://leetcode.com/problems/max-consecutive-ones-iii)
 
 [中文文档](/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README.md)
-
-<!-- tags:Array,Binary Search,Prefix Sum,Sliding Window -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

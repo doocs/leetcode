@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0758.Bold%20Words%20in%20String/README.md
+tags:
+    - 字典树
+    - 数组
+    - 哈希表
+    - 字符串
+    - 字符串匹配
+---
+
 # [758. 字符串中的加粗单词 🔒](https://leetcode.cn/problems/bold-words-in-string)
 
 [English Version](/solution/0700-0799/0758.Bold%20Words%20in%20String/README_EN.md)
-
-<!-- tags:字典树,数组,哈希表,字符串,字符串匹配 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

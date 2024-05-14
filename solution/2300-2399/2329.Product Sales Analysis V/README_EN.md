@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2329.Product%20Sales%20Analysis%20V/README_EN.md
+tags:
+    - Database
+---
+
 # [2329. Product Sales Analysis V 🔒](https://leetcode.com/problems/product-sales-analysis-v)
 
 [中文文档](/solution/2300-2399/2329.Product%20Sales%20Analysis%20V/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

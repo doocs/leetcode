@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0187.Repeated%20DNA%20Sequences/README_EN.md
+tags:
+    - Bit Manipulation
+    - Hash Table
+    - String
+    - Sliding Window
+    - Hash Function
+    - Rolling Hash
+---
+
 # [187. Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences)
 
 [中文文档](/solution/0100-0199/0187.Repeated%20DNA%20Sequences/README.md)
-
-<!-- tags:Bit Manipulation,Hash Table,String,Sliding Window,Hash Function,Rolling Hash -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

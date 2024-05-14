@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2583.Kth%20Largest%20Sum%20in%20a%20Binary%20Tree/README.md
+rating: 1374
+tags:
+    - 树
+    - 广度优先搜索
+    - 二叉树
+    - 排序
+---
+
 # [2583. 二叉树中的第 K 大层和](https://leetcode.cn/problems/kth-largest-sum-in-a-binary-tree)
 
 [English Version](/solution/2500-2599/2583.Kth%20Largest%20Sum%20in%20a%20Binary%20Tree/README_EN.md)
-
-<!-- tags:树,广度优先搜索,二叉树,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

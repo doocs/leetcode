@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1426.Counting%20Elements/README.md
+tags:
+    - 数组
+    - 哈希表
+---
+
 # [1426. 数元素 🔒](https://leetcode.cn/problems/counting-elements)
 
 [English Version](/solution/1400-1499/1426.Counting%20Elements/README_EN.md)
-
-<!-- tags:数组,哈希表 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

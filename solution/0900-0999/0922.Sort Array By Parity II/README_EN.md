@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0922.Sort%20Array%20By%20Parity%20II/README_EN.md
+tags:
+    - Array
+    - Two Pointers
+    - Sorting
+---
+
 # [922. Sort Array By Parity II](https://leetcode.com/problems/sort-array-by-parity-ii)
 
 [中文文档](/solution/0900-0999/0922.Sort%20Array%20By%20Parity%20II/README.md)
-
-<!-- tags:Array,Two Pointers,Sorting -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

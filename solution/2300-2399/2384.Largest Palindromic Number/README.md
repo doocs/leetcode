@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2384.Largest%20Palindromic%20Number/README.md
+rating: 1636
+tags:
+    - 贪心
+    - 哈希表
+    - 字符串
+---
+
 # [2384. 最大回文数字](https://leetcode.cn/problems/largest-palindromic-number)
 
 [English Version](/solution/2300-2399/2384.Largest%20Palindromic%20Number/README_EN.md)
-
-<!-- tags:贪心,哈希表,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

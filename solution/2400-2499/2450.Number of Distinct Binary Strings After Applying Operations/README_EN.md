@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2450.Number%20of%20Distinct%20Binary%20Strings%20After%20Applying%20Operations/README_EN.md
+tags:
+    - Math
+    - String
+---
+
 # [2450. Number of Distinct Binary Strings After Applying Operations 🔒](https://leetcode.com/problems/number-of-distinct-binary-strings-after-applying-operations)
 
 [中文文档](/solution/2400-2499/2450.Number%20of%20Distinct%20Binary%20Strings%20After%20Applying%20Operations/README.md)
-
-<!-- tags:Math,String -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

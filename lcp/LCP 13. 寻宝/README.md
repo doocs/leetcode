@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2013.%20%E5%AF%BB%E5%AE%9D/README.md
+---
+
 # [LCP 13. 寻宝](https://leetcode.cn/problems/xun-bao)
 
 ## 题目描述

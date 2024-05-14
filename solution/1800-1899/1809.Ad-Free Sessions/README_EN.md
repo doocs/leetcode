@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1809.Ad-Free%20Sessions/README_EN.md
+tags:
+    - Database
+---
+
 # [1809. Ad-Free Sessions 🔒](https://leetcode.com/problems/ad-free-sessions)
 
 [中文文档](/solution/1800-1899/1809.Ad-Free%20Sessions/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

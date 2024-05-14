@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1009.Complement%20of%20Base%2010%20Integer/README.md
+rating: 1234
+tags:
+    - 位运算
+---
+
 # [1009. 十进制整数的反码](https://leetcode.cn/problems/complement-of-base-10-integer)
 
 [English Version](/solution/1000-1099/1009.Complement%20of%20Base%2010%20Integer/README_EN.md)
-
-<!-- tags:位运算 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

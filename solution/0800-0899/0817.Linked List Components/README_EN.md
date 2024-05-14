@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0817.Linked%20List%20Components/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Linked List
+---
+
 # [817. Linked List Components](https://leetcode.com/problems/linked-list-components)
 
 [中文文档](/solution/0800-0899/0817.Linked%20List%20Components/README.md)
-
-<!-- tags:Array,Hash Table,Linked List -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2143.Choose%20Numbers%20From%20Two%20Arrays%20in%20Range/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [2143. Choose Numbers From Two Arrays in Range 🔒](https://leetcode.com/problems/choose-numbers-from-two-arrays-in-range)
 
 [中文文档](/solution/2100-2199/2143.Choose%20Numbers%20From%20Two%20Arrays%20in%20Range/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

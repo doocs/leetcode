@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1487.Making%20File%20Names%20Unique/README_EN.md
+rating: 1696
+tags:
+    - Array
+    - Hash Table
+    - String
+---
+
 # [1487. Making File Names Unique](https://leetcode.com/problems/making-file-names-unique)
 
 [中文文档](/solution/1400-1499/1487.Making%20File%20Names%20Unique/README.md)
-
-<!-- tags:Array,Hash Table,String -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

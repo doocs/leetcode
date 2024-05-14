@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2521.Distinct%20Prime%20Factors%20of%20Product%20of%20Array/README.md
+rating: 1413
+tags:
+    - 数组
+    - 哈希表
+    - 数学
+    - 数论
+---
+
 # [2521. 数组乘积中的不同质因数数目](https://leetcode.cn/problems/distinct-prime-factors-of-product-of-array)
 
 [English Version](/solution/2500-2599/2521.Distinct%20Prime%20Factors%20of%20Product%20of%20Array/README_EN.md)
-
-<!-- tags:数组,哈希表,数学,数论 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

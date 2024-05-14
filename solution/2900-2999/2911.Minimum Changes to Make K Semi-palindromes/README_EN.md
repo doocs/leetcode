@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2911.Minimum%20Changes%20to%20Make%20K%20Semi-palindromes/README_EN.md
+rating: 2607
+tags:
+    - Two Pointers
+    - String
+    - Dynamic Programming
+---
+
 # [2911. Minimum Changes to Make K Semi-palindromes](https://leetcode.com/problems/minimum-changes-to-make-k-semi-palindromes)
 
 [中文文档](/solution/2900-2999/2911.Minimum%20Changes%20to%20Make%20K%20Semi-palindromes/README.md)
-
-<!-- tags:Two Pointers,String,Dynamic Programming -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

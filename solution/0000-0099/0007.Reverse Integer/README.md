@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0007.Reverse%20Integer/README.md
+tags:
+    - 数学
+---
+
 # [7. 整数反转](https://leetcode.cn/problems/reverse-integer)
 
 [English Version](/solution/0000-0099/0007.Reverse%20Integer/README_EN.md)
-
-<!-- tags:数学 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

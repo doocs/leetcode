@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1896.Minimum%20Cost%20to%20Change%20the%20Final%20Value%20of%20Expression/README_EN.md
+rating: 2531
+tags:
+    - Stack
+    - Math
+    - String
+    - Dynamic Programming
+---
+
 # [1896. Minimum Cost to Change the Final Value of Expression](https://leetcode.com/problems/minimum-cost-to-change-the-final-value-of-expression)
 
 [中文文档](/solution/1800-1899/1896.Minimum%20Cost%20to%20Change%20the%20Final%20Value%20of%20Expression/README.md)
-
-<!-- tags:Stack,Math,String,Dynamic Programming -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

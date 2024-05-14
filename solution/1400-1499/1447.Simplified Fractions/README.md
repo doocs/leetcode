@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1447.Simplified%20Fractions/README.md
+rating: 1268
+tags:
+    - 数学
+    - 字符串
+    - 数论
+---
+
 # [1447. 最简分数](https://leetcode.cn/problems/simplified-fractions)
 
 [English Version](/solution/1400-1499/1447.Simplified%20Fractions/README_EN.md)
-
-<!-- tags:数学,字符串,数论 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0837.New%2021%20Game/README.md
+tags:
+    - 数学
+    - 动态规划
+    - 滑动窗口
+    - 概率与统计
+---
+
 # [837. 新 21 点](https://leetcode.cn/problems/new-21-game)
 
 [English Version](/solution/0800-0899/0837.New%2021%20Game/README_EN.md)
-
-<!-- tags:数学,动态规划,滑动窗口,概率与统计 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

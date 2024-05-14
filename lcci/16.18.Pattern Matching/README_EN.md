@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.18.Pattern%20Matching/README_EN.md
+---
+
 # [16.18. Pattern Matching](https://leetcode.cn/problems/pattern-matching-lcci)
 
 [中文文档](/lcci/16.18.Pattern%20Matching/README.md)

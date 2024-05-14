@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2083.Substrings%20That%20Begin%20and%20End%20With%20the%20Same%20Letter/README.md
+tags:
+    - 哈希表
+    - 数学
+    - 字符串
+    - 计数
+    - 前缀和
+---
+
 # [2083. 求以相同字母开头和结尾的子串总数 🔒](https://leetcode.cn/problems/substrings-that-begin-and-end-with-the-same-letter)
 
 [English Version](/solution/2000-2099/2083.Substrings%20That%20Begin%20and%20End%20With%20the%20Same%20Letter/README_EN.md)
-
-<!-- tags:哈希表,数学,字符串,计数,前缀和 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

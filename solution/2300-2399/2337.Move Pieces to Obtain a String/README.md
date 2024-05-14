@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2337.Move%20Pieces%20to%20Obtain%20a%20String/README.md
+rating: 1693
+tags:
+    - 双指针
+    - 字符串
+---
+
 # [2337. 移动片段得到字符串](https://leetcode.cn/problems/move-pieces-to-obtain-a-string)
 
 [English Version](/solution/2300-2399/2337.Move%20Pieces%20to%20Obtain%20a%20String/README_EN.md)
-
-<!-- tags:双指针,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

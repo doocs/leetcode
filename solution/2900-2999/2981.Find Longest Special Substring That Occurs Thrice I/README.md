@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2981.Find%20Longest%20Special%20Substring%20That%20Occurs%20Thrice%20I/README.md
+rating: 1505
+tags:
+    - 哈希表
+    - 字符串
+    - 二分查找
+    - 计数
+    - 滑动窗口
+---
+
 # [2981. 找出出现至少三次的最长特殊子字符串 I](https://leetcode.cn/problems/find-longest-special-substring-that-occurs-thrice-i)
 
 [English Version](/solution/2900-2999/2981.Find%20Longest%20Special%20Substring%20That%20Occurs%20Thrice%20I/README_EN.md)
-
-<!-- tags:哈希表,字符串,二分查找,计数,滑动窗口 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3084.Count%20Substrings%20Starting%20and%20Ending%20with%20Given%20Character/README.md
+rating: 1323
+tags:
+    - 数学
+    - 字符串
+    - 计数
+---
+
 # [3084. 统计以给定字符开头和结尾的子字符串总数](https://leetcode.cn/problems/count-substrings-starting-and-ending-with-given-character)
 
 [English Version](/solution/3000-3099/3084.Count%20Substrings%20Starting%20and%20Ending%20with%20Given%20Character/README_EN.md)
-
-<!-- tags:数学,字符串,计数 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

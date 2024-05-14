@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0113.Path%20Sum%20II/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 回溯
+    - 二叉树
+---
+
 # [113. 路径总和 II](https://leetcode.cn/problems/path-sum-ii)
 
 [English Version](/solution/0100-0199/0113.Path%20Sum%20II/README_EN.md)
-
-<!-- tags:树,深度优先搜索,回溯,二叉树 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

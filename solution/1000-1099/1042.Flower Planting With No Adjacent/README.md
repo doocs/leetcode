@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1042.Flower%20Planting%20With%20No%20Adjacent/README.md
+rating: 1712
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 图
+---
+
 # [1042. 不邻接植花](https://leetcode.cn/problems/flower-planting-with-no-adjacent)
 
 [English Version](/solution/1000-1099/1042.Flower%20Planting%20With%20No%20Adjacent/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,图 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1711.Count%20Good%20Meals/README_EN.md
+rating: 1797
+tags:
+    - Array
+    - Hash Table
+---
+
 # [1711. Count Good Meals](https://leetcode.com/problems/count-good-meals)
 
 [中文文档](/solution/1700-1799/1711.Count%20Good%20Meals/README.md)
-
-<!-- tags:Array,Hash Table -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

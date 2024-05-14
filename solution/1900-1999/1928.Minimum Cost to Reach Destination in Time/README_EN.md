@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1928.Minimum%20Cost%20to%20Reach%20Destination%20in%20Time/README_EN.md
+rating: 2413
+tags:
+    - Graph
+    - Array
+    - Dynamic Programming
+---
+
 # [1928. Minimum Cost to Reach Destination in Time](https://leetcode.com/problems/minimum-cost-to-reach-destination-in-time)
 
 [中文文档](/solution/1900-1999/1928.Minimum%20Cost%20to%20Reach%20Destination%20in%20Time/README.md)
-
-<!-- tags:Graph,Array,Dynamic Programming -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

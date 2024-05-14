@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.08.First%20Common%20Ancestor/README.md
+---
+
 # [面试题 04.08. 首个共同祖先](https://leetcode.cn/problems/first-common-ancestor-lcci)
 
 [English Version](/lcci/04.08.First%20Common%20Ancestor/README_EN.md)

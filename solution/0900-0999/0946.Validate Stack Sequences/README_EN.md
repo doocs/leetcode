@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0946.Validate%20Stack%20Sequences/README_EN.md
+tags:
+    - Stack
+    - Array
+    - Simulation
+---
+
 # [946. Validate Stack Sequences](https://leetcode.com/problems/validate-stack-sequences)
 
 [中文文档](/solution/0900-0999/0946.Validate%20Stack%20Sequences/README.md)
-
-<!-- tags:Stack,Array,Simulation -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

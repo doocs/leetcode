@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0716.Max%20Stack/README.md
+tags:
+    - 栈
+    - 设计
+    - 链表
+    - 双向链表
+    - 有序集合
+---
+
 # [716. 最大栈 🔒](https://leetcode.cn/problems/max-stack)
 
 [English Version](/solution/0700-0799/0716.Max%20Stack/README_EN.md)
-
-<!-- tags:栈,设计,链表,双向链表,有序集合 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

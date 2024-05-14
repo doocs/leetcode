@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1775.Equal%20Sum%20Arrays%20With%20Minimum%20Number%20of%20Operations/README.md
+rating: 1850
+tags:
+    - 贪心
+    - 数组
+    - 哈希表
+    - 计数
+---
+
 # [1775. 通过最少操作次数使数组的和相等](https://leetcode.cn/problems/equal-sum-arrays-with-minimum-number-of-operations)
 
 [English Version](/solution/1700-1799/1775.Equal%20Sum%20Arrays%20With%20Minimum%20Number%20of%20Operations/README_EN.md)
-
-<!-- tags:贪心,数组,哈希表,计数 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

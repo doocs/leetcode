@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0229.Majority%20Element%20II/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 计数
+    - 排序
+---
+
 # [229. 多数元素 II](https://leetcode.cn/problems/majority-element-ii)
 
 [English Version](/solution/0200-0299/0229.Majority%20Element%20II/README_EN.md)
-
-<!-- tags:数组,哈希表,计数,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

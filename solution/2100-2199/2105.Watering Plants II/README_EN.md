@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2105.Watering%20Plants%20II/README_EN.md
+rating: 1507
+tags:
+    - Array
+    - Two Pointers
+    - Simulation
+---
+
 # [2105. Watering Plants II](https://leetcode.com/problems/watering-plants-ii)
 
 [中文文档](/solution/2100-2199/2105.Watering%20Plants%20II/README.md)
-
-<!-- tags:Array,Two Pointers,Simulation -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

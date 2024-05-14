@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1359.Count%20All%20Valid%20Pickup%20and%20Delivery%20Options/README.md
+rating: 1722
+tags:
+    - 数学
+    - 动态规划
+    - 组合数学
+---
+
 # [1359. 有效的快递序列数目](https://leetcode.cn/problems/count-all-valid-pickup-and-delivery-options)
 
 [English Version](/solution/1300-1399/1359.Count%20All%20Valid%20Pickup%20and%20Delivery%20Options/README_EN.md)
-
-<!-- tags:数学,动态规划,组合数学 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

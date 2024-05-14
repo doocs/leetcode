@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3131.Find%20the%20Integer%20Added%20to%20Array%20I/README_EN.md
+rating: 1160
+tags:
+    - Array
+---
+
 # [3131. Find the Integer Added to Array I](https://leetcode.com/problems/find-the-integer-added-to-array-i)
 
 [中文文档](/solution/3100-3199/3131.Find%20the%20Integer%20Added%20to%20Array%20I/README.md)
-
-<!-- tags:Array -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

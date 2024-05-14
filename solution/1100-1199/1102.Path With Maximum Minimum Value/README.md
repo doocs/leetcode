@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1102.Path%20With%20Maximum%20Minimum%20Value/README.md
+rating: 2011
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 并查集
+    - 数组
+    - 二分查找
+    - 矩阵
+    - 堆（优先队列）
+---
+
 # [1102. 得分最高的路径 🔒](https://leetcode.cn/problems/path-with-maximum-minimum-value)
 
 [English Version](/solution/1100-1199/1102.Path%20With%20Maximum%20Minimum%20Value/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,并查集,数组,二分查找,矩阵,堆（优先队列） -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

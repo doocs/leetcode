@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0066.Plus%20One/README.md
+tags:
+    - 数组
+    - 数学
+---
+
 # [66. 加一](https://leetcode.cn/problems/plus-one)
 
 [English Version](/solution/0000-0099/0066.Plus%20One/README_EN.md)
-
-<!-- tags:数组,数学 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

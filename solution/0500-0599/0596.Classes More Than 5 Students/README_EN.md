@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0596.Classes%20More%20Than%205%20Students/README_EN.md
+tags:
+    - Database
+---
+
 # [596. Classes More Than 5 Students](https://leetcode.com/problems/classes-more-than-5-students)
 
 [中文文档](/solution/0500-0599/0596.Classes%20More%20Than%205%20Students/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

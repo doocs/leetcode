@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0522.Longest%20Uncommon%20Subsequence%20II/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Two Pointers
+    - String
+    - Sorting
+---
+
 # [522. Longest Uncommon Subsequence II](https://leetcode.com/problems/longest-uncommon-subsequence-ii)
 
 [中文文档](/solution/0500-0599/0522.Longest%20Uncommon%20Subsequence%20II/README.md)
-
-<!-- tags:Array,Hash Table,Two Pointers,String,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1746.Maximum%20Subarray%20Sum%20After%20One%20Operation/README.md
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [1746. 经过一次操作后的最大子数组和 🔒](https://leetcode.cn/problems/maximum-subarray-sum-after-one-operation)
 
 [English Version](/solution/1700-1799/1746.Maximum%20Subarray%20Sum%20After%20One%20Operation/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

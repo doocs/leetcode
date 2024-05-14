@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0992.Subarrays%20with%20K%20Different%20Integers/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 计数
+    - 滑动窗口
+---
+
 # [992. K 个不同整数的子数组](https://leetcode.cn/problems/subarrays-with-k-different-integers)
 
 [English Version](/solution/0900-0999/0992.Subarrays%20with%20K%20Different%20Integers/README_EN.md)
-
-<!-- tags:数组,哈希表,计数,滑动窗口 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

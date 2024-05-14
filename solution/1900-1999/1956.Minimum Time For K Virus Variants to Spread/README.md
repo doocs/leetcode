@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1956.Minimum%20Time%20For%20K%20Virus%20Variants%20to%20Spread/README.md
+tags:
+    - 几何
+    - 数组
+    - 数学
+    - 二分查找
+    - 枚举
+---
+
 # [1956. 感染 K 种病毒所需的最短时间 🔒](https://leetcode.cn/problems/minimum-time-for-k-virus-variants-to-spread)
 
 [English Version](/solution/1900-1999/1956.Minimum%20Time%20For%20K%20Virus%20Variants%20to%20Spread/README_EN.md)
-
-<!-- tags:几何,数组,数学,二分查找,枚举 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

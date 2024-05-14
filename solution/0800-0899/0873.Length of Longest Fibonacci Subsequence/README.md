@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0873.Length%20of%20Longest%20Fibonacci%20Subsequence/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 动态规划
+---
+
 # [873. 最长的斐波那契子序列的长度](https://leetcode.cn/problems/length-of-longest-fibonacci-subsequence)
 
 [English Version](/solution/0800-0899/0873.Length%20of%20Longest%20Fibonacci%20Subsequence/README_EN.md)
-
-<!-- tags:数组,哈希表,动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

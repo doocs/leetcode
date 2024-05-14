@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3148.Maximum%20Difference%20Score%20in%20a%20Grid/README_EN.md
+---
+
 # [3148. Maximum Difference Score in a Grid](https://leetcode.com/problems/maximum-difference-score-in-a-grid)
 
 [中文文档](/solution/3100-3199/3148.Maximum%20Difference%20Score%20in%20a%20Grid/README.md)
-
-<!-- tags: -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

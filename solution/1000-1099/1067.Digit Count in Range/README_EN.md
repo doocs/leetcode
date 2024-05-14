@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1067.Digit%20Count%20in%20Range/README_EN.md
+rating: 2025
+tags:
+    - Math
+    - Dynamic Programming
+---
+
 # [1067. Digit Count in Range 🔒](https://leetcode.com/problems/digit-count-in-range)
 
 [中文文档](/solution/1000-1099/1067.Digit%20Count%20in%20Range/README.md)
-
-<!-- tags:Math,Dynamic Programming -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

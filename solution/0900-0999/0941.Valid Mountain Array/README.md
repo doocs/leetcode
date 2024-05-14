@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0941.Valid%20Mountain%20Array/README.md
+tags:
+    - 数组
+---
+
 # [941. 有效的山脉数组](https://leetcode.cn/problems/valid-mountain-array)
 
 [English Version](/solution/0900-0999/0941.Valid%20Mountain%20Array/README_EN.md)
-
-<!-- tags:数组 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

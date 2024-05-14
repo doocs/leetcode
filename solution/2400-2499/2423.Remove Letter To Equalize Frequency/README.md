@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2423.Remove%20Letter%20To%20Equalize%20Frequency/README.md
+rating: 1648
+tags:
+    - 哈希表
+    - 字符串
+    - 计数
+---
+
 # [2423. 删除字符使频率相同](https://leetcode.cn/problems/remove-letter-to-equalize-frequency)
 
 [English Version](/solution/2400-2499/2423.Remove%20Letter%20To%20Equalize%20Frequency/README_EN.md)
-
-<!-- tags:哈希表,字符串,计数 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

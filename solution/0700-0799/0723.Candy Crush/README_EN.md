@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0723.Candy%20Crush/README_EN.md
+tags:
+    - Array
+    - Two Pointers
+    - Matrix
+    - Simulation
+---
+
 # [723. Candy Crush 🔒](https://leetcode.com/problems/candy-crush)
 
 [中文文档](/solution/0700-0799/0723.Candy%20Crush/README.md)
-
-<!-- tags:Array,Two Pointers,Matrix,Simulation -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

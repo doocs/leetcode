@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2593.Find%20Score%20of%20an%20Array%20After%20Marking%20All%20Elements/README.md
+rating: 1665
+tags:
+    - 数组
+    - 排序
+    - 模拟
+    - 堆（优先队列）
+---
+
 # [2593. 标记所有元素后数组的分数](https://leetcode.cn/problems/find-score-of-an-array-after-marking-all-elements)
 
 [English Version](/solution/2500-2599/2593.Find%20Score%20of%20an%20Array%20After%20Marking%20All%20Elements/README_EN.md)
-
-<!-- tags:数组,排序,模拟,堆（优先队列） -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

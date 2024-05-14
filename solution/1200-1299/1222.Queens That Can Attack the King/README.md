@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1222.Queens%20That%20Can%20Attack%20the%20King/README.md
+rating: 1391
+tags:
+    - 数组
+    - 矩阵
+    - 模拟
+---
+
 # [1222. 可以攻击国王的皇后](https://leetcode.cn/problems/queens-that-can-attack-the-king)
 
 [English Version](/solution/1200-1299/1222.Queens%20That%20Can%20Attack%20the%20King/README_EN.md)
-
-<!-- tags:数组,矩阵,模拟 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

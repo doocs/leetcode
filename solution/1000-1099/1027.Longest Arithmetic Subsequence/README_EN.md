@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1027.Longest%20Arithmetic%20Subsequence/README_EN.md
+rating: 1758
+tags:
+    - Array
+    - Hash Table
+    - Binary Search
+    - Dynamic Programming
+---
+
 # [1027. Longest Arithmetic Subsequence](https://leetcode.com/problems/longest-arithmetic-subsequence)
 
 [中文文档](/solution/1000-1099/1027.Longest%20Arithmetic%20Subsequence/README.md)
-
-<!-- tags:Array,Hash Table,Binary Search,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

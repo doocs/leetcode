@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0054.Spiral%20Matrix/README_EN.md
+tags:
+    - Array
+    - Matrix
+    - Simulation
+---
+
 # [54. Spiral Matrix](https://leetcode.com/problems/spiral-matrix)
 
 [中文文档](/solution/0000-0099/0054.Spiral%20Matrix/README.md)
-
-<!-- tags:Array,Matrix,Simulation -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

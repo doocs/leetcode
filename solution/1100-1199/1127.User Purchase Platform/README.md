@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1127.User%20Purchase%20Platform/README.md
+tags:
+    - 数据库
+---
+
 # [1127. 用户购买平台 🔒](https://leetcode.cn/problems/user-purchase-platform)
 
 [English Version](/solution/1100-1199/1127.User%20Purchase%20Platform/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

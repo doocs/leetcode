@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1819.Number%20of%20Different%20Subsequences%20GCDs/README_EN.md
+rating: 2539
+tags:
+    - Array
+    - Math
+    - Counting
+    - Number Theory
+---
+
 # [1819. Number of Different Subsequences GCDs](https://leetcode.com/problems/number-of-different-subsequences-gcds)
 
 [中文文档](/solution/1800-1899/1819.Number%20of%20Different%20Subsequences%20GCDs/README.md)
-
-<!-- tags:Array,Math,Counting,Number Theory -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

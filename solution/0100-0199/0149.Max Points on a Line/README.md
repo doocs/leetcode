@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0149.Max%20Points%20on%20a%20Line/README.md
+tags:
+    - 几何
+    - 数组
+    - 哈希表
+    - 数学
+---
+
 # [149. 直线上最多的点数](https://leetcode.cn/problems/max-points-on-a-line)
 
 [English Version](/solution/0100-0199/0149.Max%20Points%20on%20a%20Line/README_EN.md)
-
-<!-- tags:几何,数组,哈希表,数学 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

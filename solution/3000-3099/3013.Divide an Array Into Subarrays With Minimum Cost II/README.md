@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3013.Divide%20an%20Array%20Into%20Subarrays%20With%20Minimum%20Cost%20II/README.md
+rating: 2540
+tags:
+    - 数组
+    - 哈希表
+    - 滑动窗口
+    - 堆（优先队列）
+---
+
 # [3013. 将数组分成最小总代价的子数组 II](https://leetcode.cn/problems/divide-an-array-into-subarrays-with-minimum-cost-ii)
 
 [English Version](/solution/3000-3099/3013.Divide%20an%20Array%20Into%20Subarrays%20With%20Minimum%20Cost%20II/README_EN.md)
-
-<!-- tags:数组,哈希表,滑动窗口,堆（优先队列） -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

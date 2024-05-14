@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1578.Minimum%20Time%20to%20Make%20Rope%20Colorful/README.md
+rating: 1574
+tags:
+    - 贪心
+    - 数组
+    - 字符串
+    - 动态规划
+---
+
 # [1578. 使绳子变成彩色的最短时间](https://leetcode.cn/problems/minimum-time-to-make-rope-colorful)
 
 [English Version](/solution/1500-1599/1578.Minimum%20Time%20to%20Make%20Rope%20Colorful/README_EN.md)
-
-<!-- tags:贪心,数组,字符串,动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

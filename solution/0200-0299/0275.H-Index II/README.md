@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0275.H-Index%20II/README.md
+tags:
+    - 数组
+    - 二分查找
+---
+
 # [275. H 指数 II](https://leetcode.cn/problems/h-index-ii)
 
 [English Version](/solution/0200-0299/0275.H-Index%20II/README_EN.md)
-
-<!-- tags:数组,二分查找 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

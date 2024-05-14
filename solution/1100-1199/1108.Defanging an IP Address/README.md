@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1108.Defanging%20an%20IP%20Address/README.md
+rating: 1084
+tags:
+    - 字符串
+---
+
 # [1108. IP 地址无效化](https://leetcode.cn/problems/defanging-an-ip-address)
 
 [English Version](/solution/1100-1199/1108.Defanging%20an%20IP%20Address/README_EN.md)
-
-<!-- tags:字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

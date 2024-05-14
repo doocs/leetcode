@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1877.Minimize%20Maximum%20Pair%20Sum%20in%20Array/README.md
+rating: 1301
+tags:
+    - 贪心
+    - 数组
+    - 双指针
+    - 排序
+---
+
 # [1877. 数组中最大数对和的最小值](https://leetcode.cn/problems/minimize-maximum-pair-sum-in-array)
 
 [English Version](/solution/1800-1899/1877.Minimize%20Maximum%20Pair%20Sum%20in%20Array/README_EN.md)
-
-<!-- tags:贪心,数组,双指针,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

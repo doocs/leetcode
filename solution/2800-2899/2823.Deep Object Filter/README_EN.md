@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2823.Deep%20Object%20Filter/README_EN.md
+---
+
 # [2823. Deep Object Filter 🔒](https://leetcode.com/problems/deep-object-filter)
 
 [中文文档](/solution/2800-2899/2823.Deep%20Object%20Filter/README.md)
-
-<!-- tags: -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

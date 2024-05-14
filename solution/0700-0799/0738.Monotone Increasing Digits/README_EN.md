@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0738.Monotone%20Increasing%20Digits/README_EN.md
+tags:
+    - Greedy
+    - Math
+---
+
 # [738. Monotone Increasing Digits](https://leetcode.com/problems/monotone-increasing-digits)
 
 [中文文档](/solution/0700-0799/0738.Monotone%20Increasing%20Digits/README.md)
-
-<!-- tags:Greedy,Math -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

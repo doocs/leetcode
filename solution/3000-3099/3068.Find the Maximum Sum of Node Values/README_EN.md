@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3068.Find%20the%20Maximum%20Sum%20of%20Node%20Values/README_EN.md
+rating: 2267
+tags:
+    - Greedy
+    - Bit Manipulation
+    - Tree
+    - Array
+    - Dynamic Programming
+    - Sorting
+---
+
 # [3068. Find the Maximum Sum of Node Values](https://leetcode.com/problems/find-the-maximum-sum-of-node-values)
 
 [中文文档](/solution/3000-3099/3068.Find%20the%20Maximum%20Sum%20of%20Node%20Values/README.md)
-
-<!-- tags:Greedy,Bit Manipulation,Tree,Array,Dynamic Programming,Sorting -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0500.Keyboard%20Row/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - String
+---
+
 # [500. Keyboard Row](https://leetcode.com/problems/keyboard-row)
 
 [中文文档](/solution/0500-0599/0500.Keyboard%20Row/README.md)
-
-<!-- tags:Array,Hash Table,String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

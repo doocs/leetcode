@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1458.Max%20Dot%20Product%20of%20Two%20Subsequences/README.md
+rating: 1823
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [1458. 两个子序列的最大点积](https://leetcode.cn/problems/max-dot-product-of-two-subsequences)
 
 [English Version](/solution/1400-1499/1458.Max%20Dot%20Product%20of%20Two%20Subsequences/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

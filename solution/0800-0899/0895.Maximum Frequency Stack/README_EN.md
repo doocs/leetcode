@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0895.Maximum%20Frequency%20Stack/README_EN.md
+tags:
+    - Stack
+    - Design
+    - Hash Table
+    - Ordered Set
+---
+
 # [895. Maximum Frequency Stack](https://leetcode.com/problems/maximum-frequency-stack)
 
 [中文文档](/solution/0800-0899/0895.Maximum%20Frequency%20Stack/README.md)
-
-<!-- tags:Stack,Design,Hash Table,Ordered Set -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

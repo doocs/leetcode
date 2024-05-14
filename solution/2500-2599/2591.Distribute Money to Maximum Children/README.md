@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2591.Distribute%20Money%20to%20Maximum%20Children/README.md
+rating: 1530
+tags:
+    - 贪心
+    - 数学
+---
+
 # [2591. 将钱分给最多的儿童](https://leetcode.cn/problems/distribute-money-to-maximum-children)
 
 [English Version](/solution/2500-2599/2591.Distribute%20Money%20to%20Maximum%20Children/README_EN.md)
-
-<!-- tags:贪心,数学 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

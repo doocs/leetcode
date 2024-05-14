@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1466.Reorder%20Routes%20to%20Make%20All%20Paths%20Lead%20to%20the%20City%20Zero/README.md
+rating: 1633
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 图
+---
+
 # [1466. 重新规划路线](https://leetcode.cn/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero)
 
 [English Version](/solution/1400-1499/1466.Reorder%20Routes%20to%20Make%20All%20Paths%20Lead%20to%20the%20City%20Zero/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,图 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

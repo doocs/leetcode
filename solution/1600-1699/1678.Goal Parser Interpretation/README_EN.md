@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1678.Goal%20Parser%20Interpretation/README_EN.md
+rating: 1221
+tags:
+    - String
+---
+
 # [1678. Goal Parser Interpretation](https://leetcode.com/problems/goal-parser-interpretation)
 
 [中文文档](/solution/1600-1699/1678.Goal%20Parser%20Interpretation/README.md)
-
-<!-- tags:String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

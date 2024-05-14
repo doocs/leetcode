@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.22.Word%20Transformer/README_EN.md
+---
+
 # [17.22. Word Transformer](https://leetcode.cn/problems/word-transformer-lcci)
 
 [中文文档](/lcci/17.22.Word%20Transformer/README.md)

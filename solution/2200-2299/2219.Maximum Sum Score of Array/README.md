@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2219.Maximum%20Sum%20Score%20of%20Array/README.md
+tags:
+    - 数组
+    - 前缀和
+---
+
 # [2219. 数组的最大总分 🔒](https://leetcode.cn/problems/maximum-sum-score-of-array)
 
 [English Version](/solution/2200-2299/2219.Maximum%20Sum%20Score%20of%20Array/README_EN.md)
-
-<!-- tags:数组,前缀和 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1288.Remove%20Covered%20Intervals/README_EN.md
+rating: 1375
+tags:
+    - Array
+    - Sorting
+---
+
 # [1288. Remove Covered Intervals](https://leetcode.com/problems/remove-covered-intervals)
 
 [中文文档](/solution/1200-1299/1288.Remove%20Covered%20Intervals/README.md)
-
-<!-- tags:Array,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

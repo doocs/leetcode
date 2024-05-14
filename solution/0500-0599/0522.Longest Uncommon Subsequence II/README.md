@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0522.Longest%20Uncommon%20Subsequence%20II/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 双指针
+    - 字符串
+    - 排序
+---
+
 # [522. 最长特殊序列 II](https://leetcode.cn/problems/longest-uncommon-subsequence-ii)
 
 [English Version](/solution/0500-0599/0522.Longest%20Uncommon%20Subsequence%20II/README_EN.md)
-
-<!-- tags:数组,哈希表,双指针,字符串,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

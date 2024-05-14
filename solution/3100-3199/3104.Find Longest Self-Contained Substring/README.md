@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3104.Find%20Longest%20Self-Contained%20Substring/README.md
+tags:
+    - 哈希表
+    - 字符串
+    - 二分查找
+    - 前缀和
+---
+
 # [3104. Find Longest Self-Contained Substring 🔒](https://leetcode.cn/problems/find-longest-self-contained-substring)
 
 [English Version](/solution/3100-3199/3104.Find%20Longest%20Self-Contained%20Substring/README_EN.md)
-
-<!-- tags:哈希表,字符串,二分查找,前缀和 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

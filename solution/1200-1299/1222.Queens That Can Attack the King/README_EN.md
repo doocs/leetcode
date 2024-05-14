@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1222.Queens%20That%20Can%20Attack%20the%20King/README_EN.md
+rating: 1391
+tags:
+    - Array
+    - Matrix
+    - Simulation
+---
+
 # [1222. Queens That Can Attack the King](https://leetcode.com/problems/queens-that-can-attack-the-king)
 
 [中文文档](/solution/1200-1299/1222.Queens%20That%20Can%20Attack%20the%20King/README.md)
-
-<!-- tags:Array,Matrix,Simulation -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

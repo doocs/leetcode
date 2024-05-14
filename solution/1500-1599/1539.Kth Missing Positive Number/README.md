@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1539.Kth%20Missing%20Positive%20Number/README.md
+rating: 1295
+tags:
+    - 数组
+    - 二分查找
+---
+
 # [1539. 第 k 个缺失的正整数](https://leetcode.cn/problems/kth-missing-positive-number)
 
 [English Version](/solution/1500-1599/1539.Kth%20Missing%20Positive%20Number/README_EN.md)
-
-<!-- tags:数组,二分查找 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

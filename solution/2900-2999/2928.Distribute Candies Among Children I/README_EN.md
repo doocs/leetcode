@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2928.Distribute%20Candies%20Among%20Children%20I/README_EN.md
+rating: 1393
+tags:
+    - Math
+    - Combinatorics
+    - Enumeration
+---
+
 # [2928. Distribute Candies Among Children I](https://leetcode.com/problems/distribute-candies-among-children-i)
 
 [中文文档](/solution/2900-2999/2928.Distribute%20Candies%20Among%20Children%20I/README.md)
-
-<!-- tags:Math,Combinatorics,Enumeration -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

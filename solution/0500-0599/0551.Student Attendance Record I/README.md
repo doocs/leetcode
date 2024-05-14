@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0551.Student%20Attendance%20Record%20I/README.md
+tags:
+    - 字符串
+---
+
 # [551. 学生出勤记录 I](https://leetcode.cn/problems/student-attendance-record-i)
 
 [English Version](/solution/0500-0599/0551.Student%20Attendance%20Record%20I/README_EN.md)
-
-<!-- tags:字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

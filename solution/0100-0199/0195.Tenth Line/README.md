@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0195.Tenth%20Line/README.md
+---
+
 # [195. 第十行](https://leetcode.cn/problems/tenth-line)
 
 [English Version](/solution/0100-0199/0195.Tenth%20Line/README_EN.md)
-
-<!-- tags: -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

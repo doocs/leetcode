@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1929.Concatenation%20of%20Array/README.md
+rating: 1132
+tags:
+    - 数组
+    - 模拟
+---
+
 # [1929. 数组串联](https://leetcode.cn/problems/concatenation-of-array)
 
 [English Version](/solution/1900-1999/1929.Concatenation%20of%20Array/README_EN.md)
-
-<!-- tags:数组,模拟 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

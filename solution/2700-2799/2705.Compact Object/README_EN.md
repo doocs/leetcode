@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2705.Compact%20Object/README_EN.md
+---
+
 # [2705. Compact Object](https://leetcode.com/problems/compact-object)
 
 [中文文档](/solution/2700-2799/2705.Compact%20Object/README.md)
-
-<!-- tags: -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

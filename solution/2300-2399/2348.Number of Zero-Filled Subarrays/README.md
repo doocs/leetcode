@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2348.Number%20of%20Zero-Filled%20Subarrays/README.md
+rating: 1315
+tags:
+    - 数组
+    - 数学
+---
+
 # [2348. 全 0 子数组的数目](https://leetcode.cn/problems/number-of-zero-filled-subarrays)
 
 [English Version](/solution/2300-2399/2348.Number%20of%20Zero-Filled%20Subarrays/README_EN.md)
-
-<!-- tags:数组,数学 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

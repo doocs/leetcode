@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3122.Minimum%20Number%20of%20Operations%20to%20Satisfy%20Conditions/README_EN.md
+rating: 1904
+tags:
+    - Array
+    - Dynamic Programming
+    - Matrix
+---
+
 # [3122. Minimum Number of Operations to Satisfy Conditions](https://leetcode.com/problems/minimum-number-of-operations-to-satisfy-conditions)
 
 [中文文档](/solution/3100-3199/3122.Minimum%20Number%20of%20Operations%20to%20Satisfy%20Conditions/README.md)
-
-<!-- tags:Array,Dynamic Programming,Matrix -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

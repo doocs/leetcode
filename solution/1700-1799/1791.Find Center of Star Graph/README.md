@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1791.Find%20Center%20of%20Star%20Graph/README.md
+rating: 1286
+tags:
+    - 图
+---
+
 # [1791. 找出星型图的中心节点](https://leetcode.cn/problems/find-center-of-star-graph)
 
 [English Version](/solution/1700-1799/1791.Find%20Center%20of%20Star%20Graph/README_EN.md)
-
-<!-- tags:图 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

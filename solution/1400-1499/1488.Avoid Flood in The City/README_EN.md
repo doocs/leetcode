@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1488.Avoid%20Flood%20in%20The%20City/README_EN.md
+rating: 1973
+tags:
+    - Greedy
+    - Array
+    - Hash Table
+    - Binary Search
+    - Heap (Priority Queue)
+---
+
 # [1488. Avoid Flood in The City](https://leetcode.com/problems/avoid-flood-in-the-city)
 
 [中文文档](/solution/1400-1499/1488.Avoid%20Flood%20in%20The%20City/README.md)
-
-<!-- tags:Greedy,Array,Hash Table,Binary Search,Heap (Priority Queue) -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

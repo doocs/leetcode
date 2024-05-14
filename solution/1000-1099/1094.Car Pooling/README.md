@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1094.Car%20Pooling/README.md
+rating: 1441
+tags:
+    - 数组
+    - 前缀和
+    - 排序
+    - 模拟
+    - 堆（优先队列）
+---
+
 # [1094. 拼车](https://leetcode.cn/problems/car-pooling)
 
 [English Version](/solution/1000-1099/1094.Car%20Pooling/README_EN.md)
-
-<!-- tags:数组,前缀和,排序,模拟,堆（优先队列） -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

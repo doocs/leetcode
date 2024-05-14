@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2698.Find%20the%20Punishment%20Number%20of%20an%20Integer/README_EN.md
+rating: 1678
+tags:
+    - Math
+    - Backtracking
+---
+
 # [2698. Find the Punishment Number of an Integer](https://leetcode.com/problems/find-the-punishment-number-of-an-integer)
 
 [中文文档](/solution/2600-2699/2698.Find%20the%20Punishment%20Number%20of%20an%20Integer/README.md)
-
-<!-- tags:Math,Backtracking -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

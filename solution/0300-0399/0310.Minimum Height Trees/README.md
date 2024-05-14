@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0310.Minimum%20Height%20Trees/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 图
+    - 拓扑排序
+---
+
 # [310. 最小高度树](https://leetcode.cn/problems/minimum-height-trees)
 
 [English Version](/solution/0300-0399/0310.Minimum%20Height%20Trees/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,图,拓扑排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

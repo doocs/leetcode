@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2000.Reverse%20Prefix%20of%20Word/README_EN.md
+rating: 1199
+tags:
+    - Two Pointers
+    - String
+---
+
 # [2000. Reverse Prefix of Word](https://leetcode.com/problems/reverse-prefix-of-word)
 
 [中文文档](/solution/2000-2099/2000.Reverse%20Prefix%20of%20Word/README.md)
-
-<!-- tags:Two Pointers,String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1766.Tree%20of%20Coprimes/README_EN.md
+rating: 2231
+tags:
+    - Tree
+    - Depth-First Search
+    - Array
+    - Math
+    - Number Theory
+---
+
 # [1766. Tree of Coprimes](https://leetcode.com/problems/tree-of-coprimes)
 
 [中文文档](/solution/1700-1799/1766.Tree%20of%20Coprimes/README.md)
-
-<!-- tags:Tree,Depth-First Search,Array,Math,Number Theory -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

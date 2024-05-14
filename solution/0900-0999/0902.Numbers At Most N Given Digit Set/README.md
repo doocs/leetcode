@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0902.Numbers%20At%20Most%20N%20Given%20Digit%20Set/README.md
+tags:
+    - 数组
+    - 数学
+    - 字符串
+    - 二分查找
+    - 动态规划
+---
+
 # [902. 最大为 N 的数字组合](https://leetcode.cn/problems/numbers-at-most-n-given-digit-set)
 
 [English Version](/solution/0900-0999/0902.Numbers%20At%20Most%20N%20Given%20Digit%20Set/README_EN.md)
-
-<!-- tags:数组,数学,字符串,二分查找,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0607.Sales%20Person/README.md
+tags:
+    - 数据库
+---
+
 # [607. 销售员](https://leetcode.cn/problems/sales-person)
 
 [English Version](/solution/0600-0699/0607.Sales%20Person/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2442.Count%20Number%20of%20Distinct%20Integers%20After%20Reverse%20Operations/README_EN.md
+rating: 1218
+tags:
+    - Array
+    - Hash Table
+    - Math
+---
+
 # [2442. Count Number of Distinct Integers After Reverse Operations](https://leetcode.com/problems/count-number-of-distinct-integers-after-reverse-operations)
 
 [中文文档](/solution/2400-2499/2442.Count%20Number%20of%20Distinct%20Integers%20After%20Reverse%20Operations/README.md)
-
-<!-- tags:Array,Hash Table,Math -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

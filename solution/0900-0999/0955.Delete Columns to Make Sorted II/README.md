@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0955.Delete%20Columns%20to%20Make%20Sorted%20II/README.md
+tags:
+    - 贪心
+    - 数组
+    - 字符串
+---
+
 # [955. 删列造序 II](https://leetcode.cn/problems/delete-columns-to-make-sorted-ii)
 
 [English Version](/solution/0900-0999/0955.Delete%20Columns%20to%20Make%20Sorted%20II/README_EN.md)
-
-<!-- tags:贪心,数组,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcs/README.md
+---
+
 # LCS 系列
 
 ## 题解

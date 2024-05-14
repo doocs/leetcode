@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1037.Valid%20Boomerang/README.md
+rating: 1255
+tags:
+    - 几何
+    - 数组
+    - 数学
+---
+
 # [1037. 有效的回旋镖](https://leetcode.cn/problems/valid-boomerang)
 
 [English Version](/solution/1000-1099/1037.Valid%20Boomerang/README_EN.md)
-
-<!-- tags:几何,数组,数学 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

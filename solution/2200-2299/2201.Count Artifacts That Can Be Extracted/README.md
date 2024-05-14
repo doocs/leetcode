@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2201.Count%20Artifacts%20That%20Can%20Be%20Extracted/README.md
+rating: 1525
+tags:
+    - 数组
+    - 哈希表
+    - 模拟
+---
+
 # [2201. 统计可以提取的工件](https://leetcode.cn/problems/count-artifacts-that-can-be-extracted)
 
 [English Version](/solution/2200-2299/2201.Count%20Artifacts%20That%20Can%20Be%20Extracted/README_EN.md)
-
-<!-- tags:数组,哈希表,模拟 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0071.Simplify%20Path/README_EN.md
+tags:
+    - Stack
+    - String
+---
+
 # [71. Simplify Path](https://leetcode.com/problems/simplify-path)
 
 [中文文档](/solution/0000-0099/0071.Simplify%20Path/README.md)
-
-<!-- tags:Stack,String -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

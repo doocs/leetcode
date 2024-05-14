@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2601.Prime%20Subtraction%20Operation/README.md
+rating: 1779
+tags:
+    - 贪心
+    - 数组
+    - 数学
+    - 二分查找
+    - 数论
+---
+
 # [2601. 质数减法运算](https://leetcode.cn/problems/prime-subtraction-operation)
 
 [English Version](/solution/2600-2699/2601.Prime%20Subtraction%20Operation/README_EN.md)
-
-<!-- tags:贪心,数组,数学,二分查找,数论 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

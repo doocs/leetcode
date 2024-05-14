@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2677.Chunk%20Array/README_EN.md
+---
+
 # [2677. Chunk Array](https://leetcode.com/problems/chunk-array)
 
 [中文文档](/solution/2600-2699/2677.Chunk%20Array/README.md)
-
-<!-- tags: -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

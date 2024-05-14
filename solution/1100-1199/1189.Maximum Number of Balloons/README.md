@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1189.Maximum%20Number%20of%20Balloons/README.md
+rating: 1181
+tags:
+    - 哈希表
+    - 字符串
+    - 计数
+---
+
 # [1189. “气球” 的最大数量](https://leetcode.cn/problems/maximum-number-of-balloons)
 
 [English Version](/solution/1100-1199/1189.Maximum%20Number%20of%20Balloons/README_EN.md)
-
-<!-- tags:哈希表,字符串,计数 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

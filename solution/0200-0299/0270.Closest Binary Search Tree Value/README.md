@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0270.Closest%20Binary%20Search%20Tree%20Value/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 二叉搜索树
+    - 二分查找
+    - 二叉树
+---
+
 # [270. 最接近的二叉搜索树值 🔒](https://leetcode.cn/problems/closest-binary-search-tree-value)
 
 [English Version](/solution/0200-0299/0270.Closest%20Binary%20Search%20Tree%20Value/README_EN.md)
-
-<!-- tags:树,深度优先搜索,二叉搜索树,二分查找,二叉树 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

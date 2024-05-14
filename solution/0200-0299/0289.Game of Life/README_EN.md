@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0289.Game%20of%20Life/README_EN.md
+tags:
+    - Array
+    - Matrix
+    - Simulation
+---
+
 # [289. Game of Life](https://leetcode.com/problems/game-of-life)
 
 [中文文档](/solution/0200-0299/0289.Game%20of%20Life/README.md)
-
-<!-- tags:Array,Matrix,Simulation -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

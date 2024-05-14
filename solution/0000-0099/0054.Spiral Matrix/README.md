@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0054.Spiral%20Matrix/README.md
+tags:
+    - 数组
+    - 矩阵
+    - 模拟
+---
+
 # [54. 螺旋矩阵](https://leetcode.cn/problems/spiral-matrix)
 
 [English Version](/solution/0000-0099/0054.Spiral%20Matrix/README_EN.md)
-
-<!-- tags:数组,矩阵,模拟 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

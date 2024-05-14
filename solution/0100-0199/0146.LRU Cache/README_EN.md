@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0146.LRU%20Cache/README_EN.md
+tags:
+    - Design
+    - Hash Table
+    - Linked List
+    - Doubly-Linked List
+---
+
 # [146. LRU Cache](https://leetcode.com/problems/lru-cache)
 
 [中文文档](/solution/0100-0199/0146.LRU%20Cache/README.md)
-
-<!-- tags:Design,Hash Table,Linked List,Doubly-Linked List -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

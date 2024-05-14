@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0725.Split%20Linked%20List%20in%20Parts/README.md
+tags:
+    - 链表
+---
+
 # [725. 分隔链表](https://leetcode.cn/problems/split-linked-list-in-parts)
 
 [English Version](/solution/0700-0799/0725.Split%20Linked%20List%20in%20Parts/README_EN.md)
-
-<!-- tags:链表 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

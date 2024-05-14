@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2887.Fill%20Missing%20Data/README.md
+---
+
 # [2887. 填充缺失值](https://leetcode.cn/problems/fill-missing-data)
 
 [English Version](/solution/2800-2899/2887.Fill%20Missing%20Data/README_EN.md)
-
-<!-- tags: -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

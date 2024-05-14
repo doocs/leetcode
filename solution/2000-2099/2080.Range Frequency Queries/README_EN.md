@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2080.Range%20Frequency%20Queries/README_EN.md
+rating: 1702
+tags:
+    - Design
+    - Segment Tree
+    - Array
+    - Hash Table
+    - Binary Search
+---
+
 # [2080. Range Frequency Queries](https://leetcode.com/problems/range-frequency-queries)
 
 [中文文档](/solution/2000-2099/2080.Range%20Frequency%20Queries/README.md)
-
-<!-- tags:Design,Segment Tree,Array,Hash Table,Binary Search -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

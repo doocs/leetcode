@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2084.Drop%20Type%201%20Orders%20for%20Customers%20With%20Type%200%20Orders/README.md
+tags:
+    - 数据库
+---
+
 # [2084. 为订单类型为 0 的客户删除类型为 1 的订单 🔒](https://leetcode.cn/problems/drop-type-1-orders-for-customers-with-type-0-orders)
 
 [English Version](/solution/2000-2099/2084.Drop%20Type%201%20Orders%20for%20Customers%20With%20Type%200%20Orders/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

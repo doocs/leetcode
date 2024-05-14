@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0977.Squares%20of%20a%20Sorted%20Array/README_EN.md
+tags:
+    - Array
+    - Two Pointers
+    - Sorting
+---
+
 # [977. Squares of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array)
 
 [中文文档](/solution/0900-0999/0977.Squares%20of%20a%20Sorted%20Array/README.md)
-
-<!-- tags:Array,Two Pointers,Sorting -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

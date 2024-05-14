@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2397.Maximum%20Rows%20Covered%20by%20Columns/README.md
+rating: 1718
+tags:
+    - 位运算
+    - 数组
+    - 回溯
+    - 枚举
+    - 矩阵
+---
+
 # [2397. 被列覆盖的最多行数](https://leetcode.cn/problems/maximum-rows-covered-by-columns)
 
 [English Version](/solution/2300-2399/2397.Maximum%20Rows%20Covered%20by%20Columns/README_EN.md)
-
-<!-- tags:位运算,数组,回溯,枚举,矩阵 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

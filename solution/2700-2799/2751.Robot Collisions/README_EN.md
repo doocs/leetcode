@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2751.Robot%20Collisions/README_EN.md
+rating: 2091
+tags:
+    - Stack
+    - Array
+    - Sorting
+    - Simulation
+---
+
 # [2751. Robot Collisions](https://leetcode.com/problems/robot-collisions)
 
 [中文文档](/solution/2700-2799/2751.Robot%20Collisions/README.md)
-
-<!-- tags:Stack,Array,Sorting,Simulation -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

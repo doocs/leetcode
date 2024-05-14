@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.08.Draw%20Line/README.md
+---
+
 # [面试题 05.08. 绘制直线](https://leetcode.cn/problems/draw-line-lcci)
 
 [English Version](/lcci/05.08.Draw%20Line/README_EN.md)

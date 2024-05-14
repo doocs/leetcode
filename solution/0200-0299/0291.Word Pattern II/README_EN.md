@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0291.Word%20Pattern%20II/README_EN.md
+tags:
+    - Hash Table
+    - String
+    - Backtracking
+---
+
 # [291. Word Pattern II 🔒](https://leetcode.com/problems/word-pattern-ii)
 
 [中文文档](/solution/0200-0299/0291.Word%20Pattern%20II/README.md)
-
-<!-- tags:Hash Table,String,Backtracking -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

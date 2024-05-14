@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1424.Diagonal%20Traverse%20II/README_EN.md
+rating: 1779
+tags:
+    - Array
+    - Sorting
+    - Heap (Priority Queue)
+---
+
 # [1424. Diagonal Traverse II](https://leetcode.com/problems/diagonal-traverse-ii)
 
 [中文文档](/solution/1400-1499/1424.Diagonal%20Traverse%20II/README.md)
-
-<!-- tags:Array,Sorting,Heap (Priority Queue) -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

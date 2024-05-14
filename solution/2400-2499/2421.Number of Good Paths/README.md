@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2421.Number%20of%20Good%20Paths/README.md
+rating: 2444
+tags:
+    - 树
+    - 并查集
+    - 图
+    - 数组
+    - 哈希表
+    - 排序
+---
+
 # [2421. 好路径的数目](https://leetcode.cn/problems/number-of-good-paths)
 
 [English Version](/solution/2400-2499/2421.Number%20of%20Good%20Paths/README_EN.md)
-
-<!-- tags:树,并查集,图,数组,哈希表,排序 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

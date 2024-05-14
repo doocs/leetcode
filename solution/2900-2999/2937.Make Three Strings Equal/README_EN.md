@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2937.Make%20Three%20Strings%20Equal/README_EN.md
+rating: 1347
+tags:
+    - String
+---
+
 # [2937. Make Three Strings Equal](https://leetcode.com/problems/make-three-strings-equal)
 
 [中文文档](/solution/2900-2999/2937.Make%20Three%20Strings%20Equal/README.md)
-
-<!-- tags:String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

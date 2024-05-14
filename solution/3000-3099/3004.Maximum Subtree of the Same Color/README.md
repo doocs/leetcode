@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3004.Maximum%20Subtree%20of%20the%20Same%20Color/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 数组
+    - 动态规划
+---
+
 # [3004. 相同颜色的最大子树 🔒](https://leetcode.cn/problems/maximum-subtree-of-the-same-color)
 
 [English Version](/solution/3000-3099/3004.Maximum%20Subtree%20of%20the%20Same%20Color/README_EN.md)
-
-<!-- tags:树,深度优先搜索,数组,动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

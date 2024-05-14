@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1726.Tuple%20with%20Same%20Product/README.md
+rating: 1530
+tags:
+    - 数组
+    - 哈希表
+    - 计数
+---
+
 # [1726. 同积元组](https://leetcode.cn/problems/tuple-with-same-product)
 
 [English Version](/solution/1700-1799/1726.Tuple%20with%20Same%20Product/README_EN.md)
-
-<!-- tags:数组,哈希表,计数 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

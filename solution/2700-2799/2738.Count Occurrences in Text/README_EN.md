@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2738.Count%20Occurrences%20in%20Text/README_EN.md
+tags:
+    - Database
+---
+
 # [2738. Count Occurrences in Text 🔒](https://leetcode.com/problems/count-occurrences-in-text)
 
 [中文文档](/solution/2700-2799/2738.Count%20Occurrences%20in%20Text/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0139.Word%20Break/README_EN.md
+tags:
+    - Trie
+    - Memoization
+    - Array
+    - Hash Table
+    - String
+    - Dynamic Programming
+---
+
 # [139. Word Break](https://leetcode.com/problems/word-break)
 
 [中文文档](/solution/0100-0199/0139.Word%20Break/README.md)
-
-<!-- tags:Trie,Memoization,Array,Hash Table,String,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

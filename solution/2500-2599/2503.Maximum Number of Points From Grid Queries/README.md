@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2503.Maximum%20Number%20of%20Points%20From%20Grid%20Queries/README.md
+rating: 2195
+tags:
+    - 广度优先搜索
+    - 并查集
+    - 数组
+    - 双指针
+    - 矩阵
+    - 排序
+    - 堆（优先队列）
+---
+
 # [2503. 矩阵查询可获得的最大分数](https://leetcode.cn/problems/maximum-number-of-points-from-grid-queries)
 
 [English Version](/solution/2500-2599/2503.Maximum%20Number%20of%20Points%20From%20Grid%20Queries/README_EN.md)
-
-<!-- tags:广度优先搜索,并查集,数组,双指针,矩阵,排序,堆（优先队列） -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

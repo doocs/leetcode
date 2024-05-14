@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2671.Frequency%20Tracker/README.md
+rating: 1509
+tags:
+    - 设计
+    - 哈希表
+---
+
 # [2671. 频率跟踪器](https://leetcode.cn/problems/frequency-tracker)
 
 [English Version](/solution/2600-2699/2671.Frequency%20Tracker/README_EN.md)
-
-<!-- tags:设计,哈希表 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

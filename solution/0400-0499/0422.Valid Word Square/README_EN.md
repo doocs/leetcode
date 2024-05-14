@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0422.Valid%20Word%20Square/README_EN.md
+tags:
+    - Array
+    - Matrix
+---
+
 # [422. Valid Word Square 🔒](https://leetcode.com/problems/valid-word-square)
 
 [中文文档](/solution/0400-0499/0422.Valid%20Word%20Square/README.md)
-
-<!-- tags:Array,Matrix -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

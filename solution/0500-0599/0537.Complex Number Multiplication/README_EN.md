@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0537.Complex%20Number%20Multiplication/README_EN.md
+tags:
+    - Math
+    - String
+    - Simulation
+---
+
 # [537. Complex Number Multiplication](https://leetcode.com/problems/complex-number-multiplication)
 
 [中文文档](/solution/0500-0599/0537.Complex%20Number%20Multiplication/README.md)
-
-<!-- tags:Math,String,Simulation -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

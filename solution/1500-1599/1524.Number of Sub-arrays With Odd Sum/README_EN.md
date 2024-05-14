@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1524.Number%20of%20Sub-arrays%20With%20Odd%20Sum/README_EN.md
+rating: 1610
+tags:
+    - Array
+    - Math
+    - Dynamic Programming
+    - Prefix Sum
+---
+
 # [1524. Number of Sub-arrays With Odd Sum](https://leetcode.com/problems/number-of-sub-arrays-with-odd-sum)
 
 [中文文档](/solution/1500-1599/1524.Number%20of%20Sub-arrays%20With%20Odd%20Sum/README.md)
-
-<!-- tags:Array,Math,Dynamic Programming,Prefix Sum -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

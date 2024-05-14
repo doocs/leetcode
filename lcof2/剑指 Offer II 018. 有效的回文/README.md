@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20018.%20%E6%9C%89%E6%95%88%E7%9A%84%E5%9B%9E%E6%96%87/README.md
+---
+
 # [剑指 Offer II 018. 有效的回文](https://leetcode.cn/problems/XltzEq)
 
 ## 题目描述

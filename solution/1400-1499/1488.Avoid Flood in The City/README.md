@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1488.Avoid%20Flood%20in%20The%20City/README.md
+rating: 1973
+tags:
+    - 贪心
+    - 数组
+    - 哈希表
+    - 二分查找
+    - 堆（优先队列）
+---
+
 # [1488. 避免洪水泛滥](https://leetcode.cn/problems/avoid-flood-in-the-city)
 
 [English Version](/solution/1400-1499/1488.Avoid%20Flood%20in%20The%20City/README_EN.md)
-
-<!-- tags:贪心,数组,哈希表,二分查找,堆（优先队列） -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

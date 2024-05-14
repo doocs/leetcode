@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1522.Diameter%20of%20N-Ary%20Tree/README.md
+tags:
+    - 树
+    - 深度优先搜索
+---
+
 # [1522. N 叉树的直径 🔒](https://leetcode.cn/problems/diameter-of-n-ary-tree)
 
 [English Version](/solution/1500-1599/1522.Diameter%20of%20N-Ary%20Tree/README_EN.md)
-
-<!-- tags:树,深度优先搜索 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1539.Kth%20Missing%20Positive%20Number/README_EN.md
+rating: 1295
+tags:
+    - Array
+    - Binary Search
+---
+
 # [1539. Kth Missing Positive Number](https://leetcode.com/problems/kth-missing-positive-number)
 
 [中文文档](/solution/1500-1599/1539.Kth%20Missing%20Positive%20Number/README.md)
-
-<!-- tags:Array,Binary Search -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2034.Stock%20Price%20Fluctuation/README_EN.md
+rating: 1831
+tags:
+    - Design
+    - Hash Table
+    - Data Stream
+    - Ordered Set
+    - Heap (Priority Queue)
+---
+
 # [2034. Stock Price Fluctuation](https://leetcode.com/problems/stock-price-fluctuation)
 
 [中文文档](/solution/2000-2099/2034.Stock%20Price%20Fluctuation/README.md)
-
-<!-- tags:Design,Hash Table,Data Stream,Ordered Set,Heap (Priority Queue) -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

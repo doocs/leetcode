@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1257.Smallest%20Common%20Region/README.md
+rating: 1654
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 数组
+    - 哈希表
+    - 字符串
+---
+
 # [1257. 最小公共区域 🔒](https://leetcode.cn/problems/smallest-common-region)
 
 [English Version](/solution/1200-1299/1257.Smallest%20Common%20Region/README_EN.md)
-
-<!-- tags:树,深度优先搜索,广度优先搜索,数组,哈希表,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

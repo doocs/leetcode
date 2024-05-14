@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1000.Minimum%20Cost%20to%20Merge%20Stones/README.md
+rating: 2422
+tags:
+    - 数组
+    - 动态规划
+    - 前缀和
+---
+
 # [1000. 合并石头的最低成本](https://leetcode.cn/problems/minimum-cost-to-merge-stones)
 
 [English Version](/solution/1000-1099/1000.Minimum%20Cost%20to%20Merge%20Stones/README_EN.md)
-
-<!-- tags:数组,动态规划,前缀和 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

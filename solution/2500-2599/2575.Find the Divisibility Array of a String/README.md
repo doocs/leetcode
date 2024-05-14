@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2575.Find%20the%20Divisibility%20Array%20of%20a%20String/README.md
+rating: 1541
+tags:
+    - 数组
+    - 数学
+    - 字符串
+---
+
 # [2575. 找出字符串的可整除数组](https://leetcode.cn/problems/find-the-divisibility-array-of-a-string)
 
 [English Version](/solution/2500-2599/2575.Find%20the%20Divisibility%20Array%20of%20a%20String/README_EN.md)
-
-<!-- tags:数组,数学,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

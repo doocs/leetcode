@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2239.Find%20Closest%20Number%20to%20Zero/README_EN.md
+rating: 1256
+tags:
+    - Array
+---
+
 # [2239. Find Closest Number to Zero](https://leetcode.com/problems/find-closest-number-to-zero)
 
 [中文文档](/solution/2200-2299/2239.Find%20Closest%20Number%20to%20Zero/README.md)
-
-<!-- tags:Array -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

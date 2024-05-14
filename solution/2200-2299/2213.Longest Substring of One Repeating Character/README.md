@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2213.Longest%20Substring%20of%20One%20Repeating%20Character/README.md
+rating: 2628
+tags:
+    - 线段树
+    - 数组
+    - 字符串
+    - 有序集合
+---
+
 # [2213. 由单个字符重复的最长子字符串](https://leetcode.cn/problems/longest-substring-of-one-repeating-character)
 
 [English Version](/solution/2200-2299/2213.Longest%20Substring%20of%20One%20Repeating%20Character/README_EN.md)
-
-<!-- tags:线段树,数组,字符串,有序集合 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

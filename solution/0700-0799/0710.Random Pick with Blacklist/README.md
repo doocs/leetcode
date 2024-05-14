@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0710.Random%20Pick%20with%20Blacklist/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 数学
+    - 二分查找
+    - 排序
+    - 随机化
+---
+
 # [710. 黑名单中的随机数](https://leetcode.cn/problems/random-pick-with-blacklist)
 
 [English Version](/solution/0700-0799/0710.Random%20Pick%20with%20Blacklist/README_EN.md)
-
-<!-- tags:数组,哈希表,数学,二分查找,排序,随机化 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

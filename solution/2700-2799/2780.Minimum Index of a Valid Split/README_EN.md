@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2780.Minimum%20Index%20of%20a%20Valid%20Split/README_EN.md
+rating: 1549
+tags:
+    - Array
+    - Hash Table
+    - Sorting
+---
+
 # [2780. Minimum Index of a Valid Split](https://leetcode.com/problems/minimum-index-of-a-valid-split)
 
 [中文文档](/solution/2700-2799/2780.Minimum%20Index%20of%20a%20Valid%20Split/README.md)
-
-<!-- tags:Array,Hash Table,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

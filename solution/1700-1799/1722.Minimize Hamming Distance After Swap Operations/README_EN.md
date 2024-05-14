@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1722.Minimize%20Hamming%20Distance%20After%20Swap%20Operations/README_EN.md
+rating: 1892
+tags:
+    - Depth-First Search
+    - Union Find
+    - Array
+---
+
 # [1722. Minimize Hamming Distance After Swap Operations](https://leetcode.com/problems/minimize-hamming-distance-after-swap-operations)
 
 [中文文档](/solution/1700-1799/1722.Minimize%20Hamming%20Distance%20After%20Swap%20Operations/README.md)
-
-<!-- tags:Depth-First Search,Union Find,Array -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

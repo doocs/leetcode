@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2916.Subarrays%20Distinct%20Element%20Sum%20of%20Squares%20II/README.md
+rating: 2816
+tags:
+    - 树状数组
+    - 线段树
+    - 数组
+    - 动态规划
+---
+
 # [2916. 子数组不同元素数目的平方和 II](https://leetcode.cn/problems/subarrays-distinct-element-sum-of-squares-ii)
 
 [English Version](/solution/2900-2999/2916.Subarrays%20Distinct%20Element%20Sum%20of%20Squares%20II/README_EN.md)
-
-<!-- tags:树状数组,线段树,数组,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

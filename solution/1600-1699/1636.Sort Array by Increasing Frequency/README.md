@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1636.Sort%20Array%20by%20Increasing%20Frequency/README.md
+rating: 1430
+tags:
+    - 数组
+    - 哈希表
+    - 排序
+---
+
 # [1636. 按照频率将数组升序排序](https://leetcode.cn/problems/sort-array-by-increasing-frequency)
 
 [English Version](/solution/1600-1699/1636.Sort%20Array%20by%20Increasing%20Frequency/README_EN.md)
-
-<!-- tags:数组,哈希表,排序 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

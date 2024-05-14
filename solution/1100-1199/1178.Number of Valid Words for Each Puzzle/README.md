@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1178.Number%20of%20Valid%20Words%20for%20Each%20Puzzle/README.md
+rating: 2233
+tags:
+    - 位运算
+    - 字典树
+    - 数组
+    - 哈希表
+    - 字符串
+---
+
 # [1178. 猜字谜](https://leetcode.cn/problems/number-of-valid-words-for-each-puzzle)
 
 [English Version](/solution/1100-1199/1178.Number%20of%20Valid%20Words%20for%20Each%20Puzzle/README_EN.md)
-
-<!-- tags:位运算,字典树,数组,哈希表,字符串 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

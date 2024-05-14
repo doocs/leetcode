@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0816.Ambiguous%20Coordinates/README_EN.md
+tags:
+    - String
+    - Backtracking
+    - Enumeration
+---
+
 # [816. Ambiguous Coordinates](https://leetcode.com/problems/ambiguous-coordinates)
 
 [中文文档](/solution/0800-0899/0816.Ambiguous%20Coordinates/README.md)
-
-<!-- tags:String,Backtracking,Enumeration -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

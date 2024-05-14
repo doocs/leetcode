@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/summary.md
+---
+
 -   LCP 题解
     -   [LCP 01. 猜数字](/lcp/LCP%2001.%20%E7%8C%9C%E6%95%B0%E5%AD%97/README.md)
     -   [LCP 02. 分式化简](/lcp/LCP%2002.%20%E5%88%86%E5%BC%8F%E5%8C%96%E7%AE%80/README.md)

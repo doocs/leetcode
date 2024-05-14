@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0947.Most%20Stones%20Removed%20with%20Same%20Row%20or%20Column/README.md
+tags:
+    - 深度优先搜索
+    - 并查集
+    - 图
+    - 哈希表
+---
+
 # [947. 移除最多的同行或同列石头](https://leetcode.cn/problems/most-stones-removed-with-same-row-or-column)
 
 [English Version](/solution/0900-0999/0947.Most%20Stones%20Removed%20with%20Same%20Row%20or%20Column/README_EN.md)
-
-<!-- tags:深度优先搜索,并查集,图,哈希表 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

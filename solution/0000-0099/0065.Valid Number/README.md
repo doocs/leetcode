@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0065.Valid%20Number/README.md
+tags:
+    - 字符串
+---
+
 # [65. 有效数字](https://leetcode.cn/problems/valid-number)
 
 [English Version](/solution/0000-0099/0065.Valid%20Number/README_EN.md)
-
-<!-- tags:字符串 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

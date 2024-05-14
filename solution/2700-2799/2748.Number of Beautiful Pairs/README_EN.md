@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2748.Number%20of%20Beautiful%20Pairs/README_EN.md
+rating: 1301
+tags:
+    - Array
+    - Math
+    - Number Theory
+---
+
 # [2748. Number of Beautiful Pairs](https://leetcode.com/problems/number-of-beautiful-pairs)
 
 [中文文档](/solution/2700-2799/2748.Number%20of%20Beautiful%20Pairs/README.md)
-
-<!-- tags:Array,Math,Number Theory -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

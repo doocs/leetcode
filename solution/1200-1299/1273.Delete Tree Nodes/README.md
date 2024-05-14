@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1273.Delete%20Tree%20Nodes/README.md
+rating: 1732
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 数组
+---
+
 # [1273. 删除树节点 🔒](https://leetcode.cn/problems/delete-tree-nodes)
 
 [English Version](/solution/1200-1299/1273.Delete%20Tree%20Nodes/README_EN.md)
-
-<!-- tags:树,深度优先搜索,广度优先搜索,数组 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

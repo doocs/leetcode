@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1505.Minimum%20Possible%20Integer%20After%20at%20Most%20K%20Adjacent%20Swaps%20On%20Digits/README.md
+rating: 2336
+tags:
+    - 贪心
+    - 树状数组
+    - 线段树
+    - 字符串
+---
+
 # [1505. 最多 K 次交换相邻数位后得到的最小整数](https://leetcode.cn/problems/minimum-possible-integer-after-at-most-k-adjacent-swaps-on-digits)
 
 [English Version](/solution/1500-1599/1505.Minimum%20Possible%20Integer%20After%20at%20Most%20K%20Adjacent%20Swaps%20On%20Digits/README_EN.md)
-
-<!-- tags:贪心,树状数组,线段树,字符串 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

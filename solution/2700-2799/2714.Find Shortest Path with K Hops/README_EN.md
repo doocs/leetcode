@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2714.Find%20Shortest%20Path%20with%20K%20Hops/README_EN.md
+tags:
+    - Graph
+    - Shortest Path
+    - Heap (Priority Queue)
+---
+
 # [2714. Find Shortest Path with K Hops 🔒](https://leetcode.com/problems/find-shortest-path-with-k-hops)
 
 [中文文档](/solution/2700-2799/2714.Find%20Shortest%20Path%20with%20K%20Hops/README.md)
-
-<!-- tags:Graph,Shortest Path,Heap (Priority Queue) -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

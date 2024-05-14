@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0718.Maximum%20Length%20of%20Repeated%20Subarray/README.md
+tags:
+    - 数组
+    - 二分查找
+    - 动态规划
+    - 滑动窗口
+    - 哈希函数
+    - 滚动哈希
+---
+
 # [718. 最长重复子数组](https://leetcode.cn/problems/maximum-length-of-repeated-subarray)
 
 [English Version](/solution/0700-0799/0718.Maximum%20Length%20of%20Repeated%20Subarray/README_EN.md)
-
-<!-- tags:数组,二分查找,动态规划,滑动窗口,哈希函数,滚动哈希 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1407.Top%20Travellers/README_EN.md
+tags:
+    - Database
+---
+
 # [1407. Top Travellers](https://leetcode.com/problems/top-travellers)
 
 [中文文档](/solution/1400-1499/1407.Top%20Travellers/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

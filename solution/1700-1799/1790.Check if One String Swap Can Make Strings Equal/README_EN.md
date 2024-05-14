@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1790.Check%20if%20One%20String%20Swap%20Can%20Make%20Strings%20Equal/README_EN.md
+rating: 1300
+tags:
+    - Hash Table
+    - String
+    - Counting
+---
+
 # [1790. Check if One String Swap Can Make Strings Equal](https://leetcode.com/problems/check-if-one-string-swap-can-make-strings-equal)
 
 [中文文档](/solution/1700-1799/1790.Check%20if%20One%20String%20Swap%20Can%20Make%20Strings%20Equal/README.md)
-
-<!-- tags:Hash Table,String,Counting -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

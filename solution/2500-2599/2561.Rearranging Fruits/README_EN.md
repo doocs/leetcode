@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2561.Rearranging%20Fruits/README_EN.md
+rating: 2221
+tags:
+    - Greedy
+    - Array
+    - Hash Table
+---
+
 # [2561. Rearranging Fruits](https://leetcode.com/problems/rearranging-fruits)
 
 [中文文档](/solution/2500-2599/2561.Rearranging%20Fruits/README.md)
-
-<!-- tags:Greedy,Array,Hash Table -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

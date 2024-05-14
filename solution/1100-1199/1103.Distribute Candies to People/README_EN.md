@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1103.Distribute%20Candies%20to%20People/README_EN.md
+rating: 1287
+tags:
+    - Math
+    - Simulation
+---
+
 # [1103. Distribute Candies to People](https://leetcode.com/problems/distribute-candies-to-people)
 
 [中文文档](/solution/1100-1199/1103.Distribute%20Candies%20to%20People/README.md)
-
-<!-- tags:Math,Simulation -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

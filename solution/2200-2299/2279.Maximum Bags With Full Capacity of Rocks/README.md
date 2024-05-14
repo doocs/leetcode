@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2279.Maximum%20Bags%20With%20Full%20Capacity%20of%20Rocks/README.md
+rating: 1249
+tags:
+    - 贪心
+    - 数组
+    - 排序
+---
+
 # [2279. 装满石头的背包的最大数量](https://leetcode.cn/problems/maximum-bags-with-full-capacity-of-rocks)
 
 [English Version](/solution/2200-2299/2279.Maximum%20Bags%20With%20Full%20Capacity%20of%20Rocks/README_EN.md)
-
-<!-- tags:贪心,数组,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

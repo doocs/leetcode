@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0753.Cracking%20the%20Safe/README_EN.md
+tags:
+    - Depth-First Search
+    - Graph
+    - Eulerian Circuit
+---
+
 # [753. Cracking the Safe](https://leetcode.com/problems/cracking-the-safe)
 
 [中文文档](/solution/0700-0799/0753.Cracking%20the%20Safe/README.md)
-
-<!-- tags:Depth-First Search,Graph,Eulerian Circuit -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

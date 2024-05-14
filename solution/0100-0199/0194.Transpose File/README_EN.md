@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0194.Transpose%20File/README_EN.md
+tags:
+    - Shell
+---
+
 # [194. Transpose File](https://leetcode.com/problems/transpose-file)
 
 [中文文档](/solution/0100-0199/0194.Transpose%20File/README.md)
-
-<!-- tags:Shell -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

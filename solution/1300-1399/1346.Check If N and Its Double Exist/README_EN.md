@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1346.Check%20If%20N%20and%20Its%20Double%20Exist/README_EN.md
+rating: 1225
+tags:
+    - Array
+    - Hash Table
+    - Two Pointers
+    - Binary Search
+    - Sorting
+---
+
 # [1346. Check If N and Its Double Exist](https://leetcode.com/problems/check-if-n-and-its-double-exist)
 
 [中文文档](/solution/1300-1399/1346.Check%20If%20N%20and%20Its%20Double%20Exist/README.md)
-
-<!-- tags:Array,Hash Table,Two Pointers,Binary Search,Sorting -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1709.Biggest%20Window%20Between%20Visits/README_EN.md
+tags:
+    - Database
+---
+
 # [1709. Biggest Window Between Visits 🔒](https://leetcode.com/problems/biggest-window-between-visits)
 
 [中文文档](/solution/1700-1799/1709.Biggest%20Window%20Between%20Visits/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

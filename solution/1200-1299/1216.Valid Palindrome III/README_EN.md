@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1216.Valid%20Palindrome%20III/README_EN.md
+rating: 1753
+tags:
+    - String
+    - Dynamic Programming
+---
+
 # [1216. Valid Palindrome III 🔒](https://leetcode.com/problems/valid-palindrome-iii)
 
 [中文文档](/solution/1200-1299/1216.Valid%20Palindrome%20III/README.md)
-
-<!-- tags:String,Dynamic Programming -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0527.Word%20Abbreviation/README_EN.md
+tags:
+    - Greedy
+    - Trie
+    - Array
+    - String
+    - Sorting
+---
+
 # [527. Word Abbreviation 🔒](https://leetcode.com/problems/word-abbreviation)
 
 [中文文档](/solution/0500-0599/0527.Word%20Abbreviation/README.md)
-
-<!-- tags:Greedy,Trie,Array,String,Sorting -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

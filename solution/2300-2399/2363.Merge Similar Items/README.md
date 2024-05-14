@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2363.Merge%20Similar%20Items/README.md
+rating: 1270
+tags:
+    - 数组
+    - 哈希表
+    - 有序集合
+    - 排序
+---
+
 # [2363. 合并相似的物品](https://leetcode.cn/problems/merge-similar-items)
 
 [English Version](/solution/2300-2399/2363.Merge%20Similar%20Items/README_EN.md)
-
-<!-- tags:数组,哈希表,有序集合,排序 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

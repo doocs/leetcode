@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1126.Active%20Businesses/README_EN.md
+tags:
+    - Database
+---
+
 # [1126. Active Businesses 🔒](https://leetcode.com/problems/active-businesses)
 
 [中文文档](/solution/1100-1199/1126.Active%20Businesses/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

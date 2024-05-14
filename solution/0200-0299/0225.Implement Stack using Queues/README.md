@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0225.Implement%20Stack%20using%20Queues/README.md
+tags:
+    - 栈
+    - 设计
+    - 队列
+---
+
 # [225. 用队列实现栈](https://leetcode.cn/problems/implement-stack-using-queues)
 
 [English Version](/solution/0200-0299/0225.Implement%20Stack%20using%20Queues/README_EN.md)
-
-<!-- tags:栈,设计,队列 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

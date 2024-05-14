@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1950.Maximum%20of%20Minimum%20Values%20in%20All%20Subarrays/README.md
+tags:
+    - 栈
+    - 数组
+    - 单调栈
+---
+
 # [1950. 所有子数组最小值中的最大值 🔒](https://leetcode.cn/problems/maximum-of-minimum-values-in-all-subarrays)
 
 [English Version](/solution/1900-1999/1950.Maximum%20of%20Minimum%20Values%20in%20All%20Subarrays/README_EN.md)
-
-<!-- tags:栈,数组,单调栈 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

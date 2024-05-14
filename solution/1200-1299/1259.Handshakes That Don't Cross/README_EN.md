@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1259.Handshakes%20That%20Don%27t%20Cross/README_EN.md
+rating: 1951
+tags:
+    - Math
+    - Dynamic Programming
+---
+
 # [1259. Handshakes That Don't Cross 🔒](https://leetcode.com/problems/handshakes-that-dont-cross)
 
 [中文文档](/solution/1200-1299/1259.Handshakes%20That%20Don%27t%20Cross/README.md)
-
-<!-- tags:Math,Dynamic Programming -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

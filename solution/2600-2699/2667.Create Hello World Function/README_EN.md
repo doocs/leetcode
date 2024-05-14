@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2667.Create%20Hello%20World%20Function/README_EN.md
+---
+
 # [2667. Create Hello World Function](https://leetcode.com/problems/create-hello-world-function)
 
 [中文文档](/solution/2600-2699/2667.Create%20Hello%20World%20Function/README.md)
-
-<!-- tags: -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

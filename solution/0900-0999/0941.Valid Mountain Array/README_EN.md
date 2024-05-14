@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0941.Valid%20Mountain%20Array/README_EN.md
+tags:
+    - Array
+---
+
 # [941. Valid Mountain Array](https://leetcode.com/problems/valid-mountain-array)
 
 [中文文档](/solution/0900-0999/0941.Valid%20Mountain%20Array/README.md)
-
-<!-- tags:Array -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

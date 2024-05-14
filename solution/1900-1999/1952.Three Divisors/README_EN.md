@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1952.Three%20Divisors/README_EN.md
+rating: 1203
+tags:
+    - Math
+    - Enumeration
+    - Number Theory
+---
+
 # [1952. Three Divisors](https://leetcode.com/problems/three-divisors)
 
 [中文文档](/solution/1900-1999/1952.Three%20Divisors/README.md)
-
-<!-- tags:Math,Enumeration,Number Theory -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

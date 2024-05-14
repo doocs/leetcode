@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0808.Soup%20Servings/README.md
+tags:
+    - 数学
+    - 动态规划
+    - 概率与统计
+---
+
 # [808. 分汤](https://leetcode.cn/problems/soup-servings)
 
 [English Version](/solution/0800-0899/0808.Soup%20Servings/README_EN.md)
-
-<!-- tags:数学,动态规划,概率与统计 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

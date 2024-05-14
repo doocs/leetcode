@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1419.Minimum%20Number%20of%20Frogs%20Croaking/README.md
+rating: 1689
+tags:
+    - 字符串
+    - 计数
+---
+
 # [1419. 数青蛙](https://leetcode.cn/problems/minimum-number-of-frogs-croaking)
 
 [English Version](/solution/1400-1499/1419.Minimum%20Number%20of%20Frogs%20Croaking/README_EN.md)
-
-<!-- tags:字符串,计数 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

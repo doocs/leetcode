@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3067.Count%20Pairs%20of%20Connectable%20Servers%20in%20a%20Weighted%20Tree%20Network/README.md
+rating: 1908
+tags:
+    - 树
+    - 深度优先搜索
+    - 数组
+---
+
 # [3067. 在带权树网络中统计可连接服务器对数目](https://leetcode.cn/problems/count-pairs-of-connectable-servers-in-a-weighted-tree-network)
 
 [English Version](/solution/3000-3099/3067.Count%20Pairs%20of%20Connectable%20Servers%20in%20a%20Weighted%20Tree%20Network/README_EN.md)
-
-<!-- tags:树,深度优先搜索,数组 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0180.Consecutive%20Numbers/README.md
+tags:
+    - 数据库
+---
+
 # [180. 连续出现的数字](https://leetcode.cn/problems/consecutive-numbers)
 
 [English Version](/solution/0100-0199/0180.Consecutive%20Numbers/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

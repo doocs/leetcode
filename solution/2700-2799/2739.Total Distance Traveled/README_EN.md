@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2739.Total%20Distance%20Traveled/README_EN.md
+rating: 1262
+tags:
+    - Math
+    - Simulation
+---
+
 # [2739. Total Distance Traveled](https://leetcode.com/problems/total-distance-traveled)
 
 [中文文档](/solution/2700-2799/2739.Total%20Distance%20Traveled/README.md)
-
-<!-- tags:Math,Simulation -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

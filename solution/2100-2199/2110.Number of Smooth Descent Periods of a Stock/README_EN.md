@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2110.Number%20of%20Smooth%20Descent%20Periods%20of%20a%20Stock/README_EN.md
+rating: 1408
+tags:
+    - Array
+    - Math
+    - Dynamic Programming
+---
+
 # [2110. Number of Smooth Descent Periods of a Stock](https://leetcode.com/problems/number-of-smooth-descent-periods-of-a-stock)
 
 [中文文档](/solution/2100-2199/2110.Number%20of%20Smooth%20Descent%20Periods%20of%20a%20Stock/README.md)
-
-<!-- tags:Array,Math,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

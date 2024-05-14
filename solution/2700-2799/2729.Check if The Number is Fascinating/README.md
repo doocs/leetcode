@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2729.Check%20if%20The%20Number%20is%20Fascinating/README.md
+rating: 1227
+tags:
+    - 哈希表
+    - 数学
+---
+
 # [2729. 判断一个数是否迷人](https://leetcode.cn/problems/check-if-the-number-is-fascinating)
 
 [English Version](/solution/2700-2799/2729.Check%20if%20The%20Number%20is%20Fascinating/README_EN.md)
-
-<!-- tags:哈希表,数学 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

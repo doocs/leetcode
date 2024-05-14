@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0636.Exclusive%20Time%20of%20Functions/README.md
+tags:
+    - 栈
+    - 数组
+---
+
 # [636. 函数的独占时间](https://leetcode.cn/problems/exclusive-time-of-functions)
 
 [English Version](/solution/0600-0699/0636.Exclusive%20Time%20of%20Functions/README_EN.md)
-
-<!-- tags:栈,数组 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

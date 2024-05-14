@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0923.3Sum%20With%20Multiplicity/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 双指针
+    - 计数
+    - 排序
+---
+
 # [923. 三数之和的多种可能](https://leetcode.cn/problems/3sum-with-multiplicity)
 
 [English Version](/solution/0900-0999/0923.3Sum%20With%20Multiplicity/README_EN.md)
-
-<!-- tags:数组,哈希表,双指针,计数,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

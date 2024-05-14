@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0810.Chalkboard%20XOR%20Game/README.md
+tags:
+    - 位运算
+    - 脑筋急转弯
+    - 数组
+    - 数学
+    - 博弈
+---
+
 # [810. 黑板异或游戏](https://leetcode.cn/problems/chalkboard-xor-game)
 
 [English Version](/solution/0800-0899/0810.Chalkboard%20XOR%20Game/README_EN.md)
-
-<!-- tags:位运算,脑筋急转弯,数组,数学,博弈 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

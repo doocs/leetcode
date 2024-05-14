@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0131.Palindrome%20Partitioning/README_EN.md
+tags:
+    - String
+    - Dynamic Programming
+    - Backtracking
+---
+
 # [131. Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning)
 
 [中文文档](/solution/0100-0199/0131.Palindrome%20Partitioning/README.md)
-
-<!-- tags:String,Dynamic Programming,Backtracking -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0308.Range%20Sum%20Query%202D%20-%20Mutable/README.md
+tags:
+    - 设计
+    - 树状数组
+    - 线段树
+    - 数组
+    - 矩阵
+---
+
 # [308. 二维区域和检索 - 可变 🔒](https://leetcode.cn/problems/range-sum-query-2d-mutable)
 
 [English Version](/solution/0300-0399/0308.Range%20Sum%20Query%202D%20-%20Mutable/README_EN.md)
-
-<!-- tags:设计,树状数组,线段树,数组,矩阵 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

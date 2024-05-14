@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0152.Maximum%20Product%20Subarray/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [152. Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray)
 
 [中文文档](/solution/0100-0199/0152.Maximum%20Product%20Subarray/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

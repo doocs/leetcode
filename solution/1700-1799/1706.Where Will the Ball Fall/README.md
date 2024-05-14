@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1706.Where%20Will%20the%20Ball%20Fall/README.md
+rating: 1764
+tags:
+    - 数组
+    - 矩阵
+    - 模拟
+---
+
 # [1706. 球会落何处](https://leetcode.cn/problems/where-will-the-ball-fall)
 
 [English Version](/solution/1700-1799/1706.Where%20Will%20the%20Ball%20Fall/README_EN.md)
-
-<!-- tags:数组,矩阵,模拟 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

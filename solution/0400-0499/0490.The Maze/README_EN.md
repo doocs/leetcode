@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0490.The%20Maze/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Array
+    - Matrix
+---
+
 # [490. The Maze 🔒](https://leetcode.com/problems/the-maze)
 
 [中文文档](/solution/0400-0499/0490.The%20Maze/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Array,Matrix -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1669.Merge%20In%20Between%20Linked%20Lists/README.md
+rating: 1428
+tags:
+    - 链表
+---
+
 # [1669. 合并两个链表](https://leetcode.cn/problems/merge-in-between-linked-lists)
 
 [English Version](/solution/1600-1699/1669.Merge%20In%20Between%20Linked%20Lists/README_EN.md)
-
-<!-- tags:链表 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

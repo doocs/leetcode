@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0869.Reordered%20Power%20of%202/README_EN.md
+tags:
+    - Hash Table
+    - Math
+    - Counting
+    - Enumeration
+    - Sorting
+---
+
 # [869. Reordered Power of 2](https://leetcode.com/problems/reordered-power-of-2)
 
 [中文文档](/solution/0800-0899/0869.Reordered%20Power%20of%202/README.md)
-
-<!-- tags:Hash Table,Math,Counting,Enumeration,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

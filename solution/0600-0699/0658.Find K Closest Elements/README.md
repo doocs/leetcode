@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0658.Find%20K%20Closest%20Elements/README.md
+tags:
+    - 数组
+    - 双指针
+    - 二分查找
+    - 排序
+    - 滑动窗口
+    - 堆（优先队列）
+---
+
 # [658. 找到 K 个最接近的元素](https://leetcode.cn/problems/find-k-closest-elements)
 
 [English Version](/solution/0600-0699/0658.Find%20K%20Closest%20Elements/README_EN.md)
-
-<!-- tags:数组,双指针,二分查找,排序,滑动窗口,堆（优先队列） -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

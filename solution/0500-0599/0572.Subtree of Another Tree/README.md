@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0572.Subtree%20of%20Another%20Tree/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 二叉树
+    - 字符串匹配
+    - 哈希函数
+---
+
 # [572. 另一棵树的子树](https://leetcode.cn/problems/subtree-of-another-tree)
 
 [English Version](/solution/0500-0599/0572.Subtree%20of%20Another%20Tree/README_EN.md)
-
-<!-- tags:树,深度优先搜索,二叉树,字符串匹配,哈希函数 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

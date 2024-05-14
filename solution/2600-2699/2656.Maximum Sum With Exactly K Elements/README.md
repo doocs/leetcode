@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2656.Maximum%20Sum%20With%20Exactly%20K%20Elements/README.md
+rating: 1213
+tags:
+    - 贪心
+    - 数组
+---
+
 # [2656. K 个元素的最大和](https://leetcode.cn/problems/maximum-sum-with-exactly-k-elements)
 
 [English Version](/solution/2600-2699/2656.Maximum%20Sum%20With%20Exactly%20K%20Elements/README_EN.md)
-
-<!-- tags:贪心,数组 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

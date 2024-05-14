@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0375.Guess%20Number%20Higher%20or%20Lower%20II/README_EN.md
+tags:
+    - Math
+    - Dynamic Programming
+    - Game Theory
+---
+
 # [375. Guess Number Higher or Lower II](https://leetcode.com/problems/guess-number-higher-or-lower-ii)
 
 [中文文档](/solution/0300-0399/0375.Guess%20Number%20Higher%20or%20Lower%20II/README.md)
-
-<!-- tags:Math,Dynamic Programming,Game Theory -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

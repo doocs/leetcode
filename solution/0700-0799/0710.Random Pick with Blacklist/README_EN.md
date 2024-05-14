@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0710.Random%20Pick%20with%20Blacklist/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Math
+    - Binary Search
+    - Sorting
+    - Randomized
+---
+
 # [710. Random Pick with Blacklist](https://leetcode.com/problems/random-pick-with-blacklist)
 
 [中文文档](/solution/0700-0799/0710.Random%20Pick%20with%20Blacklist/README.md)
-
-<!-- tags:Array,Hash Table,Math,Binary Search,Sorting,Randomized -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1728.Cat%20and%20Mouse%20II/README.md
+rating: 2849
+tags:
+    - 图
+    - 拓扑排序
+    - 记忆化搜索
+    - 数组
+    - 数学
+    - 动态规划
+    - 博弈
+    - 矩阵
+---
+
 # [1728. 猫和老鼠 II](https://leetcode.cn/problems/cat-and-mouse-ii)
 
 [English Version](/solution/1700-1799/1728.Cat%20and%20Mouse%20II/README_EN.md)
-
-<!-- tags:图,拓扑排序,记忆化搜索,数组,数学,动态规划,博弈,矩阵 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

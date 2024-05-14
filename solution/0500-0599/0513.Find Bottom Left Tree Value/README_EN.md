@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0513.Find%20Bottom%20Left%20Tree%20Value/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Binary Tree
+---
+
 # [513. Find Bottom Left Tree Value](https://leetcode.com/problems/find-bottom-left-tree-value)
 
 [中文文档](/solution/0500-0599/0513.Find%20Bottom%20Left%20Tree%20Value/README.md)
-
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Tree -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

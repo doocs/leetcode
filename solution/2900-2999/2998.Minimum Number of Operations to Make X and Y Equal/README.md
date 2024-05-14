@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2998.Minimum%20Number%20of%20Operations%20to%20Make%20X%20and%20Y%20Equal/README.md
+rating: 1794
+tags:
+    - 广度优先搜索
+    - 记忆化搜索
+    - 动态规划
+---
+
 # [2998. 使 X 和 Y 相等的最少操作次数](https://leetcode.cn/problems/minimum-number-of-operations-to-make-x-and-y-equal)
 
 [English Version](/solution/2900-2999/2998.Minimum%20Number%20of%20Operations%20to%20Make%20X%20and%20Y%20Equal/README_EN.md)
-
-<!-- tags:广度优先搜索,记忆化搜索,动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

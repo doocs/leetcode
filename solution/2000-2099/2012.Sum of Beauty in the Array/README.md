@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2012.Sum%20of%20Beauty%20in%20the%20Array/README.md
+rating: 1467
+tags:
+    - 数组
+---
+
 # [2012. 数组美丽值求和](https://leetcode.cn/problems/sum-of-beauty-in-the-array)
 
 [English Version](/solution/2000-2099/2012.Sum%20of%20Beauty%20in%20the%20Array/README_EN.md)
-
-<!-- tags:数组 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0492.Construct%20the%20Rectangle/README_EN.md
+tags:
+    - Math
+---
+
 # [492. Construct the Rectangle](https://leetcode.com/problems/construct-the-rectangle)
 
 [中文文档](/solution/0400-0499/0492.Construct%20the%20Rectangle/README.md)
-
-<!-- tags:Math -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

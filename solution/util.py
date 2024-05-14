@@ -1,6 +1,8 @@
 import json
 import os
 import re
+import requests
+import yaml
 from typing import Tuple, List
 from urllib.parse import quote, unquote
 
@@ -12,6 +14,29 @@ def load_template(template_name: str) -> str:
         end_text = f"<!-- 这里是{template_name}结束位置 -->"
         content = re.search(f"{start_text}(.*?){end_text}", content, re.S).group(1)
         return content.strip()
+
+
+def load_ratings():
+    res = {}
+    if os.path.exists("rating.json"):
+        with open("rating.json", "r", encoding="utf-8") as f:
+            ratings = json.loads(f.read())
+            for item in ratings:
+                res[str(item["ID"])] = item
+
+    url = "https://zerotrac.github.io/leetcode_problem_rating/data.json"
+    try:
+        resp = requests.get(url)
+        if resp.status_code == 200:
+            ratings = resp.json()
+            for item in ratings:
+                res[str(item["ID"])] = item
+    except Exception as e:
+        print(f"Failed to fetch ratings: {e}")
+    return res
+
+
+rating_dict = load_ratings()
 
 
 readme_cn = load_template("readme_template")
@@ -150,32 +175,77 @@ def generate_question_readme(result):
         # choose the readme template
         category = item["category"]
         readme_template_cn, readme_template_en = select_templates(category)
-        paid_only = ' 🔒' if item['paid_only'] else ''
+        paid_only = " 🔒" if item["paid_only"] else ""
+        rating = (
+            int(rating_dict.get(str(item['frontend_question_id']), {}).get("Rating", 0))
+            or ''
+        )
+        # 生成 metadata
+        """
+        ---
+        tags:
+          - 数组
+          - 哈希表
+        difficulty: 简单
+        rating: 1234
+        comments: true
+        edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0001.Two%20Sum/README.md
+        ---
+        """
+        metadata = {
+            "tags": item["tags_cn"],
+            "difficulty": item["difficulty_cn"],
+            "rating": rating,
+            "comments": True,
+            "edit_url": f'https://github.com/doocs/leetcode/edit/main{item["relative_path_cn"]}',
+        }
+        if not item['tags_cn']:
+            metadata.pop('tags')
+        if not rating:
+            metadata.pop('rating')
+        yaml_metadata = yaml.dump(
+            metadata, default_flow_style=False, allow_unicode=True
+        )
+        metadata_section = f"---\n{yaml_metadata}---"
 
         # generate lc-cn problem readme
         with open(f"{path}/README.md", "w", encoding="utf-8") as f1:
             f1.write(
                 readme_template_cn.format(
+                    metadata_section,
                     int(item["frontend_question_id"]),
                     item["title_cn"].strip() + paid_only,
                     item["url_cn"],
                     item["relative_path_en"],
-                    ",".join(item["tags_cn"]),
-                    item['difficulty_cn'],
                     item["content_cn"].replace("leetcode-cn.com", "leetcode.cn"),
                 )
             )
+
+        metadata = {
+            "tags": item["tags_en"],
+            "difficulty": item["difficulty_en"],
+            "rating": rating,
+            "comments": True,
+            "edit_url": f'https://github.com/doocs/leetcode/edit/main{item["relative_path_en"]}',
+        }
+        if not item['tags_cn']:
+            metadata.pop('tags')
+        if not rating:
+            metadata.pop('rating')
+        yaml_metadata = yaml.dump(
+            metadata, default_flow_style=False, allow_unicode=True
+        )
+        metadata_section = f"---\n{yaml_metadata}---"
 
         # generate lc-en problem readme
         with open(f"{path}/README_EN.md", "w", encoding="utf-8") as f2:
             f2.write(
                 readme_template_en.format(
+                    metadata_section,
                     int(item["frontend_question_id"]),
                     item["title_en"].strip() + paid_only,
                     item["url_en"],
                     item["relative_path_cn"],
-                    ",".join(item["tags_en"]),
-                    item['difficulty_en'],
                     item["content_en"],
                 )
             )
@@ -265,80 +335,75 @@ def refresh(result):
     for question in result:
         front_question_id = question["frontend_question_id"]
         print(front_question_id)
-        paid_only = ' 🔒' if question['paid_only'] else ''
-        title = question["title_cn"].strip() + paid_only
-        title_en = question["title_en"].strip() + paid_only
-        tags = ",".join(question["tags_cn"])
-        tags_en = ",".join(question["tags_en"])
+        paid_only = " 🔒" if question["paid_only"] else ""
 
         path_cn = unquote(str(question["relative_path_cn"]).replace("/solution", "."))
         path_en = unquote(str(question["relative_path_en"]).replace("/solution", "."))
 
         with open(path_cn, "r", encoding="utf-8") as f1:
             cn_content = f1.read()
-
-        # update title
         with open(path_en, "r", encoding="utf-8") as f2:
             en_content = f2.read()
-        i = cn_content.index(". ")
-        j = cn_content.index("]")
-        cn_content = cn_content.replace(cn_content[i + 2 : j], title)
-        i = en_content.index(". ")
-        j = en_content.index("]")
-        en_content = en_content.replace(en_content[i + 2 : j], title_en)
 
-        # update tags
-        match = re.search(r"<!-- tags:(.*?) -->", cn_content)
-        if match:
-            # If tags exist, update them
-            cn_content = re.sub(
-                r"<!-- tags:(.*?) -->", f"<!-- tags:{tags} -->", cn_content
-            )
-        match = re.search(r"<!-- tags:(.*?) -->", en_content)
-        if match:
-            # If tags exist, update them
-            en_content = re.sub(
-                r"<!-- tags:(.*?) -->", f"<!-- tags:{tags_en} -->", en_content
-            )
+        category = question["category"]
 
-        # update difficulty
-        match = re.search(r"<!-- difficulty:(.*?) -->", cn_content)
-        if match:
-            # If difficulty exist, update them
-            cn_content = re.sub(
-                r"<!-- difficulty:(.*?) -->",
-                f"<!-- difficulty:{question['difficulty_cn']} -->",
-                cn_content,
-            )
-        else:
-            # If difficulty do not exist, insert them before "题目描述"
-            cn_content = cn_content.replace(
-                "## 题目描述",
-                f"<!-- difficulty:{question['difficulty_cn']} -->\n\n## 题目描述",
-            )
-        match = re.search(r"<!-- difficulty:(.*?) -->", en_content)
-        if match:
-            # If difficulty exist, update them
-            en_content = re.sub(
-                r"<!-- difficulty:(.*?) -->",
-                f"<!-- difficulty:{question['difficulty_en']} -->",
-                en_content,
-            )
-        else:
-            # If difficulty do not exist, insert them before "Description"
-            en_content = en_content.replace(
-                "## Description",
-                f"<!-- difficulty:{question['difficulty_en']} -->\n\n## Description",
-            )
+        readme_template_cn, readme_template_en = select_templates(category)
+        rating = int(rating_dict.get(str(front_question_id), {}).get("Rating", 0)) or ''
+        metadata = {
+            "tags": question["tags_cn"],
+            "difficulty": question["difficulty_cn"],
+            "rating": rating,
+            "comments": True,
+            "edit_url": f'https://github.com/doocs/leetcode/edit/main{question["relative_path_cn"]}',
+        }
+        if not question['tags_cn']:
+            metadata.pop('tags')
+        if not rating:
+            metadata.pop('rating')
+        yaml_metadata = yaml.dump(
+            metadata, default_flow_style=False, allow_unicode=True
+        )
+        metadata_section = f"---\n{yaml_metadata}---"
+        readme_template_cn = readme_template_cn.format(
+            metadata_section,
+            int(question["frontend_question_id"]),
+            question["title_cn"].strip() + paid_only,
+            question["url_cn"],
+            question["relative_path_en"],
+            question["content_cn"].replace("leetcode-cn.com", "leetcode.cn"),
+        )
+        cn_content = (
+            readme_template_cn[: readme_template_cn.index("## 解法")]
+            + cn_content[cn_content.index("## 解法") :]
+        )
 
-        # update question content
-        old_content = re.search(
-            "<!-- 这里写题目描述 -->(.*?)## 解法", cn_content, re.S
-        ).group(1)
-        if question.get("content_cn"):
-            cn_content = cn_content.replace(
-                old_content, "\n\n" + question["content_cn"] + "\n\n"
-            ).replace("\n\n    <ul>", "\n    <ul>")
+        metadata = {
+            "tags": question["tags_en"],
+            "difficulty": question["difficulty_en"],
+            "rating": rating,
+            "comments": True,
+            "edit_url": f'https://github.com/doocs/leetcode/edit/main{question["relative_path_en"]}',
+        }
+        if not question['tags_en']:
+            metadata.pop('tags')
+        if not rating:
+            metadata.pop('rating')
+        yaml_metadata = yaml.dump(
+            metadata, default_flow_style=False, allow_unicode=True
+        )
+        metadata_section = f"---\n{yaml_metadata}---"
+        readme_template_en = readme_template_en.format(
+            metadata_section,
+            int(question["frontend_question_id"]),
+            question["title_en"].strip() + paid_only,
+            question["url_en"],
+            question["relative_path_cn"],
+            question["content_en"],
+        )
+        en_content = (
+            readme_template_en[: readme_template_en.index("## Solutions")]
+            + en_content[en_content.index("## Solutions") :]
+        )
 
         # replace image url to cdn link
         for url in pattern.findall(cn_content) or []:

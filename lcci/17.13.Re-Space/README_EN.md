@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.13.Re-Space/README_EN.md
+---
+
 # [17.13. Re-Space](https://leetcode.cn/problems/re-space-lcci)
 
 [中文文档](/lcci/17.13.Re-Space/README.md)

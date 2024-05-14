@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1494.Parallel%20Courses%20II/README_EN.md
+rating: 2081
+tags:
+    - Bit Manipulation
+    - Graph
+    - Dynamic Programming
+    - Bitmask
+---
+
 # [1494. Parallel Courses II](https://leetcode.com/problems/parallel-courses-ii)
 
 [中文文档](/solution/1400-1499/1494.Parallel%20Courses%20II/README.md)
-
-<!-- tags:Bit Manipulation,Graph,Dynamic Programming,Bitmask -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

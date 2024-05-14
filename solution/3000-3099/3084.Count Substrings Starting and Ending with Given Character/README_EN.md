@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3084.Count%20Substrings%20Starting%20and%20Ending%20with%20Given%20Character/README_EN.md
+rating: 1323
+tags:
+    - Math
+    - String
+    - Counting
+---
+
 # [3084. Count Substrings Starting and Ending with Given Character](https://leetcode.com/problems/count-substrings-starting-and-ending-with-given-character)
 
 [中文文档](/solution/3000-3099/3084.Count%20Substrings%20Starting%20and%20Ending%20with%20Given%20Character/README.md)
-
-<!-- tags:Math,String,Counting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

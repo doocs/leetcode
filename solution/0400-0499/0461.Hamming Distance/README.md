@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0461.Hamming%20Distance/README.md
+tags:
+    - 位运算
+---
+
 # [461. 汉明距离](https://leetcode.cn/problems/hamming-distance)
 
 [English Version](/solution/0400-0499/0461.Hamming%20Distance/README_EN.md)
-
-<!-- tags:位运算 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

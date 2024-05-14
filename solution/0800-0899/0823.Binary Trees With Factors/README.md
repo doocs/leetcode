@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0823.Binary%20Trees%20With%20Factors/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 动态规划
+    - 排序
+---
+
 # [823. 带因子的二叉树](https://leetcode.cn/problems/binary-trees-with-factors)
 
 [English Version](/solution/0800-0899/0823.Binary%20Trees%20With%20Factors/README_EN.md)
-
-<!-- tags:数组,哈希表,动态规划,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

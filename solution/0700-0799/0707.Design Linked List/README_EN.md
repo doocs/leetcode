@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0707.Design%20Linked%20List/README_EN.md
+tags:
+    - Design
+    - Linked List
+---
+
 # [707. Design Linked List](https://leetcode.com/problems/design-linked-list)
 
 [中文文档](/solution/0700-0799/0707.Design%20Linked%20List/README.md)
-
-<!-- tags:Design,Linked List -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

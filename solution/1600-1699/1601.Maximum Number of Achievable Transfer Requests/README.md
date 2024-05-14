@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1601.Maximum%20Number%20of%20Achievable%20Transfer%20Requests/README.md
+rating: 2118
+tags:
+    - 位运算
+    - 数组
+    - 回溯
+    - 枚举
+---
+
 # [1601. 最多可达成的换楼请求数目](https://leetcode.cn/problems/maximum-number-of-achievable-transfer-requests)
 
 [English Version](/solution/1600-1699/1601.Maximum%20Number%20of%20Achievable%20Transfer%20Requests/README_EN.md)
-
-<!-- tags:位运算,数组,回溯,枚举 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1344.Angle%20Between%20Hands%20of%20a%20Clock/README.md
+rating: 1324
+tags:
+    - 数学
+---
+
 # [1344. 时钟指针的夹角](https://leetcode.cn/problems/angle-between-hands-of-a-clock)
 
 [English Version](/solution/1300-1399/1344.Angle%20Between%20Hands%20of%20a%20Clock/README_EN.md)
-
-<!-- tags:数学 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

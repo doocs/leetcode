@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1367.Linked%20List%20in%20Binary%20Tree/README.md
+rating: 1649
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 链表
+    - 二叉树
+---
+
 # [1367. 二叉树中的链表](https://leetcode.cn/problems/linked-list-in-binary-tree)
 
 [English Version](/solution/1300-1399/1367.Linked%20List%20in%20Binary%20Tree/README_EN.md)
-
-<!-- tags:树,深度优先搜索,广度优先搜索,链表,二叉树 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

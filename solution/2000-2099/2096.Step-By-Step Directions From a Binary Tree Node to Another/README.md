@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2096.Step-By-Step%20Directions%20From%20a%20Binary%20Tree%20Node%20to%20Another/README.md
+rating: 1804
+tags:
+    - 树
+    - 深度优先搜索
+    - 字符串
+    - 二叉树
+---
+
 # [2096. 从二叉树一个节点到另一个节点每一步的方向](https://leetcode.cn/problems/step-by-step-directions-from-a-binary-tree-node-to-another)
 
 [English Version](/solution/2000-2099/2096.Step-By-Step%20Directions%20From%20a%20Binary%20Tree%20Node%20to%20Another/README_EN.md)
-
-<!-- tags:树,深度优先搜索,字符串,二叉树 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

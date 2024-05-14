@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0826.Most%20Profit%20Assigning%20Work/README.md
+tags:
+    - 贪心
+    - 数组
+    - 双指针
+    - 二分查找
+    - 排序
+---
+
 # [826. 安排工作以达到最大收益](https://leetcode.cn/problems/most-profit-assigning-work)
 
 [English Version](/solution/0800-0899/0826.Most%20Profit%20Assigning%20Work/README_EN.md)
-
-<!-- tags:贪心,数组,双指针,二分查找,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

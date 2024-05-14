@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2070.%20%E6%B2%99%E5%9C%B0%E6%B2%BB%E7%90%86/README.md
+---
+
 # [LCP 70. 沙地治理](https://leetcode.cn/problems/XxZZjK)
 
 ## 题目描述

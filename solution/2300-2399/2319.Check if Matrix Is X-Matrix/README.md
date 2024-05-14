@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2319.Check%20if%20Matrix%20Is%20X-Matrix/README.md
+rating: 1200
+tags:
+    - 数组
+    - 矩阵
+---
+
 # [2319. 判断矩阵是否是一个 X 矩阵](https://leetcode.cn/problems/check-if-matrix-is-x-matrix)
 
 [English Version](/solution/2300-2399/2319.Check%20if%20Matrix%20Is%20X-Matrix/README_EN.md)
-
-<!-- tags:数组,矩阵 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

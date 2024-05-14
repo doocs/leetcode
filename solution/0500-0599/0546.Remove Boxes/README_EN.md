@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0546.Remove%20Boxes/README_EN.md
+tags:
+    - Memoization
+    - Array
+    - Dynamic Programming
+---
+
 # [546. Remove Boxes](https://leetcode.com/problems/remove-boxes)
 
 [中文文档](/solution/0500-0599/0546.Remove%20Boxes/README.md)
-
-<!-- tags:Memoization,Array,Dynamic Programming -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3044.Most%20Frequent%20Prime/README_EN.md
+rating: 1737
+tags:
+    - Array
+    - Hash Table
+    - Math
+    - Counting
+    - Enumeration
+    - Matrix
+    - Number Theory
+---
+
 # [3044. Most Frequent Prime](https://leetcode.com/problems/most-frequent-prime)
 
 [中文文档](/solution/3000-3099/3044.Most%20Frequent%20Prime/README.md)
-
-<!-- tags:Array,Hash Table,Math,Counting,Enumeration,Matrix,Number Theory -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

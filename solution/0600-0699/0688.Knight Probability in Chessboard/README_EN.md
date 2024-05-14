@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0688.Knight%20Probability%20in%20Chessboard/README_EN.md
+tags:
+    - Dynamic Programming
+---
+
 # [688. Knight Probability in Chessboard](https://leetcode.com/problems/knight-probability-in-chessboard)
 
 [中文文档](/solution/0600-0699/0688.Knight%20Probability%20in%20Chessboard/README.md)
-
-<!-- tags:Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

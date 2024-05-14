@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2166.Design%20Bitset/README_EN.md
+rating: 1751
+tags:
+    - Design
+    - Array
+    - Hash Table
+    - String
+---
+
 # [2166. Design Bitset](https://leetcode.com/problems/design-bitset)
 
 [中文文档](/solution/2100-2199/2166.Design%20Bitset/README.md)
-
-<!-- tags:Design,Array,Hash Table,String -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

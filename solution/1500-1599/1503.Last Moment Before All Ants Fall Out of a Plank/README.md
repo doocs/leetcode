@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1503.Last%20Moment%20Before%20All%20Ants%20Fall%20Out%20of%20a%20Plank/README.md
+rating: 1618
+tags:
+    - 脑筋急转弯
+    - 数组
+    - 模拟
+---
+
 # [1503. 所有蚂蚁掉下来前的最后一刻](https://leetcode.cn/problems/last-moment-before-all-ants-fall-out-of-a-plank)
 
 [English Version](/solution/1500-1599/1503.Last%20Moment%20Before%20All%20Ants%20Fall%20Out%20of%20a%20Plank/README_EN.md)
-
-<!-- tags:脑筋急转弯,数组,模拟 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

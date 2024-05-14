@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2125.Number%20of%20Laser%20Beams%20in%20a%20Bank/README.md
+rating: 1280
+tags:
+    - 数组
+    - 数学
+    - 字符串
+    - 矩阵
+---
+
 # [2125. 银行中的激光束数量](https://leetcode.cn/problems/number-of-laser-beams-in-a-bank)
 
 [English Version](/solution/2100-2199/2125.Number%20of%20Laser%20Beams%20in%20a%20Bank/README_EN.md)
-
-<!-- tags:数组,数学,字符串,矩阵 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2391.Minimum%20Amount%20of%20Time%20to%20Collect%20Garbage/README_EN.md
+rating: 1455
+tags:
+    - Array
+    - String
+    - Prefix Sum
+---
+
 # [2391. Minimum Amount of Time to Collect Garbage](https://leetcode.com/problems/minimum-amount-of-time-to-collect-garbage)
 
 [中文文档](/solution/2300-2399/2391.Minimum%20Amount%20of%20Time%20to%20Collect%20Garbage/README.md)
-
-<!-- tags:Array,String,Prefix Sum -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

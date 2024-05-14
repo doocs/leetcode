@@ -1,10 +1,17 @@
-# [2871. 将数组分割成最多数目的子数组](https://leetcode.cn/problems/split-array-into-maximum-number-of-subarrays/)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2871.Split%20Array%20Into%20Maximum%20Number%20of%20Subarrays/README.md
+rating: 1749
+tags:
+    - 贪心
+    - 位运算
+    - 数组
+---
+
+# [2871. 将数组分割成最多数目的子数组](https://leetcode.cn/problems/split-array-into-maximum-number-of-subarrays)
 
 [English Version](/solution/2800-2899/2871.Split%20Array%20Into%20Maximum%20Number%20of%20Subarrays/README_EN.md)
-
-<!-- tags:贪心,位运算,数组 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

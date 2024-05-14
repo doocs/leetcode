@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2396.Strictly%20Palindromic%20Number/README_EN.md
+rating: 1328
+tags:
+    - Brainteaser
+    - Math
+    - Two Pointers
+---
+
 # [2396. Strictly Palindromic Number](https://leetcode.com/problems/strictly-palindromic-number)
 
 [中文文档](/solution/2300-2399/2396.Strictly%20Palindromic%20Number/README.md)
-
-<!-- tags:Brainteaser,Math,Two Pointers -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

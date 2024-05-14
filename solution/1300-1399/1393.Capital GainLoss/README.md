@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1393.Capital%20GainLoss/README.md
+tags:
+    - 数据库
+---
+
 # [1393. 股票的资本损益](https://leetcode.cn/problems/capital-gainloss)
 
 [English Version](/solution/1300-1399/1393.Capital%20GainLoss/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

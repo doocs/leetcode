@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2922.Market%20Analysis%20III/README.md
+tags:
+    - 数据库
+---
+
 # [2922. 市场分析 III 🔒](https://leetcode.cn/problems/market-analysis-iii)
 
 [English Version](/solution/2900-2999/2922.Market%20Analysis%20III/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

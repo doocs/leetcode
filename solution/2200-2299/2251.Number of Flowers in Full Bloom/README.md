@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2251.Number%20of%20Flowers%20in%20Full%20Bloom/README.md
+rating: 2022
+tags:
+    - 数组
+    - 哈希表
+    - 二分查找
+    - 有序集合
+    - 前缀和
+    - 排序
+---
+
 # [2251. 花期内花的数目](https://leetcode.cn/problems/number-of-flowers-in-full-bloom)
 
 [English Version](/solution/2200-2299/2251.Number%20of%20Flowers%20in%20Full%20Bloom/README_EN.md)
-
-<!-- tags:数组,哈希表,二分查找,有序集合,前缀和,排序 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

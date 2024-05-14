@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3075.Maximize%20Happiness%20of%20Selected%20Children/README.md
+rating: 1325
+tags:
+    - 贪心
+    - 数组
+    - 排序
+---
+
 # [3075. 幸福值最大化的选择方案](https://leetcode.cn/problems/maximize-happiness-of-selected-children)
 
 [English Version](/solution/3000-3099/3075.Maximize%20Happiness%20of%20Selected%20Children/README_EN.md)
-
-<!-- tags:贪心,数组,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

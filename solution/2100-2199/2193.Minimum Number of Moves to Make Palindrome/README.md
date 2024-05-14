@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2193.Minimum%20Number%20of%20Moves%20to%20Make%20Palindrome/README.md
+rating: 2090
+tags:
+    - 贪心
+    - 树状数组
+    - 双指针
+    - 字符串
+---
+
 # [2193. 得到回文串的最少操作次数](https://leetcode.cn/problems/minimum-number-of-moves-to-make-palindrome)
 
 [English Version](/solution/2100-2199/2193.Minimum%20Number%20of%20Moves%20to%20Make%20Palindrome/README_EN.md)
-
-<!-- tags:贪心,树状数组,双指针,字符串 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

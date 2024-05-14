@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0353.Design%20Snake%20Game/README.md
+tags:
+    - 设计
+    - 队列
+    - 数组
+    - 哈希表
+    - 模拟
+---
+
 # [353. 贪吃蛇 🔒](https://leetcode.cn/problems/design-snake-game)
 
 [English Version](/solution/0300-0399/0353.Design%20Snake%20Game/README_EN.md)
-
-<!-- tags:设计,队列,数组,哈希表,模拟 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

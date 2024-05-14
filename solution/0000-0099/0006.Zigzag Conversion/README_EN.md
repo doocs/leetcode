@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0006.Zigzag%20Conversion/README_EN.md
+tags:
+    - String
+---
+
 # [6. Zigzag Conversion](https://leetcode.com/problems/zigzag-conversion)
 
 [中文文档](/solution/0000-0099/0006.Zigzag%20Conversion/README.md)
-
-<!-- tags:String -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

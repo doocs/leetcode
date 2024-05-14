@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1944.Number%20of%20Visible%20People%20in%20a%20Queue/README.md
+rating: 2104
+tags:
+    - 栈
+    - 数组
+    - 单调栈
+---
+
 # [1944. 队列中可以看到的人数](https://leetcode.cn/problems/number-of-visible-people-in-a-queue)
 
 [English Version](/solution/1900-1999/1944.Number%20of%20Visible%20People%20in%20a%20Queue/README_EN.md)
-
-<!-- tags:栈,数组,单调栈 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

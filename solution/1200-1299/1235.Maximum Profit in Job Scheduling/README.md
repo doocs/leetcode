@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1235.Maximum%20Profit%20in%20Job%20Scheduling/README.md
+rating: 2022
+tags:
+    - 数组
+    - 二分查找
+    - 动态规划
+    - 排序
+---
+
 # [1235. 规划兼职工作](https://leetcode.cn/problems/maximum-profit-in-job-scheduling)
 
 [English Version](/solution/1200-1299/1235.Maximum%20Profit%20in%20Job%20Scheduling/README_EN.md)
-
-<!-- tags:数组,二分查找,动态规划,排序 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

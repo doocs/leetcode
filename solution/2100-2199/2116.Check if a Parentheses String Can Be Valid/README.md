@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2116.Check%20if%20a%20Parentheses%20String%20Can%20Be%20Valid/README.md
+rating: 2037
+tags:
+    - 栈
+    - 贪心
+    - 字符串
+---
+
 # [2116. 判断一个括号字符串是否有效](https://leetcode.cn/problems/check-if-a-parentheses-string-can-be-valid)
 
 [English Version](/solution/2100-2199/2116.Check%20if%20a%20Parentheses%20String%20Can%20Be%20Valid/README_EN.md)
-
-<!-- tags:栈,贪心,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

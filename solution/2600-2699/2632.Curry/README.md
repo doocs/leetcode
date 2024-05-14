@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2632.Curry/README.md
+---
+
 # [2632. 柯里化 🔒](https://leetcode.cn/problems/curry)
 
 [English Version](/solution/2600-2699/2632.Curry/README_EN.md)
-
-<!-- tags: -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

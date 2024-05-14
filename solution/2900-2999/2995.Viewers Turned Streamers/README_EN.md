@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2995.Viewers%20Turned%20Streamers/README_EN.md
+tags:
+    - Database
+---
+
 # [2995. Viewers Turned Streamers 🔒](https://leetcode.com/problems/viewers-turned-streamers)
 
 [中文文档](/solution/2900-2999/2995.Viewers%20Turned%20Streamers/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

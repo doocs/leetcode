@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2447.Number%20of%20Subarrays%20With%20GCD%20Equal%20to%20K/README_EN.md
+rating: 1602
+tags:
+    - Array
+    - Math
+    - Number Theory
+---
+
 # [2447. Number of Subarrays With GCD Equal to K](https://leetcode.com/problems/number-of-subarrays-with-gcd-equal-to-k)
 
 [中文文档](/solution/2400-2499/2447.Number%20of%20Subarrays%20With%20GCD%20Equal%20to%20K/README.md)
-
-<!-- tags:Array,Math,Number Theory -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

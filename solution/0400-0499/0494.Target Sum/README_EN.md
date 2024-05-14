@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0494.Target%20Sum/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+    - Backtracking
+---
+
 # [494. Target Sum](https://leetcode.com/problems/target-sum)
 
 [中文文档](/solution/0400-0499/0494.Target%20Sum/README.md)
-
-<!-- tags:Array,Dynamic Programming,Backtracking -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

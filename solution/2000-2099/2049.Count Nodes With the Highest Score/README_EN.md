@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2049.Count%20Nodes%20With%20the%20Highest%20Score/README_EN.md
+rating: 1911
+tags:
+    - Tree
+    - Depth-First Search
+    - Array
+    - Binary Tree
+---
+
 # [2049. Count Nodes With the Highest Score](https://leetcode.com/problems/count-nodes-with-the-highest-score)
 
 [中文文档](/solution/2000-2099/2049.Count%20Nodes%20With%20the%20Highest%20Score/README.md)
-
-<!-- tags:Tree,Depth-First Search,Array,Binary Tree -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1125.Smallest%20Sufficient%20Team/README.md
+rating: 2250
+tags:
+    - 位运算
+    - 数组
+    - 动态规划
+    - 状态压缩
+---
+
 # [1125. 最小的必要团队](https://leetcode.cn/problems/smallest-sufficient-team)
 
 [English Version](/solution/1100-1199/1125.Smallest%20Sufficient%20Team/README_EN.md)
-
-<!-- tags:位运算,数组,动态规划,状态压缩 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

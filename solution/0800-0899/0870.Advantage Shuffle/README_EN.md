@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0870.Advantage%20Shuffle/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Two Pointers
+    - Sorting
+---
+
 # [870. Advantage Shuffle](https://leetcode.com/problems/advantage-shuffle)
 
 [中文文档](/solution/0800-0899/0870.Advantage%20Shuffle/README.md)
-
-<!-- tags:Greedy,Array,Two Pointers,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

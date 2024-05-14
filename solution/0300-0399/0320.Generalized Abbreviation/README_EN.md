@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0320.Generalized%20Abbreviation/README_EN.md
+tags:
+    - Bit Manipulation
+    - String
+    - Backtracking
+---
+
 # [320. Generalized Abbreviation 🔒](https://leetcode.com/problems/generalized-abbreviation)
 
 [中文文档](/solution/0300-0399/0320.Generalized%20Abbreviation/README.md)
-
-<!-- tags:Bit Manipulation,String,Backtracking -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

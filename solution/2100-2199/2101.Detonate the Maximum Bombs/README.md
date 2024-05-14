@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2101.Detonate%20the%20Maximum%20Bombs/README.md
+rating: 1880
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 图
+    - 几何
+    - 数组
+    - 数学
+---
+
 # [2101. 引爆最多的炸弹](https://leetcode.cn/problems/detonate-the-maximum-bombs)
 
 [English Version](/solution/2100-2199/2101.Detonate%20the%20Maximum%20Bombs/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,图,几何,数组,数学 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

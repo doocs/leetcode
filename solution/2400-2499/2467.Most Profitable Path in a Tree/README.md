@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2467.Most%20Profitable%20Path%20in%20a%20Tree/README.md
+rating: 2053
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 图
+    - 数组
+---
+
 # [2467. 树上最大得分和路径](https://leetcode.cn/problems/most-profitable-path-in-a-tree)
 
 [English Version](/solution/2400-2499/2467.Most%20Profitable%20Path%20in%20a%20Tree/README_EN.md)
-
-<!-- tags:树,深度优先搜索,广度优先搜索,图,数组 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2610.Convert%20an%20Array%20Into%20a%202D%20Array%20With%20Conditions/README.md
+rating: 1373
+tags:
+    - 数组
+    - 哈希表
+---
+
 # [2610. 转换二维数组](https://leetcode.cn/problems/convert-an-array-into-a-2d-array-with-conditions)
 
 [English Version](/solution/2600-2699/2610.Convert%20an%20Array%20Into%20a%202D%20Array%20With%20Conditions/README_EN.md)
-
-<!-- tags:数组,哈希表 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

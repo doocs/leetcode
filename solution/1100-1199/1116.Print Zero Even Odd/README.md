@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1116.Print%20Zero%20Even%20Odd/README.md
+tags:
+    - 多线程
+---
+
 # [1116. 打印零与奇偶数](https://leetcode.cn/problems/print-zero-even-odd)
 
 [English Version](/solution/1100-1199/1116.Print%20Zero%20Even%20Odd/README_EN.md)
-
-<!-- tags:多线程 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

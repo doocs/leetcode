@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2017.Grid%20Game/README.md
+rating: 1718
+tags:
+    - 数组
+    - 矩阵
+    - 前缀和
+---
+
 # [2017. 网格游戏](https://leetcode.cn/problems/grid-game)
 
 [English Version](/solution/2000-2099/2017.Grid%20Game/README_EN.md)
-
-<!-- tags:数组,矩阵,前缀和 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

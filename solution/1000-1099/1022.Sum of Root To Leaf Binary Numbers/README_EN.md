@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1022.Sum%20of%20Root%20To%20Leaf%20Binary%20Numbers/README_EN.md
+rating: 1462
+tags:
+    - Tree
+    - Depth-First Search
+    - Binary Tree
+---
+
 # [1022. Sum of Root To Leaf Binary Numbers](https://leetcode.com/problems/sum-of-root-to-leaf-binary-numbers)
 
 [中文文档](/solution/1000-1099/1022.Sum%20of%20Root%20To%20Leaf%20Binary%20Numbers/README.md)
-
-<!-- tags:Tree,Depth-First Search,Binary Tree -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

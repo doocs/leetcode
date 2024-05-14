@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0008.String%20to%20Integer%20%28atoi%29/README.md
+tags:
+    - 字符串
+---
+
 # [8. 字符串转换整数 (atoi)](https://leetcode.cn/problems/string-to-integer-atoi)
 
 [English Version](/solution/0000-0099/0008.String%20to%20Integer%20%28atoi%29/README_EN.md)
-
-<!-- tags:字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

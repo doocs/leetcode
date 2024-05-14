@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0234.Palindrome%20Linked%20List/README.md
+tags:
+    - 栈
+    - 递归
+    - 链表
+    - 双指针
+---
+
 # [234. 回文链表](https://leetcode.cn/problems/palindrome-linked-list)
 
 [English Version](/solution/0200-0299/0234.Palindrome%20Linked%20List/README_EN.md)
-
-<!-- tags:栈,递归,链表,双指针 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

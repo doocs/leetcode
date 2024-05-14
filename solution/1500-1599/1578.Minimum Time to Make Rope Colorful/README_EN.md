@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1578.Minimum%20Time%20to%20Make%20Rope%20Colorful/README_EN.md
+rating: 1574
+tags:
+    - Greedy
+    - Array
+    - String
+    - Dynamic Programming
+---
+
 # [1578. Minimum Time to Make Rope Colorful](https://leetcode.com/problems/minimum-time-to-make-rope-colorful)
 
 [中文文档](/solution/1500-1599/1578.Minimum%20Time%20to%20Make%20Rope%20Colorful/README.md)
-
-<!-- tags:Greedy,Array,String,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

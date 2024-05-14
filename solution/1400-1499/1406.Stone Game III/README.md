@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1406.Stone%20Game%20III/README.md
+rating: 2026
+tags:
+    - 数组
+    - 数学
+    - 动态规划
+    - 博弈
+---
+
 # [1406. 石子游戏 III](https://leetcode.cn/problems/stone-game-iii)
 
 [English Version](/solution/1400-1499/1406.Stone%20Game%20III/README_EN.md)
-
-<!-- tags:数组,数学,动态规划,博弈 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2779.Maximum%20Beauty%20of%20an%20Array%20After%20Applying%20Operation/README.md
+rating: 1638
+tags:
+    - 数组
+    - 二分查找
+    - 排序
+    - 滑动窗口
+---
+
 # [2779. 数组的最大美丽值](https://leetcode.cn/problems/maximum-beauty-of-an-array-after-applying-operation)
 
 [English Version](/solution/2700-2799/2779.Maximum%20Beauty%20of%20an%20Array%20After%20Applying%20Operation/README_EN.md)
-
-<!-- tags:数组,二分查找,排序,滑动窗口 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

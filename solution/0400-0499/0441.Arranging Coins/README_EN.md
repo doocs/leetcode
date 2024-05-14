@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0441.Arranging%20Coins/README_EN.md
+tags:
+    - Math
+    - Binary Search
+---
+
 # [441. Arranging Coins](https://leetcode.com/problems/arranging-coins)
 
 [中文文档](/solution/0400-0499/0441.Arranging%20Coins/README.md)
-
-<!-- tags:Math,Binary Search -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

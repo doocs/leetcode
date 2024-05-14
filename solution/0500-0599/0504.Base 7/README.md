@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0504.Base%207/README.md
+tags:
+    - 数学
+---
+
 # [504. 七进制数](https://leetcode.cn/problems/base-7)
 
 [English Version](/solution/0500-0599/0504.Base%207/README_EN.md)
-
-<!-- tags:数学 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

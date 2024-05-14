@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2248.Intersection%20of%20Multiple%20Arrays/README.md
+rating: 1264
+tags:
+    - 数组
+    - 哈希表
+    - 计数
+    - 排序
+---
+
 # [2248. 多个数组求交集](https://leetcode.cn/problems/intersection-of-multiple-arrays)
 
 [English Version](/solution/2200-2299/2248.Intersection%20of%20Multiple%20Arrays/README_EN.md)
-
-<!-- tags:数组,哈希表,计数,排序 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

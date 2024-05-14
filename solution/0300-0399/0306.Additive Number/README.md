@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0306.Additive%20Number/README.md
+tags:
+    - 字符串
+    - 回溯
+---
+
 # [306. 累加数](https://leetcode.cn/problems/additive-number)
 
 [English Version](/solution/0300-0399/0306.Additive%20Number/README_EN.md)
-
-<!-- tags:字符串,回溯 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

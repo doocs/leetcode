@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3110.Score%20of%20a%20String/README.md
+rating: 1152
+tags:
+    - 字符串
+---
+
 # [3110. 字符串的分数](https://leetcode.cn/problems/score-of-a-string)
 
 [English Version](/solution/3100-3199/3110.Score%20of%20a%20String/README_EN.md)
-
-<!-- tags:字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

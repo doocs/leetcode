@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0320.Generalized%20Abbreviation/README.md
+tags:
+    - 位运算
+    - 字符串
+    - 回溯
+---
+
 # [320. 列举单词的全部缩写 🔒](https://leetcode.cn/problems/generalized-abbreviation)
 
 [English Version](/solution/0300-0399/0320.Generalized%20Abbreviation/README_EN.md)
-
-<!-- tags:位运算,字符串,回溯 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

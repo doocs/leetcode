@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1086.High%20Five/README_EN.md
+rating: 1327
+tags:
+    - Array
+    - Hash Table
+    - Sorting
+    - Heap (Priority Queue)
+---
+
 # [1086. High Five 🔒](https://leetcode.com/problems/high-five)
 
 [中文文档](/solution/1000-1099/1086.High%20Five/README.md)
-
-<!-- tags:Array,Hash Table,Sorting,Heap (Priority Queue) -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

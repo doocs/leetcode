@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.03.Search%20Rotate%20Array/README.md
+---
+
 # [面试题 10.03. 搜索旋转数组](https://leetcode.cn/problems/search-rotate-array-lcci)
 
 [English Version](/lcci/10.03.Search%20Rotate%20Array/README_EN.md)

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0258.Add%20Digits/README.md
+tags:
+    - 数学
+    - 数论
+    - 模拟
+---
+
 # [258. 各位相加](https://leetcode.cn/problems/add-digits)
 
 [English Version](/solution/0200-0299/0258.Add%20Digits/README_EN.md)
-
-<!-- tags:数学,数论,模拟 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

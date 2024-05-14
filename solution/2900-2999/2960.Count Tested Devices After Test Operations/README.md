@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2960.Count%20Tested%20Devices%20After%20Test%20Operations/README.md
+rating: 1169
+tags:
+    - 数组
+    - 模拟
+---
+
 # [2960. 统计已测试设备](https://leetcode.cn/problems/count-tested-devices-after-test-operations)
 
 [English Version](/solution/2900-2999/2960.Count%20Tested%20Devices%20After%20Test%20Operations/README_EN.md)
-
-<!-- tags:数组,模拟 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

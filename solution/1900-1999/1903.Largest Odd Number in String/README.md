@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1903.Largest%20Odd%20Number%20in%20String/README.md
+rating: 1248
+tags:
+    - 贪心
+    - 数学
+    - 字符串
+---
+
 # [1903. 字符串中的最大奇数](https://leetcode.cn/problems/largest-odd-number-in-string)
 
 [English Version](/solution/1900-1999/1903.Largest%20Odd%20Number%20in%20String/README_EN.md)
-
-<!-- tags:贪心,数学,字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

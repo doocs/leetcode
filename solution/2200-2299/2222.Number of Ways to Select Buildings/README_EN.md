@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2222.Number%20of%20Ways%20to%20Select%20Buildings/README_EN.md
+rating: 1656
+tags:
+    - String
+    - Dynamic Programming
+    - Prefix Sum
+---
+
 # [2222. Number of Ways to Select Buildings](https://leetcode.com/problems/number-of-ways-to-select-buildings)
 
 [中文文档](/solution/2200-2299/2222.Number%20of%20Ways%20to%20Select%20Buildings/README.md)
-
-<!-- tags:String,Dynamic Programming,Prefix Sum -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2613.Beautiful%20Pairs/README.md
+tags:
+    - 几何
+    - 数组
+    - 数学
+    - 分治
+    - 有序集合
+    - 排序
+---
+
 # [2613. 美数对 🔒](https://leetcode.cn/problems/beautiful-pairs)
 
 [English Version](/solution/2600-2699/2613.Beautiful%20Pairs/README_EN.md)
-
-<!-- tags:几何,数组,数学,分治,有序集合,排序 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

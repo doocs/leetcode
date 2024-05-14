@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2169.Count%20Operations%20to%20Obtain%20Zero/README_EN.md
+rating: 1199
+tags:
+    - Math
+    - Simulation
+---
+
 # [2169. Count Operations to Obtain Zero](https://leetcode.com/problems/count-operations-to-obtain-zero)
 
 [中文文档](/solution/2100-2199/2169.Count%20Operations%20to%20Obtain%20Zero/README.md)
-
-<!-- tags:Math,Simulation -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

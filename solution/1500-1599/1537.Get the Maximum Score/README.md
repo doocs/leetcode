@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1537.Get%20the%20Maximum%20Score/README.md
+rating: 1961
+tags:
+    - 贪心
+    - 数组
+    - 双指针
+    - 动态规划
+---
+
 # [1537. 最大得分](https://leetcode.cn/problems/get-the-maximum-score)
 
 [English Version](/solution/1500-1599/1537.Get%20the%20Maximum%20Score/README_EN.md)
-
-<!-- tags:贪心,数组,双指针,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

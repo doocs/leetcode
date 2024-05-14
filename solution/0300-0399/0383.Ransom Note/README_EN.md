@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0383.Ransom%20Note/README_EN.md
+tags:
+    - Hash Table
+    - String
+    - Counting
+---
+
 # [383. Ransom Note](https://leetcode.com/problems/ransom-note)
 
 [中文文档](/solution/0300-0399/0383.Ransom%20Note/README.md)
-
-<!-- tags:Hash Table,String,Counting -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

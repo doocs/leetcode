@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2884.Modify%20Columns/README_EN.md
+---
+
 # [2884. Modify Columns](https://leetcode.com/problems/modify-columns)
 
 [中文文档](/solution/2800-2899/2884.Modify%20Columns/README.md)
-
-<!-- tags: -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

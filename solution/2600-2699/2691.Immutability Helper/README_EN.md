@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2691.Immutability%20Helper/README_EN.md
+---
+
 # [2691. Immutability Helper 🔒](https://leetcode.com/problems/immutability-helper)
 
 [中文文档](/solution/2600-2699/2691.Immutability%20Helper/README.md)
-
-<!-- tags: -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

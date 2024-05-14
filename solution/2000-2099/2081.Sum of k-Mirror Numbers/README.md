@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2081.Sum%20of%20k-Mirror%20Numbers/README.md
+rating: 2209
+tags:
+    - 数学
+    - 枚举
+---
+
 # [2081. k 镜像数字的和](https://leetcode.cn/problems/sum-of-k-mirror-numbers)
 
 [English Version](/solution/2000-2099/2081.Sum%20of%20k-Mirror%20Numbers/README_EN.md)
-
-<!-- tags:数学,枚举 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

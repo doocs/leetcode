@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1109.Corporate%20Flight%20Bookings/README_EN.md
+rating: 1569
+tags:
+    - Array
+    - Prefix Sum
+---
+
 # [1109. Corporate Flight Bookings](https://leetcode.com/problems/corporate-flight-bookings)
 
 [中文文档](/solution/1100-1199/1109.Corporate%20Flight%20Bookings/README.md)
-
-<!-- tags:Array,Prefix Sum -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

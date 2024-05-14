@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0735.Asteroid%20Collision/README.md
+tags:
+    - 栈
+    - 数组
+    - 模拟
+---
+
 # [735. 小行星碰撞](https://leetcode.cn/problems/asteroid-collision)
 
 [English Version](/solution/0700-0799/0735.Asteroid%20Collision/README_EN.md)
-
-<!-- tags:栈,数组,模拟 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

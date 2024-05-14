@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0447.Number%20of%20Boomerangs/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Math
+---
+
 # [447. Number of Boomerangs](https://leetcode.com/problems/number-of-boomerangs)
 
 [中文文档](/solution/0400-0499/0447.Number%20of%20Boomerangs/README.md)
-
-<!-- tags:Array,Hash Table,Math -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

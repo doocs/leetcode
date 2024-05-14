@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1595.Minimum%20Cost%20to%20Connect%20Two%20Groups%20of%20Points/README.md
+rating: 2537
+tags:
+    - 位运算
+    - 数组
+    - 动态规划
+    - 状态压缩
+    - 矩阵
+---
+
 # [1595. 连通两组点的最小成本](https://leetcode.cn/problems/minimum-cost-to-connect-two-groups-of-points)
 
 [English Version](/solution/1500-1599/1595.Minimum%20Cost%20to%20Connect%20Two%20Groups%20of%20Points/README_EN.md)
-
-<!-- tags:位运算,数组,动态规划,状态压缩,矩阵 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

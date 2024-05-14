@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0189.Rotate%20Array/README.md
+tags:
+    - 数组
+    - 数学
+    - 双指针
+---
+
 # [189. 轮转数组](https://leetcode.cn/problems/rotate-array)
 
 [English Version](/solution/0100-0199/0189.Rotate%20Array/README_EN.md)
-
-<!-- tags:数组,数学,双指针 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

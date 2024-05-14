@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1002.Find%20Common%20Characters/README.md
+rating: 1279
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+---
+
 # [1002. 查找共用字符](https://leetcode.cn/problems/find-common-characters)
 
 [English Version](/solution/1000-1099/1002.Find%20Common%20Characters/README_EN.md)
-
-<!-- tags:数组,哈希表,字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

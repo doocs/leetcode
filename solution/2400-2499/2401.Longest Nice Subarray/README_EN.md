@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2401.Longest%20Nice%20Subarray/README_EN.md
+rating: 1749
+tags:
+    - Bit Manipulation
+    - Array
+    - Sliding Window
+---
+
 # [2401. Longest Nice Subarray](https://leetcode.com/problems/longest-nice-subarray)
 
 [中文文档](/solution/2400-2499/2401.Longest%20Nice%20Subarray/README.md)
-
-<!-- tags:Bit Manipulation,Array,Sliding Window -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

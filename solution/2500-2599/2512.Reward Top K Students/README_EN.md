@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2512.Reward%20Top%20K%20Students/README_EN.md
+rating: 1636
+tags:
+    - Array
+    - Hash Table
+    - String
+    - Sorting
+    - Heap (Priority Queue)
+---
+
 # [2512. Reward Top K Students](https://leetcode.com/problems/reward-top-k-students)
 
 [中文文档](/solution/2500-2599/2512.Reward%20Top%20K%20Students/README.md)
-
-<!-- tags:Array,Hash Table,String,Sorting,Heap (Priority Queue) -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

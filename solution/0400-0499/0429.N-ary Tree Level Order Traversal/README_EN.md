@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0429.N-ary%20Tree%20Level%20Order%20Traversal/README_EN.md
+tags:
+    - Tree
+    - Breadth-First Search
+---
+
 # [429. N-ary Tree Level Order Traversal](https://leetcode.com/problems/n-ary-tree-level-order-traversal)
 
 [中文文档](/solution/0400-0499/0429.N-ary%20Tree%20Level%20Order%20Traversal/README.md)
-
-<!-- tags:Tree,Breadth-First Search -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

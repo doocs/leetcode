@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3024.Type%20of%20Triangle/README.md
+rating: 1134
+tags:
+    - 数组
+    - 数学
+    - 排序
+---
+
 # [3024. 三角形类型](https://leetcode.cn/problems/type-of-triangle)
 
 [English Version](/solution/3000-3099/3024.Type%20of%20Triangle/README_EN.md)
-
-<!-- tags:数组,数学,排序 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

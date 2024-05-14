@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1300.Sum%20of%20Mutated%20Array%20Closest%20to%20Target/README.md
+rating: 1606
+tags:
+    - 数组
+    - 二分查找
+    - 排序
+---
+
 # [1300. 转变数组后最接近目标值的数组和](https://leetcode.cn/problems/sum-of-mutated-array-closest-to-target)
 
 [English Version](/solution/1300-1399/1300.Sum%20of%20Mutated%20Array%20Closest%20to%20Target/README_EN.md)
-
-<!-- tags:数组,二分查找,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

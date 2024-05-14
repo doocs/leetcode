@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0883.Projection%20Area%20of%203D%20Shapes/README_EN.md
+tags:
+    - Geometry
+    - Array
+    - Math
+    - Matrix
+---
+
 # [883. Projection Area of 3D Shapes](https://leetcode.com/problems/projection-area-of-3d-shapes)
 
 [中文文档](/solution/0800-0899/0883.Projection%20Area%20of%203D%20Shapes/README.md)
-
-<!-- tags:Geometry,Array,Math,Matrix -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

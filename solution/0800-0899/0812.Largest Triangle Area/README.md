@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0812.Largest%20Triangle%20Area/README.md
+tags:
+    - 几何
+    - 数组
+    - 数学
+---
+
 # [812. 最大三角形面积](https://leetcode.cn/problems/largest-triangle-area)
 
 [English Version](/solution/0800-0899/0812.Largest%20Triangle%20Area/README_EN.md)
-
-<!-- tags:几何,数组,数学 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

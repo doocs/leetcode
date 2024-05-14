@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1255.Maximum%20Score%20Words%20Formed%20by%20Letters/README_EN.md
+rating: 1881
+tags:
+    - Bit Manipulation
+    - Array
+    - String
+    - Dynamic Programming
+    - Backtracking
+    - Bitmask
+---
+
 # [1255. Maximum Score Words Formed by Letters](https://leetcode.com/problems/maximum-score-words-formed-by-letters)
 
 [中文文档](/solution/1200-1299/1255.Maximum%20Score%20Words%20Formed%20by%20Letters/README.md)
-
-<!-- tags:Bit Manipulation,Array,String,Dynamic Programming,Backtracking,Bitmask -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

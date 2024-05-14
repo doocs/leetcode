@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2554.Maximum%20Number%20of%20Integers%20to%20Choose%20From%20a%20Range%20I/README.md
+rating: 1333
+tags:
+    - 贪心
+    - 数组
+    - 哈希表
+    - 二分查找
+    - 排序
+---
+
 # [2554. 从一个范围内选择最多整数 I](https://leetcode.cn/problems/maximum-number-of-integers-to-choose-from-a-range-i)
 
 [English Version](/solution/2500-2599/2554.Maximum%20Number%20of%20Integers%20to%20Choose%20From%20a%20Range%20I/README_EN.md)
-
-<!-- tags:贪心,数组,哈希表,二分查找,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

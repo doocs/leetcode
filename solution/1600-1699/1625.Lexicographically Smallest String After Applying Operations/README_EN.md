@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1625.Lexicographically%20Smallest%20String%20After%20Applying%20Operations/README_EN.md
+rating: 1992
+tags:
+    - Breadth-First Search
+    - String
+---
+
 # [1625. Lexicographically Smallest String After Applying Operations](https://leetcode.com/problems/lexicographically-smallest-string-after-applying-operations)
 
 [中文文档](/solution/1600-1699/1625.Lexicographically%20Smallest%20String%20After%20Applying%20Operations/README.md)
-
-<!-- tags:Breadth-First Search,String -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

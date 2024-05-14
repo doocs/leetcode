@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0873.Length%20of%20Longest%20Fibonacci%20Subsequence/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Dynamic Programming
+---
+
 # [873. Length of Longest Fibonacci Subsequence](https://leetcode.com/problems/length-of-longest-fibonacci-subsequence)
 
 [中文文档](/solution/0800-0899/0873.Length%20of%20Longest%20Fibonacci%20Subsequence/README.md)
-
-<!-- tags:Array,Hash Table,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

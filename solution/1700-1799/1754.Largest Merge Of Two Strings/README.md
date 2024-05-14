@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1754.Largest%20Merge%20Of%20Two%20Strings/README.md
+rating: 1828
+tags:
+    - 贪心
+    - 双指针
+    - 字符串
+---
+
 # [1754. 构造字典序最大的合并字符串](https://leetcode.cn/problems/largest-merge-of-two-strings)
 
 [English Version](/solution/1700-1799/1754.Largest%20Merge%20Of%20Two%20Strings/README_EN.md)
-
-<!-- tags:贪心,双指针,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

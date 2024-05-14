@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0644.Maximum%20Average%20Subarray%20II/README_EN.md
+tags:
+    - Array
+    - Binary Search
+    - Prefix Sum
+---
+
 # [644. Maximum Average Subarray II 🔒](https://leetcode.com/problems/maximum-average-subarray-ii)
 
 [中文文档](/solution/0600-0699/0644.Maximum%20Average%20Subarray%20II/README.md)
-
-<!-- tags:Array,Binary Search,Prefix Sum -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2152.Minimum%20Number%20of%20Lines%20to%20Cover%20Points/README.md
+tags:
+    - 位运算
+    - 几何
+    - 数组
+    - 哈希表
+    - 数学
+    - 动态规划
+    - 回溯
+    - 状态压缩
+---
+
 # [2152. 穿过所有点的所需最少直线数量 🔒](https://leetcode.cn/problems/minimum-number-of-lines-to-cover-points)
 
 [English Version](/solution/2100-2199/2152.Minimum%20Number%20of%20Lines%20to%20Cover%20Points/README_EN.md)
-
-<!-- tags:位运算,几何,数组,哈希表,数学,动态规划,回溯,状态压缩 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

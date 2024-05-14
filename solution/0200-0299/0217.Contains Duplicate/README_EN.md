@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0217.Contains%20Duplicate/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Sorting
+---
+
 # [217. Contains Duplicate](https://leetcode.com/problems/contains-duplicate)
 
 [中文文档](/solution/0200-0299/0217.Contains%20Duplicate/README.md)
-
-<!-- tags:Array,Hash Table,Sorting -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

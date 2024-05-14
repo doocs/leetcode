@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1047.Remove%20All%20Adjacent%20Duplicates%20In%20String/README.md
+rating: 1286
+tags:
+    - 栈
+    - 字符串
+---
+
 # [1047. 删除字符串中的所有相邻重复项](https://leetcode.cn/problems/remove-all-adjacent-duplicates-in-string)
 
 [English Version](/solution/1000-1099/1047.Remove%20All%20Adjacent%20Duplicates%20In%20String/README_EN.md)
-
-<!-- tags:栈,字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

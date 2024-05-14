@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3075.Maximize%20Happiness%20of%20Selected%20Children/README_EN.md
+rating: 1325
+tags:
+    - Greedy
+    - Array
+    - Sorting
+---
+
 # [3075. Maximize Happiness of Selected Children](https://leetcode.com/problems/maximize-happiness-of-selected-children)
 
 [中文文档](/solution/3000-3099/3075.Maximize%20Happiness%20of%20Selected%20Children/README.md)
-
-<!-- tags:Greedy,Array,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1492.The%20kth%20Factor%20of%20n/README_EN.md
+rating: 1231
+tags:
+    - Math
+    - Number Theory
+---
+
 # [1492. The kth Factor of n](https://leetcode.com/problems/the-kth-factor-of-n)
 
 [中文文档](/solution/1400-1499/1492.The%20kth%20Factor%20of%20n/README.md)
-
-<!-- tags:Math,Number Theory -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

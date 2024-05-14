@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1743.Restore%20the%20Array%20From%20Adjacent%20Pairs/README.md
+rating: 1579
+tags:
+    - 数组
+    - 哈希表
+---
+
 # [1743. 从相邻元素对还原数组](https://leetcode.cn/problems/restore-the-array-from-adjacent-pairs)
 
 [English Version](/solution/1700-1799/1743.Restore%20the%20Array%20From%20Adjacent%20Pairs/README_EN.md)
-
-<!-- tags:数组,哈希表 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

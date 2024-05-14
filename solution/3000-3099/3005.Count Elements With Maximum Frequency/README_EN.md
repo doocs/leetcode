@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3005.Count%20Elements%20With%20Maximum%20Frequency/README_EN.md
+rating: 1216
+tags:
+    - Array
+    - Hash Table
+    - Counting
+---
+
 # [3005. Count Elements With Maximum Frequency](https://leetcode.com/problems/count-elements-with-maximum-frequency)
 
 [中文文档](/solution/3000-3099/3005.Count%20Elements%20With%20Maximum%20Frequency/README.md)
-
-<!-- tags:Array,Hash Table,Counting -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

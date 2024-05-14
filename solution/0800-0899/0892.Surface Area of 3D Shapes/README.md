@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0892.Surface%20Area%20of%203D%20Shapes/README.md
+tags:
+    - 几何
+    - 数组
+    - 数学
+    - 矩阵
+---
+
 # [892. 三维形体的表面积](https://leetcode.cn/problems/surface-area-of-3d-shapes)
 
 [English Version](/solution/0800-0899/0892.Surface%20Area%20of%203D%20Shapes/README_EN.md)
-
-<!-- tags:几何,数组,数学,矩阵 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

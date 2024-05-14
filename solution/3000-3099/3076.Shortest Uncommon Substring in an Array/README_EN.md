@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3076.Shortest%20Uncommon%20Substring%20in%20an%20Array/README_EN.md
+rating: 1635
+tags:
+    - Trie
+    - Array
+    - Hash Table
+    - String
+---
+
 # [3076. Shortest Uncommon Substring in an Array](https://leetcode.com/problems/shortest-uncommon-substring-in-an-array)
 
 [中文文档](/solution/3000-3099/3076.Shortest%20Uncommon%20Substring%20in%20an%20Array/README.md)
-
-<!-- tags:Trie,Array,Hash Table,String -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

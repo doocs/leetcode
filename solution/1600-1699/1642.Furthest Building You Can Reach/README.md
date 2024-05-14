@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1642.Furthest%20Building%20You%20Can%20Reach/README.md
+rating: 1962
+tags:
+    - 贪心
+    - 数组
+    - 堆（优先队列）
+---
+
 # [1642. 可以到达的最远建筑](https://leetcode.cn/problems/furthest-building-you-can-reach)
 
 [English Version](/solution/1600-1699/1642.Furthest%20Building%20You%20Can%20Reach/README_EN.md)
-
-<!-- tags:贪心,数组,堆（优先队列） -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

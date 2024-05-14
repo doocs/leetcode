@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0776.Split%20BST/README_EN.md
+tags:
+    - Tree
+    - Binary Search Tree
+    - Recursion
+    - Binary Tree
+---
+
 # [776. Split BST 🔒](https://leetcode.com/problems/split-bst)
 
 [中文文档](/solution/0700-0799/0776.Split%20BST/README.md)
-
-<!-- tags:Tree,Binary Search Tree,Recursion,Binary Tree -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

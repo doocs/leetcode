@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0791.Custom%20Sort%20String/README.md
+tags:
+    - 哈希表
+    - 字符串
+    - 排序
+---
+
 # [791. 自定义字符串排序](https://leetcode.cn/problems/custom-sort-string)
 
 [English Version](/solution/0700-0799/0791.Custom%20Sort%20String/README_EN.md)
-
-<!-- tags:哈希表,字符串,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1384.Total%20Sales%20Amount%20by%20Year/README_EN.md
+tags:
+    - Database
+---
+
 # [1384. Total Sales Amount by Year 🔒](https://leetcode.com/problems/total-sales-amount-by-year)
 
 [中文文档](/solution/1300-1399/1384.Total%20Sales%20Amount%20by%20Year/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

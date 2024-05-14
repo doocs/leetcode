@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0031.Next%20Permutation/README.md
+tags:
+    - 数组
+    - 双指针
+---
+
 # [31. 下一个排列](https://leetcode.cn/problems/next-permutation)
 
 [English Version](/solution/0000-0099/0031.Next%20Permutation/README_EN.md)
-
-<!-- tags:数组,双指针 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

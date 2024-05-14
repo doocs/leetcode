@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0207.Course%20Schedule/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 图
+    - 拓扑排序
+---
+
 # [207. 课程表](https://leetcode.cn/problems/course-schedule)
 
 [English Version](/solution/0200-0299/0207.Course%20Schedule/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,图,拓扑排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

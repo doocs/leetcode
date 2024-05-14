@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0760.Find%20Anagram%20Mappings/README_EN.md
+tags:
+    - Array
+    - Hash Table
+---
+
 # [760. Find Anagram Mappings 🔒](https://leetcode.com/problems/find-anagram-mappings)
 
 [中文文档](/solution/0700-0799/0760.Find%20Anagram%20Mappings/README.md)
-
-<!-- tags:Array,Hash Table -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

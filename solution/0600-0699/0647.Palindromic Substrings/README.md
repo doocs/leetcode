@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0647.Palindromic%20Substrings/README.md
+tags:
+    - 双指针
+    - 字符串
+    - 动态规划
+---
+
 # [647. 回文子串](https://leetcode.cn/problems/palindromic-substrings)
 
 [English Version](/solution/0600-0699/0647.Palindromic%20Substrings/README_EN.md)
-
-<!-- tags:双指针,字符串,动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

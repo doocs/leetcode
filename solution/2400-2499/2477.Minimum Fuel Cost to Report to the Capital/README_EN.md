@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2477.Minimum%20Fuel%20Cost%20to%20Report%20to%20the%20Capital/README_EN.md
+rating: 2011
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Graph
+---
+
 # [2477. Minimum Fuel Cost to Report to the Capital](https://leetcode.com/problems/minimum-fuel-cost-to-report-to-the-capital)
 
 [中文文档](/solution/2400-2499/2477.Minimum%20Fuel%20Cost%20to%20Report%20to%20the%20Capital/README.md)
-
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Graph -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

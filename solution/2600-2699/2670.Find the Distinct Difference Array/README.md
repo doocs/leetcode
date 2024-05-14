@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2670.Find%20the%20Distinct%20Difference%20Array/README.md
+rating: 1266
+tags:
+    - 数组
+    - 哈希表
+---
+
 # [2670. 找出不同元素数目差数组](https://leetcode.cn/problems/find-the-distinct-difference-array)
 
 [English Version](/solution/2600-2699/2670.Find%20the%20Distinct%20Difference%20Array/README_EN.md)
-
-<!-- tags:数组,哈希表 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

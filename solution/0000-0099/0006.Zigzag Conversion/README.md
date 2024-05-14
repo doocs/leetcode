@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0006.Zigzag%20Conversion/README.md
+tags:
+    - 字符串
+---
+
 # [6. Z 字形变换](https://leetcode.cn/problems/zigzag-conversion)
 
 [English Version](/solution/0000-0099/0006.Zigzag%20Conversion/README_EN.md)
-
-<!-- tags:字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

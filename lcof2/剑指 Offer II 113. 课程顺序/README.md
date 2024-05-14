@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20113.%20%E8%AF%BE%E7%A8%8B%E9%A1%BA%E5%BA%8F/README.md
+---
+
 # [剑指 Offer II 113. 课程顺序](https://leetcode.cn/problems/QA2IGt)
 
 ## 题目描述

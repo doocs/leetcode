@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0715.Range%20Module/README_EN.md
+tags:
+    - Design
+    - Segment Tree
+    - Ordered Set
+---
+
 # [715. Range Module](https://leetcode.com/problems/range-module)
 
 [中文文档](/solution/0700-0799/0715.Range%20Module/README.md)
-
-<!-- tags:Design,Segment Tree,Ordered Set -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

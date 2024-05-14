@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0592.Fraction%20Addition%20and%20Subtraction/README.md
+tags:
+    - 数学
+    - 字符串
+    - 模拟
+---
+
 # [592. 分数加减运算](https://leetcode.cn/problems/fraction-addition-and-subtraction)
 
 [English Version](/solution/0500-0599/0592.Fraction%20Addition%20and%20Subtraction/README_EN.md)
-
-<!-- tags:数学,字符串,模拟 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

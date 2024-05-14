@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2594.Minimum%20Time%20to%20Repair%20Cars/README.md
+rating: 1915
+tags:
+    - 数组
+    - 二分查找
+---
+
 # [2594. 修车的最少时间](https://leetcode.cn/problems/minimum-time-to-repair-cars)
 
 [English Version](/solution/2500-2599/2594.Minimum%20Time%20to%20Repair%20Cars/README_EN.md)
-
-<!-- tags:数组,二分查找 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

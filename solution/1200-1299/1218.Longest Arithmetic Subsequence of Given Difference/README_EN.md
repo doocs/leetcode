@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1218.Longest%20Arithmetic%20Subsequence%20of%20Given%20Difference/README_EN.md
+rating: 1597
+tags:
+    - Array
+    - Hash Table
+    - Dynamic Programming
+---
+
 # [1218. Longest Arithmetic Subsequence of Given Difference](https://leetcode.com/problems/longest-arithmetic-subsequence-of-given-difference)
 
 [中文文档](/solution/1200-1299/1218.Longest%20Arithmetic%20Subsequence%20of%20Given%20Difference/README.md)
-
-<!-- tags:Array,Hash Table,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3077.Maximum%20Strength%20of%20K%20Disjoint%20Subarrays/README.md
+rating: 2556
+tags:
+    - 数组
+    - 动态规划
+    - 前缀和
+---
+
 # [3077. K 个不相交子数组的最大能量值](https://leetcode.cn/problems/maximum-strength-of-k-disjoint-subarrays)
 
 [English Version](/solution/3000-3099/3077.Maximum%20Strength%20of%20K%20Disjoint%20Subarrays/README_EN.md)
-
-<!-- tags:数组,动态规划,前缀和 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1029.Two%20City%20Scheduling/README_EN.md
+rating: 1348
+tags:
+    - Greedy
+    - Array
+    - Sorting
+---
+
 # [1029. Two City Scheduling](https://leetcode.com/problems/two-city-scheduling)
 
 [中文文档](/solution/1000-1099/1029.Two%20City%20Scheduling/README.md)
-
-<!-- tags:Greedy,Array,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

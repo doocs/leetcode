@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0731.My%20Calendar%20II/README.md
+tags:
+    - 设计
+    - 线段树
+    - 二分查找
+    - 有序集合
+---
+
 # [731. 我的日程安排表 II](https://leetcode.cn/problems/my-calendar-ii)
 
 [English Version](/solution/0700-0799/0731.My%20Calendar%20II/README_EN.md)
-
-<!-- tags:设计,线段树,二分查找,有序集合 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1134.Armstrong%20Number/README.md
+rating: 1231
+tags:
+    - 数学
+---
+
 # [1134. 阿姆斯特朗数 🔒](https://leetcode.cn/problems/armstrong-number)
 
 [English Version](/solution/1100-1199/1134.Armstrong%20Number/README_EN.md)
-
-<!-- tags:数学 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1238.Circular%20Permutation%20in%20Binary%20Representation/README.md
+rating: 1774
+tags:
+    - 位运算
+    - 数学
+    - 回溯
+---
+
 # [1238. 循环码排列](https://leetcode.cn/problems/circular-permutation-in-binary-representation)
 
 [English Version](/solution/1200-1299/1238.Circular%20Permutation%20in%20Binary%20Representation/README_EN.md)
-
-<!-- tags:位运算,数学,回溯 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

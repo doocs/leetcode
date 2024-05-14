@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1286.Iterator%20for%20Combination/README_EN.md
+rating: 1591
+tags:
+    - Design
+    - String
+    - Backtracking
+    - Iterator
+---
+
 # [1286. Iterator for Combination](https://leetcode.com/problems/iterator-for-combination)
 
 [中文文档](/solution/1200-1299/1286.Iterator%20for%20Combination/README.md)
-
-<!-- tags:Design,String,Backtracking,Iterator -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

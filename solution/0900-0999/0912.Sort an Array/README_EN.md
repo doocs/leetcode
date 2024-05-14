@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0912.Sort%20an%20Array/README_EN.md
+tags:
+    - Array
+    - Divide and Conquer
+    - Bucket Sort
+    - Counting Sort
+    - Radix Sort
+    - Sorting
+    - Heap (Priority Queue)
+    - Merge Sort
+---
+
 # [912. Sort an Array](https://leetcode.com/problems/sort-an-array)
 
 [中文文档](/solution/0900-0999/0912.Sort%20an%20Array/README.md)
-
-<!-- tags:Array,Divide and Conquer,Bucket Sort,Counting Sort,Radix Sort,Sorting,Heap (Priority Queue),Merge Sort -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

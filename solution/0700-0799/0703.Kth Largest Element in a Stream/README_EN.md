@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0703.Kth%20Largest%20Element%20in%20a%20Stream/README_EN.md
+tags:
+    - Tree
+    - Design
+    - Binary Search Tree
+    - Binary Tree
+    - Data Stream
+    - Heap (Priority Queue)
+---
+
 # [703. Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream)
 
 [中文文档](/solution/0700-0799/0703.Kth%20Largest%20Element%20in%20a%20Stream/README.md)
-
-<!-- tags:Tree,Design,Binary Search Tree,Binary Tree,Data Stream,Heap (Priority Queue) -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

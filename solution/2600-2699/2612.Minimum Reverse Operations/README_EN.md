@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2612.Minimum%20Reverse%20Operations/README_EN.md
+rating: 2824
+tags:
+    - Breadth-First Search
+    - Array
+    - Ordered Set
+---
+
 # [2612. Minimum Reverse Operations](https://leetcode.com/problems/minimum-reverse-operations)
 
 [中文文档](/solution/2600-2699/2612.Minimum%20Reverse%20Operations/README.md)
-
-<!-- tags:Breadth-First Search,Array,Ordered Set -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

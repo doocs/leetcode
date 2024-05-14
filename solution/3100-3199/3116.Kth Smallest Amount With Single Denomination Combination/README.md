@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3116.Kth%20Smallest%20Amount%20With%20Single%20Denomination%20Combination/README.md
+rating: 2387
+tags:
+    - 位运算
+    - 数组
+    - 数学
+    - 二分查找
+    - 组合数学
+    - 数论
+---
+
 # [3116. 单面值组合的第 K 小金额](https://leetcode.cn/problems/kth-smallest-amount-with-single-denomination-combination)
 
 [English Version](/solution/3100-3199/3116.Kth%20Smallest%20Amount%20With%20Single%20Denomination%20Combination/README_EN.md)
-
-<!-- tags:位运算,数组,数学,二分查找,组合数学,数论 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

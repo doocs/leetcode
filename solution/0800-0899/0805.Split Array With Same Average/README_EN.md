@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0805.Split%20Array%20With%20Same%20Average/README_EN.md
+tags:
+    - Bit Manipulation
+    - Array
+    - Math
+    - Dynamic Programming
+    - Bitmask
+---
+
 # [805. Split Array With Same Average](https://leetcode.com/problems/split-array-with-same-average)
 
 [中文文档](/solution/0800-0899/0805.Split%20Array%20With%20Same%20Average/README.md)
-
-<!-- tags:Bit Manipulation,Array,Math,Dynamic Programming,Bitmask -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

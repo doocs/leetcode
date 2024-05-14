@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0939.Minimum%20Area%20Rectangle/README.md
+tags:
+    - 几何
+    - 数组
+    - 哈希表
+    - 数学
+    - 排序
+---
+
 # [939. 最小面积矩形](https://leetcode.cn/problems/minimum-area-rectangle)
 
 [English Version](/solution/0900-0999/0939.Minimum%20Area%20Rectangle/README_EN.md)
-
-<!-- tags:几何,数组,哈希表,数学,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

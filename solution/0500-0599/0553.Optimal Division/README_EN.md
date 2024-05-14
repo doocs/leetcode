@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0553.Optimal%20Division/README_EN.md
+tags:
+    - Array
+    - Math
+    - Dynamic Programming
+---
+
 # [553. Optimal Division](https://leetcode.com/problems/optimal-division)
 
 [中文文档](/solution/0500-0599/0553.Optimal%20Division/README.md)
-
-<!-- tags:Array,Math,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

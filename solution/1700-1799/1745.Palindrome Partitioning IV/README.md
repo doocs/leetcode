@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1745.Palindrome%20Partitioning%20IV/README.md
+rating: 1924
+tags:
+    - 字符串
+    - 动态规划
+---
+
 # [1745. 分割回文串 IV](https://leetcode.cn/problems/palindrome-partitioning-iv)
 
 [English Version](/solution/1700-1799/1745.Palindrome%20Partitioning%20IV/README_EN.md)
-
-<!-- tags:字符串,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

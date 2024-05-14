@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2444.Count%20Subarrays%20With%20Fixed%20Bounds/README_EN.md
+rating: 2092
+tags:
+    - Queue
+    - Array
+    - Sliding Window
+    - Monotonic Queue
+---
+
 # [2444. Count Subarrays With Fixed Bounds](https://leetcode.com/problems/count-subarrays-with-fixed-bounds)
 
 [中文文档](/solution/2400-2499/2444.Count%20Subarrays%20With%20Fixed%20Bounds/README.md)
-
-<!-- tags:Queue,Array,Sliding Window,Monotonic Queue -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

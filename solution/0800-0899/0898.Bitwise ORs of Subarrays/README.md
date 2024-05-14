@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0898.Bitwise%20ORs%20of%20Subarrays/README.md
+tags:
+    - 位运算
+    - 数组
+    - 动态规划
+---
+
 # [898. 子数组按位或操作](https://leetcode.cn/problems/bitwise-ors-of-subarrays)
 
 [English Version](/solution/0800-0899/0898.Bitwise%20ORs%20of%20Subarrays/README_EN.md)
-
-<!-- tags:位运算,数组,动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

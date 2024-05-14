@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1664.Ways%20to%20Make%20a%20Fair%20Array/README_EN.md
+rating: 1590
+tags:
+    - Array
+    - Prefix Sum
+---
+
 # [1664. Ways to Make a Fair Array](https://leetcode.com/problems/ways-to-make-a-fair-array)
 
 [中文文档](/solution/1600-1699/1664.Ways%20to%20Make%20a%20Fair%20Array/README.md)
-
-<!-- tags:Array,Prefix Sum -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

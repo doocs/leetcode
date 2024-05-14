@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0142.Linked%20List%20Cycle%20II/README.md
+tags:
+    - 哈希表
+    - 链表
+    - 双指针
+---
+
 # [142. 环形链表 II](https://leetcode.cn/problems/linked-list-cycle-ii)
 
 [English Version](/solution/0100-0199/0142.Linked%20List%20Cycle%20II/README_EN.md)
-
-<!-- tags:哈希表,链表,双指针 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

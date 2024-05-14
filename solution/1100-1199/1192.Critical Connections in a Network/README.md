@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1192.Critical%20Connections%20in%20a%20Network/README.md
+rating: 2084
+tags:
+    - 深度优先搜索
+    - 图
+    - 双连通分量
+---
+
 # [1192. 查找集群内的关键连接](https://leetcode.cn/problems/critical-connections-in-a-network)
 
 [English Version](/solution/1100-1199/1192.Critical%20Connections%20in%20a%20Network/README_EN.md)
-
-<!-- tags:深度优先搜索,图,双连通分量 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

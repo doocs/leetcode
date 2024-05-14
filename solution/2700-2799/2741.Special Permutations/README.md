@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2741.Special%20Permutations/README.md
+rating: 2020
+tags:
+    - 位运算
+    - 数组
+    - 状态压缩
+---
+
 # [2741. 特别的排列](https://leetcode.cn/problems/special-permutations)
 
 [English Version](/solution/2700-2799/2741.Special%20Permutations/README_EN.md)
-
-<!-- tags:位运算,数组,状态压缩 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2089.Find%20Target%20Indices%20After%20Sorting%20Array/README.md
+rating: 1152
+tags:
+    - 数组
+    - 二分查找
+    - 排序
+---
+
 # [2089. 找出数组排序后的目标下标](https://leetcode.cn/problems/find-target-indices-after-sorting-array)
 
 [English Version](/solution/2000-2099/2089.Find%20Target%20Indices%20After%20Sorting%20Array/README_EN.md)
-
-<!-- tags:数组,二分查找,排序 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

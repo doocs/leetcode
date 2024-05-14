@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0228.Summary%20Ranges/README_EN.md
+tags:
+    - Array
+---
+
 # [228. Summary Ranges](https://leetcode.com/problems/summary-ranges)
 
 [中文文档](/solution/0200-0299/0228.Summary%20Ranges/README.md)
-
-<!-- tags:Array -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

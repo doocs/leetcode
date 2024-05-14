@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2783.Flight%20Occupancy%20and%20Waitlist%20Analysis/README.md
+tags:
+    - 数据库
+---
+
 # [2783. 航班入座率和等待名单分析 🔒](https://leetcode.cn/problems/flight-occupancy-and-waitlist-analysis)
 
 [English Version](/solution/2700-2799/2783.Flight%20Occupancy%20and%20Waitlist%20Analysis/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

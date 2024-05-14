@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1146.Snapshot%20Array/README.md
+rating: 1770
+tags:
+    - 设计
+    - 数组
+    - 哈希表
+    - 二分查找
+---
+
 # [1146. 快照数组](https://leetcode.cn/problems/snapshot-array)
 
 [English Version](/solution/1100-1199/1146.Snapshot%20Array/README_EN.md)
-
-<!-- tags:设计,数组,哈希表,二分查找 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

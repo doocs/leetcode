@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0955.Delete%20Columns%20to%20Make%20Sorted%20II/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - String
+---
+
 # [955. Delete Columns to Make Sorted II](https://leetcode.com/problems/delete-columns-to-make-sorted-ii)
 
 [中文文档](/solution/0900-0999/0955.Delete%20Columns%20to%20Make%20Sorted%20II/README.md)
-
-<!-- tags:Greedy,Array,String -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

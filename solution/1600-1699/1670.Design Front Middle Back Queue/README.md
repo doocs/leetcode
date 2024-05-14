@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1670.Design%20Front%20Middle%20Back%20Queue/README.md
+rating: 1610
+tags:
+    - 设计
+    - 队列
+    - 数组
+    - 链表
+    - 数据流
+---
+
 # [1670. 设计前中后队列](https://leetcode.cn/problems/design-front-middle-back-queue)
 
 [English Version](/solution/1600-1699/1670.Design%20Front%20Middle%20Back%20Queue/README_EN.md)
-
-<!-- tags:设计,队列,数组,链表,数据流 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

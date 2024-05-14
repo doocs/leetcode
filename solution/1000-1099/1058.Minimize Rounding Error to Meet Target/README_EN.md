@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1058.Minimize%20Rounding%20Error%20to%20Meet%20Target/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Math
+    - String
+    - Sorting
+---
+
 # [1058. Minimize Rounding Error to Meet Target 🔒](https://leetcode.com/problems/minimize-rounding-error-to-meet-target)
 
 [中文文档](/solution/1000-1099/1058.Minimize%20Rounding%20Error%20to%20Meet%20Target/README.md)
-
-<!-- tags:Greedy,Array,Math,String,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2009.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20Continuous/README.md
+rating: 2084
+tags:
+    - 数组
+    - 哈希表
+    - 二分查找
+    - 滑动窗口
+---
+
 # [2009. 使数组连续的最少操作数](https://leetcode.cn/problems/minimum-number-of-operations-to-make-array-continuous)
 
 [English Version](/solution/2000-2099/2009.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20Continuous/README_EN.md)
-
-<!-- tags:数组,哈希表,二分查找,滑动窗口 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

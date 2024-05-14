@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2716.Minimize%20String%20Length/README_EN.md
+rating: 1242
+tags:
+    - Hash Table
+    - String
+---
+
 # [2716. Minimize String Length](https://leetcode.com/problems/minimize-string-length)
 
 [中文文档](/solution/2700-2799/2716.Minimize%20String%20Length/README.md)
-
-<!-- tags:Hash Table,String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

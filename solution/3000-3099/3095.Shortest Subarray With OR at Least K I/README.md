@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3095.Shortest%20Subarray%20With%20OR%20at%20Least%20K%20I/README.md
+rating: 1368
+tags:
+    - 位运算
+    - 数组
+    - 滑动窗口
+---
+
 # [3095. 或值至少 K 的最短子数组 I](https://leetcode.cn/problems/shortest-subarray-with-or-at-least-k-i)
 
 [English Version](/solution/3000-3099/3095.Shortest%20Subarray%20With%20OR%20at%20Least%20K%20I/README_EN.md)
-
-<!-- tags:位运算,数组,滑动窗口 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

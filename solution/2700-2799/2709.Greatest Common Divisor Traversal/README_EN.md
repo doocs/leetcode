@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2709.Greatest%20Common%20Divisor%20Traversal/README_EN.md
+rating: 2171
+tags:
+    - Union Find
+    - Array
+    - Math
+    - Number Theory
+---
+
 # [2709. Greatest Common Divisor Traversal](https://leetcode.com/problems/greatest-common-divisor-traversal)
 
 [中文文档](/solution/2700-2799/2709.Greatest%20Common%20Divisor%20Traversal/README.md)
-
-<!-- tags:Union Find,Array,Math,Number Theory -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

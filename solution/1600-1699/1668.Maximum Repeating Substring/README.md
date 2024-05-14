@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1668.Maximum%20Repeating%20Substring/README.md
+rating: 1395
+tags:
+    - 字符串
+    - 动态规划
+    - 字符串匹配
+---
+
 # [1668. 最大重复子字符串](https://leetcode.cn/problems/maximum-repeating-substring)
 
 [English Version](/solution/1600-1699/1668.Maximum%20Repeating%20Substring/README_EN.md)
-
-<!-- tags:字符串,动态规划,字符串匹配 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

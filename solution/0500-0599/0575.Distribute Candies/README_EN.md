@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0575.Distribute%20Candies/README_EN.md
+tags:
+    - Array
+    - Hash Table
+---
+
 # [575. Distribute Candies](https://leetcode.com/problems/distribute-candies)
 
 [中文文档](/solution/0500-0599/0575.Distribute%20Candies/README.md)
-
-<!-- tags:Array,Hash Table -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

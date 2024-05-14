@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1314.Matrix%20Block%20Sum/README.md
+rating: 1483
+tags:
+    - 数组
+    - 矩阵
+    - 前缀和
+---
+
 # [1314. 矩阵区域和](https://leetcode.cn/problems/matrix-block-sum)
 
 [English Version](/solution/1300-1399/1314.Matrix%20Block%20Sum/README_EN.md)
-
-<!-- tags:数组,矩阵,前缀和 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

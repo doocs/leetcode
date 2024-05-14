@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2308.Arrange%20Table%20by%20Gender/README_EN.md
+tags:
+    - Database
+---
+
 # [2308. Arrange Table by Gender 🔒](https://leetcode.com/problems/arrange-table-by-gender)
 
 [中文文档](/solution/2300-2399/2308.Arrange%20Table%20by%20Gender/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

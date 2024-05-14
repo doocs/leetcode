@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0376.Wiggle%20Subsequence/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Dynamic Programming
+---
+
 # [376. Wiggle Subsequence](https://leetcode.com/problems/wiggle-subsequence)
 
 [中文文档](/solution/0300-0399/0376.Wiggle%20Subsequence/README.md)
-
-<!-- tags:Greedy,Array,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

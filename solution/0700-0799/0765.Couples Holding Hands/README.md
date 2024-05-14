@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0765.Couples%20Holding%20Hands/README.md
+tags:
+    - 贪心
+    - 深度优先搜索
+    - 广度优先搜索
+    - 并查集
+    - 图
+---
+
 # [765. 情侣牵手](https://leetcode.cn/problems/couples-holding-hands)
 
 [English Version](/solution/0700-0799/0765.Couples%20Holding%20Hands/README_EN.md)
-
-<!-- tags:贪心,深度优先搜索,广度优先搜索,并查集,图 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

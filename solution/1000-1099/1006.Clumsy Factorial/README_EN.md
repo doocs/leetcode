@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1006.Clumsy%20Factorial/README_EN.md
+rating: 1407
+tags:
+    - Stack
+    - Math
+    - Simulation
+---
+
 # [1006. Clumsy Factorial](https://leetcode.com/problems/clumsy-factorial)
 
 [中文文档](/solution/1000-1099/1006.Clumsy%20Factorial/README.md)
-
-<!-- tags:Stack,Math,Simulation -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

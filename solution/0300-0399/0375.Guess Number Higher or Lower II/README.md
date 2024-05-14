@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0375.Guess%20Number%20Higher%20or%20Lower%20II/README.md
+tags:
+    - 数学
+    - 动态规划
+    - 博弈
+---
+
 # [375. 猜数字大小 II](https://leetcode.cn/problems/guess-number-higher-or-lower-ii)
 
 [English Version](/solution/0300-0399/0375.Guess%20Number%20Higher%20or%20Lower%20II/README_EN.md)
-
-<!-- tags:数学,动态规划,博弈 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

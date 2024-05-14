@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1720.Decode%20XORed%20Array/README.md
+rating: 1284
+tags:
+    - 位运算
+    - 数组
+---
+
 # [1720. 解码异或后的数组](https://leetcode.cn/problems/decode-xored-array)
 
 [English Version](/solution/1700-1799/1720.Decode%20XORed%20Array/README_EN.md)
-
-<!-- tags:位运算,数组 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

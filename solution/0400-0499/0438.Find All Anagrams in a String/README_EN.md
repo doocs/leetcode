@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0438.Find%20All%20Anagrams%20in%20a%20String/README_EN.md
+tags:
+    - Hash Table
+    - String
+    - Sliding Window
+---
+
 # [438. Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string)
 
 [中文文档](/solution/0400-0499/0438.Find%20All%20Anagrams%20in%20a%20String/README.md)
-
-<!-- tags:Hash Table,String,Sliding Window -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

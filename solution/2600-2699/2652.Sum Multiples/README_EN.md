@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2652.Sum%20Multiples/README_EN.md
+rating: 1182
+tags:
+    - Math
+---
+
 # [2652. Sum Multiples](https://leetcode.com/problems/sum-multiples)
 
 [中文文档](/solution/2600-2699/2652.Sum%20Multiples/README.md)
-
-<!-- tags:Math -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0583.Delete%20Operation%20for%20Two%20Strings/README.md
+tags:
+    - 字符串
+    - 动态规划
+---
+
 # [583. 两个字符串的删除操作](https://leetcode.cn/problems/delete-operation-for-two-strings)
 
 [English Version](/solution/0500-0599/0583.Delete%20Operation%20for%20Two%20Strings/README_EN.md)
-
-<!-- tags:字符串,动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

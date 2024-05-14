@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2576.Find%20the%20Maximum%20Number%20of%20Marked%20Indices/README_EN.md
+rating: 1843
+tags:
+    - Greedy
+    - Array
+    - Two Pointers
+    - Binary Search
+    - Sorting
+---
+
 # [2576. Find the Maximum Number of Marked Indices](https://leetcode.com/problems/find-the-maximum-number-of-marked-indices)
 
 [中文文档](/solution/2500-2599/2576.Find%20the%20Maximum%20Number%20of%20Marked%20Indices/README.md)
-
-<!-- tags:Greedy,Array,Two Pointers,Binary Search,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

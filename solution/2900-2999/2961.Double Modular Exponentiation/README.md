@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2961.Double%20Modular%20Exponentiation/README.md
+rating: 1450
+tags:
+    - 数组
+    - 数学
+    - 模拟
+---
+
 # [2961. 双模幂运算](https://leetcode.cn/problems/double-modular-exponentiation)
 
 [English Version](/solution/2900-2999/2961.Double%20Modular%20Exponentiation/README_EN.md)
-
-<!-- tags:数组,数学,模拟 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

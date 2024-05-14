@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1876.Substrings%20of%20Size%20Three%20with%20Distinct%20Characters/README_EN.md
+rating: 1248
+tags:
+    - Hash Table
+    - String
+    - Counting
+    - Sliding Window
+---
+
 # [1876. Substrings of Size Three with Distinct Characters](https://leetcode.com/problems/substrings-of-size-three-with-distinct-characters)
 
 [中文文档](/solution/1800-1899/1876.Substrings%20of%20Size%20Three%20with%20Distinct%20Characters/README.md)
-
-<!-- tags:Hash Table,String,Counting,Sliding Window -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

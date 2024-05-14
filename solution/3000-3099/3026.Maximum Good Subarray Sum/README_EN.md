@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3026.Maximum%20Good%20Subarray%20Sum/README_EN.md
+rating: 1816
+tags:
+    - Array
+    - Hash Table
+    - Prefix Sum
+---
+
 # [3026. Maximum Good Subarray Sum](https://leetcode.com/problems/maximum-good-subarray-sum)
 
 [中文文档](/solution/3000-3099/3026.Maximum%20Good%20Subarray%20Sum/README.md)
-
-<!-- tags:Array,Hash Table,Prefix Sum -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

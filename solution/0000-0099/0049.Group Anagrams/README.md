@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0049.Group%20Anagrams/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+    - 排序
+---
+
 # [49. 字母异位词分组](https://leetcode.cn/problems/group-anagrams)
 
 [English Version](/solution/0000-0099/0049.Group%20Anagrams/README_EN.md)
-
-<!-- tags:数组,哈希表,字符串,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

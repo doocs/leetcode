@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1109.Corporate%20Flight%20Bookings/README.md
+rating: 1569
+tags:
+    - 数组
+    - 前缀和
+---
+
 # [1109. 航班预订统计](https://leetcode.cn/problems/corporate-flight-bookings)
 
 [English Version](/solution/1100-1199/1109.Corporate%20Flight%20Bookings/README_EN.md)
-
-<!-- tags:数组,前缀和 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

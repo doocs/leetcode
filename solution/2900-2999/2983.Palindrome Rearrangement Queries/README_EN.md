@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2983.Palindrome%20Rearrangement%20Queries/README_EN.md
+rating: 2779
+tags:
+    - Hash Table
+    - String
+    - Prefix Sum
+---
+
 # [2983. Palindrome Rearrangement Queries](https://leetcode.com/problems/palindrome-rearrangement-queries)
 
 [中文文档](/solution/2900-2999/2983.Palindrome%20Rearrangement%20Queries/README.md)
-
-<!-- tags:Hash Table,String,Prefix Sum -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

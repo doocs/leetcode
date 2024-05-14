@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1008.Construct%20Binary%20Search%20Tree%20from%20Preorder%20Traversal/README.md
+rating: 1562
+tags:
+    - 栈
+    - 树
+    - 二叉搜索树
+    - 数组
+    - 二叉树
+    - 单调栈
+---
+
 # [1008. 前序遍历构造二叉搜索树](https://leetcode.cn/problems/construct-binary-search-tree-from-preorder-traversal)
 
 [English Version](/solution/1000-1099/1008.Construct%20Binary%20Search%20Tree%20from%20Preorder%20Traversal/README_EN.md)
-
-<!-- tags:栈,树,二叉搜索树,数组,二叉树,单调栈 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

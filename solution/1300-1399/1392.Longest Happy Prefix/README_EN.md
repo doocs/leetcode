@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1392.Longest%20Happy%20Prefix/README_EN.md
+rating: 1876
+tags:
+    - String
+    - String Matching
+    - Hash Function
+    - Rolling Hash
+---
+
 # [1392. Longest Happy Prefix](https://leetcode.com/problems/longest-happy-prefix)
 
 [中文文档](/solution/1300-1399/1392.Longest%20Happy%20Prefix/README.md)
-
-<!-- tags:String,String Matching,Hash Function,Rolling Hash -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

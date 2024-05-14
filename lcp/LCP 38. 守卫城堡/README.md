@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2038.%20%E5%AE%88%E5%8D%AB%E5%9F%8E%E5%A0%A1/README.md
+---
+
 # [LCP 38. 守卫城堡](https://leetcode.cn/problems/7rLGCR)
 
 ## 题目描述

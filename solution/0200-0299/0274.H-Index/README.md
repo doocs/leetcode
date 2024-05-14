@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0274.H-Index/README.md
+tags:
+    - 数组
+    - 计数排序
+    - 排序
+---
+
 # [274. H 指数](https://leetcode.cn/problems/h-index)
 
 [English Version](/solution/0200-0299/0274.H-Index/README_EN.md)
-
-<!-- tags:数组,计数排序,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1658.Minimum%20Operations%20to%20Reduce%20X%20to%20Zero/README_EN.md
+rating: 1817
+tags:
+    - Array
+    - Hash Table
+    - Binary Search
+    - Prefix Sum
+    - Sliding Window
+---
+
 # [1658. Minimum Operations to Reduce X to Zero](https://leetcode.com/problems/minimum-operations-to-reduce-x-to-zero)
 
 [中文文档](/solution/1600-1699/1658.Minimum%20Operations%20to%20Reduce%20X%20to%20Zero/README.md)
-
-<!-- tags:Array,Hash Table,Binary Search,Prefix Sum,Sliding Window -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

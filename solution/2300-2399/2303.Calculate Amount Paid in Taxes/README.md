@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2303.Calculate%20Amount%20Paid%20in%20Taxes/README.md
+rating: 1283
+tags:
+    - 数组
+    - 模拟
+---
+
 # [2303. 计算应缴税款总额](https://leetcode.cn/problems/calculate-amount-paid-in-taxes)
 
 [English Version](/solution/2300-2399/2303.Calculate%20Amount%20Paid%20in%20Taxes/README_EN.md)
-
-<!-- tags:数组,模拟 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

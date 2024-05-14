@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0223.Rectangle%20Area/README_EN.md
+tags:
+    - Geometry
+    - Math
+---
+
 # [223. Rectangle Area](https://leetcode.com/problems/rectangle-area)
 
 [中文文档](/solution/0200-0299/0223.Rectangle%20Area/README.md)
-
-<!-- tags:Geometry,Math -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

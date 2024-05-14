@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2216.Minimum%20Deletions%20to%20Make%20Array%20Beautiful/README.md
+rating: 1509
+tags:
+    - 栈
+    - 贪心
+    - 数组
+---
+
 # [2216. 美化数组的最少删除数](https://leetcode.cn/problems/minimum-deletions-to-make-array-beautiful)
 
 [English Version](/solution/2200-2299/2216.Minimum%20Deletions%20to%20Make%20Array%20Beautiful/README_EN.md)
-
-<!-- tags:栈,贪心,数组 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1875.Group%20Employees%20of%20the%20Same%20Salary/README_EN.md
+tags:
+    - Database
+---
+
 # [1875. Group Employees of the Same Salary 🔒](https://leetcode.com/problems/group-employees-of-the-same-salary)
 
 [中文文档](/solution/1800-1899/1875.Group%20Employees%20of%20the%20Same%20Salary/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

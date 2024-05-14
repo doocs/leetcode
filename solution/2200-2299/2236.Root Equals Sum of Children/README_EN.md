@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2236.Root%20Equals%20Sum%20of%20Children/README_EN.md
+tags:
+    - Tree
+    - Binary Tree
+---
+
 # [2236. Root Equals Sum of Children](https://leetcode.com/problems/root-equals-sum-of-children)
 
 [中文文档](/solution/2200-2299/2236.Root%20Equals%20Sum%20of%20Children/README.md)
-
-<!-- tags:Tree,Binary Tree -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

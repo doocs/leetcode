@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1575.Count%20All%20Possible%20Routes/README_EN.md
+rating: 2055
+tags:
+    - Memoization
+    - Array
+    - Dynamic Programming
+---
+
 # [1575. Count All Possible Routes](https://leetcode.com/problems/count-all-possible-routes)
 
 [中文文档](/solution/1500-1599/1575.Count%20All%20Possible%20Routes/README.md)
-
-<!-- tags:Memoization,Array,Dynamic Programming -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

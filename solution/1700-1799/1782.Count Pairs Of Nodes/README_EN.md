@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1782.Count%20Pairs%20Of%20Nodes/README_EN.md
+rating: 2457
+tags:
+    - Graph
+    - Array
+    - Two Pointers
+    - Binary Search
+    - Sorting
+---
+
 # [1782. Count Pairs Of Nodes](https://leetcode.com/problems/count-pairs-of-nodes)
 
 [中文文档](/solution/1700-1799/1782.Count%20Pairs%20Of%20Nodes/README.md)
-
-<!-- tags:Graph,Array,Two Pointers,Binary Search,Sorting -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

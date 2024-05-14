@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1271.Hexspeak/README.md
+rating: 1384
+tags:
+    - 数学
+    - 字符串
+---
+
 # [1271. 十六进制魔术数字 🔒](https://leetcode.cn/problems/hexspeak)
 
 [English Version](/solution/1200-1299/1271.Hexspeak/README_EN.md)
-
-<!-- tags:数学,字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

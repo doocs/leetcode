@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2727.Is%20Object%20Empty/README.md
+---
+
 # [2727. 判断对象是否为空](https://leetcode.cn/problems/is-object-empty)
 
 [English Version](/solution/2700-2799/2727.Is%20Object%20Empty/README_EN.md)
-
-<!-- tags: -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

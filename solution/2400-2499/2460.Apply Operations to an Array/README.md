@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2460.Apply%20Operations%20to%20an%20Array/README.md
+rating: 1223
+tags:
+    - 数组
+    - 双指针
+    - 模拟
+---
+
 # [2460. 对数组执行操作](https://leetcode.cn/problems/apply-operations-to-an-array)
 
 [English Version](/solution/2400-2499/2460.Apply%20Operations%20to%20an%20Array/README_EN.md)
-
-<!-- tags:数组,双指针,模拟 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0341.Flatten%20Nested%20List%20Iterator/README_EN.md
+tags:
+    - Stack
+    - Tree
+    - Depth-First Search
+    - Design
+    - Queue
+    - Iterator
+---
+
 # [341. Flatten Nested List Iterator](https://leetcode.com/problems/flatten-nested-list-iterator)
 
 [中文文档](/solution/0300-0399/0341.Flatten%20Nested%20List%20Iterator/README.md)
-
-<!-- tags:Stack,Tree,Depth-First Search,Design,Queue,Iterator -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1051.Height%20Checker/README_EN.md
+rating: 1303
+tags:
+    - Array
+    - Counting Sort
+    - Sorting
+---
+
 # [1051. Height Checker](https://leetcode.com/problems/height-checker)
 
 [中文文档](/solution/1000-1099/1051.Height%20Checker/README.md)
-
-<!-- tags:Array,Counting Sort,Sorting -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

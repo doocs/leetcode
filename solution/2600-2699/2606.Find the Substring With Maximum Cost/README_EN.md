@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2606.Find%20the%20Substring%20With%20Maximum%20Cost/README_EN.md
+rating: 1422
+tags:
+    - Array
+    - Hash Table
+    - String
+    - Dynamic Programming
+---
+
 # [2606. Find the Substring With Maximum Cost](https://leetcode.com/problems/find-the-substring-with-maximum-cost)
 
 [中文文档](/solution/2600-2699/2606.Find%20the%20Substring%20With%20Maximum%20Cost/README.md)
-
-<!-- tags:Array,Hash Table,String,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

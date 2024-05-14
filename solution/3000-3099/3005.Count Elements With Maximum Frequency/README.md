@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3005.Count%20Elements%20With%20Maximum%20Frequency/README.md
+rating: 1216
+tags:
+    - 数组
+    - 哈希表
+    - 计数
+---
+
 # [3005. 最大频率元素计数](https://leetcode.cn/problems/count-elements-with-maximum-frequency)
 
 [English Version](/solution/3000-3099/3005.Count%20Elements%20With%20Maximum%20Frequency/README_EN.md)
-
-<!-- tags:数组,哈希表,计数 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

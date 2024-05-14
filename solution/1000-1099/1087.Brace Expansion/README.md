@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1087.Brace%20Expansion/README.md
+rating: 1480
+tags:
+    - 广度优先搜索
+    - 字符串
+    - 回溯
+---
+
 # [1087. 花括号展开 🔒](https://leetcode.cn/problems/brace-expansion)
 
 [English Version](/solution/1000-1099/1087.Brace%20Expansion/README_EN.md)
-
-<!-- tags:广度优先搜索,字符串,回溯 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

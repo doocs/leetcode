@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2785.Sort%20Vowels%20in%20a%20String/README_EN.md
+rating: 1266
+tags:
+    - String
+    - Sorting
+---
+
 # [2785. Sort Vowels in a String](https://leetcode.com/problems/sort-vowels-in-a-string)
 
 [中文文档](/solution/2700-2799/2785.Sort%20Vowels%20in%20a%20String/README.md)
-
-<!-- tags:String,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

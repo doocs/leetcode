@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1936.Add%20Minimum%20Number%20of%20Rungs/README.md
+rating: 1322
+tags:
+    - 贪心
+    - 数组
+---
+
 # [1936. 新增的最少台阶数](https://leetcode.cn/problems/add-minimum-number-of-rungs)
 
 [English Version](/solution/1900-1999/1936.Add%20Minimum%20Number%20of%20Rungs/README_EN.md)
-
-<!-- tags:贪心,数组 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

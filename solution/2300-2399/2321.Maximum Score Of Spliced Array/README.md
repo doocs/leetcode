@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2321.Maximum%20Score%20Of%20Spliced%20Array/README.md
+rating: 1790
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [2321. 拼接数组的最大分数](https://leetcode.cn/problems/maximum-score-of-spliced-array)
 
 [English Version](/solution/2300-2399/2321.Maximum%20Score%20Of%20Spliced%20Array/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

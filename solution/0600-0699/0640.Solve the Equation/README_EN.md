@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0640.Solve%20the%20Equation/README_EN.md
+tags:
+    - Math
+    - String
+    - Simulation
+---
+
 # [640. Solve the Equation](https://leetcode.com/problems/solve-the-equation)
 
 [中文文档](/solution/0600-0699/0640.Solve%20the%20Equation/README.md)
-
-<!-- tags:Math,String,Simulation -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1684.Count%20the%20Number%20of%20Consistent%20Strings/README_EN.md
+rating: 1288
+tags:
+    - Bit Manipulation
+    - Array
+    - Hash Table
+    - String
+---
+
 # [1684. Count the Number of Consistent Strings](https://leetcode.com/problems/count-the-number-of-consistent-strings)
 
 [中文文档](/solution/1600-1699/1684.Count%20the%20Number%20of%20Consistent%20Strings/README.md)
-
-<!-- tags:Bit Manipulation,Array,Hash Table,String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

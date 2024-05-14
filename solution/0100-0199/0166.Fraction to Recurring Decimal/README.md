@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0166.Fraction%20to%20Recurring%20Decimal/README.md
+tags:
+    - 哈希表
+    - 数学
+    - 字符串
+---
+
 # [166. 分数到小数](https://leetcode.cn/problems/fraction-to-recurring-decimal)
 
 [English Version](/solution/0100-0199/0166.Fraction%20to%20Recurring%20Decimal/README_EN.md)
-
-<!-- tags:哈希表,数学,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

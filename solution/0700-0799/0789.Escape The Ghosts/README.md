@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0789.Escape%20The%20Ghosts/README.md
+tags:
+    - 数组
+    - 数学
+---
+
 # [789. 逃脱阻碍者](https://leetcode.cn/problems/escape-the-ghosts)
 
 [English Version](/solution/0700-0799/0789.Escape%20The%20Ghosts/README_EN.md)
-
-<!-- tags:数组,数学 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

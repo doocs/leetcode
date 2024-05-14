@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0380.Insert%20Delete%20GetRandom%20O%281%29/README.md
+tags:
+    - 设计
+    - 数组
+    - 哈希表
+    - 数学
+    - 随机化
+---
+
 # [380. O(1) 时间插入、删除和获取随机元素](https://leetcode.cn/problems/insert-delete-getrandom-o1)
 
 [English Version](/solution/0300-0399/0380.Insert%20Delete%20GetRandom%20O%281%29/README_EN.md)
-
-<!-- tags:设计,数组,哈希表,数学,随机化 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.05.Factorial%20Zeros/README.md
+---
+
 # [面试题 16.05. 阶乘尾数](https://leetcode.cn/problems/factorial-zeros-lcci)
 
 [English Version](/lcci/16.05.Factorial%20Zeros/README_EN.md)

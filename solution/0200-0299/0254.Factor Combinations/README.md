@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0254.Factor%20Combinations/README.md
+tags:
+    - 回溯
+---
+
 # [254. 因子的组合 🔒](https://leetcode.cn/problems/factor-combinations)
 
 [English Version](/solution/0200-0299/0254.Factor%20Combinations/README_EN.md)
-
-<!-- tags:回溯 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

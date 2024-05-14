@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1903.Largest%20Odd%20Number%20in%20String/README_EN.md
+rating: 1248
+tags:
+    - Greedy
+    - Math
+    - String
+---
+
 # [1903. Largest Odd Number in String](https://leetcode.com/problems/largest-odd-number-in-string)
 
 [中文文档](/solution/1900-1999/1903.Largest%20Odd%20Number%20in%20String/README.md)
-
-<!-- tags:Greedy,Math,String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

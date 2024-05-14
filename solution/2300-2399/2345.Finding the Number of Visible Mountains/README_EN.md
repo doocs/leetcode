@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2345.Finding%20the%20Number%20of%20Visible%20Mountains/README_EN.md
+tags:
+    - Stack
+    - Array
+    - Sorting
+    - Monotonic Stack
+---
+
 # [2345. Finding the Number of Visible Mountains 🔒](https://leetcode.com/problems/finding-the-number-of-visible-mountains)
 
 [中文文档](/solution/2300-2399/2345.Finding%20the%20Number%20of%20Visible%20Mountains/README.md)
-
-<!-- tags:Stack,Array,Sorting,Monotonic Stack -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

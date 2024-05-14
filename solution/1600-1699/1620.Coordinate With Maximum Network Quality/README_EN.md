@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1620.Coordinate%20With%20Maximum%20Network%20Quality/README_EN.md
+rating: 1665
+tags:
+    - Array
+    - Enumeration
+---
+
 # [1620. Coordinate With Maximum Network Quality](https://leetcode.com/problems/coordinate-with-maximum-network-quality)
 
 [中文文档](/solution/1600-1699/1620.Coordinate%20With%20Maximum%20Network%20Quality/README.md)
-
-<!-- tags:Array,Enumeration -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

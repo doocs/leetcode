@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1989.Maximum%20Number%20of%20People%20That%20Can%20Be%20Caught%20in%20Tag/README.md
+tags:
+    - 贪心
+    - 数组
+---
+
 # [1989. 捉迷藏中可捕获的最大人数 🔒](https://leetcode.cn/problems/maximum-number-of-people-that-can-be-caught-in-tag)
 
 [English Version](/solution/1900-1999/1989.Maximum%20Number%20of%20People%20That%20Can%20Be%20Caught%20in%20Tag/README_EN.md)
-
-<!-- tags:贪心,数组 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

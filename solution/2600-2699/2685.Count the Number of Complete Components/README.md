@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2685.Count%20the%20Number%20of%20Complete%20Components/README.md
+rating: 1769
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 图
+---
+
 # [2685. 统计完全连通分量的数量](https://leetcode.cn/problems/count-the-number-of-complete-components)
 
 [English Version](/solution/2600-2699/2685.Count%20the%20Number%20of%20Complete%20Components/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,图 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

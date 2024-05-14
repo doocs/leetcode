@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1773.Count%20Items%20Matching%20a%20Rule/README.md
+rating: 1174
+tags:
+    - 数组
+    - 字符串
+---
+
 # [1773. 统计匹配检索规则的物品数量](https://leetcode.cn/problems/count-items-matching-a-rule)
 
 [English Version](/solution/1700-1799/1773.Count%20Items%20Matching%20a%20Rule/README_EN.md)
-
-<!-- tags:数组,字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

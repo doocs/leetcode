@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0881.Boats%20to%20Save%20People/README.md
+tags:
+    - 贪心
+    - 数组
+    - 双指针
+    - 排序
+---
+
 # [881. 救生艇](https://leetcode.cn/problems/boats-to-save-people)
 
 [English Version](/solution/0800-0899/0881.Boats%20to%20Save%20People/README_EN.md)
-
-<!-- tags:贪心,数组,双指针,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

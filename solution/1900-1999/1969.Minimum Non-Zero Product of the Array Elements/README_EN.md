@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1969.Minimum%20Non-Zero%20Product%20of%20the%20Array%20Elements/README_EN.md
+rating: 1966
+tags:
+    - Greedy
+    - Recursion
+    - Math
+---
+
 # [1969. Minimum Non-Zero Product of the Array Elements](https://leetcode.com/problems/minimum-non-zero-product-of-the-array-elements)
 
 [中文文档](/solution/1900-1999/1969.Minimum%20Non-Zero%20Product%20of%20the%20Array%20Elements/README.md)
-
-<!-- tags:Greedy,Recursion,Math -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

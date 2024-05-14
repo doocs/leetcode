@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0821.Shortest%20Distance%20to%20a%20Character/README_EN.md
+tags:
+    - Array
+    - Two Pointers
+    - String
+---
+
 # [821. Shortest Distance to a Character](https://leetcode.com/problems/shortest-distance-to-a-character)
 
 [中文文档](/solution/0800-0899/0821.Shortest%20Distance%20to%20a%20Character/README.md)
-
-<!-- tags:Array,Two Pointers,String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

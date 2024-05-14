@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2290.Minimum%20Obstacle%20Removal%20to%20Reach%20Corner/README_EN.md
+rating: 2137
+tags:
+    - Breadth-First Search
+    - Graph
+    - Array
+    - Matrix
+    - Shortest Path
+    - Heap (Priority Queue)
+---
+
 # [2290. Minimum Obstacle Removal to Reach Corner](https://leetcode.com/problems/minimum-obstacle-removal-to-reach-corner)
 
 [中文文档](/solution/2200-2299/2290.Minimum%20Obstacle%20Removal%20to%20Reach%20Corner/README.md)
-
-<!-- tags:Breadth-First Search,Graph,Array,Matrix,Shortest Path,Heap (Priority Queue) -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

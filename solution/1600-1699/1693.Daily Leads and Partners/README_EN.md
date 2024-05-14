@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1693.Daily%20Leads%20and%20Partners/README_EN.md
+tags:
+    - Database
+---
+
 # [1693. Daily Leads and Partners](https://leetcode.com/problems/daily-leads-and-partners)
 
 [中文文档](/solution/1600-1699/1693.Daily%20Leads%20and%20Partners/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

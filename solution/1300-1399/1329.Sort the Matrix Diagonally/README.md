@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1329.Sort%20the%20Matrix%20Diagonally/README.md
+rating: 1548
+tags:
+    - 数组
+    - 矩阵
+    - 排序
+---
+
 # [1329. 将矩阵按对角线排序](https://leetcode.cn/problems/sort-the-matrix-diagonally)
 
 [English Version](/solution/1300-1399/1329.Sort%20the%20Matrix%20Diagonally/README_EN.md)
-
-<!-- tags:数组,矩阵,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

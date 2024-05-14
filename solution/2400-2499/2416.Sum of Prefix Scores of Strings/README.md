@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2416.Sum%20of%20Prefix%20Scores%20of%20Strings/README.md
+rating: 1725
+tags:
+    - 字典树
+    - 数组
+    - 字符串
+    - 计数
+---
+
 # [2416. 字符串的前缀分数和](https://leetcode.cn/problems/sum-of-prefix-scores-of-strings)
 
 [English Version](/solution/2400-2499/2416.Sum%20of%20Prefix%20Scores%20of%20Strings/README_EN.md)
-
-<!-- tags:字典树,数组,字符串,计数 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

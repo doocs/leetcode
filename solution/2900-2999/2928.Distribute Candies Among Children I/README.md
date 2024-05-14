@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2928.Distribute%20Candies%20Among%20Children%20I/README.md
+rating: 1393
+tags:
+    - 数学
+    - 组合数学
+    - 枚举
+---
+
 # [2928. 给小朋友们分糖果 I](https://leetcode.cn/problems/distribute-candies-among-children-i)
 
 [English Version](/solution/2900-2999/2928.Distribute%20Candies%20Among%20Children%20I/README_EN.md)
-
-<!-- tags:数学,组合数学,枚举 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

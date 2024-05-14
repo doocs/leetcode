@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0479.Largest%20Palindrome%20Product/README.md
+tags:
+    - 数学
+---
+
 # [479. 最大回文数乘积](https://leetcode.cn/problems/largest-palindrome-product)
 
 [English Version](/solution/0400-0499/0479.Largest%20Palindrome%20Product/README_EN.md)
-
-<!-- tags:数学 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

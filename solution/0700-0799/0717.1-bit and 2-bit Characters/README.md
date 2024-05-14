@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0717.1-bit%20and%202-bit%20Characters/README.md
+tags:
+    - 数组
+---
+
 # [717. 1 比特与 2 比特字符](https://leetcode.cn/problems/1-bit-and-2-bit-characters)
 
 [English Version](/solution/0700-0799/0717.1-bit%20and%202-bit%20Characters/README_EN.md)
-
-<!-- tags:数组 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

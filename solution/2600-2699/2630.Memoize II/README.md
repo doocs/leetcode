@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2630.Memoize%20II/README.md
+---
+
 # [2630. 记忆函数 II](https://leetcode.cn/problems/memoize-ii)
 
 [English Version](/solution/2600-2699/2630.Memoize%20II/README_EN.md)
-
-<!-- tags: -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

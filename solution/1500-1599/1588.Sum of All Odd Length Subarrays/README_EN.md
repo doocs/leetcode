@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1588.Sum%20of%20All%20Odd%20Length%20Subarrays/README_EN.md
+rating: 1408
+tags:
+    - Array
+    - Math
+    - Prefix Sum
+---
+
 # [1588. Sum of All Odd Length Subarrays](https://leetcode.com/problems/sum-of-all-odd-length-subarrays)
 
 [中文文档](/solution/1500-1599/1588.Sum%20of%20All%20Odd%20Length%20Subarrays/README.md)
-
-<!-- tags:Array,Math,Prefix Sum -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

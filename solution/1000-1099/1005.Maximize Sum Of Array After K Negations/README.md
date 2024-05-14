@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1005.Maximize%20Sum%20Of%20Array%20After%20K%20Negations/README.md
+rating: 1274
+tags:
+    - 贪心
+    - 数组
+    - 排序
+---
+
 # [1005. K 次取反后最大化的数组和](https://leetcode.cn/problems/maximize-sum-of-array-after-k-negations)
 
 [English Version](/solution/1000-1099/1005.Maximize%20Sum%20Of%20Array%20After%20K%20Negations/README_EN.md)
-
-<!-- tags:贪心,数组,排序 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

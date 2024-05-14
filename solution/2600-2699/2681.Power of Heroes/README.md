@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2681.Power%20of%20Heroes/README.md
+rating: 2060
+tags:
+    - 数组
+    - 数学
+    - 动态规划
+    - 前缀和
+    - 排序
+---
+
 # [2681. 英雄的力量](https://leetcode.cn/problems/power-of-heroes)
 
 [English Version](/solution/2600-2699/2681.Power%20of%20Heroes/README_EN.md)
-
-<!-- tags:数组,数学,动态规划,前缀和,排序 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

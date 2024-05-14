@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2306.Naming%20a%20Company/README.md
+rating: 2305
+tags:
+    - 位运算
+    - 数组
+    - 哈希表
+    - 字符串
+    - 枚举
+---
+
 # [2306. 公司命名](https://leetcode.cn/problems/naming-a-company)
 
 [English Version](/solution/2300-2399/2306.Naming%20a%20Company/README_EN.md)
-
-<!-- tags:位运算,数组,哈希表,字符串,枚举 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

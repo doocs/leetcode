@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1991.Find%20the%20Middle%20Index%20in%20Array/README.md
+rating: 1302
+tags:
+    - 数组
+    - 前缀和
+---
+
 # [1991. 找到数组的中间位置](https://leetcode.cn/problems/find-the-middle-index-in-array)
 
 [English Version](/solution/1900-1999/1991.Find%20the%20Middle%20Index%20in%20Array/README_EN.md)
-
-<!-- tags:数组,前缀和 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

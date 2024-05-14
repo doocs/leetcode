@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1310.XOR%20Queries%20of%20a%20Subarray/README_EN.md
+rating: 1459
+tags:
+    - Bit Manipulation
+    - Array
+    - Prefix Sum
+---
+
 # [1310. XOR Queries of a Subarray](https://leetcode.com/problems/xor-queries-of-a-subarray)
 
 [中文文档](/solution/1300-1399/1310.XOR%20Queries%20of%20a%20Subarray/README.md)
-
-<!-- tags:Bit Manipulation,Array,Prefix Sum -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

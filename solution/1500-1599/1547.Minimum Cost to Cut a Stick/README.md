@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1547.Minimum%20Cost%20to%20Cut%20a%20Stick/README.md
+rating: 2116
+tags:
+    - 数组
+    - 动态规划
+    - 排序
+---
+
 # [1547. 切棍子的最小成本](https://leetcode.cn/problems/minimum-cost-to-cut-a-stick)
 
 [English Version](/solution/1500-1599/1547.Minimum%20Cost%20to%20Cut%20a%20Stick/README_EN.md)
-
-<!-- tags:数组,动态规划,排序 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

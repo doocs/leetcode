@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0995.Minimum%20Number%20of%20K%20Consecutive%20Bit%20Flips/README_EN.md
+tags:
+    - Bit Manipulation
+    - Queue
+    - Array
+    - Prefix Sum
+    - Sliding Window
+---
+
 # [995. Minimum Number of K Consecutive Bit Flips](https://leetcode.com/problems/minimum-number-of-k-consecutive-bit-flips)
 
 [中文文档](/solution/0900-0999/0995.Minimum%20Number%20of%20K%20Consecutive%20Bit%20Flips/README.md)
-
-<!-- tags:Bit Manipulation,Queue,Array,Prefix Sum,Sliding Window -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

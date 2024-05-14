@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0613.Shortest%20Distance%20in%20a%20Line/README.md
+tags:
+    - 数据库
+---
+
 # [613. 直线上的最近距离 🔒](https://leetcode.cn/problems/shortest-distance-in-a-line)
 
 [English Version](/solution/0600-0699/0613.Shortest%20Distance%20in%20a%20Line/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

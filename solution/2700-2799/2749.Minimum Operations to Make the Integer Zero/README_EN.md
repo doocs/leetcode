@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2749.Minimum%20Operations%20to%20Make%20the%20Integer%20Zero/README_EN.md
+rating: 2132
+tags:
+    - Bit Manipulation
+    - Brainteaser
+---
+
 # [2749. Minimum Operations to Make the Integer Zero](https://leetcode.com/problems/minimum-operations-to-make-the-integer-zero)
 
 [中文文档](/solution/2700-2799/2749.Minimum%20Operations%20to%20Make%20the%20Integer%20Zero/README.md)
-
-<!-- tags:Bit Manipulation,Brainteaser -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

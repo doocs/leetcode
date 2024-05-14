@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1105.Filling%20Bookcase%20Shelves/README.md
+rating: 2014
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [1105. 填充书架](https://leetcode.cn/problems/filling-bookcase-shelves)
 
 [English Version](/solution/1100-1199/1105.Filling%20Bookcase%20Shelves/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

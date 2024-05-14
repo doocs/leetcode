@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0196.Delete%20Duplicate%20Emails/README.md
+tags:
+    - 数据库
+---
+
 # [196. 删除重复的电子邮箱](https://leetcode.cn/problems/delete-duplicate-emails)
 
 [English Version](/solution/0100-0199/0196.Delete%20Duplicate%20Emails/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

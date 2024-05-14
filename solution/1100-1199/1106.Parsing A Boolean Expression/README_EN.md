@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1106.Parsing%20A%20Boolean%20Expression/README_EN.md
+rating: 1880
+tags:
+    - Stack
+    - Recursion
+    - String
+---
+
 # [1106. Parsing A Boolean Expression](https://leetcode.com/problems/parsing-a-boolean-expression)
 
 [中文文档](/solution/1100-1199/1106.Parsing%20A%20Boolean%20Expression/README.md)
-
-<!-- tags:Stack,Recursion,String -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

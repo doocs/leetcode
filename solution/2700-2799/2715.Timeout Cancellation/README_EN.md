@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2715.Timeout%20Cancellation/README_EN.md
+---
+
 # [2715. Timeout Cancellation](https://leetcode.com/problems/timeout-cancellation)
 
 [中文文档](/solution/2700-2799/2715.Timeout%20Cancellation/README.md)
-
-<!-- tags: -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

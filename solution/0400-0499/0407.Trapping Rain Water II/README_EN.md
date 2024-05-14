@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0407.Trapping%20Rain%20Water%20II/README_EN.md
+tags:
+    - Breadth-First Search
+    - Array
+    - Matrix
+    - Heap (Priority Queue)
+---
+
 # [407. Trapping Rain Water II](https://leetcode.com/problems/trapping-rain-water-ii)
 
 [中文文档](/solution/0400-0499/0407.Trapping%20Rain%20Water%20II/README.md)
-
-<!-- tags:Breadth-First Search,Array,Matrix,Heap (Priority Queue) -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2296.Design%20a%20Text%20Editor/README.md
+rating: 1911
+tags:
+    - 栈
+    - 设计
+    - 链表
+    - 字符串
+    - 双向链表
+    - 模拟
+---
+
 # [2296. 设计一个文本编辑器](https://leetcode.cn/problems/design-a-text-editor)
 
 [English Version](/solution/2200-2299/2296.Design%20a%20Text%20Editor/README_EN.md)
-
-<!-- tags:栈,设计,链表,字符串,双向链表,模拟 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

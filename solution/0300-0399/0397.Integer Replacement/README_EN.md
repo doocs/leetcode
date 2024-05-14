@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0397.Integer%20Replacement/README_EN.md
+tags:
+    - Greedy
+    - Bit Manipulation
+    - Memoization
+    - Dynamic Programming
+---
+
 # [397. Integer Replacement](https://leetcode.com/problems/integer-replacement)
 
 [中文文档](/solution/0300-0399/0397.Integer%20Replacement/README.md)
-
-<!-- tags:Greedy,Bit Manipulation,Memoization,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

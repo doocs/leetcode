@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2007.Find%20Original%20Array%20From%20Doubled%20Array/README.md
+rating: 1557
+tags:
+    - 贪心
+    - 数组
+    - 哈希表
+    - 排序
+---
+
 # [2007. 从双倍数组中还原原数组](https://leetcode.cn/problems/find-original-array-from-doubled-array)
 
 [English Version](/solution/2000-2099/2007.Find%20Original%20Array%20From%20Doubled%20Array/README_EN.md)
-
-<!-- tags:贪心,数组,哈希表,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

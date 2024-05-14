@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1363.Largest%20Multiple%20of%20Three/README.md
+rating: 1822
+tags:
+    - 贪心
+    - 数组
+    - 动态规划
+---
+
 # [1363. 形成三的最大倍数](https://leetcode.cn/problems/largest-multiple-of-three)
 
 [English Version](/solution/1300-1399/1363.Largest%20Multiple%20of%20Three/README_EN.md)
-
-<!-- tags:贪心,数组,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

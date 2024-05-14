@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1626.Best%20Team%20With%20No%20Conflicts/README_EN.md
+rating: 2027
+tags:
+    - Array
+    - Dynamic Programming
+    - Sorting
+---
+
 # [1626. Best Team With No Conflicts](https://leetcode.com/problems/best-team-with-no-conflicts)
 
 [中文文档](/solution/1600-1699/1626.Best%20Team%20With%20No%20Conflicts/README.md)
-
-<!-- tags:Array,Dynamic Programming,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1328.Break%20a%20Palindrome/README_EN.md
+rating: 1473
+tags:
+    - Greedy
+    - String
+---
+
 # [1328. Break a Palindrome](https://leetcode.com/problems/break-a-palindrome)
 
 [中文文档](/solution/1300-1399/1328.Break%20a%20Palindrome/README.md)
-
-<!-- tags:Greedy,String -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

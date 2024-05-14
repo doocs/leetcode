@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0147.Insertion%20Sort%20List/README.md
+tags:
+    - 链表
+    - 排序
+---
+
 # [147. 对链表进行插入排序](https://leetcode.cn/problems/insertion-sort-list)
 
 [English Version](/solution/0100-0199/0147.Insertion%20Sort%20List/README_EN.md)
-
-<!-- tags:链表,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3072.Distribute%20Elements%20Into%20Two%20Arrays%20II/README.md
+rating: 2052
+tags:
+    - 树状数组
+    - 线段树
+    - 数组
+    - 模拟
+---
+
 # [3072. 将元素分配到两个数组中 II](https://leetcode.cn/problems/distribute-elements-into-two-arrays-ii)
 
 [English Version](/solution/3000-3099/3072.Distribute%20Elements%20Into%20Two%20Arrays%20II/README_EN.md)
-
-<!-- tags:树状数组,线段树,数组,模拟 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

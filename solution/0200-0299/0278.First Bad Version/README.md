@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0278.First%20Bad%20Version/README.md
+tags:
+    - 二分查找
+    - 交互
+---
+
 # [278. 第一个错误的版本](https://leetcode.cn/problems/first-bad-version)
 
 [English Version](/solution/0200-0299/0278.First%20Bad%20Version/README_EN.md)
-
-<!-- tags:二分查找,交互 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0834.Sum%20of%20Distances%20in%20Tree/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 图
+    - 动态规划
+---
+
 # [834. 树中距离之和](https://leetcode.cn/problems/sum-of-distances-in-tree)
 
 [English Version](/solution/0800-0899/0834.Sum%20of%20Distances%20in%20Tree/README_EN.md)
-
-<!-- tags:树,深度优先搜索,图,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

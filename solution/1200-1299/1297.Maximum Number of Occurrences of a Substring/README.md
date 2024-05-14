@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1297.Maximum%20Number%20of%20Occurrences%20of%20a%20Substring/README.md
+rating: 1748
+tags:
+    - 哈希表
+    - 字符串
+    - 滑动窗口
+---
+
 # [1297. 子串的最大出现次数](https://leetcode.cn/problems/maximum-number-of-occurrences-of-a-substring)
 
 [English Version](/solution/1200-1299/1297.Maximum%20Number%20of%20Occurrences%20of%20a%20Substring/README_EN.md)
-
-<!-- tags:哈希表,字符串,滑动窗口 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

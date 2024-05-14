@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1860.Incremental%20Memory%20Leak/README_EN.md
+rating: 1387
+tags:
+    - Math
+    - Simulation
+---
+
 # [1860. Incremental Memory Leak](https://leetcode.com/problems/incremental-memory-leak)
 
 [中文文档](/solution/1800-1899/1860.Incremental%20Memory%20Leak/README.md)
-
-<!-- tags:Math,Simulation -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2549.Count%20Distinct%20Numbers%20on%20Board/README_EN.md
+rating: 1265
+tags:
+    - Array
+    - Hash Table
+    - Math
+    - Simulation
+---
+
 # [2549. Count Distinct Numbers on Board](https://leetcode.com/problems/count-distinct-numbers-on-board)
 
 [中文文档](/solution/2500-2599/2549.Count%20Distinct%20Numbers%20on%20Board/README.md)
-
-<!-- tags:Array,Hash Table,Math,Simulation -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

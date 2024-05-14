@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2619.Array%20Prototype%20Last/README_EN.md
+---
+
 # [2619. Array Prototype Last](https://leetcode.com/problems/array-prototype-last)
 
 [中文文档](/solution/2600-2699/2619.Array%20Prototype%20Last/README.md)
-
-<!-- tags: -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

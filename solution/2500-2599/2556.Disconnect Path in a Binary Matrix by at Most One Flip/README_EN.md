@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2556.Disconnect%20Path%20in%20a%20Binary%20Matrix%20by%20at%20Most%20One%20Flip/README_EN.md
+rating: 2368
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Array
+    - Dynamic Programming
+    - Matrix
+---
+
 # [2556. Disconnect Path in a Binary Matrix by at Most One Flip](https://leetcode.com/problems/disconnect-path-in-a-binary-matrix-by-at-most-one-flip)
 
 [中文文档](/solution/2500-2599/2556.Disconnect%20Path%20in%20a%20Binary%20Matrix%20by%20at%20Most%20One%20Flip/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Array,Dynamic Programming,Matrix -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

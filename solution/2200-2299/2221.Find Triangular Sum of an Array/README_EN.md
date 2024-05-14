@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2221.Find%20Triangular%20Sum%20of%20an%20Array/README_EN.md
+rating: 1317
+tags:
+    - Array
+    - Math
+    - Combinatorics
+    - Simulation
+---
+
 # [2221. Find Triangular Sum of an Array](https://leetcode.com/problems/find-triangular-sum-of-an-array)
 
 [中文文档](/solution/2200-2299/2221.Find%20Triangular%20Sum%20of%20an%20Array/README.md)
-
-<!-- tags:Array,Math,Combinatorics,Simulation -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

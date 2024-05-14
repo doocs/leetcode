@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2523.Closest%20Prime%20Numbers%20in%20Range/README_EN.md
+rating: 1649
+tags:
+    - Math
+    - Number Theory
+---
+
 # [2523. Closest Prime Numbers in Range](https://leetcode.com/problems/closest-prime-numbers-in-range)
 
 [中文文档](/solution/2500-2599/2523.Closest%20Prime%20Numbers%20in%20Range/README.md)
-
-<!-- tags:Math,Number Theory -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

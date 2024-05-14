@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2739.Total%20Distance%20Traveled/README.md
+rating: 1262
+tags:
+    - 数学
+    - 模拟
+---
+
 # [2739. 总行驶距离](https://leetcode.cn/problems/total-distance-traveled)
 
 [English Version](/solution/2700-2799/2739.Total%20Distance%20Traveled/README_EN.md)
-
-<!-- tags:数学,模拟 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1119.Remove%20Vowels%20from%20a%20String/README.md
+rating: 1232
+tags:
+    - 字符串
+---
+
 # [1119. 删去字符串中的元音 🔒](https://leetcode.cn/problems/remove-vowels-from-a-string)
 
 [English Version](/solution/1100-1199/1119.Remove%20Vowels%20from%20a%20String/README_EN.md)
-
-<!-- tags:字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

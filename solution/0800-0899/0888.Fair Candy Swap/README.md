@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0888.Fair%20Candy%20Swap/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 二分查找
+    - 排序
+---
+
 # [888. 公平的糖果交换](https://leetcode.cn/problems/fair-candy-swap)
 
 [English Version](/solution/0800-0899/0888.Fair%20Candy%20Swap/README_EN.md)
-
-<!-- tags:数组,哈希表,二分查找,排序 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

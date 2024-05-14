@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1748.Sum%20of%20Unique%20Elements/README.md
+rating: 1228
+tags:
+    - 数组
+    - 哈希表
+    - 计数
+---
+
 # [1748. 唯一元素的和](https://leetcode.cn/problems/sum-of-unique-elements)
 
 [English Version](/solution/1700-1799/1748.Sum%20of%20Unique%20Elements/README_EN.md)
-
-<!-- tags:数组,哈希表,计数 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

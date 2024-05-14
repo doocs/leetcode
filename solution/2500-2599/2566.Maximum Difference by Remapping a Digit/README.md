@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2566.Maximum%20Difference%20by%20Remapping%20a%20Digit/README.md
+rating: 1396
+tags:
+    - 贪心
+    - 数学
+---
+
 # [2566. 替换一个数字后的最大差值](https://leetcode.cn/problems/maximum-difference-by-remapping-a-digit)
 
 [English Version](/solution/2500-2599/2566.Maximum%20Difference%20by%20Remapping%20a%20Digit/README_EN.md)
-
-<!-- tags:贪心,数学 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

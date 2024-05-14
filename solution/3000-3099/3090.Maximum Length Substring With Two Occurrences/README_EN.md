@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3090.Maximum%20Length%20Substring%20With%20Two%20Occurrences/README_EN.md
+rating: 1329
+tags:
+    - Hash Table
+    - String
+    - Sliding Window
+---
+
 # [3090. Maximum Length Substring With Two Occurrences](https://leetcode.com/problems/maximum-length-substring-with-two-occurrences)
 
 [中文文档](/solution/3000-3099/3090.Maximum%20Length%20Substring%20With%20Two%20Occurrences/README.md)
-
-<!-- tags:Hash Table,String,Sliding Window -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1028.Recover%20a%20Tree%20From%20Preorder%20Traversal/README_EN.md
+rating: 1797
+tags:
+    - Tree
+    - Depth-First Search
+    - String
+    - Binary Tree
+---
+
 # [1028. Recover a Tree From Preorder Traversal](https://leetcode.com/problems/recover-a-tree-from-preorder-traversal)
 
 [中文文档](/solution/1000-1099/1028.Recover%20a%20Tree%20From%20Preorder%20Traversal/README.md)
-
-<!-- tags:Tree,Depth-First Search,String,Binary Tree -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

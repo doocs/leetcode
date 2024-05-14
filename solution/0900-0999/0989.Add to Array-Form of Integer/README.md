@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0989.Add%20to%20Array-Form%20of%20Integer/README.md
+tags:
+    - 数组
+    - 数学
+---
+
 # [989. 数组形式的整数加法](https://leetcode.cn/problems/add-to-array-form-of-integer)
 
 [English Version](/solution/0900-0999/0989.Add%20to%20Array-Form%20of%20Integer/README_EN.md)
-
-<!-- tags:数组,数学 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

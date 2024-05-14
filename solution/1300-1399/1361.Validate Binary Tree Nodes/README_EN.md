@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1361.Validate%20Binary%20Tree%20Nodes/README_EN.md
+rating: 1464
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Union Find
+    - Graph
+    - Binary Tree
+---
+
 # [1361. Validate Binary Tree Nodes](https://leetcode.com/problems/validate-binary-tree-nodes)
 
 [中文文档](/solution/1300-1399/1361.Validate%20Binary%20Tree%20Nodes/README.md)
-
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Union Find,Graph,Binary Tree -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

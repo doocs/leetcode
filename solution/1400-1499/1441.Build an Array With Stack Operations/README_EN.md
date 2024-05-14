@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1441.Build%20an%20Array%20With%20Stack%20Operations/README_EN.md
+rating: 1180
+tags:
+    - Stack
+    - Array
+    - Simulation
+---
+
 # [1441. Build an Array With Stack Operations](https://leetcode.com/problems/build-an-array-with-stack-operations)
 
 [中文文档](/solution/1400-1499/1441.Build%20an%20Array%20With%20Stack%20Operations/README.md)
-
-<!-- tags:Stack,Array,Simulation -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

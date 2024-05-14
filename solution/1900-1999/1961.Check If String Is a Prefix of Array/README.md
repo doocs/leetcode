@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1961.Check%20If%20String%20Is%20a%20Prefix%20of%20Array/README.md
+rating: 1234
+tags:
+    - 数组
+    - 双指针
+    - 字符串
+---
+
 # [1961. 检查字符串是否为数组前缀](https://leetcode.cn/problems/check-if-string-is-a-prefix-of-array)
 
 [English Version](/solution/1900-1999/1961.Check%20If%20String%20Is%20a%20Prefix%20of%20Array/README_EN.md)
-
-<!-- tags:数组,双指针,字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

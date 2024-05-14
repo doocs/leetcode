@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0665.Non-decreasing%20Array/README.md
+tags:
+    - 数组
+---
+
 # [665. 非递减数列](https://leetcode.cn/problems/non-decreasing-array)
 
 [English Version](/solution/0600-0699/0665.Non-decreasing%20Array/README_EN.md)
-
-<!-- tags:数组 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

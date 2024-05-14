@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0669.Trim%20a%20Binary%20Search%20Tree/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 二叉搜索树
+    - 二叉树
+---
+
 # [669. 修剪二叉搜索树](https://leetcode.cn/problems/trim-a-binary-search-tree)
 
 [English Version](/solution/0600-0699/0669.Trim%20a%20Binary%20Search%20Tree/README_EN.md)
-
-<!-- tags:树,深度优先搜索,二叉搜索树,二叉树 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

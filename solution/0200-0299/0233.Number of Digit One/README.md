@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0233.Number%20of%20Digit%20One/README.md
+tags:
+    - 递归
+    - 数学
+    - 动态规划
+---
+
 # [233. 数字 1 的个数](https://leetcode.cn/problems/number-of-digit-one)
 
 [English Version](/solution/0200-0299/0233.Number%20of%20Digit%20One/README_EN.md)
-
-<!-- tags:递归,数学,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

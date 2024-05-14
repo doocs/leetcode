@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2649.Nested%20Array%20Generator/README.md
+---
+
 # [2649. 嵌套数组生成器](https://leetcode.cn/problems/nested-array-generator)
 
 [English Version](/solution/2600-2699/2649.Nested%20Array%20Generator/README_EN.md)
-
-<!-- tags: -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

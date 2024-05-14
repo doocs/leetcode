@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2553.Separate%20the%20Digits%20in%20an%20Array/README.md
+rating: 1216
+tags:
+    - 数组
+    - 模拟
+---
+
 # [2553. 分割数组中数字的数位](https://leetcode.cn/problems/separate-the-digits-in-an-array)
 
 [English Version](/solution/2500-2599/2553.Separate%20the%20Digits%20in%20an%20Array/README_EN.md)
-
-<!-- tags:数组,模拟 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

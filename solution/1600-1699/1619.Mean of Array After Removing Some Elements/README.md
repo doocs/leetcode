@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1619.Mean%20of%20Array%20After%20Removing%20Some%20Elements/README.md
+rating: 1374
+tags:
+    - 数组
+    - 排序
+---
+
 # [1619. 删除某些元素后的数组均值](https://leetcode.cn/problems/mean-of-array-after-removing-some-elements)
 
 [English Version](/solution/1600-1699/1619.Mean%20of%20Array%20After%20Removing%20Some%20Elements/README_EN.md)
-
-<!-- tags:数组,排序 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

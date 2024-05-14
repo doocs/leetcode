@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0369.Plus%20One%20Linked%20List/README.md
+tags:
+    - 链表
+    - 数学
+---
+
 # [369. 给单链表加一 🔒](https://leetcode.cn/problems/plus-one-linked-list)
 
 [English Version](/solution/0300-0399/0369.Plus%20One%20Linked%20List/README_EN.md)
-
-<!-- tags:链表,数学 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

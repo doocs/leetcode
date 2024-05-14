@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0982.Triples%20with%20Bitwise%20AND%20Equal%20To%20Zero/README_EN.md
+tags:
+    - Bit Manipulation
+    - Array
+    - Hash Table
+---
+
 # [982. Triples with Bitwise AND Equal To Zero](https://leetcode.com/problems/triples-with-bitwise-and-equal-to-zero)
 
 [中文文档](/solution/0900-0999/0982.Triples%20with%20Bitwise%20AND%20Equal%20To%20Zero/README.md)
-
-<!-- tags:Bit Manipulation,Array,Hash Table -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0800.Similar%20RGB%20Color/README_EN.md
+tags:
+    - Math
+    - String
+    - Enumeration
+---
+
 # [800. Similar RGB Color 🔒](https://leetcode.com/problems/similar-rgb-color)
 
 [中文文档](/solution/0800-0899/0800.Similar%20RGB%20Color/README.md)
-
-<!-- tags:Math,String,Enumeration -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

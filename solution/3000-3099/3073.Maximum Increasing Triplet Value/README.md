@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3073.Maximum%20Increasing%20Triplet%20Value/README.md
+tags:
+    - 数组
+    - 有序集合
+---
+
 # [3073. 最大递增三元组 🔒](https://leetcode.cn/problems/maximum-increasing-triplet-value)
 
 [English Version](/solution/3000-3099/3073.Maximum%20Increasing%20Triplet%20Value/README_EN.md)
-
-<!-- tags:数组,有序集合 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

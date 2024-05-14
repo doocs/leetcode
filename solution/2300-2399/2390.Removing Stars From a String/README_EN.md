@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2390.Removing%20Stars%20From%20a%20String/README_EN.md
+rating: 1347
+tags:
+    - Stack
+    - String
+    - Simulation
+---
+
 # [2390. Removing Stars From a String](https://leetcode.com/problems/removing-stars-from-a-string)
 
 [中文文档](/solution/2300-2399/2390.Removing%20Stars%20From%20a%20String/README.md)
-
-<!-- tags:Stack,String,Simulation -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0539.Minimum%20Time%20Difference/README_EN.md
+tags:
+    - Array
+    - Math
+    - String
+    - Sorting
+---
+
 # [539. Minimum Time Difference](https://leetcode.com/problems/minimum-time-difference)
 
 [中文文档](/solution/0500-0599/0539.Minimum%20Time%20Difference/README.md)
-
-<!-- tags:Array,Math,String,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

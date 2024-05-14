@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0940.Distinct%20Subsequences%20II/README.md
+tags:
+    - 字符串
+    - 动态规划
+---
+
 # [940. 不同的子序列 II](https://leetcode.cn/problems/distinct-subsequences-ii)
 
 [English Version](/solution/0900-0999/0940.Distinct%20Subsequences%20II/README_EN.md)
-
-<!-- tags:字符串,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

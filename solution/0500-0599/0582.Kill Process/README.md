@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0582.Kill%20Process/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 数组
+    - 哈希表
+---
+
 # [582. 杀掉进程 🔒](https://leetcode.cn/problems/kill-process)
 
 [English Version](/solution/0500-0599/0582.Kill%20Process/README_EN.md)
-
-<!-- tags:树,深度优先搜索,广度优先搜索,数组,哈希表 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

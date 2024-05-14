@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1682.Longest%20Palindromic%20Subsequence%20II/README.md
+tags:
+    - 字符串
+    - 动态规划
+---
+
 # [1682. 最长回文子序列 II 🔒](https://leetcode.cn/problems/longest-palindromic-subsequence-ii)
 
 [English Version](/solution/1600-1699/1682.Longest%20Palindromic%20Subsequence%20II/README_EN.md)
-
-<!-- tags:字符串,动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

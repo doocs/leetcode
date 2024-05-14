@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1653.Minimum%20Deletions%20to%20Make%20String%20Balanced/README_EN.md
+rating: 1793
+tags:
+    - Stack
+    - String
+    - Dynamic Programming
+---
+
 # [1653. Minimum Deletions to Make String Balanced](https://leetcode.com/problems/minimum-deletions-to-make-string-balanced)
 
 [中文文档](/solution/1600-1699/1653.Minimum%20Deletions%20to%20Make%20String%20Balanced/README.md)
-
-<!-- tags:Stack,String,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0703.Kth%20Largest%20Element%20in%20a%20Stream/README.md
+tags:
+    - 树
+    - 设计
+    - 二叉搜索树
+    - 二叉树
+    - 数据流
+    - 堆（优先队列）
+---
+
 # [703. 数据流中的第 K 大元素](https://leetcode.cn/problems/kth-largest-element-in-a-stream)
 
 [English Version](/solution/0700-0799/0703.Kth%20Largest%20Element%20in%20a%20Stream/README_EN.md)
-
-<!-- tags:树,设计,二叉搜索树,二叉树,数据流,堆（优先队列） -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

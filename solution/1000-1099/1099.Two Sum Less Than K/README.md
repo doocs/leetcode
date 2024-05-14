@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1099.Two%20Sum%20Less%20Than%20K/README.md
+rating: 1245
+tags:
+    - 数组
+    - 双指针
+    - 二分查找
+    - 排序
+---
+
 # [1099. 小于 K 的两数之和 🔒](https://leetcode.cn/problems/two-sum-less-than-k)
 
 [English Version](/solution/1000-1099/1099.Two%20Sum%20Less%20Than%20K/README_EN.md)
-
-<!-- tags:数组,双指针,二分查找,排序 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

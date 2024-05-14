@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0856.Score%20of%20Parentheses/README.md
+tags:
+    - 栈
+    - 字符串
+---
+
 # [856. 括号的分数](https://leetcode.cn/problems/score-of-parentheses)
 
 [English Version](/solution/0800-0899/0856.Score%20of%20Parentheses/README_EN.md)
-
-<!-- tags:栈,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0767.Reorganize%20String/README_EN.md
+tags:
+    - Greedy
+    - Hash Table
+    - String
+    - Counting
+    - Sorting
+    - Heap (Priority Queue)
+---
+
 # [767. Reorganize String](https://leetcode.com/problems/reorganize-string)
 
 [中文文档](/solution/0700-0799/0767.Reorganize%20String/README.md)
-
-<!-- tags:Greedy,Hash Table,String,Counting,Sorting,Heap (Priority Queue) -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

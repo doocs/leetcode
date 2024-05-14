@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2649.Nested%20Array%20Generator/README_EN.md
+---
+
 # [2649. Nested Array Generator](https://leetcode.com/problems/nested-array-generator)
 
 [中文文档](/solution/2600-2699/2649.Nested%20Array%20Generator/README.md)
-
-<!-- tags: -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

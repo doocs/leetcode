@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2745.Construct%20the%20Longest%20New%20String/README_EN.md
+rating: 1607
+tags:
+    - Greedy
+    - Brainteaser
+    - Math
+    - Dynamic Programming
+---
+
 # [2745. Construct the Longest New String](https://leetcode.com/problems/construct-the-longest-new-string)
 
 [中文文档](/solution/2700-2799/2745.Construct%20the%20Longest%20New%20String/README.md)
-
-<!-- tags:Greedy,Brainteaser,Math,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

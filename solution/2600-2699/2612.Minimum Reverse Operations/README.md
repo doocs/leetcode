@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2612.Minimum%20Reverse%20Operations/README.md
+rating: 2824
+tags:
+    - 广度优先搜索
+    - 数组
+    - 有序集合
+---
+
 # [2612. 最少翻转操作数](https://leetcode.cn/problems/minimum-reverse-operations)
 
 [English Version](/solution/2600-2699/2612.Minimum%20Reverse%20Operations/README_EN.md)
-
-<!-- tags:广度优先搜索,数组,有序集合 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

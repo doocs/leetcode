@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1553.Minimum%20Number%20of%20Days%20to%20Eat%20N%20Oranges/README.md
+rating: 2048
+tags:
+    - 记忆化搜索
+    - 动态规划
+---
+
 # [1553. 吃掉 N 个橘子的最少天数](https://leetcode.cn/problems/minimum-number-of-days-to-eat-n-oranges)
 
 [English Version](/solution/1500-1599/1553.Minimum%20Number%20of%20Days%20to%20Eat%20N%20Oranges/README_EN.md)
-
-<!-- tags:记忆化搜索,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1981.Minimize%20the%20Difference%20Between%20Target%20and%20Chosen%20Elements/README_EN.md
+rating: 2009
+tags:
+    - Array
+    - Dynamic Programming
+    - Matrix
+---
+
 # [1981. Minimize the Difference Between Target and Chosen Elements](https://leetcode.com/problems/minimize-the-difference-between-target-and-chosen-elements)
 
 [中文文档](/solution/1900-1999/1981.Minimize%20the%20Difference%20Between%20Target%20and%20Chosen%20Elements/README.md)
-
-<!-- tags:Array,Dynamic Programming,Matrix -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

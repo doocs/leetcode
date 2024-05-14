@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2732.Find%20a%20Good%20Subset%20of%20the%20Matrix/README.md
+rating: 2239
+tags:
+    - 贪心
+    - 位运算
+    - 数组
+    - 矩阵
+---
+
 # [2732. 找到矩阵中的好子集](https://leetcode.cn/problems/find-a-good-subset-of-the-matrix)
 
 [English Version](/solution/2700-2799/2732.Find%20a%20Good%20Subset%20of%20the%20Matrix/README_EN.md)
-
-<!-- tags:贪心,位运算,数组,矩阵 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

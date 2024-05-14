@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0211.Design%20Add%20and%20Search%20Words%20Data%20Structure/README.md
+tags:
+    - 深度优先搜索
+    - 设计
+    - 字典树
+    - 字符串
+---
+
 # [211. 添加与搜索单词 - 数据结构设计](https://leetcode.cn/problems/design-add-and-search-words-data-structure)
 
 [English Version](/solution/0200-0299/0211.Design%20Add%20and%20Search%20Words%20Data%20Structure/README_EN.md)
-
-<!-- tags:深度优先搜索,设计,字典树,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

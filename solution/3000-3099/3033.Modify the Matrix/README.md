@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3033.Modify%20the%20Matrix/README.md
+rating: 1180
+tags:
+    - 数组
+    - 矩阵
+---
+
 # [3033. 修改矩阵](https://leetcode.cn/problems/modify-the-matrix)
 
 [English Version](/solution/3000-3099/3033.Modify%20the%20Matrix/README_EN.md)
-
-<!-- tags:数组,矩阵 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

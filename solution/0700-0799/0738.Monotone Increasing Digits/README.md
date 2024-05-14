@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0738.Monotone%20Increasing%20Digits/README.md
+tags:
+    - 贪心
+    - 数学
+---
+
 # [738. 单调递增的数字](https://leetcode.cn/problems/monotone-increasing-digits)
 
 [English Version](/solution/0700-0799/0738.Monotone%20Increasing%20Digits/README_EN.md)
-
-<!-- tags:贪心,数学 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

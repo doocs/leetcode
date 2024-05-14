@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1851.Minimum%20Interval%20to%20Include%20Each%20Query/README.md
+rating: 2286
+tags:
+    - 数组
+    - 二分查找
+    - 排序
+    - 扫描线
+    - 堆（优先队列）
+---
+
 # [1851. 包含每个查询的最小区间](https://leetcode.cn/problems/minimum-interval-to-include-each-query)
 
 [English Version](/solution/1800-1899/1851.Minimum%20Interval%20to%20Include%20Each%20Query/README_EN.md)
-
-<!-- tags:数组,二分查找,排序,扫描线,堆（优先队列） -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

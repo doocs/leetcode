@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1208.Get%20Equal%20Substrings%20Within%20Budget/README.md
+rating: 1496
+tags:
+    - 字符串
+    - 二分查找
+    - 前缀和
+    - 滑动窗口
+---
+
 # [1208. 尽可能使字符串相等](https://leetcode.cn/problems/get-equal-substrings-within-budget)
 
 [English Version](/solution/1200-1299/1208.Get%20Equal%20Substrings%20Within%20Budget/README_EN.md)
-
-<!-- tags:字符串,二分查找,前缀和,滑动窗口 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

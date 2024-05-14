@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1323.Maximum%2069%20Number/README.md
+rating: 1193
+tags:
+    - 贪心
+    - 数学
+---
+
 # [1323. 6 和 9 组成的最大数字](https://leetcode.cn/problems/maximum-69-number)
 
 [English Version](/solution/1300-1399/1323.Maximum%2069%20Number/README_EN.md)
-
-<!-- tags:贪心,数学 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

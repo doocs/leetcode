@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0368.Largest%20Divisible%20Subset/README_EN.md
+tags:
+    - Array
+    - Math
+    - Dynamic Programming
+    - Sorting
+---
+
 # [368. Largest Divisible Subset](https://leetcode.com/problems/largest-divisible-subset)
 
 [中文文档](/solution/0300-0399/0368.Largest%20Divisible%20Subset/README.md)
-
-<!-- tags:Array,Math,Dynamic Programming,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

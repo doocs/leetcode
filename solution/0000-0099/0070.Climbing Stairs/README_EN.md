@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0070.Climbing%20Stairs/README_EN.md
+tags:
+    - Memoization
+    - Math
+    - Dynamic Programming
+---
+
 # [70. Climbing Stairs](https://leetcode.com/problems/climbing-stairs)
 
 [中文文档](/solution/0000-0099/0070.Climbing%20Stairs/README.md)
-
-<!-- tags:Memoization,Math,Dynamic Programming -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

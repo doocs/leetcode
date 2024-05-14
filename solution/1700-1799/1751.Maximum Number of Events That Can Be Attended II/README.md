@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1751.Maximum%20Number%20of%20Events%20That%20Can%20Be%20Attended%20II/README.md
+rating: 2040
+tags:
+    - 数组
+    - 二分查找
+    - 动态规划
+    - 排序
+---
+
 # [1751. 最多可以参加的会议数目 II](https://leetcode.cn/problems/maximum-number-of-events-that-can-be-attended-ii)
 
 [English Version](/solution/1700-1799/1751.Maximum%20Number%20of%20Events%20That%20Can%20Be%20Attended%20II/README_EN.md)
-
-<!-- tags:数组,二分查找,动态规划,排序 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

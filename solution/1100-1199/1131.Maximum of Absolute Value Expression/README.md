@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1131.Maximum%20of%20Absolute%20Value%20Expression/README.md
+rating: 2059
+tags:
+    - 数组
+    - 数学
+---
+
 # [1131. 绝对值表达式的最大值](https://leetcode.cn/problems/maximum-of-absolute-value-expression)
 
 [English Version](/solution/1100-1199/1131.Maximum%20of%20Absolute%20Value%20Expression/README_EN.md)
-
-<!-- tags:数组,数学 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

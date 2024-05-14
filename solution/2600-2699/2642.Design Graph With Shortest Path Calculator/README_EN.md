@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2642.Design%20Graph%20With%20Shortest%20Path%20Calculator/README_EN.md
+rating: 1810
+tags:
+    - Graph
+    - Design
+    - Shortest Path
+    - Heap (Priority Queue)
+---
+
 # [2642. Design Graph With Shortest Path Calculator](https://leetcode.com/problems/design-graph-with-shortest-path-calculator)
 
 [中文文档](/solution/2600-2699/2642.Design%20Graph%20With%20Shortest%20Path%20Calculator/README.md)
-
-<!-- tags:Graph,Design,Shortest Path,Heap (Priority Queue) -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

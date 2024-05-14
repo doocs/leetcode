@@ -1,10 +1,17 @@
-# [2869. Minimum Operations to Collect Elements](https://leetcode.com/problems/minimum-operations-to-collect-elements/)
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2869.Minimum%20Operations%20to%20Collect%20Elements/README_EN.md
+rating: 1272
+tags:
+    - Bit Manipulation
+    - Array
+    - Hash Table
+---
+
+# [2869. Minimum Operations to Collect Elements](https://leetcode.com/problems/minimum-operations-to-collect-elements)
 
 [中文文档](/solution/2800-2899/2869.Minimum%20Operations%20to%20Collect%20Elements/README.md)
-
-<!-- tags:Bit Manipulation,Array,Hash Table -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2382.Maximum%20Segment%20Sum%20After%20Removals/README.md
+rating: 2136
+tags:
+    - 并查集
+    - 数组
+    - 有序集合
+    - 前缀和
+---
+
 # [2382. 删除操作后的最大子段和](https://leetcode.cn/problems/maximum-segment-sum-after-removals)
 
 [English Version](/solution/2300-2399/2382.Maximum%20Segment%20Sum%20After%20Removals/README_EN.md)
-
-<!-- tags:并查集,数组,有序集合,前缀和 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

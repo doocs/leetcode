@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2312.Selling%20Pieces%20of%20Wood/README.md
+rating: 2363
+tags:
+    - 记忆化搜索
+    - 数组
+    - 动态规划
+---
+
 # [2312. 卖木头块](https://leetcode.cn/problems/selling-pieces-of-wood)
 
 [English Version](/solution/2300-2399/2312.Selling%20Pieces%20of%20Wood/README_EN.md)
-
-<!-- tags:记忆化搜索,数组,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

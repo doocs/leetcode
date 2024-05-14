@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1192.Critical%20Connections%20in%20a%20Network/README_EN.md
+rating: 2084
+tags:
+    - Depth-First Search
+    - Graph
+    - Biconnected Component
+---
+
 # [1192. Critical Connections in a Network](https://leetcode.com/problems/critical-connections-in-a-network)
 
 [中文文档](/solution/1100-1199/1192.Critical%20Connections%20in%20a%20Network/README.md)
-
-<!-- tags:Depth-First Search,Graph,Biconnected Component -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

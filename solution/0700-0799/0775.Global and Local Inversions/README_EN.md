@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0775.Global%20and%20Local%20Inversions/README_EN.md
+tags:
+    - Array
+    - Math
+---
+
 # [775. Global and Local Inversions](https://leetcode.com/problems/global-and-local-inversions)
 
 [中文文档](/solution/0700-0799/0775.Global%20and%20Local%20Inversions/README.md)
-
-<!-- tags:Array,Math -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

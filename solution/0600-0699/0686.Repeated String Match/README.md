@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0686.Repeated%20String%20Match/README.md
+tags:
+    - 字符串
+    - 字符串匹配
+---
+
 # [686. 重复叠加字符串匹配](https://leetcode.cn/problems/repeated-string-match)
 
 [English Version](/solution/0600-0699/0686.Repeated%20String%20Match/README_EN.md)
-
-<!-- tags:字符串,字符串匹配 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

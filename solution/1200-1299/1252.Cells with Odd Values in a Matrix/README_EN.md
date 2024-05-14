@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1252.Cells%20with%20Odd%20Values%20in%20a%20Matrix/README_EN.md
+rating: 1283
+tags:
+    - Array
+    - Math
+    - Simulation
+---
+
 # [1252. Cells with Odd Values in a Matrix](https://leetcode.com/problems/cells-with-odd-values-in-a-matrix)
 
 [中文文档](/solution/1200-1299/1252.Cells%20with%20Odd%20Values%20in%20a%20Matrix/README.md)
-
-<!-- tags:Array,Math,Simulation -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

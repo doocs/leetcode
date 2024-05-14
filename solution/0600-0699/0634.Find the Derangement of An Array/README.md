@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0634.Find%20the%20Derangement%20of%20An%20Array/README.md
+tags:
+    - 数学
+    - 动态规划
+---
+
 # [634. 寻找数组的错位排列 🔒](https://leetcode.cn/problems/find-the-derangement-of-an-array)
 
 [English Version](/solution/0600-0699/0634.Find%20the%20Derangement%20of%20An%20Array/README_EN.md)
-
-<!-- tags:数学,动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1493.Longest%20Subarray%20of%201%27s%20After%20Deleting%20One%20Element/README.md
+rating: 1423
+tags:
+    - 数组
+    - 动态规划
+    - 滑动窗口
+---
+
 # [1493. 删掉一个元素以后全为 1 的最长子数组](https://leetcode.cn/problems/longest-subarray-of-1s-after-deleting-one-element)
 
 [English Version](/solution/1400-1499/1493.Longest%20Subarray%20of%201%27s%20After%20Deleting%20One%20Element/README_EN.md)
-
-<!-- tags:数组,动态规划,滑动窗口 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

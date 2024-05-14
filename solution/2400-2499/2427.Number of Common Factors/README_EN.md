@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2427.Number%20of%20Common%20Factors/README_EN.md
+rating: 1172
+tags:
+    - Math
+    - Enumeration
+    - Number Theory
+---
+
 # [2427. Number of Common Factors](https://leetcode.com/problems/number-of-common-factors)
 
 [中文文档](/solution/2400-2499/2427.Number%20of%20Common%20Factors/README.md)
-
-<!-- tags:Math,Enumeration,Number Theory -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

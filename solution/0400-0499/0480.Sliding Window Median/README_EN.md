@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0480.Sliding%20Window%20Median/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Sliding Window
+    - Heap (Priority Queue)
+---
+
 # [480. Sliding Window Median](https://leetcode.com/problems/sliding-window-median)
 
 [中文文档](/solution/0400-0499/0480.Sliding%20Window%20Median/README.md)
-
-<!-- tags:Array,Hash Table,Sliding Window,Heap (Priority Queue) -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

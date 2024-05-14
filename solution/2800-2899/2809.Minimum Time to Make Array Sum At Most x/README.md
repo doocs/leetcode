@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2809.Minimum%20Time%20to%20Make%20Array%20Sum%20At%20Most%20x/README.md
+rating: 2978
+tags:
+    - 数组
+    - 动态规划
+    - 排序
+---
+
 # [2809. 使数组和小于等于 x 的最少时间](https://leetcode.cn/problems/minimum-time-to-make-array-sum-at-most-x)
 
 [English Version](/solution/2800-2899/2809.Minimum%20Time%20to%20Make%20Array%20Sum%20At%20Most%20x/README_EN.md)
-
-<!-- tags:数组,动态规划,排序 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

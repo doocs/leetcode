@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3048.Earliest%20Second%20to%20Mark%20Indices%20I/README_EN.md
+rating: 2262
+tags:
+    - Array
+    - Binary Search
+---
+
 # [3048. Earliest Second to Mark Indices I](https://leetcode.com/problems/earliest-second-to-mark-indices-i)
 
 [中文文档](/solution/3000-3099/3048.Earliest%20Second%20to%20Mark%20Indices%20I/README.md)
-
-<!-- tags:Array,Binary Search -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

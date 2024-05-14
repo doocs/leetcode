@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1540.Can%20Convert%20String%20in%20K%20Moves/README_EN.md
+rating: 1631
+tags:
+    - Hash Table
+    - String
+---
+
 # [1540. Can Convert String in K Moves](https://leetcode.com/problems/can-convert-string-in-k-moves)
 
 [中文文档](/solution/1500-1599/1540.Can%20Convert%20String%20in%20K%20Moves/README.md)
-
-<!-- tags:Hash Table,String -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

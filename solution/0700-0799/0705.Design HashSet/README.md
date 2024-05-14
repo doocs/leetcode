@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0705.Design%20HashSet/README.md
+tags:
+    - 设计
+    - 数组
+    - 哈希表
+    - 链表
+    - 哈希函数
+---
+
 # [705. 设计哈希集合](https://leetcode.cn/problems/design-hashset)
 
 [English Version](/solution/0700-0799/0705.Design%20HashSet/README_EN.md)
-
-<!-- tags:设计,数组,哈希表,链表,哈希函数 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

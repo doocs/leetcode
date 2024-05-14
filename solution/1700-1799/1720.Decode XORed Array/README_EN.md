@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1720.Decode%20XORed%20Array/README_EN.md
+rating: 1284
+tags:
+    - Bit Manipulation
+    - Array
+---
+
 # [1720. Decode XORed Array](https://leetcode.com/problems/decode-xored-array)
 
 [中文文档](/solution/1700-1799/1720.Decode%20XORed%20Array/README.md)
-
-<!-- tags:Bit Manipulation,Array -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1641.Count%20Sorted%20Vowel%20Strings/README.md
+rating: 1519
+tags:
+    - 数学
+    - 动态规划
+    - 组合数学
+---
+
 # [1641. 统计字典序元音字符串的数目](https://leetcode.cn/problems/count-sorted-vowel-strings)
 
 [English Version](/solution/1600-1699/1641.Count%20Sorted%20Vowel%20Strings/README_EN.md)
-
-<!-- tags:数学,动态规划,组合数学 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0554.Brick%20Wall/README_EN.md
+tags:
+    - Array
+    - Hash Table
+---
+
 # [554. Brick Wall](https://leetcode.com/problems/brick-wall)
 
 [中文文档](/solution/0500-0599/0554.Brick%20Wall/README.md)
-
-<!-- tags:Array,Hash Table -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

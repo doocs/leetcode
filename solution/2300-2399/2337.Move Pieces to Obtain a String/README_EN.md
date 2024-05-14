@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2337.Move%20Pieces%20to%20Obtain%20a%20String/README_EN.md
+rating: 1693
+tags:
+    - Two Pointers
+    - String
+---
+
 # [2337. Move Pieces to Obtain a String](https://leetcode.com/problems/move-pieces-to-obtain-a-string)
 
 [中文文档](/solution/2300-2399/2337.Move%20Pieces%20to%20Obtain%20a%20String/README.md)
-
-<!-- tags:Two Pointers,String -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0880.Decoded%20String%20at%20Index/README.md
+tags:
+    - 栈
+    - 字符串
+---
+
 # [880. 索引处的解码字符串](https://leetcode.cn/problems/decoded-string-at-index)
 
 [English Version](/solution/0800-0899/0880.Decoded%20String%20at%20Index/README_EN.md)
-
-<!-- tags:栈,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

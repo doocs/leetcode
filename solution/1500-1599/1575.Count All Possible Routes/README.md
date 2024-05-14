@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1575.Count%20All%20Possible%20Routes/README.md
+rating: 2055
+tags:
+    - 记忆化搜索
+    - 数组
+    - 动态规划
+---
+
 # [1575. 统计所有可行路径](https://leetcode.cn/problems/count-all-possible-routes)
 
 [English Version](/solution/1500-1599/1575.Count%20All%20Possible%20Routes/README_EN.md)
-
-<!-- tags:记忆化搜索,数组,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

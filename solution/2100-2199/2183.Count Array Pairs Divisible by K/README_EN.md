@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2183.Count%20Array%20Pairs%20Divisible%20by%20K/README_EN.md
+rating: 2246
+tags:
+    - Array
+    - Math
+    - Number Theory
+---
+
 # [2183. Count Array Pairs Divisible by K](https://leetcode.com/problems/count-array-pairs-divisible-by-k)
 
 [中文文档](/solution/2100-2199/2183.Count%20Array%20Pairs%20Divisible%20by%20K/README.md)
-
-<!-- tags:Array,Math,Number Theory -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

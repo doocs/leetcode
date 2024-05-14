@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0626.Exchange%20Seats/README_EN.md
+tags:
+    - Database
+---
+
 # [626. Exchange Seats](https://leetcode.com/problems/exchange-seats)
 
 [中文文档](/solution/0600-0699/0626.Exchange%20Seats/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

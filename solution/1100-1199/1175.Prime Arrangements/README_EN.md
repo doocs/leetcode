@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1175.Prime%20Arrangements/README_EN.md
+rating: 1489
+tags:
+    - Math
+---
+
 # [1175. Prime Arrangements](https://leetcode.com/problems/prime-arrangements)
 
 [中文文档](/solution/1100-1199/1175.Prime%20Arrangements/README.md)
-
-<!-- tags:Math -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

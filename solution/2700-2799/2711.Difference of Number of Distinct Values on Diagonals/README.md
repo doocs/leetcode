@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2711.Difference%20of%20Number%20of%20Distinct%20Values%20on%20Diagonals/README.md
+rating: 1428
+tags:
+    - 数组
+    - 哈希表
+    - 矩阵
+---
+
 # [2711. 对角线上不同值的数量差](https://leetcode.cn/problems/difference-of-number-of-distinct-values-on-diagonals)
 
 [English Version](/solution/2700-2799/2711.Difference%20of%20Number%20of%20Distinct%20Values%20on%20Diagonals/README_EN.md)
-
-<!-- tags:数组,哈希表,矩阵 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

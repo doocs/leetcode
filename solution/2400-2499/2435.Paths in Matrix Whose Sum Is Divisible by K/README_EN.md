@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2435.Paths%20in%20Matrix%20Whose%20Sum%20Is%20Divisible%20by%20K/README_EN.md
+rating: 1951
+tags:
+    - Array
+    - Dynamic Programming
+    - Matrix
+---
+
 # [2435. Paths in Matrix Whose Sum Is Divisible by K](https://leetcode.com/problems/paths-in-matrix-whose-sum-is-divisible-by-k)
 
 [中文文档](/solution/2400-2499/2435.Paths%20in%20Matrix%20Whose%20Sum%20Is%20Divisible%20by%20K/README.md)
-
-<!-- tags:Array,Dynamic Programming,Matrix -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

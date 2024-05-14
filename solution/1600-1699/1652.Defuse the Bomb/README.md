@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1652.Defuse%20the%20Bomb/README.md
+rating: 1416
+tags:
+    - 数组
+    - 滑动窗口
+---
+
 # [1652. 拆炸弹](https://leetcode.cn/problems/defuse-the-bomb)
 
 [English Version](/solution/1600-1699/1652.Defuse%20the%20Bomb/README_EN.md)
-
-<!-- tags:数组,滑动窗口 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

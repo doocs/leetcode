@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2509.Cycle%20Length%20Queries%20in%20a%20Tree/README.md
+rating: 1948
+tags:
+    - 树
+    - 数组
+    - 二叉树
+---
+
 # [2509. 查询树中环的长度](https://leetcode.cn/problems/cycle-length-queries-in-a-tree)
 
 [English Version](/solution/2500-2599/2509.Cycle%20Length%20Queries%20in%20a%20Tree/README_EN.md)
-
-<!-- tags:树,数组,二叉树 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

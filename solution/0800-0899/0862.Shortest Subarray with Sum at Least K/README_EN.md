@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0862.Shortest%20Subarray%20with%20Sum%20at%20Least%20K/README_EN.md
+tags:
+    - Queue
+    - Array
+    - Binary Search
+    - Prefix Sum
+    - Sliding Window
+    - Monotonic Queue
+    - Heap (Priority Queue)
+---
+
 # [862. Shortest Subarray with Sum at Least K](https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k)
 
 [中文文档](/solution/0800-0899/0862.Shortest%20Subarray%20with%20Sum%20at%20Least%20K/README.md)
-
-<!-- tags:Queue,Array,Binary Search,Prefix Sum,Sliding Window,Monotonic Queue,Heap (Priority Queue) -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

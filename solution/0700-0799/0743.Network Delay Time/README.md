@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0743.Network%20Delay%20Time/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 图
+    - 最短路
+    - 堆（优先队列）
+---
+
 # [743. 网络延迟时间](https://leetcode.cn/problems/network-delay-time)
 
 [English Version](/solution/0700-0799/0743.Network%20Delay%20Time/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,图,最短路,堆（优先队列） -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

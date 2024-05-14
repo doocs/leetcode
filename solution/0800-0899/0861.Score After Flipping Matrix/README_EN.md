@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0861.Score%20After%20Flipping%20Matrix/README_EN.md
+tags:
+    - Greedy
+    - Bit Manipulation
+    - Array
+    - Matrix
+---
+
 # [861. Score After Flipping Matrix](https://leetcode.com/problems/score-after-flipping-matrix)
 
 [中文文档](/solution/0800-0899/0861.Score%20After%20Flipping%20Matrix/README.md)
-
-<!-- tags:Greedy,Bit Manipulation,Array,Matrix -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

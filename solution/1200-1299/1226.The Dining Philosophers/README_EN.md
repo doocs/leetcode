@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1226.The%20Dining%20Philosophers/README_EN.md
+tags:
+    - Concurrency
+---
+
 # [1226. The Dining Philosophers](https://leetcode.com/problems/the-dining-philosophers)
 
 [中文文档](/solution/1200-1299/1226.The%20Dining%20Philosophers/README.md)
-
-<!-- tags:Concurrency -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0933.Number%20of%20Recent%20Calls/README.md
+tags:
+    - 设计
+    - 队列
+    - 数据流
+---
+
 # [933. 最近的请求次数](https://leetcode.cn/problems/number-of-recent-calls)
 
 [English Version](/solution/0900-0999/0933.Number%20of%20Recent%20Calls/README_EN.md)
-
-<!-- tags:设计,队列,数据流 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0140.Word%20Break%20II/README.md
+tags:
+    - 字典树
+    - 记忆化搜索
+    - 数组
+    - 哈希表
+    - 字符串
+    - 动态规划
+    - 回溯
+---
+
 # [140. 单词拆分 II](https://leetcode.cn/problems/word-break-ii)
 
 [English Version](/solution/0100-0199/0140.Word%20Break%20II/README_EN.md)
-
-<!-- tags:字典树,记忆化搜索,数组,哈希表,字符串,动态规划,回溯 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

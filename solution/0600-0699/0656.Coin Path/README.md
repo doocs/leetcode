@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0656.Coin%20Path/README.md
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [656. 成本最小路径 🔒](https://leetcode.cn/problems/coin-path)
 
 [English Version](/solution/0600-0699/0656.Coin%20Path/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2631.Group%20By/README_EN.md
+---
+
 # [2631. Group By](https://leetcode.com/problems/group-by)
 
 [中文文档](/solution/2600-2699/2631.Group%20By/README.md)
-
-<!-- tags: -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2491.Divide%20Players%20Into%20Teams%20of%20Equal%20Skill/README_EN.md
+rating: 1323
+tags:
+    - Array
+    - Hash Table
+    - Two Pointers
+    - Sorting
+---
+
 # [2491. Divide Players Into Teams of Equal Skill](https://leetcode.com/problems/divide-players-into-teams-of-equal-skill)
 
 [中文文档](/solution/2400-2499/2491.Divide%20Players%20Into%20Teams%20of%20Equal%20Skill/README.md)
-
-<!-- tags:Array,Hash Table,Two Pointers,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

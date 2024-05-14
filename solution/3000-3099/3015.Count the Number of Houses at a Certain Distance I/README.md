@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3015.Count%20the%20Number%20of%20Houses%20at%20a%20Certain%20Distance%20I/README.md
+rating: 1657
+tags:
+    - 广度优先搜索
+    - 图
+    - 前缀和
+---
+
 # [3015. 按距离统计房屋对数目 I](https://leetcode.cn/problems/count-the-number-of-houses-at-a-certain-distance-i)
 
 [English Version](/solution/3000-3099/3015.Count%20the%20Number%20of%20Houses%20at%20a%20Certain%20Distance%20I/README_EN.md)
-
-<!-- tags:广度优先搜索,图,前缀和 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

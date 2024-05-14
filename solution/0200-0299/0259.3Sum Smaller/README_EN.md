@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0259.3Sum%20Smaller/README_EN.md
+tags:
+    - Array
+    - Two Pointers
+    - Binary Search
+    - Sorting
+---
+
 # [259. 3Sum Smaller 🔒](https://leetcode.com/problems/3sum-smaller)
 
 [中文文档](/solution/0200-0299/0259.3Sum%20Smaller/README.md)
-
-<!-- tags:Array,Two Pointers,Binary Search,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

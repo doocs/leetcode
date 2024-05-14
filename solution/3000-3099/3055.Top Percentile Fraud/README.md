@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3055.Top%20Percentile%20Fraud/README.md
+tags:
+    - 数据库
+---
+
 # [3055. 最高欺诈百分位数 🔒](https://leetcode.cn/problems/top-percentile-fraud)
 
 [English Version](/solution/3000-3099/3055.Top%20Percentile%20Fraud/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2675.Array%20of%20Objects%20to%20Matrix/README.md
+---
+
 # [2675. 将对象数组转换为矩阵 🔒](https://leetcode.cn/problems/array-of-objects-to-matrix)
 
 [English Version](/solution/2600-2699/2675.Array%20of%20Objects%20to%20Matrix/README_EN.md)
-
-<!-- tags: -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

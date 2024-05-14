@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1688.Count%20of%20Matches%20in%20Tournament/README.md
+rating: 1203
+tags:
+    - 数学
+    - 模拟
+---
+
 # [1688. 比赛中的配对次数](https://leetcode.cn/problems/count-of-matches-in-tournament)
 
 [English Version](/solution/1600-1699/1688.Count%20of%20Matches%20in%20Tournament/README_EN.md)
-
-<!-- tags:数学,模拟 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

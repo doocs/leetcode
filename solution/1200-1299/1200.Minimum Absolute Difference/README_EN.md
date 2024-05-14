@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1200.Minimum%20Absolute%20Difference/README_EN.md
+rating: 1198
+tags:
+    - Array
+    - Sorting
+---
+
 # [1200. Minimum Absolute Difference](https://leetcode.com/problems/minimum-absolute-difference)
 
 [中文文档](/solution/1200-1299/1200.Minimum%20Absolute%20Difference/README.md)
-
-<!-- tags:Array,Sorting -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

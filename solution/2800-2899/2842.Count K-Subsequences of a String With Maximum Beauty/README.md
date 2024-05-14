@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2842.Count%20K-Subsequences%20of%20a%20String%20With%20Maximum%20Beauty/README.md
+rating: 2091
+tags:
+    - 贪心
+    - 哈希表
+    - 数学
+    - 字符串
+    - 组合数学
+---
+
 # [2842. 统计一个字符串的 k 子序列美丽值最大的数目](https://leetcode.cn/problems/count-k-subsequences-of-a-string-with-maximum-beauty)
 
 [English Version](/solution/2800-2899/2842.Count%20K-Subsequences%20of%20a%20String%20With%20Maximum%20Beauty/README_EN.md)
-
-<!-- tags:贪心,哈希表,数学,字符串,组合数学 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2954.Count%20the%20Number%20of%20Infection%20Sequences/README_EN.md
+rating: 2644
+tags:
+    - Array
+    - Math
+    - Combinatorics
+---
+
 # [2954. Count the Number of Infection Sequences](https://leetcode.com/problems/count-the-number-of-infection-sequences)
 
 [中文文档](/solution/2900-2999/2954.Count%20the%20Number%20of%20Infection%20Sequences/README.md)
-
-<!-- tags:Array,Math,Combinatorics -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

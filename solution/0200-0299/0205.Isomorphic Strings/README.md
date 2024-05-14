@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0205.Isomorphic%20Strings/README.md
+tags:
+    - 哈希表
+    - 字符串
+---
+
 # [205. 同构字符串](https://leetcode.cn/problems/isomorphic-strings)
 
 [English Version](/solution/0200-0299/0205.Isomorphic%20Strings/README_EN.md)
-
-<!-- tags:哈希表,字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

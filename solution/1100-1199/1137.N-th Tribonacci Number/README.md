@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1137.N-th%20Tribonacci%20Number/README.md
+rating: 1142
+tags:
+    - 记忆化搜索
+    - 数学
+    - 动态规划
+---
+
 # [1137. 第 N 个泰波那契数](https://leetcode.cn/problems/n-th-tribonacci-number)
 
 [English Version](/solution/1100-1199/1137.N-th%20Tribonacci%20Number/README_EN.md)
-
-<!-- tags:记忆化搜索,数学,动态规划 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

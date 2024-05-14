@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0268.Missing%20Number/README.md
+tags:
+    - 位运算
+    - 数组
+    - 哈希表
+    - 数学
+    - 二分查找
+    - 排序
+---
+
 # [268. 丢失的数字](https://leetcode.cn/problems/missing-number)
 
 [English Version](/solution/0200-0299/0268.Missing%20Number/README_EN.md)
-
-<!-- tags:位运算,数组,哈希表,数学,二分查找,排序 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

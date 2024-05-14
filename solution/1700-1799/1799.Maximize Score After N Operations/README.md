@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1799.Maximize%20Score%20After%20N%20Operations/README.md
+rating: 2072
+tags:
+    - 位运算
+    - 数组
+    - 数学
+    - 动态规划
+    - 回溯
+    - 状态压缩
+    - 数论
+---
+
 # [1799. N 次操作后的最大分数和](https://leetcode.cn/problems/maximize-score-after-n-operations)
 
 [English Version](/solution/1700-1799/1799.Maximize%20Score%20After%20N%20Operations/README_EN.md)
-
-<!-- tags:位运算,数组,数学,动态规划,回溯,状态压缩,数论 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

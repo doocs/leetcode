@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2881.Create%20a%20New%20Column/README.md
+---
+
 # [2881. 创建新列](https://leetcode.cn/problems/create-a-new-column)
 
 [English Version](/solution/2800-2899/2881.Create%20a%20New%20Column/README_EN.md)
-
-<!-- tags: -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

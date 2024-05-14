@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3128.Right%20Triangles/README.md
+rating: 1540
+tags:
+    - 数组
+    - 哈希表
+    - 数学
+    - 组合数学
+    - 计数
+---
+
 # [3128. 直角三角形](https://leetcode.cn/problems/right-triangles)
 
 [English Version](/solution/3100-3199/3128.Right%20Triangles/README_EN.md)
-
-<!-- tags:数组,哈希表,数学,组合数学,计数 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

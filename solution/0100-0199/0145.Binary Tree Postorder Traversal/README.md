@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0145.Binary%20Tree%20Postorder%20Traversal/README.md
+tags:
+    - 栈
+    - 树
+    - 深度优先搜索
+    - 二叉树
+---
+
 # [145. 二叉树的后序遍历](https://leetcode.cn/problems/binary-tree-postorder-traversal)
 
 [English Version](/solution/0100-0199/0145.Binary%20Tree%20Postorder%20Traversal/README_EN.md)
-
-<!-- tags:栈,树,深度优先搜索,二叉树 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

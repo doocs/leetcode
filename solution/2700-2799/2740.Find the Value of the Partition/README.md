@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2740.Find%20the%20Value%20of%20the%20Partition/README.md
+rating: 1301
+tags:
+    - 数组
+    - 排序
+---
+
 # [2740. 找出分区值](https://leetcode.cn/problems/find-the-value-of-the-partition)
 
 [English Version](/solution/2700-2799/2740.Find%20the%20Value%20of%20the%20Partition/README_EN.md)
-
-<!-- tags:数组,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

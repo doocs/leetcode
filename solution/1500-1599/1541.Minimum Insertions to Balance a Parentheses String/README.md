@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1541.Minimum%20Insertions%20to%20Balance%20a%20Parentheses%20String/README.md
+rating: 1759
+tags:
+    - 栈
+    - 贪心
+    - 字符串
+---
+
 # [1541. 平衡括号字符串的最少插入次数](https://leetcode.cn/problems/minimum-insertions-to-balance-a-parentheses-string)
 
 [English Version](/solution/1500-1599/1541.Minimum%20Insertions%20to%20Balance%20a%20Parentheses%20String/README_EN.md)
-
-<!-- tags:栈,贪心,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

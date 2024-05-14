@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0529.Minesweeper/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 数组
+    - 矩阵
+---
+
 # [529. 扫雷游戏](https://leetcode.cn/problems/minesweeper)
 
 [English Version](/solution/0500-0599/0529.Minesweeper/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,数组,矩阵 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0368.Largest%20Divisible%20Subset/README.md
+tags:
+    - 数组
+    - 数学
+    - 动态规划
+    - 排序
+---
+
 # [368. 最大整除子集](https://leetcode.cn/problems/largest-divisible-subset)
 
 [English Version](/solution/0300-0399/0368.Largest%20Divisible%20Subset/README_EN.md)
-
-<!-- tags:数组,数学,动态规划,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

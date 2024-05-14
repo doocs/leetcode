@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2305.Fair%20Distribution%20of%20Cookies/README.md
+rating: 1886
+tags:
+    - 位运算
+    - 数组
+    - 动态规划
+    - 回溯
+    - 状态压缩
+---
+
 # [2305. 公平分发饼干](https://leetcode.cn/problems/fair-distribution-of-cookies)
 
 [English Version](/solution/2300-2399/2305.Fair%20Distribution%20of%20Cookies/README_EN.md)
-
-<!-- tags:位运算,数组,动态规划,回溯,状态压缩 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

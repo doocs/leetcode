@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0957.Prison%20Cells%20After%20N%20Days/README.md
+tags:
+    - 位运算
+    - 数组
+    - 哈希表
+    - 数学
+---
+
 # [957. N 天后的牢房](https://leetcode.cn/problems/prison-cells-after-n-days)
 
 [English Version](/solution/0900-0999/0957.Prison%20Cells%20After%20N%20Days/README_EN.md)
-
-<!-- tags:位运算,数组,哈希表,数学 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

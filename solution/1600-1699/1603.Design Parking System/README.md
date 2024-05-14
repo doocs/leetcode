@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1603.Design%20Parking%20System/README.md
+rating: 1324
+tags:
+    - 设计
+    - 计数
+    - 模拟
+---
+
 # [1603. 设计停车系统](https://leetcode.cn/problems/design-parking-system)
 
 [English Version](/solution/1600-1699/1603.Design%20Parking%20System/README_EN.md)
-
-<!-- tags:设计,计数,模拟 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

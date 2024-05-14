@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1176.Diet%20Plan%20Performance/README_EN.md
+rating: 1397
+tags:
+    - Array
+    - Sliding Window
+---
+
 # [1176. Diet Plan Performance 🔒](https://leetcode.com/problems/diet-plan-performance)
 
 [中文文档](/solution/1100-1199/1176.Diet%20Plan%20Performance/README.md)
-
-<!-- tags:Array,Sliding Window -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

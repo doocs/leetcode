@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2899.Last%20Visited%20Integers/README.md
+rating: 1372
+tags:
+    - 数组
+    - 模拟
+---
+
 # [2899. 上一个遍历的整数](https://leetcode.cn/problems/last-visited-integers)
 
 [English Version](/solution/2800-2899/2899.Last%20Visited%20Integers/README_EN.md)
-
-<!-- tags:数组,模拟 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

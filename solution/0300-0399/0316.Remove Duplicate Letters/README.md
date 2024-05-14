@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0316.Remove%20Duplicate%20Letters/README.md
+tags:
+    - 栈
+    - 贪心
+    - 字符串
+    - 单调栈
+---
+
 # [316. 去除重复字母](https://leetcode.cn/problems/remove-duplicate-letters)
 
 [English Version](/solution/0300-0399/0316.Remove%20Duplicate%20Letters/README_EN.md)
-
-<!-- tags:栈,贪心,字符串,单调栈 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0253.Meeting%20Rooms%20II/README.md
+tags:
+    - 贪心
+    - 数组
+    - 双指针
+    - 前缀和
+    - 排序
+    - 堆（优先队列）
+---
+
 # [253. 会议室 II 🔒](https://leetcode.cn/problems/meeting-rooms-ii)
 
 [English Version](/solution/0200-0299/0253.Meeting%20Rooms%20II/README_EN.md)
-
-<!-- tags:贪心,数组,双指针,前缀和,排序,堆（优先队列） -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

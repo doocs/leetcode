@@ -191,13 +191,11 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 <!-- 这里是bash_problem_readme_template开始位置 -->
 
+{}
+
 # [{}. {}]({})
 
 [English Version]({})
-
-<!-- tags:{} -->
-
-<!-- difficulty:{} -->
 
 ## 题目描述
 
@@ -237,13 +235,11 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 <!-- 这里是bash_problem_readme_template_en开始位置 -->
 
+{}
+
 # [{}. {}]({})
 
 [中文文档]({})
-
-<!-- tags:{} -->
-
-<!-- difficulty:{} -->
 
 ## Description
 
@@ -281,13 +277,11 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 <!-- 这里是problem_readme_template开始位置 -->
 
+{}
+
 # [{}. {}]({})
 
 [English Version]({})
-
-<!-- tags:{} -->
-
-<!-- difficulty:{} -->
 
 ## 题目描述
 
@@ -327,13 +321,11 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 <!-- 这里是problem_readme_template_en开始位置 -->
 
+{}
+
 # [{}. {}]({})
 
 [中文文档]({})
-
-<!-- tags:{} -->
-
-<!-- difficulty:{} -->
 
 ## Description
 
@@ -371,13 +363,11 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 <!-- 这里是sql_problem_readme_template开始位置 -->
 
+{}
+
 # [{}. {}]({})
 
 [English Version]({})
-
-<!-- tags:{} -->
-
-<!-- difficulty:{} -->
 
 ## 题目描述
 
@@ -405,13 +395,11 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 <!-- 这里是sql_problem_readme_template_en开始位置 -->
 
+{}
+
 # [{}. {}]({})
 
 [中文文档]({})
-
-<!-- tags:{} -->
-
-<!-- difficulty:{} -->
 
 ## Description
 
@@ -437,13 +425,11 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 <!-- 这里是ts_problem_readme_template开始位置 -->
 
+{}
+
 # [{}. {}]({})
 
 [English Version]({})
-
-<!-- tags:{} -->
-
-<!-- difficulty:{} -->
 
 ## 题目描述
 
@@ -471,13 +457,11 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 <!-- 这里是ts_problem_readme_template_en开始位置 -->
 
+{}
+
 # [{}. {}]({})
 
 [中文文档]({})
-
-<!-- tags:{} -->
-
-<!-- difficulty:{} -->
 
 ## Description
 

@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2008.Maximum%20Earnings%20From%20Taxi/README.md
+rating: 1871
+tags:
+    - 数组
+    - 哈希表
+    - 二分查找
+    - 动态规划
+    - 排序
+---
+
 # [2008. 出租车的最大盈利](https://leetcode.cn/problems/maximum-earnings-from-taxi)
 
 [English Version](/solution/2000-2099/2008.Maximum%20Earnings%20From%20Taxi/README_EN.md)
-
-<!-- tags:数组,哈希表,二分查找,动态规划,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

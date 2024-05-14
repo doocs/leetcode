@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2597.The%20Number%20of%20Beautiful%20Subsets/README_EN.md
+rating: 2023
+tags:
+    - Array
+    - Dynamic Programming
+    - Backtracking
+    - Sorting
+---
+
 # [2597. The Number of Beautiful Subsets](https://leetcode.com/problems/the-number-of-beautiful-subsets)
 
 [中文文档](/solution/2500-2599/2597.The%20Number%20of%20Beautiful%20Subsets/README.md)
-
-<!-- tags:Array,Dynamic Programming,Backtracking,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

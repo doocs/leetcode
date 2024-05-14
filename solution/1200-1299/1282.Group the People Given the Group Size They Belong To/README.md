@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1282.Group%20the%20People%20Given%20the%20Group%20Size%20They%20Belong%20To/README.md
+rating: 1267
+tags:
+    - 数组
+    - 哈希表
+---
+
 # [1282. 用户分组](https://leetcode.cn/problems/group-the-people-given-the-group-size-they-belong-to)
 
 [English Version](/solution/1200-1299/1282.Group%20the%20People%20Given%20the%20Group%20Size%20They%20Belong%20To/README_EN.md)
-
-<!-- tags:数组,哈希表 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

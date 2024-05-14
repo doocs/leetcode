@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README_EN.md
+tags:
+    - Array
+    - Binary Search
+    - Dynamic Programming
+---
+
 # [300. Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence)
 
 [中文文档](/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README.md)
-
-<!-- tags:Array,Binary Search,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

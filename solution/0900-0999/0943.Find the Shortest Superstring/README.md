@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0943.Find%20the%20Shortest%20Superstring/README.md
+tags:
+    - 位运算
+    - 数组
+    - 字符串
+    - 动态规划
+    - 状态压缩
+---
+
 # [943. 最短超级串](https://leetcode.cn/problems/find-the-shortest-superstring)
 
 [English Version](/solution/0900-0999/0943.Find%20the%20Shortest%20Superstring/README_EN.md)
-
-<!-- tags:位运算,数组,字符串,动态规划,状态压缩 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

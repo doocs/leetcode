@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0899.Orderly%20Queue/README_EN.md
+tags:
+    - Math
+    - String
+    - Sorting
+---
+
 # [899. Orderly Queue](https://leetcode.com/problems/orderly-queue)
 
 [中文文档](/solution/0800-0899/0899.Orderly%20Queue/README.md)
-
-<!-- tags:Math,String,Sorting -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

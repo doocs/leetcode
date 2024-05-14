@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0093.Restore%20IP%20Addresses/README_EN.md
+tags:
+    - String
+    - Backtracking
+---
+
 # [93. Restore IP Addresses](https://leetcode.com/problems/restore-ip-addresses)
 
 [中文文档](/solution/0000-0099/0093.Restore%20IP%20Addresses/README.md)
-
-<!-- tags:String,Backtracking -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

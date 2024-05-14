@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2109.Adding%20Spaces%20to%20a%20String/README_EN.md
+rating: 1315
+tags:
+    - Array
+    - Two Pointers
+    - String
+    - Simulation
+---
+
 # [2109. Adding Spaces to a String](https://leetcode.com/problems/adding-spaces-to-a-string)
 
 [中文文档](/solution/2100-2199/2109.Adding%20Spaces%20to%20a%20String/README.md)
-
-<!-- tags:Array,Two Pointers,String,Simulation -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2937.Make%20Three%20Strings%20Equal/README.md
+rating: 1347
+tags:
+    - 字符串
+---
+
 # [2937. 使三个字符串相等](https://leetcode.cn/problems/make-three-strings-equal)
 
 [English Version](/solution/2900-2999/2937.Make%20Three%20Strings%20Equal/README_EN.md)
-
-<!-- tags:字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

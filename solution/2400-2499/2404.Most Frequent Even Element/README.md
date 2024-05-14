@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2404.Most%20Frequent%20Even%20Element/README.md
+rating: 1259
+tags:
+    - 数组
+    - 哈希表
+    - 计数
+---
+
 # [2404. 出现最频繁的偶数元素](https://leetcode.cn/problems/most-frequent-even-element)
 
 [English Version](/solution/2400-2499/2404.Most%20Frequent%20Even%20Element/README_EN.md)
-
-<!-- tags:数组,哈希表,计数 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

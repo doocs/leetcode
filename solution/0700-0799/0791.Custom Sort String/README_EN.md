@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0791.Custom%20Sort%20String/README_EN.md
+tags:
+    - Hash Table
+    - String
+    - Sorting
+---
+
 # [791. Custom Sort String](https://leetcode.com/problems/custom-sort-string)
 
 [中文文档](/solution/0700-0799/0791.Custom%20Sort%20String/README.md)
-
-<!-- tags:Hash Table,String,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

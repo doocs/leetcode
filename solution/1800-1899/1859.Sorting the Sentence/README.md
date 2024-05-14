@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1859.Sorting%20the%20Sentence/README.md
+rating: 1290
+tags:
+    - 字符串
+    - 排序
+---
+
 # [1859. 将句子排序](https://leetcode.cn/problems/sorting-the-sentence)
 
 [English Version](/solution/1800-1899/1859.Sorting%20the%20Sentence/README_EN.md)
-
-<!-- tags:字符串,排序 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

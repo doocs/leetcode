@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2148.Count%20Elements%20With%20Strictly%20Smaller%20and%20Greater%20Elements/README.md
+rating: 1201
+tags:
+    - 数组
+    - 排序
+---
+
 # [2148. 元素计数](https://leetcode.cn/problems/count-elements-with-strictly-smaller-and-greater-elements)
 
 [English Version](/solution/2100-2199/2148.Count%20Elements%20With%20Strictly%20Smaller%20and%20Greater%20Elements/README_EN.md)
-
-<!-- tags:数组,排序 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

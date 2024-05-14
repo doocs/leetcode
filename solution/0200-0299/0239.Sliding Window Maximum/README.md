@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0239.Sliding%20Window%20Maximum/README.md
+tags:
+    - 队列
+    - 数组
+    - 滑动窗口
+    - 单调队列
+    - 堆（优先队列）
+---
+
 # [239. 滑动窗口最大值](https://leetcode.cn/problems/sliding-window-maximum)
 
 [English Version](/solution/0200-0299/0239.Sliding%20Window%20Maximum/README_EN.md)
-
-<!-- tags:队列,数组,滑动窗口,单调队列,堆（优先队列） -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

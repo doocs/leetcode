@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0393.UTF-8%20Validation/README.md
+tags:
+    - 位运算
+    - 数组
+---
+
 # [393. UTF-8 编码验证](https://leetcode.cn/problems/utf-8-validation)
 
 [English Version](/solution/0300-0399/0393.UTF-8%20Validation/README_EN.md)
-
-<!-- tags:位运算,数组 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1093.Statistics%20from%20a%20Large%20Sample/README.md
+rating: 1471
+tags:
+    - 数组
+    - 数学
+    - 概率与统计
+---
+
 # [1093. 大样本统计](https://leetcode.cn/problems/statistics-from-a-large-sample)
 
 [English Version](/solution/1000-1099/1093.Statistics%20from%20a%20Large%20Sample/README_EN.md)
-
-<!-- tags:数组,数学,概率与统计 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

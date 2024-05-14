@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2045.%20%E8%87%AA%E8%A1%8C%E8%BD%A6%E7%82%AB%E6%8A%80%E8%B5%9B%E5%9C%BA/README.md
+---
+
 # [LCP 45. 自行车炫技赛场](https://leetcode.cn/problems/kplEvH)
 
 ## 题目描述

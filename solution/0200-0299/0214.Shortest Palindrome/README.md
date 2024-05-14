@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0214.Shortest%20Palindrome/README.md
+tags:
+    - 字符串
+    - 字符串匹配
+    - 哈希函数
+    - 滚动哈希
+---
+
 # [214. 最短回文串](https://leetcode.cn/problems/shortest-palindrome)
 
 [English Version](/solution/0200-0299/0214.Shortest%20Palindrome/README_EN.md)
-
-<!-- tags:字符串,字符串匹配,哈希函数,滚动哈希 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

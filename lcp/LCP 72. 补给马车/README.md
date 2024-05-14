@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2072.%20%E8%A1%A5%E7%BB%99%E9%A9%AC%E8%BD%A6/README.md
+---
+
 # [LCP 72. 补给马车](https://leetcode.cn/problems/hqCnmP)
 
 ## 题目描述

@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1776.Car%20Fleet%20II/README.md
+rating: 2530
+tags:
+    - 栈
+    - 数组
+    - 数学
+    - 单调栈
+    - 堆（优先队列）
+---
+
 # [1776. 车队 II](https://leetcode.cn/problems/car-fleet-ii)
 
 [English Version](/solution/1700-1799/1776.Car%20Fleet%20II/README_EN.md)
-
-<!-- tags:栈,数组,数学,单调栈,堆（优先队列） -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

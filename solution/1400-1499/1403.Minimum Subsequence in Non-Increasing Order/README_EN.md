@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1403.Minimum%20Subsequence%20in%20Non-Increasing%20Order/README_EN.md
+rating: 1288
+tags:
+    - Greedy
+    - Array
+    - Sorting
+---
+
 # [1403. Minimum Subsequence in Non-Increasing Order](https://leetcode.com/problems/minimum-subsequence-in-non-increasing-order)
 
 [中文文档](/solution/1400-1499/1403.Minimum%20Subsequence%20in%20Non-Increasing%20Order/README.md)
-
-<!-- tags:Greedy,Array,Sorting -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

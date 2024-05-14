@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0406.Queue%20Reconstruction%20by%20Height/README.md
+tags:
+    - 树状数组
+    - 线段树
+    - 数组
+    - 排序
+---
+
 # [406. 根据身高重建队列](https://leetcode.cn/problems/queue-reconstruction-by-height)
 
 [English Version](/solution/0400-0499/0406.Queue%20Reconstruction%20by%20Height/README_EN.md)
-
-<!-- tags:树状数组,线段树,数组,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

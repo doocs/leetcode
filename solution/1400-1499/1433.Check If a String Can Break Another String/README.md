@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1433.Check%20If%20a%20String%20Can%20Break%20Another%20String/README.md
+rating: 1436
+tags:
+    - 贪心
+    - 字符串
+    - 排序
+---
+
 # [1433. 检查一个字符串是否可以打破另一个字符串](https://leetcode.cn/problems/check-if-a-string-can-break-another-string)
 
 [English Version](/solution/1400-1499/1433.Check%20If%20a%20String%20Can%20Break%20Another%20String/README_EN.md)
-
-<!-- tags:贪心,字符串,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

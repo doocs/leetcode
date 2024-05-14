@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2833.Furthest%20Point%20From%20Origin/README_EN.md
+rating: 1294
+tags:
+    - String
+    - Counting
+---
+
 # [2833. Furthest Point From Origin](https://leetcode.com/problems/furthest-point-from-origin)
 
 [中文文档](/solution/2800-2899/2833.Furthest%20Point%20From%20Origin/README.md)
-
-<!-- tags:String,Counting -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

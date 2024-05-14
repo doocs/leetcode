@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.04.Power%20Set/README.md
+---
+
 # [面试题 08.04. 幂集](https://leetcode.cn/problems/power-set-lcci)
 
 [English Version](/lcci/08.04.Power%20Set/README_EN.md)

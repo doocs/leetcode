@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0766.Toeplitz%20Matrix/README.md
+tags:
+    - 数组
+    - 矩阵
+---
+
 # [766. 托普利茨矩阵](https://leetcode.cn/problems/toeplitz-matrix)
 
 [English Version](/solution/0700-0799/0766.Toeplitz%20Matrix/README_EN.md)
-
-<!-- tags:数组,矩阵 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

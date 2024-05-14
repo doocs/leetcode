@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0486.Predict%20the%20Winner/README.md
+tags:
+    - 递归
+    - 数组
+    - 数学
+    - 动态规划
+    - 博弈
+---
+
 # [486. 预测赢家](https://leetcode.cn/problems/predict-the-winner)
 
 [English Version](/solution/0400-0499/0486.Predict%20the%20Winner/README_EN.md)
-
-<!-- tags:递归,数组,数学,动态规划,博弈 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1920.Build%20Array%20from%20Permutation/README_EN.md
+rating: 1160
+tags:
+    - Array
+    - Simulation
+---
+
 # [1920. Build Array from Permutation](https://leetcode.com/problems/build-array-from-permutation)
 
 [中文文档](/solution/1900-1999/1920.Build%20Array%20from%20Permutation/README.md)
-
-<!-- tags:Array,Simulation -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

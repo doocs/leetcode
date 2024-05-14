@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2419.Longest%20Subarray%20With%20Maximum%20Bitwise%20AND/README.md
+rating: 1495
+tags:
+    - 位运算
+    - 脑筋急转弯
+    - 数组
+---
+
 # [2419. 按位与最大的最长子数组](https://leetcode.cn/problems/longest-subarray-with-maximum-bitwise-and)
 
 [English Version](/solution/2400-2499/2419.Longest%20Subarray%20With%20Maximum%20Bitwise%20AND/README_EN.md)
-
-<!-- tags:位运算,脑筋急转弯,数组 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

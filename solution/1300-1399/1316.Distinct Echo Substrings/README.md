@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1316.Distinct%20Echo%20Substrings/README.md
+rating: 1836
+tags:
+    - 字典树
+    - 字符串
+    - 哈希函数
+    - 滚动哈希
+---
+
 # [1316. 不同的循环子字符串](https://leetcode.cn/problems/distinct-echo-substrings)
 
 [English Version](/solution/1300-1399/1316.Distinct%20Echo%20Substrings/README_EN.md)
-
-<!-- tags:字典树,字符串,哈希函数,滚动哈希 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

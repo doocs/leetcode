@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0649.Dota2%20Senate/README.md
+tags:
+    - 贪心
+    - 队列
+    - 字符串
+---
+
 # [649. Dota2 参议院](https://leetcode.cn/problems/dota2-senate)
 
 [English Version](/solution/0600-0699/0649.Dota2%20Senate/README_EN.md)
-
-<!-- tags:贪心,队列,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

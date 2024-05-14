@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0420.Strong%20Password%20Checker/README_EN.md
+tags:
+    - Greedy
+    - String
+    - Heap (Priority Queue)
+---
+
 # [420. Strong Password Checker](https://leetcode.com/problems/strong-password-checker)
 
 [中文文档](/solution/0400-0499/0420.Strong%20Password%20Checker/README.md)
-
-<!-- tags:Greedy,String,Heap (Priority Queue) -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

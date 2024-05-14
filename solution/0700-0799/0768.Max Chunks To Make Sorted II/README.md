@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0768.Max%20Chunks%20To%20Make%20Sorted%20II/README.md
+tags:
+    - 栈
+    - 贪心
+    - 数组
+    - 排序
+    - 单调栈
+---
+
 # [768. 最多能完成排序的块 II](https://leetcode.cn/problems/max-chunks-to-make-sorted-ii)
 
 [English Version](/solution/0700-0799/0768.Max%20Chunks%20To%20Make%20Sorted%20II/README_EN.md)
-
-<!-- tags:栈,贪心,数组,排序,单调栈 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

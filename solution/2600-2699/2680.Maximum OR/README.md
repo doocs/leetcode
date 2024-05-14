@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2680.Maximum%20OR/README.md
+rating: 1912
+tags:
+    - 贪心
+    - 位运算
+    - 数组
+    - 前缀和
+---
+
 # [2680. 最大或值](https://leetcode.cn/problems/maximum-or)
 
 [English Version](/solution/2600-2699/2680.Maximum%20OR/README_EN.md)
-
-<!-- tags:贪心,位运算,数组,前缀和 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

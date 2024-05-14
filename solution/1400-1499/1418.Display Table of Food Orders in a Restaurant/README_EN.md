@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1418.Display%20Table%20of%20Food%20Orders%20in%20a%20Restaurant/README_EN.md
+rating: 1485
+tags:
+    - Array
+    - Hash Table
+    - String
+    - Ordered Set
+    - Sorting
+---
+
 # [1418. Display Table of Food Orders in a Restaurant](https://leetcode.com/problems/display-table-of-food-orders-in-a-restaurant)
 
 [中文文档](/solution/1400-1499/1418.Display%20Table%20of%20Food%20Orders%20in%20a%20Restaurant/README.md)
-
-<!-- tags:Array,Hash Table,String,Ordered Set,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

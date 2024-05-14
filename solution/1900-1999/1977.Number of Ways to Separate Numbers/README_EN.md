@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1977.Number%20of%20Ways%20to%20Separate%20Numbers/README_EN.md
+rating: 2817
+tags:
+    - String
+    - Dynamic Programming
+    - Suffix Array
+---
+
 # [1977. Number of Ways to Separate Numbers](https://leetcode.com/problems/number-of-ways-to-separate-numbers)
 
 [中文文档](/solution/1900-1999/1977.Number%20of%20Ways%20to%20Separate%20Numbers/README.md)
-
-<!-- tags:String,Dynamic Programming,Suffix Array -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

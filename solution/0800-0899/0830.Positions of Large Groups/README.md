@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0830.Positions%20of%20Large%20Groups/README.md
+tags:
+    - 字符串
+---
+
 # [830. 较大分组的位置](https://leetcode.cn/problems/positions-of-large-groups)
 
 [English Version](/solution/0800-0899/0830.Positions%20of%20Large%20Groups/README_EN.md)
-
-<!-- tags:字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 
@@ -51,6 +55,8 @@
 <strong>输入：</strong>s = "aba"
 <strong>输出：</strong>[]
 </pre>
+
+
 
 <p><strong>提示：</strong></p>
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2464.Minimum%20Subarrays%20in%20a%20Valid%20Split/README.md
+tags:
+    - 数组
+    - 数学
+    - 动态规划
+    - 数论
+---
+
 # [2464. 有效分割中的最少子数组数目 🔒](https://leetcode.cn/problems/minimum-subarrays-in-a-valid-split)
 
 [English Version](/solution/2400-2499/2464.Minimum%20Subarrays%20in%20a%20Valid%20Split/README_EN.md)
-
-<!-- tags:数组,数学,动态规划,数论 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

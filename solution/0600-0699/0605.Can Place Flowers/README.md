@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0605.Can%20Place%20Flowers/README.md
+tags:
+    - 贪心
+    - 数组
+---
+
 # [605. 种花问题](https://leetcode.cn/problems/can-place-flowers)
 
 [English Version](/solution/0600-0699/0605.Can%20Place%20Flowers/README_EN.md)
-
-<!-- tags:贪心,数组 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

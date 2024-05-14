@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0932.Beautiful%20Array/README_EN.md
+tags:
+    - Array
+    - Math
+    - Divide and Conquer
+---
+
 # [932. Beautiful Array](https://leetcode.com/problems/beautiful-array)
 
 [中文文档](/solution/0900-0999/0932.Beautiful%20Array/README.md)
-
-<!-- tags:Array,Math,Divide and Conquer -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

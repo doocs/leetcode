@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0679.24%20Game/README.md
+tags:
+    - 数组
+    - 数学
+    - 回溯
+---
+
 # [679. 24 点游戏](https://leetcode.cn/problems/24-game)
 
 [English Version](/solution/0600-0699/0679.24%20Game/README_EN.md)
-
-<!-- tags:数组,数学,回溯 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

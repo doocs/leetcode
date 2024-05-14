@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1307.Verbal%20Arithmetic%20Puzzle/README.md
+rating: 2250
+tags:
+    - 数组
+    - 数学
+    - 字符串
+    - 回溯
+---
+
 # [1307. 口算难题](https://leetcode.cn/problems/verbal-arithmetic-puzzle)
 
 [English Version](/solution/1300-1399/1307.Verbal%20Arithmetic%20Puzzle/README_EN.md)
-
-<!-- tags:数组,数学,字符串,回溯 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

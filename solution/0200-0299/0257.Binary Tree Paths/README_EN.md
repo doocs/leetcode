@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0257.Binary%20Tree%20Paths/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - String
+    - Backtracking
+    - Binary Tree
+---
+
 # [257. Binary Tree Paths](https://leetcode.com/problems/binary-tree-paths)
 
 [中文文档](/solution/0200-0299/0257.Binary%20Tree%20Paths/README.md)
-
-<!-- tags:Tree,Depth-First Search,String,Backtracking,Binary Tree -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

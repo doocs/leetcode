@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2866.Beautiful%20Towers%20II/README.md
+rating: 2071
+tags:
+    - 栈
+    - 数组
+    - 单调栈
+---
+
 # [2866. 美丽塔 II](https://leetcode.cn/problems/beautiful-towers-ii)
 
 [English Version](/solution/2800-2899/2866.Beautiful%20Towers%20II/README_EN.md)
-
-<!-- tags:栈,数组,单调栈 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

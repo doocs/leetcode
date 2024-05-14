@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0192.Word%20Frequency/README_EN.md
+tags:
+    - Shell
+---
+
 # [192. Word Frequency](https://leetcode.com/problems/word-frequency)
 
 [中文文档](/solution/0100-0199/0192.Word%20Frequency/README.md)
-
-<!-- tags:Shell -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

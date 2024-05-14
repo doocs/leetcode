@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2149.Rearrange%20Array%20Elements%20by%20Sign/README.md
+rating: 1235
+tags:
+    - 数组
+    - 双指针
+    - 模拟
+---
+
 # [2149. 按符号重排数组](https://leetcode.cn/problems/rearrange-array-elements-by-sign)
 
 [English Version](/solution/2100-2199/2149.Rearrange%20Array%20Elements%20by%20Sign/README_EN.md)
-
-<!-- tags:数组,双指针,模拟 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

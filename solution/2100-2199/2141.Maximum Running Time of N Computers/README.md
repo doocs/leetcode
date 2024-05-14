@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2141.Maximum%20Running%20Time%20of%20N%20Computers/README.md
+rating: 2265
+tags:
+    - 贪心
+    - 数组
+    - 二分查找
+    - 排序
+---
+
 # [2141. 同时运行 N 台电脑的最长时间](https://leetcode.cn/problems/maximum-running-time-of-n-computers)
 
 [English Version](/solution/2100-2199/2141.Maximum%20Running%20Time%20of%20N%20Computers/README_EN.md)
-
-<!-- tags:贪心,数组,二分查找,排序 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

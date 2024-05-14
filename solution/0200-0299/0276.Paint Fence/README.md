@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0276.Paint%20Fence/README.md
+tags:
+    - 动态规划
+---
+
 # [276. 栅栏涂色 🔒](https://leetcode.cn/problems/paint-fence)
 
 [English Version](/solution/0200-0299/0276.Paint%20Fence/README_EN.md)
-
-<!-- tags:动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

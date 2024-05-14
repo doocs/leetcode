@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2949.Count%20Beautiful%20Substrings%20II/README_EN.md
+rating: 2444
+tags:
+    - Hash Table
+    - Math
+    - String
+    - Number Theory
+    - Prefix Sum
+---
+
 # [2949. Count Beautiful Substrings II](https://leetcode.com/problems/count-beautiful-substrings-ii)
 
 [中文文档](/solution/2900-2999/2949.Count%20Beautiful%20Substrings%20II/README.md)
-
-<!-- tags:Hash Table,Math,String,Number Theory,Prefix Sum -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

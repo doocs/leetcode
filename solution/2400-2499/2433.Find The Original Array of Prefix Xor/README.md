@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2433.Find%20The%20Original%20Array%20of%20Prefix%20Xor/README.md
+rating: 1366
+tags:
+    - 位运算
+    - 数组
+---
+
 # [2433. 找出前缀异或的原始数组](https://leetcode.cn/problems/find-the-original-array-of-prefix-xor)
 
 [English Version](/solution/2400-2499/2433.Find%20The%20Original%20Array%20of%20Prefix%20Xor/README_EN.md)
-
-<!-- tags:位运算,数组 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

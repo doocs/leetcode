@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2375.Construct%20Smallest%20Number%20From%20DI%20String/README.md
+rating: 1641
+tags:
+    - 栈
+    - 贪心
+    - 字符串
+    - 回溯
+---
+
 # [2375. 根据模式串构造最小数字](https://leetcode.cn/problems/construct-smallest-number-from-di-string)
 
 [English Version](/solution/2300-2399/2375.Construct%20Smallest%20Number%20From%20DI%20String/README_EN.md)
-
-<!-- tags:栈,贪心,字符串,回溯 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

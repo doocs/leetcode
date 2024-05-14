@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1067.Digit%20Count%20in%20Range/README.md
+rating: 2025
+tags:
+    - 数学
+    - 动态规划
+---
+
 # [1067. 范围内的数字计数 🔒](https://leetcode.cn/problems/digit-count-in-range)
 
 [English Version](/solution/1000-1099/1067.Digit%20Count%20in%20Range/README_EN.md)
-
-<!-- tags:数学,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

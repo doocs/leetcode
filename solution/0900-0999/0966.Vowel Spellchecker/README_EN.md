@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0966.Vowel%20Spellchecker/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - String
+---
+
 # [966. Vowel Spellchecker](https://leetcode.com/problems/vowel-spellchecker)
 
 [中文文档](/solution/0900-0999/0966.Vowel%20Spellchecker/README.md)
-
-<!-- tags:Array,Hash Table,String -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

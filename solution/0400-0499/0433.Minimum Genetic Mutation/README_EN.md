@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0433.Minimum%20Genetic%20Mutation/README_EN.md
+tags:
+    - Breadth-First Search
+    - Hash Table
+    - String
+---
+
 # [433. Minimum Genetic Mutation](https://leetcode.com/problems/minimum-genetic-mutation)
 
 [中文文档](/solution/0400-0499/0433.Minimum%20Genetic%20Mutation/README.md)
-
-<!-- tags:Breadth-First Search,Hash Table,String -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

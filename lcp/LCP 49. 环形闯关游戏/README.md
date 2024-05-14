@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2049.%20%E7%8E%AF%E5%BD%A2%E9%97%AF%E5%85%B3%E6%B8%B8%E6%88%8F/README.md
+---
+
 # [LCP 49. 环形闯关游戏](https://leetcode.cn/problems/K8GULz)
 
 ## 题目描述

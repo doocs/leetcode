@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0684.Redundant%20Connection/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Union Find
+    - Graph
+---
+
 # [684. Redundant Connection](https://leetcode.com/problems/redundant-connection)
 
 [中文文档](/solution/0600-0699/0684.Redundant%20Connection/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Graph -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

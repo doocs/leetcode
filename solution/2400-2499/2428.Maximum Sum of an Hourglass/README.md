@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2428.Maximum%20Sum%20of%20an%20Hourglass/README.md
+rating: 1289
+tags:
+    - 数组
+    - 矩阵
+    - 前缀和
+---
+
 # [2428. 沙漏的最大总和](https://leetcode.cn/problems/maximum-sum-of-an-hourglass)
 
 [English Version](/solution/2400-2499/2428.Maximum%20Sum%20of%20an%20Hourglass/README_EN.md)
-
-<!-- tags:数组,矩阵,前缀和 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

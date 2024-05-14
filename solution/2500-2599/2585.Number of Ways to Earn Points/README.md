@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2585.Number%20of%20Ways%20to%20Earn%20Points/README.md
+rating: 1909
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [2585. 获得分数的方法数](https://leetcode.cn/problems/number-of-ways-to-earn-points)
 
 [English Version](/solution/2500-2599/2585.Number%20of%20Ways%20to%20Earn%20Points/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

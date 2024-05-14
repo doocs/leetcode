@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1149.Article%20Views%20II/README.md
+tags:
+    - 数据库
+---
+
 # [1149. 文章浏览 II 🔒](https://leetcode.cn/problems/article-views-ii)
 
 [English Version](/solution/1100-1199/1149.Article%20Views%20II/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2196.Create%20Binary%20Tree%20From%20Descriptions/README.md
+rating: 1643
+tags:
+    - 树
+    - 数组
+    - 哈希表
+    - 二叉树
+---
+
 # [2196. 根据描述创建二叉树](https://leetcode.cn/problems/create-binary-tree-from-descriptions)
 
 [English Version](/solution/2100-2199/2196.Create%20Binary%20Tree%20From%20Descriptions/README_EN.md)
-
-<!-- tags:树,数组,哈希表,二叉树 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

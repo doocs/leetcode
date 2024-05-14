@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1873.Calculate%20Special%20Bonus/README.md
+tags:
+    - 数据库
+---
+
 # [1873. 计算特殊奖金](https://leetcode.cn/problems/calculate-special-bonus)
 
 [English Version](/solution/1800-1899/1873.Calculate%20Special%20Bonus/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

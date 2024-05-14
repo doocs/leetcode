@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2052.Minimum%20Cost%20to%20Separate%20Sentence%20Into%20Rows/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [2052. Minimum Cost to Separate Sentence Into Rows 🔒](https://leetcode.com/problems/minimum-cost-to-separate-sentence-into-rows)
 
 [中文文档](/solution/2000-2099/2052.Minimum%20Cost%20to%20Separate%20Sentence%20Into%20Rows/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0110.Balanced%20Binary%20Tree/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Binary Tree
+---
+
 # [110. Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree)
 
 [中文文档](/solution/0100-0199/0110.Balanced%20Binary%20Tree/README.md)
-
-<!-- tags:Tree,Depth-First Search,Binary Tree -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

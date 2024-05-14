@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2781.Length%20of%20the%20Longest%20Valid%20Substring/README.md
+rating: 2203
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+    - 滑动窗口
+---
+
 # [2781. 最长合法子字符串的长度](https://leetcode.cn/problems/length-of-the-longest-valid-substring)
 
 [English Version](/solution/2700-2799/2781.Length%20of%20the%20Longest%20Valid%20Substring/README_EN.md)
-
-<!-- tags:数组,哈希表,字符串,滑动窗口 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

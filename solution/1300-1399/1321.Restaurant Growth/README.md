@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1321.Restaurant%20Growth/README.md
+tags:
+    - 数据库
+---
+
 # [1321. 餐馆营业额变化增长](https://leetcode.cn/problems/restaurant-growth)
 
 [English Version](/solution/1300-1399/1321.Restaurant%20Growth/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

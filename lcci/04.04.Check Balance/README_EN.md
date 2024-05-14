@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.04.Check%20Balance/README_EN.md
+---
+
 # [04.04. Check Balance](https://leetcode.cn/problems/check-balance-lcci)
 
 [中文文档](/lcci/04.04.Check%20Balance/README.md)

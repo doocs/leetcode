@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1726.Tuple%20with%20Same%20Product/README_EN.md
+rating: 1530
+tags:
+    - Array
+    - Hash Table
+    - Counting
+---
+
 # [1726. Tuple with Same Product](https://leetcode.com/problems/tuple-with-same-product)
 
 [中文文档](/solution/1700-1799/1726.Tuple%20with%20Same%20Product/README.md)
-
-<!-- tags:Array,Hash Table,Counting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

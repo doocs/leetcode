@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2112.The%20Airport%20With%20the%20Most%20Traffic/README.md
+tags:
+    - 数据库
+---
+
 # [2112. 最繁忙的机场 🔒](https://leetcode.cn/problems/the-airport-with-the-most-traffic)
 
 [English Version](/solution/2100-2199/2112.The%20Airport%20With%20the%20Most%20Traffic/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

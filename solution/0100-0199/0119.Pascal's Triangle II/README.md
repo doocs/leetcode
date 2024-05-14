@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0119.Pascal%27s%20Triangle%20II/README.md
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [119. 杨辉三角 II](https://leetcode.cn/problems/pascals-triangle-ii)
 
 [English Version](/solution/0100-0199/0119.Pascal%27s%20Triangle%20II/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

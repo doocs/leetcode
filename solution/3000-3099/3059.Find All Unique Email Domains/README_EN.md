@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3059.Find%20All%20Unique%20Email%20Domains/README_EN.md
+tags:
+    - Database
+---
+
 # [3059. Find All Unique Email Domains 🔒](https://leetcode.com/problems/find-all-unique-email-domains)
 
 [中文文档](/solution/3000-3099/3059.Find%20All%20Unique%20Email%20Domains/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

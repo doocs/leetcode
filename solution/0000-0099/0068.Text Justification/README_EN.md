@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0068.Text%20Justification/README_EN.md
+tags:
+    - Array
+    - String
+    - Simulation
+---
+
 # [68. Text Justification](https://leetcode.com/problems/text-justification)
 
 [中文文档](/solution/0000-0099/0068.Text%20Justification/README.md)
-
-<!-- tags:Array,String,Simulation -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

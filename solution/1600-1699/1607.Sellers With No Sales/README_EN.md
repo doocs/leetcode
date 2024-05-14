@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1607.Sellers%20With%20No%20Sales/README_EN.md
+tags:
+    - Database
+---
+
 # [1607. Sellers With No Sales 🔒](https://leetcode.com/problems/sellers-with-no-sales)
 
 [中文文档](/solution/1600-1699/1607.Sellers%20With%20No%20Sales/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

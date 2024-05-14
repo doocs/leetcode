@@ -1,10 +1,16 @@
-# [2872. 可以被 K 整除连通块的最大数目](https://leetcode.cn/problems/maximum-number-of-k-divisible-components/)
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2872.Maximum%20Number%20of%20K-Divisible%20Components/README.md
+rating: 1967
+tags:
+    - 树
+    - 深度优先搜索
+---
+
+# [2872. 可以被 K 整除连通块的最大数目](https://leetcode.cn/problems/maximum-number-of-k-divisible-components)
 
 [English Version](/solution/2800-2899/2872.Maximum%20Number%20of%20K-Divisible%20Components/README_EN.md)
-
-<!-- tags:树,深度优先搜索 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

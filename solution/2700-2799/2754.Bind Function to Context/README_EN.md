@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2754.Bind%20Function%20to%20Context/README_EN.md
+---
+
 # [2754. Bind Function to Context 🔒](https://leetcode.com/problems/bind-function-to-context)
 
 [中文文档](/solution/2700-2799/2754.Bind%20Function%20to%20Context/README.md)
-
-<!-- tags: -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

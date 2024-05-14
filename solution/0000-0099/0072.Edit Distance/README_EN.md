@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0072.Edit%20Distance/README_EN.md
+tags:
+    - String
+    - Dynamic Programming
+---
+
 # [72. Edit Distance](https://leetcode.com/problems/edit-distance)
 
 [中文文档](/solution/0000-0099/0072.Edit%20Distance/README.md)
-
-<!-- tags:String,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

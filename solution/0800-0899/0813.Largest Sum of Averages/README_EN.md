@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0813.Largest%20Sum%20of%20Averages/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+    - Prefix Sum
+---
+
 # [813. Largest Sum of Averages](https://leetcode.com/problems/largest-sum-of-averages)
 
 [中文文档](/solution/0800-0899/0813.Largest%20Sum%20of%20Averages/README.md)
-
-<!-- tags:Array,Dynamic Programming,Prefix Sum -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

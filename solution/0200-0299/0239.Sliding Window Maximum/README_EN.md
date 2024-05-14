@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0239.Sliding%20Window%20Maximum/README_EN.md
+tags:
+    - Queue
+    - Array
+    - Sliding Window
+    - Monotonic Queue
+    - Heap (Priority Queue)
+---
+
 # [239. Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum)
 
 [中文文档](/solution/0200-0299/0239.Sliding%20Window%20Maximum/README.md)
-
-<!-- tags:Queue,Array,Sliding Window,Monotonic Queue,Heap (Priority Queue) -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

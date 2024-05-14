@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0173.Binary%20Search%20Tree%20Iterator/README_EN.md
+tags:
+    - Stack
+    - Tree
+    - Design
+    - Binary Search Tree
+    - Binary Tree
+    - Iterator
+---
+
 # [173. Binary Search Tree Iterator](https://leetcode.com/problems/binary-search-tree-iterator)
 
 [中文文档](/solution/0100-0199/0173.Binary%20Search%20Tree%20Iterator/README.md)
-
-<!-- tags:Stack,Tree,Design,Binary Search Tree,Binary Tree,Iterator -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

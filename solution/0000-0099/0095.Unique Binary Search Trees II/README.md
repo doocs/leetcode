@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0095.Unique%20Binary%20Search%20Trees%20II/README.md
+tags:
+    - 树
+    - 二叉搜索树
+    - 动态规划
+    - 回溯
+    - 二叉树
+---
+
 # [95. 不同的二叉搜索树 II](https://leetcode.cn/problems/unique-binary-search-trees-ii)
 
 [English Version](/solution/0000-0099/0095.Unique%20Binary%20Search%20Trees%20II/README_EN.md)
-
-<!-- tags:树,二叉搜索树,动态规划,回溯,二叉树 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

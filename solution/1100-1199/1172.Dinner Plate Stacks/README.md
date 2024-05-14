@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1172.Dinner%20Plate%20Stacks/README.md
+rating: 2109
+tags:
+    - 栈
+    - 设计
+    - 哈希表
+    - 堆（优先队列）
+---
+
 # [1172. 餐盘栈](https://leetcode.cn/problems/dinner-plate-stacks)
 
 [English Version](/solution/1100-1199/1172.Dinner%20Plate%20Stacks/README_EN.md)
-
-<!-- tags:栈,设计,哈希表,堆（优先队列） -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

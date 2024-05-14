@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0084.Largest%20Rectangle%20in%20Histogram/README_EN.md
+tags:
+    - Stack
+    - Array
+    - Monotonic Stack
+---
+
 # [84. Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram)
 
 [中文文档](/solution/0000-0099/0084.Largest%20Rectangle%20in%20Histogram/README.md)
-
-<!-- tags:Stack,Array,Monotonic Stack -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

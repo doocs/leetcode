@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1244.Design%20A%20Leaderboard/README.md
+rating: 1354
+tags:
+    - 设计
+    - 哈希表
+    - 排序
+---
+
 # [1244. 力扣排行榜 🔒](https://leetcode.cn/problems/design-a-leaderboard)
 
 [English Version](/solution/1200-1299/1244.Design%20A%20Leaderboard/README_EN.md)
-
-<!-- tags:设计,哈希表,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

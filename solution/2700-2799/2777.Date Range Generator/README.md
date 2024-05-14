@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2777.Date%20Range%20Generator/README.md
+---
+
 # [2777. 日期范围生成器 🔒](https://leetcode.cn/problems/date-range-generator)
 
 [English Version](/solution/2700-2799/2777.Date%20Range%20Generator/README_EN.md)
-
-<!-- tags: -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

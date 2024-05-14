@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1219.Path%20with%20Maximum%20Gold/README_EN.md
+rating: 1663
+tags:
+    - Array
+    - Backtracking
+    - Matrix
+---
+
 # [1219. Path with Maximum Gold](https://leetcode.com/problems/path-with-maximum-gold)
 
 [中文文档](/solution/1200-1299/1219.Path%20with%20Maximum%20Gold/README.md)
-
-<!-- tags:Array,Backtracking,Matrix -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

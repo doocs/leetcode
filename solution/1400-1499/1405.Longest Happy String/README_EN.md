@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1405.Longest%20Happy%20String/README_EN.md
+rating: 1820
+tags:
+    - Greedy
+    - String
+    - Heap (Priority Queue)
+---
+
 # [1405. Longest Happy String](https://leetcode.com/problems/longest-happy-string)
 
 [中文文档](/solution/1400-1499/1405.Longest%20Happy%20String/README.md)
-
-<!-- tags:Greedy,String,Heap (Priority Queue) -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

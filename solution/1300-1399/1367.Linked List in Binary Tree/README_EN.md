@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1367.Linked%20List%20in%20Binary%20Tree/README_EN.md
+rating: 1649
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Linked List
+    - Binary Tree
+---
+
 # [1367. Linked List in Binary Tree](https://leetcode.com/problems/linked-list-in-binary-tree)
 
 [中文文档](/solution/1300-1399/1367.Linked%20List%20in%20Binary%20Tree/README.md)
-
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Linked List,Binary Tree -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

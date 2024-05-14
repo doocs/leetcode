@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0559.Maximum%20Depth%20of%20N-ary%20Tree/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+---
+
 # [559. N 叉树的最大深度](https://leetcode.cn/problems/maximum-depth-of-n-ary-tree)
 
 [English Version](/solution/0500-0599/0559.Maximum%20Depth%20of%20N-ary%20Tree/README_EN.md)
-
-<!-- tags:树,深度优先搜索,广度优先搜索 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

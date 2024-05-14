@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2827.Number%20of%20Beautiful%20Integers%20in%20the%20Range/README.md
+rating: 2324
+tags:
+    - 数学
+    - 动态规划
+---
+
 # [2827. 范围中美丽整数的数目](https://leetcode.cn/problems/number-of-beautiful-integers-in-the-range)
 
 [English Version](/solution/2800-2899/2827.Number%20of%20Beautiful%20Integers%20in%20the%20Range/README_EN.md)
-
-<!-- tags:数学,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

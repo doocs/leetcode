@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1467.Probability%20of%20a%20Two%20Boxes%20Having%20The%20Same%20Number%20of%20Distinct%20Balls/README_EN.md
+rating: 2356
+tags:
+    - Array
+    - Math
+    - Dynamic Programming
+    - Backtracking
+    - Combinatorics
+    - Probability and Statistics
+---
+
 # [1467. Probability of a Two Boxes Having The Same Number of Distinct Balls](https://leetcode.com/problems/probability-of-a-two-boxes-having-the-same-number-of-distinct-balls)
 
 [中文文档](/solution/1400-1499/1467.Probability%20of%20a%20Two%20Boxes%20Having%20The%20Same%20Number%20of%20Distinct%20Balls/README.md)
-
-<!-- tags:Array,Math,Dynamic Programming,Backtracking,Combinatorics,Probability and Statistics -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

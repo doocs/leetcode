@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0282.Expression%20Add%20Operators/README.md
+tags:
+    - 数学
+    - 字符串
+    - 回溯
+---
+
 # [282. 给表达式添加运算符](https://leetcode.cn/problems/expression-add-operators)
 
 [English Version](/solution/0200-0299/0282.Expression%20Add%20Operators/README_EN.md)
-
-<!-- tags:数学,字符串,回溯 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

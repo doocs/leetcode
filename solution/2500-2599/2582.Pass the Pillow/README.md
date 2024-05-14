@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2582.Pass%20the%20Pillow/README.md
+rating: 1278
+tags:
+    - 数学
+    - 模拟
+---
+
 # [2582. 递枕头](https://leetcode.cn/problems/pass-the-pillow)
 
 [English Version](/solution/2500-2599/2582.Pass%20the%20Pillow/README_EN.md)
-
-<!-- tags:数学,模拟 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

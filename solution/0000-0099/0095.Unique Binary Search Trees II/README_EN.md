@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0095.Unique%20Binary%20Search%20Trees%20II/README_EN.md
+tags:
+    - Tree
+    - Binary Search Tree
+    - Dynamic Programming
+    - Backtracking
+    - Binary Tree
+---
+
 # [95. Unique Binary Search Trees II](https://leetcode.com/problems/unique-binary-search-trees-ii)
 
 [中文文档](/solution/0000-0099/0095.Unique%20Binary%20Search%20Trees%20II/README.md)
-
-<!-- tags:Tree,Binary Search Tree,Dynamic Programming,Backtracking,Binary Tree -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

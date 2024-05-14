@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1862.Sum%20of%20Floored%20Pairs/README.md
+rating: 2170
+tags:
+    - 数组
+    - 数学
+    - 二分查找
+    - 前缀和
+---
+
 # [1862. 向下取整数对和](https://leetcode.cn/problems/sum-of-floored-pairs)
 
 [English Version](/solution/1800-1899/1862.Sum%20of%20Floored%20Pairs/README_EN.md)
-
-<!-- tags:数组,数学,二分查找,前缀和 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

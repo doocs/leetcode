@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2330.Valid%20Palindrome%20IV/README.md
+tags:
+    - 双指针
+    - 字符串
+---
+
 # [2330. 验证回文串 IV 🔒](https://leetcode.cn/problems/valid-palindrome-iv)
 
 [English Version](/solution/2300-2399/2330.Valid%20Palindrome%20IV/README_EN.md)
-
-<!-- tags:双指针,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

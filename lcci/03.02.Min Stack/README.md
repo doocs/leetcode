@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.02.Min%20Stack/README.md
+---
+
 # [面试题 03.02. 栈的最小值](https://leetcode.cn/problems/min-stack-lcci)
 
 [English Version](/lcci/03.02.Min%20Stack/README_EN.md)

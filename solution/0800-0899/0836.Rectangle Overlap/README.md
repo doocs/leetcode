@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0836.Rectangle%20Overlap/README.md
+tags:
+    - 几何
+    - 数学
+---
+
 # [836. 矩形重叠](https://leetcode.cn/problems/rectangle-overlap)
 
 [English Version](/solution/0800-0899/0836.Rectangle%20Overlap/README_EN.md)
-
-<!-- tags:几何,数学 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

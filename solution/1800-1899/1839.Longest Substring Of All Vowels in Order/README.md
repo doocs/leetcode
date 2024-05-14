@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1839.Longest%20Substring%20Of%20All%20Vowels%20in%20Order/README.md
+rating: 1580
+tags:
+    - 字符串
+    - 滑动窗口
+---
+
 # [1839. 所有元音按顺序排布的最长子字符串](https://leetcode.cn/problems/longest-substring-of-all-vowels-in-order)
 
 [English Version](/solution/1800-1899/1839.Longest%20Substring%20Of%20All%20Vowels%20in%20Order/README_EN.md)
-
-<!-- tags:字符串,滑动窗口 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

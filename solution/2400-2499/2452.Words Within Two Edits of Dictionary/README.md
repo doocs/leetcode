@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2452.Words%20Within%20Two%20Edits%20of%20Dictionary/README.md
+rating: 1459
+tags:
+    - 数组
+    - 字符串
+---
+
 # [2452. 距离字典两次编辑以内的单词](https://leetcode.cn/problems/words-within-two-edits-of-dictionary)
 
 [English Version](/solution/2400-2499/2452.Words%20Within%20Two%20Edits%20of%20Dictionary/README_EN.md)
-
-<!-- tags:数组,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

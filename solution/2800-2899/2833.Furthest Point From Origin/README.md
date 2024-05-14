@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2833.Furthest%20Point%20From%20Origin/README.md
+rating: 1294
+tags:
+    - 字符串
+    - 计数
+---
+
 # [2833. 距离原点最远的点](https://leetcode.cn/problems/furthest-point-from-origin)
 
 [English Version](/solution/2800-2899/2833.Furthest%20Point%20From%20Origin/README_EN.md)
-
-<!-- tags:字符串,计数 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1590.Make%20Sum%20Divisible%20by%20P/README_EN.md
+rating: 2038
+tags:
+    - Array
+    - Hash Table
+    - Prefix Sum
+---
+
 # [1590. Make Sum Divisible by P](https://leetcode.com/problems/make-sum-divisible-by-p)
 
 [中文文档](/solution/1500-1599/1590.Make%20Sum%20Divisible%20by%20P/README.md)
-
-<!-- tags:Array,Hash Table,Prefix Sum -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

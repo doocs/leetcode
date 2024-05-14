@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0337.House%20Robber%20III/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Dynamic Programming
+    - Binary Tree
+---
+
 # [337. House Robber III](https://leetcode.com/problems/house-robber-iii)
 
 [中文文档](/solution/0300-0399/0337.House%20Robber%20III/README.md)
-
-<!-- tags:Tree,Depth-First Search,Dynamic Programming,Binary Tree -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

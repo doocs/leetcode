@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1702.Maximum%20Binary%20String%20After%20Change/README_EN.md
+rating: 1825
+tags:
+    - Greedy
+    - String
+---
+
 # [1702. Maximum Binary String After Change](https://leetcode.com/problems/maximum-binary-string-after-change)
 
 [中文文档](/solution/1700-1799/1702.Maximum%20Binary%20String%20After%20Change/README.md)
-
-<!-- tags:Greedy,String -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

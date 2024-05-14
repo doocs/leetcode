@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1722.Minimize%20Hamming%20Distance%20After%20Swap%20Operations/README.md
+rating: 1892
+tags:
+    - 深度优先搜索
+    - 并查集
+    - 数组
+---
+
 # [1722. 执行交换操作后的最小汉明距离](https://leetcode.cn/problems/minimize-hamming-distance-after-swap-operations)
 
 [English Version](/solution/1700-1799/1722.Minimize%20Hamming%20Distance%20After%20Swap%20Operations/README_EN.md)
-
-<!-- tags:深度优先搜索,并查集,数组 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

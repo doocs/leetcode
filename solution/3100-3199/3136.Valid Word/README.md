@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3136.Valid%20Word/README.md
+rating: 1249
+tags:
+    - 字符串
+---
+
 # [3136. 有效单词](https://leetcode.cn/problems/valid-word)
 
 [English Version](/solution/3100-3199/3136.Valid%20Word/README_EN.md)
-
-<!-- tags:字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0379.Design%20Phone%20Directory/README_EN.md
+tags:
+    - Design
+    - Queue
+    - Array
+    - Hash Table
+    - Linked List
+---
+
 # [379. Design Phone Directory 🔒](https://leetcode.com/problems/design-phone-directory)
 
 [中文文档](/solution/0300-0399/0379.Design%20Phone%20Directory/README.md)
-
-<!-- tags:Design,Queue,Array,Hash Table,Linked List -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

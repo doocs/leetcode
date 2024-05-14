@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2810.Faulty%20Keyboard/README_EN.md
+rating: 1192
+tags:
+    - String
+    - Simulation
+---
+
 # [2810. Faulty Keyboard](https://leetcode.com/problems/faulty-keyboard)
 
 [中文文档](/solution/2800-2899/2810.Faulty%20Keyboard/README.md)
-
-<!-- tags:String,Simulation -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

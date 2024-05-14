@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2231.Largest%20Number%20After%20Digit%20Swaps%20by%20Parity/README_EN.md
+rating: 1365
+tags:
+    - Sorting
+    - Heap (Priority Queue)
+---
+
 # [2231. Largest Number After Digit Swaps by Parity](https://leetcode.com/problems/largest-number-after-digit-swaps-by-parity)
 
 [中文文档](/solution/2200-2299/2231.Largest%20Number%20After%20Digit%20Swaps%20by%20Parity/README.md)
-
-<!-- tags:Sorting,Heap (Priority Queue) -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

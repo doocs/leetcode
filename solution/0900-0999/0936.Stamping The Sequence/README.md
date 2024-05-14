@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0936.Stamping%20The%20Sequence/README.md
+tags:
+    - 栈
+    - 贪心
+    - 队列
+    - 字符串
+---
+
 # [936. 戳印序列](https://leetcode.cn/problems/stamping-the-sequence)
 
 [English Version](/solution/0900-0999/0936.Stamping%20The%20Sequence/README_EN.md)
-
-<!-- tags:栈,贪心,队列,字符串 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

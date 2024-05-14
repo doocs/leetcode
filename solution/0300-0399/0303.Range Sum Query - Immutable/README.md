@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0303.Range%20Sum%20Query%20-%20Immutable/README.md
+tags:
+    - 设计
+    - 数组
+    - 前缀和
+---
+
 # [303. 区域和检索 - 数组不可变](https://leetcode.cn/problems/range-sum-query-immutable)
 
 [English Version](/solution/0300-0399/0303.Range%20Sum%20Query%20-%20Immutable/README_EN.md)
-
-<!-- tags:设计,数组,前缀和 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3085.Minimum%20Deletions%20to%20Make%20String%20K-Special/README_EN.md
+rating: 1764
+tags:
+    - Greedy
+    - Hash Table
+    - String
+    - Counting
+    - Sorting
+---
+
 # [3085. Minimum Deletions to Make String K-Special](https://leetcode.com/problems/minimum-deletions-to-make-string-k-special)
 
 [中文文档](/solution/3000-3099/3085.Minimum%20Deletions%20to%20Make%20String%20K-Special/README.md)
-
-<!-- tags:Greedy,Hash Table,String,Counting,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

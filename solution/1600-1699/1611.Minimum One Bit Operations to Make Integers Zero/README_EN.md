@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1611.Minimum%20One%20Bit%20Operations%20to%20Make%20Integers%20Zero/README_EN.md
+rating: 2345
+tags:
+    - Bit Manipulation
+    - Memoization
+    - Dynamic Programming
+---
+
 # [1611. Minimum One Bit Operations to Make Integers Zero](https://leetcode.com/problems/minimum-one-bit-operations-to-make-integers-zero)
 
 [中文文档](/solution/1600-1699/1611.Minimum%20One%20Bit%20Operations%20to%20Make%20Integers%20Zero/README.md)
-
-<!-- tags:Bit Manipulation,Memoization,Dynamic Programming -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

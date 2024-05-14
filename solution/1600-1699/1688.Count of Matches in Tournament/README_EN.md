@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1688.Count%20of%20Matches%20in%20Tournament/README_EN.md
+rating: 1203
+tags:
+    - Math
+    - Simulation
+---
+
 # [1688. Count of Matches in Tournament](https://leetcode.com/problems/count-of-matches-in-tournament)
 
 [中文文档](/solution/1600-1699/1688.Count%20of%20Matches%20in%20Tournament/README.md)
-
-<!-- tags:Math,Simulation -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

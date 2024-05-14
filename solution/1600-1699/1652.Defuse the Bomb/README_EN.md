@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1652.Defuse%20the%20Bomb/README_EN.md
+rating: 1416
+tags:
+    - Array
+    - Sliding Window
+---
+
 # [1652. Defuse the Bomb](https://leetcode.com/problems/defuse-the-bomb)
 
 [中文文档](/solution/1600-1699/1652.Defuse%20the%20Bomb/README.md)
-
-<!-- tags:Array,Sliding Window -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

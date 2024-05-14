@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1151.Minimum%20Swaps%20to%20Group%20All%201%27s%20Together/README.md
+rating: 1508
+tags:
+    - 数组
+    - 滑动窗口
+---
+
 # [1151. 最少交换次数来组合所有的 1 🔒](https://leetcode.cn/problems/minimum-swaps-to-group-all-1s-together)
 
 [English Version](/solution/1100-1199/1151.Minimum%20Swaps%20to%20Group%20All%201%27s%20Together/README_EN.md)
-
-<!-- tags:数组,滑动窗口 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

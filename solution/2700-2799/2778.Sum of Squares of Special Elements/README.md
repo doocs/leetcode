@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2778.Sum%20of%20Squares%20of%20Special%20Elements/README.md
+rating: 1151
+tags:
+    - 数组
+    - 枚举
+---
+
 # [2778. 特殊元素平方和](https://leetcode.cn/problems/sum-of-squares-of-special-elements)
 
 [English Version](/solution/2700-2799/2778.Sum%20of%20Squares%20of%20Special%20Elements/README_EN.md)
-
-<!-- tags:数组,枚举 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

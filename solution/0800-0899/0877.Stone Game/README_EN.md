@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0877.Stone%20Game/README_EN.md
+tags:
+    - Array
+    - Math
+    - Dynamic Programming
+    - Game Theory
+---
+
 # [877. Stone Game](https://leetcode.com/problems/stone-game)
 
 [中文文档](/solution/0800-0899/0877.Stone%20Game/README.md)
-
-<!-- tags:Array,Math,Dynamic Programming,Game Theory -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

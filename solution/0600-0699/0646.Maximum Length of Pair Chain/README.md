@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0646.Maximum%20Length%20of%20Pair%20Chain/README.md
+tags:
+    - 贪心
+    - 数组
+    - 动态规划
+    - 排序
+---
+
 # [646. 最长数对链](https://leetcode.cn/problems/maximum-length-of-pair-chain)
 
 [English Version](/solution/0600-0699/0646.Maximum%20Length%20of%20Pair%20Chain/README_EN.md)
-
-<!-- tags:贪心,数组,动态规划,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

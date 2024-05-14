@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2223.Sum%20of%20Scores%20of%20Built%20Strings/README.md
+rating: 2220
+tags:
+    - 字符串
+    - 二分查找
+    - 字符串匹配
+    - 后缀数组
+    - 哈希函数
+    - 滚动哈希
+---
+
 # [2223. 构造字符串的总得分和](https://leetcode.cn/problems/sum-of-scores-of-built-strings)
 
 [English Version](/solution/2200-2299/2223.Sum%20of%20Scores%20of%20Built%20Strings/README_EN.md)
-
-<!-- tags:字符串,二分查找,字符串匹配,后缀数组,哈希函数,滚动哈希 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0911.Online%20Election/README_EN.md
+tags:
+    - Design
+    - Array
+    - Hash Table
+    - Binary Search
+---
+
 # [911. Online Election](https://leetcode.com/problems/online-election)
 
 [中文文档](/solution/0900-0999/0911.Online%20Election/README.md)
-
-<!-- tags:Design,Array,Hash Table,Binary Search -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

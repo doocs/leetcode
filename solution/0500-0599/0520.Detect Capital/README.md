@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0520.Detect%20Capital/README.md
+tags:
+    - 字符串
+---
+
 # [520. 检测大写字母](https://leetcode.cn/problems/detect-capital)
 
 [English Version](/solution/0500-0599/0520.Detect%20Capital/README_EN.md)
-
-<!-- tags:字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

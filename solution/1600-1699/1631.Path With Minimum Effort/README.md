@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1631.Path%20With%20Minimum%20Effort/README.md
+rating: 1947
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 并查集
+    - 数组
+    - 二分查找
+    - 矩阵
+    - 堆（优先队列）
+---
+
 # [1631. 最小体力消耗路径](https://leetcode.cn/problems/path-with-minimum-effort)
 
 [English Version](/solution/1600-1699/1631.Path%20With%20Minimum%20Effort/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,并查集,数组,二分查找,矩阵,堆（优先队列） -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

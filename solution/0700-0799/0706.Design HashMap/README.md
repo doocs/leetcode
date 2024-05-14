@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0706.Design%20HashMap/README.md
+tags:
+    - 设计
+    - 数组
+    - 哈希表
+    - 链表
+    - 哈希函数
+---
+
 # [706. 设计哈希映射](https://leetcode.cn/problems/design-hashmap)
 
 [English Version](/solution/0700-0799/0706.Design%20HashMap/README_EN.md)
-
-<!-- tags:设计,数组,哈希表,链表,哈希函数 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

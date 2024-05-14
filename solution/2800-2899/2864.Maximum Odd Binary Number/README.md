@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2864.Maximum%20Odd%20Binary%20Number/README.md
+rating: 1237
+tags:
+    - 贪心
+    - 数学
+    - 字符串
+---
+
 # [2864. 最大二进制奇数](https://leetcode.cn/problems/maximum-odd-binary-number)
 
 [English Version](/solution/2800-2899/2864.Maximum%20Odd%20Binary%20Number/README_EN.md)
-
-<!-- tags:贪心,数学,字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

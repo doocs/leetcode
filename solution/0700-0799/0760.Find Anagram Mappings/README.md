@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0760.Find%20Anagram%20Mappings/README.md
+tags:
+    - 数组
+    - 哈希表
+---
+
 # [760. 找出变位映射 🔒](https://leetcode.cn/problems/find-anagram-mappings)
 
 [English Version](/solution/0700-0799/0760.Find%20Anagram%20Mappings/README_EN.md)
-
-<!-- tags:数组,哈希表 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

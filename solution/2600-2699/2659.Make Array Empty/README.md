@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2659.Make%20Array%20Empty/README.md
+rating: 2281
+tags:
+    - 贪心
+    - 树状数组
+    - 线段树
+    - 数组
+    - 二分查找
+    - 有序集合
+    - 排序
+---
+
 # [2659. 将数组清空](https://leetcode.cn/problems/make-array-empty)
 
 [English Version](/solution/2600-2699/2659.Make%20Array%20Empty/README_EN.md)
-
-<!-- tags:贪心,树状数组,线段树,数组,二分查找,有序集合,排序 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

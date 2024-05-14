@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1796.Second%20Largest%20Digit%20in%20a%20String/README_EN.md
+rating: 1341
+tags:
+    - Hash Table
+    - String
+---
+
 # [1796. Second Largest Digit in a String](https://leetcode.com/problems/second-largest-digit-in-a-string)
 
 [中文文档](/solution/1700-1799/1796.Second%20Largest%20Digit%20in%20a%20String/README.md)
-
-<!-- tags:Hash Table,String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

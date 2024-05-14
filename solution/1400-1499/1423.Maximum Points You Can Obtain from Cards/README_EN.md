@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1423.Maximum%20Points%20You%20Can%20Obtain%20from%20Cards/README_EN.md
+rating: 1573
+tags:
+    - Array
+    - Prefix Sum
+    - Sliding Window
+---
+
 # [1423. Maximum Points You Can Obtain from Cards](https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards)
 
 [中文文档](/solution/1400-1499/1423.Maximum%20Points%20You%20Can%20Obtain%20from%20Cards/README.md)
-
-<!-- tags:Array,Prefix Sum,Sliding Window -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

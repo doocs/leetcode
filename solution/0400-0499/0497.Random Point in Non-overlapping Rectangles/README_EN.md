@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0497.Random%20Point%20in%20Non-overlapping%20Rectangles/README_EN.md
+tags:
+    - Reservoir Sampling
+    - Array
+    - Math
+    - Binary Search
+    - Ordered Set
+    - Prefix Sum
+    - Randomized
+---
+
 # [497. Random Point in Non-overlapping Rectangles](https://leetcode.com/problems/random-point-in-non-overlapping-rectangles)
 
 [中文文档](/solution/0400-0499/0497.Random%20Point%20in%20Non-overlapping%20Rectangles/README.md)
-
-<!-- tags:Reservoir Sampling,Array,Math,Binary Search,Ordered Set,Prefix Sum,Randomized -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

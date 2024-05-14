@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0595.Big%20Countries/README_EN.md
+tags:
+    - Database
+---
+
 # [595. Big Countries](https://leetcode.com/problems/big-countries)
 
 [中文文档](/solution/0500-0599/0595.Big%20Countries/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1708.Largest%20Subarray%20Length%20K/README_EN.md
+tags:
+    - Greedy
+    - Array
+---
+
 # [1708. Largest Subarray Length K 🔒](https://leetcode.com/problems/largest-subarray-length-k)
 
 [中文文档](/solution/1700-1799/1708.Largest%20Subarray%20Length%20K/README.md)
-
-<!-- tags:Greedy,Array -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

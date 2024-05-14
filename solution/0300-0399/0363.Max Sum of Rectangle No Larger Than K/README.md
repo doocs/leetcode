@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0363.Max%20Sum%20of%20Rectangle%20No%20Larger%20Than%20K/README.md
+tags:
+    - 数组
+    - 二分查找
+    - 矩阵
+    - 有序集合
+    - 前缀和
+---
+
 # [363. 矩形区域不超过 K 的最大数值和](https://leetcode.cn/problems/max-sum-of-rectangle-no-larger-than-k)
 
 [English Version](/solution/0300-0399/0363.Max%20Sum%20of%20Rectangle%20No%20Larger%20Than%20K/README_EN.md)
-
-<!-- tags:数组,二分查找,矩阵,有序集合,前缀和 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

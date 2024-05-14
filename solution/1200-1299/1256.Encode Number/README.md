@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1256.Encode%20Number/README.md
+rating: 1561
+tags:
+    - 位运算
+    - 数学
+    - 字符串
+---
+
 # [1256. 加密数字 🔒](https://leetcode.cn/problems/encode-number)
 
 [English Version](/solution/1200-1299/1256.Encode%20Number/README_EN.md)
-
-<!-- tags:位运算,数学,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

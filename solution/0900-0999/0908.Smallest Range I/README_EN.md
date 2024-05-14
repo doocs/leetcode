@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0908.Smallest%20Range%20I/README_EN.md
+tags:
+    - Array
+    - Math
+---
+
 # [908. Smallest Range I](https://leetcode.com/problems/smallest-range-i)
 
 [中文文档](/solution/0900-0999/0908.Smallest%20Range%20I/README.md)
-
-<!-- tags:Array,Math -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2629.Function%20Composition/README.md
+---
+
 # [2629. 复合函数](https://leetcode.cn/problems/function-composition)
 
 [English Version](/solution/2600-2699/2629.Function%20Composition/README_EN.md)
-
-<!-- tags: -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

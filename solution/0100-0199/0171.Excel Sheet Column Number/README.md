@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0171.Excel%20Sheet%20Column%20Number/README.md
+tags:
+    - 数学
+    - 字符串
+---
+
 # [171. Excel 表列序号](https://leetcode.cn/problems/excel-sheet-column-number)
 
 [English Version](/solution/0100-0199/0171.Excel%20Sheet%20Column%20Number/README_EN.md)
-
-<!-- tags:数学,字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

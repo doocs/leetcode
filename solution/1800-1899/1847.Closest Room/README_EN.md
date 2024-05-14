@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1847.Closest%20Room/README_EN.md
+rating: 2081
+tags:
+    - Array
+    - Binary Search
+    - Sorting
+---
+
 # [1847. Closest Room](https://leetcode.com/problems/closest-room)
 
 [中文文档](/solution/1800-1899/1847.Closest%20Room/README.md)
-
-<!-- tags:Array,Binary Search,Sorting -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

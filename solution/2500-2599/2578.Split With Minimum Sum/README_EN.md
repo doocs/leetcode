@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2578.Split%20With%20Minimum%20Sum/README_EN.md
+rating: 1350
+tags:
+    - Greedy
+    - Math
+    - Sorting
+---
+
 # [2578. Split With Minimum Sum](https://leetcode.com/problems/split-with-minimum-sum)
 
 [中文文档](/solution/2500-2599/2578.Split%20With%20Minimum%20Sum/README.md)
-
-<!-- tags:Greedy,Math,Sorting -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

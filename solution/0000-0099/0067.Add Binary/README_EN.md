@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0067.Add%20Binary/README_EN.md
+tags:
+    - Bit Manipulation
+    - Math
+    - String
+    - Simulation
+---
+
 # [67. Add Binary](https://leetcode.com/problems/add-binary)
 
 [中文文档](/solution/0000-0099/0067.Add%20Binary/README.md)
-
-<!-- tags:Bit Manipulation,Math,String,Simulation -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

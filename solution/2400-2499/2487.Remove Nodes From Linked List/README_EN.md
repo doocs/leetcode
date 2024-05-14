@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2487.Remove%20Nodes%20From%20Linked%20List/README_EN.md
+rating: 1454
+tags:
+    - Stack
+    - Recursion
+    - Linked List
+    - Monotonic Stack
+---
+
 # [2487. Remove Nodes From Linked List](https://leetcode.com/problems/remove-nodes-from-linked-list)
 
 [中文文档](/solution/2400-2499/2487.Remove%20Nodes%20From%20Linked%20List/README.md)
-
-<!-- tags:Stack,Recursion,Linked List,Monotonic Stack -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

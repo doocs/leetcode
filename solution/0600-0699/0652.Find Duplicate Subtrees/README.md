@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0652.Find%20Duplicate%20Subtrees/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 哈希表
+    - 二叉树
+---
+
 # [652. 寻找重复的子树](https://leetcode.cn/problems/find-duplicate-subtrees)
 
 [English Version](/solution/0600-0699/0652.Find%20Duplicate%20Subtrees/README_EN.md)
-
-<!-- tags:树,深度优先搜索,哈希表,二叉树 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

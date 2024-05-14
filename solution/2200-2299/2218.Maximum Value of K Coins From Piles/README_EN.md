@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2218.Maximum%20Value%20of%20K%20Coins%20From%20Piles/README_EN.md
+rating: 2157
+tags:
+    - Array
+    - Dynamic Programming
+    - Prefix Sum
+---
+
 # [2218. Maximum Value of K Coins From Piles](https://leetcode.com/problems/maximum-value-of-k-coins-from-piles)
 
 [中文文档](/solution/2200-2299/2218.Maximum%20Value%20of%20K%20Coins%20From%20Piles/README.md)
-
-<!-- tags:Array,Dynamic Programming,Prefix Sum -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2103.Rings%20and%20Rods/README_EN.md
+rating: 1257
+tags:
+    - Hash Table
+    - String
+---
+
 # [2103. Rings and Rods](https://leetcode.com/problems/rings-and-rods)
 
 [中文文档](/solution/2100-2199/2103.Rings%20and%20Rods/README.md)
-
-<!-- tags:Hash Table,String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

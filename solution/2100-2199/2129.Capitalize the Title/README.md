@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2129.Capitalize%20the%20Title/README.md
+rating: 1274
+tags:
+    - 字符串
+---
+
 # [2129. 将标题首字母大写](https://leetcode.cn/problems/capitalize-the-title)
 
 [English Version](/solution/2100-2199/2129.Capitalize%20the%20Title/README_EN.md)
-
-<!-- tags:字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

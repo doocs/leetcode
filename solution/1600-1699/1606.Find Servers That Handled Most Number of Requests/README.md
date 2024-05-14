@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1606.Find%20Servers%20That%20Handled%20Most%20Number%20of%20Requests/README.md
+rating: 2275
+tags:
+    - 贪心
+    - 数组
+    - 有序集合
+    - 堆（优先队列）
+---
+
 # [1606. 找到处理最多请求的服务器](https://leetcode.cn/problems/find-servers-that-handled-most-number-of-requests)
 
 [English Version](/solution/1600-1699/1606.Find%20Servers%20That%20Handled%20Most%20Number%20of%20Requests/README_EN.md)
-
-<!-- tags:贪心,数组,有序集合,堆（优先队列） -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

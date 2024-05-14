@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2399.Check%20Distances%20Between%20Same%20Letters/README_EN.md
+rating: 1243
+tags:
+    - Array
+    - Hash Table
+    - String
+---
+
 # [2399. Check Distances Between Same Letters](https://leetcode.com/problems/check-distances-between-same-letters)
 
 [中文文档](/solution/2300-2399/2399.Check%20Distances%20Between%20Same%20Letters/README.md)
-
-<!-- tags:Array,Hash Table,String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

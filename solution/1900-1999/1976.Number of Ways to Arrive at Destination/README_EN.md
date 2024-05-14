@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1976.Number%20of%20Ways%20to%20Arrive%20at%20Destination/README_EN.md
+rating: 2094
+tags:
+    - Graph
+    - Topological Sort
+    - Dynamic Programming
+    - Shortest Path
+---
+
 # [1976. Number of Ways to Arrive at Destination](https://leetcode.com/problems/number-of-ways-to-arrive-at-destination)
 
 [中文文档](/solution/1900-1999/1976.Number%20of%20Ways%20to%20Arrive%20at%20Destination/README.md)
-
-<!-- tags:Graph,Topological Sort,Dynamic Programming,Shortest Path -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1229.Meeting%20Scheduler/README.md
+rating: 1541
+tags:
+    - 数组
+    - 双指针
+    - 排序
+---
+
 # [1229. 安排会议日程 🔒](https://leetcode.cn/problems/meeting-scheduler)
 
 [English Version](/solution/1200-1299/1229.Meeting%20Scheduler/README_EN.md)
-
-<!-- tags:数组,双指针,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2767.Partition%20String%20Into%20Minimum%20Beautiful%20Substrings/README_EN.md
+rating: 1864
+tags:
+    - Hash Table
+    - String
+    - Dynamic Programming
+    - Backtracking
+---
+
 # [2767. Partition String Into Minimum Beautiful Substrings](https://leetcode.com/problems/partition-string-into-minimum-beautiful-substrings)
 
 [中文文档](/solution/2700-2799/2767.Partition%20String%20Into%20Minimum%20Beautiful%20Substrings/README.md)
-
-<!-- tags:Hash Table,String,Dynamic Programming,Backtracking -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

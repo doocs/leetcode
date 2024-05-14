@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2712.Minimum%20Cost%20to%20Make%20All%20Characters%20Equal/README.md
+rating: 1791
+tags:
+    - 贪心
+    - 字符串
+    - 动态规划
+---
+
 # [2712. 使所有字符相等的最小成本](https://leetcode.cn/problems/minimum-cost-to-make-all-characters-equal)
 
 [English Version](/solution/2700-2799/2712.Minimum%20Cost%20to%20Make%20All%20Characters%20Equal/README_EN.md)
-
-<!-- tags:贪心,字符串,动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

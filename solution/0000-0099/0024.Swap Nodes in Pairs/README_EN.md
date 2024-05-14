@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0024.Swap%20Nodes%20in%20Pairs/README_EN.md
+tags:
+    - Recursion
+    - Linked List
+---
+
 # [24. Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs)
 
 [中文文档](/solution/0000-0099/0024.Swap%20Nodes%20in%20Pairs/README.md)
-
-<!-- tags:Recursion,Linked List -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

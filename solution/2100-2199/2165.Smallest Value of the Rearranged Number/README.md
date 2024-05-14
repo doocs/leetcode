@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2165.Smallest%20Value%20of%20the%20Rearranged%20Number/README.md
+rating: 1361
+tags:
+    - 数学
+    - 排序
+---
+
 # [2165. 重排数字的最小值](https://leetcode.cn/problems/smallest-value-of-the-rearranged-number)
 
 [English Version](/solution/2100-2199/2165.Smallest%20Value%20of%20the%20Rearranged%20Number/README_EN.md)
-
-<!-- tags:数学,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

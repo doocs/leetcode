@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0161.One%20Edit%20Distance/README_EN.md
+tags:
+    - Two Pointers
+    - String
+---
+
 # [161. One Edit Distance 🔒](https://leetcode.com/problems/one-edit-distance)
 
 [中文文档](/solution/0100-0199/0161.One%20Edit%20Distance/README.md)
-
-<!-- tags:Two Pointers,String -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

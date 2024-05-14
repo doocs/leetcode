@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2518.Number%20of%20Great%20Partitions/README_EN.md
+rating: 2414
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [2518. Number of Great Partitions](https://leetcode.com/problems/number-of-great-partitions)
 
 [中文文档](/solution/2500-2599/2518.Number%20of%20Great%20Partitions/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

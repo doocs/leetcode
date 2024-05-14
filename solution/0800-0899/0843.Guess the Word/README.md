@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0843.Guess%20the%20Word/README.md
+tags:
+    - 数组
+    - 数学
+    - 字符串
+    - 博弈
+    - 交互
+---
+
 # [843. 猜猜这个单词](https://leetcode.cn/problems/guess-the-word)
 
 [English Version](/solution/0800-0899/0843.Guess%20the%20Word/README_EN.md)
-
-<!-- tags:数组,数学,字符串,博弈,交互 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

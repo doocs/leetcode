@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1063.Number%20of%20Valid%20Subarrays/README.md
+tags:
+    - 栈
+    - 数组
+    - 单调栈
+---
+
 # [1063. 有效子数组的数目 🔒](https://leetcode.cn/problems/number-of-valid-subarrays)
 
 [English Version](/solution/1000-1099/1063.Number%20of%20Valid%20Subarrays/README_EN.md)
-
-<!-- tags:栈,数组,单调栈 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

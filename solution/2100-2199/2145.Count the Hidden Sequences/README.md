@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2145.Count%20the%20Hidden%20Sequences/README.md
+rating: 1614
+tags:
+    - 数组
+    - 前缀和
+---
+
 # [2145. 统计隐藏数组数目](https://leetcode.cn/problems/count-the-hidden-sequences)
 
 [English Version](/solution/2100-2199/2145.Count%20the%20Hidden%20Sequences/README_EN.md)
-
-<!-- tags:数组,前缀和 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3001.Minimum%20Moves%20to%20Capture%20The%20Queen/README.md
+rating: 1796
+tags:
+    - 数组
+    - 枚举
+---
+
 # [3001. 捕获黑皇后需要的最少移动次数](https://leetcode.cn/problems/minimum-moves-to-capture-the-queen)
 
 [English Version](/solution/3000-3099/3001.Minimum%20Moves%20to%20Capture%20The%20Queen/README_EN.md)
-
-<!-- tags:数组,枚举 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

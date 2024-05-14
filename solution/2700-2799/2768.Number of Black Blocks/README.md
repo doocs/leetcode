@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2768.Number%20of%20Black%20Blocks/README.md
+rating: 2175
+tags:
+    - 数组
+    - 哈希表
+    - 枚举
+---
+
 # [2768. 黑格子的数目](https://leetcode.cn/problems/number-of-black-blocks)
 
 [English Version](/solution/2700-2799/2768.Number%20of%20Black%20Blocks/README_EN.md)
-
-<!-- tags:数组,哈希表,枚举 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

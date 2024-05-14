@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2261.K%20Divisible%20Elements%20Subarrays/README.md
+rating: 1724
+tags:
+    - 字典树
+    - 数组
+    - 哈希表
+    - 枚举
+    - 哈希函数
+    - 滚动哈希
+---
+
 # [2261. 含最多 K 个可整除元素的子数组](https://leetcode.cn/problems/k-divisible-elements-subarrays)
 
 [English Version](/solution/2200-2299/2261.K%20Divisible%20Elements%20Subarrays/README_EN.md)
-
-<!-- tags:字典树,数组,哈希表,枚举,哈希函数,滚动哈希 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

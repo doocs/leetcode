@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2668.Find%20Latest%20Salaries/README_EN.md
+tags:
+    - Database
+---
+
 # [2668. Find Latest Salaries 🔒](https://leetcode.com/problems/find-latest-salaries)
 
 [中文文档](/solution/2600-2699/2668.Find%20Latest%20Salaries/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

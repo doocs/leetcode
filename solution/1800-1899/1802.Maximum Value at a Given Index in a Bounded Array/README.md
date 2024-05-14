@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1802.Maximum%20Value%20at%20a%20Given%20Index%20in%20a%20Bounded%20Array/README.md
+rating: 1929
+tags:
+    - 贪心
+    - 二分查找
+---
+
 # [1802. 有界数组中指定下标处的最大值](https://leetcode.cn/problems/maximum-value-at-a-given-index-in-a-bounded-array)
 
 [English Version](/solution/1800-1899/1802.Maximum%20Value%20at%20a%20Given%20Index%20in%20a%20Bounded%20Array/README_EN.md)
-
-<!-- tags:贪心,二分查找 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

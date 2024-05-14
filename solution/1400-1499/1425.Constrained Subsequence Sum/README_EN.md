@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1425.Constrained%20Subsequence%20Sum/README_EN.md
+rating: 2032
+tags:
+    - Queue
+    - Array
+    - Dynamic Programming
+    - Sliding Window
+    - Monotonic Queue
+    - Heap (Priority Queue)
+---
+
 # [1425. Constrained Subsequence Sum](https://leetcode.com/problems/constrained-subsequence-sum)
 
 [中文文档](/solution/1400-1499/1425.Constrained%20Subsequence%20Sum/README.md)
-
-<!-- tags:Queue,Array,Dynamic Programming,Sliding Window,Monotonic Queue,Heap (Priority Queue) -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

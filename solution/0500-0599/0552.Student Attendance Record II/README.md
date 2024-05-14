@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0552.Student%20Attendance%20Record%20II/README.md
+tags:
+    - 动态规划
+---
+
 # [552. 学生出勤记录 II](https://leetcode.cn/problems/student-attendance-record-ii)
 
 [English Version](/solution/0500-0599/0552.Student%20Attendance%20Record%20II/README_EN.md)
-
-<!-- tags:动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

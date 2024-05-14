@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1006.Clumsy%20Factorial/README.md
+rating: 1407
+tags:
+    - 栈
+    - 数学
+    - 模拟
+---
+
 # [1006. 笨阶乘](https://leetcode.cn/problems/clumsy-factorial)
 
 [English Version](/solution/1000-1099/1006.Clumsy%20Factorial/README_EN.md)
-
-<!-- tags:栈,数学,模拟 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

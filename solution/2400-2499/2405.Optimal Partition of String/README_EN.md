@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2405.Optimal%20Partition%20of%20String/README_EN.md
+rating: 1355
+tags:
+    - Greedy
+    - Hash Table
+    - String
+---
+
 # [2405. Optimal Partition of String](https://leetcode.com/problems/optimal-partition-of-string)
 
 [中文文档](/solution/2400-2499/2405.Optimal%20Partition%20of%20String/README.md)
-
-<!-- tags:Greedy,Hash Table,String -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

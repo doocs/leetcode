@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0211.Design%20Add%20and%20Search%20Words%20Data%20Structure/README_EN.md
+tags:
+    - Depth-First Search
+    - Design
+    - Trie
+    - String
+---
+
 # [211. Design Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure)
 
 [中文文档](/solution/0200-0299/0211.Design%20Add%20and%20Search%20Words%20Data%20Structure/README.md)
-
-<!-- tags:Depth-First Search,Design,Trie,String -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0882.Reachable%20Nodes%20In%20Subdivided%20Graph/README.md
+tags:
+    - 图
+    - 最短路
+    - 堆（优先队列）
+---
+
 # [882. 细分图中的可到达节点](https://leetcode.cn/problems/reachable-nodes-in-subdivided-graph)
 
 [English Version](/solution/0800-0899/0882.Reachable%20Nodes%20In%20Subdivided%20Graph/README_EN.md)
-
-<!-- tags:图,最短路,堆（优先队列） -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0169.Majority%20Element/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Divide and Conquer
+    - Counting
+    - Sorting
+---
+
 # [169. Majority Element](https://leetcode.com/problems/majority-element)
 
 [中文文档](/solution/0100-0199/0169.Majority%20Element/README.md)
-
-<!-- tags:Array,Hash Table,Divide and Conquer,Counting,Sorting -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

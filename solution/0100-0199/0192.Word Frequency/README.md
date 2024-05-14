@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0192.Word%20Frequency/README.md
+---
+
 # [192. 统计词频](https://leetcode.cn/problems/word-frequency)
 
 [English Version](/solution/0100-0199/0192.Word%20Frequency/README_EN.md)
-
-<!-- tags: -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

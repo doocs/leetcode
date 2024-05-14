@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0853.Car%20Fleet/README_EN.md
+tags:
+    - Stack
+    - Array
+    - Sorting
+    - Monotonic Stack
+---
+
 # [853. Car Fleet](https://leetcode.com/problems/car-fleet)
 
 [中文文档](/solution/0800-0899/0853.Car%20Fleet/README.md)
-
-<!-- tags:Stack,Array,Sorting,Monotonic Stack -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

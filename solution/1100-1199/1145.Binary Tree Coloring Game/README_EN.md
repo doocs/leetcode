@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1145.Binary%20Tree%20Coloring%20Game/README_EN.md
+rating: 1741
+tags:
+    - Tree
+    - Depth-First Search
+    - Binary Tree
+---
+
 # [1145. Binary Tree Coloring Game](https://leetcode.com/problems/binary-tree-coloring-game)
 
 [中文文档](/solution/1100-1199/1145.Binary%20Tree%20Coloring%20Game/README.md)
-
-<!-- tags:Tree,Depth-First Search,Binary Tree -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

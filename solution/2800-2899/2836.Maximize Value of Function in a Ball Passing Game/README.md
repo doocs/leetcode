@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2836.Maximize%20Value%20of%20Function%20in%20a%20Ball%20Passing%20Game/README.md
+rating: 2768
+tags:
+    - 位运算
+    - 数组
+    - 动态规划
+---
+
 # [2836. 在传球游戏中最大化函数值](https://leetcode.cn/problems/maximize-value-of-function-in-a-ball-passing-game)
 
 [English Version](/solution/2800-2899/2836.Maximize%20Value%20of%20Function%20in%20a%20Ball%20Passing%20Game/README_EN.md)
-
-<!-- tags:位运算,数组,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

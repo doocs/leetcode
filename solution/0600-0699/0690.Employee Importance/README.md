@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0690.Employee%20Importance/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 数组
+    - 哈希表
+---
+
 # [690. 员工的重要性](https://leetcode.cn/problems/employee-importance)
 
 [English Version](/solution/0600-0699/0690.Employee%20Importance/README_EN.md)
-
-<!-- tags:树,深度优先搜索,广度优先搜索,数组,哈希表 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

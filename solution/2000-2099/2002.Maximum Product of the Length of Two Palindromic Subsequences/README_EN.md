@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2002.Maximum%20Product%20of%20the%20Length%20of%20Two%20Palindromic%20Subsequences/README_EN.md
+rating: 1869
+tags:
+    - Bit Manipulation
+    - String
+    - Dynamic Programming
+    - Backtracking
+    - Bitmask
+---
+
 # [2002. Maximum Product of the Length of Two Palindromic Subsequences](https://leetcode.com/problems/maximum-product-of-the-length-of-two-palindromic-subsequences)
 
 [中文文档](/solution/2000-2099/2002.Maximum%20Product%20of%20the%20Length%20of%20Two%20Palindromic%20Subsequences/README.md)
-
-<!-- tags:Bit Manipulation,String,Dynamic Programming,Backtracking,Bitmask -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2049.Count%20Nodes%20With%20the%20Highest%20Score/README.md
+rating: 1911
+tags:
+    - 树
+    - 深度优先搜索
+    - 数组
+    - 二叉树
+---
+
 # [2049. 统计最高分的节点数目](https://leetcode.cn/problems/count-nodes-with-the-highest-score)
 
 [English Version](/solution/2000-2099/2049.Count%20Nodes%20With%20the%20Highest%20Score/README_EN.md)
-
-<!-- tags:树,深度优先搜索,数组,二叉树 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

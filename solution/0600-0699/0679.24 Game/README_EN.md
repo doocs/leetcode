@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0679.24%20Game/README_EN.md
+tags:
+    - Array
+    - Math
+    - Backtracking
+---
+
 # [679. 24 Game](https://leetcode.com/problems/24-game)
 
 [中文文档](/solution/0600-0699/0679.24%20Game/README.md)
-
-<!-- tags:Array,Math,Backtracking -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

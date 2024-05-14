@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2994.Friday%20Purchases%20II/README.md
+tags:
+    - 数据库
+---
+
 # [2994. 发生在周五的交易 II 🔒](https://leetcode.cn/problems/friday-purchases-ii)
 
 [English Version](/solution/2900-2999/2994.Friday%20Purchases%20II/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

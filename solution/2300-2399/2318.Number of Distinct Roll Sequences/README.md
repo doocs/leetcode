@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2318.Number%20of%20Distinct%20Roll%20Sequences/README.md
+rating: 2090
+tags:
+    - 记忆化搜索
+    - 动态规划
+---
+
 # [2318. 不同骰子序列的数目](https://leetcode.cn/problems/number-of-distinct-roll-sequences)
 
 [English Version](/solution/2300-2399/2318.Number%20of%20Distinct%20Roll%20Sequences/README_EN.md)
-
-<!-- tags:记忆化搜索,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

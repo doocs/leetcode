@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0183.Customers%20Who%20Never%20Order/README.md
+tags:
+    - 数据库
+---
+
 # [183. 从不订购的客户](https://leetcode.cn/problems/customers-who-never-order)
 
 [English Version](/solution/0100-0199/0183.Customers%20Who%20Never%20Order/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

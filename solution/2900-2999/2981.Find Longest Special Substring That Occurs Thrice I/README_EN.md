@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2981.Find%20Longest%20Special%20Substring%20That%20Occurs%20Thrice%20I/README_EN.md
+rating: 1505
+tags:
+    - Hash Table
+    - String
+    - Binary Search
+    - Counting
+    - Sliding Window
+---
+
 # [2981. Find Longest Special Substring That Occurs Thrice I](https://leetcode.com/problems/find-longest-special-substring-that-occurs-thrice-i)
 
 [中文文档](/solution/2900-2999/2981.Find%20Longest%20Special%20Substring%20That%20Occurs%20Thrice%20I/README.md)
-
-<!-- tags:Hash Table,String,Binary Search,Counting,Sliding Window -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

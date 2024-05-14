@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0632.Smallest%20Range%20Covering%20Elements%20from%20K%20Lists/README.md
+tags:
+    - 贪心
+    - 数组
+    - 哈希表
+    - 排序
+    - 滑动窗口
+    - 堆（优先队列）
+---
+
 # [632. 最小区间](https://leetcode.cn/problems/smallest-range-covering-elements-from-k-lists)
 
 [English Version](/solution/0600-0699/0632.Smallest%20Range%20Covering%20Elements%20from%20K%20Lists/README_EN.md)
-
-<!-- tags:贪心,数组,哈希表,排序,滑动窗口,堆（优先队列） -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

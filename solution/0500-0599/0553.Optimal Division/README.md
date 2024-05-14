@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0553.Optimal%20Division/README.md
+tags:
+    - 数组
+    - 数学
+    - 动态规划
+---
+
 # [553. 最优除法](https://leetcode.cn/problems/optimal-division)
 
 [English Version](/solution/0500-0599/0553.Optimal%20Division/README_EN.md)
-
-<!-- tags:数组,数学,动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

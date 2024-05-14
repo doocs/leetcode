@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2499.Minimum%20Total%20Cost%20to%20Make%20Arrays%20Unequal/README.md
+rating: 2633
+tags:
+    - 贪心
+    - 数组
+    - 哈希表
+    - 计数
+---
+
 # [2499. 让数组不相等的最小总代价](https://leetcode.cn/problems/minimum-total-cost-to-make-arrays-unequal)
 
 [English Version](/solution/2400-2499/2499.Minimum%20Total%20Cost%20to%20Make%20Arrays%20Unequal/README_EN.md)
-
-<!-- tags:贪心,数组,哈希表,计数 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

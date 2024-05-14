@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1809.Ad-Free%20Sessions/README.md
+tags:
+    - 数据库
+---
+
 # [1809. 没有广告的剧集 🔒](https://leetcode.cn/problems/ad-free-sessions)
 
 [English Version](/solution/1800-1899/1809.Ad-Free%20Sessions/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

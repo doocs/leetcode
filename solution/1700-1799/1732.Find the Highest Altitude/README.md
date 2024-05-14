@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1732.Find%20the%20Highest%20Altitude/README.md
+rating: 1256
+tags:
+    - 数组
+    - 前缀和
+---
+
 # [1732. 找到最高海拔](https://leetcode.cn/problems/find-the-highest-altitude)
 
 [English Version](/solution/1700-1799/1732.Find%20the%20Highest%20Altitude/README_EN.md)
-
-<!-- tags:数组,前缀和 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

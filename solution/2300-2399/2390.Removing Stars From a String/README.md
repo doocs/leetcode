@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2390.Removing%20Stars%20From%20a%20String/README.md
+rating: 1347
+tags:
+    - 栈
+    - 字符串
+    - 模拟
+---
+
 # [2390. 从字符串中移除星号](https://leetcode.cn/problems/removing-stars-from-a-string)
 
 [English Version](/solution/2300-2399/2390.Removing%20Stars%20From%20a%20String/README_EN.md)
-
-<!-- tags:栈,字符串,模拟 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

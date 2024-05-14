@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0678.Valid%20Parenthesis%20String/README_EN.md
+tags:
+    - Stack
+    - Greedy
+    - String
+    - Dynamic Programming
+---
+
 # [678. Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string)
 
 [中文文档](/solution/0600-0699/0678.Valid%20Parenthesis%20String/README.md)
-
-<!-- tags:Stack,Greedy,String,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

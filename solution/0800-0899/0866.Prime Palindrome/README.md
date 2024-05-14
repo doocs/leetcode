@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0866.Prime%20Palindrome/README.md
+tags:
+    - 数学
+    - 数论
+---
+
 # [866. 回文质数](https://leetcode.cn/problems/prime-palindrome)
 
 [English Version](/solution/0800-0899/0866.Prime%20Palindrome/README_EN.md)
-
-<!-- tags:数学,数论 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

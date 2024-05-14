@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0741.Cherry%20Pickup/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+    - Matrix
+---
+
 # [741. Cherry Pickup](https://leetcode.com/problems/cherry-pickup)
 
 [中文文档](/solution/0700-0799/0741.Cherry%20Pickup/README.md)
-
-<!-- tags:Array,Dynamic Programming,Matrix -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

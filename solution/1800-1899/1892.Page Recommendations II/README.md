@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1892.Page%20Recommendations%20II/README.md
+tags:
+    - 数据库
+---
+
 # [1892. 页面推荐 Ⅱ 🔒](https://leetcode.cn/problems/page-recommendations-ii)
 
 [English Version](/solution/1800-1899/1892.Page%20Recommendations%20II/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

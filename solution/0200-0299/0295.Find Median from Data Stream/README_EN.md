@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0295.Find%20Median%20from%20Data%20Stream/README_EN.md
+tags:
+    - Design
+    - Two Pointers
+    - Data Stream
+    - Sorting
+    - Heap (Priority Queue)
+---
+
 # [295. Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream)
 
 [中文文档](/solution/0200-0299/0295.Find%20Median%20from%20Data%20Stream/README.md)
-
-<!-- tags:Design,Two Pointers,Data Stream,Sorting,Heap (Priority Queue) -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

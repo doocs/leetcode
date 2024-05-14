@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2351.First%20Letter%20to%20Appear%20Twice/README.md
+rating: 1155
+tags:
+    - 位运算
+    - 哈希表
+    - 字符串
+    - 计数
+---
+
 # [2351. 第一个出现两次的字母](https://leetcode.cn/problems/first-letter-to-appear-twice)
 
 [English Version](/solution/2300-2399/2351.First%20Letter%20to%20Appear%20Twice/README_EN.md)
-
-<!-- tags:位运算,哈希表,字符串,计数 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

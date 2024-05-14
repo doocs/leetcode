@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0465.Optimal%20Account%20Balancing/README.md
+tags:
+    - 位运算
+    - 数组
+    - 动态规划
+    - 回溯
+    - 状态压缩
+---
+
 # [465. 最优账单平衡 🔒](https://leetcode.cn/problems/optimal-account-balancing)
 
 [English Version](/solution/0400-0499/0465.Optimal%20Account%20Balancing/README_EN.md)
-
-<!-- tags:位运算,数组,动态规划,回溯,状态压缩 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

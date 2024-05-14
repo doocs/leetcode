@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2424.Longest%20Uploaded%20Prefix/README.md
+rating: 1604
+tags:
+    - 并查集
+    - 设计
+    - 树状数组
+    - 线段树
+    - 二分查找
+    - 有序集合
+    - 堆（优先队列）
+---
+
 # [2424. 最长上传前缀](https://leetcode.cn/problems/longest-uploaded-prefix)
 
 [English Version](/solution/2400-2499/2424.Longest%20Uploaded%20Prefix/README_EN.md)
-
-<!-- tags:并查集,设计,树状数组,线段树,二分查找,有序集合,堆（优先队列） -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

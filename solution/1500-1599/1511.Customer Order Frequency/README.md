@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1511.Customer%20Order%20Frequency/README.md
+tags:
+    - 数据库
+---
+
 # [1511. 消费者下单频率 🔒](https://leetcode.cn/problems/customer-order-frequency)
 
 [English Version](/solution/1500-1599/1511.Customer%20Order%20Frequency/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

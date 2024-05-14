@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1659.Maximize%20Grid%20Happiness/README_EN.md
+rating: 2655
+tags:
+    - Bit Manipulation
+    - Memoization
+    - Dynamic Programming
+    - Bitmask
+---
+
 # [1659. Maximize Grid Happiness](https://leetcode.com/problems/maximize-grid-happiness)
 
 [中文文档](/solution/1600-1699/1659.Maximize%20Grid%20Happiness/README.md)
-
-<!-- tags:Bit Manipulation,Memoization,Dynamic Programming,Bitmask -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2930.Number%20of%20Strings%20Which%20Can%20Be%20Rearranged%20to%20Contain%20Substring/README.md
+rating: 2227
+tags:
+    - 数学
+    - 动态规划
+    - 组合数学
+---
+
 # [2930. 重新排列后包含指定子字符串的字符串数目](https://leetcode.cn/problems/number-of-strings-which-can-be-rearranged-to-contain-substring)
 
 [English Version](/solution/2900-2999/2930.Number%20of%20Strings%20Which%20Can%20Be%20Rearranged%20to%20Contain%20Substring/README_EN.md)
-
-<!-- tags:数学,动态规划,组合数学 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

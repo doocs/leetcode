@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2048.Next%20Greater%20Numerically%20Balanced%20Number/README.md
+rating: 1734
+tags:
+    - 数学
+    - 回溯
+    - 枚举
+---
+
 # [2048. 下一个更大的数值平衡数](https://leetcode.cn/problems/next-greater-numerically-balanced-number)
 
 [English Version](/solution/2000-2099/2048.Next%20Greater%20Numerically%20Balanced%20Number/README_EN.md)
-
-<!-- tags:数学,回溯,枚举 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

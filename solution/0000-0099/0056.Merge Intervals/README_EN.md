@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0056.Merge%20Intervals/README_EN.md
+tags:
+    - Array
+    - Sorting
+---
+
 # [56. Merge Intervals](https://leetcode.com/problems/merge-intervals)
 
 [中文文档](/solution/0000-0099/0056.Merge%20Intervals/README.md)
-
-<!-- tags:Array,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

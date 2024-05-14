@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0419.Battleships%20in%20a%20Board/README_EN.md
+tags:
+    - Depth-First Search
+    - Array
+    - Matrix
+---
+
 # [419. Battleships in a Board](https://leetcode.com/problems/battleships-in-a-board)
 
 [中文文档](/solution/0400-0499/0419.Battleships%20in%20a%20Board/README.md)
-
-<!-- tags:Depth-First Search,Array,Matrix -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

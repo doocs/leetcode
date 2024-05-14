@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2097.Valid%20Arrangement%20of%20Pairs/README_EN.md
+rating: 2650
+tags:
+    - Depth-First Search
+    - Graph
+    - Eulerian Circuit
+---
+
 # [2097. Valid Arrangement of Pairs](https://leetcode.com/problems/valid-arrangement-of-pairs)
 
 [中文文档](/solution/2000-2099/2097.Valid%20Arrangement%20of%20Pairs/README.md)
-
-<!-- tags:Depth-First Search,Graph,Eulerian Circuit -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

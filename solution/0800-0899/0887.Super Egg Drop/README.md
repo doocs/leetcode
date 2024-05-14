@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0887.Super%20Egg%20Drop/README.md
+tags:
+    - 数学
+    - 二分查找
+    - 动态规划
+---
+
 # [887. 鸡蛋掉落](https://leetcode.cn/problems/super-egg-drop)
 
 [English Version](/solution/0800-0899/0887.Super%20Egg%20Drop/README_EN.md)
-
-<!-- tags:数学,二分查找,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

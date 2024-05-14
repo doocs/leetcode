@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0147.Insertion%20Sort%20List/README_EN.md
+tags:
+    - Linked List
+    - Sorting
+---
+
 # [147. Insertion Sort List](https://leetcode.com/problems/insertion-sort-list)
 
 [中文文档](/solution/0100-0199/0147.Insertion%20Sort%20List/README.md)
-
-<!-- tags:Linked List,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

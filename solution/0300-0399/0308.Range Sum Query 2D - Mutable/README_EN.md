@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0308.Range%20Sum%20Query%202D%20-%20Mutable/README_EN.md
+tags:
+    - Design
+    - Binary Indexed Tree
+    - Segment Tree
+    - Array
+    - Matrix
+---
+
 # [308. Range Sum Query 2D - Mutable 🔒](https://leetcode.com/problems/range-sum-query-2d-mutable)
 
 [中文文档](/solution/0300-0399/0308.Range%20Sum%20Query%202D%20-%20Mutable/README.md)
-
-<!-- tags:Design,Binary Indexed Tree,Segment Tree,Array,Matrix -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0105.Construct%20Binary%20Tree%20from%20Preorder%20and%20Inorder%20Traversal/README.md
+tags:
+    - 树
+    - 数组
+    - 哈希表
+    - 分治
+    - 二叉树
+---
+
 # [105. 从前序与中序遍历序列构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal)
 
 [English Version](/solution/0100-0199/0105.Construct%20Binary%20Tree%20from%20Preorder%20and%20Inorder%20Traversal/README_EN.md)
-
-<!-- tags:树,数组,哈希表,分治,二叉树 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

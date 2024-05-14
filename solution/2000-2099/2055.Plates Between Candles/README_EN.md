@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2055.Plates%20Between%20Candles/README_EN.md
+rating: 1819
+tags:
+    - Array
+    - String
+    - Binary Search
+    - Prefix Sum
+---
+
 # [2055. Plates Between Candles](https://leetcode.com/problems/plates-between-candles)
 
 [中文文档](/solution/2000-2099/2055.Plates%20Between%20Candles/README.md)
-
-<!-- tags:Array,String,Binary Search,Prefix Sum -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

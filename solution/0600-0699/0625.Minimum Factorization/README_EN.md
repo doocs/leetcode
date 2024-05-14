@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0625.Minimum%20Factorization/README_EN.md
+tags:
+    - Greedy
+    - Math
+---
+
 # [625. Minimum Factorization 🔒](https://leetcode.com/problems/minimum-factorization)
 
 [中文文档](/solution/0600-0699/0625.Minimum%20Factorization/README.md)
-
-<!-- tags:Greedy,Math -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

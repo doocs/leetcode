@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1248.Count%20Number%20of%20Nice%20Subarrays/README.md
+rating: 1623
+tags:
+    - 数组
+    - 哈希表
+    - 数学
+    - 滑动窗口
+---
+
 # [1248. 统计「优美子数组」](https://leetcode.cn/problems/count-number-of-nice-subarrays)
 
 [English Version](/solution/1200-1299/1248.Count%20Number%20of%20Nice%20Subarrays/README_EN.md)
-
-<!-- tags:数组,哈希表,数学,滑动窗口 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

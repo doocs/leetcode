@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0499.The%20Maze%20III/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 图
+    - 数组
+    - 字符串
+    - 矩阵
+    - 最短路
+    - 堆（优先队列）
+---
+
 # [499. 迷宫 III 🔒](https://leetcode.cn/problems/the-maze-iii)
 
 [English Version](/solution/0400-0499/0499.The%20Maze%20III/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,图,数组,字符串,矩阵,最短路,堆（优先队列） -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

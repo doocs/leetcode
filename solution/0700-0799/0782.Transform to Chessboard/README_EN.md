@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0782.Transform%20to%20Chessboard/README_EN.md
+tags:
+    - Bit Manipulation
+    - Array
+    - Math
+    - Matrix
+---
+
 # [782. Transform to Chessboard](https://leetcode.com/problems/transform-to-chessboard)
 
 [中文文档](/solution/0700-0799/0782.Transform%20to%20Chessboard/README.md)
-
-<!-- tags:Bit Manipulation,Array,Math,Matrix -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

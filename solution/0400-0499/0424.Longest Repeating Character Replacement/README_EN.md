@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0424.Longest%20Repeating%20Character%20Replacement/README_EN.md
+tags:
+    - Hash Table
+    - String
+    - Sliding Window
+---
+
 # [424. Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement)
 
 [中文文档](/solution/0400-0499/0424.Longest%20Repeating%20Character%20Replacement/README.md)
-
-<!-- tags:Hash Table,String,Sliding Window -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

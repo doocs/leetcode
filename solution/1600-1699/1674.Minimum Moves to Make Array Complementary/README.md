@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1674.Minimum%20Moves%20to%20Make%20Array%20Complementary/README.md
+rating: 2333
+tags:
+    - 数组
+    - 哈希表
+    - 前缀和
+---
+
 # [1674. 使数组互补的最少操作次数](https://leetcode.cn/problems/minimum-moves-to-make-array-complementary)
 
 [English Version](/solution/1600-1699/1674.Minimum%20Moves%20to%20Make%20Array%20Complementary/README_EN.md)
-
-<!-- tags:数组,哈希表,前缀和 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

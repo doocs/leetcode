@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0204.Count%20Primes/README.md
+tags:
+    - 数组
+    - 数学
+    - 枚举
+    - 数论
+---
+
 # [204. 计数质数](https://leetcode.cn/problems/count-primes)
 
 [English Version](/solution/0200-0299/0204.Count%20Primes/README_EN.md)
-
-<!-- tags:数组,数学,枚举,数论 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

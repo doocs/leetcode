@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3093.Longest%20Common%20Suffix%20Queries/README.md
+rating: 2118
+tags:
+    - 字典树
+    - 数组
+    - 字符串
+---
+
 # [3093. 最长公共后缀查询](https://leetcode.cn/problems/longest-common-suffix-queries)
 
 [English Version](/solution/3000-3099/3093.Longest%20Common%20Suffix%20Queries/README_EN.md)
-
-<!-- tags:字典树,数组,字符串 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

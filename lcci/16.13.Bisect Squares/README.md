@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.13.Bisect%20Squares/README.md
+---
+
 # [面试题 16.13. 平分正方形](https://leetcode.cn/problems/bisect-squares-lcci)
 
 [English Version](/lcci/16.13.Bisect%20Squares/README_EN.md)

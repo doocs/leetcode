@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2065.Maximum%20Path%20Quality%20of%20a%20Graph/README.md
+rating: 2178
+tags:
+    - 图
+    - 数组
+    - 回溯
+---
+
 # [2065. 最大化一张图中的路径价值](https://leetcode.cn/problems/maximum-path-quality-of-a-graph)
 
 [English Version](/solution/2000-2099/2065.Maximum%20Path%20Quality%20of%20a%20Graph/README_EN.md)
-
-<!-- tags:图,数组,回溯 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

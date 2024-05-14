@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2742.Painting%20the%20Walls/README.md
+rating: 2424
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [2742. 给墙壁刷油漆](https://leetcode.cn/problems/painting-the-walls)
 
 [English Version](/solution/2700-2799/2742.Painting%20the%20Walls/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

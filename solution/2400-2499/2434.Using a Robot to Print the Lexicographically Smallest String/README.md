@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2434.Using%20a%20Robot%20to%20Print%20the%20Lexicographically%20Smallest%20String/README.md
+rating: 1953
+tags:
+    - 栈
+    - 贪心
+    - 哈希表
+    - 字符串
+---
+
 # [2434. 使用机器人打印字典序最小的字符串](https://leetcode.cn/problems/using-a-robot-to-print-the-lexicographically-smallest-string)
 
 [English Version](/solution/2400-2499/2434.Using%20a%20Robot%20to%20Print%20the%20Lexicographically%20Smallest%20String/README_EN.md)
-
-<!-- tags:栈,贪心,哈希表,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

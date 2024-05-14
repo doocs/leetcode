@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1052.Grumpy%20Bookstore%20Owner/README.md
+rating: 1418
+tags:
+    - 数组
+    - 滑动窗口
+---
+
 # [1052. 爱生气的书店老板](https://leetcode.cn/problems/grumpy-bookstore-owner)
 
 [English Version](/solution/1000-1099/1052.Grumpy%20Bookstore%20Owner/README_EN.md)
-
-<!-- tags:数组,滑动窗口 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

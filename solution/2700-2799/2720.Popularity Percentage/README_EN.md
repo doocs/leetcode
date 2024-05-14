@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2720.Popularity%20Percentage/README_EN.md
+tags:
+    - Database
+---
+
 # [2720. Popularity Percentage 🔒](https://leetcode.com/problems/popularity-percentage)
 
 [中文文档](/solution/2700-2799/2720.Popularity%20Percentage/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

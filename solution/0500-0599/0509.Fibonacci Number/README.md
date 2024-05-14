@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0509.Fibonacci%20Number/README.md
+tags:
+    - 递归
+    - 记忆化搜索
+    - 数学
+    - 动态规划
+---
+
 # [509. 斐波那契数](https://leetcode.cn/problems/fibonacci-number)
 
 [English Version](/solution/0500-0599/0509.Fibonacci%20Number/README_EN.md)
-
-<!-- tags:递归,记忆化搜索,数学,动态规划 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

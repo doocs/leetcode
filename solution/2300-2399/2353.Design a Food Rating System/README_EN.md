@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2353.Design%20a%20Food%20Rating%20System/README_EN.md
+rating: 1781
+tags:
+    - Design
+    - Hash Table
+    - Ordered Set
+    - Heap (Priority Queue)
+---
+
 # [2353. Design a Food Rating System](https://leetcode.com/problems/design-a-food-rating-system)
 
 [中文文档](/solution/2300-2399/2353.Design%20a%20Food%20Rating%20System/README.md)
-
-<!-- tags:Design,Hash Table,Ordered Set,Heap (Priority Queue) -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

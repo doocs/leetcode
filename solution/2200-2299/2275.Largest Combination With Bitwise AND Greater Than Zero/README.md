@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2275.Largest%20Combination%20With%20Bitwise%20AND%20Greater%20Than%20Zero/README.md
+rating: 1642
+tags:
+    - 位运算
+    - 数组
+    - 哈希表
+    - 计数
+---
+
 # [2275. 按位与结果大于零的最长组合](https://leetcode.cn/problems/largest-combination-with-bitwise-and-greater-than-zero)
 
 [English Version](/solution/2200-2299/2275.Largest%20Combination%20With%20Bitwise%20AND%20Greater%20Than%20Zero/README_EN.md)
-
-<!-- tags:位运算,数组,哈希表,计数 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

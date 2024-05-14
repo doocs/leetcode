@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0810.Chalkboard%20XOR%20Game/README_EN.md
+tags:
+    - Bit Manipulation
+    - Brainteaser
+    - Array
+    - Math
+    - Game Theory
+---
+
 # [810. Chalkboard XOR Game](https://leetcode.com/problems/chalkboard-xor-game)
 
 [中文文档](/solution/0800-0899/0810.Chalkboard%20XOR%20Game/README.md)
-
-<!-- tags:Bit Manipulation,Brainteaser,Array,Math,Game Theory -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

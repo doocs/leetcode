@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0751.IP%20to%20CIDR/README_EN.md
+tags:
+    - Bit Manipulation
+    - String
+---
+
 # [751. IP to CIDR 🔒](https://leetcode.com/problems/ip-to-cidr)
 
 [中文文档](/solution/0700-0799/0751.IP%20to%20CIDR/README.md)
-
-<!-- tags:Bit Manipulation,String -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

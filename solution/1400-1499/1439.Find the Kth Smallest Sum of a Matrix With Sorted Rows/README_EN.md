@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1439.Find%20the%20Kth%20Smallest%20Sum%20of%20a%20Matrix%20With%20Sorted%20Rows/README_EN.md
+rating: 2133
+tags:
+    - Array
+    - Binary Search
+    - Matrix
+    - Heap (Priority Queue)
+---
+
 # [1439. Find the Kth Smallest Sum of a Matrix With Sorted Rows](https://leetcode.com/problems/find-the-kth-smallest-sum-of-a-matrix-with-sorted-rows)
 
 [中文文档](/solution/1400-1499/1439.Find%20the%20Kth%20Smallest%20Sum%20of%20a%20Matrix%20With%20Sorted%20Rows/README.md)
-
-<!-- tags:Array,Binary Search,Matrix,Heap (Priority Queue) -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1223.Dice%20Roll%20Simulation/README_EN.md
+rating: 2008
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [1223. Dice Roll Simulation](https://leetcode.com/problems/dice-roll-simulation)
 
 [中文文档](/solution/1200-1299/1223.Dice%20Roll%20Simulation/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

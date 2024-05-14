@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3027.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20II/README_EN.md
+rating: 2020
+tags:
+    - Geometry
+    - Array
+    - Math
+    - Enumeration
+    - Sorting
+---
+
 # [3027. Find the Number of Ways to Place People II](https://leetcode.com/problems/find-the-number-of-ways-to-place-people-ii)
 
 [中文文档](/solution/3000-3099/3027.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20II/README.md)
-
-<!-- tags:Geometry,Array,Math,Enumeration,Sorting -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

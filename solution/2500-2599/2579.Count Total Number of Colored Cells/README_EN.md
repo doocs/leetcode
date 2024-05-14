@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2579.Count%20Total%20Number%20of%20Colored%20Cells/README_EN.md
+rating: 1356
+tags:
+    - Math
+---
+
 # [2579. Count Total Number of Colored Cells](https://leetcode.com/problems/count-total-number-of-colored-cells)
 
 [中文文档](/solution/2500-2599/2579.Count%20Total%20Number%20of%20Colored%20Cells/README.md)
-
-<!-- tags:Math -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

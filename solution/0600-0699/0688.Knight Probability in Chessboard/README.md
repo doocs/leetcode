@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0688.Knight%20Probability%20in%20Chessboard/README.md
+tags:
+    - 动态规划
+---
+
 # [688. 骑士在棋盘上的概率](https://leetcode.cn/problems/knight-probability-in-chessboard)
 
 [English Version](/solution/0600-0699/0688.Knight%20Probability%20in%20Chessboard/README_EN.md)
-
-<!-- tags:动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

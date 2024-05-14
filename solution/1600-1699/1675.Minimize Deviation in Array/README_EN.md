@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1675.Minimize%20Deviation%20in%20Array/README_EN.md
+rating: 2533
+tags:
+    - Greedy
+    - Array
+    - Ordered Set
+    - Heap (Priority Queue)
+---
+
 # [1675. Minimize Deviation in Array](https://leetcode.com/problems/minimize-deviation-in-array)
 
 [中文文档](/solution/1600-1699/1675.Minimize%20Deviation%20in%20Array/README.md)
-
-<!-- tags:Greedy,Array,Ordered Set,Heap (Priority Queue) -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

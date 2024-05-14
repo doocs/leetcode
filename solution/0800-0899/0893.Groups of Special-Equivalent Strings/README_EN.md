@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0893.Groups%20of%20Special-Equivalent%20Strings/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - String
+    - Sorting
+---
+
 # [893. Groups of Special-Equivalent Strings](https://leetcode.com/problems/groups-of-special-equivalent-strings)
 
 [中文文档](/solution/0800-0899/0893.Groups%20of%20Special-Equivalent%20Strings/README.md)
-
-<!-- tags:Array,Hash Table,String,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

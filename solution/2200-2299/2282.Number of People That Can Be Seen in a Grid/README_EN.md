@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2282.Number%20of%20People%20That%20Can%20Be%20Seen%20in%20a%20Grid/README_EN.md
+tags:
+    - Stack
+    - Array
+    - Matrix
+    - Monotonic Stack
+---
+
 # [2282. Number of People That Can Be Seen in a Grid 🔒](https://leetcode.com/problems/number-of-people-that-can-be-seen-in-a-grid)
 
 [中文文档](/solution/2200-2299/2282.Number%20of%20People%20That%20Can%20Be%20Seen%20in%20a%20Grid/README.md)
-
-<!-- tags:Stack,Array,Matrix,Monotonic Stack -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

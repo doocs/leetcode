@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2108.Find%20First%20Palindromic%20String%20in%20the%20Array/README.md
+rating: 1215
+tags:
+    - 数组
+    - 双指针
+    - 字符串
+---
+
 # [2108. 找出数组中的第一个回文字符串](https://leetcode.cn/problems/find-first-palindromic-string-in-the-array)
 
 [English Version](/solution/2100-2199/2108.Find%20First%20Palindromic%20String%20in%20the%20Array/README_EN.md)
-
-<!-- tags:数组,双指针,字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

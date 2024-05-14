@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1454.Active%20Users/README.md
+tags:
+    - 数据库
+---
+
 # [1454. 活跃用户 🔒](https://leetcode.cn/problems/active-users)
 
 [English Version](/solution/1400-1499/1454.Active%20Users/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

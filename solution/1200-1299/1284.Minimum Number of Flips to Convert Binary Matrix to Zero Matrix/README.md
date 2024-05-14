@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1284.Minimum%20Number%20of%20Flips%20to%20Convert%20Binary%20Matrix%20to%20Zero%20Matrix/README.md
+rating: 1810
+tags:
+    - 位运算
+    - 广度优先搜索
+    - 数组
+    - 哈希表
+    - 矩阵
+---
+
 # [1284. 转化为全零矩阵的最少反转次数](https://leetcode.cn/problems/minimum-number-of-flips-to-convert-binary-matrix-to-zero-matrix)
 
 [English Version](/solution/1200-1299/1284.Minimum%20Number%20of%20Flips%20to%20Convert%20Binary%20Matrix%20to%20Zero%20Matrix/README_EN.md)
-
-<!-- tags:位运算,广度优先搜索,数组,哈希表,矩阵 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

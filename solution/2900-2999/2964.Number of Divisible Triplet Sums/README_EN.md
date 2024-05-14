@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2964.Number%20of%20Divisible%20Triplet%20Sums/README_EN.md
+tags:
+    - Array
+    - Hash Table
+---
+
 # [2964. Number of Divisible Triplet Sums 🔒](https://leetcode.com/problems/number-of-divisible-triplet-sums)
 
 [中文文档](/solution/2900-2999/2964.Number%20of%20Divisible%20Triplet%20Sums/README.md)
-
-<!-- tags:Array,Hash Table -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

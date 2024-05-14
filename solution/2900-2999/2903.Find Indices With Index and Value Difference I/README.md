@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2903.Find%20Indices%20With%20Index%20and%20Value%20Difference%20I/README.md
+rating: 1157
+tags:
+    - 数组
+    - 双指针
+---
+
 # [2903. 找出满足差值条件的下标 I](https://leetcode.cn/problems/find-indices-with-index-and-value-difference-i)
 
 [English Version](/solution/2900-2999/2903.Find%20Indices%20With%20Index%20and%20Value%20Difference%20I/README_EN.md)
-
-<!-- tags:数组,双指针 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

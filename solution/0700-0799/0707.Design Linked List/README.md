@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0707.Design%20Linked%20List/README.md
+tags:
+    - 设计
+    - 链表
+---
+
 # [707. 设计链表](https://leetcode.cn/problems/design-linked-list)
 
 [English Version](/solution/0700-0799/0707.Design%20Linked%20List/README_EN.md)
-
-<!-- tags:设计,链表 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

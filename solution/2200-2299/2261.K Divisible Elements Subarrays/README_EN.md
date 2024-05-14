@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2261.K%20Divisible%20Elements%20Subarrays/README_EN.md
+rating: 1724
+tags:
+    - Trie
+    - Array
+    - Hash Table
+    - Enumeration
+    - Hash Function
+    - Rolling Hash
+---
+
 # [2261. K Divisible Elements Subarrays](https://leetcode.com/problems/k-divisible-elements-subarrays)
 
 [中文文档](/solution/2200-2299/2261.K%20Divisible%20Elements%20Subarrays/README.md)
-
-<!-- tags:Trie,Array,Hash Table,Enumeration,Hash Function,Rolling Hash -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

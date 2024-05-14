@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1906.Minimum%20Absolute%20Difference%20Queries/README_EN.md
+rating: 2146
+tags:
+    - Array
+    - Hash Table
+---
+
 # [1906. Minimum Absolute Difference Queries](https://leetcode.com/problems/minimum-absolute-difference-queries)
 
 [中文文档](/solution/1900-1999/1906.Minimum%20Absolute%20Difference%20Queries/README.md)
-
-<!-- tags:Array,Hash Table -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

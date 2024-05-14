@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0626.Exchange%20Seats/README.md
+tags:
+    - 数据库
+---
+
 # [626. 换座位](https://leetcode.cn/problems/exchange-seats)
 
 [English Version](/solution/0600-0699/0626.Exchange%20Seats/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

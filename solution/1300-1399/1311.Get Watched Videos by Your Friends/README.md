@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1311.Get%20Watched%20Videos%20by%20Your%20Friends/README.md
+rating: 1652
+tags:
+    - 广度优先搜索
+    - 图
+    - 数组
+    - 哈希表
+    - 排序
+---
+
 # [1311. 获取你好友已观看的视频](https://leetcode.cn/problems/get-watched-videos-by-your-friends)
 
 [English Version](/solution/1300-1399/1311.Get%20Watched%20Videos%20by%20Your%20Friends/README_EN.md)
-
-<!-- tags:广度优先搜索,图,数组,哈希表,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

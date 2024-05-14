@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2573.Find%20the%20String%20with%20LCP/README.md
+rating: 2681
+tags:
+    - 贪心
+    - 并查集
+    - 数组
+    - 字符串
+    - 动态规划
+    - 矩阵
+---
+
 # [2573. 找出对应 LCP 矩阵的字符串](https://leetcode.cn/problems/find-the-string-with-lcp)
 
 [English Version](/solution/2500-2599/2573.Find%20the%20String%20with%20LCP/README_EN.md)
-
-<!-- tags:贪心,并查集,数组,字符串,动态规划,矩阵 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

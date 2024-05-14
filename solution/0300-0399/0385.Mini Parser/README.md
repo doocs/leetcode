@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0385.Mini%20Parser/README.md
+tags:
+    - 栈
+    - 深度优先搜索
+    - 字符串
+---
+
 # [385. 迷你语法分析器](https://leetcode.cn/problems/mini-parser)
 
 [English Version](/solution/0300-0399/0385.Mini%20Parser/README_EN.md)
-
-<!-- tags:栈,深度优先搜索,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

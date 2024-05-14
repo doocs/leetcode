@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2173.Longest%20Winning%20Streak/README.md
+tags:
+    - 数据库
+---
+
 # [2173. 最多连胜的次数 🔒](https://leetcode.cn/problems/longest-winning-streak)
 
 [English Version](/solution/2100-2199/2173.Longest%20Winning%20Streak/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

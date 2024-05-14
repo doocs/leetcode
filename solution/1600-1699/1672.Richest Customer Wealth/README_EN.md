@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1672.Richest%20Customer%20Wealth/README_EN.md
+rating: 1182
+tags:
+    - Array
+    - Matrix
+---
+
 # [1672. Richest Customer Wealth](https://leetcode.com/problems/richest-customer-wealth)
 
 [中文文档](/solution/1600-1699/1672.Richest%20Customer%20Wealth/README.md)
-
-<!-- tags:Array,Matrix -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

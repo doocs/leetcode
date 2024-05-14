@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1366.Rank%20Teams%20by%20Votes/README_EN.md
+rating: 1626
+tags:
+    - Array
+    - Hash Table
+    - String
+    - Counting
+    - Sorting
+---
+
 # [1366. Rank Teams by Votes](https://leetcode.com/problems/rank-teams-by-votes)
 
 [中文文档](/solution/1300-1399/1366.Rank%20Teams%20by%20Votes/README.md)
-
-<!-- tags:Array,Hash Table,String,Counting,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

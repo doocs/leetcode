@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0367.Valid%20Perfect%20Square/README_EN.md
+tags:
+    - Math
+    - Binary Search
+---
+
 # [367. Valid Perfect Square](https://leetcode.com/problems/valid-perfect-square)
 
 [中文文档](/solution/0300-0399/0367.Valid%20Perfect%20Square/README.md)
-
-<!-- tags:Math,Binary Search -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3052.Maximize%20Items/README.md
+tags:
+    - 数据库
+---
+
 # [3052. 最大化商品 🔒](https://leetcode.cn/problems/maximize-items)
 
 [English Version](/solution/3000-3099/3052.Maximize%20Items/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

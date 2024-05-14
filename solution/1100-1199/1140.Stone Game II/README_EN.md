@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1140.Stone%20Game%20II/README_EN.md
+rating: 2034
+tags:
+    - Array
+    - Math
+    - Dynamic Programming
+    - Game Theory
+    - Prefix Sum
+---
+
 # [1140. Stone Game II](https://leetcode.com/problems/stone-game-ii)
 
 [中文文档](/solution/1100-1199/1140.Stone%20Game%20II/README.md)
-
-<!-- tags:Array,Math,Dynamic Programming,Game Theory,Prefix Sum -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

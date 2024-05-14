@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2970.Count%20the%20Number%20of%20Incremovable%20Subarrays%20I/README.md
+rating: 1563
+tags:
+    - 数组
+    - 双指针
+    - 二分查找
+    - 枚举
+---
+
 # [2970. 统计移除递增子数组的数目 I](https://leetcode.cn/problems/count-the-number-of-incremovable-subarrays-i)
 
 [English Version](/solution/2900-2999/2970.Count%20the%20Number%20of%20Incremovable%20Subarrays%20I/README_EN.md)
-
-<!-- tags:数组,双指针,二分查找,枚举 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

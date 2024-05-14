@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0460.LFU%20Cache/README.md
+tags:
+    - 设计
+    - 哈希表
+    - 链表
+    - 双向链表
+---
+
 # [460. LFU 缓存](https://leetcode.cn/problems/lfu-cache)
 
 [English Version](/solution/0400-0499/0460.LFU%20Cache/README_EN.md)
-
-<!-- tags:设计,哈希表,链表,双向链表 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

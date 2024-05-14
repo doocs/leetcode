@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1657.Determine%20if%20Two%20Strings%20Are%20Close/README.md
+rating: 1530
+tags:
+    - 哈希表
+    - 字符串
+    - 计数
+    - 排序
+---
+
 # [1657. 确定两个字符串是否接近](https://leetcode.cn/problems/determine-if-two-strings-are-close)
 
 [English Version](/solution/1600-1699/1657.Determine%20if%20Two%20Strings%20Are%20Close/README_EN.md)
-
-<!-- tags:哈希表,字符串,计数,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

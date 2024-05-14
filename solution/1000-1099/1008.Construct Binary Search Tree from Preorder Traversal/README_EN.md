@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1008.Construct%20Binary%20Search%20Tree%20from%20Preorder%20Traversal/README_EN.md
+rating: 1562
+tags:
+    - Stack
+    - Tree
+    - Binary Search Tree
+    - Array
+    - Binary Tree
+    - Monotonic Stack
+---
+
 # [1008. Construct Binary Search Tree from Preorder Traversal](https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal)
 
 [中文文档](/solution/1000-1099/1008.Construct%20Binary%20Search%20Tree%20from%20Preorder%20Traversal/README.md)
-
-<!-- tags:Stack,Tree,Binary Search Tree,Array,Binary Tree,Monotonic Stack -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2867.Count%20Valid%20Paths%20in%20a%20Tree/README_EN.md
+rating: 2428
+tags:
+    - Tree
+    - Depth-First Search
+    - Math
+    - Dynamic Programming
+    - Number Theory
+---
+
 # [2867. Count Valid Paths in a Tree](https://leetcode.com/problems/count-valid-paths-in-a-tree)
 
 [中文文档](/solution/2800-2899/2867.Count%20Valid%20Paths%20in%20a%20Tree/README.md)
-
-<!-- tags:Tree,Depth-First Search,Math,Dynamic Programming,Number Theory -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

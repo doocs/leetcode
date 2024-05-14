@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1882.Process%20Tasks%20Using%20Servers/README.md
+rating: 1979
+tags:
+    - 数组
+    - 堆（优先队列）
+---
+
 # [1882. 使用服务器处理任务](https://leetcode.cn/problems/process-tasks-using-servers)
 
 [English Version](/solution/1800-1899/1882.Process%20Tasks%20Using%20Servers/README_EN.md)
-
-<!-- tags:数组,堆（优先队列） -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

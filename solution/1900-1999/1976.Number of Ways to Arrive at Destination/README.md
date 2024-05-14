@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1976.Number%20of%20Ways%20to%20Arrive%20at%20Destination/README.md
+rating: 2094
+tags:
+    - 图
+    - 拓扑排序
+    - 动态规划
+    - 最短路
+---
+
 # [1976. 到达目的地的方案数](https://leetcode.cn/problems/number-of-ways-to-arrive-at-destination)
 
 [English Version](/solution/1900-1999/1976.Number%20of%20Ways%20to%20Arrive%20at%20Destination/README_EN.md)
-
-<!-- tags:图,拓扑排序,动态规划,最短路 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

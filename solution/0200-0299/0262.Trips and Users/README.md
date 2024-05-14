@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0262.Trips%20and%20Users/README.md
+tags:
+    - 数据库
+---
+
 # [262. 行程和用户](https://leetcode.cn/problems/trips-and-users)
 
 [English Version](/solution/0200-0299/0262.Trips%20and%20Users/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

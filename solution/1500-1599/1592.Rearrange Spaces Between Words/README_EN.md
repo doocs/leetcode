@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1592.Rearrange%20Spaces%20Between%20Words/README_EN.md
+rating: 1362
+tags:
+    - String
+---
+
 # [1592. Rearrange Spaces Between Words](https://leetcode.com/problems/rearrange-spaces-between-words)
 
 [中文文档](/solution/1500-1599/1592.Rearrange%20Spaces%20Between%20Words/README.md)
-
-<!-- tags:String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

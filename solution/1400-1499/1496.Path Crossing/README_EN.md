@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1496.Path%20Crossing/README_EN.md
+rating: 1508
+tags:
+    - Hash Table
+    - String
+---
+
 # [1496. Path Crossing](https://leetcode.com/problems/path-crossing)
 
 [中文文档](/solution/1400-1499/1496.Path%20Crossing/README.md)
-
-<!-- tags:Hash Table,String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

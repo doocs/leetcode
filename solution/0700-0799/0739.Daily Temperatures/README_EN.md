@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0739.Daily%20Temperatures/README_EN.md
+tags:
+    - Stack
+    - Array
+    - Monotonic Stack
+---
+
 # [739. Daily Temperatures](https://leetcode.com/problems/daily-temperatures)
 
 [中文文档](/solution/0700-0799/0739.Daily%20Temperatures/README.md)
-
-<!-- tags:Stack,Array,Monotonic Stack -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1789.Primary%20Department%20for%20Each%20Employee/README_EN.md
+tags:
+    - Database
+---
+
 # [1789. Primary Department for Each Employee](https://leetcode.com/problems/primary-department-for-each-employee)
 
 [中文文档](/solution/1700-1799/1789.Primary%20Department%20for%20Each%20Employee/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

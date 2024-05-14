@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1220.Count%20Vowels%20Permutation/README_EN.md
+rating: 1729
+tags:
+    - Dynamic Programming
+---
+
 # [1220. Count Vowels Permutation](https://leetcode.com/problems/count-vowels-permutation)
 
 [中文文档](/solution/1200-1299/1220.Count%20Vowels%20Permutation/README.md)
-
-<!-- tags:Dynamic Programming -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

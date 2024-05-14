@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0921.Minimum%20Add%20to%20Make%20Parentheses%20Valid/README.md
+tags:
+    - 栈
+    - 贪心
+    - 字符串
+---
+
 # [921. 使括号有效的最少添加](https://leetcode.cn/problems/minimum-add-to-make-parentheses-valid)
 
 [English Version](/solution/0900-0999/0921.Minimum%20Add%20to%20Make%20Parentheses%20Valid/README_EN.md)
-
-<!-- tags:栈,贪心,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

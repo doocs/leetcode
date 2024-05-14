@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3114.Latest%20Time%20You%20Can%20Obtain%20After%20Replacing%20Characters/README.md
+rating: 1290
+tags:
+    - 字符串
+    - 枚举
+---
+
 # [3114. 替换字符可以得到的最晚时间](https://leetcode.cn/problems/latest-time-you-can-obtain-after-replacing-characters)
 
 [English Version](/solution/3100-3199/3114.Latest%20Time%20You%20Can%20Obtain%20After%20Replacing%20Characters/README_EN.md)
-
-<!-- tags:字符串,枚举 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

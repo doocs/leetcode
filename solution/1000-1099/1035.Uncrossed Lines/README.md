@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1035.Uncrossed%20Lines/README.md
+rating: 1805
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [1035. 不相交的线](https://leetcode.cn/problems/uncrossed-lines)
 
 [English Version](/solution/1000-1099/1035.Uncrossed%20Lines/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

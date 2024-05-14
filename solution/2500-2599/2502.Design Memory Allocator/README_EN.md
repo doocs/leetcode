@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2502.Design%20Memory%20Allocator/README_EN.md
+rating: 1745
+tags:
+    - Design
+    - Array
+    - Hash Table
+    - Simulation
+---
+
 # [2502. Design Memory Allocator](https://leetcode.com/problems/design-memory-allocator)
 
 [中文文档](/solution/2500-2599/2502.Design%20Memory%20Allocator/README.md)
-
-<!-- tags:Design,Array,Hash Table,Simulation -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

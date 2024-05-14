@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1085.Sum%20of%20Digits%20in%20the%20Minimum%20Number/README.md
+rating: 1256
+tags:
+    - 数组
+    - 数学
+---
+
 # [1085. 最小元素各数位之和 🔒](https://leetcode.cn/problems/sum-of-digits-in-the-minimum-number)
 
 [English Version](/solution/1000-1099/1085.Sum%20of%20Digits%20in%20the%20Minimum%20Number/README_EN.md)
-
-<!-- tags:数组,数学 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

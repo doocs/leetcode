@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0804.Unique%20Morse%20Code%20Words/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - String
+---
+
 # [804. Unique Morse Code Words](https://leetcode.com/problems/unique-morse-code-words)
 
 [中文文档](/solution/0800-0899/0804.Unique%20Morse%20Code%20Words/README.md)
-
-<!-- tags:Array,Hash Table,String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

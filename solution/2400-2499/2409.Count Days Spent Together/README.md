@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2409.Count%20Days%20Spent%20Together/README.md
+rating: 1562
+tags:
+    - 数学
+    - 字符串
+---
+
 # [2409. 统计共同度过的日子数](https://leetcode.cn/problems/count-days-spent-together)
 
 [English Version](/solution/2400-2499/2409.Count%20Days%20Spent%20Together/README_EN.md)
-
-<!-- tags:数学,字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

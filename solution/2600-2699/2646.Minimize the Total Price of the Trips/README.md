@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2646.Minimize%20the%20Total%20Price%20of%20the%20Trips/README.md
+rating: 2238
+tags:
+    - 树
+    - 深度优先搜索
+    - 图
+    - 数组
+    - 动态规划
+---
+
 # [2646. 最小化旅行的价格总和](https://leetcode.cn/problems/minimize-the-total-price-of-the-trips)
 
 [English Version](/solution/2600-2699/2646.Minimize%20the%20Total%20Price%20of%20the%20Trips/README_EN.md)
-
-<!-- tags:树,深度优先搜索,图,数组,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

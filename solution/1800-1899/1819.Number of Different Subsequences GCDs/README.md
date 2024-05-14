@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1819.Number%20of%20Different%20Subsequences%20GCDs/README.md
+rating: 2539
+tags:
+    - 数组
+    - 数学
+    - 计数
+    - 数论
+---
+
 # [1819. 序列中不同最大公约数的数目](https://leetcode.cn/problems/number-of-different-subsequences-gcds)
 
 [English Version](/solution/1800-1899/1819.Number%20of%20Different%20Subsequences%20GCDs/README_EN.md)
-
-<!-- tags:数组,数学,计数,数论 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

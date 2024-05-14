@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1118.Number%20of%20Days%20in%20a%20Month/README_EN.md
+rating: 1227
+tags:
+    - Math
+---
+
 # [1118. Number of Days in a Month 🔒](https://leetcode.com/problems/number-of-days-in-a-month)
 
 [中文文档](/solution/1100-1199/1118.Number%20of%20Days%20in%20a%20Month/README.md)
-
-<!-- tags:Math -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

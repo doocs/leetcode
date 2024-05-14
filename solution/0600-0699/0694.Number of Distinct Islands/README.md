@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0694.Number%20of%20Distinct%20Islands/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 并查集
+    - 哈希表
+    - 哈希函数
+---
+
 # [694. 不同岛屿的数量 🔒](https://leetcode.cn/problems/number-of-distinct-islands)
 
 [English Version](/solution/0600-0699/0694.Number%20of%20Distinct%20Islands/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,并查集,哈希表,哈希函数 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

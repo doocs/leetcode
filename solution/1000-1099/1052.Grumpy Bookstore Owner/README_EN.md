@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1052.Grumpy%20Bookstore%20Owner/README_EN.md
+rating: 1418
+tags:
+    - Array
+    - Sliding Window
+---
+
 # [1052. Grumpy Bookstore Owner](https://leetcode.com/problems/grumpy-bookstore-owner)
 
 [中文文档](/solution/1000-1099/1052.Grumpy%20Bookstore%20Owner/README.md)
-
-<!-- tags:Array,Sliding Window -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

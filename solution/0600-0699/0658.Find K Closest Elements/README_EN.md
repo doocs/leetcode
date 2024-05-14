@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0658.Find%20K%20Closest%20Elements/README_EN.md
+tags:
+    - Array
+    - Two Pointers
+    - Binary Search
+    - Sorting
+    - Sliding Window
+    - Heap (Priority Queue)
+---
+
 # [658. Find K Closest Elements](https://leetcode.com/problems/find-k-closest-elements)
 
 [中文文档](/solution/0600-0699/0658.Find%20K%20Closest%20Elements/README.md)
-
-<!-- tags:Array,Two Pointers,Binary Search,Sorting,Sliding Window,Heap (Priority Queue) -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

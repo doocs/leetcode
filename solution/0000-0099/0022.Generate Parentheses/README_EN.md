@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0022.Generate%20Parentheses/README_EN.md
+tags:
+    - String
+    - Dynamic Programming
+    - Backtracking
+---
+
 # [22. Generate Parentheses](https://leetcode.com/problems/generate-parentheses)
 
 [中文文档](/solution/0000-0099/0022.Generate%20Parentheses/README.md)
-
-<!-- tags:String,Dynamic Programming,Backtracking -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

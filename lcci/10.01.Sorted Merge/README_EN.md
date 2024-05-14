@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.01.Sorted%20Merge/README_EN.md
+---
+
 # [10.01. Sorted Merge](https://leetcode.cn/problems/sorted-merge-lcci)
 
 [中文文档](/lcci/10.01.Sorted%20Merge/README.md)

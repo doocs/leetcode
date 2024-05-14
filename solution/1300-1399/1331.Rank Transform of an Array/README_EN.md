@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1331.Rank%20Transform%20of%20an%20Array/README_EN.md
+rating: 1355
+tags:
+    - Array
+    - Hash Table
+    - Sorting
+---
+
 # [1331. Rank Transform of an Array](https://leetcode.com/problems/rank-transform-of-an-array)
 
 [中文文档](/solution/1300-1399/1331.Rank%20Transform%20of%20an%20Array/README.md)
-
-<!-- tags:Array,Hash Table,Sorting -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

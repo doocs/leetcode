@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1733.Minimum%20Number%20of%20People%20to%20Teach/README_EN.md
+rating: 1983
+tags:
+    - Greedy
+    - Array
+    - Hash Table
+---
+
 # [1733. Minimum Number of People to Teach](https://leetcode.com/problems/minimum-number-of-people-to-teach)
 
 [中文文档](/solution/1700-1799/1733.Minimum%20Number%20of%20People%20to%20Teach/README.md)
-
-<!-- tags:Greedy,Array,Hash Table -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

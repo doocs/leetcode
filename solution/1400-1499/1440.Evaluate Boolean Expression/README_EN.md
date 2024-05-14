@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1440.Evaluate%20Boolean%20Expression/README_EN.md
+tags:
+    - Database
+---
+
 # [1440. Evaluate Boolean Expression 🔒](https://leetcode.com/problems/evaluate-boolean-expression)
 
 [中文文档](/solution/1400-1499/1440.Evaluate%20Boolean%20Expression/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

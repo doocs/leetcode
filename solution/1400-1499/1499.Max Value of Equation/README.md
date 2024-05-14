@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1499.Max%20Value%20of%20Equation/README.md
+rating: 2456
+tags:
+    - 队列
+    - 数组
+    - 滑动窗口
+    - 单调队列
+    - 堆（优先队列）
+---
+
 # [1499. 满足不等式的最大值](https://leetcode.cn/problems/max-value-of-equation)
 
 [English Version](/solution/1400-1499/1499.Max%20Value%20of%20Equation/README_EN.md)
-
-<!-- tags:队列,数组,滑动窗口,单调队列,堆（优先队列） -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

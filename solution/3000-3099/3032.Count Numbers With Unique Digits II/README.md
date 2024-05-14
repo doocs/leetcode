@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3032.Count%20Numbers%20With%20Unique%20Digits%20II/README.md
+tags:
+    - 哈希表
+    - 数学
+    - 动态规划
+---
+
 # [3032. 统计各位数字都不同的数字个数 II 🔒](https://leetcode.cn/problems/count-numbers-with-unique-digits-ii)
 
 [English Version](/solution/3000-3099/3032.Count%20Numbers%20With%20Unique%20Digits%20II/README_EN.md)
-
-<!-- tags:哈希表,数学,动态规划 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

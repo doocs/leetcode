@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0991.Broken%20Calculator/README_EN.md
+tags:
+    - Greedy
+    - Math
+---
+
 # [991. Broken Calculator](https://leetcode.com/problems/broken-calculator)
 
 [中文文档](/solution/0900-0999/0991.Broken%20Calculator/README.md)
-
-<!-- tags:Greedy,Math -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

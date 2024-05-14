@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1229.Meeting%20Scheduler/README_EN.md
+rating: 1541
+tags:
+    - Array
+    - Two Pointers
+    - Sorting
+---
+
 # [1229. Meeting Scheduler 🔒](https://leetcode.com/problems/meeting-scheduler)
 
 [中文文档](/solution/1200-1299/1229.Meeting%20Scheduler/README.md)
-
-<!-- tags:Array,Two Pointers,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

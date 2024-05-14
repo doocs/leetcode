@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2171.Removing%20Minimum%20Number%20of%20Magic%20Beans/README.md
+rating: 1748
+tags:
+    - 贪心
+    - 数组
+    - 枚举
+    - 前缀和
+    - 排序
+---
+
 # [2171. 拿出最少数目的魔法豆](https://leetcode.cn/problems/removing-minimum-number-of-magic-beans)
 
 [English Version](/solution/2100-2199/2171.Removing%20Minimum%20Number%20of%20Magic%20Beans/README_EN.md)
-
-<!-- tags:贪心,数组,枚举,前缀和,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

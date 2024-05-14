@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1721.Swapping%20Nodes%20in%20a%20Linked%20List/README.md
+rating: 1386
+tags:
+    - 链表
+    - 双指针
+---
+
 # [1721. 交换链表中的节点](https://leetcode.cn/problems/swapping-nodes-in-a-linked-list)
 
 [English Version](/solution/1700-1799/1721.Swapping%20Nodes%20in%20a%20Linked%20List/README_EN.md)
-
-<!-- tags:链表,双指针 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

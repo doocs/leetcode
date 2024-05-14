@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1773.Count%20Items%20Matching%20a%20Rule/README_EN.md
+rating: 1174
+tags:
+    - Array
+    - String
+---
+
 # [1773. Count Items Matching a Rule](https://leetcode.com/problems/count-items-matching-a-rule)
 
 [中文文档](/solution/1700-1799/1773.Count%20Items%20Matching%20a%20Rule/README.md)
-
-<!-- tags:Array,String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

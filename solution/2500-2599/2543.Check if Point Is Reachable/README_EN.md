@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2543.Check%20if%20Point%20Is%20Reachable/README_EN.md
+rating: 2220
+tags:
+    - Math
+    - Number Theory
+---
+
 # [2543. Check if Point Is Reachable](https://leetcode.com/problems/check-if-point-is-reachable)
 
 [中文文档](/solution/2500-2599/2543.Check%20if%20Point%20Is%20Reachable/README.md)
-
-<!-- tags:Math,Number Theory -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

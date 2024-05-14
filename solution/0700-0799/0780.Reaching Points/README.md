@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0780.Reaching%20Points/README.md
+tags:
+    - 数学
+---
+
 # [780. 到达终点](https://leetcode.cn/problems/reaching-points)
 
 [English Version](/solution/0700-0799/0780.Reaching%20Points/README_EN.md)
-
-<!-- tags:数学 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

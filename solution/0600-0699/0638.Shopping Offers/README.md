@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0638.Shopping%20Offers/README.md
+tags:
+    - 位运算
+    - 记忆化搜索
+    - 数组
+    - 动态规划
+    - 回溯
+    - 状态压缩
+---
+
 # [638. 大礼包](https://leetcode.cn/problems/shopping-offers)
 
 [English Version](/solution/0600-0699/0638.Shopping%20Offers/README_EN.md)
-
-<!-- tags:位运算,记忆化搜索,数组,动态规划,回溯,状态压缩 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

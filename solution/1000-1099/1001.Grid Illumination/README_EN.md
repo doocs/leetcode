@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1001.Grid%20Illumination/README_EN.md
+rating: 1873
+tags:
+    - Array
+    - Hash Table
+---
+
 # [1001. Grid Illumination](https://leetcode.com/problems/grid-illumination)
 
 [中文文档](/solution/1000-1099/1001.Grid%20Illumination/README.md)
-
-<!-- tags:Array,Hash Table -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

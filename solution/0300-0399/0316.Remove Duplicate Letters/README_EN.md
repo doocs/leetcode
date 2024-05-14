@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0316.Remove%20Duplicate%20Letters/README_EN.md
+tags:
+    - Stack
+    - Greedy
+    - String
+    - Monotonic Stack
+---
+
 # [316. Remove Duplicate Letters](https://leetcode.com/problems/remove-duplicate-letters)
 
 [中文文档](/solution/0300-0399/0316.Remove%20Duplicate%20Letters/README.md)
-
-<!-- tags:Stack,Greedy,String,Monotonic Stack -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

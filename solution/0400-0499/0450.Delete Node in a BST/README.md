@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0450.Delete%20Node%20in%20a%20BST/README.md
+tags:
+    - 树
+    - 二叉搜索树
+    - 二叉树
+---
+
 # [450. 删除二叉搜索树中的节点](https://leetcode.cn/problems/delete-node-in-a-bst)
 
 [English Version](/solution/0400-0499/0450.Delete%20Node%20in%20a%20BST/README_EN.md)
-
-<!-- tags:树,二叉搜索树,二叉树 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

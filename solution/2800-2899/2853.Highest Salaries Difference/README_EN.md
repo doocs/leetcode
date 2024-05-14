@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2853.Highest%20Salaries%20Difference/README_EN.md
+tags:
+    - Database
+---
+
 # [2853. Highest Salaries Difference 🔒](https://leetcode.com/problems/highest-salaries-difference)
 
 [中文文档](/solution/2800-2899/2853.Highest%20Salaries%20Difference/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

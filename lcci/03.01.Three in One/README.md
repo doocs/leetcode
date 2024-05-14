@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.01.Three%20in%20One/README.md
+---
+
 # [面试题 03.01. 三合一](https://leetcode.cn/problems/three-in-one-lcci)
 
 [English Version](/lcci/03.01.Three%20in%20One/README_EN.md)

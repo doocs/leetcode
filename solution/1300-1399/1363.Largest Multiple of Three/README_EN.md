@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1363.Largest%20Multiple%20of%20Three/README_EN.md
+rating: 1822
+tags:
+    - Greedy
+    - Array
+    - Dynamic Programming
+---
+
 # [1363. Largest Multiple of Three](https://leetcode.com/problems/largest-multiple-of-three)
 
 [中文文档](/solution/1300-1399/1363.Largest%20Multiple%20of%20Three/README.md)
-
-<!-- tags:Greedy,Array,Dynamic Programming -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

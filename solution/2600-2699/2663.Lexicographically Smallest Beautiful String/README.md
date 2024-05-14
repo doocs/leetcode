@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2663.Lexicographically%20Smallest%20Beautiful%20String/README.md
+rating: 2415
+tags:
+    - 贪心
+    - 字符串
+---
+
 # [2663. 字典序最小的美丽字符串](https://leetcode.cn/problems/lexicographically-smallest-beautiful-string)
 
 [English Version](/solution/2600-2699/2663.Lexicographically%20Smallest%20Beautiful%20String/README_EN.md)
-
-<!-- tags:贪心,字符串 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

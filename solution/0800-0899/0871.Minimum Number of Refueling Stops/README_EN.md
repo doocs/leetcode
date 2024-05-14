@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0871.Minimum%20Number%20of%20Refueling%20Stops/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Dynamic Programming
+    - Heap (Priority Queue)
+---
+
 # [871. Minimum Number of Refueling Stops](https://leetcode.com/problems/minimum-number-of-refueling-stops)
 
 [中文文档](/solution/0800-0899/0871.Minimum%20Number%20of%20Refueling%20Stops/README.md)
-
-<!-- tags:Greedy,Array,Dynamic Programming,Heap (Priority Queue) -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

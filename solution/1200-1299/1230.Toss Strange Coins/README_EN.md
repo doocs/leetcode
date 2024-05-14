@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1230.Toss%20Strange%20Coins/README_EN.md
+rating: 1808
+tags:
+    - Array
+    - Math
+    - Dynamic Programming
+    - Probability and Statistics
+---
+
 # [1230. Toss Strange Coins 🔒](https://leetcode.com/problems/toss-strange-coins)
 
 [中文文档](/solution/1200-1299/1230.Toss%20Strange%20Coins/README.md)
-
-<!-- tags:Array,Math,Dynamic Programming,Probability and Statistics -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

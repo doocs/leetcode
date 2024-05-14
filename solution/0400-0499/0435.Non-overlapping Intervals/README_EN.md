@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0435.Non-overlapping%20Intervals/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Dynamic Programming
+    - Sorting
+---
+
 # [435. Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals)
 
 [中文文档](/solution/0400-0499/0435.Non-overlapping%20Intervals/README.md)
-
-<!-- tags:Greedy,Array,Dynamic Programming,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0684.Redundant%20Connection/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 并查集
+    - 图
+---
+
 # [684. 冗余连接](https://leetcode.cn/problems/redundant-connection)
 
 [English Version](/solution/0600-0699/0684.Redundant%20Connection/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,并查集,图 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

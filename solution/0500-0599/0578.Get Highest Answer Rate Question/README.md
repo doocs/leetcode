@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0578.Get%20Highest%20Answer%20Rate%20Question/README.md
+tags:
+    - 数据库
+---
+
 # [578. 查询回答率最高的问题 🔒](https://leetcode.cn/problems/get-highest-answer-rate-question)
 
 [English Version](/solution/0500-0599/0578.Get%20Highest%20Answer%20Rate%20Question/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

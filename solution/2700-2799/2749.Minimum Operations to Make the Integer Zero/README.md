@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2749.Minimum%20Operations%20to%20Make%20the%20Integer%20Zero/README.md
+rating: 2132
+tags:
+    - 位运算
+    - 脑筋急转弯
+---
+
 # [2749. 得到整数零需要执行的最少操作数](https://leetcode.cn/problems/minimum-operations-to-make-the-integer-zero)
 
 [English Version](/solution/2700-2799/2749.Minimum%20Operations%20to%20Make%20the%20Integer%20Zero/README_EN.md)
-
-<!-- tags:位运算,脑筋急转弯 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

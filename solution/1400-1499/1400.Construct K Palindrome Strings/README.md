@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1400.Construct%20K%20Palindrome%20Strings/README.md
+rating: 1530
+tags:
+    - 贪心
+    - 哈希表
+    - 字符串
+    - 计数
+---
+
 # [1400. 构造 K 个回文字符串](https://leetcode.cn/problems/construct-k-palindrome-strings)
 
 [English Version](/solution/1400-1499/1400.Construct%20K%20Palindrome%20Strings/README_EN.md)
-
-<!-- tags:贪心,哈希表,字符串,计数 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

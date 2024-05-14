@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0584.Find%20Customer%20Referee/README.md
+tags:
+    - 数据库
+---
+
 # [584. 寻找用户推荐人](https://leetcode.cn/problems/find-customer-referee)
 
 [English Version](/solution/0500-0599/0584.Find%20Customer%20Referee/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

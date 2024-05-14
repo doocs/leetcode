@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2001.Number%20of%20Pairs%20of%20Interchangeable%20Rectangles/README.md
+rating: 1435
+tags:
+    - 数组
+    - 哈希表
+    - 数学
+    - 计数
+    - 数论
+---
+
 # [2001. 可互换矩形的组数](https://leetcode.cn/problems/number-of-pairs-of-interchangeable-rectangles)
 
 [English Version](/solution/2000-2099/2001.Number%20of%20Pairs%20of%20Interchangeable%20Rectangles/README_EN.md)
-
-<!-- tags:数组,哈希表,数学,计数,数论 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

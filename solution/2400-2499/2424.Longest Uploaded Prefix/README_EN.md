@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2424.Longest%20Uploaded%20Prefix/README_EN.md
+rating: 1604
+tags:
+    - Union Find
+    - Design
+    - Binary Indexed Tree
+    - Segment Tree
+    - Binary Search
+    - Ordered Set
+    - Heap (Priority Queue)
+---
+
 # [2424. Longest Uploaded Prefix](https://leetcode.com/problems/longest-uploaded-prefix)
 
 [中文文档](/solution/2400-2499/2424.Longest%20Uploaded%20Prefix/README.md)
-
-<!-- tags:Union Find,Design,Binary Indexed Tree,Segment Tree,Binary Search,Ordered Set,Heap (Priority Queue) -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

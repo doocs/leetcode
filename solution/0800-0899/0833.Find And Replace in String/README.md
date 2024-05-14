@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0833.Find%20And%20Replace%20in%20String/README.md
+tags:
+    - 数组
+    - 字符串
+    - 排序
+---
+
 # [833. 字符串中的查找与替换](https://leetcode.cn/problems/find-and-replace-in-string)
 
 [English Version](/solution/0800-0899/0833.Find%20And%20Replace%20in%20String/README_EN.md)
-
-<!-- tags:数组,字符串,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

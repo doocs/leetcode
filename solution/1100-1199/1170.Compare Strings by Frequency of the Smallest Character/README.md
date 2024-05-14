@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1170.Compare%20Strings%20by%20Frequency%20of%20the%20Smallest%20Character/README.md
+rating: 1431
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+    - 二分查找
+    - 排序
+---
+
 # [1170. 比较字符串最小字母出现频次](https://leetcode.cn/problems/compare-strings-by-frequency-of-the-smallest-character)
 
 [English Version](/solution/1100-1199/1170.Compare%20Strings%20by%20Frequency%20of%20the%20Smallest%20Character/README_EN.md)
-
-<!-- tags:数组,哈希表,字符串,二分查找,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

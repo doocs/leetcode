@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0408.Valid%20Word%20Abbreviation/README.md
+tags:
+    - 双指针
+    - 字符串
+---
+
 # [408. 有效单词缩写 🔒](https://leetcode.cn/problems/valid-word-abbreviation)
 
 [English Version](/solution/0400-0499/0408.Valid%20Word%20Abbreviation/README_EN.md)
-
-<!-- tags:双指针,字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

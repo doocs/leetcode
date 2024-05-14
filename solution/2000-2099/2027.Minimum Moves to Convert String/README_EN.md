@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2027.Minimum%20Moves%20to%20Convert%20String/README_EN.md
+rating: 1346
+tags:
+    - Greedy
+    - String
+---
+
 # [2027. Minimum Moves to Convert String](https://leetcode.com/problems/minimum-moves-to-convert-string)
 
 [中文文档](/solution/2000-2099/2027.Minimum%20Moves%20to%20Convert%20String/README.md)
-
-<!-- tags:Greedy,String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

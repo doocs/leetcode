@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0629.K%20Inverse%20Pairs%20Array/README.md
+tags:
+    - 动态规划
+---
+
 # [629. K 个逆序对数组](https://leetcode.cn/problems/k-inverse-pairs-array)
 
 [English Version](/solution/0600-0699/0629.K%20Inverse%20Pairs%20Array/README_EN.md)
-
-<!-- tags:动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

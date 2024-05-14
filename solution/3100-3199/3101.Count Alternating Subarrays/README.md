@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3101.Count%20Alternating%20Subarrays/README.md
+rating: 1404
+tags:
+    - 数组
+    - 数学
+---
+
 # [3101. 交替子数组计数](https://leetcode.cn/problems/count-alternating-subarrays)
 
 [English Version](/solution/3100-3199/3101.Count%20Alternating%20Subarrays/README_EN.md)
-
-<!-- tags:数组,数学 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

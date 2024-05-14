@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2690.Infinite%20Method%20Object/README_EN.md
+---
+
 # [2690. Infinite Method Object 🔒](https://leetcode.com/problems/infinite-method-object)
 
 [中文文档](/solution/2600-2699/2690.Infinite%20Method%20Object/README.md)
-
-<!-- tags: -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

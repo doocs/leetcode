@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1133.Largest%20Unique%20Number/README_EN.md
+rating: 1226
+tags:
+    - Array
+    - Hash Table
+    - Sorting
+---
+
 # [1133. Largest Unique Number 🔒](https://leetcode.com/problems/largest-unique-number)
 
 [中文文档](/solution/1100-1199/1133.Largest%20Unique%20Number/README.md)
-
-<!-- tags:Array,Hash Table,Sorting -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

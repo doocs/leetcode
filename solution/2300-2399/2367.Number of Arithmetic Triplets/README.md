@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2367.Number%20of%20Arithmetic%20Triplets/README.md
+rating: 1203
+tags:
+    - 数组
+    - 哈希表
+    - 双指针
+    - 枚举
+---
+
 # [2367. 算术三元组的数目](https://leetcode.cn/problems/number-of-arithmetic-triplets)
 
 [English Version](/solution/2300-2399/2367.Number%20of%20Arithmetic%20Triplets/README_EN.md)
-
-<!-- tags:数组,哈希表,双指针,枚举 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

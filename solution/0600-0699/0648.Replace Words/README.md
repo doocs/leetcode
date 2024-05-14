@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0648.Replace%20Words/README.md
+tags:
+    - 字典树
+    - 数组
+    - 哈希表
+    - 字符串
+---
+
 # [648. 单词替换](https://leetcode.cn/problems/replace-words)
 
 [English Version](/solution/0600-0699/0648.Replace%20Words/README_EN.md)
-
-<!-- tags:字典树,数组,哈希表,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

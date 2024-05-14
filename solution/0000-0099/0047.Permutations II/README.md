@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0047.Permutations%20II/README.md
+tags:
+    - 数组
+    - 回溯
+---
+
 # [47. 全排列 II](https://leetcode.cn/problems/permutations-ii)
 
 [English Version](/solution/0000-0099/0047.Permutations%20II/README_EN.md)
-
-<!-- tags:数组,回溯 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

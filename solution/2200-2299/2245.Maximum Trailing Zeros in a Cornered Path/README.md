@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2245.Maximum%20Trailing%20Zeros%20in%20a%20Cornered%20Path/README.md
+rating: 2036
+tags:
+    - 数组
+    - 矩阵
+    - 前缀和
+---
+
 # [2245. 转角路径的乘积中最多能有几个尾随零](https://leetcode.cn/problems/maximum-trailing-zeros-in-a-cornered-path)
 
 [English Version](/solution/2200-2299/2245.Maximum%20Trailing%20Zeros%20in%20a%20Cornered%20Path/README_EN.md)
-
-<!-- tags:数组,矩阵,前缀和 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

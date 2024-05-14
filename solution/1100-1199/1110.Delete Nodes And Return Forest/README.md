@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1110.Delete%20Nodes%20And%20Return%20Forest/README.md
+rating: 1511
+tags:
+    - 树
+    - 深度优先搜索
+    - 数组
+    - 哈希表
+    - 二叉树
+---
+
 # [1110. 删点成林](https://leetcode.cn/problems/delete-nodes-and-return-forest)
 
 [English Version](/solution/1100-1199/1110.Delete%20Nodes%20And%20Return%20Forest/README_EN.md)
-
-<!-- tags:树,深度优先搜索,数组,哈希表,二叉树 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

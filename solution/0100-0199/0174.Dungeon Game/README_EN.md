@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0174.Dungeon%20Game/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+    - Matrix
+---
+
 # [174. Dungeon Game](https://leetcode.com/problems/dungeon-game)
 
 [中文文档](/solution/0100-0199/0174.Dungeon%20Game/README.md)
-
-<!-- tags:Array,Dynamic Programming,Matrix -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

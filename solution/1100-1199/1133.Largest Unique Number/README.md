@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1133.Largest%20Unique%20Number/README.md
+rating: 1226
+tags:
+    - 数组
+    - 哈希表
+    - 排序
+---
+
 # [1133. 最大唯一数 🔒](https://leetcode.cn/problems/largest-unique-number)
 
 [English Version](/solution/1100-1199/1133.Largest%20Unique%20Number/README_EN.md)
-
-<!-- tags:数组,哈希表,排序 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

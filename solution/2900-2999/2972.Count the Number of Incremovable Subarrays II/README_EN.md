@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2972.Count%20the%20Number%20of%20Incremovable%20Subarrays%20II/README_EN.md
+rating: 2152
+tags:
+    - Array
+    - Two Pointers
+    - Binary Search
+---
+
 # [2972. Count the Number of Incremovable Subarrays II](https://leetcode.com/problems/count-the-number-of-incremovable-subarrays-ii)
 
 [中文文档](/solution/2900-2999/2972.Count%20the%20Number%20of%20Incremovable%20Subarrays%20II/README.md)
-
-<!-- tags:Array,Two Pointers,Binary Search -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

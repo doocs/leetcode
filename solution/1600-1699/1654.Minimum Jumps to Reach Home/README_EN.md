@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1654.Minimum%20Jumps%20to%20Reach%20Home/README_EN.md
+rating: 2124
+tags:
+    - Breadth-First Search
+    - Array
+    - Dynamic Programming
+---
+
 # [1654. Minimum Jumps to Reach Home](https://leetcode.com/problems/minimum-jumps-to-reach-home)
 
 [中文文档](/solution/1600-1699/1654.Minimum%20Jumps%20to%20Reach%20Home/README.md)
-
-<!-- tags:Breadth-First Search,Array,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2623.Memoize/README.md
+---
+
 # [2623. 记忆函数](https://leetcode.cn/problems/memoize)
 
 [English Version](/solution/2600-2699/2623.Memoize/README_EN.md)
-
-<!-- tags: -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

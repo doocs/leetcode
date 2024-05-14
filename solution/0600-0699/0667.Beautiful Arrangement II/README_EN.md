@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0667.Beautiful%20Arrangement%20II/README_EN.md
+tags:
+    - Array
+    - Math
+---
+
 # [667. Beautiful Arrangement II](https://leetcode.com/problems/beautiful-arrangement-ii)
 
 [中文文档](/solution/0600-0699/0667.Beautiful%20Arrangement%20II/README.md)
-
-<!-- tags:Array,Math -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

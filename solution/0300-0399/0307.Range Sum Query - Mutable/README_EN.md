@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0307.Range%20Sum%20Query%20-%20Mutable/README_EN.md
+tags:
+    - Design
+    - Binary Indexed Tree
+    - Segment Tree
+    - Array
+---
+
 # [307. Range Sum Query - Mutable](https://leetcode.com/problems/range-sum-query-mutable)
 
 [中文文档](/solution/0300-0399/0307.Range%20Sum%20Query%20-%20Mutable/README.md)
-
-<!-- tags:Design,Binary Indexed Tree,Segment Tree,Array -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

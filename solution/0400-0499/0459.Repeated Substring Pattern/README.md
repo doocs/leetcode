@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0459.Repeated%20Substring%20Pattern/README.md
+tags:
+    - 字符串
+    - 字符串匹配
+---
+
 # [459. 重复的子字符串](https://leetcode.cn/problems/repeated-substring-pattern)
 
 [English Version](/solution/0400-0499/0459.Repeated%20Substring%20Pattern/README_EN.md)
-
-<!-- tags:字符串,字符串匹配 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

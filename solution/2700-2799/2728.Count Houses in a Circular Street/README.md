@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2728.Count%20Houses%20in%20a%20Circular%20Street/README.md
+tags:
+    - 数组
+    - 交互
+---
+
 # [2728. 计算一个环形街道上的房屋数量 🔒](https://leetcode.cn/problems/count-houses-in-a-circular-street)
 
 [English Version](/solution/2700-2799/2728.Count%20Houses%20in%20a%20Circular%20Street/README_EN.md)
-
-<!-- tags:数组,交互 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

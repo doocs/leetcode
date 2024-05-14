@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1396.Design%20Underground%20System/README_EN.md
+rating: 1464
+tags:
+    - Design
+    - Hash Table
+    - String
+---
+
 # [1396. Design Underground System](https://leetcode.com/problems/design-underground-system)
 
 [中文文档](/solution/1300-1399/1396.Design%20Underground%20System/README.md)
-
-<!-- tags:Design,Hash Table,String -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

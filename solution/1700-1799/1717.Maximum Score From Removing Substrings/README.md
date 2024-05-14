@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1717.Maximum%20Score%20From%20Removing%20Substrings/README.md
+rating: 1867
+tags:
+    - 栈
+    - 贪心
+    - 字符串
+---
+
 # [1717. 删除子字符串的最大得分](https://leetcode.cn/problems/maximum-score-from-removing-substrings)
 
 [English Version](/solution/1700-1799/1717.Maximum%20Score%20From%20Removing%20Substrings/README_EN.md)
-
-<!-- tags:栈,贪心,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

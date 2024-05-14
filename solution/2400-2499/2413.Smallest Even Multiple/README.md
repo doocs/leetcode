@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2413.Smallest%20Even%20Multiple/README.md
+rating: 1144
+tags:
+    - 数学
+    - 数论
+---
+
 # [2413. 最小偶倍数](https://leetcode.cn/problems/smallest-even-multiple)
 
 [English Version](/solution/2400-2499/2413.Smallest%20Even%20Multiple/README_EN.md)
-
-<!-- tags:数学,数论 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2484.Count%20Palindromic%20Subsequences/README_EN.md
+rating: 2223
+tags:
+    - String
+    - Dynamic Programming
+---
+
 # [2484. Count Palindromic Subsequences](https://leetcode.com/problems/count-palindromic-subsequences)
 
 [中文文档](/solution/2400-2499/2484.Count%20Palindromic%20Subsequences/README.md)
-
-<!-- tags:String,Dynamic Programming -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

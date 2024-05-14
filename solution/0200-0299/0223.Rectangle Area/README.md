@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0223.Rectangle%20Area/README.md
+tags:
+    - 几何
+    - 数学
+---
+
 # [223. 矩形面积](https://leetcode.cn/problems/rectangle-area)
 
 [English Version](/solution/0200-0299/0223.Rectangle%20Area/README_EN.md)
-
-<!-- tags:几何,数学 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

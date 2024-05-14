@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0411.Minimum%20Unique%20Word%20Abbreviation/README_EN.md
+tags:
+    - Bit Manipulation
+    - String
+    - Backtracking
+---
+
 # [411. Minimum Unique Word Abbreviation 🔒](https://leetcode.com/problems/minimum-unique-word-abbreviation)
 
 [中文文档](/solution/0400-0499/0411.Minimum%20Unique%20Word%20Abbreviation/README.md)
-
-<!-- tags:Bit Manipulation,String,Backtracking -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

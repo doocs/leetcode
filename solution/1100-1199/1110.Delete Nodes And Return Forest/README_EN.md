@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1110.Delete%20Nodes%20And%20Return%20Forest/README_EN.md
+rating: 1511
+tags:
+    - Tree
+    - Depth-First Search
+    - Array
+    - Hash Table
+    - Binary Tree
+---
+
 # [1110. Delete Nodes And Return Forest](https://leetcode.com/problems/delete-nodes-and-return-forest)
 
 [中文文档](/solution/1100-1199/1110.Delete%20Nodes%20And%20Return%20Forest/README.md)
-
-<!-- tags:Tree,Depth-First Search,Array,Hash Table,Binary Tree -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

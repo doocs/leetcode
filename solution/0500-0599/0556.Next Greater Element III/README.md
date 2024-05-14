@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0556.Next%20Greater%20Element%20III/README.md
+tags:
+    - 数学
+    - 双指针
+    - 字符串
+---
+
 # [556. 下一个更大元素 III](https://leetcode.cn/problems/next-greater-element-iii)
 
 [English Version](/solution/0500-0599/0556.Next%20Greater%20Element%20III/README_EN.md)
-
-<!-- tags:数学,双指针,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0946.Validate%20Stack%20Sequences/README.md
+tags:
+    - 栈
+    - 数组
+    - 模拟
+---
+
 # [946. 验证栈序列](https://leetcode.cn/problems/validate-stack-sequences)
 
 [English Version](/solution/0900-0999/0946.Validate%20Stack%20Sequences/README_EN.md)
-
-<!-- tags:栈,数组,模拟 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

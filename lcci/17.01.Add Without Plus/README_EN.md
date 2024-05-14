@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.01.Add%20Without%20Plus/README_EN.md
+---
+
 # [17.01. Add Without Plus](https://leetcode.cn/problems/add-without-plus-lcci)
 
 [中文文档](/lcci/17.01.Add%20Without%20Plus/README.md)

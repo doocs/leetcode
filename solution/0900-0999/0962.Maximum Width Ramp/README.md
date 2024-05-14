@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0962.Maximum%20Width%20Ramp/README.md
+tags:
+    - 栈
+    - 数组
+    - 单调栈
+---
+
 # [962. 最大宽度坡](https://leetcode.cn/problems/maximum-width-ramp)
 
 [English Version](/solution/0900-0999/0962.Maximum%20Width%20Ramp/README_EN.md)
-
-<!-- tags:栈,数组,单调栈 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

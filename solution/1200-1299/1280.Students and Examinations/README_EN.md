@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1280.Students%20and%20Examinations/README_EN.md
+tags:
+    - Database
+---
+
 # [1280. Students and Examinations](https://leetcode.com/problems/students-and-examinations)
 
 [中文文档](/solution/1200-1299/1280.Students%20and%20Examinations/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

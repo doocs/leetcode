@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1078.Occurrences%20After%20Bigram/README_EN.md
+rating: 1274
+tags:
+    - String
+---
+
 # [1078. Occurrences After Bigram](https://leetcode.com/problems/occurrences-after-bigram)
 
 [中文文档](/solution/1000-1099/1078.Occurrences%20After%20Bigram/README.md)
-
-<!-- tags:String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

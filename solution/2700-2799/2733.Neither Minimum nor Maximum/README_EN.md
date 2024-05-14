@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2733.Neither%20Minimum%20nor%20Maximum/README_EN.md
+rating: 1147
+tags:
+    - Array
+    - Sorting
+---
+
 # [2733. Neither Minimum nor Maximum](https://leetcode.com/problems/neither-minimum-nor-maximum)
 
 [中文文档](/solution/2700-2799/2733.Neither%20Minimum%20nor%20Maximum/README.md)
-
-<!-- tags:Array,Sorting -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

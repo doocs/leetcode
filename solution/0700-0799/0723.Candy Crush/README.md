@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0723.Candy%20Crush/README.md
+tags:
+    - 数组
+    - 双指针
+    - 矩阵
+    - 模拟
+---
+
 # [723. 粉碎糖果 🔒](https://leetcode.cn/problems/candy-crush)
 
 [English Version](/solution/0700-0799/0723.Candy%20Crush/README_EN.md)
-
-<!-- tags:数组,双指针,矩阵,模拟 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

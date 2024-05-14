@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1390.Four%20Divisors/README_EN.md
+rating: 1478
+tags:
+    - Array
+    - Math
+---
+
 # [1390. Four Divisors](https://leetcode.com/problems/four-divisors)
 
 [中文文档](/solution/1300-1399/1390.Four%20Divisors/README.md)
-
-<!-- tags:Array,Math -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

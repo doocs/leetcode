@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0885.Spiral%20Matrix%20III/README_EN.md
+tags:
+    - Array
+    - Matrix
+    - Simulation
+---
+
 # [885. Spiral Matrix III](https://leetcode.com/problems/spiral-matrix-iii)
 
 [中文文档](/solution/0800-0899/0885.Spiral%20Matrix%20III/README.md)
-
-<!-- tags:Array,Matrix,Simulation -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

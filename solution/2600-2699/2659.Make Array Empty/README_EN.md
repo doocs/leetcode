@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2659.Make%20Array%20Empty/README_EN.md
+rating: 2281
+tags:
+    - Greedy
+    - Binary Indexed Tree
+    - Segment Tree
+    - Array
+    - Binary Search
+    - Ordered Set
+    - Sorting
+---
+
 # [2659. Make Array Empty](https://leetcode.com/problems/make-array-empty)
 
 [中文文档](/solution/2600-2699/2659.Make%20Array%20Empty/README.md)
-
-<!-- tags:Greedy,Binary Indexed Tree,Segment Tree,Array,Binary Search,Ordered Set,Sorting -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

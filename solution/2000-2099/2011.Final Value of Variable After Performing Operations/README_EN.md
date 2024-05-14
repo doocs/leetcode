@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2011.Final%20Value%20of%20Variable%20After%20Performing%20Operations/README_EN.md
+rating: 1165
+tags:
+    - Array
+    - String
+    - Simulation
+---
+
 # [2011. Final Value of Variable After Performing Operations](https://leetcode.com/problems/final-value-of-variable-after-performing-operations)
 
 [中文文档](/solution/2000-2099/2011.Final%20Value%20of%20Variable%20After%20Performing%20Operations/README.md)
-
-<!-- tags:Array,String,Simulation -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

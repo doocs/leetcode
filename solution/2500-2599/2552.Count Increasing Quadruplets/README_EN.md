@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2552.Count%20Increasing%20Quadruplets/README_EN.md
+rating: 2432
+tags:
+    - Binary Indexed Tree
+    - Array
+    - Dynamic Programming
+    - Enumeration
+    - Prefix Sum
+---
+
 # [2552. Count Increasing Quadruplets](https://leetcode.com/problems/count-increasing-quadruplets)
 
 [中文文档](/solution/2500-2599/2552.Count%20Increasing%20Quadruplets/README.md)
-
-<!-- tags:Binary Indexed Tree,Array,Dynamic Programming,Enumeration,Prefix Sum -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

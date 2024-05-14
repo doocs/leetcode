@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0324.Wiggle%20Sort%20II/README_EN.md
+tags:
+    - Array
+    - Divide and Conquer
+    - Quickselect
+    - Sorting
+---
+
 # [324. Wiggle Sort II](https://leetcode.com/problems/wiggle-sort-ii)
 
 [中文文档](/solution/0300-0399/0324.Wiggle%20Sort%20II/README.md)
-
-<!-- tags:Array,Divide and Conquer,Quickselect,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

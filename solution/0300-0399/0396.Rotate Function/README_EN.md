@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0396.Rotate%20Function/README_EN.md
+tags:
+    - Array
+    - Math
+    - Dynamic Programming
+---
+
 # [396. Rotate Function](https://leetcode.com/problems/rotate-function)
 
 [中文文档](/solution/0300-0399/0396.Rotate%20Function/README.md)
-
-<!-- tags:Array,Math,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0222.Count%20Complete%20Tree%20Nodes/README_EN.md
+tags:
+    - Bit Manipulation
+    - Tree
+    - Binary Search
+    - Binary Tree
+---
+
 # [222. Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes)
 
 [中文文档](/solution/0200-0299/0222.Count%20Complete%20Tree%20Nodes/README.md)
-
-<!-- tags:Bit Manipulation,Tree,Binary Search,Binary Tree -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

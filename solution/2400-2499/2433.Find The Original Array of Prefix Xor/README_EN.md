@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2433.Find%20The%20Original%20Array%20of%20Prefix%20Xor/README_EN.md
+rating: 1366
+tags:
+    - Bit Manipulation
+    - Array
+---
+
 # [2433. Find The Original Array of Prefix Xor](https://leetcode.com/problems/find-the-original-array-of-prefix-xor)
 
 [中文文档](/solution/2400-2499/2433.Find%20The%20Original%20Array%20of%20Prefix%20Xor/README.md)
-
-<!-- tags:Bit Manipulation,Array -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

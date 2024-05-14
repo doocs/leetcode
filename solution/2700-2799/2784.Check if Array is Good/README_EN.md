@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2784.Check%20if%20Array%20is%20Good/README_EN.md
+rating: 1376
+tags:
+    - Array
+    - Hash Table
+    - Sorting
+---
+
 # [2784. Check if Array is Good](https://leetcode.com/problems/check-if-array-is-good)
 
 [中文文档](/solution/2700-2799/2784.Check%20if%20Array%20is%20Good/README.md)
-
-<!-- tags:Array,Hash Table,Sorting -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

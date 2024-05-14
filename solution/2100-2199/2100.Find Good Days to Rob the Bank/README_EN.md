@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2100.Find%20Good%20Days%20to%20Rob%20the%20Bank/README_EN.md
+rating: 1702
+tags:
+    - Array
+    - Dynamic Programming
+    - Prefix Sum
+---
+
 # [2100. Find Good Days to Rob the Bank](https://leetcode.com/problems/find-good-days-to-rob-the-bank)
 
 [中文文档](/solution/2100-2199/2100.Find%20Good%20Days%20to%20Rob%20the%20Bank/README.md)
-
-<!-- tags:Array,Dynamic Programming,Prefix Sum -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1232.Check%20If%20It%20Is%20a%20Straight%20Line/README_EN.md
+rating: 1247
+tags:
+    - Geometry
+    - Array
+    - Math
+---
+
 # [1232. Check If It Is a Straight Line](https://leetcode.com/problems/check-if-it-is-a-straight-line)
 
 [中文文档](/solution/1200-1299/1232.Check%20If%20It%20Is%20a%20Straight%20Line/README.md)
-
-<!-- tags:Geometry,Array,Math -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

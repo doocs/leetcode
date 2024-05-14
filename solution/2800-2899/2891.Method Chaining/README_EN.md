@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2891.Method%20Chaining/README_EN.md
+---
+
 # [2891. Method Chaining](https://leetcode.com/problems/method-chaining)
 
 [中文文档](/solution/2800-2899/2891.Method%20Chaining/README.md)
-
-<!-- tags: -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3108.Minimum%20Cost%20Walk%20in%20Weighted%20Graph/README.md
+rating: 2108
+tags:
+    - 位运算
+    - 并查集
+    - 图
+    - 数组
+---
+
 # [3108. 带权图里旅途的最小代价](https://leetcode.cn/problems/minimum-cost-walk-in-weighted-graph)
 
 [English Version](/solution/3100-3199/3108.Minimum%20Cost%20Walk%20in%20Weighted%20Graph/README_EN.md)
-
-<!-- tags:位运算,并查集,图,数组 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0942.DI%20String%20Match/README.md
+tags:
+    - 贪心
+    - 数组
+    - 双指针
+    - 字符串
+---
+
 # [942. 增减字符串匹配](https://leetcode.cn/problems/di-string-match)
 
 [English Version](/solution/0900-0999/0942.DI%20String%20Match/README_EN.md)
-
-<!-- tags:贪心,数组,双指针,字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

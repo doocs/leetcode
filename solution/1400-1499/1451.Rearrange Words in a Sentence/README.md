@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1451.Rearrange%20Words%20in%20a%20Sentence/README.md
+rating: 1309
+tags:
+    - 字符串
+    - 排序
+---
+
 # [1451. 重新排列句子中的单词](https://leetcode.cn/problems/rearrange-words-in-a-sentence)
 
 [English Version](/solution/1400-1499/1451.Rearrange%20Words%20in%20a%20Sentence/README_EN.md)
-
-<!-- tags:字符串,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

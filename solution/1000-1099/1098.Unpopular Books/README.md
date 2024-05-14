@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1098.Unpopular%20Books/README.md
+tags:
+    - 数据库
+---
+
 # [1098. 小众书籍 🔒](https://leetcode.cn/problems/unpopular-books)
 
 [English Version](/solution/1000-1099/1098.Unpopular%20Books/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

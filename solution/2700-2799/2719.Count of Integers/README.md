@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2719.Count%20of%20Integers/README.md
+rating: 2354
+tags:
+    - 数学
+    - 字符串
+    - 动态规划
+---
+
 # [2719. 统计整数数目](https://leetcode.cn/problems/count-of-integers)
 
 [English Version](/solution/2700-2799/2719.Count%20of%20Integers/README_EN.md)
-
-<!-- tags:数学,字符串,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

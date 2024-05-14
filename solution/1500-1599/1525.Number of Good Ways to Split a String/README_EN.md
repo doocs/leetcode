@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1525.Number%20of%20Good%20Ways%20to%20Split%20a%20String/README_EN.md
+rating: 1499
+tags:
+    - Bit Manipulation
+    - Hash Table
+    - String
+    - Dynamic Programming
+---
+
 # [1525. Number of Good Ways to Split a String](https://leetcode.com/problems/number-of-good-ways-to-split-a-string)
 
 [中文文档](/solution/1500-1599/1525.Number%20of%20Good%20Ways%20to%20Split%20a%20String/README.md)
-
-<!-- tags:Bit Manipulation,Hash Table,String,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

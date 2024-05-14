@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3037.Find%20Pattern%20in%20Infinite%20Stream%20II/README_EN.md
+tags:
+    - Array
+    - String Matching
+    - Sliding Window
+    - Hash Function
+    - Rolling Hash
+---
+
 # [3037. Find Pattern in Infinite Stream II 🔒](https://leetcode.com/problems/find-pattern-in-infinite-stream-ii)
 
 [中文文档](/solution/3000-3099/3037.Find%20Pattern%20in%20Infinite%20Stream%20II/README.md)
-
-<!-- tags:Array,String Matching,Sliding Window,Hash Function,Rolling Hash -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

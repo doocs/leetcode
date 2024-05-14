@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2867.Count%20Valid%20Paths%20in%20a%20Tree/README.md
+rating: 2428
+tags:
+    - 树
+    - 深度优先搜索
+    - 数学
+    - 动态规划
+    - 数论
+---
+
 # [2867. 统计树中的合法路径数目](https://leetcode.cn/problems/count-valid-paths-in-a-tree)
 
 [English Version](/solution/2800-2899/2867.Count%20Valid%20Paths%20in%20a%20Tree/README_EN.md)
-
-<!-- tags:树,深度优先搜索,数学,动态规划,数论 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

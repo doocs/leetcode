@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0170.Two%20Sum%20III%20-%20Data%20structure%20design/README.md
+tags:
+    - 设计
+    - 数组
+    - 哈希表
+    - 双指针
+    - 数据流
+---
+
 # [170. 两数之和 III - 数据结构设计 🔒](https://leetcode.cn/problems/two-sum-iii-data-structure-design)
 
 [English Version](/solution/0100-0199/0170.Two%20Sum%20III%20-%20Data%20structure%20design/README_EN.md)
-
-<!-- tags:设计,数组,哈希表,双指针,数据流 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

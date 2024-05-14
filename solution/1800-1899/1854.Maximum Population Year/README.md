@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1854.Maximum%20Population%20Year/README.md
+rating: 1370
+tags:
+    - 数组
+    - 计数
+    - 前缀和
+---
+
 # [1854. 人口最多的年份](https://leetcode.cn/problems/maximum-population-year)
 
 [English Version](/solution/1800-1899/1854.Maximum%20Population%20Year/README_EN.md)
-
-<!-- tags:数组,计数,前缀和 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

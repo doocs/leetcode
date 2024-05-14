@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2694.Event%20Emitter/README.md
+---
+
 # [2694. 事件发射器](https://leetcode.cn/problems/event-emitter)
 
 [English Version](/solution/2600-2699/2694.Event%20Emitter/README_EN.md)
-
-<!-- tags: -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

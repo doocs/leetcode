@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1678.Goal%20Parser%20Interpretation/README.md
+rating: 1221
+tags:
+    - 字符串
+---
+
 # [1678. 设计 Goal 解析器](https://leetcode.cn/problems/goal-parser-interpretation)
 
 [English Version](/solution/1600-1699/1678.Goal%20Parser%20Interpretation/README_EN.md)
-
-<!-- tags:字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0311.Sparse%20Matrix%20Multiplication/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Matrix
+---
+
 # [311. Sparse Matrix Multiplication 🔒](https://leetcode.com/problems/sparse-matrix-multiplication)
 
 [中文文档](/solution/0300-0399/0311.Sparse%20Matrix%20Multiplication/README.md)
-
-<!-- tags:Array,Hash Table,Matrix -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

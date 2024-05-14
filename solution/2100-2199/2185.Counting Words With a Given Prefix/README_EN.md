@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2185.Counting%20Words%20With%20a%20Given%20Prefix/README_EN.md
+rating: 1167
+tags:
+    - Array
+    - String
+    - String Matching
+---
+
 # [2185. Counting Words With a Given Prefix](https://leetcode.com/problems/counting-words-with-a-given-prefix)
 
 [中文文档](/solution/2100-2199/2185.Counting%20Words%20With%20a%20Given%20Prefix/README.md)
-
-<!-- tags:Array,String,String Matching -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

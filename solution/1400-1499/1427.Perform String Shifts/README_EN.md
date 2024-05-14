@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1427.Perform%20String%20Shifts/README_EN.md
+tags:
+    - Array
+    - Math
+    - String
+---
+
 # [1427. Perform String Shifts 🔒](https://leetcode.com/problems/perform-string-shifts)
 
 [中文文档](/solution/1400-1499/1427.Perform%20String%20Shifts/README.md)
-
-<!-- tags:Array,Math,String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

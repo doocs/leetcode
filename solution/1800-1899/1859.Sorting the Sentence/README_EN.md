@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1859.Sorting%20the%20Sentence/README_EN.md
+rating: 1290
+tags:
+    - String
+    - Sorting
+---
+
 # [1859. Sorting the Sentence](https://leetcode.com/problems/sorting-the-sentence)
 
 [中文文档](/solution/1800-1899/1859.Sorting%20the%20Sentence/README.md)
-
-<!-- tags:String,Sorting -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

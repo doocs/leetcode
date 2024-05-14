@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0061.Rotate%20List/README_EN.md
+tags:
+    - Linked List
+    - Two Pointers
+---
+
 # [61. Rotate List](https://leetcode.com/problems/rotate-list)
 
 [中文文档](/solution/0000-0099/0061.Rotate%20List/README.md)
-
-<!-- tags:Linked List,Two Pointers -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2885.Rename%20Columns/README_EN.md
+---
+
 # [2885. Rename Columns](https://leetcode.com/problems/rename-columns)
 
 [中文文档](/solution/2800-2899/2885.Rename%20Columns/README.md)
-
-<!-- tags: -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2462.Total%20Cost%20to%20Hire%20K%20Workers/README.md
+rating: 1763
+tags:
+    - 数组
+    - 双指针
+    - 模拟
+    - 堆（优先队列）
+---
+
 # [2462. 雇佣 K 位工人的总代价](https://leetcode.cn/problems/total-cost-to-hire-k-workers)
 
 [English Version](/solution/2400-2499/2462.Total%20Cost%20to%20Hire%20K%20Workers/README_EN.md)
-
-<!-- tags:数组,双指针,模拟,堆（优先队列） -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

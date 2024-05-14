@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0456.132%20Pattern/README_EN.md
+tags:
+    - Stack
+    - Array
+    - Binary Search
+    - Ordered Set
+    - Monotonic Stack
+---
+
 # [456. 132 Pattern](https://leetcode.com/problems/132-pattern)
 
 [中文文档](/solution/0400-0499/0456.132%20Pattern/README.md)
-
-<!-- tags:Stack,Array,Binary Search,Ordered Set,Monotonic Stack -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

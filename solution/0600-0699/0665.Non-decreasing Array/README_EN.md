@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0665.Non-decreasing%20Array/README_EN.md
+tags:
+    - Array
+---
+
 # [665. Non-decreasing Array](https://leetcode.com/problems/non-decreasing-array)
 
 [中文文档](/solution/0600-0699/0665.Non-decreasing%20Array/README.md)
-
-<!-- tags:Array -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

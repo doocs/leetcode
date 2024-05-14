@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2845.Count%20of%20Interesting%20Subarrays/README.md
+rating: 2073
+tags:
+    - 数组
+    - 哈希表
+    - 前缀和
+---
+
 # [2845. 统计趣味子数组的数目](https://leetcode.cn/problems/count-of-interesting-subarrays)
 
 [English Version](/solution/2800-2899/2845.Count%20of%20Interesting%20Subarrays/README_EN.md)
-
-<!-- tags:数组,哈希表,前缀和 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

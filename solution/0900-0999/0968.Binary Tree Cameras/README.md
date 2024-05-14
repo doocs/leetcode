@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0968.Binary%20Tree%20Cameras/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 动态规划
+    - 二叉树
+---
+
 # [968. 监控二叉树](https://leetcode.cn/problems/binary-tree-cameras)
 
 [English Version](/solution/0900-0999/0968.Binary%20Tree%20Cameras/README_EN.md)
-
-<!-- tags:树,深度优先搜索,动态规划,二叉树 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

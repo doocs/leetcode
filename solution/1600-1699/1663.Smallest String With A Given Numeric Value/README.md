@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1663.Smallest%20String%20With%20A%20Given%20Numeric%20Value/README.md
+rating: 1460
+tags:
+    - 贪心
+    - 字符串
+---
+
 # [1663. 具有给定数值的最小字符串](https://leetcode.cn/problems/smallest-string-with-a-given-numeric-value)
 
 [English Version](/solution/1600-1699/1663.Smallest%20String%20With%20A%20Given%20Numeric%20Value/README_EN.md)
-
-<!-- tags:贪心,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0218.The%20Skyline%20Problem/README.md
+tags:
+    - 树状数组
+    - 线段树
+    - 数组
+    - 分治
+    - 有序集合
+    - 扫描线
+    - 堆（优先队列）
+---
+
 # [218. 天际线问题](https://leetcode.cn/problems/the-skyline-problem)
 
 [English Version](/solution/0200-0299/0218.The%20Skyline%20Problem/README_EN.md)
-
-<!-- tags:树状数组,线段树,数组,分治,有序集合,扫描线,堆（优先队列） -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

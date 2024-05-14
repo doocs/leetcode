@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3115.Maximum%20Prime%20Difference/README.md
+rating: 1294
+tags:
+    - 数组
+    - 数学
+    - 数论
+---
+
 # [3115. 质数的最大距离](https://leetcode.cn/problems/maximum-prime-difference)
 
 [English Version](/solution/3100-3199/3115.Maximum%20Prime%20Difference/README_EN.md)
-
-<!-- tags:数组,数学,数论 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

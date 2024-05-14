@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1608.Special%20Array%20With%20X%20Elements%20Greater%20Than%20or%20Equal%20X/README_EN.md
+rating: 1369
+tags:
+    - Array
+    - Binary Search
+    - Sorting
+---
+
 # [1608. Special Array With X Elements Greater Than or Equal X](https://leetcode.com/problems/special-array-with-x-elements-greater-than-or-equal-x)
 
 [中文文档](/solution/1600-1699/1608.Special%20Array%20With%20X%20Elements%20Greater%20Than%20or%20Equal%20X/README.md)
-
-<!-- tags:Array,Binary Search,Sorting -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

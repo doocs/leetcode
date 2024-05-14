@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1791.Find%20Center%20of%20Star%20Graph/README_EN.md
+rating: 1286
+tags:
+    - Graph
+---
+
 # [1791. Find Center of Star Graph](https://leetcode.com/problems/find-center-of-star-graph)
 
 [中文文档](/solution/1700-1799/1791.Find%20Center%20of%20Star%20Graph/README.md)
-
-<!-- tags:Graph -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

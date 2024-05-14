@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2466.Count%20Ways%20To%20Build%20Good%20Strings/README.md
+rating: 1694
+tags:
+    - 动态规划
+---
+
 # [2466. 统计构造好字符串的方案数](https://leetcode.cn/problems/count-ways-to-build-good-strings)
 
 [English Version](/solution/2400-2499/2466.Count%20Ways%20To%20Build%20Good%20Strings/README_EN.md)
-
-<!-- tags:动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

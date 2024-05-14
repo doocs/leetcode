@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0611.Valid%20Triangle%20Number/README.md
+tags:
+    - 贪心
+    - 数组
+    - 双指针
+    - 二分查找
+    - 排序
+---
+
 # [611. 有效三角形的个数](https://leetcode.cn/problems/valid-triangle-number)
 
 [English Version](/solution/0600-0699/0611.Valid%20Triangle%20Number/README_EN.md)
-
-<!-- tags:贪心,数组,双指针,二分查找,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

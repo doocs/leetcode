@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.11.Find%20Closest/README_EN.md
+---
+
 # [17.11. Find Closest](https://leetcode.cn/problems/find-closest-lcci)
 
 [中文文档](/lcci/17.11.Find%20Closest/README.md)

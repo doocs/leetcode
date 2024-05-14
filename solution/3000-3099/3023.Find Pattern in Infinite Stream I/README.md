@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3023.Find%20Pattern%20in%20Infinite%20Stream%20I/README.md
+tags:
+    - 数组
+    - 字符串匹配
+    - 滑动窗口
+    - 哈希函数
+    - 滚动哈希
+---
+
 # [3023. 在无限流中寻找模式 I 🔒](https://leetcode.cn/problems/find-pattern-in-infinite-stream-i)
 
 [English Version](/solution/3000-3099/3023.Find%20Pattern%20in%20Infinite%20Stream%20I/README_EN.md)
-
-<!-- tags:数组,字符串匹配,滑动窗口,哈希函数,滚动哈希 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1496.Path%20Crossing/README.md
+rating: 1508
+tags:
+    - 哈希表
+    - 字符串
+---
+
 # [1496. 判断路径是否相交](https://leetcode.cn/problems/path-crossing)
 
 [English Version](/solution/1400-1499/1496.Path%20Crossing/README_EN.md)
-
-<!-- tags:哈希表,字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

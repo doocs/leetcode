@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1408.String%20Matching%20in%20an%20Array/README_EN.md
+rating: 1223
+tags:
+    - Array
+    - String
+    - String Matching
+---
+
 # [1408. String Matching in an Array](https://leetcode.com/problems/string-matching-in-an-array)
 
 [中文文档](/solution/1400-1499/1408.String%20Matching%20in%20an%20Array/README.md)
-
-<!-- tags:Array,String,String Matching -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

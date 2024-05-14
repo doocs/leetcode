@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2946.Matrix%20Similarity%20After%20Cyclic%20Shifts/README.md
+rating: 1405
+tags:
+    - 数组
+    - 数学
+    - 矩阵
+    - 模拟
+---
+
 # [2946. 循环移位后的矩阵相似检查](https://leetcode.cn/problems/matrix-similarity-after-cyclic-shifts)
 
 [English Version](/solution/2900-2999/2946.Matrix%20Similarity%20After%20Cyclic%20Shifts/README_EN.md)
-
-<!-- tags:数组,数学,矩阵,模拟 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

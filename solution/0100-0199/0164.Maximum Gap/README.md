@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0164.Maximum%20Gap/README.md
+tags:
+    - 数组
+    - 桶排序
+    - 基数排序
+    - 排序
+---
+
 # [164. 最大间距](https://leetcode.cn/problems/maximum-gap)
 
 [English Version](/solution/0100-0199/0164.Maximum%20Gap/README_EN.md)
-
-<!-- tags:数组,桶排序,基数排序,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

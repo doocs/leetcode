@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0052.N-Queens%20II/README.md
+tags:
+    - 回溯
+---
+
 # [52. N 皇后 II](https://leetcode.cn/problems/n-queens-ii)
 
 [English Version](/solution/0000-0099/0052.N-Queens%20II/README_EN.md)
-
-<!-- tags:回溯 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

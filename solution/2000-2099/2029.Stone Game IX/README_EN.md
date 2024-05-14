@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2029.Stone%20Game%20IX/README_EN.md
+rating: 2277
+tags:
+    - Greedy
+    - Array
+    - Math
+    - Counting
+    - Game Theory
+---
+
 # [2029. Stone Game IX](https://leetcode.com/problems/stone-game-ix)
 
 [中文文档](/solution/2000-2099/2029.Stone%20Game%20IX/README.md)
-
-<!-- tags:Greedy,Array,Math,Counting,Game Theory -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

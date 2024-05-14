@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1179.Reformat%20Department%20Table/README.md
+tags:
+    - 数据库
+---
+
 # [1179. 重新格式化部门表](https://leetcode.cn/problems/reformat-department-table)
 
 [English Version](/solution/1100-1199/1179.Reformat%20Department%20Table/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

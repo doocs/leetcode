@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1822.Sign%20of%20the%20Product%20of%20an%20Array/README_EN.md
+rating: 1209
+tags:
+    - Array
+    - Math
+---
+
 # [1822. Sign of the Product of an Array](https://leetcode.com/problems/sign-of-the-product-of-an-array)
 
 [中文文档](/solution/1800-1899/1822.Sign%20of%20the%20Product%20of%20an%20Array/README.md)
-
-<!-- tags:Array,Math -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

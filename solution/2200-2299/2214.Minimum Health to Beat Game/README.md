@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2214.Minimum%20Health%20to%20Beat%20Game/README.md
+tags:
+    - 贪心
+    - 数组
+---
+
 # [2214. 通关游戏所需的最低生命值 🔒](https://leetcode.cn/problems/minimum-health-to-beat-game)
 
 [English Version](/solution/2200-2299/2214.Minimum%20Health%20to%20Beat%20Game/README_EN.md)
-
-<!-- tags:贪心,数组 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

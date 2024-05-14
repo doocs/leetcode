@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2936.Number%20of%20Equal%20Numbers%20Blocks/README.md
+tags:
+    - 数组
+    - 二分查找
+    - 交互
+---
+
 # [2936. 包含相等值数字块的数量 🔒](https://leetcode.cn/problems/number-of-equal-numbers-blocks)
 
 [English Version](/solution/2900-2999/2936.Number%20of%20Equal%20Numbers%20Blocks/README_EN.md)
-
-<!-- tags:数组,二分查找,交互 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2589.Minimum%20Time%20to%20Complete%20All%20Tasks/README.md
+rating: 2380
+tags:
+    - 栈
+    - 贪心
+    - 数组
+    - 二分查找
+    - 排序
+---
+
 # [2589. 完成所有任务的最少时间](https://leetcode.cn/problems/minimum-time-to-complete-all-tasks)
 
 [English Version](/solution/2500-2599/2589.Minimum%20Time%20to%20Complete%20All%20Tasks/README_EN.md)
-
-<!-- tags:栈,贪心,数组,二分查找,排序 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

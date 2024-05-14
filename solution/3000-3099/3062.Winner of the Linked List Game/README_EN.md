@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3062.Winner%20of%20the%20Linked%20List%20Game/README_EN.md
+tags:
+    - Linked List
+---
+
 # [3062. Winner of the Linked List Game 🔒](https://leetcode.com/problems/winner-of-the-linked-list-game)
 
 [中文文档](/solution/3000-3099/3062.Winner%20of%20the%20Linked%20List%20Game/README.md)
-
-<!-- tags:Linked List -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

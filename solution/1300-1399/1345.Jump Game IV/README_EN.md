@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1345.Jump%20Game%20IV/README_EN.md
+rating: 1809
+tags:
+    - Breadth-First Search
+    - Array
+    - Hash Table
+---
+
 # [1345. Jump Game IV](https://leetcode.com/problems/jump-game-iv)
 
 [中文文档](/solution/1300-1399/1345.Jump%20Game%20IV/README.md)
-
-<!-- tags:Breadth-First Search,Array,Hash Table -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

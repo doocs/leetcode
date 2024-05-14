@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0819.Most%20Common%20Word/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - String
+    - Counting
+---
+
 # [819. Most Common Word](https://leetcode.com/problems/most-common-word)
 
 [中文文档](/solution/0800-0899/0819.Most%20Common%20Word/README.md)
-
-<!-- tags:Array,Hash Table,String,Counting -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

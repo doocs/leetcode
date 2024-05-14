@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0903.Valid%20Permutations%20for%20DI%20Sequence/README_EN.md
+tags:
+    - String
+    - Dynamic Programming
+    - Prefix Sum
+---
+
 # [903. Valid Permutations for DI Sequence](https://leetcode.com/problems/valid-permutations-for-di-sequence)
 
 [中文文档](/solution/0900-0999/0903.Valid%20Permutations%20for%20DI%20Sequence/README.md)
-
-<!-- tags:String,Dynamic Programming,Prefix Sum -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

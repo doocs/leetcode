@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3001.Minimum%20Moves%20to%20Capture%20The%20Queen/README_EN.md
+rating: 1796
+tags:
+    - Array
+    - Enumeration
+---
+
 # [3001. Minimum Moves to Capture The Queen](https://leetcode.com/problems/minimum-moves-to-capture-the-queen)
 
 [中文文档](/solution/3000-3099/3001.Minimum%20Moves%20to%20Capture%20The%20Queen/README.md)
-
-<!-- tags:Array,Enumeration -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

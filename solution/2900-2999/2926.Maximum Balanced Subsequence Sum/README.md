@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2926.Maximum%20Balanced%20Subsequence%20Sum/README.md
+rating: 2448
+tags:
+    - 树状数组
+    - 线段树
+    - 数组
+    - 二分查找
+    - 动态规划
+---
+
 # [2926. 平衡子序列的最大和](https://leetcode.cn/problems/maximum-balanced-subsequence-sum)
 
 [English Version](/solution/2900-2999/2926.Maximum%20Balanced%20Subsequence%20Sum/README_EN.md)
-
-<!-- tags:树状数组,线段树,数组,二分查找,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

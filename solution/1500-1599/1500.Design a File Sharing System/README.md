@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1500.Design%20a%20File%20Sharing%20System/README.md
+tags:
+    - 设计
+    - 哈希表
+    - 数据流
+    - 堆（优先队列）
+---
+
 # [1500. 设计文件分享系统 🔒](https://leetcode.cn/problems/design-a-file-sharing-system)
 
 [English Version](/solution/1500-1599/1500.Design%20a%20File%20Sharing%20System/README_EN.md)
-
-<!-- tags:设计,哈希表,数据流,堆（优先队列） -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0402.Remove%20K%20Digits/README_EN.md
+tags:
+    - Stack
+    - Greedy
+    - String
+    - Monotonic Stack
+---
+
 # [402. Remove K Digits](https://leetcode.com/problems/remove-k-digits)
 
 [中文文档](/solution/0400-0499/0402.Remove%20K%20Digits/README.md)
-
-<!-- tags:Stack,Greedy,String,Monotonic Stack -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

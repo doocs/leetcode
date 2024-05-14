@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0319.Bulb%20Switcher/README.md
+tags:
+    - 脑筋急转弯
+    - 数学
+---
+
 # [319. 灯泡开关](https://leetcode.cn/problems/bulb-switcher)
 
 [English Version](/solution/0300-0399/0319.Bulb%20Switcher/README_EN.md)
-
-<!-- tags:脑筋急转弯,数学 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

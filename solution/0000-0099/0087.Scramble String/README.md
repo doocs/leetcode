@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0087.Scramble%20String/README.md
+tags:
+    - 字符串
+    - 动态规划
+---
+
 # [87. 扰乱字符串](https://leetcode.cn/problems/scramble-string)
 
 [English Version](/solution/0000-0099/0087.Scramble%20String/README_EN.md)
-
-<!-- tags:字符串,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

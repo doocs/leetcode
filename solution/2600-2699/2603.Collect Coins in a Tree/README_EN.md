@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2603.Collect%20Coins%20in%20a%20Tree/README_EN.md
+rating: 2711
+tags:
+    - Tree
+    - Graph
+    - Topological Sort
+    - Array
+---
+
 # [2603. Collect Coins in a Tree](https://leetcode.com/problems/collect-coins-in-a-tree)
 
 [中文文档](/solution/2600-2699/2603.Collect%20Coins%20in%20a%20Tree/README.md)
-
-<!-- tags:Tree,Graph,Topological Sort,Array -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

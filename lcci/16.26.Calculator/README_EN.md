@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.26.Calculator/README_EN.md
+---
+
 # [16.26. Calculator](https://leetcode.cn/problems/calculator-lcci)
 
 [中文文档](/lcci/16.26.Calculator/README.md)

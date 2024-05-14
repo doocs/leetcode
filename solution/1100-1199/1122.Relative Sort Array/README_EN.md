@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1122.Relative%20Sort%20Array/README_EN.md
+rating: 1188
+tags:
+    - Array
+    - Hash Table
+    - Counting Sort
+    - Sorting
+---
+
 # [1122. Relative Sort Array](https://leetcode.com/problems/relative-sort-array)
 
 [中文文档](/solution/1100-1199/1122.Relative%20Sort%20Array/README.md)
-
-<!-- tags:Array,Hash Table,Counting Sort,Sorting -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

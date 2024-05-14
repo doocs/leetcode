@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1894.Find%20the%20Student%20that%20Will%20Replace%20the%20Chalk/README_EN.md
+rating: 1355
+tags:
+    - Array
+    - Binary Search
+    - Prefix Sum
+    - Simulation
+---
+
 # [1894. Find the Student that Will Replace the Chalk](https://leetcode.com/problems/find-the-student-that-will-replace-the-chalk)
 
 [中文文档](/solution/1800-1899/1894.Find%20the%20Student%20that%20Will%20Replace%20the%20Chalk/README.md)
-
-<!-- tags:Array,Binary Search,Prefix Sum,Simulation -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2642.Design%20Graph%20With%20Shortest%20Path%20Calculator/README.md
+rating: 1810
+tags:
+    - 图
+    - 设计
+    - 最短路
+    - 堆（优先队列）
+---
+
 # [2642. 设计可以求最短路径的图类](https://leetcode.cn/problems/design-graph-with-shortest-path-calculator)
 
 [English Version](/solution/2600-2699/2642.Design%20Graph%20With%20Shortest%20Path%20Calculator/README_EN.md)
-
-<!-- tags:图,设计,最短路,堆（优先队列） -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

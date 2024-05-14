@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1543.Fix%20Product%20Name%20Format/README_EN.md
+tags:
+    - Database
+---
+
 # [1543. Fix Product Name Format 🔒](https://leetcode.com/problems/fix-product-name-format)
 
 [中文文档](/solution/1500-1599/1543.Fix%20Product%20Name%20Format/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1075.Project%20Employees%20I/README_EN.md
+tags:
+    - Database
+---
+
 # [1075. Project Employees I](https://leetcode.com/problems/project-employees-i)
 
 [中文文档](/solution/1000-1099/1075.Project%20Employees%20I/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2637.Promise%20Time%20Limit/README.md
+---
+
 # [2637. 有时间限制的 Promise 对象](https://leetcode.cn/problems/promise-time-limit)
 
 [English Version](/solution/2600-2699/2637.Promise%20Time%20Limit/README_EN.md)
-
-<!-- tags: -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

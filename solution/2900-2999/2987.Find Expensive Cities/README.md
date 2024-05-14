@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2987.Find%20Expensive%20Cities/README.md
+tags:
+    - 数据库
+---
+
 # [2987. 寻找房价最贵的城市 🔒](https://leetcode.cn/problems/find-expensive-cities)
 
 [English Version](/solution/2900-2999/2987.Find%20Expensive%20Cities/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

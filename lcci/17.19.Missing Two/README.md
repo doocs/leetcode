@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.19.Missing%20Two/README.md
+---
+
 # [面试题 17.19. 消失的两个数字](https://leetcode.cn/problems/missing-two-lcci)
 
 [English Version](/lcci/17.19.Missing%20Two/README_EN.md)

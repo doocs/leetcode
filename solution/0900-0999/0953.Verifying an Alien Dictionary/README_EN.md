@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0953.Verifying%20an%20Alien%20Dictionary/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - String
+---
+
 # [953. Verifying an Alien Dictionary](https://leetcode.com/problems/verifying-an-alien-dictionary)
 
 [中文文档](/solution/0900-0999/0953.Verifying%20an%20Alien%20Dictionary/README.md)
-
-<!-- tags:Array,Hash Table,String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

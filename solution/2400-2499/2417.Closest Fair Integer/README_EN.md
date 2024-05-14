@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2417.Closest%20Fair%20Integer/README_EN.md
+tags:
+    - Math
+    - Enumeration
+---
+
 # [2417. Closest Fair Integer 🔒](https://leetcode.com/problems/closest-fair-integer)
 
 [中文文档](/solution/2400-2499/2417.Closest%20Fair%20Integer/README.md)
-
-<!-- tags:Math,Enumeration -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

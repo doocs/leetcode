@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1003.Check%20If%20Word%20Is%20Valid%20After%20Substitutions/README.md
+rating: 1426
+tags:
+    - 栈
+    - 字符串
+---
+
 # [1003. 检查替换后的词是否有效](https://leetcode.cn/problems/check-if-word-is-valid-after-substitutions)
 
 [English Version](/solution/1000-1099/1003.Check%20If%20Word%20Is%20Valid%20After%20Substitutions/README_EN.md)
-
-<!-- tags:栈,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2188.Minimum%20Time%20to%20Finish%20the%20Race/README.md
+rating: 2315
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [2188. 完成比赛的最少时间](https://leetcode.cn/problems/minimum-time-to-finish-the-race)
 
 [English Version](/solution/2100-2199/2188.Minimum%20Time%20to%20Finish%20the%20Race/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

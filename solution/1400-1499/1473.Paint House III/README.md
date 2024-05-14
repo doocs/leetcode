@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1473.Paint%20House%20III/README.md
+rating: 2056
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [1473. 粉刷房子 III](https://leetcode.cn/problems/paint-house-iii)
 
 [English Version](/solution/1400-1499/1473.Paint%20House%20III/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

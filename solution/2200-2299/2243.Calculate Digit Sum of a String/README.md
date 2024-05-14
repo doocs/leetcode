@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2243.Calculate%20Digit%20Sum%20of%20a%20String/README.md
+rating: 1301
+tags:
+    - 字符串
+    - 模拟
+---
+
 # [2243. 计算字符串的数字和](https://leetcode.cn/problems/calculate-digit-sum-of-a-string)
 
 [English Version](/solution/2200-2299/2243.Calculate%20Digit%20Sum%20of%20a%20String/README_EN.md)
-
-<!-- tags:字符串,模拟 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

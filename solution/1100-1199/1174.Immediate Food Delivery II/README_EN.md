@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1174.Immediate%20Food%20Delivery%20II/README_EN.md
+tags:
+    - Database
+---
+
 # [1174. Immediate Food Delivery II](https://leetcode.com/problems/immediate-food-delivery-ii)
 
 [中文文档](/solution/1100-1199/1174.Immediate%20Food%20Delivery%20II/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

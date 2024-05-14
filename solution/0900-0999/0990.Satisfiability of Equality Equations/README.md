@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0990.Satisfiability%20of%20Equality%20Equations/README.md
+tags:
+    - 并查集
+    - 图
+    - 数组
+    - 字符串
+---
+
 # [990. 等式方程的可满足性](https://leetcode.cn/problems/satisfiability-of-equality-equations)
 
 [English Version](/solution/0900-0999/0990.Satisfiability%20of%20Equality%20Equations/README_EN.md)
-
-<!-- tags:并查集,图,数组,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

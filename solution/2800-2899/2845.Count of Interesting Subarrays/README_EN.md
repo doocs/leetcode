@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2845.Count%20of%20Interesting%20Subarrays/README_EN.md
+rating: 2073
+tags:
+    - Array
+    - Hash Table
+    - Prefix Sum
+---
+
 # [2845. Count of Interesting Subarrays](https://leetcode.com/problems/count-of-interesting-subarrays)
 
 [中文文档](/solution/2800-2899/2845.Count%20of%20Interesting%20Subarrays/README.md)
-
-<!-- tags:Array,Hash Table,Prefix Sum -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

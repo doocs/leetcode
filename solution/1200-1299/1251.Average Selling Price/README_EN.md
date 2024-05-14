@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1251.Average%20Selling%20Price/README_EN.md
+tags:
+    - Database
+---
+
 # [1251. Average Selling Price](https://leetcode.com/problems/average-selling-price)
 
 [中文文档](/solution/1200-1299/1251.Average%20Selling%20Price/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

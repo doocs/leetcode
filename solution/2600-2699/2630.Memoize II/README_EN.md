@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2630.Memoize%20II/README_EN.md
+---
+
 # [2630. Memoize II](https://leetcode.com/problems/memoize-ii)
 
 [中文文档](/solution/2600-2699/2630.Memoize%20II/README.md)
-
-<!-- tags: -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

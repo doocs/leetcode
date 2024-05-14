@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1486.XOR%20Operation%20in%20an%20Array/README.md
+rating: 1180
+tags:
+    - 位运算
+    - 数学
+---
+
 # [1486. 数组异或操作](https://leetcode.cn/problems/xor-operation-in-an-array)
 
 [English Version](/solution/1400-1499/1486.XOR%20Operation%20in%20an%20Array/README_EN.md)
-
-<!-- tags:位运算,数学 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

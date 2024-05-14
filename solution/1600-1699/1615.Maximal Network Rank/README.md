@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1615.Maximal%20Network%20Rank/README.md
+rating: 1521
+tags:
+    - 图
+---
+
 # [1615. 最大网络秩](https://leetcode.cn/problems/maximal-network-rank)
 
 [English Version](/solution/1600-1699/1615.Maximal%20Network%20Rank/README_EN.md)
-
-<!-- tags:图 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

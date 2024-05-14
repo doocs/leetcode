@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0527.Word%20Abbreviation/README.md
+tags:
+    - 贪心
+    - 字典树
+    - 数组
+    - 字符串
+    - 排序
+---
+
 # [527. 单词缩写 🔒](https://leetcode.cn/problems/word-abbreviation)
 
 [English Version](/solution/0500-0599/0527.Word%20Abbreviation/README_EN.md)
-
-<!-- tags:贪心,字典树,数组,字符串,排序 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

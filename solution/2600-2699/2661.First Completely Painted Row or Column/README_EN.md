@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2661.First%20Completely%20Painted%20Row%20or%20Column/README_EN.md
+rating: 1502
+tags:
+    - Array
+    - Hash Table
+    - Matrix
+---
+
 # [2661. First Completely Painted Row or Column](https://leetcode.com/problems/first-completely-painted-row-or-column)
 
 [中文文档](/solution/2600-2699/2661.First%20Completely%20Painted%20Row%20or%20Column/README.md)
-
-<!-- tags:Array,Hash Table,Matrix -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

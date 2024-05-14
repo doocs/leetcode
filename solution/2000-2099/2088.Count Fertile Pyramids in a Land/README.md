@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/README.md
+rating: 2104
+tags:
+    - 数组
+    - 动态规划
+    - 矩阵
+---
+
 # [2088. 统计农场中肥沃金字塔的数目](https://leetcode.cn/problems/count-fertile-pyramids-in-a-land)
 
 [English Version](/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/README_EN.md)
-
-<!-- tags:数组,动态规划,矩阵 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1590.Make%20Sum%20Divisible%20by%20P/README.md
+rating: 2038
+tags:
+    - 数组
+    - 哈希表
+    - 前缀和
+---
+
 # [1590. 使数组和能被 P 整除](https://leetcode.cn/problems/make-sum-divisible-by-p)
 
 [English Version](/solution/1500-1599/1590.Make%20Sum%20Divisible%20by%20P/README_EN.md)
-
-<!-- tags:数组,哈希表,前缀和 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

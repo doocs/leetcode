@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0568.Maximum%20Vacation%20Days/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+    - Matrix
+---
+
 # [568. Maximum Vacation Days 🔒](https://leetcode.com/problems/maximum-vacation-days)
 
 [中文文档](/solution/0500-0599/0568.Maximum%20Vacation%20Days/README.md)
-
-<!-- tags:Array,Dynamic Programming,Matrix -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

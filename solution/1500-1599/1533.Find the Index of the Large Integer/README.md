@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1533.Find%20the%20Index%20of%20the%20Large%20Integer/README.md
+tags:
+    - 数组
+    - 二分查找
+    - 交互
+---
+
 # [1533. 找到最大整数的索引 🔒](https://leetcode.cn/problems/find-the-index-of-the-large-integer)
 
 [English Version](/solution/1500-1599/1533.Find%20the%20Index%20of%20the%20Large%20Integer/README_EN.md)
-
-<!-- tags:数组,二分查找,交互 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.04.Partition%20List/README.md
+---
+
 # [面试题 02.04. 分割链表](https://leetcode.cn/problems/partition-list-lcci)
 
 [English Version](/lcci/02.04.Partition%20List/README_EN.md)

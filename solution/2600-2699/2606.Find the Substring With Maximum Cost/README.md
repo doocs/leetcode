@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2606.Find%20the%20Substring%20With%20Maximum%20Cost/README.md
+rating: 1422
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+    - 动态规划
+---
+
 # [2606. 找到最大开销的子字符串](https://leetcode.cn/problems/find-the-substring-with-maximum-cost)
 
 [English Version](/solution/2600-2699/2606.Find%20the%20Substring%20With%20Maximum%20Cost/README_EN.md)
-
-<!-- tags:数组,哈希表,字符串,动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

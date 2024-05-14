@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2183.Count%20Array%20Pairs%20Divisible%20by%20K/README.md
+rating: 2246
+tags:
+    - 数组
+    - 数学
+    - 数论
+---
+
 # [2183. 统计可以被 K 整除的下标对数目](https://leetcode.cn/problems/count-array-pairs-divisible-by-k)
 
 [English Version](/solution/2100-2199/2183.Count%20Array%20Pairs%20Divisible%20by%20K/README_EN.md)
-
-<!-- tags:数组,数学,数论 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

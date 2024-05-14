@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2817.Minimum%20Absolute%20Difference%20Between%20Elements%20With%20Constraint/README_EN.md
+rating: 1889
+tags:
+    - Array
+    - Binary Search
+    - Ordered Set
+---
+
 # [2817. Minimum Absolute Difference Between Elements With Constraint](https://leetcode.com/problems/minimum-absolute-difference-between-elements-with-constraint)
 
 [中文文档](/solution/2800-2899/2817.Minimum%20Absolute%20Difference%20Between%20Elements%20With%20Constraint/README.md)
-
-<!-- tags:Array,Binary Search,Ordered Set -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

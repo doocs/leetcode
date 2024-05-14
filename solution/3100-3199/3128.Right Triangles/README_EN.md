@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3128.Right%20Triangles/README_EN.md
+rating: 1540
+tags:
+    - Array
+    - Hash Table
+    - Math
+    - Combinatorics
+    - Counting
+---
+
 # [3128. Right Triangles](https://leetcode.com/problems/right-triangles)
 
 [中文文档](/solution/3100-3199/3128.Right%20Triangles/README.md)
-
-<!-- tags:Array,Hash Table,Math,Combinatorics,Counting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

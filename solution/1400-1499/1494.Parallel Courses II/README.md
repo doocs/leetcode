@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1494.Parallel%20Courses%20II/README.md
+rating: 2081
+tags:
+    - 位运算
+    - 图
+    - 动态规划
+    - 状态压缩
+---
+
 # [1494. 并行课程 II](https://leetcode.cn/problems/parallel-courses-ii)
 
 [English Version](/solution/1400-1499/1494.Parallel%20Courses%20II/README_EN.md)
-
-<!-- tags:位运算,图,动态规划,状态压缩 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1671.Minimum%20Number%20of%20Removals%20to%20Make%20Mountain%20Array/README.md
+rating: 1912
+tags:
+    - 贪心
+    - 数组
+    - 二分查找
+    - 动态规划
+---
+
 # [1671. 得到山形数组的最少删除次数](https://leetcode.cn/problems/minimum-number-of-removals-to-make-mountain-array)
 
 [English Version](/solution/1600-1699/1671.Minimum%20Number%20of%20Removals%20to%20Make%20Mountain%20Array/README_EN.md)
-
-<!-- tags:贪心,数组,二分查找,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

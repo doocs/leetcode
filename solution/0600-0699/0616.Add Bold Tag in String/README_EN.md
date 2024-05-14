@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0616.Add%20Bold%20Tag%20in%20String/README_EN.md
+tags:
+    - Trie
+    - Array
+    - Hash Table
+    - String
+    - String Matching
+---
+
 # [616. Add Bold Tag in String 🔒](https://leetcode.com/problems/add-bold-tag-in-string)
 
 [中文文档](/solution/0600-0699/0616.Add%20Bold%20Tag%20in%20String/README.md)
-
-<!-- tags:Trie,Array,Hash Table,String,String Matching -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

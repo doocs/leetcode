@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1657.Determine%20if%20Two%20Strings%20Are%20Close/README_EN.md
+rating: 1530
+tags:
+    - Hash Table
+    - String
+    - Counting
+    - Sorting
+---
+
 # [1657. Determine if Two Strings Are Close](https://leetcode.com/problems/determine-if-two-strings-are-close)
 
 [中文文档](/solution/1600-1699/1657.Determine%20if%20Two%20Strings%20Are%20Close/README.md)
-
-<!-- tags:Hash Table,String,Counting,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

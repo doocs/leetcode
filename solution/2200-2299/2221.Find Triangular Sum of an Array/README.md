@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2221.Find%20Triangular%20Sum%20of%20an%20Array/README.md
+rating: 1317
+tags:
+    - 数组
+    - 数学
+    - 组合数学
+    - 模拟
+---
+
 # [2221. 数组的三角和](https://leetcode.cn/problems/find-triangular-sum-of-an-array)
 
 [English Version](/solution/2200-2299/2221.Find%20Triangular%20Sum%20of%20an%20Array/README_EN.md)
-
-<!-- tags:数组,数学,组合数学,模拟 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

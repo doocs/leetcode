@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0573.Squirrel%20Simulation/README_EN.md
+tags:
+    - Array
+    - Math
+---
+
 # [573. Squirrel Simulation 🔒](https://leetcode.com/problems/squirrel-simulation)
 
 [中文文档](/solution/0500-0599/0573.Squirrel%20Simulation/README.md)
-
-<!-- tags:Array,Math -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

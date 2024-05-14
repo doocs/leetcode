@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0439.Ternary%20Expression%20Parser/README.md
+tags:
+    - 栈
+    - 递归
+    - 字符串
+---
+
 # [439. 三元表达式解析器 🔒](https://leetcode.cn/problems/ternary-expression-parser)
 
 [English Version](/solution/0400-0499/0439.Ternary%20Expression%20Parser/README_EN.md)
-
-<!-- tags:栈,递归,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

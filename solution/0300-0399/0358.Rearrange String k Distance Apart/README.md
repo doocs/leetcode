@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0358.Rearrange%20String%20k%20Distance%20Apart/README.md
+tags:
+    - 贪心
+    - 哈希表
+    - 字符串
+    - 计数
+    - 排序
+    - 堆（优先队列）
+---
+
 # [358. K 距离间隔重排字符串 🔒](https://leetcode.cn/problems/rearrange-string-k-distance-apart)
 
 [English Version](/solution/0300-0399/0358.Rearrange%20String%20k%20Distance%20Apart/README_EN.md)
-
-<!-- tags:贪心,哈希表,字符串,计数,排序,堆（优先队列） -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2387.Median%20of%20a%20Row%20Wise%20Sorted%20Matrix/README_EN.md
+tags:
+    - Array
+    - Binary Search
+    - Matrix
+---
+
 # [2387. Median of a Row Wise Sorted Matrix 🔒](https://leetcode.com/problems/median-of-a-row-wise-sorted-matrix)
 
 [中文文档](/solution/2300-2399/2387.Median%20of%20a%20Row%20Wise%20Sorted%20Matrix/README.md)
-
-<!-- tags:Array,Binary Search,Matrix -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

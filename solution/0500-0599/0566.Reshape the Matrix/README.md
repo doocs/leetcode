@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0566.Reshape%20the%20Matrix/README.md
+tags:
+    - 数组
+    - 矩阵
+    - 模拟
+---
+
 # [566. 重塑矩阵](https://leetcode.cn/problems/reshape-the-matrix)
 
 [English Version](/solution/0500-0599/0566.Reshape%20the%20Matrix/README_EN.md)
-
-<!-- tags:数组,矩阵,模拟 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1737.Change%20Minimum%20Characters%20to%20Satisfy%20One%20of%20Three%20Conditions/README.md
+rating: 1952
+tags:
+    - 哈希表
+    - 字符串
+    - 计数
+    - 前缀和
+---
+
 # [1737. 满足三条件之一需改变的最少字符数](https://leetcode.cn/problems/change-minimum-characters-to-satisfy-one-of-three-conditions)
 
 [English Version](/solution/1700-1799/1737.Change%20Minimum%20Characters%20to%20Satisfy%20One%20of%20Three%20Conditions/README_EN.md)
-
-<!-- tags:哈希表,字符串,计数,前缀和 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

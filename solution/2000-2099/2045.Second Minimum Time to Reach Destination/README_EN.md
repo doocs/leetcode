@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2045.Second%20Minimum%20Time%20to%20Reach%20Destination/README_EN.md
+rating: 2201
+tags:
+    - Breadth-First Search
+    - Graph
+    - Shortest Path
+---
+
 # [2045. Second Minimum Time to Reach Destination](https://leetcode.com/problems/second-minimum-time-to-reach-destination)
 
 [中文文档](/solution/2000-2099/2045.Second%20Minimum%20Time%20to%20Reach%20Destination/README.md)
-
-<!-- tags:Breadth-First Search,Graph,Shortest Path -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

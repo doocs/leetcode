@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0208.Implement%20Trie%20%28Prefix%20Tree%29/README.md
+tags:
+    - 设计
+    - 字典树
+    - 哈希表
+    - 字符串
+---
+
 # [208. 实现 Trie (前缀树)](https://leetcode.cn/problems/implement-trie-prefix-tree)
 
 [English Version](/solution/0200-0299/0208.Implement%20Trie%20%28Prefix%20Tree%29/README_EN.md)
-
-<!-- tags:设计,字典树,哈希表,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

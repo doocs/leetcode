@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2052.%20%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E6%9F%93%E8%89%B2/README.md
+---
+
 # [LCP 52. 二叉搜索树染色](https://leetcode.cn/problems/QO5KpG)
 
 ## 题目描述

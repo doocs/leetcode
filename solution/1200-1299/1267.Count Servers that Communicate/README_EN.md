@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1267.Count%20Servers%20that%20Communicate/README_EN.md
+rating: 1374
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Union Find
+    - Array
+    - Counting
+    - Matrix
+---
+
 # [1267. Count Servers that Communicate](https://leetcode.com/problems/count-servers-that-communicate)
 
 [中文文档](/solution/1200-1299/1267.Count%20Servers%20that%20Communicate/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Array,Counting,Matrix -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

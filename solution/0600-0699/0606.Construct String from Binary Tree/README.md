@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0606.Construct%20String%20from%20Binary%20Tree/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 字符串
+    - 二叉树
+---
+
 # [606. 根据二叉树创建字符串](https://leetcode.cn/problems/construct-string-from-binary-tree)
 
 [English Version](/solution/0600-0699/0606.Construct%20String%20from%20Binary%20Tree/README_EN.md)
-
-<!-- tags:树,深度优先搜索,字符串,二叉树 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

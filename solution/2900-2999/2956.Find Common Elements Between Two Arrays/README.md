@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2956.Find%20Common%20Elements%20Between%20Two%20Arrays/README.md
+rating: 1214
+tags:
+    - 数组
+    - 哈希表
+---
+
 # [2956. 找到两个数组中的公共元素](https://leetcode.cn/problems/find-common-elements-between-two-arrays)
 
 [English Version](/solution/2900-2999/2956.Find%20Common%20Elements%20Between%20Two%20Arrays/README_EN.md)
-
-<!-- tags:数组,哈希表 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

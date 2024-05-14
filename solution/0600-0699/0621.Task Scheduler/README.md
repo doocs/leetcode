@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0621.Task%20Scheduler/README.md
+tags:
+    - 贪心
+    - 数组
+    - 哈希表
+    - 计数
+    - 排序
+    - 堆（优先队列）
+---
+
 # [621. 任务调度器](https://leetcode.cn/problems/task-scheduler)
 
 [English Version](/solution/0600-0699/0621.Task%20Scheduler/README_EN.md)
-
-<!-- tags:贪心,数组,哈希表,计数,排序,堆（优先队列） -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

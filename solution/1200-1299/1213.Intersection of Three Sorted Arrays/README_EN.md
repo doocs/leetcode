@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1213.Intersection%20of%20Three%20Sorted%20Arrays/README_EN.md
+rating: 1259
+tags:
+    - Array
+    - Hash Table
+    - Binary Search
+    - Counting
+---
+
 # [1213. Intersection of Three Sorted Arrays 🔒](https://leetcode.com/problems/intersection-of-three-sorted-arrays)
 
 [中文文档](/solution/1200-1299/1213.Intersection%20of%20Three%20Sorted%20Arrays/README.md)
-
-<!-- tags:Array,Hash Table,Binary Search,Counting -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

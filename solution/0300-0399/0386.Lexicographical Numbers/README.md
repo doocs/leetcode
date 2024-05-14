@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0386.Lexicographical%20Numbers/README.md
+tags:
+    - 深度优先搜索
+    - 字典树
+---
+
 # [386. 字典序排数](https://leetcode.cn/problems/lexicographical-numbers)
 
 [English Version](/solution/0300-0399/0386.Lexicographical%20Numbers/README_EN.md)
-
-<!-- tags:深度优先搜索,字典树 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

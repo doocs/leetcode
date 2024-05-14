@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2258.Escape%20the%20Spreading%20Fire/README_EN.md
+rating: 2346
+tags:
+    - Breadth-First Search
+    - Array
+    - Binary Search
+    - Matrix
+---
+
 # [2258. Escape the Spreading Fire](https://leetcode.com/problems/escape-the-spreading-fire)
 
 [中文文档](/solution/2200-2299/2258.Escape%20the%20Spreading%20Fire/README.md)
-
-<!-- tags:Breadth-First Search,Array,Binary Search,Matrix -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

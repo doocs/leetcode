@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2673.Make%20Costs%20of%20Paths%20Equal%20in%20a%20Binary%20Tree/README_EN.md
+rating: 1917
+tags:
+    - Greedy
+    - Tree
+    - Array
+    - Dynamic Programming
+    - Binary Tree
+---
+
 # [2673. Make Costs of Paths Equal in a Binary Tree](https://leetcode.com/problems/make-costs-of-paths-equal-in-a-binary-tree)
 
 [中文文档](/solution/2600-2699/2673.Make%20Costs%20of%20Paths%20Equal%20in%20a%20Binary%20Tree/README.md)
-
-<!-- tags:Greedy,Tree,Array,Dynamic Programming,Binary Tree -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

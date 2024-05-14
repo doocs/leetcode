@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1092.Shortest%20Common%20Supersequence/README_EN.md
+rating: 1976
+tags:
+    - String
+    - Dynamic Programming
+---
+
 # [1092. Shortest Common Supersequence](https://leetcode.com/problems/shortest-common-supersequence)
 
 [中文文档](/solution/1000-1099/1092.Shortest%20Common%20Supersequence/README.md)
-
-<!-- tags:String,Dynamic Programming -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

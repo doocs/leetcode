@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2948.Make%20Lexicographically%20Smallest%20Array%20by%20Swapping%20Elements/README.md
+rating: 2047
+tags:
+    - 并查集
+    - 数组
+    - 排序
+---
+
 # [2948. 交换得到字典序最小的数组](https://leetcode.cn/problems/make-lexicographically-smallest-array-by-swapping-elements)
 
 [English Version](/solution/2900-2999/2948.Make%20Lexicographically%20Smallest%20Array%20by%20Swapping%20Elements/README_EN.md)
-
-<!-- tags:并查集,数组,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

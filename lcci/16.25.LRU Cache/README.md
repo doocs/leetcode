@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.25.LRU%20Cache/README.md
+---
+
 # [面试题 16.25. LRU 缓存](https://leetcode.cn/problems/lru-cache-lcci)
 
 [English Version](/lcci/16.25.LRU%20Cache/README_EN.md)

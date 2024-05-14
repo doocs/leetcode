@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0391.Perfect%20Rectangle/README_EN.md
+tags:
+    - Array
+    - Line Sweep
+---
+
 # [391. Perfect Rectangle](https://leetcode.com/problems/perfect-rectangle)
 
 [中文文档](/solution/0300-0399/0391.Perfect%20Rectangle/README.md)
-
-<!-- tags:Array,Line Sweep -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

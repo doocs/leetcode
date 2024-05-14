@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1438.Longest%20Continuous%20Subarray%20With%20Absolute%20Diff%20Less%20Than%20or%20Equal%20to%20Limit/README.md
+rating: 1672
+tags:
+    - 队列
+    - 数组
+    - 有序集合
+    - 滑动窗口
+    - 单调队列
+    - 堆（优先队列）
+---
+
 # [1438. 绝对差不超过限制的最长连续子数组](https://leetcode.cn/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit)
 
 [English Version](/solution/1400-1499/1438.Longest%20Continuous%20Subarray%20With%20Absolute%20Diff%20Less%20Than%20or%20Equal%20to%20Limit/README_EN.md)
-
-<!-- tags:队列,数组,有序集合,滑动窗口,单调队列,堆（优先队列） -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

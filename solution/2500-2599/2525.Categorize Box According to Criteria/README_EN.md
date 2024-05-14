@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2525.Categorize%20Box%20According%20to%20Criteria/README_EN.md
+rating: 1301
+tags:
+    - Math
+---
+
 # [2525. Categorize Box According to Criteria](https://leetcode.com/problems/categorize-box-according-to-criteria)
 
 [中文文档](/solution/2500-2599/2525.Categorize%20Box%20According%20to%20Criteria/README.md)
-
-<!-- tags:Math -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0443.String%20Compression/README.md
+tags:
+    - 双指针
+    - 字符串
+---
+
 # [443. 压缩字符串](https://leetcode.cn/problems/string-compression)
 
 [English Version](/solution/0400-0499/0443.String%20Compression/README_EN.md)
-
-<!-- tags:双指针,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

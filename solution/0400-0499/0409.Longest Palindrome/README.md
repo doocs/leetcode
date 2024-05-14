@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0409.Longest%20Palindrome/README.md
+tags:
+    - 贪心
+    - 哈希表
+    - 字符串
+---
+
 # [409. 最长回文串](https://leetcode.cn/problems/longest-palindrome)
 
 [English Version](/solution/0400-0499/0409.Longest%20Palindrome/README_EN.md)
-
-<!-- tags:贪心,哈希表,字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

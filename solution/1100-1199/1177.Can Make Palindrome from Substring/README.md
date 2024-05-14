@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1177.Can%20Make%20Palindrome%20from%20Substring/README.md
+rating: 1848
+tags:
+    - 位运算
+    - 数组
+    - 哈希表
+    - 字符串
+    - 前缀和
+---
+
 # [1177. 构建回文串检测](https://leetcode.cn/problems/can-make-palindrome-from-substring)
 
 [English Version](/solution/1100-1199/1177.Can%20Make%20Palindrome%20from%20Substring/README_EN.md)
-
-<!-- tags:位运算,数组,哈希表,字符串,前缀和 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1763.Longest%20Nice%20Substring/README_EN.md
+rating: 1521
+tags:
+    - Bit Manipulation
+    - Hash Table
+    - String
+    - Divide and Conquer
+    - Sliding Window
+---
+
 # [1763. Longest Nice Substring](https://leetcode.com/problems/longest-nice-substring)
 
 [中文文档](/solution/1700-1799/1763.Longest%20Nice%20Substring/README.md)
-
-<!-- tags:Bit Manipulation,Hash Table,String,Divide and Conquer,Sliding Window -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

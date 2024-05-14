@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2311.Longest%20Binary%20Subsequence%20Less%20Than%20or%20Equal%20to%20K/README_EN.md
+rating: 1839
+tags:
+    - Greedy
+    - Memoization
+    - String
+    - Dynamic Programming
+---
+
 # [2311. Longest Binary Subsequence Less Than or Equal to K](https://leetcode.com/problems/longest-binary-subsequence-less-than-or-equal-to-k)
 
 [中文文档](/solution/2300-2399/2311.Longest%20Binary%20Subsequence%20Less%20Than%20or%20Equal%20to%20K/README.md)
-
-<!-- tags:Greedy,Memoization,String,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

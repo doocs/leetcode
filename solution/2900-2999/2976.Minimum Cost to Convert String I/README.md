@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2976.Minimum%20Cost%20to%20Convert%20String%20I/README.md
+rating: 1882
+tags:
+    - 图
+    - 数组
+    - 字符串
+    - 最短路
+---
+
 # [2976. 转换字符串的最小成本 I](https://leetcode.cn/problems/minimum-cost-to-convert-string-i)
 
 [English Version](/solution/2900-2999/2976.Minimum%20Cost%20to%20Convert%20String%20I/README_EN.md)
-
-<!-- tags:图,数组,字符串,最短路 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0395.Longest%20Substring%20with%20At%20Least%20K%20Repeating%20Characters/README_EN.md
+tags:
+    - Hash Table
+    - String
+    - Divide and Conquer
+    - Sliding Window
+---
+
 # [395. Longest Substring with At Least K Repeating Characters](https://leetcode.com/problems/longest-substring-with-at-least-k-repeating-characters)
 
 [中文文档](/solution/0300-0399/0395.Longest%20Substring%20with%20At%20Least%20K%20Repeating%20Characters/README.md)
-
-<!-- tags:Hash Table,String,Divide and Conquer,Sliding Window -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

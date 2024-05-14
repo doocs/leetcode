@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2713.Maximum%20Strictly%20Increasing%20Cells%20in%20a%20Matrix/README.md
+rating: 2387
+tags:
+    - 记忆化搜索
+    - 数组
+    - 二分查找
+    - 动态规划
+    - 矩阵
+    - 排序
+---
+
 # [2713. 矩阵中严格递增的单元格数](https://leetcode.cn/problems/maximum-strictly-increasing-cells-in-a-matrix)
 
 [English Version](/solution/2700-2799/2713.Maximum%20Strictly%20Increasing%20Cells%20in%20a%20Matrix/README_EN.md)
-
-<!-- tags:记忆化搜索,数组,二分查找,动态规划,矩阵,排序 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3078.Match%20Alphanumerical%20Pattern%20in%20Matrix%20I/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+    - 矩阵
+---
+
 # [3078. 矩阵中的字母数字模式匹配 I 🔒](https://leetcode.cn/problems/match-alphanumerical-pattern-in-matrix-i)
 
 [English Version](/solution/3000-3099/3078.Match%20Alphanumerical%20Pattern%20in%20Matrix%20I/README_EN.md)
-
-<!-- tags:数组,哈希表,字符串,矩阵 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

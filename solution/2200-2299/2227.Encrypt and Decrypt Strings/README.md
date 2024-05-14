@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2227.Encrypt%20and%20Decrypt%20Strings/README.md
+rating: 1944
+tags:
+    - 设计
+    - 字典树
+    - 数组
+    - 哈希表
+    - 字符串
+---
+
 # [2227. 加密解密字符串](https://leetcode.cn/problems/encrypt-and-decrypt-strings)
 
 [English Version](/solution/2200-2299/2227.Encrypt%20and%20Decrypt%20Strings/README_EN.md)
-
-<!-- tags:设计,字典树,数组,哈希表,字符串 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

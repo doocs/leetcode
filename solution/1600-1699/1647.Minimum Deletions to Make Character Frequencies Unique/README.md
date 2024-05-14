@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1647.Minimum%20Deletions%20to%20Make%20Character%20Frequencies%20Unique/README.md
+rating: 1509
+tags:
+    - 贪心
+    - 哈希表
+    - 字符串
+    - 排序
+---
+
 # [1647. 字符频次唯一的最小删除次数](https://leetcode.cn/problems/minimum-deletions-to-make-character-frequencies-unique)
 
 [English Version](/solution/1600-1699/1647.Minimum%20Deletions%20to%20Make%20Character%20Frequencies%20Unique/README_EN.md)
-
-<!-- tags:贪心,哈希表,字符串,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

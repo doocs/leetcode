@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20096.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BA%A4%E7%BB%87/README.md
+---
+
 # [剑指 Offer II 096. 字符串交织](https://leetcode.cn/problems/IY6buf)
 
 ## 题目描述

@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0638.Shopping%20Offers/README_EN.md
+tags:
+    - Bit Manipulation
+    - Memoization
+    - Array
+    - Dynamic Programming
+    - Backtracking
+    - Bitmask
+---
+
 # [638. Shopping Offers](https://leetcode.com/problems/shopping-offers)
 
 [中文文档](/solution/0600-0699/0638.Shopping%20Offers/README.md)
-
-<!-- tags:Bit Manipulation,Memoization,Array,Dynamic Programming,Backtracking,Bitmask -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

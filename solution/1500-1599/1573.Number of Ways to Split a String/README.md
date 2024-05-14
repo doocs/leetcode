@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1573.Number%20of%20Ways%20to%20Split%20a%20String/README.md
+rating: 1590
+tags:
+    - 数学
+    - 字符串
+---
+
 # [1573. 分割字符串的方案数](https://leetcode.cn/problems/number-of-ways-to-split-a-string)
 
 [English Version](/solution/1500-1599/1573.Number%20of%20Ways%20to%20Split%20a%20String/README_EN.md)
-
-<!-- tags:数学,字符串 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

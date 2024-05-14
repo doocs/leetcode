@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1917.Leetcodify%20Friends%20Recommendations/README.md
+tags:
+    - 数据库
+---
+
 # [1917. Leetcodify 好友推荐 🔒](https://leetcode.cn/problems/leetcodify-friends-recommendations)
 
 [English Version](/solution/1900-1999/1917.Leetcodify%20Friends%20Recommendations/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

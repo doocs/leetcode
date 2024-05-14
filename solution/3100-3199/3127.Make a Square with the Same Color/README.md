@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3127.Make%20a%20Square%20with%20the%20Same%20Color/README.md
+rating: 1337
+tags:
+    - 数组
+    - 枚举
+    - 矩阵
+---
+
 # [3127. 构造相同颜色的正方形](https://leetcode.cn/problems/make-a-square-with-the-same-color)
 
 [English Version](/solution/3100-3199/3127.Make%20a%20Square%20with%20the%20Same%20Color/README_EN.md)
-
-<!-- tags:数组,枚举,矩阵 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

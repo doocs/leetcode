@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1914.Cyclically%20Rotating%20a%20Grid/README_EN.md
+rating: 1766
+tags:
+    - Array
+    - Matrix
+    - Simulation
+---
+
 # [1914. Cyclically Rotating a Grid](https://leetcode.com/problems/cyclically-rotating-a-grid)
 
 [中文文档](/solution/1900-1999/1914.Cyclically%20Rotating%20a%20Grid/README.md)
-
-<!-- tags:Array,Matrix,Simulation -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

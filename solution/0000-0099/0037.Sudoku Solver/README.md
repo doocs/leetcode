@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0037.Sudoku%20Solver/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 回溯
+    - 矩阵
+---
+
 # [37. 解数独](https://leetcode.cn/problems/sudoku-solver)
 
 [English Version](/solution/0000-0099/0037.Sudoku%20Solver/README_EN.md)
-
-<!-- tags:数组,哈希表,回溯,矩阵 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

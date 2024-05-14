@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0724.Find%20Pivot%20Index/README_EN.md
+tags:
+    - Array
+    - Prefix Sum
+---
+
 # [724. Find Pivot Index](https://leetcode.com/problems/find-pivot-index)
 
 [中文文档](/solution/0700-0799/0724.Find%20Pivot%20Index/README.md)
-
-<!-- tags:Array,Prefix Sum -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

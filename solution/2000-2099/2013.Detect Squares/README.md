@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2013.Detect%20Squares/README.md
+rating: 1841
+tags:
+    - 设计
+    - 数组
+    - 哈希表
+    - 计数
+---
+
 # [2013. 检测正方形](https://leetcode.cn/problems/detect-squares)
 
 [English Version](/solution/2000-2099/2013.Detect%20Squares/README_EN.md)
-
-<!-- tags:设计,数组,哈希表,计数 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

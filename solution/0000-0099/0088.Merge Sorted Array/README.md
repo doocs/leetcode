@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0088.Merge%20Sorted%20Array/README.md
+tags:
+    - 数组
+    - 双指针
+    - 排序
+---
+
 # [88. 合并两个有序数组](https://leetcode.cn/problems/merge-sorted-array)
 
 [English Version](/solution/0000-0099/0088.Merge%20Sorted%20Array/README_EN.md)
-
-<!-- tags:数组,双指针,排序 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

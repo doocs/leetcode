@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0384.Shuffle%20an%20Array/README_EN.md
+tags:
+    - Array
+    - Math
+    - Randomized
+---
+
 # [384. Shuffle an Array](https://leetcode.com/problems/shuffle-an-array)
 
 [中文文档](/solution/0300-0399/0384.Shuffle%20an%20Array/README.md)
-
-<!-- tags:Array,Math,Randomized -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

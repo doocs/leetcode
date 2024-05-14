@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0757.Set%20Intersection%20Size%20At%20Least%20Two/README.md
+tags:
+    - 贪心
+    - 数组
+    - 排序
+---
+
 # [757. 设置交集大小至少为 2](https://leetcode.cn/problems/set-intersection-size-at-least-two)
 
 [English Version](/solution/0700-0799/0757.Set%20Intersection%20Size%20At%20Least%20Two/README_EN.md)
-
-<!-- tags:贪心,数组,排序 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

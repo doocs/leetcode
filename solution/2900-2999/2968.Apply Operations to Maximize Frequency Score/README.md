@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2968.Apply%20Operations%20to%20Maximize%20Frequency%20Score/README.md
+rating: 2444
+tags:
+    - 数组
+    - 二分查找
+    - 前缀和
+    - 排序
+    - 滑动窗口
+---
+
 # [2968. 执行操作使频率分数最大](https://leetcode.cn/problems/apply-operations-to-maximize-frequency-score)
 
 [English Version](/solution/2900-2999/2968.Apply%20Operations%20to%20Maximize%20Frequency%20Score/README_EN.md)
-
-<!-- tags:数组,二分查找,前缀和,排序,滑动窗口 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

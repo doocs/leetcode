@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0131.Palindrome%20Partitioning/README.md
+tags:
+    - 字符串
+    - 动态规划
+    - 回溯
+---
+
 # [131. 分割回文串](https://leetcode.cn/problems/palindrome-partitioning)
 
 [English Version](/solution/0100-0199/0131.Palindrome%20Partitioning/README_EN.md)
-
-<!-- tags:字符串,动态规划,回溯 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

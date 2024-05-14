@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1837.Sum%20of%20Digits%20in%20Base%20K/README_EN.md
+rating: 1282
+tags:
+    - Math
+---
+
 # [1837. Sum of Digits in Base K](https://leetcode.com/problems/sum-of-digits-in-base-k)
 
 [中文文档](/solution/1800-1899/1837.Sum%20of%20Digits%20in%20Base%20K/README.md)
-
-<!-- tags:Math -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

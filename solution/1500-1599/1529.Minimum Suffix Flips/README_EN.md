@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1529.Minimum%20Suffix%20Flips/README_EN.md
+rating: 1392
+tags:
+    - Greedy
+    - String
+---
+
 # [1529. Minimum Suffix Flips](https://leetcode.com/problems/minimum-suffix-flips)
 
 [中文文档](/solution/1500-1599/1529.Minimum%20Suffix%20Flips/README.md)
-
-<!-- tags:Greedy,String -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3054.Binary%20Tree%20Nodes/README.md
+tags:
+    - 数据库
+---
+
 # [3054. 二叉树节点 🔒](https://leetcode.cn/problems/binary-tree-nodes)
 
 [English Version](/solution/3000-3099/3054.Binary%20Tree%20Nodes/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

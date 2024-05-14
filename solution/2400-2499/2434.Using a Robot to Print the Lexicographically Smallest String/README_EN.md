@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2434.Using%20a%20Robot%20to%20Print%20the%20Lexicographically%20Smallest%20String/README_EN.md
+rating: 1953
+tags:
+    - Stack
+    - Greedy
+    - Hash Table
+    - String
+---
+
 # [2434. Using a Robot to Print the Lexicographically Smallest String](https://leetcode.com/problems/using-a-robot-to-print-the-lexicographically-smallest-string)
 
 [中文文档](/solution/2400-2499/2434.Using%20a%20Robot%20to%20Print%20the%20Lexicographically%20Smallest%20String/README.md)
-
-<!-- tags:Stack,Greedy,Hash Table,String -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

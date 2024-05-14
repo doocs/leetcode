@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0577.Employee%20Bonus/README_EN.md
+tags:
+    - Database
+---
+
 # [577. Employee Bonus](https://leetcode.com/problems/employee-bonus)
 
 [中文文档](/solution/0500-0599/0577.Employee%20Bonus/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

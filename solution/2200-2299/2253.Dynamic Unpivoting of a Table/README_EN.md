@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2253.Dynamic%20Unpivoting%20of%20a%20Table/README_EN.md
+tags:
+    - Database
+---
+
 # [2253. Dynamic Unpivoting of a Table 🔒](https://leetcode.com/problems/dynamic-unpivoting-of-a-table)
 
 [中文文档](/solution/2200-2299/2253.Dynamic%20Unpivoting%20of%20a%20Table/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

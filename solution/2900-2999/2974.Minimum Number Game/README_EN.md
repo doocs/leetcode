@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2974.Minimum%20Number%20Game/README_EN.md
+rating: 1184
+tags:
+    - Array
+    - Sorting
+    - Simulation
+    - Heap (Priority Queue)
+---
+
 # [2974. Minimum Number Game](https://leetcode.com/problems/minimum-number-game)
 
 [中文文档](/solution/2900-2999/2974.Minimum%20Number%20Game/README.md)
-
-<!-- tags:Array,Sorting,Simulation,Heap (Priority Queue) -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

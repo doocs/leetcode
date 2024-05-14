@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2514.Count%20Anagrams/README.md
+rating: 2069
+tags:
+    - 哈希表
+    - 数学
+    - 字符串
+    - 组合数学
+    - 计数
+---
+
 # [2514. 统计同位异构字符串数目](https://leetcode.cn/problems/count-anagrams)
 
 [English Version](/solution/2500-2599/2514.Count%20Anagrams/README_EN.md)
-
-<!-- tags:哈希表,数学,字符串,组合数学,计数 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

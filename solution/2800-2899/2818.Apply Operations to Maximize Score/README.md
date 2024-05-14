@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2818.Apply%20Operations%20to%20Maximize%20Score/README.md
+rating: 2396
+tags:
+    - 栈
+    - 贪心
+    - 数组
+    - 数学
+    - 数论
+    - 单调栈
+---
+
 # [2818. 操作使得分最大](https://leetcode.cn/problems/apply-operations-to-maximize-score)
 
 [English Version](/solution/2800-2899/2818.Apply%20Operations%20to%20Maximize%20Score/README_EN.md)
-
-<!-- tags:栈,贪心,数组,数学,数论,单调栈 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

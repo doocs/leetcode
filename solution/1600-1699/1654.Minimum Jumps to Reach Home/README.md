@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1654.Minimum%20Jumps%20to%20Reach%20Home/README.md
+rating: 2124
+tags:
+    - 广度优先搜索
+    - 数组
+    - 动态规划
+---
+
 # [1654. 到家的最少跳跃次数](https://leetcode.cn/problems/minimum-jumps-to-reach-home)
 
 [English Version](/solution/1600-1699/1654.Minimum%20Jumps%20to%20Reach%20Home/README_EN.md)
-
-<!-- tags:广度优先搜索,数组,动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2558.Take%20Gifts%20From%20the%20Richest%20Pile/README.md
+rating: 1276
+tags:
+    - 数组
+    - 模拟
+    - 堆（优先队列）
+---
+
 # [2558. 从数量最多的堆取走礼物](https://leetcode.cn/problems/take-gifts-from-the-richest-pile)
 
 [English Version](/solution/2500-2599/2558.Take%20Gifts%20From%20the%20Richest%20Pile/README_EN.md)
-
-<!-- tags:数组,模拟,堆（优先队列） -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

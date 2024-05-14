@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2376.Count%20Special%20Integers/README.md
+rating: 2120
+tags:
+    - 数学
+    - 动态规划
+---
+
 # [2376. 统计特殊整数](https://leetcode.cn/problems/count-special-integers)
 
 [English Version](/solution/2300-2399/2376.Count%20Special%20Integers/README_EN.md)
-
-<!-- tags:数学,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

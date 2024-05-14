@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1646.Get%20Maximum%20in%20Generated%20Array/README_EN.md
+rating: 1301
+tags:
+    - Array
+    - Simulation
+---
+
 # [1646. Get Maximum in Generated Array](https://leetcode.com/problems/get-maximum-in-generated-array)
 
 [中文文档](/solution/1600-1699/1646.Get%20Maximum%20in%20Generated%20Array/README.md)
-
-<!-- tags:Array,Simulation -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

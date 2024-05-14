@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0044.Wildcard%20Matching/README_EN.md
+tags:
+    - Greedy
+    - Recursion
+    - String
+    - Dynamic Programming
+---
+
 # [44. Wildcard Matching](https://leetcode.com/problems/wildcard-matching)
 
 [中文文档](/solution/0000-0099/0044.Wildcard%20Matching/README.md)
-
-<!-- tags:Greedy,Recursion,String,Dynamic Programming -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2019.The%20Score%20of%20Students%20Solving%20Math%20Expression/README.md
+rating: 2583
+tags:
+    - 栈
+    - 记忆化搜索
+    - 数组
+    - 数学
+    - 字符串
+    - 动态规划
+---
+
 # [2019. 解出数学表达式的学生分数](https://leetcode.cn/problems/the-score-of-students-solving-math-expression)
 
 [English Version](/solution/2000-2099/2019.The%20Score%20of%20Students%20Solving%20Math%20Expression/README_EN.md)
-
-<!-- tags:栈,记忆化搜索,数组,数学,字符串,动态规划 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.10.Find%20Majority%20Element/README.md
+---
+
 # [面试题 17.10. 主要元素](https://leetcode.cn/problems/find-majority-element-lcci)
 
 [English Version](/lcci/17.10.Find%20Majority%20Element/README_EN.md)

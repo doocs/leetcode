@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2955.Number%20of%20Same-End%20Substrings/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+    - 计数
+    - 前缀和
+---
+
 # [2955. 同端子串的数量 🔒](https://leetcode.cn/problems/number-of-same-end-substrings)
 
 [English Version](/solution/2900-2999/2955.Number%20of%20Same-End%20Substrings/README_EN.md)
-
-<!-- tags:数组,哈希表,字符串,计数,前缀和 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

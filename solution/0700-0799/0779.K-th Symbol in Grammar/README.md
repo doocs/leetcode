@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0779.K-th%20Symbol%20in%20Grammar/README.md
+tags:
+    - 位运算
+    - 递归
+    - 数学
+---
+
 # [779. 第 K 个语法符号](https://leetcode.cn/problems/k-th-symbol-in-grammar)
 
 [English Version](/solution/0700-0799/0779.K-th%20Symbol%20in%20Grammar/README_EN.md)
-
-<!-- tags:位运算,递归,数学 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

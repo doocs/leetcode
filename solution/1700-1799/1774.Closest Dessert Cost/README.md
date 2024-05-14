@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1774.Closest%20Dessert%20Cost/README.md
+rating: 1701
+tags:
+    - 数组
+    - 动态规划
+    - 回溯
+---
+
 # [1774. 最接近目标价格的甜点成本](https://leetcode.cn/problems/closest-dessert-cost)
 
 [English Version](/solution/1700-1799/1774.Closest%20Dessert%20Cost/README_EN.md)
-
-<!-- tags:数组,动态规划,回溯 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

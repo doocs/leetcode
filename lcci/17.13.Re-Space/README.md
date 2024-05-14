@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.13.Re-Space/README.md
+---
+
 # [面试题 17.13. 恢复空格](https://leetcode.cn/problems/re-space-lcci)
 
 [English Version](/lcci/17.13.Re-Space/README_EN.md)

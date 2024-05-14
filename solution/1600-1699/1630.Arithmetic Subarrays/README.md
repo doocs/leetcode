@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1630.Arithmetic%20Subarrays/README.md
+rating: 1421
+tags:
+    - 数组
+    - 哈希表
+    - 排序
+---
+
 # [1630. 等差子数组](https://leetcode.cn/problems/arithmetic-subarrays)
 
 [English Version](/solution/1600-1699/1630.Arithmetic%20Subarrays/README_EN.md)
-
-<!-- tags:数组,哈希表,排序 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

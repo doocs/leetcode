@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0881.Boats%20to%20Save%20People/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Two Pointers
+    - Sorting
+---
+
 # [881. Boats to Save People](https://leetcode.com/problems/boats-to-save-people)
 
 [中文文档](/solution/0800-0899/0881.Boats%20to%20Save%20People/README.md)
-
-<!-- tags:Greedy,Array,Two Pointers,Sorting -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

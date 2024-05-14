@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0761.Special%20Binary%20String/README_EN.md
+tags:
+    - Recursion
+    - String
+---
+
 # [761. Special Binary String](https://leetcode.com/problems/special-binary-string)
 
 [中文文档](/solution/0700-0799/0761.Special%20Binary%20String/README.md)
-
-<!-- tags:Recursion,String -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

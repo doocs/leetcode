@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1066.Campus%20Bikes%20II/README_EN.md
+rating: 1885
+tags:
+    - Bit Manipulation
+    - Array
+    - Dynamic Programming
+    - Backtracking
+    - Bitmask
+---
+
 # [1066. Campus Bikes II 🔒](https://leetcode.com/problems/campus-bikes-ii)
 
 [中文文档](/solution/1000-1099/1066.Campus%20Bikes%20II/README.md)
-
-<!-- tags:Bit Manipulation,Array,Dynamic Programming,Backtracking,Bitmask -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.11.Diving%20Board/README.md
+---
+
 # [面试题 16.11. 跳水板](https://leetcode.cn/problems/diving-board-lcci)
 
 [English Version](/lcci/16.11.Diving%20Board/README_EN.md)

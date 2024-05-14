@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0650.2%20Keys%20Keyboard/README_EN.md
+tags:
+    - Math
+    - Dynamic Programming
+---
+
 # [650. 2 Keys Keyboard](https://leetcode.com/problems/2-keys-keyboard)
 
 [中文文档](/solution/0600-0699/0650.2%20Keys%20Keyboard/README.md)
-
-<!-- tags:Math,Dynamic Programming -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

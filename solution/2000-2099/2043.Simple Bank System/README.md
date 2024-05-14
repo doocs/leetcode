@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2043.Simple%20Bank%20System/README.md
+rating: 1356
+tags:
+    - 设计
+    - 数组
+    - 哈希表
+    - 模拟
+---
+
 # [2043. 简易银行系统](https://leetcode.cn/problems/simple-bank-system)
 
 [English Version](/solution/2000-2099/2043.Simple%20Bank%20System/README_EN.md)
-
-<!-- tags:设计,数组,哈希表,模拟 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

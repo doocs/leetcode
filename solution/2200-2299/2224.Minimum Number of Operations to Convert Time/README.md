@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2224.Minimum%20Number%20of%20Operations%20to%20Convert%20Time/README.md
+rating: 1295
+tags:
+    - 贪心
+    - 字符串
+---
+
 # [2224. 转化时间需要的最少操作数](https://leetcode.cn/problems/minimum-number-of-operations-to-convert-time)
 
 [English Version](/solution/2200-2299/2224.Minimum%20Number%20of%20Operations%20to%20Convert%20Time/README_EN.md)
-
-<!-- tags:贪心,字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

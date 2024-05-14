@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1271.Hexspeak/README_EN.md
+rating: 1384
+tags:
+    - Math
+    - String
+---
+
 # [1271. Hexspeak 🔒](https://leetcode.com/problems/hexspeak)
 
-[中文文档](/solution/1200-1299/1271.Hexspeak 🔒/README.md)
-
-<!-- tags:Math,String -->
-
-<!-- difficulty:Easy -->
+[中文文档](/solution/1200-1299/1271.Hexspeak/README.md)
 
 ## Description
 

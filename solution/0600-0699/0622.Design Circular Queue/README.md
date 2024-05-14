@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0622.Design%20Circular%20Queue/README.md
+tags:
+    - 设计
+    - 队列
+    - 数组
+    - 链表
+---
+
 # [622. 设计循环队列](https://leetcode.cn/problems/design-circular-queue)
 
 [English Version](/solution/0600-0699/0622.Design%20Circular%20Queue/README_EN.md)
-
-<!-- tags:设计,队列,数组,链表 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

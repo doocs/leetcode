@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1324.Print%20Words%20Vertically/README_EN.md
+rating: 1328
+tags:
+    - Array
+    - String
+    - Simulation
+---
+
 # [1324. Print Words Vertically](https://leetcode.com/problems/print-words-vertically)
 
 [中文文档](/solution/1300-1399/1324.Print%20Words%20Vertically/README.md)
-
-<!-- tags:Array,String,Simulation -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

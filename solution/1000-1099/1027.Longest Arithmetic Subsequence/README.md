@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1027.Longest%20Arithmetic%20Subsequence/README.md
+rating: 1758
+tags:
+    - 数组
+    - 哈希表
+    - 二分查找
+    - 动态规划
+---
+
 # [1027. 最长等差数列](https://leetcode.cn/problems/longest-arithmetic-subsequence)
 
 [English Version](/solution/1000-1099/1027.Longest%20Arithmetic%20Subsequence/README_EN.md)
-
-<!-- tags:数组,哈希表,二分查找,动态规划 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

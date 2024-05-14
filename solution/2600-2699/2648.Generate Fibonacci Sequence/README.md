@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2648.Generate%20Fibonacci%20Sequence/README.md
+---
+
 # [2648. 生成斐波那契数列](https://leetcode.cn/problems/generate-fibonacci-sequence)
 
 [English Version](/solution/2600-2699/2648.Generate%20Fibonacci%20Sequence/README_EN.md)
-
-<!-- tags: -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2603.Collect%20Coins%20in%20a%20Tree/README.md
+rating: 2711
+tags:
+    - 树
+    - 图
+    - 拓扑排序
+    - 数组
+---
+
 # [2603. 收集树中金币](https://leetcode.cn/problems/collect-coins-in-a-tree)
 
 [English Version](/solution/2600-2699/2603.Collect%20Coins%20in%20a%20Tree/README_EN.md)
-
-<!-- tags:树,图,拓扑排序,数组 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

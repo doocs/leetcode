@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2527.Find%20Xor-Beauty%20of%20Array/README_EN.md
+rating: 1549
+tags:
+    - Bit Manipulation
+    - Array
+    - Math
+---
+
 # [2527. Find Xor-Beauty of Array](https://leetcode.com/problems/find-xor-beauty-of-array)
 
 [中文文档](/solution/2500-2599/2527.Find%20Xor-Beauty%20of%20Array/README.md)
-
-<!-- tags:Bit Manipulation,Array,Math -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

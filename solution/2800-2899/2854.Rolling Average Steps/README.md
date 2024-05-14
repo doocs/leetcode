@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2854.Rolling%20Average%20Steps/README.md
+tags:
+    - 数据库
+---
+
 # [2854. 滚动平均步数 🔒](https://leetcode.cn/problems/rolling-average-steps)
 
 [English Version](/solution/2800-2899/2854.Rolling%20Average%20Steps/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

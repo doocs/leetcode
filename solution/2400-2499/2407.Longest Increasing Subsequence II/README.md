@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2407.Longest%20Increasing%20Subsequence%20II/README.md
+rating: 2280
+tags:
+    - 树状数组
+    - 线段树
+    - 队列
+    - 数组
+    - 分治
+    - 动态规划
+    - 单调队列
+---
+
 # [2407. 最长递增子序列 II](https://leetcode.cn/problems/longest-increasing-subsequence-ii)
 
 [English Version](/solution/2400-2499/2407.Longest%20Increasing%20Subsequence%20II/README_EN.md)
-
-<!-- tags:树状数组,线段树,队列,数组,分治,动态规划,单调队列 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

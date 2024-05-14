@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2678.Number%20of%20Senior%20Citizens/README_EN.md
+rating: 1198
+tags:
+    - Array
+    - String
+---
+
 # [2678. Number of Senior Citizens](https://leetcode.com/problems/number-of-senior-citizens)
 
 [中文文档](/solution/2600-2699/2678.Number%20of%20Senior%20Citizens/README.md)
-
-<!-- tags:Array,String -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0425.Word%20Squares/README_EN.md
+tags:
+    - Trie
+    - Array
+    - String
+    - Backtracking
+---
+
 # [425. Word Squares 🔒](https://leetcode.com/problems/word-squares)
 
 [中文文档](/solution/0400-0499/0425.Word%20Squares/README.md)
-
-<!-- tags:Trie,Array,String,Backtracking -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

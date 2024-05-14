@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2465.Number%20of%20Distinct%20Averages/README.md
+rating: 1250
+tags:
+    - 数组
+    - 哈希表
+    - 双指针
+    - 排序
+---
+
 # [2465. 不同的平均值数目](https://leetcode.cn/problems/number-of-distinct-averages)
 
 [English Version](/solution/2400-2499/2465.Number%20of%20Distinct%20Averages/README_EN.md)
-
-<!-- tags:数组,哈希表,双指针,排序 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

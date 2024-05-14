@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.21.Sum%20Swap/README_EN.md
+---
+
 # [16.21. Sum Swap](https://leetcode.cn/problems/sum-swap-lcci)
 
 [中文文档](/lcci/16.21.Sum%20Swap/README.md)

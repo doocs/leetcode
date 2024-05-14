@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1999.Smallest%20Greater%20Multiple%20Made%20of%20Two%20Digits/README_EN.md
+tags:
+    - Math
+    - Enumeration
+---
+
 # [1999. Smallest Greater Multiple Made of Two Digits 🔒](https://leetcode.com/problems/smallest-greater-multiple-made-of-two-digits)
 
 [中文文档](/solution/1900-1999/1999.Smallest%20Greater%20Multiple%20Made%20of%20Two%20Digits/README.md)
-
-<!-- tags:Math,Enumeration -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

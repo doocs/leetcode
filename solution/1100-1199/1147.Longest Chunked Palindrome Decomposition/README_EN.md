@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1147.Longest%20Chunked%20Palindrome%20Decomposition/README_EN.md
+rating: 1912
+tags:
+    - Greedy
+    - Two Pointers
+    - String
+    - Dynamic Programming
+    - Hash Function
+    - Rolling Hash
+---
+
 # [1147. Longest Chunked Palindrome Decomposition](https://leetcode.com/problems/longest-chunked-palindrome-decomposition)
 
 [中文文档](/solution/1100-1199/1147.Longest%20Chunked%20Palindrome%20Decomposition/README.md)
-
-<!-- tags:Greedy,Two Pointers,String,Dynamic Programming,Hash Function,Rolling Hash -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

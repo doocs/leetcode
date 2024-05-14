@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2572.Count%20the%20Number%20of%20Square-Free%20Subsets/README.md
+rating: 2419
+tags:
+    - 位运算
+    - 数组
+    - 数学
+    - 动态规划
+    - 状态压缩
+---
+
 # [2572. 无平方子集计数](https://leetcode.cn/problems/count-the-number-of-square-free-subsets)
 
 [English Version](/solution/2500-2599/2572.Count%20the%20Number%20of%20Square-Free%20Subsets/README_EN.md)
-
-<!-- tags:位运算,数组,数学,动态规划,状态压缩 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

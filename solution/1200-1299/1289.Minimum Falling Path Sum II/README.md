@@ -1,10 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1289.Minimum%20Falling%20Path%20Sum%20II/README.md
+rating: 1697
+tags:
+    - 数组
+    - 动态规划
+    - 矩阵
+---
+
 # [1289. 下降路径最小和 II](https://leetcode.cn/problems/minimum-falling-path-sum-ii)
 
 [English Version](/solution/1200-1299/1289.Minimum%20Falling%20Path%20Sum%20II/README_EN.md)
-
-<!-- tags:数组,动态规划,矩阵 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

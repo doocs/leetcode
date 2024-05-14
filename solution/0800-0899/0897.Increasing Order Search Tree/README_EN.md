@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0897.Increasing%20Order%20Search%20Tree/README_EN.md
+tags:
+    - Stack
+    - Tree
+    - Depth-First Search
+    - Binary Search Tree
+    - Binary Tree
+---
+
 # [897. Increasing Order Search Tree](https://leetcode.com/problems/increasing-order-search-tree)
 
 [中文文档](/solution/0800-0899/0897.Increasing%20Order%20Search%20Tree/README.md)
-
-<!-- tags:Stack,Tree,Depth-First Search,Binary Search Tree,Binary Tree -->
-
-<!-- difficulty:Easy -->
 
 ## Description
 

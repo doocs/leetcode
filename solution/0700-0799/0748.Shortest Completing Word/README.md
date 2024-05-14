@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0748.Shortest%20Completing%20Word/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+---
+
 # [748. 最短补全词](https://leetcode.cn/problems/shortest-completing-word)
 
 [English Version](/solution/0700-0799/0748.Shortest%20Completing%20Word/README_EN.md)
-
-<!-- tags:数组,哈希表,字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0986.Interval%20List%20Intersections/README.md
+tags:
+    - 数组
+    - 双指针
+---
+
 # [986. 区间列表的交集](https://leetcode.cn/problems/interval-list-intersections)
 
 [English Version](/solution/0900-0999/0986.Interval%20List%20Intersections/README_EN.md)
-
-<!-- tags:数组,双指针 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

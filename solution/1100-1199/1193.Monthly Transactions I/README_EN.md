@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1193.Monthly%20Transactions%20I/README_EN.md
+tags:
+    - Database
+---
+
 # [1193. Monthly Transactions I](https://leetcode.com/problems/monthly-transactions-i)
 
 [中文文档](/solution/1100-1199/1193.Monthly%20Transactions%20I/README.md)
-
-<!-- tags:Database -->
-
-<!-- difficulty:Medium -->
 
 ## Description
 

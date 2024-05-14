@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.20.T9/README_EN.md
+---
+
 # [16.20. T9](https://leetcode.cn/problems/t9-lcci)
 
 [中文文档](/lcci/16.20.T9/README.md)

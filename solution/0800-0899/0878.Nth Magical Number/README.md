@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0878.Nth%20Magical%20Number/README.md
+tags:
+    - 数学
+    - 二分查找
+---
+
 # [878. 第 N 个神奇数字](https://leetcode.cn/problems/nth-magical-number)
 
 [English Version](/solution/0800-0899/0878.Nth%20Magical%20Number/README_EN.md)
-
-<!-- tags:数学,二分查找 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

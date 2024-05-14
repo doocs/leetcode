@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0493.Reverse%20Pairs/README_EN.md
+tags:
+    - Binary Indexed Tree
+    - Segment Tree
+    - Array
+    - Binary Search
+    - Divide and Conquer
+    - Ordered Set
+    - Merge Sort
+---
+
 # [493. Reverse Pairs](https://leetcode.com/problems/reverse-pairs)
 
 [中文文档](/solution/0400-0499/0493.Reverse%20Pairs/README.md)
-
-<!-- tags:Binary Indexed Tree,Segment Tree,Array,Binary Search,Divide and Conquer,Ordered Set,Merge Sort -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

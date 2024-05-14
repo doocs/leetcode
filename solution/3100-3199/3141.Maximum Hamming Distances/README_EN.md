@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3141.Maximum%20Hamming%20Distances/README_EN.md
+---
+
 # [3141. Maximum Hamming Distances 🔒](https://leetcode.com/problems/maximum-hamming-distances)
 
 [中文文档](/solution/3100-3199/3141.Maximum%20Hamming%20Distances/README.md)
-
-<!-- tags: -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

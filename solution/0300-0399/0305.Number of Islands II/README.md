@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0305.Number%20of%20Islands%20II/README.md
+tags:
+    - 并查集
+    - 数组
+    - 哈希表
+---
+
 # [305. 岛屿数量 II 🔒](https://leetcode.cn/problems/number-of-islands-ii)
 
 [English Version](/solution/0300-0399/0305.Number%20of%20Islands%20II/README_EN.md)
-
-<!-- tags:并查集,数组,哈希表 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

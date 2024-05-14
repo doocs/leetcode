@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1998.GCD%20Sort%20of%20an%20Array/README_EN.md
+rating: 2429
+tags:
+    - Union Find
+    - Array
+    - Math
+    - Number Theory
+    - Sorting
+---
+
 # [1998. GCD Sort of an Array](https://leetcode.com/problems/gcd-sort-of-an-array)
 
 [中文文档](/solution/1900-1999/1998.GCD%20Sort%20of%20an%20Array/README.md)
-
-<!-- tags:Union Find,Array,Math,Number Theory,Sorting -->
-
-<!-- difficulty:Hard -->
 
 ## Description
 

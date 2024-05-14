@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1816.Truncate%20Sentence/README.md
+rating: 1235
+tags:
+    - 数组
+    - 字符串
+---
+
 # [1816. 截断句子](https://leetcode.cn/problems/truncate-sentence)
 
 [English Version](/solution/1800-1899/1816.Truncate%20Sentence/README_EN.md)
-
-<!-- tags:数组,字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

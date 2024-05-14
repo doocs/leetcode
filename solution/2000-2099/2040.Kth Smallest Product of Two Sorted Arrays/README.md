@@ -1,10 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2040.Kth%20Smallest%20Product%20of%20Two%20Sorted%20Arrays/README.md
+rating: 2517
+tags:
+    - 数组
+    - 二分查找
+---
+
 # [2040. 两个有序数组的第 K 小乘积](https://leetcode.cn/problems/kth-smallest-product-of-two-sorted-arrays)
 
 [English Version](/solution/2000-2099/2040.Kth%20Smallest%20Product%20of%20Two%20Sorted%20Arrays/README_EN.md)
-
-<!-- tags:数组,二分查找 -->
-
-<!-- difficulty:困难 -->
 
 ## 题目描述
 

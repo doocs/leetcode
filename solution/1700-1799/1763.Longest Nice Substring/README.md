@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1763.Longest%20Nice%20Substring/README.md
+rating: 1521
+tags:
+    - 位运算
+    - 哈希表
+    - 字符串
+    - 分治
+    - 滑动窗口
+---
+
 # [1763. 最长的美好子字符串](https://leetcode.cn/problems/longest-nice-substring)
 
 [English Version](/solution/1700-1799/1763.Longest%20Nice%20Substring/README_EN.md)
-
-<!-- tags:位运算,哈希表,字符串,分治,滑动窗口 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

@@ -1,10 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1795.Rearrange%20Products%20Table/README.md
+tags:
+    - 数据库
+---
+
 # [1795. 每个产品在不同商店的价格](https://leetcode.cn/problems/rearrange-products-table)
 
 [English Version](/solution/1700-1799/1795.Rearrange%20Products%20Table/README_EN.md)
-
-<!-- tags:数据库 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

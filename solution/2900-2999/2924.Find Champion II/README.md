@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2924.Find%20Champion%20II/README.md
+rating: 1430
+tags:
+    - 图
+---
+
 # [2924. 找到冠军 II](https://leetcode.cn/problems/find-champion-ii)
 
 [English Version](/solution/2900-2999/2924.Find%20Champion%20II/README_EN.md)
-
-<!-- tags:图 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

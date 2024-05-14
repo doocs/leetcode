@@ -1,10 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1592.Rearrange%20Spaces%20Between%20Words/README.md
+rating: 1362
+tags:
+    - 字符串
+---
+
 # [1592. 重新排列单词间的空格](https://leetcode.cn/problems/rearrange-spaces-between-words)
 
 [English Version](/solution/1500-1599/1592.Rearrange%20Spaces%20Between%20Words/README_EN.md)
-
-<!-- tags:字符串 -->
-
-<!-- difficulty:简单 -->
 
 ## 题目描述
 

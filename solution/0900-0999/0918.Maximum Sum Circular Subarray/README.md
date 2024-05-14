@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0918.Maximum%20Sum%20Circular%20Subarray/README.md
+tags:
+    - 队列
+    - 数组
+    - 分治
+    - 动态规划
+    - 单调队列
+---
+
 # [918. 环形子数组的最大和](https://leetcode.cn/problems/maximum-sum-circular-subarray)
 
 [English Version](/solution/0900-0999/0918.Maximum%20Sum%20Circular%20Subarray/README_EN.md)
-
-<!-- tags:队列,数组,分治,动态规划,单调队列 -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 

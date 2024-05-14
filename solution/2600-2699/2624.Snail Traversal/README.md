@@ -1,10 +1,12 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2624.Snail%20Traversal/README.md
+---
+
 # [2624. 蜗牛排序](https://leetcode.cn/problems/snail-traversal)
 
 [English Version](/solution/2600-2699/2624.Snail%20Traversal/README_EN.md)
-
-<!-- tags: -->
-
-<!-- difficulty:中等 -->
 
 ## 题目描述
 
