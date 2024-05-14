@@ -61,7 +61,7 @@ We design a function $\text{dfs}(\text{mask}, \text{pre})$, which represents the
 
 The calculation process of the function $\text{dfs}(\text{mask}, \text{pre})$ is as follows:
 
--   If the number of $1$s in the binary representation of $\text{mask}$ is $n$, that is, $\text{mask} = 2^n - 1$, it means that all numbers have been selected, then return $\text{abs}(\text{pre} - \text{nums}[0])$;
+-   If the number of $1$s in the binary representation of $\text{mask}$ is $n$, that is, $\text{mask} = 2^n - 1$, it means that all numbers have been selected, then return $|\text{pre} - \text{nums}[0]|$;
 -   Otherwise, we enumerate the next selected number $\text{cur}$. If the number $\text{cur}$ has not been selected yet, then we can add the number $\text{cur}$ to the permutation. At this time, the score of the permutation is $|\text{pre} - \text{nums}[\text{cur}]| + \text{dfs}(\text{mask} \, | \, 1 << \text{cur}, \text{cur})$. We need to take the minimum score among all $\text{cur}$.
 
 Finally, we use a function $\text{g}(\text{mask}, \text{pre})$ to construct the permutation that gets the minimum score. We first add the number $\text{pre}$ to the permutation, and then enumerate the next selected number $\text{cur}$. If the number $\text{cur}$ has not been selected yet, and it satisfies that the value of $|\text{pre} - \text{nums}[\text{cur}]| + \text{dfs}(\text{mask} \, | \, 1 << \text{cur}, \text{cur})$ is equal to $\text{dfs}(\text{mask}, \text{pre})$, then we can add the number $\text{cur}$ to the permutation.
