@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1303.Find%20the%20Team%20Size/README_EN.md
+tags:
+    - Database
+---
+
 # [1303. Find the Team Size 🔒](https://leetcode.com/problems/find-the-team-size)
 
 [中文文档](/solution/1300-1399/1303.Find%20the%20Team%20Size/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1335.Minimum%20Difficulty%20of%20a%20Job%20Schedule/README.md
+rating: 2034
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [1335. 工作计划的最低难度](https://leetcode.cn/problems/minimum-difficulty-of-a-job-schedule)
 
 [English Version](/solution/1300-1399/1335.Minimum%20Difficulty%20of%20a%20Job%20Schedule/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
 
 ## 题目描述
 

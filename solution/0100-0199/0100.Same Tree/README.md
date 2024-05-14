@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0100.Same%20Tree/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 二叉树
+---
+
 # [100. 相同的树](https://leetcode.cn/problems/same-tree)
 
 [English Version](/solution/0100-0199/0100.Same%20Tree/README_EN.md)
-
-<!-- tags:树,深度优先搜索,广度优先搜索,二叉树 -->
 
 ## 题目描述
 

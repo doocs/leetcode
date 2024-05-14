@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1130.Minimum%20Cost%20Tree%20From%20Leaf%20Values/README.md
+rating: 1919
+tags:
+    - 栈
+    - 贪心
+    - 数组
+    - 动态规划
+    - 单调栈
+---
+
 # [1130. 叶值的最小代价生成树](https://leetcode.cn/problems/minimum-cost-tree-from-leaf-values)
 
 [English Version](/solution/1100-1199/1130.Minimum%20Cost%20Tree%20From%20Leaf%20Values/README_EN.md)
-
-<!-- tags:栈,贪心,数组,动态规划,单调栈 -->
 
 ## 题目描述
 

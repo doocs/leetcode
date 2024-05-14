@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2295.Replace%20Elements%20in%20an%20Array/README_EN.md
+rating: 1445
+tags:
+    - Array
+    - Hash Table
+    - Simulation
+---
+
 # [2295. Replace Elements in an Array](https://leetcode.com/problems/replace-elements-in-an-array)
 
 [中文文档](/solution/2200-2299/2295.Replace%20Elements%20in%20an%20Array/README.md)
-
-<!-- tags:Array,Hash Table,Simulation -->
 
 ## Description
 

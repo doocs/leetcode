@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0952.Largest%20Component%20Size%20by%20Common%20Factor/README.md
+tags:
+    - 并查集
+    - 数组
+    - 哈希表
+    - 数学
+    - 数论
+---
+
 # [952. 按公因数计算最大组件大小](https://leetcode.cn/problems/largest-component-size-by-common-factor)
 
 [English Version](/solution/0900-0999/0952.Largest%20Component%20Size%20by%20Common%20Factor/README_EN.md)
-
-<!-- tags:并查集,数组,哈希表,数学,数论 -->
 
 ## 题目描述
 

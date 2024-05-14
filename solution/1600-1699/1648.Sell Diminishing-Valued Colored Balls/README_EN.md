@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1648.Sell%20Diminishing-Valued%20Colored%20Balls/README_EN.md
+rating: 2050
+tags:
+    - Greedy
+    - Array
+    - Math
+    - Binary Search
+    - Sorting
+    - Heap (Priority Queue)
+---
+
 # [1648. Sell Diminishing-Valued Colored Balls](https://leetcode.com/problems/sell-diminishing-valued-colored-balls)
 
 [中文文档](/solution/1600-1699/1648.Sell%20Diminishing-Valued%20Colored%20Balls/README.md)
-
-<!-- tags:Greedy,Array,Math,Binary Search,Sorting,Heap (Priority Queue) -->
 
 ## Description
 

@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.04.Missing%20Number/README_EN.md
+---
+
 # [17.04. Missing Number](https://leetcode.cn/problems/missing-number-lcci)
 
 [中文文档](/lcci/17.04.Missing%20Number/README.md)

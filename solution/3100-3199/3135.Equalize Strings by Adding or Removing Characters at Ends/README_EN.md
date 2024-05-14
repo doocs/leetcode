@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3135.Equalize%20Strings%20by%20Adding%20or%20Removing%20Characters%20at%20Ends/README_EN.md
+tags:
+    - String
+    - Binary Search
+    - Dynamic Programming
+    - Sliding Window
+    - Hash Function
+---
+
 # [3135. Equalize Strings by Adding or Removing Characters at Ends 🔒](https://leetcode.com/problems/equalize-strings-by-adding-or-removing-characters-at-ends)
 
 [中文文档](/solution/3100-3199/3135.Equalize%20Strings%20by%20Adding%20or%20Removing%20Characters%20at%20Ends/README.md)
-
-<!-- tags:String,Binary Search,Dynamic Programming,Sliding Window,Hash Function -->
 
 ## Description
 

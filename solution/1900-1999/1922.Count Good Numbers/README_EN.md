@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1922.Count%20Good%20Numbers/README_EN.md
+rating: 1674
+tags:
+    - Recursion
+    - Math
+---
+
 # [1922. Count Good Numbers](https://leetcode.com/problems/count-good-numbers)
 
 [中文文档](/solution/1900-1999/1922.Count%20Good%20Numbers/README.md)
-
-<!-- tags:Recursion,Math -->
 
 ## Description
 

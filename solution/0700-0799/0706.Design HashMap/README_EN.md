@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0706.Design%20HashMap/README_EN.md
+tags:
+    - Design
+    - Array
+    - Hash Table
+    - Linked List
+    - Hash Function
+---
+
 # [706. Design HashMap](https://leetcode.com/problems/design-hashmap)
 
 [中文文档](/solution/0700-0799/0706.Design%20HashMap/README.md)
-
-<!-- tags:Design,Array,Hash Table,Linked List,Hash Function -->
 
 ## Description
 

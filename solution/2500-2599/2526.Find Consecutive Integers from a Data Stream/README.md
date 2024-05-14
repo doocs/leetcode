@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2526.Find%20Consecutive%20Integers%20from%20a%20Data%20Stream/README.md
+rating: 1444
+tags:
+    - 设计
+    - 队列
+    - 哈希表
+    - 计数
+    - 数据流
+---
+
 # [2526. 找到数据流中的连续整数](https://leetcode.cn/problems/find-consecutive-integers-from-a-data-stream)
 
 [English Version](/solution/2500-2599/2526.Find%20Consecutive%20Integers%20from%20a%20Data%20Stream/README_EN.md)
-
-<!-- tags:设计,队列,哈希表,计数,数据流 -->
 
 ## 题目描述
 

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2342.Max%20Sum%20of%20a%20Pair%20With%20Equal%20Sum%20of%20Digits/README_EN.md
+rating: 1308
+tags:
+    - Array
+    - Hash Table
+    - Sorting
+    - Heap (Priority Queue)
+---
+
 # [2342. Max Sum of a Pair With Equal Sum of Digits](https://leetcode.com/problems/max-sum-of-a-pair-with-equal-sum-of-digits)
 
 [中文文档](/solution/2300-2399/2342.Max%20Sum%20of%20a%20Pair%20With%20Equal%20Sum%20of%20Digits/README.md)
-
-<!-- tags:Array,Hash Table,Sorting,Heap (Priority Queue) -->
 
 ## Description
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1475.Final%20Prices%20With%20a%20Special%20Discount%20in%20a%20Shop/README.md
+rating: 1212
+tags:
+    - 栈
+    - 数组
+    - 单调栈
+---
+
 # [1475. 商品折扣后的最终价格](https://leetcode.cn/problems/final-prices-with-a-special-discount-in-a-shop)
 
 [English Version](/solution/1400-1499/1475.Final%20Prices%20With%20a%20Special%20Discount%20in%20a%20Shop/README_EN.md)
-
-<!-- tags:栈,数组,单调栈 -->
 
 ## 题目描述
 

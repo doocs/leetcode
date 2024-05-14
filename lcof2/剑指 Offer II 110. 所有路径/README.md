@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20110.%20%E6%89%80%E6%9C%89%E8%B7%AF%E5%BE%84/README.md
+---
+
 # [剑指 Offer II 110. 所有路径](https://leetcode.cn/problems/bP4bmD)
 
 ## 题目描述

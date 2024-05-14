@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1605.Find%20Valid%20Matrix%20Given%20Row%20and%20Column%20Sums/README.md
+rating: 1867
+tags:
+    - 贪心
+    - 数组
+    - 矩阵
+---
+
 # [1605. 给定行和列的和求可行矩阵](https://leetcode.cn/problems/find-valid-matrix-given-row-and-column-sums)
 
 [English Version](/solution/1600-1699/1605.Find%20Valid%20Matrix%20Given%20Row%20and%20Column%20Sums/README_EN.md)
-
-<!-- tags:贪心,数组,矩阵 -->
 
 ## 题目描述
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2706.Buy%20Two%20Chocolates/README.md
+rating: 1207
+tags:
+    - 数组
+    - 排序
+---
+
 # [2706. 购买两块巧克力](https://leetcode.cn/problems/buy-two-chocolates)
 
 [English Version](/solution/2700-2799/2706.Buy%20Two%20Chocolates/README_EN.md)
-
-<!-- tags:数组,排序 -->
 
 ## 题目描述
 

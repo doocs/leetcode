@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2931.Maximum%20Spending%20After%20Buying%20Items/README.md
+rating: 1822
+tags:
+    - 贪心
+    - 数组
+    - 矩阵
+    - 排序
+    - 堆（优先队列）
+---
+
 # [2931. 购买物品的最大开销](https://leetcode.cn/problems/maximum-spending-after-buying-items)
 
 [English Version](/solution/2900-2999/2931.Maximum%20Spending%20After%20Buying%20Items/README_EN.md)
-
-<!-- tags:贪心,数组,矩阵,排序,堆（优先队列） -->
 
 ## 题目描述
 

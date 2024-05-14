@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0162.Find%20Peak%20Element/README.md
+tags:
+    - 数组
+    - 二分查找
+---
+
 # [162. 寻找峰值](https://leetcode.cn/problems/find-peak-element)
 
 [English Version](/solution/0100-0199/0162.Find%20Peak%20Element/README_EN.md)
-
-<!-- tags:数组,二分查找 -->
 
 ## 题目描述
 

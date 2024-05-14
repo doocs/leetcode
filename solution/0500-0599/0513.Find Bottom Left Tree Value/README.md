@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0513.Find%20Bottom%20Left%20Tree%20Value/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 二叉树
+---
+
 # [513. 找树左下角的值](https://leetcode.cn/problems/find-bottom-left-tree-value)
 
 [English Version](/solution/0500-0599/0513.Find%20Bottom%20Left%20Tree%20Value/README_EN.md)
-
-<!-- tags:树,深度优先搜索,广度优先搜索,二叉树 -->
 
 ## 题目描述
 

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1690.Stone%20Game%20VII/README.md
+rating: 1951
+tags:
+    - 数组
+    - 数学
+    - 动态规划
+    - 博弈
+---
+
 # [1690. 石子游戏 VII](https://leetcode.cn/problems/stone-game-vii)
 
 [English Version](/solution/1600-1699/1690.Stone%20Game%20VII/README_EN.md)
-
-<!-- tags:数组,数学,动态规划,博弈 -->
 
 ## 题目描述
 

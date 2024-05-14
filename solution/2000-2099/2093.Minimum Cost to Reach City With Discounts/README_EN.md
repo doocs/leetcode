@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2093.Minimum%20Cost%20to%20Reach%20City%20With%20Discounts/README_EN.md
+tags:
+    - Graph
+    - Shortest Path
+    - Heap (Priority Queue)
+---
+
 # [2093. Minimum Cost to Reach City With Discounts 🔒](https://leetcode.com/problems/minimum-cost-to-reach-city-with-discounts)
 
 [中文文档](/solution/2000-2099/2093.Minimum%20Cost%20to%20Reach%20City%20With%20Discounts/README.md)
-
-<!-- tags:Graph,Shortest Path,Heap (Priority Queue) -->
 
 ## Description
 

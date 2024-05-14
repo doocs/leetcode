@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2641.Cousins%20in%20Binary%20Tree%20II/README.md
+rating: 1676
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 哈希表
+    - 二叉树
+---
+
 # [2641. 二叉树的堂兄弟节点 II](https://leetcode.cn/problems/cousins-in-binary-tree-ii)
 
 [English Version](/solution/2600-2699/2641.Cousins%20in%20Binary%20Tree%20II/README_EN.md)
-
-<!-- tags:树,深度优先搜索,广度优先搜索,哈希表,二叉树 -->
 
 ## 题目描述
 

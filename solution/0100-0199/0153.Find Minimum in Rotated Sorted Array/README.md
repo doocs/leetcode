@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0153.Find%20Minimum%20in%20Rotated%20Sorted%20Array/README.md
+tags:
+    - 数组
+    - 二分查找
+---
+
 # [153. 寻找旋转排序数组中的最小值](https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array)
 
 [English Version](/solution/0100-0199/0153.Find%20Minimum%20in%20Rotated%20Sorted%20Array/README_EN.md)
-
-<!-- tags:数组,二分查找 -->
 
 ## 题目描述
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1473.Paint%20House%20III/README_EN.md
+rating: 2056
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [1473. Paint House III](https://leetcode.com/problems/paint-house-iii)
 
 [中文文档](/solution/1400-1499/1473.Paint%20House%20III/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
 
 ## Description
 

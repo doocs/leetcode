@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20058.%20%E6%97%A5%E7%A8%8B%E8%A1%A8/README.md
+---
+
 # [剑指 Offer II 058. 日程表](https://leetcode.cn/problems/fi9suh)
 
 ## 题目描述

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2317.Maximum%20XOR%20After%20Operations/README_EN.md
+rating: 1678
+tags:
+    - Bit Manipulation
+    - Array
+    - Math
+---
+
 # [2317. Maximum XOR After Operations](https://leetcode.com/problems/maximum-xor-after-operations)
 
 [中文文档](/solution/2300-2399/2317.Maximum%20XOR%20After%20Operations/README.md)
-
-<!-- tags:Bit Manipulation,Array,Math -->
 
 ## Description
 

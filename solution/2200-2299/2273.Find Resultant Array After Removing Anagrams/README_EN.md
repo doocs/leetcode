@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2273.Find%20Resultant%20Array%20After%20Removing%20Anagrams/README_EN.md
+rating: 1294
+tags:
+    - Array
+    - Hash Table
+    - String
+    - Sorting
+---
+
 # [2273. Find Resultant Array After Removing Anagrams](https://leetcode.com/problems/find-resultant-array-after-removing-anagrams)
 
 [中文文档](/solution/2200-2299/2273.Find%20Resultant%20Array%20After%20Removing%20Anagrams/README.md)
-
-<!-- tags:Array,Hash Table,String,Sorting -->
 
 ## Description
 

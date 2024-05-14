@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2090.K%20Radius%20Subarray%20Averages/README.md
+rating: 1358
+tags:
+    - 数组
+    - 滑动窗口
+---
+
 # [2090. 半径为 k 的子数组平均值](https://leetcode.cn/problems/k-radius-subarray-averages)
 
 [English Version](/solution/2000-2099/2090.K%20Radius%20Subarray%20Averages/README_EN.md)
-
-<!-- tags:数组,滑动窗口 -->
 
 ## 题目描述
 

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2333.Minimum%20Sum%20of%20Squared%20Difference/README_EN.md
+rating: 2011
+tags:
+    - Array
+    - Math
+    - Sorting
+    - Heap (Priority Queue)
+---
+
 # [2333. Minimum Sum of Squared Difference](https://leetcode.com/problems/minimum-sum-of-squared-difference)
 
 [中文文档](/solution/2300-2399/2333.Minimum%20Sum%20of%20Squared%20Difference/README.md)
-
-<!-- tags:Array,Math,Sorting,Heap (Priority Queue) -->
 
 ## Description
 

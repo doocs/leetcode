@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2509.Cycle%20Length%20Queries%20in%20a%20Tree/README_EN.md
+rating: 1948
+tags:
+    - Tree
+    - Array
+    - Binary Tree
+---
+
 # [2509. Cycle Length Queries in a Tree](https://leetcode.com/problems/cycle-length-queries-in-a-tree)
 
 [中文文档](/solution/2500-2599/2509.Cycle%20Length%20Queries%20in%20a%20Tree/README.md)
-
-<!-- tags:Tree,Array,Binary Tree -->
 
 ## Description
 

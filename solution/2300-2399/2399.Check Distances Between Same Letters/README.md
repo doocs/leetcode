@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2399.Check%20Distances%20Between%20Same%20Letters/README.md
+rating: 1243
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+---
+
 # [2399. 检查相同字母间的距离](https://leetcode.cn/problems/check-distances-between-same-letters)
 
 [English Version](/solution/2300-2399/2399.Check%20Distances%20Between%20Same%20Letters/README_EN.md)
-
-<!-- tags:数组,哈希表,字符串 -->
 
 ## 题目描述
 

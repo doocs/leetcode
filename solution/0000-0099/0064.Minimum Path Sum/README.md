@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0064.Minimum%20Path%20Sum/README.md
+tags:
+    - 数组
+    - 动态规划
+    - 矩阵
+---
+
 # [64. 最小路径和](https://leetcode.cn/problems/minimum-path-sum)
 
 [English Version](/solution/0000-0099/0064.Minimum%20Path%20Sum/README_EN.md)
-
-<!-- tags:数组,动态规划,矩阵 -->
 
 ## 题目描述
 

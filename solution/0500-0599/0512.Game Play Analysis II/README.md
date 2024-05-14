@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0512.Game%20Play%20Analysis%20II/README.md
+tags:
+    - 数据库
+---
+
 # [512. 游戏玩法分析 II 🔒](https://leetcode.cn/problems/game-play-analysis-ii)
 
 [English Version](/solution/0500-0599/0512.Game%20Play%20Analysis%20II/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

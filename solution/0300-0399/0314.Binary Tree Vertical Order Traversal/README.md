@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0314.Binary%20Tree%20Vertical%20Order%20Traversal/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 哈希表
+    - 二叉树
+    - 排序
+---
+
 # [314. 二叉树的垂直遍历 🔒](https://leetcode.cn/problems/binary-tree-vertical-order-traversal)
 
 [English Version](/solution/0300-0399/0314.Binary%20Tree%20Vertical%20Order%20Traversal/README_EN.md)
-
-<!-- tags:树,深度优先搜索,广度优先搜索,哈希表,二叉树,排序 -->
 
 ## 题目描述
 

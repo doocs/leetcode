@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2585.Number%20of%20Ways%20to%20Earn%20Points/README_EN.md
+rating: 1909
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [2585. Number of Ways to Earn Points](https://leetcode.com/problems/number-of-ways-to-earn-points)
 
 [中文文档](/solution/2500-2599/2585.Number%20of%20Ways%20to%20Earn%20Points/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
 
 ## Description
 

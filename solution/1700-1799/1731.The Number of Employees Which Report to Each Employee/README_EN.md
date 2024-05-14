@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1731.The%20Number%20of%20Employees%20Which%20Report%20to%20Each%20Employee/README_EN.md
+tags:
+    - Database
+---
+
 # [1731. The Number of Employees Which Report to Each Employee](https://leetcode.com/problems/the-number-of-employees-which-report-to-each-employee)
 
 [中文文档](/solution/1700-1799/1731.The%20Number%20of%20Employees%20Which%20Report%20to%20Each%20Employee/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

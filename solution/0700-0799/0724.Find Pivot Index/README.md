@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0724.Find%20Pivot%20Index/README.md
+tags:
+    - 数组
+    - 前缀和
+---
+
 # [724. 寻找数组的中心下标](https://leetcode.cn/problems/find-pivot-index)
 
 [English Version](/solution/0700-0799/0724.Find%20Pivot%20Index/README_EN.md)
-
-<!-- tags:数组,前缀和 -->
 
 ## 题目描述
 

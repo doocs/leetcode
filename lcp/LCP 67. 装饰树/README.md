@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2067.%20%E8%A3%85%E9%A5%B0%E6%A0%91/README.md
+---
+
 # [LCP 67. 装饰树](https://leetcode.cn/problems/KnLfVT)
 
 ## 题目描述

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2064.Minimized%20Maximum%20of%20Products%20Distributed%20to%20Any%20Store/README_EN.md
+rating: 1885
+tags:
+    - Array
+    - Binary Search
+---
+
 # [2064. Minimized Maximum of Products Distributed to Any Store](https://leetcode.com/problems/minimized-maximum-of-products-distributed-to-any-store)
 
 [中文文档](/solution/2000-2099/2064.Minimized%20Maximum%20of%20Products%20Distributed%20to%20Any%20Store/README.md)
-
-<!-- tags:Array,Binary Search -->
 
 ## Description
 

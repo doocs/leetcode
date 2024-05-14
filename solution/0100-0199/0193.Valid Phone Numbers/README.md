@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0193.Valid%20Phone%20Numbers/README.md
+---
+
 # [193. 有效电话号码](https://leetcode.cn/problems/valid-phone-numbers)
 
 [English Version](/solution/0100-0199/0193.Valid%20Phone%20Numbers/README_EN.md)
-
-<!-- tags: -->
 
 ## 题目描述
 

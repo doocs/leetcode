@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1535.Find%20the%20Winner%20of%20an%20Array%20Game/README_EN.md
+rating: 1433
+tags:
+    - Array
+    - Simulation
+---
+
 # [1535. Find the Winner of an Array Game](https://leetcode.com/problems/find-the-winner-of-an-array-game)
 
 [中文文档](/solution/1500-1599/1535.Find%20the%20Winner%20of%20an%20Array%20Game/README.md)
-
-<!-- tags:Array,Simulation -->
 
 ## Description
 

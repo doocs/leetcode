@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2124.Check%20if%20All%20A%27s%20Appears%20Before%20All%20B%27s/README_EN.md
+rating: 1201
+tags:
+    - String
+---
+
 # [2124. Check if All A's Appears Before All B's](https://leetcode.com/problems/check-if-all-as-appears-before-all-bs)
 
 [中文文档](/solution/2100-2199/2124.Check%20if%20All%20A%27s%20Appears%20Before%20All%20B%27s/README.md)
-
-<!-- tags:String -->
 
 ## Description
 

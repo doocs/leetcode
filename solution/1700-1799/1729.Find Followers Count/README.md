@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1729.Find%20Followers%20Count/README.md
+tags:
+    - 数据库
+---
+
 # [1729. 求关注者的数量](https://leetcode.cn/problems/find-followers-count)
 
 [English Version](/solution/1700-1799/1729.Find%20Followers%20Count/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

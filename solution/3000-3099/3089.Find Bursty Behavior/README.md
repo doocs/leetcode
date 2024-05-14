@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3089.Find%20Bursty%20Behavior/README.md
+tags:
+    - 数据库
+---
+
 # [3089. 查找突发行为 🔒](https://leetcode.cn/problems/find-bursty-behavior)
 
 [English Version](/solution/3000-3099/3089.Find%20Bursty%20Behavior/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

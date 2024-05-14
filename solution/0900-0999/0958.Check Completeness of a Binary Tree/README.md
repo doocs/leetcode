@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0958.Check%20Completeness%20of%20a%20Binary%20Tree/README.md
+tags:
+    - 树
+    - 广度优先搜索
+    - 二叉树
+---
+
 # [958. 二叉树的完全性检验](https://leetcode.cn/problems/check-completeness-of-a-binary-tree)
 
 [English Version](/solution/0900-0999/0958.Check%20Completeness%20of%20a%20Binary%20Tree/README_EN.md)
-
-<!-- tags:树,广度优先搜索,二叉树 -->
 
 ## 题目描述
 

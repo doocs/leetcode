@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0449.Serialize%20and%20Deserialize%20BST/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Design
+    - Binary Search Tree
+    - String
+    - Binary Tree
+---
+
 # [449. Serialize and Deserialize BST](https://leetcode.com/problems/serialize-and-deserialize-bst)
 
 [中文文档](/solution/0400-0499/0449.Serialize%20and%20Deserialize%20BST/README.md)
-
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Design,Binary Search Tree,String,Binary Tree -->
 
 ## Description
 

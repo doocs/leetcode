@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0186.Reverse%20Words%20in%20a%20String%20II/README_EN.md
+tags:
+    - Two Pointers
+    - String
+---
+
 # [186. Reverse Words in a String II 🔒](https://leetcode.com/problems/reverse-words-in-a-string-ii)
 
 [中文文档](/solution/0100-0199/0186.Reverse%20Words%20in%20a%20String%20II/README.md)
-
-<!-- tags:Two Pointers,String -->
 
 ## Description
 

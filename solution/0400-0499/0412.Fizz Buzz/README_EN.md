@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0412.Fizz%20Buzz/README_EN.md
+tags:
+    - Math
+    - String
+    - Simulation
+---
+
 # [412. Fizz Buzz](https://leetcode.com/problems/fizz-buzz)
 
 [中文文档](/solution/0400-0499/0412.Fizz%20Buzz/README.md)
-
-<!-- tags:Math,String,Simulation -->
 
 ## Description
 

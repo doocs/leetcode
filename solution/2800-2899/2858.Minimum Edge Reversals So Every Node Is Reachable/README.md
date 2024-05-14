@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2858.Minimum%20Edge%20Reversals%20So%20Every%20Node%20Is%20Reachable/README.md
+rating: 2294
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 图
+    - 动态规划
+---
+
 # [2858. 可以到达每一个节点的最少边反转次数](https://leetcode.cn/problems/minimum-edge-reversals-so-every-node-is-reachable)
 
 [English Version](/solution/2800-2899/2858.Minimum%20Edge%20Reversals%20So%20Every%20Node%20Is%20Reachable/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,图,动态规划 -->
 
 ## 题目描述
 

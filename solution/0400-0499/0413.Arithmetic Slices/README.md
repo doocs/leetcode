@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0413.Arithmetic%20Slices/README.md
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [413. 等差数列划分](https://leetcode.cn/problems/arithmetic-slices)
 
 [English Version](/solution/0400-0499/0413.Arithmetic%20Slices/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
 
 ## 题目描述
 

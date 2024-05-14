@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2392.Build%20a%20Matrix%20With%20Conditions/README_EN.md
+rating: 1960
+tags:
+    - Graph
+    - Topological Sort
+    - Array
+    - Matrix
+---
+
 # [2392. Build a Matrix With Conditions](https://leetcode.com/problems/build-a-matrix-with-conditions)
 
 [中文文档](/solution/2300-2399/2392.Build%20a%20Matrix%20With%20Conditions/README.md)
-
-<!-- tags:Graph,Topological Sort,Array,Matrix -->
 
 ## Description
 

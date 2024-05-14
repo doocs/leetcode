@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0366.Find%20Leaves%20of%20Binary%20Tree/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 二叉树
+---
+
 # [366. 寻找二叉树的叶子节点 🔒](https://leetcode.cn/problems/find-leaves-of-binary-tree)
 
 [English Version](/solution/0300-0399/0366.Find%20Leaves%20of%20Binary%20Tree/README_EN.md)
-
-<!-- tags:树,深度优先搜索,二叉树 -->
 
 ## 题目描述
 

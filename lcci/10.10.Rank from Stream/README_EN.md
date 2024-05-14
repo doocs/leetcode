@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.10.Rank%20from%20Stream/README_EN.md
+---
+
 # [10.10. Rank from Stream](https://leetcode.cn/problems/rank-from-stream-lcci)
 
 [中文文档](/lcci/10.10.Rank%20from%20Stream/README.md)

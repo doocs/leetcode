@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0618.Students%20Report%20By%20Geography/README_EN.md
+tags:
+    - Database
+---
+
 # [618. Students Report By Geography 🔒](https://leetcode.com/problems/students-report-by-geography)
 
 [中文文档](/solution/0600-0699/0618.Students%20Report%20By%20Geography/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

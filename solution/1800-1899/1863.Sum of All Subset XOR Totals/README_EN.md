@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1863.Sum%20of%20All%20Subset%20XOR%20Totals/README_EN.md
+rating: 1372
+tags:
+    - Bit Manipulation
+    - Array
+    - Math
+    - Backtracking
+    - Combinatorics
+    - Enumeration
+---
+
 # [1863. Sum of All Subset XOR Totals](https://leetcode.com/problems/sum-of-all-subset-xor-totals)
 
 [中文文档](/solution/1800-1899/1863.Sum%20of%20All%20Subset%20XOR%20Totals/README.md)
-
-<!-- tags:Bit Manipulation,Array,Math,Backtracking,Combinatorics,Enumeration -->
 
 ## Description
 

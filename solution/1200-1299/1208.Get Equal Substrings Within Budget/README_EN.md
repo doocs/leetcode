@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1208.Get%20Equal%20Substrings%20Within%20Budget/README_EN.md
+rating: 1496
+tags:
+    - String
+    - Binary Search
+    - Prefix Sum
+    - Sliding Window
+---
+
 # [1208. Get Equal Substrings Within Budget](https://leetcode.com/problems/get-equal-substrings-within-budget)
 
 [中文文档](/solution/1200-1299/1208.Get%20Equal%20Substrings%20Within%20Budget/README.md)
-
-<!-- tags:String,Binary Search,Prefix Sum,Sliding Window -->
 
 ## Description
 

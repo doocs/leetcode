@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0463.Island%20Perimeter/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 数组
+    - 矩阵
+---
+
 # [463. 岛屿的周长](https://leetcode.cn/problems/island-perimeter)
 
 [English Version](/solution/0400-0499/0463.Island%20Perimeter/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,数组,矩阵 -->
 
 ## 题目描述
 

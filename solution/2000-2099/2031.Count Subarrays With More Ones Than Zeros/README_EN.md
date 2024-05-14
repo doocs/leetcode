@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2031.Count%20Subarrays%20With%20More%20Ones%20Than%20Zeros/README_EN.md
+tags:
+    - Binary Indexed Tree
+    - Segment Tree
+    - Array
+    - Binary Search
+    - Divide and Conquer
+    - Ordered Set
+    - Merge Sort
+---
+
 # [2031. Count Subarrays With More Ones Than Zeros 🔒](https://leetcode.com/problems/count-subarrays-with-more-ones-than-zeros)
 
 [中文文档](/solution/2000-2099/2031.Count%20Subarrays%20With%20More%20Ones%20Than%20Zeros/README.md)
-
-<!-- tags:Binary Indexed Tree,Segment Tree,Array,Binary Search,Divide and Conquer,Ordered Set,Merge Sort -->
 
 ## Description
 

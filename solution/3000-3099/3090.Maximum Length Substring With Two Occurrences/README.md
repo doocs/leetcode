@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3090.Maximum%20Length%20Substring%20With%20Two%20Occurrences/README.md
+rating: 1329
+tags:
+    - 哈希表
+    - 字符串
+    - 滑动窗口
+---
+
 # [3090. 每个字符最多出现两次的最长子字符串](https://leetcode.cn/problems/maximum-length-substring-with-two-occurrences)
 
 [English Version](/solution/3000-3099/3090.Maximum%20Length%20Substring%20With%20Two%20Occurrences/README_EN.md)
-
-<!-- tags:哈希表,字符串,滑动窗口 -->
 
 ## 题目描述
 

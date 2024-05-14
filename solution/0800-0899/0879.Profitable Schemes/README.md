@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0879.Profitable%20Schemes/README.md
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [879. 盈利计划](https://leetcode.cn/problems/profitable-schemes)
 
 [English Version](/solution/0800-0899/0879.Profitable%20Schemes/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
 
 ## 题目描述
 

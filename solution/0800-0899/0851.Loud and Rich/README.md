@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0851.Loud%20and%20Rich/README.md
+tags:
+    - 深度优先搜索
+    - 图
+    - 拓扑排序
+    - 数组
+---
+
 # [851. 喧闹和富有](https://leetcode.cn/problems/loud-and-rich)
 
 [English Version](/solution/0800-0899/0851.Loud%20and%20Rich/README_EN.md)
-
-<!-- tags:深度优先搜索,图,拓扑排序,数组 -->
 
 ## 题目描述
 

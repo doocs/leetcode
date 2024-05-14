@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1669.Merge%20In%20Between%20Linked%20Lists/README_EN.md
+rating: 1428
+tags:
+    - Linked List
+---
+
 # [1669. Merge In Between Linked Lists](https://leetcode.com/problems/merge-in-between-linked-lists)
 
 [中文文档](/solution/1600-1699/1669.Merge%20In%20Between%20Linked%20Lists/README.md)
-
-<!-- tags:Linked List -->
 
 ## Description
 

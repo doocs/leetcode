@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0980.Unique%20Paths%20III/README_EN.md
+tags:
+    - Bit Manipulation
+    - Array
+    - Backtracking
+    - Matrix
+---
+
 # [980. Unique Paths III](https://leetcode.com/problems/unique-paths-iii)
 
 [中文文档](/solution/0900-0999/0980.Unique%20Paths%20III/README.md)
-
-<!-- tags:Bit Manipulation,Array,Backtracking,Matrix -->
 
 ## Description
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2144.Minimum%20Cost%20of%20Buying%20Candies%20With%20Discount/README_EN.md
+rating: 1260
+tags:
+    - Greedy
+    - Array
+    - Sorting
+---
+
 # [2144. Minimum Cost of Buying Candies With Discount](https://leetcode.com/problems/minimum-cost-of-buying-candies-with-discount)
 
 [中文文档](/solution/2100-2199/2144.Minimum%20Cost%20of%20Buying%20Candies%20With%20Discount/README.md)
-
-<!-- tags:Greedy,Array,Sorting -->
 
 ## Description
 

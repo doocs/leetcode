@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0014.Longest%20Common%20Prefix/README.md
+tags:
+    - 字典树
+    - 字符串
+---
+
 # [14. 最长公共前缀](https://leetcode.cn/problems/longest-common-prefix)
 
 [English Version](/solution/0000-0099/0014.Longest%20Common%20Prefix/README_EN.md)
-
-<!-- tags:字典树,字符串 -->
 
 ## 题目描述
 

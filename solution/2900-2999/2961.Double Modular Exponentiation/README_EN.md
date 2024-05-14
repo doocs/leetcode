@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2961.Double%20Modular%20Exponentiation/README_EN.md
+rating: 1450
+tags:
+    - Array
+    - Math
+    - Simulation
+---
+
 # [2961. Double Modular Exponentiation](https://leetcode.com/problems/double-modular-exponentiation)
 
 [中文文档](/solution/2900-2999/2961.Double%20Modular%20Exponentiation/README.md)
-
-<!-- tags:Array,Math,Simulation -->
 
 ## Description
 

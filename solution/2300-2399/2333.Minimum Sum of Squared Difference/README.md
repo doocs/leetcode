@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2333.Minimum%20Sum%20of%20Squared%20Difference/README.md
+rating: 2011
+tags:
+    - 数组
+    - 数学
+    - 排序
+    - 堆（优先队列）
+---
+
 # [2333. 最小差值平方和](https://leetcode.cn/problems/minimum-sum-of-squared-difference)
 
 [English Version](/solution/2300-2399/2333.Minimum%20Sum%20of%20Squared%20Difference/README_EN.md)
-
-<!-- tags:数组,数学,排序,堆（优先队列） -->
 
 ## 题目描述
 

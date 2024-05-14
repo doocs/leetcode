@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0891.Sum%20of%20Subsequence%20Widths/README_EN.md
+tags:
+    - Array
+    - Math
+    - Sorting
+---
+
 # [891. Sum of Subsequence Widths](https://leetcode.com/problems/sum-of-subsequence-widths)
 
 [中文文档](/solution/0800-0899/0891.Sum%20of%20Subsequence%20Widths/README.md)
-
-<!-- tags:Array,Math,Sorting -->
 
 ## Description
 

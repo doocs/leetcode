@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0805.Split%20Array%20With%20Same%20Average/README.md
+tags:
+    - 位运算
+    - 数组
+    - 数学
+    - 动态规划
+    - 状态压缩
+---
+
 # [805. 数组的均值分割](https://leetcode.cn/problems/split-array-with-same-average)
 
 [English Version](/solution/0800-0899/0805.Split%20Array%20With%20Same%20Average/README_EN.md)
-
-<!-- tags:位运算,数组,数学,动态规划,状态压缩 -->
 
 ## 题目描述
 

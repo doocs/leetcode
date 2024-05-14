@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1871.Jump%20Game%20VII/README.md
+rating: 1896
+tags:
+    - 字符串
+    - 动态规划
+    - 前缀和
+    - 滑动窗口
+---
+
 # [1871. 跳跃游戏 VII](https://leetcode.cn/problems/jump-game-vii)
 
 [English Version](/solution/1800-1899/1871.Jump%20Game%20VII/README_EN.md)
-
-<!-- tags:字符串,动态规划,前缀和,滑动窗口 -->
 
 ## 题目描述
 

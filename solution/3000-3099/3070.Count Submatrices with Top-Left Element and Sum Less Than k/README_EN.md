@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3070.Count%20Submatrices%20with%20Top-Left%20Element%20and%20Sum%20Less%20Than%20k/README_EN.md
+rating: 1498
+tags:
+    - Array
+    - Matrix
+    - Prefix Sum
+---
+
 # [3070. Count Submatrices with Top-Left Element and Sum Less Than k](https://leetcode.com/problems/count-submatrices-with-top-left-element-and-sum-less-than-k)
 
 [中文文档](/solution/3000-3099/3070.Count%20Submatrices%20with%20Top-Left%20Element%20and%20Sum%20Less%20Than%20k/README.md)
-
-<!-- tags:Array,Matrix,Prefix Sum -->
 
 ## Description
 

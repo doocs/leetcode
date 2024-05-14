@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1033.Moving%20Stones%20Until%20Consecutive/README.md
+rating: 1421
+tags:
+    - 脑筋急转弯
+    - 数学
+---
+
 # [1033. 移动石子直到连续](https://leetcode.cn/problems/moving-stones-until-consecutive)
 
 [English Version](/solution/1000-1099/1033.Moving%20Stones%20Until%20Consecutive/README_EN.md)
-
-<!-- tags:脑筋急转弯,数学 -->
 
 ## 题目描述
 

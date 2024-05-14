@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0700.Search%20in%20a%20Binary%20Search%20Tree/README.md
+tags:
+    - 树
+    - 二叉搜索树
+    - 二叉树
+---
+
 # [700. 二叉搜索树中的搜索](https://leetcode.cn/problems/search-in-a-binary-search-tree)
 
 [English Version](/solution/0700-0799/0700.Search%20in%20a%20Binary%20Search%20Tree/README_EN.md)
-
-<!-- tags:树,二叉搜索树,二叉树 -->
 
 ## 题目描述
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0807.Max%20Increase%20to%20Keep%20City%20Skyline/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Matrix
+---
+
 # [807. Max Increase to Keep City Skyline](https://leetcode.com/problems/max-increase-to-keep-city-skyline)
 
 [中文文档](/solution/0800-0899/0807.Max%20Increase%20to%20Keep%20City%20Skyline/README.md)
-
-<!-- tags:Greedy,Array,Matrix -->
 
 ## Description
 

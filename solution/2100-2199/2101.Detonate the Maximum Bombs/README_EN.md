@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2101.Detonate%20the%20Maximum%20Bombs/README_EN.md
+rating: 1880
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Graph
+    - Geometry
+    - Array
+    - Math
+---
+
 # [2101. Detonate the Maximum Bombs](https://leetcode.com/problems/detonate-the-maximum-bombs)
 
 [中文文档](/solution/2100-2199/2101.Detonate%20the%20Maximum%20Bombs/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Graph,Geometry,Array,Math -->
 
 ## Description
 

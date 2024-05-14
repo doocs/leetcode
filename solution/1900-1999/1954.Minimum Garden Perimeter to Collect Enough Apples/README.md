@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1954.Minimum%20Garden%20Perimeter%20to%20Collect%20Enough%20Apples/README.md
+rating: 1758
+tags:
+    - 数学
+    - 二分查找
+---
+
 # [1954. 收集足够苹果的最小花园周长](https://leetcode.cn/problems/minimum-garden-perimeter-to-collect-enough-apples)
 
 [English Version](/solution/1900-1999/1954.Minimum%20Garden%20Perimeter%20to%20Collect%20Enough%20Apples/README_EN.md)
-
-<!-- tags:数学,二分查找 -->
 
 ## 题目描述
 

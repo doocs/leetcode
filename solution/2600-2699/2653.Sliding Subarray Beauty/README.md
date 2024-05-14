@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2653.Sliding%20Subarray%20Beauty/README.md
+rating: 1785
+tags:
+    - 数组
+    - 哈希表
+    - 滑动窗口
+---
+
 # [2653. 滑动子数组的美丽值](https://leetcode.cn/problems/sliding-subarray-beauty)
 
 [English Version](/solution/2600-2699/2653.Sliding%20Subarray%20Beauty/README_EN.md)
-
-<!-- tags:数组,哈希表,滑动窗口 -->
 
 ## 题目描述
 

@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1857.Largest%20Color%20Value%20in%20a%20Directed%20Graph/README_EN.md
+rating: 2312
+tags:
+    - Graph
+    - Topological Sort
+    - Memoization
+    - Hash Table
+    - Dynamic Programming
+    - Counting
+---
+
 # [1857. Largest Color Value in a Directed Graph](https://leetcode.com/problems/largest-color-value-in-a-directed-graph)
 
 [中文文档](/solution/1800-1899/1857.Largest%20Color%20Value%20in%20a%20Directed%20Graph/README.md)
-
-<!-- tags:Graph,Topological Sort,Memoization,Hash Table,Dynamic Programming,Counting -->
 
 ## Description
 

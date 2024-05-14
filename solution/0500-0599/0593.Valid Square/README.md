@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0593.Valid%20Square/README.md
+tags:
+    - 几何
+    - 数学
+---
+
 # [593. 有效的正方形](https://leetcode.cn/problems/valid-square)
 
 [English Version](/solution/0500-0599/0593.Valid%20Square/README_EN.md)
-
-<!-- tags:几何,数学 -->
 
 ## 题目描述
 

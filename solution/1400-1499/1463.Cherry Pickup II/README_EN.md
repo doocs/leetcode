@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1463.Cherry%20Pickup%20II/README_EN.md
+rating: 1956
+tags:
+    - Array
+    - Dynamic Programming
+    - Matrix
+---
+
 # [1463. Cherry Pickup II](https://leetcode.com/problems/cherry-pickup-ii)
 
 [中文文档](/solution/1400-1499/1463.Cherry%20Pickup%20II/README.md)
-
-<!-- tags:Array,Dynamic Programming,Matrix -->
 
 ## Description
 

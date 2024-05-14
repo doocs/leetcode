@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2483.Minimum%20Penalty%20for%20a%20Shop/README.md
+rating: 1494
+tags:
+    - 字符串
+    - 前缀和
+---
+
 # [2483. 商店的最少代价](https://leetcode.cn/problems/minimum-penalty-for-a-shop)
 
 [English Version](/solution/2400-2499/2483.Minimum%20Penalty%20for%20a%20Shop/README_EN.md)
-
-<!-- tags:字符串,前缀和 -->
 
 ## 题目描述
 

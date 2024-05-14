@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1568.Minimum%20Number%20of%20Days%20to%20Disconnect%20Island/README.md
+rating: 2208
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 数组
+    - 矩阵
+    - 强连通分量
+---
+
 # [1568. 使陆地分离的最少天数](https://leetcode.cn/problems/minimum-number-of-days-to-disconnect-island)
 
 [English Version](/solution/1500-1599/1568.Minimum%20Number%20of%20Days%20to%20Disconnect%20Island/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,数组,矩阵,强连通分量 -->
 
 ## 题目描述
 

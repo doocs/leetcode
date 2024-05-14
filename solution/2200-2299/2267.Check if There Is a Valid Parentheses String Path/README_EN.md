@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2267.Check%20if%20There%20Is%20a%20Valid%20Parentheses%20String%20Path/README_EN.md
+rating: 2084
+tags:
+    - Array
+    - Dynamic Programming
+    - Matrix
+---
+
 # [2267. Check if There Is a Valid Parentheses String Path](https://leetcode.com/problems/check-if-there-is-a-valid-parentheses-string-path)
 
 [中文文档](/solution/2200-2299/2267.Check%20if%20There%20Is%20a%20Valid%20Parentheses%20String%20Path/README.md)
-
-<!-- tags:Array,Dynamic Programming,Matrix -->
 
 ## Description
 

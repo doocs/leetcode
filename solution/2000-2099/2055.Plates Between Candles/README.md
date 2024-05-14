@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2055.Plates%20Between%20Candles/README.md
+rating: 1819
+tags:
+    - 数组
+    - 字符串
+    - 二分查找
+    - 前缀和
+---
+
 # [2055. 蜡烛之间的盘子](https://leetcode.cn/problems/plates-between-candles)
 
 [English Version](/solution/2000-2099/2055.Plates%20Between%20Candles/README_EN.md)
-
-<!-- tags:数组,字符串,二分查找,前缀和 -->
 
 ## 题目描述
 

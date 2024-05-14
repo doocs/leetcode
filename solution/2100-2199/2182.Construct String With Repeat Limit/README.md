@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2182.Construct%20String%20With%20Repeat%20Limit/README.md
+rating: 1680
+tags:
+    - 贪心
+    - 哈希表
+    - 字符串
+    - 计数
+    - 堆（优先队列）
+---
+
 # [2182. 构造限制重复的字符串](https://leetcode.cn/problems/construct-string-with-repeat-limit)
 
 [English Version](/solution/2100-2199/2182.Construct%20String%20With%20Repeat%20Limit/README_EN.md)
-
-<!-- tags:贪心,哈希表,字符串,计数,堆（优先队列） -->
 
 ## 题目描述
 

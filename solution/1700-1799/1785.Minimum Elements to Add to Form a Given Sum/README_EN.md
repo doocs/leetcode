@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1785.Minimum%20Elements%20to%20Add%20to%20Form%20a%20Given%20Sum/README_EN.md
+rating: 1432
+tags:
+    - Greedy
+    - Array
+---
+
 # [1785. Minimum Elements to Add to Form a Given Sum](https://leetcode.com/problems/minimum-elements-to-add-to-form-a-given-sum)
 
 [中文文档](/solution/1700-1799/1785.Minimum%20Elements%20to%20Add%20to%20Form%20a%20Given%20Sum/README.md)
-
-<!-- tags:Greedy,Array -->
 
 ## Description
 

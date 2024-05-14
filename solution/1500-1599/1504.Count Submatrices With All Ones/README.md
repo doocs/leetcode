@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1504.Count%20Submatrices%20With%20All%20Ones/README.md
+rating: 1845
+tags:
+    - 栈
+    - 数组
+    - 动态规划
+    - 矩阵
+    - 单调栈
+---
+
 # [1504. 统计全 1 子矩形](https://leetcode.cn/problems/count-submatrices-with-all-ones)
 
 [English Version](/solution/1500-1599/1504.Count%20Submatrices%20With%20All%20Ones/README_EN.md)
-
-<!-- tags:栈,数组,动态规划,矩阵,单调栈 -->
 
 ## 题目描述
 

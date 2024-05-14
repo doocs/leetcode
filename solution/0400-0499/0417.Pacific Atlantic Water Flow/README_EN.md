@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0417.Pacific%20Atlantic%20Water%20Flow/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Array
+    - Matrix
+---
+
 # [417. Pacific Atlantic Water Flow](https://leetcode.com/problems/pacific-atlantic-water-flow)
 
 [中文文档](/solution/0400-0499/0417.Pacific%20Atlantic%20Water%20Flow/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Array,Matrix -->
 
 ## Description
 

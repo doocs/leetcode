@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0487.Max%20Consecutive%20Ones%20II/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+    - Sliding Window
+---
+
 # [487. Max Consecutive Ones II 🔒](https://leetcode.com/problems/max-consecutive-ones-ii)
 
 [中文文档](/solution/0400-0499/0487.Max%20Consecutive%20Ones%20II/README.md)
-
-<!-- tags:Array,Dynamic Programming,Sliding Window -->
 
 ## Description
 

@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2644.Find%20the%20Maximum%20Divisibility%20Score/README_EN.md
+rating: 1257
+tags:
+    - Array
+---
+
 # [2644. Find the Maximum Divisibility Score](https://leetcode.com/problems/find-the-maximum-divisibility-score)
 
 [中文文档](/solution/2600-2699/2644.Find%20the%20Maximum%20Divisibility%20Score/README.md)
-
-<!-- tags:Array -->
 
 ## Description
 

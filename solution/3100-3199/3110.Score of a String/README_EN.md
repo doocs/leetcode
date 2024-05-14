@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3110.Score%20of%20a%20String/README_EN.md
+rating: 1152
+tags:
+    - String
+---
+
 # [3110. Score of a String](https://leetcode.com/problems/score-of-a-string)
 
 [中文文档](/solution/3100-3199/3110.Score%20of%20a%20String/README.md)
-
-<!-- tags:String -->
 
 ## Description
 

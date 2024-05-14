@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2762.Continuous%20Subarrays/README.md
+rating: 1940
+tags:
+    - 队列
+    - 数组
+    - 有序集合
+    - 滑动窗口
+    - 单调队列
+    - 堆（优先队列）
+---
+
 # [2762. 不间断子数组](https://leetcode.cn/problems/continuous-subarrays)
 
 [English Version](/solution/2700-2799/2762.Continuous%20Subarrays/README_EN.md)
-
-<!-- tags:队列,数组,有序集合,滑动窗口,单调队列,堆（优先队列） -->
 
 ## 题目描述
 

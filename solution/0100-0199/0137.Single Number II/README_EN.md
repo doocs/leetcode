@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0137.Single%20Number%20II/README_EN.md
+tags:
+    - Bit Manipulation
+    - Array
+---
+
 # [137. Single Number II](https://leetcode.com/problems/single-number-ii)
 
 [中文文档](/solution/0100-0199/0137.Single%20Number%20II/README.md)
-
-<!-- tags:Bit Manipulation,Array -->
 
 ## Description
 

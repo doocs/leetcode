@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0097.Interleaving%20String/README_EN.md
+tags:
+    - String
+    - Dynamic Programming
+---
+
 # [97. Interleaving String](https://leetcode.com/problems/interleaving-string)
 
 [中文文档](/solution/0000-0099/0097.Interleaving%20String/README.md)
-
-<!-- tags:String,Dynamic Programming -->
 
 ## Description
 

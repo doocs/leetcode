@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2107.Number%20of%20Unique%20Flavors%20After%20Sharing%20K%20Candies/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Sliding Window
+---
+
 # [2107. Number of Unique Flavors After Sharing K Candies 🔒](https://leetcode.com/problems/number-of-unique-flavors-after-sharing-k-candies)
 
 [中文文档](/solution/2100-2199/2107.Number%20of%20Unique%20Flavors%20After%20Sharing%20K%20Candies/README.md)
-
-<!-- tags:Array,Hash Table,Sliding Window -->
 
 ## Description
 

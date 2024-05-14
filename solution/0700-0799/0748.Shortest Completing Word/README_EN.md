@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0748.Shortest%20Completing%20Word/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - String
+---
+
 # [748. Shortest Completing Word](https://leetcode.com/problems/shortest-completing-word)
 
 [中文文档](/solution/0700-0799/0748.Shortest%20Completing%20Word/README.md)
-
-<!-- tags:Array,Hash Table,String -->
 
 ## Description
 

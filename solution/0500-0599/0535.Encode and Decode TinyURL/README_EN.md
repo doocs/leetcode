@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0535.Encode%20and%20Decode%20TinyURL/README_EN.md
+tags:
+    - Design
+    - Hash Table
+    - String
+    - Hash Function
+---
+
 # [535. Encode and Decode TinyURL](https://leetcode.com/problems/encode-and-decode-tinyurl)
 
 [中文文档](/solution/0500-0599/0535.Encode%20and%20Decode%20TinyURL/README.md)
-
-<!-- tags:Design,Hash Table,String,Hash Function -->
 
 ## Description
 

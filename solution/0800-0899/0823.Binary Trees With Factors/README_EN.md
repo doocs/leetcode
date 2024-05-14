@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0823.Binary%20Trees%20With%20Factors/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Dynamic Programming
+    - Sorting
+---
+
 # [823. Binary Trees With Factors](https://leetcode.com/problems/binary-trees-with-factors)
 
 [中文文档](/solution/0800-0899/0823.Binary%20Trees%20With%20Factors/README.md)
-
-<!-- tags:Array,Hash Table,Dynamic Programming,Sorting -->
 
 ## Description
 

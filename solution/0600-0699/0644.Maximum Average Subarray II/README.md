@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0644.Maximum%20Average%20Subarray%20II/README.md
+tags:
+    - 数组
+    - 二分查找
+    - 前缀和
+---
+
 # [644. 子数组最大平均数 II 🔒](https://leetcode.cn/problems/maximum-average-subarray-ii)
 
 [English Version](/solution/0600-0699/0644.Maximum%20Average%20Subarray%20II/README_EN.md)
-
-<!-- tags:数组,二分查找,前缀和 -->
 
 ## 题目描述
 

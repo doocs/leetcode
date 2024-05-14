@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20005.%20%E5%8D%95%E8%AF%8D%E9%95%BF%E5%BA%A6%E7%9A%84%E6%9C%80%E5%A4%A7%E4%B9%98%E7%A7%AF/README.md
+---
+
 # [剑指 Offer II 005. 单词长度的最大乘积](https://leetcode.cn/problems/aseY1I)
 
 ## 题目描述

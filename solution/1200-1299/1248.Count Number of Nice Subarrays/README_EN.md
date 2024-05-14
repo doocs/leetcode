@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1248.Count%20Number%20of%20Nice%20Subarrays/README_EN.md
+rating: 1623
+tags:
+    - Array
+    - Hash Table
+    - Math
+    - Sliding Window
+---
+
 # [1248. Count Number of Nice Subarrays](https://leetcode.com/problems/count-number-of-nice-subarrays)
 
 [中文文档](/solution/1200-1299/1248.Count%20Number%20of%20Nice%20Subarrays/README.md)
-
-<!-- tags:Array,Hash Table,Math,Sliding Window -->
 
 ## Description
 

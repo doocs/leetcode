@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0699.Falling%20Squares/README.md
+tags:
+    - 线段树
+    - 数组
+    - 有序集合
+---
+
 # [699. 掉落的方块](https://leetcode.cn/problems/falling-squares)
 
 [English Version](/solution/0600-0699/0699.Falling%20Squares/README_EN.md)
-
-<!-- tags:线段树,数组,有序集合 -->
 
 ## 题目描述
 

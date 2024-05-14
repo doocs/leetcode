@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2016.%20%E6%B8%B8%E4%B9%90%E5%9B%AD%E7%9A%84%E6%B8%B8%E8%A7%88%E8%AE%A1%E5%88%92/README.md
+---
+
 # [LCP 16. 游乐园的游览计划](https://leetcode.cn/problems/you-le-yuan-de-you-lan-ji-hua)
 
 ## 题目描述

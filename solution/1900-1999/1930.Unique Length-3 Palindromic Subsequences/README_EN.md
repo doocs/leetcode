@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1930.Unique%20Length-3%20Palindromic%20Subsequences/README_EN.md
+rating: 1533
+tags:
+    - Bit Manipulation
+    - Hash Table
+    - String
+    - Prefix Sum
+---
+
 # [1930. Unique Length-3 Palindromic Subsequences](https://leetcode.com/problems/unique-length-3-palindromic-subsequences)
 
 [中文文档](/solution/1900-1999/1930.Unique%20Length-3%20Palindromic%20Subsequences/README.md)
-
-<!-- tags:Bit Manipulation,Hash Table,String,Prefix Sum -->
 
 ## Description
 

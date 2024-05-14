@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1203.Sort%20Items%20by%20Groups%20Respecting%20Dependencies/README_EN.md
+rating: 2418
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Graph
+    - Topological Sort
+---
+
 # [1203. Sort Items by Groups Respecting Dependencies](https://leetcode.com/problems/sort-items-by-groups-respecting-dependencies)
 
 [中文文档](/solution/1200-1299/1203.Sort%20Items%20by%20Groups%20Respecting%20Dependencies/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Graph,Topological Sort -->
 
 ## Description
 

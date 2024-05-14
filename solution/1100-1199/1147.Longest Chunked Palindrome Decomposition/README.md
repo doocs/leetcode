@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1147.Longest%20Chunked%20Palindrome%20Decomposition/README.md
+rating: 1912
+tags:
+    - 贪心
+    - 双指针
+    - 字符串
+    - 动态规划
+    - 哈希函数
+    - 滚动哈希
+---
+
 # [1147. 段式回文](https://leetcode.cn/problems/longest-chunked-palindrome-decomposition)
 
 [English Version](/solution/1100-1199/1147.Longest%20Chunked%20Palindrome%20Decomposition/README_EN.md)
-
-<!-- tags:贪心,双指针,字符串,动态规划,哈希函数,滚动哈希 -->
 
 ## 题目描述
 

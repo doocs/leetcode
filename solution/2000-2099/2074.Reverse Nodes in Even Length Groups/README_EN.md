@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2074.Reverse%20Nodes%20in%20Even%20Length%20Groups/README_EN.md
+rating: 1685
+tags:
+    - Linked List
+---
+
 # [2074. Reverse Nodes in Even Length Groups](https://leetcode.com/problems/reverse-nodes-in-even-length-groups)
 
 [中文文档](/solution/2000-2099/2074.Reverse%20Nodes%20in%20Even%20Length%20Groups/README.md)
-
-<!-- tags:Linked List -->
 
 ## Description
 

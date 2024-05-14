@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0313.Super%20Ugly%20Number/README_EN.md
+tags:
+    - Array
+    - Math
+    - Dynamic Programming
+---
+
 # [313. Super Ugly Number](https://leetcode.com/problems/super-ugly-number)
 
 [中文文档](/solution/0300-0399/0313.Super%20Ugly%20Number/README.md)
-
-<!-- tags:Array,Math,Dynamic Programming -->
 
 ## Description
 

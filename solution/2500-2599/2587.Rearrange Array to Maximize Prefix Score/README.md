@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2587.Rearrange%20Array%20to%20Maximize%20Prefix%20Score/README.md
+rating: 1336
+tags:
+    - 贪心
+    - 数组
+    - 前缀和
+    - 排序
+---
+
 # [2587. 重排数组以得到最大前缀分数](https://leetcode.cn/problems/rearrange-array-to-maximize-prefix-score)
 
 [English Version](/solution/2500-2599/2587.Rearrange%20Array%20to%20Maximize%20Prefix%20Score/README_EN.md)
-
-<!-- tags:贪心,数组,前缀和,排序 -->
 
 ## 题目描述
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2815.Max%20Pair%20Sum%20in%20an%20Array/README_EN.md
+rating: 1295
+tags:
+    - Array
+    - Hash Table
+---
+
 # [2815. Max Pair Sum in an Array](https://leetcode.com/problems/max-pair-sum-in-an-array)
 
 [中文文档](/solution/2800-2899/2815.Max%20Pair%20Sum%20in%20an%20Array/README.md)
-
-<!-- tags:Array,Hash Table -->
 
 ## Description
 

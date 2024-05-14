@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1847.Closest%20Room/README.md
+rating: 2081
+tags:
+    - 数组
+    - 二分查找
+    - 排序
+---
+
 # [1847. 最近的房间](https://leetcode.cn/problems/closest-room)
 
 [English Version](/solution/1800-1899/1847.Closest%20Room/README_EN.md)
-
-<!-- tags:数组,二分查找,排序 -->
 
 ## 题目描述
 

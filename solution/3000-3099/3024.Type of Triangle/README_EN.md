@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3024.Type%20of%20Triangle/README_EN.md
+rating: 1134
+tags:
+    - Array
+    - Math
+    - Sorting
+---
+
 # [3024. Type of Triangle](https://leetcode.com/problems/type-of-triangle)
 
 [中文文档](/solution/3000-3099/3024.Type%20of%20Triangle/README.md)
-
-<!-- tags:Array,Math,Sorting -->
 
 ## Description
 

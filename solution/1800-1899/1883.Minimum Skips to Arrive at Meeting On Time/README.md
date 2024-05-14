@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1883.Minimum%20Skips%20to%20Arrive%20at%20Meeting%20On%20Time/README.md
+rating: 2587
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [1883. 准时抵达会议现场的最小跳过休息次数](https://leetcode.cn/problems/minimum-skips-to-arrive-at-meeting-on-time)
 
 [English Version](/solution/1800-1899/1883.Minimum%20Skips%20to%20Arrive%20at%20Meeting%20On%20Time/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
 
 ## 题目描述
 

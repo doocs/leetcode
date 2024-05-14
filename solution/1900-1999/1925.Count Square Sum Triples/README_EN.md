@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1925.Count%20Square%20Sum%20Triples/README_EN.md
+rating: 1323
+tags:
+    - Math
+    - Enumeration
+---
+
 # [1925. Count Square Sum Triples](https://leetcode.com/problems/count-square-sum-triples)
 
 [中文文档](/solution/1900-1999/1925.Count%20Square%20Sum%20Triples/README.md)
-
-<!-- tags:Math,Enumeration -->
 
 ## Description
 

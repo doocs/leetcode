@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2452.Words%20Within%20Two%20Edits%20of%20Dictionary/README_EN.md
+rating: 1459
+tags:
+    - Array
+    - String
+---
+
 # [2452. Words Within Two Edits of Dictionary](https://leetcode.com/problems/words-within-two-edits-of-dictionary)
 
 [中文文档](/solution/2400-2499/2452.Words%20Within%20Two%20Edits%20of%20Dictionary/README.md)
-
-<!-- tags:Array,String -->
 
 ## Description
 

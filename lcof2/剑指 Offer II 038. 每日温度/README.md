@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20038.%20%E6%AF%8F%E6%97%A5%E6%B8%A9%E5%BA%A6/README.md
+---
+
 # [剑指 Offer II 038. 每日温度](https://leetcode.cn/problems/iIQa4I)
 
 ## 题目描述

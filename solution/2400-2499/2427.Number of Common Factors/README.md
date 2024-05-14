@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2427.Number%20of%20Common%20Factors/README.md
+rating: 1172
+tags:
+    - 数学
+    - 枚举
+    - 数论
+---
+
 # [2427. 公因子的数目](https://leetcode.cn/problems/number-of-common-factors)
 
 [English Version](/solution/2400-2499/2427.Number%20of%20Common%20Factors/README_EN.md)
-
-<!-- tags:数学,枚举,数论 -->
 
 ## 题目描述
 

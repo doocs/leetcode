@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0042.Trapping%20Rain%20Water/README.md
+tags:
+    - 栈
+    - 数组
+    - 双指针
+    - 动态规划
+    - 单调栈
+---
+
 # [42. 接雨水](https://leetcode.cn/problems/trapping-rain-water)
 
 [English Version](/solution/0000-0099/0042.Trapping%20Rain%20Water/README_EN.md)
-
-<!-- tags:栈,数组,双指针,动态规划,单调栈 -->
 
 ## 题目描述
 

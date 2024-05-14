@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1838.Frequency%20of%20the%20Most%20Frequent%20Element/README.md
+rating: 1876
+tags:
+    - 贪心
+    - 数组
+    - 二分查找
+    - 前缀和
+    - 排序
+    - 滑动窗口
+---
+
 # [1838. 最高频元素的频数](https://leetcode.cn/problems/frequency-of-the-most-frequent-element)
 
 [English Version](/solution/1800-1899/1838.Frequency%20of%20the%20Most%20Frequent%20Element/README_EN.md)
-
-<!-- tags:贪心,数组,二分查找,前缀和,排序,滑动窗口 -->
 
 ## 题目描述
 

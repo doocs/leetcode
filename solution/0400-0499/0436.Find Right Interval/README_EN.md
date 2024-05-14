@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0436.Find%20Right%20Interval/README_EN.md
+tags:
+    - Array
+    - Binary Search
+    - Sorting
+---
+
 # [436. Find Right Interval](https://leetcode.com/problems/find-right-interval)
 
 [中文文档](/solution/0400-0499/0436.Find%20Right%20Interval/README.md)
-
-<!-- tags:Array,Binary Search,Sorting -->
 
 ## Description
 

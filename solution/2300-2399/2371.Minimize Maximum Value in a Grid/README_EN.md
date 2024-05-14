@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2371.Minimize%20Maximum%20Value%20in%20a%20Grid/README_EN.md
+tags:
+    - Union Find
+    - Graph
+    - Topological Sort
+    - Array
+    - Matrix
+    - Sorting
+---
+
 # [2371. Minimize Maximum Value in a Grid 🔒](https://leetcode.com/problems/minimize-maximum-value-in-a-grid)
 
 [中文文档](/solution/2300-2399/2371.Minimize%20Maximum%20Value%20in%20a%20Grid/README.md)
-
-<!-- tags:Union Find,Graph,Topological Sort,Array,Matrix,Sorting -->
 
 ## Description
 

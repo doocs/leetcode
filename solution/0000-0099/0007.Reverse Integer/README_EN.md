@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0007.Reverse%20Integer/README_EN.md
+tags:
+    - Math
+---
+
 # [7. Reverse Integer](https://leetcode.com/problems/reverse-integer)
 
 [中文文档](/solution/0000-0099/0007.Reverse%20Integer/README.md)
-
-<!-- tags:Math -->
 
 ## Description
 

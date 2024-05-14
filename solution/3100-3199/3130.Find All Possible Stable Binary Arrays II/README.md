@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3130.Find%20All%20Possible%20Stable%20Binary%20Arrays%20II/README.md
+rating: 2824
+tags:
+    - 动态规划
+    - 前缀和
+---
+
 # [3130. 找出所有稳定的二进制数组 II](https://leetcode.cn/problems/find-all-possible-stable-binary-arrays-ii)
 
 [English Version](/solution/3100-3199/3130.Find%20All%20Possible%20Stable%20Binary%20Arrays%20II/README_EN.md)
-
-<!-- tags:动态规划,前缀和 -->
 
 ## 题目描述
 

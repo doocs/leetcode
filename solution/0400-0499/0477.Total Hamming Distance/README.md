@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0477.Total%20Hamming%20Distance/README.md
+tags:
+    - 位运算
+    - 数组
+    - 数学
+---
+
 # [477. 汉明距离总和](https://leetcode.cn/problems/total-hamming-distance)
 
 [English Version](/solution/0400-0499/0477.Total%20Hamming%20Distance/README_EN.md)
-
-<!-- tags:位运算,数组,数学 -->
 
 ## 题目描述
 

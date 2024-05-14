@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.05.Find%20Longest%20Subarray/README.md
+---
+
 # [面试题 17.05. 字母与数字](https://leetcode.cn/problems/find-longest-subarray-lcci)
 
 [English Version](/lcci/17.05.Find%20Longest%20Subarray/README_EN.md)

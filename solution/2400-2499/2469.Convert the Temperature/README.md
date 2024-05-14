@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2469.Convert%20the%20Temperature/README.md
+rating: 1153
+tags:
+    - 数学
+---
+
 # [2469. 温度转换](https://leetcode.cn/problems/convert-the-temperature)
 
 [English Version](/solution/2400-2499/2469.Convert%20the%20Temperature/README_EN.md)
-
-<!-- tags:数学 -->
 
 ## 题目描述
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2954.Count%20the%20Number%20of%20Infection%20Sequences/README.md
+rating: 2644
+tags:
+    - 数组
+    - 数学
+    - 组合数学
+---
+
 # [2954. 统计感冒序列的数目](https://leetcode.cn/problems/count-the-number-of-infection-sequences)
 
 [English Version](/solution/2900-2999/2954.Count%20the%20Number%20of%20Infection%20Sequences/README_EN.md)
-
-<!-- tags:数组,数学,组合数学 -->
 
 ## 题目描述
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2548.Maximum%20Price%20to%20Fill%20a%20Bag/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Sorting
+---
+
 # [2548. Maximum Price to Fill a Bag 🔒](https://leetcode.com/problems/maximum-price-to-fill-a-bag)
 
 [中文文档](/solution/2500-2599/2548.Maximum%20Price%20to%20Fill%20a%20Bag/README.md)
-
-<!-- tags:Greedy,Array,Sorting -->
 
 ## Description
 

@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1054.Distant%20Barcodes/README_EN.md
+rating: 1701
+tags:
+    - Greedy
+    - Array
+    - Hash Table
+    - Counting
+    - Sorting
+    - Heap (Priority Queue)
+---
+
 # [1054. Distant Barcodes](https://leetcode.com/problems/distant-barcodes)
 
 [中文文档](/solution/1000-1099/1054.Distant%20Barcodes/README.md)
-
-<!-- tags:Greedy,Array,Hash Table,Counting,Sorting,Heap (Priority Queue) -->
 
 ## Description
 

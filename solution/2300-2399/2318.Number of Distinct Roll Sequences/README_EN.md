@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2318.Number%20of%20Distinct%20Roll%20Sequences/README_EN.md
+rating: 2090
+tags:
+    - Memoization
+    - Dynamic Programming
+---
+
 # [2318. Number of Distinct Roll Sequences](https://leetcode.com/problems/number-of-distinct-roll-sequences)
 
 [中文文档](/solution/2300-2399/2318.Number%20of%20Distinct%20Roll%20Sequences/README.md)
-
-<!-- tags:Memoization,Dynamic Programming -->
 
 ## Description
 

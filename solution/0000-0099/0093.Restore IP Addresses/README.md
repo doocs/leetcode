@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0093.Restore%20IP%20Addresses/README.md
+tags:
+    - 字符串
+    - 回溯
+---
+
 # [93. 复原 IP 地址](https://leetcode.cn/problems/restore-ip-addresses)
 
 [English Version](/solution/0000-0099/0093.Restore%20IP%20Addresses/README_EN.md)
-
-<!-- tags:字符串,回溯 -->
 
 ## 题目描述
 

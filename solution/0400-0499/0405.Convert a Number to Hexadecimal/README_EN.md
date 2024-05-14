@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0405.Convert%20a%20Number%20to%20Hexadecimal/README_EN.md
+tags:
+    - Bit Manipulation
+    - Math
+---
+
 # [405. Convert a Number to Hexadecimal](https://leetcode.com/problems/convert-a-number-to-hexadecimal)
 
 [中文文档](/solution/0400-0499/0405.Convert%20a%20Number%20to%20Hexadecimal/README.md)
-
-<!-- tags:Bit Manipulation,Math -->
 
 ## Description
 

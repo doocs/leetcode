@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0060.Permutation%20Sequence/README_EN.md
+tags:
+    - Recursion
+    - Math
+---
+
 # [60. Permutation Sequence](https://leetcode.com/problems/permutation-sequence)
 
 [中文文档](/solution/0000-0099/0060.Permutation%20Sequence/README.md)
-
-<!-- tags:Recursion,Math -->
 
 ## Description
 

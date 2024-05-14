@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2692.Make%20Object%20Immutable/README.md
+---
+
 # [2692. 使对象不可变 🔒](https://leetcode.cn/problems/make-object-immutable)
 
 [English Version](/solution/2600-2699/2692.Make%20Object%20Immutable/README_EN.md)
-
-<!-- tags: -->
 
 ## 题目描述
 

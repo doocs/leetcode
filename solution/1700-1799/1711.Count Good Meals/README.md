@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1711.Count%20Good%20Meals/README.md
+rating: 1797
+tags:
+    - 数组
+    - 哈希表
+---
+
 # [1711. 大餐计数](https://leetcode.cn/problems/count-good-meals)
 
 [English Version](/solution/1700-1799/1711.Count%20Good%20Meals/README_EN.md)
-
-<!-- tags:数组,哈希表 -->
 
 ## 题目描述
 

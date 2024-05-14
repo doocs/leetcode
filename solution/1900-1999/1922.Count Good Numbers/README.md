@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1922.Count%20Good%20Numbers/README.md
+rating: 1674
+tags:
+    - 递归
+    - 数学
+---
+
 # [1922. 统计好数字的数目](https://leetcode.cn/problems/count-good-numbers)
 
 [English Version](/solution/1900-1999/1922.Count%20Good%20Numbers/README_EN.md)
-
-<!-- tags:递归,数学 -->
 
 ## 题目描述
 

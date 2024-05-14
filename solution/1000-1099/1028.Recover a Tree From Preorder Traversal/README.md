@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1028.Recover%20a%20Tree%20From%20Preorder%20Traversal/README.md
+rating: 1797
+tags:
+    - 树
+    - 深度优先搜索
+    - 字符串
+    - 二叉树
+---
+
 # [1028. 从先序遍历还原二叉树](https://leetcode.cn/problems/recover-a-tree-from-preorder-traversal)
 
 [English Version](/solution/1000-1099/1028.Recover%20a%20Tree%20From%20Preorder%20Traversal/README_EN.md)
-
-<!-- tags:树,深度优先搜索,字符串,二叉树 -->
 
 ## 题目描述
 

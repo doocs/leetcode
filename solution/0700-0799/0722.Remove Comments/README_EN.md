@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0722.Remove%20Comments/README_EN.md
+tags:
+    - Array
+    - String
+---
+
 # [722. Remove Comments](https://leetcode.com/problems/remove-comments)
 
 [中文文档](/solution/0700-0799/0722.Remove%20Comments/README.md)
-
-<!-- tags:Array,String -->
 
 ## Description
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1535.Find%20the%20Winner%20of%20an%20Array%20Game/README.md
+rating: 1433
+tags:
+    - 数组
+    - 模拟
+---
+
 # [1535. 找出数组游戏的赢家](https://leetcode.cn/problems/find-the-winner-of-an-array-game)
 
 [English Version](/solution/1500-1599/1535.Find%20the%20Winner%20of%20an%20Array%20Game/README_EN.md)
-
-<!-- tags:数组,模拟 -->
 
 ## 题目描述
 

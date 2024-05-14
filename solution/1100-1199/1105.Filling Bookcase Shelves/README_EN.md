@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1105.Filling%20Bookcase%20Shelves/README_EN.md
+rating: 2014
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [1105. Filling Bookcase Shelves](https://leetcode.com/problems/filling-bookcase-shelves)
 
 [中文文档](/solution/1100-1199/1105.Filling%20Bookcase%20Shelves/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
 
 ## Description
 

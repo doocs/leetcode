@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1730.Shortest%20Path%20to%20Get%20Food/README.md
+tags:
+    - 广度优先搜索
+    - 数组
+    - 矩阵
+---
+
 # [1730. 获取食物的最短路径 🔒](https://leetcode.cn/problems/shortest-path-to-get-food)
 
 [English Version](/solution/1700-1799/1730.Shortest%20Path%20to%20Get%20Food/README_EN.md)
-
-<!-- tags:广度优先搜索,数组,矩阵 -->
 
 ## 题目描述
 

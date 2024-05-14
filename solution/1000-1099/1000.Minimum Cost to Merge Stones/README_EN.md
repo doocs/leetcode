@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1000.Minimum%20Cost%20to%20Merge%20Stones/README_EN.md
+rating: 2422
+tags:
+    - Array
+    - Dynamic Programming
+    - Prefix Sum
+---
+
 # [1000. Minimum Cost to Merge Stones](https://leetcode.com/problems/minimum-cost-to-merge-stones)
 
 [中文文档](/solution/1000-1099/1000.Minimum%20Cost%20to%20Merge%20Stones/README.md)
-
-<!-- tags:Array,Dynamic Programming,Prefix Sum -->
 
 ## Description
 

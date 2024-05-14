@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2082.The%20Number%20of%20Rich%20Customers/README.md
+tags:
+    - 数据库
+---
+
 # [2082. 富有客户的数量 🔒](https://leetcode.cn/problems/the-number-of-rich-customers)
 
 [English Version](/solution/2000-2099/2082.The%20Number%20of%20Rich%20Customers/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

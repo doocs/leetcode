@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0286.Walls%20and%20Gates/README.md
+tags:
+    - 广度优先搜索
+    - 数组
+    - 矩阵
+---
+
 # [286. 墙与门 🔒](https://leetcode.cn/problems/walls-and-gates)
 
 [English Version](/solution/0200-0299/0286.Walls%20and%20Gates/README_EN.md)
-
-<!-- tags:广度优先搜索,数组,矩阵 -->
 
 ## 题目描述
 

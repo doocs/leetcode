@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1169.Invalid%20Transactions/README.md
+rating: 1658
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+    - 排序
+---
+
 # [1169. 查询无效交易](https://leetcode.cn/problems/invalid-transactions)
 
 [English Version](/solution/1100-1199/1169.Invalid%20Transactions/README_EN.md)
-
-<!-- tags:数组,哈希表,字符串,排序 -->
 
 ## 题目描述
 

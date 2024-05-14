@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0886.Possible%20Bipartition/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 并查集
+    - 图
+---
+
 # [886. 可能的二分法](https://leetcode.cn/problems/possible-bipartition)
 
 [English Version](/solution/0800-0899/0886.Possible%20Bipartition/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,并查集,图 -->
 
 ## 题目描述
 

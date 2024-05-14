@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0514.Freedom%20Trail/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 字符串
+    - 动态规划
+---
+
 # [514. 自由之路](https://leetcode.cn/problems/freedom-trail)
 
 [English Version](/solution/0500-0599/0514.Freedom%20Trail/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,字符串,动态规划 -->
 
 ## 题目描述
 

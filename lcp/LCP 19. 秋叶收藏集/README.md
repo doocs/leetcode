@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2019.%20%E7%A7%8B%E5%8F%B6%E6%94%B6%E8%97%8F%E9%9B%86/README.md
+---
+
 # [LCP 19. 秋叶收藏集](https://leetcode.cn/problems/UlBDOe)
 
 ## 题目描述

@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1872.Stone%20Game%20VIII/README_EN.md
+rating: 2439
+tags:
+    - Array
+    - Math
+    - Dynamic Programming
+    - Game Theory
+    - Prefix Sum
+---
+
 # [1872. Stone Game VIII](https://leetcode.com/problems/stone-game-viii)
 
 [中文文档](/solution/1800-1899/1872.Stone%20Game%20VIII/README.md)
-
-<!-- tags:Array,Math,Dynamic Programming,Game Theory,Prefix Sum -->
 
 ## Description
 

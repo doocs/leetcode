@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0335.Self%20Crossing/README.md
+tags:
+    - 几何
+    - 数组
+    - 数学
+---
+
 # [335. 路径交叉](https://leetcode.cn/problems/self-crossing)
 
 [English Version](/solution/0300-0399/0335.Self%20Crossing/README_EN.md)
-
-<!-- tags:几何,数组,数学 -->
 
 ## 题目描述
 

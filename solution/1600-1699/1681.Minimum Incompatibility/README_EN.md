@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1681.Minimum%20Incompatibility/README_EN.md
+rating: 2389
+tags:
+    - Bit Manipulation
+    - Array
+    - Dynamic Programming
+    - Bitmask
+---
+
 # [1681. Minimum Incompatibility](https://leetcode.com/problems/minimum-incompatibility)
 
 [中文文档](/solution/1600-1699/1681.Minimum%20Incompatibility/README.md)
-
-<!-- tags:Bit Manipulation,Array,Dynamic Programming,Bitmask -->
 
 ## Description
 

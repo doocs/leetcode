@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2024.Maximize%20the%20Confusion%20of%20an%20Exam/README.md
+rating: 1643
+tags:
+    - 字符串
+    - 二分查找
+    - 前缀和
+    - 滑动窗口
+---
+
 # [2024. 考试的最大困扰度](https://leetcode.cn/problems/maximize-the-confusion-of-an-exam)
 
 [English Version](/solution/2000-2099/2024.Maximize%20the%20Confusion%20of%20an%20Exam/README_EN.md)
-
-<!-- tags:字符串,二分查找,前缀和,滑动窗口 -->
 
 ## 题目描述
 

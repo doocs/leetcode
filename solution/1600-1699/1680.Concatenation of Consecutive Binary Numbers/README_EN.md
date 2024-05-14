@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1680.Concatenation%20of%20Consecutive%20Binary%20Numbers/README_EN.md
+rating: 1629
+tags:
+    - Bit Manipulation
+    - Math
+    - Simulation
+---
+
 # [1680. Concatenation of Consecutive Binary Numbers](https://leetcode.com/problems/concatenation-of-consecutive-binary-numbers)
 
 [中文文档](/solution/1600-1699/1680.Concatenation%20of%20Consecutive%20Binary%20Numbers/README.md)
-
-<!-- tags:Bit Manipulation,Math,Simulation -->
 
 ## Description
 

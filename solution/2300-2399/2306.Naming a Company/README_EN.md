@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2306.Naming%20a%20Company/README_EN.md
+rating: 2305
+tags:
+    - Bit Manipulation
+    - Array
+    - Hash Table
+    - String
+    - Enumeration
+---
+
 # [2306. Naming a Company](https://leetcode.com/problems/naming-a-company)
 
 [中文文档](/solution/2300-2399/2306.Naming%20a%20Company/README.md)
-
-<!-- tags:Bit Manipulation,Array,Hash Table,String,Enumeration -->
 
 ## Description
 

@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2015.%20%E6%B8%B8%E4%B9%90%E5%9B%AD%E7%9A%84%E8%BF%B7%E5%AE%AB/README.md
+---
+
 # [LCP 15. 游乐园的迷宫](https://leetcode.cn/problems/you-le-yuan-de-mi-gong)
 
 ## 题目描述

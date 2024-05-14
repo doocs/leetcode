@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2043.Simple%20Bank%20System/README_EN.md
+rating: 1356
+tags:
+    - Design
+    - Array
+    - Hash Table
+    - Simulation
+---
+
 # [2043. Simple Bank System](https://leetcode.com/problems/simple-bank-system)
 
 [中文文档](/solution/2000-2099/2043.Simple%20Bank%20System/README.md)
-
-<!-- tags:Design,Array,Hash Table,Simulation -->
 
 ## Description
 

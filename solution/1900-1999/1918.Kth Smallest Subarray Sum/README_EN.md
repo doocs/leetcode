@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1918.Kth%20Smallest%20Subarray%20Sum/README_EN.md
+tags:
+    - Array
+    - Binary Search
+    - Sliding Window
+---
+
 # [1918. Kth Smallest Subarray Sum 🔒](https://leetcode.com/problems/kth-smallest-subarray-sum)
 
 [中文文档](/solution/1900-1999/1918.Kth%20Smallest%20Subarray%20Sum/README.md)
-
-<!-- tags:Array,Binary Search,Sliding Window -->
 
 ## Description
 

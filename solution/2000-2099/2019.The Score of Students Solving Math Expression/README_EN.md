@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2019.The%20Score%20of%20Students%20Solving%20Math%20Expression/README_EN.md
+rating: 2583
+tags:
+    - Stack
+    - Memoization
+    - Array
+    - Math
+    - String
+    - Dynamic Programming
+---
+
 # [2019. The Score of Students Solving Math Expression](https://leetcode.com/problems/the-score-of-students-solving-math-expression)
 
 [中文文档](/solution/2000-2099/2019.The%20Score%20of%20Students%20Solving%20Math%20Expression/README.md)
-
-<!-- tags:Stack,Memoization,Array,Math,String,Dynamic Programming -->
 
 ## Description
 

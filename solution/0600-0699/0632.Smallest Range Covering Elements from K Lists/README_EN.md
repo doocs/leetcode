@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0632.Smallest%20Range%20Covering%20Elements%20from%20K%20Lists/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Hash Table
+    - Sorting
+    - Sliding Window
+    - Heap (Priority Queue)
+---
+
 # [632. Smallest Range Covering Elements from K Lists](https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists)
 
 [中文文档](/solution/0600-0699/0632.Smallest%20Range%20Covering%20Elements%20from%20K%20Lists/README.md)
-
-<!-- tags:Greedy,Array,Hash Table,Sorting,Sliding Window,Heap (Priority Queue) -->
 
 ## Description
 

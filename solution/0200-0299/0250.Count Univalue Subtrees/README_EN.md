@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0250.Count%20Univalue%20Subtrees/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Binary Tree
+---
+
 # [250. Count Univalue Subtrees 🔒](https://leetcode.com/problems/count-univalue-subtrees)
 
 [中文文档](/solution/0200-0299/0250.Count%20Univalue%20Subtrees/README.md)
-
-<!-- tags:Tree,Depth-First Search,Binary Tree -->
 
 ## Description
 

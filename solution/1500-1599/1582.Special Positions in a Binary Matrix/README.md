@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1582.Special%20Positions%20in%20a%20Binary%20Matrix/README.md
+rating: 1321
+tags:
+    - 数组
+    - 矩阵
+---
+
 # [1582. 二进制矩阵中的特殊位置](https://leetcode.cn/problems/special-positions-in-a-binary-matrix)
 
 [English Version](/solution/1500-1599/1582.Special%20Positions%20in%20a%20Binary%20Matrix/README_EN.md)
-
-<!-- tags:数组,矩阵 -->
 
 ## 题目描述
 

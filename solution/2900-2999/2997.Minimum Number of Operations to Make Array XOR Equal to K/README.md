@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2997.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20XOR%20Equal%20to%20K/README.md
+rating: 1524
+tags:
+    - 位运算
+    - 数组
+---
+
 # [2997. 使数组异或和等于 K 的最少操作次数](https://leetcode.cn/problems/minimum-number-of-operations-to-make-array-xor-equal-to-k)
 
 [English Version](/solution/2900-2999/2997.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20XOR%20Equal%20to%20K/README_EN.md)
-
-<!-- tags:位运算,数组 -->
 
 ## 题目描述
 

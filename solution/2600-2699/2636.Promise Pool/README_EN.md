@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2636.Promise%20Pool/README_EN.md
+---
+
 # [2636. Promise Pool 🔒](https://leetcode.com/problems/promise-pool)
 
 [中文文档](/solution/2600-2699/2636.Promise%20Pool/README.md)
-
-<!-- tags: -->
 
 ## Description
 

@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0400.Nth%20Digit/README.md
+tags:
+    - 数学
+    - 二分查找
+---
+
 # [400. 第 N 位数字](https://leetcode.cn/problems/nth-digit)
 
 [English Version](/solution/0400-0499/0400.Nth%20Digit/README_EN.md)
-
-<!-- tags:数学,二分查找 -->
 
 ## 题目描述
 

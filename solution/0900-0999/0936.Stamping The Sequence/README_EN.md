@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0936.Stamping%20The%20Sequence/README_EN.md
+tags:
+    - Stack
+    - Greedy
+    - Queue
+    - String
+---
+
 # [936. Stamping The Sequence](https://leetcode.com/problems/stamping-the-sequence)
 
 [中文文档](/solution/0900-0999/0936.Stamping%20The%20Sequence/README.md)
-
-<!-- tags:Stack,Greedy,Queue,String -->
 
 ## Description
 

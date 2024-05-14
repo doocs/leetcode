@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2211.Count%20Collisions%20on%20a%20Road/README_EN.md
+rating: 1581
+tags:
+    - Stack
+    - String
+    - Simulation
+---
+
 # [2211. Count Collisions on a Road](https://leetcode.com/problems/count-collisions-on-a-road)
 
 [中文文档](/solution/2200-2299/2211.Count%20Collisions%20on%20a%20Road/README.md)
-
-<!-- tags:Stack,String,Simulation -->
 
 ## Description
 

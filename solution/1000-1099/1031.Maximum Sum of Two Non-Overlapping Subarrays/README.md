@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1031.Maximum%20Sum%20of%20Two%20Non-Overlapping%20Subarrays/README.md
+rating: 1680
+tags:
+    - 数组
+    - 动态规划
+    - 滑动窗口
+---
+
 # [1031. 两个非重叠子数组的最大和](https://leetcode.cn/problems/maximum-sum-of-two-non-overlapping-subarrays)
 
 [English Version](/solution/1000-1099/1031.Maximum%20Sum%20of%20Two%20Non-Overlapping%20Subarrays/README_EN.md)
-
-<!-- tags:数组,动态规划,滑动窗口 -->
 
 ## 题目描述
 

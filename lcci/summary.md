@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/summary.md
+---
+
 -   程序员面试金典（第 6 版）题解
     -   [01.01. 判定字符是否唯一](/lcci/01.01.Is%20Unique/README.md)
     -   [01.02. 判定是否互为字符重排](/lcci/01.02.Check%20Permutation/README.md)

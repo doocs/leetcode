@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2555.Maximize%20Win%20From%20Two%20Segments/README.md
+rating: 2080
+tags:
+    - 数组
+    - 二分查找
+    - 滑动窗口
+---
+
 # [2555. 两个线段获得的最多奖品](https://leetcode.cn/problems/maximize-win-from-two-segments)
 
 [English Version](/solution/2500-2599/2555.Maximize%20Win%20From%20Two%20Segments/README_EN.md)
-
-<!-- tags:数组,二分查找,滑动窗口 -->
 
 ## 题目描述
 

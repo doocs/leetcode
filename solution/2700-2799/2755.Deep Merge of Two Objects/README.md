@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2755.Deep%20Merge%20of%20Two%20Objects/README.md
+---
+
 # [2755. 深度合并两个对象 🔒](https://leetcode.cn/problems/deep-merge-of-two-objects)
 
 [English Version](/solution/2700-2799/2755.Deep%20Merge%20of%20Two%20Objects/README_EN.md)
-
-<!-- tags: -->
 
 ## 题目描述
 

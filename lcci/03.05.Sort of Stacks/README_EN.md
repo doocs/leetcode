@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.05.Sort%20of%20Stacks/README_EN.md
+---
+
 # [03.05. Sort of Stacks](https://leetcode.cn/problems/sort-of-stacks-lcci)
 
 [中文文档](/lcci/03.05.Sort%20of%20Stacks/README.md)

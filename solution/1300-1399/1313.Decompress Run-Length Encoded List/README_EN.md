@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1313.Decompress%20Run-Length%20Encoded%20List/README_EN.md
+rating: 1317
+tags:
+    - Array
+---
+
 # [1313. Decompress Run-Length Encoded List](https://leetcode.com/problems/decompress-run-length-encoded-list)
 
 [中文文档](/solution/1300-1399/1313.Decompress%20Run-Length%20Encoded%20List/README.md)
-
-<!-- tags:Array -->
 
 ## Description
 

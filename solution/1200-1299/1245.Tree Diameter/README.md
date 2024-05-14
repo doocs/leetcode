@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1245.Tree%20Diameter/README.md
+rating: 1792
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 图
+    - 拓扑排序
+---
+
 # [1245. 树的直径 🔒](https://leetcode.cn/problems/tree-diameter)
 
 [English Version](/solution/1200-1299/1245.Tree%20Diameter/README_EN.md)
-
-<!-- tags:树,深度优先搜索,广度优先搜索,图,拓扑排序 -->
 
 ## 题目描述
 

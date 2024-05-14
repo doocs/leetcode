@@ -1,8 +1,21 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2343.Query%20Kth%20Smallest%20Trimmed%20Number/README.md
+rating: 1651
+tags:
+    - 数组
+    - 字符串
+    - 分治
+    - 快速选择
+    - 基数排序
+    - 排序
+    - 堆（优先队列）
+---
+
 # [2343. 裁剪数字后查询第 K 小的数字](https://leetcode.cn/problems/query-kth-smallest-trimmed-number)
 
 [English Version](/solution/2300-2399/2343.Query%20Kth%20Smallest%20Trimmed%20Number/README_EN.md)
-
-<!-- tags:数组,字符串,分治,快速选择,基数排序,排序,堆（优先队列） -->
 
 ## 题目描述
 

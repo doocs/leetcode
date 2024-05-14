@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1663.Smallest%20String%20With%20A%20Given%20Numeric%20Value/README_EN.md
+rating: 1460
+tags:
+    - Greedy
+    - String
+---
+
 # [1663. Smallest String With A Given Numeric Value](https://leetcode.com/problems/smallest-string-with-a-given-numeric-value)
 
 [中文文档](/solution/1600-1699/1663.Smallest%20String%20With%20A%20Given%20Numeric%20Value/README.md)
-
-<!-- tags:Greedy,String -->
 
 ## Description
 

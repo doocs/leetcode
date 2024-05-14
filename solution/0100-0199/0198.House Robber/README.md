@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0198.House%20Robber/README.md
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [198. 打家劫舍](https://leetcode.cn/problems/house-robber)
 
 [English Version](/solution/0100-0199/0198.House%20Robber/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
 
 ## 题目描述
 

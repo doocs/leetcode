@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0871.Minimum%20Number%20of%20Refueling%20Stops/README.md
+tags:
+    - 贪心
+    - 数组
+    - 动态规划
+    - 堆（优先队列）
+---
+
 # [871. 最低加油次数](https://leetcode.cn/problems/minimum-number-of-refueling-stops)
 
 [English Version](/solution/0800-0899/0871.Minimum%20Number%20of%20Refueling%20Stops/README_EN.md)
-
-<!-- tags:贪心,数组,动态规划,堆（优先队列） -->
 
 ## 题目描述
 

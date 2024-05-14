@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2075.%20%E4%BC%A0%E9%80%81%E5%8D%B7%E8%BD%B4/README.md
+---
+
 # [LCP 75. 传送卷轴](https://leetcode.cn/problems/rdmXM7)
 
 ## 题目描述

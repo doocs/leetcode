@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1747.Leetflex%20Banned%20Accounts/README.md
+tags:
+    - 数据库
+---
+
 # [1747. 应该被禁止的 Leetflex 账户 🔒](https://leetcode.cn/problems/leetflex-banned-accounts)
 
 [English Version](/solution/1700-1799/1747.Leetflex%20Banned%20Accounts/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

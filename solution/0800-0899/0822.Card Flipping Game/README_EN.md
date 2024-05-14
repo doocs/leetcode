@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0822.Card%20Flipping%20Game/README_EN.md
+tags:
+    - Array
+    - Hash Table
+---
+
 # [822. Card Flipping Game](https://leetcode.com/problems/card-flipping-game)
 
 [中文文档](/solution/0800-0899/0822.Card%20Flipping%20Game/README.md)
-
-<!-- tags:Array,Hash Table -->
 
 ## Description
 

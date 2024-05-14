@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2977.Minimum%20Cost%20to%20Convert%20String%20II/README.md
+rating: 2695
+tags:
+    - 图
+    - 字典树
+    - 数组
+    - 字符串
+    - 动态规划
+    - 最短路
+---
+
 # [2977. 转换字符串的最小成本 II](https://leetcode.cn/problems/minimum-cost-to-convert-string-ii)
 
 [English Version](/solution/2900-2999/2977.Minimum%20Cost%20to%20Convert%20String%20II/README_EN.md)
-
-<!-- tags:图,字典树,数组,字符串,动态规划,最短路 -->
 
 ## 题目描述
 

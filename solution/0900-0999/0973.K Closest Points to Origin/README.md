@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0973.K%20Closest%20Points%20to%20Origin/README.md
+tags:
+    - 几何
+    - 数组
+    - 数学
+    - 分治
+    - 快速选择
+    - 排序
+    - 堆（优先队列）
+---
+
 # [973. 最接近原点的 K 个点](https://leetcode.cn/problems/k-closest-points-to-origin)
 
 [English Version](/solution/0900-0999/0973.K%20Closest%20Points%20to%20Origin/README_EN.md)
-
-<!-- tags:几何,数组,数学,分治,快速选择,排序,堆（优先队列） -->
 
 ## 题目描述
 

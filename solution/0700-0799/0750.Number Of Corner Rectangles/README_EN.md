@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0750.Number%20Of%20Corner%20Rectangles/README_EN.md
+tags:
+    - Array
+    - Math
+    - Dynamic Programming
+    - Matrix
+---
+
 # [750. Number Of Corner Rectangles 🔒](https://leetcode.com/problems/number-of-corner-rectangles)
 
 [中文文档](/solution/0700-0799/0750.Number%20Of%20Corner%20Rectangles/README.md)
-
-<!-- tags:Array,Math,Dynamic Programming,Matrix -->
 
 ## Description
 

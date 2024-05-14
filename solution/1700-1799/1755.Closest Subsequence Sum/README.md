@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1755.Closest%20Subsequence%20Sum/README.md
+rating: 2363
+tags:
+    - 位运算
+    - 数组
+    - 双指针
+    - 动态规划
+    - 状态压缩
+---
+
 # [1755. 最接近目标值的子序列和](https://leetcode.cn/problems/closest-subsequence-sum)
 
 [English Version](/solution/1700-1799/1755.Closest%20Subsequence%20Sum/README_EN.md)
-
-<!-- tags:位运算,数组,双指针,动态规划,状态压缩 -->
 
 ## 题目描述
 

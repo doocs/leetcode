@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0088.Merge%20Sorted%20Array/README_EN.md
+tags:
+    - Array
+    - Two Pointers
+    - Sorting
+---
+
 # [88. Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array)
 
 [中文文档](/solution/0000-0099/0088.Merge%20Sorted%20Array/README.md)
-
-<!-- tags:Array,Two Pointers,Sorting -->
 
 ## Description
 

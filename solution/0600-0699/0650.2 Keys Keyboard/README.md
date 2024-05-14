@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0650.2%20Keys%20Keyboard/README.md
+tags:
+    - 数学
+    - 动态规划
+---
+
 # [650. 两个键的键盘](https://leetcode.cn/problems/2-keys-keyboard)
 
 [English Version](/solution/0600-0699/0650.2%20Keys%20Keyboard/README_EN.md)
-
-<!-- tags:数学,动态规划 -->
 
 ## 题目描述
 

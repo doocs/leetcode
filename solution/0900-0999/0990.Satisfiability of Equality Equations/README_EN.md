@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0990.Satisfiability%20of%20Equality%20Equations/README_EN.md
+tags:
+    - Union Find
+    - Graph
+    - Array
+    - String
+---
+
 # [990. Satisfiability of Equality Equations](https://leetcode.com/problems/satisfiability-of-equality-equations)
 
 [中文文档](/solution/0900-0999/0990.Satisfiability%20of%20Equality%20Equations/README.md)
-
-<!-- tags:Union Find,Graph,Array,String -->
 
 ## Description
 

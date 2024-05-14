@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2437.Number%20of%20Valid%20Clock%20Times/README.md
+rating: 1426
+tags:
+    - 字符串
+    - 枚举
+---
+
 # [2437. 有效时间的数目](https://leetcode.cn/problems/number-of-valid-clock-times)
 
 [English Version](/solution/2400-2499/2437.Number%20of%20Valid%20Clock%20Times/README_EN.md)
-
-<!-- tags:字符串,枚举 -->
 
 ## 题目描述
 

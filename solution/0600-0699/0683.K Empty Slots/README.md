@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0683.K%20Empty%20Slots/README.md
+tags:
+    - 树状数组
+    - 数组
+    - 有序集合
+    - 滑动窗口
+---
+
 # [683. K 个关闭的灯泡 🔒](https://leetcode.cn/problems/k-empty-slots)
 
 [English Version](/solution/0600-0699/0683.K%20Empty%20Slots/README_EN.md)
-
-<!-- tags:树状数组,数组,有序集合,滑动窗口 -->
 
 ## 题目描述
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1710.Maximum%20Units%20on%20a%20Truck/README_EN.md
+rating: 1309
+tags:
+    - Greedy
+    - Array
+    - Sorting
+---
+
 # [1710. Maximum Units on a Truck](https://leetcode.com/problems/maximum-units-on-a-truck)
 
 [中文文档](/solution/1700-1799/1710.Maximum%20Units%20on%20a%20Truck/README.md)
-
-<!-- tags:Greedy,Array,Sorting -->
 
 ## Description
 

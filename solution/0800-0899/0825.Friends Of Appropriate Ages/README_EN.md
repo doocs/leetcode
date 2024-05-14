@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0825.Friends%20Of%20Appropriate%20Ages/README_EN.md
+tags:
+    - Array
+    - Two Pointers
+    - Binary Search
+    - Sorting
+---
+
 # [825. Friends Of Appropriate Ages](https://leetcode.com/problems/friends-of-appropriate-ages)
 
 [中文文档](/solution/0800-0899/0825.Friends%20Of%20Appropriate%20Ages/README.md)
-
-<!-- tags:Array,Two Pointers,Binary Search,Sorting -->
 
 ## Description
 

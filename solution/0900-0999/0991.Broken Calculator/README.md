@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0991.Broken%20Calculator/README.md
+tags:
+    - 贪心
+    - 数学
+---
+
 # [991. 坏了的计算器](https://leetcode.cn/problems/broken-calculator)
 
 [English Version](/solution/0900-0999/0991.Broken%20Calculator/README_EN.md)
-
-<!-- tags:贪心,数学 -->
 
 ## 题目描述
 

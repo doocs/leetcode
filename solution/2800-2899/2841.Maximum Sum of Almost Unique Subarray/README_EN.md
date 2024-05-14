@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2841.Maximum%20Sum%20of%20Almost%20Unique%20Subarray/README_EN.md
+rating: 1545
+tags:
+    - Array
+    - Hash Table
+    - Sliding Window
+---
+
 # [2841. Maximum Sum of Almost Unique Subarray](https://leetcode.com/problems/maximum-sum-of-almost-unique-subarray)
 
 [中文文档](/solution/2800-2899/2841.Maximum%20Sum%20of%20Almost%20Unique%20Subarray/README.md)
-
-<!-- tags:Array,Hash Table,Sliding Window -->
 
 ## Description
 

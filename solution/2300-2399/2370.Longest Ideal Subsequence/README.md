@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2370.Longest%20Ideal%20Subsequence/README.md
+rating: 1834
+tags:
+    - 哈希表
+    - 字符串
+    - 动态规划
+---
+
 # [2370. 最长理想子序列](https://leetcode.cn/problems/longest-ideal-subsequence)
 
 [English Version](/solution/2300-2399/2370.Longest%20Ideal%20Subsequence/README_EN.md)
-
-<!-- tags:哈希表,字符串,动态规划 -->
 
 ## 题目描述
 

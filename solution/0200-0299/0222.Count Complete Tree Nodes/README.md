@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0222.Count%20Complete%20Tree%20Nodes/README.md
+tags:
+    - 位运算
+    - 树
+    - 二分查找
+    - 二叉树
+---
+
 # [222. 完全二叉树的节点个数](https://leetcode.cn/problems/count-complete-tree-nodes)
 
 [English Version](/solution/0200-0299/0222.Count%20Complete%20Tree%20Nodes/README_EN.md)
-
-<!-- tags:位运算,树,二分查找,二叉树 -->
 
 ## 题目描述
 

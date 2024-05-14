@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2882.Drop%20Duplicate%20Rows/README.md
+---
+
 # [2882. 删去重复的行](https://leetcode.cn/problems/drop-duplicate-rows)
 
 [English Version](/solution/2800-2899/2882.Drop%20Duplicate%20Rows/README_EN.md)
-
-<!-- tags: -->
 
 ## 题目描述
 

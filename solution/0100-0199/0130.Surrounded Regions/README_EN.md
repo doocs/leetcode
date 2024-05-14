@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0130.Surrounded%20Regions/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Union Find
+    - Array
+    - Matrix
+---
+
 # [130. Surrounded Regions](https://leetcode.com/problems/surrounded-regions)
 
 [中文文档](/solution/0100-0199/0130.Surrounded%20Regions/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Array,Matrix -->
 
 ## Description
 

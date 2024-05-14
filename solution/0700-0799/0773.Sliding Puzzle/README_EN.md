@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0773.Sliding%20Puzzle/README_EN.md
+tags:
+    - Breadth-First Search
+    - Array
+    - Matrix
+---
+
 # [773. Sliding Puzzle](https://leetcode.com/problems/sliding-puzzle)
 
 [中文文档](/solution/0700-0799/0773.Sliding%20Puzzle/README.md)
-
-<!-- tags:Breadth-First Search,Array,Matrix -->
 
 ## Description
 

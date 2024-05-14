@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1044.Longest%20Duplicate%20Substring/README_EN.md
+rating: 2428
+tags:
+    - String
+    - Binary Search
+    - Suffix Array
+    - Sliding Window
+    - Hash Function
+    - Rolling Hash
+---
+
 # [1044. Longest Duplicate Substring](https://leetcode.com/problems/longest-duplicate-substring)
 
 [中文文档](/solution/1000-1099/1044.Longest%20Duplicate%20Substring/README.md)
-
-<!-- tags:String,Binary Search,Suffix Array,Sliding Window,Hash Function,Rolling Hash -->
 
 ## Description
 

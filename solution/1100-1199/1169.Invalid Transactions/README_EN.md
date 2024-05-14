@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1169.Invalid%20Transactions/README_EN.md
+rating: 1658
+tags:
+    - Array
+    - Hash Table
+    - String
+    - Sorting
+---
+
 # [1169. Invalid Transactions](https://leetcode.com/problems/invalid-transactions)
 
 [中文文档](/solution/1100-1199/1169.Invalid%20Transactions/README.md)
-
-<!-- tags:Array,Hash Table,String,Sorting -->
 
 ## Description
 

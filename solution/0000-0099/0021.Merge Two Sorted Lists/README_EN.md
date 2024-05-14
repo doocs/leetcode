@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0021.Merge%20Two%20Sorted%20Lists/README_EN.md
+tags:
+    - Recursion
+    - Linked List
+---
+
 # [21. Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists)
 
 [中文文档](/solution/0000-0099/0021.Merge%20Two%20Sorted%20Lists/README.md)
-
-<!-- tags:Recursion,Linked List -->
 
 ## Description
 

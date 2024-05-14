@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2130.Maximum%20Twin%20Sum%20of%20a%20Linked%20List/README.md
+rating: 1317
+tags:
+    - 栈
+    - 链表
+    - 双指针
+---
+
 # [2130. 链表最大孪生和](https://leetcode.cn/problems/maximum-twin-sum-of-a-linked-list)
 
 [English Version](/solution/2100-2199/2130.Maximum%20Twin%20Sum%20of%20a%20Linked%20List/README_EN.md)
-
-<!-- tags:栈,链表,双指针 -->
 
 ## 题目描述
 

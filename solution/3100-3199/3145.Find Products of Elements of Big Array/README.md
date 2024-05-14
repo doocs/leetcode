@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3145.Find%20Products%20of%20Elements%20of%20Big%20Array/README.md
+---
+
 # [3145. 大数组元素的乘积](https://leetcode.cn/problems/find-products-of-elements-of-big-array)
 
 [English Version](/solution/3100-3199/3145.Find%20Products%20of%20Elements%20of%20Big%20Array/README_EN.md)
-
-<!-- tags: -->
 
 ## 题目描述
 

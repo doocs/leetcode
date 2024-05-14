@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0125.Valid%20Palindrome/README_EN.md
+tags:
+    - Two Pointers
+    - String
+---
+
 # [125. Valid Palindrome](https://leetcode.com/problems/valid-palindrome)
 
 [中文文档](/solution/0100-0199/0125.Valid%20Palindrome/README.md)
-
-<!-- tags:Two Pointers,String -->
 
 ## Description
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0277.Find%20the%20Celebrity/README_EN.md
+tags:
+    - Graph
+    - Two Pointers
+    - Interactive
+---
+
 # [277. Find the Celebrity 🔒](https://leetcode.com/problems/find-the-celebrity)
 
 [中文文档](/solution/0200-0299/0277.Find%20the%20Celebrity/README.md)
-
-<!-- tags:Graph,Two Pointers,Interactive -->
 
 ## Description
 

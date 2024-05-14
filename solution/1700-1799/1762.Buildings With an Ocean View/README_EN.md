@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1762.Buildings%20With%20an%20Ocean%20View/README_EN.md
+tags:
+    - Stack
+    - Array
+    - Monotonic Stack
+---
+
 # [1762. Buildings With an Ocean View 🔒](https://leetcode.com/problems/buildings-with-an-ocean-view)
 
 [中文文档](/solution/1700-1799/1762.Buildings%20With%20an%20Ocean%20View/README.md)
-
-<!-- tags:Stack,Array,Monotonic Stack -->
 
 ## Description
 

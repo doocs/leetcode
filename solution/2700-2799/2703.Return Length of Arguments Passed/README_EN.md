@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2703.Return%20Length%20of%20Arguments%20Passed/README_EN.md
+---
+
 # [2703. Return Length of Arguments Passed](https://leetcode.com/problems/return-length-of-arguments-passed)
 
 [中文文档](/solution/2700-2799/2703.Return%20Length%20of%20Arguments%20Passed/README.md)
-
-<!-- tags: -->
 
 ## Description
 

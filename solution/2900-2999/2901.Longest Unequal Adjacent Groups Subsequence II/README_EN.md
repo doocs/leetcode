@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2901.Longest%20Unequal%20Adjacent%20Groups%20Subsequence%20II/README_EN.md
+rating: 1898
+tags:
+    - Array
+    - String
+    - Dynamic Programming
+---
+
 # [2901. Longest Unequal Adjacent Groups Subsequence II](https://leetcode.com/problems/longest-unequal-adjacent-groups-subsequence-ii)
 
 [中文文档](/solution/2900-2999/2901.Longest%20Unequal%20Adjacent%20Groups%20Subsequence%20II/README.md)
-
-<!-- tags:Array,String,Dynamic Programming -->
 
 ## Description
 

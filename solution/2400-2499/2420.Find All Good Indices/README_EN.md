@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2420.Find%20All%20Good%20Indices/README_EN.md
+rating: 1695
+tags:
+    - Array
+    - Dynamic Programming
+    - Prefix Sum
+---
+
 # [2420. Find All Good Indices](https://leetcode.com/problems/find-all-good-indices)
 
 [中文文档](/solution/2400-2499/2420.Find%20All%20Good%20Indices/README.md)
-
-<!-- tags:Array,Dynamic Programming,Prefix Sum -->
 
 ## Description
 

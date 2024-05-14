@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2674.Split%20a%20Circular%20Linked%20List/README.md
+tags:
+    - 链表
+    - 双指针
+---
+
 # [2674. 拆分循环链表 🔒](https://leetcode.cn/problems/split-a-circular-linked-list)
 
 [English Version](/solution/2600-2699/2674.Split%20a%20Circular%20Linked%20List/README_EN.md)
-
-<!-- tags:链表,双指针 -->
 
 ## 题目描述
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0189.Rotate%20Array/README_EN.md
+tags:
+    - Array
+    - Math
+    - Two Pointers
+---
+
 # [189. Rotate Array](https://leetcode.com/problems/rotate-array)
 
 [中文文档](/solution/0100-0199/0189.Rotate%20Array/README.md)
-
-<!-- tags:Array,Math,Two Pointers -->
 
 ## Description
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1624.Largest%20Substring%20Between%20Two%20Equal%20Characters/README.md
+rating: 1281
+tags:
+    - 哈希表
+    - 字符串
+---
+
 # [1624. 两个相同字符之间的最长子字符串](https://leetcode.cn/problems/largest-substring-between-two-equal-characters)
 
 [English Version](/solution/1600-1699/1624.Largest%20Substring%20Between%20Two%20Equal%20Characters/README_EN.md)
-
-<!-- tags:哈希表,字符串 -->
 
 ## 题目描述
 

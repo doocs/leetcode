@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1814.Count%20Nice%20Pairs%20in%20an%20Array/README.md
+rating: 1737
+tags:
+    - 数组
+    - 哈希表
+    - 数学
+    - 计数
+---
+
 # [1814. 统计一个数组中好对子的数目](https://leetcode.cn/problems/count-nice-pairs-in-an-array)
 
 [English Version](/solution/1800-1899/1814.Count%20Nice%20Pairs%20in%20an%20Array/README_EN.md)
-
-<!-- tags:数组,哈希表,数学,计数 -->
 
 ## 题目描述
 

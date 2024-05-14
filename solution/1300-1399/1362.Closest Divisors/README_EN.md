@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1362.Closest%20Divisors/README_EN.md
+rating: 1533
+tags:
+    - Math
+---
+
 # [1362. Closest Divisors](https://leetcode.com/problems/closest-divisors)
 
 [中文文档](/solution/1300-1399/1362.Closest%20Divisors/README.md)
-
-<!-- tags:Math -->
 
 ## Description
 

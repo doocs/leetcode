@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0456.132%20Pattern/README.md
+tags:
+    - 栈
+    - 数组
+    - 二分查找
+    - 有序集合
+    - 单调栈
+---
+
 # [456. 132 模式](https://leetcode.cn/problems/132-pattern)
 
 [English Version](/solution/0400-0499/0456.132%20Pattern/README_EN.md)
-
-<!-- tags:栈,数组,二分查找,有序集合,单调栈 -->
 
 ## 题目描述
 

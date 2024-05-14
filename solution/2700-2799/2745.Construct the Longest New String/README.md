@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2745.Construct%20the%20Longest%20New%20String/README.md
+rating: 1607
+tags:
+    - 贪心
+    - 脑筋急转弯
+    - 数学
+    - 动态规划
+---
+
 # [2745. 构造最长的新字符串](https://leetcode.cn/problems/construct-the-longest-new-string)
 
 [English Version](/solution/2700-2799/2745.Construct%20the%20Longest%20New%20String/README_EN.md)
-
-<!-- tags:贪心,脑筋急转弯,数学,动态规划 -->
 
 ## 题目描述
 

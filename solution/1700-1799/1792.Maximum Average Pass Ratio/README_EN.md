@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1792.Maximum%20Average%20Pass%20Ratio/README_EN.md
+rating: 1817
+tags:
+    - Greedy
+    - Array
+    - Heap (Priority Queue)
+---
+
 # [1792. Maximum Average Pass Ratio](https://leetcode.com/problems/maximum-average-pass-ratio)
 
 [中文文档](/solution/1700-1799/1792.Maximum%20Average%20Pass%20Ratio/README.md)
-
-<!-- tags:Greedy,Array,Heap (Priority Queue) -->
 
 ## Description
 

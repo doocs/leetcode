@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1965.Employees%20With%20Missing%20Information/README.md
+tags:
+    - 数据库
+---
+
 # [1965. 丢失信息的雇员](https://leetcode.cn/problems/employees-with-missing-information)
 
 [English Version](/solution/1900-1999/1965.Employees%20With%20Missing%20Information/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

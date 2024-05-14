@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0965.Univalued%20Binary%20Tree/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Binary Tree
+---
+
 # [965. Univalued Binary Tree](https://leetcode.com/problems/univalued-binary-tree)
 
 [中文文档](/solution/0900-0999/0965.Univalued%20Binary%20Tree/README.md)
-
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Tree -->
 
 ## Description
 

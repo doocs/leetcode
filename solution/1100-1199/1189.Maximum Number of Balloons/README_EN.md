@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1189.Maximum%20Number%20of%20Balloons/README_EN.md
+rating: 1181
+tags:
+    - Hash Table
+    - String
+    - Counting
+---
+
 # [1189. Maximum Number of Balloons](https://leetcode.com/problems/maximum-number-of-balloons)
 
 [中文文档](/solution/1100-1199/1189.Maximum%20Number%20of%20Balloons/README.md)
-
-<!-- tags:Hash Table,String,Counting -->
 
 ## Description
 

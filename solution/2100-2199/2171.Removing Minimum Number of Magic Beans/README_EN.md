@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2171.Removing%20Minimum%20Number%20of%20Magic%20Beans/README_EN.md
+rating: 1748
+tags:
+    - Greedy
+    - Array
+    - Enumeration
+    - Prefix Sum
+    - Sorting
+---
+
 # [2171. Removing Minimum Number of Magic Beans](https://leetcode.com/problems/removing-minimum-number-of-magic-beans)
 
 [中文文档](/solution/2100-2199/2171.Removing%20Minimum%20Number%20of%20Magic%20Beans/README.md)
-
-<!-- tags:Greedy,Array,Enumeration,Prefix Sum,Sorting -->
 
 ## Description
 

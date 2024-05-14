@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2473.Minimum%20Cost%20to%20Buy%20Apples/README_EN.md
+tags:
+    - Graph
+    - Array
+    - Shortest Path
+    - Heap (Priority Queue)
+---
+
 # [2473. Minimum Cost to Buy Apples 🔒](https://leetcode.com/problems/minimum-cost-to-buy-apples)
 
 [中文文档](/solution/2400-2499/2473.Minimum%20Cost%20to%20Buy%20Apples/README.md)
-
-<!-- tags:Graph,Array,Shortest Path,Heap (Priority Queue) -->
 
 ## Description
 

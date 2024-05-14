@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2458.Height%20of%20Binary%20Tree%20After%20Subtree%20Removal%20Queries/README_EN.md
+rating: 2298
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Array
+    - Binary Tree
+---
+
 # [2458. Height of Binary Tree After Subtree Removal Queries](https://leetcode.com/problems/height-of-binary-tree-after-subtree-removal-queries)
 
 [中文文档](/solution/2400-2499/2458.Height%20of%20Binary%20Tree%20After%20Subtree%20Removal%20Queries/README.md)
-
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Array,Binary Tree -->
 
 ## Description
 

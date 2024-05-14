@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0458.Poor%20Pigs/README.md
+tags:
+    - 数学
+    - 动态规划
+    - 组合数学
+---
+
 # [458. 可怜的小猪](https://leetcode.cn/problems/poor-pigs)
 
 [English Version](/solution/0400-0499/0458.Poor%20Pigs/README_EN.md)
-
-<!-- tags:数学,动态规划,组合数学 -->
 
 ## 题目描述
 

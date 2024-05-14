@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2184.Number%20of%20Ways%20to%20Build%20Sturdy%20Brick%20Wall/README.md
+tags:
+    - 位运算
+    - 数组
+    - 动态规划
+    - 状态压缩
+---
+
 # [2184. 建造坚实的砖墙的方法数 🔒](https://leetcode.cn/problems/number-of-ways-to-build-sturdy-brick-wall)
 
 [English Version](/solution/2100-2199/2184.Number%20of%20Ways%20to%20Build%20Sturdy%20Brick%20Wall/README_EN.md)
-
-<!-- tags:位运算,数组,动态规划,状态压缩 -->
 
 ## 题目描述
 

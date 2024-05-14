@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0351.Android%20Unlock%20Patterns/README_EN.md
+tags:
+    - Bit Manipulation
+    - Dynamic Programming
+    - Backtracking
+    - Bitmask
+---
+
 # [351. Android Unlock Patterns 🔒](https://leetcode.com/problems/android-unlock-patterns)
 
 [中文文档](/solution/0300-0399/0351.Android%20Unlock%20Patterns/README.md)
-
-<!-- tags:Bit Manipulation,Dynamic Programming,Backtracking,Bitmask -->
 
 ## Description
 

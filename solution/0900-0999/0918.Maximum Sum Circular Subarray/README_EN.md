@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0918.Maximum%20Sum%20Circular%20Subarray/README_EN.md
+tags:
+    - Queue
+    - Array
+    - Divide and Conquer
+    - Dynamic Programming
+    - Monotonic Queue
+---
+
 # [918. Maximum Sum Circular Subarray](https://leetcode.com/problems/maximum-sum-circular-subarray)
 
 [中文文档](/solution/0900-0999/0918.Maximum%20Sum%20Circular%20Subarray/README.md)
-
-<!-- tags:Queue,Array,Divide and Conquer,Dynamic Programming,Monotonic Queue -->
 
 ## Description
 

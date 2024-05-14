@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0731.My%20Calendar%20II/README_EN.md
+tags:
+    - Design
+    - Segment Tree
+    - Binary Search
+    - Ordered Set
+---
+
 # [731. My Calendar II](https://leetcode.com/problems/my-calendar-ii)
 
 [中文文档](/solution/0700-0799/0731.My%20Calendar%20II/README.md)
-
-<!-- tags:Design,Segment Tree,Binary Search,Ordered Set -->
 
 ## Description
 

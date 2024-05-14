@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1275.Find%20Winner%20on%20a%20Tic%20Tac%20Toe%20Game/README_EN.md
+rating: 1336
+tags:
+    - Array
+    - Hash Table
+    - Matrix
+    - Simulation
+---
+
 # [1275. Find Winner on a Tic Tac Toe Game](https://leetcode.com/problems/find-winner-on-a-tic-tac-toe-game)
 
 [中文文档](/solution/1200-1299/1275.Find%20Winner%20on%20a%20Tic%20Tac%20Toe%20Game/README.md)
-
-<!-- tags:Array,Hash Table,Matrix,Simulation -->
 
 ## Description
 

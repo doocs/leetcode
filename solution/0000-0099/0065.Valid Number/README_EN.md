@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0065.Valid%20Number/README_EN.md
+tags:
+    - String
+---
+
 # [65. Valid Number](https://leetcode.com/problems/valid-number)
 
 [中文文档](/solution/0000-0099/0065.Valid%20Number/README.md)
-
-<!-- tags:String -->
 
 ## Description
 

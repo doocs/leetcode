@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1973.Count%20Nodes%20Equal%20to%20Sum%20of%20Descendants/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 二叉树
+---
+
 # [1973. 值等于子节点值之和的节点数量 🔒](https://leetcode.cn/problems/count-nodes-equal-to-sum-of-descendants)
 
 [English Version](/solution/1900-1999/1973.Count%20Nodes%20Equal%20to%20Sum%20of%20Descendants/README_EN.md)
-
-<!-- tags:树,深度优先搜索,二叉树 -->
 
 ## 题目描述
 

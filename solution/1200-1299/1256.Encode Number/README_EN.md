@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1256.Encode%20Number/README_EN.md
+rating: 1561
+tags:
+    - Bit Manipulation
+    - Math
+    - String
+---
+
 # [1256. Encode Number 🔒](https://leetcode.com/problems/encode-number)
 
 [中文文档](/solution/1200-1299/1256.Encode%20Number/README.md)
-
-<!-- tags:Bit Manipulation,Math,String -->
 
 ## Description
 

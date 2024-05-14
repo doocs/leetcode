@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1670.Design%20Front%20Middle%20Back%20Queue/README_EN.md
+rating: 1610
+tags:
+    - Design
+    - Queue
+    - Array
+    - Linked List
+    - Data Stream
+---
+
 # [1670. Design Front Middle Back Queue](https://leetcode.com/problems/design-front-middle-back-queue)
 
 [中文文档](/solution/1600-1699/1670.Design%20Front%20Middle%20Back%20Queue/README.md)
-
-<!-- tags:Design,Queue,Array,Linked List,Data Stream -->
 
 ## Description
 

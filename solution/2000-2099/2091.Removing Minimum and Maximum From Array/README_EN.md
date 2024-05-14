@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2091.Removing%20Minimum%20and%20Maximum%20From%20Array/README_EN.md
+rating: 1384
+tags:
+    - Greedy
+    - Array
+---
+
 # [2091. Removing Minimum and Maximum From Array](https://leetcode.com/problems/removing-minimum-and-maximum-from-array)
 
 [中文文档](/solution/2000-2099/2091.Removing%20Minimum%20and%20Maximum%20From%20Array/README.md)
-
-<!-- tags:Greedy,Array -->
 
 ## Description
 

@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.07.Baby%20Names/README.md
+---
+
 # [面试题 17.07. 婴儿名字](https://leetcode.cn/problems/baby-names-lcci)
 
 [English Version](/lcci/17.07.Baby%20Names/README_EN.md)

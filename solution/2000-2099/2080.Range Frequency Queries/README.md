@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2080.Range%20Frequency%20Queries/README.md
+rating: 1702
+tags:
+    - 设计
+    - 线段树
+    - 数组
+    - 哈希表
+    - 二分查找
+---
+
 # [2080. 区间内查询数字的频率](https://leetcode.cn/problems/range-frequency-queries)
 
 [English Version](/solution/2000-2099/2080.Range%20Frequency%20Queries/README_EN.md)
-
-<!-- tags:设计,线段树,数组,哈希表,二分查找 -->
 
 ## 题目描述
 

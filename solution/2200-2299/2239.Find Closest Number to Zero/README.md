@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2239.Find%20Closest%20Number%20to%20Zero/README.md
+rating: 1256
+tags:
+    - 数组
+---
+
 # [2239. 找到最接近 0 的数字](https://leetcode.cn/problems/find-closest-number-to-zero)
 
 [English Version](/solution/2200-2299/2239.Find%20Closest%20Number%20to%20Zero/README_EN.md)
-
-<!-- tags:数组 -->
 
 ## 题目描述
 

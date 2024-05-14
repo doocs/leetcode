@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.07.Permutation%20I/README.md
+---
+
 # [面试题 08.07. 无重复字符串的排列组合](https://leetcode.cn/problems/permutation-i-lcci)
 
 [English Version](/lcci/08.07.Permutation%20I/README_EN.md)

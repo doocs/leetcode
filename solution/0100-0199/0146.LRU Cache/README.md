@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0146.LRU%20Cache/README.md
+tags:
+    - 设计
+    - 哈希表
+    - 链表
+    - 双向链表
+---
+
 # [146. LRU 缓存](https://leetcode.cn/problems/lru-cache)
 
 [English Version](/solution/0100-0199/0146.LRU%20Cache/README_EN.md)
-
-<!-- tags:设计,哈希表,链表,双向链表 -->
 
 ## 题目描述
 

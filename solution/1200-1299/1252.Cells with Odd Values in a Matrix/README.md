@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1252.Cells%20with%20Odd%20Values%20in%20a%20Matrix/README.md
+rating: 1283
+tags:
+    - 数组
+    - 数学
+    - 模拟
+---
+
 # [1252. 奇数值单元格的数目](https://leetcode.cn/problems/cells-with-odd-values-in-a-matrix)
 
 [English Version](/solution/1200-1299/1252.Cells%20with%20Odd%20Values%20in%20a%20Matrix/README_EN.md)
-
-<!-- tags:数组,数学,模拟 -->
 
 ## 题目描述
 

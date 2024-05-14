@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.08.Permutation%20II/README.md
+---
+
 # [面试题 08.08. 有重复字符串的排列组合](https://leetcode.cn/problems/permutation-ii-lcci)
 
 [English Version](/lcci/08.08.Permutation%20II/README_EN.md)

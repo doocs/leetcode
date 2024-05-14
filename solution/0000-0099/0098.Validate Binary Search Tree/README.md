@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0098.Validate%20Binary%20Search%20Tree/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 二叉搜索树
+    - 二叉树
+---
+
 # [98. 验证二叉搜索树](https://leetcode.cn/problems/validate-binary-search-tree)
 
 [English Version](/solution/0000-0099/0098.Validate%20Binary%20Search%20Tree/README_EN.md)
-
-<!-- tags:树,深度优先搜索,二叉搜索树,二叉树 -->
 
 ## 题目描述
 

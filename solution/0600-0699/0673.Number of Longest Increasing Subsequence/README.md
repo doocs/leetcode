@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0673.Number%20of%20Longest%20Increasing%20Subsequence/README.md
+tags:
+    - 树状数组
+    - 线段树
+    - 数组
+    - 动态规划
+---
+
 # [673. 最长递增子序列的个数](https://leetcode.cn/problems/number-of-longest-increasing-subsequence)
 
 [English Version](/solution/0600-0699/0673.Number%20of%20Longest%20Increasing%20Subsequence/README_EN.md)
-
-<!-- tags:树状数组,线段树,数组,动态规划 -->
 
 ## 题目描述
 

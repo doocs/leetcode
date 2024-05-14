@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2430.Maximum%20Deletions%20on%20a%20String/README_EN.md
+rating: 2101
+tags:
+    - String
+    - Dynamic Programming
+    - String Matching
+    - Hash Function
+    - Rolling Hash
+---
+
 # [2430. Maximum Deletions on a String](https://leetcode.com/problems/maximum-deletions-on-a-string)
 
 [中文文档](/solution/2400-2499/2430.Maximum%20Deletions%20on%20a%20String/README.md)
-
-<!-- tags:String,Dynamic Programming,String Matching,Hash Function,Rolling Hash -->
 
 ## Description
 

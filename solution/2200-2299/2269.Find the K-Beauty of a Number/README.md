@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2269.Find%20the%20K-Beauty%20of%20a%20Number/README.md
+rating: 1279
+tags:
+    - 数学
+    - 字符串
+    - 滑动窗口
+---
+
 # [2269. 找到一个数字的 K 美丽值](https://leetcode.cn/problems/find-the-k-beauty-of-a-number)
 
 [English Version](/solution/2200-2299/2269.Find%20the%20K-Beauty%20of%20a%20Number/README_EN.md)
-
-<!-- tags:数学,字符串,滑动窗口 -->
 
 ## 题目描述
 

@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2830.Maximize%20the%20Profit%20as%20the%20Salesman/README.md
+rating: 1851
+tags:
+    - 数组
+    - 哈希表
+    - 二分查找
+    - 动态规划
+    - 排序
+---
+
 # [2830. 销售利润最大化](https://leetcode.cn/problems/maximize-the-profit-as-the-salesman)
 
 [English Version](/solution/2800-2899/2830.Maximize%20the%20Profit%20as%20the%20Salesman/README_EN.md)
-
-<!-- tags:数组,哈希表,二分查找,动态规划,排序 -->
 
 ## 题目描述
 

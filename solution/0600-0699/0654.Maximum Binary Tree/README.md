@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0654.Maximum%20Binary%20Tree/README.md
+tags:
+    - 栈
+    - 树
+    - 数组
+    - 分治
+    - 二叉树
+    - 单调栈
+---
+
 # [654. 最大二叉树](https://leetcode.cn/problems/maximum-binary-tree)
 
 [English Version](/solution/0600-0699/0654.Maximum%20Binary%20Tree/README_EN.md)
-
-<!-- tags:栈,树,数组,分治,二叉树,单调栈 -->
 
 ## 题目描述
 

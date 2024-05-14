@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1868.Product%20of%20Two%20Run-Length%20Encoded%20Arrays/README.md
+tags:
+    - 数组
+    - 双指针
+---
+
 # [1868. 两个行程编码数组的积 🔒](https://leetcode.cn/problems/product-of-two-run-length-encoded-arrays)
 
 [English Version](/solution/1800-1899/1868.Product%20of%20Two%20Run-Length%20Encoded%20Arrays/README_EN.md)
-
-<!-- tags:数组,双指针 -->
 
 ## 题目描述
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2843.Count%20Symmetric%20Integers/README_EN.md
+rating: 1269
+tags:
+    - Math
+    - Enumeration
+---
+
 # [2843. Count Symmetric Integers](https://leetcode.com/problems/count-symmetric-integers)
 
 [中文文档](/solution/2800-2899/2843.Count%20Symmetric%20Integers/README.md)
-
-<!-- tags:Math,Enumeration -->
 
 ## Description
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2712.Minimum%20Cost%20to%20Make%20All%20Characters%20Equal/README_EN.md
+rating: 1791
+tags:
+    - Greedy
+    - String
+    - Dynamic Programming
+---
+
 # [2712. Minimum Cost to Make All Characters Equal](https://leetcode.com/problems/minimum-cost-to-make-all-characters-equal)
 
 [中文文档](/solution/2700-2799/2712.Minimum%20Cost%20to%20Make%20All%20Characters%20Equal/README.md)
-
-<!-- tags:Greedy,String,Dynamic Programming -->
 
 ## Description
 

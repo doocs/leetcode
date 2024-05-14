@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2898.Maximum%20Linear%20Stock%20Score/README.md
+tags:
+    - 数组
+    - 哈希表
+---
+
 # [2898. 最大线性股票得分 🔒](https://leetcode.cn/problems/maximum-linear-stock-score)
 
 [English Version](/solution/2800-2899/2898.Maximum%20Linear%20Stock%20Score/README_EN.md)
-
-<!-- tags:数组,哈希表 -->
 
 ## 题目描述
 

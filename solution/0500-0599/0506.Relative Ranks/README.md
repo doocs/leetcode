@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0506.Relative%20Ranks/README.md
+tags:
+    - 数组
+    - 排序
+    - 堆（优先队列）
+---
+
 # [506. 相对名次](https://leetcode.cn/problems/relative-ranks)
 
 [English Version](/solution/0500-0599/0506.Relative%20Ranks/README_EN.md)
-
-<!-- tags:数组,排序,堆（优先队列） -->
 
 ## 题目描述
 

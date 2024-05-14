@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20119.%20%E6%9C%80%E9%95%BF%E8%BF%9E%E7%BB%AD%E5%BA%8F%E5%88%97/README.md
+---
+
 # [剑指 Offer II 119. 最长连续序列](https://leetcode.cn/problems/WhsWhI)
 
 ## 题目描述

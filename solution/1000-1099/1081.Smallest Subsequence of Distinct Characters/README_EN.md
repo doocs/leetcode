@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1081.Smallest%20Subsequence%20of%20Distinct%20Characters/README_EN.md
+rating: 2184
+tags:
+    - Stack
+    - Greedy
+    - String
+    - Monotonic Stack
+---
+
 # [1081. Smallest Subsequence of Distinct Characters](https://leetcode.com/problems/smallest-subsequence-of-distinct-characters)
 
 [中文文档](/solution/1000-1099/1081.Smallest%20Subsequence%20of%20Distinct%20Characters/README.md)
-
-<!-- tags:Stack,Greedy,String,Monotonic Stack -->
 
 ## Description
 

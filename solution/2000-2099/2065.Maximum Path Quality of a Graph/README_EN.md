@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2065.Maximum%20Path%20Quality%20of%20a%20Graph/README_EN.md
+rating: 2178
+tags:
+    - Graph
+    - Array
+    - Backtracking
+---
+
 # [2065. Maximum Path Quality of a Graph](https://leetcode.com/problems/maximum-path-quality-of-a-graph)
 
 [中文文档](/solution/2000-2099/2065.Maximum%20Path%20Quality%20of%20a%20Graph/README.md)
-
-<!-- tags:Graph,Array,Backtracking -->
 
 ## Description
 

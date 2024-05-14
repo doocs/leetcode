@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0045.Jump%20Game%20II/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Dynamic Programming
+---
+
 # [45. Jump Game II](https://leetcode.com/problems/jump-game-ii)
 
 [中文文档](/solution/0000-0099/0045.Jump%20Game%20II/README.md)
-
-<!-- tags:Greedy,Array,Dynamic Programming -->
 
 ## Description
 

@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0778.Swim%20in%20Rising%20Water/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Union Find
+    - Array
+    - Binary Search
+    - Matrix
+    - Heap (Priority Queue)
+---
+
 # [778. Swim in Rising Water](https://leetcode.com/problems/swim-in-rising-water)
 
 [中文文档](/solution/0700-0799/0778.Swim%20in%20Rising%20Water/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Array,Binary Search,Matrix,Heap (Priority Queue) -->
 
 ## Description
 

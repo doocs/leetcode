@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1388.Pizza%20With%203n%20Slices/README_EN.md
+rating: 2409
+tags:
+    - Greedy
+    - Array
+    - Dynamic Programming
+    - Heap (Priority Queue)
+---
+
 # [1388. Pizza With 3n Slices](https://leetcode.com/problems/pizza-with-3n-slices)
 
 [中文文档](/solution/1300-1399/1388.Pizza%20With%203n%20Slices/README.md)
-
-<!-- tags:Greedy,Array,Dynamic Programming,Heap (Priority Queue) -->
 
 ## Description
 

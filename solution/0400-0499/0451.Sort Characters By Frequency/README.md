@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0451.Sort%20Characters%20By%20Frequency/README.md
+tags:
+    - 哈希表
+    - 字符串
+    - 桶排序
+    - 计数
+    - 排序
+    - 堆（优先队列）
+---
+
 # [451. 根据字符出现频率排序](https://leetcode.cn/problems/sort-characters-by-frequency)
 
 [English Version](/solution/0400-0499/0451.Sort%20Characters%20By%20Frequency/README_EN.md)
-
-<!-- tags:哈希表,字符串,桶排序,计数,排序,堆（优先队列） -->
 
 ## 题目描述
 

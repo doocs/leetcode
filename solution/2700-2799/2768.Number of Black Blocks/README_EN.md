@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2768.Number%20of%20Black%20Blocks/README_EN.md
+rating: 2175
+tags:
+    - Array
+    - Hash Table
+    - Enumeration
+---
+
 # [2768. Number of Black Blocks](https://leetcode.com/problems/number-of-black-blocks)
 
 [中文文档](/solution/2700-2799/2768.Number%20of%20Black%20Blocks/README.md)
-
-<!-- tags:Array,Hash Table,Enumeration -->
 
 ## Description
 

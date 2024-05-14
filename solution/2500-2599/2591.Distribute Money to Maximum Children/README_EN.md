@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2591.Distribute%20Money%20to%20Maximum%20Children/README_EN.md
+rating: 1530
+tags:
+    - Greedy
+    - Math
+---
+
 # [2591. Distribute Money to Maximum Children](https://leetcode.com/problems/distribute-money-to-maximum-children)
 
 [中文文档](/solution/2500-2599/2591.Distribute%20Money%20to%20Maximum%20Children/README.md)
-
-<!-- tags:Greedy,Math -->
 
 ## Description
 

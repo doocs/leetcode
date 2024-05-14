@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1808.Maximize%20Number%20of%20Nice%20Divisors/README.md
+rating: 2070
+tags:
+    - 递归
+    - 数学
+---
+
 # [1808. 好因子的最大数目](https://leetcode.cn/problems/maximize-number-of-nice-divisors)
 
 [English Version](/solution/1800-1899/1808.Maximize%20Number%20of%20Nice%20Divisors/README_EN.md)
-
-<!-- tags:递归,数学 -->
 
 ## 题目描述
 

@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.06.Smallest%20Difference/README_EN.md
+---
+
 # [16.06. Smallest Difference](https://leetcode.cn/problems/smallest-difference-lcci)
 
 [中文文档](/lcci/16.06.Smallest%20Difference/README.md)

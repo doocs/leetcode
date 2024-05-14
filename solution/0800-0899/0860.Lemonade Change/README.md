@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0860.Lemonade%20Change/README.md
+tags:
+    - 贪心
+    - 数组
+---
+
 # [860. 柠檬水找零](https://leetcode.cn/problems/lemonade-change)
 
 [English Version](/solution/0800-0899/0860.Lemonade%20Change/README_EN.md)
-
-<!-- tags:贪心,数组 -->
 
 ## 题目描述
 

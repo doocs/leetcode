@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1727.Largest%20Submatrix%20With%20Rearrangements/README_EN.md
+rating: 1926
+tags:
+    - Greedy
+    - Array
+    - Matrix
+    - Sorting
+---
+
 # [1727. Largest Submatrix With Rearrangements](https://leetcode.com/problems/largest-submatrix-with-rearrangements)
 
 [中文文档](/solution/1700-1799/1727.Largest%20Submatrix%20With%20Rearrangements/README.md)
-
-<!-- tags:Greedy,Array,Matrix,Sorting -->
 
 ## Description
 

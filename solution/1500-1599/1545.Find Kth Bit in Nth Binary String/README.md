@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1545.Find%20Kth%20Bit%20in%20Nth%20Binary%20String/README.md
+rating: 1479
+tags:
+    - 递归
+    - 字符串
+    - 模拟
+---
+
 # [1545. 找出第 N 个二进制字符串中的第 K 位](https://leetcode.cn/problems/find-kth-bit-in-nth-binary-string)
 
 [English Version](/solution/1500-1599/1545.Find%20Kth%20Bit%20in%20Nth%20Binary%20String/README_EN.md)
-
-<!-- tags:递归,字符串,模拟 -->
 
 ## 题目描述
 

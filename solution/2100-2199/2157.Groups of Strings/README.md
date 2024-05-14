@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2157.Groups%20of%20Strings/README.md
+rating: 2499
+tags:
+    - 位运算
+    - 并查集
+    - 字符串
+---
+
 # [2157. 字符串分组](https://leetcode.cn/problems/groups-of-strings)
 
 [English Version](/solution/2100-2199/2157.Groups%20of%20Strings/README_EN.md)
-
-<!-- tags:位运算,并查集,字符串 -->
 
 ## 题目描述
 

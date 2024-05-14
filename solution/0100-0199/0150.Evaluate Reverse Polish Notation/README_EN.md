@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0150.Evaluate%20Reverse%20Polish%20Notation/README_EN.md
+tags:
+    - Stack
+    - Array
+    - Math
+---
+
 # [150. Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation)
 
 [中文文档](/solution/0100-0199/0150.Evaluate%20Reverse%20Polish%20Notation/README.md)
-
-<!-- tags:Stack,Array,Math -->
 
 ## Description
 

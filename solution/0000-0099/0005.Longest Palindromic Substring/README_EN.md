@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0005.Longest%20Palindromic%20Substring/README_EN.md
+tags:
+    - Two Pointers
+    - String
+    - Dynamic Programming
+---
+
 # [5. Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring)
 
 [中文文档](/solution/0000-0099/0005.Longest%20Palindromic%20Substring/README.md)
-
-<!-- tags:Two Pointers,String,Dynamic Programming -->
 
 ## Description
 

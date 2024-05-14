@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2495.Number%20of%20Subarrays%20Having%20Even%20Product/README.md
+tags:
+    - 数组
+    - 数学
+    - 动态规划
+---
+
 # [2495. 乘积为偶数的子数组数 🔒](https://leetcode.cn/problems/number-of-subarrays-having-even-product)
 
 [English Version](/solution/2400-2499/2495.Number%20of%20Subarrays%20Having%20Even%20Product/README_EN.md)
-
-<!-- tags:数组,数学,动态规划 -->
 
 ## 题目描述
 

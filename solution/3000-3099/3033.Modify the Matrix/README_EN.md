@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3033.Modify%20the%20Matrix/README_EN.md
+rating: 1180
+tags:
+    - Array
+    - Matrix
+---
+
 # [3033. Modify the Matrix](https://leetcode.com/problems/modify-the-matrix)
 
 [中文文档](/solution/3000-3099/3033.Modify%20the%20Matrix/README.md)
-
-<!-- tags:Array,Matrix -->
 
 ## Description
 

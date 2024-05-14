@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1933.Check%20if%20String%20Is%20Decomposable%20Into%20Value-Equal%20Substrings/README_EN.md
+tags:
+    - String
+---
+
 # [1933. Check if String Is Decomposable Into Value-Equal Substrings 🔒](https://leetcode.com/problems/check-if-string-is-decomposable-into-value-equal-substrings)
 
 [中文文档](/solution/1900-1999/1933.Check%20if%20String%20Is%20Decomposable%20Into%20Value-Equal%20Substrings/README.md)
-
-<!-- tags:String -->
 
 ## Description
 

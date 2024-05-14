@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1508.Range%20Sum%20of%20Sorted%20Subarray%20Sums/README_EN.md
+rating: 1402
+tags:
+    - Array
+    - Two Pointers
+    - Binary Search
+    - Sorting
+---
+
 # [1508. Range Sum of Sorted Subarray Sums](https://leetcode.com/problems/range-sum-of-sorted-subarray-sums)
 
 [中文文档](/solution/1500-1599/1508.Range%20Sum%20of%20Sorted%20Subarray%20Sums/README.md)
-
-<!-- tags:Array,Two Pointers,Binary Search,Sorting -->
 
 ## Description
 

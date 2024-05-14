@@ -1,8 +1,21 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2708.Maximum%20Strength%20of%20a%20Group/README.md
+rating: 1502
+tags:
+    - 贪心
+    - 位运算
+    - 数组
+    - 动态规划
+    - 回溯
+    - 枚举
+    - 排序
+---
+
 # [2708. 一个小组的最大实力值](https://leetcode.cn/problems/maximum-strength-of-a-group)
 
 [English Version](/solution/2700-2799/2708.Maximum%20Strength%20of%20a%20Group/README_EN.md)
-
-<!-- tags:贪心,位运算,数组,动态规划,回溯,枚举,排序 -->
 
 ## 题目描述
 

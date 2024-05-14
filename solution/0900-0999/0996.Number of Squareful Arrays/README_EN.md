@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0996.Number%20of%20Squareful%20Arrays/README_EN.md
+tags:
+    - Bit Manipulation
+    - Array
+    - Math
+    - Dynamic Programming
+    - Backtracking
+    - Bitmask
+---
+
 # [996. Number of Squareful Arrays](https://leetcode.com/problems/number-of-squareful-arrays)
 
 [中文文档](/solution/0900-0999/0996.Number%20of%20Squareful%20Arrays/README.md)
-
-<!-- tags:Bit Manipulation,Array,Math,Dynamic Programming,Backtracking,Bitmask -->
 
 ## Description
 

@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0737.Sentence%20Similarity%20II/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Union Find
+    - Array
+    - Hash Table
+    - String
+---
+
 # [737. Sentence Similarity II 🔒](https://leetcode.com/problems/sentence-similarity-ii)
 
 [中文文档](/solution/0700-0799/0737.Sentence%20Similarity%20II/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Array,Hash Table,String -->
 
 ## Description
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2615.Sum%20of%20Distances/README.md
+rating: 1793
+tags:
+    - 数组
+    - 哈希表
+    - 前缀和
+---
+
 # [2615. 等值距离和](https://leetcode.cn/problems/sum-of-distances)
 
 [English Version](/solution/2600-2699/2615.Sum%20of%20Distances/README_EN.md)
-
-<!-- tags:数组,哈希表,前缀和 -->
 
 ## 题目描述
 

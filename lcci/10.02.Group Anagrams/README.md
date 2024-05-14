@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.02.Group%20Anagrams/README.md
+---
+
 # [面试题 10.02. 变位词组](https://leetcode.cn/problems/group-anagrams-lcci)
 
 [English Version](/lcci/10.02.Group%20Anagrams/README_EN.md)

@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3073.Maximum%20Increasing%20Triplet%20Value/README_EN.md
+tags:
+    - Array
+    - Ordered Set
+---
+
 # [3073. Maximum Increasing Triplet Value 🔒](https://leetcode.com/problems/maximum-increasing-triplet-value)
 
 [中文文档](/solution/3000-3099/3073.Maximum%20Increasing%20Triplet%20Value/README.md)
-
-<!-- tags:Array,Ordered Set -->
 
 ## Description
 

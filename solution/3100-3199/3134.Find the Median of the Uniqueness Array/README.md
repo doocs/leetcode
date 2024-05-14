@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3134.Find%20the%20Median%20of%20the%20Uniqueness%20Array/README.md
+rating: 2451
+tags:
+    - 数组
+    - 哈希表
+    - 二分查找
+    - 滑动窗口
+---
+
 # [3134. 找出唯一性数组的中位数](https://leetcode.cn/problems/find-the-median-of-the-uniqueness-array)
 
 [English Version](/solution/3100-3199/3134.Find%20the%20Median%20of%20the%20Uniqueness%20Array/README_EN.md)
-
-<!-- tags:数组,哈希表,二分查找,滑动窗口 -->
 
 ## 题目描述
 

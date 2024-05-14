@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2545.Sort%20the%20Students%20by%20Their%20Kth%20Score/README.md
+rating: 1294
+tags:
+    - 数组
+    - 矩阵
+    - 排序
+---
+
 # [2545. 根据第 K 场考试的分数排序](https://leetcode.cn/problems/sort-the-students-by-their-kth-score)
 
 [English Version](/solution/2500-2599/2545.Sort%20the%20Students%20by%20Their%20Kth%20Score/README_EN.md)
-
-<!-- tags:数组,矩阵,排序 -->
 
 ## 题目描述
 

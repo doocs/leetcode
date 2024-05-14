@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1096.Brace%20Expansion%20II/README.md
+rating: 2348
+tags:
+    - 栈
+    - 广度优先搜索
+    - 字符串
+    - 回溯
+---
+
 # [1096. 花括号展开 II](https://leetcode.cn/problems/brace-expansion-ii)
 
 [English Version](/solution/1000-1099/1096.Brace%20Expansion%20II/README_EN.md)
-
-<!-- tags:栈,广度优先搜索,字符串,回溯 -->
 
 ## 题目描述
 

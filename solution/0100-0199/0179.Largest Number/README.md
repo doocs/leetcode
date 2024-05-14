@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0179.Largest%20Number/README.md
+tags:
+    - 贪心
+    - 数组
+    - 字符串
+    - 排序
+---
+
 # [179. 最大数](https://leetcode.cn/problems/largest-number)
 
 [English Version](/solution/0100-0199/0179.Largest%20Number/README_EN.md)
-
-<!-- tags:贪心,数组,字符串,排序 -->
 
 ## 题目描述
 

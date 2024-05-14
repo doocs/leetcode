@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1562.Find%20Latest%20Group%20of%20Size%20M/README.md
+rating: 1928
+tags:
+    - 数组
+    - 二分查找
+    - 模拟
+---
+
 # [1562. 查找大小为 M 的最新分组](https://leetcode.cn/problems/find-latest-group-of-size-m)
 
 [English Version](/solution/1500-1599/1562.Find%20Latest%20Group%20of%20Size%20M/README_EN.md)
-
-<!-- tags:数组,二分查找,模拟 -->
 
 ## 题目描述
 

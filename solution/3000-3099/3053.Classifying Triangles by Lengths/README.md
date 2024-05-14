@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3053.Classifying%20Triangles%20by%20Lengths/README.md
+tags:
+    - 数据库
+---
+
 # [3053. 根据长度分类三角形 🔒](https://leetcode.cn/problems/classifying-triangles-by-lengths)
 
 [English Version](/solution/3000-3099/3053.Classifying%20Triangles%20by%20Lengths/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

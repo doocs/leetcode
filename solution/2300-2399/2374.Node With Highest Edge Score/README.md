@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2374.Node%20With%20Highest%20Edge%20Score/README.md
+rating: 1418
+tags:
+    - 图
+    - 哈希表
+---
+
 # [2374. 边积分最高的节点](https://leetcode.cn/problems/node-with-highest-edge-score)
 
 [English Version](/solution/2300-2399/2374.Node%20With%20Highest%20Edge%20Score/README_EN.md)
-
-<!-- tags:图,哈希表 -->
 
 ## 题目描述
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0838.Push%20Dominoes/README.md
+tags:
+    - 双指针
+    - 字符串
+    - 动态规划
+---
+
 # [838. 推多米诺](https://leetcode.cn/problems/push-dominoes)
 
 [English Version](/solution/0800-0899/0838.Push%20Dominoes/README_EN.md)
-
-<!-- tags:双指针,字符串,动态规划 -->
 
 ## 题目描述
 

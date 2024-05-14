@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1829.Maximum%20XOR%20for%20Each%20Query/README.md
+rating: 1523
+tags:
+    - 位运算
+    - 数组
+    - 前缀和
+---
+
 # [1829. 每个查询的最大异或值](https://leetcode.cn/problems/maximum-xor-for-each-query)
 
 [English Version](/solution/1800-1899/1829.Maximum%20XOR%20for%20Each%20Query/README_EN.md)
-
-<!-- tags:位运算,数组,前缀和 -->
 
 ## 题目描述
 

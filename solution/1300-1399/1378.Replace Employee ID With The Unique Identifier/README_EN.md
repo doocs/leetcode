@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1378.Replace%20Employee%20ID%20With%20The%20Unique%20Identifier/README_EN.md
+tags:
+    - Database
+---
+
 # [1378. Replace Employee ID With The Unique Identifier](https://leetcode.com/problems/replace-employee-id-with-the-unique-identifier)
 
 [中文文档](/solution/1300-1399/1378.Replace%20Employee%20ID%20With%20The%20Unique%20Identifier/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

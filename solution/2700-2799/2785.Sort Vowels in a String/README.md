@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2785.Sort%20Vowels%20in%20a%20String/README.md
+rating: 1266
+tags:
+    - 字符串
+    - 排序
+---
+
 # [2785. 将字符串中的元音字母排序](https://leetcode.cn/problems/sort-vowels-in-a-string)
 
 [English Version](/solution/2700-2799/2785.Sort%20Vowels%20in%20a%20String/README_EN.md)
-
-<!-- tags:字符串,排序 -->
 
 ## 题目描述
 

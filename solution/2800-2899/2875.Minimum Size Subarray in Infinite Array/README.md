@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2875.Minimum%20Size%20Subarray%20in%20Infinite%20Array/README.md
+rating: 1913
+tags:
+    - 数组
+    - 哈希表
+    - 前缀和
+    - 滑动窗口
+---
+
 # [2875. 无限数组的最短子数组](https://leetcode.cn/problems/minimum-size-subarray-in-infinite-array)
 
 [English Version](/solution/2800-2899/2875.Minimum%20Size%20Subarray%20in%20Infinite%20Array/README_EN.md)
-
-<!-- tags:数组,哈希表,前缀和,滑动窗口 -->
 
 ## 题目描述
 

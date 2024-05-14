@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2683.Neighboring%20Bitwise%20XOR/README.md
+rating: 1517
+tags:
+    - 位运算
+    - 数组
+---
+
 # [2683. 相邻值的按位异或](https://leetcode.cn/problems/neighboring-bitwise-xor)
 
 [English Version](/solution/2600-2699/2683.Neighboring%20Bitwise%20XOR/README_EN.md)
-
-<!-- tags:位运算,数组 -->
 
 ## 题目描述
 

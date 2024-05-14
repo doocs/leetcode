@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3149.Find%20the%20Minimum%20Cost%20Array%20Permutation/README.md
+---
+
 # [3149. 找出分数最低的排列](https://leetcode.cn/problems/find-the-minimum-cost-array-permutation)
 
 [English Version](/solution/3100-3199/3149.Find%20the%20Minimum%20Cost%20Array%20Permutation/README_EN.md)
-
-<!-- tags: -->
 
 ## 题目描述
 

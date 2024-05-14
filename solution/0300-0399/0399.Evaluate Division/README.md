@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0399.Evaluate%20Division/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 并查集
+    - 图
+    - 数组
+    - 最短路
+---
+
 # [399. 除法求值](https://leetcode.cn/problems/evaluate-division)
 
 [English Version](/solution/0300-0399/0399.Evaluate%20Division/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,并查集,图,数组,最短路 -->
 
 ## 题目描述
 

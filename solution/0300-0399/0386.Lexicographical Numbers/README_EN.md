@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0386.Lexicographical%20Numbers/README_EN.md
+tags:
+    - Depth-First Search
+    - Trie
+---
+
 # [386. Lexicographical Numbers](https://leetcode.com/problems/lexicographical-numbers)
 
 [中文文档](/solution/0300-0399/0386.Lexicographical%20Numbers/README.md)
-
-<!-- tags:Depth-First Search,Trie -->
 
 ## Description
 

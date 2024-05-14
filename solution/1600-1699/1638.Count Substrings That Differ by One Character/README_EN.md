@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1638.Count%20Substrings%20That%20Differ%20by%20One%20Character/README_EN.md
+rating: 1744
+tags:
+    - Hash Table
+    - String
+    - Dynamic Programming
+---
+
 # [1638. Count Substrings That Differ by One Character](https://leetcode.com/problems/count-substrings-that-differ-by-one-character)
 
 [中文文档](/solution/1600-1699/1638.Count%20Substrings%20That%20Differ%20by%20One%20Character/README.md)
-
-<!-- tags:Hash Table,String,Dynamic Programming -->
 
 ## Description
 

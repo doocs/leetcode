@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1705.Maximum%20Number%20of%20Eaten%20Apples/README.md
+rating: 1929
+tags:
+    - 贪心
+    - 数组
+    - 堆（优先队列）
+---
+
 # [1705. 吃苹果的最大数目](https://leetcode.cn/problems/maximum-number-of-eaten-apples)
 
 [English Version](/solution/1700-1799/1705.Maximum%20Number%20of%20Eaten%20Apples/README_EN.md)
-
-<!-- tags:贪心,数组,堆（优先队列） -->
 
 ## 题目描述
 

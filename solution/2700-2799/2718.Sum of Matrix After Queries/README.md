@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2718.Sum%20of%20Matrix%20After%20Queries/README.md
+rating: 1768
+tags:
+    - 数组
+    - 哈希表
+---
+
 # [2718. 查询后矩阵的和](https://leetcode.cn/problems/sum-of-matrix-after-queries)
 
 [English Version](/solution/2700-2799/2718.Sum%20of%20Matrix%20After%20Queries/README_EN.md)
-
-<!-- tags:数组,哈希表 -->
 
 ## 题目描述
 

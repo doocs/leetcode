@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2317.Maximum%20XOR%20After%20Operations/README.md
+rating: 1678
+tags:
+    - 位运算
+    - 数组
+    - 数学
+---
+
 # [2317. 操作后的最大异或和](https://leetcode.cn/problems/maximum-xor-after-operations)
 
 [English Version](/solution/2300-2399/2317.Maximum%20XOR%20After%20Operations/README_EN.md)
-
-<!-- tags:位运算,数组,数学 -->
 
 ## 题目描述
 

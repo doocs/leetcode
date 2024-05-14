@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3062.Winner%20of%20the%20Linked%20List%20Game/README.md
+tags:
+    - 链表
+---
+
 # [3062. 链表游戏的获胜者 🔒](https://leetcode.cn/problems/winner-of-the-linked-list-game)
 
 [English Version](/solution/3000-3099/3062.Winner%20of%20the%20Linked%20List%20Game/README_EN.md)
-
-<!-- tags:链表 -->
 
 ## 题目描述
 

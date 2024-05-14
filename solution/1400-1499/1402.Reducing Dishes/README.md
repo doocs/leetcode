@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1402.Reducing%20Dishes/README.md
+rating: 1679
+tags:
+    - 贪心
+    - 数组
+    - 动态规划
+    - 排序
+---
+
 # [1402. 做菜顺序](https://leetcode.cn/problems/reducing-dishes)
 
 [English Version](/solution/1400-1499/1402.Reducing%20Dishes/README_EN.md)
-
-<!-- tags:贪心,数组,动态规划,排序 -->
 
 ## 题目描述
 

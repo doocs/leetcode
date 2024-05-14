@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1713.Minimum%20Operations%20to%20Make%20a%20Subsequence/README_EN.md
+rating: 2350
+tags:
+    - Greedy
+    - Array
+    - Hash Table
+    - Binary Search
+---
+
 # [1713. Minimum Operations to Make a Subsequence](https://leetcode.com/problems/minimum-operations-to-make-a-subsequence)
 
 [中文文档](/solution/1700-1799/1713.Minimum%20Operations%20to%20Make%20a%20Subsequence/README.md)
-
-<!-- tags:Greedy,Array,Hash Table,Binary Search -->
 
 ## Description
 

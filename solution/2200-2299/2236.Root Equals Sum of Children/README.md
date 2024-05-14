@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2236.Root%20Equals%20Sum%20of%20Children/README.md
+tags:
+    - 树
+    - 二叉树
+---
+
 # [2236. 判断根结点是否等于子结点之和](https://leetcode.cn/problems/root-equals-sum-of-children)
 
 [English Version](/solution/2200-2299/2236.Root%20Equals%20Sum%20of%20Children/README_EN.md)
-
-<!-- tags:树,二叉树 -->
 
 ## 题目描述
 

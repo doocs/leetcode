@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0442.Find%20All%20Duplicates%20in%20an%20Array/README.md
+tags:
+    - 数组
+    - 哈希表
+---
+
 # [442. 数组中重复的数据](https://leetcode.cn/problems/find-all-duplicates-in-an-array)
 
 [English Version](/solution/0400-0499/0442.Find%20All%20Duplicates%20in%20an%20Array/README_EN.md)
-
-<!-- tags:数组,哈希表 -->
 
 ## 题目描述
 

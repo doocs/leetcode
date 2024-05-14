@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1481.Least%20Number%20of%20Unique%20Integers%20after%20K%20Removals/README_EN.md
+rating: 1284
+tags:
+    - Greedy
+    - Array
+    - Hash Table
+    - Counting
+    - Sorting
+---
+
 # [1481. Least Number of Unique Integers after K Removals](https://leetcode.com/problems/least-number-of-unique-integers-after-k-removals)
 
 [中文文档](/solution/1400-1499/1481.Least%20Number%20of%20Unique%20Integers%20after%20K%20Removals/README.md)
-
-<!-- tags:Greedy,Array,Hash Table,Counting,Sorting -->
 
 ## Description
 

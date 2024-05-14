@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2627.Debounce/README.md
+---
+
 # [2627. 函数防抖](https://leetcode.cn/problems/debounce)
 
 [English Version](/solution/2600-2699/2627.Debounce/README_EN.md)
-
-<!-- tags: -->
 
 ## 题目描述
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0997.Find%20the%20Town%20Judge/README.md
+tags:
+    - 图
+    - 数组
+    - 哈希表
+---
+
 # [997. 找到小镇的法官](https://leetcode.cn/problems/find-the-town-judge)
 
 [English Version](/solution/0900-0999/0997.Find%20the%20Town%20Judge/README_EN.md)
-
-<!-- tags:图,数组,哈希表 -->
 
 ## 题目描述
 

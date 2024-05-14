@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2542.Maximum%20Subsequence%20Score/README_EN.md
+rating: 2056
+tags:
+    - Greedy
+    - Array
+    - Sorting
+    - Heap (Priority Queue)
+---
+
 # [2542. Maximum Subsequence Score](https://leetcode.com/problems/maximum-subsequence-score)
 
 [中文文档](/solution/2500-2599/2542.Maximum%20Subsequence%20Score/README.md)
-
-<!-- tags:Greedy,Array,Sorting,Heap (Priority Queue) -->
 
 ## Description
 

@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2651.Calculate%20Delayed%20Arrival%20Time/README.md
+rating: 1168
+tags:
+    - 数学
+---
+
 # [2651. 计算列车到站时间](https://leetcode.cn/problems/calculate-delayed-arrival-time)
 
 [English Version](/solution/2600-2699/2651.Calculate%20Delayed%20Arrival%20Time/README_EN.md)
-
-<!-- tags:数学 -->
 
 ## 题目描述
 

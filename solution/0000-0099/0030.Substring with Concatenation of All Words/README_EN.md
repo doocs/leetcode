@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0030.Substring%20with%20Concatenation%20of%20All%20Words/README_EN.md
+tags:
+    - Hash Table
+    - String
+    - Sliding Window
+---
+
 # [30. Substring with Concatenation of All Words](https://leetcode.com/problems/substring-with-concatenation-of-all-words)
 
 [中文文档](/solution/0000-0099/0030.Substring%20with%20Concatenation%20of%20All%20Words/README.md)
-
-<!-- tags:Hash Table,String,Sliding Window -->
 
 ## Description
 

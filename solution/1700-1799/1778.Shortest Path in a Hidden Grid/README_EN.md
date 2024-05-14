@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1778.Shortest%20Path%20in%20a%20Hidden%20Grid/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Graph
+    - Interactive
+---
+
 # [1778. Shortest Path in a Hidden Grid 🔒](https://leetcode.com/problems/shortest-path-in-a-hidden-grid)
 
 [中文文档](/solution/1700-1799/1778.Shortest%20Path%20in%20a%20Hidden%20Grid/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Graph,Interactive -->
 
 ## Description
 

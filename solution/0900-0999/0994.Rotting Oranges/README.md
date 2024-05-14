@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0994.Rotting%20Oranges/README.md
+tags:
+    - 广度优先搜索
+    - 数组
+    - 矩阵
+---
+
 # [994. 腐烂的橘子](https://leetcode.cn/problems/rotting-oranges)
 
 [English Version](/solution/0900-0999/0994.Rotting%20Oranges/README_EN.md)
-
-<!-- tags:广度优先搜索,数组,矩阵 -->
 
 ## 题目描述
 

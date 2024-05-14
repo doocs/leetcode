@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1865.Finding%20Pairs%20With%20a%20Certain%20Sum/README_EN.md
+rating: 1680
+tags:
+    - Design
+    - Array
+    - Hash Table
+---
+
 # [1865. Finding Pairs With a Certain Sum](https://leetcode.com/problems/finding-pairs-with-a-certain-sum)
 
 [中文文档](/solution/1800-1899/1865.Finding%20Pairs%20With%20a%20Certain%20Sum/README.md)
-
-<!-- tags:Design,Array,Hash Table -->
 
 ## Description
 

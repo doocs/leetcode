@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0763.Partition%20Labels/README.md
+tags:
+    - 贪心
+    - 哈希表
+    - 双指针
+    - 字符串
+---
+
 # [763. 划分字母区间](https://leetcode.cn/problems/partition-labels)
 
 [English Version](/solution/0700-0799/0763.Partition%20Labels/README_EN.md)
-
-<!-- tags:贪心,哈希表,双指针,字符串 -->
 
 ## 题目描述
 

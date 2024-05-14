@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1165.Single-Row%20Keyboard/README.md
+rating: 1199
+tags:
+    - 哈希表
+    - 字符串
+---
+
 # [1165. 单行键盘 🔒](https://leetcode.cn/problems/single-row-keyboard)
 
 [English Version](/solution/1100-1199/1165.Single-Row%20Keyboard/README_EN.md)
-
-<!-- tags:哈希表,字符串 -->
 
 ## 题目描述
 

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README.md
+rating: 1655
+tags:
+    - 数组
+    - 二分查找
+    - 前缀和
+    - 滑动窗口
+---
+
 # [1004. 最大连续 1 的个数 III](https://leetcode.cn/problems/max-consecutive-ones-iii)
 
 [English Version](/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README_EN.md)
-
-<!-- tags:数组,二分查找,前缀和,滑动窗口 -->
 
 ## 题目描述
 

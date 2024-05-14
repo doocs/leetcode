@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2332.The%20Latest%20Time%20to%20Catch%20a%20Bus/README.md
+rating: 1840
+tags:
+    - 数组
+    - 双指针
+    - 二分查找
+    - 排序
+---
+
 # [2332. 坐上公交的最晚时间](https://leetcode.cn/problems/the-latest-time-to-catch-a-bus)
 
 [English Version](/solution/2300-2399/2332.The%20Latest%20Time%20to%20Catch%20a%20Bus/README_EN.md)
-
-<!-- tags:数组,双指针,二分查找,排序 -->
 
 ## 题目描述
 

@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1786.Number%20of%20Restricted%20Paths%20From%20First%20to%20Last%20Node/README.md
+rating: 2078
+tags:
+    - 图
+    - 拓扑排序
+    - 动态规划
+    - 最短路
+    - 堆（优先队列）
+---
+
 # [1786. 从第一个节点出发到最后一个节点的受限路径数](https://leetcode.cn/problems/number-of-restricted-paths-from-first-to-last-node)
 
 [English Version](/solution/1700-1799/1786.Number%20of%20Restricted%20Paths%20From%20First%20to%20Last%20Node/README_EN.md)
-
-<!-- tags:图,拓扑排序,动态规划,最短路,堆（优先队列） -->
 
 ## 题目描述
 

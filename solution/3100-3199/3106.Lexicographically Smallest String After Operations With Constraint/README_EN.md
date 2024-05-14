@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3106.Lexicographically%20Smallest%20String%20After%20Operations%20With%20Constraint/README_EN.md
+rating: 1515
+tags:
+    - Greedy
+    - String
+---
+
 # [3106. Lexicographically Smallest String After Operations With Constraint](https://leetcode.com/problems/lexicographically-smallest-string-after-operations-with-constraint)
 
 [中文文档](/solution/3100-3199/3106.Lexicographically%20Smallest%20String%20After%20Operations%20With%20Constraint/README.md)
-
-<!-- tags:Greedy,String -->
 
 ## Description
 

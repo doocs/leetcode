@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3102.Minimize%20Manhattan%20Distances/README.md
+rating: 2215
+tags:
+    - 几何
+    - 数组
+    - 数学
+    - 有序集合
+    - 排序
+---
+
 # [3102. 最小化曼哈顿距离](https://leetcode.cn/problems/minimize-manhattan-distances)
 
 [English Version](/solution/3100-3199/3102.Minimize%20Manhattan%20Distances/README_EN.md)
-
-<!-- tags:几何,数组,数学,有序集合,排序 -->
 
 ## 题目描述
 

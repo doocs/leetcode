@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0767.Reorganize%20String/README.md
+tags:
+    - 贪心
+    - 哈希表
+    - 字符串
+    - 计数
+    - 排序
+    - 堆（优先队列）
+---
+
 # [767. 重构字符串](https://leetcode.cn/problems/reorganize-string)
 
 [English Version](/solution/0700-0799/0767.Reorganize%20String/README_EN.md)
-
-<!-- tags:贪心,哈希表,字符串,计数,排序,堆（优先队列） -->
 
 ## 题目描述
 

@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1825.Finding%20MK%20Average/README.md
+rating: 2395
+tags:
+    - 设计
+    - 队列
+    - 数据流
+    - 有序集合
+    - 堆（优先队列）
+---
+
 # [1825. 求出 MK 平均值](https://leetcode.cn/problems/finding-mk-average)
 
 [English Version](/solution/1800-1899/1825.Finding%20MK%20Average/README_EN.md)
-
-<!-- tags:设计,队列,数据流,有序集合,堆（优先队列） -->
 
 ## 题目描述
 

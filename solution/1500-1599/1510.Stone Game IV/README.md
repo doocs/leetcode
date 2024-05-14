@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1510.Stone%20Game%20IV/README.md
+rating: 1786
+tags:
+    - 数学
+    - 动态规划
+    - 博弈
+---
+
 # [1510. 石子游戏 IV](https://leetcode.cn/problems/stone-game-iv)
 
 [English Version](/solution/1500-1599/1510.Stone%20Game%20IV/README_EN.md)
-
-<!-- tags:数学,动态规划,博弈 -->
 
 ## 题目描述
 

@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.14.Smallest%20K/README_EN.md
+---
+
 # [17.14. Smallest K](https://leetcode.cn/problems/smallest-k-lcci)
 
 [中文文档](/lcci/17.14.Smallest%20K/README.md)

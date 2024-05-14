@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1007.Minimum%20Domino%20Rotations%20For%20Equal%20Row/README.md
+rating: 1541
+tags:
+    - 贪心
+    - 数组
+---
+
 # [1007. 行相等的最少多米诺旋转](https://leetcode.cn/problems/minimum-domino-rotations-for-equal-row)
 
 [English Version](/solution/1000-1099/1007.Minimum%20Domino%20Rotations%20For%20Equal%20Row/README_EN.md)
-
-<!-- tags:贪心,数组 -->
 
 ## 题目描述
 

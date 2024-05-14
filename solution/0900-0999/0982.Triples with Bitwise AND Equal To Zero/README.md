@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0982.Triples%20with%20Bitwise%20AND%20Equal%20To%20Zero/README.md
+tags:
+    - 位运算
+    - 数组
+    - 哈希表
+---
+
 # [982. 按位与为零的三元组](https://leetcode.cn/problems/triples-with-bitwise-and-equal-to-zero)
 
 [English Version](/solution/0900-0999/0982.Triples%20with%20Bitwise%20AND%20Equal%20To%20Zero/README_EN.md)
-
-<!-- tags:位运算,数组,哈希表 -->
 
 ## 题目描述
 

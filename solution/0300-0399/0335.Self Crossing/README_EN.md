@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0335.Self%20Crossing/README_EN.md
+tags:
+    - Geometry
+    - Array
+    - Math
+---
+
 # [335. Self Crossing](https://leetcode.com/problems/self-crossing)
 
 [中文文档](/solution/0300-0399/0335.Self%20Crossing/README.md)
-
-<!-- tags:Geometry,Array,Math -->
 
 ## Description
 

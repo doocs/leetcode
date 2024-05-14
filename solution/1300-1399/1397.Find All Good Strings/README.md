@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1397.Find%20All%20Good%20Strings/README.md
+rating: 2666
+tags:
+    - 字符串
+    - 动态规划
+    - 字符串匹配
+---
+
 # [1397. 找到所有好字符串](https://leetcode.cn/problems/find-all-good-strings)
 
 [English Version](/solution/1300-1399/1397.Find%20All%20Good%20Strings/README_EN.md)
-
-<!-- tags:字符串,动态规划,字符串匹配 -->
 
 ## 题目描述
 

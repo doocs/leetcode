@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2665.Counter%20II/README.md
+---
+
 # [2665. 计数器 II](https://leetcode.cn/problems/counter-ii)
 
 [English Version](/solution/2600-2699/2665.Counter%20II/README_EN.md)
-
-<!-- tags: -->
 
 ## 题目描述
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3101.Count%20Alternating%20Subarrays/README_EN.md
+rating: 1404
+tags:
+    - Array
+    - Math
+---
+
 # [3101. Count Alternating Subarrays](https://leetcode.com/problems/count-alternating-subarrays)
 
 [中文文档](/solution/3100-3199/3101.Count%20Alternating%20Subarrays/README.md)
-
-<!-- tags:Array,Math -->
 
 ## Description
 

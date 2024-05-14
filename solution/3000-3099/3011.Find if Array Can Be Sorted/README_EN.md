@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3011.Find%20if%20Array%20Can%20Be%20Sorted/README_EN.md
+rating: 1496
+tags:
+    - Bit Manipulation
+    - Array
+    - Sorting
+---
+
 # [3011. Find if Array Can Be Sorted](https://leetcode.com/problems/find-if-array-can-be-sorted)
 
 [中文文档](/solution/3000-3099/3011.Find%20if%20Array%20Can%20Be%20Sorted/README.md)
-
-<!-- tags:Bit Manipulation,Array,Sorting -->
 
 ## Description
 

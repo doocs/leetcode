@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2733.Neither%20Minimum%20nor%20Maximum/README.md
+rating: 1147
+tags:
+    - 数组
+    - 排序
+---
+
 # [2733. 既不是最小值也不是最大值](https://leetcode.cn/problems/neither-minimum-nor-maximum)
 
 [English Version](/solution/2700-2799/2733.Neither%20Minimum%20nor%20Maximum/README_EN.md)
-
-<!-- tags:数组,排序 -->
 
 ## 题目描述
 

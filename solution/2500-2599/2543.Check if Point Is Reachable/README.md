@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2543.Check%20if%20Point%20Is%20Reachable/README.md
+rating: 2220
+tags:
+    - 数学
+    - 数论
+---
+
 # [2543. 判断一个点是否可以到达](https://leetcode.cn/problems/check-if-point-is-reachable)
 
 [English Version](/solution/2500-2599/2543.Check%20if%20Point%20Is%20Reachable/README_EN.md)
-
-<!-- tags:数学,数论 -->
 
 ## 题目描述
 

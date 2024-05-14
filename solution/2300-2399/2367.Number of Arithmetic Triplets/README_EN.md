@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2367.Number%20of%20Arithmetic%20Triplets/README_EN.md
+rating: 1203
+tags:
+    - Array
+    - Hash Table
+    - Two Pointers
+    - Enumeration
+---
+
 # [2367. Number of Arithmetic Triplets](https://leetcode.com/problems/number-of-arithmetic-triplets)
 
 [中文文档](/solution/2300-2399/2367.Number%20of%20Arithmetic%20Triplets/README.md)
-
-<!-- tags:Array,Hash Table,Two Pointers,Enumeration -->
 
 ## Description
 

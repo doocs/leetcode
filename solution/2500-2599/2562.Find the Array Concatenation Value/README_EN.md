@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2562.Find%20the%20Array%20Concatenation%20Value/README_EN.md
+rating: 1259
+tags:
+    - Array
+    - Two Pointers
+    - Simulation
+---
+
 # [2562. Find the Array Concatenation Value](https://leetcode.com/problems/find-the-array-concatenation-value)
 
 [中文文档](/solution/2500-2599/2562.Find%20the%20Array%20Concatenation%20Value/README.md)
-
-<!-- tags:Array,Two Pointers,Simulation -->
 
 ## Description
 

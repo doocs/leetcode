@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2421.Number%20of%20Good%20Paths/README_EN.md
+rating: 2444
+tags:
+    - Tree
+    - Union Find
+    - Graph
+    - Array
+    - Hash Table
+    - Sorting
+---
+
 # [2421. Number of Good Paths](https://leetcode.com/problems/number-of-good-paths)
 
 [中文文档](/solution/2400-2499/2421.Number%20of%20Good%20Paths/README.md)
-
-<!-- tags:Tree,Union Find,Graph,Array,Hash Table,Sorting -->
 
 ## Description
 

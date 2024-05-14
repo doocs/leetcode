@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2594.Minimum%20Time%20to%20Repair%20Cars/README_EN.md
+rating: 1915
+tags:
+    - Array
+    - Binary Search
+---
+
 # [2594. Minimum Time to Repair Cars](https://leetcode.com/problems/minimum-time-to-repair-cars)
 
 [中文文档](/solution/2500-2599/2594.Minimum%20Time%20to%20Repair%20Cars/README.md)
-
-<!-- tags:Array,Binary Search -->
 
 ## Description
 

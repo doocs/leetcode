@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.09.Bracket/README.md
+---
+
 # [面试题 08.09. 括号](https://leetcode.cn/problems/bracket-lcci)
 
 [English Version](/lcci/08.09.Bracket/README_EN.md)

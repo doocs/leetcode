@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1092.Shortest%20Common%20Supersequence/README.md
+rating: 1976
+tags:
+    - 字符串
+    - 动态规划
+---
+
 # [1092. 最短公共超序列](https://leetcode.cn/problems/shortest-common-supersequence)
 
 [English Version](/solution/1000-1099/1092.Shortest%20Common%20Supersequence/README_EN.md)
-
-<!-- tags:字符串,动态规划 -->
 
 ## 题目描述
 

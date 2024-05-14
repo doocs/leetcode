@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1459.Rectangles%20Area/README.md
+tags:
+    - 数据库
+---
+
 # [1459. 矩形面积 🔒](https://leetcode.cn/problems/rectangles-area)
 
 [English Version](/solution/1400-1499/1459.Rectangles%20Area/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

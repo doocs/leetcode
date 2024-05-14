@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2906.Construct%20Product%20Matrix/README.md
+rating: 2074
+tags:
+    - 数组
+    - 矩阵
+    - 前缀和
+---
+
 # [2906. 构造乘积矩阵](https://leetcode.cn/problems/construct-product-matrix)
 
 [English Version](/solution/2900-2999/2906.Construct%20Product%20Matrix/README_EN.md)
-
-<!-- tags:数组,矩阵,前缀和 -->
 
 ## 题目描述
 

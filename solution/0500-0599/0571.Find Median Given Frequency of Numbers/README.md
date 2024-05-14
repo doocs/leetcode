@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0571.Find%20Median%20Given%20Frequency%20of%20Numbers/README.md
+tags:
+    - 数据库
+---
+
 # [571. 给定数字的频率查询中位数 🔒](https://leetcode.cn/problems/find-median-given-frequency-of-numbers)
 
 [English Version](/solution/0500-0599/0571.Find%20Median%20Given%20Frequency%20of%20Numbers/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

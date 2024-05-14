@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1595.Minimum%20Cost%20to%20Connect%20Two%20Groups%20of%20Points/README_EN.md
+rating: 2537
+tags:
+    - Bit Manipulation
+    - Array
+    - Dynamic Programming
+    - Bitmask
+    - Matrix
+---
+
 # [1595. Minimum Cost to Connect Two Groups of Points](https://leetcode.com/problems/minimum-cost-to-connect-two-groups-of-points)
 
 [中文文档](/solution/1500-1599/1595.Minimum%20Cost%20to%20Connect%20Two%20Groups%20of%20Points/README.md)
-
-<!-- tags:Bit Manipulation,Array,Dynamic Programming,Bitmask,Matrix -->
 
 ## Description
 

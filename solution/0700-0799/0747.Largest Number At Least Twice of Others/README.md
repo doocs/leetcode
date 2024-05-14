@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0747.Largest%20Number%20At%20Least%20Twice%20of%20Others/README.md
+tags:
+    - 数组
+    - 排序
+---
+
 # [747. 至少是其他数字两倍的最大数](https://leetcode.cn/problems/largest-number-at-least-twice-of-others)
 
 [English Version](/solution/0700-0799/0747.Largest%20Number%20At%20Least%20Twice%20of%20Others/README_EN.md)
-
-<!-- tags:数组,排序 -->
 
 ## 题目描述
 

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1025.Divisor%20Game/README_EN.md
+rating: 1435
+tags:
+    - Brainteaser
+    - Math
+    - Dynamic Programming
+    - Game Theory
+---
+
 # [1025. Divisor Game](https://leetcode.com/problems/divisor-game)
 
 [中文文档](/solution/1000-1099/1025.Divisor%20Game/README.md)
-
-<!-- tags:Brainteaser,Math,Dynamic Programming,Game Theory -->
 
 ## Description
 

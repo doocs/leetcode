@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1409.Queries%20on%20a%20Permutation%20With%20Key/README.md
+rating: 1334
+tags:
+    - 树状数组
+    - 数组
+    - 模拟
+---
+
 # [1409. 查询带键的排列](https://leetcode.cn/problems/queries-on-a-permutation-with-key)
 
 [English Version](/solution/1400-1499/1409.Queries%20on%20a%20Permutation%20With%20Key/README_EN.md)
-
-<!-- tags:树状数组,数组,模拟 -->
 
 ## 题目描述
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1625.Lexicographically%20Smallest%20String%20After%20Applying%20Operations/README.md
+rating: 1992
+tags:
+    - 广度优先搜索
+    - 字符串
+---
+
 # [1625. 执行操作后字典序最小的字符串](https://leetcode.cn/problems/lexicographically-smallest-string-after-applying-operations)
 
 [English Version](/solution/1600-1699/1625.Lexicographically%20Smallest%20String%20After%20Applying%20Operations/README_EN.md)
-
-<!-- tags:广度优先搜索,字符串 -->
 
 ## 题目描述
 

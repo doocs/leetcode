@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2205.The%20Number%20of%20Users%20That%20Are%20Eligible%20for%20Discount/README.md
+tags:
+    - 数据库
+---
+
 # [2205. 有资格享受折扣的用户数量 🔒](https://leetcode.cn/problems/the-number-of-users-that-are-eligible-for-discount)
 
 [English Version](/solution/2200-2299/2205.The%20Number%20of%20Users%20That%20Are%20Eligible%20for%20Discount/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

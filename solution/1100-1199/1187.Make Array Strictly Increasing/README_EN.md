@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1187.Make%20Array%20Strictly%20Increasing/README_EN.md
+rating: 2315
+tags:
+    - Array
+    - Binary Search
+    - Dynamic Programming
+    - Sorting
+---
+
 # [1187. Make Array Strictly Increasing](https://leetcode.com/problems/make-array-strictly-increasing)
 
 [中文文档](/solution/1100-1199/1187.Make%20Array%20Strictly%20Increasing/README.md)
-
-<!-- tags:Array,Binary Search,Dynamic Programming,Sorting -->
 
 ## Description
 

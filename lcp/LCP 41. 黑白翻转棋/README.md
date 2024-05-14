@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2041.%20%E9%BB%91%E7%99%BD%E7%BF%BB%E8%BD%AC%E6%A3%8B/README.md
+---
+
 # [LCP 41. 黑白翻转棋](https://leetcode.cn/problems/fHi6rV)
 
 ## 题目描述

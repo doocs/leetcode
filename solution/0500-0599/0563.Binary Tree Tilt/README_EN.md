@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0563.Binary%20Tree%20Tilt/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Binary Tree
+---
+
 # [563. Binary Tree Tilt](https://leetcode.com/problems/binary-tree-tilt)
 
 [中文文档](/solution/0500-0599/0563.Binary%20Tree%20Tilt/README.md)
-
-<!-- tags:Tree,Depth-First Search,Binary Tree -->
 
 ## Description
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0970.Powerful%20Integers/README.md
+tags:
+    - 哈希表
+    - 数学
+    - 枚举
+---
+
 # [970. 强整数](https://leetcode.cn/problems/powerful-integers)
 
 [English Version](/solution/0900-0999/0970.Powerful%20Integers/README_EN.md)
-
-<!-- tags:哈希表,数学,枚举 -->
 
 ## 题目描述
 

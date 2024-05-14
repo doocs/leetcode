@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1194.Tournament%20Winners/README.md
+tags:
+    - 数据库
+---
+
 # [1194. 锦标赛优胜者 🔒](https://leetcode.cn/problems/tournament-winners)
 
 [English Version](/solution/1100-1199/1194.Tournament%20Winners/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1616.Split%20Two%20Strings%20to%20Make%20Palindrome/README_EN.md
+rating: 1868
+tags:
+    - Two Pointers
+    - String
+---
+
 # [1616. Split Two Strings to Make Palindrome](https://leetcode.com/problems/split-two-strings-to-make-palindrome)
 
 [中文文档](/solution/1600-1699/1616.Split%20Two%20Strings%20to%20Make%20Palindrome/README.md)
-
-<!-- tags:Two Pointers,String -->
 
 ## Description
 

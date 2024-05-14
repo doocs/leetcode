@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0060.Permutation%20Sequence/README.md
+tags:
+    - 递归
+    - 数学
+---
+
 # [60. 排列序列](https://leetcode.cn/problems/permutation-sequence)
 
 [English Version](/solution/0000-0099/0060.Permutation%20Sequence/README_EN.md)
-
-<!-- tags:递归,数学 -->
 
 ## 题目描述
 

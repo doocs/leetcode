@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2957.Remove%20Adjacent%20Almost-Equal%20Characters/README_EN.md
+rating: 1429
+tags:
+    - Greedy
+    - String
+    - Dynamic Programming
+---
+
 # [2957. Remove Adjacent Almost-Equal Characters](https://leetcode.com/problems/remove-adjacent-almost-equal-characters)
 
 [中文文档](/solution/2900-2999/2957.Remove%20Adjacent%20Almost-Equal%20Characters/README.md)
-
-<!-- tags:Greedy,String,Dynamic Programming -->
 
 ## Description
 

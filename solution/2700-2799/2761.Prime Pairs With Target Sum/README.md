@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2761.Prime%20Pairs%20With%20Target%20Sum/README.md
+rating: 1504
+tags:
+    - 数组
+    - 数学
+    - 枚举
+    - 数论
+---
+
 # [2761. 和等于目标值的质数对](https://leetcode.cn/problems/prime-pairs-with-target-sum)
 
 [English Version](/solution/2700-2799/2761.Prime%20Pairs%20With%20Target%20Sum/README_EN.md)
-
-<!-- tags:数组,数学,枚举,数论 -->
 
 ## 题目描述
 

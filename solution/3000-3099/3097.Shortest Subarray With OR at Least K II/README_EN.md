@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3097.Shortest%20Subarray%20With%20OR%20at%20Least%20K%20II/README_EN.md
+rating: 1891
+tags:
+    - Bit Manipulation
+    - Array
+    - Sliding Window
+---
+
 # [3097. Shortest Subarray With OR at Least K II](https://leetcode.com/problems/shortest-subarray-with-or-at-least-k-ii)
 
 [中文文档](/solution/3000-3099/3097.Shortest%20Subarray%20With%20OR%20at%20Least%20K%20II/README.md)
-
-<!-- tags:Bit Manipulation,Array,Sliding Window -->
 
 ## Description
 

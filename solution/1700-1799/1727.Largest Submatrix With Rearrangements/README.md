@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1727.Largest%20Submatrix%20With%20Rearrangements/README.md
+rating: 1926
+tags:
+    - 贪心
+    - 数组
+    - 矩阵
+    - 排序
+---
+
 # [1727. 重新排列后的最大子矩阵](https://leetcode.cn/problems/largest-submatrix-with-rearrangements)
 
 [English Version](/solution/1700-1799/1727.Largest%20Submatrix%20With%20Rearrangements/README_EN.md)
-
-<!-- tags:贪心,数组,矩阵,排序 -->
 
 ## 题目描述
 

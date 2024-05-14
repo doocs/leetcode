@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.04.Closed%20Number/README.md
+---
+
 # [面试题 05.04. 下一个数](https://leetcode.cn/problems/closed-number-lcci)
 
 [English Version](/lcci/05.04.Closed%20Number/README_EN.md)

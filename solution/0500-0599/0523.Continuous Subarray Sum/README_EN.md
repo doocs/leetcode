@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0523.Continuous%20Subarray%20Sum/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Math
+    - Prefix Sum
+---
+
 # [523. Continuous Subarray Sum](https://leetcode.com/problems/continuous-subarray-sum)
 
 [中文文档](/solution/0500-0599/0523.Continuous%20Subarray%20Sum/README.md)
-
-<!-- tags:Array,Hash Table,Math,Prefix Sum -->
 
 ## Description
 

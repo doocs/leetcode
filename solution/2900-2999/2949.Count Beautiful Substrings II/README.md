@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2949.Count%20Beautiful%20Substrings%20II/README.md
+rating: 2444
+tags:
+    - 哈希表
+    - 数学
+    - 字符串
+    - 数论
+    - 前缀和
+---
+
 # [2949. 统计美丽子字符串 II](https://leetcode.cn/problems/count-beautiful-substrings-ii)
 
 [English Version](/solution/2900-2999/2949.Count%20Beautiful%20Substrings%20II/README_EN.md)
-
-<!-- tags:哈希表,数学,字符串,数论,前缀和 -->
 
 ## 题目描述
 

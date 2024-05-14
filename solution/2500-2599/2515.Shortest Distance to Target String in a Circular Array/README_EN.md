@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2515.Shortest%20Distance%20to%20Target%20String%20in%20a%20Circular%20Array/README_EN.md
+rating: 1367
+tags:
+    - Array
+    - String
+---
+
 # [2515. Shortest Distance to Target String in a Circular Array](https://leetcode.com/problems/shortest-distance-to-target-string-in-a-circular-array)
 
 [中文文档](/solution/2500-2599/2515.Shortest%20Distance%20to%20Target%20String%20in%20a%20Circular%20Array/README.md)
-
-<!-- tags:Array,String -->
 
 ## Description
 

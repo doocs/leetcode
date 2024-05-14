@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2285.Maximum%20Total%20Importance%20of%20Roads/README_EN.md
+rating: 1496
+tags:
+    - Greedy
+    - Graph
+    - Sorting
+    - Heap (Priority Queue)
+---
+
 # [2285. Maximum Total Importance of Roads](https://leetcode.com/problems/maximum-total-importance-of-roads)
 
 [中文文档](/solution/2200-2299/2285.Maximum%20Total%20Importance%20of%20Roads/README.md)
-
-<!-- tags:Greedy,Graph,Sorting,Heap (Priority Queue) -->
 
 ## Description
 

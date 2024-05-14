@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1049.Last%20Stone%20Weight%20II/README_EN.md
+rating: 2092
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [1049. Last Stone Weight II](https://leetcode.com/problems/last-stone-weight-ii)
 
 [中文文档](/solution/1000-1099/1049.Last%20Stone%20Weight%20II/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
 
 ## Description
 

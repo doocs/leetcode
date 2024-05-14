@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1051.Height%20Checker/README.md
+rating: 1303
+tags:
+    - 数组
+    - 计数排序
+    - 排序
+---
+
 # [1051. 高度检查器](https://leetcode.cn/problems/height-checker)
 
 [English Version](/solution/1000-1099/1051.Height%20Checker/README_EN.md)
-
-<!-- tags:数组,计数排序,排序 -->
 
 ## 题目描述
 

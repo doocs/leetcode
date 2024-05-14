@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1135.Connecting%20Cities%20With%20Minimum%20Cost/README.md
+rating: 1752
+tags:
+    - 并查集
+    - 图
+    - 最小生成树
+    - 堆（优先队列）
+---
+
 # [1135. 最低成本连通所有城市 🔒](https://leetcode.cn/problems/connecting-cities-with-minimum-cost)
 
 [English Version](/solution/1100-1199/1135.Connecting%20Cities%20With%20Minimum%20Cost/README_EN.md)
-
-<!-- tags:并查集,图,最小生成树,堆（优先队列） -->
 
 ## 题目描述
 

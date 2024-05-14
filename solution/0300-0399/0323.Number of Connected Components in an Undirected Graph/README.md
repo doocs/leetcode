@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0323.Number%20of%20Connected%20Components%20in%20an%20Undirected%20Graph/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 并查集
+    - 图
+---
+
 # [323. 无向图中连通分量的数目 🔒](https://leetcode.cn/problems/number-of-connected-components-in-an-undirected-graph)
 
 [English Version](/solution/0300-0399/0323.Number%20of%20Connected%20Components%20in%20an%20Undirected%20Graph/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,并查集,图 -->
 
 ## 题目描述
 

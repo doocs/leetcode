@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0695.Max%20Area%20of%20Island/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 并查集
+    - 数组
+    - 矩阵
+---
+
 # [695. 岛屿的最大面积](https://leetcode.cn/problems/max-area-of-island)
 
 [English Version](/solution/0600-0699/0695.Max%20Area%20of%20Island/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,并查集,数组,矩阵 -->
 
 ## 题目描述
 

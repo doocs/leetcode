@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3146.Permutation%20Difference%20between%20Two%20Strings/README.md
+---
+
 # [3146. 两个字符串的排列差](https://leetcode.cn/problems/permutation-difference-between-two-strings)
 
 [English Version](/solution/3100-3199/3146.Permutation%20Difference%20between%20Two%20Strings/README_EN.md)
-
-<!-- tags: -->
 
 ## 题目描述
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1796.Second%20Largest%20Digit%20in%20a%20String/README.md
+rating: 1341
+tags:
+    - 哈希表
+    - 字符串
+---
+
 # [1796. 字符串中第二大的数字](https://leetcode.cn/problems/second-largest-digit-in-a-string)
 
 [English Version](/solution/1700-1799/1796.Second%20Largest%20Digit%20in%20a%20String/README_EN.md)
-
-<!-- tags:哈希表,字符串 -->
 
 ## 题目描述
 

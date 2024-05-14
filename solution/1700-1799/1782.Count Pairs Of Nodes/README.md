@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1782.Count%20Pairs%20Of%20Nodes/README.md
+rating: 2457
+tags:
+    - 图
+    - 数组
+    - 双指针
+    - 二分查找
+    - 排序
+---
+
 # [1782. 统计点对的数目](https://leetcode.cn/problems/count-pairs-of-nodes)
 
 [English Version](/solution/1700-1799/1782.Count%20Pairs%20Of%20Nodes/README_EN.md)
-
-<!-- tags:图,数组,双指针,二分查找,排序 -->
 
 ## 题目描述
 

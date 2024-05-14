@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1950.Maximum%20of%20Minimum%20Values%20in%20All%20Subarrays/README_EN.md
+tags:
+    - Stack
+    - Array
+    - Monotonic Stack
+---
+
 # [1950. Maximum of Minimum Values in All Subarrays 🔒](https://leetcode.com/problems/maximum-of-minimum-values-in-all-subarrays)
 
 [中文文档](/solution/1900-1999/1950.Maximum%20of%20Minimum%20Values%20in%20All%20Subarrays/README.md)
-
-<!-- tags:Stack,Array,Monotonic Stack -->
 
 ## Description
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1765.Map%20of%20Highest%20Peak/README.md
+rating: 1782
+tags:
+    - 广度优先搜索
+    - 数组
+    - 矩阵
+---
+
 # [1765. 地图中的最高点](https://leetcode.cn/problems/map-of-highest-peak)
 
 [English Version](/solution/1700-1799/1765.Map%20of%20Highest%20Peak/README_EN.md)
-
-<!-- tags:广度优先搜索,数组,矩阵 -->
 
 ## 题目描述
 

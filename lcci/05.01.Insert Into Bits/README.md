@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.01.Insert%20Into%20Bits/README.md
+---
+
 # [面试题 05.01. 插入](https://leetcode.cn/problems/insert-into-bits-lcci)
 
 [English Version](/lcci/05.01.Insert%20Into%20Bits/README_EN.md)

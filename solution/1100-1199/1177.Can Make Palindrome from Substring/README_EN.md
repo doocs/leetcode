@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1177.Can%20Make%20Palindrome%20from%20Substring/README_EN.md
+rating: 1848
+tags:
+    - Bit Manipulation
+    - Array
+    - Hash Table
+    - String
+    - Prefix Sum
+---
+
 # [1177. Can Make Palindrome from Substring](https://leetcode.com/problems/can-make-palindrome-from-substring)
 
 [中文文档](/solution/1100-1199/1177.Can%20Make%20Palindrome%20from%20Substring/README.md)
-
-<!-- tags:Bit Manipulation,Array,Hash Table,String,Prefix Sum -->
 
 ## Description
 

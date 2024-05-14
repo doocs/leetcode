@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0135.Candy/README_EN.md
+tags:
+    - Greedy
+    - Array
+---
+
 # [135. Candy](https://leetcode.com/problems/candy)
 
 [中文文档](/solution/0100-0199/0135.Candy/README.md)
-
-<!-- tags:Greedy,Array -->
 
 ## Description
 

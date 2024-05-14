@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.17.Multi%20Search/README_EN.md
+---
+
 # [17.17. Multi Search](https://leetcode.cn/problems/multi-search-lcci)
 
 [中文文档](/lcci/17.17.Multi%20Search/README.md)

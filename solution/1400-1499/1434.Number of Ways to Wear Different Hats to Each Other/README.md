@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1434.Number%20of%20Ways%20to%20Wear%20Different%20Hats%20to%20Each%20Other/README.md
+rating: 2273
+tags:
+    - 位运算
+    - 数组
+    - 动态规划
+    - 状态压缩
+---
+
 # [1434. 每个人戴不同帽子的方案数](https://leetcode.cn/problems/number-of-ways-to-wear-different-hats-to-each-other)
 
 [English Version](/solution/1400-1499/1434.Number%20of%20Ways%20to%20Wear%20Different%20Hats%20to%20Each%20Other/README_EN.md)
-
-<!-- tags:位运算,数组,动态规划,状态压缩 -->
 
 ## 题目描述
 

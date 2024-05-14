@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.13.Pile%20Box/README_EN.md
+---
+
 # [08.13. Pile Box](https://leetcode.cn/problems/pile-box-lcci)
 
 [中文文档](/lcci/08.13.Pile%20Box/README.md)

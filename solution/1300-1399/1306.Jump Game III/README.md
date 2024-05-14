@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1306.Jump%20Game%20III/README.md
+rating: 1396
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 数组
+---
+
 # [1306. 跳跃游戏 III](https://leetcode.cn/problems/jump-game-iii)
 
 [English Version](/solution/1300-1399/1306.Jump%20Game%20III/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,数组 -->
 
 ## 题目描述
 

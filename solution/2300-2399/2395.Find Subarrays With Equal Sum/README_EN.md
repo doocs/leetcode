@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2395.Find%20Subarrays%20With%20Equal%20Sum/README_EN.md
+rating: 1249
+tags:
+    - Array
+    - Hash Table
+---
+
 # [2395. Find Subarrays With Equal Sum](https://leetcode.com/problems/find-subarrays-with-equal-sum)
 
 [中文文档](/solution/2300-2399/2395.Find%20Subarrays%20With%20Equal%20Sum/README.md)
-
-<!-- tags:Array,Hash Table -->
 
 ## Description
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0763.Partition%20Labels/README_EN.md
+tags:
+    - Greedy
+    - Hash Table
+    - Two Pointers
+    - String
+---
+
 # [763. Partition Labels](https://leetcode.com/problems/partition-labels)
 
 [中文文档](/solution/0700-0799/0763.Partition%20Labels/README.md)
-
-<!-- tags:Greedy,Hash Table,Two Pointers,String -->
 
 ## Description
 

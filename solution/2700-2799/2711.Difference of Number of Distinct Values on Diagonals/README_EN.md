@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2711.Difference%20of%20Number%20of%20Distinct%20Values%20on%20Diagonals/README_EN.md
+rating: 1428
+tags:
+    - Array
+    - Hash Table
+    - Matrix
+---
+
 # [2711. Difference of Number of Distinct Values on Diagonals](https://leetcode.com/problems/difference-of-number-of-distinct-values-on-diagonals)
 
 [中文文档](/solution/2700-2799/2711.Difference%20of%20Number%20of%20Distinct%20Values%20on%20Diagonals/README.md)
-
-<!-- tags:Array,Hash Table,Matrix -->
 
 ## Description
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0032.Longest%20Valid%20Parentheses/README_EN.md
+tags:
+    - Stack
+    - String
+    - Dynamic Programming
+---
+
 # [32. Longest Valid Parentheses](https://leetcode.com/problems/longest-valid-parentheses)
 
 [中文文档](/solution/0000-0099/0032.Longest%20Valid%20Parentheses/README.md)
-
-<!-- tags:Stack,String,Dynamic Programming -->
 
 ## Description
 

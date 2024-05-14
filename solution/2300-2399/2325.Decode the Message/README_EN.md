@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2325.Decode%20the%20Message/README_EN.md
+rating: 1268
+tags:
+    - Hash Table
+    - String
+---
+
 # [2325. Decode the Message](https://leetcode.com/problems/decode-the-message)
 
 [中文文档](/solution/2300-2399/2325.Decode%20the%20Message/README.md)
-
-<!-- tags:Hash Table,String -->
 
 ## Description
 

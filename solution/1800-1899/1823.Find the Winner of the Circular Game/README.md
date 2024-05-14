@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1823.Find%20the%20Winner%20of%20the%20Circular%20Game/README.md
+rating: 1412
+tags:
+    - 递归
+    - 队列
+    - 数组
+    - 数学
+    - 模拟
+---
+
 # [1823. 找出游戏的获胜者](https://leetcode.cn/problems/find-the-winner-of-the-circular-game)
 
 [English Version](/solution/1800-1899/1823.Find%20the%20Winner%20of%20the%20Circular%20Game/README_EN.md)
-
-<!-- tags:递归,队列,数组,数学,模拟 -->
 
 ## 题目描述
 

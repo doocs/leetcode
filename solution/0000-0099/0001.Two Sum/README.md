@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0001.Two%20Sum/README.md
+tags:
+    - 数组
+    - 哈希表
+---
+
 # [1. 两数之和](https://leetcode.cn/problems/two-sum)
 
 [English Version](/solution/0000-0099/0001.Two%20Sum/README_EN.md)
-
-<!-- tags:数组,哈希表 -->
 
 ## 题目描述
 

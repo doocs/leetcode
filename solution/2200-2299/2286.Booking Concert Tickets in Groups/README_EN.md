@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2286.Booking%20Concert%20Tickets%20in%20Groups/README_EN.md
+rating: 2470
+tags:
+    - Design
+    - Binary Indexed Tree
+    - Segment Tree
+    - Binary Search
+---
+
 # [2286. Booking Concert Tickets in Groups](https://leetcode.com/problems/booking-concert-tickets-in-groups)
 
 [中文文档](/solution/2200-2299/2286.Booking%20Concert%20Tickets%20in%20Groups/README.md)
-
-<!-- tags:Design,Binary Indexed Tree,Segment Tree,Binary Search -->
 
 ## Description
 

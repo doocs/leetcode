@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0228.Summary%20Ranges/README.md
+tags:
+    - 数组
+---
+
 # [228. 汇总区间](https://leetcode.cn/problems/summary-ranges)
 
 [English Version](/solution/0200-0299/0228.Summary%20Ranges/README_EN.md)
-
-<!-- tags:数组 -->
 
 ## 题目描述
 

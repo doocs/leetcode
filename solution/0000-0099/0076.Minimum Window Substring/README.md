@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0076.Minimum%20Window%20Substring/README.md
+tags:
+    - 哈希表
+    - 字符串
+    - 滑动窗口
+---
+
 # [76. 最小覆盖子串](https://leetcode.cn/problems/minimum-window-substring)
 
 [English Version](/solution/0000-0099/0076.Minimum%20Window%20Substring/README_EN.md)
-
-<!-- tags:哈希表,字符串,滑动窗口 -->
 
 ## 题目描述
 

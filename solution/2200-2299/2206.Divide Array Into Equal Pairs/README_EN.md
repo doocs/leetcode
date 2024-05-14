@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2206.Divide%20Array%20Into%20Equal%20Pairs/README_EN.md
+rating: 1223
+tags:
+    - Bit Manipulation
+    - Array
+    - Hash Table
+    - Counting
+---
+
 # [2206. Divide Array Into Equal Pairs](https://leetcode.com/problems/divide-array-into-equal-pairs)
 
 [中文文档](/solution/2200-2299/2206.Divide%20Array%20Into%20Equal%20Pairs/README.md)
-
-<!-- tags:Bit Manipulation,Array,Hash Table,Counting -->
 
 ## Description
 

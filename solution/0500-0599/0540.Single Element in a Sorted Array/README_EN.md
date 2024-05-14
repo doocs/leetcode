@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0540.Single%20Element%20in%20a%20Sorted%20Array/README_EN.md
+tags:
+    - Array
+    - Binary Search
+---
+
 # [540. Single Element in a Sorted Array](https://leetcode.com/problems/single-element-in-a-sorted-array)
 
 [中文文档](/solution/0500-0599/0540.Single%20Element%20in%20a%20Sorted%20Array/README.md)
-
-<!-- tags:Array,Binary Search -->
 
 ## Description
 

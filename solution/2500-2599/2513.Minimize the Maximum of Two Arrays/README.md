@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2513.Minimize%20the%20Maximum%20of%20Two%20Arrays/README.md
+rating: 2302
+tags:
+    - 数学
+    - 二分查找
+    - 数论
+---
+
 # [2513. 最小化两个数组中的最大值](https://leetcode.cn/problems/minimize-the-maximum-of-two-arrays)
 
 [English Version](/solution/2500-2599/2513.Minimize%20the%20Maximum%20of%20Two%20Arrays/README_EN.md)
-
-<!-- tags:数学,二分查找,数论 -->
 
 ## 题目描述
 

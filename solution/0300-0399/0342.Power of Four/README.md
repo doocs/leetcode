@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0342.Power%20of%20Four/README.md
+tags:
+    - 位运算
+    - 递归
+    - 数学
+---
+
 # [342. 4 的幂](https://leetcode.cn/problems/power-of-four)
 
 [English Version](/solution/0300-0399/0342.Power%20of%20Four/README_EN.md)
-
-<!-- tags:位运算,递归,数学 -->
 
 ## 题目描述
 

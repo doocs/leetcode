@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2517.Maximum%20Tastiness%20of%20Candy%20Basket/README_EN.md
+rating: 2020
+tags:
+    - Greedy
+    - Array
+    - Binary Search
+    - Sorting
+---
+
 # [2517. Maximum Tastiness of Candy Basket](https://leetcode.com/problems/maximum-tastiness-of-candy-basket)
 
 [中文文档](/solution/2500-2599/2517.Maximum%20Tastiness%20of%20Candy%20Basket/README.md)
-
-<!-- tags:Greedy,Array,Binary Search,Sorting -->
 
 ## Description
 

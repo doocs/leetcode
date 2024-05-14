@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2449.Minimum%20Number%20of%20Operations%20to%20Make%20Arrays%20Similar/README.md
+rating: 2076
+tags:
+    - 贪心
+    - 数组
+    - 排序
+---
+
 # [2449. 使数组相似的最少操作次数](https://leetcode.cn/problems/minimum-number-of-operations-to-make-arrays-similar)
 
 [English Version](/solution/2400-2499/2449.Minimum%20Number%20of%20Operations%20to%20Make%20Arrays%20Similar/README_EN.md)
-
-<!-- tags:贪心,数组,排序 -->
 
 ## 题目描述
 

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0826.Most%20Profit%20Assigning%20Work/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Two Pointers
+    - Binary Search
+    - Sorting
+---
+
 # [826. Most Profit Assigning Work](https://leetcode.com/problems/most-profit-assigning-work)
 
 [中文文档](/solution/0800-0899/0826.Most%20Profit%20Assigning%20Work/README.md)
-
-<!-- tags:Greedy,Array,Two Pointers,Binary Search,Sorting -->
 
 ## Description
 

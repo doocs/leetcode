@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1925.Count%20Square%20Sum%20Triples/README.md
+rating: 1323
+tags:
+    - 数学
+    - 枚举
+---
+
 # [1925. 统计平方和三元组的数目](https://leetcode.cn/problems/count-square-sum-triples)
 
 [English Version](/solution/1900-1999/1925.Count%20Square%20Sum%20Triples/README_EN.md)
-
-<!-- tags:数学,枚举 -->
 
 ## 题目描述
 

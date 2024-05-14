@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1495.Friendly%20Movies%20Streamed%20Last%20Month/README.md
+tags:
+    - 数据库
+---
+
 # [1495. 上月播放的儿童适宜电影 🔒](https://leetcode.cn/problems/friendly-movies-streamed-last-month)
 
 [English Version](/solution/1400-1499/1495.Friendly%20Movies%20Streamed%20Last%20Month/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

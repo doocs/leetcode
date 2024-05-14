@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1240.Tiling%20a%20Rectangle%20with%20the%20Fewest%20Squares/README.md
+rating: 2241
+tags:
+    - 回溯
+---
+
 # [1240. 铺瓷砖](https://leetcode.cn/problems/tiling-a-rectangle-with-the-fewest-squares)
 
 [English Version](/solution/1200-1299/1240.Tiling%20a%20Rectangle%20with%20the%20Fewest%20Squares/README_EN.md)
-
-<!-- tags:回溯 -->
 
 ## 题目描述
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2895.Minimum%20Processing%20Time/README.md
+rating: 1351
+tags:
+    - 贪心
+    - 数组
+    - 排序
+---
+
 # [2895. 最小处理时间](https://leetcode.cn/problems/minimum-processing-time)
 
 [English Version](/solution/2800-2899/2895.Minimum%20Processing%20Time/README_EN.md)
-
-<!-- tags:贪心,数组,排序 -->
 
 ## 题目描述
 

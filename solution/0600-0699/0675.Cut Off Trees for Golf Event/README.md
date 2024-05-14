@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0675.Cut%20Off%20Trees%20for%20Golf%20Event/README.md
+tags:
+    - 广度优先搜索
+    - 数组
+    - 矩阵
+    - 堆（优先队列）
+---
+
 # [675. 为高尔夫比赛砍树](https://leetcode.cn/problems/cut-off-trees-for-golf-event)
 
 [English Version](/solution/0600-0699/0675.Cut%20Off%20Trees%20for%20Golf%20Event/README_EN.md)
-
-<!-- tags:广度优先搜索,数组,矩阵,堆（优先队列） -->
 
 ## 题目描述
 

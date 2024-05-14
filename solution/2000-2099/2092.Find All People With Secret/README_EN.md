@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2092.Find%20All%20People%20With%20Secret/README_EN.md
+rating: 2003
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Union Find
+    - Graph
+    - Sorting
+---
+
 # [2092. Find All People With Secret](https://leetcode.com/problems/find-all-people-with-secret)
 
 [中文文档](/solution/2000-2099/2092.Find%20All%20People%20With%20Secret/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Graph,Sorting -->
 
 ## Description
 

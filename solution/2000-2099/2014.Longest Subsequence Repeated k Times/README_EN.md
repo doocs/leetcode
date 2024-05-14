@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2014.Longest%20Subsequence%20Repeated%20k%20Times/README_EN.md
+rating: 2558
+tags:
+    - Greedy
+    - String
+    - Backtracking
+    - Counting
+    - Enumeration
+---
+
 # [2014. Longest Subsequence Repeated k Times](https://leetcode.com/problems/longest-subsequence-repeated-k-times)
 
 [中文文档](/solution/2000-2099/2014.Longest%20Subsequence%20Repeated%20k%20Times/README.md)
-
-<!-- tags:Greedy,String,Backtracking,Counting,Enumeration -->
 
 ## Description
 

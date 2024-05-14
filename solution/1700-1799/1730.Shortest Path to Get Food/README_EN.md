@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1730.Shortest%20Path%20to%20Get%20Food/README_EN.md
+tags:
+    - Breadth-First Search
+    - Array
+    - Matrix
+---
+
 # [1730. Shortest Path to Get Food 🔒](https://leetcode.com/problems/shortest-path-to-get-food)
 
 [中文文档](/solution/1700-1799/1730.Shortest%20Path%20to%20Get%20Food/README.md)
-
-<!-- tags:Breadth-First Search,Array,Matrix -->
 
 ## Description
 

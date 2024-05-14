@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2244.Minimum%20Rounds%20to%20Complete%20All%20Tasks/README.md
+rating: 1371
+tags:
+    - 贪心
+    - 数组
+    - 哈希表
+    - 计数
+---
+
 # [2244. 完成所有任务需要的最少轮数](https://leetcode.cn/problems/minimum-rounds-to-complete-all-tasks)
 
 [English Version](/solution/2200-2299/2244.Minimum%20Rounds%20to%20Complete%20All%20Tasks/README_EN.md)
-
-<!-- tags:贪心,数组,哈希表,计数 -->
 
 ## 题目描述
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0543.Diameter%20of%20Binary%20Tree/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Binary Tree
+---
+
 # [543. Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree)
 
 [中文文档](/solution/0500-0599/0543.Diameter%20of%20Binary%20Tree/README.md)
-
-<!-- tags:Tree,Depth-First Search,Binary Tree -->
 
 ## Description
 

@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0634.Find%20the%20Derangement%20of%20An%20Array/README_EN.md
+tags:
+    - Math
+    - Dynamic Programming
+---
+
 # [634. Find the Derangement of An Array 🔒](https://leetcode.com/problems/find-the-derangement-of-an-array)
 
 [中文文档](/solution/0600-0699/0634.Find%20the%20Derangement%20of%20An%20Array/README.md)
-
-<!-- tags:Math,Dynamic Programming -->
 
 ## Description
 

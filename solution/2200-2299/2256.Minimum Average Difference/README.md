@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2256.Minimum%20Average%20Difference/README.md
+rating: 1394
+tags:
+    - 数组
+    - 前缀和
+---
+
 # [2256. 最小平均差](https://leetcode.cn/problems/minimum-average-difference)
 
 [English Version](/solution/2200-2299/2256.Minimum%20Average%20Difference/README_EN.md)
-
-<!-- tags:数组,前缀和 -->
 
 ## 题目描述
 

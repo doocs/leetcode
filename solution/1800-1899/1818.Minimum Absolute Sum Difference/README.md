@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1818.Minimum%20Absolute%20Sum%20Difference/README.md
+rating: 1934
+tags:
+    - 数组
+    - 二分查找
+    - 有序集合
+    - 排序
+---
+
 # [1818. 绝对差值和](https://leetcode.cn/problems/minimum-absolute-sum-difference)
 
 [English Version](/solution/1800-1899/1818.Minimum%20Absolute%20Sum%20Difference/README_EN.md)
-
-<!-- tags:数组,二分查找,有序集合,排序 -->
 
 ## 题目描述
 

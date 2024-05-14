@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1705.Maximum%20Number%20of%20Eaten%20Apples/README_EN.md
+rating: 1929
+tags:
+    - Greedy
+    - Array
+    - Heap (Priority Queue)
+---
+
 # [1705. Maximum Number of Eaten Apples](https://leetcode.com/problems/maximum-number-of-eaten-apples)
 
 [中文文档](/solution/1700-1799/1705.Maximum%20Number%20of%20Eaten%20Apples/README.md)
-
-<!-- tags:Greedy,Array,Heap (Priority Queue) -->
 
 ## Description
 

@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3136.Valid%20Word/README_EN.md
+rating: 1249
+tags:
+    - String
+---
+
 # [3136. Valid Word](https://leetcode.com/problems/valid-word)
 
 [中文文档](/solution/3100-3199/3136.Valid%20Word/README.md)
-
-<!-- tags:String -->
 
 ## Description
 

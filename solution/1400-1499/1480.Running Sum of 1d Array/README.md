@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1480.Running%20Sum%20of%201d%20Array/README.md
+rating: 1104
+tags:
+    - 数组
+    - 前缀和
+---
+
 # [1480. 一维数组的动态和](https://leetcode.cn/problems/running-sum-of-1d-array)
 
 [English Version](/solution/1400-1499/1480.Running%20Sum%20of%201d%20Array/README_EN.md)
-
-<!-- tags:数组,前缀和 -->
 
 ## 题目描述
 

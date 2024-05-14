@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0736.Parse%20Lisp%20Expression/README.md
+tags:
+    - 栈
+    - 递归
+    - 哈希表
+    - 字符串
+---
+
 # [736. Lisp 语法解析](https://leetcode.cn/problems/parse-lisp-expression)
 
 [English Version](/solution/0700-0799/0736.Parse%20Lisp%20Expression/README_EN.md)
-
-<!-- tags:栈,递归,哈希表,字符串 -->
 
 ## 题目描述
 

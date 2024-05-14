@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2063.%20%E5%BC%B9%E7%8F%A0%E6%B8%B8%E6%88%8F/README.md
+---
+
 # [LCP 63. 弹珠游戏](https://leetcode.cn/problems/EXvqDp)
 
 ## 题目描述

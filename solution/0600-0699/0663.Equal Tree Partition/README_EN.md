@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0663.Equal%20Tree%20Partition/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Binary Tree
+---
+
 # [663. Equal Tree Partition 🔒](https://leetcode.com/problems/equal-tree-partition)
 
 [中文文档](/solution/0600-0699/0663.Equal%20Tree%20Partition/README.md)
-
-<!-- tags:Tree,Depth-First Search,Binary Tree -->
 
 ## Description
 

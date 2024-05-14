@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0702.Search%20in%20a%20Sorted%20Array%20of%20Unknown%20Size/README_EN.md
+tags:
+    - Array
+    - Binary Search
+    - Interactive
+---
+
 # [702. Search in a Sorted Array of Unknown Size 🔒](https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size)
 
 [中文文档](/solution/0700-0799/0702.Search%20in%20a%20Sorted%20Array%20of%20Unknown%20Size/README.md)
-
-<!-- tags:Array,Binary Search,Interactive -->
 
 ## Description
 

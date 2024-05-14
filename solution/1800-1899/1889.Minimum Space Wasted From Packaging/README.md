@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1889.Minimum%20Space%20Wasted%20From%20Packaging/README.md
+rating: 2214
+tags:
+    - 数组
+    - 二分查找
+    - 前缀和
+    - 排序
+---
+
 # [1889. 装包裹的最小浪费空间](https://leetcode.cn/problems/minimum-space-wasted-from-packaging)
 
 [English Version](/solution/1800-1899/1889.Minimum%20Space%20Wasted%20From%20Packaging/README_EN.md)
-
-<!-- tags:数组,二分查找,前缀和,排序 -->
 
 ## 题目描述
 

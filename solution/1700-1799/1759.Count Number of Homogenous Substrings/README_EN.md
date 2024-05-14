@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1759.Count%20Number%20of%20Homogenous%20Substrings/README_EN.md
+rating: 1490
+tags:
+    - Math
+    - String
+---
+
 # [1759. Count Number of Homogenous Substrings](https://leetcode.com/problems/count-number-of-homogenous-substrings)
 
 [中文文档](/solution/1700-1799/1759.Count%20Number%20of%20Homogenous%20Substrings/README.md)
-
-<!-- tags:Math,String -->
 
 ## Description
 

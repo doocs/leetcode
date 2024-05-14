@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1300.Sum%20of%20Mutated%20Array%20Closest%20to%20Target/README_EN.md
+rating: 1606
+tags:
+    - Array
+    - Binary Search
+    - Sorting
+---
+
 # [1300. Sum of Mutated Array Closest to Target](https://leetcode.com/problems/sum-of-mutated-array-closest-to-target)
 
 [中文文档](/solution/1300-1399/1300.Sum%20of%20Mutated%20Array%20Closest%20to%20Target/README.md)
-
-<!-- tags:Array,Binary Search,Sorting -->
 
 ## Description
 

@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0255.Verify%20Preorder%20Sequence%20in%20Binary%20Search%20Tree/README_EN.md
+tags:
+    - Stack
+    - Tree
+    - Binary Search Tree
+    - Recursion
+    - Array
+    - Binary Tree
+    - Monotonic Stack
+---
+
 # [255. Verify Preorder Sequence in Binary Search Tree 🔒](https://leetcode.com/problems/verify-preorder-sequence-in-binary-search-tree)
 
 [中文文档](/solution/0200-0299/0255.Verify%20Preorder%20Sequence%20in%20Binary%20Search%20Tree/README.md)
-
-<!-- tags:Stack,Tree,Binary Search Tree,Recursion,Array,Binary Tree,Monotonic Stack -->
 
 ## Description
 

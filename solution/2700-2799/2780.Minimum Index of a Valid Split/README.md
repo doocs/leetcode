@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2780.Minimum%20Index%20of%20a%20Valid%20Split/README.md
+rating: 1549
+tags:
+    - 数组
+    - 哈希表
+    - 排序
+---
+
 # [2780. 合法分割的最小下标](https://leetcode.cn/problems/minimum-index-of-a-valid-split)
 
 [English Version](/solution/2700-2799/2780.Minimum%20Index%20of%20a%20Valid%20Split/README_EN.md)
-
-<!-- tags:数组,哈希表,排序 -->
 
 ## 题目描述
 

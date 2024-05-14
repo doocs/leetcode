@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0569.Median%20Employee%20Salary/README_EN.md
+tags:
+    - Database
+---
+
 # [569. Median Employee Salary 🔒](https://leetcode.com/problems/median-employee-salary)
 
 [中文文档](/solution/0500-0599/0569.Median%20Employee%20Salary/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

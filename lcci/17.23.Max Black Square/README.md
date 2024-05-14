@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.23.Max%20Black%20Square/README.md
+---
+
 # [面试题 17.23. 最大黑方阵](https://leetcode.cn/problems/max-black-square-lcci)
 
 [English Version](/lcci/17.23.Max%20Black%20Square/README_EN.md)

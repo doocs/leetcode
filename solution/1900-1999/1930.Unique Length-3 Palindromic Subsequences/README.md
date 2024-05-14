@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1930.Unique%20Length-3%20Palindromic%20Subsequences/README.md
+rating: 1533
+tags:
+    - 位运算
+    - 哈希表
+    - 字符串
+    - 前缀和
+---
+
 # [1930. 长度为 3 的不同回文子序列](https://leetcode.cn/problems/unique-length-3-palindromic-subsequences)
 
 [English Version](/solution/1900-1999/1930.Unique%20Length-3%20Palindromic%20Subsequences/README_EN.md)
-
-<!-- tags:位运算,哈希表,字符串,前缀和 -->
 
 ## 题目描述
 

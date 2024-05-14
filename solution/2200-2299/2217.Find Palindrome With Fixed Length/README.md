@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2217.Find%20Palindrome%20With%20Fixed%20Length/README.md
+rating: 1822
+tags:
+    - 数组
+    - 数学
+---
+
 # [2217. 找到指定长度的回文数](https://leetcode.cn/problems/find-palindrome-with-fixed-length)
 
 [English Version](/solution/2200-2299/2217.Find%20Palindrome%20With%20Fixed%20Length/README_EN.md)
-
-<!-- tags:数组,数学 -->
 
 ## 题目描述
 

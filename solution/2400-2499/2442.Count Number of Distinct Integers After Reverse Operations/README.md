@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2442.Count%20Number%20of%20Distinct%20Integers%20After%20Reverse%20Operations/README.md
+rating: 1218
+tags:
+    - 数组
+    - 哈希表
+    - 数学
+---
+
 # [2442. 反转之后不同整数的数目](https://leetcode.cn/problems/count-number-of-distinct-integers-after-reverse-operations)
 
 [English Version](/solution/2400-2499/2442.Count%20Number%20of%20Distinct%20Integers%20After%20Reverse%20Operations/README_EN.md)
-
-<!-- tags:数组,哈希表,数学 -->
 
 ## 题目描述
 

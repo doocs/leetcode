@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1358.Number%20of%20Substrings%20Containing%20All%20Three%20Characters/README.md
+rating: 1646
+tags:
+    - 哈希表
+    - 字符串
+    - 滑动窗口
+---
+
 # [1358. 包含所有三种字符的子字符串数目](https://leetcode.cn/problems/number-of-substrings-containing-all-three-characters)
 
 [English Version](/solution/1300-1399/1358.Number%20of%20Substrings%20Containing%20All%20Three%20Characters/README_EN.md)
-
-<!-- tags:哈希表,字符串,滑动窗口 -->
 
 ## 题目描述
 

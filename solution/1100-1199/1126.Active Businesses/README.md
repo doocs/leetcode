@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1126.Active%20Businesses/README.md
+tags:
+    - 数据库
+---
+
 # [1126. 查询活跃业务 🔒](https://leetcode.cn/problems/active-businesses)
 
 [English Version](/solution/1100-1199/1126.Active%20Businesses/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

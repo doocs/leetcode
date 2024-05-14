@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.11.Peaks%20and%20Valleys/README_EN.md
+---
+
 # [10.11. Peaks and Valleys](https://leetcode.cn/problems/peaks-and-valleys-lcci)
 
 [中文文档](/lcci/10.11.Peaks%20and%20Valleys/README.md)

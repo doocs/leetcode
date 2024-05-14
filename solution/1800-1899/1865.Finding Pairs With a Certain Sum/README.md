@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1865.Finding%20Pairs%20With%20a%20Certain%20Sum/README.md
+rating: 1680
+tags:
+    - 设计
+    - 数组
+    - 哈希表
+---
+
 # [1865. 找出和为指定值的下标对](https://leetcode.cn/problems/finding-pairs-with-a-certain-sum)
 
 [English Version](/solution/1800-1899/1865.Finding%20Pairs%20With%20a%20Certain%20Sum/README_EN.md)
-
-<!-- tags:设计,数组,哈希表 -->
 
 ## 题目描述
 

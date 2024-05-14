@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1955.Count%20Number%20of%20Special%20Subsequences/README_EN.md
+rating: 2125
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [1955. Count Number of Special Subsequences](https://leetcode.com/problems/count-number-of-special-subsequences)
 
 [中文文档](/solution/1900-1999/1955.Count%20Number%20of%20Special%20Subsequences/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
 
 ## Description
 

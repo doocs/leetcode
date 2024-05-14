@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0769.Max%20Chunks%20To%20Make%20Sorted/README_EN.md
+tags:
+    - Stack
+    - Greedy
+    - Array
+    - Sorting
+    - Monotonic Stack
+---
+
 # [769. Max Chunks To Make Sorted](https://leetcode.com/problems/max-chunks-to-make-sorted)
 
 [中文文档](/solution/0700-0799/0769.Max%20Chunks%20To%20Make%20Sorted/README.md)
-
-<!-- tags:Stack,Greedy,Array,Sorting,Monotonic Stack -->
 
 ## Description
 

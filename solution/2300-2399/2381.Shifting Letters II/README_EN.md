@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2381.Shifting%20Letters%20II/README_EN.md
+rating: 1793
+tags:
+    - Array
+    - String
+    - Prefix Sum
+---
+
 # [2381. Shifting Letters II](https://leetcode.com/problems/shifting-letters-ii)
 
 [中文文档](/solution/2300-2399/2381.Shifting%20Letters%20II/README.md)
-
-<!-- tags:Array,String,Prefix Sum -->
 
 ## Description
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2186.Minimum%20Number%20of%20Steps%20to%20Make%20Two%20Strings%20Anagram%20II/README.md
+rating: 1253
+tags:
+    - 哈希表
+    - 字符串
+    - 计数
+---
+
 # [2186. 制造字母异位词的最小步骤数 II](https://leetcode.cn/problems/minimum-number-of-steps-to-make-two-strings-anagram-ii)
 
 [English Version](/solution/2100-2199/2186.Minimum%20Number%20of%20Steps%20to%20Make%20Two%20Strings%20Anagram%20II/README_EN.md)
-
-<!-- tags:哈希表,字符串,计数 -->
 
 ## 题目描述
 

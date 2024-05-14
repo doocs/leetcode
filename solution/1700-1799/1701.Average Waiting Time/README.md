@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1701.Average%20Waiting%20Time/README.md
+rating: 1436
+tags:
+    - 数组
+    - 模拟
+---
+
 # [1701. 平均等待时间](https://leetcode.cn/problems/average-waiting-time)
 
 [English Version](/solution/1700-1799/1701.Average%20Waiting%20Time/README_EN.md)
-
-<!-- tags:数组,模拟 -->
 
 ## 题目描述
 

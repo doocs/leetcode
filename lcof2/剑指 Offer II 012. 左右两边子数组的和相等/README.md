@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20012.%20%E5%B7%A6%E5%8F%B3%E4%B8%A4%E8%BE%B9%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E5%92%8C%E7%9B%B8%E7%AD%89/README.md
+---
+
 # [剑指 Offer II 012. 左右两边子数组的和相等](https://leetcode.cn/problems/tvdfij)
 
 ## 题目描述

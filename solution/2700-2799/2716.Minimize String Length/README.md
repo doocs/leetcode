@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2716.Minimize%20String%20Length/README.md
+rating: 1242
+tags:
+    - 哈希表
+    - 字符串
+---
+
 # [2716. 最小化字符串长度](https://leetcode.cn/problems/minimize-string-length)
 
 [English Version](/solution/2700-2799/2716.Minimize%20String%20Length/README_EN.md)
-
-<!-- tags:哈希表,字符串 -->
 
 ## 题目描述
 

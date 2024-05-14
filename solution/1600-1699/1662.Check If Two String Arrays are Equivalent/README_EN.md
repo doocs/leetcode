@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1662.Check%20If%20Two%20String%20Arrays%20are%20Equivalent/README_EN.md
+rating: 1217
+tags:
+    - Array
+    - String
+---
+
 # [1662. Check If Two String Arrays are Equivalent](https://leetcode.com/problems/check-if-two-string-arrays-are-equivalent)
 
 [中文文档](/solution/1600-1699/1662.Check%20If%20Two%20String%20Arrays%20are%20Equivalent/README.md)
-
-<!-- tags:Array,String -->
 
 ## Description
 

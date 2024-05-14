@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1534.Count%20Good%20Triplets/README_EN.md
+rating: 1279
+tags:
+    - Array
+    - Enumeration
+---
+
 # [1534. Count Good Triplets](https://leetcode.com/problems/count-good-triplets)
 
 [中文文档](/solution/1500-1599/1534.Count%20Good%20Triplets/README.md)
-
-<!-- tags:Array,Enumeration -->
 
 ## Description
 

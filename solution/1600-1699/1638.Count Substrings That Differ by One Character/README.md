@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1638.Count%20Substrings%20That%20Differ%20by%20One%20Character/README.md
+rating: 1744
+tags:
+    - 哈希表
+    - 字符串
+    - 动态规划
+---
+
 # [1638. 统计只差一个字符的子串数目](https://leetcode.cn/problems/count-substrings-that-differ-by-one-character)
 
 [English Version](/solution/1600-1699/1638.Count%20Substrings%20That%20Differ%20by%20One%20Character/README_EN.md)
-
-<!-- tags:哈希表,字符串,动态规划 -->
 
 ## 题目描述
 

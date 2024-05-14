@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2467.Most%20Profitable%20Path%20in%20a%20Tree/README_EN.md
+rating: 2053
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Graph
+    - Array
+---
+
 # [2467. Most Profitable Path in a Tree](https://leetcode.com/problems/most-profitable-path-in-a-tree)
 
 [中文文档](/solution/2400-2499/2467.Most%20Profitable%20Path%20in%20a%20Tree/README.md)
-
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Graph,Array -->
 
 ## Description
 

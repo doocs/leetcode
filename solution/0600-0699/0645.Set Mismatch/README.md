@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0645.Set%20Mismatch/README.md
+tags:
+    - 位运算
+    - 数组
+    - 哈希表
+    - 排序
+---
+
 # [645. 错误的集合](https://leetcode.cn/problems/set-mismatch)
 
 [English Version](/solution/0600-0699/0645.Set%20Mismatch/README_EN.md)
-
-<!-- tags:位运算,数组,哈希表,排序 -->
 
 ## 题目描述
 

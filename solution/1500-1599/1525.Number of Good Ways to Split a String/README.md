@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1525.Number%20of%20Good%20Ways%20to%20Split%20a%20String/README.md
+rating: 1499
+tags:
+    - 位运算
+    - 哈希表
+    - 字符串
+    - 动态规划
+---
+
 # [1525. 字符串的好分割数目](https://leetcode.cn/problems/number-of-good-ways-to-split-a-string)
 
 [English Version](/solution/1500-1599/1525.Number%20of%20Good%20Ways%20to%20Split%20a%20String/README_EN.md)
-
-<!-- tags:位运算,哈希表,字符串,动态规划 -->
 
 ## 题目描述
 

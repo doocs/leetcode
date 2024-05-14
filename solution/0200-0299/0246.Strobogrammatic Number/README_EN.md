@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0246.Strobogrammatic%20Number/README_EN.md
+tags:
+    - Hash Table
+    - Two Pointers
+    - String
+---
+
 # [246. Strobogrammatic Number 🔒](https://leetcode.com/problems/strobogrammatic-number)
 
 [中文文档](/solution/0200-0299/0246.Strobogrammatic%20Number/README.md)
-
-<!-- tags:Hash Table,Two Pointers,String -->
 
 ## Description
 

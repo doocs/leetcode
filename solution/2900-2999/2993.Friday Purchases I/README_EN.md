@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2993.Friday%20Purchases%20I/README_EN.md
+tags:
+    - Database
+---
+
 # [2993. Friday Purchases I 🔒](https://leetcode.com/problems/friday-purchases-i)
 
 [中文文档](/solution/2900-2999/2993.Friday%20Purchases%20I/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

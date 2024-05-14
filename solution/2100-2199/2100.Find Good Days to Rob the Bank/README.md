@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2100.Find%20Good%20Days%20to%20Rob%20the%20Bank/README.md
+rating: 1702
+tags:
+    - 数组
+    - 动态规划
+    - 前缀和
+---
+
 # [2100. 适合野炊的日子](https://leetcode.cn/problems/find-good-days-to-rob-the-bank)
 
 [English Version](/solution/2100-2199/2100.Find%20Good%20Days%20to%20Rob%20the%20Bank/README_EN.md)
-
-<!-- tags:数组,动态规划,前缀和 -->
 
 ## 题目描述
 

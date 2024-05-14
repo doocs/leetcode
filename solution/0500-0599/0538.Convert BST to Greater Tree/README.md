@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0538.Convert%20BST%20to%20Greater%20Tree/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 二叉搜索树
+    - 二叉树
+---
+
 # [538. 把二叉搜索树转换为累加树](https://leetcode.cn/problems/convert-bst-to-greater-tree)
 
 [English Version](/solution/0500-0599/0538.Convert%20BST%20to%20Greater%20Tree/README_EN.md)
-
-<!-- tags:树,深度优先搜索,二叉搜索树,二叉树 -->
 
 ## 题目描述
 

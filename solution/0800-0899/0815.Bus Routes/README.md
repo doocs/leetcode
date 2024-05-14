@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0815.Bus%20Routes/README.md
+tags:
+    - 广度优先搜索
+    - 数组
+    - 哈希表
+---
+
 # [815. 公交路线](https://leetcode.cn/problems/bus-routes)
 
 [English Version](/solution/0800-0899/0815.Bus%20Routes/README_EN.md)
-
-<!-- tags:广度优先搜索,数组,哈希表 -->
 
 ## 题目描述
 

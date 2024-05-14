@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2402.Meeting%20Rooms%20III/README.md
+rating: 2092
+tags:
+    - 数组
+    - 哈希表
+    - 排序
+    - 模拟
+    - 堆（优先队列）
+---
+
 # [2402. 会议室 III](https://leetcode.cn/problems/meeting-rooms-iii)
 
 [English Version](/solution/2400-2499/2402.Meeting%20Rooms%20III/README_EN.md)
-
-<!-- tags:数组,哈希表,排序,模拟,堆（优先队列） -->
 
 ## 题目描述
 

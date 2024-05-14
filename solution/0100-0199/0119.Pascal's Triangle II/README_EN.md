@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0119.Pascal%27s%20Triangle%20II/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [119. Pascal's Triangle II](https://leetcode.com/problems/pascals-triangle-ii)
 
 [中文文档](/solution/0100-0199/0119.Pascal%27s%20Triangle%20II/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
 
 ## Description
 

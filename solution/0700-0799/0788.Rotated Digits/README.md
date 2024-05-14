@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0788.Rotated%20Digits/README.md
+tags:
+    - 数学
+    - 动态规划
+---
+
 # [788. 旋转数字](https://leetcode.cn/problems/rotated-digits)
 
 [English Version](/solution/0700-0799/0788.Rotated%20Digits/README_EN.md)
-
-<!-- tags:数学,动态规划 -->
 
 ## 题目描述
 

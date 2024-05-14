@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1855.Maximum%20Distance%20Between%20a%20Pair%20of%20Values/README_EN.md
+rating: 1514
+tags:
+    - Array
+    - Two Pointers
+    - Binary Search
+---
+
 # [1855. Maximum Distance Between a Pair of Values](https://leetcode.com/problems/maximum-distance-between-a-pair-of-values)
 
 [中文文档](/solution/1800-1899/1855.Maximum%20Distance%20Between%20a%20Pair%20of%20Values/README.md)
-
-<!-- tags:Array,Two Pointers,Binary Search -->
 
 ## Description
 

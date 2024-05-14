@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2624.Snail%20Traversal/README_EN.md
+---
+
 # [2624. Snail Traversal](https://leetcode.com/problems/snail-traversal)
 
 [中文文档](/solution/2600-2699/2624.Snail%20Traversal/README.md)
-
-<!-- tags: -->
 
 ## Description
 

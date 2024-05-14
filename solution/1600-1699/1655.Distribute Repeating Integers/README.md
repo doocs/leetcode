@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1655.Distribute%20Repeating%20Integers/README.md
+rating: 2307
+tags:
+    - 位运算
+    - 数组
+    - 动态规划
+    - 回溯
+    - 状态压缩
+---
+
 # [1655. 分配重复整数](https://leetcode.cn/problems/distribute-repeating-integers)
 
 [English Version](/solution/1600-1699/1655.Distribute%20Repeating%20Integers/README_EN.md)
-
-<!-- tags:位运算,数组,动态规划,回溯,状态压缩 -->
 
 ## 题目描述
 

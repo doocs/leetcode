@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1396.Design%20Underground%20System/README.md
+rating: 1464
+tags:
+    - 设计
+    - 哈希表
+    - 字符串
+---
+
 # [1396. 设计地铁系统](https://leetcode.cn/problems/design-underground-system)
 
 [English Version](/solution/1300-1399/1396.Design%20Underground%20System/README_EN.md)
-
-<!-- tags:设计,哈希表,字符串 -->
 
 ## 题目描述
 

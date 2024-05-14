@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0443.String%20Compression/README_EN.md
+tags:
+    - Two Pointers
+    - String
+---
+
 # [443. String Compression](https://leetcode.com/problems/string-compression)
 
 [中文文档](/solution/0400-0499/0443.String%20Compression/README.md)
-
-<!-- tags:Two Pointers,String -->
 
 ## Description
 

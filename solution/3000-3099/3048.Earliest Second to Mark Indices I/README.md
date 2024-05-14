@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3048.Earliest%20Second%20to%20Mark%20Indices%20I/README.md
+rating: 2262
+tags:
+    - 数组
+    - 二分查找
+---
+
 # [3048. 标记所有下标的最早秒数 I](https://leetcode.cn/problems/earliest-second-to-mark-indices-i)
 
 [English Version](/solution/3000-3099/3048.Earliest%20Second%20to%20Mark%20Indices%20I/README_EN.md)
-
-<!-- tags:数组,二分查找 -->
 
 ## 题目描述
 

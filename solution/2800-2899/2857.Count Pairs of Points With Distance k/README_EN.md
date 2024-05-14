@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2857.Count%20Pairs%20of%20Points%20With%20Distance%20k/README_EN.md
+rating: 2081
+tags:
+    - Bit Manipulation
+    - Array
+    - Hash Table
+---
+
 # [2857. Count Pairs of Points With Distance k](https://leetcode.com/problems/count-pairs-of-points-with-distance-k)
 
 [中文文档](/solution/2800-2899/2857.Count%20Pairs%20of%20Points%20With%20Distance%20k/README.md)
-
-<!-- tags:Bit Manipulation,Array,Hash Table -->
 
 ## Description
 

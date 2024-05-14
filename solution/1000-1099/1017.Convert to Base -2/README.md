@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1017.Convert%20to%20Base%20-2/README.md
+rating: 1697
+tags:
+    - 数学
+---
+
 # [1017. 负二进制转换](https://leetcode.cn/problems/convert-to-base-2)
 
 [English Version](/solution/1000-1099/1017.Convert%20to%20Base%20-2/README_EN.md)
-
-<!-- tags:数学 -->
 
 ## 题目描述
 

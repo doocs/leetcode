@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1958.Check%20if%20Move%20is%20Legal/README_EN.md
+rating: 1658
+tags:
+    - Array
+    - Enumeration
+    - Matrix
+---
+
 # [1958. Check if Move is Legal](https://leetcode.com/problems/check-if-move-is-legal)
 
 [中文文档](/solution/1900-1999/1958.Check%20if%20Move%20is%20Legal/README.md)
-
-<!-- tags:Array,Enumeration,Matrix -->
 
 ## Description
 

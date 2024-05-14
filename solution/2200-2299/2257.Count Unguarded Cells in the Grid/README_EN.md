@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2257.Count%20Unguarded%20Cells%20in%20the%20Grid/README_EN.md
+rating: 1708
+tags:
+    - Array
+    - Matrix
+    - Simulation
+---
+
 # [2257. Count Unguarded Cells in the Grid](https://leetcode.com/problems/count-unguarded-cells-in-the-grid)
 
 [中文文档](/solution/2200-2299/2257.Count%20Unguarded%20Cells%20in%20the%20Grid/README.md)
-
-<!-- tags:Array,Matrix,Simulation -->
 
 ## Description
 

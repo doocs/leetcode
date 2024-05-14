@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3139.Minimum%20Cost%20to%20Equalize%20Array/README.md
+rating: 2666
+tags:
+    - 贪心
+    - 数组
+    - 枚举
+---
+
 # [3139. 使数组中所有元素相等的最小开销](https://leetcode.cn/problems/minimum-cost-to-equalize-array)
 
 [English Version](/solution/3100-3199/3139.Minimum%20Cost%20to%20Equalize%20Array/README_EN.md)
-
-<!-- tags:贪心,数组,枚举 -->
 
 ## 题目描述
 

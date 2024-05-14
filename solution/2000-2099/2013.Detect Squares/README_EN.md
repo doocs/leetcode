@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2013.Detect%20Squares/README_EN.md
+rating: 1841
+tags:
+    - Design
+    - Array
+    - Hash Table
+    - Counting
+---
+
 # [2013. Detect Squares](https://leetcode.com/problems/detect-squares)
 
 [中文文档](/solution/2000-2099/2013.Detect%20Squares/README.md)
-
-<!-- tags:Design,Array,Hash Table,Counting -->
 
 ## Description
 

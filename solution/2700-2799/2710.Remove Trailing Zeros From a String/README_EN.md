@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2710.Remove%20Trailing%20Zeros%20From%20a%20String/README_EN.md
+rating: 1164
+tags:
+    - String
+---
+
 # [2710. Remove Trailing Zeros From a String](https://leetcode.com/problems/remove-trailing-zeros-from-a-string)
 
 [中文文档](/solution/2700-2799/2710.Remove%20Trailing%20Zeros%20From%20a%20String/README.md)
-
-<!-- tags:String -->
 
 ## Description
 

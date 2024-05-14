@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2030.Smallest%20K-Length%20Subsequence%20With%20Occurrences%20of%20a%20Letter/README.md
+rating: 2561
+tags:
+    - 栈
+    - 贪心
+    - 字符串
+    - 单调栈
+---
+
 # [2030. 含特定字母的最小子序列](https://leetcode.cn/problems/smallest-k-length-subsequence-with-occurrences-of-a-letter)
 
 [English Version](/solution/2000-2099/2030.Smallest%20K-Length%20Subsequence%20With%20Occurrences%20of%20a%20Letter/README_EN.md)
-
-<!-- tags:栈,贪心,字符串,单调栈 -->
 
 ## 题目描述
 

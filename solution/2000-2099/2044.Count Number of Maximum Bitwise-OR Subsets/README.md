@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2044.Count%20Number%20of%20Maximum%20Bitwise-OR%20Subsets/README.md
+rating: 1567
+tags:
+    - 位运算
+    - 数组
+    - 回溯
+    - 枚举
+---
+
 # [2044. 统计按位或能得到最大值的子集数目](https://leetcode.cn/problems/count-number-of-maximum-bitwise-or-subsets)
 
 [English Version](/solution/2000-2099/2044.Count%20Number%20of%20Maximum%20Bitwise-OR%20Subsets/README_EN.md)
-
-<!-- tags:位运算,数组,回溯,枚举 -->
 
 ## 题目描述
 

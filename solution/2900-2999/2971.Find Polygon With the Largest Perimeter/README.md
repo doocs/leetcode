@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2971.Find%20Polygon%20With%20the%20Largest%20Perimeter/README.md
+rating: 1521
+tags:
+    - 贪心
+    - 数组
+    - 前缀和
+    - 排序
+---
+
 # [2971. 找到最大周长的多边形](https://leetcode.cn/problems/find-polygon-with-the-largest-perimeter)
 
 [English Version](/solution/2900-2999/2971.Find%20Polygon%20With%20the%20Largest%20Perimeter/README_EN.md)
-
-<!-- tags:贪心,数组,前缀和,排序 -->
 
 ## 题目描述
 

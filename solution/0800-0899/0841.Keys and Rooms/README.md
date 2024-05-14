@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0841.Keys%20and%20Rooms/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 图
+---
+
 # [841. 钥匙和房间](https://leetcode.cn/problems/keys-and-rooms)
 
 [English Version](/solution/0800-0899/0841.Keys%20and%20Rooms/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,图 -->
 
 ## 题目描述
 

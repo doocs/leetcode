@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2985.Calculate%20Compressed%20Mean/README.md
+tags:
+    - 数据库
+---
+
 # [2985. 计算订单平均商品数量 🔒](https://leetcode.cn/problems/calculate-compressed-mean)
 
 [English Version](/solution/2900-2999/2985.Calculate%20Compressed%20Mean/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

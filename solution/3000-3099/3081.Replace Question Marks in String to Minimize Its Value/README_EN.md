@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3081.Replace%20Question%20Marks%20in%20String%20to%20Minimize%20Its%20Value/README_EN.md
+rating: 1904
+tags:
+    - Greedy
+    - Hash Table
+    - String
+    - Counting
+    - Sorting
+    - Heap (Priority Queue)
+---
+
 # [3081. Replace Question Marks in String to Minimize Its Value](https://leetcode.com/problems/replace-question-marks-in-string-to-minimize-its-value)
 
 [中文文档](/solution/3000-3099/3081.Replace%20Question%20Marks%20in%20String%20to%20Minimize%20Its%20Value/README.md)
-
-<!-- tags:Greedy,Hash Table,String,Counting,Sorting,Heap (Priority Queue) -->
 
 ## Description
 

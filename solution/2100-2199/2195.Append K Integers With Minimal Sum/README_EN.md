@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2195.Append%20K%20Integers%20With%20Minimal%20Sum/README_EN.md
+rating: 1658
+tags:
+    - Greedy
+    - Array
+    - Math
+    - Sorting
+---
+
 # [2195. Append K Integers With Minimal Sum](https://leetcode.com/problems/append-k-integers-with-minimal-sum)
 
 [中文文档](/solution/2100-2199/2195.Append%20K%20Integers%20With%20Minimal%20Sum/README.md)
-
-<!-- tags:Greedy,Array,Math,Sorting -->
 
 ## Description
 

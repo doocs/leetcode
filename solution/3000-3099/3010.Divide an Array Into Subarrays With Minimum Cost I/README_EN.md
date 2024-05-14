@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3010.Divide%20an%20Array%20Into%20Subarrays%20With%20Minimum%20Cost%20I/README_EN.md
+rating: 1291
+tags:
+    - Array
+    - Enumeration
+    - Sorting
+---
+
 # [3010. Divide an Array Into Subarrays With Minimum Cost I](https://leetcode.com/problems/divide-an-array-into-subarrays-with-minimum-cost-i)
 
 [中文文档](/solution/3000-3099/3010.Divide%20an%20Array%20Into%20Subarrays%20With%20Minimum%20Cost%20I/README.md)
-
-<!-- tags:Array,Enumeration,Sorting -->
 
 ## Description
 

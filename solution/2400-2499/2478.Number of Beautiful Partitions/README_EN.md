@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2478.Number%20of%20Beautiful%20Partitions/README_EN.md
+rating: 2344
+tags:
+    - String
+    - Dynamic Programming
+---
+
 # [2478. Number of Beautiful Partitions](https://leetcode.com/problems/number-of-beautiful-partitions)
 
 [中文文档](/solution/2400-2499/2478.Number%20of%20Beautiful%20Partitions/README.md)
-
-<!-- tags:String,Dynamic Programming -->
 
 ## Description
 

@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0818.Race%20Car/README_EN.md
+tags:
+    - Dynamic Programming
+---
+
 # [818. Race Car](https://leetcode.com/problems/race-car)
 
 [中文文档](/solution/0800-0899/0818.Race%20Car/README.md)
-
-<!-- tags:Dynamic Programming -->
 
 ## Description
 

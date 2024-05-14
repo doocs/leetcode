@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2008.%20%E5%89%A7%E6%83%85%E8%A7%A6%E5%8F%91%E6%97%B6%E9%97%B4/README.md
+---
+
 # [LCP 08. 剧情触发时间](https://leetcode.cn/problems/ju-qing-hong-fa-shi-jian)
 
 ## 题目描述

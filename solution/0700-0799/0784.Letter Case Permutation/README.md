@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0784.Letter%20Case%20Permutation/README.md
+tags:
+    - 位运算
+    - 字符串
+    - 回溯
+---
+
 # [784. 字母大小写全排列](https://leetcode.cn/problems/letter-case-permutation)
 
 [English Version](/solution/0700-0799/0784.Letter%20Case%20Permutation/README_EN.md)
-
-<!-- tags:位运算,字符串,回溯 -->
 
 ## 题目描述
 

@@ -1,8 +1,21 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0347.Top%20K%20Frequent%20Elements/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 分治
+    - 桶排序
+    - 计数
+    - 快速选择
+    - 排序
+    - 堆（优先队列）
+---
+
 # [347. 前 K 个高频元素](https://leetcode.cn/problems/top-k-frequent-elements)
 
 [English Version](/solution/0300-0399/0347.Top%20K%20Frequent%20Elements/README_EN.md)
-
-<!-- tags:数组,哈希表,分治,桶排序,计数,快速选择,排序,堆（优先队列） -->
 
 ## 题目描述
 

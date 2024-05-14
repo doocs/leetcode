@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1155.Number%20of%20Dice%20Rolls%20With%20Target%20Sum/README_EN.md
+rating: 1653
+tags:
+    - Dynamic Programming
+---
+
 # [1155. Number of Dice Rolls With Target Sum](https://leetcode.com/problems/number-of-dice-rolls-with-target-sum)
 
 [中文文档](/solution/1100-1199/1155.Number%20of%20Dice%20Rolls%20With%20Target%20Sum/README.md)
-
-<!-- tags:Dynamic Programming -->
 
 ## Description
 

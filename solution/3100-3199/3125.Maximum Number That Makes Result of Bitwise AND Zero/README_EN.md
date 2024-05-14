@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3125.Maximum%20Number%20That%20Makes%20Result%20of%20Bitwise%20AND%20Zero/README_EN.md
+tags:
+    - Greedy
+    - String
+    - Sorting
+---
+
 # [3125. Maximum Number That Makes Result of Bitwise AND Zero 🔒](https://leetcode.com/problems/maximum-number-that-makes-result-of-bitwise-and-zero)
 
 [中文文档](/solution/3100-3199/3125.Maximum%20Number%20That%20Makes%20Result%20of%20Bitwise%20AND%20Zero/README.md)
-
-<!-- tags:Greedy,String,Sorting -->
 
 ## Description
 

@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3149.Find%20the%20Minimum%20Cost%20Array%20Permutation/README_EN.md
+---
+
 # [3149. Find the Minimum Cost Array Permutation](https://leetcode.com/problems/find-the-minimum-cost-array-permutation)
 
 [中文文档](/solution/3100-3199/3149.Find%20the%20Minimum%20Cost%20Array%20Permutation/README.md)
-
-<!-- tags: -->
 
 ## Description
 

@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.01.Is%20Unique/README.md
+---
+
 # [面试题 01.01. 判定字符是否唯一](https://leetcode.cn/problems/is-unique-lcci)
 
 [English Version](/lcci/01.01.Is%20Unique/README_EN.md)

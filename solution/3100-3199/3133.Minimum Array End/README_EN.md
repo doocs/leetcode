@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3133.Minimum%20Array%20End/README_EN.md
+rating: 1934
+tags:
+    - Bit Manipulation
+---
+
 # [3133. Minimum Array End](https://leetcode.com/problems/minimum-array-end)
 
 [中文文档](/solution/3100-3199/3133.Minimum%20Array%20End/README.md)
-
-<!-- tags:Bit Manipulation -->
 
 ## Description
 

@@ -1,8 +1,21 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2945.Find%20Maximum%20Non-decreasing%20Array%20Length/README.md
+rating: 2943
+tags:
+    - 栈
+    - 队列
+    - 数组
+    - 二分查找
+    - 动态规划
+    - 单调队列
+    - 单调栈
+---
+
 # [2945. 找到最大非递减数组的长度](https://leetcode.cn/problems/find-maximum-non-decreasing-array-length)
 
 [English Version](/solution/2900-2999/2945.Find%20Maximum%20Non-decreasing%20Array%20Length/README_EN.md)
-
-<!-- tags:栈,队列,数组,二分查找,动态规划,单调队列,单调栈 -->
 
 ## 题目描述
 

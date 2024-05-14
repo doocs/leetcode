@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0120.Triangle/README.md
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [120. 三角形最小路径和](https://leetcode.cn/problems/triangle)
 
 [English Version](/solution/0100-0199/0120.Triangle/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
 
 ## 题目描述
 

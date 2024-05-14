@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1030.Matrix%20Cells%20in%20Distance%20Order/README_EN.md
+rating: 1585
+tags:
+    - Geometry
+    - Array
+    - Math
+    - Matrix
+    - Sorting
+---
+
 # [1030. Matrix Cells in Distance Order](https://leetcode.com/problems/matrix-cells-in-distance-order)
 
 [中文文档](/solution/1000-1099/1030.Matrix%20Cells%20in%20Distance%20Order/README.md)
-
-<!-- tags:Geometry,Array,Math,Matrix,Sorting -->
 
 ## Description
 

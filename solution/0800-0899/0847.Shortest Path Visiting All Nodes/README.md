@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0847.Shortest%20Path%20Visiting%20All%20Nodes/README.md
+tags:
+    - 位运算
+    - 广度优先搜索
+    - 图
+    - 动态规划
+    - 状态压缩
+---
+
 # [847. 访问所有节点的最短路径](https://leetcode.cn/problems/shortest-path-visiting-all-nodes)
 
 [English Version](/solution/0800-0899/0847.Shortest%20Path%20Visiting%20All%20Nodes/README_EN.md)
-
-<!-- tags:位运算,广度优先搜索,图,动态规划,状态压缩 -->
 
 ## 题目描述
 

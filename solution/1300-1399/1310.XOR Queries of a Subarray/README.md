@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1310.XOR%20Queries%20of%20a%20Subarray/README.md
+rating: 1459
+tags:
+    - 位运算
+    - 数组
+    - 前缀和
+---
+
 # [1310. 子数组异或查询](https://leetcode.cn/problems/xor-queries-of-a-subarray)
 
 [English Version](/solution/1300-1399/1310.XOR%20Queries%20of%20a%20Subarray/README_EN.md)
-
-<!-- tags:位运算,数组,前缀和 -->
 
 ## 题目描述
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0433.Minimum%20Genetic%20Mutation/README.md
+tags:
+    - 广度优先搜索
+    - 哈希表
+    - 字符串
+---
+
 # [433. 最小基因变化](https://leetcode.cn/problems/minimum-genetic-mutation)
 
 [English Version](/solution/0400-0499/0433.Minimum%20Genetic%20Mutation/README_EN.md)
-
-<!-- tags:广度优先搜索,哈希表,字符串 -->
 
 ## 题目描述
 

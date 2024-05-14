@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.06.Successor/README_EN.md
+---
+
 # [04.06. Successor](https://leetcode.cn/problems/successor-lcci)
 
 [中文文档](/lcci/04.06.Successor/README.md)

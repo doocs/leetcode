@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1668.Maximum%20Repeating%20Substring/README_EN.md
+rating: 1395
+tags:
+    - String
+    - Dynamic Programming
+    - String Matching
+---
+
 # [1668. Maximum Repeating Substring](https://leetcode.com/problems/maximum-repeating-substring)
 
 [中文文档](/solution/1600-1699/1668.Maximum%20Repeating%20Substring/README.md)
-
-<!-- tags:String,Dynamic Programming,String Matching -->
 
 ## Description
 

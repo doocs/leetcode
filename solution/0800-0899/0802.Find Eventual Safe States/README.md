@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0802.Find%20Eventual%20Safe%20States/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 图
+    - 拓扑排序
+---
+
 # [802. 找到最终的安全状态](https://leetcode.cn/problems/find-eventual-safe-states)
 
 [English Version](/solution/0800-0899/0802.Find%20Eventual%20Safe%20States/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,图,拓扑排序 -->
 
 ## 题目描述
 

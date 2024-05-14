@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0733.Flood%20Fill/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Array
+    - Matrix
+---
+
 # [733. Flood Fill](https://leetcode.com/problems/flood-fill)
 
 [中文文档](/solution/0700-0799/0733.Flood%20Fill/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Array,Matrix -->
 
 ## Description
 

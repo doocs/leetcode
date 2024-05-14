@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1620.Coordinate%20With%20Maximum%20Network%20Quality/README.md
+rating: 1665
+tags:
+    - 数组
+    - 枚举
+---
+
 # [1620. 网络信号最好的坐标](https://leetcode.cn/problems/coordinate-with-maximum-network-quality)
 
 [English Version](/solution/1600-1699/1620.Coordinate%20With%20Maximum%20Network%20Quality/README_EN.md)
-
-<!-- tags:数组,枚举 -->
 
 ## 题目描述
 

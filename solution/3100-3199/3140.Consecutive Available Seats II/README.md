@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3140.Consecutive%20Available%20Seats%20II/README.md
+tags:
+    - 数据库
+---
+
 # [3140. 连续空余座位 II 🔒](https://leetcode.cn/problems/consecutive-available-seats-ii)
 
 [English Version](/solution/3100-3199/3140.Consecutive%20Available%20Seats%20II/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

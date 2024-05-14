@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2547.Minimum%20Cost%20to%20Split%20an%20Array/README_EN.md
+rating: 2019
+tags:
+    - Array
+    - Hash Table
+    - Dynamic Programming
+    - Counting
+---
+
 # [2547. Minimum Cost to Split an Array](https://leetcode.com/problems/minimum-cost-to-split-an-array)
 
 [中文文档](/solution/2500-2599/2547.Minimum%20Cost%20to%20Split%20an%20Array/README.md)
-
-<!-- tags:Array,Hash Table,Dynamic Programming,Counting -->
 
 ## Description
 

@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.15.Longest%20Word/README.md
+---
+
 # [面试题 17.15. 最长单词](https://leetcode.cn/problems/longest-word-lcci)
 
 [English Version](/lcci/17.15.Longest%20Word/README_EN.md)

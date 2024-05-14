@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2362.Generate%20the%20Invoice/README.md
+tags:
+    - 数据库
+---
+
 # [2362. 生成发票 🔒](https://leetcode.cn/problems/generate-the-invoice)
 
 [English Version](/solution/2300-2399/2362.Generate%20the%20Invoice/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3002.Maximum%20Size%20of%20a%20Set%20After%20Removals/README.md
+rating: 1917
+tags:
+    - 贪心
+    - 数组
+    - 哈希表
+---
+
 # [3002. 移除后集合的最多元素数](https://leetcode.cn/problems/maximum-size-of-a-set-after-removals)
 
 [English Version](/solution/3000-3099/3002.Maximum%20Size%20of%20a%20Set%20After%20Removals/README_EN.md)
-
-<!-- tags:贪心,数组,哈希表 -->
 
 ## 题目描述
 

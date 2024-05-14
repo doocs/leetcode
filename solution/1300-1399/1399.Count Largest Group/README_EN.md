@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1399.Count%20Largest%20Group/README_EN.md
+rating: 1341
+tags:
+    - Hash Table
+    - Math
+---
+
 # [1399. Count Largest Group](https://leetcode.com/problems/count-largest-group)
 
 [中文文档](/solution/1300-1399/1399.Count%20Largest%20Group/README.md)
-
-<!-- tags:Hash Table,Math -->
 
 ## Description
 

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0847.Shortest%20Path%20Visiting%20All%20Nodes/README_EN.md
+tags:
+    - Bit Manipulation
+    - Breadth-First Search
+    - Graph
+    - Dynamic Programming
+    - Bitmask
+---
+
 # [847. Shortest Path Visiting All Nodes](https://leetcode.com/problems/shortest-path-visiting-all-nodes)
 
 [中文文档](/solution/0800-0899/0847.Shortest%20Path%20Visiting%20All%20Nodes/README.md)
-
-<!-- tags:Bit Manipulation,Breadth-First Search,Graph,Dynamic Programming,Bitmask -->
 
 ## Description
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2128.Remove%20All%20Ones%20With%20Row%20and%20Column%20Flips/README_EN.md
+tags:
+    - Bit Manipulation
+    - Array
+    - Math
+    - Matrix
+---
+
 # [2128. Remove All Ones With Row and Column Flips 🔒](https://leetcode.com/problems/remove-all-ones-with-row-and-column-flips)
 
 [中文文档](/solution/2100-2199/2128.Remove%20All%20Ones%20With%20Row%20and%20Column%20Flips/README.md)
-
-<!-- tags:Bit Manipulation,Array,Math,Matrix -->
 
 ## Description
 

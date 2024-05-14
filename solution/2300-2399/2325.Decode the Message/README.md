@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2325.Decode%20the%20Message/README.md
+rating: 1268
+tags:
+    - 哈希表
+    - 字符串
+---
+
 # [2325. 解密消息](https://leetcode.cn/problems/decode-the-message)
 
 [English Version](/solution/2300-2399/2325.Decode%20the%20Message/README_EN.md)
-
-<!-- tags:哈希表,字符串 -->
 
 ## 题目描述
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0857.Minimum%20Cost%20to%20Hire%20K%20Workers/README.md
+tags:
+    - 贪心
+    - 数组
+    - 排序
+    - 堆（优先队列）
+---
+
 # [857. 雇佣 K 名工人的最低成本](https://leetcode.cn/problems/minimum-cost-to-hire-k-workers)
 
 [English Version](/solution/0800-0899/0857.Minimum%20Cost%20to%20Hire%20K%20Workers/README_EN.md)
-
-<!-- tags:贪心,数组,排序,堆（优先队列） -->
 
 ## 题目描述
 

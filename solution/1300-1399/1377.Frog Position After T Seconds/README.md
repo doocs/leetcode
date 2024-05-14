@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1377.Frog%20Position%20After%20T%20Seconds/README.md
+rating: 1823
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 图
+---
+
 # [1377. T 秒后青蛙的位置](https://leetcode.cn/problems/frog-position-after-t-seconds)
 
 [English Version](/solution/1300-1399/1377.Frog%20Position%20After%20T%20Seconds/README_EN.md)
-
-<!-- tags:树,深度优先搜索,广度优先搜索,图 -->
 
 ## 题目描述
 

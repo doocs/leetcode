@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3070.Count%20Submatrices%20with%20Top-Left%20Element%20and%20Sum%20Less%20Than%20k/README.md
+rating: 1498
+tags:
+    - 数组
+    - 矩阵
+    - 前缀和
+---
+
 # [3070. 元素和小于等于 k 的子矩阵的数目](https://leetcode.cn/problems/count-submatrices-with-top-left-element-and-sum-less-than-k)
 
 [English Version](/solution/3000-3099/3070.Count%20Submatrices%20with%20Top-Left%20Element%20and%20Sum%20Less%20Than%20k/README_EN.md)
-
-<!-- tags:数组,矩阵,前缀和 -->
 
 ## 题目描述
 

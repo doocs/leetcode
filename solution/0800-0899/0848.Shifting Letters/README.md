@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0848.Shifting%20Letters/README.md
+tags:
+    - 数组
+    - 字符串
+    - 前缀和
+---
+
 # [848. 字母移位](https://leetcode.cn/problems/shifting-letters)
 
 [English Version](/solution/0800-0899/0848.Shifting%20Letters/README_EN.md)
-
-<!-- tags:数组,字符串,前缀和 -->
 
 ## 题目描述
 

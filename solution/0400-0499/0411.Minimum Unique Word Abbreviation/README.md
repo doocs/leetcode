@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0411.Minimum%20Unique%20Word%20Abbreviation/README.md
+tags:
+    - 位运算
+    - 字符串
+    - 回溯
+---
+
 # [411. 最短独占单词缩写 🔒](https://leetcode.cn/problems/minimum-unique-word-abbreviation)
 
 [English Version](/solution/0400-0499/0411.Minimum%20Unique%20Word%20Abbreviation/README_EN.md)
-
-<!-- tags:位运算,字符串,回溯 -->
 
 ## 题目描述
 

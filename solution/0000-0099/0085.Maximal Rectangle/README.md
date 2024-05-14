@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0085.Maximal%20Rectangle/README.md
+tags:
+    - 栈
+    - 数组
+    - 动态规划
+    - 矩阵
+    - 单调栈
+---
+
 # [85. 最大矩形](https://leetcode.cn/problems/maximal-rectangle)
 
 [English Version](/solution/0000-0099/0085.Maximal%20Rectangle/README_EN.md)
-
-<!-- tags:栈,数组,动态规划,矩阵,单调栈 -->
 
 ## 题目描述
 

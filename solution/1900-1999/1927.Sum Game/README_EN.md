@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1927.Sum%20Game/README_EN.md
+rating: 2004
+tags:
+    - Greedy
+    - Math
+    - String
+    - Game Theory
+---
+
 # [1927. Sum Game](https://leetcode.com/problems/sum-game)
 
 [中文文档](/solution/1900-1999/1927.Sum%20Game/README.md)
-
-<!-- tags:Greedy,Math,String,Game Theory -->
 
 ## Description
 

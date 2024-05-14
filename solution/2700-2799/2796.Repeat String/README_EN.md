@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2796.Repeat%20String/README_EN.md
+---
+
 # [2796. Repeat String 🔒](https://leetcode.com/problems/repeat-string)
 
 [中文文档](/solution/2700-2799/2796.Repeat%20String/README.md)
-
-<!-- tags: -->
 
 ## Description
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0248.Strobogrammatic%20Number%20III/README_EN.md
+tags:
+    - Recursion
+    - Array
+    - String
+---
+
 # [248. Strobogrammatic Number III 🔒](https://leetcode.com/problems/strobogrammatic-number-iii)
 
 [中文文档](/solution/0200-0299/0248.Strobogrammatic%20Number%20III/README.md)
-
-<!-- tags:Recursion,Array,String -->
 
 ## Description
 

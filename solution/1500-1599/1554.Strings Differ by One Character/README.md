@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1554.Strings%20Differ%20by%20One%20Character/README.md
+tags:
+    - 哈希表
+    - 字符串
+    - 哈希函数
+    - 滚动哈希
+---
+
 # [1554. 只有一个不同字符的字符串 🔒](https://leetcode.cn/problems/strings-differ-by-one-character)
 
 [English Version](/solution/1500-1599/1554.Strings%20Differ%20by%20One%20Character/README_EN.md)
-
-<!-- tags:哈希表,字符串,哈希函数,滚动哈希 -->
 
 ## 题目描述
 

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2766.Relocate%20Marbles/README_EN.md
+rating: 1613
+tags:
+    - Array
+    - Hash Table
+    - Sorting
+    - Simulation
+---
+
 # [2766. Relocate Marbles](https://leetcode.com/problems/relocate-marbles)
 
 [中文文档](/solution/2700-2799/2766.Relocate%20Marbles/README.md)
-
-<!-- tags:Array,Hash Table,Sorting,Simulation -->
 
 ## Description
 

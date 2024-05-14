@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0258.Add%20Digits/README_EN.md
+tags:
+    - Math
+    - Number Theory
+    - Simulation
+---
+
 # [258. Add Digits](https://leetcode.com/problems/add-digits)
 
 [中文文档](/solution/0200-0299/0258.Add%20Digits/README.md)
-
-<!-- tags:Math,Number Theory,Simulation -->
 
 ## Description
 

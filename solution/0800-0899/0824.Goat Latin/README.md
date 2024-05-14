@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0824.Goat%20Latin/README.md
+tags:
+    - 字符串
+---
+
 # [824. 山羊拉丁文](https://leetcode.cn/problems/goat-latin)
 
 [English Version](/solution/0800-0899/0824.Goat%20Latin/README_EN.md)
-
-<!-- tags:字符串 -->
 
 ## 题目描述
 

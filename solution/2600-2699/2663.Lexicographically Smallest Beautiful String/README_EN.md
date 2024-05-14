@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2663.Lexicographically%20Smallest%20Beautiful%20String/README_EN.md
+rating: 2415
+tags:
+    - Greedy
+    - String
+---
+
 # [2663. Lexicographically Smallest Beautiful String](https://leetcode.com/problems/lexicographically-smallest-beautiful-string)
 
 [中文文档](/solution/2600-2699/2663.Lexicographically%20Smallest%20Beautiful%20String/README.md)
-
-<!-- tags:Greedy,String -->
 
 ## Description
 

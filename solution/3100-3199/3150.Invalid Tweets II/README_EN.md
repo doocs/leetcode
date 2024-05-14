@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3150.Invalid%20Tweets%20II/README_EN.md
+---
+
 # [3150. Invalid Tweets II 🔒](https://leetcode.com/problems/invalid-tweets-ii)
 
 [中文文档](/solution/3100-3199/3150.Invalid%20Tweets%20II/README.md)
-
-<!-- tags: -->
 
 ## Description
 

@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0178.Rank%20Scores/README_EN.md
+tags:
+    - Database
+---
+
 # [178. Rank Scores](https://leetcode.com/problems/rank-scores)
 
 [中文文档](/solution/0100-0199/0178.Rank%20Scores/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

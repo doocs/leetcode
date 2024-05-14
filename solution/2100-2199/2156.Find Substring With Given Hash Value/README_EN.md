@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2156.Find%20Substring%20With%20Given%20Hash%20Value/README_EN.md
+rating: 2062
+tags:
+    - String
+    - Sliding Window
+    - Hash Function
+    - Rolling Hash
+---
+
 # [2156. Find Substring With Given Hash Value](https://leetcode.com/problems/find-substring-with-given-hash-value)
 
 [中文文档](/solution/2100-2199/2156.Find%20Substring%20With%20Given%20Hash%20Value/README.md)
-
-<!-- tags:String,Sliding Window,Hash Function,Rolling Hash -->
 
 ## Description
 

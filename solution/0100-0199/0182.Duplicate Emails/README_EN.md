@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0182.Duplicate%20Emails/README_EN.md
+tags:
+    - Database
+---
+
 # [182. Duplicate Emails](https://leetcode.com/problems/duplicate-emails)
 
 [中文文档](/solution/0100-0199/0182.Duplicate%20Emails/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

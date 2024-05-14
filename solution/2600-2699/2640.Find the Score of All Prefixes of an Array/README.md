@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2640.Find%20the%20Score%20of%20All%20Prefixes%20of%20an%20Array/README.md
+rating: 1314
+tags:
+    - 数组
+    - 前缀和
+---
+
 # [2640. 一个数组所有前缀的分数](https://leetcode.cn/problems/find-the-score-of-all-prefixes-of-an-array)
 
 [English Version](/solution/2600-2699/2640.Find%20the%20Score%20of%20All%20Prefixes%20of%20an%20Array/README_EN.md)
-
-<!-- tags:数组,前缀和 -->
 
 ## 题目描述
 

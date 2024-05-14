@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1852.Distinct%20Numbers%20in%20Each%20Subarray/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 滑动窗口
+---
+
 # [1852. 每个子数组的数字种类数 🔒](https://leetcode.cn/problems/distinct-numbers-in-each-subarray)
 
 [English Version](/solution/1800-1899/1852.Distinct%20Numbers%20in%20Each%20Subarray/README_EN.md)
-
-<!-- tags:数组,哈希表,滑动窗口 -->
 
 ## 题目描述
 

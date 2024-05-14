@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0996.Number%20of%20Squareful%20Arrays/README.md
+tags:
+    - 位运算
+    - 数组
+    - 数学
+    - 动态规划
+    - 回溯
+    - 状态压缩
+---
+
 # [996. 正方形数组的数目](https://leetcode.cn/problems/number-of-squareful-arrays)
 
 [English Version](/solution/0900-0999/0996.Number%20of%20Squareful%20Arrays/README_EN.md)
-
-<!-- tags:位运算,数组,数学,动态规划,回溯,状态压缩 -->
 
 ## 题目描述
 

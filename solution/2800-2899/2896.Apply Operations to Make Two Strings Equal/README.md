@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2896.Apply%20Operations%20to%20Make%20Two%20Strings%20Equal/README.md
+rating: 2172
+tags:
+    - 字符串
+    - 动态规划
+---
+
 # [2896. 执行操作使两个字符串相等](https://leetcode.cn/problems/apply-operations-to-make-two-strings-equal)
 
 [English Version](/solution/2800-2899/2896.Apply%20Operations%20to%20Make%20Two%20Strings%20Equal/README_EN.md)
-
-<!-- tags:字符串,动态规划 -->
 
 ## 题目描述
 

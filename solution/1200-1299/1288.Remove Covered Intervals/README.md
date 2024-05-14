@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1288.Remove%20Covered%20Intervals/README.md
+rating: 1375
+tags:
+    - 数组
+    - 排序
+---
+
 # [1288. 删除被覆盖区间](https://leetcode.cn/problems/remove-covered-intervals)
 
 [English Version](/solution/1200-1299/1288.Remove%20Covered%20Intervals/README_EN.md)
-
-<!-- tags:数组,排序 -->
 
 ## 题目描述
 

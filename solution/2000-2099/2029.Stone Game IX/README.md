@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2029.Stone%20Game%20IX/README.md
+rating: 2277
+tags:
+    - 贪心
+    - 数组
+    - 数学
+    - 计数
+    - 博弈
+---
+
 # [2029. 石子游戏 IX](https://leetcode.cn/problems/stone-game-ix)
 
 [English Version](/solution/2000-2099/2029.Stone%20Game%20IX/README_EN.md)
-
-<!-- tags:贪心,数组,数学,计数,博弈 -->
 
 ## 题目描述
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2942.Find%20Words%20Containing%20Character/README_EN.md
+rating: 1182
+tags:
+    - Array
+    - String
+---
+
 # [2942. Find Words Containing Character](https://leetcode.com/problems/find-words-containing-character)
 
 [中文文档](/solution/2900-2999/2942.Find%20Words%20Containing%20Character/README.md)
-
-<!-- tags:Array,String -->
 
 ## Description
 

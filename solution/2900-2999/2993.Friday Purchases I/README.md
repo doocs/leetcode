@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2993.Friday%20Purchases%20I/README.md
+tags:
+    - 数据库
+---
+
 # [2993. 发生在周五的交易 I 🔒](https://leetcode.cn/problems/friday-purchases-i)
 
 [English Version](/solution/2900-2999/2993.Friday%20Purchases%20I/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

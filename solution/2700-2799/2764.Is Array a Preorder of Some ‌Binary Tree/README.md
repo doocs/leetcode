@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2764.Is%20Array%20a%20Preorder%20of%20Some%20%E2%80%8CBinary%20Tree/README.md
+tags:
+    - 栈
+    - 树
+    - 深度优先搜索
+    - 二叉树
+---
+
 # [2764. 数组是否表示某二叉树的前序遍历 🔒](https://leetcode.cn/problems/is-array-a-preorder-of-some-binary-tree)
 
 [English Version](/solution/2700-2799/2764.Is%20Array%20a%20Preorder%20of%20Some%20%E2%80%8CBinary%20Tree/README_EN.md)
-
-<!-- tags:栈,树,深度优先搜索,二叉树 -->
 
 ## 题目描述
 

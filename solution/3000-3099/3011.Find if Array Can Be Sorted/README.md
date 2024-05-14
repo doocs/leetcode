@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3011.Find%20if%20Array%20Can%20Be%20Sorted/README.md
+rating: 1496
+tags:
+    - 位运算
+    - 数组
+    - 排序
+---
+
 # [3011. 判断一个数组是否可以变为有序](https://leetcode.cn/problems/find-if-array-can-be-sorted)
 
 [English Version](/solution/3000-3099/3011.Find%20if%20Array%20Can%20Be%20Sorted/README_EN.md)
-
-<!-- tags:位运算,数组,排序 -->
 
 ## 题目描述
 

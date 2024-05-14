@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1107.New%20Users%20Daily%20Count/README_EN.md
+tags:
+    - Database
+---
+
 # [1107. New Users Daily Count 🔒](https://leetcode.com/problems/new-users-daily-count)
 
 [中文文档](/solution/1100-1199/1107.New%20Users%20Daily%20Count/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

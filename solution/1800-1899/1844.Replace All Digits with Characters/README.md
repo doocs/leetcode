@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1844.Replace%20All%20Digits%20with%20Characters/README.md
+rating: 1300
+tags:
+    - 字符串
+---
+
 # [1844. 将所有数字用字符替换](https://leetcode.cn/problems/replace-all-digits-with-characters)
 
 [English Version](/solution/1800-1899/1844.Replace%20All%20Digits%20with%20Characters/README_EN.md)
-
-<!-- tags:字符串 -->
 
 ## 题目描述
 

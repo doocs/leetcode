@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0986.Interval%20List%20Intersections/README_EN.md
+tags:
+    - Array
+    - Two Pointers
+---
+
 # [986. Interval List Intersections](https://leetcode.com/problems/interval-list-intersections)
 
 [中文文档](/solution/0900-0999/0986.Interval%20List%20Intersections/README.md)
-
-<!-- tags:Array,Two Pointers -->
 
 ## Description
 

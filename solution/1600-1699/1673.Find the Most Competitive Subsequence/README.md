@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1673.Find%20the%20Most%20Competitive%20Subsequence/README.md
+rating: 1802
+tags:
+    - 栈
+    - 贪心
+    - 数组
+    - 单调栈
+---
+
 # [1673. 找出最具竞争力的子序列](https://leetcode.cn/problems/find-the-most-competitive-subsequence)
 
 [English Version](/solution/1600-1699/1673.Find%20the%20Most%20Competitive%20Subsequence/README_EN.md)
-
-<!-- tags:栈,贪心,数组,单调栈 -->
 
 ## 题目描述
 

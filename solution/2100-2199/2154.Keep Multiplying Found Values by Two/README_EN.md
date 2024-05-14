@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2154.Keep%20Multiplying%20Found%20Values%20by%20Two/README_EN.md
+rating: 1235
+tags:
+    - Array
+    - Hash Table
+    - Sorting
+    - Simulation
+---
+
 # [2154. Keep Multiplying Found Values by Two](https://leetcode.com/problems/keep-multiplying-found-values-by-two)
 
 [中文文档](/solution/2100-2199/2154.Keep%20Multiplying%20Found%20Values%20by%20Two/README.md)
-
-<!-- tags:Array,Hash Table,Sorting,Simulation -->
 
 ## Description
 

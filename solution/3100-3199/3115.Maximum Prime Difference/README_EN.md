@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3115.Maximum%20Prime%20Difference/README_EN.md
+rating: 1294
+tags:
+    - Array
+    - Math
+    - Number Theory
+---
+
 # [3115. Maximum Prime Difference](https://leetcode.com/problems/maximum-prime-difference)
 
 [中文文档](/solution/3100-3199/3115.Maximum%20Prime%20Difference/README.md)
-
-<!-- tags:Array,Math,Number Theory -->
 
 ## Description
 

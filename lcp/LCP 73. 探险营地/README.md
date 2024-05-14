@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2073.%20%E6%8E%A2%E9%99%A9%E8%90%A5%E5%9C%B0/README.md
+---
+
 # [LCP 73. 探险营地](https://leetcode.cn/problems/0Zeoeg)
 
 ## 题目描述

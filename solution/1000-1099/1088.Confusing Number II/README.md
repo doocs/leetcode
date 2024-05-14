@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1088.Confusing%20Number%20II/README.md
+rating: 2076
+tags:
+    - 数学
+    - 回溯
+---
+
 # [1088. 易混淆数 II 🔒](https://leetcode.cn/problems/confusing-number-ii)
 
 [English Version](/solution/1000-1099/1088.Confusing%20Number%20II/README_EN.md)
-
-<!-- tags:数学,回溯 -->
 
 ## 题目描述
 

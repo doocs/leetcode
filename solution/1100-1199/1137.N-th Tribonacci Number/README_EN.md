@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1137.N-th%20Tribonacci%20Number/README_EN.md
+rating: 1142
+tags:
+    - Memoization
+    - Math
+    - Dynamic Programming
+---
+
 # [1137. N-th Tribonacci Number](https://leetcode.com/problems/n-th-tribonacci-number)
 
 [中文文档](/solution/1100-1199/1137.N-th%20Tribonacci%20Number/README.md)
-
-<!-- tags:Memoization,Math,Dynamic Programming -->
 
 ## Description
 

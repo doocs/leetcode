@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0170.Two%20Sum%20III%20-%20Data%20structure%20design/README_EN.md
+tags:
+    - Design
+    - Array
+    - Hash Table
+    - Two Pointers
+    - Data Stream
+---
+
 # [170. Two Sum III - Data structure design 🔒](https://leetcode.com/problems/two-sum-iii-data-structure-design)
 
 [中文文档](/solution/0100-0199/0170.Two%20Sum%20III%20-%20Data%20structure%20design/README.md)
-
-<!-- tags:Design,Array,Hash Table,Two Pointers,Data Stream -->
 
 ## Description
 

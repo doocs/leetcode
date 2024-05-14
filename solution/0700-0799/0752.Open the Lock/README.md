@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0752.Open%20the%20Lock/README.md
+tags:
+    - 广度优先搜索
+    - 数组
+    - 哈希表
+    - 字符串
+---
+
 # [752. 打开转盘锁](https://leetcode.cn/problems/open-the-lock)
 
 [English Version](/solution/0700-0799/0752.Open%20the%20Lock/README_EN.md)
-
-<!-- tags:广度优先搜索,数组,哈希表,字符串 -->
 
 ## 题目描述
 

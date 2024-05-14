@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0332.Reconstruct%20Itinerary/README.md
+tags:
+    - 深度优先搜索
+    - 图
+    - 欧拉回路
+---
+
 # [332. 重新安排行程](https://leetcode.cn/problems/reconstruct-itinerary)
 
 [English Version](/solution/0300-0399/0332.Reconstruct%20Itinerary/README_EN.md)
-
-<!-- tags:深度优先搜索,图,欧拉回路 -->
 
 ## 题目描述
 

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1146.Snapshot%20Array/README_EN.md
+rating: 1770
+tags:
+    - Design
+    - Array
+    - Hash Table
+    - Binary Search
+---
+
 # [1146. Snapshot Array](https://leetcode.com/problems/snapshot-array)
 
 [中文文档](/solution/1100-1199/1146.Snapshot%20Array/README.md)
-
-<!-- tags:Design,Array,Hash Table,Binary Search -->
 
 ## Description
 

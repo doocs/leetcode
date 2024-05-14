@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1985.Find%20the%20Kth%20Largest%20Integer%20in%20the%20Array/README.md
+rating: 1414
+tags:
+    - 数组
+    - 字符串
+    - 分治
+    - 快速选择
+    - 排序
+    - 堆（优先队列）
+---
+
 # [1985. 找出数组中的第 K 大整数](https://leetcode.cn/problems/find-the-kth-largest-integer-in-the-array)
 
 [English Version](/solution/1900-1999/1985.Find%20the%20Kth%20Largest%20Integer%20in%20the%20Array/README_EN.md)
-
-<!-- tags:数组,字符串,分治,快速选择,排序,堆（优先队列） -->
 
 ## 题目描述
 

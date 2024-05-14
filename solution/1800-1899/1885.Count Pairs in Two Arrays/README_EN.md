@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1885.Count%20Pairs%20in%20Two%20Arrays/README_EN.md
+tags:
+    - Array
+    - Two Pointers
+    - Binary Search
+    - Sorting
+---
+
 # [1885. Count Pairs in Two Arrays 🔒](https://leetcode.com/problems/count-pairs-in-two-arrays)
 
 [中文文档](/solution/1800-1899/1885.Count%20Pairs%20in%20Two%20Arrays/README.md)
-
-<!-- tags:Array,Two Pointers,Binary Search,Sorting -->
 
 ## Description
 

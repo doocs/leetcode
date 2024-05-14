@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0854.K-Similar%20Strings/README_EN.md
+tags:
+    - Breadth-First Search
+    - String
+---
+
 # [854. K-Similar Strings](https://leetcode.com/problems/k-similar-strings)
 
 [中文文档](/solution/0800-0899/0854.K-Similar%20Strings/README.md)
-
-<!-- tags:Breadth-First Search,String -->
 
 ## Description
 

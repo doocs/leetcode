@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0620.Not%20Boring%20Movies/README_EN.md
+tags:
+    - Database
+---
+
 # [620. Not Boring Movies](https://leetcode.com/problems/not-boring-movies)
 
 [中文文档](/solution/0600-0699/0620.Not%20Boring%20Movies/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

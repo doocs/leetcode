@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2266.Count%20Number%20of%20Texts/README.md
+rating: 1856
+tags:
+    - 哈希表
+    - 数学
+    - 字符串
+    - 动态规划
+---
+
 # [2266. 统计打字方案数](https://leetcode.cn/problems/count-number-of-texts)
 
 [English Version](/solution/2200-2299/2266.Count%20Number%20of%20Texts/README_EN.md)
-
-<!-- tags:哈希表,数学,字符串,动态规划 -->
 
 ## 题目描述
 

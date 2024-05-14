@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0104.Maximum%20Depth%20of%20Binary%20Tree/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Binary Tree
+---
+
 # [104. Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree)
 
 [中文文档](/solution/0100-0199/0104.Maximum%20Depth%20of%20Binary%20Tree/README.md)
-
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Tree -->
 
 ## Description
 

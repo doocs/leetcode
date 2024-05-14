@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0184.Department%20Highest%20Salary/README.md
+tags:
+    - 数据库
+---
+
 # [184. 部门工资最高的员工](https://leetcode.cn/problems/department-highest-salary)
 
 [English Version](/solution/0100-0199/0184.Department%20Highest%20Salary/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

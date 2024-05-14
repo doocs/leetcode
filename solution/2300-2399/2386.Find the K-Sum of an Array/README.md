@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2386.Find%20the%20K-Sum%20of%20an%20Array/README.md
+rating: 2647
+tags:
+    - 数组
+    - 排序
+    - 堆（优先队列）
+---
+
 # [2386. 找出数组的第 K 大和](https://leetcode.cn/problems/find-the-k-sum-of-an-array)
 
 [English Version](/solution/2300-2399/2386.Find%20the%20K-Sum%20of%20an%20Array/README_EN.md)
-
-<!-- tags:数组,排序,堆（优先队列） -->
 
 ## 题目描述
 

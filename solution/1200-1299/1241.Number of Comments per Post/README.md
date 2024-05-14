@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1241.Number%20of%20Comments%20per%20Post/README.md
+tags:
+    - 数据库
+---
+
 # [1241. 每个帖子的评论数 🔒](https://leetcode.cn/problems/number-of-comments-per-post)
 
 [English Version](/solution/1200-1299/1241.Number%20of%20Comments%20per%20Post/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

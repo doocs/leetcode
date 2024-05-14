@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0166.Fraction%20to%20Recurring%20Decimal/README_EN.md
+tags:
+    - Hash Table
+    - Math
+    - String
+---
+
 # [166. Fraction to Recurring Decimal](https://leetcode.com/problems/fraction-to-recurring-decimal)
 
 [中文文档](/solution/0100-0199/0166.Fraction%20to%20Recurring%20Decimal/README.md)
-
-<!-- tags:Hash Table,Math,String -->
 
 ## Description
 

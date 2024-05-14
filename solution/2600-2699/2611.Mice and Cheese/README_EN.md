@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2611.Mice%20and%20Cheese/README_EN.md
+rating: 1663
+tags:
+    - Greedy
+    - Array
+    - Sorting
+    - Heap (Priority Queue)
+---
+
 # [2611. Mice and Cheese](https://leetcode.com/problems/mice-and-cheese)
 
 [中文文档](/solution/2600-2699/2611.Mice%20and%20Cheese/README.md)
-
-<!-- tags:Greedy,Array,Sorting,Heap (Priority Queue) -->
 
 ## Description
 

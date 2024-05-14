@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0403.Frog%20Jump/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [403. Frog Jump](https://leetcode.com/problems/frog-jump)
 
 [中文文档](/solution/0400-0499/0403.Frog%20Jump/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
 
 ## Description
 

@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1279.Traffic%20Light%20Controlled%20Intersection/README_EN.md
+tags:
+    - Concurrency
+---
+
 # [1279. Traffic Light Controlled Intersection 🔒](https://leetcode.com/problems/traffic-light-controlled-intersection)
 
 [中文文档](/solution/1200-1299/1279.Traffic%20Light%20Controlled%20Intersection/README.md)
-
-<!-- tags:Concurrency -->
 
 ## Description
 

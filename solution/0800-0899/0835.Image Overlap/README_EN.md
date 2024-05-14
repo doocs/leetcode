@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0835.Image%20Overlap/README_EN.md
+tags:
+    - Array
+    - Matrix
+---
+
 # [835. Image Overlap](https://leetcode.com/problems/image-overlap)
 
 [中文文档](/solution/0800-0899/0835.Image%20Overlap/README.md)
-
-<!-- tags:Array,Matrix -->
 
 ## Description
 

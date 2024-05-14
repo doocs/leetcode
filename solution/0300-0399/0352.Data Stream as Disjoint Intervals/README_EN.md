@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0352.Data%20Stream%20as%20Disjoint%20Intervals/README_EN.md
+tags:
+    - Design
+    - Binary Search
+    - Ordered Set
+---
+
 # [352. Data Stream as Disjoint Intervals](https://leetcode.com/problems/data-stream-as-disjoint-intervals)
 
 [中文文档](/solution/0300-0399/0352.Data%20Stream%20as%20Disjoint%20Intervals/README.md)
-
-<!-- tags:Design,Binary Search,Ordered Set -->
 
 ## Description
 

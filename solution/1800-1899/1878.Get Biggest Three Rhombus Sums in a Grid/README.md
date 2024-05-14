@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1878.Get%20Biggest%20Three%20Rhombus%20Sums%20in%20a%20Grid/README.md
+rating: 1897
+tags:
+    - 数组
+    - 数学
+    - 矩阵
+    - 前缀和
+    - 排序
+    - 堆（优先队列）
+---
+
 # [1878. 矩阵中最大的三个菱形和](https://leetcode.cn/problems/get-biggest-three-rhombus-sums-in-a-grid)
 
 [English Version](/solution/1800-1899/1878.Get%20Biggest%20Three%20Rhombus%20Sums%20in%20a%20Grid/README_EN.md)
-
-<!-- tags:数组,数学,矩阵,前缀和,排序,堆（优先队列） -->
 
 ## 题目描述
 

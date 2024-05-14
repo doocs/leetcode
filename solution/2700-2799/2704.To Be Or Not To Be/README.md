@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2704.To%20Be%20Or%20Not%20To%20Be/README.md
+---
+
 # [2704. 相等还是不相等](https://leetcode.cn/problems/to-be-or-not-to-be)
 
 [English Version](/solution/2700-2799/2704.To%20Be%20Or%20Not%20To%20Be/README_EN.md)
-
-<!-- tags: -->
 
 ## 题目描述
 

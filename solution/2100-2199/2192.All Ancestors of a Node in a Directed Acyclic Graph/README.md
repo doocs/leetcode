@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2192.All%20Ancestors%20of%20a%20Node%20in%20a%20Directed%20Acyclic%20Graph/README.md
+rating: 1787
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 图
+    - 拓扑排序
+---
+
 # [2192. 有向无环图中一个节点的所有祖先](https://leetcode.cn/problems/all-ancestors-of-a-node-in-a-directed-acyclic-graph)
 
 [English Version](/solution/2100-2199/2192.All%20Ancestors%20of%20a%20Node%20in%20a%20Directed%20Acyclic%20Graph/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,图,拓扑排序 -->
 
 ## 题目描述
 

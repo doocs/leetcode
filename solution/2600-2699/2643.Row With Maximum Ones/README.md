@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2643.Row%20With%20Maximum%20Ones/README.md
+rating: 1174
+tags:
+    - 数组
+    - 矩阵
+---
+
 # [2643. 一最多的行](https://leetcode.cn/problems/row-with-maximum-ones)
 
 [English Version](/solution/2600-2699/2643.Row%20With%20Maximum%20Ones/README_EN.md)
-
-<!-- tags:数组,矩阵 -->
 
 ## 题目描述
 

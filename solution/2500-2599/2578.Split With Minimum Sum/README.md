@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2578.Split%20With%20Minimum%20Sum/README.md
+rating: 1350
+tags:
+    - 贪心
+    - 数学
+    - 排序
+---
+
 # [2578. 最小和分割](https://leetcode.cn/problems/split-with-minimum-sum)
 
 [English Version](/solution/2500-2599/2578.Split%20With%20Minimum%20Sum/README_EN.md)
-
-<!-- tags:贪心,数学,排序 -->
 
 ## 题目描述
 

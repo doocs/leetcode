@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20011.%200%20%E5%92%8C%201%20%E4%B8%AA%E6%95%B0%E7%9B%B8%E5%90%8C%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84/README.md
+---
+
 # [剑指 Offer II 011. 0 和 1 个数相同的子数组](https://leetcode.cn/problems/A1NYOS)
 
 ## 题目描述

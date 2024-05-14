@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2316.Count%20Unreachable%20Pairs%20of%20Nodes%20in%20an%20Undirected%20Graph/README.md
+rating: 1604
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 并查集
+    - 图
+---
+
 # [2316. 统计无向图中无法互相到达点对数](https://leetcode.cn/problems/count-unreachable-pairs-of-nodes-in-an-undirected-graph)
 
 [English Version](/solution/2300-2399/2316.Count%20Unreachable%20Pairs%20of%20Nodes%20in%20an%20Undirected%20Graph/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,并查集,图 -->
 
 ## 题目描述
 

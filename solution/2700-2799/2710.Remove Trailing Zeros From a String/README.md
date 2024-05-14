@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2710.Remove%20Trailing%20Zeros%20From%20a%20String/README.md
+rating: 1164
+tags:
+    - 字符串
+---
+
 # [2710. 移除字符串中的尾随零](https://leetcode.cn/problems/remove-trailing-zeros-from-a-string)
 
 [English Version](/solution/2700-2799/2710.Remove%20Trailing%20Zeros%20From%20a%20String/README_EN.md)
-
-<!-- tags:字符串 -->
 
 ## 题目描述
 

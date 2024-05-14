@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0939.Minimum%20Area%20Rectangle/README_EN.md
+tags:
+    - Geometry
+    - Array
+    - Hash Table
+    - Math
+    - Sorting
+---
+
 # [939. Minimum Area Rectangle](https://leetcode.com/problems/minimum-area-rectangle)
 
 [中文文档](/solution/0900-0999/0939.Minimum%20Area%20Rectangle/README.md)
-
-<!-- tags:Geometry,Array,Hash Table,Math,Sorting -->
 
 ## Description
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2730.Find%20the%20Longest%20Semi-Repetitive%20Substring/README.md
+rating: 1501
+tags:
+    - 字符串
+    - 滑动窗口
+---
+
 # [2730. 找到最长的半重复子字符串](https://leetcode.cn/problems/find-the-longest-semi-repetitive-substring)
 
 [English Version](/solution/2700-2799/2730.Find%20the%20Longest%20Semi-Repetitive%20Substring/README_EN.md)
-
-<!-- tags:字符串,滑动窗口 -->
 
 ## 题目描述
 

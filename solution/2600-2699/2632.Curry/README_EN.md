@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2632.Curry/README_EN.md
+---
+
 # [2632. Curry 🔒](https://leetcode.com/problems/curry)
 
-[中文文档](/solution/2600-2699/2632.Curry 🔒/README.md)
-
-<!-- tags: -->
+[中文文档](/solution/2600-2699/2632.Curry/README.md)
 
 ## Description
 

@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2705.Compact%20Object/README.md
+---
+
 # [2705. 精简对象](https://leetcode.cn/problems/compact-object)
 
 [English Version](/solution/2700-2799/2705.Compact%20Object/README_EN.md)
-
-<!-- tags: -->
 
 ## 题目描述
 

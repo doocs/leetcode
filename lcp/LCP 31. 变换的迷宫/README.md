@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2031.%20%E5%8F%98%E6%8D%A2%E7%9A%84%E8%BF%B7%E5%AE%AB/README.md
+---
+
 # [LCP 31. 变换的迷宫](https://leetcode.cn/problems/Db3wC1)
 
 ## 题目描述

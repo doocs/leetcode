@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1032.Stream%20of%20Characters/README_EN.md
+rating: 1970
+tags:
+    - Design
+    - Trie
+    - Array
+    - String
+    - Data Stream
+---
+
 # [1032. Stream of Characters](https://leetcode.com/problems/stream-of-characters)
 
 [中文文档](/solution/1000-1099/1032.Stream%20of%20Characters/README.md)
-
-<!-- tags:Design,Trie,Array,String,Data Stream -->
 
 ## Description
 

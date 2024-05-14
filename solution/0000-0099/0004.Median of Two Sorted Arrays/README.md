@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0004.Median%20of%20Two%20Sorted%20Arrays/README.md
+tags:
+    - 数组
+    - 二分查找
+    - 分治
+---
+
 # [4. 寻找两个正序数组的中位数](https://leetcode.cn/problems/median-of-two-sorted-arrays)
 
 [English Version](/solution/0000-0099/0004.Median%20of%20Two%20Sorted%20Arrays/README_EN.md)
-
-<!-- tags:数组,二分查找,分治 -->
 
 ## 题目描述
 

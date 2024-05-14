@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0579.Find%20Cumulative%20Salary%20of%20an%20Employee/README_EN.md
+tags:
+    - Database
+---
+
 # [579. Find Cumulative Salary of an Employee 🔒](https://leetcode.com/problems/find-cumulative-salary-of-an-employee)
 
 [中文文档](/solution/0500-0599/0579.Find%20Cumulative%20Salary%20of%20an%20Employee/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

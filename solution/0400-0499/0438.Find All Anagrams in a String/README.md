@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0438.Find%20All%20Anagrams%20in%20a%20String/README.md
+tags:
+    - 哈希表
+    - 字符串
+    - 滑动窗口
+---
+
 # [438. 找到字符串中所有字母异位词](https://leetcode.cn/problems/find-all-anagrams-in-a-string)
 
 [English Version](/solution/0400-0499/0438.Find%20All%20Anagrams%20in%20a%20String/README_EN.md)
-
-<!-- tags:哈希表,字符串,滑动窗口 -->
 
 ## 题目描述
 

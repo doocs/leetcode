@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0937.Reorder%20Data%20in%20Log%20Files/README.md
+tags:
+    - 数组
+    - 字符串
+    - 排序
+---
+
 # [937. 重新排列日志文件](https://leetcode.cn/problems/reorder-data-in-log-files)
 
 [English Version](/solution/0900-0999/0937.Reorder%20Data%20in%20Log%20Files/README_EN.md)
-
-<!-- tags:数组,字符串,排序 -->
 
 ## 题目描述
 

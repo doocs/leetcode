@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1460.Make%20Two%20Arrays%20Equal%20by%20Reversing%20Subarrays/README.md
+rating: 1151
+tags:
+    - 数组
+    - 哈希表
+    - 排序
+---
+
 # [1460. 通过翻转子数组使两个数组相等](https://leetcode.cn/problems/make-two-arrays-equal-by-reversing-subarrays)
 
 [English Version](/solution/1400-1499/1460.Make%20Two%20Arrays%20Equal%20by%20Reversing%20Subarrays/README_EN.md)
-
-<!-- tags:数组,哈希表,排序 -->
 
 ## 题目描述
 

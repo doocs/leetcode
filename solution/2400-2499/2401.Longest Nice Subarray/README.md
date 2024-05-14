@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2401.Longest%20Nice%20Subarray/README.md
+rating: 1749
+tags:
+    - 位运算
+    - 数组
+    - 滑动窗口
+---
+
 # [2401. 最长优雅子数组](https://leetcode.cn/problems/longest-nice-subarray)
 
 [English Version](/solution/2400-2499/2401.Longest%20Nice%20Subarray/README_EN.md)
-
-<!-- tags:位运算,数组,滑动窗口 -->
 
 ## 题目描述
 

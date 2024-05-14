@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2894.Divisible%20and%20Non-divisible%20Sums%20Difference/README_EN.md
+rating: 1140
+tags:
+    - Math
+---
+
 # [2894. Divisible and Non-divisible Sums Difference](https://leetcode.com/problems/divisible-and-non-divisible-sums-difference)
 
 [中文文档](/solution/2800-2899/2894.Divisible%20and%20Non-divisible%20Sums%20Difference/README.md)
-
-<!-- tags:Math -->
 
 ## Description
 

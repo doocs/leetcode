@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1701.Average%20Waiting%20Time/README_EN.md
+rating: 1436
+tags:
+    - Array
+    - Simulation
+---
+
 # [1701. Average Waiting Time](https://leetcode.com/problems/average-waiting-time)
 
 [中文文档](/solution/1700-1799/1701.Average%20Waiting%20Time/README.md)
-
-<!-- tags:Array,Simulation -->
 
 ## Description
 

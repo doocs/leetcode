@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0594.Longest%20Harmonious%20Subsequence/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Counting
+    - Sorting
+    - Sliding Window
+---
+
 # [594. Longest Harmonious Subsequence](https://leetcode.com/problems/longest-harmonious-subsequence)
 
 [中文文档](/solution/0500-0599/0594.Longest%20Harmonious%20Subsequence/README.md)
-
-<!-- tags:Array,Hash Table,Counting,Sorting,Sliding Window -->
 
 ## Description
 

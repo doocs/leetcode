@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1723.Find%20Minimum%20Time%20to%20Finish%20All%20Jobs/README_EN.md
+rating: 2284
+tags:
+    - Bit Manipulation
+    - Array
+    - Dynamic Programming
+    - Backtracking
+    - Bitmask
+---
+
 # [1723. Find Minimum Time to Finish All Jobs](https://leetcode.com/problems/find-minimum-time-to-finish-all-jobs)
 
 [中文文档](/solution/1700-1799/1723.Find%20Minimum%20Time%20to%20Finish%20All%20Jobs/README.md)
-
-<!-- tags:Bit Manipulation,Array,Dynamic Programming,Backtracking,Bitmask -->
 
 ## Description
 

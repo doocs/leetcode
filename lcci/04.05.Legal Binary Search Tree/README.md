@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.05.Legal%20Binary%20Search%20Tree/README.md
+---
+
 # [面试题 04.05. 合法二叉搜索树](https://leetcode.cn/problems/legal-binary-search-tree-lcci)
 
 [English Version](/lcci/04.05.Legal%20Binary%20Search%20Tree/README_EN.md)

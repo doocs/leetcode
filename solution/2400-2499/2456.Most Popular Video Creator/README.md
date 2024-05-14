@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2456.Most%20Popular%20Video%20Creator/README.md
+rating: 1548
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+    - 排序
+    - 堆（优先队列）
+---
+
 # [2456. 最流行的视频创作者](https://leetcode.cn/problems/most-popular-video-creator)
 
 [English Version](/solution/2400-2499/2456.Most%20Popular%20Video%20Creator/README_EN.md)
-
-<!-- tags:数组,哈希表,字符串,排序,堆（优先队列） -->
 
 ## 题目描述
 

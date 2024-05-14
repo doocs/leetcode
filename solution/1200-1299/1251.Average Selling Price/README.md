@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1251.Average%20Selling%20Price/README.md
+tags:
+    - 数据库
+---
+
 # [1251. 平均售价](https://leetcode.cn/problems/average-selling-price)
 
 [English Version](/solution/1200-1299/1251.Average%20Selling%20Price/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

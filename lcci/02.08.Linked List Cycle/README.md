@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.08.Linked%20List%20Cycle/README.md
+---
+
 # [面试题 02.08. 环路检测](https://leetcode.cn/problems/linked-list-cycle-lcci)
 
 [English Version](/lcci/02.08.Linked%20List%20Cycle/README_EN.md)

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1243.Array%20Transformation/README_EN.md
+rating: 1558
+tags:
+    - Array
+    - Simulation
+---
+
 # [1243. Array Transformation 🔒](https://leetcode.com/problems/array-transformation)
 
 [中文文档](/solution/1200-1299/1243.Array%20Transformation/README.md)
-
-<!-- tags:Array,Simulation -->
 
 ## Description
 

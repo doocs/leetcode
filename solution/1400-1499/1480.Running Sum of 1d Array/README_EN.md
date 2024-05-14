@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1480.Running%20Sum%20of%201d%20Array/README_EN.md
+rating: 1104
+tags:
+    - Array
+    - Prefix Sum
+---
+
 # [1480. Running Sum of 1d Array](https://leetcode.com/problems/running-sum-of-1d-array)
 
 [中文文档](/solution/1400-1499/1480.Running%20Sum%20of%201d%20Array/README.md)
-
-<!-- tags:Array,Prefix Sum -->
 
 ## Description
 

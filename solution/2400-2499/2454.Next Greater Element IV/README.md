@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2454.Next%20Greater%20Element%20IV/README.md
+rating: 2175
+tags:
+    - 栈
+    - 数组
+    - 二分查找
+    - 排序
+    - 单调栈
+    - 堆（优先队列）
+---
+
 # [2454. 下一个更大元素 IV](https://leetcode.cn/problems/next-greater-element-iv)
 
 [English Version](/solution/2400-2499/2454.Next%20Greater%20Element%20IV/README_EN.md)
-
-<!-- tags:栈,数组,二分查找,排序,单调栈,堆（优先队列） -->
 
 ## 题目描述
 

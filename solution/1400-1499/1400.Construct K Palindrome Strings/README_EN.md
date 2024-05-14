@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1400.Construct%20K%20Palindrome%20Strings/README_EN.md
+rating: 1530
+tags:
+    - Greedy
+    - Hash Table
+    - String
+    - Counting
+---
+
 # [1400. Construct K Palindrome Strings](https://leetcode.com/problems/construct-k-palindrome-strings)
 
 [中文文档](/solution/1400-1499/1400.Construct%20K%20Palindrome%20Strings/README.md)
-
-<!-- tags:Greedy,Hash Table,String,Counting -->
 
 ## Description
 

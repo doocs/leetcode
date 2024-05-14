@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1487.Making%20File%20Names%20Unique/README.md
+rating: 1696
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+---
+
 # [1487. 保证文件名唯一](https://leetcode.cn/problems/making-file-names-unique)
 
 [English Version](/solution/1400-1499/1487.Making%20File%20Names%20Unique/README_EN.md)
-
-<!-- tags:数组,哈希表,字符串 -->
 
 ## 题目描述
 

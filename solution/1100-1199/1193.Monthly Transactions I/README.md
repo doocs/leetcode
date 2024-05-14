@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1193.Monthly%20Transactions%20I/README.md
+tags:
+    - 数据库
+---
+
 # [1193. 每月交易 I](https://leetcode.cn/problems/monthly-transactions-i)
 
 [English Version](/solution/1100-1199/1193.Monthly%20Transactions%20I/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

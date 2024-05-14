@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0840.Magic%20Squares%20In%20Grid/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 数学
+    - 矩阵
+---
+
 # [840. 矩阵中的幻方](https://leetcode.cn/problems/magic-squares-in-grid)
 
 [English Version](/solution/0800-0899/0840.Magic%20Squares%20In%20Grid/README_EN.md)
-
-<!-- tags:数组,哈希表,数学,矩阵 -->
 
 ## 题目描述
 

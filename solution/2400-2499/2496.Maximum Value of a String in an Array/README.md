@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2496.Maximum%20Value%20of%20a%20String%20in%20an%20Array/README.md
+rating: 1292
+tags:
+    - 数组
+    - 字符串
+---
+
 # [2496. 数组中字符串的最大值](https://leetcode.cn/problems/maximum-value-of-a-string-in-an-array)
 
 [English Version](/solution/2400-2499/2496.Maximum%20Value%20of%20a%20String%20in%20an%20Array/README_EN.md)
-
-<!-- tags:数组,字符串 -->
 
 ## 题目描述
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0415.Add%20Strings/README_EN.md
+tags:
+    - Math
+    - String
+    - Simulation
+---
+
 # [415. Add Strings](https://leetcode.com/problems/add-strings)
 
 [中文文档](/solution/0400-0499/0415.Add%20Strings/README.md)
-
-<!-- tags:Math,String,Simulation -->
 
 ## Description
 

@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2398.Maximum%20Number%20of%20Robots%20Within%20Budget/README_EN.md
+rating: 1917
+tags:
+    - Queue
+    - Array
+    - Binary Search
+    - Prefix Sum
+    - Sliding Window
+    - Heap (Priority Queue)
+---
+
 # [2398. Maximum Number of Robots Within Budget](https://leetcode.com/problems/maximum-number-of-robots-within-budget)
 
 [中文文档](/solution/2300-2399/2398.Maximum%20Number%20of%20Robots%20Within%20Budget/README.md)
-
-<!-- tags:Queue,Array,Binary Search,Prefix Sum,Sliding Window,Heap (Priority Queue) -->
 
 ## Description
 

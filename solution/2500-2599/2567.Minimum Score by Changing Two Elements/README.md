@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2567.Minimum%20Score%20by%20Changing%20Two%20Elements/README.md
+rating: 1608
+tags:
+    - 贪心
+    - 数组
+    - 排序
+---
+
 # [2567. 修改两个元素的最小分数](https://leetcode.cn/problems/minimum-score-by-changing-two-elements)
 
 [English Version](/solution/2500-2599/2567.Minimum%20Score%20by%20Changing%20Two%20Elements/README_EN.md)
-
-<!-- tags:贪心,数组,排序 -->
 
 ## 题目描述
 

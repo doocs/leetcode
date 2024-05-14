@@ -1,8 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1738.Find%20Kth%20Largest%20XOR%20Coordinate%20Value/README_EN.md
+rating: 1671
+tags:
+    - Bit Manipulation
+    - Array
+    - Divide and Conquer
+    - Matrix
+    - Prefix Sum
+    - Quickselect
+    - Sorting
+    - Heap (Priority Queue)
+---
+
 # [1738. Find Kth Largest XOR Coordinate Value](https://leetcode.com/problems/find-kth-largest-xor-coordinate-value)
 
 [中文文档](/solution/1700-1799/1738.Find%20Kth%20Largest%20XOR%20Coordinate%20Value/README.md)
-
-<!-- tags:Bit Manipulation,Array,Divide and Conquer,Matrix,Prefix Sum,Quickselect,Sorting,Heap (Priority Queue) -->
 
 ## Description
 

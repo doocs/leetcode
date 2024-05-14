@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2747.Count%20Zero%20Request%20Servers/README.md
+rating: 2405
+tags:
+    - 数组
+    - 哈希表
+    - 排序
+    - 滑动窗口
+---
+
 # [2747. 统计没有收到请求的服务器数目](https://leetcode.cn/problems/count-zero-request-servers)
 
 [English Version](/solution/2700-2799/2747.Count%20Zero%20Request%20Servers/README_EN.md)
-
-<!-- tags:数组,哈希表,排序,滑动窗口 -->
 
 ## 题目描述
 

@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0884.Uncommon%20Words%20from%20Two%20Sentences/README.md
+tags:
+    - 哈希表
+    - 字符串
+---
+
 # [884. 两句话中的不常见单词](https://leetcode.cn/problems/uncommon-words-from-two-sentences)
 
 [English Version](/solution/0800-0899/0884.Uncommon%20Words%20from%20Two%20Sentences/README_EN.md)
-
-<!-- tags:哈希表,字符串 -->
 
 ## 题目描述
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2810.Faulty%20Keyboard/README.md
+rating: 1192
+tags:
+    - 字符串
+    - 模拟
+---
+
 # [2810. 故障键盘](https://leetcode.cn/problems/faulty-keyboard)
 
 [English Version](/solution/2800-2899/2810.Faulty%20Keyboard/README_EN.md)
-
-<!-- tags:字符串,模拟 -->
 
 ## 题目描述
 

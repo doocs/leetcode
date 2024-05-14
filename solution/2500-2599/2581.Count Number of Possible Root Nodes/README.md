@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2581.Count%20Number%20of%20Possible%20Root%20Nodes/README.md
+rating: 2228
+tags:
+    - 树
+    - 深度优先搜索
+    - 哈希表
+    - 动态规划
+---
+
 # [2581. 统计可能的树根数目](https://leetcode.cn/problems/count-number-of-possible-root-nodes)
 
 [English Version](/solution/2500-2599/2581.Count%20Number%20of%20Possible%20Root%20Nodes/README_EN.md)
-
-<!-- tags:树,深度优先搜索,哈希表,动态规划 -->
 
 ## 题目描述
 

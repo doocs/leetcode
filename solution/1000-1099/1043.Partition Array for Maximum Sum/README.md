@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1043.Partition%20Array%20for%20Maximum%20Sum/README.md
+rating: 1916
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [1043. 分隔数组以得到最大和](https://leetcode.cn/problems/partition-array-for-maximum-sum)
 
 [English Version](/solution/1000-1099/1043.Partition%20Array%20for%20Maximum%20Sum/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
 
 ## 题目描述
 

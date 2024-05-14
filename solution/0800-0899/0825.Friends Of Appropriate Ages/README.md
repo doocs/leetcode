@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0825.Friends%20Of%20Appropriate%20Ages/README.md
+tags:
+    - 数组
+    - 双指针
+    - 二分查找
+    - 排序
+---
+
 # [825. 适龄的朋友](https://leetcode.cn/problems/friends-of-appropriate-ages)
 
 [English Version](/solution/0800-0899/0825.Friends%20Of%20Appropriate%20Ages/README_EN.md)
-
-<!-- tags:数组,双指针,二分查找,排序 -->
 
 ## 题目描述
 

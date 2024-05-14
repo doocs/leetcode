@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1838.Frequency%20of%20the%20Most%20Frequent%20Element/README_EN.md
+rating: 1876
+tags:
+    - Greedy
+    - Array
+    - Binary Search
+    - Prefix Sum
+    - Sorting
+    - Sliding Window
+---
+
 # [1838. Frequency of the Most Frequent Element](https://leetcode.com/problems/frequency-of-the-most-frequent-element)
 
 [中文文档](/solution/1800-1899/1838.Frequency%20of%20the%20Most%20Frequent%20Element/README.md)
-
-<!-- tags:Greedy,Array,Binary Search,Prefix Sum,Sorting,Sliding Window -->
 
 ## Description
 

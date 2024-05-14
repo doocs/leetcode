@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2767.Partition%20String%20Into%20Minimum%20Beautiful%20Substrings/README.md
+rating: 1864
+tags:
+    - 哈希表
+    - 字符串
+    - 动态规划
+    - 回溯
+---
+
 # [2767. 将字符串分割为最少的美丽子字符串](https://leetcode.cn/problems/partition-string-into-minimum-beautiful-substrings)
 
 [English Version](/solution/2700-2799/2767.Partition%20String%20Into%20Minimum%20Beautiful%20Substrings/README_EN.md)
-
-<!-- tags:哈希表,字符串,动态规划,回溯 -->
 
 ## 题目描述
 

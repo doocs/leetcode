@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20033.%20%E5%8F%98%E4%BD%8D%E8%AF%8D%E7%BB%84/README.md
+---
+
 # [剑指 Offer II 033. 变位词组](https://leetcode.cn/problems/sfvd7V)
 
 ## 题目描述

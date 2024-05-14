@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0139.Word%20Break/README.md
+tags:
+    - 字典树
+    - 记忆化搜索
+    - 数组
+    - 哈希表
+    - 字符串
+    - 动态规划
+---
+
 # [139. 单词拆分](https://leetcode.cn/problems/word-break)
 
 [English Version](/solution/0100-0199/0139.Word%20Break/README_EN.md)
-
-<!-- tags:字典树,记忆化搜索,数组,哈希表,字符串,动态规划 -->
 
 ## 题目描述
 

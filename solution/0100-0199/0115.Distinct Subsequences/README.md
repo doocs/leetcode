@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0115.Distinct%20Subsequences/README.md
+tags:
+    - 字符串
+    - 动态规划
+---
+
 # [115. 不同的子序列](https://leetcode.cn/problems/distinct-subsequences)
 
 [English Version](/solution/0100-0199/0115.Distinct%20Subsequences/README_EN.md)
-
-<!-- tags:字符串,动态规划 -->
 
 ## 题目描述
 

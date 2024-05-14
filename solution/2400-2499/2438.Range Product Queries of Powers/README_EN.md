@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2438.Range%20Product%20Queries%20of%20Powers/README_EN.md
+rating: 1609
+tags:
+    - Bit Manipulation
+    - Array
+    - Prefix Sum
+---
+
 # [2438. Range Product Queries of Powers](https://leetcode.com/problems/range-product-queries-of-powers)
 
 [中文文档](/solution/2400-2499/2438.Range%20Product%20Queries%20of%20Powers/README.md)
-
-<!-- tags:Bit Manipulation,Array,Prefix Sum -->
 
 ## Description
 

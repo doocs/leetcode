@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0108.Convert%20Sorted%20Array%20to%20Binary%20Search%20Tree/README.md
+tags:
+    - 树
+    - 二叉搜索树
+    - 数组
+    - 分治
+    - 二叉树
+---
+
 # [108. 将有序数组转换为二叉搜索树](https://leetcode.cn/problems/convert-sorted-array-to-binary-search-tree)
 
 [English Version](/solution/0100-0199/0108.Convert%20Sorted%20Array%20to%20Binary%20Search%20Tree/README_EN.md)
-
-<!-- tags:树,二叉搜索树,数组,分治,二叉树 -->
 
 ## 题目描述
 

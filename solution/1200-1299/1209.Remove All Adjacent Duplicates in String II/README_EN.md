@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1209.Remove%20All%20Adjacent%20Duplicates%20in%20String%20II/README_EN.md
+rating: 1541
+tags:
+    - Stack
+    - String
+---
+
 # [1209. Remove All Adjacent Duplicates in String II](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii)
 
 [中文文档](/solution/1200-1299/1209.Remove%20All%20Adjacent%20Duplicates%20in%20String%20II/README.md)
-
-<!-- tags:Stack,String -->
 
 ## Description
 

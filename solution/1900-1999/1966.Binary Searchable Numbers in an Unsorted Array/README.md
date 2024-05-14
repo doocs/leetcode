@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1966.Binary%20Searchable%20Numbers%20in%20an%20Unsorted%20Array/README.md
+tags:
+    - 数组
+    - 二分查找
+---
+
 # [1966. 未排序数组中的可被二分搜索的数 🔒](https://leetcode.cn/problems/binary-searchable-numbers-in-an-unsorted-array)
 
 [English Version](/solution/1900-1999/1966.Binary%20Searchable%20Numbers%20in%20an%20Unsorted%20Array/README_EN.md)
-
-<!-- tags:数组,二分查找 -->
 
 ## 题目描述
 

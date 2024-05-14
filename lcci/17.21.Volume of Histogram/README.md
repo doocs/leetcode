@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.21.Volume%20of%20Histogram/README.md
+---
+
 # [面试题 17.21. 直方图的水量](https://leetcode.cn/problems/volume-of-histogram-lcci)
 
 [English Version](/lcci/17.21.Volume%20of%20Histogram/README_EN.md)

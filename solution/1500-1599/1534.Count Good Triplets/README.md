@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1534.Count%20Good%20Triplets/README.md
+rating: 1279
+tags:
+    - 数组
+    - 枚举
+---
+
 # [1534. 统计好三元组](https://leetcode.cn/problems/count-good-triplets)
 
 [English Version](/solution/1500-1599/1534.Count%20Good%20Triplets/README_EN.md)
-
-<!-- tags:数组,枚举 -->
 
 ## 题目描述
 

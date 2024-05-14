@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1570.Dot%20Product%20of%20Two%20Sparse%20Vectors/README.md
+tags:
+    - 设计
+    - 数组
+    - 哈希表
+    - 双指针
+---
+
 # [1570. 两个稀疏向量的点积 🔒](https://leetcode.cn/problems/dot-product-of-two-sparse-vectors)
 
 [English Version](/solution/1500-1599/1570.Dot%20Product%20of%20Two%20Sparse%20Vectors/README_EN.md)
-
-<!-- tags:设计,数组,哈希表,双指针 -->
 
 ## 题目描述
 

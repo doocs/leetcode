@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3132.Find%20the%20Integer%20Added%20to%20Array%20II/README_EN.md
+rating: 1620
+tags:
+    - Array
+    - Two Pointers
+    - Enumeration
+    - Sorting
+---
+
 # [3132. Find the Integer Added to Array II](https://leetcode.com/problems/find-the-integer-added-to-array-ii)
 
 [中文文档](/solution/3100-3199/3132.Find%20the%20Integer%20Added%20to%20Array%20II/README.md)
-
-<!-- tags:Array,Two Pointers,Enumeration,Sorting -->
 
 ## Description
 

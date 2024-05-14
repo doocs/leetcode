@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.16.The%20Masseuse/README_EN.md
+---
+
 # [17.16. The Masseuse](https://leetcode.cn/problems/the-masseuse-lcci)
 
 [中文文档](/lcci/17.16.The%20Masseuse/README.md)

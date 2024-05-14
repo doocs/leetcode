@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2310.Sum%20of%20Numbers%20With%20Units%20Digit%20K/README_EN.md
+rating: 1558
+tags:
+    - Greedy
+    - Math
+    - Dynamic Programming
+    - Enumeration
+---
+
 # [2310. Sum of Numbers With Units Digit K](https://leetcode.com/problems/sum-of-numbers-with-units-digit-k)
 
 [中文文档](/solution/2300-2399/2310.Sum%20of%20Numbers%20With%20Units%20Digit%20K/README.md)
-
-<!-- tags:Greedy,Math,Dynamic Programming,Enumeration -->
 
 ## Description
 

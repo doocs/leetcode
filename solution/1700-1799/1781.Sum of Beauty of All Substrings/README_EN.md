@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1781.Sum%20of%20Beauty%20of%20All%20Substrings/README_EN.md
+rating: 1714
+tags:
+    - Hash Table
+    - String
+    - Counting
+---
+
 # [1781. Sum of Beauty of All Substrings](https://leetcode.com/problems/sum-of-beauty-of-all-substrings)
 
 [中文文档](/solution/1700-1799/1781.Sum%20of%20Beauty%20of%20All%20Substrings/README.md)
-
-<!-- tags:Hash Table,String,Counting -->
 
 ## Description
 

@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0664.Strange%20Printer/README.md
+tags:
+    - 字符串
+    - 动态规划
+---
+
 # [664. 奇怪的打印机](https://leetcode.cn/problems/strange-printer)
 
 [English Version](/solution/0600-0699/0664.Strange%20Printer/README_EN.md)
-
-<!-- tags:字符串,动态规划 -->
 
 ## 题目描述
 

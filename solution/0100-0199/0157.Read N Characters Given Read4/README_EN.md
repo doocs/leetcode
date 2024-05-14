@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0157.Read%20N%20Characters%20Given%20Read4/README_EN.md
+tags:
+    - Array
+    - Interactive
+    - Simulation
+---
+
 # [157. Read N Characters Given Read4 🔒](https://leetcode.com/problems/read-n-characters-given-read4)
 
 [中文文档](/solution/0100-0199/0157.Read%20N%20Characters%20Given%20Read4/README.md)
-
-<!-- tags:Array,Interactive,Simulation -->
 
 ## Description
 

@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0082.Remove%20Duplicates%20from%20Sorted%20List%20II/README.md
+tags:
+    - 链表
+    - 双指针
+---
+
 # [82. 删除排序链表中的重复元素 II](https://leetcode.cn/problems/remove-duplicates-from-sorted-list-ii)
 
 [English Version](/solution/0000-0099/0082.Remove%20Duplicates%20from%20Sorted%20List%20II/README_EN.md)
-
-<!-- tags:链表,双指针 -->
 
 ## 题目描述
 

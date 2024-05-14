@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0194.Transpose%20File/README.md
+---
+
 # [194. 转置文件](https://leetcode.cn/problems/transpose-file)
 
 [English Version](/solution/0100-0199/0194.Transpose%20File/README_EN.md)
-
-<!-- tags: -->
 
 ## 题目描述
 

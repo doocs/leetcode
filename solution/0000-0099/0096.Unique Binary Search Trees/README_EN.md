@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0096.Unique%20Binary%20Search%20Trees/README_EN.md
+tags:
+    - Tree
+    - Binary Search Tree
+    - Math
+    - Dynamic Programming
+    - Binary Tree
+---
+
 # [96. Unique Binary Search Trees](https://leetcode.com/problems/unique-binary-search-trees)
 
 [中文文档](/solution/0000-0099/0096.Unique%20Binary%20Search%20Trees/README.md)
-
-<!-- tags:Tree,Binary Search Tree,Math,Dynamic Programming,Binary Tree -->
 
 ## Description
 

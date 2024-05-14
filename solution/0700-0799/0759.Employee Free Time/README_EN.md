@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0759.Employee%20Free%20Time/README_EN.md
+tags:
+    - Array
+    - Sorting
+    - Heap (Priority Queue)
+---
+
 # [759. Employee Free Time 🔒](https://leetcode.com/problems/employee-free-time)
 
 [中文文档](/solution/0700-0799/0759.Employee%20Free%20Time/README.md)
-
-<!-- tags:Array,Sorting,Heap (Priority Queue) -->
 
 ## Description
 

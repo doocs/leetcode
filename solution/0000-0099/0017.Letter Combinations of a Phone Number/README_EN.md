@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0017.Letter%20Combinations%20of%20a%20Phone%20Number/README_EN.md
+tags:
+    - Hash Table
+    - String
+    - Backtracking
+---
+
 # [17. Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number)
 
 [中文文档](/solution/0000-0099/0017.Letter%20Combinations%20of%20a%20Phone%20Number/README.md)
-
-<!-- tags:Hash Table,String,Backtracking -->
 
 ## Description
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2359.Find%20Closest%20Node%20to%20Given%20Two%20Nodes/README.md
+rating: 1714
+tags:
+    - 深度优先搜索
+    - 图
+---
+
 # [2359. 找到离给定两个节点最近的节点](https://leetcode.cn/problems/find-closest-node-to-given-two-nodes)
 
 [English Version](/solution/2300-2399/2359.Find%20Closest%20Node%20to%20Given%20Two%20Nodes/README_EN.md)
-
-<!-- tags:深度优先搜索,图 -->
 
 ## 题目描述
 

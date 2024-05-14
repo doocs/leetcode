@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1942.The%20Number%20of%20the%20Smallest%20Unoccupied%20Chair/README_EN.md
+rating: 1695
+tags:
+    - Array
+    - Hash Table
+    - Heap (Priority Queue)
+---
+
 # [1942. The Number of the Smallest Unoccupied Chair](https://leetcode.com/problems/the-number-of-the-smallest-unoccupied-chair)
 
 [中文文档](/solution/1900-1999/1942.The%20Number%20of%20the%20Smallest%20Unoccupied%20Chair/README.md)
-
-<!-- tags:Array,Hash Table,Heap (Priority Queue) -->
 
 ## Description
 

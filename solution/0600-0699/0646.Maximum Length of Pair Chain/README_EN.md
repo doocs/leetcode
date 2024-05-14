@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0646.Maximum%20Length%20of%20Pair%20Chain/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Dynamic Programming
+    - Sorting
+---
+
 # [646. Maximum Length of Pair Chain](https://leetcode.com/problems/maximum-length-of-pair-chain)
 
 [中文文档](/solution/0600-0699/0646.Maximum%20Length%20of%20Pair%20Chain/README.md)
-
-<!-- tags:Greedy,Array,Dynamic Programming,Sorting -->
 
 ## Description
 

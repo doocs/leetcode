@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2488.Count%20Subarrays%20With%20Median%20K/README.md
+rating: 1998
+tags:
+    - 数组
+    - 哈希表
+    - 前缀和
+---
+
 # [2488. 统计中位数为 K 的子数组](https://leetcode.cn/problems/count-subarrays-with-median-k)
 
 [English Version](/solution/2400-2499/2488.Count%20Subarrays%20With%20Median%20K/README_EN.md)
-
-<!-- tags:数组,哈希表,前缀和 -->
 
 ## 题目描述
 

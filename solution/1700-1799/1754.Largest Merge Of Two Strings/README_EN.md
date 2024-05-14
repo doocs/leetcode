@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1754.Largest%20Merge%20Of%20Two%20Strings/README_EN.md
+rating: 1828
+tags:
+    - Greedy
+    - Two Pointers
+    - String
+---
+
 # [1754. Largest Merge Of Two Strings](https://leetcode.com/problems/largest-merge-of-two-strings)
 
 [中文文档](/solution/1700-1799/1754.Largest%20Merge%20Of%20Two%20Strings/README.md)
-
-<!-- tags:Greedy,Two Pointers,String -->
 
 ## Description
 

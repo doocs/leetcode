@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2693.Call%20Function%20with%20Custom%20Context/README.md
+---
+
 # [2693. 使用自定义上下文调用函数](https://leetcode.cn/problems/call-function-with-custom-context)
 
 [English Version](/solution/2600-2699/2693.Call%20Function%20with%20Custom%20Context/README_EN.md)
-
-<!-- tags: -->
 
 ## 题目描述
 

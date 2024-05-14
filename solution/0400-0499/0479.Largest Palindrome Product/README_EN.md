@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0479.Largest%20Palindrome%20Product/README_EN.md
+tags:
+    - Math
+---
+
 # [479. Largest Palindrome Product](https://leetcode.com/problems/largest-palindrome-product)
 
 [中文文档](/solution/0400-0499/0479.Largest%20Palindrome%20Product/README.md)
-
-<!-- tags:Math -->
 
 ## Description
 

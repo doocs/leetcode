@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0167.Two%20Sum%20II%20-%20Input%20Array%20Is%20Sorted/README_EN.md
+tags:
+    - Array
+    - Two Pointers
+    - Binary Search
+---
+
 # [167. Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted)
 
-[中文文档](/solution/0100-0199/0167.Two%20Sum%20II%20-%20Input%20array%20is%20sorted/README.md)
-
-<!-- tags:Array,Two Pointers,Binary Search -->
+[中文文档](/solution/0100-0199/0167.Two%20Sum%20II%20-%20Input%20Array%20Is%20Sorted/README.md)
 
 ## Description
 

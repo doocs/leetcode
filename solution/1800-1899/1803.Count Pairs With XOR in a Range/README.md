@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1803.Count%20Pairs%20With%20XOR%20in%20a%20Range/README.md
+rating: 2479
+tags:
+    - 位运算
+    - 字典树
+    - 数组
+---
+
 # [1803. 统计异或值在范围内的数对有多少](https://leetcode.cn/problems/count-pairs-with-xor-in-a-range)
 
 [English Version](/solution/1800-1899/1803.Count%20Pairs%20With%20XOR%20in%20a%20Range/README_EN.md)
-
-<!-- tags:位运算,字典树,数组 -->
 
 ## 题目描述
 

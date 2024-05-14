@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1632.Rank%20Transform%20of%20a%20Matrix/README_EN.md
+rating: 2529
+tags:
+    - Union Find
+    - Graph
+    - Topological Sort
+    - Array
+    - Matrix
+    - Sorting
+---
+
 # [1632. Rank Transform of a Matrix](https://leetcode.com/problems/rank-transform-of-a-matrix)
 
 [中文文档](/solution/1600-1699/1632.Rank%20Transform%20of%20a%20Matrix/README.md)
-
-<!-- tags:Union Find,Graph,Topological Sort,Array,Matrix,Sorting -->
 
 ## Description
 

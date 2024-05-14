@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0792.Number%20of%20Matching%20Subsequences/README.md
+tags:
+    - 字典树
+    - 数组
+    - 哈希表
+    - 字符串
+    - 二分查找
+    - 动态规划
+    - 排序
+---
+
 # [792. 匹配子序列的单词数](https://leetcode.cn/problems/number-of-matching-subsequences)
 
 [English Version](/solution/0700-0799/0792.Number%20of%20Matching%20Subsequences/README_EN.md)
-
-<!-- tags:字典树,数组,哈希表,字符串,二分查找,动态规划,排序 -->
 
 ## 题目描述
 

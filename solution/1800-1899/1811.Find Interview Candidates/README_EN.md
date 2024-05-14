@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1811.Find%20Interview%20Candidates/README_EN.md
+tags:
+    - Database
+---
+
 # [1811. Find Interview Candidates 🔒](https://leetcode.com/problems/find-interview-candidates)
 
 [中文文档](/solution/1800-1899/1811.Find%20Interview%20Candidates/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

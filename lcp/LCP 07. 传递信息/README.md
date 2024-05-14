@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2007.%20%E4%BC%A0%E9%80%92%E4%BF%A1%E6%81%AF/README.md
+---
+
 # [LCP 07. 传递信息](https://leetcode.cn/problems/chuan-di-xin-xi)
 
 ## 题目描述

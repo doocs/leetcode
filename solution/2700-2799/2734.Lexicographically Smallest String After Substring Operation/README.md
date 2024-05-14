@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2734.Lexicographically%20Smallest%20String%20After%20Substring%20Operation/README.md
+rating: 1405
+tags:
+    - 贪心
+    - 字符串
+---
+
 # [2734. 执行子串操作后的字典序最小字符串](https://leetcode.cn/problems/lexicographically-smallest-string-after-substring-operation)
 
 [English Version](/solution/2700-2799/2734.Lexicographically%20Smallest%20String%20After%20Substring%20Operation/README_EN.md)
-
-<!-- tags:贪心,字符串 -->
 
 ## 题目描述
 

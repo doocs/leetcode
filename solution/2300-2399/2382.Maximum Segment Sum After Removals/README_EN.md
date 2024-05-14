@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2382.Maximum%20Segment%20Sum%20After%20Removals/README_EN.md
+rating: 2136
+tags:
+    - Union Find
+    - Array
+    - Ordered Set
+    - Prefix Sum
+---
+
 # [2382. Maximum Segment Sum After Removals](https://leetcode.com/problems/maximum-segment-sum-after-removals)
 
 [中文文档](/solution/2300-2399/2382.Maximum%20Segment%20Sum%20After%20Removals/README.md)
-
-<!-- tags:Union Find,Array,Ordered Set,Prefix Sum -->
 
 ## Description
 

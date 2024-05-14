@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0888.Fair%20Candy%20Swap/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Binary Search
+    - Sorting
+---
+
 # [888. Fair Candy Swap](https://leetcode.com/problems/fair-candy-swap)
 
 [中文文档](/solution/0800-0899/0888.Fair%20Candy%20Swap/README.md)
-
-<!-- tags:Array,Hash Table,Binary Search,Sorting -->
 
 ## Description
 

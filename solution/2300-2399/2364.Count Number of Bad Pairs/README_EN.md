@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2364.Count%20Number%20of%20Bad%20Pairs/README_EN.md
+rating: 1622
+tags:
+    - Array
+    - Hash Table
+---
+
 # [2364. Count Number of Bad Pairs](https://leetcode.com/problems/count-number-of-bad-pairs)
 
 [中文文档](/solution/2300-2399/2364.Count%20Number%20of%20Bad%20Pairs/README.md)
-
-<!-- tags:Array,Hash Table -->
 
 ## Description
 

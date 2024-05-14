@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.15.Master%20Mind/README.md
+---
+
 # [面试题 16.15. 珠玑妙算](https://leetcode.cn/problems/master-mind-lcci)
 
 [English Version](/lcci/16.15.Master%20Mind/README_EN.md)

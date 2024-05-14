@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3016.Minimum%20Number%20of%20Pushes%20to%20Type%20Word%20II/README.md
+rating: 1533
+tags:
+    - 贪心
+    - 哈希表
+    - 字符串
+    - 计数
+    - 排序
+---
+
 # [3016. 输入单词需要的最少按键次数 II](https://leetcode.cn/problems/minimum-number-of-pushes-to-type-word-ii)
 
 [English Version](/solution/3000-3099/3016.Minimum%20Number%20of%20Pushes%20to%20Type%20Word%20II/README_EN.md)
-
-<!-- tags:贪心,哈希表,字符串,计数,排序 -->
 
 ## 题目描述
 

@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0862.Shortest%20Subarray%20with%20Sum%20at%20Least%20K/README.md
+tags:
+    - 队列
+    - 数组
+    - 二分查找
+    - 前缀和
+    - 滑动窗口
+    - 单调队列
+    - 堆（优先队列）
+---
+
 # [862. 和至少为 K 的最短子数组](https://leetcode.cn/problems/shortest-subarray-with-sum-at-least-k)
 
 [English Version](/solution/0800-0899/0862.Shortest%20Subarray%20with%20Sum%20at%20Least%20K/README_EN.md)
-
-<!-- tags:队列,数组,二分查找,前缀和,滑动窗口,单调队列,堆（优先队列） -->
 
 ## 题目描述
 

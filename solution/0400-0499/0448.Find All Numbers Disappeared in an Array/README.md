@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0448.Find%20All%20Numbers%20Disappeared%20in%20an%20Array/README.md
+tags:
+    - 数组
+    - 哈希表
+---
+
 # [448. 找到所有数组中消失的数字](https://leetcode.cn/problems/find-all-numbers-disappeared-in-an-array)
 
 [English Version](/solution/0400-0499/0448.Find%20All%20Numbers%20Disappeared%20in%20an%20Array/README_EN.md)
-
-<!-- tags:数组,哈希表 -->
 
 ## 题目描述
 

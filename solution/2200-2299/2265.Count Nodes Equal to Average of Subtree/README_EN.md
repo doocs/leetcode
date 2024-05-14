@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2265.Count%20Nodes%20Equal%20to%20Average%20of%20Subtree/README_EN.md
+rating: 1472
+tags:
+    - Tree
+    - Depth-First Search
+    - Binary Tree
+---
+
 # [2265. Count Nodes Equal to Average of Subtree](https://leetcode.com/problems/count-nodes-equal-to-average-of-subtree)
 
 [中文文档](/solution/2200-2299/2265.Count%20Nodes%20Equal%20to%20Average%20of%20Subtree/README.md)
-
-<!-- tags:Tree,Depth-First Search,Binary Tree -->
 
 ## Description
 

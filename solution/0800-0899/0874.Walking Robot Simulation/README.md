@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0874.Walking%20Robot%20Simulation/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 模拟
+---
+
 # [874. 模拟行走机器人](https://leetcode.cn/problems/walking-robot-simulation)
 
 [English Version](/solution/0800-0899/0874.Walking%20Robot%20Simulation/README_EN.md)
-
-<!-- tags:数组,哈希表,模拟 -->
 
 ## 题目描述
 

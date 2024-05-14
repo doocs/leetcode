@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1410.HTML%20Entity%20Parser/README.md
+rating: 1405
+tags:
+    - 哈希表
+    - 字符串
+---
+
 # [1410. HTML 实体解析器](https://leetcode.cn/problems/html-entity-parser)
 
 [English Version](/solution/1400-1499/1410.HTML%20Entity%20Parser/README_EN.md)
-
-<!-- tags:哈希表,字符串 -->
 
 ## 题目描述
 

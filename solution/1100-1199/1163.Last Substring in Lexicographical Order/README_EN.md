@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1163.Last%20Substring%20in%20Lexicographical%20Order/README_EN.md
+rating: 1864
+tags:
+    - Two Pointers
+    - String
+---
+
 # [1163. Last Substring in Lexicographical Order](https://leetcode.com/problems/last-substring-in-lexicographical-order)
 
 [中文文档](/solution/1100-1199/1163.Last%20Substring%20in%20Lexicographical%20Order/README.md)
-
-<!-- tags:Two Pointers,String -->
 
 ## Description
 

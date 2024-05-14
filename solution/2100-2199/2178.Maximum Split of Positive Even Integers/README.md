@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2178.Maximum%20Split%20of%20Positive%20Even%20Integers/README.md
+rating: 1538
+tags:
+    - 贪心
+    - 数学
+    - 回溯
+---
+
 # [2178. 拆分成最多数目的正偶数之和](https://leetcode.cn/problems/maximum-split-of-positive-even-integers)
 
 [English Version](/solution/2100-2199/2178.Maximum%20Split%20of%20Positive%20Even%20Integers/README_EN.md)
-
-<!-- tags:贪心,数学,回溯 -->
 
 ## 题目描述
 

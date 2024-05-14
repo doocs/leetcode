@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2874.Maximum%20Value%20of%20an%20Ordered%20Triplet%20II/README.md
+rating: 1583
+tags:
+    - 数组
+---
+
 # [2874. 有序三元组中的最大值 II](https://leetcode.cn/problems/maximum-value-of-an-ordered-triplet-ii)
 
 [English Version](/solution/2800-2899/2874.Maximum%20Value%20of%20an%20Ordered%20Triplet%20II/README_EN.md)
-
-<!-- tags:数组 -->
 
 ## 题目描述
 

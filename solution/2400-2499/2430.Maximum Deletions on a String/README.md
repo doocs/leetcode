@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2430.Maximum%20Deletions%20on%20a%20String/README.md
+rating: 2101
+tags:
+    - 字符串
+    - 动态规划
+    - 字符串匹配
+    - 哈希函数
+    - 滚动哈希
+---
+
 # [2430. 对字母串可执行的最大删除数](https://leetcode.cn/problems/maximum-deletions-on-a-string)
 
 [English Version](/solution/2400-2499/2430.Maximum%20Deletions%20on%20a%20String/README_EN.md)
-
-<!-- tags:字符串,动态规划,字符串匹配,哈希函数,滚动哈希 -->
 
 ## 题目描述
 

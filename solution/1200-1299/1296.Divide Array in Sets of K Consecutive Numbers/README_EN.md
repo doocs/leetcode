@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1296.Divide%20Array%20in%20Sets%20of%20K%20Consecutive%20Numbers/README_EN.md
+rating: 1490
+tags:
+    - Greedy
+    - Array
+    - Hash Table
+    - Sorting
+---
+
 # [1296. Divide Array in Sets of K Consecutive Numbers](https://leetcode.com/problems/divide-array-in-sets-of-k-consecutive-numbers)
 
 [中文文档](/solution/1200-1299/1296.Divide%20Array%20in%20Sets%20of%20K%20Consecutive%20Numbers/README.md)
-
-<!-- tags:Greedy,Array,Hash Table,Sorting -->
 
 ## Description
 

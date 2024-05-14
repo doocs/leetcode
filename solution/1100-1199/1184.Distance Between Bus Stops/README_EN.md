@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1184.Distance%20Between%20Bus%20Stops/README_EN.md
+rating: 1234
+tags:
+    - Array
+---
+
 # [1184. Distance Between Bus Stops](https://leetcode.com/problems/distance-between-bus-stops)
 
 [中文文档](/solution/1100-1199/1184.Distance%20Between%20Bus%20Stops/README.md)
-
-<!-- tags:Array -->
 
 ## Description
 

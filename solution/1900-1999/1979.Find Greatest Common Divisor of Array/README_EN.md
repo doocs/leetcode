@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1979.Find%20Greatest%20Common%20Divisor%20of%20Array/README_EN.md
+rating: 1184
+tags:
+    - Array
+    - Math
+    - Number Theory
+---
+
 # [1979. Find Greatest Common Divisor of Array](https://leetcode.com/problems/find-greatest-common-divisor-of-array)
 
 [中文文档](/solution/1900-1999/1979.Find%20Greatest%20Common%20Divisor%20of%20Array/README.md)
-
-<!-- tags:Array,Math,Number Theory -->
 
 ## Description
 

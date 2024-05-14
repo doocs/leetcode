@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1224.Maximum%20Equal%20Frequency/README.md
+rating: 2050
+tags:
+    - 数组
+    - 哈希表
+---
+
 # [1224. 最大相等频率](https://leetcode.cn/problems/maximum-equal-frequency)
 
 [English Version](/solution/1200-1299/1224.Maximum%20Equal%20Frequency/README_EN.md)
-
-<!-- tags:数组,哈希表 -->
 
 ## 题目描述
 

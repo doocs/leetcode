@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.06.Compress%20String/README.md
+---
+
 # [面试题 01.06. 字符串压缩](https://leetcode.cn/problems/compress-string-lcci)
 
 [English Version](/lcci/01.06.Compress%20String/README_EN.md)

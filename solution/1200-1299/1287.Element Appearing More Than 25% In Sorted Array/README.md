@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1287.Element%20Appearing%20More%20Than%2025%25%20In%20Sorted%20Array/README.md
+rating: 1179
+tags:
+    - 数组
+---
+
 # [1287. 有序数组中出现次数超过 25%的元素](https://leetcode.cn/problems/element-appearing-more-than-25-in-sorted-array)
 
 [English Version](/solution/1200-1299/1287.Element%20Appearing%20More%20Than%2025%25%20In%20Sorted%20Array/README_EN.md)
-
-<!-- tags:数组 -->
 
 ## 题目描述
 

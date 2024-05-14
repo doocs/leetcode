@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2619.Array%20Prototype%20Last/README.md
+---
+
 # [2619. 数组原型对象的最后一个元素](https://leetcode.cn/problems/array-prototype-last)
 
 [English Version](/solution/2600-2699/2619.Array%20Prototype%20Last/README_EN.md)
-
-<!-- tags: -->
 
 ## 题目描述
 

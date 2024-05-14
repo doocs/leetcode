@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2447.Number%20of%20Subarrays%20With%20GCD%20Equal%20to%20K/README.md
+rating: 1602
+tags:
+    - 数组
+    - 数学
+    - 数论
+---
+
 # [2447. 最大公因数等于 K 的子数组数目](https://leetcode.cn/problems/number-of-subarrays-with-gcd-equal-to-k)
 
 [English Version](/solution/2400-2499/2447.Number%20of%20Subarrays%20With%20GCD%20Equal%20to%20K/README_EN.md)
-
-<!-- tags:数组,数学,数论 -->
 
 ## 题目描述
 

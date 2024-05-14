@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0377.Combination%20Sum%20IV/README.md
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [377. 组合总和 Ⅳ](https://leetcode.cn/problems/combination-sum-iv)
 
 [English Version](/solution/0300-0399/0377.Combination%20Sum%20IV/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
 
 ## 题目描述
 

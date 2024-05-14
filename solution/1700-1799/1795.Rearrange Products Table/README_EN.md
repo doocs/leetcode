@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1795.Rearrange%20Products%20Table/README_EN.md
+tags:
+    - Database
+---
+
 # [1795. Rearrange Products Table](https://leetcode.com/problems/rearrange-products-table)
 
 [中文文档](/solution/1700-1799/1795.Rearrange%20Products%20Table/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

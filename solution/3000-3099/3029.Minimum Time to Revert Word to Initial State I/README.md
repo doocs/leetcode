@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3029.Minimum%20Time%20to%20Revert%20Word%20to%20Initial%20State%20I/README.md
+rating: 1659
+tags:
+    - 字符串
+    - 字符串匹配
+    - 哈希函数
+    - 滚动哈希
+---
+
 # [3029. 将单词恢复初始状态所需的最短时间 I](https://leetcode.cn/problems/minimum-time-to-revert-word-to-initial-state-i)
 
 [English Version](/solution/3000-3099/3029.Minimum%20Time%20to%20Revert%20Word%20to%20Initial%20State%20I/README_EN.md)
-
-<!-- tags:字符串,字符串匹配,哈希函数,滚动哈希 -->
 
 ## 题目描述
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1937.Maximum%20Number%20of%20Points%20with%20Cost/README_EN.md
+rating: 2105
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [1937. Maximum Number of Points with Cost](https://leetcode.com/problems/maximum-number-of-points-with-cost)
 
 [中文文档](/solution/1900-1999/1937.Maximum%20Number%20of%20Points%20with%20Cost/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
 
 ## Description
 

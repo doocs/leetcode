@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20042.%20%E6%9C%80%E8%BF%91%E8%AF%B7%E6%B1%82%E6%AC%A1%E6%95%B0/README.md
+---
+
 # [剑指 Offer II 042. 最近请求次数](https://leetcode.cn/problems/H8086Q)
 
 ## 题目描述

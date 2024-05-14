@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0029.Divide%20Two%20Integers/README.md
+tags:
+    - 位运算
+    - 数学
+---
+
 # [29. 两数相除](https://leetcode.cn/problems/divide-two-integers)
 
 [English Version](/solution/0000-0099/0029.Divide%20Two%20Integers/README_EN.md)
-
-<!-- tags:位运算,数学 -->
 
 ## 题目描述
 

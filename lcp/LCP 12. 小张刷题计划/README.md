@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2012.%20%E5%B0%8F%E5%BC%A0%E5%88%B7%E9%A2%98%E8%AE%A1%E5%88%92/README.md
+---
+
 # [LCP 12. 小张刷题计划](https://leetcode.cn/problems/xiao-zhang-shua-ti-ji-hua)
 
 ## 题目描述

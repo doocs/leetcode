@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3036.Number%20of%20Subarrays%20That%20Match%20a%20Pattern%20II/README.md
+rating: 1894
+tags:
+    - 数组
+    - 字符串匹配
+    - 哈希函数
+    - 滚动哈希
+---
+
 # [3036. 匹配模式数组的子数组数目 II](https://leetcode.cn/problems/number-of-subarrays-that-match-a-pattern-ii)
 
 [English Version](/solution/3000-3099/3036.Number%20of%20Subarrays%20That%20Match%20a%20Pattern%20II/README_EN.md)
-
-<!-- tags:数组,字符串匹配,哈希函数,滚动哈希 -->
 
 ## 题目描述
 

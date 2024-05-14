@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2758.Next%20Day/README_EN.md
+---
+
 # [2758. Next Day 🔒](https://leetcode.com/problems/next-day)
 
 [中文文档](/solution/2700-2799/2758.Next%20Day/README.md)
-
-<!-- tags: -->
 
 ## Description
 

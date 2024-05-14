@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1148.Article%20Views%20I/README.md
+tags:
+    - 数据库
+---
+
 # [1148. 文章浏览 I](https://leetcode.cn/problems/article-views-i)
 
 [English Version](/solution/1100-1199/1148.Article%20Views%20I/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

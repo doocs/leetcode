@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.09.Sorted%20Matrix%20Search/README_EN.md
+---
+
 # [10.09. Sorted Matrix Search](https://leetcode.cn/problems/sorted-matrix-search-lcci)
 
 [中文文档](/lcci/10.09.Sorted%20Matrix%20Search/README.md)

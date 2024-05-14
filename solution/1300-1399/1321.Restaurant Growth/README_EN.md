@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1321.Restaurant%20Growth/README_EN.md
+tags:
+    - Database
+---
+
 # [1321. Restaurant Growth](https://leetcode.com/problems/restaurant-growth)
 
 [中文文档](/solution/1300-1399/1321.Restaurant%20Growth/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2750.Ways%20to%20Split%20Array%20Into%20Good%20Subarrays/README.md
+rating: 1597
+tags:
+    - 数组
+    - 数学
+---
+
 # [2750. 将数组划分成若干好子数组的方式](https://leetcode.cn/problems/ways-to-split-array-into-good-subarrays)
 
 [English Version](/solution/2700-2799/2750.Ways%20to%20Split%20Array%20Into%20Good%20Subarrays/README_EN.md)
-
-<!-- tags:数组,数学 -->
 
 ## 题目描述
 

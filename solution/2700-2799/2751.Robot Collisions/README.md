@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2751.Robot%20Collisions/README.md
+rating: 2091
+tags:
+    - 栈
+    - 数组
+    - 排序
+    - 模拟
+---
+
 # [2751. 机器人碰撞](https://leetcode.cn/problems/robot-collisions)
 
 [English Version](/solution/2700-2799/2751.Robot%20Collisions/README_EN.md)
-
-<!-- tags:栈,数组,排序,模拟 -->
 
 ## 题目描述
 

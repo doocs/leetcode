@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0794.Valid%20Tic-Tac-Toe%20State/README_EN.md
+tags:
+    - Array
+    - Matrix
+---
+
 # [794. Valid Tic-Tac-Toe State](https://leetcode.com/problems/valid-tic-tac-toe-state)
 
 [中文文档](/solution/0700-0799/0794.Valid%20Tic-Tac-Toe%20State/README.md)
-
-<!-- tags:Array,Matrix -->
 
 ## Description
 

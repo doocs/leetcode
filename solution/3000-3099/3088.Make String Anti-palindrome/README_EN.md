@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3088.Make%20String%20Anti-palindrome/README_EN.md
+tags:
+    - Greedy
+    - String
+    - Sorting
+---
+
 # [3088. Make String Anti-palindrome 🔒](https://leetcode.com/problems/make-string-anti-palindrome)
 
 [中文文档](/solution/3000-3099/3088.Make%20String%20Anti-palindrome/README.md)
-
-<!-- tags:Greedy,String,Sorting -->
 
 ## Description
 

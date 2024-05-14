@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1221.Split%20a%20String%20in%20Balanced%20Strings/README_EN.md
+rating: 1219
+tags:
+    - Greedy
+    - String
+    - Counting
+---
+
 # [1221. Split a String in Balanced Strings](https://leetcode.com/problems/split-a-string-in-balanced-strings)
 
 [中文文档](/solution/1200-1299/1221.Split%20a%20String%20in%20Balanced%20Strings/README.md)
-
-<!-- tags:Greedy,String,Counting -->
 
 ## Description
 

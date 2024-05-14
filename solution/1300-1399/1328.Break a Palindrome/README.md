@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1328.Break%20a%20Palindrome/README.md
+rating: 1473
+tags:
+    - 贪心
+    - 字符串
+---
+
 # [1328. 破坏回文串](https://leetcode.cn/problems/break-a-palindrome)
 
 [English Version](/solution/1300-1399/1328.Break%20a%20Palindrome/README_EN.md)
-
-<!-- tags:贪心,字符串 -->
 
 ## 题目描述
 

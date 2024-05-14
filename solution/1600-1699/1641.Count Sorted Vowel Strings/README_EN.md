@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1641.Count%20Sorted%20Vowel%20Strings/README_EN.md
+rating: 1519
+tags:
+    - Math
+    - Dynamic Programming
+    - Combinatorics
+---
+
 # [1641. Count Sorted Vowel Strings](https://leetcode.com/problems/count-sorted-vowel-strings)
 
 [中文文档](/solution/1600-1699/1641.Count%20Sorted%20Vowel%20Strings/README.md)
-
-<!-- tags:Math,Dynamic Programming,Combinatorics -->
 
 ## Description
 

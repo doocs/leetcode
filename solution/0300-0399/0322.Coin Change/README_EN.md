@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0322.Coin%20Change/README_EN.md
+tags:
+    - Breadth-First Search
+    - Array
+    - Dynamic Programming
+---
+
 # [322. Coin Change](https://leetcode.com/problems/coin-change)
 
 [中文文档](/solution/0300-0399/0322.Coin%20Change/README.md)
-
-<!-- tags:Breadth-First Search,Array,Dynamic Programming -->
 
 ## Description
 

@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1098.Unpopular%20Books/README_EN.md
+tags:
+    - Database
+---
+
 # [1098. Unpopular Books 🔒](https://leetcode.com/problems/unpopular-books)
 
 [中文文档](/solution/1000-1099/1098.Unpopular%20Books/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

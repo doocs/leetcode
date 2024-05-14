@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0934.Shortest%20Bridge/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 数组
+    - 矩阵
+---
+
 # [934. 最短的桥](https://leetcode.cn/problems/shortest-bridge)
 
 [English Version](/solution/0900-0999/0934.Shortest%20Bridge/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,数组,矩阵 -->
 
 ## 题目描述
 

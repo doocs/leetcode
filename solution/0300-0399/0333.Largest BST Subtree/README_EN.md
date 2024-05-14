@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0333.Largest%20BST%20Subtree/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Binary Search Tree
+    - Dynamic Programming
+    - Binary Tree
+---
+
 # [333. Largest BST Subtree 🔒](https://leetcode.com/problems/largest-bst-subtree)
 
 [中文文档](/solution/0300-0399/0333.Largest%20BST%20Subtree/README.md)
-
-<!-- tags:Tree,Depth-First Search,Binary Search Tree,Dynamic Programming,Binary Tree -->
 
 ## Description
 

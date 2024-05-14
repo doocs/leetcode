@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0689.Maximum%20Sum%20of%203%20Non-Overlapping%20Subarrays/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [689. Maximum Sum of 3 Non-Overlapping Subarrays](https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays)
 
 [中文文档](/solution/0600-0699/0689.Maximum%20Sum%20of%203%20Non-Overlapping%20Subarrays/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
 
 ## Description
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2836.Maximize%20Value%20of%20Function%20in%20a%20Ball%20Passing%20Game/README_EN.md
+rating: 2768
+tags:
+    - Bit Manipulation
+    - Array
+    - Dynamic Programming
+---
+
 # [2836. Maximize Value of Function in a Ball Passing Game](https://leetcode.com/problems/maximize-value-of-function-in-a-ball-passing-game)
 
 [中文文档](/solution/2800-2899/2836.Maximize%20Value%20of%20Function%20in%20a%20Ball%20Passing%20Game/README.md)
-
-<!-- tags:Bit Manipulation,Array,Dynamic Programming -->
 
 ## Description
 

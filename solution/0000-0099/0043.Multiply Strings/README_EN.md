@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0043.Multiply%20Strings/README_EN.md
+tags:
+    - Math
+    - String
+    - Simulation
+---
+
 # [43. Multiply Strings](https://leetcode.com/problems/multiply-strings)
 
 [中文文档](/solution/0000-0099/0043.Multiply%20Strings/README.md)
-
-<!-- tags:Math,String,Simulation -->
 
 ## Description
 

@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.08.Circus%20Tower/README_EN.md
+---
+
 # [17.08. Circus Tower](https://leetcode.cn/problems/circus-tower-lcci)
 
 [中文文档](/lcci/17.08.Circus%20Tower/README.md)

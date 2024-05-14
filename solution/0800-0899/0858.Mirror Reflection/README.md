@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0858.Mirror%20Reflection/README.md
+tags:
+    - 几何
+    - 数学
+    - 数论
+---
+
 # [858. 镜面反射](https://leetcode.cn/problems/mirror-reflection)
 
 [English Version](/solution/0800-0899/0858.Mirror%20Reflection/README_EN.md)
-
-<!-- tags:几何,数学,数论 -->
 
 ## 题目描述
 

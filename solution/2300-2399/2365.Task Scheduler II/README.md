@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2365.Task%20Scheduler%20II/README.md
+rating: 1622
+tags:
+    - 数组
+    - 哈希表
+    - 模拟
+---
+
 # [2365. 任务调度器 II](https://leetcode.cn/problems/task-scheduler-ii)
 
 [English Version](/solution/2300-2399/2365.Task%20Scheduler%20II/README_EN.md)
-
-<!-- tags:数组,哈希表,模拟 -->
 
 ## 题目描述
 

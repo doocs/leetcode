@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2373.Largest%20Local%20Values%20in%20a%20Matrix/README_EN.md
+rating: 1331
+tags:
+    - Array
+    - Matrix
+---
+
 # [2373. Largest Local Values in a Matrix](https://leetcode.com/problems/largest-local-values-in-a-matrix)
 
 [中文文档](/solution/2300-2399/2373.Largest%20Local%20Values%20in%20a%20Matrix/README.md)
-
-<!-- tags:Array,Matrix -->
 
 ## Description
 

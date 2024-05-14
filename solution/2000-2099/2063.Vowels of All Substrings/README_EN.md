@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2063.Vowels%20of%20All%20Substrings/README_EN.md
+rating: 1663
+tags:
+    - Math
+    - String
+    - Dynamic Programming
+    - Combinatorics
+---
+
 # [2063. Vowels of All Substrings](https://leetcode.com/problems/vowels-of-all-substrings)
 
 [中文文档](/solution/2000-2099/2063.Vowels%20of%20All%20Substrings/README.md)
-
-<!-- tags:Math,String,Dynamic Programming,Combinatorics -->
 
 ## Description
 

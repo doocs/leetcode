@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0464.Can%20I%20Win/README_EN.md
+tags:
+    - Bit Manipulation
+    - Memoization
+    - Math
+    - Dynamic Programming
+    - Bitmask
+    - Game Theory
+---
+
 # [464. Can I Win](https://leetcode.com/problems/can-i-win)
 
 [中文文档](/solution/0400-0499/0464.Can%20I%20Win/README.md)
-
-<!-- tags:Bit Manipulation,Memoization,Math,Dynamic Programming,Bitmask,Game Theory -->
 
 ## Description
 

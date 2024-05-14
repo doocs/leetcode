@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2592.Maximize%20Greatness%20of%20an%20Array/README_EN.md
+rating: 1569
+tags:
+    - Greedy
+    - Array
+    - Two Pointers
+    - Sorting
+---
+
 # [2592. Maximize Greatness of an Array](https://leetcode.com/problems/maximize-greatness-of-an-array)
 
 [中文文档](/solution/2500-2599/2592.Maximize%20Greatness%20of%20an%20Array/README.md)
-
-<!-- tags:Greedy,Array,Two Pointers,Sorting -->
 
 ## Description
 

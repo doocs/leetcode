@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3063.Linked%20List%20Frequency/README.md
+tags:
+    - 哈希表
+    - 链表
+    - 计数
+---
+
 # [3063. 链表频率 🔒](https://leetcode.cn/problems/linked-list-frequency)
 
 [English Version](/solution/3000-3099/3063.Linked%20List%20Frequency/README_EN.md)
-
-<!-- tags:哈希表,链表,计数 -->
 
 ## 题目描述
 

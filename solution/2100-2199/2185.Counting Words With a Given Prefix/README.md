@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2185.Counting%20Words%20With%20a%20Given%20Prefix/README.md
+rating: 1167
+tags:
+    - 数组
+    - 字符串
+    - 字符串匹配
+---
+
 # [2185. 统计包含给定前缀的字符串](https://leetcode.cn/problems/counting-words-with-a-given-prefix)
 
 [English Version](/solution/2100-2199/2185.Counting%20Words%20With%20a%20Given%20Prefix/README_EN.md)
-
-<!-- tags:数组,字符串,字符串匹配 -->
 
 ## 题目描述
 

@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0612.Shortest%20Distance%20in%20a%20Plane/README_EN.md
+tags:
+    - Database
+---
+
 # [612. Shortest Distance in a Plane 🔒](https://leetcode.com/problems/shortest-distance-in-a-plane)
 
 [中文文档](/solution/0600-0699/0612.Shortest%20Distance%20in%20a%20Plane/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

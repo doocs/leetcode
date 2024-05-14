@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0460.LFU%20Cache/README_EN.md
+tags:
+    - Design
+    - Hash Table
+    - Linked List
+    - Doubly-Linked List
+---
+
 # [460. LFU Cache](https://leetcode.com/problems/lfu-cache)
 
 [中文文档](/solution/0400-0499/0460.LFU%20Cache/README.md)
-
-<!-- tags:Design,Hash Table,Linked List,Doubly-Linked List -->
 
 ## Description
 

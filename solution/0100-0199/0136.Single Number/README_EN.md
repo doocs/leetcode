@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0136.Single%20Number/README_EN.md
+tags:
+    - Bit Manipulation
+    - Array
+---
+
 # [136. Single Number](https://leetcode.com/problems/single-number)
 
 [中文文档](/solution/0100-0199/0136.Single%20Number/README.md)
-
-<!-- tags:Bit Manipulation,Array -->
 
 ## Description
 

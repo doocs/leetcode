@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1247.Minimum%20Swaps%20to%20Make%20Strings%20Equal/README.md
+rating: 1597
+tags:
+    - 贪心
+    - 数学
+    - 字符串
+---
+
 # [1247. 交换字符使得字符串相同](https://leetcode.cn/problems/minimum-swaps-to-make-strings-equal)
 
 [English Version](/solution/1200-1299/1247.Minimum%20Swaps%20to%20Make%20Strings%20Equal/README_EN.md)
-
-<!-- tags:贪心,数学,字符串 -->
 
 ## 题目描述
 

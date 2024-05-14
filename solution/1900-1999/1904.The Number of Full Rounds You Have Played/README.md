@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1904.The%20Number%20of%20Full%20Rounds%20You%20Have%20Played/README.md
+rating: 1498
+tags:
+    - 数学
+    - 字符串
+---
+
 # [1904. 你完成的完整对局数](https://leetcode.cn/problems/the-number-of-full-rounds-you-have-played)
 
 [English Version](/solution/1900-1999/1904.The%20Number%20of%20Full%20Rounds%20You%20Have%20Played/README_EN.md)
-
-<!-- tags:数学,字符串 -->
 
 ## 题目描述
 

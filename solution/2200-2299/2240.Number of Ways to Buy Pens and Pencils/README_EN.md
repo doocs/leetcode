@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2240.Number%20of%20Ways%20to%20Buy%20Pens%20and%20Pencils/README_EN.md
+rating: 1399
+tags:
+    - Math
+    - Enumeration
+---
+
 # [2240. Number of Ways to Buy Pens and Pencils](https://leetcode.com/problems/number-of-ways-to-buy-pens-and-pencils)
 
 [中文文档](/solution/2200-2299/2240.Number%20of%20Ways%20to%20Buy%20Pens%20and%20Pencils/README.md)
-
-<!-- tags:Math,Enumeration -->
 
 ## Description
 

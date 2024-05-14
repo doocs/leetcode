@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0794.Valid%20Tic-Tac-Toe%20State/README.md
+tags:
+    - 数组
+    - 矩阵
+---
+
 # [794. 有效的井字游戏](https://leetcode.cn/problems/valid-tic-tac-toe-state)
 
 [English Version](/solution/0700-0799/0794.Valid%20Tic-Tac-Toe%20State/README_EN.md)
-
-<!-- tags:数组,矩阵 -->
 
 ## 题目描述
 

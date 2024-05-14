@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20086.%20%E5%88%86%E5%89%B2%E5%9B%9E%E6%96%87%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/README.md
+---
+
 # [剑指 Offer II 086. 分割回文子字符串](https://leetcode.cn/problems/M99OJA)
 
 ## 题目描述

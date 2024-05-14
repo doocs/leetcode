@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/README.md
+---
+
 # LCP 系列
 
 ## 题解

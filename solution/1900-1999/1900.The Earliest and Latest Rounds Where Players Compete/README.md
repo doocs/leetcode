@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1900.The%20Earliest%20and%20Latest%20Rounds%20Where%20Players%20Compete/README.md
+rating: 2454
+tags:
+    - 记忆化搜索
+    - 动态规划
+---
+
 # [1900. 最佳运动员的比拼回合](https://leetcode.cn/problems/the-earliest-and-latest-rounds-where-players-compete)
 
 [English Version](/solution/1900-1999/1900.The%20Earliest%20and%20Latest%20Rounds%20Where%20Players%20Compete/README_EN.md)
-
-<!-- tags:记忆化搜索,动态规划 -->
 
 ## 题目描述
 

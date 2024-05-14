@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20019.%20%E6%9C%80%E5%A4%9A%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E5%BE%97%E5%88%B0%E5%9B%9E%E6%96%87/README.md
+---
+
 # [剑指 Offer II 019. 最多删除一个字符得到回文](https://leetcode.cn/problems/RQku0D)
 
 ## 题目描述

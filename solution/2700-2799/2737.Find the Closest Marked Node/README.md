@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2737.Find%20the%20Closest%20Marked%20Node/README.md
+tags:
+    - 图
+    - 数组
+    - 最短路
+    - 堆（优先队列）
+---
+
 # [2737. 找到最近的标记节点 🔒](https://leetcode.cn/problems/find-the-closest-marked-node)
 
 [English Version](/solution/2700-2799/2737.Find%20the%20Closest%20Marked%20Node/README_EN.md)
-
-<!-- tags:图,数组,最短路,堆（优先队列） -->
 
 ## 题目描述
 

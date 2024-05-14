@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2516.Take%20K%20of%20Each%20Character%20From%20Left%20and%20Right/README.md
+rating: 1947
+tags:
+    - 哈希表
+    - 字符串
+    - 滑动窗口
+---
+
 # [2516. 每种字符至少取 K 个](https://leetcode.cn/problems/take-k-of-each-character-from-left-and-right)
 
 [English Version](/solution/2500-2599/2516.Take%20K%20of%20Each%20Character%20From%20Left%20and%20Right/README_EN.md)
-
-<!-- tags:哈希表,字符串,滑动窗口 -->
 
 ## 题目描述
 

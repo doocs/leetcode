@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3065.Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20I/README.md
+rating: 1149
+tags:
+    - 数组
+---
+
 # [3065. 超过阈值的最少操作数 I](https://leetcode.cn/problems/minimum-operations-to-exceed-threshold-value-i)
 
 [English Version](/solution/3000-3099/3065.Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20I/README_EN.md)
-
-<!-- tags:数组 -->
 
 ## 题目描述
 

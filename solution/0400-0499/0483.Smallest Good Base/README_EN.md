@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0483.Smallest%20Good%20Base/README_EN.md
+tags:
+    - Math
+    - Binary Search
+---
+
 # [483. Smallest Good Base](https://leetcode.com/problems/smallest-good-base)
 
 [中文文档](/solution/0400-0499/0483.Smallest%20Good%20Base/README.md)
-
-<!-- tags:Math,Binary Search -->
 
 ## Description
 

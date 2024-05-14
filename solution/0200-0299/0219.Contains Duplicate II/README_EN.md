@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0219.Contains%20Duplicate%20II/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Sliding Window
+---
+
 # [219. Contains Duplicate II](https://leetcode.com/problems/contains-duplicate-ii)
 
 [中文文档](/solution/0200-0299/0219.Contains%20Duplicate%20II/README.md)
-
-<!-- tags:Array,Hash Table,Sliding Window -->
 
 ## Description
 

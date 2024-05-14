@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1352.Product%20of%20the%20Last%20K%20Numbers/README.md
+rating: 1473
+tags:
+    - 设计
+    - 队列
+    - 数组
+    - 数学
+    - 数据流
+---
+
 # [1352. 最后 K 个数的乘积](https://leetcode.cn/problems/product-of-the-last-k-numbers)
 
 [English Version](/solution/1300-1399/1352.Product%20of%20the%20Last%20K%20Numbers/README_EN.md)
-
-<!-- tags:设计,队列,数组,数学,数据流 -->
 
 ## 题目描述
 

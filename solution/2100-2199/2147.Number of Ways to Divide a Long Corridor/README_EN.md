@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2147.Number%20of%20Ways%20to%20Divide%20a%20Long%20Corridor/README_EN.md
+rating: 1914
+tags:
+    - Math
+    - String
+    - Dynamic Programming
+---
+
 # [2147. Number of Ways to Divide a Long Corridor](https://leetcode.com/problems/number-of-ways-to-divide-a-long-corridor)
 
 [中文文档](/solution/2100-2199/2147.Number%20of%20Ways%20to%20Divide%20a%20Long%20Corridor/README.md)
-
-<!-- tags:Math,String,Dynamic Programming -->
 
 ## Description
 

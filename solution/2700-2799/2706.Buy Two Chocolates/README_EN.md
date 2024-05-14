@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2706.Buy%20Two%20Chocolates/README_EN.md
+rating: 1207
+tags:
+    - Array
+    - Sorting
+---
+
 # [2706. Buy Two Chocolates](https://leetcode.com/problems/buy-two-chocolates)
 
 [中文文档](/solution/2700-2799/2706.Buy%20Two%20Chocolates/README.md)
-
-<!-- tags:Array,Sorting -->
 
 ## Description
 

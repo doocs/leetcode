@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.04.Tic-Tac-Toe/README_EN.md
+---
+
 # [16.04. Tic-Tac-Toe](https://leetcode.cn/problems/tic-tac-toe-lcci)
 
 [中文文档](/lcci/16.04.Tic-Tac-Toe/README.md)

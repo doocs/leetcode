@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2554.Maximum%20Number%20of%20Integers%20to%20Choose%20From%20a%20Range%20I/README_EN.md
+rating: 1333
+tags:
+    - Greedy
+    - Array
+    - Hash Table
+    - Binary Search
+    - Sorting
+---
+
 # [2554. Maximum Number of Integers to Choose From a Range I](https://leetcode.com/problems/maximum-number-of-integers-to-choose-from-a-range-i)
 
 [中文文档](/solution/2500-2599/2554.Maximum%20Number%20of%20Integers%20to%20Choose%20From%20a%20Range%20I/README.md)
-
-<!-- tags:Greedy,Array,Hash Table,Binary Search,Sorting -->
 
 ## Description
 

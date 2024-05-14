@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2441.Largest%20Positive%20Integer%20That%20Exists%20With%20Its%20Negative/README.md
+rating: 1167
+tags:
+    - 数组
+    - 哈希表
+    - 双指针
+    - 排序
+---
+
 # [2441. 与对应负数同时存在的最大正整数](https://leetcode.cn/problems/largest-positive-integer-that-exists-with-its-negative)
 
 [English Version](/solution/2400-2499/2441.Largest%20Positive%20Integer%20That%20Exists%20With%20Its%20Negative/README_EN.md)
-
-<!-- tags:数组,哈希表,双指针,排序 -->
 
 ## 题目描述
 

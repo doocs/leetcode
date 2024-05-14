@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0967.Numbers%20With%20Same%20Consecutive%20Differences/README.md
+tags:
+    - 广度优先搜索
+    - 回溯
+---
+
 # [967. 连续差相同的数字](https://leetcode.cn/problems/numbers-with-same-consecutive-differences)
 
 [English Version](/solution/0900-0999/0967.Numbers%20With%20Same%20Consecutive%20Differences/README_EN.md)
-
-<!-- tags:广度优先搜索,回溯 -->
 
 ## 题目描述
 

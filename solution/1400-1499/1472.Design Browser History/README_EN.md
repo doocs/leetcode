@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1472.Design%20Browser%20History/README_EN.md
+rating: 1453
+tags:
+    - Stack
+    - Design
+    - Array
+    - Linked List
+    - Data Stream
+    - Doubly-Linked List
+---
+
 # [1472. Design Browser History](https://leetcode.com/problems/design-browser-history)
 
 [中文文档](/solution/1400-1499/1472.Design%20Browser%20History/README.md)
-
-<!-- tags:Stack,Design,Array,Linked List,Data Stream,Doubly-Linked List -->
 
 ## Description
 

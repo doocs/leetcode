@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2226.Maximum%20Candies%20Allocated%20to%20K%20Children/README.md
+rating: 1646
+tags:
+    - 数组
+    - 二分查找
+---
+
 # [2226. 每个小孩最多能分到多少糖果](https://leetcode.cn/problems/maximum-candies-allocated-to-k-children)
 
 [English Version](/solution/2200-2299/2226.Maximum%20Candies%20Allocated%20to%20K%20Children/README_EN.md)
-
-<!-- tags:数组,二分查找 -->
 
 ## 题目描述
 

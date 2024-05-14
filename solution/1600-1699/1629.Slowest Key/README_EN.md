@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1629.Slowest%20Key/README_EN.md
+rating: 1315
+tags:
+    - Array
+    - String
+---
+
 # [1629. Slowest Key](https://leetcode.com/problems/slowest-key)
 
 [中文文档](/solution/1600-1699/1629.Slowest%20Key/README.md)
-
-<!-- tags:Array,String -->
 
 ## Description
 

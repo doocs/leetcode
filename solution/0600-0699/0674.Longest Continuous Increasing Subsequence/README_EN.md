@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0674.Longest%20Continuous%20Increasing%20Subsequence/README_EN.md
+tags:
+    - Array
+---
+
 # [674. Longest Continuous Increasing Subsequence](https://leetcode.com/problems/longest-continuous-increasing-subsequence)
 
 [中文文档](/solution/0600-0699/0674.Longest%20Continuous%20Increasing%20Subsequence/README.md)
-
-<!-- tags:Array -->
 
 ## Description
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2270.Number%20of%20Ways%20to%20Split%20Array/README_EN.md
+rating: 1334
+tags:
+    - Array
+    - Prefix Sum
+---
+
 # [2270. Number of Ways to Split Array](https://leetcode.com/problems/number-of-ways-to-split-array)
 
 [中文文档](/solution/2200-2299/2270.Number%20of%20Ways%20to%20Split%20Array/README.md)
-
-<!-- tags:Array,Prefix Sum -->
 
 ## Description
 

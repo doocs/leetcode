@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2349.Design%20a%20Number%20Container%20System/README_EN.md
+rating: 1540
+tags:
+    - Design
+    - Hash Table
+    - Ordered Set
+    - Heap (Priority Queue)
+---
+
 # [2349. Design a Number Container System](https://leetcode.com/problems/design-a-number-container-system)
 
 [中文文档](/solution/2300-2399/2349.Design%20a%20Number%20Container%20System/README.md)
-
-<!-- tags:Design,Hash Table,Ordered Set,Heap (Priority Queue) -->
 
 ## Description
 

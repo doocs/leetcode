@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2076.Process%20Restricted%20Friend%20Requests/README_EN.md
+rating: 2130
+tags:
+    - Union Find
+    - Graph
+---
+
 # [2076. Process Restricted Friend Requests](https://leetcode.com/problems/process-restricted-friend-requests)
 
 [中文文档](/solution/2000-2099/2076.Process%20Restricted%20Friend%20Requests/README.md)
-
-<!-- tags:Union Find,Graph -->
 
 ## Description
 

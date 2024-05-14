@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2615.Sum%20of%20Distances/README_EN.md
+rating: 1793
+tags:
+    - Array
+    - Hash Table
+    - Prefix Sum
+---
+
 # [2615. Sum of Distances](https://leetcode.com/problems/sum-of-distances)
 
 [中文文档](/solution/2600-2699/2615.Sum%20of%20Distances/README.md)
-
-<!-- tags:Array,Hash Table,Prefix Sum -->
 
 ## Description
 

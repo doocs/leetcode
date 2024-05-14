@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2144.Minimum%20Cost%20of%20Buying%20Candies%20With%20Discount/README.md
+rating: 1260
+tags:
+    - 贪心
+    - 数组
+    - 排序
+---
+
 # [2144. 打折购买糖果的最小开销](https://leetcode.cn/problems/minimum-cost-of-buying-candies-with-discount)
 
 [English Version](/solution/2100-2199/2144.Minimum%20Cost%20of%20Buying%20Candies%20With%20Discount/README_EN.md)
-
-<!-- tags:贪心,数组,排序 -->
 
 ## 题目描述
 

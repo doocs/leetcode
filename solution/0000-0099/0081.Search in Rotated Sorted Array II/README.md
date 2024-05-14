@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0081.Search%20in%20Rotated%20Sorted%20Array%20II/README.md
+tags:
+    - 数组
+    - 二分查找
+---
+
 # [81. 搜索旋转排序数组 II](https://leetcode.cn/problems/search-in-rotated-sorted-array-ii)
 
 [English Version](/solution/0000-0099/0081.Search%20in%20Rotated%20Sorted%20Array%20II/README_EN.md)
-
-<!-- tags:数组,二分查找 -->
 
 ## 题目描述
 

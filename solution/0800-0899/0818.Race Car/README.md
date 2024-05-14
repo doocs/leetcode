@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0818.Race%20Car/README.md
+tags:
+    - 动态规划
+---
+
 # [818. 赛车](https://leetcode.cn/problems/race-car)
 
 [English Version](/solution/0800-0899/0818.Race%20Car/README_EN.md)
-
-<!-- tags:动态规划 -->
 
 ## 题目描述
 

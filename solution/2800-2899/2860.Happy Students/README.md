@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2860.Happy%20Students/README.md
+rating: 1625
+tags:
+    - 数组
+    - 枚举
+    - 排序
+---
+
 # [2860. 让所有学生保持开心的分组方法数](https://leetcode.cn/problems/happy-students)
 
 [English Version](/solution/2800-2899/2860.Happy%20Students/README_EN.md)
-
-<!-- tags:数组,枚举,排序 -->
 
 ## 题目描述
 

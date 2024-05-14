@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2967.Minimum%20Cost%20to%20Make%20Array%20Equalindromic/README.md
+rating: 2116
+tags:
+    - 贪心
+    - 数组
+    - 数学
+    - 排序
+---
+
 # [2967. 使数组成为等数数组的最小代价](https://leetcode.cn/problems/minimum-cost-to-make-array-equalindromic)
 
 [English Version](/solution/2900-2999/2967.Minimum%20Cost%20to%20Make%20Array%20Equalindromic/README_EN.md)
-
-<!-- tags:贪心,数组,数学,排序 -->
 
 ## 题目描述
 

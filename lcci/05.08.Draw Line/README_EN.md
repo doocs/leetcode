@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.08.Draw%20Line/README_EN.md
+---
+
 # [05.08. Draw Line](https://leetcode.cn/problems/draw-line-lcci)
 
 [中文文档](/lcci/05.08.Draw%20Line/README.md)

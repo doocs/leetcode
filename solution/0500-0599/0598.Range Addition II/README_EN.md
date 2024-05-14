@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0598.Range%20Addition%20II/README_EN.md
+tags:
+    - Array
+    - Math
+---
+
 # [598. Range Addition II](https://leetcode.com/problems/range-addition-ii)
 
 [中文文档](/solution/0500-0599/0598.Range%20Addition%20II/README.md)
-
-<!-- tags:Array,Math -->
 
 ## Description
 

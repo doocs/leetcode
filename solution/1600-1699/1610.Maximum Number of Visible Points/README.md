@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1610.Maximum%20Number%20of%20Visible%20Points/README.md
+rating: 2147
+tags:
+    - 几何
+    - 数组
+    - 数学
+    - 排序
+    - 滑动窗口
+---
+
 # [1610. 可见点的最大数目](https://leetcode.cn/problems/maximum-number-of-visible-points)
 
 [English Version](/solution/1600-1699/1610.Maximum%20Number%20of%20Visible%20Points/README_EN.md)
-
-<!-- tags:几何,数组,数学,排序,滑动窗口 -->
 
 ## 题目描述
 

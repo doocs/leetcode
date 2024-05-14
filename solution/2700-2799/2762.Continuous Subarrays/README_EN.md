@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2762.Continuous%20Subarrays/README_EN.md
+rating: 1940
+tags:
+    - Queue
+    - Array
+    - Ordered Set
+    - Sliding Window
+    - Monotonic Queue
+    - Heap (Priority Queue)
+---
+
 # [2762. Continuous Subarrays](https://leetcode.com/problems/continuous-subarrays)
 
 [中文文档](/solution/2700-2799/2762.Continuous%20Subarrays/README.md)
-
-<!-- tags:Queue,Array,Ordered Set,Sliding Window,Monotonic Queue,Heap (Priority Queue) -->
 
 ## Description
 

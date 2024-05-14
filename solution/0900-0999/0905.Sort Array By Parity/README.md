@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0905.Sort%20Array%20By%20Parity/README.md
+tags:
+    - 数组
+    - 双指针
+    - 排序
+---
+
 # [905. 按奇偶排序数组](https://leetcode.cn/problems/sort-array-by-parity)
 
 [English Version](/solution/0900-0999/0905.Sort%20Array%20By%20Parity/README_EN.md)
-
-<!-- tags:数组,双指针,排序 -->
 
 ## 题目描述
 

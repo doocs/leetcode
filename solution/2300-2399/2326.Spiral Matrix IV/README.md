@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2326.Spiral%20Matrix%20IV/README.md
+rating: 1421
+tags:
+    - 数组
+    - 链表
+    - 矩阵
+    - 模拟
+---
+
 # [2326. 螺旋矩阵 IV](https://leetcode.cn/problems/spiral-matrix-iv)
 
 [English Version](/solution/2300-2399/2326.Spiral%20Matrix%20IV/README_EN.md)
-
-<!-- tags:数组,链表,矩阵,模拟 -->
 
 ## 题目描述
 

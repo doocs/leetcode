@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1614.Maximum%20Nesting%20Depth%20of%20the%20Parentheses/README_EN.md
+rating: 1322
+tags:
+    - Stack
+    - String
+---
+
 # [1614. Maximum Nesting Depth of the Parentheses](https://leetcode.com/problems/maximum-nesting-depth-of-the-parentheses)
 
 [中文文档](/solution/1600-1699/1614.Maximum%20Nesting%20Depth%20of%20the%20Parentheses/README.md)
-
-<!-- tags:Stack,String -->
 
 ## Description
 

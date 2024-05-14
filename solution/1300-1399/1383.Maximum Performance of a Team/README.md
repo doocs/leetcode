@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1383.Maximum%20Performance%20of%20a%20Team/README.md
+rating: 2091
+tags:
+    - 贪心
+    - 数组
+    - 排序
+    - 堆（优先队列）
+---
+
 # [1383. 最大的团队表现值](https://leetcode.cn/problems/maximum-performance-of-a-team)
 
 [English Version](/solution/1300-1399/1383.Maximum%20Performance%20of%20a%20Team/README_EN.md)
-
-<!-- tags:贪心,数组,排序,堆（优先队列） -->
 
 ## 题目描述
 

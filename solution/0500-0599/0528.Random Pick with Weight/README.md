@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0528.Random%20Pick%20with%20Weight/README.md
+tags:
+    - 数组
+    - 数学
+    - 二分查找
+    - 前缀和
+    - 随机化
+---
+
 # [528. 按权重随机选择](https://leetcode.cn/problems/random-pick-with-weight)
 
 [English Version](/solution/0500-0599/0528.Random%20Pick%20with%20Weight/README_EN.md)
-
-<!-- tags:数组,数学,二分查找,前缀和,随机化 -->
 
 ## 题目描述
 

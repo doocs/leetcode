@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2545.Sort%20the%20Students%20by%20Their%20Kth%20Score/README_EN.md
+rating: 1294
+tags:
+    - Array
+    - Matrix
+    - Sorting
+---
+
 # [2545. Sort the Students by Their Kth Score](https://leetcode.com/problems/sort-the-students-by-their-kth-score)
 
 [中文文档](/solution/2500-2599/2545.Sort%20the%20Students%20by%20Their%20Kth%20Score/README.md)
-
-<!-- tags:Array,Matrix,Sorting -->
 
 ## Description
 

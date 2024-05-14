@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1188.Design%20Bounded%20Blocking%20Queue/README.md
+tags:
+    - 多线程
+---
+
 # [1188. 设计有限阻塞队列 🔒](https://leetcode.cn/problems/design-bounded-blocking-queue)
 
 [English Version](/solution/1100-1199/1188.Design%20Bounded%20Blocking%20Queue/README_EN.md)
-
-<!-- tags:多线程 -->
 
 ## 题目描述
 

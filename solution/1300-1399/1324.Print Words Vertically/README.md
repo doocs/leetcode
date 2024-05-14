@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1324.Print%20Words%20Vertically/README.md
+rating: 1328
+tags:
+    - 数组
+    - 字符串
+    - 模拟
+---
+
 # [1324. 竖直打印单词](https://leetcode.cn/problems/print-words-vertically)
 
 [English Version](/solution/1300-1399/1324.Print%20Words%20Vertically/README_EN.md)
-
-<!-- tags:数组,字符串,模拟 -->
 
 ## 题目描述
 

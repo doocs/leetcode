@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1512.Number%20of%20Good%20Pairs/README.md
+rating: 1160
+tags:
+    - 数组
+    - 哈希表
+    - 数学
+    - 计数
+---
+
 # [1512. 好数对的数目](https://leetcode.cn/problems/number-of-good-pairs)
 
 [English Version](/solution/1500-1599/1512.Number%20of%20Good%20Pairs/README_EN.md)
-
-<!-- tags:数组,哈希表,数学,计数 -->
 
 ## 题目描述
 

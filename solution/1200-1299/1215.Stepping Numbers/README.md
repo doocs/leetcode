@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1215.Stepping%20Numbers/README.md
+rating: 1674
+tags:
+    - 广度优先搜索
+    - 回溯
+---
+
 # [1215. 步进数 🔒](https://leetcode.cn/problems/stepping-numbers)
 
 [English Version](/solution/1200-1299/1215.Stepping%20Numbers/README_EN.md)
-
-<!-- tags:广度优先搜索,回溯 -->
 
 ## 题目描述
 

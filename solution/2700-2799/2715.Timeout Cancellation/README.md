@@ -1,8 +1,12 @@
-# [2715. 执行可取消的延迟函数](https://leetcode.cn/problems/execute-cancellable-function-with-delay)
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2715.Timeout%20Cancellation/README.md
+---
+
+# [2715. 执行可取消的延迟函数](https://leetcode.cn/problems/timeout-cancellation)
 
 [English Version](/solution/2700-2799/2715.Timeout%20Cancellation/README_EN.md)
-
-<!-- tags: -->
 
 ## 题目描述
 

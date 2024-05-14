@@ -1,8 +1,17 @@
-# [2869. 收集元素的最少操作次数](https://leetcode.cn/problems/minimum-operations-to-collect-elements/)
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2869.Minimum%20Operations%20to%20Collect%20Elements/README.md
+rating: 1272
+tags:
+    - 位运算
+    - 数组
+    - 哈希表
+---
+
+# [2869. 收集元素的最少操作次数](https://leetcode.cn/problems/minimum-operations-to-collect-elements)
 
 [English Version](/solution/2800-2899/2869.Minimum%20Operations%20to%20Collect%20Elements/README_EN.md)
-
-<!-- tags:位运算,数组,哈希表 -->
 
 ## 题目描述
 

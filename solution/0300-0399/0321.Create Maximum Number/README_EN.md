@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0321.Create%20Maximum%20Number/README_EN.md
+tags:
+    - Stack
+    - Greedy
+    - Array
+    - Two Pointers
+    - Monotonic Stack
+---
+
 # [321. Create Maximum Number](https://leetcode.com/problems/create-maximum-number)
 
 [中文文档](/solution/0300-0399/0321.Create%20Maximum%20Number/README.md)
-
-<!-- tags:Stack,Greedy,Array,Two Pointers,Monotonic Stack -->
 
 ## Description
 

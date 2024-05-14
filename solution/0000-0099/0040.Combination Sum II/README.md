@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0040.Combination%20Sum%20II/README.md
+tags:
+    - 数组
+    - 回溯
+---
+
 # [40. 组合总和 II](https://leetcode.cn/problems/combination-sum-ii)
 
 [English Version](/solution/0000-0099/0040.Combination%20Sum%20II/README_EN.md)
-
-<!-- tags:数组,回溯 -->
 
 ## 题目描述
 

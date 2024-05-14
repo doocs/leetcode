@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2075.Decode%20the%20Slanted%20Ciphertext/README_EN.md
+rating: 1759
+tags:
+    - String
+    - Simulation
+---
+
 # [2075. Decode the Slanted Ciphertext](https://leetcode.com/problems/decode-the-slanted-ciphertext)
 
 [中文文档](/solution/2000-2099/2075.Decode%20the%20Slanted%20Ciphertext/README.md)
-
-<!-- tags:String,Simulation -->
 
 ## Description
 

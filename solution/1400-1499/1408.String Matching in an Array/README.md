@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1408.String%20Matching%20in%20an%20Array/README.md
+rating: 1223
+tags:
+    - 数组
+    - 字符串
+    - 字符串匹配
+---
+
 # [1408. 数组中的字符串匹配](https://leetcode.cn/problems/string-matching-in-an-array)
 
 [English Version](/solution/1400-1499/1408.String%20Matching%20in%20an%20Array/README_EN.md)
-
-<!-- tags:数组,字符串,字符串匹配 -->
 
 ## 题目描述
 

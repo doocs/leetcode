@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1389.Create%20Target%20Array%20in%20the%20Given%20Order/README.md
+rating: 1208
+tags:
+    - 数组
+    - 模拟
+---
+
 # [1389. 按既定顺序创建目标数组](https://leetcode.cn/problems/create-target-array-in-the-given-order)
 
 [English Version](/solution/1300-1399/1389.Create%20Target%20Array%20in%20the%20Given%20Order/README_EN.md)
-
-<!-- tags:数组,模拟 -->
 
 ## 题目描述
 

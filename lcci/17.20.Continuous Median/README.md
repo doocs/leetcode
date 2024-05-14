@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.20.Continuous%20Median/README.md
+---
+
 # [面试题 17.20. 连续中值](https://leetcode.cn/problems/continuous-median-lcci)
 
 [English Version](/lcci/17.20.Continuous%20Median/README_EN.md)

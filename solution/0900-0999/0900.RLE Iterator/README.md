@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0900.RLE%20Iterator/README.md
+tags:
+    - 设计
+    - 数组
+    - 计数
+    - 迭代器
+---
+
 # [900. RLE 迭代器](https://leetcode.cn/problems/rle-iterator)
 
 [English Version](/solution/0900-0999/0900.RLE%20Iterator/README_EN.md)
-
-<!-- tags:设计,数组,计数,迭代器 -->
 
 ## 题目描述
 

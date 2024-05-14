@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2584.Split%20the%20Array%20to%20Make%20Coprime%20Products/README.md
+rating: 2159
+tags:
+    - 数组
+    - 哈希表
+    - 数学
+    - 数论
+---
+
 # [2584. 分割数组使乘积互质](https://leetcode.cn/problems/split-the-array-to-make-coprime-products)
 
 [English Version](/solution/2500-2599/2584.Split%20the%20Array%20to%20Make%20Coprime%20Products/README_EN.md)
-
-<!-- tags:数组,哈希表,数学,数论 -->
 
 ## 题目描述
 

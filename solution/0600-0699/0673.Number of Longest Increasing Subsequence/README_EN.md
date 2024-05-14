@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0673.Number%20of%20Longest%20Increasing%20Subsequence/README_EN.md
+tags:
+    - Binary Indexed Tree
+    - Segment Tree
+    - Array
+    - Dynamic Programming
+---
+
 # [673. Number of Longest Increasing Subsequence](https://leetcode.com/problems/number-of-longest-increasing-subsequence)
 
 [中文文档](/solution/0600-0699/0673.Number%20of%20Longest%20Increasing%20Subsequence/README.md)
-
-<!-- tags:Binary Indexed Tree,Segment Tree,Array,Dynamic Programming -->
 
 ## Description
 

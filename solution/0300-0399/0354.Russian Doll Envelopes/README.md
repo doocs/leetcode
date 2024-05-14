@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0354.Russian%20Doll%20Envelopes/README.md
+tags:
+    - 数组
+    - 二分查找
+    - 动态规划
+    - 排序
+---
+
 # [354. 俄罗斯套娃信封问题](https://leetcode.cn/problems/russian-doll-envelopes)
 
 [English Version](/solution/0300-0399/0354.Russian%20Doll%20Envelopes/README_EN.md)
-
-<!-- tags:数组,二分查找,动态规划,排序 -->
 
 ## 题目描述
 

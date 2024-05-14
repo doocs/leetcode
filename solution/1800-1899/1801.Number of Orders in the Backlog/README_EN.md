@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1801.Number%20of%20Orders%20in%20the%20Backlog/README_EN.md
+rating: 1711
+tags:
+    - Array
+    - Simulation
+    - Heap (Priority Queue)
+---
+
 # [1801. Number of Orders in the Backlog](https://leetcode.com/problems/number-of-orders-in-the-backlog)
 
 [中文文档](/solution/1800-1899/1801.Number%20of%20Orders%20in%20the%20Backlog/README.md)
-
-<!-- tags:Array,Simulation,Heap (Priority Queue) -->
 
 ## Description
 

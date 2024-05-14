@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1233.Remove%20Sub-Folders%20from%20the%20Filesystem/README.md
+rating: 1544
+tags:
+    - 深度优先搜索
+    - 字典树
+    - 数组
+    - 字符串
+---
+
 # [1233. 删除子文件夹](https://leetcode.cn/problems/remove-sub-folders-from-the-filesystem)
 
 [English Version](/solution/1200-1299/1233.Remove%20Sub-Folders%20from%20the%20Filesystem/README_EN.md)
-
-<!-- tags:深度优先搜索,字典树,数组,字符串 -->
 
 ## 题目描述
 

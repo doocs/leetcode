@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2647.Color%20the%20Triangle%20Red/README_EN.md
+tags:
+    - Array
+    - Math
+---
+
 # [2647. Color the Triangle Red 🔒](https://leetcode.com/problems/color-the-triangle-red)
 
 [中文文档](/solution/2600-2699/2647.Color%20the%20Triangle%20Red/README.md)
-
-<!-- tags:Array,Math -->
 
 ## Description
 

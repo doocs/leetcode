@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2364.Count%20Number%20of%20Bad%20Pairs/README.md
+rating: 1622
+tags:
+    - 数组
+    - 哈希表
+---
+
 # [2364. 统计坏数对的数目](https://leetcode.cn/problems/count-number-of-bad-pairs)
 
 [English Version](/solution/2300-2399/2364.Count%20Number%20of%20Bad%20Pairs/README_EN.md)
-
-<!-- tags:数组,哈希表 -->
 
 ## 题目描述
 

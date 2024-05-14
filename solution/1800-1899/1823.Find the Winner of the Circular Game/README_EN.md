@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1823.Find%20the%20Winner%20of%20the%20Circular%20Game/README_EN.md
+rating: 1412
+tags:
+    - Recursion
+    - Queue
+    - Array
+    - Math
+    - Simulation
+---
+
 # [1823. Find the Winner of the Circular Game](https://leetcode.com/problems/find-the-winner-of-the-circular-game)
 
 [中文文档](/solution/1800-1899/1823.Find%20the%20Winner%20of%20the%20Circular%20Game/README.md)
-
-<!-- tags:Recursion,Queue,Array,Math,Simulation -->
 
 ## Description
 

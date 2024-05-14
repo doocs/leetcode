@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0185.Department%20Top%20Three%20Salaries/README_EN.md
+tags:
+    - Database
+---
+
 # [185. Department Top Three Salaries](https://leetcode.com/problems/department-top-three-salaries)
 
 [中文文档](/solution/0100-0199/0185.Department%20Top%20Three%20Salaries/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

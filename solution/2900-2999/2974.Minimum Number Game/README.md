@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2974.Minimum%20Number%20Game/README.md
+rating: 1184
+tags:
+    - 数组
+    - 排序
+    - 模拟
+    - 堆（优先队列）
+---
+
 # [2974. 最小数字游戏](https://leetcode.cn/problems/minimum-number-game)
 
 [English Version](/solution/2900-2999/2974.Minimum%20Number%20Game/README_EN.md)
-
-<!-- tags:数组,排序,模拟,堆（优先队列） -->
 
 ## 题目描述
 

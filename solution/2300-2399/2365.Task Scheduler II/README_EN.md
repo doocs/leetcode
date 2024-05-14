@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2365.Task%20Scheduler%20II/README_EN.md
+rating: 1622
+tags:
+    - Array
+    - Hash Table
+    - Simulation
+---
+
 # [2365. Task Scheduler II](https://leetcode.com/problems/task-scheduler-ii)
 
 [中文文档](/solution/2300-2399/2365.Task%20Scheduler%20II/README.md)
-
-<!-- tags:Array,Hash Table,Simulation -->
 
 ## Description
 

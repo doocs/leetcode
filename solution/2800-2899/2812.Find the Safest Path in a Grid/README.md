@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2812.Find%20the%20Safest%20Path%20in%20a%20Grid/README.md
+rating: 2153
+tags:
+    - 广度优先搜索
+    - 并查集
+    - 数组
+    - 二分查找
+    - 矩阵
+---
+
 # [2812. 找出最安全路径](https://leetcode.cn/problems/find-the-safest-path-in-a-grid)
 
 [English Version](/solution/2800-2899/2812.Find%20the%20Safest%20Path%20in%20a%20Grid/README_EN.md)
-
-<!-- tags:广度优先搜索,并查集,数组,二分查找,矩阵 -->
 
 ## 题目描述
 

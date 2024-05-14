@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0722.Remove%20Comments/README.md
+tags:
+    - 数组
+    - 字符串
+---
+
 # [722. 删除注释](https://leetcode.cn/problems/remove-comments)
 
 [English Version](/solution/0700-0799/0722.Remove%20Comments/README_EN.md)
-
-<!-- tags:数组,字符串 -->
 
 ## 题目描述
 

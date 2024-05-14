@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2876.Count%20Visited%20Nodes%20in%20a%20Directed%20Graph/README_EN.md
+rating: 2209
+tags:
+    - Graph
+    - Memoization
+    - Dynamic Programming
+---
+
 # [2876. Count Visited Nodes in a Directed Graph](https://leetcode.com/problems/count-visited-nodes-in-a-directed-graph)
 
 [中文文档](/solution/2800-2899/2876.Count%20Visited%20Nodes%20in%20a%20Directed%20Graph/README.md)
-
-<!-- tags:Graph,Memoization,Dynamic Programming -->
 
 ## Description
 

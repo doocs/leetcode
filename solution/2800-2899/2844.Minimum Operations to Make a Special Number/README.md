@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2844.Minimum%20Operations%20to%20Make%20a%20Special%20Number/README.md
+rating: 1588
+tags:
+    - 贪心
+    - 数学
+    - 字符串
+    - 枚举
+---
+
 # [2844. 生成特殊数字的最少操作](https://leetcode.cn/problems/minimum-operations-to-make-a-special-number)
 
 [English Version](/solution/2800-2899/2844.Minimum%20Operations%20to%20Make%20a%20Special%20Number/README_EN.md)
-
-<!-- tags:贪心,数学,字符串,枚举 -->
 
 ## 题目描述
 

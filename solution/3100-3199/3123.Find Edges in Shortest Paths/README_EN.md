@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3123.Find%20Edges%20in%20Shortest%20Paths/README_EN.md
+rating: 2093
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Graph
+    - Shortest Path
+    - Heap (Priority Queue)
+---
+
 # [3123. Find Edges in Shortest Paths](https://leetcode.com/problems/find-edges-in-shortest-paths)
 
 [中文文档](/solution/3100-3199/3123.Find%20Edges%20in%20Shortest%20Paths/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Graph,Shortest Path,Heap (Priority Queue) -->
 
 ## Description
 

@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0835.Image%20Overlap/README.md
+tags:
+    - 数组
+    - 矩阵
+---
+
 # [835. 图像重叠](https://leetcode.cn/problems/image-overlap)
 
 [English Version](/solution/0800-0899/0835.Image%20Overlap/README_EN.md)
-
-<!-- tags:数组,矩阵 -->
 
 ## 题目描述
 

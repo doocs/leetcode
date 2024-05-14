@@ -1,8 +1,17 @@
-# [2871. Split Array Into Maximum Number of Subarrays](https://leetcode.com/problems/split-array-into-maximum-number-of-subarrays/)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2871.Split%20Array%20Into%20Maximum%20Number%20of%20Subarrays/README_EN.md
+rating: 1749
+tags:
+    - Greedy
+    - Bit Manipulation
+    - Array
+---
+
+# [2871. Split Array Into Maximum Number of Subarrays](https://leetcode.com/problems/split-array-into-maximum-number-of-subarrays)
 
 [中文文档](/solution/2800-2899/2871.Split%20Array%20Into%20Maximum%20Number%20of%20Subarrays/README.md)
-
-<!-- tags:Greedy,Bit Manipulation,Array -->
 
 ## Description
 

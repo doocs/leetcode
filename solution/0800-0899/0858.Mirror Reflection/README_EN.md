@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0858.Mirror%20Reflection/README_EN.md
+tags:
+    - Geometry
+    - Math
+    - Number Theory
+---
+
 # [858. Mirror Reflection](https://leetcode.com/problems/mirror-reflection)
 
 [中文文档](/solution/0800-0899/0858.Mirror%20Reflection/README.md)
-
-<!-- tags:Geometry,Math,Number Theory -->
 
 ## Description
 

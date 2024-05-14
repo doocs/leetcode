@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1680.Concatenation%20of%20Consecutive%20Binary%20Numbers/README.md
+rating: 1629
+tags:
+    - 位运算
+    - 数学
+    - 模拟
+---
+
 # [1680. 连接连续二进制数字](https://leetcode.cn/problems/concatenation-of-consecutive-binary-numbers)
 
 [English Version](/solution/1600-1699/1680.Concatenation%20of%20Consecutive%20Binary%20Numbers/README_EN.md)
-
-<!-- tags:位运算,数学,模拟 -->
 
 ## 题目描述
 

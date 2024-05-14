@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2077.Paths%20in%20Maze%20That%20Lead%20to%20Same%20Room/README.md
+tags:
+    - 图
+---
+
 # [2077. 殊途同归 🔒](https://leetcode.cn/problems/paths-in-maze-that-lead-to-same-room)
 
 [English Version](/solution/2000-2099/2077.Paths%20in%20Maze%20That%20Lead%20to%20Same%20Room/README_EN.md)
-
-<!-- tags:图 -->
 
 ## 题目描述
 

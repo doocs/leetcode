@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0550.Game%20Play%20Analysis%20IV/README.md
+tags:
+    - 数据库
+---
+
 # [550. 游戏玩法分析 IV](https://leetcode.cn/problems/game-play-analysis-iv)
 
 [English Version](/solution/0500-0599/0550.Game%20Play%20Analysis%20IV/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.07.Exchange/README.md
+---
+
 # [面试题 05.07. 配对交换](https://leetcode.cn/problems/exchange-lcci)
 
 [English Version](/lcci/05.07.Exchange/README_EN.md)

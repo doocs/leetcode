@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0256.Paint%20House/README.md
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [256. 粉刷房子 🔒](https://leetcode.cn/problems/paint-house)
 
 [English Version](/solution/0200-0299/0256.Paint%20House/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
 
 ## 题目描述
 

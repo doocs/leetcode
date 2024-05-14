@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0172.Factorial%20Trailing%20Zeroes/README.md
+tags:
+    - 数学
+---
+
 # [172. 阶乘后的零](https://leetcode.cn/problems/factorial-trailing-zeroes)
 
 [English Version](/solution/0100-0199/0172.Factorial%20Trailing%20Zeroes/README_EN.md)
-
-<!-- tags:数学 -->
 
 ## 题目描述
 

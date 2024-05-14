@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3025.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20I/README.md
+rating: 1707
+tags:
+    - 几何
+    - 数组
+    - 数学
+    - 枚举
+    - 排序
+---
+
 # [3025. 人员站位的方案数 I](https://leetcode.cn/problems/find-the-number-of-ways-to-place-people-i)
 
 [English Version](/solution/3000-3099/3025.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20I/README_EN.md)
-
-<!-- tags:几何,数组,数学,枚举,排序 -->
 
 ## 题目描述
 

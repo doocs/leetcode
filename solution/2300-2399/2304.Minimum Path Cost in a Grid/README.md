@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2304.Minimum%20Path%20Cost%20in%20a%20Grid/README.md
+rating: 1658
+tags:
+    - 数组
+    - 动态规划
+    - 矩阵
+---
+
 # [2304. 网格中的最小路径代价](https://leetcode.cn/problems/minimum-path-cost-in-a-grid)
 
 [English Version](/solution/2300-2399/2304.Minimum%20Path%20Cost%20in%20a%20Grid/README_EN.md)
-
-<!-- tags:数组,动态规划,矩阵 -->
 
 ## 题目描述
 

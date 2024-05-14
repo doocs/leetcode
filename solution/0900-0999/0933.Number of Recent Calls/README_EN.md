@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0933.Number%20of%20Recent%20Calls/README_EN.md
+tags:
+    - Design
+    - Queue
+    - Data Stream
+---
+
 # [933. Number of Recent Calls](https://leetcode.com/problems/number-of-recent-calls)
 
 [中文文档](/solution/0900-0999/0933.Number%20of%20Recent%20Calls/README.md)
-
-<!-- tags:Design,Queue,Data Stream -->
 
 ## Description
 

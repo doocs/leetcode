@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0820.Short%20Encoding%20of%20Words/README_EN.md
+tags:
+    - Trie
+    - Array
+    - Hash Table
+    - String
+---
+
 # [820. Short Encoding of Words](https://leetcode.com/problems/short-encoding-of-words)
 
 [中文文档](/solution/0800-0899/0820.Short%20Encoding%20of%20Words/README.md)
-
-<!-- tags:Trie,Array,Hash Table,String -->
 
 ## Description
 

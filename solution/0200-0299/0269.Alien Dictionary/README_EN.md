@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0269.Alien%20Dictionary/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Graph
+    - Topological Sort
+    - Array
+    - String
+---
+
 # [269. Alien Dictionary 🔒](https://leetcode.com/problems/alien-dictionary)
 
 [中文文档](/solution/0200-0299/0269.Alien%20Dictionary/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Graph,Topological Sort,Array,String -->
 
 ## Description
 

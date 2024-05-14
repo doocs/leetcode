@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2373.Largest%20Local%20Values%20in%20a%20Matrix/README.md
+rating: 1331
+tags:
+    - 数组
+    - 矩阵
+---
+
 # [2373. 矩阵中的局部最大值](https://leetcode.cn/problems/largest-local-values-in-a-matrix)
 
 [English Version](/solution/2300-2399/2373.Largest%20Local%20Values%20in%20a%20Matrix/README_EN.md)
-
-<!-- tags:数组,矩阵 -->
 
 ## 题目描述
 

@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0185.Department%20Top%20Three%20Salaries/README.md
+tags:
+    - 数据库
+---
+
 # [185. 部门工资前三高的所有员工](https://leetcode.cn/problems/department-top-three-salaries)
 
 [English Version](/solution/0100-0199/0185.Department%20Top%20Three%20Salaries/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

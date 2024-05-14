@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1285.Find%20the%20Start%20and%20End%20Number%20of%20Continuous%20Ranges/README.md
+tags:
+    - 数据库
+---
+
 # [1285. 找到连续区间的开始和结束数字 🔒](https://leetcode.cn/problems/find-the-start-and-end-number-of-continuous-ranges)
 
 [English Version](/solution/1200-1299/1285.Find%20the%20Start%20and%20End%20Number%20of%20Continuous%20Ranges/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1661.Average%20Time%20of%20Process%20per%20Machine/README.md
+tags:
+    - 数据库
+---
+
 # [1661. 每台机器的进程平均运行时间](https://leetcode.cn/problems/average-time-of-process-per-machine)
 
 [English Version](/solution/1600-1699/1661.Average%20Time%20of%20Process%20per%20Machine/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

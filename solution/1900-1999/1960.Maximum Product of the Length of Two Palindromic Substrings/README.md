@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1960.Maximum%20Product%20of%20the%20Length%20of%20Two%20Palindromic%20Substrings/README.md
+rating: 2690
+tags:
+    - 字符串
+    - 哈希函数
+    - 滚动哈希
+---
+
 # [1960. 两个回文子字符串长度的最大乘积](https://leetcode.cn/problems/maximum-product-of-the-length-of-two-palindromic-substrings)
 
 [English Version](/solution/1900-1999/1960.Maximum%20Product%20of%20the%20Length%20of%20Two%20Palindromic%20Substrings/README_EN.md)
-
-<!-- tags:字符串,哈希函数,滚动哈希 -->
 
 ## 题目描述
 

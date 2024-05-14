@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.14.Best%20Line/README.md
+---
+
 # [面试题 16.14. 最佳直线](https://leetcode.cn/problems/best-line-lcci)
 
 [English Version](/lcci/16.14.Best%20Line/README_EN.md)

@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2137.Pour%20Water%20Between%20Buckets%20to%20Make%20Water%20Levels%20Equal/README_EN.md
+tags:
+    - Array
+    - Binary Search
+---
+
 # [2137. Pour Water Between Buckets to Make Water Levels Equal 🔒](https://leetcode.com/problems/pour-water-between-buckets-to-make-water-levels-equal)
 
 [中文文档](/solution/2100-2199/2137.Pour%20Water%20Between%20Buckets%20to%20Make%20Water%20Levels%20Equal/README.md)
-
-<!-- tags:Array,Binary Search -->
 
 ## Description
 

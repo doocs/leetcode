@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1187.Make%20Array%20Strictly%20Increasing/README.md
+rating: 2315
+tags:
+    - 数组
+    - 二分查找
+    - 动态规划
+    - 排序
+---
+
 # [1187. 使数组严格递增](https://leetcode.cn/problems/make-array-strictly-increasing)
 
 [English Version](/solution/1100-1199/1187.Make%20Array%20Strictly%20Increasing/README_EN.md)
-
-<!-- tags:数组,二分查找,动态规划,排序 -->
 
 ## 题目描述
 

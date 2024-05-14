@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20065.%20%E6%9C%80%E7%9F%AD%E7%9A%84%E5%8D%95%E8%AF%8D%E7%BC%96%E7%A0%81/README.md
+---
+
 # [剑指 Offer II 065. 最短的单词编码](https://leetcode.cn/problems/iSwD2y)
 
 ## 题目描述

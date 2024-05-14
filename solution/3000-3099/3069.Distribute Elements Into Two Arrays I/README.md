@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3069.Distribute%20Elements%20Into%20Two%20Arrays%20I/README.md
+rating: 1203
+tags:
+    - 数组
+    - 模拟
+---
+
 # [3069. 将元素分配到两个数组中 I](https://leetcode.cn/problems/distribute-elements-into-two-arrays-i)
 
 [English Version](/solution/3000-3099/3069.Distribute%20Elements%20Into%20Two%20Arrays%20I/README_EN.md)
-
-<!-- tags:数组,模拟 -->
 
 ## 题目描述
 

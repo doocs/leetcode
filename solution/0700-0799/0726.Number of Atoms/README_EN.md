@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0726.Number%20of%20Atoms/README_EN.md
+tags:
+    - Stack
+    - Hash Table
+    - String
+    - Sorting
+---
+
 # [726. Number of Atoms](https://leetcode.com/problems/number-of-atoms)
 
 [中文文档](/solution/0700-0799/0726.Number%20of%20Atoms/README.md)
-
-<!-- tags:Stack,Hash Table,String,Sorting -->
 
 ## Description
 

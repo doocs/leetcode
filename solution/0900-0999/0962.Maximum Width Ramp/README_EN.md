@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0962.Maximum%20Width%20Ramp/README_EN.md
+tags:
+    - Stack
+    - Array
+    - Monotonic Stack
+---
+
 # [962. Maximum Width Ramp](https://leetcode.com/problems/maximum-width-ramp)
 
 [中文文档](/solution/0900-0999/0962.Maximum%20Width%20Ramp/README.md)
-
-<!-- tags:Stack,Array,Monotonic Stack -->
 
 ## Description
 

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2273.Find%20Resultant%20Array%20After%20Removing%20Anagrams/README.md
+rating: 1294
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+    - 排序
+---
+
 # [2273. 移除字母异位词后的结果数组](https://leetcode.cn/problems/find-resultant-array-after-removing-anagrams)
 
 [English Version](/solution/2200-2299/2273.Find%20Resultant%20Array%20After%20Removing%20Anagrams/README_EN.md)
-
-<!-- tags:数组,哈希表,字符串,排序 -->
 
 ## 题目描述
 

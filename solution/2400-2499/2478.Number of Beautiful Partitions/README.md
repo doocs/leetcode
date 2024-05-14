@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2478.Number%20of%20Beautiful%20Partitions/README.md
+rating: 2344
+tags:
+    - 字符串
+    - 动态规划
+---
+
 # [2478. 完美分割的方案数](https://leetcode.cn/problems/number-of-beautiful-partitions)
 
 [English Version](/solution/2400-2499/2478.Number%20of%20Beautiful%20Partitions/README_EN.md)
-
-<!-- tags:字符串,动态规划 -->
 
 ## 题目描述
 

@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.03.Intersection/README_EN.md
+---
+
 # [16.03. Intersection](https://leetcode.cn/problems/intersection-lcci)
 
 [中文文档](/lcci/16.03.Intersection/README.md)

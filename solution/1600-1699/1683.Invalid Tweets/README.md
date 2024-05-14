@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1683.Invalid%20Tweets/README.md
+tags:
+    - 数据库
+---
+
 # [1683. 无效的推文](https://leetcode.cn/problems/invalid-tweets)
 
 [English Version](/solution/1600-1699/1683.Invalid%20Tweets/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

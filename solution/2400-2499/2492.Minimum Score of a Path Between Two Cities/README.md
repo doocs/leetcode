@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2492.Minimum%20Score%20of%20a%20Path%20Between%20Two%20Cities/README.md
+rating: 1679
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 并查集
+    - 图
+---
+
 # [2492. 两个城市间路径的最小分数](https://leetcode.cn/problems/minimum-score-of-a-path-between-two-cities)
 
 [English Version](/solution/2400-2499/2492.Minimum%20Score%20of%20a%20Path%20Between%20Two%20Cities/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,并查集,图 -->
 
 ## 题目描述
 

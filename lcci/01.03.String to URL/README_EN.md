@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.03.String%20to%20URL/README_EN.md
+---
+
 # [01.03. String to URL](https://leetcode.cn/problems/string-to-url-lcci)
 
 [中文文档](/lcci/01.03.String%20to%20URL/README.md)

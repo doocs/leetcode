@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0267.Palindrome%20Permutation%20II/README.md
+tags:
+    - 哈希表
+    - 字符串
+    - 回溯
+---
+
 # [267. 回文排列 II 🔒](https://leetcode.cn/problems/palindrome-permutation-ii)
 
 [English Version](/solution/0200-0299/0267.Palindrome%20Permutation%20II/README_EN.md)
-
-<!-- tags:哈希表,字符串,回溯 -->
 
 ## 题目描述
 

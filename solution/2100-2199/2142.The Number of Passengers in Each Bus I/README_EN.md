@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2142.The%20Number%20of%20Passengers%20in%20Each%20Bus%20I/README_EN.md
+tags:
+    - Database
+---
+
 # [2142. The Number of Passengers in Each Bus I 🔒](https://leetcode.com/problems/the-number-of-passengers-in-each-bus-i)
 
 [中文文档](/solution/2100-2199/2142.The%20Number%20of%20Passengers%20in%20Each%20Bus%20I/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2405.Optimal%20Partition%20of%20String/README.md
+rating: 1355
+tags:
+    - 贪心
+    - 哈希表
+    - 字符串
+---
+
 # [2405. 子字符串的最优划分](https://leetcode.cn/problems/optimal-partition-of-string)
 
 [English Version](/solution/2400-2499/2405.Optimal%20Partition%20of%20String/README_EN.md)
-
-<!-- tags:贪心,哈希表,字符串 -->
 
 ## 题目描述
 

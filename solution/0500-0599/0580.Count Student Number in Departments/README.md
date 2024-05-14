@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0580.Count%20Student%20Number%20in%20Departments/README.md
+tags:
+    - 数据库
+---
+
 # [580. 统计各专业学生人数 🔒](https://leetcode.cn/problems/count-student-number-in-departments)
 
 [English Version](/solution/0500-0599/0580.Count%20Student%20Number%20in%20Departments/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

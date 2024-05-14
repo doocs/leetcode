@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0839.Similar%20String%20Groups/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 并查集
+    - 数组
+    - 哈希表
+    - 字符串
+---
+
 # [839. 相似字符串组](https://leetcode.cn/problems/similar-string-groups)
 
 [English Version](/solution/0800-0899/0839.Similar%20String%20Groups/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,并查集,数组,哈希表,字符串 -->
 
 ## 题目描述
 

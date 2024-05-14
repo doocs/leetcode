@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0535.Encode%20and%20Decode%20TinyURL/README.md
+tags:
+    - 设计
+    - 哈希表
+    - 字符串
+    - 哈希函数
+---
+
 # [535. TinyURL 的加密与解密](https://leetcode.cn/problems/encode-and-decode-tinyurl)
 
 [English Version](/solution/0500-0599/0535.Encode%20and%20Decode%20TinyURL/README_EN.md)
-
-<!-- tags:设计,哈希表,字符串,哈希函数 -->
 
 ## 题目描述
 

@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.09.Get%20Kth%20Magic%20Number/README_EN.md
+---
+
 # [17.09. Get Kth Magic Number](https://leetcode.cn/problems/get-kth-magic-number-lcci)
 
 ## Description

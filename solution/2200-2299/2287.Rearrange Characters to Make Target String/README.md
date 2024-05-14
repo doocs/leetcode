@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2287.Rearrange%20Characters%20to%20Make%20Target%20String/README.md
+rating: 1299
+tags:
+    - 哈希表
+    - 字符串
+    - 计数
+---
+
 # [2287. 重排字符形成目标字符串](https://leetcode.cn/problems/rearrange-characters-to-make-target-string)
 
 [English Version](/solution/2200-2299/2287.Rearrange%20Characters%20to%20Make%20Target%20String/README_EN.md)
-
-<!-- tags:哈希表,字符串,计数 -->
 
 ## 题目描述
 

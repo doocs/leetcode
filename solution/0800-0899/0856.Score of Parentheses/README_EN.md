@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0856.Score%20of%20Parentheses/README_EN.md
+tags:
+    - Stack
+    - String
+---
+
 # [856. Score of Parentheses](https://leetcode.com/problems/score-of-parentheses)
 
 [中文文档](/solution/0800-0899/0856.Score%20of%20Parentheses/README.md)
-
-<!-- tags:Stack,String -->
 
 ## Description
 

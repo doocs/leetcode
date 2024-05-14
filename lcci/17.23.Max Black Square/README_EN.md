@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.23.Max%20Black%20Square/README_EN.md
+---
+
 # [17.23. Max Black Square](https://leetcode.cn/problems/max-black-square-lcci)
 
 [中文文档](/lcci/17.23.Max%20Black%20Square/README.md)

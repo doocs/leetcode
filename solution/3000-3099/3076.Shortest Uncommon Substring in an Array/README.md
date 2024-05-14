@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3076.Shortest%20Uncommon%20Substring%20in%20an%20Array/README.md
+rating: 1635
+tags:
+    - 字典树
+    - 数组
+    - 哈希表
+    - 字符串
+---
+
 # [3076. 数组中的最短非公共子字符串](https://leetcode.cn/problems/shortest-uncommon-substring-in-an-array)
 
 [English Version](/solution/3000-3099/3076.Shortest%20Uncommon%20Substring%20in%20an%20Array/README_EN.md)
-
-<!-- tags:字典树,数组,哈希表,字符串 -->
 
 ## 题目描述
 

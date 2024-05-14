@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1231.Divide%20Chocolate/README_EN.md
+rating: 2029
+tags:
+    - Array
+    - Binary Search
+---
+
 # [1231. Divide Chocolate 🔒](https://leetcode.com/problems/divide-chocolate)
 
 [中文文档](/solution/1200-1299/1231.Divide%20Chocolate/README.md)
-
-<!-- tags:Array,Binary Search -->
 
 ## Description
 

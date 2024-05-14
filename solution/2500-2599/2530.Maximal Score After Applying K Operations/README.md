@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2530.Maximal%20Score%20After%20Applying%20K%20Operations/README.md
+rating: 1386
+tags:
+    - 贪心
+    - 数组
+    - 堆（优先队列）
+---
+
 # [2530. 执行 K 次操作后的最大分数](https://leetcode.cn/problems/maximal-score-after-applying-k-operations)
 
 [English Version](/solution/2500-2599/2530.Maximal%20Score%20After%20Applying%20K%20Operations/README_EN.md)
-
-<!-- tags:贪心,数组,堆（优先队列） -->
 
 ## 题目描述
 

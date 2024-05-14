@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1074.Number%20of%20Submatrices%20That%20Sum%20to%20Target/README_EN.md
+rating: 2189
+tags:
+    - Array
+    - Hash Table
+    - Matrix
+    - Prefix Sum
+---
+
 # [1074. Number of Submatrices That Sum to Target](https://leetcode.com/problems/number-of-submatrices-that-sum-to-target)
 
 [中文文档](/solution/1000-1099/1074.Number%20of%20Submatrices%20That%20Sum%20to%20Target/README.md)
-
-<!-- tags:Array,Hash Table,Matrix,Prefix Sum -->
 
 ## Description
 

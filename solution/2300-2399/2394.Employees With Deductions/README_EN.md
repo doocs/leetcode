@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2394.Employees%20With%20Deductions/README_EN.md
+tags:
+    - Database
+---
+
 # [2394. Employees With Deductions 🔒](https://leetcode.com/problems/employees-with-deductions)
 
 [中文文档](/solution/2300-2399/2394.Employees%20With%20Deductions/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

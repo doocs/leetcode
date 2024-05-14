@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1872.Stone%20Game%20VIII/README.md
+rating: 2439
+tags:
+    - 数组
+    - 数学
+    - 动态规划
+    - 博弈
+    - 前缀和
+---
+
 # [1872. 石子游戏 VIII](https://leetcode.cn/problems/stone-game-viii)
 
 [English Version](/solution/1800-1899/1872.Stone%20Game%20VIII/README_EN.md)
-
-<!-- tags:数组,数学,动态规划,博弈,前缀和 -->
 
 ## 题目描述
 

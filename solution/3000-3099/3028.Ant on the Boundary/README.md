@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3028.Ant%20on%20the%20Boundary/README.md
+rating: 1115
+tags:
+    - 数组
+    - 前缀和
+    - 模拟
+---
+
 # [3028. 边界上的蚂蚁](https://leetcode.cn/problems/ant-on-the-boundary)
 
 [English Version](/solution/3000-3099/3028.Ant%20on%20the%20Boundary/README_EN.md)
-
-<!-- tags:数组,前缀和,模拟 -->
 
 ## 题目描述
 

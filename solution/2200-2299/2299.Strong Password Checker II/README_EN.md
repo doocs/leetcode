@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2299.Strong%20Password%20Checker%20II/README_EN.md
+rating: 1241
+tags:
+    - String
+---
+
 # [2299. Strong Password Checker II](https://leetcode.com/problems/strong-password-checker-ii)
 
 [中文文档](/solution/2200-2299/2299.Strong%20Password%20Checker%20II/README.md)
-
-<!-- tags:String -->
 
 ## Description
 

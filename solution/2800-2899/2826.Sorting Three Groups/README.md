@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2826.Sorting%20Three%20Groups/README.md
+rating: 1721
+tags:
+    - 数组
+    - 二分查找
+    - 动态规划
+---
+
 # [2826. 将三个组排序](https://leetcode.cn/problems/sorting-three-groups)
 
 [English Version](/solution/2800-2899/2826.Sorting%20Three%20Groups/README_EN.md)
-
-<!-- tags:数组,二分查找,动态规划 -->
 
 ## 题目描述
 

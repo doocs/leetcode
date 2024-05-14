@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1387.Sort%20Integers%20by%20The%20Power%20Value/README.md
+rating: 1506
+tags:
+    - 记忆化搜索
+    - 动态规划
+    - 排序
+---
+
 # [1387. 将整数按权重排序](https://leetcode.cn/problems/sort-integers-by-the-power-value)
 
 [English Version](/solution/1300-1399/1387.Sort%20Integers%20by%20The%20Power%20Value/README_EN.md)
-
-<!-- tags:记忆化搜索,动态规划,排序 -->
 
 ## 题目描述
 

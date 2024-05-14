@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0280.Wiggle%20Sort/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Sorting
+---
+
 # [280. Wiggle Sort 🔒](https://leetcode.com/problems/wiggle-sort)
 
 [中文文档](/solution/0200-0299/0280.Wiggle%20Sort/README.md)
-
-<!-- tags:Greedy,Array,Sorting -->
 
 ## Description
 

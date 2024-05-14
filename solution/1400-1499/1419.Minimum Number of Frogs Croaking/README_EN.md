@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1419.Minimum%20Number%20of%20Frogs%20Croaking/README_EN.md
+rating: 1689
+tags:
+    - String
+    - Counting
+---
+
 # [1419. Minimum Number of Frogs Croaking](https://leetcode.com/problems/minimum-number-of-frogs-croaking)
 
 [中文文档](/solution/1400-1499/1419.Minimum%20Number%20of%20Frogs%20Croaking/README.md)
-
-<!-- tags:String,Counting -->
 
 ## Description
 

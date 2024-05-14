@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0036.Valid%20Sudoku/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Matrix
+---
+
 # [36. Valid Sudoku](https://leetcode.com/problems/valid-sudoku)
 
 [中文文档](/solution/0000-0099/0036.Valid%20Sudoku/README.md)
-
-<!-- tags:Array,Hash Table,Matrix -->
 
 ## Description
 

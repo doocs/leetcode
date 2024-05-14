@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1801.Number%20of%20Orders%20in%20the%20Backlog/README.md
+rating: 1711
+tags:
+    - 数组
+    - 模拟
+    - 堆（优先队列）
+---
+
 # [1801. 积压订单中的订单总数](https://leetcode.cn/problems/number-of-orders-in-the-backlog)
 
 [English Version](/solution/1800-1899/1801.Number%20of%20Orders%20in%20the%20Backlog/README_EN.md)
-
-<!-- tags:数组,模拟,堆（优先队列） -->
 
 ## 题目描述
 

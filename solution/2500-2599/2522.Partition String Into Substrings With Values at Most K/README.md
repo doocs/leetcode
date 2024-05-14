@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2522.Partition%20String%20Into%20Substrings%20With%20Values%20at%20Most%20K/README.md
+rating: 1604
+tags:
+    - 贪心
+    - 字符串
+    - 动态规划
+---
+
 # [2522. 将字符串分割成值不超过 K 的子字符串](https://leetcode.cn/problems/partition-string-into-substrings-with-values-at-most-k)
 
 [English Version](/solution/2500-2599/2522.Partition%20String%20Into%20Substrings%20With%20Values%20at%20Most%20K/README_EN.md)
-
-<!-- tags:贪心,字符串,动态规划 -->
 
 ## 题目描述
 

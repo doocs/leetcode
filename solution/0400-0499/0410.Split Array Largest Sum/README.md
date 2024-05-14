@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0410.Split%20Array%20Largest%20Sum/README.md
+tags:
+    - 贪心
+    - 数组
+    - 二分查找
+    - 动态规划
+    - 前缀和
+---
+
 # [410. 分割数组的最大值](https://leetcode.cn/problems/split-array-largest-sum)
 
 [English Version](/solution/0400-0499/0410.Split%20Array%20Largest%20Sum/README_EN.md)
-
-<!-- tags:贪心,数组,二分查找,动态规划,前缀和 -->
 
 ## 题目描述
 

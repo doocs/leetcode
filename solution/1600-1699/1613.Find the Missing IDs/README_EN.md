@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1613.Find%20the%20Missing%20IDs/README_EN.md
+tags:
+    - Database
+---
+
 # [1613. Find the Missing IDs 🔒](https://leetcode.com/problems/find-the-missing-ids)
 
 [中文文档](/solution/1600-1699/1613.Find%20the%20Missing%20IDs/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

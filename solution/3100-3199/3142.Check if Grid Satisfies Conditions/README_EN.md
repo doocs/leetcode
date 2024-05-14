@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3142.Check%20if%20Grid%20Satisfies%20Conditions/README_EN.md
+---
+
 # [3142. Check if Grid Satisfies Conditions](https://leetcode.com/problems/check-if-grid-satisfies-conditions)
 
 [中文文档](/solution/3100-3199/3142.Check%20if%20Grid%20Satisfies%20Conditions/README.md)
-
-<!-- tags: -->
 
 ## Description
 

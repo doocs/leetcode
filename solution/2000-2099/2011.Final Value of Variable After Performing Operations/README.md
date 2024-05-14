@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2011.Final%20Value%20of%20Variable%20After%20Performing%20Operations/README.md
+rating: 1165
+tags:
+    - 数组
+    - 字符串
+    - 模拟
+---
+
 # [2011. 执行操作后的变量值](https://leetcode.cn/problems/final-value-of-variable-after-performing-operations)
 
 [English Version](/solution/2000-2099/2011.Final%20Value%20of%20Variable%20After%20Performing%20Operations/README_EN.md)
-
-<!-- tags:数组,字符串,模拟 -->
 
 ## 题目描述
 

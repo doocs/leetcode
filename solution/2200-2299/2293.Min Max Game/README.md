@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2293.Min%20Max%20Game/README.md
+rating: 1241
+tags:
+    - 数组
+    - 模拟
+---
+
 # [2293. 极大极小游戏](https://leetcode.cn/problems/min-max-game)
 
 [English Version](/solution/2200-2299/2293.Min%20Max%20Game/README_EN.md)
-
-<!-- tags:数组,模拟 -->
 
 ## 题目描述
 

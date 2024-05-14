@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2936.Number%20of%20Equal%20Numbers%20Blocks/README_EN.md
+tags:
+    - Array
+    - Binary Search
+    - Interactive
+---
+
 # [2936. Number of Equal Numbers Blocks 🔒](https://leetcode.com/problems/number-of-equal-numbers-blocks)
 
 [中文文档](/solution/2900-2999/2936.Number%20of%20Equal%20Numbers%20Blocks/README.md)
-
-<!-- tags:Array,Binary Search,Interactive -->
 
 ## Description
 

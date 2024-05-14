@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0319.Bulb%20Switcher/README_EN.md
+tags:
+    - Brainteaser
+    - Math
+---
+
 # [319. Bulb Switcher](https://leetcode.com/problems/bulb-switcher)
 
 [中文文档](/solution/0300-0399/0319.Bulb%20Switcher/README.md)
-
-<!-- tags:Brainteaser,Math -->
 
 ## Description
 

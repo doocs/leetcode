@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2338.Count%20the%20Number%20of%20Ideal%20Arrays/README_EN.md
+rating: 2615
+tags:
+    - Math
+    - Dynamic Programming
+    - Combinatorics
+    - Number Theory
+---
+
 # [2338. Count the Number of Ideal Arrays](https://leetcode.com/problems/count-the-number-of-ideal-arrays)
 
 [中文文档](/solution/2300-2399/2338.Count%20the%20Number%20of%20Ideal%20Arrays/README.md)
-
-<!-- tags:Math,Dynamic Programming,Combinatorics,Number Theory -->
 
 ## Description
 

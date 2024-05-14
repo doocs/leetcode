@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2805.Custom%20Interval/README_EN.md
+---
+
 # [2805. Custom Interval 🔒](https://leetcode.com/problems/custom-interval)
 
 [中文文档](/solution/2800-2899/2805.Custom%20Interval/README.md)
-
-<!-- tags: -->
 
 ## Description
 

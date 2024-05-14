@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1325.Delete%20Leaves%20With%20a%20Given%20Value/README.md
+rating: 1407
+tags:
+    - 树
+    - 深度优先搜索
+    - 二叉树
+---
+
 # [1325. 删除给定值的叶子节点](https://leetcode.cn/problems/delete-leaves-with-a-given-value)
 
 [English Version](/solution/1300-1399/1325.Delete%20Leaves%20With%20a%20Given%20Value/README_EN.md)
-
-<!-- tags:树,深度优先搜索,二叉树 -->
 
 ## 题目描述
 

@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.06.Animal%20Shelter/README_EN.md
+---
+
 # [03.06. Animal Shelter](https://leetcode.cn/problems/animal-shelter-lcci)
 
 [中文文档](/lcci/03.06.Animal%20Shelter/README.md)

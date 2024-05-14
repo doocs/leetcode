@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1706.Where%20Will%20the%20Ball%20Fall/README_EN.md
+rating: 1764
+tags:
+    - Array
+    - Matrix
+    - Simulation
+---
+
 # [1706. Where Will the Ball Fall](https://leetcode.com/problems/where-will-the-ball-fall)
 
 [中文文档](/solution/1700-1799/1706.Where%20Will%20the%20Ball%20Fall/README.md)
-
-<!-- tags:Array,Matrix,Simulation -->
 
 ## Description
 

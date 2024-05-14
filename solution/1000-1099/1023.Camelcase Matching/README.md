@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1023.Camelcase%20Matching/README.md
+rating: 1537
+tags:
+    - 字典树
+    - 数组
+    - 双指针
+    - 字符串
+    - 字符串匹配
+---
+
 # [1023. 驼峰式匹配](https://leetcode.cn/problems/camelcase-matching)
 
 [English Version](/solution/1000-1099/1023.Camelcase%20Matching/README_EN.md)
-
-<!-- tags:字典树,数组,双指针,字符串,字符串匹配 -->
 
 ## 题目描述
 

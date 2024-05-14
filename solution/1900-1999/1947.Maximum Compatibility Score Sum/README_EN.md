@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1947.Maximum%20Compatibility%20Score%20Sum/README_EN.md
+rating: 1704
+tags:
+    - Bit Manipulation
+    - Array
+    - Dynamic Programming
+    - Backtracking
+    - Bitmask
+---
+
 # [1947. Maximum Compatibility Score Sum](https://leetcode.com/problems/maximum-compatibility-score-sum)
 
 [中文文档](/solution/1900-1999/1947.Maximum%20Compatibility%20Score%20Sum/README.md)
-
-<!-- tags:Bit Manipulation,Array,Dynamic Programming,Backtracking,Bitmask -->
 
 ## Description
 

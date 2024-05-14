@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3120.Count%20the%20Number%20of%20Special%20Characters%20I/README.md
+rating: 1205
+tags:
+    - 哈希表
+    - 字符串
+---
+
 # [3120. 统计特殊字母的数量 I](https://leetcode.cn/problems/count-the-number-of-special-characters-i)
 
 [English Version](/solution/3100-3199/3120.Count%20the%20Number%20of%20Special%20Characters%20I/README_EN.md)
-
-<!-- tags:哈希表,字符串 -->
 
 ## 题目描述
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1772.Sort%20Features%20by%20Popularity/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - String
+    - Sorting
+---
+
 # [1772. Sort Features by Popularity 🔒](https://leetcode.com/problems/sort-features-by-popularity)
 
 [中文文档](/solution/1700-1799/1772.Sort%20Features%20by%20Popularity/README.md)
-
-<!-- tags:Array,Hash Table,String,Sorting -->
 
 ## Description
 

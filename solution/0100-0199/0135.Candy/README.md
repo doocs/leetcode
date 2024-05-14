@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0135.Candy/README.md
+tags:
+    - 贪心
+    - 数组
+---
+
 # [135. 分发糖果](https://leetcode.cn/problems/candy)
 
 [English Version](/solution/0100-0199/0135.Candy/README_EN.md)
-
-<!-- tags:贪心,数组 -->
 
 ## 题目描述
 

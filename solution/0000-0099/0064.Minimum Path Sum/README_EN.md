@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0064.Minimum%20Path%20Sum/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+    - Matrix
+---
+
 # [64. Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum)
 
 [中文文档](/solution/0000-0099/0064.Minimum%20Path%20Sum/README.md)
-
-<!-- tags:Array,Dynamic Programming,Matrix -->
 
 ## Description
 

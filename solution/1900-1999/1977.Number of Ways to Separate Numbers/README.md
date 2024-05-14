@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1977.Number%20of%20Ways%20to%20Separate%20Numbers/README.md
+rating: 2817
+tags:
+    - 字符串
+    - 动态规划
+    - 后缀数组
+---
+
 # [1977. 划分数字的方案数](https://leetcode.cn/problems/number-of-ways-to-separate-numbers)
 
 [English Version](/solution/1900-1999/1977.Number%20of%20Ways%20to%20Separate%20Numbers/README_EN.md)
-
-<!-- tags:字符串,动态规划,后缀数组 -->
 
 ## 题目描述
 

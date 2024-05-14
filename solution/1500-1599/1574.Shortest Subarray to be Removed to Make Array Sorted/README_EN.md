@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1574.Shortest%20Subarray%20to%20be%20Removed%20to%20Make%20Array%20Sorted/README_EN.md
+rating: 1931
+tags:
+    - Stack
+    - Array
+    - Two Pointers
+    - Binary Search
+    - Monotonic Stack
+---
+
 # [1574. Shortest Subarray to be Removed to Make Array Sorted](https://leetcode.com/problems/shortest-subarray-to-be-removed-to-make-array-sorted)
 
 [中文文档](/solution/1500-1599/1574.Shortest%20Subarray%20to%20be%20Removed%20to%20Make%20Array%20Sorted/README.md)
-
-<!-- tags:Stack,Array,Two Pointers,Binary Search,Monotonic Stack -->
 
 ## Description
 

@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0092.Reverse%20Linked%20List%20II/README.md
+tags:
+    - 链表
+---
+
 # [92. 反转链表 II](https://leetcode.cn/problems/reverse-linked-list-ii)
 
 [English Version](/solution/0000-0099/0092.Reverse%20Linked%20List%20II/README_EN.md)
-
-<!-- tags:链表 -->
 
 ## 题目描述
 

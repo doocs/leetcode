@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2812.Find%20the%20Safest%20Path%20in%20a%20Grid/README_EN.md
+rating: 2153
+tags:
+    - Breadth-First Search
+    - Union Find
+    - Array
+    - Binary Search
+    - Matrix
+---
+
 # [2812. Find the Safest Path in a Grid](https://leetcode.com/problems/find-the-safest-path-in-a-grid)
 
 [中文文档](/solution/2800-2899/2812.Find%20the%20Safest%20Path%20in%20a%20Grid/README.md)
-
-<!-- tags:Breadth-First Search,Union Find,Array,Binary Search,Matrix -->
 
 ## Description
 

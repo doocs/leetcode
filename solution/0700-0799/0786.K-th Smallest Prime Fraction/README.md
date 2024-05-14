@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0786.K-th%20Smallest%20Prime%20Fraction/README.md
+tags:
+    - 数组
+    - 双指针
+    - 二分查找
+    - 排序
+    - 堆（优先队列）
+---
+
 # [786. 第 K 个最小的质数分数](https://leetcode.cn/problems/k-th-smallest-prime-fraction)
 
 [English Version](/solution/0700-0799/0786.K-th%20Smallest%20Prime%20Fraction/README_EN.md)
-
-<!-- tags:数组,双指针,二分查找,排序,堆（优先队列） -->
 
 ## 题目描述
 

@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2142.The%20Number%20of%20Passengers%20in%20Each%20Bus%20I/README.md
+tags:
+    - 数据库
+---
+
 # [2142. 每辆车的乘客人数 I 🔒](https://leetcode.cn/problems/the-number-of-passengers-in-each-bus-i)
 
 [English Version](/solution/2100-2199/2142.The%20Number%20of%20Passengers%20in%20Each%20Bus%20I/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

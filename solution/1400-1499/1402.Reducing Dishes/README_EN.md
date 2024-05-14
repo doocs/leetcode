@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1402.Reducing%20Dishes/README_EN.md
+rating: 1679
+tags:
+    - Greedy
+    - Array
+    - Dynamic Programming
+    - Sorting
+---
+
 # [1402. Reducing Dishes](https://leetcode.com/problems/reducing-dishes)
 
 [中文文档](/solution/1400-1499/1402.Reducing%20Dishes/README.md)
-
-<!-- tags:Greedy,Array,Dynamic Programming,Sorting -->
 
 ## Description
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1503.Last%20Moment%20Before%20All%20Ants%20Fall%20Out%20of%20a%20Plank/README_EN.md
+rating: 1618
+tags:
+    - Brainteaser
+    - Array
+    - Simulation
+---
+
 # [1503. Last Moment Before All Ants Fall Out of a Plank](https://leetcode.com/problems/last-moment-before-all-ants-fall-out-of-a-plank)
 
 [中文文档](/solution/1500-1599/1503.Last%20Moment%20Before%20All%20Ants%20Fall%20Out%20of%20a%20Plank/README.md)
-
-<!-- tags:Brainteaser,Array,Simulation -->
 
 ## Description
 

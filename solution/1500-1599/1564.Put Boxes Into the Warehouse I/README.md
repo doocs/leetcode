@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1564.Put%20Boxes%20Into%20the%20Warehouse%20I/README.md
+tags:
+    - 贪心
+    - 数组
+    - 排序
+---
+
 # [1564. 把箱子放进仓库里 I 🔒](https://leetcode.cn/problems/put-boxes-into-the-warehouse-i)
 
 [English Version](/solution/1500-1599/1564.Put%20Boxes%20Into%20the%20Warehouse%20I/README_EN.md)
-
-<!-- tags:贪心,数组,排序 -->
 
 ## 题目描述
 

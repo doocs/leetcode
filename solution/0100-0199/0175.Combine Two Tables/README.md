@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0175.Combine%20Two%20Tables/README.md
+tags:
+    - 数据库
+---
+
 # [175. 组合两个表](https://leetcode.cn/problems/combine-two-tables)
 
 [English Version](/solution/0100-0199/0175.Combine%20Two%20Tables/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

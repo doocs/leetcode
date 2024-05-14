@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0355.Design%20Twitter/README.md
+tags:
+    - 设计
+    - 哈希表
+    - 链表
+    - 堆（优先队列）
+---
+
 # [355. 设计推特](https://leetcode.cn/problems/design-twitter)
 
 [English Version](/solution/0300-0399/0355.Design%20Twitter/README_EN.md)
-
-<!-- tags:设计,哈希表,链表,堆（优先队列） -->
 
 ## 题目描述
 

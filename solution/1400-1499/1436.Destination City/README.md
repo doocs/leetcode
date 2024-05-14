@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1436.Destination%20City/README.md
+rating: 1192
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+---
+
 # [1436. 旅行终点站](https://leetcode.cn/problems/destination-city)
 
 [English Version](/solution/1400-1499/1436.Destination%20City/README_EN.md)
-
-<!-- tags:数组,哈希表,字符串 -->
 
 ## 题目描述
 

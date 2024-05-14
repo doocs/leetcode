@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2518.Number%20of%20Great%20Partitions/README.md
+rating: 2414
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [2518. 好分区的数目](https://leetcode.cn/problems/number-of-great-partitions)
 
 [English Version](/solution/2500-2599/2518.Number%20of%20Great%20Partitions/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
 
 ## 题目描述
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0641.Design%20Circular%20Deque/README_EN.md
+tags:
+    - Design
+    - Queue
+    - Array
+    - Linked List
+---
+
 # [641. Design Circular Deque](https://leetcode.com/problems/design-circular-deque)
 
 [中文文档](/solution/0600-0699/0641.Design%20Circular%20Deque/README.md)
-
-<!-- tags:Design,Queue,Array,Linked List -->
 
 ## Description
 

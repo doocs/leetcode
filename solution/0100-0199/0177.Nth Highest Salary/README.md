@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0177.Nth%20Highest%20Salary/README.md
+tags:
+    - 数据库
+---
+
 # [177. 第 N 高的薪水](https://leetcode.cn/problems/nth-highest-salary)
 
 [English Version](/solution/0100-0199/0177.Nth%20Highest%20Salary/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

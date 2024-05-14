@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1514.Path%20with%20Maximum%20Probability/README_EN.md
+rating: 1846
+tags:
+    - Graph
+    - Array
+    - Shortest Path
+    - Heap (Priority Queue)
+---
+
 # [1514. Path with Maximum Probability](https://leetcode.com/problems/path-with-maximum-probability)
 
 [中文文档](/solution/1500-1599/1514.Path%20with%20Maximum%20Probability/README.md)
-
-<!-- tags:Graph,Array,Shortest Path,Heap (Priority Queue) -->
 
 ## Description
 

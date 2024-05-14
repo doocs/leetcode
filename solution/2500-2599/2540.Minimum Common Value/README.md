@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2540.Minimum%20Common%20Value/README.md
+rating: 1249
+tags:
+    - 数组
+    - 哈希表
+    - 双指针
+    - 二分查找
+---
+
 # [2540. 最小公共值](https://leetcode.cn/problems/minimum-common-value)
 
 [English Version](/solution/2500-2599/2540.Minimum%20Common%20Value/README_EN.md)
-
-<!-- tags:数组,哈希表,双指针,二分查找 -->
 
 ## 题目描述
 

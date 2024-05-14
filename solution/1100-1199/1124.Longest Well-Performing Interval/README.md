@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1124.Longest%20Well-Performing%20Interval/README.md
+rating: 1908
+tags:
+    - 栈
+    - 数组
+    - 哈希表
+    - 前缀和
+    - 单调栈
+---
+
 # [1124. 表现良好的最长时间段](https://leetcode.cn/problems/longest-well-performing-interval)
 
 [English Version](/solution/1100-1199/1124.Longest%20Well-Performing%20Interval/README_EN.md)
-
-<!-- tags:栈,数组,哈希表,前缀和,单调栈 -->
 
 ## 题目描述
 

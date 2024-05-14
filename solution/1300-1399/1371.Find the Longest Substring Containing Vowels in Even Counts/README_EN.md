@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1371.Find%20the%20Longest%20Substring%20Containing%20Vowels%20in%20Even%20Counts/README_EN.md
+rating: 2040
+tags:
+    - Bit Manipulation
+    - Hash Table
+    - String
+    - Prefix Sum
+---
+
 # [1371. Find the Longest Substring Containing Vowels in Even Counts](https://leetcode.com/problems/find-the-longest-substring-containing-vowels-in-even-counts)
 
 [中文文档](/solution/1300-1399/1371.Find%20the%20Longest%20Substring%20Containing%20Vowels%20in%20Even%20Counts/README.md)
-
-<!-- tags:Bit Manipulation,Hash Table,String,Prefix Sum -->
 
 ## Description
 

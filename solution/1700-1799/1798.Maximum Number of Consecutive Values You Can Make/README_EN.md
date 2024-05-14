@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1798.Maximum%20Number%20of%20Consecutive%20Values%20You%20Can%20Make/README_EN.md
+rating: 1931
+tags:
+    - Greedy
+    - Array
+    - Sorting
+---
+
 # [1798. Maximum Number of Consecutive Values You Can Make](https://leetcode.com/problems/maximum-number-of-consecutive-values-you-can-make)
 
 [中文文档](/solution/1700-1799/1798.Maximum%20Number%20of%20Consecutive%20Values%20You%20Can%20Make/README.md)
-
-<!-- tags:Greedy,Array,Sorting -->
 
 ## Description
 

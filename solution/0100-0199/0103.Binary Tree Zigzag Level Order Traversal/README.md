@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0103.Binary%20Tree%20Zigzag%20Level%20Order%20Traversal/README.md
+tags:
+    - 树
+    - 广度优先搜索
+    - 二叉树
+---
+
 # [103. 二叉树的锯齿形层序遍历](https://leetcode.cn/problems/binary-tree-zigzag-level-order-traversal)
 
 [English Version](/solution/0100-0199/0103.Binary%20Tree%20Zigzag%20Level%20Order%20Traversal/README_EN.md)
-
-<!-- tags:树,广度优先搜索,二叉树 -->
 
 ## 题目描述
 

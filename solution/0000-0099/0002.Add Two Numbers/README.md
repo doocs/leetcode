@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0002.Add%20Two%20Numbers/README.md
+tags:
+    - 递归
+    - 链表
+    - 数学
+---
+
 # [2. 两数相加](https://leetcode.cn/problems/add-two-numbers)
 
 [English Version](/solution/0000-0099/0002.Add%20Two%20Numbers/README_EN.md)
-
-<!-- tags:递归,链表,数学 -->
 
 ## 题目描述
 

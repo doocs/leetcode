@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0677.Map%20Sum%20Pairs/README_EN.md
+tags:
+    - Design
+    - Trie
+    - Hash Table
+    - String
+---
+
 # [677. Map Sum Pairs](https://leetcode.com/problems/map-sum-pairs)
 
 [中文文档](/solution/0600-0699/0677.Map%20Sum%20Pairs/README.md)
-
-<!-- tags:Design,Trie,Hash Table,String -->
 
 ## Description
 

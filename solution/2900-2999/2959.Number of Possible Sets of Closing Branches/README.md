@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2959.Number%20of%20Possible%20Sets%20of%20Closing%20Branches/README.md
+rating: 2077
+tags:
+    - 位运算
+    - 图
+    - 枚举
+    - 最短路
+    - 堆（优先队列）
+---
+
 # [2959. 关闭分部的可行集合数目](https://leetcode.cn/problems/number-of-possible-sets-of-closing-branches)
 
 [English Version](/solution/2900-2999/2959.Number%20of%20Possible%20Sets%20of%20Closing%20Branches/README_EN.md)
-
-<!-- tags:位运算,图,枚举,最短路,堆（优先队列） -->
 
 ## 题目描述
 

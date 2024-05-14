@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.07.Permutation%20I/README_EN.md
+---
+
 # [08.07. Permutation I](https://leetcode.cn/problems/permutation-i-lcci)
 
 [中文文档](/lcci/08.07.Permutation%20I/README.md)

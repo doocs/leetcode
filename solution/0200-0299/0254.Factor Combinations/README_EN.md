@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0254.Factor%20Combinations/README_EN.md
+tags:
+    - Backtracking
+---
+
 # [254. Factor Combinations 🔒](https://leetcode.com/problems/factor-combinations)
 
 [中文文档](/solution/0200-0299/0254.Factor%20Combinations/README.md)
-
-<!-- tags:Backtracking -->
 
 ## Description
 

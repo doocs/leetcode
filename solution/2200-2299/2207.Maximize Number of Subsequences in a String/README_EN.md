@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2207.Maximize%20Number%20of%20Subsequences%20in%20a%20String/README_EN.md
+rating: 1550
+tags:
+    - Greedy
+    - String
+    - Prefix Sum
+---
+
 # [2207. Maximize Number of Subsequences in a String](https://leetcode.com/problems/maximize-number-of-subsequences-in-a-string)
 
 [中文文档](/solution/2200-2299/2207.Maximize%20Number%20of%20Subsequences%20in%20a%20String/README.md)
-
-<!-- tags:Greedy,String,Prefix Sum -->
 
 ## Description
 

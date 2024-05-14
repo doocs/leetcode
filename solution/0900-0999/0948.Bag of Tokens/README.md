@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0948.Bag%20of%20Tokens/README.md
+tags:
+    - 贪心
+    - 数组
+    - 双指针
+    - 排序
+---
+
 # [948. 令牌放置](https://leetcode.cn/problems/bag-of-tokens)
 
 [English Version](/solution/0900-0999/0948.Bag%20of%20Tokens/README_EN.md)
-
-<!-- tags:贪心,数组,双指针,排序 -->
 
 ## 题目描述
 

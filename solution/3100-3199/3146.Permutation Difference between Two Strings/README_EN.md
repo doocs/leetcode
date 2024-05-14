@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3146.Permutation%20Difference%20between%20Two%20Strings/README_EN.md
+---
+
 # [3146. Permutation Difference between Two Strings](https://leetcode.com/problems/permutation-difference-between-two-strings)
 
 [中文文档](/solution/3100-3199/3146.Permutation%20Difference%20between%20Two%20Strings/README.md)
-
-<!-- tags: -->
 
 ## Description
 

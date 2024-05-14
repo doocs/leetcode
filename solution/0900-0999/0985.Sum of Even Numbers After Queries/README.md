@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0985.Sum%20of%20Even%20Numbers%20After%20Queries/README.md
+tags:
+    - 数组
+    - 模拟
+---
+
 # [985. 查询后的偶数和](https://leetcode.cn/problems/sum-of-even-numbers-after-queries)
 
 [English Version](/solution/0900-0999/0985.Sum%20of%20Even%20Numbers%20After%20Queries/README_EN.md)
-
-<!-- tags:数组,模拟 -->
 
 ## 题目描述
 

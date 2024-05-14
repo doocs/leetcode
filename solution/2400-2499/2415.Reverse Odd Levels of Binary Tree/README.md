@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2415.Reverse%20Odd%20Levels%20of%20Binary%20Tree/README.md
+rating: 1431
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 二叉树
+---
+
 # [2415. 反转二叉树的奇数层](https://leetcode.cn/problems/reverse-odd-levels-of-binary-tree)
 
 [English Version](/solution/2400-2499/2415.Reverse%20Odd%20Levels%20of%20Binary%20Tree/README_EN.md)
-
-<!-- tags:树,深度优先搜索,广度优先搜索,二叉树 -->
 
 ## 题目描述
 

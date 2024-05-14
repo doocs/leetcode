@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1975.Maximum%20Matrix%20Sum/README.md
+rating: 1648
+tags:
+    - 贪心
+    - 数组
+    - 矩阵
+---
+
 # [1975. 最大方阵和](https://leetcode.cn/problems/maximum-matrix-sum)
 
 [English Version](/solution/1900-1999/1975.Maximum%20Matrix%20Sum/README_EN.md)
-
-<!-- tags:贪心,数组,矩阵 -->
 
 ## 题目描述
 

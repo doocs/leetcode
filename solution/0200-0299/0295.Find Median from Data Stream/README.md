@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0295.Find%20Median%20from%20Data%20Stream/README.md
+tags:
+    - 设计
+    - 双指针
+    - 数据流
+    - 排序
+    - 堆（优先队列）
+---
+
 # [295. 数据流的中位数](https://leetcode.cn/problems/find-median-from-data-stream)
 
 [English Version](/solution/0200-0299/0295.Find%20Median%20from%20Data%20Stream/README_EN.md)
-
-<!-- tags:设计,双指针,数据流,排序,堆（优先队列） -->
 
 ## 题目描述
 

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1584.Min%20Cost%20to%20Connect%20All%20Points/README_EN.md
+rating: 1857
+tags:
+    - Union Find
+    - Graph
+    - Array
+    - Minimum Spanning Tree
+---
+
 # [1584. Min Cost to Connect All Points](https://leetcode.com/problems/min-cost-to-connect-all-points)
 
 [中文文档](/solution/1500-1599/1584.Min%20Cost%20to%20Connect%20All%20Points/README.md)
-
-<!-- tags:Union Find,Graph,Array,Minimum Spanning Tree -->
 
 ## Description
 

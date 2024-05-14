@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0399.Evaluate%20Division/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Union Find
+    - Graph
+    - Array
+    - Shortest Path
+---
+
 # [399. Evaluate Division](https://leetcode.com/problems/evaluate-division)
 
 [中文文档](/solution/0300-0399/0399.Evaluate%20Division/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Graph,Array,Shortest Path -->
 
 ## Description
 

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0889.Construct%20Binary%20Tree%20from%20Preorder%20and%20Postorder%20Traversal/README.md
+tags:
+    - 树
+    - 数组
+    - 哈希表
+    - 分治
+    - 二叉树
+---
+
 # [889. 根据前序和后序遍历构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-postorder-traversal)
 
 [English Version](/solution/0800-0899/0889.Construct%20Binary%20Tree%20from%20Preorder%20and%20Postorder%20Traversal/README_EN.md)
-
-<!-- tags:树,数组,哈希表,分治,二叉树 -->
 
 ## 题目描述
 

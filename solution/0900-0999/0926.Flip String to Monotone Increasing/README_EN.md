@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0926.Flip%20String%20to%20Monotone%20Increasing/README_EN.md
+tags:
+    - String
+    - Dynamic Programming
+---
+
 # [926. Flip String to Monotone Increasing](https://leetcode.com/problems/flip-string-to-monotone-increasing)
 
 [中文文档](/solution/0900-0999/0926.Flip%20String%20to%20Monotone%20Increasing/README.md)
-
-<!-- tags:String,Dynamic Programming -->
 
 ## Description
 

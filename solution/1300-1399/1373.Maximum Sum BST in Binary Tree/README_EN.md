@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1373.Maximum%20Sum%20BST%20in%20Binary%20Tree/README_EN.md
+rating: 1913
+tags:
+    - Tree
+    - Depth-First Search
+    - Binary Search Tree
+    - Dynamic Programming
+    - Binary Tree
+---
+
 # [1373. Maximum Sum BST in Binary Tree](https://leetcode.com/problems/maximum-sum-bst-in-binary-tree)
 
 [中文文档](/solution/1300-1399/1373.Maximum%20Sum%20BST%20in%20Binary%20Tree/README.md)
-
-<!-- tags:Tree,Depth-First Search,Binary Search Tree,Dynamic Programming,Binary Tree -->
 
 ## Description
 

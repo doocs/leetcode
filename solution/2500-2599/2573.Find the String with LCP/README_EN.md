@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2573.Find%20the%20String%20with%20LCP/README_EN.md
+rating: 2681
+tags:
+    - Greedy
+    - Union Find
+    - Array
+    - String
+    - Dynamic Programming
+    - Matrix
+---
+
 # [2573. Find the String with LCP](https://leetcode.com/problems/find-the-string-with-lcp)
 
 [中文文档](/solution/2500-2599/2573.Find%20the%20String%20with%20LCP/README.md)
-
-<!-- tags:Greedy,Union Find,Array,String,Dynamic Programming,Matrix -->
 
 ## Description
 

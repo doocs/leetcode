@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1508.Range%20Sum%20of%20Sorted%20Subarray%20Sums/README.md
+rating: 1402
+tags:
+    - 数组
+    - 双指针
+    - 二分查找
+    - 排序
+---
+
 # [1508. 子数组和排序后的区间和](https://leetcode.cn/problems/range-sum-of-sorted-subarray-sums)
 
 [English Version](/solution/1500-1599/1508.Range%20Sum%20of%20Sorted%20Subarray%20Sums/README_EN.md)
-
-<!-- tags:数组,双指针,二分查找,排序 -->
 
 ## 题目描述
 

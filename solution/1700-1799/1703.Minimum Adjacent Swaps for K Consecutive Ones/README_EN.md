@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1703.Minimum%20Adjacent%20Swaps%20for%20K%20Consecutive%20Ones/README_EN.md
+rating: 2466
+tags:
+    - Greedy
+    - Array
+    - Prefix Sum
+    - Sliding Window
+---
+
 # [1703. Minimum Adjacent Swaps for K Consecutive Ones](https://leetcode.com/problems/minimum-adjacent-swaps-for-k-consecutive-ones)
 
 [中文文档](/solution/1700-1799/1703.Minimum%20Adjacent%20Swaps%20for%20K%20Consecutive%20Ones/README.md)
-
-<!-- tags:Greedy,Array,Prefix Sum,Sliding Window -->
 
 ## Description
 

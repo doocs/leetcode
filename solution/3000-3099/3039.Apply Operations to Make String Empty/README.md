@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3039.Apply%20Operations%20to%20Make%20String%20Empty/README.md
+rating: 1423
+tags:
+    - 数组
+    - 哈希表
+    - 计数
+    - 排序
+---
+
 # [3039. 进行操作使字符串为空](https://leetcode.cn/problems/apply-operations-to-make-string-empty)
 
 [English Version](/solution/3000-3099/3039.Apply%20Operations%20to%20Make%20String%20Empty/README_EN.md)
-
-<!-- tags:数组,哈希表,计数,排序 -->
 
 ## 题目描述
 

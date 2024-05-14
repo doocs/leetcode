@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2906.Construct%20Product%20Matrix/README_EN.md
+rating: 2074
+tags:
+    - Array
+    - Matrix
+    - Prefix Sum
+---
+
 # [2906. Construct Product Matrix](https://leetcode.com/problems/construct-product-matrix)
 
 [中文文档](/solution/2900-2999/2906.Construct%20Product%20Matrix/README.md)
-
-<!-- tags:Array,Matrix,Prefix Sum -->
 
 ## Description
 

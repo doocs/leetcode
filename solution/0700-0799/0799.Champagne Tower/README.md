@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0799.Champagne%20Tower/README.md
+tags:
+    - 动态规划
+---
+
 # [799. 香槟塔](https://leetcode.cn/problems/champagne-tower)
 
 [English Version](/solution/0700-0799/0799.Champagne%20Tower/README_EN.md)
-
-<!-- tags:动态规划 -->
 
 ## 题目描述
 

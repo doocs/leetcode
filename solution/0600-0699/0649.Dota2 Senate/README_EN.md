@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0649.Dota2%20Senate/README_EN.md
+tags:
+    - Greedy
+    - Queue
+    - String
+---
+
 # [649. Dota2 Senate](https://leetcode.com/problems/dota2-senate)
 
 [中文文档](/solution/0600-0699/0649.Dota2%20Senate/README.md)
-
-<!-- tags:Greedy,Queue,String -->
 
 ## Description
 

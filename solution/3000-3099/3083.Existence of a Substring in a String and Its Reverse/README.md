@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3083.Existence%20of%20a%20Substring%20in%20a%20String%20and%20Its%20Reverse/README.md
+rating: 1173
+tags:
+    - 哈希表
+    - 字符串
+---
+
 # [3083. 字符串及其反转中是否存在同一子字符串](https://leetcode.cn/problems/existence-of-a-substring-in-a-string-and-its-reverse)
 
 [English Version](/solution/3000-3099/3083.Existence%20of%20a%20Substring%20in%20a%20String%20and%20Its%20Reverse/README_EN.md)
-
-<!-- tags:哈希表,字符串 -->
 
 ## 题目描述
 

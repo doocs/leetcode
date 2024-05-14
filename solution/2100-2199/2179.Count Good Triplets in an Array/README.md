@@ -1,8 +1,21 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2179.Count%20Good%20Triplets%20in%20an%20Array/README.md
+rating: 2272
+tags:
+    - 树状数组
+    - 线段树
+    - 数组
+    - 二分查找
+    - 分治
+    - 有序集合
+    - 归并排序
+---
+
 # [2179. 统计数组中好三元组数目](https://leetcode.cn/problems/count-good-triplets-in-an-array)
 
 [English Version](/solution/2100-2199/2179.Count%20Good%20Triplets%20in%20an%20Array/README_EN.md)
-
-<!-- tags:树状数组,线段树,数组,二分查找,分治,有序集合,归并排序 -->
 
 ## 题目描述
 

@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1581.Customer%20Who%20Visited%20but%20Did%20Not%20Make%20Any%20Transactions/README_EN.md
+tags:
+    - Database
+---
+
 # [1581. Customer Who Visited but Did Not Make Any Transactions](https://leetcode.com/problems/customer-who-visited-but-did-not-make-any-transactions)
 
 [中文文档](/solution/1500-1599/1581.Customer%20Who%20Visited%20but%20Did%20Not%20Make%20Any%20Transactions/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

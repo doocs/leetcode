@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2181.Merge%20Nodes%20in%20Between%20Zeros/README_EN.md
+rating: 1333
+tags:
+    - Linked List
+    - Simulation
+---
+
 # [2181. Merge Nodes in Between Zeros](https://leetcode.com/problems/merge-nodes-in-between-zeros)
 
 [中文文档](/solution/2100-2199/2181.Merge%20Nodes%20in%20Between%20Zeros/README.md)
-
-<!-- tags:Linked List,Simulation -->
 
 ## Description
 

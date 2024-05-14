@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/problem_readme_template.md
+---
+
 # [{}. {}]({})
 
 ## 题目描述

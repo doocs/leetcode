@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1341.Movie%20Rating/README_EN.md
+tags:
+    - Database
+---
+
 # [1341. Movie Rating](https://leetcode.com/problems/movie-rating)
 
 [中文文档](/solution/1300-1399/1341.Movie%20Rating/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

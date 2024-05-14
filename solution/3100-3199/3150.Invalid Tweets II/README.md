@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3150.Invalid%20Tweets%20II/README.md
+---
+
 # [3150. 无效的推文 II 🔒](https://leetcode.cn/problems/invalid-tweets-ii)
 
 [English Version](/solution/3100-3199/3150.Invalid%20Tweets%20II/README_EN.md)
-
-<!-- tags: -->
 
 ## 题目描述
 

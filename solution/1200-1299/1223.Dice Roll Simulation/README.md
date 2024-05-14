@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1223.Dice%20Roll%20Simulation/README.md
+rating: 2008
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [1223. 掷骰子模拟](https://leetcode.cn/problems/dice-roll-simulation)
 
 [English Version](/solution/1200-1299/1223.Dice%20Roll%20Simulation/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
 
 ## 题目描述
 

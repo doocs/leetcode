@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0453.Minimum%20Moves%20to%20Equal%20Array%20Elements/README.md
+tags:
+    - 数组
+    - 数学
+---
+
 # [453. 最小操作次数使数组元素相等](https://leetcode.cn/problems/minimum-moves-to-equal-array-elements)
 
 [English Version](/solution/0400-0499/0453.Minimum%20Moves%20to%20Equal%20Array%20Elements/README_EN.md)
-
-<!-- tags:数组,数学 -->
 
 ## 题目描述
 

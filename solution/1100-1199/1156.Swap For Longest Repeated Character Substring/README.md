@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1156.Swap%20For%20Longest%20Repeated%20Character%20Substring/README.md
+rating: 1787
+tags:
+    - 哈希表
+    - 字符串
+    - 滑动窗口
+---
+
 # [1156. 单字符重复子串的最大长度](https://leetcode.cn/problems/swap-for-longest-repeated-character-substring)
 
 [English Version](/solution/1100-1199/1156.Swap%20For%20Longest%20Repeated%20Character%20Substring/README_EN.md)
-
-<!-- tags:哈希表,字符串,滑动窗口 -->
 
 ## 题目描述
 

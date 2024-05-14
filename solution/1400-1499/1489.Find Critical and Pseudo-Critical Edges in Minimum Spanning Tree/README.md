@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1489.Find%20Critical%20and%20Pseudo-Critical%20Edges%20in%20Minimum%20Spanning%20Tree/README.md
+rating: 2571
+tags:
+    - 并查集
+    - 图
+    - 最小生成树
+    - 排序
+    - 强连通分量
+---
+
 # [1489. 找到最小生成树里的关键边和伪关键边](https://leetcode.cn/problems/find-critical-and-pseudo-critical-edges-in-minimum-spanning-tree)
 
 [English Version](/solution/1400-1499/1489.Find%20Critical%20and%20Pseudo-Critical%20Edges%20in%20Minimum%20Spanning%20Tree/README_EN.md)
-
-<!-- tags:并查集,图,最小生成树,排序,强连通分量 -->
 
 ## 题目描述
 

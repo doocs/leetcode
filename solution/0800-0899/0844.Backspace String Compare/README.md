@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0844.Backspace%20String%20Compare/README.md
+tags:
+    - 栈
+    - 双指针
+    - 字符串
+    - 模拟
+---
+
 # [844. 比较含退格的字符串](https://leetcode.cn/problems/backspace-string-compare)
 
 [English Version](/solution/0800-0899/0844.Backspace%20String%20Compare/README_EN.md)
-
-<!-- tags:栈,双指针,字符串,模拟 -->
 
 ## 题目描述
 

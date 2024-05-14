@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0931.Minimum%20Falling%20Path%20Sum/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+    - Matrix
+---
+
 # [931. Minimum Falling Path Sum](https://leetcode.com/problems/minimum-falling-path-sum)
 
 [中文文档](/solution/0900-0999/0931.Minimum%20Falling%20Path%20Sum/README.md)
-
-<!-- tags:Array,Dynamic Programming,Matrix -->
 
 ## Description
 

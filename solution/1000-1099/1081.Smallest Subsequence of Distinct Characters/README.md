@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1081.Smallest%20Subsequence%20of%20Distinct%20Characters/README.md
+rating: 2184
+tags:
+    - 栈
+    - 贪心
+    - 字符串
+    - 单调栈
+---
+
 # [1081. 不同字符的最小子序列](https://leetcode.cn/problems/smallest-subsequence-of-distinct-characters)
 
 [English Version](/solution/1000-1099/1081.Smallest%20Subsequence%20of%20Distinct%20Characters/README_EN.md)
-
-<!-- tags:栈,贪心,字符串,单调栈 -->
 
 ## 题目描述
 

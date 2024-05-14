@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2246.Longest%20Path%20With%20Different%20Adjacent%20Characters/README_EN.md
+rating: 2126
+tags:
+    - Tree
+    - Depth-First Search
+    - Graph
+    - Topological Sort
+    - Array
+    - String
+---
+
 # [2246. Longest Path With Different Adjacent Characters](https://leetcode.com/problems/longest-path-with-different-adjacent-characters)
 
 [中文文档](/solution/2200-2299/2246.Longest%20Path%20With%20Different%20Adjacent%20Characters/README.md)
-
-<!-- tags:Tree,Depth-First Search,Graph,Topological Sort,Array,String -->
 
 ## Description
 

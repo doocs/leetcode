@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20101.%20%E5%88%86%E5%89%B2%E7%AD%89%E5%92%8C%E5%AD%90%E4%B8%B2/README.md
+---
+
 # [剑指 Offer II 101. 分割等和子串](https://leetcode.cn/problems/NUPfPr)
 
 ## 题目描述

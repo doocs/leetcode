@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1861.Rotating%20the%20Box/README.md
+rating: 1536
+tags:
+    - 数组
+    - 双指针
+    - 矩阵
+---
+
 # [1861. 旋转盒子](https://leetcode.cn/problems/rotating-the-box)
 
 [English Version](/solution/1800-1899/1861.Rotating%20the%20Box/README_EN.md)
-
-<!-- tags:数组,双指针,矩阵 -->
 
 ## 题目描述
 

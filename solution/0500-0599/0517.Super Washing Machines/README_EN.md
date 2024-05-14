@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0517.Super%20Washing%20Machines/README_EN.md
+tags:
+    - Greedy
+    - Array
+---
+
 # [517. Super Washing Machines](https://leetcode.com/problems/super-washing-machines)
 
 [中文文档](/solution/0500-0599/0517.Super%20Washing%20Machines/README.md)
-
-<!-- tags:Greedy,Array -->
 
 ## Description
 

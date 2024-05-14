@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0901.Online%20Stock%20Span/README.md
+tags:
+    - 栈
+    - 设计
+    - 数据流
+    - 单调栈
+---
+
 # [901. 股票价格跨度](https://leetcode.cn/problems/online-stock-span)
 
 [English Version](/solution/0900-0999/0901.Online%20Stock%20Span/README_EN.md)
-
-<!-- tags:栈,设计,数据流,单调栈 -->
 
 ## 题目描述
 

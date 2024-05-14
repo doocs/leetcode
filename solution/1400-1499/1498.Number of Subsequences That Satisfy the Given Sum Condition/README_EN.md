@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1498.Number%20of%20Subsequences%20That%20Satisfy%20the%20Given%20Sum%20Condition/README_EN.md
+rating: 2276
+tags:
+    - Array
+    - Two Pointers
+    - Binary Search
+    - Sorting
+---
+
 # [1498. Number of Subsequences That Satisfy the Given Sum Condition](https://leetcode.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition)
 
 [中文文档](/solution/1400-1499/1498.Number%20of%20Subsequences%20That%20Satisfy%20the%20Given%20Sum%20Condition/README.md)
-
-<!-- tags:Array,Two Pointers,Binary Search,Sorting -->
 
 ## Description
 

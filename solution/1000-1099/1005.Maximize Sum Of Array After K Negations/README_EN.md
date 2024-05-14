@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1005.Maximize%20Sum%20Of%20Array%20After%20K%20Negations/README_EN.md
+rating: 1274
+tags:
+    - Greedy
+    - Array
+    - Sorting
+---
+
 # [1005. Maximize Sum Of Array After K Negations](https://leetcode.com/problems/maximize-sum-of-array-after-k-negations)
 
 [中文文档](/solution/1000-1099/1005.Maximize%20Sum%20Of%20Array%20After%20K%20Negations/README.md)
-
-<!-- tags:Greedy,Array,Sorting -->
 
 ## Description
 

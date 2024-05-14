@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2411.Smallest%20Subarrays%20With%20Maximum%20Bitwise%20OR/README_EN.md
+rating: 1938
+tags:
+    - Bit Manipulation
+    - Array
+    - Binary Search
+    - Sliding Window
+---
+
 # [2411. Smallest Subarrays With Maximum Bitwise OR](https://leetcode.com/problems/smallest-subarrays-with-maximum-bitwise-or)
 
 [中文文档](/solution/2400-2499/2411.Smallest%20Subarrays%20With%20Maximum%20Bitwise%20OR/README.md)
-
-<!-- tags:Bit Manipulation,Array,Binary Search,Sliding Window -->
 
 ## Description
 

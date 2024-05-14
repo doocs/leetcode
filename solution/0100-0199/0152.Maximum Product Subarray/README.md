@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0152.Maximum%20Product%20Subarray/README.md
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [152. 乘积最大子数组](https://leetcode.cn/problems/maximum-product-subarray)
 
 [English Version](/solution/0100-0199/0152.Maximum%20Product%20Subarray/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
 
 ## 题目描述
 

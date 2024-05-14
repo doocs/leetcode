@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2053.%20%E5%AE%88%E6%8A%A4%E5%A4%AA%E7%A9%BA%E5%9F%8E/README.md
+---
+
 # [LCP 53. 守护太空城](https://leetcode.cn/problems/EJvmW4)
 
 ## 题目描述

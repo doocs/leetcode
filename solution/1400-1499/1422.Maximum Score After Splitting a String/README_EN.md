@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1422.Maximum%20Score%20After%20Splitting%20a%20String/README_EN.md
+rating: 1237
+tags:
+    - String
+    - Prefix Sum
+---
+
 # [1422. Maximum Score After Splitting a String](https://leetcode.com/problems/maximum-score-after-splitting-a-string)
 
 [中文文档](/solution/1400-1499/1422.Maximum%20Score%20After%20Splitting%20a%20String/README.md)
-
-<!-- tags:String,Prefix Sum -->
 
 ## Description
 

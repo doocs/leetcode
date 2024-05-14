@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2939.Maximum%20Xor%20Product/README_EN.md
+rating: 2127
+tags:
+    - Greedy
+    - Bit Manipulation
+    - Math
+---
+
 # [2939. Maximum Xor Product](https://leetcode.com/problems/maximum-xor-product)
 
 [中文文档](/solution/2900-2999/2939.Maximum%20Xor%20Product/README.md)
-
-<!-- tags:Greedy,Bit Manipulation,Math -->
 
 ## Description
 

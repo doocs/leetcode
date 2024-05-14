@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2486.Append%20Characters%20to%20String%20to%20Make%20Subsequence/README.md
+rating: 1362
+tags:
+    - 贪心
+    - 双指针
+    - 字符串
+---
+
 # [2486. 追加字符以获得子序列](https://leetcode.cn/problems/append-characters-to-string-to-make-subsequence)
 
 [English Version](/solution/2400-2499/2486.Append%20Characters%20to%20String%20to%20Make%20Subsequence/README_EN.md)
-
-<!-- tags:贪心,双指针,字符串 -->
 
 ## 题目描述
 

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2352.Equal%20Row%20and%20Column%20Pairs/README.md
+rating: 1286
+tags:
+    - 数组
+    - 哈希表
+    - 矩阵
+    - 模拟
+---
+
 # [2352. 相等行列对](https://leetcode.cn/problems/equal-row-and-column-pairs)
 
 [English Version](/solution/2300-2399/2352.Equal%20Row%20and%20Column%20Pairs/README_EN.md)
-
-<!-- tags:数组,哈希表,矩阵,模拟 -->
 
 ## 题目描述
 

@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.05.Sparse%20Array%20Search/README_EN.md
+---
+
 # [10.05. Sparse Array Search](https://leetcode.cn/problems/sparse-array-search-lcci)
 
 ## Description

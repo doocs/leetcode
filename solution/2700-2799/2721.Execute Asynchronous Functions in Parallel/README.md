@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2721.Execute%20Asynchronous%20Functions%20in%20Parallel/README.md
+---
+
 # [2721. 并行执行异步函数](https://leetcode.cn/problems/execute-asynchronous-functions-in-parallel)
 
 [English Version](/solution/2700-2799/2721.Execute%20Asynchronous%20Functions%20in%20Parallel/README_EN.md)
-
-<!-- tags: -->
 
 ## 题目描述
 

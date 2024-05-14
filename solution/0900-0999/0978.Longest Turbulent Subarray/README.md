@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0978.Longest%20Turbulent%20Subarray/README.md
+tags:
+    - 数组
+    - 动态规划
+    - 滑动窗口
+---
+
 # [978. 最长湍流子数组](https://leetcode.cn/problems/longest-turbulent-subarray)
 
 [English Version](/solution/0900-0999/0978.Longest%20Turbulent%20Subarray/README_EN.md)
-
-<!-- tags:数组,动态规划,滑动窗口 -->
 
 ## 题目描述
 

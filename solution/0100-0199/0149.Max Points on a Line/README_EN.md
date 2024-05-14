@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0149.Max%20Points%20on%20a%20Line/README_EN.md
+tags:
+    - Geometry
+    - Array
+    - Hash Table
+    - Math
+---
+
 # [149. Max Points on a Line](https://leetcode.com/problems/max-points-on-a-line)
 
 [中文文档](/solution/0100-0199/0149.Max%20Points%20on%20a%20Line/README.md)
-
-<!-- tags:Geometry,Array,Hash Table,Math -->
 
 ## Description
 

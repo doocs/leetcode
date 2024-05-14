@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2493.Divide%20Nodes%20Into%20the%20Maximum%20Number%20of%20Groups/README.md
+rating: 2415
+tags:
+    - 广度优先搜索
+    - 并查集
+    - 图
+---
+
 # [2493. 将节点分成尽可能多的组](https://leetcode.cn/problems/divide-nodes-into-the-maximum-number-of-groups)
 
 [English Version](/solution/2400-2499/2493.Divide%20Nodes%20Into%20the%20Maximum%20Number%20of%20Groups/README_EN.md)
-
-<!-- tags:广度优先搜索,并查集,图 -->
 
 ## 题目描述
 

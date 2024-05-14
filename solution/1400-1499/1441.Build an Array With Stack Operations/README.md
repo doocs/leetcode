@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1441.Build%20an%20Array%20With%20Stack%20Operations/README.md
+rating: 1180
+tags:
+    - 栈
+    - 数组
+    - 模拟
+---
+
 # [1441. 用栈操作构建数组](https://leetcode.cn/problems/build-an-array-with-stack-operations)
 
 [English Version](/solution/1400-1499/1441.Build%20an%20Array%20With%20Stack%20Operations/README_EN.md)
-
-<!-- tags:栈,数组,模拟 -->
 
 ## 题目描述
 

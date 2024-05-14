@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1970.Last%20Day%20Where%20You%20Can%20Still%20Cross/README.md
+rating: 2123
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 并查集
+    - 数组
+    - 二分查找
+    - 矩阵
+---
+
 # [1970. 你能穿过矩阵的最后一天](https://leetcode.cn/problems/last-day-where-you-can-still-cross)
 
 [English Version](/solution/1900-1999/1970.Last%20Day%20Where%20You%20Can%20Still%20Cross/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,并查集,数组,二分查找,矩阵 -->
 
 ## 题目描述
 

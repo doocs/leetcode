@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2410.Maximum%20Matching%20of%20Players%20With%20Trainers/README_EN.md
+rating: 1381
+tags:
+    - Greedy
+    - Array
+    - Two Pointers
+    - Sorting
+---
+
 # [2410. Maximum Matching of Players With Trainers](https://leetcode.com/problems/maximum-matching-of-players-with-trainers)
 
 [中文文档](/solution/2400-2499/2410.Maximum%20Matching%20of%20Players%20With%20Trainers/README.md)
-
-<!-- tags:Greedy,Array,Two Pointers,Sorting -->
 
 ## Description
 

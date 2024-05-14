@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2497.Maximum%20Star%20Sum%20of%20a%20Graph/README_EN.md
+rating: 1682
+tags:
+    - Greedy
+    - Graph
+    - Array
+    - Sorting
+    - Heap (Priority Queue)
+---
+
 # [2497. Maximum Star Sum of a Graph](https://leetcode.com/problems/maximum-star-sum-of-a-graph)
 
 [中文文档](/solution/2400-2499/2497.Maximum%20Star%20Sum%20of%20a%20Graph/README.md)
-
-<!-- tags:Greedy,Graph,Array,Sorting,Heap (Priority Queue) -->
 
 ## Description
 

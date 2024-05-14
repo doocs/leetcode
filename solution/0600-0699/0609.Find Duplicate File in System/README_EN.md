@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0609.Find%20Duplicate%20File%20in%20System/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - String
+---
+
 # [609. Find Duplicate File in System](https://leetcode.com/problems/find-duplicate-file-in-system)
 
 [中文文档](/solution/0600-0699/0609.Find%20Duplicate%20File%20in%20System/README.md)
-
-<!-- tags:Array,Hash Table,String -->
 
 ## Description
 

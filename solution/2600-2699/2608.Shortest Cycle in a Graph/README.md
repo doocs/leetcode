@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2608.Shortest%20Cycle%20in%20a%20Graph/README.md
+rating: 1904
+tags:
+    - 广度优先搜索
+    - 图
+---
+
 # [2608. 图中的最短环](https://leetcode.cn/problems/shortest-cycle-in-a-graph)
 
 [English Version](/solution/2600-2699/2608.Shortest%20Cycle%20in%20a%20Graph/README_EN.md)
-
-<!-- tags:广度优先搜索,图 -->
 
 ## 题目描述
 

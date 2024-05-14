@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1846.Maximum%20Element%20After%20Decreasing%20and%20Rearranging/README.md
+rating: 1454
+tags:
+    - 贪心
+    - 数组
+    - 排序
+---
+
 # [1846. 减小和重新排列数组后的最大元素](https://leetcode.cn/problems/maximum-element-after-decreasing-and-rearranging)
 
 [English Version](/solution/1800-1899/1846.Maximum%20Element%20After%20Decreasing%20and%20Rearranging/README_EN.md)
-
-<!-- tags:贪心,数组,排序 -->
 
 ## 题目描述
 

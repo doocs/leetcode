@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2159.Order%20Two%20Columns%20Independently/README.md
+tags:
+    - 数据库
+---
+
 # [2159. 分别排序两列 🔒](https://leetcode.cn/problems/order-two-columns-independently)
 
 [English Version](/solution/2100-2199/2159.Order%20Two%20Columns%20Independently/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

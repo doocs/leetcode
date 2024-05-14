@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3111.Minimum%20Rectangles%20to%20Cover%20Points/README_EN.md
+rating: 1401
+tags:
+    - Greedy
+    - Array
+    - Sorting
+---
+
 # [3111. Minimum Rectangles to Cover Points](https://leetcode.com/problems/minimum-rectangles-to-cover-points)
 
 [中文文档](/solution/3100-3199/3111.Minimum%20Rectangles%20to%20Cover%20Points/README.md)
-
-<!-- tags:Greedy,Array,Sorting -->
 
 ## Description
 

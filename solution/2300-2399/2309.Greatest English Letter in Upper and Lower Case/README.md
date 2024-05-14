@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2309.Greatest%20English%20Letter%20in%20Upper%20and%20Lower%20Case/README.md
+rating: 1242
+tags:
+    - 哈希表
+    - 字符串
+    - 枚举
+---
+
 # [2309. 兼具大小写的最好英文字母](https://leetcode.cn/problems/greatest-english-letter-in-upper-and-lower-case)
 
 [English Version](/solution/2300-2399/2309.Greatest%20English%20Letter%20in%20Upper%20and%20Lower%20Case/README_EN.md)
-
-<!-- tags:哈希表,字符串,枚举 -->
 
 ## 题目描述
 

@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0057.Insert%20Interval/README_EN.md
+tags:
+    - Array
+---
+
 # [57. Insert Interval](https://leetcode.com/problems/insert-interval)
 
 [中文文档](/solution/0000-0099/0057.Insert%20Interval/README.md)
-
-<!-- tags:Array -->
 
 ## Description
 

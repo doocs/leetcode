@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2005.%20%E5%8F%91%20LeetCoin/README.md
+---
+
 # [LCP 05. 发 LeetCoin](https://leetcode.cn/problems/coin-bonus)
 
 ## 题目描述

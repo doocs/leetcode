@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20030.%20%E6%8F%92%E5%85%A5%E3%80%81%E5%88%A0%E9%99%A4%E5%92%8C%E9%9A%8F%E6%9C%BA%E8%AE%BF%E9%97%AE%E9%83%BD%E6%98%AF%20O%281%29%20%E7%9A%84%E5%AE%B9%E5%99%A8/README.md
+---
+
 # [剑指 Offer II 030. 插入、删除和随机访问都是 O(1) 的容器](https://leetcode.cn/problems/FortPu)
 
 ## 题目描述

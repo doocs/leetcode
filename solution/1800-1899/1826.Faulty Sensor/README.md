@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1826.Faulty%20Sensor/README.md
+tags:
+    - 数组
+    - 双指针
+---
+
 # [1826. 有缺陷的传感器 🔒](https://leetcode.cn/problems/faulty-sensor)
 
 [English Version](/solution/1800-1899/1826.Faulty%20Sensor/README_EN.md)
-
-<!-- tags:数组,双指针 -->
 
 ## 题目描述
 

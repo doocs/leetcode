@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.04.Implement%20Queue%20using%20Stacks/README.md
+---
+
 # [面试题 03.04. 化栈为队](https://leetcode.cn/problems/implement-queue-using-stacks-lcci)
 
 [English Version](/lcci/03.04.Implement%20Queue%20using%20Stacks/README_EN.md)

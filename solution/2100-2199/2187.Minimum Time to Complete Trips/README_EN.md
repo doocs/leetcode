@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2187.Minimum%20Time%20to%20Complete%20Trips/README_EN.md
+rating: 1640
+tags:
+    - Array
+    - Binary Search
+---
+
 # [2187. Minimum Time to Complete Trips](https://leetcode.com/problems/minimum-time-to-complete-trips)
 
 [中文文档](/solution/2100-2199/2187.Minimum%20Time%20to%20Complete%20Trips/README.md)
-
-<!-- tags:Array,Binary Search -->
 
 ## Description
 

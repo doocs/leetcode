@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1978.Employees%20Whose%20Manager%20Left%20the%20Company/README.md
+tags:
+    - 数据库
+---
+
 # [1978. 上级经理已离职的公司员工](https://leetcode.cn/problems/employees-whose-manager-left-the-company)
 
 [English Version](/solution/1900-1999/1978.Employees%20Whose%20Manager%20Left%20the%20Company/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

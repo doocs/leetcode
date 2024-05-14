@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1407.Top%20Travellers/README.md
+tags:
+    - 数据库
+---
+
 # [1407. 排名靠前的旅行者](https://leetcode.cn/problems/top-travellers)
 
 [English Version](/solution/1400-1499/1407.Top%20Travellers/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2378.Choose%20Edges%20to%20Maximize%20Score%20in%20a%20Tree/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Dynamic Programming
+---
+
 # [2378. Choose Edges to Maximize Score in a Tree 🔒](https://leetcode.com/problems/choose-edges-to-maximize-score-in-a-tree)
 
 [中文文档](/solution/2300-2399/2378.Choose%20Edges%20to%20Maximize%20Score%20in%20a%20Tree/README.md)
-
-<!-- tags:Tree,Depth-First Search,Dynamic Programming -->
 
 ## Description
 

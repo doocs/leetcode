@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2339.All%20the%20Matches%20of%20the%20League/README_EN.md
+tags:
+    - Database
+---
+
 # [2339. All the Matches of the League 🔒](https://leetcode.com/problems/all-the-matches-of-the-league)
 
 [中文文档](/solution/2300-2399/2339.All%20the%20Matches%20of%20the%20League/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

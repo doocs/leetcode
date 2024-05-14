@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0514.Freedom%20Trail/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - String
+    - Dynamic Programming
+---
+
 # [514. Freedom Trail](https://leetcode.com/problems/freedom-trail)
 
 [中文文档](/solution/0500-0599/0514.Freedom%20Trail/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,String,Dynamic Programming -->
 
 ## Description
 

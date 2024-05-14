@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1117.Building%20H2O/README.md
+tags:
+    - 多线程
+---
+
 # [1117. H2O 生成](https://leetcode.cn/problems/building-h2o)
 
 [English Version](/solution/1100-1199/1117.Building%20H2O/README_EN.md)
-
-<!-- tags:多线程 -->
 
 ## 题目描述
 

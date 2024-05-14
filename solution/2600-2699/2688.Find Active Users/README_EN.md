@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2688.Find%20Active%20Users/README_EN.md
+tags:
+    - Database
+---
+
 # [2688. Find Active Users 🔒](https://leetcode.com/problems/find-active-users)
 
 [中文文档](/solution/2600-2699/2688.Find%20Active%20Users/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

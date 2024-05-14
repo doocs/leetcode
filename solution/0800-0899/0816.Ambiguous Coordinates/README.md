@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0816.Ambiguous%20Coordinates/README.md
+tags:
+    - 字符串
+    - 回溯
+    - 枚举
+---
+
 # [816. 模糊坐标](https://leetcode.cn/problems/ambiguous-coordinates)
 
 [English Version](/solution/0800-0899/0816.Ambiguous%20Coordinates/README_EN.md)
-
-<!-- tags:字符串,回溯,枚举 -->
 
 ## 题目描述
 

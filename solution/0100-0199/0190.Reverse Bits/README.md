@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0190.Reverse%20Bits/README.md
+tags:
+    - 位运算
+    - 分治
+---
+
 # [190. 颠倒二进制位](https://leetcode.cn/problems/reverse-bits)
 
 [English Version](/solution/0100-0199/0190.Reverse%20Bits/README_EN.md)
-
-<!-- tags:位运算,分治 -->
 
 ## 题目描述
 

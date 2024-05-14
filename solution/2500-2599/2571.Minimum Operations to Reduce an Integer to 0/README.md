@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2571.Minimum%20Operations%20to%20Reduce%20an%20Integer%20to%200/README.md
+rating: 1649
+tags:
+    - 贪心
+    - 位运算
+    - 动态规划
+---
+
 # [2571. 将整数减少到零需要的最少操作数](https://leetcode.cn/problems/minimum-operations-to-reduce-an-integer-to-0)
 
 [English Version](/solution/2500-2599/2571.Minimum%20Operations%20to%20Reduce%20an%20Integer%20to%200/README_EN.md)
-
-<!-- tags:贪心,位运算,动态规划 -->
 
 ## 题目描述
 

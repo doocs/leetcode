@@ -1,3 +1,8 @@
+---
+comment: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20047.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E5%89%AA%E6%9E%9D/README.md
+---
+
 # [剑指 Offer II 047. 二叉树剪枝](https://leetcode.cn/problems/pOCWxh)
 
 ## 题目描述

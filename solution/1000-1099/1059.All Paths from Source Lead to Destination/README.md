@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1059.All%20Paths%20from%20Source%20Lead%20to%20Destination/README.md
+tags:
+    - 图
+    - 拓扑排序
+---
+
 # [1059. 从始点到终点的所有路径 🔒](https://leetcode.cn/problems/all-paths-from-source-lead-to-destination)
 
 [English Version](/solution/1000-1099/1059.All%20Paths%20from%20Source%20Lead%20to%20Destination/README_EN.md)
-
-<!-- tags:图,拓扑排序 -->
 
 ## 题目描述
 

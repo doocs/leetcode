@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2198.Number%20of%20Single%20Divisor%20Triplets/README.md
+tags:
+    - 数学
+---
+
 # [2198. 单因数三元组 🔒](https://leetcode.cn/problems/number-of-single-divisor-triplets)
 
 [English Version](/solution/2100-2199/2198.Number%20of%20Single%20Divisor%20Triplets/README_EN.md)
-
-<!-- tags:数学 -->
 
 ## 题目描述
 

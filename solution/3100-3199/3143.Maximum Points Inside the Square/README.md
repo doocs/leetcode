@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3143.Maximum%20Points%20Inside%20the%20Square/README.md
+---
+
 # [3143. 正方形中的最多点数](https://leetcode.cn/problems/maximum-points-inside-the-square)
 
 [English Version](/solution/3100-3199/3143.Maximum%20Points%20Inside%20the%20Square/README_EN.md)
-
-<!-- tags: -->
 
 ## 题目描述
 

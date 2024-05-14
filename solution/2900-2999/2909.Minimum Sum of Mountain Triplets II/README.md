@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2909.Minimum%20Sum%20of%20Mountain%20Triplets%20II/README.md
+rating: 1478
+tags:
+    - 数组
+---
+
 # [2909. 元素和最小的山形三元组 II](https://leetcode.cn/problems/minimum-sum-of-mountain-triplets-ii)
 
 [English Version](/solution/2900-2999/2909.Minimum%20Sum%20of%20Mountain%20Triplets%20II/README_EN.md)
-
-<!-- tags:数组 -->
 
 ## 题目描述
 

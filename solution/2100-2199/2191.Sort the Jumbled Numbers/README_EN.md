@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2191.Sort%20the%20Jumbled%20Numbers/README_EN.md
+rating: 1496
+tags:
+    - Array
+    - Sorting
+---
+
 # [2191. Sort the Jumbled Numbers](https://leetcode.com/problems/sort-the-jumbled-numbers)
 
 [中文文档](/solution/2100-2199/2191.Sort%20the%20Jumbled%20Numbers/README.md)
-
-<!-- tags:Array,Sorting -->
 
 ## Description
 

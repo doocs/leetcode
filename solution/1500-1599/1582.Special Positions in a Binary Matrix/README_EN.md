@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1582.Special%20Positions%20in%20a%20Binary%20Matrix/README_EN.md
+rating: 1321
+tags:
+    - Array
+    - Matrix
+---
+
 # [1582. Special Positions in a Binary Matrix](https://leetcode.com/problems/special-positions-in-a-binary-matrix)
 
 [中文文档](/solution/1500-1599/1582.Special%20Positions%20in%20a%20Binary%20Matrix/README.md)
-
-<!-- tags:Array,Matrix -->
 
 ## Description
 

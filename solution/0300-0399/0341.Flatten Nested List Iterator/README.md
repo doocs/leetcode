@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0341.Flatten%20Nested%20List%20Iterator/README.md
+tags:
+    - 栈
+    - 树
+    - 深度优先搜索
+    - 设计
+    - 队列
+    - 迭代器
+---
+
 # [341. 扁平化嵌套列表迭代器](https://leetcode.cn/problems/flatten-nested-list-iterator)
 
 [English Version](/solution/0300-0399/0341.Flatten%20Nested%20List%20Iterator/README_EN.md)
-
-<!-- tags:栈,树,深度优先搜索,设计,队列,迭代器 -->
 
 ## 题目描述
 

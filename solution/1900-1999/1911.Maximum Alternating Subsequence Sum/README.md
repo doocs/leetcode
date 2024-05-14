@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1911.Maximum%20Alternating%20Subsequence%20Sum/README.md
+rating: 1785
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [1911. 最大子序列交替和](https://leetcode.cn/problems/maximum-alternating-subsequence-sum)
 
 [English Version](/solution/1900-1999/1911.Maximum%20Alternating%20Subsequence%20Sum/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
 
 ## 题目描述
 

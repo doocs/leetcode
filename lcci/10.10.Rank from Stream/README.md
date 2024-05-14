@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.10.Rank%20from%20Stream/README.md
+---
+
 # [面试题 10.10. 数字流的秩](https://leetcode.cn/problems/rank-from-stream-lcci)
 
 [English Version](/lcci/10.10.Rank%20from%20Stream/README_EN.md)

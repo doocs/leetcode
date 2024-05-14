@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2688.Find%20Active%20Users/README.md
+tags:
+    - 数据库
+---
+
 # [2688. 查找活跃用户 🔒](https://leetcode.cn/problems/find-active-users)
 
 [English Version](/solution/2600-2699/2688.Find%20Active%20Users/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

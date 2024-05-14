@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0179.Largest%20Number/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - String
+    - Sorting
+---
+
 # [179. Largest Number](https://leetcode.com/problems/largest-number)
 
 [中文文档](/solution/0100-0199/0179.Largest%20Number/README.md)
-
-<!-- tags:Greedy,Array,String,Sorting -->
 
 ## Description
 

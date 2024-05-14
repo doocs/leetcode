@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0475.Heaters/README_EN.md
+tags:
+    - Array
+    - Two Pointers
+    - Binary Search
+    - Sorting
+---
+
 # [475. Heaters](https://leetcode.com/problems/heaters)
 
 [中文文档](/solution/0400-0499/0475.Heaters/README.md)
-
-<!-- tags:Array,Two Pointers,Binary Search,Sorting -->
 
 ## Description
 

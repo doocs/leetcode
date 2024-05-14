@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1828.Queries%20on%20Number%20of%20Points%20Inside%20a%20Circle/README.md
+rating: 1380
+tags:
+    - 几何
+    - 数组
+    - 数学
+---
+
 # [1828. 统计一个圆中点的数目](https://leetcode.cn/problems/queries-on-number-of-points-inside-a-circle)
 
 [English Version](/solution/1800-1899/1828.Queries%20on%20Number%20of%20Points%20Inside%20a%20Circle/README_EN.md)
-
-<!-- tags:几何,数组,数学 -->
 
 ## 题目描述
 

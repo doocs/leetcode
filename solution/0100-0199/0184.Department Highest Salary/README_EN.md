@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0184.Department%20Highest%20Salary/README_EN.md
+tags:
+    - Database
+---
+
 # [184. Department Highest Salary](https://leetcode.com/problems/department-highest-salary)
 
 [中文文档](/solution/0100-0199/0184.Department%20Highest%20Salary/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

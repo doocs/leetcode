@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0501.Find%20Mode%20in%20Binary%20Search%20Tree/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Binary Search Tree
+    - Binary Tree
+---
+
 # [501. Find Mode in Binary Search Tree](https://leetcode.com/problems/find-mode-in-binary-search-tree)
 
 [中文文档](/solution/0500-0599/0501.Find%20Mode%20in%20Binary%20Search%20Tree/README.md)
-
-<!-- tags:Tree,Depth-First Search,Binary Search Tree,Binary Tree -->
 
 ## Description
 

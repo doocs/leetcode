@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2197.Replace%20Non-Coprime%20Numbers%20in%20Array/README.md
+rating: 2057
+tags:
+    - 栈
+    - 数组
+    - 数学
+    - 数论
+---
+
 # [2197. 替换数组中的非互质数](https://leetcode.cn/problems/replace-non-coprime-numbers-in-array)
 
 [English Version](/solution/2100-2199/2197.Replace%20Non-Coprime%20Numbers%20in%20Array/README_EN.md)
-
-<!-- tags:栈,数组,数学,数论 -->
 
 ## 题目描述
 

@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1523.Count%20Odd%20Numbers%20in%20an%20Interval%20Range/README.md
+rating: 1209
+tags:
+    - 数学
+---
+
 # [1523. 在区间范围内统计奇数数目](https://leetcode.cn/problems/count-odd-numbers-in-an-interval-range)
 
 [English Version](/solution/1500-1599/1523.Count%20Odd%20Numbers%20in%20an%20Interval%20Range/README_EN.md)
-
-<!-- tags:数学 -->
 
 ## 题目描述
 

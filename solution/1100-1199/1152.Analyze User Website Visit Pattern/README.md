@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1152.Analyze%20User%20Website%20Visit%20Pattern/README.md
+rating: 1850
+tags:
+    - 数组
+    - 哈希表
+    - 排序
+---
+
 # [1152. 用户网站访问行为分析 🔒](https://leetcode.cn/problems/analyze-user-website-visit-pattern)
 
 [English Version](/solution/1100-1199/1152.Analyze%20User%20Website%20Visit%20Pattern/README_EN.md)
-
-<!-- tags:数组,哈希表,排序 -->
 
 ## 题目描述
 

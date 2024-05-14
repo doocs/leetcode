@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1686.Stone%20Game%20VI/README.md
+rating: 2000
+tags:
+    - 贪心
+    - 数组
+    - 数学
+    - 博弈
+    - 排序
+    - 堆（优先队列）
+---
+
 # [1686. 石子游戏 VI](https://leetcode.cn/problems/stone-game-vi)
 
 [English Version](/solution/1600-1699/1686.Stone%20Game%20VI/README_EN.md)
-
-<!-- tags:贪心,数组,数学,博弈,排序,堆（优先队列） -->
 
 ## 题目描述
 

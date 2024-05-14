@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2015.Average%20Height%20of%20Buildings%20in%20Each%20Segment/README.md
+tags:
+    - 贪心
+    - 数组
+    - 排序
+    - 堆（优先队列）
+---
+
 # [2015. 每段建筑物的平均高度 🔒](https://leetcode.cn/problems/average-height-of-buildings-in-each-segment)
 
 [English Version](/solution/2000-2099/2015.Average%20Height%20of%20Buildings%20in%20Each%20Segment/README_EN.md)
-
-<!-- tags:贪心,数组,排序,堆（优先队列） -->
 
 ## 题目描述
 

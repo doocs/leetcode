@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0866.Prime%20Palindrome/README_EN.md
+tags:
+    - Math
+    - Number Theory
+---
+
 # [866. Prime Palindrome](https://leetcode.com/problems/prime-palindrome)
 
 [中文文档](/solution/0800-0899/0866.Prime%20Palindrome/README.md)
-
-<!-- tags:Math,Number Theory -->
 
 ## Description
 

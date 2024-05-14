@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0633.Sum%20of%20Square%20Numbers/README.md
+tags:
+    - 数学
+    - 双指针
+    - 二分查找
+---
+
 # [633. 平方数之和](https://leetcode.cn/problems/sum-of-square-numbers)
 
 [English Version](/solution/0600-0699/0633.Sum%20of%20Square%20Numbers/README_EN.md)
-
-<!-- tags:数学,双指针,二分查找 -->
 
 ## 题目描述
 

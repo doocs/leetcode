@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.19.Pond%20Sizes/README.md
+---
+
 # [面试题 16.19. 水域大小](https://leetcode.cn/problems/pond-sizes-lcci)
 
 [English Version](/lcci/16.19.Pond%20Sizes/README_EN.md)

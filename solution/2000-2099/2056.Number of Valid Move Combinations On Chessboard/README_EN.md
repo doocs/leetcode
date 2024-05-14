@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2056.Number%20of%20Valid%20Move%20Combinations%20On%20Chessboard/README_EN.md
+rating: 2610
+tags:
+    - Array
+    - String
+    - Backtracking
+    - Simulation
+---
+
 # [2056. Number of Valid Move Combinations On Chessboard](https://leetcode.com/problems/number-of-valid-move-combinations-on-chessboard)
 
 [中文文档](/solution/2000-2099/2056.Number%20of%20Valid%20Move%20Combinations%20On%20Chessboard/README.md)
-
-<!-- tags:Array,String,Backtracking,Simulation -->
 
 ## Description
 

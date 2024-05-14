@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1755.Closest%20Subsequence%20Sum/README_EN.md
+rating: 2363
+tags:
+    - Bit Manipulation
+    - Array
+    - Two Pointers
+    - Dynamic Programming
+    - Bitmask
+---
+
 # [1755. Closest Subsequence Sum](https://leetcode.com/problems/closest-subsequence-sum)
 
 [中文文档](/solution/1700-1799/1755.Closest%20Subsequence%20Sum/README.md)
-
-<!-- tags:Bit Manipulation,Array,Two Pointers,Dynamic Programming,Bitmask -->
 
 ## Description
 

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2358.Maximum%20Number%20of%20Groups%20Entering%20a%20Competition/README.md
+rating: 1502
+tags:
+    - 贪心
+    - 数组
+    - 数学
+    - 二分查找
+---
+
 # [2358. 分组的最大数量](https://leetcode.cn/problems/maximum-number-of-groups-entering-a-competition)
 
 [English Version](/solution/2300-2399/2358.Maximum%20Number%20of%20Groups%20Entering%20a%20Competition/README_EN.md)
-
-<!-- tags:贪心,数组,数学,二分查找 -->
 
 ## 题目描述
 

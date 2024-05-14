@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.04.Missing%20Number/README.md
+---
+
 # [面试题 17.04. 消失的数字](https://leetcode.cn/problems/missing-number-lcci)
 
 [English Version](/lcci/17.04.Missing%20Number/README_EN.md)

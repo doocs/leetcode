@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1500.Design%20a%20File%20Sharing%20System/README_EN.md
+tags:
+    - Design
+    - Hash Table
+    - Data Stream
+    - Heap (Priority Queue)
+---
+
 # [1500. Design a File Sharing System 🔒](https://leetcode.com/problems/design-a-file-sharing-system)
 
 [中文文档](/solution/1500-1599/1500.Design%20a%20File%20Sharing%20System/README.md)
-
-<!-- tags:Design,Hash Table,Data Stream,Heap (Priority Queue) -->
 
 ## Description
 

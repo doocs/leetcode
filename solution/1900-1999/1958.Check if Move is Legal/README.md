@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1958.Check%20if%20Move%20is%20Legal/README.md
+rating: 1658
+tags:
+    - 数组
+    - 枚举
+    - 矩阵
+---
+
 # [1958. 检查操作是否合法](https://leetcode.cn/problems/check-if-move-is-legal)
 
 [English Version](/solution/1900-1999/1958.Check%20if%20Move%20is%20Legal/README_EN.md)
-
-<!-- tags:数组,枚举,矩阵 -->
 
 ## 题目描述
 

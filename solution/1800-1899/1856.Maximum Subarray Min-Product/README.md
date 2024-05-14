@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1856.Maximum%20Subarray%20Min-Product/README.md
+rating: 2051
+tags:
+    - 栈
+    - 数组
+    - 前缀和
+    - 单调栈
+---
+
 # [1856. 子数组最小乘积的最大值](https://leetcode.cn/problems/maximum-subarray-min-product)
 
 [English Version](/solution/1800-1899/1856.Maximum%20Subarray%20Min-Product/README_EN.md)
-
-<!-- tags:栈,数组,前缀和,单调栈 -->
 
 ## 题目描述
 

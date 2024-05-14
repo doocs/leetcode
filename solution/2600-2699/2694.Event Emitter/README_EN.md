@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2694.Event%20Emitter/README_EN.md
+---
+
 # [2694. Event Emitter](https://leetcode.com/problems/event-emitter)
 
 [中文文档](/solution/2600-2699/2694.Event%20Emitter/README.md)
-
-<!-- tags: -->
 
 ## Description
 

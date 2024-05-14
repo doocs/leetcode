@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0975.Odd%20Even%20Jump/README.md
+tags:
+    - 栈
+    - 数组
+    - 动态规划
+    - 有序集合
+    - 单调栈
+---
+
 # [975. 奇偶跳](https://leetcode.cn/problems/odd-even-jump)
 
 [English Version](/solution/0900-0999/0975.Odd%20Even%20Jump/README_EN.md)
-
-<!-- tags:栈,数组,动态规划,有序集合,单调栈 -->
 
 ## 题目描述
 

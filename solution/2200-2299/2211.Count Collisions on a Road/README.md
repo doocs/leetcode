@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2211.Count%20Collisions%20on%20a%20Road/README.md
+rating: 1581
+tags:
+    - 栈
+    - 字符串
+    - 模拟
+---
+
 # [2211. 统计道路上的碰撞次数](https://leetcode.cn/problems/count-collisions-on-a-road)
 
 [English Version](/solution/2200-2299/2211.Count%20Collisions%20on%20a%20Road/README_EN.md)
-
-<!-- tags:栈,字符串,模拟 -->
 
 ## 题目描述
 

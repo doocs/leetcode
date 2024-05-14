@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0362.Design%20Hit%20Counter/README_EN.md
+tags:
+    - Design
+    - Queue
+    - Array
+    - Binary Search
+    - Data Stream
+---
+
 # [362. Design Hit Counter 🔒](https://leetcode.com/problems/design-hit-counter)
 
 [中文文档](/solution/0300-0399/0362.Design%20Hit%20Counter/README.md)
-
-<!-- tags:Design,Queue,Array,Binary Search,Data Stream -->
 
 ## Description
 

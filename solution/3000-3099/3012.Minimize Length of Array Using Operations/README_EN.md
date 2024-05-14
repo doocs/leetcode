@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3012.Minimize%20Length%20of%20Array%20Using%20Operations/README_EN.md
+rating: 1832
+tags:
+    - Greedy
+    - Array
+    - Math
+    - Number Theory
+---
+
 # [3012. Minimize Length of Array Using Operations](https://leetcode.com/problems/minimize-length-of-array-using-operations)
 
 [中文文档](/solution/3000-3099/3012.Minimize%20Length%20of%20Array%20Using%20Operations/README.md)
-
-<!-- tags:Greedy,Array,Math,Number Theory -->
 
 ## Description
 

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2410.Maximum%20Matching%20of%20Players%20With%20Trainers/README.md
+rating: 1381
+tags:
+    - 贪心
+    - 数组
+    - 双指针
+    - 排序
+---
+
 # [2410. 运动员和训练师的最大匹配数](https://leetcode.cn/problems/maximum-matching-of-players-with-trainers)
 
 [English Version](/solution/2400-2499/2410.Maximum%20Matching%20of%20Players%20With%20Trainers/README_EN.md)
-
-<!-- tags:贪心,数组,双指针,排序 -->
 
 ## 题目描述
 

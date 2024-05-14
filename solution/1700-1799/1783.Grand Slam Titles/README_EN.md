@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1783.Grand%20Slam%20Titles/README_EN.md
+tags:
+    - Database
+---
+
 # [1783. Grand Slam Titles 🔒](https://leetcode.com/problems/grand-slam-titles)
 
 [中文文档](/solution/1700-1799/1783.Grand%20Slam%20Titles/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

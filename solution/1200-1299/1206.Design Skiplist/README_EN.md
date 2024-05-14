@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1206.Design%20Skiplist/README_EN.md
+tags:
+    - Design
+    - Linked List
+---
+
 # [1206. Design Skiplist](https://leetcode.com/problems/design-skiplist)
 
 [中文文档](/solution/1200-1299/1206.Design%20Skiplist/README.md)
-
-<!-- tags:Design,Linked List -->
 
 ## Description
 

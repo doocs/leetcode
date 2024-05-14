@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0803.Bricks%20Falling%20When%20Hit/README_EN.md
+tags:
+    - Union Find
+    - Array
+    - Matrix
+---
+
 # [803. Bricks Falling When Hit](https://leetcode.com/problems/bricks-falling-when-hit)
 
 [中文文档](/solution/0800-0899/0803.Bricks%20Falling%20When%20Hit/README.md)
-
-<!-- tags:Union Find,Array,Matrix -->
 
 ## Description
 

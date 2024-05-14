@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2697.Lexicographically%20Smallest%20Palindrome/README_EN.md
+rating: 1303
+tags:
+    - Greedy
+    - Two Pointers
+    - String
+---
+
 # [2697. Lexicographically Smallest Palindrome](https://leetcode.com/problems/lexicographically-smallest-palindrome)
 
 [中文文档](/solution/2600-2699/2697.Lexicographically%20Smallest%20Palindrome/README.md)
-
-<!-- tags:Greedy,Two Pointers,String -->
 
 ## Description
 

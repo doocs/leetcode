@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0077.Combinations/README.md
+tags:
+    - 回溯
+---
+
 # [77. 组合](https://leetcode.cn/problems/combinations)
 
 [English Version](/solution/0000-0099/0077.Combinations/README_EN.md)
-
-<!-- tags:回溯 -->
 
 ## 题目描述
 

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1230.Toss%20Strange%20Coins/README.md
+rating: 1808
+tags:
+    - 数组
+    - 数学
+    - 动态规划
+    - 概率与统计
+---
+
 # [1230. 抛掷硬币 🔒](https://leetcode.cn/problems/toss-strange-coins)
 
 [English Version](/solution/1200-1299/1230.Toss%20Strange%20Coins/README_EN.md)
-
-<!-- tags:数组,数学,动态规划,概率与统计 -->
 
 ## 题目描述
 

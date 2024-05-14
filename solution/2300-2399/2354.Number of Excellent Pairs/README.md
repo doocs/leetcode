@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2354.Number%20of%20Excellent%20Pairs/README.md
+rating: 2075
+tags:
+    - 位运算
+    - 数组
+    - 哈希表
+    - 二分查找
+---
+
 # [2354. 优质数对的数目](https://leetcode.cn/problems/number-of-excellent-pairs)
 
 [English Version](/solution/2300-2399/2354.Number%20of%20Excellent%20Pairs/README_EN.md)
-
-<!-- tags:位运算,数组,哈希表,二分查找 -->
 
 ## 题目描述
 

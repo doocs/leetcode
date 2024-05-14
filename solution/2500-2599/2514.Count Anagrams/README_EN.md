@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2514.Count%20Anagrams/README_EN.md
+rating: 2069
+tags:
+    - Hash Table
+    - Math
+    - String
+    - Combinatorics
+    - Counting
+---
+
 # [2514. Count Anagrams](https://leetcode.com/problems/count-anagrams)
 
 [中文文档](/solution/2500-2599/2514.Count%20Anagrams/README.md)
-
-<!-- tags:Hash Table,Math,String,Combinatorics,Counting -->
 
 ## Description
 

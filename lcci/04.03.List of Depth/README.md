@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.03.List%20of%20Depth/README.md
+---
+
 # [面试题 04.03. 特定深度节点链表](https://leetcode.cn/problems/list-of-depth-lcci)
 
 [English Version](/lcci/04.03.List%20of%20Depth/README_EN.md)

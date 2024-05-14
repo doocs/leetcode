@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1700.Number%20of%20Students%20Unable%20to%20Eat%20Lunch/README.md
+rating: 1404
+tags:
+    - 栈
+    - 队列
+    - 数组
+    - 模拟
+---
+
 # [1700. 无法吃午餐的学生数量](https://leetcode.cn/problems/number-of-students-unable-to-eat-lunch)
 
 [English Version](/solution/1700-1799/1700.Number%20of%20Students%20Unable%20to%20Eat%20Lunch/README_EN.md)
-
-<!-- tags:栈,队列,数组,模拟 -->
 
 ## 题目描述
 

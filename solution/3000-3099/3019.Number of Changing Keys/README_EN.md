@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3019.Number%20of%20Changing%20Keys/README_EN.md
+rating: 1175
+tags:
+    - String
+---
+
 # [3019. Number of Changing Keys](https://leetcode.com/problems/number-of-changing-keys)
 
 [中文文档](/solution/3000-3099/3019.Number%20of%20Changing%20Keys/README.md)
-
-<!-- tags:String -->
 
 ## Description
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0701.Insert%20into%20a%20Binary%20Search%20Tree/README.md
+tags:
+    - 树
+    - 二叉搜索树
+    - 二叉树
+---
+
 # [701. 二叉搜索树中的插入操作](https://leetcode.cn/problems/insert-into-a-binary-search-tree)
 
 [English Version](/solution/0700-0799/0701.Insert%20into%20a%20Binary%20Search%20Tree/README_EN.md)
-
-<!-- tags:树,二叉搜索树,二叉树 -->
 
 ## 题目描述
 

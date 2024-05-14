@@ -1,3 +1,9 @@
+---
+comment: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.09.String%20Rotation/README.md
+---
+
 # [面试题 01.09. 字符串轮转](https://leetcode.cn/problems/string-rotation-lcci)
 
 [English Version](/lcci/01.09.String%20Rotation/README_EN.md)

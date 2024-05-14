@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1707.Maximum%20XOR%20With%20an%20Element%20From%20Array/README_EN.md
+rating: 2358
+tags:
+    - Bit Manipulation
+    - Trie
+    - Array
+---
+
 # [1707. Maximum XOR With an Element From Array](https://leetcode.com/problems/maximum-xor-with-an-element-from-array)
 
 [中文文档](/solution/1700-1799/1707.Maximum%20XOR%20With%20an%20Element%20From%20Array/README.md)
-
-<!-- tags:Bit Manipulation,Trie,Array -->
 
 ## Description
 

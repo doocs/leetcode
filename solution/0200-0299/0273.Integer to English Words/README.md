@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0273.Integer%20to%20English%20Words/README.md
+tags:
+    - 递归
+    - 数学
+    - 字符串
+---
+
 # [273. 整数转换英文表示](https://leetcode.cn/problems/integer-to-english-words)
 
 [English Version](/solution/0200-0299/0273.Integer%20to%20English%20Words/README_EN.md)
-
-<!-- tags:递归,数学,字符串 -->
 
 ## 题目描述
 

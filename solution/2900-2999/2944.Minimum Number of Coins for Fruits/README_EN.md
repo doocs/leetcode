@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2944.Minimum%20Number%20of%20Coins%20for%20Fruits/README_EN.md
+rating: 1708
+tags:
+    - Queue
+    - Array
+    - Dynamic Programming
+    - Monotonic Queue
+    - Heap (Priority Queue)
+---
+
 # [2944. Minimum Number of Coins for Fruits](https://leetcode.com/problems/minimum-number-of-coins-for-fruits)
 
 [中文文档](/solution/2900-2999/2944.Minimum%20Number%20of%20Coins%20for%20Fruits/README.md)
-
-<!-- tags:Queue,Array,Dynamic Programming,Monotonic Queue,Heap (Priority Queue) -->
 
 ## Description
 

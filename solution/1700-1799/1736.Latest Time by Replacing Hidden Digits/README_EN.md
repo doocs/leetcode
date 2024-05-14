@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1736.Latest%20Time%20by%20Replacing%20Hidden%20Digits/README_EN.md
+rating: 1264
+tags:
+    - Greedy
+    - String
+---
+
 # [1736. Latest Time by Replacing Hidden Digits](https://leetcode.com/problems/latest-time-by-replacing-hidden-digits)
 
 [中文文档](/solution/1700-1799/1736.Latest%20Time%20by%20Replacing%20Hidden%20Digits/README.md)
-
-<!-- tags:Greedy,String -->
 
 ## Description
 
