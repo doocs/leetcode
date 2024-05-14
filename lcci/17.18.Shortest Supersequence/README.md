@@ -194,11 +194,11 @@ class Solution {
         var need = [Int: Int]()
         var window = [Int: Int]()
         small.forEach { need[$0, default: 0] += 1 }
-        
+
         var count = needCount
         var minLength = Int.max
         var result = (-1, -1)
-        
+
         var left = 0
         for right in 0..<big.count {
             let element = big[right]
@@ -208,13 +208,13 @@ class Solution {
                     count -= 1
                 }
             }
-            
+
             while count == 0 {
                 if right - left + 1 < minLength {
                     minLength = right - left + 1
                     result = (left, right)
                 }
-                
+
                 let leftElement = big[left]
                 if need[leftElement] != nil {
                     window[leftElement]! -= 1
@@ -225,7 +225,7 @@ class Solution {
                 left += 1
             }
         }
-        
+
         return result.0 == -1 ? [] : [result.0, result.1]
     }
 }

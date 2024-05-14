@@ -65,7 +65,7 @@
 
 函数 $\text{dfs}(\text{mask}, \text{pre})$ 的计算过程如下：
 
--   如果 $\text{mask}$ 的二进制表示中 $1$ 的个数为 $n$，即 $\text{mask} = 2^n - 1$，表示所有数字都已经被选取，此时返回 $\text{abs}(\text{pre} - \text{nums}[0])$；
+-   如果 $\text{mask}$ 的二进制表示中 $1$ 的个数为 $n$，即 $\text{mask} = 2^n - 1$，表示所有数字都已经被选取，此时返回 $|\text{pre} - \text{nums}[0]|$；
 -   否则，我们枚举下一个选取的数字 $\text{cur}$，如果数字 $\text{cur}$ 还未被选取，那么我们可以将数字 $\text{cur}$ 加入到排列中，此时排列的分数为 $|\text{pre} - \text{nums}[\text{cur}]| + \text{dfs}(\text{mask} \, | \, 1 << \text{cur}, \text{cur})$，我们需要取所有 $\text{cur}$ 中分数的最小值。
 
 最后，我们利用一个函数 $\text{g}(\text{mask}, \text{pre})$ 来构造得到最小分数的排列。我们首先将数字 $\text{pre}$ 加入到排列中，然后枚举下一个选取的数字 $\text{cur}$，如果数字 $\text{cur}$ 还未被选取，且满足 $|\text{pre} - \text{nums}[\text{cur}]| + \text{dfs}(\text{mask} \, | \, 1 << \text{cur}, \text{cur})$ 的值等于 $\text{dfs}(\text{mask}, \text{pre})$，那么我们就可以将数字 $\text{cur}$ 加入到排列中。
