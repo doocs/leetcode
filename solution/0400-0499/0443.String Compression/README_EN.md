@@ -4,6 +4,8 @@
 
 <!-- tags:Two Pointers,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an array of characters <code>chars</code>, compress it using the following algorithm:</p>

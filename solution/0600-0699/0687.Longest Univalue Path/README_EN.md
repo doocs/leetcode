@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search,Binary Tree -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary tree, return <em>the length of the longest path, where each node in the path has the same value</em>. This path may or may not pass through the root.</p>

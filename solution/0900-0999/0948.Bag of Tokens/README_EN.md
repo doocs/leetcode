@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Two Pointers,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You start with an initial <strong>power</strong> of <code>power</code>, an initial <strong>score</strong> of <code>0</code>, and a bag of tokens given as an integer array <code>tokens</code>, where each&nbsp;<code>tokens[i]</code> denotes the value of token<em><sub>i</sub></em>.</p>

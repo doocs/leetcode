@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Backtracking,Enumeration -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>An integer <code>x</code> is <strong>numerically balanced</strong> if for every digit <code>d</code> in the number <code>x</code>, there are <strong>exactly</strong> <code>d</code> occurrences of that digit in <code>x</code>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Two Pointers,String,Dynamic Programming -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>There are <code>n</code> dominoes in a line, and we place each domino vertically upright. In the beginning, we simultaneously push some of the dominoes either to the left or to the right.</p>

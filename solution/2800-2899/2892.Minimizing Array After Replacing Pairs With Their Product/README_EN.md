@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Dynamic Programming -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> and an integer <code>k</code>, you can perform the following operation on the array any number of times:</p>

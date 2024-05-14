@@ -4,6 +4,8 @@
 
 <!-- tags:Depth-First Search,Breadth-First Search,String,Dynamic Programming -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>In the video game Fallout 4, the quest <strong>&quot;Road to Freedom&quot;</strong> requires players to reach a metal dial called the <strong>&quot;Freedom Trail Ring&quot;</strong> and use the dial to spell a specific keyword to open the door.</p>

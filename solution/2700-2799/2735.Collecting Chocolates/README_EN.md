@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Enumeration -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of size <code>n</code> representing the cost of collecting different chocolates. The cost of collecting the chocolate at the index <code>i</code>&nbsp;is <code>nums[i]</code>. Each chocolate is of a different type, and initially, the chocolate at the index&nbsp;<code>i</code>&nbsp;is of <code>i<sup>th</sup></code> type.</p>

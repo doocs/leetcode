@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Array,Prefix Sum,Monotonic Stack -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>As the ruler of a kingdom, you have an army of wizards at your command.</p>

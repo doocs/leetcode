@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String,Counting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given two strings <code>s1</code> and <code>s2</code> of equal length. A <strong>string swap</strong> is an operation where you choose two indices in a string (not necessarily different) and swap the characters at these indices.</p>

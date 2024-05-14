@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Two Pointers,Dynamic Programming -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given two <strong>sorted</strong> arrays of distinct integers <code>nums1</code> and <code>nums2</code>.</p>

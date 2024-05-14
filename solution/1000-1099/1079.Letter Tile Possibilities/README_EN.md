@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String,Backtracking,Counting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You have <code>n</code>&nbsp;&nbsp;<code>tiles</code>, where each tile has one letter <code>tiles[i]</code> printed on it.</p>

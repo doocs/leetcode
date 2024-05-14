@@ -4,6 +4,8 @@
 
 <!-- tags:Graph,Array,String,Shortest Path -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given two <strong>0-indexed</strong> strings <code>source</code> and <code>target</code>, both of length <code>n</code> and consisting of <strong>lowercase</strong> English letters. You are also given two <strong>0-indexed</strong> character arrays <code>original</code> and <code>changed</code>, and an integer array <code>cost</code>, where <code>cost[i]</code> represents the cost of changing the character <code>original[i]</code> to the character <code>changed[i]</code>.</p>

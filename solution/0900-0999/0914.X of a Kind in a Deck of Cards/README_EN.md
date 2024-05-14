@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Math,Counting,Number Theory -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given an integer array <code>deck</code> where <code>deck[i]</code> represents the number written on the <code>i<sup>th</sup></code> card.</p>

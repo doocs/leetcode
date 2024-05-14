@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Array,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an integer array <code>target</code> and an integer <code>n</code>.</p>

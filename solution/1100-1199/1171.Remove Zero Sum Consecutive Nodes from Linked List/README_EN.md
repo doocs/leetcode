@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,Linked List -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given the <code>head</code> of a linked list, we repeatedly delete consecutive sequences of nodes that sum to <code>0</code> until there are no such sequences.</p>

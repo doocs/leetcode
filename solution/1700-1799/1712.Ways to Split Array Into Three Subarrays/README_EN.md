@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Two Pointers,Binary Search,Prefix Sum -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>A split of an integer array is <strong>good</strong> if:</p>

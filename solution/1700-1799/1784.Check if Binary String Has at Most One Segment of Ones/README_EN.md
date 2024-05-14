@@ -4,6 +4,8 @@
 
 <!-- tags:String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given a binary string <code>s</code> <strong>​​​​​without leading zeros</strong>, return <code>true</code>​​​ <em>if </em><code>s</code><em> contains <strong>at most one contiguous segment of ones</strong></em>. Otherwise, return <code>false</code>.</p>

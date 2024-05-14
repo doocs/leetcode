@@ -4,6 +4,8 @@
 
 <!-- tags:Binary Indexed Tree,Array,Binary Search,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a 2D integer array <code>rectangles</code> where <code>rectangles[i] = [l<sub>i</sub>, h<sub>i</sub>]</code> indicates that <code>i<sup>th</sup></code> rectangle has a length of <code>l<sub>i</sub></code> and a height of <code>h<sub>i</sub></code>. You are also given a 2D integer array <code>points</code> where <code>points[j] = [x<sub>j</sub>, y<sub>j</sub>]</code> is a point with coordinates <code>(x<sub>j</sub>, y<sub>j</sub>)</code>.</p>

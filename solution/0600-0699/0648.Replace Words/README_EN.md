@@ -4,6 +4,8 @@
 
 <!-- tags:Trie,Array,Hash Table,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>In English, we have a concept called <strong>root</strong>, which can be followed by some other word to form another longer word - let&#39;s call this word <strong>successor</strong>. For example, when the <strong>root</strong> <code>&quot;help&quot;</code> is followed by the <strong>successor</strong> word <code>&quot;ful&quot;</code>, we can form a new word <code>&quot;helpful&quot;</code>.</p>

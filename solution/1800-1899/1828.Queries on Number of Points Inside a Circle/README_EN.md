@@ -4,6 +4,8 @@
 
 <!-- tags:Geometry,Array,Math -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an array <code>points</code> where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> is the coordinates of the <code>i<sup>th</sup></code> point on a 2D plane. Multiple points can have the <strong>same</strong> coordinates.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search,Breadth-First Search,Array -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>A tree rooted at node 0 is given as follows:</p>

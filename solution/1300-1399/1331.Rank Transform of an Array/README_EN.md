@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Sorting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given an array of integers&nbsp;<code>arr</code>, replace each element with its rank.</p>

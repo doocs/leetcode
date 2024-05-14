@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are the operator of a Centennial Wheel that has <strong>four gondolas</strong>, and each gondola has room for <strong>up</strong> <strong>to</strong> <strong>four people</strong>. You have the ability to rotate the gondolas <strong>counterclockwise</strong>, which costs you <code>runningCost</code> dollars.</p>

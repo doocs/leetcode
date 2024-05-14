@@ -4,6 +4,8 @@
 
 <!-- tags:Geometry,Math -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>A <strong>valid cut</strong> in a circle can be:</p>

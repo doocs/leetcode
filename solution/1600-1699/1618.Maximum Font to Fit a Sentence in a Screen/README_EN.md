@@ -4,6 +4,8 @@
 
 <!-- tags:Array,String,Binary Search,Interactive -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a string <code>text</code>. We want to display <code>text</code> on a screen of width <code>w</code> and height <code>h</code>. You can choose any font size from array <code>fonts</code>, which contains the available font sizes <strong>in ascending order</strong>.</p>

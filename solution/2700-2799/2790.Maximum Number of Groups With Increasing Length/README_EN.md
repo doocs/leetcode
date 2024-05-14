@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Math,Binary Search,Sorting -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array <code>usageLimits</code> of length <code>n</code>.</p>

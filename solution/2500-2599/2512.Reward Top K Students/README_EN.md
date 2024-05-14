@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,String,Sorting,Heap (Priority Queue) -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given two string arrays <code>positive_feedback</code> and <code>negative_feedback</code>, containing the words denoting positive and negative feedback, respectively. Note that <strong>no</strong> word is both positive and negative.</p>

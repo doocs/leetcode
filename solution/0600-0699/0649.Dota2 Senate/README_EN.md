@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Queue,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>In the world of Dota2, there are two parties: the Radiant and the Dire.</p>

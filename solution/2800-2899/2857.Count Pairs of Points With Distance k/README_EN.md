@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array,Hash Table -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <strong>2D</strong> integer array <code>coordinates</code> and an integer <code>k</code>, where <code>coordinates[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> are the coordinates of the <code>i<sup>th</sup></code> point in a 2D plane.</p>

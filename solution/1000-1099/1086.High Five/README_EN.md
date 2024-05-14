@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Sorting,Heap (Priority Queue) -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given a list of the scores of different students, <code>items</code>, where <code>items[i] = [ID<sub>i</sub>, score<sub>i</sub>]</code> represents one score from a student with <code>ID<sub>i</sub></code>, calculate each student&#39;s <strong>top five average</strong>.</p>

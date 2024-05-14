@@ -4,6 +4,8 @@
 
 <!-- tags:Depth-First Search,Breadth-First Search,Graph -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>There are <code>n</code> cities numbered from <code>0</code> to <code>n - 1</code> and <code>n - 1</code> roads such that there is only one way to travel between two different cities (this network form a tree). Last year, The ministry of transport decided to orient the roads in one direction because they are too narrow.</p>

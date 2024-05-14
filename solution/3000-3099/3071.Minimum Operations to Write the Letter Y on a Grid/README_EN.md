@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Counting,Matrix -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> <code>n x n</code> grid where <code>n</code> is odd, and <code>grid[r][c]</code> is <code>0</code>, <code>1</code>, or <code>2</code>.</p>

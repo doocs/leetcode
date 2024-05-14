@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Dynamic Programming,Heap (Priority Queue) -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>A car travels from a starting position to a destination which is <code>target</code> miles east of the starting position.</p>

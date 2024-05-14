@@ -4,6 +4,8 @@
 
 <!-- tags:Graph,Design,Shortest Path,Heap (Priority Queue) -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There is a <strong>directed weighted</strong> graph that consists of <code>n</code> nodes numbered from <code>0</code> to <code>n - 1</code>. The edges of the graph are initially represented by the given array <code>edges</code> where <code>edges[i] = [from<sub>i</sub>, to<sub>i</sub>, edgeCost<sub>i</sub>]</code> meaning that there is an edge from <code>from<sub>i</sub></code> to <code>to<sub>i</sub></code> with the cost <code>edgeCost<sub>i</sub></code>.</p>

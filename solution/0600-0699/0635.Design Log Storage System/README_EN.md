@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Hash Table,String,Ordered Set -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given several logs, where each log contains a unique ID and timestamp. Timestamp is a string that has the following format: <code>Year:Month:Day:Hour:Minute:Second</code>, for example, <code>2017:01:01:23:59:59</code>. All domains are zero-padded decimal numbers.</p>

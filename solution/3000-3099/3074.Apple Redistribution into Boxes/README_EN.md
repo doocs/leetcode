@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Sorting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given an array <code>apple</code> of size <code>n</code> and an array <code>capacity</code> of size <code>m</code>.</p>

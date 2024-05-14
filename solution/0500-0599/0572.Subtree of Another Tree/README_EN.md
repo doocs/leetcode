@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search,Binary Tree,String Matching,Hash Function -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given the roots of two binary trees <code>root</code> and <code>subRoot</code>, return <code>true</code> if there is a subtree of <code>root</code> with the same structure and node values of<code> subRoot</code> and <code>false</code> otherwise.</p>

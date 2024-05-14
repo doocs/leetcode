@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search,Array,Binary Tree -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>There is a <strong>binary</strong> tree rooted at <code>0</code> consisting of <code>n</code> nodes. The nodes are labeled from <code>0</code> to <code>n - 1</code>. You are given a <strong>0-indexed</strong> integer array <code>parents</code> representing the tree, where <code>parents[i]</code> is the parent of node <code>i</code>. Since node <code>0</code> is the root, <code>parents[0] == -1</code>.</p>

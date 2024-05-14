@@ -4,6 +4,8 @@
 
 <!-- tags:Union Find,Graph -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Alice and Bob have an undirected graph of <code>n</code> nodes and three types of edges:</p>

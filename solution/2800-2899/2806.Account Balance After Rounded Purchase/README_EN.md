@@ -4,6 +4,8 @@
 
 <!-- tags:Math -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Initially, you have a bank account balance of <code>100</code> dollars.</p>

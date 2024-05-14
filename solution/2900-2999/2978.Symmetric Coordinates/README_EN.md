@@ -4,6 +4,8 @@
 
 <!-- tags:Database -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Table: <font face="monospace"><code>Coordinates</code></font></p>

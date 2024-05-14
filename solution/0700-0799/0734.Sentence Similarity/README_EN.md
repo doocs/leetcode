@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>We can represent a sentence as an array of words, for example, the sentence <code>&quot;I am happy with leetcode&quot;</code> can be represented as <code>arr = [&quot;I&quot;,&quot;am&quot;,happy&quot;,&quot;with&quot;,&quot;leetcode&quot;]</code>.</p>

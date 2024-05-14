@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Math,Dynamic Programming,Enumeration -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given two integers <code>num</code> and <code>k</code>, consider a set of positive integers with the following properties:</p>

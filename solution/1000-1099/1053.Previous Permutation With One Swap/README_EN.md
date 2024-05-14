@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an array of positive integers <code>arr</code> (not necessarily distinct), return <em>the </em><span data-keyword="lexicographically-smaller-array"><em>lexicographically</em></span><em> largest permutation that is smaller than</em> <code>arr</code>, that can be <strong>made with exactly one swap</strong>. If it cannot be done, then return the same array.</p>

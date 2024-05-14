@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String,Sliding Window -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a string <code>text</code>. You can swap two of the characters in the <code>text</code>.</p>

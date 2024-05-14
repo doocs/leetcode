@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Every <strong>valid email</strong> consists of a <strong>local name</strong> and a <strong>domain name</strong>, separated by the <code>&#39;@&#39;</code> sign. Besides lowercase letters, the email may contain one or more <code>&#39;.&#39;</code> or <code>&#39;+&#39;</code>.</p>

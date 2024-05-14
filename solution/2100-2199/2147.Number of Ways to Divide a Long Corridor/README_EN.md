@@ -4,6 +4,8 @@
 
 <!-- tags:Math,String,Dynamic Programming -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Along a long library corridor, there is a line of seats and decorative plants. You are given a <strong>0-indexed</strong> string <code>corridor</code> of length <code>n</code> consisting of letters <code>&#39;S&#39;</code> and <code>&#39;P&#39;</code> where each <code>&#39;S&#39;</code> represents a seat and each <code>&#39;P&#39;</code> represents a plant.</p>

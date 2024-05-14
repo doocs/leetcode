@@ -4,6 +4,8 @@
 
 <!-- tags:Math,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <strong>binary</strong> string <code>s</code> and a positive integer <code>k</code>.</p>

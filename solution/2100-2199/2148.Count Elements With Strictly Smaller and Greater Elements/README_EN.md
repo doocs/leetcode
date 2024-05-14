@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Sorting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, return <em>the number of elements that have <strong>both</strong> a strictly smaller and a strictly greater element appear in </em><code>nums</code>.</p>

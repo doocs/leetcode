@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Matrix,Simulation -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given a 2D <code>grid</code> of size <code>m x n</code>&nbsp;and an integer <code>k</code>. You need to shift the <code>grid</code>&nbsp;<code>k</code> times.</p>

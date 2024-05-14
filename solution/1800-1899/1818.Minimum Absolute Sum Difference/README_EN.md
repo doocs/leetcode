@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Binary Search,Ordered Set,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given two positive integer arrays <code>nums1</code> and <code>nums2</code>, both of length <code>n</code>.</p>

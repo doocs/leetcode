@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Array,Iterator -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Design an iterator that supports the <code>peek</code> operation on an existing iterator in addition to the <code>hasNext</code> and the <code>next</code> operations.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a palindromic string of lowercase English letters <code>palindrome</code>, replace <strong>exactly one</strong> character with any lowercase English letter so that the resulting string is <strong>not</strong> a palindrome and that it is the <strong>lexicographically smallest</strong> one possible.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Array -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>A bus&nbsp;has <code>n</code> stops numbered from <code>0</code> to <code>n - 1</code> that form&nbsp;a circle. We know the distance between all pairs of neighboring stops where <code>distance[i]</code> is the distance between the stops number&nbsp;<code>i</code> and <code>(i + 1) % n</code>.</p>

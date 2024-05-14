@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Array,Matrix -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Implement the class <code>SubrectangleQueries</code>&nbsp;which receives a <code>rows x cols</code> rectangle as a matrix of integers in the constructor and supports two methods:</p>

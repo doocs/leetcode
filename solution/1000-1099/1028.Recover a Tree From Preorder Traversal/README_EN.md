@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search,String,Binary Tree -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>We run a&nbsp;preorder&nbsp;depth-first search (DFS) on the <code>root</code> of a binary tree.</p>

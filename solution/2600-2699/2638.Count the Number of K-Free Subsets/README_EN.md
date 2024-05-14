@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Dynamic Programming,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code>,&nbsp;which contains <strong>distinct</strong> elements and an integer <code>k</code>.</p>

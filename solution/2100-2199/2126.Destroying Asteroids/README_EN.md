@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an integer <code>mass</code>, which represents the original mass of a planet. You are further given an integer array <code>asteroids</code>, where <code>asteroids[i]</code> is the mass of the <code>i<sup>th</sup></code> asteroid.</p>

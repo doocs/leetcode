@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Array,Hash Table,Two Pointers,Data Stream -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Design a data structure that accepts a stream of integers and checks if it has a pair of integers that sum up to a particular value.</p>

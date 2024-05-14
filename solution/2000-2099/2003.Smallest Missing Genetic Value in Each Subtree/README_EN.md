@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search,Union Find,Dynamic Programming -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There is a <strong>family tree</strong> rooted at <code>0</code> consisting of <code>n</code> nodes numbered <code>0</code> to <code>n - 1</code>. You are given a <strong>0-indexed</strong> integer array <code>parents</code>, where <code>parents[i]</code> is the parent for node <code>i</code>. Since node <code>0</code> is the <strong>root</strong>, <code>parents[0] == -1</code>.</p>

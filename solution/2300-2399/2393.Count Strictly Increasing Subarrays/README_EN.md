@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,Dynamic Programming -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an array <code>nums</code> consisting of <strong>positive</strong> integers.</p>

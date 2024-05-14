@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Dynamic Programming,Matrix -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an <code>m x n</code> binary matrix <code>mat</code>, return <em>the length of the longest line of consecutive one in the matrix</em>.</p>

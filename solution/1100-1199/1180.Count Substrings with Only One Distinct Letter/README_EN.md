@@ -4,6 +4,8 @@
 
 <!-- tags:Math,String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given a string <code>s</code>, return <em>the number of substrings that have only <strong>one distinct</strong> letter</em>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Math,Sliding Window -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> and a <strong>positive</strong> integer <code>k</code>.</p>

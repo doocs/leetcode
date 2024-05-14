@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search,Binary Tree -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given the <code>root</code> of a <strong>full binary tree</strong> with the following properties:</p>

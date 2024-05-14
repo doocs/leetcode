@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Interactive -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>There is a number <code>n</code> between <code>0</code> and <code>2<sup>30</sup> - 1</code> (both inclusive) that you have to find.</p>

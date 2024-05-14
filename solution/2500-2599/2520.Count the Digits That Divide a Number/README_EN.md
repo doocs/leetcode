@@ -4,6 +4,8 @@
 
 <!-- tags:Math -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given an integer <code>num</code>, return <em>the number of digits in <code>num</code> that divide </em><code>num</code>.</p>

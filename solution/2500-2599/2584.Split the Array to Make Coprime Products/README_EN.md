@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Math,Number Theory -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of length <code>n</code>.</p>

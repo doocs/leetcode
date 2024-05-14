@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Binary Search,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an integer array <code>arr</code> and a target value <code>target</code>, return the integer <code>value</code> such that when we change all the integers larger than <code>value</code> in the given array to be equal to <code>value</code>, the sum of the array gets as close as possible (in absolute difference) to <code>target</code>.</p>

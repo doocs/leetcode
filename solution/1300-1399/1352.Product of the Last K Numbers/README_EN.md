@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Queue,Array,Math,Data Stream -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Design an algorithm that accepts a stream of integers and retrieves the product of the last <code>k</code> integers of the stream.</p>

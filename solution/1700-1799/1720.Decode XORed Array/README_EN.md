@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>There is a <strong>hidden</strong> integer array <code>arr</code> that consists of <code>n</code> non-negative integers.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Tree,Depth-First Search,Binary Search Tree,Divide and Conquer,Binary Tree -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary search tree, return <em>a <strong>balanced</strong> binary search tree with the same node values</em>. If there is more than one answer, return <strong>any of them</strong>.</p>

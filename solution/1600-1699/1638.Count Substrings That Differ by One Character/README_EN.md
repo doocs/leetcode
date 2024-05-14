@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String,Dynamic Programming -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given two strings <code>s</code> and <code>t</code>, find the number of ways you can choose a non-empty substring of <code>s</code> and replace a <strong>single character</strong> by a different character such that the resulting substring is a substring of <code>t</code>. In other words, find the number of substrings in <code>s</code> that differ from some substring in <code>t</code> by <strong>exactly</strong> one character.</p>

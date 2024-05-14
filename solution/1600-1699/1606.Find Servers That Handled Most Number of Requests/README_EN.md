@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Ordered Set,Heap (Priority Queue) -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You have <code>k</code> servers numbered from <code>0</code> to <code>k-1</code> that are being used to handle multiple requests simultaneously. Each server has infinite computational capacity but <strong>cannot handle more than one request at a time</strong>. The requests are assigned to servers according to a specific algorithm:</p>

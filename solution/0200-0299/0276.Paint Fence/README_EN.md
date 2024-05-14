@@ -4,6 +4,8 @@
 
 <!-- tags:Dynamic Programming -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are painting a fence of <code>n</code> posts with <code>k</code> different colors. You must paint the posts following these rules:</p>

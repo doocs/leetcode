@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Math,Two Pointers -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given two arrays of integers <code>nums1</code> and <code>nums2</code>, return the number of triplets formed (type 1 and type 2) under the following rules:</p>

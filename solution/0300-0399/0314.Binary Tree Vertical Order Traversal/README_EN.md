@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search,Breadth-First Search,Hash Table,Binary Tree,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary tree, return <em><strong>the vertical order traversal</strong> of its nodes&#39; values</em>. (i.e., from top to bottom, column by column).</p>

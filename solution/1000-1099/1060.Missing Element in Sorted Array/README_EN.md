@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Binary Search -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> which is sorted in <strong>ascending order</strong> and all of its elements are <strong>unique</strong> and given also an integer <code>k</code>, return the <code>k<sup>th</sup></code> missing number starting from the leftmost number of the array.</p>

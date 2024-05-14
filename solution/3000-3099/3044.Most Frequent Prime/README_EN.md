@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Math,Counting,Enumeration,Matrix,Number Theory -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <code>m x n</code> <strong>0-indexed </strong>2D<strong> </strong>matrix <code>mat</code>. From every cell, you can create numbers in the following way:</p>

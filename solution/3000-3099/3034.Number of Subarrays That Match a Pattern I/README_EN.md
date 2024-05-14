@@ -4,6 +4,8 @@
 
 <!-- tags:Array,String Matching,Hash Function,Rolling Hash -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of size <code>n</code>, and a <strong>0-indexed</strong> integer array <code>pattern</code> of size <code>m</code> consisting of integers <code>-1</code>, <code>0</code>, and <code>1</code>.</p>

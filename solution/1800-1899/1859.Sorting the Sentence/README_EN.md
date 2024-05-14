@@ -4,6 +4,8 @@
 
 <!-- tags:String,Sorting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>A <strong>sentence</strong> is a list of words that are separated by a single space with no leading or trailing spaces. Each word consists of lowercase and uppercase English letters.</p>

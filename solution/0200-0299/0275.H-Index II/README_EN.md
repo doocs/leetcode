@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Binary Search -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an array of integers <code>citations</code> where <code>citations[i]</code> is the number of citations a researcher received for their <code>i<sup>th</sup></code> paper and <code>citations</code> is sorted in <strong>ascending order</strong>, return <em>the researcher&#39;s h-index</em>.</p>

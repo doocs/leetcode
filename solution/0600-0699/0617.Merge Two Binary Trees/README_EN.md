@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Tree -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given two binary trees <code>root1</code> and <code>root2</code>.</p>

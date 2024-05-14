@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String,Counting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>The <strong>beauty</strong> of a string is the difference in frequencies between the most frequent and least frequent characters.</p>

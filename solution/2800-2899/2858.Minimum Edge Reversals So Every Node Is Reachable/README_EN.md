@@ -4,6 +4,8 @@
 
 <!-- tags:Depth-First Search,Breadth-First Search,Graph,Dynamic Programming -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There is a <strong>simple directed graph</strong> with <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code>. The graph would form a <strong>tree</strong> if its edges were bi-directional.</p>

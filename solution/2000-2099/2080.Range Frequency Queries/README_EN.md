@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Segment Tree,Array,Hash Table,Binary Search -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Design a data structure to find the <strong>frequency</strong> of a given value in a given subarray.</p>

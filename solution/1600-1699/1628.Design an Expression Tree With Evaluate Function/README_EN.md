@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Tree,Design,Math,Binary Tree -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given the <code>postfix</code> tokens of an arithmetic expression, build and return <em>the binary expression tree that represents this expression.</em></p>

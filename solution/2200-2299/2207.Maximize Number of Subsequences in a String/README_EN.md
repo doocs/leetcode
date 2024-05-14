@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,String,Prefix Sum -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string <code>text</code> and another <strong>0-indexed</strong> string <code>pattern</code> of length <code>2</code>, both of which consist of only lowercase English letters.</p>

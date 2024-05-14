@@ -4,6 +4,8 @@
 
 <!-- tags:Binary Indexed Tree,Segment Tree,Array,Simulation -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a <strong>1-indexed</strong> array of integers <code>nums</code> of length <code>n</code>.</p>

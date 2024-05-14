@@ -4,6 +4,8 @@
 
 <!-- tags:Two Pointers,String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Write a function that reverses a string. The input string is given as an array of characters <code>s</code>.</p>

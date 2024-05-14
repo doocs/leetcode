@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,String,Counting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given two string arrays <code>words1</code> and <code>words2</code>, return <em>the number of strings that appear <strong>exactly once</strong> in <b>each</b>&nbsp;of the two arrays.</em></p>

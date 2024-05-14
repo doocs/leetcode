@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String,Bucket Sort,Counting,Sorting,Heap (Priority Queue) -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a string <code>s</code>, sort it in <strong>decreasing order</strong> based on the <strong>frequency</strong> of the characters. The <strong>frequency</strong> of a character is the number of times it appears in the string.</p>

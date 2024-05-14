@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Binary Search -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given two <strong>1-indexed</strong> integer arrays, <code>nums</code> and, <code>changeIndices</code>, having lengths <code>n</code> and <code>m</code>, respectively.</p>

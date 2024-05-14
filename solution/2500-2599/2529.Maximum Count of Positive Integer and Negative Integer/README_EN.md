@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Binary Search,Counting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given an array <code>nums</code> sorted in <strong>non-decreasing</strong> order, return <em>the maximum between the number of positive integers and the number of negative integers.</em></p>

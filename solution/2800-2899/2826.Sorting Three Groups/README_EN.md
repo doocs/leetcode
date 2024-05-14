@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Binary Search,Dynamic Programming -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code>. Each element in <code>nums</code> is 1, 2 or 3. In each operation, you can remove an element from&nbsp;<code>nums</code>. Return the <strong>minimum</strong> number of operations to make <code>nums</code> <strong>non-decreasing</strong>.</p>

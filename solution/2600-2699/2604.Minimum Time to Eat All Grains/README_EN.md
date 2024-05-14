@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Two Pointers,Binary Search,Sorting -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There are <code>n</code> hens and <code>m</code> grains on a line. You are given the initial positions of the hens and the grains in two integer arrays <code>hens</code> and <code>grains</code> of size <code>n</code> and <code>m</code> respectively.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,Matrix,Prefix Sum,Sorting,Heap (Priority Queue) -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> integer matrix <code>grid</code>​​​.</p>

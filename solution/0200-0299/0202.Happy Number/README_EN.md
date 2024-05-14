@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,Math,Two Pointers -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Write an algorithm to determine if a number <code>n</code> is happy.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given&nbsp;a positive integer <code>millis</code>, write an asynchronous function that sleeps for <code>millis</code>&nbsp;milliseconds. It can resolve any value.</p>

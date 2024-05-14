@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array,Hash Table,Math -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>There are <code>8</code> prison cells in a row and each cell is either occupied or vacant.</p>

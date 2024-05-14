@@ -4,6 +4,8 @@
 
 <!-- tags:String,Enumeration -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string <code>expression</code> of the form <code>&quot;&lt;num1&gt;+&lt;num2&gt;&quot;</code> where <code>&lt;num1&gt;</code> and <code>&lt;num2&gt;</code> represent positive integers.</p>

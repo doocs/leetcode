@@ -4,6 +4,8 @@
 
 <!-- tags:Math -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a non-negative floating point number rounded to two decimal places <code>celsius</code>, that denotes the <strong>temperature in Celsius</strong>.</p>

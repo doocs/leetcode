@@ -4,6 +4,8 @@
 
 <!-- tags:Graph,Hash Table -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a directed graph with <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code>, where each node has <strong>exactly one</strong> outgoing edge.</p>

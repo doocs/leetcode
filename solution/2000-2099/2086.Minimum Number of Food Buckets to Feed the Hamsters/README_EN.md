@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,String,Dynamic Programming -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string <code>hamsters</code> where <code>hamsters[i]</code> is either:</p>

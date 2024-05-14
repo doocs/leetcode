@@ -4,6 +4,8 @@
 
 <!-- tags:Dynamic Programming,Prefix Sum -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given three integers <code>n</code>, <code>m</code> and <code>k</code>. Consider the following algorithm to find the maximum element of an array of positive integers:</p>

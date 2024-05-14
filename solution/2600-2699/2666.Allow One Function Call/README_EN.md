@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given a function <code>fn</code>, return a new function that is identical to the original function except that it ensures&nbsp;<code>fn</code>&nbsp;is&nbsp;called at most once.</p>

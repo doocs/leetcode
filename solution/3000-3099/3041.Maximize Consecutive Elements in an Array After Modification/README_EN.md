@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Dynamic Programming,Sorting -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> consisting of <strong>positive</strong> integers.</p>

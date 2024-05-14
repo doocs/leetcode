@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Array,Monotonic Stack -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given an array of integers <code>heights</code> representing the histogram&#39;s bar height where the width of each bar is <code>1</code>, return <em>the area of the largest rectangle in the histogram</em>.</p>

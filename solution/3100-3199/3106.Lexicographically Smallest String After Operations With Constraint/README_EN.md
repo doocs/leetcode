@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a string <code>s</code> and an integer <code>k</code>.</p>

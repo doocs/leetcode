@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given two arrays of strings <code>list1</code> and <code>list2</code>, find the <strong>common strings with the least index sum</strong>.</p>

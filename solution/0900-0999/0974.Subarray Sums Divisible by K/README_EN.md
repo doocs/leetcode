@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Prefix Sum -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> and an integer <code>k</code>, return <em>the number of non-empty <strong>subarrays</strong> that have a sum divisible by </em><code>k</code>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Queue,Array,Binary Search,Data Stream -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Design a hit counter which counts the number of hits received in the past <code>5</code> minutes (i.e., the past <code>300</code> seconds).</p>

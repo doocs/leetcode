@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Dynamic Programming,Combinatorics -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There are <code>n</code> uniquely-sized sticks whose lengths are integers from <code>1</code> to <code>n</code>. You want to arrange the sticks such that <strong>exactly</strong> <code>k</code>&nbsp;sticks are <strong>visible</strong> from the left. A stick&nbsp;is <strong>visible</strong> from the left if there are no <strong>longer</strong>&nbsp;sticks to the <strong>left</strong> of it.</p>

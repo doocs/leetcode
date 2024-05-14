@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Dynamic Programming,Matrix -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> <code>m x n</code> matrix <code>grid</code> consisting of <strong>positive</strong> integers.</p>

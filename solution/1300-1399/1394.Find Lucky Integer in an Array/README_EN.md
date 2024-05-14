@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Counting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given an array of integers <code>arr</code>, a <strong>lucky integer</strong> is an integer that has a frequency in the array equal to its value.</p>

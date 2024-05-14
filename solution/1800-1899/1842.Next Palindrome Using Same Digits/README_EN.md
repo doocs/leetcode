@@ -4,6 +4,8 @@
 
 <!-- tags:Two Pointers,String -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a numeric string <code>num</code>, representing a very large <strong>palindrome</strong>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given&nbsp;an integer <code>n</code>&nbsp;which is the length of a <strong>0-indexed</strong> array <code>nums</code>, and a <strong>0-indexed</strong> 2D-array <code>ranges</code>, which is a list of sub-ranges of <code>nums</code>&nbsp;(sub-ranges may <strong>overlap</strong>).</p>

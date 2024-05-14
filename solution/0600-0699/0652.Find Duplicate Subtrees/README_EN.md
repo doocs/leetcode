@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search,Hash Table,Binary Tree -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given the <code>root</code>&nbsp;of a binary tree, return all <strong>duplicate subtrees</strong>.</p>

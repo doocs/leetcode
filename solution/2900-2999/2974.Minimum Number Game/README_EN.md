@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Sorting,Simulation,Heap (Priority Queue) -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of <strong>even</strong> length and there is also an empty array <code>arr</code>. Alice and Bob decided to play a game where in every round Alice and Bob will do one move. The rules of the game are as follows:</p>

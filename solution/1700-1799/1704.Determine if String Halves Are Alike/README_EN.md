@@ -4,6 +4,8 @@
 
 <!-- tags:String,Counting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a string <code>s</code> of even length. Split this string into two halves of equal lengths, and let <code>a</code> be the first half and <code>b</code> be the second half.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <pre>

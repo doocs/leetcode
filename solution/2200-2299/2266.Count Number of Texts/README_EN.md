@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,Math,String,Dynamic Programming -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Alice is texting Bob using her phone. The <strong>mapping</strong> of digits to letters is shown in the figure below.</p>

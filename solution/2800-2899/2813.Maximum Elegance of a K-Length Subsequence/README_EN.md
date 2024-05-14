@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Hash Table,Sorting,Heap (Priority Queue) -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> 2D integer array <code>items</code> of length <code>n</code> and an integer <code>k</code>.</p>

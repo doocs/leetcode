@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Hash Table,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Design a Leaderboard class, which has 3 functions:</p>

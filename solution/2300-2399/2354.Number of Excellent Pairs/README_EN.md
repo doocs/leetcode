@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array,Hash Table,Binary Search -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> positive integer array <code>nums</code> and a positive integer <code>k</code>.</p>

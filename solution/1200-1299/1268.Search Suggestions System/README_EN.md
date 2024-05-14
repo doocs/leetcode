@@ -4,6 +4,8 @@
 
 <!-- tags:Trie,Array,String,Binary Search,Sorting,Heap (Priority Queue) -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an array of strings <code>products</code> and a string <code>searchWord</code>.</p>

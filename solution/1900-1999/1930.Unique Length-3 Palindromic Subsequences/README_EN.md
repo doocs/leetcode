@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Hash Table,String,Prefix Sum -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a string <code>s</code>, return <em>the number of <strong>unique palindromes of length three</strong> that are a <strong>subsequence</strong> of </em><code>s</code>.</p>

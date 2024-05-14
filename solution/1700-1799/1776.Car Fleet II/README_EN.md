@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Array,Math,Monotonic Stack,Heap (Priority Queue) -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There are <code>n</code> cars traveling at different speeds in the same direction along a one-lane road. You are given an array <code>cars</code> of length <code>n</code>, where <code>cars[i] = [position<sub>i</sub>, speed<sub>i</sub>]</code> represents:</p>

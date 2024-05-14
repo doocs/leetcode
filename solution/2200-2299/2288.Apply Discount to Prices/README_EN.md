@@ -4,6 +4,8 @@
 
 <!-- tags:String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>A <strong>sentence</strong> is a string of single-space separated words where each word can contain digits, lowercase letters, and the dollar sign <code>&#39;$&#39;</code>. A word represents a <strong>price</strong> if it is a sequence of digits preceded by a dollar sign.</p>

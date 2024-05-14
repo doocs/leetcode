@@ -4,6 +4,8 @@
 
 <!-- tags:Math -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given two integers <code>tomatoSlices</code> and <code>cheeseSlices</code>. The ingredients of different burgers are as follows:</p>

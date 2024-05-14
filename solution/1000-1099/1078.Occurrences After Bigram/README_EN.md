@@ -4,6 +4,8 @@
 
 <!-- tags:String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given two strings <code>first</code> and <code>second</code>, consider occurrences in some text of the form <code>&quot;first second third&quot;</code>, where <code>second</code> comes immediately after <code>first</code>, and <code>third</code> comes immediately after <code>second</code>.</p>

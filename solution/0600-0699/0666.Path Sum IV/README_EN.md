@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search,Array,Hash Table,Binary Tree -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>If the depth of a tree is smaller than <code>5</code>, then this tree can be represented by an array of three-digit integers. For each integer in this array:</p>

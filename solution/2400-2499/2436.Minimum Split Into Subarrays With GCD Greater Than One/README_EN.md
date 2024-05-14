@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Math,Dynamic Programming,Number Theory -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an array <code>nums</code> consisting of positive integers.</p>

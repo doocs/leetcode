@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Dynamic Programming -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, find a <span data-keyword="subarray-nonempty">subarray</span> that has the largest product, and return <em>the product</em>.</p>

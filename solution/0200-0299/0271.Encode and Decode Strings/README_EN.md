@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Array,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Design an algorithm to encode <b>a list of strings</b> to <b>a string</b>. The encoded string is then sent over the network and is decoded back to the original list of strings.</p>

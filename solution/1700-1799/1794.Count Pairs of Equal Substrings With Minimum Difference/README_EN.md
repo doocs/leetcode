@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Hash Table,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given two strings <code>firstString</code> and <code>secondString</code> that are <strong>0-indexed</strong> and consist only of lowercase English letters. Count the number of index quadruples <code>(i,j,a,b)</code> that satisfy the following conditions:</p>

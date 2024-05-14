@@ -4,6 +4,8 @@
 
 <!-- tags:Graph,Topological Sort,Array,Matrix -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There is a strange printer with the following two special requirements:</p>

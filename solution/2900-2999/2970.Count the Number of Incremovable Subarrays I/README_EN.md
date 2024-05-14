@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Two Pointers,Binary Search,Enumeration -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array of <strong>positive</strong> integers <code>nums</code>.</p>

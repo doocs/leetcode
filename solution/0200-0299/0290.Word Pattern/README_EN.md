@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given a <code>pattern</code> and a string <code>s</code>, find if <code>s</code>&nbsp;follows the same pattern.</p>

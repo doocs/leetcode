@@ -4,6 +4,8 @@
 
 <!-- tags:Segment Tree,Queue,Array,Dynamic Programming,Prefix Sum,Monotonic Queue,Heap (Priority Queue) -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You have the task of delivering some boxes from storage to their ports using only one ship. However, this ship has a <strong>limit</strong> on the <strong>number of boxes</strong> and the <strong>total weight</strong> that it can carry.</p>

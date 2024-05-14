@@ -4,6 +4,8 @@
 
 <!-- tags:String,Simulation -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a string <code>s</code> consisting of lowercase English letters, and an integer <code>k</code>.</p>

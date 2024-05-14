@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Trie,Hash Table,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>A <a href="https://en.wikipedia.org/wiki/Trie" target="_blank"><strong>trie</strong></a> (pronounced as &quot;try&quot;) or <strong>prefix tree</strong> is a tree data structure used to efficiently store and retrieve keys in a dataset of strings. There are various applications of this data structure, such as autocomplete and spellchecker.</p>

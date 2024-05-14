@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,String,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a list of non-negative integers <code>nums</code>, arrange them such that they form the largest number and return it.</p>

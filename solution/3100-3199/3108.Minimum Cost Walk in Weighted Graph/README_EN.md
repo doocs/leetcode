@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Union Find,Graph,Array -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There is an undirected weighted graph with <code>n</code> vertices labeled from <code>0</code> to <code>n - 1</code>.</p>

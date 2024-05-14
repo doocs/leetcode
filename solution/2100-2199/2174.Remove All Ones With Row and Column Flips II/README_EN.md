@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Breadth-First Search,Array,Matrix -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> <code>m x n</code> <strong>binary</strong> matrix <code>grid</code>.</p>

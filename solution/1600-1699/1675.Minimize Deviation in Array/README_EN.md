@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Ordered Set,Heap (Priority Queue) -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an array <code>nums</code> of <code>n</code> positive integers.</p>

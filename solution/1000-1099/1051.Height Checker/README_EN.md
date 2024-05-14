@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Counting Sort,Sorting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>A school is trying to take an annual photo of all the students. The students are asked to stand in a single file line in <strong>non-decreasing order</strong> by height. Let this ordering be represented by the integer array <code>expected</code> where <code>expected[i]</code> is the expected height of the <code>i<sup>th</sup></code> student in line.</p>

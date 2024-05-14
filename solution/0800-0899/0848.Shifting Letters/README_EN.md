@@ -4,6 +4,8 @@
 
 <!-- tags:Array,String,Prefix Sum -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a string <code>s</code> of lowercase English letters and an integer array <code>shifts</code> of the same length.</p>

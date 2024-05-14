@@ -4,6 +4,8 @@
 
 <!-- tags:Brainteaser,Math -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>There are <code>n</code> bulbs that are initially off. You first turn on all the bulbs, then&nbsp;you turn off every second bulb.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given the array <code>favoriteCompanies</code> where <code>favoriteCompanies[i]</code> is the list of favorites companies for the <code>ith</code> person (<strong>indexed from 0</strong>).</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Prefix Sum -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a binary array <code>possible</code> of length <code>n</code>.</p>

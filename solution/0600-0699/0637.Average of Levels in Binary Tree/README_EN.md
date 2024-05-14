@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Tree -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 Given the <code>root</code> of a binary tree, return <em>the average value of the nodes on each level in the form of an array</em>. Answers within <code>10<sup>-5</sup></code> of the actual answer will be accepted.

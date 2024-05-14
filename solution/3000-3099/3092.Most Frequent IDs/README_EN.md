@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Ordered Set,Heap (Priority Queue) -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>The problem involves tracking the frequency of IDs in a collection that changes over time. You have two integer arrays, <code>nums</code> and <code>freq</code>, of equal length <code>n</code>. Each element in <code>nums</code> represents an ID, and the corresponding element in <code>freq</code> indicates how many times that ID should be added to or removed from the collection at each step.</p>

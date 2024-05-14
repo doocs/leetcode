@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Binary Search,Counting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given three integer arrays <code>arr1</code>, <code>arr2</code> and <code>arr3</code>&nbsp;<strong>sorted</strong> in <strong>strictly increasing</strong> order, return a sorted array of <strong>only</strong>&nbsp;the&nbsp;integers that appeared in <strong>all</strong> three arrays.</p>

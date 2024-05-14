@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search,Hash Table,Binary Tree -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary tree and an array of <code>TreeNode</code> objects <code>nodes</code>, return <em>the lowest common ancestor (LCA) of <strong>all the nodes</strong> in </em><code>nodes</code>. All the nodes will exist in the tree, and all values of the tree&#39;s nodes are <strong>unique</strong>.</p>

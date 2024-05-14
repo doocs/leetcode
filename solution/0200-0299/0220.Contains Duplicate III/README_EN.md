@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Bucket Sort,Ordered Set,Sorting,Sliding Window -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> and two integers <code>indexDiff</code> and <code>valueDiff</code>.</p>

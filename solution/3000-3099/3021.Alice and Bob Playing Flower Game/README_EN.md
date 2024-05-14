@@ -4,6 +4,8 @@
 
 <!-- tags:Math -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Alice and Bob are playing a turn-based game on a circular field surrounded by flowers. The circle represents the field, and there are <code>x</code> flowers in the clockwise direction between Alice and Bob, and <code>y</code> flowers in the anti-clockwise direction between them.</p>

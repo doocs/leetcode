@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Array,Dynamic Programming,Matrix,Monotonic Stack -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given a <code>rows x cols</code>&nbsp;binary <code>matrix</code> filled with <code>0</code>&#39;s and <code>1</code>&#39;s, find the largest rectangle containing only <code>1</code>&#39;s and return <em>its area</em>.</p>

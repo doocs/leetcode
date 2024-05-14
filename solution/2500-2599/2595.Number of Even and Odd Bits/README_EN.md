@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a <strong>positive</strong> integer <code>n</code>.</p>

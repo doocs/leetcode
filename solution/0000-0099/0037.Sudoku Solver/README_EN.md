@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Backtracking,Matrix -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Write a program to solve a Sudoku puzzle by filling the empty cells.</p>

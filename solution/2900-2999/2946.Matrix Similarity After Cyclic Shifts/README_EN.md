@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,Matrix,Simulation -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> <code>m x n</code> integer matrix <code>mat</code> and an integer <code>k</code>. You have to cyclically <strong>right</strong> shift <strong>odd</strong> indexed rows <code>k</code> times and cyclically <strong>left</strong> shift <strong>even</strong> indexed rows <code>k</code> times.</p>

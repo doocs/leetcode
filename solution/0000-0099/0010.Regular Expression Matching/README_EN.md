@@ -4,6 +4,8 @@
 
 <!-- tags:Recursion,String,Dynamic Programming -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given an input string <code>s</code>&nbsp;and a pattern <code>p</code>, implement regular expression matching with support for <code>&#39;.&#39;</code> and <code>&#39;*&#39;</code> where:</p>

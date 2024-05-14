@@ -4,6 +4,8 @@
 
 <!-- tags:Linked List,Math,Number Theory -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given the head of a linked list <code>head</code>, in which each node contains an integer value.</p>

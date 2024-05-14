@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Dynamic Programming -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an array of integers <code>nums</code>, find the maximum length of a subarray where the product of all its elements is positive.</p>

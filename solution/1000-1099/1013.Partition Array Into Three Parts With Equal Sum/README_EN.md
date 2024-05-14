@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given an array of integers <code>arr</code>, return <code>true</code> if we can partition the array into three <strong>non-empty</strong> parts with equal sums.</p>

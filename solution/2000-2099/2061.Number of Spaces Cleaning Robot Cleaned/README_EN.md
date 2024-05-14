@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Matrix,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>A room is represented by a <strong>0-indexed</strong> 2D binary matrix <code>room</code> where a <code>0</code> represents an <strong>empty</strong> space and a <code>1</code> represents a space with an <strong>object</strong>. The top left corner of the room will be empty in all test cases.</p>

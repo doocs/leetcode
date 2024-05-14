@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Number Theory -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an integer n, return <em>the smallest <strong>prime palindrome</strong> greater than or equal to </em><code>n</code>.</p>

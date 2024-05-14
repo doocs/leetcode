@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Bit Manipulation,Dynamic Programming -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a positive integer <code>n</code>, you can do the following operation <strong>any</strong> number of times:</p>

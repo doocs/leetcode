@@ -4,6 +4,8 @@
 
 <!-- tags:String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a string <code>queryIP</code>, return <code>&quot;IPv4&quot;</code> if IP is a valid IPv4 address, <code>&quot;IPv6&quot;</code> if IP is a valid IPv6 address or <code>&quot;Neither&quot;</code> if IP is not a correct IP of any type.</p>

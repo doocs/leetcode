@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Binary Search,Sliding Window -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code>. The <strong>uniqueness array</strong> of <code>nums</code> is the sorted array that contains the number of distinct elements of all the <span data-keyword="subarray-nonempty">subarrays</span> of <code>nums</code>. In other words, it is a sorted array consisting of <code>distinct(nums[i..j])</code>, for all <code>0 &lt;= i &lt;= j &lt; nums.length</code>.</p>

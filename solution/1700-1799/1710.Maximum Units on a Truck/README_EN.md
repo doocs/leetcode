@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Sorting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are assigned to put some amount of boxes onto <strong>one truck</strong>. You are given a 2D array <code>boxTypes</code>, where <code>boxTypes[i] = [numberOfBoxes<sub>i</sub>, numberOfUnitsPerBox<sub>i</sub>]</code>:</p>

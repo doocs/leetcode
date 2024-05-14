@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Binary Search -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You have <code>n</code> coins and you want to build a staircase with these coins. The staircase consists of <code>k</code> rows where the <code>i<sup>th</sup></code> row has exactly <code>i</code> coins. The last row of the staircase <strong>may be</strong> incomplete.</p>

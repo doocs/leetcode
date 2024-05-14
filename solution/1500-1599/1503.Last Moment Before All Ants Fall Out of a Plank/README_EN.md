@@ -4,6 +4,8 @@
 
 <!-- tags:Brainteaser,Array,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>We have a wooden plank of the length <code>n</code> <strong>units</strong>. Some ants are walking on the plank, each ant moves with a speed of <strong>1 unit per second</strong>. Some of the ants move to the <strong>left</strong>, the other move to the <strong>right</strong>.</p>

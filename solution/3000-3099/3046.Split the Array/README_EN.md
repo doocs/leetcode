@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Counting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> of <strong>even</strong> length. You have to split the array into two parts <code>nums1</code> and <code>nums2</code> such that:</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array,Dynamic Programming -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an integer array <code>receiver</code> of length <code>n</code> and an integer <code>k</code>. <code>n</code> players are playing a ball-passing game.</p>

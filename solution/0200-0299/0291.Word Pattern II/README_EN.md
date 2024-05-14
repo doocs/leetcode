@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String,Backtracking -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a <code>pattern</code> and a string <code>s</code>, return <code>true</code><em> if </em><code>s</code><em> <strong>matches</strong> the </em><code>pattern</code><em>.</em></p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Dynamic Programming,Backtracking -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> and an integer <code>target</code>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:String,Sliding Window -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a string <code>s</code> and an integer <code>k</code>, return <em>the maximum number of vowel letters in any substring of </em><code>s</code><em> with length </em><code>k</code>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Math,String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given <code>coordinates</code>, a string that represents the coordinates of a square of the chessboard. Below is a chessboard for your reference.</p>

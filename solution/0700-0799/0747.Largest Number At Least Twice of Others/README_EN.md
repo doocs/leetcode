@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Sorting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> where the largest integer is <strong>unique</strong>.</p>

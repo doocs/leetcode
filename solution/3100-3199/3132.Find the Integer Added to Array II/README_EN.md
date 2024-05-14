@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Two Pointers,Enumeration,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given two integer arrays <code>nums1</code> and <code>nums2</code>.</p>

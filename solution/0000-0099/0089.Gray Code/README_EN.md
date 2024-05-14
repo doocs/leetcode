@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Math,Backtracking -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>An <strong>n-bit gray code sequence</strong> is a sequence of <code>2<sup>n</sup></code> integers where:</p>

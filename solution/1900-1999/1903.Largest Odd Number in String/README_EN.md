@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Math,String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a string <code>num</code>, representing a large integer. Return <em>the <strong>largest-valued odd</strong> integer (as a string) that is a <strong>non-empty substring</strong> of </em><code>num</code><em>, or an empty string </em><code>&quot;&quot;</code><em> if no odd integer exists</em>.</p>

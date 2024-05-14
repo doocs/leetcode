@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array,Hash Table,Counting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> consisting of <code>2 * n</code> integers.</p>

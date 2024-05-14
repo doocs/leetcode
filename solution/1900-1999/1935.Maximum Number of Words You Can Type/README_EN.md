@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>There is a malfunctioning keyboard where some letter keys do not work. All other keys on the keyboard work properly.</p>

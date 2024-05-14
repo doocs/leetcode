@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Enumeration -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a <strong>non-negative</strong> integer <code>num</code>, return <code>true</code><em> if </em><code>num</code><em> can be expressed as the sum of any <strong>non-negative</strong> integer and its reverse, or </em><code>false</code><em> otherwise.</em></p>

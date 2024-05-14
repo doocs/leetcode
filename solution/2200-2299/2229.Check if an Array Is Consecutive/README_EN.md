@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Sorting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, return <code>true</code> <em>if </em><code>nums</code><em> is <strong>consecutive</strong>, otherwise return </em><code>false</code><em>.</em></p>

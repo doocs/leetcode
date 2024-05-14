@@ -4,6 +4,8 @@
 
 <!-- tags:Dynamic Programming -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given four integers <code>minLength</code>, <code>maxLength</code>, <code>oneGroup</code> and <code>zeroGroup</code>.</p>

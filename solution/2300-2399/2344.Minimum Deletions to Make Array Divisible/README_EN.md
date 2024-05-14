@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,Number Theory,Sorting,Heap (Priority Queue) -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given two positive integer arrays <code>nums</code> and <code>numsDivide</code>. You can delete any number of elements from <code>nums</code>.</p>

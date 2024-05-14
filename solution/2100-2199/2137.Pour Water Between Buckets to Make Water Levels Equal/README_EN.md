@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Binary Search -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You have <code>n</code> buckets each containing some gallons of water in it, represented by a <strong>0-indexed</strong> integer array <code>buckets</code>, where the <code>i<sup>th</sup></code> bucket contains <code>buckets[i]</code> gallons of water. You are also given an integer <code>loss</code>.</p>

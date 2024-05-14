@@ -4,6 +4,8 @@
 
 <!-- tags:Geometry,Array,Math -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a 2D integer array <code>trees</code> where <code>trees[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> represents the location of the <code>i<sup>th</sup></code> tree in the garden.</p>

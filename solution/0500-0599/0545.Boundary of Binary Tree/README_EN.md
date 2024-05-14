@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search,Binary Tree -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>The <strong>boundary</strong> of a binary tree is the concatenation of the <strong>root</strong>, the <strong>left boundary</strong>, the <strong>leaves</strong> ordered from left-to-right, and the <strong>reverse order</strong> of the <strong>right boundary</strong>.</p>

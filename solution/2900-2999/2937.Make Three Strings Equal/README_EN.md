@@ -4,6 +4,8 @@
 
 <!-- tags:String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given three strings: <code>s1</code>, <code>s2</code>, and <code>s3</code>. In one operation you can choose one of these strings and delete its <strong>rightmost</strong> character. Note that you <strong>cannot</strong> completely empty a string.</p>

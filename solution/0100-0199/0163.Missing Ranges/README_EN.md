@@ -4,6 +4,8 @@
 
 <!-- tags:Array -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given an inclusive range <code>[lower, upper]</code> and a <strong>sorted unique</strong> integer array <code>nums</code>, where all elements are within the inclusive range.</p>

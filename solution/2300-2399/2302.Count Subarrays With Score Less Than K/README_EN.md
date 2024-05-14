@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Binary Search,Prefix Sum,Sliding Window -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>The <strong>score</strong> of an array is defined as the <strong>product</strong> of its sum and its length.</p>

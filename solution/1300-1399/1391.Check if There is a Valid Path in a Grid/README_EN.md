@@ -4,6 +4,8 @@
 
 <!-- tags:Depth-First Search,Breadth-First Search,Union Find,Array,Matrix -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> <code>grid</code>. Each cell of <code>grid</code> represents a street. The street of <code>grid[i][j]</code> can be:</p>

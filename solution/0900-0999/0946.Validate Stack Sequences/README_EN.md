@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Array,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given two integer arrays <code>pushed</code> and <code>popped</code> each with distinct values, return <code>true</code><em> if this could have been the result of a sequence of push and pop operations on an initially empty stack, or </em><code>false</code><em> otherwise.</em></p>

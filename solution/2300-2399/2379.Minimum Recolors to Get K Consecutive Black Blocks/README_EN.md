@@ -4,6 +4,8 @@
 
 <!-- tags:String,Sliding Window -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string <code>blocks</code> of length <code>n</code>, where <code>blocks[i]</code> is either <code>&#39;W&#39;</code> or <code>&#39;B&#39;</code>, representing the color of the <code>i<sup>th</sup></code> block. The characters <code>&#39;W&#39;</code> and <code>&#39;B&#39;</code> denote the colors white and black, respectively.</p>

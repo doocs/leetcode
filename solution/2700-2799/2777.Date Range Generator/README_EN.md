@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a start date <code>start</code>, an end date <code>end</code>, and a positive integer&nbsp;<code>step</code>, return a generator object that yields&nbsp;dates in the range from <code>start</code> to <code>end</code>&nbsp;inclusive.</p>

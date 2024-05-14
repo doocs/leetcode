@@ -4,6 +4,8 @@
 
 <!-- tags:Binary Indexed Tree,Segment Tree,Array,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an array of people, <code>people</code>, which are the attributes of some people in a queue (not necessarily in order). Each <code>people[i] = [h<sub>i</sub>, k<sub>i</sub>]</code> represents the <code>i<sup>th</sup></code> person of height <code>h<sub>i</sub></code> with <strong>exactly</strong> <code>k<sub>i</sub></code> other people in front who have a height greater than or equal to <code>h<sub>i</sub></code>.</p>

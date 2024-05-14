@@ -4,6 +4,8 @@
 
 <!-- tags:String,Dynamic Programming -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given a string <code>s</code>, encode the string such that its encoded length is the shortest.</p>

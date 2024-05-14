@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Backtracking,Matrix -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>In a gold mine <code>grid</code> of size <code>m x n</code>, each cell in this mine has an integer representing the amount of gold in that cell, <code>0</code> if it is empty.</p>

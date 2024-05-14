@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String,Counting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string <code>num</code> of length <code>n</code> consisting of digits.</p>

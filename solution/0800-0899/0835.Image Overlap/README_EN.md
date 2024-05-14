@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Matrix -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given two images, <code>img1</code> and <code>img2</code>, represented as binary, square matrices of size <code>n x n</code>. A binary matrix has only <code>0</code>s and <code>1</code>s as values.</p>

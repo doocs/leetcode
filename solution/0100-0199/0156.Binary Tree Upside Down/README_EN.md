@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search,Binary Tree -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary tree, turn the tree upside down and return <em>the new root</em>.</p>

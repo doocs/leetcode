@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Queue,Array,Iterator -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given two vectors of integers <code>v1</code> and <code>v2</code>, implement an iterator to return their elements alternately.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Breadth-First Search,Array,Hash Table -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an array <code>routes</code> representing bus routes where <code>routes[i]</code> is a bus route that the <code>i<sup>th</sup></code> bus repeats forever.</p>

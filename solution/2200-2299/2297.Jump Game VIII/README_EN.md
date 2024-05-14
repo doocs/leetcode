@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Graph,Array,Dynamic Programming,Shortest Path,Monotonic Stack -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of length <code>n</code>. You are initially standing at index <code>0</code>. You can jump from index <code>i</code> to index <code>j</code> where <code>i &lt; j</code> if:</p>

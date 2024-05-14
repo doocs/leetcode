@@ -4,6 +4,8 @@
 
 <!-- tags:String,String Matching,Hash Function,Rolling Hash -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a string <code>s</code>. You can convert <code>s</code> to a <span data-keyword="palindrome-string">palindrome</span> by adding characters in front of it.</p>

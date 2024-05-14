@@ -4,6 +4,8 @@
 
 <!-- tags:Breadth-First Search,Array,Matrix -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an <code>n * m</code> <strong>0-indexed</strong> grid of string <code>land</code>. Right now, you are standing at the cell that contains <code>&quot;S&quot;</code>, and you want to get to the cell containing <code>&quot;D&quot;</code>. There are three other types of cells in this land:</p>

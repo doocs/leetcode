@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a 2D<strong> </strong>array <code>points</code> and a string <code>s</code> where, <code>points[i]</code> represents the coordinates of point <code>i</code>, and <code>s[i]</code> represents the <strong>tag</strong> of point <code>i</code>.</p>

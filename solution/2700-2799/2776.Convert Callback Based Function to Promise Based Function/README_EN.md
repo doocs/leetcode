@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Write a function that accepts another function <code>fn</code> and converts the callback-based function&nbsp;into a promise-based function.&nbsp;</p>

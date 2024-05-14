@@ -4,6 +4,8 @@
 
 <!-- tags:Brainteaser,Math,Two Pointers -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>An integer <code>n</code> is <strong>strictly palindromic</strong> if, for <strong>every</strong> base <code>b</code> between <code>2</code> and <code>n - 2</code> (<strong>inclusive</strong>), the string representation of the integer <code>n</code> in base <code>b</code> is <strong>palindromic</strong>.</p>

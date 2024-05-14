@@ -4,6 +4,8 @@
 
 <!-- tags:Depth-First Search,Breadth-First Search,String,Interactive -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a url <code>startUrl</code> and an interface <code>HtmlParser</code>, implement a web&nbsp;crawler to crawl all links that are under the&nbsp;<strong>same hostname</strong> as&nbsp;<code>startUrl</code>.&nbsp;</p>

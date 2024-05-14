@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Prefix Sum -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a 2D integer array <code>ranges</code> and two integers <code>left</code> and <code>right</code>. Each <code>ranges[i] = [start<sub>i</sub>, end<sub>i</sub>]</code> represents an <strong>inclusive</strong> interval between <code>start<sub>i</sub></code> and <code>end<sub>i</sub></code>.</p>

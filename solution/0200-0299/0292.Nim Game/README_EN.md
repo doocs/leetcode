@@ -4,6 +4,8 @@
 
 <!-- tags:Brainteaser,Math,Game Theory -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are playing the following Nim Game with your friend:</p>

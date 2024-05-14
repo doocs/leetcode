@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Dynamic Programming,Backtracking -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You would like to make dessert and are preparing to buy the ingredients. You have <code>n</code> ice cream base flavors and <code>m</code> types of toppings to choose from. You must follow these rules when making your dessert:</p>

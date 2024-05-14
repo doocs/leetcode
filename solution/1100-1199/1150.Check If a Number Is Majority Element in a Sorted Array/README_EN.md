@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Binary Search -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> sorted in non-decreasing order and an integer <code>target</code>, return <code>true</code> <em>if</em> <code>target</code> <em>is a <strong>majority</strong> element, or </em><code>false</code><em> otherwise</em>.</p>

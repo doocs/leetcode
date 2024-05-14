@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,Prefix Sum -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given an array of positive integers <code>arr</code>, return <em>the sum of all possible <strong>odd-length subarrays</strong> of </em><code>arr</code>.</p>

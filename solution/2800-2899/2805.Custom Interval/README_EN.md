@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p><strong>Function&nbsp;</strong><code>customInterval</code></p>

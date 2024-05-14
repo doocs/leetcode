@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Two Pointers,Binary Search,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an array of integers <code>nums</code> and an integer <code>k</code>, return <em>the number of <b>unique</b> k-diff pairs in the array</em>.</p>

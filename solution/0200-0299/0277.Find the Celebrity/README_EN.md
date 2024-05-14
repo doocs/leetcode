@@ -4,6 +4,8 @@
 
 <!-- tags:Graph,Two Pointers,Interactive -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Suppose you are at a party with <code>n</code> people labeled from <code>0</code> to <code>n - 1</code> and among them, there may exist one celebrity. The definition of a celebrity is that all the other <code>n - 1</code> people know the celebrity, but the celebrity does not know any of them.</p>

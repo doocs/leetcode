@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Hash Table,Heap (Priority Queue) -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> that is <strong>sorted in non-decreasing order</strong>.</p>

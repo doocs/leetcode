@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Matrix,Prefix Sum -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a <strong>0-indexed</strong> 2D integer matrix <code><font face="monospace">grid</font></code><font face="monospace"> </font>of size <code>n * m</code>, we define a <strong>0-indexed</strong> 2D matrix <code>p</code> of size <code>n * m</code> as the <strong>product</strong> matrix of <code>grid</code> if the following condition is met:</p>

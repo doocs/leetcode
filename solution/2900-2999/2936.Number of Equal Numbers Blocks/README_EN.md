@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Binary Search,Interactive -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array of integers, <code>nums</code>. The following property holds for <code>nums</code>:</p>

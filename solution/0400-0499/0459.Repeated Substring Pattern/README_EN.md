@@ -4,6 +4,8 @@
 
 <!-- tags:String,String Matching -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given a string <code>s</code>, check if it can be constructed by taking a substring of it and appending multiple copies of the substring together.</p>

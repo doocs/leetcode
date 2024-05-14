@@ -4,6 +4,8 @@
 
 <!-- tags:Breadth-First Search,Array,Dynamic Programming -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>A certain bug&#39;s home is on the x-axis at position <code>x</code>. Help them get there from position <code>0</code>.</p>

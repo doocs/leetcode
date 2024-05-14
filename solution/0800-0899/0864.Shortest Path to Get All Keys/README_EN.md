@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Breadth-First Search,Array,Matrix -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> grid <code>grid</code> where:</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Math,String,Enumeration -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>The red-green-blue color <code>&quot;#AABBCC&quot;</code> can be written as <code>&quot;#ABC&quot;</code> in shorthand.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given a function <code>fn</code>&nbsp;and an array <code>args</code>, return a function <code>partialFn</code>.&nbsp;</p>

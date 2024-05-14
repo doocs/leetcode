@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Binary Search -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and two integers <code>x</code> and <code>y</code>. In one operation, you must choose an index <code>i</code> such that <code>0 &lt;= i &lt; nums.length</code> and perform the following:</p>

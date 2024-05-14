@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given two arrays <code>nums1</code> and <code>nums2</code> consisting of positive integers.</p>

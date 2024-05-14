@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Math -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a <strong>positive</strong> integer <code>n</code>, return <em>a string representing the <strong>smallest positive</strong> integer such that the product of its digits is equal to</em> <code>n</code><em>, or </em><code>&quot;-1&quot;</code><em> if no such number exists</em>.</p>

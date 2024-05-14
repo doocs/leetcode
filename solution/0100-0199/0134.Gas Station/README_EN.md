@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>There are <code>n</code> gas stations along a circular route, where the amount of gas at the <code>i<sup>th</sup></code> station is <code>gas[i]</code>.</p>

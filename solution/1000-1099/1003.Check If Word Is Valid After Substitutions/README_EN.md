@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a string <code>s</code>, determine if it is <strong>valid</strong>.</p>

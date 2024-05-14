@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Tree,Depth-First Search,Binary Tree -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given the <code>root</code> of a&nbsp;binary tree, return <em>the postorder traversal of its nodes&#39; values</em>.</p>

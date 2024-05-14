@@ -4,6 +4,8 @@
 
 <!-- tags:Graph,Topological Sort,Array,Matrix -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a <strong>positive</strong> integer <code>k</code>. You are also given:</p>

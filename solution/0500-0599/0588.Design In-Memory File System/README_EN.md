@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Trie,Hash Table,String -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Design a data structure that simulates an in-memory file system.</p>

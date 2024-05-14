@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Binary Indexed Tree,Segment Tree,Binary Search -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>A concert hall has <code>n</code> rows numbered from <code>0</code> to <code>n - 1</code>, each with <code>m</code> seats, numbered from <code>0</code> to <code>m - 1</code>. You need to design a ticketing system that can allocate seats in the following cases:</p>

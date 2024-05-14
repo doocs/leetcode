@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Brainteaser,Array -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> of size <code>n</code>.</p>

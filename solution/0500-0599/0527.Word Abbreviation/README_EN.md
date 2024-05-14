@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Trie,Array,String,Sorting -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given an array of <strong>distinct</strong> strings <code>words</code>, return <em>the minimal possible <strong>abbreviations</strong> for every word</em>.</p>

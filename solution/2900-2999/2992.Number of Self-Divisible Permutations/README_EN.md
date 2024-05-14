@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Recursion,Array,Dynamic Programming,Bitmask -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an integer <code>n</code>, return <em>the number of <strong>permutations</strong> of the <strong>1-indexed</strong> array</em> <code>nums = [1, 2, ..., n]</code><em>, such that it&#39;s <strong>self-divisible</strong></em>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Depth-First Search,Breadth-First Search,Array,Matrix -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>An image is represented by an <code>m x n</code> integer grid <code>image</code> where <code>image[i][j]</code> represents the pixel value of the image.</p>

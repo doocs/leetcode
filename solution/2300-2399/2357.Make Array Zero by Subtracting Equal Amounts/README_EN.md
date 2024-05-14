@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Hash Table,Sorting,Simulation,Heap (Priority Queue) -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a non-negative integer array <code>nums</code>. In one operation, you must:</p>

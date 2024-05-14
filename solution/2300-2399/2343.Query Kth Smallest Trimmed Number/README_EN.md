@@ -4,6 +4,8 @@
 
 <!-- tags:Array,String,Divide and Conquer,Quickselect,Radix Sort,Sorting,Heap (Priority Queue) -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array of strings <code>nums</code>, where each string is of <strong>equal length</strong> and consists of only digits.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Math,Number Theory -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> containing <strong>positive</strong> integers.</p>

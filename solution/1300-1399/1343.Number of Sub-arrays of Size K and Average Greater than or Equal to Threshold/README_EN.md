@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Sliding Window -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an array of integers <code>arr</code> and two integers <code>k</code> and <code>threshold</code>, return <em>the number of sub-arrays of size </em><code>k</code><em> and average greater than or equal to </em><code>threshold</code>.</p>

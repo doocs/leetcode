@@ -4,6 +4,8 @@
 
 <!-- tags:Database -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Table: <code>Calls</code></p>

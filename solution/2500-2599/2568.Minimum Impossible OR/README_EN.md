@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Brainteaser,Array -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong>&nbsp;integer array <code>nums</code>.</p>

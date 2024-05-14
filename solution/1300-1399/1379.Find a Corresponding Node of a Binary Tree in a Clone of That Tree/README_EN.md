@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Tree -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given two binary trees <code>original</code> and <code>cloned</code> and given a reference to a node <code>target</code> in the original tree.</p>

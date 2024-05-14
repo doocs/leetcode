@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,String,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 Given a list of 24-hour clock time points in <strong>&quot;HH:MM&quot;</strong> format, return <em>the minimum <b>minutes</b> difference between any two time-points in the list</em>.

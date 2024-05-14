@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Sorting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given an array of integers <code>nums</code>, sort the array in <strong>increasing</strong> order based on the frequency of the values. If multiple values have the same frequency, sort them in <strong>decreasing</strong> order.</p>

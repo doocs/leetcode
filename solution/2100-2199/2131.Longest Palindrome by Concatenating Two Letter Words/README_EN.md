@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Hash Table,String,Counting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an array of strings <code>words</code>. Each element of <code>words</code> consists of <strong>two</strong> lowercase English letters.</p>

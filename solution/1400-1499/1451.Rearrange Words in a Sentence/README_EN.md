@@ -4,6 +4,8 @@
 
 <!-- tags:String,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a sentence&nbsp;<code>text</code> (A&nbsp;<em>sentence</em>&nbsp;is a string of space-separated words) in the following format:</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,Number Theory -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given a <strong>0-indexed</strong> integer array <code>nums</code> of length <code>n</code> and an integer <code>k</code>, return <em>the <strong>number of pairs</strong></em> <code>(i, j)</code> <em>such that:</em></p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Dynamic Programming,Matrix -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an <code>m x n</code> matrix <code>grid</code> where each cell is either a wall <code>&#39;W&#39;</code>, an enemy <code>&#39;E&#39;</code> or empty <code>&#39;0&#39;</code>, return <em>the maximum enemies you can kill using one bomb</em>. You can only place the bomb in an empty cell.</p>

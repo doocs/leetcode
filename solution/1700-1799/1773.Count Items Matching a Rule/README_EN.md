@@ -4,6 +4,8 @@
 
 <!-- tags:Array,String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given an array <code>items</code>, where each <code>items[i] = [type<sub>i</sub>, color<sub>i</sub>, name<sub>i</sub>]</code> describes the type, color, and name of the <code>i<sup>th</sup></code> item. You are also given a rule represented by two strings, <code>ruleKey</code> and <code>ruleValue</code>.</p>

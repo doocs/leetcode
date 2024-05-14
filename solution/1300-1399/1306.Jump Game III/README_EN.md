@@ -4,6 +4,8 @@
 
 <!-- tags:Depth-First Search,Breadth-First Search,Array -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an array of non-negative integers <code>arr</code>, you are initially positioned at <code>start</code>&nbsp;index of the array. When you are at index <code>i</code>, you can jump&nbsp;to <code>i + arr[i]</code> or <code>i - arr[i]</code>, check if you can reach&nbsp;<strong>any</strong> index with value 0.</p>

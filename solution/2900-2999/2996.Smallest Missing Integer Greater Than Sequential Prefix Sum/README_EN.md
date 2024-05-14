@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Sorting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array of integers <code>nums</code>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Two Pointers,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>There are <code>n</code> balls on a table, each ball has a color black or white.</p>

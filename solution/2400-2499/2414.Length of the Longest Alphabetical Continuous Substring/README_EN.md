@@ -4,6 +4,8 @@
 
 <!-- tags:String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>An <strong>alphabetical continuous string</strong> is a string consisting of consecutive letters in the alphabet. In other words, it is any substring of the string <code>&quot;abcdefghijklmnopqrstuvwxyz&quot;</code>.</p>

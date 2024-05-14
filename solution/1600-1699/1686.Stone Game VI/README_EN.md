@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Math,Game Theory,Sorting,Heap (Priority Queue) -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Alice and Bob take turns playing a game, with Alice starting first.</p>

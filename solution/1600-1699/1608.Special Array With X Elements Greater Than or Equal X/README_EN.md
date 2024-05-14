@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Binary Search,Sorting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given an array <code>nums</code> of non-negative integers. <code>nums</code> is considered <strong>special</strong> if there exists a number <code>x</code> such that there are <strong>exactly</strong> <code>x</code> numbers in <code>nums</code> that are <strong>greater than or equal to</strong> <code>x</code>.</p>

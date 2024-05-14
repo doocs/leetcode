@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given two integers <code>numBottles</code> and <code>numExchange</code>.</p>

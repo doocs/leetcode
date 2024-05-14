@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Two Pointers,String,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a string <code>s</code> and a string array <code>dictionary</code>, return <em>the longest string in the dictionary that can be formed by deleting some of the given string characters</em>. If there is more than one possible result, return the longest word with the smallest lexicographical order. If there is no possible result, return the empty string.</p>

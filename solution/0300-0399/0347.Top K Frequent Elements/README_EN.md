@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Divide and Conquer,Bucket Sort,Counting,Quickselect,Sorting,Heap (Priority Queue) -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> and an integer <code>k</code>, return <em>the</em> <code>k</code> <em>most frequent elements</em>. You may return the answer in <strong>any order</strong>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,String,Counting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>A <strong>distinct string</strong> is a string that is present only <strong>once</strong> in an array.</p>

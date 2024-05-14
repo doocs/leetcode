@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Dynamic Programming -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an <strong>even</strong> number of people <code>numPeople</code> that stand around a circle and each person shakes hands with someone else so that there are <code>numPeople / 2</code> handshakes total.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Array,Hash Table,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You have been tasked with writing a program for a popular bank that will automate all its incoming transactions (transfer, deposit, and withdraw). The bank has <code>n</code> accounts numbered from <code>1</code> to <code>n</code>. The initial balance of each account is stored in a <strong>0-indexed</strong> integer array <code>balance</code>, with the <code>(i + 1)<sup>th</sup></code> account having an initial balance of <code>balance[i]</code>.</p>

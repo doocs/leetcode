@@ -4,6 +4,8 @@
 
 <!-- tags:Brainteaser,Math,Dynamic Programming,Probability and Statistics -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p><code>n</code> passengers board an airplane with exactly <code>n</code> seats. The first passenger has lost the ticket and picks a seat randomly. But after that, the rest of the passengers will:</p>

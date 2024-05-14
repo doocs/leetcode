@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array,Dynamic Programming,Backtracking,Bitmask -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an array of transactions <code>transactions</code> where <code>transactions[i] = [from<sub>i</sub>, to<sub>i</sub>, amount<sub>i</sub>]</code> indicates that the person with <code>ID = from<sub>i</sub></code> gave <code>amount<sub>i</sub> $</code> to the person with <code>ID = to<sub>i</sub></code>.</p>

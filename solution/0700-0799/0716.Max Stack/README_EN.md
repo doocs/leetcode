@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Design,Linked List,Doubly-Linked List,Ordered Set -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Design a max stack data structure that supports the stack operations and supports finding the stack&#39;s maximum element.</p>

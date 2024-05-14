@@ -4,6 +4,8 @@
 
 <!-- tags:Linked List -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given the <code>head</code> of a sorted linked list, <em>delete all duplicates such that each element appears only once</em>. Return <em>the linked list <strong>sorted</strong> as well</em>.</p>

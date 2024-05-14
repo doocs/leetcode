@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String,Counting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given two <strong>0-indexed</strong> strings <code>word1</code> and <code>word2</code>.</p>

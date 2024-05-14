@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Divide and Conquer,Quickselect,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, reorder it such that <code>nums[0] &lt; nums[1] &gt; nums[2] &lt; nums[3]...</code>.</p>

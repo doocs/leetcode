@@ -4,6 +4,8 @@
 
 <!-- tags:Array -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> of size <code>n</code>, return <em>the number with the value <strong>closest</strong> to </em><code>0</code><em> in </em><code>nums</code>. If there are multiple answers, return <em>the number with the <strong>largest</strong> value</em>.</p>

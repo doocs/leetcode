@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Matrix,Prefix Sum -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> integer matrix <code>grid</code>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Two Pointers,Matrix,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>This question is about implementing a basic elimination algorithm for Candy Crush.</p>

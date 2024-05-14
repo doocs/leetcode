@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Binary Search,Prefix Sum,Sorting,Sliding Window -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and an integer <code>k</code>.</p>

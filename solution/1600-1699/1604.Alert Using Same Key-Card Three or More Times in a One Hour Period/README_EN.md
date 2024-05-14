@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,String,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>LeetCode company workers use key-cards to unlock office doors. Each time a worker uses their key-card, the security system saves the worker&#39;s name and the time when it was used. The system emits an <strong>alert</strong> if any worker uses the key-card <strong>three or more times</strong> in a one-hour period.</p>

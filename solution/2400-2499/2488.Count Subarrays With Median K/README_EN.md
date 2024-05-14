@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Prefix Sum -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an array <code>nums</code> of size <code>n</code> consisting of <strong>distinct </strong>integers from <code>1</code> to <code>n</code> and a positive integer <code>k</code>.</p>

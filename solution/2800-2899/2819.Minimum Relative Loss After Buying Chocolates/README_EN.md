@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Binary Search,Prefix Sum,Sorting -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an integer array <code>prices</code>, which shows the chocolate prices and a 2D integer array <code>queries</code>, where <code>queries[i] = [k<sub>i</sub>, m<sub>i</sub>]</code>.</p>

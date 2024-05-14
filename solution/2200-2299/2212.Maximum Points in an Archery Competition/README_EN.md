@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array,Backtracking,Enumeration -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Alice and Bob are opponents in an archery competition. The competition has set the following rules:</p>

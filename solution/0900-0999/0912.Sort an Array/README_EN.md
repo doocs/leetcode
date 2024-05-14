@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Divide and Conquer,Bucket Sort,Counting Sort,Radix Sort,Sorting,Heap (Priority Queue),Merge Sort -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an array of integers <code>nums</code>, sort the array in ascending order and return it.</p>

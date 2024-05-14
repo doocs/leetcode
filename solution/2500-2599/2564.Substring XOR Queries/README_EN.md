@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array,Hash Table,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <strong>binary string</strong> <code>s</code>, and a <strong>2D</strong> integer array <code>queries</code> where <code>queries[i] = [first<sub>i</sub>, second<sub>i</sub>]</code>.</p>

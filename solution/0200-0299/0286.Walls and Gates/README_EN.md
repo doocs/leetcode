@@ -4,6 +4,8 @@
 
 <!-- tags:Breadth-First Search,Array,Matrix -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> grid <code>rooms</code>&nbsp;initialized with these three possible values.</p>

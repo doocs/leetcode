@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Binary Indexed Tree,Two Pointers,String -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a string <code>s</code> consisting only of lowercase English letters.</p>

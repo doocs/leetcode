@@ -4,6 +4,8 @@
 
 <!-- tags:Linked List -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>There is a singly-linked list <code>head</code> and we want to delete a node <code>node</code> in it.</p>

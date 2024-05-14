@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Math,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>The <strong>factorial</strong> of a positive integer <code>n</code> is the product of all positive integers less than or equal to <code>n</code>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Enumeration -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 Given two arrays of <strong>unique</strong> digits <code>nums1</code> and <code>nums2</code>, return <em>the <strong>smallest</strong> number that contains <strong>at least</strong> one digit from each array</em>.

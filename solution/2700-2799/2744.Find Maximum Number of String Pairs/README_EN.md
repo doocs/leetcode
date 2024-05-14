@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,String,Simulation -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array <code>words</code> consisting of <strong>distinct</strong> strings.</p>

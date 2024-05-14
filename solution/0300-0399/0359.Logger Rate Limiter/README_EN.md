@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Hash Table,Data Stream -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Design a logger system that receives a stream of messages along with their timestamps. Each <strong>unique</strong> message should only be printed <strong>at most every 10 seconds</strong> (i.e. a message printed at timestamp <code>t</code> will prevent other identical messages from being printed until timestamp <code>t + 10</code>).</p>

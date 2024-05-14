@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,Interactive -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>We have an integer array <code>nums</code>, where all the integers in <code>nums</code> are <strong>0</strong> or <strong>1</strong>. You will not be given direct access to the array, instead, you will have an <strong>API</strong> <code>ArrayReader</code> which have the following functions:</p>

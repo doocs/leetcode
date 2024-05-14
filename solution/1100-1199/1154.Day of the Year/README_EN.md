@@ -4,6 +4,8 @@
 
 <!-- tags:Math,String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given a string <code>date</code> representing a <a href="https://en.wikipedia.org/wiki/Gregorian_calendar" target="_blank">Gregorian calendar</a> date formatted as <code>YYYY-MM-DD</code>, return <em>the day number of the year</em>.</p>

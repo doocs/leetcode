@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a&nbsp;<strong>multi-dimensional</strong> array&nbsp;<code>arr</code>&nbsp;and a depth <code>n</code>, return&nbsp;a&nbsp;<strong>flattened</strong>&nbsp;version of that array.</p>

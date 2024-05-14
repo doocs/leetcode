@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Recursion,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an encoded string, return its decoded string.</p>

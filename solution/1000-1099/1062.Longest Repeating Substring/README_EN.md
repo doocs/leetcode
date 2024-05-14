@@ -4,6 +4,8 @@
 
 <!-- tags:String,Binary Search,Dynamic Programming,Suffix Array,Hash Function,Rolling Hash -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a string <code>s</code>, return <em>the length of the longest repeating substrings</em>. If no repeating substring exists, return <code>0</code>.</p>

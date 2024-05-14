@@ -4,6 +4,8 @@
 
 <!-- tags:String,Backtracking -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>An <strong>additive number</strong> is a string whose digits can form an <strong>additive sequence</strong>.</p>

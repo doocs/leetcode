@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Enumeration -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>A generic microwave supports cooking times for:</p>

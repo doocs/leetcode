@@ -4,6 +4,8 @@
 
 <!-- tags:Math -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p><strong>Reversing</strong> an integer means to reverse all its digits.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:String,Dynamic Programming -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There is a strange printer with the following two special properties:</p>

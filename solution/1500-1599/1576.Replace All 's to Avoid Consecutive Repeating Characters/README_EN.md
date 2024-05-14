@@ -4,6 +4,8 @@
 
 <!-- tags:String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given a string <code>s</code> containing only lowercase English letters and the <code>&#39;?&#39;</code> character, convert <strong>all </strong>the <code>&#39;?&#39;</code> characters into lowercase letters such that the final string does not contain any <strong>consecutive repeating </strong>characters. You <strong>cannot </strong>modify the non <code>&#39;?&#39;</code> characters.</p>

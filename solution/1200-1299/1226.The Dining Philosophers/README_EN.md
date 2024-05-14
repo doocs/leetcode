@@ -4,6 +4,8 @@
 
 <!-- tags:Concurrency -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Five silent philosophers&nbsp;sit at a round table with bowls of spaghetti. Forks are placed between each pair of adjacent philosophers.</p>

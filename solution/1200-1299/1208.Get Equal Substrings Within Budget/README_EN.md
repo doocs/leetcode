@@ -4,6 +4,8 @@
 
 <!-- tags:String,Binary Search,Prefix Sum,Sliding Window -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given two strings <code>s</code> and <code>t</code> of the same length and an integer <code>maxCost</code>.</p>

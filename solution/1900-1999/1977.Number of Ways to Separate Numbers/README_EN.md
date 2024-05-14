@@ -4,6 +4,8 @@
 
 <!-- tags:String,Dynamic Programming,Suffix Array -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You wrote down many <strong>positive</strong> integers in a string called <code>num</code>. However, you realized that you forgot to add commas to seperate the different numbers. You remember that the list of integers was <strong>non-decreasing</strong> and that <strong>no</strong> integer had leading zeros.</p>

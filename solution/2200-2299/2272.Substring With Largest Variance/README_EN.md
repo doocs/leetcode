@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Dynamic Programming -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>The <strong>variance</strong> of a string is defined as the largest difference between the number of occurrences of <strong>any</strong> <code>2</code> characters present in the string. Note the two characters may or may not be the same.</p>

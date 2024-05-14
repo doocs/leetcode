@@ -4,6 +4,8 @@
 
 <!-- tags:Array -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>There are <code>n</code> employees, each with a unique id from <code>0</code> to <code>n - 1</code>.</p>

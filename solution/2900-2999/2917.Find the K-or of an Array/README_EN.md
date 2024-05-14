@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code>, and an integer <code>k</code>. Let&#39;s introduce&nbsp;<strong>K-or</strong> operation by extending the standard bitwise OR. In K-or, a bit position in the result is set to <code>1</code>&nbsp;if at least <code>k</code> numbers in <code>nums</code> have a <code>1</code> in that position.</p>

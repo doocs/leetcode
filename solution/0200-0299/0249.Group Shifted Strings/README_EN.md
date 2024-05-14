@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>We can shift a string by shifting each of its letters to its successive letter.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Memoization,Array,Dynamic Programming -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given several <code>boxes</code> with different colors represented by different positive numbers.</p>

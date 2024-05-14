@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Dynamic Programming,Prefix Sum -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There are <code>n</code> piles of <code>stones</code> arranged in a row. The <code>i<sup>th</sup></code> pile has <code>stones[i]</code> stones.</p>

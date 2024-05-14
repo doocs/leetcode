@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array,String,Dynamic Programming,Backtracking,Bitmask -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given a list of <code>words</code>, list of&nbsp; single&nbsp;<code>letters</code> (might be repeating)&nbsp;and <code>score</code>&nbsp;of every character.</p>

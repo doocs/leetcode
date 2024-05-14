@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Write a function that converts an array of objects&nbsp;<code>arr</code> into a matrix <code>m</code>.</p>

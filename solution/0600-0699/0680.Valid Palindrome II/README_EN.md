@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Two Pointers,String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given a string <code>s</code>, return <code>true</code> <em>if the </em><code>s</code><em> can be palindrome after deleting <strong>at most one</strong> character from it</em>.</p>

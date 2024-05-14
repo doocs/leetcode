@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an object or array&nbsp;<code>obj</code>, return a <strong>compact object</strong>.</p>

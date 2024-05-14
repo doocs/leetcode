@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an array&nbsp;of asynchronous functions&nbsp;<code>functions</code>&nbsp;and a <strong>pool limit</strong>&nbsp;<code>n</code>, return an asynchronous function&nbsp;<code>promisePool</code>. It should return&nbsp;a promise that resolves when all the input&nbsp;functions resolve.</p>

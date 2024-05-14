@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array,Dynamic Programming,Bitmask -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given integers <code>height</code> and <code>width</code> which specify the dimensions of a brick wall you are building. You are also given a <strong>0-indexed</strong> array of <strong>unique</strong> integers <code>bricks</code>, where the <code>i<sup>th</sup></code> brick has a height of <code>1</code> and a width of <code>bricks[i]</code>. You have an <strong>infinite </strong>supply of each type of brick and bricks may <strong>not</strong> be rotated.</p>

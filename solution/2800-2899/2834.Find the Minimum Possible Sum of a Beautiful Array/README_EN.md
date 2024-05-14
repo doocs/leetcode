@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Math -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given positive integers <code>n</code> and <code>target</code>.</p>

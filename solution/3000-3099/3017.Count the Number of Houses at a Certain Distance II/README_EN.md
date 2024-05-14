@@ -4,6 +4,8 @@
 
 <!-- tags:Graph,Prefix Sum -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given three <strong>positive</strong> integers <code>n</code>, <code>x</code>, and <code>y</code>.</p>

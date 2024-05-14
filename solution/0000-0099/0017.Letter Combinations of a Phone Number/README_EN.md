@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String,Backtracking -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a string containing digits from <code>2-9</code> inclusive, return all possible letter combinations that the number could represent. Return the answer in <strong>any order</strong>.</p>

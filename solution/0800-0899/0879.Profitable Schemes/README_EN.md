@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Dynamic Programming -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There is a group of <code>n</code> members, and a list of various crimes they could commit. The <code>i<sup>th</sup></code> crime generates a <code>profit[i]</code> and requires <code>group[i]</code> members to participate in it. If a member participates in one crime, that member can&#39;t participate in another crime.</p>

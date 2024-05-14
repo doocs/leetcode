@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array,Math,Matrix -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> binary matrix <code>grid</code>.</p>

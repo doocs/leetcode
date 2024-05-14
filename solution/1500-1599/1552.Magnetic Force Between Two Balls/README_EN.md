@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Binary Search,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>In the universe Earth C-137, Rick discovered a special form of magnetic force between two balls if they are put in his new invented basket. Rick has <code>n</code> empty baskets, the <code>i<sup>th</sup></code> basket is at <code>position[i]</code>, Morty has <code>m</code> balls and needs to distribute the balls into the baskets such that the <strong>minimum magnetic force</strong> between any two balls is <strong>maximum</strong>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Math -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given an integer <code>num</code>, return <em>a string representing its hexadecimal representation</em>. For negative integers, <a href="https://en.wikipedia.org/wiki/Two%27s_complement" target="_blank">two&rsquo;s complement</a> method is used.</p>

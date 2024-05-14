@@ -4,6 +4,8 @@
 
 <!-- tags:String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> binary string <code>s</code> having an even length.</p>

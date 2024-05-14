@@ -4,6 +4,8 @@
 
 <!-- tags:Array,String,Dynamic Programming -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an array of binary strings <code>strs</code> and two integers <code>m</code> and <code>n</code>.</p>

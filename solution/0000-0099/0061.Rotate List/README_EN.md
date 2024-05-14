@@ -4,6 +4,8 @@
 
 <!-- tags:Linked List,Two Pointers -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given the <code>head</code> of a linked&nbsp;list, rotate the list to the right by <code>k</code> places.</p>

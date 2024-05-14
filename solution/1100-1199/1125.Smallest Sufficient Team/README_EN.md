@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array,Dynamic Programming,Bitmask -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>In a project, you have a list of required skills <code>req_skills</code>, and a list of people. The <code>i<sup>th</sup></code> person <code>people[i]</code> contains a list of skills that the person has.</p>

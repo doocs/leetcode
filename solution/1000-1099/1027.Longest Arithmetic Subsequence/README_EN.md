@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Binary Search,Dynamic Programming -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an array <code>nums</code> of integers, return <em>the length of the longest arithmetic subsequence in</em> <code>nums</code>.</p>

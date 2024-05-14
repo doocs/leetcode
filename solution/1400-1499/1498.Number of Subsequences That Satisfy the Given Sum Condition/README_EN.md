@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Two Pointers,Binary Search,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an array of integers <code>nums</code> and an integer <code>target</code>.</p>

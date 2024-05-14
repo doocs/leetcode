@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> containing <strong>positive</strong> integers. We define a function <code>encrypt</code> such that <code>encrypt(x)</code> replaces <strong>every</strong> digit in <code>x</code> with the <strong>largest</strong> digit in <code>x</code>. For example, <code>encrypt(523) = 555</code> and <code>encrypt(213) = 333</code>.</p>

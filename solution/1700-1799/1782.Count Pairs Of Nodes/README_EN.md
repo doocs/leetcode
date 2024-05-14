@@ -4,6 +4,8 @@
 
 <!-- tags:Graph,Array,Two Pointers,Binary Search,Sorting -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an undirected graph defined by an integer <code>n</code>, the number of nodes, and a 2D integer array <code>edges</code>, the edges in the graph, where <code>edges[i] = [u<sub>i</sub>, v<sub>i</sub>]</code> indicates that there is an <strong>undirected</strong> edge between <code>u<sub>i</sub></code> and <code>v<sub>i</sub></code>. You are also given an integer array <code>queries</code>.</p>

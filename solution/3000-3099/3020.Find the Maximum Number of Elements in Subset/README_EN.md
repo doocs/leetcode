@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Enumeration -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an array of <strong>positive</strong> integers <code>nums</code>.</p>

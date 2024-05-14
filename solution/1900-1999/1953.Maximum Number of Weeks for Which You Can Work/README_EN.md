@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>There are <code>n</code> projects numbered from <code>0</code> to <code>n - 1</code>. You are given an integer array <code>milestones</code> where each <code>milestones[i]</code> denotes the number of milestones the <code>i<sup>th</sup></code> project has.</p>

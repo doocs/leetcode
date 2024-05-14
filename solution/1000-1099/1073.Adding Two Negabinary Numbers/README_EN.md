@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given two numbers <code>arr1</code> and <code>arr2</code> in base <strong>-2</strong>, return the result of adding them together.</p>

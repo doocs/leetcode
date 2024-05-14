@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Binary Search,Counting,Matrix -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an <code>m x n</code> matrix <code>mat</code> where every row is sorted in <strong>strictly</strong> <strong>increasing</strong> order, return <em>the <strong>smallest common element</strong> in all rows</em>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Enumeration,Number Theory -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given two positive integers <code>a</code> and <code>b</code>, return <em>the number of <strong>common</strong> factors of </em><code>a</code><em> and </em><code>b</code>.</p>

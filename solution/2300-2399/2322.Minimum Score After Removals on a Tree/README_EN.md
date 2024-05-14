@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Tree,Depth-First Search,Array -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There is an undirected connected tree with <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code> and <code>n - 1</code> edges.</p>

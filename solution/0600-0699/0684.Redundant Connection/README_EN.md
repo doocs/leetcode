@@ -4,6 +4,8 @@
 
 <!-- tags:Depth-First Search,Breadth-First Search,Union Find,Graph -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>In this problem, a tree is an <strong>undirected graph</strong> that is connected and has no cycles.</p>

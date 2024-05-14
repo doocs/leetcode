@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Interactive,Simulation -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given a <code>file</code> and assume that you can only read the file using a given method <code>read4</code>, implement a method <code>read</code> to read <code>n</code> characters. Your method <code>read</code> may be <strong>called multiple times</strong>.</p>

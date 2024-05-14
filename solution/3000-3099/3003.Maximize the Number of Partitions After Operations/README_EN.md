@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,String,Dynamic Programming,Bitmask -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string <code>s</code> and an integer <code>k</code>.</p>

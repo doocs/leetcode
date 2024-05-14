@@ -4,6 +4,8 @@
 
 <!-- tags:Depth-First Search,Breadth-First Search,Array,Binary Search,Matrix -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> binary matrix <code>image</code> where <code>0</code> represents a white pixel and <code>1</code> represents a black pixel.</p>

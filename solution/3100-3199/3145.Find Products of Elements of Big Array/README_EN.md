@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>A <strong>powerful array</strong> for an integer <code>x</code> is the shortest sorted array of powers of two that sum up to <code>x</code>. For example, the powerful array for 11 is <code>[1, 2, 8]</code>.</p>

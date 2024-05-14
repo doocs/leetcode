@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Greedy,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>A parentheses string is valid if and only if:</p>

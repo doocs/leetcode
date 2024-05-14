@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Recursion,Linked List,Two Pointers -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an immutable linked list, print out all values of each node in reverse with the help of the following&nbsp;interface:</p>

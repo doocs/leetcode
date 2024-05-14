@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Sorting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>A sequence of numbers is called an <strong>arithmetic progression</strong> if the difference between any two consecutive elements is the same.</p>

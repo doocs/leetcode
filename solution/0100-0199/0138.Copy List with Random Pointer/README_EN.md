@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,Linked List -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>A linked list of length <code>n</code> is given such that each node contains an additional random pointer, which could point to any node in the list, or <code>null</code>.</p>

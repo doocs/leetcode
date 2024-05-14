@@ -4,6 +4,8 @@
 
 <!-- tags:Recursion,Math -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a positive integer <code>primeFactors</code>. You are asked to construct a positive integer <code>n</code> that satisfies the following conditions:</p>

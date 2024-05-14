@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,String,Backtracking -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>A string can be <strong>abbreviated</strong> by replacing any number of <strong>non-adjacent</strong> substrings with their lengths. For example, a string such as <code>&quot;substitution&quot;</code> could be abbreviated as (but not limited to):</p>

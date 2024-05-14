@@ -4,6 +4,8 @@
 
 <!-- tags:Database -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Table: <code>NPV</code></p>

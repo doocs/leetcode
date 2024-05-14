@@ -4,6 +4,8 @@
 
 <!-- tags:Math,String,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given two non-negative integers <code>num1</code> and <code>num2</code> represented as strings, return the product of <code>num1</code> and <code>num2</code>, also represented as a string.</p>

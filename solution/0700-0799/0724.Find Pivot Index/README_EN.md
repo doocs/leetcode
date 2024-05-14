@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Prefix Sum -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given an array of integers <code>nums</code>, calculate the <strong>pivot index</strong> of this array.</p>

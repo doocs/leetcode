@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Math,Sliding Window -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an array of integers <code>nums</code> and an integer <code>k</code>. A continuous subarray is called <strong>nice</strong> if there are <code>k</code> odd numbers on it.</p>

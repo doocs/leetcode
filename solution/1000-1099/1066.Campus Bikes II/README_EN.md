@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array,Dynamic Programming,Backtracking,Bitmask -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>On a campus represented as a 2D grid, there are <code>n</code> workers and <code>m</code> bikes, with <code>n &lt;= m</code>. Each worker and bike is a 2D coordinate on this grid.</p>

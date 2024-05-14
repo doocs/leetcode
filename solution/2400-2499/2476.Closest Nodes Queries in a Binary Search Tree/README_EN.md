@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search,Binary Search Tree,Array,Binary Search,Binary Tree -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given the <code>root</code> of a <strong>binary search tree </strong>and an array <code>queries</code> of size <code>n</code> consisting of positive integers.</p>

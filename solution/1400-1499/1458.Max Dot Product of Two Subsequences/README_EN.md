@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Dynamic Programming -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given two arrays <code>nums1</code>&nbsp;and <code><font face="monospace">nums2</font></code><font face="monospace">.</font></p>

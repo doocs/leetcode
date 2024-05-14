@@ -4,6 +4,8 @@
 
 <!-- tags:Binary Indexed Tree,Segment Tree,Array,Divide and Conquer,Ordered Set,Line Sweep,Heap (Priority Queue) -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>A city&#39;s <strong>skyline</strong> is the outer contour of the silhouette formed by all the buildings in that city when viewed from a distance. Given the locations and heights of all the buildings, return <em>the <strong>skyline</strong> formed by these buildings collectively</em>.</p>

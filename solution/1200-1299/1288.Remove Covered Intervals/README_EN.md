@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an array <code>intervals</code> where <code>intervals[i] = [l<sub>i</sub>, r<sub>i</sub>]</code> represent the interval <code>[l<sub>i</sub>, r<sub>i</sub>)</code>, remove all intervals that are covered by another interval in the list.</p>

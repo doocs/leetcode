@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Enumeration,Matrix -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a 2D matrix <code>grid</code> of size <code>3 x 3</code> consisting only of characters <code>&#39;B&#39;</code> and <code>&#39;W&#39;</code>. Character <code>&#39;W&#39;</code> represents the white color<!-- notionvc: 06a49cc0-a296-4bd2-9bfe-c8818edeb53a -->, and character <code>&#39;B&#39;</code> represents the black color<!-- notionvc: 06a49cc0-a296-4bd2-9bfe-c8818edeb53a -->.</p>

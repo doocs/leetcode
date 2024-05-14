@@ -4,6 +4,8 @@
 
 <!-- tags:Binary Search,Interactive -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>We are playing the Guess Game. The game is as follows:</p>

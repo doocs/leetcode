@@ -4,6 +4,8 @@
 
 <!-- tags:Binary Indexed Tree,Segment Tree,Array -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given the <strong>0-indexed</strong> arrays <code>prices</code> and <code>profits</code> of length <code>n</code>. There are <code>n</code> items in an store where the <code>i<sup>th</sup></code> item has a price of <code>prices[i]</code> and a profit of <code>profits[i]</code>.</p>

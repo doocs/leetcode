@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,Binary Search,Number Theory -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an array of integers <code>nums</code> and an integer <code>k</code>.</p>

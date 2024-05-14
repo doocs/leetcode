@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Recursion,Hash Table,String -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a string expression representing a Lisp-like expression to return the integer value of.</p>

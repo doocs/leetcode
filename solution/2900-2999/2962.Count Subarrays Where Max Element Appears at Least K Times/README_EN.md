@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Sliding Window -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> and a <strong>positive</strong> integer <code>k</code>.</p>

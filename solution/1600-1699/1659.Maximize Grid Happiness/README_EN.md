@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Memoization,Dynamic Programming,Bitmask -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given four integers, <code>m</code>, <code>n</code>, <code>introvertsCount</code>, and <code>extrovertsCount</code>. You have an <code>m x n</code> grid, and there are two types of people: introverts and extroverts. There are <code>introvertsCount</code> introverts and <code>extrovertsCount</code> extroverts.</p>

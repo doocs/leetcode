@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String,Binary Search,Counting,Sliding Window -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a string <code>s</code> that consists of lowercase English letters.</p>

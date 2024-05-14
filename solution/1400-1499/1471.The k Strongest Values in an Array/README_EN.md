@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Two Pointers,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an array of integers <code>arr</code> and an integer <code>k</code>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Trie,Array,String -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given two arrays of strings <code>wordsContainer</code> and <code>wordsQuery</code>.</p>

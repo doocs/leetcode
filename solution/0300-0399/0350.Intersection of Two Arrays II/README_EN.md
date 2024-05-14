@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Two Pointers,Binary Search,Sorting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given two integer arrays <code>nums1</code> and <code>nums2</code>, return <em>an array of their intersection</em>. Each element in the result must appear as many times as it shows in both arrays and you may return the result in <strong>any order</strong>.</p>

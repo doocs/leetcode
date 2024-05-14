@@ -4,6 +4,8 @@
 
 <!-- tags:String,Sliding Window -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>A string is considered <strong>beautiful</strong> if it satisfies the following conditions:</p>

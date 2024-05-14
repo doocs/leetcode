@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a binary array <code>nums</code>.</p>

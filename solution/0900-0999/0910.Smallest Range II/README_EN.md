@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Math,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> and an integer <code>k</code>.</p>

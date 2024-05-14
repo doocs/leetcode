@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Matrix -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given two arrays <code>rowSum</code> and <code>colSum</code> of non-negative integers where <code>rowSum[i]</code> is the sum of the elements in the <code>i<sup>th</sup></code> row and <code>colSum[j]</code> is the sum of the elements of the <code>j<sup>th</sup></code> column of a 2D matrix. In other words, you do not know the elements of the matrix, but you do know the sums of each row and column.</p>

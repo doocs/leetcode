@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String,Dynamic Programming -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>The <b>appeal</b> of a string is the number of <strong>distinct</strong> characters found in the string.</p>

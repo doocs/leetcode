@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Array,Two Pointers,Binary Search,Monotonic Stack -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an array of integers <code>nums</code> <strong>(0-indexed)</strong> and an integer <code>k</code>.</p>

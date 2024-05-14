@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>There is a function <code>signFunc(x)</code> that returns:</p>

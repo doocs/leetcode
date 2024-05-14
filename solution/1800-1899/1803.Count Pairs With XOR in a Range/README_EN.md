@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Trie,Array -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given a <strong>(0-indexed)</strong> integer array <code>nums</code> and two integers <code>low</code> and <code>high</code>, return <em>the number of <strong>nice pairs</strong></em>.</p>

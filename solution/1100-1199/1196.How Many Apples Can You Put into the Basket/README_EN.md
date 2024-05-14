@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Sorting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You have some apples and a basket that can carry up to <code>5000</code> units of weight.</p>

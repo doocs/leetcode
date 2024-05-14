@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Math,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a string <code>s</code> which represents an expression, <em>evaluate this expression and return its value</em>.&nbsp;</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Math,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are participating in an online chess tournament. There is a chess round that starts every <code>15</code> minutes. The first round of the day starts at <code>00:00</code>, and after every <code>15</code> minutes, a new round starts.</p>

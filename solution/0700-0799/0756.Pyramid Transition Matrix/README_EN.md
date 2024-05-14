@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Depth-First Search,Breadth-First Search -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are stacking blocks to form a pyramid. Each block has a color, which is represented by a single letter. Each row of blocks contains <strong>one less block</strong> than the row beneath it and is centered on top.</p>

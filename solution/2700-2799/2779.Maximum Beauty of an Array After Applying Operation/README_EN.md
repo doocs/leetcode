@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Binary Search,Sorting,Sliding Window -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> and a <strong>non-negative</strong> integer <code>k</code>.</p>

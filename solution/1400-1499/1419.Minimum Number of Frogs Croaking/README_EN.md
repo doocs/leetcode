@@ -4,6 +4,8 @@
 
 <!-- tags:String,Counting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given the string <code>croakOfFrogs</code>, which represents a combination of the string <code>&quot;croak&quot;</code> from different frogs, that is, multiple frogs can croak at the same time, so multiple <code>&quot;croak&quot;</code> are mixed.</p>

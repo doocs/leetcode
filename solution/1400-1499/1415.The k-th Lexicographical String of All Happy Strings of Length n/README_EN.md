@@ -4,6 +4,8 @@
 
 <!-- tags:String,Backtracking -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>A <strong>happy string</strong> is a string that:</p>

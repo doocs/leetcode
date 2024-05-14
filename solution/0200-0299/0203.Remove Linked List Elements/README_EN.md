@@ -4,6 +4,8 @@
 
 <!-- tags:Recursion,Linked List -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given the <code>head</code> of a linked list and an integer <code>val</code>, remove all the nodes of the linked list that has <code>Node.val == val</code>, and return <em>the new head</em>.</p>

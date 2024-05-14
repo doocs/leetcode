@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Binary Search Tree,Binary Tree -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given the <code>root</code> node of a binary search tree (BST) and a <code>value</code> to insert into the tree. Return <em>the root node of the BST after the insertion</em>. It is <strong>guaranteed</strong> that the new value does not exist in the original BST.</p>

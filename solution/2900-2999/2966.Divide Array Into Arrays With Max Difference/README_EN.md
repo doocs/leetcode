@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> of size <code>n</code> and a positive integer <code>k</code>.</p>

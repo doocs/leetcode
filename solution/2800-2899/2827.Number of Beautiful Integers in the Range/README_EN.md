@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Dynamic Programming -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given positive integers <code>low</code>, <code>high</code>, and <code>k</code>.</p>

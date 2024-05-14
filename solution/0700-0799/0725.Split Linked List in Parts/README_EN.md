@@ -4,6 +4,8 @@
 
 <!-- tags:Linked List -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given the <code>head</code> of a singly linked list and an integer <code>k</code>, split the linked list into <code>k</code> consecutive linked list parts.</p>

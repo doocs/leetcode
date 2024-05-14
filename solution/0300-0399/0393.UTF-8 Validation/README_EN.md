@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an integer array <code>data</code> representing the data, return whether it is a valid <strong>UTF-8</strong> encoding (i.e. it translates to a sequence of valid UTF-8 encoded characters).</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Binary Search,Sorting -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You have <code>n</code> computers. You are given the integer <code>n</code> and a <strong>0-indexed</strong> integer array <code>batteries</code> where the <code>i<sup>th</sup></code> battery can <strong>run</strong> a computer for <code>batteries[i]</code> minutes. You are interested in running <strong>all</strong> <code>n</code> computers <strong>simultaneously</strong> using the given batteries.</p>

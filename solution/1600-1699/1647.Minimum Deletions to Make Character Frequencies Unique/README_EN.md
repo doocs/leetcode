@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Hash Table,String,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>A string <code>s</code> is called <strong>good</strong> if there are no two different characters in <code>s</code> that have the same <strong>frequency</strong>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Binary Search,Prefix Sum,Sorting -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given two <strong>0-indexed</strong> arrays <code>nums</code> and <code>cost</code> consisting each of <code>n</code> <strong>positive</strong> integers.</p>

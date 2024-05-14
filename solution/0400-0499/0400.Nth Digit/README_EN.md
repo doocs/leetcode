@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Binary Search -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an integer <code>n</code>, return the <code>n<sup>th</sup></code> digit of the infinite integer sequence <code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ...]</code>.</p>

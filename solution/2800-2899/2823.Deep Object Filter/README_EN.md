@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an object or an array&nbsp;<code>obj</code> and a function <code>fn</code>, return a filtered object or array&nbsp;<code>filteredObject</code>.&nbsp;</p>

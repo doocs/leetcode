@@ -4,6 +4,8 @@
 
 <!-- tags:Queue,Dynamic Programming,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>On day <code>1</code>, one person discovers a secret.</p>

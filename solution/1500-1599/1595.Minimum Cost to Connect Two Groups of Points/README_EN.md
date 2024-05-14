@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array,Dynamic Programming,Bitmask,Matrix -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given two groups of points where the first group has <code>size<sub>1</sub></code> points, the second group has <code>size<sub>2</sub></code> points, and <code>size<sub>1</sub> &gt;= size<sub>2</sub></code>.</p>

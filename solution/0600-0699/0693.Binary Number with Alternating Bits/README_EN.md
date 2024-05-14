@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given a positive integer, check whether it has alternating bits: namely, if two adjacent bits will always have different values.</p>

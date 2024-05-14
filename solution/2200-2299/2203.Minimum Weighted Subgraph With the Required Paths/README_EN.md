@@ -4,6 +4,8 @@
 
 <!-- tags:Graph,Shortest Path -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an integer <code>n</code> denoting the number of nodes of a <strong>weighted directed</strong> graph. The nodes are numbered from <code>0</code> to <code>n - 1</code>.</p>

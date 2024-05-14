@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array,Hash Table,Math,Prefix Sum -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an array of integers <code>arr</code>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,String,Heap (Priority Queue) -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>A password is considered strong if the below conditions are all met:</p>

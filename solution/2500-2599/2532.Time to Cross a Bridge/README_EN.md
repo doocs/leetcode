@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Simulation,Heap (Priority Queue) -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There are <code>k</code> workers who want to move <code>n</code> boxes from an old warehouse to a new one. You are given the two integers <code>n</code> and <code>k</code>, and a 2D integer array <code>time</code> of size <code>k x 4</code> where <code>time[i] = [leftToRight<sub>i</sub>, pickOld<sub>i</sub>, rightToLeft<sub>i</sub>, putNew<sub>i</sub>]</code>.</p>

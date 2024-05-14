@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String,Enumeration -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given a string of English letters <code>s</code>, return <em>the <strong>greatest </strong>English letter which occurs as <strong>both</strong> a lowercase and uppercase letter in</em> <code>s</code>. The returned letter should be in <strong>uppercase</strong>. If no such letter exists, return <em>an empty string</em>.</p>

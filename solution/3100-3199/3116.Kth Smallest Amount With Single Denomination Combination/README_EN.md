@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array,Math,Binary Search,Combinatorics,Number Theory -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an integer array <code>coins</code> representing coins of different denominations and an integer <code>k</code>.</p>

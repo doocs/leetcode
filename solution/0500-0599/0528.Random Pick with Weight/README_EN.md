@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,Binary Search,Prefix Sum,Randomized -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array of positive integers <code>w</code> where <code>w[i]</code> describes the <strong>weight</strong> of the <code>i<sup>th</sup></code> index.</p>

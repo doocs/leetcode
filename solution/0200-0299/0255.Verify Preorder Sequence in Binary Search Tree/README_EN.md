@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Tree,Binary Search Tree,Recursion,Array,Binary Tree,Monotonic Stack -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an array of <strong>unique</strong> integers <code>preorder</code>, return <code>true</code> <em>if it is the correct preorder traversal sequence of a binary search tree</em>.</p>

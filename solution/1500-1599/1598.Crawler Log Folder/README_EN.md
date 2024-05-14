@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Array,String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>The Leetcode file system keeps a log each time some user performs a <em>change folder</em> operation.</p>

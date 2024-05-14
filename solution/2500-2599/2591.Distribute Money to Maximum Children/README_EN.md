@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Math -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given an integer <code>money</code> denoting the amount of money (in dollars) that you have and another integer <code>children</code> denoting the number of children that you must distribute the money to.</p>

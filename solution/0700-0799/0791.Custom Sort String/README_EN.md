@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given two strings <code>order</code> and <code>s</code>. All the characters of <code>order</code> are <strong>unique</strong> and were sorted in some custom order previously.</p>

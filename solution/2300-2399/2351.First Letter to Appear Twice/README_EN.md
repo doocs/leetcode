@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Hash Table,String,Counting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given a string <code>s</code> consisting of lowercase English letters, return <em>the first letter to appear <strong>twice</strong></em>.</p>

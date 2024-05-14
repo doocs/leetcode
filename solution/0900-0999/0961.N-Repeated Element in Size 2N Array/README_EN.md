@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> with the following properties:</p>

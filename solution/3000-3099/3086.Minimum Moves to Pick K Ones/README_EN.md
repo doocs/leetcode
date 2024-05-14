@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Prefix Sum,Sliding Window -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a binary array <code>nums</code> of length <code>n</code>, a <strong>positive</strong> integer <code>k</code> and a <strong>non-negative</strong> integer <code>maxChanges</code>.</p>

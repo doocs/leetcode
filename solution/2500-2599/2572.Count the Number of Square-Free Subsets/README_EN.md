@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array,Math,Dynamic Programming,Bitmask -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a positive integer <strong>0-indexed</strong>&nbsp;array <code>nums</code>.</p>

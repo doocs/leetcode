@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array,Hash Table -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 Given three integer arrays <code>nums1</code>, <code>nums2</code>, and <code>nums3</code>, return <em>a <strong>distinct</strong> array containing all the values that are present in <strong>at least two</strong> out of the three arrays. You may return the values in <strong>any</strong> order</em>.

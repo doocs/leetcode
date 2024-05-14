@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Backtracking -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>A <strong>confusing number</strong> is a number that when rotated <code>180</code> degrees becomes a different number with <strong>each digit valid</strong>.</p>

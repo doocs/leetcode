@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Binary Tree -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>A <strong>maximum tree</strong> is a tree where every node has a value greater than any other value in its subtree.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Dynamic Programming -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>There is an <code>m x n</code> grid with a ball. The ball is initially at the position <code>[startRow, startColumn]</code>. You are allowed to move the ball to one of the four adjacent cells in the grid (possibly out of the grid crossing the grid boundary). You can apply <strong>at most</strong> <code>maxMove</code> moves to the ball.</p>

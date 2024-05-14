@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String,Counting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a string <code>s</code>. Reorder the string using the following algorithm:</p>

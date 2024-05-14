@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,String,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given two strings: <code>s1</code> and <code>s2</code> with the same&nbsp;size, check if some&nbsp;permutation of string <code>s1</code> can break&nbsp;some&nbsp;permutation of string <code>s2</code> or vice-versa. In other words <code>s2</code> can break <code>s1</code>&nbsp;or vice-versa.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an <strong>even</strong> integer <code>n</code>​​​​​​. You initially have a permutation <code>perm</code> of size <code>n</code>​​ where <code>perm[i] == i</code>​ <strong>(0-indexed)</strong>​​​​.</p>

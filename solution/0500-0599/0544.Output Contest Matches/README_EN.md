@@ -4,6 +4,8 @@
 
 <!-- tags:Recursion,String,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>During the NBA playoffs, we always set the rather strong team to play with the rather weak team, like making&nbsp;the rank <code>1</code> team play with the rank <code>n<sup>th</sup></code> team, which is a good strategy to make the contest more interesting.</p>

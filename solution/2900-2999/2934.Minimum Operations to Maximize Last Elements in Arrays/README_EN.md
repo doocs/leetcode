@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Enumeration -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given two <strong>0-indexed</strong> integer arrays, <code>nums1</code> and <code>nums2</code>, both having length <code>n</code>.</p>

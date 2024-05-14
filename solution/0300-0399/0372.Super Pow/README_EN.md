@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Divide and Conquer -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Your task is to calculate <code>a<sup>b</sup></code> mod <code>1337</code> where <code>a</code> is a positive integer and <code>b</code> is an extremely large positive integer given in the form of an array.</p>

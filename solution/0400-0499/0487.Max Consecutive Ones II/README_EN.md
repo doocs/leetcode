@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Dynamic Programming,Sliding Window -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a binary array <code>nums</code>, return <em>the maximum number of consecutive </em><code>1</code><em>&#39;s in the array if you can flip at most one</em> <code>0</code>.</p>

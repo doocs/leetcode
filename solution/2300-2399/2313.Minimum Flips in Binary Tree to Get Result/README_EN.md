@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search,Dynamic Programming,Binary Tree -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given the <code>root</code> of a <strong>binary tree</strong> with the following properties:</p>

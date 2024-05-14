@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 Write a function&nbsp;<code>argumentsLength</code> that returns the count of arguments passed to it.

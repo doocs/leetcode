@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Greedy,String,Monotonic Stack -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a string <code>s</code>, an integer <code>k</code>, a letter <code>letter</code>, and an integer <code>repetition</code>.</p>

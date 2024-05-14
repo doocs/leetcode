@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a string <code>s</code> consisting of only lowercase English letters. In one operation, you can do the following:</p>

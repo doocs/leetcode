@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an <strong>integer</strong> array <code>pref</code> of size <code>n</code>. Find and return <em>the array </em><code>arr</code><em> of size </em><code>n</code><em> that satisfies</em>:</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a string array <code>words</code>, return <em>the maximum value of</em> <code>length(word[i]) * length(word[j])</code> <em>where the two words do not share common letters</em>. If no such two words exist, return <code>0</code>.</p>

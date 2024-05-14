@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> of length <code>n</code>.</p>

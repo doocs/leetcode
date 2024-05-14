@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a <code>root</code> of an <code>N-ary tree</code>, you need to compute the length of the diameter of the tree.</p>

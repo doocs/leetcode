@@ -4,6 +4,8 @@
 
 <!-- tags:String,Sliding Window,Hash Function,Rolling Hash -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>The hash of a <strong>0-indexed</strong> string <code>s</code> of length <code>k</code>, given integers <code>p</code> and <code>m</code>, is computed using the following function:</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Linked List -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Design a <strong>Skiplist</strong> without using any built-in libraries.</p>

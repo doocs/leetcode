@@ -4,6 +4,8 @@
 
 <!-- tags:Trie,Array,Two Pointers,String,String Matching -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an array of strings <code>queries</code> and a string <code>pattern</code>, return a boolean array <code>answer</code> where <code>answer[i]</code> is <code>true</code> if <code>queries[i]</code> matches <code>pattern</code>, and <code>false</code> otherwise.</p>

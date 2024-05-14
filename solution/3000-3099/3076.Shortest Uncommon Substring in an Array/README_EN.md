@@ -4,6 +4,8 @@
 
 <!-- tags:Trie,Array,Hash Table,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an array <code>arr</code> of size <code>n</code> consisting of <strong>non-empty</strong> strings.</p>

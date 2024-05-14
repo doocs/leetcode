@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Prefix Sum -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given a <strong>0-indexed</strong> integer array <code>nums</code>, find a <strong>0-indexed </strong>integer array <code>answer</code> where:</p>

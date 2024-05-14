@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Math,String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a string <code>word</code> containing <strong>distinct</strong> lowercase English letters.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Binary Indexed Tree,Segment Tree,Array,Dynamic Programming -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an integer array&nbsp;<code>nums</code>, return <em>the number of longest increasing subsequences.</em></p>

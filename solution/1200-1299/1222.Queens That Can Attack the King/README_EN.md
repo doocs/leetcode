@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Matrix,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>On a <strong>0-indexed</strong> <code>8 x 8</code> chessboard, there can be multiple black queens and one white king.</p>

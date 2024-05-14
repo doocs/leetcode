@@ -4,6 +4,8 @@
 
 <!-- tags:Union Find,Array,Hash Table,Math,Number Theory -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an integer array of unique positive integers <code>nums</code>. Consider the following graph:</p>

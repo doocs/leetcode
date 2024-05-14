@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Math,Binary Tree -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>In an infinite binary tree where every node has two children, the nodes are labelled in row order.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Linked List -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given the <code>head</code> of a linked list containing unique integer values and an integer array <code>nums</code> that is a subset of the linked list values.</p>

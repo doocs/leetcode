@@ -4,6 +4,8 @@
 
 <!-- tags:Math -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given two integers, <code>num</code> and <code>t</code>.</p>

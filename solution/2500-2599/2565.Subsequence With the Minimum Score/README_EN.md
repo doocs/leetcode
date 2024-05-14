@@ -4,6 +4,8 @@
 
 <!-- tags:Two Pointers,String,Binary Search -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given two strings <code>s</code> and <code>t</code>.</p>

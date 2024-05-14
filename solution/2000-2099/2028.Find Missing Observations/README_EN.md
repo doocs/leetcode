@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You have observations of <code>n + m</code> <strong>6-sided</strong> dice rolls with each face numbered from <code>1</code> to <code>6</code>. <code>n</code> of the observations went missing, and you only have the observations of <code>m</code> rolls. Fortunately, you have also calculated the <strong>average value</strong> of the <code>n + m</code> rolls.</p>

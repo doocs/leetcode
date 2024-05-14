@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Binary Indexed Tree,Segment Tree,Array -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, handle multiple queries of the following types:</p>

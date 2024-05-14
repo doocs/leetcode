@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Matrix,Sorting,Simulation,Heap (Priority Queue) -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> matrix <code>grid</code> consisting of positive integers.</p>

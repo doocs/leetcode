@@ -4,6 +4,8 @@
 
 <!-- tags:Concurrency -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Suppose you are given the following code:</p>

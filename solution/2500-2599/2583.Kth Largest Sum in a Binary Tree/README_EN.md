@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Breadth-First Search,Binary Tree,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given the <code>root</code> of a binary tree and a positive integer <code>k</code>.</p>

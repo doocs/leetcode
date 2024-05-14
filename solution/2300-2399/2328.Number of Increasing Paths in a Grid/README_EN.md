@@ -4,6 +4,8 @@
 
 <!-- tags:Depth-First Search,Breadth-First Search,Graph,Topological Sort,Memoization,Array,Dynamic Programming,Matrix -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> integer matrix <code>grid</code>, where you can move from a cell to any adjacent cell in all <code>4</code> directions.</p>

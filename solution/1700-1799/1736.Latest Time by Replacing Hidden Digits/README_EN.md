@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a string <code>time</code> in the form of <code> hh:mm</code>, where some of the digits in the string are hidden (represented by <code>?</code>).</p>

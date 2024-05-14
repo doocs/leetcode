@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String,Counting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a string <code>word</code> of size <code>n</code>, and an integer <code>k</code> such that <code>k</code> divides <code>n</code>.</p>

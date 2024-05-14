@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Breadth-First Search,String,Backtracking -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Under the grammar given below, strings can represent a set of lowercase words. Let&nbsp;<code>R(expr)</code>&nbsp;denote the set of words the expression represents.</p>

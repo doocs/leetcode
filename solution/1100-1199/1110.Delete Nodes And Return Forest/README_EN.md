@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search,Array,Hash Table,Binary Tree -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary tree, each node in the tree has a distinct value.</p>

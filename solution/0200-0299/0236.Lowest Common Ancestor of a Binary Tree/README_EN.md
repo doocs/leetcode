@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search,Binary Tree -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Write a class that allows getting and setting&nbsp;key-value pairs, however a&nbsp;<strong>time until expiration</strong>&nbsp;is associated with each key.</p>

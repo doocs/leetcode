@@ -4,6 +4,8 @@
 
 <!-- tags:Math,String,Sliding Window -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>The <strong>k-beauty</strong> of an integer <code>num</code> is defined as the number of <strong>substrings</strong> of <code>num</code> when it is read as a string that meet the following conditions:</p>

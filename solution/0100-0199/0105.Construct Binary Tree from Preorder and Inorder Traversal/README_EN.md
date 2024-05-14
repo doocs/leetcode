@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Array,Hash Table,Divide and Conquer,Binary Tree -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given two integer arrays <code>preorder</code> and <code>inorder</code> where <code>preorder</code> is the preorder traversal of a binary tree and <code>inorder</code> is the inorder traversal of the same tree, construct and return <em>the binary tree</em>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Breadth-First Search,Union Find,Array,Dynamic Programming,Matrix,Monotonic Stack,Heap (Priority Queue) -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> <code>m x n</code> integer matrix <code>grid</code>. Your initial position is at the <strong>top-left</strong> cell <code>(0, 0)</code>.</p>

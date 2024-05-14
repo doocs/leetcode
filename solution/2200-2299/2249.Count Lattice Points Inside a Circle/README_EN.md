@@ -4,6 +4,8 @@
 
 <!-- tags:Geometry,Array,Hash Table,Math,Enumeration -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a 2D integer array <code>circles</code> where <code>circles[i] = [x<sub>i</sub>, y<sub>i</sub>, r<sub>i</sub>]</code> represents the center <code>(x<sub>i</sub>, y<sub>i</sub>)</code> and radius <code>r<sub>i</sub></code> of the <code>i<sup>th</sup></code> circle drawn on a grid, return <em>the <strong>number of lattice points</strong> </em><em>that are present inside <strong>at least one</strong> circle</em>.</p>

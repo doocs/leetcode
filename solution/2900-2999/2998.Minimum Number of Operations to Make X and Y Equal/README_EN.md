@@ -4,6 +4,8 @@
 
 <!-- tags:Breadth-First Search,Memoization,Dynamic Programming -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given two positive integers <code>x</code> and <code>y</code>.</p>

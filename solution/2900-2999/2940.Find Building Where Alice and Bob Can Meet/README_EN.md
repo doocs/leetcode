@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Binary Indexed Tree,Segment Tree,Array,Binary Search,Monotonic Stack,Heap (Priority Queue) -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array <code>heights</code> of positive integers, where <code>heights[i]</code> represents the height of the <code>i<sup>th</sup></code> building.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String,Binary Search,Prefix Sum -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given a string <code>s</code>, your task is to find the length of the <strong>longest self-contained</strong> <span data-keyword="substring-nonempty">substring</span> of <code>s</code>.</p>

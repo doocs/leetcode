@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>On an alphabet board, we start at position <code>(0, 0)</code>, corresponding to character&nbsp;<code>board[0][0]</code>.</p>

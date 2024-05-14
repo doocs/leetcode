@@ -4,6 +4,8 @@
 
 <!-- tags:Graph,Memoization,Dynamic Programming -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There is a <strong>directed</strong> graph consisting of <code>n</code> nodes numbered from <code>0</code> to <code>n - 1</code> and <code>n</code> directed edges.</p>

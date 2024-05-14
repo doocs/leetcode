@@ -4,6 +4,8 @@
 
 <!-- tags:String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a binary string <code>s</code> consisting only of zeroes and ones.</p>

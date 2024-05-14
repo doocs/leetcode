@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Greedy,Array,Sorting,Monotonic Stack -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an integer array <code>arr</code>.</p>

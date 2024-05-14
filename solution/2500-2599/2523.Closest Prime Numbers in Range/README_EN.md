@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Number Theory -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given two positive integers <code>left</code> and <code>right</code>, find the two integers <code>num1</code> and <code>num2</code> such that:</p>

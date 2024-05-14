@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Prefix Sum -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given an array <code>nums</code>. We define a running sum of an array as&nbsp;<code>runningSum[i] = sum(nums[0]&hellip;nums[i])</code>.</p>

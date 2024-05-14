@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,Math,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given two integers representing the <code>numerator</code> and <code>denominator</code> of a fraction, return <em>the fraction in string format</em>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Backtracking -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Numbers can be regarded as the product of their factors.</p>

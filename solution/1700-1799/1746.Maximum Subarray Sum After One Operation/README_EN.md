@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Dynamic Programming -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code>. You must perform <strong>exactly one</strong> operation&nbsp;where you can <strong>replace</strong> one&nbsp;element <code>nums[i]</code> with <code>nums[i] * nums[i]</code>.&nbsp;</p>

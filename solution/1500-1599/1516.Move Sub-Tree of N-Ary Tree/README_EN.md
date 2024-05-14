@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given the <code>root</code> of an <span data-keyword="n-ary-tree">N-ary tree</span> of unique values, and two nodes of the tree <code>p</code> and <code>q</code>.</p>

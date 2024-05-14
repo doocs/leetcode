@@ -4,6 +4,8 @@
 
 <!-- tags:Array,String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>A newly designed keypad was tested, where a tester pressed a sequence of <code>n</code> keys, one at a time.</p>

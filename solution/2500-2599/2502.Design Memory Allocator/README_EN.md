@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Array,Hash Table,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an integer <code>n</code> representing the size of a <strong>0-indexed</strong> memory array. All memory units are initially free.</p>

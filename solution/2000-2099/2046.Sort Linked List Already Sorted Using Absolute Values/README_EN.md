@@ -4,6 +4,8 @@
 
 <!-- tags:Linked List,Two Pointers,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 Given the <code>head</code> of a singly linked list that is sorted in <strong>non-decreasing</strong> order using the <strong>absolute values</strong> of its nodes, return <em>the list sorted in <strong>non-decreasing</strong> order using the <strong>actual values</strong> of its nodes</em>.

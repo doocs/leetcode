@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Dynamic Programming,Backtracking,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an array <code>nums</code> of positive integers and a <strong>positive</strong> integer <code>k</code>.</p>

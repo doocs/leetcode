@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Backtracking -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a positive integer <code>n</code>, return <em>the <strong>punishment number</strong></em> of <code>n</code>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Math -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a positive integer <code>n</code>. Each digit of <code>n</code> has a sign according to the following rules:</p>

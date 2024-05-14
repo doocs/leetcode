@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Binary Search -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>A positive integer is <em>magical</em> if it is divisible by either <code>a</code> or <code>b</code>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Two Pointers,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an input string <code>s</code>, reverse the order of the <strong>words</strong>.</p>

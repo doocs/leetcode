@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Prefix Sum,Sorting,Simulation,Heap (Priority Queue) -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>There is a car with <code>capacity</code> empty seats. The vehicle only drives east (i.e., it cannot turn around and drive west).</p>

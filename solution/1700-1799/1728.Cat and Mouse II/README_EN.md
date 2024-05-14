@@ -4,6 +4,8 @@
 
 <!-- tags:Graph,Topological Sort,Memoization,Array,Math,Dynamic Programming,Game Theory,Matrix -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>A game is played by a cat and a mouse named Cat and Mouse.</p>

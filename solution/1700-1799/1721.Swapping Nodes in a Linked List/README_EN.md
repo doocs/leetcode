@@ -4,6 +4,8 @@
 
 <!-- tags:Linked List,Two Pointers -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given the <code>head</code> of a linked list, and an integer <code>k</code>.</p>

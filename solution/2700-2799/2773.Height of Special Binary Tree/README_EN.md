@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Tree -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <code>root</code>, which is the root of a <strong>special</strong> binary tree with <code>n</code> nodes. The nodes of the special binary tree are numbered from <code>1</code> to <code>n</code>. Suppose the tree has <code>k</code> leaves in the following order: <code>b<sub>1 </sub>&lt;<sub> </sub>b<sub>2 </sub>&lt; ... &lt; b<sub>k</sub></code>.</p>

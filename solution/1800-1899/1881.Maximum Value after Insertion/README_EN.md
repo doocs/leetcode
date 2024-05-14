@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a very large integer <code>n</code>, represented as a string,​​​​​​ and an integer digit <code>x</code>. The digits in <code>n</code> and the digit <code>x</code> are in the <strong>inclusive</strong> range <code>[1, 9]</code>, and <code>n</code> may represent a <b>negative</b> number.</p>

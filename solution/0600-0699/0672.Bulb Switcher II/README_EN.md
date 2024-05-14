@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Depth-First Search,Breadth-First Search,Math -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>There is a room with <code>n</code> bulbs labeled from <code>1</code> to <code>n</code> that all are turned on initially, and <strong>four buttons</strong> on the wall. Each of the four buttons has a different functionality where:</p>

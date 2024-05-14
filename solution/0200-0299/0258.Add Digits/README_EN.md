@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Number Theory,Simulation -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given an integer <code>num</code>, repeatedly add all its digits until the result has only one digit, and return it.</p>

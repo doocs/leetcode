@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Union Find,Binary Search Tree,Memoization,Array,Math,Divide and Conquer,Dynamic Programming,Binary Tree,Combinatorics -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given an array <code>nums</code> that represents a permutation of integers from <code>1</code> to <code>n</code>. We are going to construct a binary search tree (BST) by inserting the elements of <code>nums</code> in order into an initially empty BST. Find the number of different ways to reorder <code>nums</code> so that the constructed BST is identical to that formed from the original array <code>nums</code>.</p>

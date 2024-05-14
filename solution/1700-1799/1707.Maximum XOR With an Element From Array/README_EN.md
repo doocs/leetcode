@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Trie,Array -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an array <code>nums</code> consisting of non-negative integers. You are also given a <code>queries</code> array, where <code>queries[i] = [x<sub>i</sub>, m<sub>i</sub>]</code>.</p>

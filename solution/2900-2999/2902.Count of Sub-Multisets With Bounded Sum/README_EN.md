@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Dynamic Programming,Sliding Window -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> of non-negative integers, and two integers <code>l</code> and <code>r</code>.</p>

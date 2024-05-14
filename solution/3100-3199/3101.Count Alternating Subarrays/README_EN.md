@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <span data-keyword="binary-array">binary array</span> <code>nums</code>.</p>

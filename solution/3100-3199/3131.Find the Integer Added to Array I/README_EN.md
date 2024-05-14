@@ -4,6 +4,8 @@
 
 <!-- tags:Array -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given two arrays of equal length, <code>nums1</code> and <code>nums2</code>.</p>

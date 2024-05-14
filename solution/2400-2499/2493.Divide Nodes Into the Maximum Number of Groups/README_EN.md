@@ -4,6 +4,8 @@
 
 <!-- tags:Breadth-First Search,Union Find,Graph -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a positive integer <code>n</code> representing the number of nodes in an <strong>undirected</strong> graph. The nodes are labeled from <code>1</code> to <code>n</code>.</p>

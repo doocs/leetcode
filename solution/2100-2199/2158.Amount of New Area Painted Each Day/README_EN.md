@@ -4,6 +4,8 @@
 
 <!-- tags:Segment Tree,Array,Ordered Set -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There is a long and thin painting that can be represented by a number line. You are given a <strong>0-indexed</strong> 2D integer array <code>paint</code> of length <code>n</code>, where <code>paint[i] = [start<sub>i</sub>, end<sub>i</sub>]</code>. This means that on the <code>i<sup>th</sup></code> day you need to paint the area <strong>between</strong> <code>start<sub>i</sub></code> and <code>end<sub>i</sub></code>.</p>

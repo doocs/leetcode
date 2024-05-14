@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Counting,Sorting,Sliding Window -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>We define a harmonious array as an array where the difference between its maximum value and its minimum value is <b>exactly</b> <code>1</code>.</p>

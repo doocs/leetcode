@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given an unsorted integer array <code>nums</code>. Return the <em>smallest positive integer</em> that is <em>not present</em> in <code>nums</code>.</p>

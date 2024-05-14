@@ -4,6 +4,8 @@
 
 <!-- tags:Geometry,Math,Number Theory -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>There is a special square room with mirrors on each of the four walls. Except for the southwest corner, there are receptors on each of the remaining corners, numbered <code>0</code>, <code>1</code>, and <code>2</code>.</p>

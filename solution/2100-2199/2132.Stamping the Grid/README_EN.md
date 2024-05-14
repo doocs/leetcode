@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Matrix,Prefix Sum -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> binary matrix <code>grid</code> where each cell is either <code>0</code> (empty) or <code>1</code> (occupied).</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Depth-First Search,Union Find,Graph,Array -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a 2D array of strings <code>equations</code> and an array of real numbers <code>values</code>, where <code>equations[i] = [A<sub>i</sub>, B<sub>i</sub>]</code> and <code>values[i]</code> means that <code>A<sub>i</sub> / B<sub>i</sub> = values[i]</code>.</p>

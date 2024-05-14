@@ -4,6 +4,8 @@
 
 <!-- tags:Recursion,Array,String -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given two strings low and high that represent two integers <code>low</code> and <code>high</code> where <code>low &lt;= high</code>, return <em>the number of <strong>strobogrammatic numbers</strong> in the range</em> <code>[low, high]</code>.</p>

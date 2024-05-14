@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array,Math -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. In one operation, select <strong>any</strong> non-negative integer <code>x</code> and an index <code>i</code>, then <strong>update</strong> <code>nums[i]</code> to be equal to <code>nums[i] AND (nums[i] XOR x)</code>.</p>

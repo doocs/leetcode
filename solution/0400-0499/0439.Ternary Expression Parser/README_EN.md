@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Recursion,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a string <code>expression</code> representing arbitrarily nested ternary expressions, evaluate the expression, and return <em>the result of it</em>.</p>

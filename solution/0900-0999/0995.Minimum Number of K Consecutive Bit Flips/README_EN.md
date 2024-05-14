@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Queue,Array,Prefix Sum,Sliding Window -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a binary array <code>nums</code> and an integer <code>k</code>.</p>

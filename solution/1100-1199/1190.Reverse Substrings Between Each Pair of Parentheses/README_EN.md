@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a string <code>s</code> that consists of lower case English letters and brackets.</p>

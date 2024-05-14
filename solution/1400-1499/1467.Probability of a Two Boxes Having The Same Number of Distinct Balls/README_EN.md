@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,Dynamic Programming,Backtracking,Combinatorics,Probability and Statistics -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given <code>2n</code> balls of <code>k</code> distinct colors. You will be given an integer array <code>balls</code> of size <code>k</code> where <code>balls[i]</code> is the number of balls of color <code>i</code>.</p>

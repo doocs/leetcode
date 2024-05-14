@@ -4,6 +4,8 @@
 
 <!-- tags:Binary Indexed Tree,Geometry,Array,Math -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There is a line chart consisting of <code>n</code> points connected by line segments. You are given a <strong>1-indexed</strong> integer array <code>y</code>. The <code>k<sup>th</sup></code> point has coordinates <code>(k, y[k])</code>. There are no horizontal lines; that is, no two consecutive points have the same y-coordinate.</p>

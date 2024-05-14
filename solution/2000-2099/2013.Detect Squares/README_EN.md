@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Array,Hash Table,Counting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a stream of points on the X-Y plane. Design an algorithm that:</p>

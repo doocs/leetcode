@@ -4,6 +4,8 @@
 
 <!-- tags:String,Enumeration -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a string of length <code>5</code> called <code>time</code>, representing the current time on a digital clock in the format <code>&quot;hh:mm&quot;</code>. The <strong>earliest</strong> possible time is <code>&quot;00:00&quot;</code> and the <strong>latest</strong> possible time is <code>&quot;23:59&quot;</code>.</p>

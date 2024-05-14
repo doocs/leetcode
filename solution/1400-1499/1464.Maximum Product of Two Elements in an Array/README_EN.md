@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Sorting,Heap (Priority Queue) -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 Given the array of integers <code>nums</code>, you will choose two different indices <code>i</code> and <code>j</code> of that array. <em>Return the maximum value of</em> <code>(nums[i]-1)\*(nums[j]-1)</code>.

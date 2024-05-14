@@ -4,6 +4,8 @@
 
 <!-- tags:Graph,Array,Enumeration,Sorting -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There is an <strong>undirected</strong> graph with <code>n</code> nodes, numbered from <code>0</code> to <code>n - 1</code>.</p>

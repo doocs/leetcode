@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Brainteaser,Math,Dynamic Programming -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given three integers <code>x</code>, <code>y</code>, and <code>z</code>.</p>

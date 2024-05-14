@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,String,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a list of <code>phrases</code>, generate a list of&nbsp;Before and After puzzles.</p>

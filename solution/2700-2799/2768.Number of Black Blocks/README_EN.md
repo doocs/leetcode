@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Enumeration -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given two integers <code>m</code> and <code>n</code> representing the dimensions of a&nbsp;<strong>0-indexed</strong>&nbsp;<code>m x n</code> grid.</p>

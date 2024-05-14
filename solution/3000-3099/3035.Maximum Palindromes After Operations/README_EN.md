@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Hash Table,String,Counting,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string array <code>words</code> having length <code>n</code> and containing <strong>0-indexed</strong> strings.</p>

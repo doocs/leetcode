@@ -4,6 +4,8 @@
 
 <!-- tags:Depth-First Search,Breadth-First Search,Union Find,Array,Matrix -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> matrix <code>grid</code> of order <code>n * n</code>. Each cell in this matrix has a value <code>grid[i][j]</code>, which is either a <strong>positive</strong> integer or <code>-1</code> representing a blocked cell.</p>

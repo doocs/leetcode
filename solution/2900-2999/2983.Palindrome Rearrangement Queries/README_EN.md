@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String,Prefix Sum -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string <code>s</code> having an <strong>even</strong> length <code>n</code>.</p>

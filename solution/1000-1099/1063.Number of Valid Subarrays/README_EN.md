@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Array,Monotonic Stack -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, return <em>the number of non-empty <strong>subarrays</strong> with the leftmost element of the subarray&nbsp;not larger than other elements in the subarray</em>.</p>

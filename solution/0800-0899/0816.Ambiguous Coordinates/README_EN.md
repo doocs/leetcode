@@ -4,6 +4,8 @@
 
 <!-- tags:String,Backtracking,Enumeration -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>We had some 2-dimensional coordinates, like <code>&quot;(1, 3)&quot;</code> or <code>&quot;(2, 0.5)&quot;</code>. Then, we removed all commas, decimal points, and spaces and ended up with the string s.</p>

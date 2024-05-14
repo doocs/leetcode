@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Write code that enhances all arrays such that you can call the&nbsp;<code>array.groupBy(fn)</code>&nbsp;method on any array and it will return a <strong>grouped</strong>&nbsp;version of the array.</p>

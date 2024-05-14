@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Counting,Sorting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 Given a 2D integer array <code>nums</code> where <code>nums[i]</code> is a non-empty array of <strong>distinct</strong> positive integers, return <em>the list of integers that are present in <strong>each array</strong> of</em> <code>nums</code><em> sorted in <strong>ascending order</strong></em>.

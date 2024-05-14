@@ -4,6 +4,8 @@
 
 <!-- tags:Recursion,Math -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given an integer <code>n</code>, return <em><code>true</code> if it is a power of three. Otherwise, return <code>false</code></em>.</p>

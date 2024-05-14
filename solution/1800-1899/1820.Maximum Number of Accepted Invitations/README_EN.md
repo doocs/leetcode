@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Backtracking,Matrix -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>There are <code>m</code> boys and <code>n</code> girls in a class attending an upcoming party.</p>

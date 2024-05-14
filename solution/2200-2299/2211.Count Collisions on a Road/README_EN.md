@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,String,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>There are <code>n</code> cars on an infinitely long road. The cars are numbered from <code>0</code> to <code>n - 1</code> from left to right and each car is present at a <strong>unique</strong> point.</p>

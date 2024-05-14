@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,Math,String,Prefix Sum -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a binary string <code>s</code>, and two integers <code>num1</code> and <code>num2</code>. <code>num1</code> and <code>num2</code> are coprime numbers.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Hash Table,String,Sorting -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given a string <code>formula</code> representing a chemical formula, return <em>the count of each atom</em>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Binary Search,Dynamic Programming,Sorting -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a 2D array of integers <code>envelopes</code> where <code>envelopes[i] = [w<sub>i</sub>, h<sub>i</sub>]</code> represents the width and the height of an envelope.</p>

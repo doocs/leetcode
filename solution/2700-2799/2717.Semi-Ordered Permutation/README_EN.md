@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Simulation -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> permutation of <code>n</code> integers <code>nums</code>.</p>

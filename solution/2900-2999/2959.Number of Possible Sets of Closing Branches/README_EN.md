@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Graph,Enumeration,Shortest Path,Heap (Priority Queue) -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There is a company with <code>n</code> branches across the country, some of which are connected by roads. Initially, all branches are reachable from each other by traveling some roads.</p>

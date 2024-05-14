@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Enumeration -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given three integers, <code>k</code>, <code>digit1</code>, and <code>digit2</code>, you want to find the <strong>smallest</strong> integer that is:</p>

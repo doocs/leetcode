@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Hash Table,String,Counting,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a string <code>word</code> containing lowercase English letters.</p>

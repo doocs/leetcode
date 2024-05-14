@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,Dynamic Programming,Combinatorics -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Bob is standing at cell <code>(0, 0)</code>, and he wants to reach <code>destination</code>: <code>(row, column)</code>. He can only travel <strong>right</strong> and <strong>down</strong>. You are going to help Bob by providing <strong>instructions</strong> for him to reach <code>destination</code>.</p>

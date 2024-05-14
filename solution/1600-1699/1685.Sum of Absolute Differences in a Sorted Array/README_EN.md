@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,Prefix Sum -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> sorted in <strong>non-decreasing</strong> order.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Bit Manipulation,Math -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given three integers <code>a</code>, <code>b</code>, and <code>n</code>, return <em>the <strong>maximum value</strong> of</em> <code>(a XOR x) * (b XOR x)</code> <em>where</em> <code>0 &lt;= x &lt; 2<sup>n</sup></code>.</p>

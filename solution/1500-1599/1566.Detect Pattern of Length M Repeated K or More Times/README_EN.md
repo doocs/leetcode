@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Enumeration -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given an array of positive integers <code>arr</code>, find a pattern of length <code>m</code> that is repeated <code>k</code> or more times.</p>

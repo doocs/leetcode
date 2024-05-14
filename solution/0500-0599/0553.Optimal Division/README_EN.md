@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,Dynamic Programming -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code>. The adjacent integers in <code>nums</code> will perform the float division.</p>

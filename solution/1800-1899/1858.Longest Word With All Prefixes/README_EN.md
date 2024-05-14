@@ -4,6 +4,8 @@
 
 <!-- tags:Depth-First Search,Trie -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an array of strings <code>words</code>, find the <strong>longest</strong> string in <code>words</code> such that <strong>every prefix</strong> of it is also in <code>words</code>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Hash Table,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a string <code>num</code> consisting of digits only.</p>

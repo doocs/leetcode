@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Two Pointers,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a positive integer array <code>skill</code> of <strong>even</strong> length <code>n</code> where <code>skill[i]</code> denotes the skill of the <code>i<sup>th</sup></code> player. Divide the players into <code>n / 2</code> teams of size <code>2</code> such that the total skill of each team is <strong>equal</strong>.</p>

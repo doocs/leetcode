@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search,Binary Search Tree,Binary Tree -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary tree, <em>determine if it is a valid binary search tree (BST)</em>.</p>

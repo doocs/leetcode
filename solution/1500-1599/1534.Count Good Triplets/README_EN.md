@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Enumeration -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given an array of integers <code>arr</code>, and three integers&nbsp;<code>a</code>,&nbsp;<code>b</code>&nbsp;and&nbsp;<code>c</code>. You need to find the number of good triplets.</p>

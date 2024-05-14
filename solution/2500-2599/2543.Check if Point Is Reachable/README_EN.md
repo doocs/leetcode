@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Number Theory -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There exists an infinitely large grid. You are currently at point <code>(1, 1)</code>, and you need to reach the point <code>(targetX, targetY)</code> using a finite number of steps.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Heap (Priority Queue) -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You have some number of sticks with positive integer lengths. These lengths are given as an array&nbsp;<code>sticks</code>, where&nbsp;<code>sticks[i]</code>&nbsp;is the length of the&nbsp;<code>i<sup>th</sup></code>&nbsp;stick.</p>

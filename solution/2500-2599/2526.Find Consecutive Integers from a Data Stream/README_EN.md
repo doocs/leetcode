@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Queue,Hash Table,Counting,Data Stream -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>For a stream of integers, implement a data structure that checks if the last <code>k</code> integers parsed in the stream are <strong>equal</strong> to <code>value</code>.</p>

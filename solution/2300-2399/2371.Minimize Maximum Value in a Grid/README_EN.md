@@ -4,6 +4,8 @@
 
 <!-- tags:Union Find,Graph,Topological Sort,Array,Matrix,Sorting -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> integer matrix <code>grid</code> containing <strong>distinct</strong> positive integers.</p>

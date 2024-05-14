@@ -4,6 +4,8 @@
 
 <!-- tags:Two Pointers,String,Binary Search,String Matching,Hash Function,Rolling Hash -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string <code>s</code>, a string <code>a</code>, a string <code>b</code>, and an integer <code>k</code>.</p>

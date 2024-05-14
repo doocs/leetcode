@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Counting,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a string <code>s</code>.</p>

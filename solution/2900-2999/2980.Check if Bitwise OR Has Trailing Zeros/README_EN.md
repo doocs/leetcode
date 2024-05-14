@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given an array of <strong>positive</strong> integers <code>nums</code>.</p>

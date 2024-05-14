@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a function <code>fn</code> and&nbsp;a time in milliseconds <code>t</code>, return&nbsp;a <strong>throttled</strong> version of that function.</p>

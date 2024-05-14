@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Two Pointers,Binary Search -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given two integer arrays <code>nums1</code> and <code>nums2</code>, sorted in non-decreasing order, return <em>the <strong>minimum integer common</strong> to both arrays</em>. If there is no common integer amongst <code>nums1</code> and <code>nums2</code>, return <code>-1</code>.</p>

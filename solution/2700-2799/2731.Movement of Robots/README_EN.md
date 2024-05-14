@@ -4,6 +4,8 @@
 
 <!-- tags:Brainteaser,Array,Prefix Sum,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Some robots are standing on an infinite number line with their initial coordinates given by a <strong>0-indexed</strong> integer array <code>nums</code> and will start moving once given the command to move. The robots will move a unit distance each second.</p>

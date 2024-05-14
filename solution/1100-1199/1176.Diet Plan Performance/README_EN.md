@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Sliding Window -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>A dieter consumes&nbsp;<code>calories[i]</code>&nbsp;calories on the <code>i</code>-th day.&nbsp;</p>

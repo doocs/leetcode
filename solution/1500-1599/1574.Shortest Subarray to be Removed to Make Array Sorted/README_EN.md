@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Array,Two Pointers,Binary Search,Monotonic Stack -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an integer array <code>arr</code>, remove a subarray (can be empty) from <code>arr</code> such that the remaining elements in <code>arr</code> are <strong>non-decreasing</strong>.</p>

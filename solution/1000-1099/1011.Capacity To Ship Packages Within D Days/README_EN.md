@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Binary Search -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>A conveyor belt has packages that must be shipped from one port to another within <code>days</code> days.</p>

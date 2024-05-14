@@ -4,6 +4,8 @@
 
 <!-- tags:Breadth-First Search,Array,Hash Table -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given an array of&nbsp;integers <code>arr</code>, you are initially positioned at the first index of the array.</p>

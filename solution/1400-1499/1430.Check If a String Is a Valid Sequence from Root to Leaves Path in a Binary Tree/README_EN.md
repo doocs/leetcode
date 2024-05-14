@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Tree -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a binary tree where each path going from the root to any leaf form a <strong>valid sequence</strong>, check if a given string&nbsp;is a <strong>valid sequence</strong> in such binary tree.&nbsp;</p>

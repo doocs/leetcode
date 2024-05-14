@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Creating clones of immutable objects with minor alterations can be a tedious process. Write a class&nbsp;<code>ImmutableHelper</code>&nbsp;that serves as a tool to help with this requirement. The constructor accepts an immutable object&nbsp;<code>obj</code>&nbsp;which will be a JSON object or array.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Array,String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array of strings <code>words</code> and a character <code>x</code>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Two Pointers,String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>A permutation <code>perm</code> of <code>n + 1</code> integers of all the integers in the range <code>[0, n]</code> can be represented as a string <code>s</code> of length <code>n</code> where:</p>

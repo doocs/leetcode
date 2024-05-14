@@ -4,6 +4,8 @@
 
 <!-- tags:Array,String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given an array of strings <code>words</code> and a character <code>separator</code>, <strong>split</strong> each string in <code>words</code> by <code>separator</code>.</p>

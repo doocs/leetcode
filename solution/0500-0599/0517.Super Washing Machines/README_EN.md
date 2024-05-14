@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You have <code>n</code> super washing machines on a line. Initially, each washing machine has some dresses or is empty.</p>

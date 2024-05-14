@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,Math,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Seven different symbols represent Roman numerals with the following values:</p>

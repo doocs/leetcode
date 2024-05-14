@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Math,String,Game Theory -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Alice and Bob take turns playing a game, with <strong>Alice</strong><strong>&nbsp;starting first</strong>.</p>

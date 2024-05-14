@@ -4,6 +4,8 @@
 
 <!-- tags:Trie,Array,Hash Table,String,String Matching -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an array of keywords <code>words</code> and a string <code>s</code>, make all appearances of all keywords <code>words[i]</code> in <code>s</code> bold. Any letters between <code>&lt;b&gt;</code> and <code>&lt;/b&gt;</code> tags become bold.</p>

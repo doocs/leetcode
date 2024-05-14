@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Dynamic Programming,Matrix -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>A parentheses string is a <strong>non-empty</strong> string consisting only of <code>&#39;(&#39;</code> and <code>&#39;)&#39;</code>. It is <strong>valid</strong> if <strong>any</strong> of the following conditions is <strong>true</strong>:</p>

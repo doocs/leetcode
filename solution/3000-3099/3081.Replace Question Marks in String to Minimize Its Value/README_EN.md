@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Hash Table,String,Counting,Sorting,Heap (Priority Queue) -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a string <code>s</code>. <code>s[i]</code> is either a lowercase English letter or <code>&#39;?&#39;</code>.</p>

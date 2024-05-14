@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array,Prefix Sum -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a positive integer <code>n</code>, there exists a <strong>0-indexed</strong> array called <code>powers</code>, composed of the <strong>minimum</strong> number of powers of <code>2</code> that sum to <code>n</code>. The array is sorted in <strong>non-decreasing</strong> order, and there is <strong>only one</strong> way to form the array.</p>

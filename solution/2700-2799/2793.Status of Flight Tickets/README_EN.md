@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Table: <code><font face="monospace">Flights</font></code></p>

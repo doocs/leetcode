@@ -4,6 +4,8 @@
 
 <!-- tags:Breadth-First Search,Array,Matrix -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> grid <code>grid</code> of values <code>0</code>, <code>1</code>, or <code>2</code>, where:</p>

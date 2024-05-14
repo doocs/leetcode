@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,Sorting -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>The <strong>width</strong> of a sequence is the difference between the maximum and minimum elements in the sequence.</p>

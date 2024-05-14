@@ -4,6 +4,8 @@
 
 <!-- tags:Array,String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a string array <code>words</code> and a string <code>s</code>, where <code>words[i]</code> and <code>s</code> comprise only of <strong>lowercase English letters</strong>.</p>

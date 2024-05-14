@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Dynamic Programming,Prefix Sum -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array of integers <code>nums</code> of length <code>n</code>, and a <strong>positive</strong> <strong>odd</strong> integer <code>k</code>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Prefix Sum,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. You can rearrange the elements of <code>nums</code> to <strong>any order</strong> (including the given order).</p>

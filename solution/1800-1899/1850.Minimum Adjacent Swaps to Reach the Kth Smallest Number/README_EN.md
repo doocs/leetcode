@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Two Pointers,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a string <code>num</code>, representing a large integer, and an integer <code>k</code>.</p>

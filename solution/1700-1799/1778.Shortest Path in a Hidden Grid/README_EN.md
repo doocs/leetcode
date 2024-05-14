@@ -4,6 +4,8 @@
 
 <!-- tags:Depth-First Search,Breadth-First Search,Graph,Interactive -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>This is an <strong>interactive problem</strong>.</p>

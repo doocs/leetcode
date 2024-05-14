@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Recursion,Linked List,Two Pointers -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given the head of a singly linked-list. The list can be represented as:</p>

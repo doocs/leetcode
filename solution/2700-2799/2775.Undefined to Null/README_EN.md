@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a deeply nested object or array <code>obj</code>, return the object <code>obj</code> with any <code>undefined</code> values replaced by <code>null</code>.</p>

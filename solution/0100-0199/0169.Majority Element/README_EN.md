@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Divide and Conquer,Counting,Sorting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given an array <code>nums</code> of size <code>n</code>, return <em>the majority element</em>.</p>

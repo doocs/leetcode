@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search,Breadth-First Search,Linked List,Binary Tree -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a binary tree</p>

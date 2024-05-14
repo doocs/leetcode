@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Array,Sorting,Simulation -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There are <code>n</code> <strong>1-indexed</strong> robots, each having a position on a line, health, and movement direction.</p>

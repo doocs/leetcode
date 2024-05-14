@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String,Counting,Sliding Window -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>A string is <strong>good</strong> if there are no repeated characters.</p>

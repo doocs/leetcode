@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Dynamic Programming -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an integer array <code>coins</code> (<strong>1-indexed</strong>) of length <code>n</code> and an integer <code>maxJump</code>. You can jump to any index <code>i</code> of the array <code>coins</code> if <code>coins[i] != -1</code> and you have to pay <code>coins[i]</code> when you visit index <code>i</code>. In addition to that, if you are currently at index <code>i</code>, you can only jump to any index <code>i + k</code> where <code>i + k &lt;= n</code> and <code>k</code> is a value in the range <code>[1, maxJump]</code>.</p>

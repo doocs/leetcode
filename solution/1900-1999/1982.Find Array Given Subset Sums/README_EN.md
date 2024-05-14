@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Divide and Conquer -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an integer <code>n</code> representing the length of an unknown array that you are trying to recover. You are also given an array <code>sums</code> containing the values of all <code>2<sup>n</sup></code> <strong>subset sums</strong> of the unknown array (in no particular order).</p>

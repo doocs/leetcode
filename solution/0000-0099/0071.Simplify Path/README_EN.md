@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an absolute path for a Unix-style file system, which begins with a slash <code>&#39;/&#39;</code>, transform this path into its <strong>simplified canonical path</strong>.</p>

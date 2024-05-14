@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Trie,Array,Hash Table,String -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a character array <code>keys</code> containing <strong>unique</strong> characters and a string array <code>values</code> containing strings of length 2. You are also given another string array <code>dictionary</code> that contains all permitted original strings after decryption. You should implement a data structure that can encrypt or decrypt a <strong>0-indexed</strong> string.</p>

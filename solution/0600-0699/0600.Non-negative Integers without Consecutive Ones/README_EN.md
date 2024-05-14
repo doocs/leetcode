@@ -4,6 +4,8 @@
 
 <!-- tags:Dynamic Programming -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given a positive integer <code>n</code>, return the number of the integers in the range <code>[0, n]</code> whose binary representations <strong>do not</strong> contain consecutive ones.</p>

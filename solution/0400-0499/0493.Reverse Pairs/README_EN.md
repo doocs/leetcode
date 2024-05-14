@@ -4,6 +4,8 @@
 
 <!-- tags:Binary Indexed Tree,Segment Tree,Array,Binary Search,Divide and Conquer,Ordered Set,Merge Sort -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, return <em>the number of <strong>reverse pairs</strong> in the array</em>.</p>

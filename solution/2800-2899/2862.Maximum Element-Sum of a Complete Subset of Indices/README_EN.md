@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,Number Theory -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a <strong>1</strong><strong>-indexed</strong> array <code>nums</code>. Your task is to select a <strong>complete subset</strong> from <code>nums</code> where every pair of selected indices multiplied is a <span data-keyword="perfect-square">perfect square,</span>. i. e. if you select <code>a<sub>i</sub></code> and <code>a<sub>j</sub></code>, <code>i * j</code> must be a perfect square.</p>

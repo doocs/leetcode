@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given an array of equal-length strings <code>words</code>. Assume that the length of each string is <code>n</code>.</p>

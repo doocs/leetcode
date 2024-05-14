@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array,Hash Table -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given an array <code>nums</code> of positive integers and an integer <code>k</code>.</p>

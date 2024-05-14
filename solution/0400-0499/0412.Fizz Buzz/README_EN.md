@@ -4,6 +4,8 @@
 
 <!-- tags:Math,String,Simulation -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given an integer <code>n</code>, return <em>a string array </em><code>answer</code><em> (<strong>1-indexed</strong>) where</em>:</p>

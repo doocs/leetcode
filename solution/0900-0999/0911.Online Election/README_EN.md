@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Array,Hash Table,Binary Search -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given two integer arrays <code>persons</code> and <code>times</code>. In an election, the <code>i<sup>th</sup></code> vote was cast for <code>persons[i]</code> at time <code>times[i]</code>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Binary Indexed Tree,Segment Tree,String -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a string <code>num</code> representing <strong>the digits</strong> of a very large integer and an integer <code>k</code>. You are allowed to swap any two adjacent digits of the integer <strong>at most</strong> <code>k</code> times.</p>

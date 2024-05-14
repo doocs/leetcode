@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Binary Search -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are the owner of a company that creates alloys using various types of metals. There are <code>n</code> different types of metals available, and you have access to <code>k</code> machines that can be used to create alloys. Each machine requires a specific amount of each metal type to create an alloy.</p>

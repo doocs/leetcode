@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Dynamic Programming,Combinatorics,Number Theory -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given two integers <code>n</code> and <code>maxValue</code>, which are used to describe an <strong>ideal</strong> array.</p>

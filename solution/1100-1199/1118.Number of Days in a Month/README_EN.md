@@ -4,6 +4,8 @@
 
 <!-- tags:Math -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given a year <code>year</code> and a month <code>month</code>, return <em>the number of days of that month</em>.</p>

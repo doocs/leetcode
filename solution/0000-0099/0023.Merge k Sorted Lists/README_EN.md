@@ -4,6 +4,8 @@
 
 <!-- tags:Linked List,Divide and Conquer,Heap (Priority Queue),Merge Sort -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an array of <code>k</code> linked-lists <code>lists</code>, each linked-list is sorted in ascending order.</p>

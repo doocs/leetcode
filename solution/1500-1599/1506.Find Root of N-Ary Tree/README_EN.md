@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Tree,Depth-First Search,Hash Table -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given all the nodes of an <strong><a href="https://leetcode.com/explore/learn/card/n-ary-tree/">N-ary tree</a></strong> as an array of <code>Node</code> objects, where each node has a <strong>unique value</strong>.</p>

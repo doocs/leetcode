@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Binary Search,Matrix -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> integer matrix <code>matrix</code> with the following two properties:</p>

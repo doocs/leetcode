@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Binary Search,Interactive -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>This is an <strong><em>interactive problem</em></strong>.</p>

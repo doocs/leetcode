@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Binary Indexed Tree,Segment Tree,Array,Matrix -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given a 2D matrix <code>matrix</code>, handle multiple queries of the following types:</p>

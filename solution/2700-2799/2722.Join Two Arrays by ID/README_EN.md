@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given two arrays <code>arr1</code> and <code>arr2</code>, return a new&nbsp;array <code>joinedArray</code>. All the objects in each&nbsp;of the two inputs arrays will contain an&nbsp;<code>id</code>&nbsp;field that has an integer value.&nbsp;</p>

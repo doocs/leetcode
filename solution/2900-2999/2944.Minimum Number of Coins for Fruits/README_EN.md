@@ -4,6 +4,8 @@
 
 <!-- tags:Queue,Array,Dynamic Programming,Monotonic Queue,Heap (Priority Queue) -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are at a fruit market with different types of exotic fruits on display.</p>

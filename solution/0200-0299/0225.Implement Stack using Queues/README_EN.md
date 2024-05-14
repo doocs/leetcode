@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Design,Queue -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Implement a last-in-first-out (LIFO) stack using only two queues. The implemented stack should support all the functions of a normal stack (<code>push</code>, <code>top</code>, <code>pop</code>, and <code>empty</code>).</p>

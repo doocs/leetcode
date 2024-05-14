@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,Dynamic Programming,Combinatorics,Number Theory -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a 2D integer array, <code>queries</code>. For each <code>queries[i]</code>, where <code>queries[i] = [n<sub>i</sub>, k<sub>i</sub>]</code>, find the number of different ways you can place positive integers into an array of size <code>n<sub>i</sub></code> such that the product of the integers is <code>k<sub>i</sub></code>. As the number of ways may be too large, the answer to the <code>i<sup>th</sup></code> query is the number of ways <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>

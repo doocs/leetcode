@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Matrix -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a <strong>0-indexed</strong> 2D <code>grid</code> of size <code>m x n</code>, you should find the matrix <code>answer</code> of size <code>m x n</code>.</p>

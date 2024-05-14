@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Binary Indexed Tree,Segment Tree,Array,Binary Search,Ordered Set,Sorting -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> containing <strong>distinct</strong> numbers, and you can perform the following operations <strong>until the array is empty</strong>:</p>

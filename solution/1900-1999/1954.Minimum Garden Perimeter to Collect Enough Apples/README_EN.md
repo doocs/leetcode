@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Binary Search -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>In a garden represented as an infinite 2D grid, there is an apple tree planted at <strong>every</strong> integer coordinate. The apple tree planted at an integer coordinate <code>(i, j)</code> has <code>|i| + |j|</code> apples growing on it.</p>

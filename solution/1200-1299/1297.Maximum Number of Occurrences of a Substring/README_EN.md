@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String,Sliding Window -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a string <code>s</code>, return the maximum number of occurrences of <strong>any</strong> substring under the following rules:</p>

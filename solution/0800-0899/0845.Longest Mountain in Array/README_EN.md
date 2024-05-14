@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Two Pointers,Dynamic Programming,Enumeration -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You may recall that an array <code>arr</code> is a <strong>mountain array</strong> if and only if:</p>

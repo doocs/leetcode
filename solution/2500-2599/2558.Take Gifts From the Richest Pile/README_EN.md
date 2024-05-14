@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Simulation,Heap (Priority Queue) -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given an integer array <code>gifts</code> denoting the number of gifts in various piles. Every second, you do the following:</p>

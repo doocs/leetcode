@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an encoded string <code>s</code>. To decode the string to a tape, the encoded string is read one character at a time and the following steps are taken:</p>

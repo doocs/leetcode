@@ -4,6 +4,8 @@
 
 <!-- tags:Shell -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Write a bash script to calculate the <span data-keyword="frequency-textfile">frequency</span> of each word in a text file <code>words.txt</code>.</p>

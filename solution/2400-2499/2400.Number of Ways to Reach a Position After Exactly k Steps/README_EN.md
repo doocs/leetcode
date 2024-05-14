@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Dynamic Programming,Combinatorics -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given two <strong>positive</strong> integers <code>startPos</code> and <code>endPos</code>. Initially, you are standing at position <code>startPos</code> on an <strong>infinite</strong> number line. With one step, you can move either one position to the left, or one position to the right.</p>

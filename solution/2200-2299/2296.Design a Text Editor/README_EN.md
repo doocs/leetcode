@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Design,Linked List,String,Doubly-Linked List,Simulation -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Design a text editor with a cursor that can do the following:</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Math -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a positive integer <code>num</code> consisting only of digits <code>6</code> and <code>9</code>.</p>

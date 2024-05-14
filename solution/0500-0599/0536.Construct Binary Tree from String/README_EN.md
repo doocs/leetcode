@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search,String,Binary Tree -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You need to construct a binary tree from a string consisting of parenthesis and integers.</p>

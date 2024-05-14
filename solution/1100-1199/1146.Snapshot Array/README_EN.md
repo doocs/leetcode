@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Array,Hash Table,Binary Search -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Implement a SnapshotArray that supports the following interface:</p>

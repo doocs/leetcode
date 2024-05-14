@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Breadth-First Search,Array,Hash Table,Matrix -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given a <code>m x n</code> binary matrix <code>mat</code>. In one step, you can choose one cell and flip it and all the four neighbors of it if they exist (Flip is changing <code>1</code> to <code>0</code> and <code>0</code> to <code>1</code>). A pair of cells are called neighbors if they share one edge.</p>

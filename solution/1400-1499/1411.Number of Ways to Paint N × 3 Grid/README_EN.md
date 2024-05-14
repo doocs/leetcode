@@ -4,6 +4,8 @@
 
 <!-- tags:Dynamic Programming -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You have a <code>grid</code> of size <code>n x 3</code> and you want to paint each cell of the grid with exactly one of the three colors: <strong>Red</strong>, <strong>Yellow,</strong> or <strong>Green</strong> while making sure that no two adjacent cells have the same color (i.e., no two cells that share vertical or horizontal sides have the same color).</p>

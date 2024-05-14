@@ -4,6 +4,8 @@
 
 <!-- tags:String,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a <strong>0-indexed</strong> string <code>s</code>, <strong>permute</strong> <code>s</code> to get a new string <code>t</code> such that:</p>

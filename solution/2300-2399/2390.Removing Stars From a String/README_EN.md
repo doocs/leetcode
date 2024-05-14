@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,String,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a string <code>s</code>, which contains stars <code>*</code>.</p>

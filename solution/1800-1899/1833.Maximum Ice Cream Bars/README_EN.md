@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>It is a sweltering summer day, and a boy wants to buy some ice cream bars.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Trie,Array,String,Counting -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an array <code>words</code> of size <code>n</code> consisting of <strong>non-empty</strong> strings.</p>

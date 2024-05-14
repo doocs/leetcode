@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search,Dynamic Programming,Binary Tree -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>A <strong>path</strong> in a binary tree is a sequence of nodes where each pair of adjacent nodes in the sequence has an edge connecting them. A node can only appear in the sequence <strong>at most once</strong>. Note that the path does not need to pass through the root.</p>

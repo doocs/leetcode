@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Two Pointers,Sorting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of <strong>even</strong> length.</p>

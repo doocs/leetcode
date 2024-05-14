@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,Dynamic Programming,Game Theory -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Alice and Bob play a game with piles of stones. There are an <strong>even</strong> number of piles arranged in a row, and each pile has a <strong>positive</strong> integer number of stones <code>piles[i]</code>.</p>

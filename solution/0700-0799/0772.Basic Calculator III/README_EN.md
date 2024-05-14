@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Recursion,Math,String -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Implement a basic calculator to evaluate a simple expression string.</p>

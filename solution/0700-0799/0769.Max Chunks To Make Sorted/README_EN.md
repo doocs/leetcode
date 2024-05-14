@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Greedy,Array,Sorting,Monotonic Stack -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an integer array <code>arr</code> of length <code>n</code> that represents a permutation of the integers in the range <code>[0, n - 1]</code>.</p>

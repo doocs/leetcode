@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Binary Search,Suffix Array,Hash Function,Rolling Hash -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There is a country of <code>n</code> cities numbered from <code>0</code> to <code>n - 1</code>. In this country, there is a road connecting <b>every pair</b> of cities.</p>

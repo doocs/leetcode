@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Prefix Sum -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> of length <code>n</code>, return <code>true</code> if there is a triplet <code>(i, j, k)</code> which satisfies the following conditions:</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an integer array <code>arr</code> of <strong>distinct</strong> integers and an integer <code>k</code>.</p>

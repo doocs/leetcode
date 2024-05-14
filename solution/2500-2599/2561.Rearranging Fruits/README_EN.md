@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Hash Table -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You have two fruit baskets containing <code>n</code> fruits each. You are given two <strong>0-indexed</strong> integer arrays <code>basket1</code> and <code>basket2</code> representing the cost of fruit in each basket. You want to make both baskets <strong>equal</strong>. To do so, you can use the following operation as many times as you want:</p>

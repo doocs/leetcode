@@ -4,6 +4,8 @@
 
 <!-- tags:Database -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Table: <code>Servers</code></p>

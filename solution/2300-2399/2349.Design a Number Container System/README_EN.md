@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Hash Table,Ordered Set,Heap (Priority Queue) -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Design a number container system that can do the following:</p>

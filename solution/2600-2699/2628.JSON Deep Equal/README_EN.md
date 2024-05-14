@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given two values&nbsp;<code>o1</code>&nbsp;and <code>o2</code>, return a boolean value indicating whether two values, <code>o1</code> and <code>o2</code>, are <strong>deeply equal</strong>.</p>

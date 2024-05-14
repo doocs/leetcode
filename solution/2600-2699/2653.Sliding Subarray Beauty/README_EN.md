@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Sliding Window -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> containing <code>n</code> integers, find the <strong>beauty</strong> of each subarray of size <code>k</code>.</p>

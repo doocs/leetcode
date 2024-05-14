@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Binary Search,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an array <code>arr</code> that represents a permutation of numbers from <code>1</code> to <code>n</code>.</p>

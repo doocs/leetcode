@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,String,Sorting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string array <code>words</code>, where <code>words[i]</code> consists of lowercase English letters.</p>

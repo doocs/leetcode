@@ -4,6 +4,8 @@
 
 <!-- tags:Array,String,Dynamic Programming -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a list of strings of the <strong>same length</strong> <code>words</code> and a string <code>target</code>.</p>

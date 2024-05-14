@@ -4,6 +4,8 @@
 
 <!-- tags:Breadth-First Search,Backtracking -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>A <strong>stepping number</strong> is an integer such that all of its adjacent digits have an absolute difference of exactly <code>1</code>.</p>

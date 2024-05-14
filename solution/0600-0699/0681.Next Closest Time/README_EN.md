@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String,Backtracking,Enumeration -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a <code>time</code> represented in the format <code>&quot;HH:MM&quot;</code>, form the next closest time by reusing the current digits. There is no limit on how many times a digit can be reused.</p>

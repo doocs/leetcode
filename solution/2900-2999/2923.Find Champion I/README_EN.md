@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Matrix -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>There are <code>n</code> teams numbered from <code>0</code> to <code>n - 1</code> in a tournament.</p>

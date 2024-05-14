@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Dynamic Programming,Sliding Window -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a binary array <code>nums</code>, you should delete one element from it.</p>

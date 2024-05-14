@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Math -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given an integer <code>num</code>, return <em>the number of steps to reduce it to zero</em>.</p>

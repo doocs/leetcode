@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Hash Table,Linked List,Doubly-Linked List -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Design a data structure to store the strings&#39; count with the ability to return the strings with minimum and maximum counts.</p>

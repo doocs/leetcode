@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given a string <code>s</code> of lower and upper case English letters.</p>

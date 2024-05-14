@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Binary Search,Prefix Sum,Sorting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> of length <code>n</code>, and an integer array <code>queries</code> of length <code>m</code>.</p>

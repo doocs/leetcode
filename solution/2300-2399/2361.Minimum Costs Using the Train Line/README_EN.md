@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Dynamic Programming -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>A train line going through a city has two routes, the regular route and the express route. Both routes go through the <strong>same</strong> <code>n + 1</code> stops labeled from <code>0</code> to <code>n</code>. Initially, you start on the regular route at stop <code>0</code>.</p>

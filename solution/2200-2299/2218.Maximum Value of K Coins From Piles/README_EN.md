@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Dynamic Programming,Prefix Sum -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There are <code>n</code> <strong>piles</strong> of coins on a table. Each pile consists of a <strong>positive number</strong> of coins of assorted denominations.</p>

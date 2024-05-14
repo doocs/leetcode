@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Queue,Array,Linked List,Data Stream -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Design a queue that supports <code>push</code> and <code>pop</code> operations in the front, middle, and back.</p>

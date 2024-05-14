@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Sorting -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given two positive integer arrays <code>nums</code> and <code>target</code>, of the same length.</p>

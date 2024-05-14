@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Combinatorics,Enumeration -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given two positive integers <code>n</code> and <code>limit</code>.</p>

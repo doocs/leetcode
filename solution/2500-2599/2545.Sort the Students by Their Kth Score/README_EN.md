@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Matrix,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>There is a class with <code>m</code> students and <code>n</code> exams. You are given a <strong>0-indexed</strong> <code>m x n</code> integer matrix <code>score</code>, where each row represents one student and <code>score[i][j]</code> denotes the score the <code>i<sup>th</sup></code> student got in the <code>j<sup>th</sup></code> exam. The matrix <code>score</code> contains <strong>distinct</strong> integers only.</p>

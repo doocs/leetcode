@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,Math -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given an integer <code>n</code>.</p>

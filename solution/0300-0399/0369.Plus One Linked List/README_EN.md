@@ -4,6 +4,8 @@
 
 <!-- tags:Linked List,Math -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a non-negative integer represented as a linked list of digits, <em>plus one to the integer</em>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,String,Enumeration -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 Given three strings <code>a</code>, <code>b</code>, and <code>c</code>, your task is to find a string that has the<strong> minimum</strong> length and contains all three strings as <strong>substrings</strong>.

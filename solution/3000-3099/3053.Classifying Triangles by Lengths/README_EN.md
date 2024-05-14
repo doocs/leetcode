@@ -4,6 +4,8 @@
 
 <!-- tags:Database -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Table: <font face="monospace"><code>Triangles</code></font></p>

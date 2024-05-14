@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Prefix Sum -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>There are <code>n</code> flights that are labeled from <code>1</code> to <code>n</code>.</p>

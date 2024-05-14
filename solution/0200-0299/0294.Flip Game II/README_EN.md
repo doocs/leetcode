@@ -4,6 +4,8 @@
 
 <!-- tags:Memoization,Math,Dynamic Programming,Backtracking,Game Theory -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are playing a Flip Game with your friend.</p>

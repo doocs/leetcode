@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Matrix -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given a&nbsp;square&nbsp;matrix&nbsp;<code>mat</code>, return the sum of the matrix diagonals.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Array,Prefix Sum -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, handle multiple queries of the following type:</p>

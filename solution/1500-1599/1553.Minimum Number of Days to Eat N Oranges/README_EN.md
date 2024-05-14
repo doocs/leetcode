@@ -4,6 +4,8 @@
 
 <!-- tags:Memoization,Dynamic Programming -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There are <code>n</code> oranges in the kitchen and you decided to eat some of these oranges every day as follows:</p>

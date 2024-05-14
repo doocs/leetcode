@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>An <strong>IP address</strong> is a formatted 32-bit unsigned integer where each group of 8 bits is printed as a decimal number and the dot character <code>&#39;.&#39;</code> splits the groups.</p>

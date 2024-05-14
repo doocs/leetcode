@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Matrix -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given an array of strings <code>words</code>, return <code>true</code> <em>if it forms a valid <strong>word square</strong></em>.</p>

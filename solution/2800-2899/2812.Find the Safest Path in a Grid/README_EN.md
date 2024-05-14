@@ -4,6 +4,8 @@
 
 <!-- tags:Breadth-First Search,Union Find,Array,Binary Search,Matrix -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> 2D matrix <code>grid</code> of size <code>n x n</code>, where <code>(r, c)</code> represents:</p>

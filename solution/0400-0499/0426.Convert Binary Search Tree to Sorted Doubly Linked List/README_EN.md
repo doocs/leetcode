@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Tree,Depth-First Search,Binary Search Tree,Linked List,Binary Tree,Doubly-Linked List -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Convert a <strong>Binary Search Tree</strong> to a sorted <strong>Circular Doubly-Linked List</strong> in place.</p>

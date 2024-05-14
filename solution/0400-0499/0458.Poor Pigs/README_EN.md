@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Dynamic Programming,Combinatorics -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There are <code>buckets</code> buckets of liquid, where <strong>exactly one</strong> of the buckets is poisonous. To figure out which one is poisonous, you feed some number of (poor) pigs the liquid to see whether they will die or not. Unfortunately, you only have <code>minutesToTest</code> minutes to determine which bucket is poisonous.</p>

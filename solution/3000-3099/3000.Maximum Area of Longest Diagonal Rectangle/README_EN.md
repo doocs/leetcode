@@ -4,6 +4,8 @@
 
 <!-- tags:Array -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a 2D <strong>0-indexed </strong>integer array <code>dimensions</code>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Breadth-First Search,Array,Matrix,Heap (Priority Queue) -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are asked to cut off all the trees in a forest for a golf event. The forest is represented as an <code>m x n</code> matrix. In this matrix:</p>

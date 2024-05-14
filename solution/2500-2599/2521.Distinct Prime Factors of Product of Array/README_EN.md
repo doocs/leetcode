@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Math,Number Theory -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an array of positive integers <code>nums</code>, return <em>the number of <strong>distinct prime factors</strong> in the product of the elements of</em> <code>nums</code>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Segment Tree,Ordered Set -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>A Range Module is a module that tracks ranges of numbers. Design a data structure to track the ranges represented as <strong>half-open intervals</strong> and query about them.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Brainteaser,Math,Dynamic Programming,Game Theory -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Alice and Bob take turns playing a game, with Alice starting first.</p>

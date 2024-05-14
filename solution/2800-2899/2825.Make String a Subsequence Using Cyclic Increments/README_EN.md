@@ -4,6 +4,8 @@
 
 <!-- tags:Two Pointers,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given two <strong>0-indexed</strong> strings <code>str1</code> and <code>str2</code>.</p>

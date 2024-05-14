@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,String,Matrix -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a 2D integer matrix <code>board</code> and a 2D character matrix <code>pattern</code>. Where <code>0 &lt;= board[r][c] &lt;= 9</code> and each element of <code>pattern</code> is either a digit or a lowercase English letter.</p>

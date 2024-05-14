@@ -4,6 +4,8 @@
 
 <!-- tags:Array,String,Enumeration -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an array <code>arr</code> of 4 digits, find the latest 24-hour time that can be made using each digit <strong>exactly once</strong>.</p>

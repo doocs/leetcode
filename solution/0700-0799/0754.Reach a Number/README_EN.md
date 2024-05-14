@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Binary Search -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are standing at position <code>0</code> on an infinite number line. There is a destination at position <code>target</code>.</p>

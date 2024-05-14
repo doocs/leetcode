@@ -4,6 +4,8 @@
 
 <!-- tags:Trie,Array,Hash Table,String,String Matching -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a string <code>s</code> and an array of strings <code>words</code>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Two Pointers,String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a string <code node="[object Object]">s</code> consisting of <strong>lowercase English letters</strong>, and you are allowed to perform operations on it. In one operation, you can <strong>replace</strong> a character in <code node="[object Object]">s</code> with another lowercase English letter.</p>

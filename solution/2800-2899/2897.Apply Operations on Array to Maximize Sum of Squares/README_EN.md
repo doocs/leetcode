@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Bit Manipulation,Array,Hash Table -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and a <strong>positive</strong> integer <code>k</code>.</p>

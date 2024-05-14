@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Breadth-First Search -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an n-ary tree, return the <em>level order</em> traversal of its nodes&#39; values.</p>

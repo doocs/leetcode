@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given a <strong>0-indexed</strong> string <code>s</code>, repeatedly perform the following operation <strong>any</strong> number of times:</p>

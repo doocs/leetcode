@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Two Pointers,Simulation -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> of size <code>n</code> consisting of <strong>non-negative</strong> integers.</p>

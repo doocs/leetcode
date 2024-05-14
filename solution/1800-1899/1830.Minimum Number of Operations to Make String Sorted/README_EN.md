@@ -4,6 +4,8 @@
 
 <!-- tags:Math,String,Combinatorics -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a string <code>s</code> (<strong>0-indexed</strong>)​​​​​​. You are asked to perform the following operation on <code>s</code>​​​​​​ until you get a sorted string:</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are playing a game of tag with your friends. In tag, people are divided into two teams: people who are &quot;it&quot;, and people who are not &quot;it&quot;. The people who are &quot;it&quot; want to catch as many people as possible who are not &quot;it&quot;.</p>

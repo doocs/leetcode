@@ -197,6 +197,8 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 <!-- tags:{} -->
 
+<!-- difficulty:{} -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -241,6 +243,8 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 <!-- tags:{} -->
 
+<!-- difficulty:{} -->
+
 ## Description
 
 {}
@@ -282,6 +286,8 @@ If you want to estimate your score changes after the contest ends, you can visit
 [English Version]({})
 
 <!-- tags:{} -->
+
+<!-- difficulty:{} -->
 
 ## 题目描述
 
@@ -327,6 +333,8 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 <!-- tags:{} -->
 
+<!-- difficulty:{} -->
+
 ## Description
 
 {}
@@ -369,6 +377,8 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 <!-- tags:{} -->
 
+<!-- difficulty:{} -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -401,6 +411,8 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 <!-- tags:{} -->
 
+<!-- difficulty:{} -->
+
 ## Description
 
 {}
@@ -430,6 +442,8 @@ If you want to estimate your score changes after the contest ends, you can visit
 [English Version]({})
 
 <!-- tags:{} -->
+
+<!-- difficulty:{} -->
 
 ## 题目描述
 
@@ -462,6 +476,8 @@ If you want to estimate your score changes after the contest ends, you can visit
 [中文文档]({})
 
 <!-- tags:{} -->
+
+<!-- difficulty:{} -->
 
 ## Description
 

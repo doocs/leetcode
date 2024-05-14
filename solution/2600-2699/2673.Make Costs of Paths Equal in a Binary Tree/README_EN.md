@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Tree,Array,Dynamic Programming,Binary Tree -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an integer <code>n</code> representing the number of nodes in a <strong>perfect binary tree</strong> consisting of nodes numbered from <code>1</code> to <code>n</code>. The root of the tree is node <code>1</code> and each node <code>i</code> in the tree has two children where the left child is the node <code>2 * i</code> and the right child is <code>2 * i + 1</code>.</p>

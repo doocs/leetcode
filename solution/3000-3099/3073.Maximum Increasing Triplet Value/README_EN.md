@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Ordered Set -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an array <code>nums</code>, return <em>the <strong>maximum value</strong> of a triplet</em> <code>(i, j, k)</code> <em>such that</em> <code>i &lt; j &lt; k</code> <em>and</em> <code>nums[i] &lt; nums[j] &lt; nums[k]</code>.</p>

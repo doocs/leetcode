@@ -4,6 +4,8 @@
 
 <!-- tags:Queue,Array,Simulation -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There are <code>n</code> persons numbered from <code>0</code> to <code>n - 1</code> and a door. Each person can enter or exit through the door once, taking one second.</p>

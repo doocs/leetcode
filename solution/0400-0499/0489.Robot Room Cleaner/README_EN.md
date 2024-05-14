@@ -4,6 +4,8 @@
 
 <!-- tags:Backtracking,Interactive -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are controlling a robot that is located somewhere in a room. The room is modeled as an <code>m x n</code> binary grid where <code>0</code> represents a wall and <code>1</code> represents an empty slot.</p>

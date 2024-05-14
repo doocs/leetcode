@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Hash Table,Two Pointers,Binary Tree -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given two nodes of a&nbsp;binary tree <code>p</code> and <code>q</code>, return <em>their&nbsp;lowest common ancestor (LCA)</em>.</p>

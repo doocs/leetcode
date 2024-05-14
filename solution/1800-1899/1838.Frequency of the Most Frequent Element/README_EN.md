@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Binary Search,Prefix Sum,Sorting,Sliding Window -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>The <strong>frequency</strong> of an element is the number of times it occurs in an array.</p>

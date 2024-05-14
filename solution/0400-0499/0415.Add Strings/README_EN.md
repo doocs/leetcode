@@ -4,6 +4,8 @@
 
 <!-- tags:Math,String,Simulation -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given two non-negative integers, <code>num1</code> and <code>num2</code> represented as string, return <em>the sum of</em> <code>num1</code> <em>and</em> <code>num2</code> <em>as a string</em>.</p>

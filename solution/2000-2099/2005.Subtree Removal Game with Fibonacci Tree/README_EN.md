@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Math,Dynamic Programming,Binary Tree,Game Theory -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>A <strong>Fibonacci</strong> tree is a binary tree created using the order function <code>order(n)</code>:</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Recursion,Linked List -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given the <code>head</code> of a linked list, reverse the nodes of the list <code>k</code> at a time, and return <em>the modified list</em>.</p>

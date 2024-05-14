@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Hash Table -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>On a social network consisting of <code>m</code> users and some friendships between users, two users can communicate with each other if they know a common language.</p>

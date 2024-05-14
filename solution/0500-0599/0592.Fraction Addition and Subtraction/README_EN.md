@@ -4,6 +4,8 @@
 
 <!-- tags:Math,String,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a string <code>expression</code> representing an expression of fraction addition and subtraction, return the calculation result in string format.</p>

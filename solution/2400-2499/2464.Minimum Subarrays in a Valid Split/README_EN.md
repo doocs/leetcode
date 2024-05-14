@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,Dynamic Programming,Number Theory -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code>.</p>

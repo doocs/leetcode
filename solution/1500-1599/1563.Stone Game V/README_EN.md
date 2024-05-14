@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,Dynamic Programming,Game Theory -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There are several stones <strong>arranged in a row</strong>, and each stone has an associated value which is an integer given in the array <code>stoneValue</code>.</p>

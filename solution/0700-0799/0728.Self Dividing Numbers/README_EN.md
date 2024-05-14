@@ -4,6 +4,8 @@
 
 <!-- tags:Math -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>A <strong>self-dividing number</strong> is a number that is divisible by every digit it contains.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Two Pointers,String,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an array of strings <code>strs</code>, return <em>the length of the <strong>longest uncommon subsequence</strong> between them</em>. If the longest uncommon subsequence does not exist, return <code>-1</code>.</p>

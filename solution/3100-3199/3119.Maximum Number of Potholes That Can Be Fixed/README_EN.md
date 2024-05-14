@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,String,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a string <code>road</code>, consisting only of characters <code>&quot;x&quot;</code> and <code>&quot;.&quot;</code>, where each <code>&quot;x&quot;</code> denotes a <em>pothole</em> and each <code>&quot;.&quot;</code> denotes a smooth road, and an integer <code>budget</code>.</p>

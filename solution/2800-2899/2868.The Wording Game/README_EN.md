@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,Two Pointers,String,Game Theory -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Alice and Bob each have a <strong>lexicographically sorted</strong> array of strings named <code>a</code> and <code>b</code> respectively.</p>

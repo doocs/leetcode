@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Breadth-First Search,Binary Tree -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>A binary tree is named <strong>Even-Odd</strong> if it meets the following conditions:</p>

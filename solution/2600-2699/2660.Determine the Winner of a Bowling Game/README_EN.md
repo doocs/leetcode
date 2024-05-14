@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Simulation -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given two <strong>0-indexed</strong> integer arrays <code><font face="monospace">player1</font></code> and <code>player2</code>, that represent the number of pins that player 1 and player 2 hit in a bowling game, respectively.</p>

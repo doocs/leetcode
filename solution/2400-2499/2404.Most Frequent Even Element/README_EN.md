@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Counting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, return <em>the most frequent even element</em>.</p>

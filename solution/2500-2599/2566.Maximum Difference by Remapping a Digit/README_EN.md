@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Math -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given an integer <code>num</code>. You know that Bob will sneakily <strong>remap</strong> one of the <code>10</code> possible digits (<code>0</code> to <code>9</code>) to another digit.</p>

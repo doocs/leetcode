@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Simulation -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given two <strong>non-negative</strong> integers <code>num1</code> and <code>num2</code>.</p>

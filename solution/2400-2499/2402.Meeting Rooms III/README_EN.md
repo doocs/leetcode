@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Sorting,Simulation,Heap (Priority Queue) -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an integer <code>n</code>. There are <code>n</code> rooms numbered from <code>0</code> to <code>n - 1</code>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Breadth-First Search,Graph,Array -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You have <code>n</code> boxes labeled from <code>0</code> to <code>n - 1</code>. You are given four arrays: <code>status</code>, <code>candies</code>, <code>keys</code>, and <code>containedBoxes</code> where:</p>

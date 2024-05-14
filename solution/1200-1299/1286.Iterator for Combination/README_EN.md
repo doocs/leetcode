@@ -4,6 +4,8 @@
 
 <!-- tags:Design,String,Backtracking,Iterator -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Design the <code>CombinationIterator</code> class:</p>

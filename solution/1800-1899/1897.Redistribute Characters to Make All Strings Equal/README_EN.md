@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String,Counting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given an array of strings <code>words</code> (<strong>0-indexed</strong>).</p>

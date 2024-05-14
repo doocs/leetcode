@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search,Divide and Conquer,Binary Tree -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a <code>root</code> to a binary tree and an integer <code>k</code>. A node of this tree is called <strong>great enough</strong> if the followings hold:</p>

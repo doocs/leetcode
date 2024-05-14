@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Matrix -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given the following details of a matrix with <code>n</code> columns and <code>2</code> rows :</p>

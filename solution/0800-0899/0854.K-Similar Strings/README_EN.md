@@ -4,6 +4,8 @@
 
 <!-- tags:Breadth-First Search,String -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Strings <code>s1</code> and <code>s2</code> are <code>k</code><strong>-similar</strong> (for some non-negative integer <code>k</code>) if we can swap the positions of two letters in <code>s1</code> exactly <code>k</code> times so that the resulting string equals <code>s2</code>.</p>

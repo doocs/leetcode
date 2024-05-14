@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Math -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given two integers <code>left</code> and <code>right</code>, return <em>the <strong>count</strong> of numbers in the <strong>inclusive</strong> range </em><code>[left, right]</code><em> having a <strong>prime number of set bits</strong> in their binary representation</em>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>A <strong>value-equal</strong> string is a string where <strong>all</strong> characters are the same.</p>

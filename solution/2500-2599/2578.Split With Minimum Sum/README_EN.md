@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Math,Sorting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given a positive integer <code>num</code>, split it into two non-negative integers <code>num1</code> and <code>num2</code> such that:</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Array,Hash Table,Math,Randomized -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Implement the <code>RandomizedSet</code> class:</p>

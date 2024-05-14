@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Array,Binary Search,Monotonic Stack -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an array of <strong>positive</strong> integers <code>nums</code>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Linked List -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given two linked lists: <code>list1</code> and <code>list2</code> of sizes <code>n</code> and <code>m</code> respectively.</p>

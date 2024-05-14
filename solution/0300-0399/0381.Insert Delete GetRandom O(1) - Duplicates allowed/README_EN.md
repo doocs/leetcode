@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Array,Hash Table,Math,Randomized -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p><code>RandomizedCollection</code> is a data structure that contains a collection of numbers, possibly duplicates (i.e., a multiset). It should support inserting and removing specific elements and also reporting a random element.</p>

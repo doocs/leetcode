@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Two Pointers -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p><strong>Run-length encoding</strong> is a compression algorithm that allows for an integer array <code>nums</code> with many segments of <strong>consecutive repeated</strong> numbers to be represented by a (generally smaller) 2D array <code>encoded</code>. Each <code>encoded[i] = [val<sub>i</sub>, freq<sub>i</sub>]</code> describes the <code>i<sup>th</sup></code> segment of repeated numbers in <code>nums</code> where <code>val<sub>i</sub></code> is the value that is repeated <code>freq<sub>i</sub></code> times.</p>

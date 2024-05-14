@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Matrix -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an <code>n x n</code> binary <code>grid</code>, in one step you can choose two <strong>adjacent rows</strong> of the grid and swap them.</p>

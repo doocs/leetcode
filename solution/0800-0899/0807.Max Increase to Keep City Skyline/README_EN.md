@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Matrix -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>There is a city composed of <code>n x n</code> blocks, where each block contains a single building shaped like a vertical square prism. You are given a <strong>0-indexed</strong> <code>n x n</code> integer matrix <code>grid</code> where <code>grid[r][c]</code> represents the <strong>height</strong> of the building located in the block at row <code>r</code> and column <code>c</code>.</p>

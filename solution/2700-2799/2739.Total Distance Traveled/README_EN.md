@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Simulation -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>A truck has two fuel tanks. You are given two integers, <code>mainTank</code> representing the fuel present in the main tank in liters and <code>additionalTank</code> representing the fuel present in the additional tank in liters.</p>

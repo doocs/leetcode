@@ -4,6 +4,8 @@
 
 <!-- tags:Breadth-First Search,Hash Table,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>A gene string can be represented by an 8-character long string, with choices from <code>&#39;A&#39;</code>, <code>&#39;C&#39;</code>, <code>&#39;G&#39;</code>, and <code>&#39;T&#39;</code>.</p>

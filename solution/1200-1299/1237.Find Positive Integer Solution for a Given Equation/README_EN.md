@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Two Pointers,Binary Search,Interactive -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a callable function <code>f(x, y)</code> <strong>with a hidden formula</strong> and a value <code>z</code>, reverse engineer the formula and return <em>all positive integer pairs </em><code>x</code><em> and </em><code>y</code><em> where </em><code>f(x,y) == z</code>. You may return the pairs in any order.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Binary Tree -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given the <code>root</code> of a <strong>binary tree</strong> that consists of exactly <code>3</code> nodes: the root, its left child, and its right child.</p>

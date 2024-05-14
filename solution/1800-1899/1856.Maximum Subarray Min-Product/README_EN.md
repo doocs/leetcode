@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Array,Prefix Sum,Monotonic Stack -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>The <strong>min-product</strong> of an array is equal to the <strong>minimum value</strong> in the array <strong>multiplied by</strong> the array&#39;s <strong>sum</strong>.</p>

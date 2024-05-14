@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,Linked List,Counting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given the <code>head</code> of a linked list containing <code>k</code> <strong>distinct</strong> elements, return <em>the head to a linked list of length </em><code>k</code><em> containing the <span data-keyword="frequency-linkedlist">frequency</span> of each <strong>distinct</strong> element in the given linked list in <strong>any order</strong>.</em></p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Dynamic Programming,Sorting -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given a wooden stick of length <code>n</code> units. The stick is labelled from <code>0</code> to <code>n</code>. For example, a stick of length <strong>6</strong> is labelled as follows:</p>

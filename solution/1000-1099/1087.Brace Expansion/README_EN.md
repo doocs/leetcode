@@ -4,6 +4,8 @@
 
 <!-- tags:Breadth-First Search,String,Backtracking -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a string <code>s</code> representing a list of words. Each letter in the word has one or more options.</p>

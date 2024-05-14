@@ -4,6 +4,8 @@
 
 <!-- tags:Depth-First Search,Breadth-First Search,Graph,Topological Sort,Array,String -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There is a new alien language that uses the English alphabet. However, the order of the letters is unknown to you.</p>

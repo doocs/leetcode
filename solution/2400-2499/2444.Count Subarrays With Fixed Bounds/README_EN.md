@@ -4,6 +4,8 @@
 
 <!-- tags:Queue,Array,Sliding Window,Monotonic Queue -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> and two integers <code>minK</code> and <code>maxK</code>.</p>

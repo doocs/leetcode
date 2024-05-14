@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Bucket Sort,Radix Sort,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, return <em>the maximum difference between two successive elements in its sorted form</em>. If the array contains less than two elements, return <code>0</code>.</p>

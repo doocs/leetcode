@@ -4,6 +4,8 @@
 
 <!-- tags:Binary Indexed Tree,Array,Binary Search -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You want to build some obstacle courses. You are given a <strong>0-indexed</strong> integer array <code>obstacles</code> of length <code>n</code>, where <code>obstacles[i]</code> describes the height of the <code>i<sup>th</sup></code> obstacle.</p>

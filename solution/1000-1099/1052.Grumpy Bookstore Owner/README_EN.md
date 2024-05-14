@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Sliding Window -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>There is a bookstore owner that has a store open for <code>n</code> minutes. Every minute, some number of customers enter the store. You are given an integer array <code>customers</code> of length <code>n</code> where <code>customers[i]</code> is the number of the customer that enters the store at the start of the <code>i<sup>th</sup></code> minute and all those customers leave after the end of that minute.</p>

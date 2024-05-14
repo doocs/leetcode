@@ -4,6 +4,8 @@
 
 <!-- tags:Trie,Array,Hash Table,String -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array of <strong>unique</strong> strings <code>words</code>.</p>

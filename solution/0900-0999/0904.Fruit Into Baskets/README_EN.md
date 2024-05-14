@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Sliding Window -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are visiting a farm that has a single row of fruit trees arranged from left to right. The trees are represented by an integer array <code>fruits</code> where <code>fruits[i]</code> is the <strong>type</strong> of fruit the <code>i<sup>th</sup></code> tree produces.</p>

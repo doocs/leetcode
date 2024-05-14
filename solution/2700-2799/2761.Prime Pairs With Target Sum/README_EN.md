@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,Enumeration,Number Theory -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an integer <code>n</code>. We say that two integers <code>x</code> and <code>y</code> form a prime number pair if:</p>

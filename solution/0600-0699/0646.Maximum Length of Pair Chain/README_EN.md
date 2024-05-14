@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Dynamic Programming,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an array of <code>n</code> pairs <code>pairs</code> where <code>pairs[i] = [left<sub>i</sub>, right<sub>i</sub>]</code> and <code>left<sub>i</sub> &lt; right<sub>i</sub></code>.</p>

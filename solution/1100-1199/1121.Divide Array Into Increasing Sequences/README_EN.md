@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Counting -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> sorted in non-decreasing order and an integer <code>k</code>, return <code>true</code><em> if this array can be divided into one or more disjoint increasing subsequences of length at least </em><code>k</code><em>, or </em><code>false</code><em> otherwise</em>.</p>

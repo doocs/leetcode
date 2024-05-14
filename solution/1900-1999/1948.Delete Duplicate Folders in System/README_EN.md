@@ -4,6 +4,8 @@
 
 <!-- tags:Trie,Array,Hash Table,String,Hash Function -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Due to a bug, there are many duplicate folders in a file system. You are given a 2D array <code>paths</code>, where <code>paths[i]</code> is an array representing an absolute path to the <code>i<sup>th</sup></code> folder in the file system.</p>

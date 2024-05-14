@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Tree,Depth-First Search -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given the <code>root</code> of an n-ary tree, return <em>the postorder traversal of its nodes&#39; values</em>.</p>

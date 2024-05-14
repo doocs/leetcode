@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Counting Sort,Sorting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given two arrays <code>arr1</code> and <code>arr2</code>, the elements of <code>arr2</code> are distinct, and all elements in <code>arr2</code> are also in <code>arr1</code>.</p>

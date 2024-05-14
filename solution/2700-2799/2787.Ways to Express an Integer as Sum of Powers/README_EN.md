@@ -4,6 +4,8 @@
 
 <!-- tags:Dynamic Programming -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given two <strong>positive</strong> integers <code>n</code> and <code>x</code>.</p>

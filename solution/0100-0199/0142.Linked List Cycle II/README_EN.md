@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,Linked List,Two Pointers -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given the <code>head</code> of a linked list, return <em>the node where the cycle begins. If there is no cycle, return </em><code>null</code>.</p>

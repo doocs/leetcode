@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Enumeration -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>There is a large <code>(m - 1) x (n - 1)</code> rectangular field with corners at <code>(1, 1)</code> and <code>(m, n)</code> containing some horizontal and vertical fences given in arrays <code>hFences</code> and <code>vFences</code> respectively.</p>

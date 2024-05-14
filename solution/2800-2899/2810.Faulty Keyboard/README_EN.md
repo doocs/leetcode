@@ -4,6 +4,8 @@
 
 <!-- tags:String,Simulation -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Your laptop keyboard is faulty, and whenever you type a character <code>&#39;i&#39;</code> on it, it reverses the string that you have written. Typing other characters works as expected.</p>

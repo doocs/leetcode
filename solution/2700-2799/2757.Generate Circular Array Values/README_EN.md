@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a <strong>circular</strong> array <code>arr</code> and an integer&nbsp;<code>startIndex</code>, return a generator object&nbsp;<code>gen</code> that yields values from <code>arr</code>.</p>

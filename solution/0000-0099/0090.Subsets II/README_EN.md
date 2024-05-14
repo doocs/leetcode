@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array,Backtracking -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> that may contain duplicates, return <em>all possible</em> <span data-keyword="subset"><em>subsets</em></span><em> (the power set)</em>.</p>

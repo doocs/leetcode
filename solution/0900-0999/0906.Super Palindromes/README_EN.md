@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Enumeration -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Let&#39;s say a positive integer is a <strong>super-palindrome</strong> if it is a palindrome, and it is also the square of a palindrome.</p>

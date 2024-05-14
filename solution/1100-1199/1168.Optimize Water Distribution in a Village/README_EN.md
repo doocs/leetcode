@@ -4,6 +4,8 @@
 
 <!-- tags:Union Find,Graph,Minimum Spanning Tree,Heap (Priority Queue) -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There are <code>n</code> houses in a village. We want to supply water for all the houses by building wells and laying pipes.</p>

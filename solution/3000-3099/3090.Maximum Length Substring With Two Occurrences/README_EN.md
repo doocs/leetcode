@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String,Sliding Window -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 Given a string <code>s</code>, return the <strong>maximum</strong> length of a <span data-keyword="substring">substring</span>&nbsp;such that it contains <em>at most two occurrences</em> of each character.

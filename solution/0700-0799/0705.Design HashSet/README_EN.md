@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Array,Hash Table,Linked List,Hash Function -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Design a HashSet without using any built-in hash table libraries.</p>

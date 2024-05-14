@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Array,Hash Table,Two Pointers,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Design a data structure that will be initialized with a string array, and then it should answer queries of the shortest distance between two different strings from the array.</p>

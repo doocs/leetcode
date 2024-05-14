@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Binary Search,Number Theory -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>We have two arrays <code>arr1</code> and <code>arr2</code> which are initially empty. You need to add positive integers to them such that they satisfy all the following conditions:</p>

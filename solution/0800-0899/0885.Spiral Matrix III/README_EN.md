@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Matrix,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You start at the cell <code>(rStart, cStart)</code> of an <code>rows x cols</code> grid facing east. The northwest corner is at the first row and column in the grid, and the southeast corner is at the last row and column.</p>

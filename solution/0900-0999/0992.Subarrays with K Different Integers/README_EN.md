@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Counting,Sliding Window -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> and an integer <code>k</code>, return <em>the number of <strong>good subarrays</strong> of </em><code>nums</code>.</p>

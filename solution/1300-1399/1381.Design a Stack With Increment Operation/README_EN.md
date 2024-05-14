@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Design,Array -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Design a stack that supports increment operations on its elements.</p>

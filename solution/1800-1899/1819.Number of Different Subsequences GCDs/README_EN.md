@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,Counting,Number Theory -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an array <code>nums</code> that consists of positive integers.</p>

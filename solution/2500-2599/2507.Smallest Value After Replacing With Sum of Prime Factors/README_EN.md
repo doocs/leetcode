@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Number Theory,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a positive integer <code>n</code>.</p>

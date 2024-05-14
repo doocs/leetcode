@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array,Hash Table -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given two <strong>0-indexed </strong>integer<strong> </strong>permutations <code>A</code> and <code>B</code> of length <code>n</code>.</p>

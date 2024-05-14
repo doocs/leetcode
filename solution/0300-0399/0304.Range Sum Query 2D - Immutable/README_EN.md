@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Array,Matrix,Prefix Sum -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a 2D matrix <code>matrix</code>, handle multiple queries of the following type:</p>

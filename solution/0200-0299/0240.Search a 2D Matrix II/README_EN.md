@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Binary Search,Divide and Conquer,Matrix -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Write an efficient algorithm that searches for a value <code>target</code> in an <code>m x n</code> integer matrix <code>matrix</code>. This matrix has the following properties:</p>

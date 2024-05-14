@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Dynamic Programming,Number Theory -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given two <strong>distinct</strong> <strong>prime</strong> numbers <code>primeOne</code> and <code>primeTwo</code>.</p>

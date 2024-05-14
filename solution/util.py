@@ -161,6 +161,7 @@ def generate_question_readme(result):
                     item["url_cn"],
                     item["relative_path_en"],
                     ",".join(item["tags_cn"]),
+                    item['difficulty_cn'],
                     item["content_cn"].replace("leetcode-cn.com", "leetcode.cn"),
                 )
             )
@@ -174,6 +175,7 @@ def generate_question_readme(result):
                     item["url_en"],
                     item["relative_path_cn"],
                     ",".join(item["tags_en"]),
+                    item['difficulty_en'],
                     item["content_en"],
                 )
             )
@@ -292,21 +294,41 @@ def refresh(result):
             cn_content = re.sub(
                 r"<!-- tags:(.*?) -->", f"<!-- tags:{tags} -->", cn_content
             )
-        else:
-            # If tags do not exist, insert them before "题目描述"
-            cn_content = cn_content.replace(
-                "## 题目描述", f"<!-- tags:{tags} -->\n\n## 题目描述"
-            )
         match = re.search(r"<!-- tags:(.*?) -->", en_content)
         if match:
             # If tags exist, update them
             en_content = re.sub(
                 r"<!-- tags:(.*?) -->", f"<!-- tags:{tags_en} -->", en_content
             )
+
+        # update difficulty
+        match = re.search(r"<!-- difficulty:(.*?) -->", cn_content)
+        if match:
+            # If difficulty exist, update them
+            cn_content = re.sub(
+                r"<!-- difficulty:(.*?) -->",
+                f"<!-- difficulty:{question['difficulty_cn']} -->",
+                cn_content,
+            )
         else:
-            # If tags do not exist, insert them before "Description"
+            # If difficulty do not exist, insert them before "题目描述"
+            cn_content = cn_content.replace(
+                "## 题目描述",
+                f"<!-- difficulty:{question['difficulty_cn']} -->\n\n## 题目描述",
+            )
+        match = re.search(r"<!-- difficulty:(.*?) -->", en_content)
+        if match:
+            # If difficulty exist, update them
+            en_content = re.sub(
+                r"<!-- difficulty:(.*?) -->",
+                f"<!-- difficulty:{question['difficulty_en']} -->",
+                en_content,
+            )
+        else:
+            # If difficulty do not exist, insert them before "Description"
             en_content = en_content.replace(
-                "## Description", f"<!-- tags:{tags_en} -->\n\n## Description"
+                "## Description",
+                f"<!-- difficulty:{question['difficulty_en']} -->\n\n## Description",
             )
 
         # update question content

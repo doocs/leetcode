@@ -4,6 +4,8 @@
 
 <!-- tags:String,Dynamic Programming -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>A subsequence of a string <code>s</code> is considered a <strong>good palindromic subsequence</strong> if:</p>

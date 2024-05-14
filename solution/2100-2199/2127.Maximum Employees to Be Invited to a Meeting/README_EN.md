@@ -4,6 +4,8 @@
 
 <!-- tags:Depth-First Search,Graph,Topological Sort -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>A company is organizing a meeting and has a list of <code>n</code> employees, waiting to be invited. They have arranged for a large <strong>circular</strong> table, capable of seating <strong>any number</strong> of employees.</p>

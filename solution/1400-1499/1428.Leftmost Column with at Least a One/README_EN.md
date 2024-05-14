@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Binary Search,Interactive,Matrix -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>A <strong>row-sorted binary matrix</strong> means that all elements are <code>0</code> or <code>1</code> and each row of the matrix is sorted in non-decreasing order.</p>

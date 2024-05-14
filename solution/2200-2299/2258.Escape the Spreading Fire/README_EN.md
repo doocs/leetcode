@@ -4,6 +4,8 @@
 
 <!-- tags:Breadth-First Search,Array,Binary Search,Matrix -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> 2D integer array <code>grid</code> of size <code>m x n</code> which represents a field. Each cell has one of three values:</p>

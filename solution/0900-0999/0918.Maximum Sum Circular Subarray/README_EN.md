@@ -4,6 +4,8 @@
 
 <!-- tags:Queue,Array,Divide and Conquer,Dynamic Programming,Monotonic Queue -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a <strong>circular integer array</strong> <code>nums</code> of length <code>n</code>, return <em>the maximum possible sum of a non-empty <strong>subarray</strong> of </em><code>nums</code>.</p>

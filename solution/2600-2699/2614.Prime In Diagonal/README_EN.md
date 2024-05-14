@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,Matrix,Number Theory -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a 0-indexed two-dimensional integer array <code>nums</code>.</p>

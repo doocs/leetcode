@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,Linked List,Two Pointers -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given <code>head</code>, the head of a linked list, determine if the linked list has a cycle in it.</p>

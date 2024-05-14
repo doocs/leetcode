@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Enumeration -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given two positive integers <code>low</code> and <code>high</code>.</p>

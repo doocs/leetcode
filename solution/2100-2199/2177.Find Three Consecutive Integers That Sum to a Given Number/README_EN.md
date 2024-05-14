@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an integer <code>num</code>, return <em>three consecutive integers (as a sorted array)</em><em> that <strong>sum</strong> to </em><code>num</code>. If <code>num</code> cannot be expressed as the sum of three consecutive integers, return<em> an <strong>empty</strong> array.</em></p>

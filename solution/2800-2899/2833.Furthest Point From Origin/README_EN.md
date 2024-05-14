@@ -4,6 +4,8 @@
 
 <!-- tags:String,Counting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a string <code>moves</code> of length <code>n</code> consisting only of characters <code>&#39;L&#39;</code>, <code>&#39;R&#39;</code>, and <code>&#39;_&#39;</code>. The string represents your movement on a number line starting from the origin <code>0</code>.</p>

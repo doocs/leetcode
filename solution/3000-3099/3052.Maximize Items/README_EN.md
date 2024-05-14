@@ -4,6 +4,8 @@
 
 <!-- tags:Database -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Table: <font face="monospace"><code>Inventory</code></font></p>

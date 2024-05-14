@@ -4,6 +4,8 @@
 
 <!-- tags:Dynamic Programming -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There are <code>n</code> <strong>unique</strong> candies (labeled <code>1</code> through <code>n</code>) and <code>k</code> bags. You are asked to distribute <strong>all</strong> the candies into the bags such that every bag has <strong>at least</strong> one candy.</p>

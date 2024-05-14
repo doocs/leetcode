@@ -4,6 +4,8 @@
 
 <!-- tags:Breadth-First Search,String,Backtracking -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given a string <code>s</code> that contains parentheses and letters, remove the minimum number of invalid parentheses to make the input string valid.</p>

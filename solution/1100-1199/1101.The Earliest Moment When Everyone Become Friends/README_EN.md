@@ -4,6 +4,8 @@
 
 <!-- tags:Union Find,Array,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>There are n people in a social group labeled from <code>0</code> to <code>n - 1</code>. You are given an array <code>logs</code> where <code>logs[i] = [timestamp<sub>i</sub>, x<sub>i</sub>, y<sub>i</sub>]</code> indicates that <code>x<sub>i</sub></code> and <code>y<sub>i</sub></code> will be friends at the time <code>timestamp<sub>i</sub></code>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Interactive -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>There is a number <code>n</code> that you have to find.</p>

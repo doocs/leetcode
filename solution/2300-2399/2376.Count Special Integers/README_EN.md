@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Dynamic Programming -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>We call a positive integer <strong>special</strong> if all of its digits are <strong>distinct</strong>.</p>

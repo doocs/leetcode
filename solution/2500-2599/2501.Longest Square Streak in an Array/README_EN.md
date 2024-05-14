@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Binary Search,Dynamic Programming,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code>. A subsequence of <code>nums</code> is called a <strong>square streak</strong> if:</p>

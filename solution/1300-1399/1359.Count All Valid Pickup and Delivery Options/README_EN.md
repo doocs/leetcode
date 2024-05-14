@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Dynamic Programming,Combinatorics -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given <code>n</code> orders, each order consists of a pickup and a delivery service.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Binary Search,Dynamic Programming,Sliding Window -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an array of integers <code>arr</code> and an integer <code>target</code>.</p>

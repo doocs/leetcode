@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Matrix -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> <code>m x n</code> grid <code>image</code> which represents a grayscale image, where <code>image[i][j]</code> represents a pixel with intensity in the range<code>[0..255]</code>. You are also given a <strong>non-negative</strong> integer <code>threshold</code>.</p>

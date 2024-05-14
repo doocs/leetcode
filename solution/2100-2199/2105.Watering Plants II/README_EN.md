@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Two Pointers,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Alice and Bob want to water <code>n</code> plants in their garden. The plants are arranged in a row and are labeled from <code>0</code> to <code>n - 1</code> from left to right where the <code>i<sup>th</sup></code> plant is located at <code>x = i</code>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,Divide and Conquer -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>An array <code>nums</code> of length <code>n</code> is <strong>beautiful</strong> if:</p>

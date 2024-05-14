@@ -4,6 +4,8 @@
 
 <!-- tags:String,Dynamic Programming -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> binary string <code>s</code> which represents a sequence of train cars. <code>s[i] = &#39;0&#39;</code> denotes that the <code>i<sup>th</sup></code> car does <strong>not</strong> contain illegal goods and <code>s[i] = &#39;1&#39;</code> denotes that the <code>i<sup>th</sup></code> car does contain illegal goods.</p>

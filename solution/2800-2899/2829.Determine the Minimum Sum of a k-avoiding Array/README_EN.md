@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Math -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given two integers,&nbsp;<code>n</code> and <code>k</code>.</p>

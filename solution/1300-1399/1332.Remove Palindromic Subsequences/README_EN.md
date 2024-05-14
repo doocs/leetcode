@@ -4,6 +4,8 @@
 
 <!-- tags:Two Pointers,String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a string <code>s</code> consisting <strong>only</strong> of letters <code>&#39;a&#39;</code> and <code>&#39;b&#39;</code>. In a single step you can remove one <strong>palindromic subsequence</strong> from <code>s</code>.</p>

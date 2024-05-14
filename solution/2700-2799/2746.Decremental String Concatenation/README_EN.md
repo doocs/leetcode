@@ -4,6 +4,8 @@
 
 <!-- tags:Array,String,Dynamic Programming -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array <code>words</code> containing <code>n</code> strings.</p>

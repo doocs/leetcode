@@ -4,6 +4,8 @@
 
 <!-- tags:Depth-First Search,Breadth-First Search,Array,Matrix,Simulation -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>A virus is spreading rapidly, and your task is to quarantine the infected area by installing walls.</p>

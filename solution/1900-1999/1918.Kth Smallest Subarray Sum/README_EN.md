@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Binary Search,Sliding Window -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> of length <code>n</code> and an integer <code>k</code>, return <em>the </em><code>k<sup>th</sup></code> <em><strong>smallest subarray sum</strong>.</em></p>

@@ -4,6 +4,8 @@
 
 <!-- tags:String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a phone number as a string <code>number</code>. <code>number</code> consists of digits, spaces <code>&#39; &#39;</code>, and/or dashes <code>&#39;-&#39;</code>.</p>

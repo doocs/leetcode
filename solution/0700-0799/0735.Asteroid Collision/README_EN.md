@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Array,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>We are given an array <code>asteroids</code> of integers representing asteroids in a row.</p>

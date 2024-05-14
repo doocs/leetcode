@@ -4,6 +4,8 @@
 
 <!-- tags:Geometry,Array,Math -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given an array <code>points</code> where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> represents a point on the <strong>X-Y</strong> plane, return <code>true</code> <em>if these points are a <strong>boomerang</strong></em>.</p>

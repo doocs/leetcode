@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,String -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>A string is <strong>beautiful</strong> if:</p>

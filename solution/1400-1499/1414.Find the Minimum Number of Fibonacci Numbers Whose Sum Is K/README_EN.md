@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Math -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an integer&nbsp;<code>k</code>, <em>return the minimum number of Fibonacci numbers whose sum is equal to </em><code>k</code>. The same Fibonacci number can be used multiple times.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given an array <code>arr</code> and&nbsp;a chunk size&nbsp;<code>size</code>, return a&nbsp;<strong>chunked</strong> array.</p>

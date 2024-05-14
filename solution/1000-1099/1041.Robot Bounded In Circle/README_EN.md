@@ -4,6 +4,8 @@
 
 <!-- tags:Math,String,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>On an infinite plane, a robot initially stands at <code>(0, 0)</code> and faces north. Note that:</p>

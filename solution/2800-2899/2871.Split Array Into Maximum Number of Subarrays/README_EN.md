@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Bit Manipulation,Array -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an array <code>nums</code> consisting of <strong>non-negative</strong> integers.</p>

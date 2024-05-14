@@ -4,6 +4,8 @@
 
 <!-- tags:Geometry,Array,Math -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given an array&nbsp;<code>coordinates</code>, <code>coordinates[i] = [x, y]</code>, where <code>[x, y]</code> represents the coordinate of a point. Check if these points&nbsp;make a straight line in the XY plane.</p>

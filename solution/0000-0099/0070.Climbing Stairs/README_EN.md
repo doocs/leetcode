@@ -4,6 +4,8 @@
 
 <!-- tags:Memoization,Math,Dynamic Programming -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are climbing a staircase. It takes <code>n</code> steps to reach the top.</p>

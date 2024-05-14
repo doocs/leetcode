@@ -4,6 +4,8 @@
 
 <!-- tags:Graph,Design,Topological Sort,Array,Matrix -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Design the basic function of <strong>Excel</strong> and implement the function of the sum formula.</p>

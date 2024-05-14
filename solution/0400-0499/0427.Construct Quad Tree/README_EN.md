@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Array,Divide and Conquer,Matrix -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a <code>n * n</code> matrix <code>grid</code> of <code>0&#39;s</code> and <code>1&#39;s</code> only. We want to represent <code>grid</code> with a Quad-Tree.</p>

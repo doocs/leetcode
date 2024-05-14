@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Design,Hash Table,Ordered Set -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Design a stack-like data structure to push elements to the stack and pop the most frequent element from the stack.</p>

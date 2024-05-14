@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a function&nbsp;<code>fn</code>,&nbsp;return&nbsp;a&nbsp;<strong>curried</strong>&nbsp;version of that function.</p>

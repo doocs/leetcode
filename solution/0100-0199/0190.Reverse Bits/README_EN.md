@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Divide and Conquer -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Reverse bits of a given 32 bits unsigned integer.</p>

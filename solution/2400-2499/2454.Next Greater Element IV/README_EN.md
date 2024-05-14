@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Array,Binary Search,Sorting,Monotonic Stack,Heap (Priority Queue) -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array of non-negative integers <code>nums</code>. For each integer in <code>nums</code>, you must find its respective <strong>second greater</strong> integer.</p>

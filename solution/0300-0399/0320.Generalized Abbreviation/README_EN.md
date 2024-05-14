@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,String,Backtracking -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>A word&#39;s <strong>generalized abbreviation</strong> can be constructed by taking any number of <strong>non-overlapping</strong> and <strong>non-adjacent</strong> <span data-keyword="substring-nonempty">substrings</span> and replacing them with their respective lengths.</p>

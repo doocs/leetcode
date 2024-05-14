@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Array,Matrix,Monotonic Stack -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> <strong>0-indexed</strong> 2D array of positive integers <code>heights</code> where <code>heights[i][j]</code> is the height of the person standing at position <code>(i, j)</code>.</p>

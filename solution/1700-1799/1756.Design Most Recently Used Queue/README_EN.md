@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Design,Binary Indexed Tree,Array,Hash Table,Ordered Set -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Design a queue-like data structure that moves the most recently used element to the end of the queue.</p>

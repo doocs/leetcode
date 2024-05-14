@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Hash Table,Math,String,Combinatorics -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a string <code>s</code> and an integer <code>k</code>.</p>

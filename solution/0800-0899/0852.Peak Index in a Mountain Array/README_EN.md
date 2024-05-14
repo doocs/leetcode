@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Binary Search -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>An array <code>arr</code> is a <strong>mountain</strong> if the following properties hold:</p>

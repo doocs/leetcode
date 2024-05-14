@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given two values&nbsp;<code>obj1</code> and <code>obj2</code>, return a&nbsp;<strong>deepmerged</strong>&nbsp;value.</p>

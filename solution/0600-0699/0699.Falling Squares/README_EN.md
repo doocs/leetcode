@@ -4,6 +4,8 @@
 
 <!-- tags:Segment Tree,Array,Ordered Set -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There are several squares being dropped onto the X-axis of a 2D plane.</p>

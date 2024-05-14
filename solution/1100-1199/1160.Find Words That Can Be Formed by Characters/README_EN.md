@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given an array of strings <code>words</code> and a string <code>chars</code>.</p>

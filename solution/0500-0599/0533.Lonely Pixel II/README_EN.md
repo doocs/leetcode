@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Matrix -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an <code>m x n</code> <code>picture</code> consisting of black <code>&#39;B&#39;</code> and white <code>&#39;W&#39;</code> pixels and an integer target, return <em>the number of <b>black</b> lonely pixels</em>.</p>

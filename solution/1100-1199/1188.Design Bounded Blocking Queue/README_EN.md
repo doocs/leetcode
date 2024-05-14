@@ -4,6 +4,8 @@
 
 <!-- tags:Concurrency -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Implement a thread-safe bounded blocking queue that has the following methods:</p>

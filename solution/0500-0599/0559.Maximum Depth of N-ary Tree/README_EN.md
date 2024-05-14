@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search,Breadth-First Search -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given a n-ary tree, find its maximum depth.</p>

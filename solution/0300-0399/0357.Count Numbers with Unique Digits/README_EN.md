@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Dynamic Programming,Backtracking -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an integer <code>n</code>, return the count of all numbers with unique digits, <code>x</code>, where <code>0 &lt;= x &lt; 10<sup>n</sup></code>.</p>

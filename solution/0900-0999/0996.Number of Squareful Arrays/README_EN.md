@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array,Math,Dynamic Programming,Backtracking,Bitmask -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>An array is <strong>squareful</strong> if the sum of every pair of adjacent elements is a <strong>perfect square</strong>.</p>

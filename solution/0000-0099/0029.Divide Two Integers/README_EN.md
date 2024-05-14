@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Math -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given two integers <code>dividend</code> and <code>divisor</code>, divide two integers <strong>without</strong> using multiplication, division, and mod operator.</p>

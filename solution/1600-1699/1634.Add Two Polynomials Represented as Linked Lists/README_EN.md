@@ -4,6 +4,8 @@
 
 <!-- tags:Linked List,Math,Two Pointers -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>A polynomial linked list is a special type of linked list where every node represents a term in a polynomial expression.</p>

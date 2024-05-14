@@ -4,6 +4,8 @@
 
 <!-- tags:String,Dynamic Programming,Prefix Sum -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> binary string <code>s</code> which represents the types of buildings along a street where:</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Math,String,Enumeration -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string <code>num</code> representing a non-negative integer.</p>

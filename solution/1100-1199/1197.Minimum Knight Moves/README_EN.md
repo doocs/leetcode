@@ -4,6 +4,8 @@
 
 <!-- tags:Breadth-First Search -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>In an <strong>infinite</strong> chess board with coordinates from <code>-infinity</code> to <code>+infinity</code>, you have a <strong>knight</strong> at square <code>[0, 0]</code>.</p>

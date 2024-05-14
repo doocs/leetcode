@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Array,Dynamic Programming,Monotonic Stack -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>books</code> of length <code>n</code> where <code>books[i]</code> denotes the number of books on the <code>i<sup>th</sup></code> shelf of a bookshelf.</p>

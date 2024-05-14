@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Design a <code>Calculator</code> class. The class should provide the&nbsp;mathematical operations of&nbsp;addition, subtraction, multiplication, division, and exponentiation. It should also allow consecutive operations to be performed using method chaining.&nbsp;The <code>Calculator</code> class constructor should accept a number&nbsp;which serves as the&nbsp;initial value of <code>result</code>.</p>

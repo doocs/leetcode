@@ -4,6 +4,8 @@
 
 <!-- tags:Math,String,Dynamic Programming,String Matching -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given two strings <code>s</code> and <code>t</code> of equal length <code>n</code>. You can perform the following operation on the string <code>s</code>:</p>

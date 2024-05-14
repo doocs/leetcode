@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search,Breadth-First Search,Hash Table,Binary Tree,Sorting -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary tree, calculate the <strong>vertical order traversal</strong> of the binary tree.</p>

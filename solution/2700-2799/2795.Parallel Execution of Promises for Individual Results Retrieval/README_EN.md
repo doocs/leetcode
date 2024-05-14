@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an array&nbsp;<code>functions</code>, return a promise <code>promise</code>. <code>functions</code>&nbsp;is an array of functions that return promises <code>fnPromise.</code>&nbsp;Each <code>fnPromise</code>&nbsp;can be resolved or rejected.&nbsp;&nbsp;</p>

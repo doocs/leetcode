@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,String,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 Given an integer <code>n</code>, return the <strong>maximum</strong> integer <code>x</code> such that <code>x &lt;= n</code>, and the bitwise <code>AND</code> of all the numbers in the range <code>[x, n]</code> is 0.

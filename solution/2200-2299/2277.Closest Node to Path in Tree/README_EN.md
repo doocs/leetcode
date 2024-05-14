@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search,Breadth-First Search,Array -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a positive integer <code>n</code> representing the number of nodes in a tree, numbered from <code>0</code> to <code>n - 1</code> (<strong>inclusive</strong>). You are also given a 2D integer array <code>edges</code> of length <code>n - 1</code>, where <code>edges[i] = [node1<sub>i</sub>, node2<sub>i</sub>]</code> denotes that there is a <strong>bidirectional</strong> edge connecting <code>node1<sub>i</sub></code> and <code>node2<sub>i</sub></code> in the tree.</p>

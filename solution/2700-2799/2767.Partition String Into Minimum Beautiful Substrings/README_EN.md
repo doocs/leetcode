@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String,Dynamic Programming,Backtracking -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a binary string <code>s</code>, partition the string into one or more <strong>substrings</strong> such that each substring is <strong>beautiful</strong>.</p>

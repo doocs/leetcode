@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search,Binary Search Tree,Dynamic Programming,Binary Tree -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given the root of a binary tree, find the largest <span data-keyword="subtree">subtree</span>, which is also a Binary Search Tree (BST), where the largest means subtree has the largest number of nodes.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Binary Indexed Tree,Array,Dynamic Programming,Enumeration,Prefix Sum -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given a <strong>0-indexed</strong> integer array <code>nums</code> of size <code>n</code> containing all numbers from <code>1</code> to <code>n</code>, return <em>the number of increasing quadruplets</em>.</p>

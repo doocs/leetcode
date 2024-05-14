@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,String,Counting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p><strong>Balanced</strong> strings are those that have an equal quantity of <code>&#39;L&#39;</code> and <code>&#39;R&#39;</code> characters.</p>

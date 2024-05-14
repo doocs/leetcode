@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Ordered Set,Sorting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given two 2D integer arrays, <code>items1</code> and <code>items2</code>, representing two sets of items. Each array <code>items</code> has the following properties:</p>

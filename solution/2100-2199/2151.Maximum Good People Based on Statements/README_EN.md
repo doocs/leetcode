@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array,Backtracking,Enumeration -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There are two types of persons:</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Two Pointers,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Sometimes people repeat letters to represent extra feeling. For example:</p>

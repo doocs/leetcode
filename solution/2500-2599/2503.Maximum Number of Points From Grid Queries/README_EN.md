@@ -4,6 +4,8 @@
 
 <!-- tags:Breadth-First Search,Union Find,Array,Two Pointers,Matrix,Sorting,Heap (Priority Queue) -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> integer matrix <code>grid</code> and an array <code>queries</code> of size <code>k</code>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Math,String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a <strong>binary</strong> string <code>s</code> that contains at least one <code>&#39;1&#39;</code>.</p>

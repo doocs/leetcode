@@ -4,6 +4,8 @@
 
 <!-- tags:Trie,Array,String,String Matching,Hash Function,Rolling Hash -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string array <code>words</code>.</p>

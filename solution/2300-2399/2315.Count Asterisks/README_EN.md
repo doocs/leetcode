@@ -4,6 +4,8 @@
 
 <!-- tags:String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a string <code>s</code>, where every <strong>two</strong> consecutive vertical bars <code>&#39;|&#39;</code> are grouped into a <strong>pair</strong>. In other words, the 1<sup>st</sup> and 2<sup>nd</sup> <code>&#39;|&#39;</code> make a pair, the 3<sup>rd</sup> and 4<sup>th</sup> <code>&#39;|&#39;</code> make a pair, and so forth.</p>

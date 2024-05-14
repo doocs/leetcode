@@ -4,6 +4,8 @@
 
 <!-- tags:String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given a <code>date</code> string in the form&nbsp;<code>Day Month Year</code>, where:</p>

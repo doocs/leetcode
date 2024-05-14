@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Math,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a non-negative integer <code>num</code>, Return its <em>encoding</em> string.</p>

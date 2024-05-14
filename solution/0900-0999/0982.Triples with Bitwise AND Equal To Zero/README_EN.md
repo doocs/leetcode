@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array,Hash Table -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given an integer array nums, return <em>the number of <strong>AND triples</strong></em>.</p>

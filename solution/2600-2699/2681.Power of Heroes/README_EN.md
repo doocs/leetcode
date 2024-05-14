@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,Dynamic Programming,Prefix Sum,Sorting -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> representing the strength of some heroes. The<b> power</b> of a group of heroes is defined as follows:</p>

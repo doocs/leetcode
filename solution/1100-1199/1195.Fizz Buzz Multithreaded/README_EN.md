@@ -4,6 +4,8 @@
 
 <!-- tags:Concurrency -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You have the four functions:</p>

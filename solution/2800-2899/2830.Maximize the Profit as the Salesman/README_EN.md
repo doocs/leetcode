@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Binary Search,Dynamic Programming,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an integer <code>n</code> representing the number of houses on a number line, numbered from <code>0</code> to <code>n - 1</code>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:String,String Matching,Hash Function,Rolling Hash -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string <code>word</code> and an integer <code>k</code>.</p>

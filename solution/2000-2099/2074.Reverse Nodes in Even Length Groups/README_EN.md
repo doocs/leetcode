@@ -4,6 +4,8 @@
 
 <!-- tags:Linked List -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given the <code>head</code> of a linked list.</p>

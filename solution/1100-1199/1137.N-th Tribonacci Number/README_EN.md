@@ -4,6 +4,8 @@
 
 <!-- tags:Memoization,Math,Dynamic Programming -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>The Tribonacci sequence T<sub>n</sub> is defined as follows:&nbsp;</p>

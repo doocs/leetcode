@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a <strong>1-indexed</strong> integer array <code>prices</code>, where <code>prices[i]</code> is the price of a particular stock on the <code>i<sup>th</sup></code> day, your task is to select some of the elements of <code>prices</code> such that your selection is <strong>linear</strong>.</p>

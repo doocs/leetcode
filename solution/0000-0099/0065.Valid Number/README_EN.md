@@ -4,6 +4,8 @@
 
 <!-- tags:String -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given a string <code>s</code>, return whether <code>s</code> is a <strong>valid number</strong>.<br />

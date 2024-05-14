@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Array,Hash Table,Divide and Conquer,Binary Tree -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given two integer arrays, <code>preorder</code> and <code>postorder</code> where <code>preorder</code> is the preorder traversal of a binary tree of <strong>distinct</strong> values and <code>postorder</code> is the postorder traversal of the same tree, reconstruct and return <em>the binary tree</em>.</p>

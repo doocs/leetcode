@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,String,Game Theory,Interactive -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an array of unique strings <code>words</code> where <code>words[i]</code> is six letters long. One word of <code>words</code> was chosen as a secret word.</p>

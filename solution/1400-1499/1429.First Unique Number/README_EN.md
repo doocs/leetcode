@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Queue,Array,Hash Table,Data Stream -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You have a queue of integers, you need to retrieve the first unique integer in the queue.</p>

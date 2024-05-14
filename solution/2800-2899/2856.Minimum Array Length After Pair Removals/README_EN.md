@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Hash Table,Two Pointers,Binary Search,Counting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> <strong>sorted</strong> array of integers <code>nums</code>.</p>

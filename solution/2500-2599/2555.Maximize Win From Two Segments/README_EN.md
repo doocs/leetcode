@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Binary Search,Sliding Window -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>There are some prizes on the <strong>X-axis</strong>. You are given an integer array <code>prizePositions</code> that is <strong>sorted in non-decreasing order</strong>, where <code>prizePositions[i]</code> is the position of the <code>i<sup>th</sup></code> prize. There could be different prizes at the same position on the line. You are also given an integer <code>k</code>.</p>

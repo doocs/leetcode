@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Array,Linked List,Monotonic Stack -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given the <code>head</code> of a linked list with <code>n</code> nodes.</p>

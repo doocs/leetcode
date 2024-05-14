@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Queue,Array,Linked List -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Design your implementation of the circular double-ended queue (deque).</p>

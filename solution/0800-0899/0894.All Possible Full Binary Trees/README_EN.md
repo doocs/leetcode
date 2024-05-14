@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Recursion,Memoization,Dynamic Programming,Binary Tree -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an integer <code>n</code>, return <em>a list of all possible <strong>full binary trees</strong> with</em> <code>n</code> <em>nodes</em>. Each node of each tree in the answer must have <code>Node.val == 0</code>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Divide and Conquer -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>A Binary Matrix is a matrix in which all the elements are either <strong>0</strong> or <strong>1</strong>.</p>

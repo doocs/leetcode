@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,Dynamic Programming,Game Theory -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Alice and Bob take turns playing a game, with <strong>Alice starting first</strong>.</p>

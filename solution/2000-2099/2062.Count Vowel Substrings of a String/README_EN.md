@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>A <strong>substring</strong> is a contiguous (non-empty) sequence of characters within a string.</p>

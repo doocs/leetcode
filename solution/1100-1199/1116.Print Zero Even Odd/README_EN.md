@@ -4,6 +4,8 @@
 
 <!-- tags:Concurrency -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You have a function <code>printNumber</code> that can be called with an integer parameter and prints it to the console.</p>

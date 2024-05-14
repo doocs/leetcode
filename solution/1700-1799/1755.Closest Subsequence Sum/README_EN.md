@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array,Two Pointers,Dynamic Programming,Bitmask -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> and an integer <code>goal</code>.</p>

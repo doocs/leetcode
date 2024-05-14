@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Binary Search Tree,Array,Divide and Conquer,Binary Tree -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> where the elements are sorted in <strong>ascending order</strong>, convert <em>it to a </em><span data-keyword="height-balanced"><strong><em>height-balanced</em></strong></span> <em>binary search tree</em>.</p>

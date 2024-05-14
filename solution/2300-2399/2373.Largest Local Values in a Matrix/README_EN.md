@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Matrix -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given an <code>n x n</code> integer matrix <code>grid</code>.</p>

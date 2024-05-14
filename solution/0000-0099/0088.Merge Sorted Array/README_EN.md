@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Two Pointers,Sorting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given two integer arrays <code>nums1</code> and <code>nums2</code>, sorted in <strong>non-decreasing order</strong>, and two integers <code>m</code> and <code>n</code>, representing the number of elements in <code>nums1</code> and <code>nums2</code> respectively.</p>

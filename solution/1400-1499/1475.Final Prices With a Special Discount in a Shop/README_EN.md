@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Array,Monotonic Stack -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given an integer array <code>prices</code> where <code>prices[i]</code> is the price of the <code>i<sup>th</sup></code> item in a shop.</p>

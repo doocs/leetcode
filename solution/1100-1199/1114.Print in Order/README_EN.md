@@ -4,6 +4,8 @@
 
 <!-- tags:Concurrency -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Suppose we have a class:</p>

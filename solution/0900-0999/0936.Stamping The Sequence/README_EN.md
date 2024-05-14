@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Greedy,Queue,String -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given two strings <code>stamp</code> and <code>target</code>. Initially, there is a string <code>s</code> of length <code>target.length</code> with all <code>s[i] == &#39;?&#39;</code>.</p>

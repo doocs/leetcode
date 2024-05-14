@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Two Pointers,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given two strings <code>s</code> and <code>t</code> consisting of only lowercase English letters.</p>

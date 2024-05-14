@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,String,Sorting -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>We call a string <code>s</code> of <strong>even</strong> length <code>n</code> an <strong>anti-palindrome</strong> if for each index <code>0 &lt;= i &lt; n</code>, <code>s[i] != s[n - i - 1]</code>.</p>

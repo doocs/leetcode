@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,Math,Dynamic Programming -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 Given two <strong>positive</strong> integers <code>a</code> and <code>b</code>, return <em>the count of numbers having&nbsp;<strong>unique</strong> digits in the range</em> <code>[a, b]</code> <em>(<strong>inclusive</strong>).</em>

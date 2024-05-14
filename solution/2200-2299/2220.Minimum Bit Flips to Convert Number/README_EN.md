@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>A <strong>bit flip</strong> of a number <code>x</code> is choosing a bit in the binary representation of <code>x</code> and <strong>flipping</strong> it from either <code>0</code> to <code>1</code> or <code>1</code> to <code>0</code>.</p>

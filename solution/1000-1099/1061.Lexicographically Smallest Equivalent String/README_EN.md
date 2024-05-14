@@ -4,6 +4,8 @@
 
 <!-- tags:Union Find,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given two strings of the same length <code>s1</code> and <code>s2</code> and a string <code>baseStr</code>.</p>

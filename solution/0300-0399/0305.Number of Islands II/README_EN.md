@@ -4,6 +4,8 @@
 
 <!-- tags:Union Find,Array,Hash Table -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an empty 2D binary grid <code>grid</code> of size <code>m x n</code>. The grid represents a map where <code>0</code>&#39;s represent water and <code>1</code>&#39;s represent land. Initially, all the cells of <code>grid</code> are water cells (i.e., all the cells are <code>0</code>&#39;s).</p>

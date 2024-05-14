@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Prefix Sum,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an array of <strong>positive</strong> integers <code>nums</code> of length <code>n</code>.</p>

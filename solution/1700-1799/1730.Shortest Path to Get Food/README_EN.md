@@ -4,6 +4,8 @@
 
 <!-- tags:Breadth-First Search,Array,Matrix -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are starving and you want to eat food as quickly as possible. You want to find the shortest path to arrive at any food cell.</p>

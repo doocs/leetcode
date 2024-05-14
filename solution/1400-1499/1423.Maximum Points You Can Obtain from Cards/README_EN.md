@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Prefix Sum,Sliding Window -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>There are several cards <strong>arranged in a row</strong>, and each card has an associated number of points. The points are given in the integer array <code>cardPoints</code>.</p>

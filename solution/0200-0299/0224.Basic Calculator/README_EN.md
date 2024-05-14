@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Recursion,Math,String -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given a string <code>s</code> representing a valid expression, implement a basic calculator to evaluate it, and return <em>the result of the evaluation</em>.</p>

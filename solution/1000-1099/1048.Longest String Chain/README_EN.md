@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Two Pointers,String,Dynamic Programming -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an array of <code>words</code> where each word consists of lowercase English letters.</p>

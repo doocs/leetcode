@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Array,Math,Number Theory -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an array of integers <code>nums</code>. Perform the following steps:</p>

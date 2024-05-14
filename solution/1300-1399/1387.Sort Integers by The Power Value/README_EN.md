@@ -4,6 +4,8 @@
 
 <!-- tags:Memoization,Dynamic Programming,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>The power of an integer <code>x</code> is defined as the number of steps needed to transform <code>x</code> into <code>1</code> using the following steps:</p>

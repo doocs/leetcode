@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Math,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>We know that <code>4</code> and <code>7</code> are <strong>lucky</strong> digits. Also, a number is called <strong>lucky</strong>&nbsp;if it contains <strong>only</strong> lucky digits.</p>

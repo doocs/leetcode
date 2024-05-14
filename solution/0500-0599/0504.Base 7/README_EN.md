@@ -4,6 +4,8 @@
 
 <!-- tags:Math -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given an integer <code>num</code>, return <em>a string of its <strong>base 7</strong> representation</em>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Array,Hash Table,Matrix,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Assume the following rules are for the tic-tac-toe game on an <code>n x n</code> board between two players:</p>

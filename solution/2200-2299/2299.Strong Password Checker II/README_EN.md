@@ -4,6 +4,8 @@
 
 <!-- tags:String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>A password is said to be <strong>strong</strong> if it satisfies all the following criteria:</p>

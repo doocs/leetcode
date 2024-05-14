@@ -4,6 +4,8 @@
 
 <!-- tags:Geometry,Array,Math,Divide and Conquer,Ordered Set,Sorting -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given two <strong>0-indexed</strong> integer arrays <code>nums1</code> and <code>nums2</code> of the same length. A pair of indices <code>(i,j)</code> is called <strong>beautiful</strong> if<code>|nums1[i] - nums1[j]| + |nums2[i] - nums2[j]|</code> is the smallest amongst all possible indices pairs where <code>i &lt; j</code>.</p>

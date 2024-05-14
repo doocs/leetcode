@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Batching multiple small queries into a single large query can be a useful optimization. Write a class&nbsp;<code>QueryBatcher</code>&nbsp;that implements this functionality.</p>

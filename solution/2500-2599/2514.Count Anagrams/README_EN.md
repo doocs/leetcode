@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,Math,String,Combinatorics,Counting -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a string <code>s</code> containing one or more words. Every consecutive pair of words is separated by a single space <code>&#39; &#39;</code>.</p>

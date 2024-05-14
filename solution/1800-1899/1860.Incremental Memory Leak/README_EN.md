@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given two integers <code>memory1</code> and <code>memory2</code> representing the available memory in bits on two memory sticks. There is currently a faulty program running that consumes an increasing amount of memory every second.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a 2D integer array <code>items</code> where <code>items[i] = [price<sub>i</sub>, weight<sub>i</sub>]</code> denotes the price and weight of the <code>i<sup>th</sup></code> item, respectively.</p>

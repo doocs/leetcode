@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array,Two Pointers,Matrix,Simulation -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given an <code>n x n</code> binary matrix <code>image</code>, flip the image <strong>horizontally</strong>, then invert it, and return <em>the resulting image</em>.</p>

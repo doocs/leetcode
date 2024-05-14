@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,Two Pointers,String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given a string <code>num</code> which represents an integer, return <code>true</code> <em>if</em> <code>num</code> <em>is a <strong>strobogrammatic number</strong></em>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,String,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>A transaction is possibly invalid if:</p>

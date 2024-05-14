@@ -4,6 +4,8 @@
 
 <!-- tags:Array,String,Simulation -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>There is a programming language with only <strong>four</strong> operations and <strong>one</strong> variable <code>X</code>:</p>

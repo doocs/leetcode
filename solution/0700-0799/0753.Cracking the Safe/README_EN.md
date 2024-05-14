@@ -4,6 +4,8 @@
 
 <!-- tags:Depth-First Search,Graph,Eulerian Circuit -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There is a safe protected by a password. The password is a sequence of <code>n</code> digits where each digit can be in the range <code>[0, k - 1]</code>.</p>

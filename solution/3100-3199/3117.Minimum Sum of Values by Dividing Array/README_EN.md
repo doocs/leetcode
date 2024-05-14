@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Segment Tree,Queue,Array,Binary Search,Dynamic Programming -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given two arrays <code>nums</code> and <code>andValues</code> of length <code>n</code> and <code>m</code> respectively.</p>

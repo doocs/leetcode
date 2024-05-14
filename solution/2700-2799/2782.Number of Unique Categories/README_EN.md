@@ -4,6 +4,8 @@
 
 <!-- tags:Union Find,Counting,Interactive -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an integer <code>n</code> and an object <code>categoryHandler</code> of class <code>CategoryHandler</code>.</p>

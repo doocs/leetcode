@@ -4,6 +4,8 @@
 
 <!-- tags:Geometry,Array,Math -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an array of integers <code>distance</code>.</p>

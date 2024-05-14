@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Binary Search,Interactive -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>We have an integer array <code>arr</code>, where all the integers in <code>arr</code> are equal except for one integer which is <strong>larger</strong> than the rest of the integers. You will not be given direct access to the array, instead, you will have an <strong>API</strong> <code>ArrayReader</code> which have the following functions:</p>

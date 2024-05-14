@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Queue,Array,Hash Table,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Design a <a href="https://en.wikipedia.org/wiki/Snake_(video_game)" target="_blank">Snake game</a> that is played on a device with screen size <code>height x width</code>. <a href="http://patorjk.com/games/snake/" target="_blank">Play the game online</a> if you are not familiar with the game.</p>

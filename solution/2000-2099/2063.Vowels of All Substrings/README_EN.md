@@ -4,6 +4,8 @@
 
 <!-- tags:Math,String,Dynamic Programming,Combinatorics -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a string <code>word</code>, return <em>the <strong>sum of the number of vowels</strong> (</em><code>&#39;a&#39;</code>, <code>&#39;e&#39;</code><em>,</em> <code>&#39;i&#39;</code><em>,</em> <code>&#39;o&#39;</code><em>, and</em> <code>&#39;u&#39;</code><em>)</em> <em>in every substring of </em><code>word</code>.</p>

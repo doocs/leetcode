@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String,Hash Function,Rolling Hash -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a list of strings <code>dict</code> where all the strings are of the same length.</p>

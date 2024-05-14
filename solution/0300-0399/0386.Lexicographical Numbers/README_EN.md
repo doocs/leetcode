@@ -4,6 +4,8 @@
 
 <!-- tags:Depth-First Search,Trie -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an integer <code>n</code>, return all the numbers in the range <code>[1, n]</code> sorted in lexicographical order.</p>

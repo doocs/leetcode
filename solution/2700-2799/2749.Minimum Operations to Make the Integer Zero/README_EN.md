@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Brainteaser -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given two integers <code>num1</code> and <code>num2</code>.</p>

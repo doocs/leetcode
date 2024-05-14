@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,String,Simulation -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a string <code>s</code> consisting only of <strong>uppercase</strong> English letters.</p>

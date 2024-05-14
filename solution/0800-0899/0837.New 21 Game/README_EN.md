@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Dynamic Programming,Sliding Window,Probability and Statistics -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Alice plays the following game, loosely based on the card game <strong>&quot;21&quot;</strong>.</p>

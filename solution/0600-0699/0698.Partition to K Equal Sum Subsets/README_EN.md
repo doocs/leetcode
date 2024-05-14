@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Memoization,Array,Dynamic Programming,Backtracking,Bitmask -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> and an integer <code>k</code>, return <code>true</code> if it is possible to divide this array into <code>k</code> non-empty subsets whose sums are all equal.</p>

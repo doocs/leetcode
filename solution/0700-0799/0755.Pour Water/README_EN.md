@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an elevation map represents as an integer array <code>heights</code> where <code>heights[i]</code> representing the height of the terrain at index <code>i</code>. The width at each index is <code>1</code>. You are also given two integers <code>volume</code> and <code>k</code>. <code>volume</code> units of water will fall at index <code>k</code>.</p>

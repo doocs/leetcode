@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String,Backtracking -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a string&nbsp;<code>s</code><var>,</var>&nbsp;return <em>the maximum&nbsp;number of unique substrings that the given string can be split into</em>.</p>

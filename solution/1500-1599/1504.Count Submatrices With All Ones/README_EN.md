@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Array,Dynamic Programming,Matrix,Monotonic Stack -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an <code>m x n</code> binary matrix <code>mat</code>, <em>return the number of <strong>submatrices</strong> that have all ones</em>.</p>

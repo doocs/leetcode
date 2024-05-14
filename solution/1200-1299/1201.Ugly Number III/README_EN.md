@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Binary Search,Combinatorics,Number Theory -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>An <strong>ugly number</strong> is a positive integer that is divisible by <code>a</code>, <code>b</code>, or <code>c</code>.</p>

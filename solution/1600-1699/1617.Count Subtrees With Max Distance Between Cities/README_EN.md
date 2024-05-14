@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Tree,Dynamic Programming,Bitmask,Enumeration -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There are <code>n</code> cities numbered from <code>1</code> to <code>n</code>. You are given an array <code>edges</code> of size <code>n-1</code>, where <code>edges[i] = [u<sub>i</sub>, v<sub>i</sub>]</code> represents a bidirectional edge between cities <code>u<sub>i</sub></code> and <code>v<sub>i</sub></code>. There exists a unique path between each pair of cities. In other words, the cities form a <strong>tree</strong>.</p>

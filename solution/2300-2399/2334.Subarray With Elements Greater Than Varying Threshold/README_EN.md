@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Union Find,Array,Monotonic Stack -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> and an integer <code>threshold</code>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Trie,Hash Table,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Design a map that allows you to do the following:</p>

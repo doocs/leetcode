@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Trie,Array,Hash Table,String -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Design a special dictionary that searches the words in it by a prefix and a suffix.</p>

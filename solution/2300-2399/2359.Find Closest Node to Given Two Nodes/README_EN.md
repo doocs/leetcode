@@ -4,6 +4,8 @@
 
 <!-- tags:Depth-First Search,Graph -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <strong>directed</strong> graph of <code>n</code> nodes numbered from <code>0</code> to <code>n - 1</code>, where each node has <strong>at most one</strong> outgoing edge.</p>

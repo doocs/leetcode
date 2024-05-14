@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given two strings <code>current</code> and <code>correct</code> representing two <strong>24-hour times</strong>.</p>

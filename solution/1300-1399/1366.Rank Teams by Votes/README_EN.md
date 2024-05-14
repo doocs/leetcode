@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,String,Counting,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>In a special ranking system, each voter gives a rank from highest to lowest to all teams participating in the competition.</p>

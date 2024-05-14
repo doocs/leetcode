@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given an object or an array&nbsp;<code>obj</code>, return an inverted object or array&nbsp;<code>invertedObj</code>.</p>

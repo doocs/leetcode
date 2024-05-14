@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,Math,Enumeration -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given three integers <code>x</code>, <code>y</code>, and <code>bound</code>, return <em>a list of all the <strong>powerful integers</strong> that have a value less than or equal to</em> <code>bound</code>.</p>

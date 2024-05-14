@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Bit Manipulation,Memoization,Dynamic Programming -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a positive integer <code>n</code>,&nbsp;you can apply one of the following&nbsp;operations:</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Segment Tree,Math -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Write an API that generates fancy sequences using the <code>append</code>, <code>addAll</code>, and <code>multAll</code> operations.</p>

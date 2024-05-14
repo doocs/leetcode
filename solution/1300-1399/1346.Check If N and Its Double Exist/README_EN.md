@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Two Pointers,Binary Search,Sorting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given an array <code>arr</code> of integers, check if there exist two indices <code>i</code> and <code>j</code> such that :</p>

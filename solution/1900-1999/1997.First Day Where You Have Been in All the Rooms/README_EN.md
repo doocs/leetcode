@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Dynamic Programming -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>There are <code>n</code> rooms you need to visit, labeled from <code>0</code> to <code>n - 1</code>. Each day is labeled, starting from <code>0</code>. You will go in and visit one room a day.</p>

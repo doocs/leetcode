@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Matrix -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> binary matrix <code>matrix</code>.</p>

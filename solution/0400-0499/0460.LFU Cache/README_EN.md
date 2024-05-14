@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Hash Table,Linked List,Doubly-Linked List -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Design and implement a data structure for a <a href="https://en.wikipedia.org/wiki/Least_frequently_used" target="_blank">Least Frequently Used (LFU)</a> cache.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Array,Hash Table,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>A <strong>Bitset</strong> is a data structure that compactly stores bits.</p>

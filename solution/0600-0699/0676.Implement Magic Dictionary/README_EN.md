@@ -4,6 +4,8 @@
 
 <!-- tags:Depth-First Search,Design,Trie,Hash Table,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Design a data structure that is initialized with a list of <strong>different</strong> words. Provided a string, you should determine if you can change exactly one character in this string to match any word in the data structure.</p>

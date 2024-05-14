@@ -4,6 +4,8 @@
 
 <!-- tags:String,Dynamic Programming,Sliding Window -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given strings <code>s1</code> and <code>s2</code>, return <em>the minimum contiguous&nbsp;substring part of </em><code>s1</code><em>, so that </em><code>s2</code><em> is a subsequence of the part</em>.</p>

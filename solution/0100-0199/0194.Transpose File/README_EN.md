@@ -4,6 +4,8 @@
 
 <!-- tags:Shell -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a text file <code>file.txt</code>, transpose its content.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Linked List,Math -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given the <code>head</code> of a <strong>non-empty</strong> linked list representing a non-negative integer without leading zeroes.</p>

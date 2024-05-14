@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Array,Hash Table,Prefix Sum,Monotonic Stack -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>We are given <code>hours</code>, a list of the number of hours worked per day for a given employee.</p>

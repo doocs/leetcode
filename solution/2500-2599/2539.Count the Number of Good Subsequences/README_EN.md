@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,Math,String,Combinatorics,Counting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>A <strong>subsequence</strong> of a string is&nbsp;good if it is not empty and the frequency of each one of its characters is the same.</p>

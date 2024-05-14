@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,String,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an array of strings of the same length <code>words</code>.</p>

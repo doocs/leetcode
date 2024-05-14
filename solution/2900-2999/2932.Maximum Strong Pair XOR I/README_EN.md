@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Trie,Array,Hash Table,Sliding Window -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. A pair of integers <code>x</code> and <code>y</code> is called a <strong>strong</strong> pair if it satisfies the condition:</p>

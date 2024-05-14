@@ -4,6 +4,8 @@
 
 <!-- tags:Recursion,Array,Math,Dynamic Programming,Game Theory -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code>. Two players are playing a game with this array: player 1 and player 2.</p>

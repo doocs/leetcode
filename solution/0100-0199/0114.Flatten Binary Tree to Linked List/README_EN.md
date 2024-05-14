@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Tree,Depth-First Search,Linked List,Binary Tree -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary tree, flatten the tree into a &quot;linked list&quot;:</p>

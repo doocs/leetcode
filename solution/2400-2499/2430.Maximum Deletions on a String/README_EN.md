@@ -4,6 +4,8 @@
 
 <!-- tags:String,Dynamic Programming,String Matching,Hash Function,Rolling Hash -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a string <code>s</code> consisting of only lowercase English letters. In one operation, you can:</p>

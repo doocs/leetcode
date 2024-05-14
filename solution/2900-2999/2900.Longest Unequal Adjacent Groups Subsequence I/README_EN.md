@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,String,Dynamic Programming -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a string array <code>words</code> and a <strong>binary</strong> array <code>groups</code> both of length <code>n</code>, where <code>words[i]</code> is associated with <code>groups[i]</code>.</p>

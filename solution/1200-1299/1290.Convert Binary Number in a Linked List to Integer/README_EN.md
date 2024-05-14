@@ -4,6 +4,8 @@
 
 <!-- tags:Linked List,Math -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given <code>head</code> which is a reference node to a singly-linked list. The value of each node in the linked list is either <code>0</code> or <code>1</code>. The linked list holds the binary representation of a number.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Trie,Array,Hash Table,String -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 With respect to a given <code>puzzle</code> string, a <code>word</code> is <em>valid</em> if both the following conditions are satisfied:

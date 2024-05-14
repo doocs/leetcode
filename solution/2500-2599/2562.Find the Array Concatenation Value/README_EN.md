@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Two Pointers,Simulation -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>.</p>

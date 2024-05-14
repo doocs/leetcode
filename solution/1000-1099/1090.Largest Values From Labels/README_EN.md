@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Hash Table,Counting,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>There is a set of <code>n</code> items. You are given two integer arrays <code>values</code> and <code>labels</code> where the value and the label of the <code>i<sup>th</sup></code> element are <code>values[i]</code> and <code>labels[i]</code> respectively. You are also given two integers <code>numWanted</code> and <code>useLimit</code>.</p>

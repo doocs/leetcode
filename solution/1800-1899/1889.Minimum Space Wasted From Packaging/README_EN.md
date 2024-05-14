@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Binary Search,Prefix Sum,Sorting -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You have <code>n</code> packages that you are trying to place in boxes, <strong>one package in each box</strong>. There are <code>m</code> suppliers that each produce boxes of <strong>different sizes</strong> (with infinite supply). A package can be placed in a box if the size of the package is <strong>less than or equal to</strong> the size of the box.</p>

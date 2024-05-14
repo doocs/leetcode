@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Trie,Array,String,Data Stream -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Design an algorithm that accepts a stream of characters and checks if a suffix of these characters is a string of a given array of strings <code>words</code>.</p>

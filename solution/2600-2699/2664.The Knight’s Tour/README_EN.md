@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Backtracking,Matrix -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given two positive integers <code>m</code> and <code>n</code> which are the height and width of a <strong>0-indexed</strong> 2D-array <code>board</code>, a pair of positive integers <code>(r, c)</code> which is the starting position of the knight on the board.</p>

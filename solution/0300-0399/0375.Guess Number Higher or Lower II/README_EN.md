@@ -4,6 +4,8 @@
 
 <!-- tags:Math,Dynamic Programming,Game Theory -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>We are playing the Guessing Game. The game will work as follows:</p>

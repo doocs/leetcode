@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array,Sliding Window -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an array <code>nums</code> of <strong>non-negative</strong> integers and an integer <code>k</code>.</p>

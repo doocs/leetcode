@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Sorting,Heap (Priority Queue) -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>We are given a list <code>schedule</code> of employees, which represents the working time for each employee.</p>

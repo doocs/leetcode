@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an array&nbsp;<code>functions</code>&nbsp;and a number <code>ms</code>, return a new&nbsp;array of functions.</p>

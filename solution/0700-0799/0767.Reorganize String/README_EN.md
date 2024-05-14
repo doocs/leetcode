@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Hash Table,String,Counting,Sorting,Heap (Priority Queue) -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a string <code>s</code>, rearrange the characters of <code>s</code> so that any two adjacent characters are not the same.</p>

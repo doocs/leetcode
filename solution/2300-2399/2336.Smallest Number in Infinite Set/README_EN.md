@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Hash Table,Heap (Priority Queue) -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You have a set which contains all positive integers <code>[1, 2, 3, 4, 5, ...]</code>.</p>

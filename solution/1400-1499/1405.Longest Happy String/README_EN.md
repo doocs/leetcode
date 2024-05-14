@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,String,Heap (Priority Queue) -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>A string <code>s</code> is called <strong>happy</strong> if it satisfies the following conditions:</p>

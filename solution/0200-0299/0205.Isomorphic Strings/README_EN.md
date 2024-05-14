@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given two strings <code>s</code> and <code>t</code>, <em>determine if they are isomorphic</em>.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Sorting,Simulation -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given an array of integers <code>nums</code>. You are also given an integer <code>original</code> which is the first number that needs to be searched for in <code>nums</code>.</p>

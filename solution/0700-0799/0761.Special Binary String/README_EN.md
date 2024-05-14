@@ -4,6 +4,8 @@
 
 <!-- tags:Recursion,String -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p><strong>Special binary strings</strong> are binary strings with the following two properties:</p>

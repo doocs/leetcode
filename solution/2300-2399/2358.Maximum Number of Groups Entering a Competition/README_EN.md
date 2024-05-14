@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Math,Binary Search -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a positive integer array <code>grades</code> which represents the grades of students in a university. You would like to enter <strong>all</strong> these students into a competition in <strong>ordered</strong> non-empty groups, such that the ordering meets the following conditions:</p>

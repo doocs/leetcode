@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String,Counting,Hash Function,Rolling Hash -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 Given a digit string <code>s</code>, return <em>the number of <strong>unique substrings </strong>of </em><code>s</code><em> where every digit appears the same number of times.</em>

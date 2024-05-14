@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given a binary array <code>nums</code> (<strong>0-indexed</strong>).</p>

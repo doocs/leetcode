@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,Math,String,Number Theory,Prefix Sum -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a string <code>s</code> and a positive integer <code>k</code>.</p>

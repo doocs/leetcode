@@ -4,6 +4,8 @@
 
 <!-- tags:Math -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Start from integer <code>1</code>, remove any integer that contains <code>9</code> such as <code>9</code>, <code>19</code>, <code>29</code>...</p>

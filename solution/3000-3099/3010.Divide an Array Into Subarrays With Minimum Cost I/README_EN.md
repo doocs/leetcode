@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Enumeration,Sorting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given an array of integers <code>nums</code> of length <code>n</code>.</p>

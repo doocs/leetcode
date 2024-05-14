@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Binary Indexed Tree,Segment Tree,Array,Binary Search -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Design a data structure that efficiently finds the <strong>majority element</strong> of a given subarray.</p>

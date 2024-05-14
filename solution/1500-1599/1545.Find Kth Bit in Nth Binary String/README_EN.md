@@ -4,6 +4,8 @@
 
 <!-- tags:Recursion,String,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given two positive integers <code>n</code> and <code>k</code>, the binary string <code>S<sub>n</sub></code> is formed as follows:</p>

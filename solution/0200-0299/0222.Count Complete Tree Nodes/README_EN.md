@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Tree,Binary Search,Binary Tree -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given the <code>root</code> of a <strong>complete</strong> binary tree, return the number of the nodes in the tree.</p>

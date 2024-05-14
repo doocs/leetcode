@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Array,Hash Table,Counting,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an array of integers&nbsp;<code>arr</code>&nbsp;and an integer <code>k</code>.&nbsp;Find the <em>least number of unique integers</em>&nbsp;after removing <strong>exactly</strong> <code>k</code> elements<b>.</b></p>

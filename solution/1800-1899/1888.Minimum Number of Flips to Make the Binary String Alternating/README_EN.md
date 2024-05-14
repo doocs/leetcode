@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,String,Dynamic Programming,Sliding Window -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a binary string <code>s</code>. You are allowed to perform two types of operations on the string in any sequence:</p>

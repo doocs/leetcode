@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Greedy,Array,Dynamic Programming,Monotonic Stack -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an integer array <code>target</code>. You have an integer array <code>initial</code> of the same size as <code>target</code> with all elements initially zeros.</p>

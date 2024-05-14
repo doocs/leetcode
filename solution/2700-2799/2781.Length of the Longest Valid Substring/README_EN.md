@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,String,Sliding Window -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a string <code>word</code> and an array of strings <code>forbidden</code>.</p>

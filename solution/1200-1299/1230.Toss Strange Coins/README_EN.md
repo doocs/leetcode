@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,Dynamic Programming,Probability and Statistics -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You have some coins.&nbsp; The <code>i</code>-th&nbsp;coin has a probability&nbsp;<code>prob[i]</code> of facing heads when tossed.</p>

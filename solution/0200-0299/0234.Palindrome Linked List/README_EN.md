@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Recursion,Linked List,Two Pointers -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given the <code>head</code> of a singly linked list, return <code>true</code><em> if it is a </em><span data-keyword="palindrome-sequence"><em>palindrome</em></span><em> or </em><code>false</code><em> otherwise</em>.</p>

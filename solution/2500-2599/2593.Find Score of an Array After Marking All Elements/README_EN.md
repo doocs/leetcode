@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Sorting,Simulation,Heap (Priority Queue) -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an array <code>nums</code> consisting of positive integers.</p>

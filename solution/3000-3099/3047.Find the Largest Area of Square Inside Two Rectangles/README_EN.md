@@ -4,6 +4,8 @@
 
 <!-- tags:Geometry,Array,Math -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>There exist <code>n</code> rectangles in a 2D plane. You are given two <strong>0-indexed</strong> 2D integer arrays <code>bottomLeft</code> and <code>topRight</code>, both of size <code>n x 2</code>, where <code>bottomLeft[i]</code> and <code>topRight[i]</code> represent the <strong>bottom-left</strong> and <strong>top-right</strong> coordinates of the <code>i<sup>th</sup></code> rectangle respectively.</p>

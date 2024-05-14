@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,String -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given a string representing a code snippet, implement a tag validator to parse the code and return whether it is valid.</p>

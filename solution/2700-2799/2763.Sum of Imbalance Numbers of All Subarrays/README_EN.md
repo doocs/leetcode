@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Ordered Set -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>The <strong>imbalance number</strong> of a <strong>0-indexed</strong> integer array <code>arr</code> of length <code>n</code> is defined as the number of indices in <code>sarr = sorted(arr)</code> such that:</p>

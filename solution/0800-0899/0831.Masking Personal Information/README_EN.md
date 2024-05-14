@@ -4,6 +4,8 @@
 
 <!-- tags:String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a personal information string <code>s</code>, representing either an <strong>email address</strong> or a <strong>phone number</strong>. Return <em>the <strong>masked</strong> personal information using the below rules</em>.</p>

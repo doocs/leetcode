@@ -4,6 +4,8 @@
 
 <!-- tags:Union Find,Array,Hash Table -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given an unsorted array of integers <code>nums</code>, return <em>the length of the longest consecutive elements sequence.</em></p>

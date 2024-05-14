@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Prefix Sum -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>We define the <strong>conversion array</strong> <code>conver</code> of an array <code>arr</code> as follows:</p>

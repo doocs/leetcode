@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Geometry,Array,Hash Table,Math,Dynamic Programming,Backtracking,Bitmask -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given an array <code>points</code> where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> represents a point on an <strong>X-Y </strong>plane.</p>

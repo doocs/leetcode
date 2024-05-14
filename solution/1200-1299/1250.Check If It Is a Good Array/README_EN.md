@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,Number Theory -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given an array <code>nums</code> of&nbsp;positive integers. Your task is to select some subset of <code>nums</code>, multiply each element by an integer and add all these numbers.&nbsp;The array is said to be&nbsp;<strong>good&nbsp;</strong>if you can obtain a sum of&nbsp;<code>1</code>&nbsp;from the array by any possible subset and multiplicand.</p>

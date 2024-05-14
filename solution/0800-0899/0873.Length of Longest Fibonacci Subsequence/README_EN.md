@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Dynamic Programming -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>A sequence <code>x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub></code> is <em>Fibonacci-like</em> if:</p>

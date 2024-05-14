@@ -4,6 +4,8 @@
 
 <!-- tags:Array,String -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>The <strong>value</strong> of an alphanumeric string can be defined as:</p>

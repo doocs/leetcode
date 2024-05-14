@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given a function <code>fn</code>,&nbsp;return&nbsp;a&nbsp;<strong>memoized</strong>&nbsp;version of that function.</p>

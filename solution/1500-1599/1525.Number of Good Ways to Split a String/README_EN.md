@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Hash Table,String,Dynamic Programming -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a string <code>s</code>.</p>

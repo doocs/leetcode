@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Design,Array -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>There is an ATM machine that stores banknotes of <code>5</code> denominations: <code>20</code>, <code>50</code>, <code>100</code>, <code>200</code>, and <code>500</code> dollars. Initially the ATM is empty. The user can use the machine to deposit or withdraw any amount of money.</p>

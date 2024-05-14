@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Breadth-First Search,Memoization,String,Dynamic Programming -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are playing a variation of the game Zuma.</p>

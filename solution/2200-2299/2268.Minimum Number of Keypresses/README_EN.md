@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Hash Table,String,Counting,Sorting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You have a keypad with <code>9</code> buttons, numbered from <code>1</code> to <code>9</code>, each mapped to lowercase English letters. You can choose which characters each button is matched to as long as:</p>

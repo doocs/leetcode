@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Prefix Sum,Simulation -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>An ant is on a boundary. It sometimes goes <strong>left</strong> and sometimes <strong>right</strong>.</p>

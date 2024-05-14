@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Segment Tree,Ordered Set -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given an <strong>empty</strong> set of intervals, implement a data structure that can:</p>

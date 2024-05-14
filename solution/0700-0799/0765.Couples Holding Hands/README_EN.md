@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Depth-First Search,Breadth-First Search,Union Find,Graph -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>There are <code>n</code> couples sitting in <code>2n</code> seats arranged in a row and want to hold hands.</p>

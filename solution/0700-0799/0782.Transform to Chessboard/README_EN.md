@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array,Math,Matrix -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an <code>n x n</code> binary grid <code>board</code>. In each move, you can swap any two rows with each other, or any two columns with each other.</p>

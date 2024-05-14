@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Array,Backtracking,Matrix -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> integer array <code>grid</code> where <code>grid[i][j]</code> could be:</p>

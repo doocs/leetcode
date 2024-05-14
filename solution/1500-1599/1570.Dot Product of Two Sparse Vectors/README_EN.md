@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Array,Hash Table,Two Pointers -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given two sparse vectors, compute their dot product.</p>

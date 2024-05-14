@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Array,Monotonic Stack -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>There are <code>n</code> buildings in a line. You are given an integer array <code>heights</code> of size <code>n</code> that represents the heights of the buildings in the line.</p>

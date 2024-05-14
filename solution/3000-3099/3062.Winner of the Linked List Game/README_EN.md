@@ -4,6 +4,8 @@
 
 <!-- tags:Linked List -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given the <code>head</code> of a linked list of <strong>even</strong> length containing integers.</p>

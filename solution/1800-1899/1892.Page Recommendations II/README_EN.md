@@ -4,6 +4,8 @@
 
 <!-- tags:Database -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Table: <code>Friendship</code></p>

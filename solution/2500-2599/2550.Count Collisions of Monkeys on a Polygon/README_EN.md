@@ -4,6 +4,8 @@
 
 <!-- tags:Recursion,Math -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>There is a regular convex polygon with <code>n</code> vertices. The vertices are labeled from <code>0</code> to <code>n - 1</code> in a clockwise direction, and each vertex has <strong>exactly one monkey</strong>. The following figure shows a convex polygon of <code>6</code> vertices.</p>

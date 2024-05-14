@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Design,Array,Linked List,Data Stream,Doubly-Linked List -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You have a <strong>browser</strong> of one tab where you start on the <code>homepage</code> and you can visit another <code>url</code>, get back in the history number of <code>steps</code> or move forward in the history number of <code>steps</code>.</p>

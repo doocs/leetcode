@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Trie,Hash Table,String -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are asked to design a file system&nbsp;that allows you to create new paths and associate them with different values.</p>

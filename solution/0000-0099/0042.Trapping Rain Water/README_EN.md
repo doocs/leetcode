@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Array,Two Pointers,Dynamic Programming,Monotonic Stack -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given <code>n</code> non-negative integers representing an elevation map where the width of each bar is <code>1</code>, compute how much water it can trap after raining.</p>

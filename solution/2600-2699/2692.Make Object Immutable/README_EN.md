@@ -4,6 +4,8 @@
 
 <!-- tags: -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Write a function that takes an object&nbsp;<code>obj</code> and returns a new&nbsp;<strong>immutable</strong>&nbsp;version of this object.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Bit Manipulation,Hash Table,String,Sorting -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given two strings <code>s</code> and <code>t</code>.</p>

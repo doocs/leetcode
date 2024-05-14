@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Interactive,Simulation -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given a <code>file</code> and assume that you can only read the file using a given method <code>read4</code>, implement a method to read <code>n</code> characters.</p>

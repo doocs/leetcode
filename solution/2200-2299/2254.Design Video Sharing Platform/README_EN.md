@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Design,Hash Table,Ordered Set -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You have a video sharing platform where users can upload and delete videos. Each <code>video</code> is a <strong>string</strong> of digits, where the <code>i<sup>th</sup></code> digit of the string represents the content of the video at minute <code>i</code>. For example, the first digit represents the content at minute <code>0</code> in the video, the second digit represents the content at minute <code>1</code> in the video, and so on. Viewers of videos can also like and dislike videos. Internally, the platform keeps track of the <strong>number of views, likes, and dislikes</strong> on each video.</p>

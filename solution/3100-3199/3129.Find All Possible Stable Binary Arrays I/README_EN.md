@@ -4,6 +4,8 @@
 
 <!-- tags:Dynamic Programming,Prefix Sum -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given 3 positive integers <code>zero</code>, <code>one</code>, and <code>limit</code>.</p>

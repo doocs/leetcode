@@ -4,6 +4,8 @@
 
 <!-- tags:Design,Array,Two Pointers,Iterator -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Design an iterator to flatten a 2D vector. It should support the <code>next</code> and <code>hasNext</code> operations.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,Matrix,Sorting -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>Given an <code>m x n</code> binary grid <code>grid</code> where each <code>1</code> marks the home of one friend, return <em>the minimal <strong>total travel distance</strong></em>.</p>

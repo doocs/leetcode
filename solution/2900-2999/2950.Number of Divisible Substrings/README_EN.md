@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String,Counting,Prefix Sum -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Each character of the English alphabet has been mapped to a digit as shown below.</p>

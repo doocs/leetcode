@@ -4,6 +4,8 @@
 
 <!-- tags:Greedy,Math,Enumeration -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <strong>positive</strong> integer <code>k</code>. Initially, you have an array <code>nums = [1]</code>.</p>

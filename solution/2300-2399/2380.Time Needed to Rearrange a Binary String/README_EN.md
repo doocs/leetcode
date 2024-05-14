@@ -4,6 +4,8 @@
 
 <!-- tags:String,Dynamic Programming,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a binary string <code>s</code>. In one second, <strong>all</strong> occurrences of <code>&quot;01&quot;</code> are <strong>simultaneously</strong> replaced with <code>&quot;10&quot;</code>. This process <strong>repeats</strong> until no occurrences of <code>&quot;01&quot;</code> exist.</p>

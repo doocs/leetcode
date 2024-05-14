@@ -4,6 +4,8 @@
 
 <!-- tags:String,Binary Search,Dynamic Programming,Sliding Window,Hash Function -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given two strings <code>initial</code> and <code>target</code>, your task is to modify <code>initial</code> by performing a series of operations to make it equal to <code>target</code>.</p>

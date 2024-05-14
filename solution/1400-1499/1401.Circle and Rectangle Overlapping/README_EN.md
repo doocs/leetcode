@@ -4,6 +4,8 @@
 
 <!-- tags:Geometry,Math -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a circle represented as <code>(radius, xCenter, yCenter)</code> and an axis-aligned rectangle represented as <code>(x1, y1, x2, y2)</code>, where <code>(x1, y1)</code> are the coordinates of the bottom-left corner, and <code>(x2, y2)</code> are the coordinates of the top-right corner of the rectangle.</p>

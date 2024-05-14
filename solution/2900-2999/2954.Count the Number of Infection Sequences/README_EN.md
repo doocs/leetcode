@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Math,Combinatorics -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an integer <code>n</code> and a <strong>0-indexed</strong><strong> </strong>integer array <code>sick</code> which is <strong>sorted</strong> in <strong>increasing</strong> order.</p>

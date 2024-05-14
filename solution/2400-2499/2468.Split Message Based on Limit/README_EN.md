@@ -4,6 +4,8 @@
 
 <!-- tags:String,Binary Search -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a string, <code>message</code>, and a positive integer, <code>limit</code>.</p>

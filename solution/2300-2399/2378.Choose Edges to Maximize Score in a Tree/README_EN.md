@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search,Dynamic Programming -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a <strong>weighted</strong> tree consisting of <code>n</code> nodes numbered from <code>0</code> to <code>n - 1</code>.</p>

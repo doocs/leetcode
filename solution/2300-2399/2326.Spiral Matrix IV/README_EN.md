@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Linked List,Matrix,Simulation -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given two integers <code>m</code> and <code>n</code>, which represent the dimensions of a matrix.</p>

@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Greedy,Array,Math,Number Theory,Monotonic Stack -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given an array <code>nums</code> of <code>n</code> positive integers and an integer <code>k</code>.</p>

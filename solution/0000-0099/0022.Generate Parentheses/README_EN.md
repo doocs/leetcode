@@ -4,6 +4,8 @@
 
 <!-- tags:String,Dynamic Programming,Backtracking -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given <code>n</code> pairs of parentheses, write a function to <em>generate all combinations of well-formed parentheses</em>.</p>

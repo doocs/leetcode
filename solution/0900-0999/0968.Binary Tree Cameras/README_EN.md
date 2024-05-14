@@ -4,6 +4,8 @@
 
 <!-- tags:Tree,Depth-First Search,Dynamic Programming,Binary Tree -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given the <code>root</code> of a binary tree. We install cameras on the tree nodes where each camera at a node can monitor its parent, itself, and its immediate children.</p>

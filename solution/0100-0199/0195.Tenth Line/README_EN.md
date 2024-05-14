@@ -4,6 +4,8 @@
 
 <!-- tags:Shell -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given a text file&nbsp;<code>file.txt</code>, print&nbsp;just the 10th line of the&nbsp;file.</p>

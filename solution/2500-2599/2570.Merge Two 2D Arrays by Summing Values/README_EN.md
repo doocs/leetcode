@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Two Pointers -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>You are given two <strong>2D</strong> integer arrays <code>nums1</code> and <code>nums2.</code></p>

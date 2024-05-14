@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Hash Table,Math,Combinatorics,Counting -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>You are given a 2D boolean matrix <code>grid</code>.</p>

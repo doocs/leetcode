@@ -4,6 +4,8 @@
 
 <!-- tags:Array,Simulation -->
 
+<!-- difficulty:Easy -->
+
 ## Description
 
 <p>Given an initial array <code>arr</code>, every day you produce a new array using the array of the previous day.</p>

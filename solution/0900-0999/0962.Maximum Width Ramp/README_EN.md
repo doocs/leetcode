@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Array,Monotonic Stack -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>A <strong>ramp</strong> in an integer array <code>nums</code> is a pair <code>(i, j)</code> for which <code>i &lt; j</code> and <code>nums[i] &lt;= nums[j]</code>. The <strong>width</strong> of such a ramp is <code>j - i</code>.</p>

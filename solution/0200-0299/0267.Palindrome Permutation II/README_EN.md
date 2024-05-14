@@ -4,6 +4,8 @@
 
 <!-- tags:Hash Table,String,Backtracking -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a string s, return <em>all the palindromic permutations (without duplicates) of it</em>.</p>

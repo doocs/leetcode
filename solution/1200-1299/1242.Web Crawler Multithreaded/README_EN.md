@@ -4,6 +4,8 @@
 
 <!-- tags:Depth-First Search,Breadth-First Search,Concurrency -->
 
+<!-- difficulty:Medium -->
+
 ## Description
 
 <p>Given a URL <code>startUrl</code> and an interface <code>HtmlParser</code>, implement <strong>a Multi-threaded web crawler</strong> to crawl all links that are under the <strong>same hostname</strong> as <code>startUrl</code>.</p>

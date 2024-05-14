@@ -4,6 +4,8 @@
 
 <!-- tags:Stack,Memoization,Array,Math,String,Dynamic Programming -->
 
+<!-- difficulty:Hard -->
+
 ## Description
 
 <p>You are given a string <code>s</code> that contains digits <code>0-9</code>, addition symbols <code>&#39;+&#39;</code>, and multiplication symbols <code>&#39;*&#39;</code> <strong>only</strong>, representing a <strong>valid</strong> math expression of <strong>single digit numbers</strong> (e.g., <code>3+5*2</code>). This expression was given to <code>n</code> elementary school students. The students were instructed to get the answer of the expression by following this <strong>order of operations</strong>:</p>
