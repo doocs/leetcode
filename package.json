@@ -14,6 +14,7 @@
     "prettier-plugin-sql-cst": "^0.10.0"
   },
   "lint-staged": {
+    "*.{js,ts,php,sql,rs,md}": "prettier --write",
     "*.py": "black -S"
   }
 }
