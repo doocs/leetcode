@@ -1,5 +1,6 @@
 ---
 comments: true
+difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2080.%20%E7%94%9F%E7%89%A9%E8%BF%9B%E5%8C%96%E5%BD%95/README.md
 ---
 
@@ -32,7 +33,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2080.%20%E7%94%9F%
 > 解释：树结构如下图所示，共存在 2 种记录方案：
 > 第 1 种方案为：0(记录编号 1 的节点) -> 1(回退至节点 0) -> 0(记录编号 2 的节点) -> 0((记录编号 3 的节点))
 > 第 2 种方案为：0(记录编号 2 的节点) -> 0(记录编号 3 的节点) -> 1(回退至节点 2) -> 1(回退至节点 0) -> 0(记录编号 1 的节点)
-> 返回字典序更小的 `"00110"` > ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2080.%20%E7%94%9F%E7%89%A9%E8%BF%9B%E5%8C%96%E5%BD%95/images/1682319485-cRVudI-image.png){:width=120px}![进化 (3).gif](<https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2080.%20%E7%94%9F%E7%89%A9%E8%BF%9B%E5%8C%96%E5%BD%95/images/1682412701-waHdnm-%E8%BF%9B%E5%8C%96%20(3).gif>){:width=320px}
+> 返回字典序更小的 `"00110"`
+> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2080.%20%E7%94%9F%E7%89%A9%E8%BF%9B%E5%8C%96%E5%BD%95/images/1682319485-cRVudI-image.png){:width=120px}![进化 (3).gif](<https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2080.%20%E7%94%9F%E7%89%A9%E8%BF%9B%E5%8C%96%E5%BD%95/images/1682412701-waHdnm-%E8%BF%9B%E5%8C%96%20(3).gif>){:width=320px}
 
 **示例 2：**
 

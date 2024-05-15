@@ -1,6 +1,11 @@
 ---
 comments: true
+difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2030.%20%E9%AD%94%E5%A1%94%E6%B8%B8%E6%88%8F/README.md
+tags:
+    - 贪心
+    - 数组
+    - 堆（优先队列）
 ---
 
 # [LCP 30. 魔塔游戏](https://leetcode.cn/problems/p0NxJO)

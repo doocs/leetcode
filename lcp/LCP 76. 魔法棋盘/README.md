@@ -1,5 +1,6 @@
 ---
 comments: true
+difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2076.%20%E9%AD%94%E6%B3%95%E6%A3%8B%E7%9B%98/README.md
 ---
 
@@ -13,6 +14,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2076.%20%E9%AD%94%
 
 -   两颗异色棋子在同一行或者同一列
 -   两颗异色棋子之间恰好只有一颗棋子
+    > 注：异色棋子之间可以有空位
 
 由于棋盘上被施加了魔法禁制，棋盘上的部分格子变成问号。`chessboard[i][j]` 表示棋盘第 `i` 行 `j` 列的状态：
 

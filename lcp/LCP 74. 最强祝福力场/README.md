@@ -1,5 +1,6 @@
 ---
 comments: true
+difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2074.%20%E6%9C%80%E5%BC%BA%E7%A5%9D%E7%A6%8F%E5%8A%9B%E5%9C%BA/README.md
 ---
 
@@ -36,7 +37,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2074.%20%E6%9C%80%
 > 输出：`3`
 >
 > 解释：如下图所示，
-> `forceField[0]、forceField[1]、forceField[3]` 重叠的区域力场强度最大，返回 `3` > ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2074.%20%E6%9C%80%E5%BC%BA%E7%A5%9D%E7%A6%8F%E5%8A%9B%E5%9C%BA/images/1681805437-HQkyZS-image.png){:width=500px}
+> `forceField[0]、forceField[1]、forceField[3]` 重叠的区域力场强度最大，返回 `3`
+> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2074.%20%E6%9C%80%E5%BC%BA%E7%A5%9D%E7%A6%8F%E5%8A%9B%E5%9C%BA/images/1681805437-HQkyZS-image.png){:width=500px}
 
 **提示：**
 

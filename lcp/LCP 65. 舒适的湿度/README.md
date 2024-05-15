@@ -1,6 +1,10 @@
 ---
 comments: true
+difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2065.%20%E8%88%92%E9%80%82%E7%9A%84%E6%B9%BF%E5%BA%A6/README.md
+tags:
+    - 数组
+    - 动态规划
 ---
 
 # [LCP 65. 舒适的湿度](https://leetcode.cn/problems/3aqs1c)
@@ -29,7 +33,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2065.%20%E8%88%92%
 > 操作指令 `[5,3],[3,-7]` 的「不适宜度」分别为 `8,4`
 > 操作指令 `[5,3,-7]` 的「不适宜度」为 `1`，
 > 因此对于方案 `[5,3,-7]`的「整体不适宜度」为 `8`，其余方案的「整体不适宜度」均不小于 `8`，如下表所示：
-> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2065.%20%E8%88%92%E9%80%82%E7%9A%84%E6%B9%BF%E5%BA%A6/images/1663902759-dgDCxn-image.png)
+> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2065.%20%E8%88%92%E9%80%82%E7%9A%84%E6%B9%BF%E5%BA%A6/images/1663902759-dgDCxn-image.png){:width=650px}
 
 **示例 2：**
 

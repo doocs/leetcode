@@ -1,6 +1,11 @@
 ---
 comments: true
+difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2060.%20%E5%8A%9B%E6%89%A3%E6%B3%A1%E6%B3%A1%E9%BE%99/README.md
+tags:
+    - 树
+    - 动态规划
+    - 二叉树
 ---
 
 # [LCP 60. 力扣泡泡龙](https://leetcode.cn/problems/WInSav)
@@ -30,7 +35,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2060.%20%E5%8A%9B%
 > 输出：`11`
 >
 > 解释：勇者的最佳方案如图所示
-> <br>![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2060.%20%E5%8A%9B%E6%89%A3%E6%B3%A1%E6%B3%A1%E9%BE%99/images/1648180809-XSWPLu-image.png)
+> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2060.%20%E5%8A%9B%E6%89%A3%E6%B3%A1%E6%B3%A1%E9%BE%99/images/1648180809-XSWPLu-image.png){:height="100px"}
 
 **示例 2：**
 
@@ -39,7 +44,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2060.%20%E5%8A%9B%
 > 输出：`9`
 >
 > 解释：勇者击破 6 节点，此时「层和」最大为 3+5+1 = 9
-> <br>![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2060.%20%E5%8A%9B%E6%89%A3%E6%B3%A1%E6%B3%A1%E9%BE%99/images/1648180769-TLpYop-image.png)
+> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2060.%20%E5%8A%9B%E6%89%A3%E6%B3%A1%E6%B3%A1%E9%BE%99/images/1648180769-TLpYop-image.png){:height="200px"}
 
 **示例 3：**
 

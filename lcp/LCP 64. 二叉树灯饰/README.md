@@ -1,6 +1,12 @@
 ---
 comments: true
+difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2064.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%81%AF%E9%A5%B0/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 动态规划
+    - 二叉树
 ---
 
 # [LCP 64. 二叉树灯饰](https://leetcode.cn/problems/U7WvvU)
@@ -9,44 +15,48 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2064.%20%E4%BA%8C%
 
 <!-- 这里写题目描述 -->
 
-「力扣嘉年华」的中心广场放置了一个巨型的二叉树形状的装饰树。每个节点上均有一盏灯和三个开关。节点值为 `0` 表示灯处于「关闭」状态，节点值为 `1` 表示灯处于「开启」状态。每个节点上的三个开关各自功能如下：
+<p>「力扣嘉年华」的中心广场放置了一个巨型的二叉树形状的装饰树。每个节点上均有一盏灯和三个开关。节点值为&nbsp;<code>0</code> 表示灯处于「关闭」状态，节点值为 <code>1</code>&nbsp;表示灯处于「开启」状态。每个节点上的三个开关各自功能如下：</p>
 
--   开关 `1`：切换当前节点的灯的状态；
--   开关 `2`：切换 **以当前节点为根** 的子树中，所有节点上的灯的状态，；
--   开关 `3`：切换 **当前节点及其左右子节点**（若存在的话） 上的灯的状态；
+<ul>
+	<li>开关 <code>1</code>：切换当前节点的灯的状态；</li>
+	<li>开关 <code>2</code>：切换 <strong>以当前节点为根</strong>&nbsp;的子树中，所有节点上的灯的状态；</li>
+	<li>开关 <code>3</code>：切换 <strong>当前节点及其左右子节点</strong>（若存在的话） 上的灯的状态；</li>
+</ul>
 
-给定该装饰的初始状态 `root`，请返回最少需要操作多少次开关，可以关闭所有节点的灯。
+<p>给定该装饰的初始状态 <code>root</code>，请返回最少需要操作多少次开关，可以关闭所有节点的灯。</p>
 
-**示例 1：**
+<p><strong>示例 1：</strong></p>
 
-> 输入：`root = [1,1,0,null,null,null,1]`
->
-> 输出：`2`
->
-> 解释：以下是最佳的方案之一，如图所示
-> ![b71b95bf405e3b223e00b2820a062ba4.gif](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2064.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%81%AF%E9%A5%B0/images/1629357030-GSbzpY-b71b95bf405e3b223e00b2820a062ba4.gif)
+<pre>
+<strong>输入：</strong>root = [1,1,0,null,null,null,1]
+<strong>输出：</strong>2
+<strong>解释：</strong>以下是最佳的方案之一，如图所示
+<img alt="" src="https://pic.leetcode-cn.com/1629357030-GSbzpY-b71b95bf405e3b223e00b2820a062ba4.gif" style="width: 300px; height: 225px;" />
+</pre>
 
-**示例 2：**
+<p><strong>示例 2：</strong></p>
 
-> 输入：`root = [1,1,1,1,null,null,1]`
->
-> 输出：`1`
->
-> 解释：以下是最佳的方案，如图所示
-> ![a4091b6448a0089b4d9e8f0390ff9ac6.gif](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2064.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%81%AF%E9%A5%B0/images/1629356950-HZsKZC-a4091b6448a0089b4d9e8f0390ff9ac6.gif)
+<pre>
+<strong>输入：</strong>root = [1,1,1,1,null,null,1]
+<strong>输出：</strong>1
+<strong>解释：</strong>以下是最佳的方案，如图所示
+<img alt="" src="https://pic.leetcode-cn.com/1629356950-HZsKZC-a4091b6448a0089b4d9e8f0390ff9ac6.gif" style="width: 300px; height: 225px;" />
+</pre>
 
-**示例 3：**
+<p><strong>示例 3：</strong></p>
 
-> 输入：`root = [0,null,0]`
->
-> 输出：`0`
->
-> 解释：无需操作开关，当前所有节点上的灯均已关闭
+<pre>
+<strong>输入：</strong>root = [0,null,0]
+<strong>输出：</strong>0
+<strong>解释：</strong>无需操作开关，当前所有节点上的灯均已关闭
+</pre>
 
-**提示：**
+<p><strong>提示：</strong></p>
 
--   `1 <= 节点个数 <= 10^5`
--   `0 <= Node.val <= 1`
+<ul>
+	<li><code>1 &lt;= 节点个数 &lt;= 10^5</code></li>
+	<li><code>0 &lt;= Node.val &lt;= 1</code></li>
+</ul>
 
 ## 解法
 
