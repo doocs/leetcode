@@ -1,3 +1,5 @@
+import re
+
 from bs4 import BeautifulSoup
 
 
@@ -15,7 +17,7 @@ def on_page_content(html, page, config, files):
         ul_tags = soup.find_all("ul")
         for ul_tag in ul_tags:
             li_tags = ul_tag.find_all("li")
-            li_tags.sort(key=lambda x: int(x.text.split(".")[0].strip()))
+            li_tags.sort(key=lambda x: int(re.search(r"\d+", x.text).group()))
             ul_tag.clear()
             for li_tag in li_tags:
                 ul_tag.append(li_tag)
