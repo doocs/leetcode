@@ -1,24 +1,39 @@
 from mkdocs import plugins
 
+from bs4 import BeautifulSoup
+
 
 # https://www.mkdocs.org/dev-guide/plugins/#events
+
+colors = {
+    "简单": "#46c6c2",
+    "中等": "#fac31d",
+    "困难": "#f8615c",
+    "Easy": "#46c6c2",
+    "Medium": "#fac31d",
+    "Hard": "#f8615c",
+}
 
 
 @plugins.event_priority(90)
 def on_post_page(output, page, config):
-    difficulty = page.meta.get('difficulty')
-    rating = page.meta.get('rating')
-
-    # 在 h1 标题之后插入难度和评分信息及其样式
+    is_cn_problem_page = (page.edit_url or "").endswith("README.md")
+    difficulty = page.meta.get("difficulty")
+    rating = page.meta.get("rating")
+    if not difficulty and not rating:
+        return output
+    if rating:
+        rating = f"难度分 {rating}" if is_cn_problem_page else f"Rating {rating}"
     html = str(output)
-    # if difficulty:
-    #     # 找到 h1 标签的结束位置
-    #     h1_end = html.find('</h1>') + 5
-    #     # 在 h1 标签之后插入难度信息
-    #     html = html[:h1_end] + f'<p>Difficulty: {difficulty}</p>' + html[h1_end:]
-    # if rating:
-    #     # 找到 h1 标签的结束位置
-    #     h1_end = html.find('</h1>') + 5
-    #     # 在 h1 标签之后插入评分信息
-    #     html = html[:h1_end] + f'<p>Rating: {rating}</p>' + html[h1_end:]
-    return html
+    soup = BeautifulSoup(html, "html.parser")
+    div = soup.new_tag("div", attrs={"class": "rating"})
+    soup.select_one("h1").insert_after(div)
+    color = colors.get(difficulty) or "black"
+    for s in (difficulty, rating):
+        if not s:
+            continue
+        sub = soup.new_tag("div", attrs={"class": "rating-item"})
+        sub.string = str(s)
+        sub["style"] = f"color: {color};"
+        div.append(sub)
+    return str(soup)

@@ -1,0 +1,12 @@
+.rating {
+    display: flex;
+    gap: .5em;
+}
+
+.rating-item {
+    float: left;
+    padding: 8px 12px;
+    border-radius: 2.4rem;
+    font-size: min(.8em,.64rem);
+    background-color: #00000012;
+}
