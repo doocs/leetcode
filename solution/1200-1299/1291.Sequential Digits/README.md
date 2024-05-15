@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1291.Sequential%20Digits/README.md
+rating: 1373
+tags:
+    - 枚举
+---
+
 # [1291. 顺次数](https://leetcode.cn/problems/sequential-digits)
 
 [English Version](/solution/1200-1299/1291.Sequential%20Digits/README_EN.md)
-
-<!-- tags:枚举 -->
 
 ## 题目描述
 

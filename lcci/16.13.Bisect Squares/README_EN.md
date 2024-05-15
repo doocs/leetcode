@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.13.Bisect%20Squares/README_EN.md
+---
+
 # [16.13. Bisect Squares](https://leetcode.cn/problems/bisect-squares-lcci)
 
 [中文文档](/lcci/16.13.Bisect%20Squares/README.md)

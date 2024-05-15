@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2462.Total%20Cost%20to%20Hire%20K%20Workers/README_EN.md
+rating: 1763
+tags:
+    - Array
+    - Two Pointers
+    - Simulation
+    - Heap (Priority Queue)
+---
+
 # [2462. Total Cost to Hire K Workers](https://leetcode.com/problems/total-cost-to-hire-k-workers)
 
 [中文文档](/solution/2400-2499/2462.Total%20Cost%20to%20Hire%20K%20Workers/README.md)
-
-<!-- tags:Array,Two Pointers,Simulation,Heap (Priority Queue) -->
 
 ## Description
 

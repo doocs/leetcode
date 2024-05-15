@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0052.N-Queens%20II/README_EN.md
+tags:
+    - Backtracking
+---
+
 # [52. N-Queens II](https://leetcode.com/problems/n-queens-ii)
 
 [中文文档](/solution/0000-0099/0052.N-Queens%20II/README.md)
-
-<!-- tags:Backtracking -->
 
 ## Description
 

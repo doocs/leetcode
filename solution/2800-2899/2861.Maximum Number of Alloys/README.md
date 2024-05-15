@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2861.Maximum%20Number%20of%20Alloys/README.md
+rating: 1981
+tags:
+    - 数组
+    - 二分查找
+---
+
 # [2861. 最大合金数](https://leetcode.cn/problems/maximum-number-of-alloys)
 
 [English Version](/solution/2800-2899/2861.Maximum%20Number%20of%20Alloys/README_EN.md)
-
-<!-- tags:数组,二分查找 -->
 
 ## 题目描述
 

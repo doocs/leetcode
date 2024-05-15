@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1768.Merge%20Strings%20Alternately/README_EN.md
+rating: 1166
+tags:
+    - Two Pointers
+    - String
+---
+
 # [1768. Merge Strings Alternately](https://leetcode.com/problems/merge-strings-alternately)
 
 [中文文档](/solution/1700-1799/1768.Merge%20Strings%20Alternately/README.md)
-
-<!-- tags:Two Pointers,String -->
 
 ## Description
 

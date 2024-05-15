@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2533.Number%20of%20Good%20Binary%20Strings/README_EN.md
+tags:
+    - Dynamic Programming
+---
+
 # [2533. Number of Good Binary Strings 🔒](https://leetcode.com/problems/number-of-good-binary-strings)
 
 [中文文档](/solution/2500-2599/2533.Number%20of%20Good%20Binary%20Strings/README.md)
-
-<!-- tags:Dynamic Programming -->
 
 ## Description
 

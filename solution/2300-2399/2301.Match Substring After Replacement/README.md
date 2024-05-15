@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2301.Match%20Substring%20After%20Replacement/README.md
+rating: 1860
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+    - 字符串匹配
+---
+
 # [2301. 替换字符后匹配](https://leetcode.cn/problems/match-substring-after-replacement)
 
 [English Version](/solution/2300-2399/2301.Match%20Substring%20After%20Replacement/README_EN.md)
-
-<!-- tags:数组,哈希表,字符串,字符串匹配 -->
 
 ## 题目描述
 

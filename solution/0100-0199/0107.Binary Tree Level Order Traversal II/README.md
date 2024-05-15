@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0107.Binary%20Tree%20Level%20Order%20Traversal%20II/README.md
+tags:
+    - 树
+    - 广度优先搜索
+    - 二叉树
+---
+
 # [107. 二叉树的层序遍历 II](https://leetcode.cn/problems/binary-tree-level-order-traversal-ii)
 
 [English Version](/solution/0100-0199/0107.Binary%20Tree%20Level%20Order%20Traversal%20II/README_EN.md)
-
-<!-- tags:树,广度优先搜索,二叉树 -->
 
 ## 题目描述
 

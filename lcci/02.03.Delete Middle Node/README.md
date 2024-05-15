@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.03.Delete%20Middle%20Node/README.md
+---
+
 # [面试题 02.03. 删除中间节点](https://leetcode.cn/problems/delete-middle-node-lcci)
 
 [English Version](/lcci/02.03.Delete%20Middle%20Node/README_EN.md)

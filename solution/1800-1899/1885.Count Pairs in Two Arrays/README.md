@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1885.Count%20Pairs%20in%20Two%20Arrays/README.md
+tags:
+    - 数组
+    - 双指针
+    - 二分查找
+    - 排序
+---
+
 # [1885. 统计数对 🔒](https://leetcode.cn/problems/count-pairs-in-two-arrays)
 
 [English Version](/solution/1800-1899/1885.Count%20Pairs%20in%20Two%20Arrays/README_EN.md)
-
-<!-- tags:数组,双指针,二分查找,排序 -->
 
 ## 题目描述
 

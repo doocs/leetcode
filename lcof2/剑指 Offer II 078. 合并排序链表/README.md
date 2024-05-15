@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20078.%20%E5%90%88%E5%B9%B6%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8/README.md
+---
+
 # [剑指 Offer II 078. 合并排序链表](https://leetcode.cn/problems/vvXgSW)
 
 ## 题目描述

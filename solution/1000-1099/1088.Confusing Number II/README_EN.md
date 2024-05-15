@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1088.Confusing%20Number%20II/README_EN.md
+rating: 2076
+tags:
+    - Math
+    - Backtracking
+---
+
 # [1088. Confusing Number II 🔒](https://leetcode.com/problems/confusing-number-ii)
 
 [中文文档](/solution/1000-1099/1088.Confusing%20Number%20II/README.md)
-
-<!-- tags:Math,Backtracking -->
 
 ## Description
 

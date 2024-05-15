@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2402.Meeting%20Rooms%20III/README_EN.md
+rating: 2092
+tags:
+    - Array
+    - Hash Table
+    - Sorting
+    - Simulation
+    - Heap (Priority Queue)
+---
+
 # [2402. Meeting Rooms III](https://leetcode.com/problems/meeting-rooms-iii)
 
 [中文文档](/solution/2400-2499/2402.Meeting%20Rooms%20III/README.md)
-
-<!-- tags:Array,Hash Table,Sorting,Simulation,Heap (Priority Queue) -->
 
 ## Description
 

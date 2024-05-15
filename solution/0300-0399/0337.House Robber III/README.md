@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0337.House%20Robber%20III/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 动态规划
+    - 二叉树
+---
+
 # [337. 打家劫舍 III](https://leetcode.cn/problems/house-robber-iii)
 
 [English Version](/solution/0300-0399/0337.House%20Robber%20III/README_EN.md)
-
-<!-- tags:树,深度优先搜索,动态规划,二叉树 -->
 
 ## 题目描述
 

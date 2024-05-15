@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2161.Partition%20Array%20According%20to%20Given%20Pivot/README_EN.md
+rating: 1337
+tags:
+    - Array
+    - Two Pointers
+    - Simulation
+---
+
 # [2161. Partition Array According to Given Pivot](https://leetcode.com/problems/partition-array-according-to-given-pivot)
 
 [中文文档](/solution/2100-2199/2161.Partition%20Array%20According%20to%20Given%20Pivot/README.md)
-
-<!-- tags:Array,Two Pointers,Simulation -->
 
 ## Description
 

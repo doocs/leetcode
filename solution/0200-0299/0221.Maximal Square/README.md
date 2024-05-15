@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0221.Maximal%20Square/README.md
+tags:
+    - 数组
+    - 动态规划
+    - 矩阵
+---
+
 # [221. 最大正方形](https://leetcode.cn/problems/maximal-square)
 
 [English Version](/solution/0200-0299/0221.Maximal%20Square/README_EN.md)
-
-<!-- tags:数组,动态规划,矩阵 -->
 
 ## 题目描述
 

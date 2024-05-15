@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0143.Reorder%20List/README_EN.md
+tags:
+    - Stack
+    - Recursion
+    - Linked List
+    - Two Pointers
+---
+
 # [143. Reorder List](https://leetcode.com/problems/reorder-list)
 
 [中文文档](/solution/0100-0199/0143.Reorder%20List/README.md)
-
-<!-- tags:Stack,Recursion,Linked List,Two Pointers -->
 
 ## Description
 

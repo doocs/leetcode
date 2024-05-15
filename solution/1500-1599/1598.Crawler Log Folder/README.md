@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1598.Crawler%20Log%20Folder/README.md
+rating: 1297
+tags:
+    - 栈
+    - 数组
+    - 字符串
+---
+
 # [1598. 文件夹操作日志搜集器](https://leetcode.cn/problems/crawler-log-folder)
 
 [English Version](/solution/1500-1599/1598.Crawler%20Log%20Folder/README_EN.md)
-
-<!-- tags:栈,数组,字符串 -->
 
 ## 题目描述
 

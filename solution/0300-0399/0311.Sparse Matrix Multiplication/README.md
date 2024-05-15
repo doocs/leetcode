@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0311.Sparse%20Matrix%20Multiplication/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 矩阵
+---
+
 # [311. 稀疏矩阵的乘法 🔒](https://leetcode.cn/problems/sparse-matrix-multiplication)
 
 [English Version](/solution/0300-0399/0311.Sparse%20Matrix%20Multiplication/README_EN.md)
-
-<!-- tags:数组,哈希表,矩阵 -->
 
 ## 题目描述
 

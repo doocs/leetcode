@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0073.Set%20Matrix%20Zeroes/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Matrix
+---
+
 # [73. Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes)
 
 [中文文档](/solution/0000-0099/0073.Set%20Matrix%20Zeroes/README.md)
-
-<!-- tags:Array,Hash Table,Matrix -->
 
 ## Description
 

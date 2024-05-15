@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0314.Binary%20Tree%20Vertical%20Order%20Traversal/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Hash Table
+    - Binary Tree
+    - Sorting
+---
+
 # [314. Binary Tree Vertical Order Traversal 🔒](https://leetcode.com/problems/binary-tree-vertical-order-traversal)
 
 [中文文档](/solution/0300-0399/0314.Binary%20Tree%20Vertical%20Order%20Traversal/README.md)
-
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Hash Table,Binary Tree,Sorting -->
 
 ## Description
 

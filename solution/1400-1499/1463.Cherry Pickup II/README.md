@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1463.Cherry%20Pickup%20II/README.md
+rating: 1956
+tags:
+    - 数组
+    - 动态规划
+    - 矩阵
+---
+
 # [1463. 摘樱桃 II](https://leetcode.cn/problems/cherry-pickup-ii)
 
 [English Version](/solution/1400-1499/1463.Cherry%20Pickup%20II/README_EN.md)
-
-<!-- tags:数组,动态规划,矩阵 -->
 
 ## 题目描述
 

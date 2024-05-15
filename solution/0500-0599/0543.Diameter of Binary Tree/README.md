@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0543.Diameter%20of%20Binary%20Tree/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 二叉树
+---
+
 # [543. 二叉树的直径](https://leetcode.cn/problems/diameter-of-binary-tree)
 
 [English Version](/solution/0500-0599/0543.Diameter%20of%20Binary%20Tree/README_EN.md)
-
-<!-- tags:树,深度优先搜索,二叉树 -->
 
 ## 题目描述
 

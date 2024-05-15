@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2735.Collecting%20Chocolates/README_EN.md
+rating: 2043
+tags:
+    - Array
+    - Enumeration
+---
+
 # [2735. Collecting Chocolates](https://leetcode.com/problems/collecting-chocolates)
 
 [中文文档](/solution/2700-2799/2735.Collecting%20Chocolates/README.md)
-
-<!-- tags:Array,Enumeration -->
 
 ## Description
 

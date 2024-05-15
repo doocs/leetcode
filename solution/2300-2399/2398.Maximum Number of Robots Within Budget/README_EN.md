@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2398.Maximum%20Number%20of%20Robots%20Within%20Budget/README_EN.md
+rating: 1917
+tags:
+    - Queue
+    - Array
+    - Binary Search
+    - Prefix Sum
+    - Sliding Window
+    - Heap (Priority Queue)
+---
+
 # [2398. Maximum Number of Robots Within Budget](https://leetcode.com/problems/maximum-number-of-robots-within-budget)
 
 [中文文档](/solution/2300-2399/2398.Maximum%20Number%20of%20Robots%20Within%20Budget/README.md)
-
-<!-- tags:Queue,Array,Binary Search,Prefix Sum,Sliding Window,Heap (Priority Queue) -->
 
 ## Description
 
@@ -44,7 +56,15 @@ It can be shown that it is not possible to run more than 3 consecutive robots wi
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Two Pointers + Monotonic Queue
+
+The problem is essentially finding the maximum value within a sliding window, which can be solved using a monotonic queue.
+
+We only need to use binary search to enumerate the size of the window $k$, and find the largest $k$ that satisfies the problem requirements.
+
+In the implementation process, we don't actually need to perform binary search enumeration. We just need to change the fixed window to a non-fixed window with double pointers.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of robots in the problem.
 
 <!-- tabs:start -->
 

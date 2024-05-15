@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2704.To%20Be%20Or%20Not%20To%20Be/README_EN.md
+---
+
 # [2704. To Be Or Not To Be](https://leetcode.com/problems/to-be-or-not-to-be)
 
 [中文文档](/solution/2700-2799/2704.To%20Be%20Or%20Not%20To%20Be/README.md)
-
-<!-- tags: -->
 
 ## Description
 

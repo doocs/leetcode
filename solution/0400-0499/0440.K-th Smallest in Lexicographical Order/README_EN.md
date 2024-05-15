@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0440.K-th%20Smallest%20in%20Lexicographical%20Order/README_EN.md
+tags:
+    - Trie
+---
+
 # [440. K-th Smallest in Lexicographical Order](https://leetcode.com/problems/k-th-smallest-in-lexicographical-order)
 
 [中文文档](/solution/0400-0499/0440.K-th%20Smallest%20in%20Lexicographical%20Order/README.md)
-
-<!-- tags:Trie -->
 
 ## Description
 

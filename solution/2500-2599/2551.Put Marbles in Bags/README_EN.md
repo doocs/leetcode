@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2551.Put%20Marbles%20in%20Bags/README_EN.md
+rating: 2042
+tags:
+    - Greedy
+    - Array
+    - Sorting
+    - Heap (Priority Queue)
+---
+
 # [2551. Put Marbles in Bags](https://leetcode.com/problems/put-marbles-in-bags)
 
 [中文文档](/solution/2500-2599/2551.Put%20Marbles%20in%20Bags/README.md)
-
-<!-- tags:Greedy,Array,Sorting,Heap (Priority Queue) -->
 
 ## Description
 

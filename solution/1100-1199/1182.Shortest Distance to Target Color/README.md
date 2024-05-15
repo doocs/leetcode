@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1182.Shortest%20Distance%20to%20Target%20Color/README.md
+rating: 1626
+tags:
+    - 数组
+    - 二分查找
+    - 动态规划
+---
+
 # [1182. 与目标颜色间的最短距离 🔒](https://leetcode.cn/problems/shortest-distance-to-target-color)
 
 [English Version](/solution/1100-1199/1182.Shortest%20Distance%20to%20Target%20Color/README_EN.md)
-
-<!-- tags:数组,二分查找,动态规划 -->
 
 ## 题目描述
 

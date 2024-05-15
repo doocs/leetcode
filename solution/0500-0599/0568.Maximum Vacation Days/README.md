@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0568.Maximum%20Vacation%20Days/README.md
+tags:
+    - 数组
+    - 动态规划
+    - 矩阵
+---
+
 # [568. 最大休假天数 🔒](https://leetcode.cn/problems/maximum-vacation-days)
 
 [English Version](/solution/0500-0599/0568.Maximum%20Vacation%20Days/README_EN.md)
-
-<!-- tags:数组,动态规划,矩阵 -->
 
 ## 题目描述
 

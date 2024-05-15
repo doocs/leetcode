@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3108.Minimum%20Cost%20Walk%20in%20Weighted%20Graph/README_EN.md
+rating: 2108
+tags:
+    - Bit Manipulation
+    - Union Find
+    - Graph
+    - Array
+---
+
 # [3108. Minimum Cost Walk in Weighted Graph](https://leetcode.com/problems/minimum-cost-walk-in-weighted-graph)
 
 [中文文档](/solution/3100-3199/3108.Minimum%20Cost%20Walk%20in%20Weighted%20Graph/README.md)
-
-<!-- tags:Bit Manipulation,Union Find,Graph,Array -->
 
 ## Description
 

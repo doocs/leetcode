@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1813.Sentence%20Similarity%20III/README.md
+rating: 1588
+tags:
+    - 数组
+    - 双指针
+    - 字符串
+---
+
 # [1813. 句子相似性 III](https://leetcode.cn/problems/sentence-similarity-iii)
 
 [English Version](/solution/1800-1899/1813.Sentence%20Similarity%20III/README_EN.md)
-
-<!-- tags:数组,双指针,字符串 -->
 
 ## 题目描述
 

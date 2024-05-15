@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2894.Divisible%20and%20Non-divisible%20Sums%20Difference/README.md
+rating: 1140
+tags:
+    - 数学
+---
+
 # [2894. 分类求和并作差](https://leetcode.cn/problems/divisible-and-non-divisible-sums-difference)
 
 [English Version](/solution/2800-2899/2894.Divisible%20and%20Non-divisible%20Sums%20Difference/README_EN.md)
-
-<!-- tags:数学 -->
 
 ## 题目描述
 

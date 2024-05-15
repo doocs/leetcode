@@ -1,8 +1,21 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1631.Path%20With%20Minimum%20Effort/README_EN.md
+rating: 1947
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Union Find
+    - Array
+    - Binary Search
+    - Matrix
+    - Heap (Priority Queue)
+---
+
 # [1631. Path With Minimum Effort](https://leetcode.com/problems/path-with-minimum-effort)
 
 [中文文档](/solution/1600-1699/1631.Path%20With%20Minimum%20Effort/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Array,Binary Search,Matrix,Heap (Priority Queue) -->
 
 ## Description
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1832.Check%20if%20the%20Sentence%20Is%20Pangram/README_EN.md
+rating: 1166
+tags:
+    - Hash Table
+    - String
+---
+
 # [1832. Check if the Sentence Is Pangram](https://leetcode.com/problems/check-if-the-sentence-is-pangram)
 
 [中文文档](/solution/1800-1899/1832.Check%20if%20the%20Sentence%20Is%20Pangram/README.md)
-
-<!-- tags:Hash Table,String -->
 
 ## Description
 

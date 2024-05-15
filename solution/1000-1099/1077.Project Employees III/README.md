@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1077.Project%20Employees%20III/README.md
+tags:
+    - 数据库
+---
+
 # [1077. 项目员工 III 🔒](https://leetcode.cn/problems/project-employees-iii)
 
 [English Version](/solution/1000-1099/1077.Project%20Employees%20III/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

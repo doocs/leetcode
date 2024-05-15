@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1908.Game%20of%20Nim/README_EN.md
+tags:
+    - Bit Manipulation
+    - Brainteaser
+    - Array
+    - Math
+    - Dynamic Programming
+    - Game Theory
+---
+
 # [1908. Game of Nim 🔒](https://leetcode.com/problems/game-of-nim)
 
 [中文文档](/solution/1900-1999/1908.Game%20of%20Nim/README.md)
-
-<!-- tags:Bit Manipulation,Brainteaser,Array,Math,Dynamic Programming,Game Theory -->
 
 ## Description
 

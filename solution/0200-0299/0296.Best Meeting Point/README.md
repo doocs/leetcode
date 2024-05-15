@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0296.Best%20Meeting%20Point/README.md
+tags:
+    - 数组
+    - 数学
+    - 矩阵
+    - 排序
+---
+
 # [296. 最佳的碰头地点 🔒](https://leetcode.cn/problems/best-meeting-point)
 
 [English Version](/solution/0200-0299/0296.Best%20Meeting%20Point/README_EN.md)
-
-<!-- tags:数组,数学,矩阵,排序 -->
 
 ## 题目描述
 

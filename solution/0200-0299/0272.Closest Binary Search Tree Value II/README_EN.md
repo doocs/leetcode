@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0272.Closest%20Binary%20Search%20Tree%20Value%20II/README_EN.md
+tags:
+    - Stack
+    - Tree
+    - Depth-First Search
+    - Binary Search Tree
+    - Two Pointers
+    - Binary Tree
+    - Heap (Priority Queue)
+---
+
 # [272. Closest Binary Search Tree Value II 🔒](https://leetcode.com/problems/closest-binary-search-tree-value-ii)
 
 [中文文档](/solution/0200-0299/0272.Closest%20Binary%20Search%20Tree%20Value%20II/README.md)
-
-<!-- tags:Stack,Tree,Depth-First Search,Binary Search Tree,Two Pointers,Binary Tree,Heap (Priority Queue) -->
 
 ## Description
 

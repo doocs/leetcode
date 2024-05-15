@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0659.Split%20Array%20into%20Consecutive%20Subsequences/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Hash Table
+    - Heap (Priority Queue)
+---
+
 # [659. Split Array into Consecutive Subsequences](https://leetcode.com/problems/split-array-into-consecutive-subsequences)
 
 [中文文档](/solution/0600-0699/0659.Split%20Array%20into%20Consecutive%20Subsequences/README.md)
-
-<!-- tags:Greedy,Array,Hash Table,Heap (Priority Queue) -->
 
 ## Description
 

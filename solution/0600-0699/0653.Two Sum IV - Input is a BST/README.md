@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0653.Two%20Sum%20IV%20-%20Input%20is%20a%20BST/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 二叉搜索树
+    - 哈希表
+    - 双指针
+    - 二叉树
+---
+
 # [653. 两数之和 IV - 输入二叉搜索树](https://leetcode.cn/problems/two-sum-iv-input-is-a-bst)
 
 [English Version](/solution/0600-0699/0653.Two%20Sum%20IV%20-%20Input%20is%20a%20BST/README_EN.md)
-
-<!-- tags:树,深度优先搜索,广度优先搜索,二叉搜索树,哈希表,双指针,二叉树 -->
 
 ## 题目描述
 

@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1623.All%20Valid%20Triplets%20That%20Can%20Represent%20a%20Country/README.md
+tags:
+    - 数据库
+---
+
 # [1623. 三人国家代表队 🔒](https://leetcode.cn/problems/all-valid-triplets-that-can-represent-a-country)
 
 [English Version](/solution/1600-1699/1623.All%20Valid%20Triplets%20That%20Can%20Represent%20a%20Country/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

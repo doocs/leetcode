@@ -1,8 +1,21 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2035.Partition%20Array%20Into%20Two%20Arrays%20to%20Minimize%20Sum%20Difference/README.md
+rating: 2489
+tags:
+    - 位运算
+    - 数组
+    - 双指针
+    - 二分查找
+    - 动态规划
+    - 状态压缩
+    - 有序集合
+---
+
 # [2035. 将数组分成两个数组并最小化数组和的差](https://leetcode.cn/problems/partition-array-into-two-arrays-to-minimize-sum-difference)
 
 [English Version](/solution/2000-2099/2035.Partition%20Array%20Into%20Two%20Arrays%20to%20Minimize%20Sum%20Difference/README_EN.md)
-
-<!-- tags:位运算,数组,双指针,二分查找,动态规划,状态压缩,有序集合 -->
 
 ## 题目描述
 

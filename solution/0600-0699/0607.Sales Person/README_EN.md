@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0607.Sales%20Person/README_EN.md
+tags:
+    - Database
+---
+
 # [607. Sales Person](https://leetcode.com/problems/sales-person)
 
 [中文文档](/solution/0600-0699/0607.Sales%20Person/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

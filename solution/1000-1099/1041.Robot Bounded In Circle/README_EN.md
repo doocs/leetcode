@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1041.Robot%20Bounded%20In%20Circle/README_EN.md
+rating: 1521
+tags:
+    - Math
+    - String
+    - Simulation
+---
+
 # [1041. Robot Bounded In Circle](https://leetcode.com/problems/robot-bounded-in-circle)
 
 [中文文档](/solution/1000-1099/1041.Robot%20Bounded%20In%20Circle/README.md)
-
-<!-- tags:Math,String,Simulation -->
 
 ## Description
 

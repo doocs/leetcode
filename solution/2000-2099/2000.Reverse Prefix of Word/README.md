@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2000.Reverse%20Prefix%20of%20Word/README.md
+rating: 1199
+tags:
+    - 双指针
+    - 字符串
+---
+
 # [2000. 反转单词前缀](https://leetcode.cn/problems/reverse-prefix-of-word)
 
 [English Version](/solution/2000-2099/2000.Reverse%20Prefix%20of%20Word/README_EN.md)
-
-<!-- tags:双指针,字符串 -->
 
 ## 题目描述
 

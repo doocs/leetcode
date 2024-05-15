@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1371.Find%20the%20Longest%20Substring%20Containing%20Vowels%20in%20Even%20Counts/README.md
+rating: 2040
+tags:
+    - 位运算
+    - 哈希表
+    - 字符串
+    - 前缀和
+---
+
 # [1371. 每个元音包含偶数次的最长子字符串](https://leetcode.cn/problems/find-the-longest-substring-containing-vowels-in-even-counts)
 
 [English Version](/solution/1300-1399/1371.Find%20the%20Longest%20Substring%20Containing%20Vowels%20in%20Even%20Counts/README_EN.md)
-
-<!-- tags:位运算,哈希表,字符串,前缀和 -->
 
 ## 题目描述
 

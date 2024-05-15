@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1384.Total%20Sales%20Amount%20by%20Year/README.md
+tags:
+    - 数据库
+---
+
 # [1384. 按年度列出销售总额 🔒](https://leetcode.cn/problems/total-sales-amount-by-year)
 
 [English Version](/solution/1300-1399/1384.Total%20Sales%20Amount%20by%20Year/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

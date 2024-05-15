@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1927.Sum%20Game/README.md
+rating: 2004
+tags:
+    - 贪心
+    - 数学
+    - 字符串
+    - 博弈
+---
+
 # [1927. 求和游戏](https://leetcode.cn/problems/sum-game)
 
 [English Version](/solution/1900-1999/1927.Sum%20Game/README_EN.md)
-
-<!-- tags:贪心,数学,字符串,博弈 -->
 
 ## 题目描述
 

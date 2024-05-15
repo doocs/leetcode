@@ -275,7 +275,8 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 3118 | [Friday Purchase III](/solution/3100-3199/3118.Friday%20Purchase%20III/README_EN.md)                                                                                                         | `Database` | Medium     | 🔒     |
 | 3124 | [Find Longest Calls](/solution/3100-3199/3124.Find%20Longest%20Calls/README_EN.md)                                                                                                           | `Database` | Medium     | 🔒     |
 | 3126 | [Server Utilization Time](/solution/3100-3199/3126.Server%20Utilization%20Time/README_EN.md)                                                                                                 | `Database` | Medium     | 🔒     |
-| 3140 | [Consecutive Available Seats II](/solution/3100-3199/3140.Consecutive%20Available%20Seats%20II/README_EN.md)                                                                                 |            | Medium     | 🔒     |
+| 3140 | [Consecutive Available Seats II](/solution/3100-3199/3140.Consecutive%20Available%20Seats%20II/README_EN.md)                                                                                 | `Database` | Medium     | 🔒     |
+| 3150 | [Invalid Tweets II](/solution/3100-3199/3150.Invalid%20Tweets%20II/README_EN.md)                                                                                                             |            | Easy       | 🔒     |
 
 ## Copyright
 

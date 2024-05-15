@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2344.Minimum%20Deletions%20to%20Make%20Array%20Divisible/README.md
+rating: 1640
+tags:
+    - 数组
+    - 数学
+    - 数论
+    - 排序
+    - 堆（优先队列）
+---
+
 # [2344. 使数组可以被整除的最少删除次数](https://leetcode.cn/problems/minimum-deletions-to-make-array-divisible)
 
 [English Version](/solution/2300-2399/2344.Minimum%20Deletions%20to%20Make%20Array%20Divisible/README_EN.md)
-
-<!-- tags:数组,数学,数论,排序,堆（优先队列） -->
 
 ## 题目描述
 

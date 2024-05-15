@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0465.Optimal%20Account%20Balancing/README_EN.md
+tags:
+    - Bit Manipulation
+    - Array
+    - Dynamic Programming
+    - Backtracking
+    - Bitmask
+---
+
 # [465. Optimal Account Balancing 🔒](https://leetcode.com/problems/optimal-account-balancing)
 
 [中文文档](/solution/0400-0499/0465.Optimal%20Account%20Balancing/README.md)
-
-<!-- tags:Bit Manipulation,Array,Dynamic Programming,Backtracking,Bitmask -->
 
 ## Description
 

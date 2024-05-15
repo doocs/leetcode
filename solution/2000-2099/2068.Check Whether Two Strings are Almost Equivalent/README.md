@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2068.Check%20Whether%20Two%20Strings%20are%20Almost%20Equivalent/README.md
+rating: 1273
+tags:
+    - 哈希表
+    - 字符串
+    - 计数
+---
+
 # [2068. 检查两个字符串是否几乎相等](https://leetcode.cn/problems/check-whether-two-strings-are-almost-equivalent)
 
 [English Version](/solution/2000-2099/2068.Check%20Whether%20Two%20Strings%20are%20Almost%20Equivalent/README_EN.md)
-
-<!-- tags:哈希表,字符串,计数 -->
 
 ## 题目描述
 

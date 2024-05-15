@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3133.Minimum%20Array%20End/README.md
+rating: 1934
+tags:
+    - 位运算
+---
+
 # [3133. 数组最后一个元素的最小值](https://leetcode.cn/problems/minimum-array-end)
 
 [English Version](/solution/3100-3199/3133.Minimum%20Array%20End/README_EN.md)
-
-<!-- tags:位运算 -->
 
 ## 题目描述
 

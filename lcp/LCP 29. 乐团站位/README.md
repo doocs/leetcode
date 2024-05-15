@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2029.%20%E4%B9%90%E5%9B%A2%E7%AB%99%E4%BD%8D/README.md
+---
+
 # [LCP 29. 乐团站位](https://leetcode.cn/problems/SNJvJP)
 
 ## 题目描述

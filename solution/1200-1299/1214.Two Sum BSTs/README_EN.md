@@ -1,8 +1,21 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1214.Two%20Sum%20BSTs/README_EN.md
+rating: 1389
+tags:
+    - Stack
+    - Tree
+    - Depth-First Search
+    - Binary Search Tree
+    - Two Pointers
+    - Binary Search
+    - Binary Tree
+---
+
 # [1214. Two Sum BSTs 🔒](https://leetcode.com/problems/two-sum-bsts)
 
 [中文文档](/solution/1200-1299/1214.Two%20Sum%20BSTs/README.md)
-
-<!-- tags:Stack,Tree,Depth-First Search,Binary Search Tree,Two Pointers,Binary Search,Binary Tree -->
 
 ## Description
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3093.Longest%20Common%20Suffix%20Queries/README_EN.md
+rating: 2118
+tags:
+    - Trie
+    - Array
+    - String
+---
+
 # [3093. Longest Common Suffix Queries](https://leetcode.com/problems/longest-common-suffix-queries)
 
 [中文文档](/solution/3000-3099/3093.Longest%20Common%20Suffix%20Queries/README.md)
-
-<!-- tags:Trie,Array,String -->
 
 ## Description
 

@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.06.Animal%20Shelter/README.md
+---
+
 # [面试题 03.06. 动物收容所](https://leetcode.cn/problems/animal-shelter-lcci)
 
 [English Version](/lcci/03.06.Animal%20Shelter/README_EN.md)

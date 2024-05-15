@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3049.Earliest%20Second%20to%20Mark%20Indices%20II/README.md
+rating: 3111
+tags:
+    - 贪心
+    - 数组
+    - 二分查找
+    - 堆（优先队列）
+---
+
 # [3049. 标记所有下标的最早秒数 II](https://leetcode.cn/problems/earliest-second-to-mark-indices-ii)
 
 [English Version](/solution/3000-3099/3049.Earliest%20Second%20to%20Mark%20Indices%20II/README_EN.md)
-
-<!-- tags:贪心,数组,二分查找,堆（优先队列） -->
 
 ## 题目描述
 

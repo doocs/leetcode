@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2493.Divide%20Nodes%20Into%20the%20Maximum%20Number%20of%20Groups/README_EN.md
+rating: 2415
+tags:
+    - Breadth-First Search
+    - Union Find
+    - Graph
+---
+
 # [2493. Divide Nodes Into the Maximum Number of Groups](https://leetcode.com/problems/divide-nodes-into-the-maximum-number-of-groups)
 
 [中文文档](/solution/2400-2499/2493.Divide%20Nodes%20Into%20the%20Maximum%20Number%20of%20Groups/README.md)
-
-<!-- tags:Breadth-First Search,Union Find,Graph -->
 
 ## Description
 

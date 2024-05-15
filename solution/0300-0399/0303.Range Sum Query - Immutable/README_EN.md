@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0303.Range%20Sum%20Query%20-%20Immutable/README_EN.md
+tags:
+    - Design
+    - Array
+    - Prefix Sum
+---
+
 # [303. Range Sum Query - Immutable](https://leetcode.com/problems/range-sum-query-immutable)
 
 [中文文档](/solution/0300-0399/0303.Range%20Sum%20Query%20-%20Immutable/README.md)
-
-<!-- tags:Design,Array,Prefix Sum -->
 
 ## Description
 

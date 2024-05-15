@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0565.Array%20Nesting/README_EN.md
+tags:
+    - Depth-First Search
+    - Array
+---
+
 # [565. Array Nesting](https://leetcode.com/problems/array-nesting)
 
 [中文文档](/solution/0500-0599/0565.Array%20Nesting/README.md)
-
-<!-- tags:Depth-First Search,Array -->
 
 ## Description
 

@@ -1,16 +1,22 @@
 public class Solution {
     public int GarbageCollection(string[] garbage, int[] travel) {
-        int len = garbage.Length;
-        int res = 0;
-        HashSet<char> s = new HashSet<char>();
-        for (int i = len - 1; i >= 0; i--) {
-            foreach (char ch in garbage[i].ToCharArray()) {
-                if (!s.Contains(ch))
-                    s.Add(ch);
+        Dictionary<char, int> last = new Dictionary<char, int>();
+        int ans = 0;
+        for (int i = 0; i < garbage.Length; ++i) {
+            ans += garbage[i].Length;
+            foreach (char c in garbage[i]) {
+                last[c] = i;
             }
-            res += garbage[i].Length;
-            res += i > 0 ? s.Count * travel[i - 1] : 0;
         }
-        return res;
+        int ts = 0;
+        for (int i = 1; i <= travel.Length; ++i) {
+            ts += travel[i - 1];
+            foreach (int j in last.Values) {
+                if (i == j) {
+                    ans += ts;
+                }
+            }
+        }
+        return ans;
     }
 }

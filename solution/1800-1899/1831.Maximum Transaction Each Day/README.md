@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1831.Maximum%20Transaction%20Each%20Day/README.md
+tags:
+    - 数据库
+---
+
 # [1831. 每天的最大交易 🔒](https://leetcode.cn/problems/maximum-transaction-each-day)
 
 [English Version](/solution/1800-1899/1831.Maximum%20Transaction%20Each%20Day/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

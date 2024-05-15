@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1644.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree%20II/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 二叉树
+---
+
 # [1644. 二叉树的最近公共祖先 II 🔒](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree-ii)
 
 [English Version](/solution/1600-1699/1644.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree%20II/README_EN.md)
-
-<!-- tags:树,深度优先搜索,二叉树 -->
 
 ## 题目描述
 

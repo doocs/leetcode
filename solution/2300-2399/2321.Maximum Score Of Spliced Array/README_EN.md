@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2321.Maximum%20Score%20Of%20Spliced%20Array/README_EN.md
+rating: 1790
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [2321. Maximum Score Of Spliced Array](https://leetcode.com/problems/maximum-score-of-spliced-array)
 
 [中文文档](/solution/2300-2399/2321.Maximum%20Score%20Of%20Spliced%20Array/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
 
 ## Description
 

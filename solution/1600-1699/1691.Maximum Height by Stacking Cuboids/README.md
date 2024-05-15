@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1691.Maximum%20Height%20by%20Stacking%20Cuboids/README.md
+rating: 2171
+tags:
+    - 数组
+    - 动态规划
+    - 排序
+---
+
 # [1691. 堆叠长方体的最大高度](https://leetcode.cn/problems/maximum-height-by-stacking-cuboids)
 
 [English Version](/solution/1600-1699/1691.Maximum%20Height%20by%20Stacking%20Cuboids/README_EN.md)
-
-<!-- tags:数组,动态规划,排序 -->
 
 ## 题目描述
 

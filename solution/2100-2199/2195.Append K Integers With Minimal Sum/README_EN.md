@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2195.Append%20K%20Integers%20With%20Minimal%20Sum/README_EN.md
+rating: 1658
+tags:
+    - Greedy
+    - Array
+    - Math
+    - Sorting
+---
+
 # [2195. Append K Integers With Minimal Sum](https://leetcode.com/problems/append-k-integers-with-minimal-sum)
 
 [中文文档](/solution/2100-2199/2195.Append%20K%20Integers%20With%20Minimal%20Sum/README.md)
-
-<!-- tags:Greedy,Array,Math,Sorting -->
 
 ## Description
 
@@ -41,49 +51,44 @@ The sum of the six integers appended is 1 + 2 + 3 + 4 + 7 + 8 = 25, so we return
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Sorting + Greedy + Mathematics
+
+We can add two sentinel nodes to the array, which are $0$ and $2 \times 10^9$.
+
+Then we sort the array. For any two adjacent elements $a$ and $b$ in the array, the integers in the interval $[a+1, b-1]$ do not appear in the array, and we can add these integers to the array.
+
+Therefore, we traverse the adjacent element pairs $(a, b)$ in the array from small to large. For each adjacent element pair, we calculate the number of integers $m$ in the interval $[a+1, b-1]$. The sum of these $m$ integers is $\frac{m \times (a+1 + a+m)}{2}$. We add this sum to the answer and subtract $m$ from $k$. If $k$ is reduced to $0$, we can stop the traversal and return the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def minimalKSum(self, nums: List[int], k: int) -> int:
-        nums.append(0)
-        nums.append(2 * 10**9)
+        nums.extend([0, 2 * 10**9])
         nums.sort()
         ans = 0
         for a, b in pairwise(nums):
-            n = min(k, b - a - 1)
-            if n <= 0:
-                continue
-            k -= n
-            ans += (a + 1 + a + n) * n // 2
-            if k == 0:
-                break
+            m = max(0, min(k, b - a - 1))
+            ans += (a + 1 + a + m) * m // 2
+            k -= m
         return ans
 ```
 
 ```java
 class Solution {
     public long minimalKSum(int[] nums, int k) {
-        int[] arr = new int[nums.length + 2];
-        arr[arr.length - 1] = (int) 2e9;
-        for (int i = 0; i < nums.length; ++i) {
-            arr[i + 1] = nums[i];
-        }
+        int n = nums.length;
+        int[] arr = new int[n + 2];
+        arr[1] = 2 * 1000000000;
+        System.arraycopy(nums, 0, arr, 2, n);
         Arrays.sort(arr);
         long ans = 0;
-        for (int i = 1; i < arr.length; ++i) {
-            int a = arr[i - 1], b = arr[i];
-            int n = Math.min(k, b - a - 1);
-            if (n <= 0) {
-                continue;
-            }
-            k -= n;
-            ans += (long) (a + 1 + a + n) * n / 2;
-            if (k == 0) {
-                break;
-            }
+        for (int i = 0; i < n + 1 && k > 0; ++i) {
+            int m = Math.max(0, Math.min(k, arr[i + 1] - arr[i] - 1));
+            ans += (arr[i] + 1L + arr[i] + m) * m / 2;
+            k -= m;
         }
         return ans;
     }
@@ -98,13 +103,10 @@ public:
         nums.push_back(2e9);
         sort(nums.begin(), nums.end());
         long long ans = 0;
-        for (int i = 1; i < nums.size(); ++i) {
-            int a = nums[i - 1], b = nums[i];
-            int n = min(k, b - a - 1);
-            if (n <= 0) continue;
-            k -= n;
-            ans += 1ll * (a + 1 + a + n) * n / 2;
-            if (k == 0) break;
+        for (int i = 0; i < nums.size() - 1 && k > 0; ++i) {
+            int m = max(0, min(k, nums[i + 1] - nums[i] - 1));
+            ans += 1LL * (nums[i] + 1 + nums[i] + m) * m / 2;
+            k -= m;
         }
         return ans;
     }
@@ -112,23 +114,30 @@ public:
 ```
 
 ```go
-func minimalKSum(nums []int, k int) int64 {
-	nums = append(nums, 0, 2e9)
+func minimalKSum(nums []int, k int) (ans int64) {
+	nums = append(nums, []int{0, 2e9}...)
 	sort.Ints(nums)
-	ans := 0
-	for i := 1; i < len(nums); i++ {
-		a, b := nums[i-1], nums[i]
-		n := min(k, b-a-1)
-		if n <= 0 {
-			continue
-		}
-		k -= n
-		ans += (a + 1 + a + n) * n / 2
-		if k == 0 {
-			break
-		}
+	for i, b := range nums[1:] {
+		a := nums[i]
+		m := max(0, min(k, b-a-1))
+		ans += int64(a+1+a+m) * int64(m) / 2
+		k -= m
 	}
-	return int64(ans)
+	return ans
+}
+```
+
+```ts
+function minimalKSum(nums: number[], k: number): number {
+    nums.push(...[0, 2 * 10 ** 9]);
+    nums.sort((a, b) => a - b);
+    let ans = 0;
+    for (let i = 0; i < nums.length - 1; ++i) {
+        const m = Math.max(0, Math.min(k, nums[i + 1] - nums[i] - 1));
+        ans += Number((BigInt(nums[i] + 1 + nums[i] + m) * BigInt(m)) / BigInt(2));
+        k -= m;
+    }
+    return ans;
 }
 ```
 

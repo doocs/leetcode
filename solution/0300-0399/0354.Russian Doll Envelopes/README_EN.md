@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0354.Russian%20Doll%20Envelopes/README_EN.md
+tags:
+    - Array
+    - Binary Search
+    - Dynamic Programming
+    - Sorting
+---
+
 # [354. Russian Doll Envelopes](https://leetcode.com/problems/russian-doll-envelopes)
 
 [中文文档](/solution/0300-0399/0354.Russian%20Doll%20Envelopes/README.md)
-
-<!-- tags:Array,Binary Search,Dynamic Programming,Sorting -->
 
 ## Description
 

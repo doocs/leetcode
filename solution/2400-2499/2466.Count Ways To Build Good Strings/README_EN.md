@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2466.Count%20Ways%20To%20Build%20Good%20Strings/README_EN.md
+rating: 1694
+tags:
+    - Dynamic Programming
+---
+
 # [2466. Count Ways To Build Good Strings](https://leetcode.com/problems/count-ways-to-build-good-strings)
 
 [中文文档](/solution/2400-2499/2466.Count%20Ways%20To%20Build%20Good%20Strings/README.md)
-
-<!-- tags:Dynamic Programming -->
 
 ## Description
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2865.Beautiful%20Towers%20I/README_EN.md
+rating: 1519
+tags:
+    - Stack
+    - Array
+    - Monotonic Stack
+---
+
 # [2865. Beautiful Towers I](https://leetcode.com/problems/beautiful-towers-i)
 
 [中文文档](/solution/2800-2899/2865.Beautiful%20Towers%20I/README.md)
-
-<!-- tags:Stack,Array,Monotonic Stack -->
 
 ## Description
 

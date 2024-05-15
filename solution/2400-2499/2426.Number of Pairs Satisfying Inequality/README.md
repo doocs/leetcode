@@ -1,8 +1,21 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2426.Number%20of%20Pairs%20Satisfying%20Inequality/README.md
+rating: 2030
+tags:
+    - 树状数组
+    - 线段树
+    - 数组
+    - 二分查找
+    - 分治
+    - 有序集合
+    - 归并排序
+---
+
 # [2426. 满足不等式的数对数目](https://leetcode.cn/problems/number-of-pairs-satisfying-inequality)
 
 [English Version](/solution/2400-2499/2426.Number%20of%20Pairs%20Satisfying%20Inequality/README_EN.md)
-
-<!-- tags:树状数组,线段树,数组,二分查找,分治,有序集合,归并排序 -->
 
 ## 题目描述
 

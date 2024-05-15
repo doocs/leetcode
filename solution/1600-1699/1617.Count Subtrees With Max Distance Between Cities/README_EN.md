@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1617.Count%20Subtrees%20With%20Max%20Distance%20Between%20Cities/README_EN.md
+rating: 2308
+tags:
+    - Bit Manipulation
+    - Tree
+    - Dynamic Programming
+    - Bitmask
+    - Enumeration
+---
+
 # [1617. Count Subtrees With Max Distance Between Cities](https://leetcode.com/problems/count-subtrees-with-max-distance-between-cities)
 
 [中文文档](/solution/1600-1699/1617.Count%20Subtrees%20With%20Max%20Distance%20Between%20Cities/README.md)
-
-<!-- tags:Bit Manipulation,Tree,Dynamic Programming,Bitmask,Enumeration -->
 
 ## Description
 

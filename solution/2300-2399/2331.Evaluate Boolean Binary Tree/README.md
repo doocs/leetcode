@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2331.Evaluate%20Boolean%20Binary%20Tree/README.md
+rating: 1303
+tags:
+    - 树
+    - 深度优先搜索
+    - 二叉树
+---
+
 # [2331. 计算布尔二叉树的值](https://leetcode.cn/problems/evaluate-boolean-binary-tree)
 
 [English Version](/solution/2300-2399/2331.Evaluate%20Boolean%20Binary%20Tree/README_EN.md)
-
-<!-- tags:树,深度优先搜索,二叉树 -->
 
 ## 题目描述
 

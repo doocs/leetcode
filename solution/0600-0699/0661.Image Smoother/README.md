@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0661.Image%20Smoother/README.md
+tags:
+    - 数组
+    - 矩阵
+---
+
 # [661. 图片平滑器](https://leetcode.cn/problems/image-smoother)
 
 [English Version](/solution/0600-0699/0661.Image%20Smoother/README_EN.md)
-
-<!-- tags:数组,矩阵 -->
 
 ## 题目描述
 

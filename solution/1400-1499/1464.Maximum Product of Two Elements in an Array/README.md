@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1464.Maximum%20Product%20of%20Two%20Elements%20in%20an%20Array/README.md
+rating: 1121
+tags:
+    - 数组
+    - 排序
+    - 堆（优先队列）
+---
+
 # [1464. 数组中两元素的最大乘积](https://leetcode.cn/problems/maximum-product-of-two-elements-in-an-array)
 
 [English Version](/solution/1400-1499/1464.Maximum%20Product%20of%20Two%20Elements%20in%20an%20Array/README_EN.md)
-
-<!-- tags:数组,排序,堆（优先队列） -->
 
 ## 题目描述
 

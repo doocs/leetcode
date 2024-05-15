@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0224.Basic%20Calculator/README.md
+tags:
+    - 栈
+    - 递归
+    - 数学
+    - 字符串
+---
+
 # [224. 基本计算器](https://leetcode.cn/problems/basic-calculator)
 
 [English Version](/solution/0200-0299/0224.Basic%20Calculator/README_EN.md)
-
-<!-- tags:栈,递归,数学,字符串 -->
 
 ## 题目描述
 

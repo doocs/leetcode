@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2303.Calculate%20Amount%20Paid%20in%20Taxes/README_EN.md
+rating: 1283
+tags:
+    - Array
+    - Simulation
+---
+
 # [2303. Calculate Amount Paid in Taxes](https://leetcode.com/problems/calculate-amount-paid-in-taxes)
 
 [中文文档](/solution/2300-2399/2303.Calculate%20Amount%20Paid%20in%20Taxes/README.md)
-
-<!-- tags:Array,Simulation -->
 
 ## Description
 

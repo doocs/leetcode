@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20024.%20%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/README.md
+---
+
 # [剑指 Offer II 024. 反转链表](https://leetcode.cn/problems/UHnkqh)
 
 ## 题目描述

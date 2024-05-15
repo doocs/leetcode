@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1157.Online%20Majority%20Element%20In%20Subarray/README.md
+rating: 2205
+tags:
+    - 设计
+    - 树状数组
+    - 线段树
+    - 数组
+    - 二分查找
+---
+
 # [1157. 子数组中占绝大多数的元素](https://leetcode.cn/problems/online-majority-element-in-subarray)
 
 [English Version](/solution/1100-1199/1157.Online%20Majority%20Element%20In%20Subarray/README_EN.md)
-
-<!-- tags:设计,树状数组,线段树,数组,二分查找 -->
 
 ## 题目描述
 

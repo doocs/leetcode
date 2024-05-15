@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2549.Count%20Distinct%20Numbers%20on%20Board/README.md
+rating: 1265
+tags:
+    - 数组
+    - 哈希表
+    - 数学
+    - 模拟
+---
+
 # [2549. 统计桌面上的不同数字](https://leetcode.cn/problems/count-distinct-numbers-on-board)
 
 [English Version](/solution/2500-2599/2549.Count%20Distinct%20Numbers%20on%20Board/README_EN.md)
-
-<!-- tags:数组,哈希表,数学,模拟 -->
 
 ## 题目描述
 

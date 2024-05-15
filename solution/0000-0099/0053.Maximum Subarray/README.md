@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0053.Maximum%20Subarray/README.md
+tags:
+    - 数组
+    - 分治
+    - 动态规划
+---
+
 # [53. 最大子数组和](https://leetcode.cn/problems/maximum-subarray)
 
 [English Version](/solution/0000-0099/0053.Maximum%20Subarray/README_EN.md)
-
-<!-- tags:数组,分治,动态规划 -->
 
 ## 题目描述
 

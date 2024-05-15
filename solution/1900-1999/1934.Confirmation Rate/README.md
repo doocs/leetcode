@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1934.Confirmation%20Rate/README.md
+tags:
+    - 数据库
+---
+
 # [1934. 确认率](https://leetcode.cn/problems/confirmation-rate)
 
 [English Version](/solution/1900-1999/1934.Confirmation%20Rate/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

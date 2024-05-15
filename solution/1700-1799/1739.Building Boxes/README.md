@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1739.Building%20Boxes/README.md
+rating: 2198
+tags:
+    - 贪心
+    - 数学
+    - 二分查找
+---
+
 # [1739. 放置盒子](https://leetcode.cn/problems/building-boxes)
 
 [English Version](/solution/1700-1799/1739.Building%20Boxes/README_EN.md)
-
-<!-- tags:贪心,数学,二分查找 -->
 
 ## 题目描述
 

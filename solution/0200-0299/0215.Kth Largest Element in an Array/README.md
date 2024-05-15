@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0215.Kth%20Largest%20Element%20in%20an%20Array/README.md
+tags:
+    - 数组
+    - 分治
+    - 快速选择
+    - 排序
+    - 堆（优先队列）
+---
+
 # [215. 数组中的第 K 个最大元素](https://leetcode.cn/problems/kth-largest-element-in-an-array)
 
 [English Version](/solution/0200-0299/0215.Kth%20Largest%20Element%20in%20an%20Array/README_EN.md)
-
-<!-- tags:数组,分治,快速选择,排序,堆（优先队列） -->
 
 ## 题目描述
 

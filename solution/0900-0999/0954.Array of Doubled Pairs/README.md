@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0954.Array%20of%20Doubled%20Pairs/README.md
+tags:
+    - 贪心
+    - 数组
+    - 哈希表
+    - 排序
+---
+
 # [954. 二倍数对数组](https://leetcode.cn/problems/array-of-doubled-pairs)
 
 [English Version](/solution/0900-0999/0954.Array%20of%20Doubled%20Pairs/README_EN.md)
-
-<!-- tags:贪心,数组,哈希表,排序 -->
 
 ## 题目描述
 

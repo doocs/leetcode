@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1529.Minimum%20Suffix%20Flips/README.md
+rating: 1392
+tags:
+    - 贪心
+    - 字符串
+---
+
 # [1529. 最少的后缀翻转次数](https://leetcode.cn/problems/minimum-suffix-flips)
 
 [English Version](/solution/1500-1599/1529.Minimum%20Suffix%20Flips/README_EN.md)
-
-<!-- tags:贪心,字符串 -->
 
 ## 题目描述
 

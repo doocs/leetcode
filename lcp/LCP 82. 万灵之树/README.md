@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2082.%20%E4%B8%87%E7%81%B5%E4%B9%8B%E6%A0%91/README.md
+---
+
 # [LCP 82. 万灵之树](https://leetcode.cn/problems/cnHoX6)
 
 ## 题目描述
@@ -53,7 +59,7 @@
 > 满足条件的组合有四种情况：
 > 当结构为下图（1）时：叶子节点的值为 [3,3,21] 或 [3,3,21]，得到的整数为 `11139139912199`。
 > 当结构为下图（2）时：叶子节点的值为 [21,3,3] 或 [21,3,3]，得到的整数为 `11219113913999`。
-> ![image.png](https://pic.leetcode.cn/1682322894-vfqJIV-image.png){:width=500px}
+> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2082.%20%E4%B8%87%E7%81%B5%E4%B9%8B%E6%A0%91/images/1682322894-vfqJIV-image.png){:width=500px}
 
 **提示：**
 

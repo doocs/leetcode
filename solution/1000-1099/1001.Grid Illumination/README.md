@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1001.Grid%20Illumination/README.md
+rating: 1873
+tags:
+    - 数组
+    - 哈希表
+---
+
 # [1001. 网格照明](https://leetcode.cn/problems/grid-illumination)
 
 [English Version](/solution/1000-1099/1001.Grid%20Illumination/README_EN.md)
-
-<!-- tags:数组,哈希表 -->
 
 ## 题目描述
 

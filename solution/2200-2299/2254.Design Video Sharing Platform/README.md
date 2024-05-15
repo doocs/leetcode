@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2254.Design%20Video%20Sharing%20Platform/README.md
+tags:
+    - 栈
+    - 设计
+    - 哈希表
+    - 有序集合
+---
+
 # [2254. 设计视频共享平台 🔒](https://leetcode.cn/problems/design-video-sharing-platform)
 
 [English Version](/solution/2200-2299/2254.Design%20Video%20Sharing%20Platform/README_EN.md)
-
-<!-- tags:栈,设计,哈希表,有序集合 -->
 
 ## 题目描述
 

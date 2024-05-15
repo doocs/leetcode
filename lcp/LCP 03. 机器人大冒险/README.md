@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2003.%20%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%A4%A7%E5%86%92%E9%99%A9/README.md
+---
+
 # [LCP 03. 机器人大冒险](https://leetcode.cn/problems/programmable-robot)
 
 ## 题目描述

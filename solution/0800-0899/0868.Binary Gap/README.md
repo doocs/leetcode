@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0868.Binary%20Gap/README.md
+tags:
+    - 位运算
+---
+
 # [868. 二进制间距](https://leetcode.cn/problems/binary-gap)
 
 [English Version](/solution/0800-0899/0868.Binary%20Gap/README_EN.md)
-
-<!-- tags:位运算 -->
 
 ## 题目描述
 

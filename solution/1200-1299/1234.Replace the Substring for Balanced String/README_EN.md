@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1234.Replace%20the%20Substring%20for%20Balanced%20String/README_EN.md
+rating: 1877
+tags:
+    - String
+    - Sliding Window
+---
+
 # [1234. Replace the Substring for Balanced String](https://leetcode.com/problems/replace-the-substring-for-balanced-string)
 
 [中文文档](/solution/1200-1299/1234.Replace%20the%20Substring%20for%20Balanced%20String/README.md)
-
-<!-- tags:String,Sliding Window -->
 
 ## Description
 

@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1194.Tournament%20Winners/README_EN.md
+tags:
+    - Database
+---
+
 # [1194. Tournament Winners 🔒](https://leetcode.com/problems/tournament-winners)
 
 [中文文档](/solution/1100-1199/1194.Tournament%20Winners/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

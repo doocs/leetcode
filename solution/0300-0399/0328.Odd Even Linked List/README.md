@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0328.Odd%20Even%20Linked%20List/README.md
+tags:
+    - 链表
+---
+
 # [328. 奇偶链表](https://leetcode.cn/problems/odd-even-linked-list)
 
 [English Version](/solution/0300-0399/0328.Odd%20Even%20Linked%20List/README_EN.md)
-
-<!-- tags:链表 -->
 
 ## 题目描述
 

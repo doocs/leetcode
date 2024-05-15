@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2235.Add%20Two%20Integers/README_EN.md
+tags:
+    - Math
+---
+
 # [2235. Add Two Integers](https://leetcode.com/problems/add-two-integers)
 
 [中文文档](/solution/2200-2299/2235.Add%20Two%20Integers/README.md)
-
-<!-- tags:Math -->
 
 ## Description
 

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1915.Number%20of%20Wonderful%20Substrings/README_EN.md
+rating: 2234
+tags:
+    - Bit Manipulation
+    - Hash Table
+    - String
+    - Prefix Sum
+---
+
 # [1915. Number of Wonderful Substrings](https://leetcode.com/problems/number-of-wonderful-substrings)
 
 [中文文档](/solution/1900-1999/1915.Number%20of%20Wonderful%20Substrings/README.md)
-
-<!-- tags:Bit Manipulation,Hash Table,String,Prefix Sum -->
 
 ## Description
 

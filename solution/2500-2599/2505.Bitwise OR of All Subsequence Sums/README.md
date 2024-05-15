@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2505.Bitwise%20OR%20of%20All%20Subsequence%20Sums/README.md
+tags:
+    - 位运算
+    - 脑筋急转弯
+    - 数组
+    - 数学
+---
+
 # [2505. 所有子序列和的按位或 🔒](https://leetcode.cn/problems/bitwise-or-of-all-subsequence-sums)
 
 [English Version](/solution/2500-2599/2505.Bitwise%20OR%20of%20All%20Subsequence%20Sums/README_EN.md)
-
-<!-- tags:位运算,脑筋急转弯,数组,数学 -->
 
 ## 题目描述
 

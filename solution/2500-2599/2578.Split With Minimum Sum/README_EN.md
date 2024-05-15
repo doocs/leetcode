@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2578.Split%20With%20Minimum%20Sum/README_EN.md
+rating: 1350
+tags:
+    - Greedy
+    - Math
+    - Sorting
+---
+
 # [2578. Split With Minimum Sum](https://leetcode.com/problems/split-with-minimum-sum)
 
 [中文文档](/solution/2500-2599/2578.Split%20With%20Minimum%20Sum/README.md)
-
-<!-- tags:Greedy,Math,Sorting -->
 
 ## Description
 
@@ -34,7 +43,7 @@
 <pre>
 <strong>Input:</strong> num = 4325
 <strong>Output:</strong> 59
-<strong>Explanation:</strong> We can split 4325 so that <code>num1 </code>is 24 and num2<code> is </code>35, giving a sum of 59. We can prove that 59 is indeed the minimal possible sum.
+<strong>Explanation:</strong> We can split 4325 so that <code>num1</code> is 24 and <code>num2</code> is 35, giving a sum of 59. We can prove that 59 is indeed the minimal possible sum.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -42,7 +51,7 @@
 <pre>
 <strong>Input:</strong> num = 687
 <strong>Output:</strong> 75
-<strong>Explanation:</strong> We can split 687 so that <code>num1</code> is 68 and <code>num2 </code>is 7, which would give an optimal sum of 75.
+<strong>Explanation:</strong> We can split 687 so that <code>num1</code> is 68 and <code>num2</code> is 7, which would give an optimal sum of 75.
 </pre>
 
 <p>&nbsp;</p>

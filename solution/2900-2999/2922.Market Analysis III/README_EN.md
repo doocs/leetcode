@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2922.Market%20Analysis%20III/README_EN.md
+tags:
+    - Database
+---
+
 # [2922. Market Analysis III 🔒](https://leetcode.com/problems/market-analysis-iii)
 
 [中文文档](/solution/2900-2999/2922.Market%20Analysis%20III/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

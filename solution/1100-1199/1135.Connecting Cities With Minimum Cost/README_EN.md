@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1135.Connecting%20Cities%20With%20Minimum%20Cost/README_EN.md
+rating: 1752
+tags:
+    - Union Find
+    - Graph
+    - Minimum Spanning Tree
+    - Heap (Priority Queue)
+---
+
 # [1135. Connecting Cities With Minimum Cost 🔒](https://leetcode.com/problems/connecting-cities-with-minimum-cost)
 
 [中文文档](/solution/1100-1199/1135.Connecting%20Cities%20With%20Minimum%20Cost/README.md)
-
-<!-- tags:Union Find,Graph,Minimum Spanning Tree,Heap (Priority Queue) -->
 
 ## Description
 

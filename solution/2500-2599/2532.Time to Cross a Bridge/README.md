@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2532.Time%20to%20Cross%20a%20Bridge/README.md
+rating: 2588
+tags:
+    - 数组
+    - 模拟
+    - 堆（优先队列）
+---
+
 # [2532. 过桥的时间](https://leetcode.cn/problems/time-to-cross-a-bridge)
 
 [English Version](/solution/2500-2599/2532.Time%20to%20Cross%20a%20Bridge/README_EN.md)
-
-<!-- tags:数组,模拟,堆（优先队列） -->
 
 ## 题目描述
 

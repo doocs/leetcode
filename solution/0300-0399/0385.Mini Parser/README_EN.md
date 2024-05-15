@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0385.Mini%20Parser/README_EN.md
+tags:
+    - Stack
+    - Depth-First Search
+    - String
+---
+
 # [385. Mini Parser](https://leetcode.com/problems/mini-parser)
 
 [中文文档](/solution/0300-0399/0385.Mini%20Parser/README.md)
-
-<!-- tags:Stack,Depth-First Search,String -->
 
 ## Description
 

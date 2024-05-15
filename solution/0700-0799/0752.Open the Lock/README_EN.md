@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0752.Open%20the%20Lock/README_EN.md
+tags:
+    - Breadth-First Search
+    - Array
+    - Hash Table
+    - String
+---
+
 # [752. Open the Lock](https://leetcode.com/problems/open-the-lock)
 
 [中文文档](/solution/0700-0799/0752.Open%20the%20Lock/README.md)
-
-<!-- tags:Breadth-First Search,Array,Hash Table,String -->
 
 ## Description
 

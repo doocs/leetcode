@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2001.Number%20of%20Pairs%20of%20Interchangeable%20Rectangles/README_EN.md
+rating: 1435
+tags:
+    - Array
+    - Hash Table
+    - Math
+    - Counting
+    - Number Theory
+---
+
 # [2001. Number of Pairs of Interchangeable Rectangles](https://leetcode.com/problems/number-of-pairs-of-interchangeable-rectangles)
 
 [中文文档](/solution/2000-2099/2001.Number%20of%20Pairs%20of%20Interchangeable%20Rectangles/README.md)
-
-<!-- tags:Array,Hash Table,Math,Counting,Number Theory -->
 
 ## Description
 

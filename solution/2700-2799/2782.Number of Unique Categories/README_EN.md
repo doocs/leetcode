@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2782.Number%20of%20Unique%20Categories/README_EN.md
+tags:
+    - Union Find
+    - Counting
+    - Interactive
+---
+
 # [2782. Number of Unique Categories 🔒](https://leetcode.com/problems/number-of-unique-categories)
 
 [中文文档](/solution/2700-2799/2782.Number%20of%20Unique%20Categories/README.md)
-
-<!-- tags:Union Find,Counting,Interactive -->
 
 ## Description
 

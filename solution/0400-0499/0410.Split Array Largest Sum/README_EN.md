@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0410.Split%20Array%20Largest%20Sum/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Binary Search
+    - Dynamic Programming
+    - Prefix Sum
+---
+
 # [410. Split Array Largest Sum](https://leetcode.com/problems/split-array-largest-sum)
 
 [中文文档](/solution/0400-0499/0410.Split%20Array%20Largest%20Sum/README.md)
-
-<!-- tags:Greedy,Array,Binary Search,Dynamic Programming,Prefix Sum -->
 
 ## Description
 

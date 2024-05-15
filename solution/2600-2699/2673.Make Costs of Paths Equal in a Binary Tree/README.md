@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2673.Make%20Costs%20of%20Paths%20Equal%20in%20a%20Binary%20Tree/README.md
+rating: 1917
+tags:
+    - 贪心
+    - 树
+    - 数组
+    - 动态规划
+    - 二叉树
+---
+
 # [2673. 使二叉树所有路径值相等的最小代价](https://leetcode.cn/problems/make-costs-of-paths-equal-in-a-binary-tree)
 
 [English Version](/solution/2600-2699/2673.Make%20Costs%20of%20Paths%20Equal%20in%20a%20Binary%20Tree/README_EN.md)
-
-<!-- tags:贪心,树,数组,动态规划,二叉树 -->
 
 ## 题目描述
 

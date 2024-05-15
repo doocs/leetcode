@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2322.Minimum%20Score%20After%20Removals%20on%20a%20Tree/README.md
+rating: 2391
+tags:
+    - 位运算
+    - 树
+    - 深度优先搜索
+    - 数组
+---
+
 # [2322. 从树中删除边的最小分数](https://leetcode.cn/problems/minimum-score-after-removals-on-a-tree)
 
 [English Version](/solution/2300-2399/2322.Minimum%20Score%20After%20Removals%20on%20a%20Tree/README_EN.md)
-
-<!-- tags:位运算,树,深度优先搜索,数组 -->
 
 ## 题目描述
 

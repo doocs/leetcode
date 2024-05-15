@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2409.Count%20Days%20Spent%20Together/README_EN.md
+rating: 1562
+tags:
+    - Math
+    - String
+---
+
 # [2409. Count Days Spent Together](https://leetcode.com/problems/count-days-spent-together)
 
 [中文文档](/solution/2400-2499/2409.Count%20Days%20Spent%20Together/README.md)
-
-<!-- tags:Math,String -->
 
 ## Description
 

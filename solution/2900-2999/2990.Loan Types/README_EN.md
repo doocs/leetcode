@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2990.Loan%20Types/README_EN.md
+tags:
+    - Database
+---
+
 # [2990. Loan Types 🔒](https://leetcode.com/problems/loan-types)
 
 [中文文档](/solution/2900-2999/2990.Loan%20Types/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

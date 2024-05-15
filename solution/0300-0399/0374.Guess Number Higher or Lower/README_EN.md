@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0374.Guess%20Number%20Higher%20or%20Lower/README_EN.md
+tags:
+    - Binary Search
+    - Interactive
+---
+
 # [374. Guess Number Higher or Lower](https://leetcode.com/problems/guess-number-higher-or-lower)
 
 [中文文档](/solution/0300-0399/0374.Guess%20Number%20Higher%20or%20Lower/README.md)
-
-<!-- tags:Binary Search,Interactive -->
 
 ## Description
 
@@ -180,7 +187,6 @@ function guessNumber(n: number): number {
 ```
 
 ```rust
-
 /**
  * Forward declaration of guess API.
  * @param  num   your guess

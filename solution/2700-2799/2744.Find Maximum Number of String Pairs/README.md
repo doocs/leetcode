@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2744.Find%20Maximum%20Number%20of%20String%20Pairs/README.md
+rating: 1405
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+    - 模拟
+---
+
 # [2744. 最大字符串配对数目](https://leetcode.cn/problems/find-maximum-number-of-string-pairs)
 
 [English Version](/solution/2700-2799/2744.Find%20Maximum%20Number%20of%20String%20Pairs/README_EN.md)
-
-<!-- tags:数组,哈希表,字符串,模拟 -->
 
 ## 题目描述
 

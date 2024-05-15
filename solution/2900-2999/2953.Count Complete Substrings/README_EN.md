@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2953.Count%20Complete%20Substrings/README_EN.md
+rating: 2449
+tags:
+    - Hash Table
+    - String
+    - Sliding Window
+---
+
 # [2953. Count Complete Substrings](https://leetcode.com/problems/count-complete-substrings)
 
 [中文文档](/solution/2900-2999/2953.Count%20Complete%20Substrings/README.md)
-
-<!-- tags:Hash Table,String,Sliding Window -->
 
 ## Description
 

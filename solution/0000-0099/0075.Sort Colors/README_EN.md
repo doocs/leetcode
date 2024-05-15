@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0075.Sort%20Colors/README_EN.md
+tags:
+    - Array
+    - Two Pointers
+    - Sorting
+---
+
 # [75. Sort Colors](https://leetcode.com/problems/sort-colors)
 
 [中文文档](/solution/0000-0099/0075.Sort%20Colors/README.md)
-
-<!-- tags:Array,Two Pointers,Sorting -->
 
 ## Description
 

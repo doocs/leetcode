@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2748.Number%20of%20Beautiful%20Pairs/README.md
+rating: 1301
+tags:
+    - 数组
+    - 数学
+    - 数论
+---
+
 # [2748. 美丽下标对的数目](https://leetcode.cn/problems/number-of-beautiful-pairs)
 
 [English Version](/solution/2700-2799/2748.Number%20of%20Beautiful%20Pairs/README_EN.md)
-
-<!-- tags:数组,数学,数论 -->
 
 ## 题目描述
 

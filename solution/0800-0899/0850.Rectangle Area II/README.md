@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0850.Rectangle%20Area%20II/README.md
+tags:
+    - 线段树
+    - 数组
+    - 有序集合
+    - 扫描线
+---
+
 # [850. 矩形面积 II](https://leetcode.cn/problems/rectangle-area-ii)
 
 [English Version](/solution/0800-0899/0850.Rectangle%20Area%20II/README_EN.md)
-
-<!-- tags:线段树,数组,有序集合,扫描线 -->
 
 ## 题目描述
 

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2242.Maximum%20Score%20of%20a%20Node%20Sequence/README_EN.md
+rating: 2304
+tags:
+    - Graph
+    - Array
+    - Enumeration
+    - Sorting
+---
+
 # [2242. Maximum Score of a Node Sequence](https://leetcode.com/problems/maximum-score-of-a-node-sequence)
 
 [中文文档](/solution/2200-2299/2242.Maximum%20Score%20of%20a%20Node%20Sequence/README.md)
-
-<!-- tags:Graph,Array,Enumeration,Sorting -->
 
 ## Description
 

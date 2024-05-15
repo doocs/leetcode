@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0137.Single%20Number%20II/README.md
+tags:
+    - 位运算
+    - 数组
+---
+
 # [137. 只出现一次的数字 II](https://leetcode.cn/problems/single-number-ii)
 
 [English Version](/solution/0100-0199/0137.Single%20Number%20II/README_EN.md)
-
-<!-- tags:位运算,数组 -->
 
 ## 题目描述
 

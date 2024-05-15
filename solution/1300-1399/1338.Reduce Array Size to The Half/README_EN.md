@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1338.Reduce%20Array%20Size%20to%20The%20Half/README_EN.md
+rating: 1303
+tags:
+    - Greedy
+    - Array
+    - Hash Table
+    - Sorting
+    - Heap (Priority Queue)
+---
+
 # [1338. Reduce Array Size to The Half](https://leetcode.com/problems/reduce-array-size-to-the-half)
 
 [中文文档](/solution/1300-1399/1338.Reduce%20Array%20Size%20to%20The%20Half/README.md)
-
-<!-- tags:Greedy,Array,Hash Table,Sorting,Heap (Priority Queue) -->
 
 ## Description
 

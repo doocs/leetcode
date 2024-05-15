@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/README_EN.md
+rating: 2104
+tags:
+    - Array
+    - Dynamic Programming
+    - Matrix
+---
+
 # [2088. Count Fertile Pyramids in a Land](https://leetcode.com/problems/count-fertile-pyramids-in-a-land)
 
 [中文文档](/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/README.md)
-
-<!-- tags:Array,Dynamic Programming,Matrix -->
 
 ## Description
 

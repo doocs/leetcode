@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0940.Distinct%20Subsequences%20II/README_EN.md
+tags:
+    - String
+    - Dynamic Programming
+---
+
 # [940. Distinct Subsequences II](https://leetcode.com/problems/distinct-subsequences-ii)
 
 [中文文档](/solution/0900-0999/0940.Distinct%20Subsequences%20II/README.md)
-
-<!-- tags:String,Dynamic Programming -->
 
 ## Description
 

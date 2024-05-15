@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1232.Check%20If%20It%20Is%20a%20Straight%20Line/README.md
+rating: 1247
+tags:
+    - 几何
+    - 数组
+    - 数学
+---
+
 # [1232. 缀点成线](https://leetcode.cn/problems/check-if-it-is-a-straight-line)
 
 [English Version](/solution/1200-1299/1232.Check%20If%20It%20Is%20a%20Straight%20Line/README_EN.md)
-
-<!-- tags:几何,数组,数学 -->
 
 ## 题目描述
 

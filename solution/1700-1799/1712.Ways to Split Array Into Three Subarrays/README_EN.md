@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1712.Ways%20to%20Split%20Array%20Into%20Three%20Subarrays/README_EN.md
+rating: 2078
+tags:
+    - Array
+    - Two Pointers
+    - Binary Search
+    - Prefix Sum
+---
+
 # [1712. Ways to Split Array Into Three Subarrays](https://leetcode.com/problems/ways-to-split-array-into-three-subarrays)
 
 [中文文档](/solution/1700-1799/1712.Ways%20to%20Split%20Array%20Into%20Three%20Subarrays/README.md)
-
-<!-- tags:Array,Two Pointers,Binary Search,Prefix Sum -->
 
 ## Description
 

@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3126.Server%20Utilization%20Time/README_EN.md
+tags:
+    - Database
+---
+
 # [3126. Server Utilization Time 🔒](https://leetcode.com/problems/server-utilization-time)
 
 [中文文档](/solution/3100-3199/3126.Server%20Utilization%20Time/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

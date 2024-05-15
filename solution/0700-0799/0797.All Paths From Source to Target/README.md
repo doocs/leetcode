@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0797.All%20Paths%20From%20Source%20to%20Target/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 图
+    - 回溯
+---
+
 # [797. 所有可能的路径](https://leetcode.cn/problems/all-paths-from-source-to-target)
 
 [English Version](/solution/0700-0799/0797.All%20Paths%20From%20Source%20to%20Target/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,图,回溯 -->
 
 ## 题目描述
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1153.String%20Transforms%20Into%20Another%20String/README.md
+rating: 1949
+tags:
+    - 哈希表
+    - 字符串
+---
+
 # [1153. 字符串转化 🔒](https://leetcode.cn/problems/string-transforms-into-another-string)
 
 [English Version](/solution/1100-1199/1153.String%20Transforms%20Into%20Another%20String/README_EN.md)
-
-<!-- tags:哈希表,字符串 -->
 
 ## 题目描述
 

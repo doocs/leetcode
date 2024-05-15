@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1693.Daily%20Leads%20and%20Partners/README.md
+tags:
+    - 数据库
+---
+
 # [1693. 每天的领导和合伙人](https://leetcode.cn/problems/daily-leads-and-partners)
 
 [English Version](/solution/1600-1699/1693.Daily%20Leads%20and%20Partners/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

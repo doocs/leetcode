@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1114.Print%20in%20Order/README.md
+tags:
+    - 多线程
+---
+
 # [1114. 按序打印](https://leetcode.cn/problems/print-in-order)
 
 [English Version](/solution/1100-1199/1114.Print%20in%20Order/README_EN.md)
-
-<!-- tags:多线程 -->
 
 ## 题目描述
 

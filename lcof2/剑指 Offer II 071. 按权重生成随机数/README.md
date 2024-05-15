@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20071.%20%E6%8C%89%E6%9D%83%E9%87%8D%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0/README.md
+---
+
 # [剑指 Offer II 071. 按权重生成随机数](https://leetcode.cn/problems/cuyjEf)
 
 ## 题目描述

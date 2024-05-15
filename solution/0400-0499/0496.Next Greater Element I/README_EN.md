@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0496.Next%20Greater%20Element%20I/README_EN.md
+tags:
+    - Stack
+    - Array
+    - Hash Table
+    - Monotonic Stack
+---
+
 # [496. Next Greater Element I](https://leetcode.com/problems/next-greater-element-i)
 
 [中文文档](/solution/0400-0499/0496.Next%20Greater%20Element%20I/README.md)
-
-<!-- tags:Stack,Array,Hash Table,Monotonic Stack -->
 
 ## Description
 

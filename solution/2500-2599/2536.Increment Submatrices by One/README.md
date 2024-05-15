@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2536.Increment%20Submatrices%20by%20One/README.md
+rating: 1583
+tags:
+    - 数组
+    - 矩阵
+    - 前缀和
+---
+
 # [2536. 子矩阵元素加 1](https://leetcode.cn/problems/increment-submatrices-by-one)
 
 [English Version](/solution/2500-2599/2536.Increment%20Submatrices%20by%20One/README_EN.md)
-
-<!-- tags:数组,矩阵,前缀和 -->
 
 ## 题目描述
 

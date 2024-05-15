@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2658.Maximum%20Number%20of%20Fish%20in%20a%20Grid/README_EN.md
+rating: 1489
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Union Find
+    - Array
+    - Matrix
+---
+
 # [2658. Maximum Number of Fish in a Grid](https://leetcode.com/problems/maximum-number-of-fish-in-a-grid)
 
 [中文文档](/solution/2600-2699/2658.Maximum%20Number%20of%20Fish%20in%20a%20Grid/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Array,Matrix -->
 
 ## Description
 

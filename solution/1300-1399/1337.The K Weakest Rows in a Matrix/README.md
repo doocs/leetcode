@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1337.The%20K%20Weakest%20Rows%20in%20a%20Matrix/README.md
+rating: 1224
+tags:
+    - 数组
+    - 二分查找
+    - 矩阵
+    - 排序
+    - 堆（优先队列）
+---
+
 # [1337. 矩阵中战斗力最弱的 K 行](https://leetcode.cn/problems/the-k-weakest-rows-in-a-matrix)
 
 [English Version](/solution/1300-1399/1337.The%20K%20Weakest%20Rows%20in%20a%20Matrix/README_EN.md)
-
-<!-- tags:数组,二分查找,矩阵,排序,堆（优先队列） -->
 
 ## 题目描述
 

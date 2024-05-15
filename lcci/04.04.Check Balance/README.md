@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.04.Check%20Balance/README.md
+---
+
 # [面试题 04.04. 检查平衡性](https://leetcode.cn/problems/check-balance-lcci)
 
 [English Version](/lcci/04.04.Check%20Balance/README_EN.md)

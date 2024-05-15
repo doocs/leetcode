@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0257.Binary%20Tree%20Paths/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 字符串
+    - 回溯
+    - 二叉树
+---
+
 # [257. 二叉树的所有路径](https://leetcode.cn/problems/binary-tree-paths)
 
 [English Version](/solution/0200-0299/0257.Binary%20Tree%20Paths/README_EN.md)
-
-<!-- tags:树,深度优先搜索,字符串,回溯,二叉树 -->
 
 ## 题目描述
 

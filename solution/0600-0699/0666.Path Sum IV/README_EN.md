@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0666.Path%20Sum%20IV/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Array
+    - Hash Table
+    - Binary Tree
+---
+
 # [666. Path Sum IV 🔒](https://leetcode.com/problems/path-sum-iv)
 
 [中文文档](/solution/0600-0699/0666.Path%20Sum%20IV/README.md)
-
-<!-- tags:Tree,Depth-First Search,Array,Hash Table,Binary Tree -->
 
 ## Description
 

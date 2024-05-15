@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1584.Min%20Cost%20to%20Connect%20All%20Points/README.md
+rating: 1857
+tags:
+    - 并查集
+    - 图
+    - 数组
+    - 最小生成树
+---
+
 # [1584. 连接所有点的最小费用](https://leetcode.cn/problems/min-cost-to-connect-all-points)
 
 [English Version](/solution/1500-1599/1584.Min%20Cost%20to%20Connect%20All%20Points/README_EN.md)
-
-<!-- tags:并查集,图,数组,最小生成树 -->
 
 ## 题目描述
 

@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2637.Promise%20Time%20Limit/README_EN.md
+---
+
 # [2637. Promise Time Limit](https://leetcode.com/problems/promise-time-limit)
 
 [中文文档](/solution/2600-2699/2637.Promise%20Time%20Limit/README.md)
-
-<!-- tags: -->
 
 ## Description
 

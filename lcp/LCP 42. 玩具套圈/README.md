@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2042.%20%E7%8E%A9%E5%85%B7%E5%A5%97%E5%9C%88/README.md
+---
+
 # [LCP 42. 玩具套圈](https://leetcode.cn/problems/vFjcfV)
 
 ## 题目描述
@@ -22,7 +28,7 @@
 > 输出：`1`
 >
 > 解释： 如图所示，仅套中一个玩具
-> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2042.%20玩具套圈/images/1629194140-ydKiGF-image.png)
+> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2042.%20%E7%8E%A9%E5%85%B7%E5%A5%97%E5%9C%88/images/1629194140-ydKiGF-image.png)
 
 **示例 2：**
 
@@ -31,7 +37,7 @@
 > 输出：`2`
 >
 > 解释： 如图所示，套中两个玩具
-> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2042.%20玩具套圈/images/1629194157-RiOAuy-image.png)
+> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2042.%20%E7%8E%A9%E5%85%B7%E5%A5%97%E5%9C%88/images/1629194157-RiOAuy-image.png){:width="400px"}
 
 **提示：**
 

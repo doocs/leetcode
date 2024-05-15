@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2417.Closest%20Fair%20Integer/README_EN.md
+tags:
+    - Math
+    - Enumeration
+---
+
 # [2417. Closest Fair Integer 🔒](https://leetcode.com/problems/closest-fair-integer)
 
 [中文文档](/solution/2400-2499/2417.Closest%20Fair%20Integer/README.md)
-
-<!-- tags:Math,Enumeration -->
 
 ## Description
 
@@ -39,7 +46,14 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Case Discussion
+
+We denote the number of digits of $n$ as $k$, and the number of odd and even digits as $a$ and $b$ respectively.
+
+-   If $a = b$, then $n$ itself is `fair`, and we can directly return $n$;
+-   Otherwise, if $k$ is odd, we can find the smallest `fair` number with $k+1$ digits, in the form of `10000111`. If $k$ is even, we can directly brute force `closestFair(n+1)`.
+
+The time complexity is $O(\sqrt{n} \times \log_{10} n)$.
 
 <!-- tabs:start -->
 

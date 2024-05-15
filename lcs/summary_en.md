@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcs/summary_en.md
+---
+
 -   LCS Solutions
     -   [LCS 01. 下载插件](/lcs/LCS%2001.%20%E4%B8%8B%E8%BD%BD%E6%8F%92%E4%BB%B6/README.md)
     -   [LCS 02. 完成一半题目](/lcs/LCS%2002.%20%E5%AE%8C%E6%88%90%E4%B8%80%E5%8D%8A%E9%A2%98%E7%9B%AE/README.md)

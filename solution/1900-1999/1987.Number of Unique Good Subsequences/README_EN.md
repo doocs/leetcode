@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1987.Number%20of%20Unique%20Good%20Subsequences/README_EN.md
+rating: 2422
+tags:
+    - String
+    - Dynamic Programming
+---
+
 # [1987. Number of Unique Good Subsequences](https://leetcode.com/problems/number-of-unique-good-subsequences)
 
 [中文文档](/solution/1900-1999/1987.Number%20of%20Unique%20Good%20Subsequences/README.md)
-
-<!-- tags:String,Dynamic Programming -->
 
 ## Description
 

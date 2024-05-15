@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20103.%20%E6%9C%80%E5%B0%91%E7%9A%84%E7%A1%AC%E5%B8%81%E6%95%B0%E7%9B%AE/README.md
+---
+
 # [剑指 Offer II 103. 最少的硬币数目](https://leetcode.cn/problems/gaM7Ch)
 
 ## 题目描述

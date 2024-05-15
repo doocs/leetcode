@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2973.Find%20Number%20of%20Coins%20to%20Place%20in%20Tree%20Nodes/README.md
+rating: 2276
+tags:
+    - 树
+    - 深度优先搜索
+    - 动态规划
+    - 排序
+    - 堆（优先队列）
+---
+
 # [2973. 树中每个节点放置的金币数目](https://leetcode.cn/problems/find-number-of-coins-to-place-in-tree-nodes)
 
 [English Version](/solution/2900-2999/2973.Find%20Number%20of%20Coins%20to%20Place%20in%20Tree%20Nodes/README_EN.md)
-
-<!-- tags:树,深度优先搜索,动态规划,排序,堆（优先队列） -->
 
 ## 题目描述
 

@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20097.%20%E5%AD%90%E5%BA%8F%E5%88%97%E7%9A%84%E6%95%B0%E7%9B%AE/README.md
+---
+
 # [剑指 Offer II 097. 子序列的数目](https://leetcode.cn/problems/21dk04)
 
 ## 题目描述

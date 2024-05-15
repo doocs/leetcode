@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20073.%20%E7%8B%92%E7%8B%92%E5%90%83%E9%A6%99%E8%95%89/README.md
+---
+
 # [剑指 Offer II 073. 狒狒吃香蕉](https://leetcode.cn/problems/nZZqjQ)
 
 ## 题目描述

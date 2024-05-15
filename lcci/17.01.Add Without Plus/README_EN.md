@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.01.Add%20Without%20Plus/README_EN.md
+---
+
 # [17.01. Add Without Plus](https://leetcode.cn/problems/add-without-plus-lcci)
 
 [中文文档](/lcci/17.01.Add%20Without%20Plus/README.md)
@@ -40,6 +46,26 @@ class Solution {
             b = carry;
         }
         return a;
+    }
+}
+```
+
+```swift
+class Solution {
+    func add(_ a: Int, _ b: Int) -> Int {
+        var a = a
+        var b = b
+        var sum = 0
+        var carry = 0
+
+        while b != 0 {
+            sum = a ^ b
+            carry = (a & b) << 1
+            a = sum
+            b = carry
+        }
+
+        return a
     }
 }
 ```

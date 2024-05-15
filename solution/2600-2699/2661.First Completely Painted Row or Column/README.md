@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2661.First%20Completely%20Painted%20Row%20or%20Column/README.md
+rating: 1502
+tags:
+    - 数组
+    - 哈希表
+    - 矩阵
+---
+
 # [2661. 找出叠涂元素](https://leetcode.cn/problems/first-completely-painted-row-or-column)
 
 [English Version](/solution/2600-2699/2661.First%20Completely%20Painted%20Row%20or%20Column/README_EN.md)
-
-<!-- tags:数组,哈希表,矩阵 -->
 
 ## 题目描述
 

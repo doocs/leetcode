@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2516.Take%20K%20of%20Each%20Character%20From%20Left%20and%20Right/README_EN.md
+rating: 1947
+tags:
+    - Hash Table
+    - String
+    - Sliding Window
+---
+
 # [2516. Take K of Each Character From Left and Right](https://leetcode.com/problems/take-k-of-each-character-from-left-and-right)
 
 [中文文档](/solution/2500-2599/2516.Take%20K%20of%20Each%20Character%20From%20Left%20and%20Right/README.md)
-
-<!-- tags:Hash Table,String,Sliding Window -->
 
 ## Description
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0013.Roman%20to%20Integer/README.md
+tags:
+    - 哈希表
+    - 数学
+    - 字符串
+---
+
 # [13. 罗马数字转整数](https://leetcode.cn/problems/roman-to-integer)
 
 [English Version](/solution/0000-0099/0013.Roman%20to%20Integer/README_EN.md)
-
-<!-- tags:哈希表,数学,字符串 -->
 
 ## 题目描述
 

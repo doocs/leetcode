@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1630.Arithmetic%20Subarrays/README_EN.md
+rating: 1421
+tags:
+    - Array
+    - Hash Table
+    - Sorting
+---
+
 # [1630. Arithmetic Subarrays](https://leetcode.com/problems/arithmetic-subarrays)
 
 [中文文档](/solution/1600-1699/1630.Arithmetic%20Subarrays/README.md)
-
-<!-- tags:Array,Hash Table,Sorting -->
 
 ## Description
 

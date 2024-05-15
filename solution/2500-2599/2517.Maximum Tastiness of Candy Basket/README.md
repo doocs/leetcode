@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2517.Maximum%20Tastiness%20of%20Candy%20Basket/README.md
+rating: 2020
+tags:
+    - 贪心
+    - 数组
+    - 二分查找
+    - 排序
+---
+
 # [2517. 礼盒的最大甜蜜度](https://leetcode.cn/problems/maximum-tastiness-of-candy-basket)
 
 [English Version](/solution/2500-2599/2517.Maximum%20Tastiness%20of%20Candy%20Basket/README_EN.md)
-
-<!-- tags:贪心,数组,二分查找,排序 -->
 
 ## 题目描述
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2530.Maximal%20Score%20After%20Applying%20K%20Operations/README_EN.md
+rating: 1386
+tags:
+    - Greedy
+    - Array
+    - Heap (Priority Queue)
+---
+
 # [2530. Maximal Score After Applying K Operations](https://leetcode.com/problems/maximal-score-after-applying-k-operations)
 
 [中文文档](/solution/2500-2599/2530.Maximal%20Score%20After%20Applying%20K%20Operations/README.md)
-
-<!-- tags:Greedy,Array,Heap (Priority Queue) -->
 
 ## Description
 

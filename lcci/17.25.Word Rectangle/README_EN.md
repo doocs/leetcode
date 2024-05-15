@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.25.Word%20Rectangle/README_EN.md
+---
+
 # [17.25. Word Rectangle](https://leetcode.cn/problems/word-rectangle-lcci)
 
 [中文文档](/lcci/17.25.Word%20Rectangle/README.md)

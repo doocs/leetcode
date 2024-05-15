@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2041.Accepted%20Candidates%20From%20the%20Interviews/README_EN.md
+tags:
+    - Database
+---
+
 # [2041. Accepted Candidates From the Interviews 🔒](https://leetcode.com/problems/accepted-candidates-from-the-interviews)
 
 [中文文档](/solution/2000-2099/2041.Accepted%20Candidates%20From%20the%20Interviews/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

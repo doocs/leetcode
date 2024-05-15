@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2699.Modify%20Graph%20Edge%20Weights/README.md
+rating: 2873
+tags:
+    - 图
+    - 最短路
+    - 堆（优先队列）
+---
+
 # [2699. 修改图中的边权](https://leetcode.cn/problems/modify-graph-edge-weights)
 
 [English Version](/solution/2600-2699/2699.Modify%20Graph%20Edge%20Weights/README_EN.md)
-
-<!-- tags:图,最短路,堆（优先队列） -->
 
 ## 题目描述
 

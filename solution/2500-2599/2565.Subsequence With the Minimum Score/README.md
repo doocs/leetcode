@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2565.Subsequence%20With%20the%20Minimum%20Score/README.md
+rating: 2432
+tags:
+    - 双指针
+    - 字符串
+    - 二分查找
+---
+
 # [2565. 最少得分子序列](https://leetcode.cn/problems/subsequence-with-the-minimum-score)
 
 [English Version](/solution/2500-2599/2565.Subsequence%20With%20the%20Minimum%20Score/README_EN.md)
-
-<!-- tags:双指针,字符串,二分查找 -->
 
 ## 题目描述
 

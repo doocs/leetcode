@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1600.Throne%20Inheritance/README_EN.md
+rating: 1768
+tags:
+    - Tree
+    - Depth-First Search
+    - Design
+    - Hash Table
+---
+
 # [1600. Throne Inheritance](https://leetcode.com/problems/throne-inheritance)
 
 [中文文档](/solution/1600-1699/1600.Throne%20Inheritance/README.md)
-
-<!-- tags:Tree,Depth-First Search,Design,Hash Table -->
 
 ## Description
 

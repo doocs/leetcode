@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2662.Minimum%20Cost%20of%20a%20Path%20With%20Special%20Roads/README.md
+rating: 2153
+tags:
+    - 图
+    - 数组
+    - 最短路
+    - 堆（优先队列）
+---
+
 # [2662. 前往目标的最小代价](https://leetcode.cn/problems/minimum-cost-of-a-path-with-special-roads)
 
 [English Version](/solution/2600-2699/2662.Minimum%20Cost%20of%20a%20Path%20With%20Special%20Roads/README_EN.md)
-
-<!-- tags:图,数组,最短路,堆（优先队列） -->
 
 ## 题目描述
 

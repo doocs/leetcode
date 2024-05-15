@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0031.Next%20Permutation/README_EN.md
+tags:
+    - Array
+    - Two Pointers
+---
+
 # [31. Next Permutation](https://leetcode.com/problems/next-permutation)
 
 [中文文档](/solution/0000-0099/0031.Next%20Permutation/README.md)
-
-<!-- tags:Array,Two Pointers -->
 
 ## Description
 

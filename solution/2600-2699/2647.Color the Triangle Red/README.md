@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2647.Color%20the%20Triangle%20Red/README.md
+tags:
+    - 数组
+    - 数学
+---
+
 # [2647. 把三角形染成红色 🔒](https://leetcode.cn/problems/color-the-triangle-red)
 
 [English Version](/solution/2600-2699/2647.Color%20the%20Triangle%20Red/README_EN.md)
-
-<!-- tags:数组,数学 -->
 
 ## 题目描述
 

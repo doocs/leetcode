@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0697.Degree%20of%20an%20Array/README.md
+tags:
+    - 数组
+    - 哈希表
+---
+
 # [697. 数组的度](https://leetcode.cn/problems/degree-of-an-array)
 
 [English Version](/solution/0600-0699/0697.Degree%20of%20an%20Array/README_EN.md)
-
-<!-- tags:数组,哈希表 -->
 
 ## 题目描述
 

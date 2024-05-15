@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2062.Count%20Vowel%20Substrings%20of%20a%20String/README.md
+rating: 1458
+tags:
+    - 哈希表
+    - 字符串
+---
+
 # [2062. 统计字符串中的元音子字符串](https://leetcode.cn/problems/count-vowel-substrings-of-a-string)
 
 [English Version](/solution/2000-2099/2062.Count%20Vowel%20Substrings%20of%20a%20String/README_EN.md)
-
-<!-- tags:哈希表,字符串 -->
 
 ## 题目描述
 

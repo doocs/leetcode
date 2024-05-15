@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0916.Word%20Subsets/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - String
+---
+
 # [916. Word Subsets](https://leetcode.com/problems/word-subsets)
 
 [中文文档](/solution/0900-0999/0916.Word%20Subsets/README.md)
-
-<!-- tags:Array,Hash Table,String -->
 
 ## Description
 

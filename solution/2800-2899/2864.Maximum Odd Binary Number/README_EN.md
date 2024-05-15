@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2864.Maximum%20Odd%20Binary%20Number/README_EN.md
+rating: 1237
+tags:
+    - Greedy
+    - Math
+    - String
+---
+
 # [2864. Maximum Odd Binary Number](https://leetcode.com/problems/maximum-odd-binary-number)
 
 [中文文档](/solution/2800-2899/2864.Maximum%20Odd%20Binary%20Number/README.md)
-
-<!-- tags:Greedy,Math,String -->
 
 ## Description
 

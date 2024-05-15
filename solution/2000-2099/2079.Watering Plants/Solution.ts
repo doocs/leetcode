@@ -1,14 +1,12 @@
 function wateringPlants(plants: number[], capacity: number): number {
-    const n = plants.length;
-    let ans = 0;
-    let water = capacity;
-    for (let i = 0; i < n; i++) {
-        if (water < plants[i]) {
-            ans += i * 2 + 1;
-            water = capacity - plants[i];
-        } else {
-            ans++;
+    let [ans, water] = [0, capacity];
+    for (let i = 0; i < plants.length; ++i) {
+        if (water >= plants[i]) {
             water -= plants[i];
+            ++ans;
+        } else {
+            water = capacity - plants[i];
+            ans += i * 2 + 1;
         }
     }
     return ans;

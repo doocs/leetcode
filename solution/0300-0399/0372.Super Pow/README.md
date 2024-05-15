@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0372.Super%20Pow/README.md
+tags:
+    - 数学
+    - 分治
+---
+
 # [372. 超级次方](https://leetcode.cn/problems/super-pow)
 
 [English Version](/solution/0300-0399/0372.Super%20Pow/README_EN.md)
-
-<!-- tags:数学,分治 -->
 
 ## 题目描述
 

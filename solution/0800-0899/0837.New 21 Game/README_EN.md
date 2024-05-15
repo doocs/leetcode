@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0837.New%2021%20Game/README_EN.md
+tags:
+    - Math
+    - Dynamic Programming
+    - Sliding Window
+    - Probability and Statistics
+---
+
 # [837. New 21 Game](https://leetcode.com/problems/new-21-game)
 
 [中文文档](/solution/0800-0899/0837.New%2021%20Game/README.md)
-
-<!-- tags:Math,Dynamic Programming,Sliding Window,Probability and Statistics -->
 
 ## Description
 

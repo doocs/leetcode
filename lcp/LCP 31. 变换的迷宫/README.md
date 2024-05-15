@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2031.%20%E5%8F%98%E6%8D%A2%E7%9A%84%E8%BF%B7%E5%AE%AB/README.md
+---
+
 # [LCP 31. 变换的迷宫](https://leetcode.cn/problems/Db3wC1)
 
 ## 题目描述
@@ -24,7 +30,7 @@
 > 输出：`true`
 >
 > 解释：
-> ![maze.gif](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2031.%20变换的迷宫/images/1615892239-SCIjyf-maze.gif)
+> ![maze.gif](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2031.%20%E5%8F%98%E6%8D%A2%E7%9A%84%E8%BF%B7%E5%AE%AB/images/1615892239-SCIjyf-maze.gif)
 
 **示例 2：**
 

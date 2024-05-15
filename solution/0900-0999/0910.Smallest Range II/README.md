@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0910.Smallest%20Range%20II/README.md
+tags:
+    - 贪心
+    - 数组
+    - 数学
+    - 排序
+---
+
 # [910. 最小差值 II](https://leetcode.cn/problems/smallest-range-ii)
 
 [English Version](/solution/0900-0999/0910.Smallest%20Range%20II/README_EN.md)
-
-<!-- tags:贪心,数组,数学,排序 -->
 
 ## 题目描述
 

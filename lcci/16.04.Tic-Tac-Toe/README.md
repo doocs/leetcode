@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.04.Tic-Tac-Toe/README.md
+---
+
 # [面试题 16.04. 井字游戏](https://leetcode.cn/problems/tic-tac-toe-lcci)
 
 [English Version](/lcci/16.04.Tic-Tac-Toe/README_EN.md)

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0890.Find%20and%20Replace%20Pattern/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+---
+
 # [890. 查找和替换模式](https://leetcode.cn/problems/find-and-replace-pattern)
 
 [English Version](/solution/0800-0899/0890.Find%20and%20Replace%20Pattern/README_EN.md)
-
-<!-- tags:数组,哈希表,字符串 -->
 
 ## 题目描述
 

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2005.Subtree%20Removal%20Game%20with%20Fibonacci%20Tree/README_EN.md
+tags:
+    - Tree
+    - Math
+    - Dynamic Programming
+    - Binary Tree
+    - Game Theory
+---
+
 # [2005. Subtree Removal Game with Fibonacci Tree 🔒](https://leetcode.com/problems/subtree-removal-game-with-fibonacci-tree)
 
 [中文文档](/solution/2000-2099/2005.Subtree%20Removal%20Game%20with%20Fibonacci%20Tree/README.md)
-
-<!-- tags:Tree,Math,Dynamic Programming,Binary Tree,Game Theory -->
 
 ## Description
 

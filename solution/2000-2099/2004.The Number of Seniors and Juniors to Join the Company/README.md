@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2004.The%20Number%20of%20Seniors%20and%20Juniors%20to%20Join%20the%20Company/README.md
+tags:
+    - 数据库
+---
+
 # [2004. 职员招聘人数 🔒](https://leetcode.cn/problems/the-number-of-seniors-and-juniors-to-join-the-company)
 
 [English Version](/solution/2000-2099/2004.The%20Number%20of%20Seniors%20and%20Juniors%20to%20Join%20the%20Company/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.08.English%20Int/README_EN.md
+---
+
 # [16.08. English Int](https://leetcode.cn/problems/english-int-lcci)
 
 [中文文档](/lcci/16.08.English%20Int/README.md)

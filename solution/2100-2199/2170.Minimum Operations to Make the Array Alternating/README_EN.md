@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2170.Minimum%20Operations%20to%20Make%20the%20Array%20Alternating/README_EN.md
+rating: 1662
+tags:
+    - Greedy
+    - Array
+    - Hash Table
+    - Counting
+---
+
 # [2170. Minimum Operations to Make the Array Alternating](https://leetcode.com/problems/minimum-operations-to-make-the-array-alternating)
 
 [中文文档](/solution/2100-2199/2170.Minimum%20Operations%20to%20Make%20the%20Array%20Alternating/README.md)
-
-<!-- tags:Greedy,Array,Hash Table,Counting -->
 
 ## Description
 

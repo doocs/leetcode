@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0603.Consecutive%20Available%20Seats/README.md
+tags:
+    - 数据库
+---
+
 # [603. 连续空余座位 🔒](https://leetcode.cn/problems/consecutive-available-seats)
 
 [English Version](/solution/0600-0699/0603.Consecutive%20Available%20Seats/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

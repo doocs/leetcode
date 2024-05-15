@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2270.Number%20of%20Ways%20to%20Split%20Array/README.md
+rating: 1334
+tags:
+    - 数组
+    - 前缀和
+---
+
 # [2270. 分割数组的方案数](https://leetcode.cn/problems/number-of-ways-to-split-array)
 
 [English Version](/solution/2200-2299/2270.Number%20of%20Ways%20to%20Split%20Array/README_EN.md)
-
-<!-- tags:数组,前缀和 -->
 
 ## 题目描述
 

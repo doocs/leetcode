@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1477.Find%20Two%20Non-overlapping%20Sub-arrays%20Each%20With%20Target%20Sum/README_EN.md
+rating: 1850
+tags:
+    - Array
+    - Hash Table
+    - Binary Search
+    - Dynamic Programming
+    - Sliding Window
+---
+
 # [1477. Find Two Non-overlapping Sub-arrays Each With Target Sum](https://leetcode.com/problems/find-two-non-overlapping-sub-arrays-each-with-target-sum)
 
 [中文文档](/solution/1400-1499/1477.Find%20Two%20Non-overlapping%20Sub-arrays%20Each%20With%20Target%20Sum/README.md)
-
-<!-- tags:Array,Hash Table,Binary Search,Dynamic Programming,Sliding Window -->
 
 ## Description
 

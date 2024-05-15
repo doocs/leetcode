@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1860.Incremental%20Memory%20Leak/README.md
+rating: 1387
+tags:
+    - 数学
+    - 模拟
+---
+
 # [1860. 增长的内存泄露](https://leetcode.cn/problems/incremental-memory-leak)
 
 [English Version](/solution/1800-1899/1860.Incremental%20Memory%20Leak/README_EN.md)
-
-<!-- tags:数学,模拟 -->
 
 ## 题目描述
 

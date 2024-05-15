@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1124.Longest%20Well-Performing%20Interval/README_EN.md
+rating: 1908
+tags:
+    - Stack
+    - Array
+    - Hash Table
+    - Prefix Sum
+    - Monotonic Stack
+---
+
 # [1124. Longest Well-Performing Interval](https://leetcode.com/problems/longest-well-performing-interval)
 
 [中文文档](/solution/1100-1199/1124.Longest%20Well-Performing%20Interval/README.md)
-
-<!-- tags:Stack,Array,Hash Table,Prefix Sum,Monotonic Stack -->
 
 ## Description
 

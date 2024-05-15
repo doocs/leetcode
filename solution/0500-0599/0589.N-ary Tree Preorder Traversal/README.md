@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0589.N-ary%20Tree%20Preorder%20Traversal/README.md
+tags:
+    - 栈
+    - 树
+    - 深度优先搜索
+---
+
 # [589. N 叉树的前序遍历](https://leetcode.cn/problems/n-ary-tree-preorder-traversal)
 
 [English Version](/solution/0500-0599/0589.N-ary%20Tree%20Preorder%20Traversal/README_EN.md)
-
-<!-- tags:栈,树,深度优先搜索 -->
 
 ## 题目描述
 

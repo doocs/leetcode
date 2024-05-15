@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2539.Count%20the%20Number%20of%20Good%20Subsequences/README.md
+tags:
+    - 哈希表
+    - 数学
+    - 字符串
+    - 组合数学
+    - 计数
+---
+
 # [2539. 好子序列的个数 🔒](https://leetcode.cn/problems/count-the-number-of-good-subsequences)
 
 [English Version](/solution/2500-2599/2539.Count%20the%20Number%20of%20Good%20Subsequences/README_EN.md)
-
-<!-- tags:哈希表,数学,字符串,组合数学,计数 -->
 
 ## 题目描述
 

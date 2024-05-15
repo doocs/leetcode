@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20106.%20%E4%BA%8C%E5%88%86%E5%9B%BE/README.md
+---
+
 # [剑指 Offer II 106. 二分图](https://leetcode.cn/problems/vEAB3K)
 
 ## 题目描述

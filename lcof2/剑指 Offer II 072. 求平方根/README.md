@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20072.%20%E6%B1%82%E5%B9%B3%E6%96%B9%E6%A0%B9/README.md
+---
+
 # [剑指 Offer II 072. 求平方根](https://leetcode.cn/problems/jJ0w9p)
 
 ## 题目描述

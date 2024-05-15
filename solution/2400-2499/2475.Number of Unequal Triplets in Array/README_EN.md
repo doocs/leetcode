@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2475.Number%20of%20Unequal%20Triplets%20in%20Array/README_EN.md
+rating: 1255
+tags:
+    - Array
+    - Hash Table
+    - Sorting
+---
+
 # [2475. Number of Unequal Triplets in Array](https://leetcode.com/problems/number-of-unequal-triplets-in-array)
 
 [中文文档](/solution/2400-2499/2475.Number%20of%20Unequal%20Triplets%20in%20Array/README.md)
-
-<!-- tags:Array,Hash Table,Sorting -->
 
 ## Description
 

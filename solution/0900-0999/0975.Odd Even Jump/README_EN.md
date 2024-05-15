@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0975.Odd%20Even%20Jump/README_EN.md
+tags:
+    - Stack
+    - Array
+    - Dynamic Programming
+    - Ordered Set
+    - Monotonic Stack
+---
+
 # [975. Odd Even Jump](https://leetcode.com/problems/odd-even-jump)
 
 [中文文档](/solution/0900-0999/0975.Odd%20Even%20Jump/README.md)
-
-<!-- tags:Stack,Array,Dynamic Programming,Ordered Set,Monotonic Stack -->
 
 ## Description
 

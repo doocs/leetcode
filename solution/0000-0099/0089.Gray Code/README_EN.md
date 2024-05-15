@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0089.Gray%20Code/README_EN.md
+tags:
+    - Bit Manipulation
+    - Math
+    - Backtracking
+---
+
 # [89. Gray Code](https://leetcode.com/problems/gray-code)
 
 [中文文档](/solution/0000-0099/0089.Gray%20Code/README.md)
-
-<!-- tags:Bit Manipulation,Math,Backtracking -->
 
 ## Description
 

@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1322.Ads%20Performance/README.md
+tags:
+    - 数据库
+---
+
 # [1322. 广告效果 🔒](https://leetcode.cn/problems/ads-performance)
 
 [English Version](/solution/1300-1399/1322.Ads%20Performance/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

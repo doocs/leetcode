@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2616.Minimize%20the%20Maximum%20Difference%20of%20Pairs/README.md
+rating: 2155
+tags:
+    - 贪心
+    - 数组
+    - 二分查找
+---
+
 # [2616. 最小化数对的最大差值](https://leetcode.cn/problems/minimize-the-maximum-difference-of-pairs)
 
 [English Version](/solution/2600-2699/2616.Minimize%20the%20Maximum%20Difference%20of%20Pairs/README_EN.md)
-
-<!-- tags:贪心,数组,二分查找 -->
 
 ## 题目描述
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0023.Merge%20k%20Sorted%20Lists/README.md
+tags:
+    - 链表
+    - 分治
+    - 堆（优先队列）
+    - 归并排序
+---
+
 # [23. 合并 K 个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists)
 
 [English Version](/solution/0000-0099/0023.Merge%20k%20Sorted%20Lists/README_EN.md)
-
-<!-- tags:链表,分治,堆（优先队列）,归并排序 -->
 
 ## 题目描述
 

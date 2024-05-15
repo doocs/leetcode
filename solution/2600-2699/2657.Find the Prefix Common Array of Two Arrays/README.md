@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2657.Find%20the%20Prefix%20Common%20Array%20of%20Two%20Arrays/README.md
+rating: 1304
+tags:
+    - 位运算
+    - 数组
+    - 哈希表
+---
+
 # [2657. 找到两个数组的前缀公共数组](https://leetcode.cn/problems/find-the-prefix-common-array-of-two-arrays)
 
 [English Version](/solution/2600-2699/2657.Find%20the%20Prefix%20Common%20Array%20of%20Two%20Arrays/README_EN.md)
-
-<!-- tags:位运算,数组,哈希表 -->
 
 ## 题目描述
 

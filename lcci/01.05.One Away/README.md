@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.05.One%20Away/README.md
+---
+
 # [面试题 01.05. 一次编辑](https://leetcode.cn/problems/one-away-lcci)
 
 [English Version](/lcci/01.05.One%20Away/README_EN.md)

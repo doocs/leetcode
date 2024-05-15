@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2149.Rearrange%20Array%20Elements%20by%20Sign/README_EN.md
+rating: 1235
+tags:
+    - Array
+    - Two Pointers
+    - Simulation
+---
+
 # [2149. Rearrange Array Elements by Sign](https://leetcode.com/problems/rearrange-array-elements-by-sign)
 
 [中文文档](/solution/2100-2199/2149.Rearrange%20Array%20Elements%20by%20Sign/README.md)
-
-<!-- tags:Array,Two Pointers,Simulation -->
 
 ## Description
 

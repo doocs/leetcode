@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2412.Minimum%20Money%20Required%20Before%20Transactions/README_EN.md
+rating: 2092
+tags:
+    - Greedy
+    - Array
+    - Sorting
+---
+
 # [2412. Minimum Money Required Before Transactions](https://leetcode.com/problems/minimum-money-required-before-transactions)
 
 [中文文档](/solution/2400-2499/2412.Minimum%20Money%20Required%20Before%20Transactions/README.md)
-
-<!-- tags:Greedy,Array,Sorting -->
 
 ## Description
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0785.Is%20Graph%20Bipartite/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 并查集
+    - 图
+---
+
 # [785. 判断二分图](https://leetcode.cn/problems/is-graph-bipartite)
 
 [English Version](/solution/0700-0799/0785.Is%20Graph%20Bipartite/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,并查集,图 -->
 
 ## 题目描述
 

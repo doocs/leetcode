@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0853.Car%20Fleet/README.md
+tags:
+    - 栈
+    - 数组
+    - 排序
+    - 单调栈
+---
+
 # [853. 车队](https://leetcode.cn/problems/car-fleet)
 
 [English Version](/solution/0800-0899/0853.Car%20Fleet/README_EN.md)
-
-<!-- tags:栈,数组,排序,单调栈 -->
 
 ## 题目描述
 

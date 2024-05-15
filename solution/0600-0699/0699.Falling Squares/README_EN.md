@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0699.Falling%20Squares/README_EN.md
+tags:
+    - Segment Tree
+    - Array
+    - Ordered Set
+---
+
 # [699. Falling Squares](https://leetcode.com/problems/falling-squares)
 
 [中文文档](/solution/0600-0699/0699.Falling%20Squares/README.md)
-
-<!-- tags:Segment Tree,Array,Ordered Set -->
 
 ## Description
 

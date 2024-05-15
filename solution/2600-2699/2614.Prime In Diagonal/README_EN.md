@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2614.Prime%20In%20Diagonal/README_EN.md
+rating: 1375
+tags:
+    - Array
+    - Math
+    - Matrix
+    - Number Theory
+---
+
 # [2614. Prime In Diagonal](https://leetcode.com/problems/prime-in-diagonal)
 
 [中文文档](/solution/2600-2699/2614.Prime%20In%20Diagonal/README.md)
-
-<!-- tags:Array,Math,Matrix,Number Theory -->
 
 ## Description
 

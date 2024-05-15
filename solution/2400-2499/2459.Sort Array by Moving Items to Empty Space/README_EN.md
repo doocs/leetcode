@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2459.Sort%20Array%20by%20Moving%20Items%20to%20Empty%20Space/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Sorting
+---
+
 # [2459. Sort Array by Moving Items to Empty Space 🔒](https://leetcode.com/problems/sort-array-by-moving-items-to-empty-space)
 
 [中文文档](/solution/2400-2499/2459.Sort%20Array%20by%20Moving%20Items%20to%20Empty%20Space/README.md)
-
-<!-- tags:Greedy,Array,Sorting -->
 
 ## Description
 

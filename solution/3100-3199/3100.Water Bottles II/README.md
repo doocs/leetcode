@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3100.Water%20Bottles%20II/README.md
+rating: 1366
+tags:
+    - 数学
+    - 模拟
+---
+
 # [3100. 换水问题 II](https://leetcode.cn/problems/water-bottles-ii)
 
 [English Version](/solution/3100-3199/3100.Water%20Bottles%20II/README_EN.md)
-
-<!-- tags:数学,模拟 -->
 
 ## 题目描述
 

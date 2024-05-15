@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2008.Maximum%20Earnings%20From%20Taxi/README_EN.md
+rating: 1871
+tags:
+    - Array
+    - Hash Table
+    - Binary Search
+    - Dynamic Programming
+    - Sorting
+---
+
 # [2008. Maximum Earnings From Taxi](https://leetcode.com/problems/maximum-earnings-from-taxi)
 
 [中文文档](/solution/2000-2099/2008.Maximum%20Earnings%20From%20Taxi/README.md)
-
-<!-- tags:Array,Hash Table,Binary Search,Dynamic Programming,Sorting -->
 
 ## Description
 

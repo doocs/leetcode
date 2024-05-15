@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1181.Before%20and%20After%20Puzzle/README_EN.md
+rating: 1558
+tags:
+    - Array
+    - Hash Table
+    - String
+    - Sorting
+---
+
 # [1181. Before and After Puzzle 🔒](https://leetcode.com/problems/before-and-after-puzzle)
 
 [中文文档](/solution/1100-1199/1181.Before%20and%20After%20Puzzle/README.md)
-
-<!-- tags:Array,Hash Table,String,Sorting -->
 
 ## Description
 

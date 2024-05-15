@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0496.Next%20Greater%20Element%20I/README.md
+tags:
+    - 栈
+    - 数组
+    - 哈希表
+    - 单调栈
+---
+
 # [496. 下一个更大元素 I](https://leetcode.cn/problems/next-greater-element-i)
 
 [English Version](/solution/0400-0499/0496.Next%20Greater%20Element%20I/README_EN.md)
-
-<!-- tags:栈,数组,哈希表,单调栈 -->
 
 ## 题目描述
 

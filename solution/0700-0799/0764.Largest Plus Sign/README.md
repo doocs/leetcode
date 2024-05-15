@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0764.Largest%20Plus%20Sign/README.md
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [764. 最大加号标志](https://leetcode.cn/problems/largest-plus-sign)
 
 [English Version](/solution/0700-0799/0764.Largest%20Plus%20Sign/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
 
 ## 题目描述
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3127.Make%20a%20Square%20with%20the%20Same%20Color/README_EN.md
+rating: 1337
+tags:
+    - Array
+    - Enumeration
+    - Matrix
+---
+
 # [3127. Make a Square with the Same Color](https://leetcode.com/problems/make-a-square-with-the-same-color)
 
 [中文文档](/solution/3100-3199/3127.Make%20a%20Square%20with%20the%20Same%20Color/README.md)
-
-<!-- tags:Array,Enumeration,Matrix -->
 
 ## Description
 

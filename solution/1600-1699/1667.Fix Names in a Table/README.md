@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1667.Fix%20Names%20in%20a%20Table/README.md
+tags:
+    - 数据库
+---
+
 # [1667. 修复表中的名字](https://leetcode.cn/problems/fix-names-in-a-table)
 
 [English Version](/solution/1600-1699/1667.Fix%20Names%20in%20a%20Table/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

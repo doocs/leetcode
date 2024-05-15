@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2277.Closest%20Node%20to%20Path%20in%20Tree/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Array
+---
+
 # [2277. Closest Node to Path in Tree 🔒](https://leetcode.com/problems/closest-node-to-path-in-tree)
 
 [中文文档](/solution/2200-2299/2277.Closest%20Node%20to%20Path%20in%20Tree/README.md)
-
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Array -->
 
 ## Description
 

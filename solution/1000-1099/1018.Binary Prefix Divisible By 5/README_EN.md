@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1018.Binary%20Prefix%20Divisible%20By%205/README_EN.md
+rating: 1376
+tags:
+    - Bit Manipulation
+    - Array
+---
+
 # [1018. Binary Prefix Divisible By 5](https://leetcode.com/problems/binary-prefix-divisible-by-5)
 
 [中文文档](/solution/1000-1099/1018.Binary%20Prefix%20Divisible%20By%205/README.md)
-
-<!-- tags:Bit Manipulation,Array -->
 
 ## Description
 

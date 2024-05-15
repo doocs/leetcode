@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1583.Count%20Unhappy%20Friends/README_EN.md
+rating: 1658
+tags:
+    - Array
+    - Simulation
+---
+
 # [1583. Count Unhappy Friends](https://leetcode.com/problems/count-unhappy-friends)
 
 [中文文档](/solution/1500-1599/1583.Count%20Unhappy%20Friends/README.md)
-
-<!-- tags:Array,Simulation -->
 
 ## Description
 

@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1715.Count%20Apples%20and%20Oranges/README.md
+tags:
+    - 数据库
+---
+
 # [1715. 苹果和橘子的个数 🔒](https://leetcode.cn/problems/count-apples-and-oranges)
 
 [English Version](/solution/1700-1799/1715.Count%20Apples%20and%20Oranges/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

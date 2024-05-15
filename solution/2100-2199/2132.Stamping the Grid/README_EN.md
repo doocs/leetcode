@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2132.Stamping%20the%20Grid/README_EN.md
+rating: 2364
+tags:
+    - Greedy
+    - Array
+    - Matrix
+    - Prefix Sum
+---
+
 # [2132. Stamping the Grid](https://leetcode.com/problems/stamping-the-grid)
 
 [中文文档](/solution/2100-2199/2132.Stamping%20the%20Grid/README.md)
-
-<!-- tags:Greedy,Array,Matrix,Prefix Sum -->
 
 ## Description
 

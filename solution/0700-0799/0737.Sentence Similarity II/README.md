@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0737.Sentence%20Similarity%20II/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 并查集
+    - 数组
+    - 哈希表
+    - 字符串
+---
+
 # [737. 句子相似性 II 🔒](https://leetcode.cn/problems/sentence-similarity-ii)
 
 [English Version](/solution/0700-0799/0737.Sentence%20Similarity%20II/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,并查集,数组,哈希表,字符串 -->
 
 ## 题目描述
 

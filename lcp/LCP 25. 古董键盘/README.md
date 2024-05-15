@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2025.%20%E5%8F%A4%E8%91%A3%E9%94%AE%E7%9B%98/README.md
+---
+
 # [LCP 25. 古董键盘](https://leetcode.cn/problems/Uh984O)
 
 ## 题目描述

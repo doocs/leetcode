@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1313.Decompress%20Run-Length%20Encoded%20List/README.md
+rating: 1317
+tags:
+    - 数组
+---
+
 # [1313. 解压缩编码列表](https://leetcode.cn/problems/decompress-run-length-encoded-list)
 
 [English Version](/solution/1300-1399/1313.Decompress%20Run-Length%20Encoded%20List/README_EN.md)
-
-<!-- tags:数组 -->
 
 ## 题目描述
 

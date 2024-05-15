@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2679.Sum%20in%20a%20Matrix/README.md
+rating: 1333
+tags:
+    - 数组
+    - 矩阵
+    - 排序
+    - 模拟
+    - 堆（优先队列）
+---
+
 # [2679. 矩阵中的和](https://leetcode.cn/problems/sum-in-a-matrix)
 
 [English Version](/solution/2600-2699/2679.Sum%20in%20a%20Matrix/README_EN.md)
-
-<!-- tags:数组,矩阵,排序,模拟,堆（优先队列） -->
 
 ## 题目描述
 

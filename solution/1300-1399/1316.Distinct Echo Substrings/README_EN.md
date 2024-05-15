@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1316.Distinct%20Echo%20Substrings/README_EN.md
+rating: 1836
+tags:
+    - Trie
+    - String
+    - Hash Function
+    - Rolling Hash
+---
+
 # [1316. Distinct Echo Substrings](https://leetcode.com/problems/distinct-echo-substrings)
 
 [中文文档](/solution/1300-1399/1316.Distinct%20Echo%20Substrings/README.md)
-
-<!-- tags:Trie,String,Hash Function,Rolling Hash -->
 
 ## Description
 

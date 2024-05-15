@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1643.Kth%20Smallest%20Instructions/README_EN.md
+rating: 2079
+tags:
+    - Array
+    - Math
+    - Dynamic Programming
+    - Combinatorics
+---
+
 # [1643. Kth Smallest Instructions](https://leetcode.com/problems/kth-smallest-instructions)
 
 [中文文档](/solution/1600-1699/1643.Kth%20Smallest%20Instructions/README.md)
-
-<!-- tags:Array,Math,Dynamic Programming,Combinatorics -->
 
 ## Description
 

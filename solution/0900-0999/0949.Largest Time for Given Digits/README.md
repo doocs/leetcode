@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0949.Largest%20Time%20for%20Given%20Digits/README.md
+tags:
+    - 数组
+    - 字符串
+    - 枚举
+---
+
 # [949. 给定数字能组成的最大时间](https://leetcode.cn/problems/largest-time-for-given-digits)
 
 [English Version](/solution/0900-0999/0949.Largest%20Time%20for%20Given%20Digits/README_EN.md)
-
-<!-- tags:数组,字符串,枚举 -->
 
 ## 题目描述
 

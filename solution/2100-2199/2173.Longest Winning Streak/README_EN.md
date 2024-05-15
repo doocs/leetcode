@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2173.Longest%20Winning%20Streak/README_EN.md
+tags:
+    - Database
+---
+
 # [2173. Longest Winning Streak 🔒](https://leetcode.com/problems/longest-winning-streak)
 
 [中文文档](/solution/2100-2199/2173.Longest%20Winning%20Streak/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

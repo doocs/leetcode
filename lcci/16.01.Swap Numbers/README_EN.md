@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.01.Swap%20Numbers/README_EN.md
+---
+
 # [16.01. Swap Numbers](https://leetcode.cn/problems/swap-numbers-lcci)
 
 [中文文档](/lcci/16.01.Swap%20Numbers/README.md)

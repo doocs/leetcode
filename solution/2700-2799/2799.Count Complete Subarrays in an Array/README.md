@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2799.Count%20Complete%20Subarrays%20in%20an%20Array/README.md
+rating: 1397
+tags:
+    - 数组
+    - 哈希表
+    - 滑动窗口
+---
+
 # [2799. 统计完全子数组的数目](https://leetcode.cn/problems/count-complete-subarrays-in-an-array)
 
 [English Version](/solution/2700-2799/2799.Count%20Complete%20Subarrays%20in%20an%20Array/README_EN.md)
-
-<!-- tags:数组,哈希表,滑动窗口 -->
 
 ## 题目描述
 

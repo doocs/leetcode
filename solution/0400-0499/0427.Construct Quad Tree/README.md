@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0427.Construct%20Quad%20Tree/README.md
+tags:
+    - 树
+    - 数组
+    - 分治
+    - 矩阵
+---
+
 # [427. 建立四叉树](https://leetcode.cn/problems/construct-quad-tree)
 
 [English Version](/solution/0400-0499/0427.Construct%20Quad%20Tree/README_EN.md)
-
-<!-- tags:树,数组,分治,矩阵 -->
 
 ## 题目描述
 

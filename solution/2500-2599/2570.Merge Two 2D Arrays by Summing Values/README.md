@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2570.Merge%20Two%202D%20Arrays%20by%20Summing%20Values/README.md
+rating: 1281
+tags:
+    - 数组
+    - 哈希表
+    - 双指针
+---
+
 # [2570. 合并两个二维数组 - 求和法](https://leetcode.cn/problems/merge-two-2d-arrays-by-summing-values)
 
 [English Version](/solution/2500-2599/2570.Merge%20Two%202D%20Arrays%20by%20Summing%20Values/README_EN.md)
-
-<!-- tags:数组,哈希表,双指针 -->
 
 ## 题目描述
 

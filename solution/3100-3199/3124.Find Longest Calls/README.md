@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3124.Find%20Longest%20Calls/README.md
+tags:
+    - 数据库
+---
+
 # [3124. 查找最长的电话 🔒](https://leetcode.cn/problems/find-longest-calls)
 
 [English Version](/solution/3100-3199/3124.Find%20Longest%20Calls/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

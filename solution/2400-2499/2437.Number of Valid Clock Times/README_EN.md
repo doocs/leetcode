@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2437.Number%20of%20Valid%20Clock%20Times/README_EN.md
+rating: 1426
+tags:
+    - String
+    - Enumeration
+---
+
 # [2437. Number of Valid Clock Times](https://leetcode.com/problems/number-of-valid-clock-times)
 
 [中文文档](/solution/2400-2499/2437.Number%20of%20Valid%20Clock%20Times/README.md)
-
-<!-- tags:String,Enumeration -->
 
 ## Description
 

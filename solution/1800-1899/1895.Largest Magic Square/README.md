@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1895.Largest%20Magic%20Square/README.md
+rating: 1781
+tags:
+    - 数组
+    - 矩阵
+    - 前缀和
+---
+
 # [1895. 最大的幻方](https://leetcode.cn/problems/largest-magic-square)
 
 [English Version](/solution/1800-1899/1895.Largest%20Magic%20Square/README_EN.md)
-
-<!-- tags:数组,矩阵,前缀和 -->
 
 ## 题目描述
 

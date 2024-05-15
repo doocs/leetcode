@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2057.Smallest%20Index%20With%20Equal%20Value/README_EN.md
+rating: 1167
+tags:
+    - Array
+---
+
 # [2057. Smallest Index With Equal Value](https://leetcode.com/problems/smallest-index-with-equal-value)
 
 [中文文档](/solution/2000-2099/2057.Smallest%20Index%20With%20Equal%20Value/README.md)
-
-<!-- tags:Array -->
 
 ## Description
 

@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0755.Pour%20Water/README.md
+tags:
+    - 数组
+    - 模拟
+---
+
 # [755. 倒水 🔒](https://leetcode.cn/problems/pour-water)
 
 [English Version](/solution/0700-0799/0755.Pour%20Water/README_EN.md)
-
-<!-- tags:数组,模拟 -->
 
 ## 题目描述
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1553.Minimum%20Number%20of%20Days%20to%20Eat%20N%20Oranges/README_EN.md
+rating: 2048
+tags:
+    - Memoization
+    - Dynamic Programming
+---
+
 # [1553. Minimum Number of Days to Eat N Oranges](https://leetcode.com/problems/minimum-number-of-days-to-eat-n-oranges)
 
 [中文文档](/solution/1500-1599/1553.Minimum%20Number%20of%20Days%20to%20Eat%20N%20Oranges/README.md)
-
-<!-- tags:Memoization,Dynamic Programming -->
 
 ## Description
 
@@ -53,7 +61,24 @@ You need at least 3 days to eat the 6 oranges.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Memoization Search
+
+According to the problem description, for each $n$, we can choose one of three ways:
+
+1. Decrease $n$ by $1$;
+2. If $n$ can be divided by $2$, divide the value of $n$ by $2$;
+3. If $n$ can be divided by $3$, divide the value of $n$ by $3$.
+
+Therefore, the problem is equivalent to finding the minimum number of days to reduce $n$ to $0$ through the above three ways.
+
+We design a function $dfs(n)$, which represents the minimum number of days to reduce $n$ to $0$. The execution process of the function $dfs(n)$ is as follows:
+
+1. If $n < 2$, return $n$;
+2. Otherwise, we can first reduce $n$ to a multiple of $2$ by $n \bmod 2$ operations of $1$, and then perform operation $2$ to reduce $n$ to $n/2$; we can also first reduce $n$ to a multiple of $3$ by $n \bmod 3$ operations of $1$, and then perform operation $3$ to reduce $n$ to $n/3$. We choose the minimum of the above two ways, that is, $1 + \min(n \bmod 2 + dfs(n/2), n \bmod 3 + dfs(n/3))$.
+
+To avoid repeated calculations, we use the method of memoization search and store the calculated values of $dfs(n)$ in a hash table.
+
+The time complexity is $O(\log^2 n)$, and the space complexity is $O(\log^2 n)$.
 
 <!-- tabs:start -->
 
@@ -61,7 +86,7 @@ You need at least 3 days to eat the 6 oranges.
 class Solution:
     def minDays(self, n: int) -> int:
         @cache
-        def dfs(n):
+        def dfs(n: int) -> int:
             if n < 2:
                 return n
             return 1 + min(n % 2 + dfs(n // 2), n % 3 + dfs(n // 3))
@@ -101,8 +126,12 @@ public:
     }
 
     int dfs(int n) {
-        if (n < 2) return n;
-        if (f.count(n)) return f[n];
+        if (n < 2) {
+            return n;
+        }
+        if (f.count(n)) {
+            return f[n];
+        }
         int res = 1 + min(n % 2 + dfs(n / 2), n % 3 + dfs(n / 3));
         f[n] = res;
         return res;
@@ -123,6 +152,23 @@ func minDays(n int) int {
 		return res
 	}
 	return dfs(n)
+}
+```
+
+```ts
+function minDays(n: number): number {
+    const f: Record<number, number> = {};
+    const dfs = (n: number): number => {
+        if (n < 2) {
+            return n;
+        }
+        if (f[n] !== undefined) {
+            return f[n];
+        }
+        f[n] = 1 + Math.min((n % 2) + dfs((n / 2) | 0), (n % 3) + dfs((n / 3) | 0));
+        return f[n];
+    };
+    return dfs(n);
 }
 ```
 

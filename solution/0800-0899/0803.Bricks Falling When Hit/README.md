@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0803.Bricks%20Falling%20When%20Hit/README.md
+tags:
+    - 并查集
+    - 数组
+    - 矩阵
+---
+
 # [803. 打砖块](https://leetcode.cn/problems/bricks-falling-when-hit)
 
 [English Version](/solution/0800-0899/0803.Bricks%20Falling%20When%20Hit/README_EN.md)
-
-<!-- tags:并查集,数组,矩阵 -->
 
 ## 题目描述
 

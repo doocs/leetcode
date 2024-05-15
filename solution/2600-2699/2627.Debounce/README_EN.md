@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2627.Debounce/README_EN.md
+---
+
 # [2627. Debounce](https://leetcode.com/problems/debounce)
 
 [中文文档](/solution/2600-2699/2627.Debounce/README.md)
-
-<!-- tags: -->
 
 ## Description
 

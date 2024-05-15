@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0920.Number%20of%20Music%20Playlists/README_EN.md
+tags:
+    - Math
+    - Dynamic Programming
+    - Combinatorics
+---
+
 # [920. Number of Music Playlists](https://leetcode.com/problems/number-of-music-playlists)
 
 [中文文档](/solution/0900-0999/0920.Number%20of%20Music%20Playlists/README.md)
-
-<!-- tags:Math,Dynamic Programming,Combinatorics -->
 
 ## Description
 

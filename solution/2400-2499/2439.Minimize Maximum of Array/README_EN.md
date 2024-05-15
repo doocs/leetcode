@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2439.Minimize%20Maximum%20of%20Array/README_EN.md
+rating: 1965
+tags:
+    - Greedy
+    - Array
+    - Binary Search
+    - Dynamic Programming
+    - Prefix Sum
+---
+
 # [2439. Minimize Maximum of Array](https://leetcode.com/problems/minimize-maximum-of-array)
 
 [中文文档](/solution/2400-2499/2439.Minimize%20Maximum%20of%20Array/README.md)
-
-<!-- tags:Greedy,Array,Binary Search,Dynamic Programming,Prefix Sum -->
 
 ## Description
 

@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.10.Check%20SubTree/README.md
+---
+
 # [面试题 04.10. 检查子树](https://leetcode.cn/problems/check-subtree-lcci)
 
 [English Version](/lcci/04.10.Check%20SubTree/README_EN.md)

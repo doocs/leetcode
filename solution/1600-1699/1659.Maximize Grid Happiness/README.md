@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1659.Maximize%20Grid%20Happiness/README.md
+rating: 2655
+tags:
+    - 位运算
+    - 记忆化搜索
+    - 动态规划
+    - 状态压缩
+---
+
 # [1659. 最大化网格幸福感](https://leetcode.cn/problems/maximize-grid-happiness)
 
 [English Version](/solution/1600-1699/1659.Maximize%20Grid%20Happiness/README_EN.md)
-
-<!-- tags:位运算,记忆化搜索,动态规划,状态压缩 -->
 
 ## 题目描述
 

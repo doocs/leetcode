@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0754.Reach%20a%20Number/README_EN.md
+tags:
+    - Math
+    - Binary Search
+---
+
 # [754. Reach a Number](https://leetcode.com/problems/reach-a-number)
 
 [中文文档](/solution/0700-0799/0754.Reach%20a%20Number/README.md)
-
-<!-- tags:Math,Binary Search -->
 
 ## Description
 

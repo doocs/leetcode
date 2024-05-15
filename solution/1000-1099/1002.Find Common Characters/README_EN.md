@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1002.Find%20Common%20Characters/README_EN.md
+rating: 1279
+tags:
+    - Array
+    - Hash Table
+    - String
+---
+
 # [1002. Find Common Characters](https://leetcode.com/problems/find-common-characters)
 
 [中文文档](/solution/1000-1099/1002.Find%20Common%20Characters/README.md)
-
-<!-- tags:Array,Hash Table,String -->
 
 ## Description
 

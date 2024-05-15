@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1679.Max%20Number%20of%20K-Sum%20Pairs/README_EN.md
+rating: 1345
+tags:
+    - Array
+    - Hash Table
+    - Two Pointers
+    - Sorting
+---
+
 # [1679. Max Number of K-Sum Pairs](https://leetcode.com/problems/max-number-of-k-sum-pairs)
 
 [中文文档](/solution/1600-1699/1679.Max%20Number%20of%20K-Sum%20Pairs/README.md)
-
-<!-- tags:Array,Hash Table,Two Pointers,Sorting -->
 
 ## Description
 

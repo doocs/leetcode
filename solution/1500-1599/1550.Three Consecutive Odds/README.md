@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1550.Three%20Consecutive%20Odds/README.md
+rating: 1221
+tags:
+    - 数组
+---
+
 # [1550. 存在连续三个奇数的数组](https://leetcode.cn/problems/three-consecutive-odds)
 
 [English Version](/solution/1500-1599/1550.Three%20Consecutive%20Odds/README_EN.md)
-
-<!-- tags:数组 -->
 
 ## 题目描述
 

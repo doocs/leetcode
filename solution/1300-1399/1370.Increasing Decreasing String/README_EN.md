@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1370.Increasing%20Decreasing%20String/README_EN.md
+rating: 1369
+tags:
+    - Hash Table
+    - String
+    - Counting
+---
+
 # [1370. Increasing Decreasing String](https://leetcode.com/problems/increasing-decreasing-string)
 
 [中文文档](/solution/1300-1399/1370.Increasing%20Decreasing%20String/README.md)
-
-<!-- tags:Hash Table,String,Counting -->
 
 ## Description
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1845.Seat%20Reservation%20Manager/README_EN.md
+rating: 1428
+tags:
+    - Design
+    - Heap (Priority Queue)
+---
+
 # [1845. Seat Reservation Manager](https://leetcode.com/problems/seat-reservation-manager)
 
 [中文文档](/solution/1800-1899/1845.Seat%20Reservation%20Manager/README.md)
-
-<!-- tags:Design,Heap (Priority Queue) -->
 
 ## Description
 

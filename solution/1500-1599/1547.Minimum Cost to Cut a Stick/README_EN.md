@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1547.Minimum%20Cost%20to%20Cut%20a%20Stick/README_EN.md
+rating: 2116
+tags:
+    - Array
+    - Dynamic Programming
+    - Sorting
+---
+
 # [1547. Minimum Cost to Cut a Stick](https://leetcode.com/problems/minimum-cost-to-cut-a-stick)
 
 [中文文档](/solution/1500-1599/1547.Minimum%20Cost%20to%20Cut%20a%20Stick/README.md)
-
-<!-- tags:Array,Dynamic Programming,Sorting -->
 
 ## Description
 

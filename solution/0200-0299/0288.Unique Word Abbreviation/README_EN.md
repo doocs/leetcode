@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0288.Unique%20Word%20Abbreviation/README_EN.md
+tags:
+    - Design
+    - Array
+    - Hash Table
+    - String
+---
+
 # [288. Unique Word Abbreviation 🔒](https://leetcode.com/problems/unique-word-abbreviation)
 
 [中文文档](/solution/0200-0299/0288.Unique%20Word%20Abbreviation/README.md)
-
-<!-- tags:Design,Array,Hash Table,String -->
 
 ## Description
 

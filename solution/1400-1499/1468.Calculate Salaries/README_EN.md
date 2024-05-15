@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1468.Calculate%20Salaries/README_EN.md
+tags:
+    - Database
+---
+
 # [1468. Calculate Salaries 🔒](https://leetcode.com/problems/calculate-salaries)
 
 [中文文档](/solution/1400-1499/1468.Calculate%20Salaries/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

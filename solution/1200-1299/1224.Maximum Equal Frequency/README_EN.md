@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1224.Maximum%20Equal%20Frequency/README_EN.md
+rating: 2050
+tags:
+    - Array
+    - Hash Table
+---
+
 # [1224. Maximum Equal Frequency](https://leetcode.com/problems/maximum-equal-frequency)
 
 [中文文档](/solution/1200-1299/1224.Maximum%20Equal%20Frequency/README.md)
-
-<!-- tags:Array,Hash Table -->
 
 ## Description
 

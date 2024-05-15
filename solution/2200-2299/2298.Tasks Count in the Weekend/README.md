@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2298.Tasks%20Count%20in%20the%20Weekend/README.md
+tags:
+    - 数据库
+---
+
 # [2298. 周末任务计数 🔒](https://leetcode.cn/problems/tasks-count-in-the-weekend)
 
 [English Version](/solution/2200-2299/2298.Tasks%20Count%20in%20the%20Weekend/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1037.Valid%20Boomerang/README_EN.md
+rating: 1255
+tags:
+    - Geometry
+    - Array
+    - Math
+---
+
 # [1037. Valid Boomerang](https://leetcode.com/problems/valid-boomerang)
 
 [中文文档](/solution/1000-1099/1037.Valid%20Boomerang/README.md)
-
-<!-- tags:Geometry,Array,Math -->
 
 ## Description
 

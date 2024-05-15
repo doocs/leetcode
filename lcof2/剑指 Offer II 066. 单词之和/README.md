@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20066.%20%E5%8D%95%E8%AF%8D%E4%B9%8B%E5%92%8C/README.md
+---
+
 # [剑指 Offer II 066. 单词之和](https://leetcode.cn/problems/z1R5dt)
 
 ## 题目描述

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2126.Destroying%20Asteroids/README.md
+rating: 1334
+tags:
+    - 贪心
+    - 数组
+    - 排序
+---
+
 # [2126. 摧毁小行星](https://leetcode.cn/problems/destroying-asteroids)
 
 [English Version](/solution/2100-2199/2126.Destroying%20Asteroids/README_EN.md)
-
-<!-- tags:贪心,数组,排序 -->
 
 ## 题目描述
 

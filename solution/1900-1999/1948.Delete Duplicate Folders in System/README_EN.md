@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1948.Delete%20Duplicate%20Folders%20in%20System/README_EN.md
+rating: 2533
+tags:
+    - Trie
+    - Array
+    - Hash Table
+    - String
+    - Hash Function
+---
+
 # [1948. Delete Duplicate Folders in System](https://leetcode.com/problems/delete-duplicate-folders-in-system)
 
 [中文文档](/solution/1900-1999/1948.Delete%20Duplicate%20Folders%20in%20System/README.md)
-
-<!-- tags:Trie,Array,Hash Table,String,Hash Function -->
 
 ## Description
 

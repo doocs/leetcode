@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0526.Beautiful%20Arrangement/README_EN.md
+tags:
+    - Bit Manipulation
+    - Array
+    - Dynamic Programming
+    - Backtracking
+    - Bitmask
+---
+
 # [526. Beautiful Arrangement](https://leetcode.com/problems/beautiful-arrangement)
 
 [中文文档](/solution/0500-0599/0526.Beautiful%20Arrangement/README.md)
-
-<!-- tags:Bit Manipulation,Array,Dynamic Programming,Backtracking,Bitmask -->
 
 ## Description
 

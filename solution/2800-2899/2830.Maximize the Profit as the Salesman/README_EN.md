@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2830.Maximize%20the%20Profit%20as%20the%20Salesman/README_EN.md
+rating: 1851
+tags:
+    - Array
+    - Hash Table
+    - Binary Search
+    - Dynamic Programming
+    - Sorting
+---
+
 # [2830. Maximize the Profit as the Salesman](https://leetcode.com/problems/maximize-the-profit-as-the-salesman)
 
 [中文文档](/solution/2800-2899/2830.Maximize%20the%20Profit%20as%20the%20Salesman/README.md)
-
-<!-- tags:Array,Hash Table,Binary Search,Dynamic Programming,Sorting -->
 
 ## Description
 

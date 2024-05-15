@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.05.Sparse%20Array%20Search/README.md
+---
+
 # [面试题 10.05. 稀疏数组搜索](https://leetcode.cn/problems/sparse-array-search-lcci)
 
 [中文文档](/lcci/10.05.Sparse%20Array%20Search/README.md)

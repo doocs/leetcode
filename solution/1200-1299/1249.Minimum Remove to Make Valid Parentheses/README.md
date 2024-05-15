@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1249.Minimum%20Remove%20to%20Make%20Valid%20Parentheses/README.md
+rating: 1657
+tags:
+    - 栈
+    - 字符串
+---
+
 # [1249. 移除无效的括号](https://leetcode.cn/problems/minimum-remove-to-make-valid-parentheses)
 
 [English Version](/solution/1200-1299/1249.Minimum%20Remove%20to%20Make%20Valid%20Parentheses/README_EN.md)
-
-<!-- tags:栈,字符串 -->
 
 ## 题目描述
 

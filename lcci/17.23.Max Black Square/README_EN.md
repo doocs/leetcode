@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.23.Max%20Black%20Square/README_EN.md
+---
+
 # [17.23. Max Black Square](https://leetcode.cn/problems/max-black-square-lcci)
 
 [中文文档](/lcci/17.23.Max%20Black%20Square/README.md)
@@ -177,8 +183,8 @@ func findSquare(matrix [][]int) []int {
 ```ts
 function findSquare(matrix: number[][]): number[] {
     const n = matrix.length;
-    const down: number[][] = new Array(n).fill(0).map(() => new Array(n).fill(0));
-    const right: number[][] = new Array(n).fill(0).map(() => new Array(n).fill(0));
+    const down: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
+    const right: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
     for (let i = n - 1; i >= 0; --i) {
         for (let j = n - 1; j >= 0; --j) {
             if (matrix[i][j] === 0) {

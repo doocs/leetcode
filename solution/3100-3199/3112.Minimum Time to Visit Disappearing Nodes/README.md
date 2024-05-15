@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3112.Minimum%20Time%20to%20Visit%20Disappearing%20Nodes/README.md
+rating: 1756
+tags:
+    - 图
+    - 数组
+    - 最短路
+    - 堆（优先队列）
+---
+
 # [3112. 访问消失节点的最少时间](https://leetcode.cn/problems/minimum-time-to-visit-disappearing-nodes)
 
 [English Version](/solution/3100-3199/3112.Minimum%20Time%20to%20Visit%20Disappearing%20Nodes/README_EN.md)
-
-<!-- tags:图,数组,最短路,堆（优先队列） -->
 
 ## 题目描述
 

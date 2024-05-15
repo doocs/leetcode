@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0983.Minimum%20Cost%20For%20Tickets/README.md
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [983. 最低票价](https://leetcode.cn/problems/minimum-cost-for-tickets)
 
 [English Version](/solution/0900-0999/0983.Minimum%20Cost%20For%20Tickets/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
 
 ## 题目描述
 

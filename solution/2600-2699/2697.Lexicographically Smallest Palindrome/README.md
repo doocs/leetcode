@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2697.Lexicographically%20Smallest%20Palindrome/README.md
+rating: 1303
+tags:
+    - 贪心
+    - 双指针
+    - 字符串
+---
+
 # [2697. 字典序最小回文串](https://leetcode.cn/problems/lexicographically-smallest-palindrome)
 
 [English Version](/solution/2600-2699/2697.Lexicographically%20Smallest%20Palindrome/README_EN.md)
-
-<!-- tags:贪心,双指针,字符串 -->
 
 ## 题目描述
 

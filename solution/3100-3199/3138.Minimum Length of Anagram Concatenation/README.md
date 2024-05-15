@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3138.Minimum%20Length%20of%20Anagram%20Concatenation/README.md
+rating: 1979
+tags:
+    - 哈希表
+    - 字符串
+    - 计数
+---
+
 # [3138. 同位字符串连接的最小长度](https://leetcode.cn/problems/minimum-length-of-anagram-concatenation)
 
 [English Version](/solution/3100-3199/3138.Minimum%20Length%20of%20Anagram%20Concatenation/README_EN.md)
-
-<!-- tags: -->
 
 ## 题目描述
 

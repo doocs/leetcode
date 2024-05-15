@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3059.Find%20All%20Unique%20Email%20Domains/README.md
+tags:
+    - 数据库
+---
+
 # [3059. 找到所有不同的邮件域名 🔒](https://leetcode.cn/problems/find-all-unique-email-domains)
 
 [English Version](/solution/3000-3099/3059.Find%20All%20Unique%20Email%20Domains/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

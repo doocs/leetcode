@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1462.Course%20Schedule%20IV/README_EN.md
+rating: 1692
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Graph
+    - Topological Sort
+---
+
 # [1462. Course Schedule IV](https://leetcode.com/problems/course-schedule-iv)
 
 [中文文档](/solution/1400-1499/1462.Course%20Schedule%20IV/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Graph,Topological Sort -->
 
 ## Description
 

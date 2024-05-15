@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1563.Stone%20Game%20V/README_EN.md
+rating: 2087
+tags:
+    - Array
+    - Math
+    - Dynamic Programming
+    - Game Theory
+---
+
 # [1563. Stone Game V](https://leetcode.com/problems/stone-game-v)
 
 [中文文档](/solution/1500-1599/1563.Stone%20Game%20V/README.md)
-
-<!-- tags:Array,Math,Dynamic Programming,Game Theory -->
 
 ## Description
 

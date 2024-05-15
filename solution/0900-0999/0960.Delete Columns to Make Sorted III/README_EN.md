@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0960.Delete%20Columns%20to%20Make%20Sorted%20III/README_EN.md
+tags:
+    - Array
+    - String
+    - Dynamic Programming
+---
+
 # [960. Delete Columns to Make Sorted III](https://leetcode.com/problems/delete-columns-to-make-sorted-iii)
 
 [中文文档](/solution/0900-0999/0960.Delete%20Columns%20to%20Make%20Sorted%20III/README.md)
-
-<!-- tags:Array,String,Dynamic Programming -->
 
 ## Description
 

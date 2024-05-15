@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2191.Sort%20the%20Jumbled%20Numbers/README_EN.md
+rating: 1496
+tags:
+    - Array
+    - Sorting
+---
+
 # [2191. Sort the Jumbled Numbers](https://leetcode.com/problems/sort-the-jumbled-numbers)
 
 [中文文档](/solution/2100-2199/2191.Sort%20the%20Jumbled%20Numbers/README.md)
-
-<!-- tags:Array,Sorting -->
 
 ## Description
 
@@ -57,40 +65,42 @@ Thus, the sorted array is [338,38,991].
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Custom Sorting
+
+We traverse each element $nums[i]$ in the array $nums$, store its mapped value $y$ and index $i$ into the array $arr$, then sort the array $arr$. Finally, we extract the index $i$ from the sorted array $arr$, convert it to the element $nums[i]$ in the original array $nums$.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def sortJumbled(self, mapping: List[int], nums: List[int]) -> List[int]:
-        arr = []
-        for i, x in enumerate(nums):
-            y = mapping[0] if x == 0 else 0
-            k = 1
+        def f(x: int) -> int:
+            if x == 0:
+                return mapping[0]
+            y, k = 0, 1
             while x:
                 x, v = divmod(x, 10)
-                y = mapping[v] * k + y
+                v = mapping[v]
+                y = k * v + y
                 k *= 10
-            arr.append((y, i))
-        arr.sort()
+            return y
+
+        arr = sorted((f(x), i) for i, x in enumerate(nums))
         return [nums[i] for _, i in arr]
 ```
 
 ```java
 class Solution {
+    private int[] mapping;
+
     public int[] sortJumbled(int[] mapping, int[] nums) {
+        this.mapping = mapping;
         int n = nums.length;
-        int[][] arr = new int[n][2];
+        int[][] arr = new int[n][0];
         for (int i = 0; i < n; ++i) {
-            int x = nums[i];
-            int y = x == 0 ? mapping[0] : 0;
-            int k = 1;
-            for (; x > 0; x /= 10) {
-                y += k * mapping[x % 10];
-                k *= 10;
-            }
-            arr[i] = new int[] {y, i};
+            arr[i] = new int[] {f(nums[i]), i};
         }
         Arrays.sort(arr, (a, b) -> a[0] == b[0] ? a[1] - b[1] : a[0] - b[0]);
         int[] ans = new int[n];
@@ -99,6 +109,19 @@ class Solution {
         }
         return ans;
     }
+
+    private int f(int x) {
+        if (x == 0) {
+            return mapping[0];
+        }
+        int y = 0;
+        for (int k = 1; x > 0; x /= 10) {
+            int v = mapping[x % 10];
+            y = k * v + y;
+            k *= 10;
+        }
+        return y;
+    }
 }
 ```
 
@@ -106,21 +129,26 @@ class Solution {
 class Solution {
 public:
     vector<int> sortJumbled(vector<int>& mapping, vector<int>& nums) {
-        int n = nums.size();
-        vector<pair<int, int>> arr(n);
-        for (int i = 0; i < n; ++i) {
-            int x = nums[i];
-            int y = x == 0 ? mapping[0] : 0;
-            int k = 1;
-            for (; x; x /= 10) {
-                y += k * mapping[x % 10];
+        auto f = [&](int x) {
+            if (x == 0) {
+                return mapping[0];
+            }
+            int y = 0;
+            for (int k = 1; x; x /= 10) {
+                int v = mapping[x % 10];
+                y = k * v + y;
                 k *= 10;
             }
-            arr[i] = {y, i};
+            return y;
+        };
+        const int n = nums.size();
+        vector<pair<int, int>> arr;
+        for (int i = 0; i < n; ++i) {
+            arr.emplace_back(f(nums[i]), i);
         }
         sort(arr.begin(), arr.end());
         vector<int> ans;
-        for (auto& [_, i] : arr) {
+        for (const auto& [_, i] : arr) {
             ans.push_back(nums[i]);
         }
         return ans;
@@ -131,25 +159,24 @@ public:
 ```go
 func sortJumbled(mapping []int, nums []int) (ans []int) {
 	n := len(nums)
-	arr := make([][2]int, n)
-	for i, x := range nums {
-		y := 0
+	f := func(x int) (y int) {
 		if x == 0 {
-			y = mapping[0]
+			return mapping[0]
 		}
-		k := 1
-		for ; x > 0; x /= 10 {
-			y += k * mapping[x%10]
+		for k := 1; x > 0; x /= 10 {
+			v := mapping[x%10]
+			y = k*v + y
 			k *= 10
 		}
-		arr[i] = [2]int{y, i}
+		return
 	}
-	sort.Slice(arr, func(i, j int) bool {
-		a, b := arr[i], arr[j]
-		return a[0] < b[0] || a[0] == b[0] && a[1] < b[1]
-	})
-	for _, x := range arr {
-		ans = append(ans, nums[x[1]])
+	arr := make([][2]int, n)
+	for i, x := range nums {
+		arr[i] = [2]int{f(x), i}
+	}
+	sort.Slice(arr, func(i, j int) bool { return arr[i][0] < arr[j][0] || arr[i][0] == arr[j][0] && arr[i][1] < arr[j][1] })
+	for _, p := range arr {
+		ans = append(ans, nums[p[1]])
 	}
 	return
 }
@@ -158,18 +185,91 @@ func sortJumbled(mapping []int, nums []int) (ans []int) {
 ```ts
 function sortJumbled(mapping: number[], nums: number[]): number[] {
     const n = nums.length;
-    const arr: number[][] = [];
-    for (let i = 0; i < n; ++i) {
-        let x = nums[i];
-        let y = x === 0 ? mapping[0] : 0;
-        let k = 1;
-        for (; x > 0; x = Math.floor(x / 10), k *= 10) {
-            y += mapping[x % 10] * k;
+    const f = (x: number): number => {
+        if (x === 0) {
+            return mapping[0];
         }
-        arr.push([y, i]);
-    }
+        let y = 0;
+        for (let k = 1; x; x = (x / 10) | 0) {
+            const v = mapping[x % 10];
+            y += v * k;
+            k *= 10;
+        }
+        return y;
+    };
+    const arr: number[][] = nums.map((x, i) => [f(x), i]);
     arr.sort((a, b) => (a[0] === b[0] ? a[1] - b[1] : a[0] - b[0]));
-    return arr.map(a => nums[a[1]]);
+    return arr.map(x => nums[x[1]]);
+}
+```
+
+```rust
+impl Solution {
+    pub fn sort_jumbled(mapping: Vec<i32>, nums: Vec<i32>) -> Vec<i32> {
+        let f = |x: i32| -> i32 {
+            if x == 0 {
+                return mapping[0];
+            }
+            let mut y = 0;
+            let mut k = 1;
+            let mut num = x;
+            while num != 0 {
+                let v = mapping[(num % 10) as usize];
+                y = k * v + y;
+                k *= 10;
+                num /= 10;
+            }
+            y
+        };
+
+        let n = nums.len();
+        let mut arr: Vec<(i32, usize)> = Vec::with_capacity(n);
+        for i in 0..n {
+            arr.push((f(nums[i]), i));
+        }
+        arr.sort();
+
+        let mut ans: Vec<i32> = Vec::with_capacity(n);
+        for (_, i) in arr {
+            ans.push(nums[i]);
+        }
+        ans
+    }
+}
+```
+
+```cs
+public class Solution {
+    public int[] SortJumbled(int[] mapping, int[] nums) {
+        Func<int, int> f = (int x) => {
+            if (x == 0) {
+                return mapping[0];
+            }
+            int y = 0;
+            int k = 1;
+            int num = x;
+            while (num != 0) {
+                int v = mapping[num % 10];
+                y = k * v + y;
+                k *= 10;
+                num /= 10;
+            }
+            return y;
+        };
+
+        int n = nums.Length;
+        List<(int, int)> arr = new List<(int, int)>();
+        for (int i = 0; i < n; ++i) {
+            arr.Add((f(nums[i]), i));
+        }
+        arr.Sort();
+
+        int[] ans = new int[n];
+        for (int i = 0; i < n; ++i) {
+            ans[i] = nums[arr[i].Item2];
+        }
+        return ans;
+    }
 }
 ```
 

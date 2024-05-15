@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0398.Random%20Pick%20Index/README_EN.md
+tags:
+    - Reservoir Sampling
+    - Hash Table
+    - Math
+    - Randomized
+---
+
 # [398. Random Pick Index](https://leetcode.com/problems/random-pick-index)
 
 [中文文档](/solution/0300-0399/0398.Random%20Pick%20Index/README.md)
-
-<!-- tags:Reservoir Sampling,Hash Table,Math,Randomized -->
 
 ## Description
 

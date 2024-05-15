@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1183.Maximum%20Number%20of%20Ones/README_EN.md
+rating: 2366
+tags:
+    - Greedy
+    - Heap (Priority Queue)
+---
+
 # [1183. Maximum Number of Ones 🔒](https://leetcode.com/problems/maximum-number-of-ones)
 
 [中文文档](/solution/1100-1199/1183.Maximum%20Number%20of%20Ones/README.md)
-
-<!-- tags:Greedy,Heap (Priority Queue) -->
 
 ## Description
 

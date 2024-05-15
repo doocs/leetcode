@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2868.The%20Wording%20Game/README_EN.md
+tags:
+    - Array
+    - Math
+    - Two Pointers
+    - String
+    - Game Theory
+---
+
 # [2868. The Wording Game 🔒](https://leetcode.com/problems/the-wording-game)
 
 [中文文档](/solution/2800-2899/2868.The%20Wording%20Game/README.md)
-
-<!-- tags:Array,Math,Two Pointers,String,Game Theory -->
 
 ## Description
 

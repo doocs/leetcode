@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1237.Find%20Positive%20Integer%20Solution%20for%20a%20Given%20Equation/README_EN.md
+rating: 1404
+tags:
+    - Math
+    - Two Pointers
+    - Binary Search
+    - Interactive
+---
+
 # [1237. Find Positive Integer Solution for a Given Equation](https://leetcode.com/problems/find-positive-integer-solution-for-a-given-equation)
 
 [中文文档](/solution/1200-1299/1237.Find%20Positive%20Integer%20Solution%20for%20a%20Given%20Equation/README.md)
-
-<!-- tags:Math,Two Pointers,Binary Search,Interactive -->
 
 ## Description
 

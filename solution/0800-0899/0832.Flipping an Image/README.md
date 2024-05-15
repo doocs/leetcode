@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0832.Flipping%20an%20Image/README.md
+tags:
+    - 位运算
+    - 数组
+    - 双指针
+    - 矩阵
+    - 模拟
+---
+
 # [832. 翻转图像](https://leetcode.cn/problems/flipping-an-image)
 
 [English Version](/solution/0800-0899/0832.Flipping%20an%20Image/README_EN.md)
-
-<!-- tags:位运算,数组,双指针,矩阵,模拟 -->
 
 ## 题目描述
 

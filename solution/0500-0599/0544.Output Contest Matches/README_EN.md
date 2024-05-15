@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0544.Output%20Contest%20Matches/README_EN.md
+tags:
+    - Recursion
+    - String
+    - Simulation
+---
+
 # [544. Output Contest Matches 🔒](https://leetcode.com/problems/output-contest-matches)
 
 [中文文档](/solution/0500-0599/0544.Output%20Contest%20Matches/README.md)
-
-<!-- tags:Recursion,String,Simulation -->
 
 ## Description
 

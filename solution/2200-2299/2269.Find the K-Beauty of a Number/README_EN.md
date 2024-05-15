@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2269.Find%20the%20K-Beauty%20of%20a%20Number/README_EN.md
+rating: 1279
+tags:
+    - Math
+    - String
+    - Sliding Window
+---
+
 # [2269. Find the K-Beauty of a Number](https://leetcode.com/problems/find-the-k-beauty-of-a-number)
 
 [中文文档](/solution/2200-2299/2269.Find%20the%20K-Beauty%20of%20a%20Number/README.md)
-
-<!-- tags:Math,String,Sliding Window -->
 
 ## Description
 

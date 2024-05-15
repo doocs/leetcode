@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2022.Convert%201D%20Array%20Into%202D%20Array/README_EN.md
+rating: 1307
+tags:
+    - Array
+    - Matrix
+    - Simulation
+---
+
 # [2022. Convert 1D Array Into 2D Array](https://leetcode.com/problems/convert-1d-array-into-2d-array)
 
 [中文文档](/solution/2000-2099/2022.Convert%201D%20Array%20Into%202D%20Array/README.md)
-
-<!-- tags:Array,Matrix,Simulation -->
 
 ## Description
 

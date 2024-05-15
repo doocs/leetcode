@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2259.Remove%20Digit%20From%20Number%20to%20Maximize%20Result/README.md
+rating: 1331
+tags:
+    - 贪心
+    - 字符串
+    - 枚举
+---
+
 # [2259. 移除指定数字得到的最大结果](https://leetcode.cn/problems/remove-digit-from-number-to-maximize-result)
 
 [English Version](/solution/2200-2299/2259.Remove%20Digit%20From%20Number%20to%20Maximize%20Result/README_EN.md)
-
-<!-- tags:贪心,字符串,枚举 -->
 
 ## 题目描述
 

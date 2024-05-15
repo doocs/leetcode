@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1254.Number%20of%20Closed%20Islands/README_EN.md
+rating: 1658
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Union Find
+    - Array
+    - Matrix
+---
+
 # [1254. Number of Closed Islands](https://leetcode.com/problems/number-of-closed-islands)
 
 [中文文档](/solution/1200-1299/1254.Number%20of%20Closed%20Islands/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Array,Matrix -->
 
 ## Description
 

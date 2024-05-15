@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1032.Stream%20of%20Characters/README.md
+rating: 1970
+tags:
+    - 设计
+    - 字典树
+    - 数组
+    - 字符串
+    - 数据流
+---
+
 # [1032. 字符流](https://leetcode.cn/problems/stream-of-characters)
 
 [English Version](/solution/1000-1099/1032.Stream%20of%20Characters/README_EN.md)
-
-<!-- tags:设计,字典树,数组,字符串,数据流 -->
 
 ## 题目描述
 

@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1912.Design%20Movie%20Rental%20System/README_EN.md
+rating: 2181
+tags:
+    - Design
+    - Array
+    - Hash Table
+    - Ordered Set
+    - Heap (Priority Queue)
+---
+
 # [1912. Design Movie Rental System](https://leetcode.com/problems/design-movie-rental-system)
 
 [中文文档](/solution/1900-1999/1912.Design%20Movie%20Rental%20System/README.md)
-
-<!-- tags:Design,Array,Hash Table,Ordered Set,Heap (Priority Queue) -->
 
 ## Description
 

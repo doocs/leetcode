@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1559.Detect%20Cycles%20in%202D%20Grid/README.md
+rating: 1837
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 并查集
+    - 数组
+    - 矩阵
+---
+
 # [1559. 二维网格图中探测环](https://leetcode.cn/problems/detect-cycles-in-2d-grid)
 
 [English Version](/solution/1500-1599/1559.Detect%20Cycles%20in%202D%20Grid/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,并查集,数组,矩阵 -->
 
 ## 题目描述
 

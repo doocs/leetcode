@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0418.Sentence%20Screen%20Fitting/README_EN.md
+tags:
+    - Array
+    - String
+    - Dynamic Programming
+---
+
 # [418. Sentence Screen Fitting 🔒](https://leetcode.com/problems/sentence-screen-fitting)
 
 [中文文档](/solution/0400-0499/0418.Sentence%20Screen%20Fitting/README.md)
-
-<!-- tags:Array,String,Dynamic Programming -->
 
 ## Description
 

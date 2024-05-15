@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1690.Stone%20Game%20VII/README_EN.md
+rating: 1951
+tags:
+    - Array
+    - Math
+    - Dynamic Programming
+    - Game Theory
+---
+
 # [1690. Stone Game VII](https://leetcode.com/problems/stone-game-vii)
 
 [中文文档](/solution/1600-1699/1690.Stone%20Game%20VII/README.md)
-
-<!-- tags:Array,Math,Dynamic Programming,Game Theory -->
 
 ## Description
 

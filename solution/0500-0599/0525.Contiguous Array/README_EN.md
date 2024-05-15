@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0525.Contiguous%20Array/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Prefix Sum
+---
+
 # [525. Contiguous Array](https://leetcode.com/problems/contiguous-array)
 
 [中文文档](/solution/0500-0599/0525.Contiguous%20Array/README.md)
-
-<!-- tags:Array,Hash Table,Prefix Sum -->
 
 ## Description
 

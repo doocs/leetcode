@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0037.Sudoku%20Solver/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Backtracking
+    - Matrix
+---
+
 # [37. Sudoku Solver](https://leetcode.com/problems/sudoku-solver)
 
 [中文文档](/solution/0000-0099/0037.Sudoku%20Solver/README.md)
-
-<!-- tags:Array,Hash Table,Backtracking,Matrix -->
 
 ## Description
 

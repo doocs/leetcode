@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0567.Permutation%20in%20String/README_EN.md
+tags:
+    - Hash Table
+    - Two Pointers
+    - String
+    - Sliding Window
+---
+
 # [567. Permutation in String](https://leetcode.com/problems/permutation-in-string)
 
 [中文文档](/solution/0500-0599/0567.Permutation%20in%20String/README.md)
-
-<!-- tags:Hash Table,Two Pointers,String,Sliding Window -->
 
 ## Description
 

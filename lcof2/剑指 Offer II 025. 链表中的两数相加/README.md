@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20025.%20%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/README.md
+---
+
 # [剑指 Offer II 025. 链表中的两数相加](https://leetcode.cn/problems/lMSNwu)
 
 ## 题目描述

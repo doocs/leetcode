@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1999.Smallest%20Greater%20Multiple%20Made%20of%20Two%20Digits/README.md
+tags:
+    - 数学
+    - 枚举
+---
+
 # [1999. 最小的仅由两个数组成的倍数 🔒](https://leetcode.cn/problems/smallest-greater-multiple-made-of-two-digits)
 
 [English Version](/solution/1900-1999/1999.Smallest%20Greater%20Multiple%20Made%20of%20Two%20Digits/README_EN.md)
-
-<!-- tags:数学,枚举 -->
 
 ## 题目描述
 

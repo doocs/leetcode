@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2938.Separate%20Black%20and%20White%20Balls/README_EN.md
+rating: 1422
+tags:
+    - Greedy
+    - Two Pointers
+    - String
+---
+
 # [2938. Separate Black and White Balls](https://leetcode.com/problems/separate-black-and-white-balls)
 
 [中文文档](/solution/2900-2999/2938.Separate%20Black%20and%20White%20Balls/README.md)
-
-<!-- tags:Greedy,Two Pointers,String -->
 
 ## Description
 

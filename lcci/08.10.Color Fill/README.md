@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.10.Color%20Fill/README.md
+---
+
 # [面试题 08.10. 颜色填充](https://leetcode.cn/problems/color-fill-lcci)
 
 [English Version](/lcci/08.10.Color%20Fill/README_EN.md)

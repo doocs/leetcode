@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0473.Matchsticks%20to%20Square/README.md
+tags:
+    - 位运算
+    - 数组
+    - 动态规划
+    - 回溯
+    - 状态压缩
+---
+
 # [473. 火柴拼正方形](https://leetcode.cn/problems/matchsticks-to-square)
 
 [English Version](/solution/0400-0499/0473.Matchsticks%20to%20Square/README_EN.md)
-
-<!-- tags:位运算,数组,动态规划,回溯,状态压缩 -->
 
 ## 题目描述
 

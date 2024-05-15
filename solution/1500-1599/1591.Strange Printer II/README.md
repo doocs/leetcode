@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1591.Strange%20Printer%20II/README.md
+rating: 2290
+tags:
+    - 图
+    - 拓扑排序
+    - 数组
+    - 矩阵
+---
+
 # [1591. 奇怪的打印机 II](https://leetcode.cn/problems/strange-printer-ii)
 
 [English Version](/solution/1500-1599/1591.Strange%20Printer%20II/README_EN.md)
-
-<!-- tags:图,拓扑排序,数组,矩阵 -->
 
 ## 题目描述
 

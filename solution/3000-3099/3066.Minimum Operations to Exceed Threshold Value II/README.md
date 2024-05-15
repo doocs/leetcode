@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3066.Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20II/README.md
+rating: 1399
+tags:
+    - 数组
+    - 模拟
+    - 堆（优先队列）
+---
+
 # [3066. 超过阈值的最少操作数 II](https://leetcode.cn/problems/minimum-operations-to-exceed-threshold-value-ii)
 
 [English Version](/solution/3000-3099/3066.Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20II/README_EN.md)
-
-<!-- tags:数组,模拟,堆（优先队列） -->
 
 ## 题目描述
 

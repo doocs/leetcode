@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3130.Find%20All%20Possible%20Stable%20Binary%20Arrays%20II/README_EN.md
+rating: 2824
+tags:
+    - Dynamic Programming
+    - Prefix Sum
+---
+
 # [3130. Find All Possible Stable Binary Arrays II](https://leetcode.com/problems/find-all-possible-stable-binary-arrays-ii)
 
 [中文文档](/solution/3100-3199/3130.Find%20All%20Possible%20Stable%20Binary%20Arrays%20II/README.md)
-
-<!-- tags:Dynamic Programming,Prefix Sum -->
 
 ## Description
 

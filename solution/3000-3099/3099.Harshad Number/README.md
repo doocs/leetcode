@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3099.Harshad%20Number/README.md
+rating: 1100
+tags:
+    - 数学
+---
+
 # [3099. 哈沙德数](https://leetcode.cn/problems/harshad-number)
 
 [English Version](/solution/3000-3099/3099.Harshad%20Number/README_EN.md)
-
-<!-- tags:数学 -->
 
 ## 题目描述
 

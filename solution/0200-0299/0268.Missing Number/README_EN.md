@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0268.Missing%20Number/README_EN.md
+tags:
+    - Bit Manipulation
+    - Array
+    - Hash Table
+    - Math
+    - Binary Search
+    - Sorting
+---
+
 # [268. Missing Number](https://leetcode.com/problems/missing-number)
 
 [中文文档](/solution/0200-0299/0268.Missing%20Number/README.md)
-
-<!-- tags:Bit Manipulation,Array,Hash Table,Math,Binary Search,Sorting -->
 
 ## Description
 

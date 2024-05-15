@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2933.High-Access%20Employees/README_EN.md
+rating: 1536
+tags:
+    - Array
+    - Hash Table
+    - String
+    - Sorting
+---
+
 # [2933. High-Access Employees](https://leetcode.com/problems/high-access-employees)
 
 [中文文档](/solution/2900-2999/2933.High-Access%20Employees/README.md)
-
-<!-- tags:Array,Hash Table,String,Sorting -->
 
 ## Description
 

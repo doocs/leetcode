@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2244.Minimum%20Rounds%20to%20Complete%20All%20Tasks/README.md
+rating: 1371
+tags:
+    - 贪心
+    - 数组
+    - 哈希表
+    - 计数
+---
+
 # [2244. 完成所有任务需要的最少轮数](https://leetcode.cn/problems/minimum-rounds-to-complete-all-tasks)
 
 [English Version](/solution/2200-2299/2244.Minimum%20Rounds%20to%20Complete%20All%20Tasks/README_EN.md)
-
-<!-- tags:贪心,数组,哈希表,计数 -->
 
 ## 题目描述
 
@@ -139,6 +149,28 @@ function minimumRounds(tasks: number[]): number {
         ans += Math.floor(v / 3) + (v % 3 === 0 ? 0 : 1);
     }
     return ans;
+}
+```
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn minimum_rounds(tasks: Vec<i32>) -> i32 {
+        let mut cnt = HashMap::new();
+        for &t in tasks.iter() {
+            let count = cnt.entry(t).or_insert(0);
+            *count += 1;
+        }
+        let mut ans = 0;
+        for &v in cnt.values() {
+            if v == 1 {
+                return -1;
+            }
+            ans += v / 3 + (if v % 3 == 0 { 0 } else { 1 });
+        }
+        ans
+    }
 }
 ```
 

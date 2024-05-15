@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2070.Most%20Beautiful%20Item%20for%20Each%20Query/README_EN.md
+rating: 1724
+tags:
+    - Array
+    - Binary Search
+    - Sorting
+---
+
 # [2070. Most Beautiful Item for Each Query](https://leetcode.com/problems/most-beautiful-item-for-each-query)
 
 [中文文档](/solution/2000-2099/2070.Most%20Beautiful%20Item%20for%20Each%20Query/README.md)
-
-<!-- tags:Array,Binary Search,Sorting -->
 
 ## Description
 

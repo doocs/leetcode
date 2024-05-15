@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1103.Distribute%20Candies%20to%20People/README.md
+rating: 1287
+tags:
+    - 数学
+    - 模拟
+---
+
 # [1103. 分糖果 II](https://leetcode.cn/problems/distribute-candies-to-people)
 
 [English Version](/solution/1100-1199/1103.Distribute%20Candies%20to%20People/README_EN.md)
-
-<!-- tags:数学,模拟 -->
 
 ## 题目描述
 

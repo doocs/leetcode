@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2230.The%20Users%20That%20Are%20Eligible%20for%20Discount/README_EN.md
+tags:
+    - Database
+---
+
 # [2230. The Users That Are Eligible for Discount 🔒](https://leetcode.com/problems/the-users-that-are-eligible-for-discount)
 
 [中文文档](/solution/2200-2299/2230.The%20Users%20That%20Are%20Eligible%20for%20Discount/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

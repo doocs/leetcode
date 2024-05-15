@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1735.Count%20Ways%20to%20Make%20Array%20With%20Product/README.md
+rating: 2499
+tags:
+    - 数组
+    - 数学
+    - 动态规划
+    - 组合数学
+    - 数论
+---
+
 # [1735. 生成乘积数组的方案数](https://leetcode.cn/problems/count-ways-to-make-array-with-product)
 
 [English Version](/solution/1700-1799/1735.Count%20Ways%20to%20Make%20Array%20With%20Product/README_EN.md)
-
-<!-- tags:数组,数学,动态规划,组合数学,数论 -->
 
 ## 题目描述
 

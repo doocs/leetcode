@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0959.Regions%20Cut%20By%20Slashes/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 并查集
+    - 数组
+    - 哈希表
+    - 矩阵
+---
+
 # [959. 由斜杠划分区域](https://leetcode.cn/problems/regions-cut-by-slashes)
 
 [English Version](/solution/0900-0999/0959.Regions%20Cut%20By%20Slashes/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,并查集,数组,哈希表,矩阵 -->
 
 ## 题目描述
 

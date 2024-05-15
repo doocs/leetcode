@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.07.Rotate%20Matrix/README_EN.md
+---
+
 # [01.07. Rotate Matrix](https://leetcode.cn/problems/rotate-matrix-lcci)
 
 [中文文档](/lcci/01.07.Rotate%20Matrix/README.md)

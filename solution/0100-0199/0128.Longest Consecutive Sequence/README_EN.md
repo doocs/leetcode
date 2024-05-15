@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0128.Longest%20Consecutive%20Sequence/README_EN.md
+tags:
+    - Union Find
+    - Array
+    - Hash Table
+---
+
 # [128. Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence)
 
 [中文文档](/solution/0100-0199/0128.Longest%20Consecutive%20Sequence/README.md)
-
-<!-- tags:Union Find,Array,Hash Table -->
 
 ## Description
 

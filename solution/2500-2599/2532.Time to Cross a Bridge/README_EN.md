@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2532.Time%20to%20Cross%20a%20Bridge/README_EN.md
+rating: 2588
+tags:
+    - Array
+    - Simulation
+    - Heap (Priority Queue)
+---
+
 # [2532. Time to Cross a Bridge](https://leetcode.com/problems/time-to-cross-a-bridge)
 
 [中文文档](/solution/2500-2599/2532.Time%20to%20Cross%20a%20Bridge/README.md)
-
-<!-- tags:Array,Simulation,Heap (Priority Queue) -->
 
 ## Description
 

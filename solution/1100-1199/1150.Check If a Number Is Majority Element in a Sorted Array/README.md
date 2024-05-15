@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1150.Check%20If%20a%20Number%20Is%20Majority%20Element%20in%20a%20Sorted%20Array/README.md
+rating: 1249
+tags:
+    - 数组
+    - 二分查找
+---
+
 # [1150. 检查一个数是否在数组中占绝大多数 🔒](https://leetcode.cn/problems/check-if-a-number-is-majority-element-in-a-sorted-array)
 
 [English Version](/solution/1100-1199/1150.Check%20If%20a%20Number%20Is%20Majority%20Element%20in%20a%20Sorted%20Array/README_EN.md)
-
-<!-- tags:数组,二分查找 -->
 
 ## 题目描述
 

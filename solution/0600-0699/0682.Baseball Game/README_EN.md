@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0682.Baseball%20Game/README_EN.md
+tags:
+    - Stack
+    - Array
+    - Simulation
+---
+
 # [682. Baseball Game](https://leetcode.com/problems/baseball-game)
 
 [中文文档](/solution/0600-0699/0682.Baseball%20Game/README.md)
-
-<!-- tags:Stack,Array,Simulation -->
 
 ## Description
 

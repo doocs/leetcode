@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1410.HTML%20Entity%20Parser/README_EN.md
+rating: 1405
+tags:
+    - Hash Table
+    - String
+---
+
 # [1410. HTML Entity Parser](https://leetcode.com/problems/html-entity-parser)
 
 [中文文档](/solution/1400-1499/1410.HTML%20Entity%20Parser/README.md)
-
-<!-- tags:Hash Table,String -->
 
 ## Description
 

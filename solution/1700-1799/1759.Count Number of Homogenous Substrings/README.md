@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1759.Count%20Number%20of%20Homogenous%20Substrings/README.md
+rating: 1490
+tags:
+    - 数学
+    - 字符串
+---
+
 # [1759. 统计同质子字符串的数目](https://leetcode.cn/problems/count-number-of-homogenous-substrings)
 
 [English Version](/solution/1700-1799/1759.Count%20Number%20of%20Homogenous%20Substrings/README_EN.md)
-
-<!-- tags:数学,字符串 -->
 
 ## 题目描述
 

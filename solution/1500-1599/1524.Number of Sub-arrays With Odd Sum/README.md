@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1524.Number%20of%20Sub-arrays%20With%20Odd%20Sum/README.md
+rating: 1610
+tags:
+    - 数组
+    - 数学
+    - 动态规划
+    - 前缀和
+---
+
 # [1524. 和为奇数的子数组数目](https://leetcode.cn/problems/number-of-sub-arrays-with-odd-sum)
 
 [English Version](/solution/1500-1599/1524.Number%20of%20Sub-arrays%20With%20Odd%20Sum/README_EN.md)
-
-<!-- tags:数组,数学,动态规划,前缀和 -->
 
 ## 题目描述
 

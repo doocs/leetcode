@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1510.Stone%20Game%20IV/README_EN.md
+rating: 1786
+tags:
+    - Math
+    - Dynamic Programming
+    - Game Theory
+---
+
 # [1510. Stone Game IV](https://leetcode.com/problems/stone-game-iv)
 
 [中文文档](/solution/1500-1599/1510.Stone%20Game%20IV/README.md)
-
-<!-- tags:Math,Dynamic Programming,Game Theory -->
 
 ## Description
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0727.Minimum%20Window%20Subsequence/README.md
+tags:
+    - 字符串
+    - 动态规划
+    - 滑动窗口
+---
+
 # [727. 最小窗口子序列 🔒](https://leetcode.cn/problems/minimum-window-subsequence)
 
 [English Version](/solution/0700-0799/0727.Minimum%20Window%20Subsequence/README_EN.md)
-
-<!-- tags:字符串,动态规划,滑动窗口 -->
 
 ## 题目描述
 

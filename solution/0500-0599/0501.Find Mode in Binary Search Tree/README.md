@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0501.Find%20Mode%20in%20Binary%20Search%20Tree/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 二叉搜索树
+    - 二叉树
+---
+
 # [501. 二叉搜索树中的众数](https://leetcode.cn/problems/find-mode-in-binary-search-tree)
 
 [English Version](/solution/0500-0599/0501.Find%20Mode%20in%20Binary%20Search%20Tree/README_EN.md)
-
-<!-- tags:树,深度优先搜索,二叉搜索树,二叉树 -->
 
 ## 题目描述
 

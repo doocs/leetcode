@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0293.Flip%20Game/README_EN.md
+tags:
+    - String
+---
+
 # [293. Flip Game 🔒](https://leetcode.com/problems/flip-game)
 
 [中文文档](/solution/0200-0299/0293.Flip%20Game/README.md)
-
-<!-- tags:String -->
 
 ## Description
 

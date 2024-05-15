@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1902.Depth%20of%20BST%20Given%20Insertion%20Order/README.md
+tags:
+    - 树
+    - 二叉搜索树
+    - 二叉树
+    - 有序集合
+---
+
 # [1902. 给定二叉搜索树的插入顺序求深度 🔒](https://leetcode.cn/problems/depth-of-bst-given-insertion-order)
 
 [English Version](/solution/1900-1999/1902.Depth%20of%20BST%20Given%20Insertion%20Order/README_EN.md)
-
-<!-- tags:树,二叉搜索树,二叉树,有序集合 -->
 
 ## 题目描述
 

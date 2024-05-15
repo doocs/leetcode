@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0182.Duplicate%20Emails/README.md
+tags:
+    - 数据库
+---
+
 # [182. 查找重复的电子邮箱](https://leetcode.cn/problems/duplicate-emails)
 
 [English Version](/solution/0100-0199/0182.Duplicate%20Emails/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

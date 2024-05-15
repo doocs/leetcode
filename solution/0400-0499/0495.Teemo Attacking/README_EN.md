@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0495.Teemo%20Attacking/README_EN.md
+tags:
+    - Array
+    - Simulation
+---
+
 # [495. Teemo Attacking](https://leetcode.com/problems/teemo-attacking)
 
 [中文文档](/solution/0400-0499/0495.Teemo%20Attacking/README.md)
-
-<!-- tags:Array,Simulation -->
 
 ## Description
 

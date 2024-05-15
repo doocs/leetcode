@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1603.Design%20Parking%20System/README_EN.md
+rating: 1324
+tags:
+    - Design
+    - Counting
+    - Simulation
+---
+
 # [1603. Design Parking System](https://leetcode.com/problems/design-parking-system)
 
 [中文文档](/solution/1600-1699/1603.Design%20Parking%20System/README.md)
-
-<!-- tags:Design,Counting,Simulation -->
 
 ## Description
 

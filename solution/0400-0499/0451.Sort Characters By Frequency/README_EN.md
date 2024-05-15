@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0451.Sort%20Characters%20By%20Frequency/README_EN.md
+tags:
+    - Hash Table
+    - String
+    - Bucket Sort
+    - Counting
+    - Sorting
+    - Heap (Priority Queue)
+---
+
 # [451. Sort Characters By Frequency](https://leetcode.com/problems/sort-characters-by-frequency)
 
 [中文文档](/solution/0400-0499/0451.Sort%20Characters%20By%20Frequency/README.md)
-
-<!-- tags:Hash Table,String,Bucket Sort,Counting,Sorting,Heap (Priority Queue) -->
 
 ## Description
 

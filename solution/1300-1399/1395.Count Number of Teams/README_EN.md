@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1395.Count%20Number%20of%20Teams/README_EN.md
+rating: 1343
+tags:
+    - Binary Indexed Tree
+    - Array
+    - Dynamic Programming
+---
+
 # [1395. Count Number of Teams](https://leetcode.com/problems/count-number-of-teams)
 
 [中文文档](/solution/1300-1399/1395.Count%20Number%20of%20Teams/README.md)
-
-<!-- tags:Binary Indexed Tree,Array,Dynamic Programming -->
 
 ## Description
 

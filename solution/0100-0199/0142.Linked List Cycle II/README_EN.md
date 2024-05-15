@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0142.Linked%20List%20Cycle%20II/README_EN.md
+tags:
+    - Hash Table
+    - Linked List
+    - Two Pointers
+---
+
 # [142. Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii)
 
 [中文文档](/solution/0100-0199/0142.Linked%20List%20Cycle%20II/README.md)
-
-<!-- tags:Hash Table,Linked List,Two Pointers -->
 
 ## Description
 

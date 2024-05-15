@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2463.Minimum%20Total%20Distance%20Traveled/README.md
+rating: 2453
+tags:
+    - 数组
+    - 动态规划
+    - 排序
+---
+
 # [2463. 最小移动总距离](https://leetcode.cn/problems/minimum-total-distance-traveled)
 
 [English Version](/solution/2400-2499/2463.Minimum%20Total%20Distance%20Traveled/README_EN.md)
-
-<!-- tags:数组,动态规划,排序 -->
 
 ## 题目描述
 

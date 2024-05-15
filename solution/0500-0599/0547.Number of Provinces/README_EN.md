@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0547.Number%20of%20Provinces/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Union Find
+    - Graph
+---
+
 # [547. Number of Provinces](https://leetcode.com/problems/number-of-provinces)
 
 [中文文档](/solution/0500-0599/0547.Number%20of%20Provinces/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Graph -->
 
 ## Description
 

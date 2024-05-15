@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0231.Power%20of%20Two/README.md
+tags:
+    - 位运算
+    - 递归
+    - 数学
+---
+
 # [231. 2 的幂](https://leetcode.cn/problems/power-of-two)
 
 [English Version](/solution/0200-0299/0231.Power%20of%20Two/README_EN.md)
-
-<!-- tags:位运算,递归,数学 -->
 
 ## 题目描述
 

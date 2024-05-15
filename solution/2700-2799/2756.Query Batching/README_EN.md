@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2756.Query%20Batching/README_EN.md
+---
+
 # [2756. Query Batching 🔒](https://leetcode.com/problems/query-batching)
 
 [中文文档](/solution/2700-2799/2756.Query%20Batching/README.md)
-
-<!-- tags: -->
 
 ## Description
 

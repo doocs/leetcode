@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0761.Special%20Binary%20String/README.md
+tags:
+    - 递归
+    - 字符串
+---
+
 # [761. 特殊的二进制序列](https://leetcode.cn/problems/special-binary-string)
 
 [English Version](/solution/0700-0799/0761.Special%20Binary%20String/README_EN.md)
-
-<!-- tags:递归,字符串 -->
 
 ## 题目描述
 

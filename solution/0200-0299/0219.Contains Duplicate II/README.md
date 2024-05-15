@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0219.Contains%20Duplicate%20II/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 滑动窗口
+---
+
 # [219. 存在重复元素 II](https://leetcode.cn/problems/contains-duplicate-ii)
 
 [English Version](/solution/0200-0299/0219.Contains%20Duplicate%20II/README_EN.md)
-
-<!-- tags:数组,哈希表,滑动窗口 -->
 
 ## 题目描述
 

@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1226.The%20Dining%20Philosophers/README.md
+tags:
+    - 多线程
+---
+
 # [1226. 哲学家进餐](https://leetcode.cn/problems/the-dining-philosophers)
 
 [English Version](/solution/1200-1299/1226.The%20Dining%20Philosophers/README_EN.md)
-
-<!-- tags:多线程 -->
 
 ## 题目描述
 

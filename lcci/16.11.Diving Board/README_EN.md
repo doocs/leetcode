@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.11.Diving%20Board/README_EN.md
+---
+
 # [16.11. Diving Board](https://leetcode.cn/problems/diving-board-lcci)
 
 [中文文档](/lcci/16.11.Diving%20Board/README.md)
@@ -131,7 +137,7 @@ class Solution {
         if shorter == longer {
             return [shorter * k]
         }
-        
+
         var ans = [Int](repeating: 0, count: k + 1)
         for i in 0...k {
             ans[i] = longer * i + shorter * (k - i)

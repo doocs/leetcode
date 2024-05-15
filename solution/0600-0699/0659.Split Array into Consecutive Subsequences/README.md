@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0659.Split%20Array%20into%20Consecutive%20Subsequences/README.md
+tags:
+    - 贪心
+    - 数组
+    - 哈希表
+    - 堆（优先队列）
+---
+
 # [659. 分割数组为连续子序列](https://leetcode.cn/problems/split-array-into-consecutive-subsequences)
 
 [English Version](/solution/0600-0699/0659.Split%20Array%20into%20Consecutive%20Subsequences/README_EN.md)
-
-<!-- tags:贪心,数组,哈希表,堆（优先队列） -->
 
 ## 题目描述
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2429.Minimize%20XOR/README_EN.md
+rating: 1532
+tags:
+    - Greedy
+    - Bit Manipulation
+---
+
 # [2429. Minimize XOR](https://leetcode.com/problems/minimize-xor)
 
 [中文文档](/solution/2400-2499/2429.Minimize%20XOR/README.md)
-
-<!-- tags:Greedy,Bit Manipulation -->
 
 ## Description
 

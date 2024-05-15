@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0207.Course%20Schedule/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Graph
+    - Topological Sort
+---
+
 # [207. Course Schedule](https://leetcode.com/problems/course-schedule)
 
 [中文文档](/solution/0200-0299/0207.Course%20Schedule/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Graph,Topological Sort -->
 
 ## Description
 

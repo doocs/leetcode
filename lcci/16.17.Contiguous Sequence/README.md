@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.17.Contiguous%20Sequence/README.md
+---
+
 # [面试题 16.17. 连续数列](https://leetcode.cn/problems/contiguous-sequence-lcci)
 
 [English Version](/lcci/16.17.Contiguous%20Sequence/README_EN.md)

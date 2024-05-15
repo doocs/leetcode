@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2560.House%20Robber%20IV/README_EN.md
+rating: 2081
+tags:
+    - Array
+    - Binary Search
+---
+
 # [2560. House Robber IV](https://leetcode.com/problems/house-robber-iv)
 
 [中文文档](/solution/2500-2599/2560.House%20Robber%20IV/README.md)
-
-<!-- tags:Array,Binary Search -->
 
 ## Description
 

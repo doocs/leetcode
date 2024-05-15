@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0330.Patching%20Array/README_EN.md
+tags:
+    - Greedy
+    - Array
+---
+
 # [330. Patching Array](https://leetcode.com/problems/patching-array)
 
 [中文文档](/solution/0300-0399/0330.Patching%20Array/README.md)
-
-<!-- tags:Greedy,Array -->
 
 ## Description
 

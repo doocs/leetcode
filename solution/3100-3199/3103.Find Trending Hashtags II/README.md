@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3103.Find%20Trending%20Hashtags%20II/README.md
+tags:
+    - 数据库
+---
+
 # [3103. 查找热门话题标签 II 🔒](https://leetcode.cn/problems/find-trending-hashtags-ii)
 
 [English Version](/solution/3100-3199/3103.Find%20Trending%20Hashtags%20II/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

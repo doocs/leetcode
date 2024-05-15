@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20118.%20%E5%A4%9A%E4%BD%99%E7%9A%84%E8%BE%B9/README.md
+---
+
 # [剑指 Offer II 118. 多余的边](https://leetcode.cn/problems/7LpjUW)
 
 ## 题目描述

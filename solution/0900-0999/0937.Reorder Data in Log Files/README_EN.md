@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0937.Reorder%20Data%20in%20Log%20Files/README_EN.md
+tags:
+    - Array
+    - String
+    - Sorting
+---
+
 # [937. Reorder Data in Log Files](https://leetcode.com/problems/reorder-data-in-log-files)
 
 [中文文档](/solution/0900-0999/0937.Reorder%20Data%20in%20Log%20Files/README.md)
-
-<!-- tags:Array,String,Sorting -->
 
 ## Description
 

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1444.Number%20of%20Ways%20of%20Cutting%20a%20Pizza/README_EN.md
+rating: 2126
+tags:
+    - Memoization
+    - Array
+    - Dynamic Programming
+    - Matrix
+---
+
 # [1444. Number of Ways of Cutting a Pizza](https://leetcode.com/problems/number-of-ways-of-cutting-a-pizza)
 
 [中文文档](/solution/1400-1499/1444.Number%20of%20Ways%20of%20Cutting%20a%20Pizza/README.md)
-
-<!-- tags:Memoization,Array,Dynamic Programming,Matrix -->
 
 ## Description
 

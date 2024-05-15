@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.02.Binary%20Number%20to%20String/README.md
+---
+
 # [面试题 05.02. 二进制数转字符串](https://leetcode.cn/problems/binary-number-to-string-lcci)
 
 [English Version](/lcci/05.02.Binary%20Number%20to%20String/README_EN.md)

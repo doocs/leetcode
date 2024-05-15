@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2851.String%20Transformation/README.md
+rating: 2857
+tags:
+    - 数学
+    - 字符串
+    - 动态规划
+    - 字符串匹配
+---
+
 # [2851. 字符串转换](https://leetcode.cn/problems/string-transformation)
 
 [English Version](/solution/2800-2899/2851.String%20Transformation/README_EN.md)
-
-<!-- tags:数学,字符串,动态规划,字符串匹配 -->
 
 ## 题目描述
 

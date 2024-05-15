@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2717.Semi-Ordered%20Permutation/README.md
+rating: 1295
+tags:
+    - 数组
+    - 模拟
+---
+
 # [2717. 半有序排列](https://leetcode.cn/problems/semi-ordered-permutation)
 
 [English Version](/solution/2700-2799/2717.Semi-Ordered%20Permutation/README_EN.md)
-
-<!-- tags:数组,模拟 -->
 
 ## 题目描述
 

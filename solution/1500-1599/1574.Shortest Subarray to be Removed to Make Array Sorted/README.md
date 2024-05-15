@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1574.Shortest%20Subarray%20to%20be%20Removed%20to%20Make%20Array%20Sorted/README.md
+rating: 1931
+tags:
+    - 栈
+    - 数组
+    - 双指针
+    - 二分查找
+    - 单调栈
+---
+
 # [1574. 删除最短的子数组使剩余数组有序](https://leetcode.cn/problems/shortest-subarray-to-be-removed-to-make-array-sorted)
 
 [English Version](/solution/1500-1599/1574.Shortest%20Subarray%20to%20be%20Removed%20to%20Make%20Array%20Sorted/README_EN.md)
-
-<!-- tags:栈,数组,双指针,二分查找,单调栈 -->
 
 ## 题目描述
 

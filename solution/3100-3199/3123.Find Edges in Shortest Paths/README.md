@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3123.Find%20Edges%20in%20Shortest%20Paths/README.md
+rating: 2093
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 图
+    - 最短路
+    - 堆（优先队列）
+---
+
 # [3123. 最短路径中的边](https://leetcode.cn/problems/find-edges-in-shortest-paths)
 
 [English Version](/solution/3100-3199/3123.Find%20Edges%20in%20Shortest%20Paths/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,图,最短路,堆（优先队列） -->
 
 ## 题目描述
 

@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1059.All%20Paths%20from%20Source%20Lead%20to%20Destination/README_EN.md
+tags:
+    - Graph
+    - Topological Sort
+---
+
 # [1059. All Paths from Source Lead to Destination 🔒](https://leetcode.com/problems/all-paths-from-source-lead-to-destination)
 
 [中文文档](/solution/1000-1099/1059.All%20Paths%20from%20Source%20Lead%20to%20Destination/README.md)
-
-<!-- tags:Graph,Topological Sort -->
 
 ## Description
 

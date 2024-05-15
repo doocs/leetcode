@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1036.Escape%20a%20Large%20Maze/README_EN.md
+rating: 2164
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Array
+    - Hash Table
+---
+
 # [1036. Escape a Large Maze](https://leetcode.com/problems/escape-a-large-maze)
 
 [中文文档](/solution/1000-1099/1036.Escape%20a%20Large%20Maze/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Array,Hash Table -->
 
 ## Description
 

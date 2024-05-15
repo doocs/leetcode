@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2396.Strictly%20Palindromic%20Number/README_EN.md
+rating: 1328
+tags:
+    - Brainteaser
+    - Math
+    - Two Pointers
+---
+
 # [2396. Strictly Palindromic Number](https://leetcode.com/problems/strictly-palindromic-number)
 
 [中文文档](/solution/2300-2399/2396.Strictly%20Palindromic%20Number/README.md)
-
-<!-- tags:Brainteaser,Math,Two Pointers -->
 
 ## Description
 
@@ -43,7 +52,15 @@ Therefore, we return false.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Quick Thinking
+
+When $n = 4$, its binary representation is $100$, which is not a palindrome;
+
+When $n \gt 4$, its $(n - 2)$-ary representation is $12$, which is not a palindrome.
+
+Therefore, we can directly return `false`.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

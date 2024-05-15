@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20064.%20%E7%A5%9E%E5%A5%87%E7%9A%84%E5%AD%97%E5%85%B8/README.md
+---
+
 # [剑指 Offer II 064. 神奇的字典](https://leetcode.cn/problems/US1pGT)
 
 ## 题目描述

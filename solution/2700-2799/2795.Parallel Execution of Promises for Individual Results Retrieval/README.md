@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2795.Parallel%20Execution%20of%20Promises%20for%20Individual%20Results%20Retrieval/README.md
+---
+
 # [2795. 并行执行 Promise 以获取独有的结果 🔒](https://leetcode.cn/problems/parallel-execution-of-promises-for-individual-results-retrieval)
 
 [English Version](/solution/2700-2799/2795.Parallel%20Execution%20of%20Promises%20for%20Individual%20Results%20Retrieval/README_EN.md)
-
-<!-- tags: -->
 
 ## 题目描述
 

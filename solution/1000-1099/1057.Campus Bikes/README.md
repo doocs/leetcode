@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1057.Campus%20Bikes/README.md
+tags:
+    - 贪心
+    - 数组
+    - 排序
+---
+
 # [1057. 校园自行车分配 🔒](https://leetcode.cn/problems/campus-bikes)
 
 [English Version](/solution/1000-1099/1057.Campus%20Bikes/README_EN.md)
-
-<!-- tags:贪心,数组,排序 -->
 
 ## 题目描述
 

@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0603.Consecutive%20Available%20Seats/README_EN.md
+tags:
+    - Database
+---
+
 # [603. Consecutive Available Seats 🔒](https://leetcode.com/problems/consecutive-available-seats)
 
 [中文文档](/solution/0600-0699/0603.Consecutive%20Available%20Seats/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

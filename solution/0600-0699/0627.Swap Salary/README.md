@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0627.Swap%20Salary/README.md
+tags:
+    - 数据库
+---
+
 # [627. 变更性别](https://leetcode.cn/problems/swap-salary)
 
 [English Version](/solution/0600-0699/0627.Swap%20Salary/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

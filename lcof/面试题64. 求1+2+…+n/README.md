@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9864.%20%E6%B1%821%2B2%2B%E2%80%A6%2Bn/README.md
+---
+
 # [面试题 64. 求 1+2+…+n](https://leetcode.cn/problems/qiu-12n-lcof/)
 
 ## 题目描述

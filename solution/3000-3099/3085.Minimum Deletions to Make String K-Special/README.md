@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3085.Minimum%20Deletions%20to%20Make%20String%20K-Special/README.md
+rating: 1764
+tags:
+    - 贪心
+    - 哈希表
+    - 字符串
+    - 计数
+    - 排序
+---
+
 # [3085. 成为 K 特殊字符串需要删除的最少字符数](https://leetcode.cn/problems/minimum-deletions-to-make-string-k-special)
 
 [English Version](/solution/3000-3099/3085.Minimum%20Deletions%20to%20Make%20String%20K-Special/README_EN.md)
-
-<!-- tags:贪心,哈希表,字符串,计数,排序 -->
 
 ## 题目描述
 

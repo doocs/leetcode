@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1744.Can%20You%20Eat%20Your%20Favorite%20Candy%20on%20Your%20Favorite%20Day/README_EN.md
+rating: 1858
+tags:
+    - Array
+    - Prefix Sum
+---
+
 # [1744. Can You Eat Your Favorite Candy on Your Favorite Day](https://leetcode.com/problems/can-you-eat-your-favorite-candy-on-your-favorite-day)
 
 [中文文档](/solution/1700-1799/1744.Can%20You%20Eat%20Your%20Favorite%20Candy%20on%20Your%20Favorite%20Day/README.md)
-
-<!-- tags:Array,Prefix Sum -->
 
 ## Description
 

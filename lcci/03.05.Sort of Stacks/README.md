@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.05.Sort%20of%20Stacks/README.md
+---
+
 # [面试题 03.05. 栈排序](https://leetcode.cn/problems/sort-of-stacks-lcci)
 
 [English Version](/lcci/03.05.Sort%20of%20Stacks/README_EN.md)

@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0660.Remove%209/README_EN.md
+tags:
+    - Math
+---
+
 # [660. Remove 9 🔒](https://leetcode.com/problems/remove-9)
 
 [中文文档](/solution/0600-0699/0660.Remove%209/README.md)
-
-<!-- tags:Math -->
 
 ## Description
 

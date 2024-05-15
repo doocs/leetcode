@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0838.Push%20Dominoes/README_EN.md
+tags:
+    - Two Pointers
+    - String
+    - Dynamic Programming
+---
+
 # [838. Push Dominoes](https://leetcode.com/problems/push-dominoes)
 
 [中文文档](/solution/0800-0899/0838.Push%20Dominoes/README.md)
-
-<!-- tags:Two Pointers,String,Dynamic Programming -->
 
 ## Description
 

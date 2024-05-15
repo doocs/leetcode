@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3013.Divide%20an%20Array%20Into%20Subarrays%20With%20Minimum%20Cost%20II/README_EN.md
+rating: 2540
+tags:
+    - Array
+    - Hash Table
+    - Sliding Window
+    - Heap (Priority Queue)
+---
+
 # [3013. Divide an Array Into Subarrays With Minimum Cost II](https://leetcode.com/problems/divide-an-array-into-subarrays-with-minimum-cost-ii)
 
 [中文文档](/solution/3000-3099/3013.Divide%20an%20Array%20Into%20Subarrays%20With%20Minimum%20Cost%20II/README.md)
-
-<!-- tags:Array,Hash Table,Sliding Window,Heap (Priority Queue) -->
 
 ## Description
 

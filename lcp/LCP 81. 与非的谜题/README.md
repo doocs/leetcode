@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2081.%20%E4%B8%8E%E9%9D%9E%E7%9A%84%E8%B0%9C%E9%A2%98/README.md
+---
+
 # [LCP 81. 与非的谜题](https://leetcode.cn/problems/ryfUiz)
 
 ## 题目描述

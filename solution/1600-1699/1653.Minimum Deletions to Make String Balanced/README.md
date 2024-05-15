@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1653.Minimum%20Deletions%20to%20Make%20String%20Balanced/README.md
+rating: 1793
+tags:
+    - 栈
+    - 字符串
+    - 动态规划
+---
+
 # [1653. 使字符串平衡的最少删除次数](https://leetcode.cn/problems/minimum-deletions-to-make-string-balanced)
 
 [English Version](/solution/1600-1699/1653.Minimum%20Deletions%20to%20Make%20String%20Balanced/README_EN.md)
-
-<!-- tags:栈,字符串,动态规划 -->
 
 ## 题目描述
 

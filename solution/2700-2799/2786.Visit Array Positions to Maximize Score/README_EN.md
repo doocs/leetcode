@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2786.Visit%20Array%20Positions%20to%20Maximize%20Score/README_EN.md
+rating: 1732
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [2786. Visit Array Positions to Maximize Score](https://leetcode.com/problems/visit-array-positions-to-maximize-score)
 
 [中文文档](/solution/2700-2799/2786.Visit%20Array%20Positions%20to%20Maximize%20Score/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
 
 ## Description
 

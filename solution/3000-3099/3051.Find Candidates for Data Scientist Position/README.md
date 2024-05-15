@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3051.Find%20Candidates%20for%20Data%20Scientist%20Position/README.md
+tags:
+    - 数据库
+---
+
 # [3051. 寻找数据科学家职位的候选人 🔒](https://leetcode.cn/problems/find-candidates-for-data-scientist-position)
 
 [English Version](/solution/3000-3099/3051.Find%20Candidates%20for%20Data%20Scientist%20Position/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

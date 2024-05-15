@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2076.Process%20Restricted%20Friend%20Requests/README.md
+rating: 2130
+tags:
+    - 并查集
+    - 图
+---
+
 # [2076. 处理含限制条件的好友请求](https://leetcode.cn/problems/process-restricted-friend-requests)
 
 [English Version](/solution/2000-2099/2076.Process%20Restricted%20Friend%20Requests/README_EN.md)
-
-<!-- tags:并查集,图 -->
 
 ## 题目描述
 

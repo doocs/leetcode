@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2963.Count%20the%20Number%20of%20Good%20Partitions/README_EN.md
+rating: 1984
+tags:
+    - Array
+    - Hash Table
+    - Math
+    - Combinatorics
+---
+
 # [2963. Count the Number of Good Partitions](https://leetcode.com/problems/count-the-number-of-good-partitions)
 
 [中文文档](/solution/2900-2999/2963.Count%20the%20Number%20of%20Good%20Partitions/README.md)
-
-<!-- tags:Array,Hash Table,Math,Combinatorics -->
 
 ## Description
 

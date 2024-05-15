@@ -1,14 +1,20 @@
-# [3140. Consecutive Available Seats II 🔒](https://leetcode.cn/problems/consecutive-available-seats-ii)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3140.Consecutive%20Available%20Seats%20II/README.md
+tags:
+    - 数据库
+---
+
+# [3140. 连续空余座位 II 🔒](https://leetcode.cn/problems/consecutive-available-seats-ii)
 
 [English Version](/solution/3100-3199/3140.Consecutive%20Available%20Seats%20II/README_EN.md)
-
-<!-- tags: -->
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Cinema</code></p>
+<p>表：<code>Cinema</code></p>
 
 <pre>
 +-------------+------+
@@ -17,30 +23,31 @@
 | seat_id     | int  |
 | free        | bool |
 +-------------+------+
-seat_id is an auto-increment column for this table.
-Each row of this table indicates whether the i<sup>th</sup> seat is free or not. 1 means free while 0 means occupied.
+seat_id 是这张表中的自增列。
+这张表的每一行表示第 i 个作为是否空余。1 表示空余，而 0 表示被占用。
 </pre>
 
-<p>Write a solution to find the <strong>length</strong> of&nbsp;<strong>longest consecutive sequence</strong> of <strong>available</strong> seats in the cinema.</p>
+<p>编写一个解决方案来找到电影院中 <strong>最长的空余座位</strong> 的 <strong>长度</strong>。</p>
 
-<p>Note:</p>
+<p>注意：</p>
 
 <ul>
-	<li>There will always be <strong>at most</strong> <strong>one</strong> longest consecutive sequence.</li>
-	<li>If there are <strong>multiple</strong>&nbsp;consecutive sequences with the <strong>same length</strong>, include all of them in the output.</li>
+	<li>保证 <strong>最多有一个</strong> 最长连续序列。</li>
+	<li>如果有 <strong>多个</strong> <strong>相同长度</strong> 的连续序列，将它们全部输出。</li>
 </ul>
 
-<p>Return <em>the result table <strong>ordered</strong> by</em> <code>first_seat_id</code> <em><strong>in ascending order</strong></em>.</p>
+<p>返回结果表以&nbsp;<code>first_seat_id</code>&nbsp;<strong>升序排序</strong>。</p>
 
-<p>The result format is in the following example.</p>
+<p>结果表的格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong>Example:</strong></p>
+
+<p><strong>示例：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong></p>
+<p><strong>输入：</strong></p>
 
-<p>Cinema table:</p>
+<p>Cinema 表：</p>
 
 <pre class="example-io">
 +---------+------+
@@ -54,7 +61,7 @@ Each row of this table indicates whether the i<sup>th</sup> seat is free or not.
 +---------+------+
 </pre>
 
-<p><strong>Output:</strong></p>
+<p><strong>输出：</strong></p>
 
 <pre class="example-io">
 +-----------------+----------------+-----------------------+
@@ -64,12 +71,12 @@ Each row of this table indicates whether the i<sup>th</sup> seat is free or not.
 +-----------------+----------------+-----------------------+
 </pre>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li>Longest consecutive sequence of available seats starts from seat 3 and ends at seat 5 with a length of 3.</li>
+	<li>可用座位的最长连续序列从座位 3 开始，到座位 5 结束，长度为 3。</li>
 </ul>
-Output table is ordered by first_seat_id in ascending order.</div>
+输出表以 first_seat_id 升序排序。</div>
 
 ## 解法
 

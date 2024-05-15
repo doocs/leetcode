@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0060.Permutation%20Sequence/README.md
+tags:
+    - 递归
+    - 数学
+---
+
 # [60. 排列序列](https://leetcode.cn/problems/permutation-sequence)
 
 [English Version](/solution/0000-0099/0060.Permutation%20Sequence/README_EN.md)
-
-<!-- tags:递归,数学 -->
 
 ## 题目描述
 
@@ -222,6 +229,31 @@ public class Solution {
         }
         return ans.ToString();
     }
+}
+```
+
+```ts
+function getPermutation(n: number, k: number): string {
+    let ans = '';
+    const vis = Array.from({ length: n + 1 }, () => false);
+    for (let i = 0; i < n; i++) {
+        let fact = 1;
+        for (let j = 1; j < n - i; j++) {
+            fact *= j;
+        }
+        for (let j = 1; j <= n; j++) {
+            if (!vis[j]) {
+                if (k > fact) {
+                    k -= fact;
+                } else {
+                    ans += j;
+                    vis[j] = true;
+                    break;
+                }
+            }
+        }
+    }
+    return ans;
 }
 ```
 

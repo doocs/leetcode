@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2927.Distribute%20Candies%20Among%20Children%20III/README_EN.md
+tags:
+    - Math
+    - Combinatorics
+---
+
 # [2927. Distribute Candies Among Children III 🔒](https://leetcode.com/problems/distribute-candies-among-children-iii)
 
 [中文文档](/solution/2900-2999/2927.Distribute%20Candies%20Among%20Children%20III/README.md)
-
-<!-- tags:Math,Combinatorics -->
 
 ## Description
 

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1656.Design%20an%20Ordered%20Stream/README.md
+rating: 1418
+tags:
+    - 设计
+    - 数组
+    - 哈希表
+    - 数据流
+---
+
 # [1656. 设计有序流](https://leetcode.cn/problems/design-an-ordered-stream)
 
 [English Version](/solution/1600-1699/1656.Design%20an%20Ordered%20Stream/README_EN.md)
-
-<!-- tags:设计,数组,哈希表,数据流 -->
 
 ## 题目描述
 

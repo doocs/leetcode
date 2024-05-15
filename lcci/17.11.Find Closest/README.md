@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.11.Find%20Closest/README.md
+---
+
 # [面试题 17.11. 单词距离](https://leetcode.cn/problems/find-closest-lcci)
 
 [English Version](/lcci/17.11.Find%20Closest/README_EN.md)
@@ -133,6 +139,28 @@ impl Solution {
             }
         }
         ans
+    }
+}
+```
+
+```swift
+class Solution {
+    func findClosest(_ words: [String], _ word1: String, _ word2: String) -> Int {
+        let inf = Int.max / 2
+        var i = inf
+        var j = -inf
+        var ans = inf
+
+        for (k, word) in words.enumerated() {
+            if word == word1 {
+                i = k
+            } else if word == word2 {
+                j = k
+            }
+            ans = min(ans, abs(i - j))
+        }
+
+        return ans
     }
 }
 ```

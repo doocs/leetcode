@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1470.Shuffle%20the%20Array/README.md
+rating: 1120
+tags:
+    - 数组
+---
+
 # [1470. 重新排列数组](https://leetcode.cn/problems/shuffle-the-array)
 
 [English Version](/solution/1400-1499/1470.Shuffle%20the%20Array/README_EN.md)
-
-<!-- tags:数组 -->
 
 ## 题目描述
 

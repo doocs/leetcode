@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0882.Reachable%20Nodes%20In%20Subdivided%20Graph/README_EN.md
+tags:
+    - Graph
+    - Shortest Path
+    - Heap (Priority Queue)
+---
+
 # [882. Reachable Nodes In Subdivided Graph](https://leetcode.com/problems/reachable-nodes-in-subdivided-graph)
 
 [中文文档](/solution/0800-0899/0882.Reachable%20Nodes%20In%20Subdivided%20Graph/README.md)
-
-<!-- tags:Graph,Shortest Path,Heap (Priority Queue) -->
 
 ## Description
 

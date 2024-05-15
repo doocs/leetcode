@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20063.%20%E6%9B%BF%E6%8D%A2%E5%8D%95%E8%AF%8D/README.md
+---
+
 # [剑指 Offer II 063. 替换单词](https://leetcode.cn/problems/UhWRSj)
 
 ## 题目描述

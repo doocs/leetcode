@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2350.Shortest%20Impossible%20Sequence%20of%20Rolls/README.md
+rating: 1960
+tags:
+    - 贪心
+    - 数组
+    - 哈希表
+---
+
 # [2350. 不可能得到的最短骰子序列](https://leetcode.cn/problems/shortest-impossible-sequence-of-rolls)
 
 [English Version](/solution/2300-2399/2350.Shortest%20Impossible%20Sequence%20of%20Rolls/README_EN.md)
-
-<!-- tags:贪心,数组,哈希表 -->
 
 ## 题目描述
 

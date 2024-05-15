@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0175.Combine%20Two%20Tables/README_EN.md
+tags:
+    - Database
+---
+
 # [175. Combine Two Tables](https://leetcode.com/problems/combine-two-tables)
 
 [中文文档](/solution/0100-0199/0175.Combine%20Two%20Tables/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

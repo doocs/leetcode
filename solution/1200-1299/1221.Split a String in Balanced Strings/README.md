@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1221.Split%20a%20String%20in%20Balanced%20Strings/README.md
+rating: 1219
+tags:
+    - 贪心
+    - 字符串
+    - 计数
+---
+
 # [1221. 分割平衡字符串](https://leetcode.cn/problems/split-a-string-in-balanced-strings)
 
 [English Version](/solution/1200-1299/1221.Split%20a%20String%20in%20Balanced%20Strings/README_EN.md)
-
-<!-- tags:贪心,字符串,计数 -->
 
 ## 题目描述
 

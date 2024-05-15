@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0770.Basic%20Calculator%20IV/README_EN.md
+tags:
+    - Stack
+    - Recursion
+    - Hash Table
+    - Math
+    - String
+---
+
 # [770. Basic Calculator IV](https://leetcode.com/problems/basic-calculator-iv)
 
 [中文文档](/solution/0700-0799/0770.Basic%20Calculator%20IV/README.md)
-
-<!-- tags:Stack,Recursion,Hash Table,Math,String -->
 
 ## Description
 

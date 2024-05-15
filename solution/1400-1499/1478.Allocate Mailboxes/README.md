@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1478.Allocate%20Mailboxes/README.md
+rating: 2190
+tags:
+    - 数组
+    - 数学
+    - 动态规划
+    - 排序
+---
+
 # [1478. 安排邮筒](https://leetcode.cn/problems/allocate-mailboxes)
 
 [English Version](/solution/1400-1499/1478.Allocate%20Mailboxes/README_EN.md)
-
-<!-- tags:数组,数学,动态规划,排序 -->
 
 ## 题目描述
 

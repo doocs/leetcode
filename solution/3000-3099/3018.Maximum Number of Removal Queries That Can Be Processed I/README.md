@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3018.Maximum%20Number%20of%20Removal%20Queries%20That%20Can%20Be%20Processed%20I/README.md
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [3018. 可处理的最大删除操作数 I 🔒](https://leetcode.cn/problems/maximum-number-of-removal-queries-that-can-be-processed-i)
 
 [English Version](/solution/3000-3099/3018.Maximum%20Number%20of%20Removal%20Queries%20That%20Can%20Be%20Processed%20I/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
 
 ## 题目描述
 

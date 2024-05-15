@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.09.Get%20Kth%20Magic%20Number/README_EN.md
+---
+
 # [17.09. Get Kth Magic Number](https://leetcode.cn/problems/get-kth-magic-number-lcci)
 
 ## Description
@@ -188,6 +194,32 @@ int getKthMagicNumber(int k) {
     int res = dp[k - 1];
     free(dp);
     return res;
+}
+```
+
+```swift
+class Solution {
+    private let factors = [3, 5, 7]
+
+    func getKthMagicNumber(_ k: Int) -> Int {
+        var heap: [Int] = [1]
+        var seen = Set<Int>()
+        seen.insert(1)
+
+        var value = 1
+        for _ in 1...k {
+            value = heap.removeFirst()
+            for factor in factors {
+                let nextValue = value * factor
+                if !seen.contains(nextValue) {
+                    heap.append(nextValue)
+                    seen.insert(nextValue)
+                }
+            }
+            heap.sort()
+        }
+        return value
+    }
 }
 ```
 

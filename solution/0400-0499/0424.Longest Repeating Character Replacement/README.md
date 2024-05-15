@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0424.Longest%20Repeating%20Character%20Replacement/README.md
+tags:
+    - 哈希表
+    - 字符串
+    - 滑动窗口
+---
+
 # [424. 替换后的最长重复字符](https://leetcode.cn/problems/longest-repeating-character-replacement)
 
 [English Version](/solution/0400-0499/0424.Longest%20Repeating%20Character%20Replacement/README_EN.md)
-
-<!-- tags:哈希表,字符串,滑动窗口 -->
 
 ## 题目描述
 

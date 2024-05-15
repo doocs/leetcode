@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1104.Path%20In%20Zigzag%20Labelled%20Binary%20Tree/README_EN.md
+rating: 1544
+tags:
+    - Tree
+    - Math
+    - Binary Tree
+---
+
 # [1104. Path In Zigzag Labelled Binary Tree](https://leetcode.com/problems/path-in-zigzag-labelled-binary-tree)
 
 [中文文档](/solution/1100-1199/1104.Path%20In%20Zigzag%20Labelled%20Binary%20Tree/README.md)
-
-<!-- tags:Tree,Math,Binary Tree -->
 
 ## Description
 

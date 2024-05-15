@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2408.Design%20SQL/README_EN.md
+tags:
+    - Design
+    - Array
+    - Hash Table
+    - String
+---
+
 # [2408. Design SQL 🔒](https://leetcode.com/problems/design-sql)
 
 [中文文档](/solution/2400-2499/2408.Design%20SQL/README.md)
-
-<!-- tags:Design,Array,Hash Table,String -->
 
 ## Description
 

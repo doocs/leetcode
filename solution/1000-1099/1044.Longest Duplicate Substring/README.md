@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1044.Longest%20Duplicate%20Substring/README.md
+rating: 2428
+tags:
+    - 字符串
+    - 二分查找
+    - 后缀数组
+    - 滑动窗口
+    - 哈希函数
+    - 滚动哈希
+---
+
 # [1044. 最长重复子串](https://leetcode.cn/problems/longest-duplicate-substring)
 
 [English Version](/solution/1000-1099/1044.Longest%20Duplicate%20Substring/README_EN.md)
-
-<!-- tags:字符串,二分查找,后缀数组,滑动窗口,哈希函数,滚动哈希 -->
 
 ## 题目描述
 

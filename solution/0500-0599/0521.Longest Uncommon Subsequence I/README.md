@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0521.Longest%20Uncommon%20Subsequence%20I/README.md
+tags:
+    - 字符串
+---
+
 # [521. 最长特殊序列 Ⅰ](https://leetcode.cn/problems/longest-uncommon-subsequence-i)
 
 [English Version](/solution/0500-0599/0521.Longest%20Uncommon%20Subsequence%20I/README_EN.md)
-
-<!-- tags:字符串 -->
 
 ## 题目描述
 

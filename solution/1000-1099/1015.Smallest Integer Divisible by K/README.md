@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1015.Smallest%20Integer%20Divisible%20by%20K/README.md
+rating: 1874
+tags:
+    - 哈希表
+    - 数学
+---
+
 # [1015. 可被 K 整除的最小整数](https://leetcode.cn/problems/smallest-integer-divisible-by-k)
 
 [English Version](/solution/1000-1099/1015.Smallest%20Integer%20Divisible%20by%20K/README_EN.md)
-
-<!-- tags:哈希表,数学 -->
 
 ## 题目描述
 

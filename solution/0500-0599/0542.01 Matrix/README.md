@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0542.01%20Matrix/README.md
+tags:
+    - 广度优先搜索
+    - 数组
+    - 动态规划
+    - 矩阵
+---
+
 # [542. 01 矩阵](https://leetcode.cn/problems/01-matrix)
 
 [English Version](/solution/0500-0599/0542.01%20Matrix/README_EN.md)
-
-<!-- tags:广度优先搜索,数组,动态规划,矩阵 -->
 
 ## 题目描述
 

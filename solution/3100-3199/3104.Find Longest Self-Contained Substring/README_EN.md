@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3104.Find%20Longest%20Self-Contained%20Substring/README_EN.md
+tags:
+    - Hash Table
+    - String
+    - Binary Search
+    - Prefix Sum
+---
+
 # [3104. Find Longest Self-Contained Substring 🔒](https://leetcode.com/problems/find-longest-self-contained-substring)
 
 [中文文档](/solution/3100-3199/3104.Find%20Longest%20Self-Contained%20Substring/README.md)
-
-<!-- tags:Hash Table,String,Binary Search,Prefix Sum -->
 
 ## Description
 

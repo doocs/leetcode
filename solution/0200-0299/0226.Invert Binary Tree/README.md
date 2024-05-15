@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0226.Invert%20Binary%20Tree/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 二叉树
+---
+
 # [226. 翻转二叉树](https://leetcode.cn/problems/invert-binary-tree)
 
 [English Version](/solution/0200-0299/0226.Invert%20Binary%20Tree/README_EN.md)
-
-<!-- tags:树,深度优先搜索,广度优先搜索,二叉树 -->
 
 ## 题目描述
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2605.Form%20Smallest%20Number%20From%20Two%20Digit%20Arrays/README.md
+rating: 1241
+tags:
+    - 数组
+    - 哈希表
+    - 枚举
+---
+
 # [2605. 从两个数字数组里生成最小数字](https://leetcode.cn/problems/form-smallest-number-from-two-digit-arrays)
 
 [English Version](/solution/2600-2699/2605.Form%20Smallest%20Number%20From%20Two%20Digit%20Arrays/README_EN.md)
-
-<!-- tags:数组,哈希表,枚举 -->
 
 ## 题目描述
 

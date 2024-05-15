@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1286.Iterator%20for%20Combination/README.md
+rating: 1591
+tags:
+    - 设计
+    - 字符串
+    - 回溯
+    - 迭代器
+---
+
 # [1286. 字母组合迭代器](https://leetcode.cn/problems/iterator-for-combination)
 
 [English Version](/solution/1200-1299/1286.Iterator%20for%20Combination/README_EN.md)
-
-<!-- tags:设计,字符串,回溯,迭代器 -->
 
 ## 题目描述
 

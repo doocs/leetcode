@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.04.Palindrome%20Permutation/README.md
+---
+
 # [面试题 01.04. 回文排列](https://leetcode.cn/problems/palindrome-permutation-lcci)
 
 [English Version](/lcci/01.04.Palindrome%20Permutation/README_EN.md)

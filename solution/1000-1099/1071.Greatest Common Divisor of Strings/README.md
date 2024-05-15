@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1071.Greatest%20Common%20Divisor%20of%20Strings/README.md
+rating: 1397
+tags:
+    - 数学
+    - 字符串
+---
+
 # [1071. 字符串的最大公因子](https://leetcode.cn/problems/greatest-common-divisor-of-strings)
 
 [English Version](/solution/1000-1099/1071.Greatest%20Common%20Divisor%20of%20Strings/README_EN.md)
-
-<!-- tags:数学,字符串 -->
 
 ## 题目描述
 

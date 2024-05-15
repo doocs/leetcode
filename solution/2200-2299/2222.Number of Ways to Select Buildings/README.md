@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2222.Number%20of%20Ways%20to%20Select%20Buildings/README.md
+rating: 1656
+tags:
+    - 字符串
+    - 动态规划
+    - 前缀和
+---
+
 # [2222. 选择建筑的方案数](https://leetcode.cn/problems/number-of-ways-to-select-buildings)
 
 [English Version](/solution/2200-2299/2222.Number%20of%20Ways%20to%20Select%20Buildings/README_EN.md)
-
-<!-- tags:字符串,动态规划,前缀和 -->
 
 ## 题目描述
 

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1764.Form%20Array%20by%20Concatenating%20Subarrays%20of%20Another%20Array/README.md
+rating: 1588
+tags:
+    - 贪心
+    - 数组
+    - 双指针
+    - 字符串匹配
+---
+
 # [1764. 通过连接另一个数组的子数组得到一个数组](https://leetcode.cn/problems/form-array-by-concatenating-subarrays-of-another-array)
 
 [English Version](/solution/1700-1799/1764.Form%20Array%20by%20Concatenating%20Subarrays%20of%20Another%20Array/README_EN.md)
-
-<!-- tags:贪心,数组,双指针,字符串匹配 -->
 
 ## 题目描述
 

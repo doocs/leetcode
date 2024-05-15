@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3043.Find%20the%20Length%20of%20the%20Longest%20Common%20Prefix/README_EN.md
+rating: 1688
+tags:
+    - Trie
+    - Array
+    - Hash Table
+    - String
+---
+
 # [3043. Find the Length of the Longest Common Prefix](https://leetcode.com/problems/find-the-length-of-the-longest-common-prefix)
 
 [中文文档](/solution/3000-3099/3043.Find%20the%20Length%20of%20the%20Longest%20Common%20Prefix/README.md)
-
-<!-- tags:Trie,Array,Hash Table,String -->
 
 ## Description
 

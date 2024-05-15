@@ -1,13 +1,13 @@
-func wateringPlants(plants []int, capacity int) int {
-	ans, cap := 0, capacity
-	for i, x := range plants {
-		if cap >= x {
-			cap -= x
+func wateringPlants(plants []int, capacity int) (ans int) {
+	water := capacity
+	for i, p := range plants {
+		if water >= p {
+			water -= p
 			ans++
 		} else {
-			cap = capacity - x
+			water = capacity - p
 			ans += i*2 + 1
 		}
 	}
-	return ans
+	return
 }

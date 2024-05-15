@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.05.Sum%20Lists/README.md
+---
+
 # [面试题 02.05. 链表求和](https://leetcode.cn/problems/sum-lists-lcci)
 
 [English Version](/lcci/02.05.Sum%20Lists/README_EN.md)

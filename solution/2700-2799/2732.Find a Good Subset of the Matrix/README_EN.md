@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2732.Find%20a%20Good%20Subset%20of%20the%20Matrix/README_EN.md
+rating: 2239
+tags:
+    - Greedy
+    - Bit Manipulation
+    - Array
+    - Matrix
+---
+
 # [2732. Find a Good Subset of the Matrix](https://leetcode.com/problems/find-a-good-subset-of-the-matrix)
 
 [中文文档](/solution/2700-2799/2732.Find%20a%20Good%20Subset%20of%20the%20Matrix/README.md)
-
-<!-- tags:Greedy,Bit Manipulation,Array,Matrix -->
 
 ## Description
 

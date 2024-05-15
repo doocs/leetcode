@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2923.Find%20Champion%20I/README.md
+rating: 1235
+tags:
+    - 数组
+    - 矩阵
+---
+
 # [2923. 找到冠军 I](https://leetcode.cn/problems/find-champion-i)
 
 [English Version](/solution/2900-2999/2923.Find%20Champion%20I/README_EN.md)
-
-<!-- tags:数组,矩阵 -->
 
 ## 题目描述
 

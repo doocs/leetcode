@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0785.Is%20Graph%20Bipartite/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Union Find
+    - Graph
+---
+
 # [785. Is Graph Bipartite](https://leetcode.com/problems/is-graph-bipartite)
 
 [中文文档](/solution/0700-0799/0785.Is%20Graph%20Bipartite/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Graph -->
 
 ## Description
 

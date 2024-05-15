@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2078.%20%E5%9F%8E%E5%A2%99%E9%98%B2%E7%BA%BF/README.md
+---
+
 # [LCP 78. 城墙防线](https://leetcode.cn/problems/Nsibyl)
 
 ## 题目描述

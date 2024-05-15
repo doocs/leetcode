@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1514.Path%20with%20Maximum%20Probability/README.md
+rating: 1846
+tags:
+    - 图
+    - 数组
+    - 最短路
+    - 堆（优先队列）
+---
+
 # [1514. 概率最大的路径](https://leetcode.cn/problems/path-with-maximum-probability)
 
 [English Version](/solution/1500-1599/1514.Path%20with%20Maximum%20Probability/README_EN.md)
-
-<!-- tags:图,数组,最短路,堆（优先队列） -->
 
 ## 题目描述
 

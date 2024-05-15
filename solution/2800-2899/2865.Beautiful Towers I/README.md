@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2865.Beautiful%20Towers%20I/README.md
+rating: 1519
+tags:
+    - 栈
+    - 数组
+    - 单调栈
+---
+
 # [2865. 美丽塔 I](https://leetcode.cn/problems/beautiful-towers-i)
 
 [English Version](/solution/2800-2899/2865.Beautiful%20Towers%20I/README_EN.md)
-
-<!-- tags:栈,数组,单调栈 -->
 
 ## 题目描述
 

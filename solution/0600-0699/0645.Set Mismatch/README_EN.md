@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0645.Set%20Mismatch/README_EN.md
+tags:
+    - Bit Manipulation
+    - Array
+    - Hash Table
+    - Sorting
+---
+
 # [645. Set Mismatch](https://leetcode.com/problems/set-mismatch)
 
 [中文文档](/solution/0600-0699/0645.Set%20Mismatch/README.md)
-
-<!-- tags:Bit Manipulation,Array,Hash Table,Sorting -->
 
 ## Description
 

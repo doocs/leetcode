@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.10.Find%20Majority%20Element/README_EN.md
+---
+
 # [17.10. Find Majority Element](https://leetcode.cn/problems/find-majority-element-lcci)
 
 [中文文档](/lcci/17.10.Find%20Majority%20Element/README.md)
@@ -173,6 +179,40 @@ public class Solution {
             }
         }
         return cnt > nums.Length / 2 ? m : -1;
+    }
+}
+```
+
+```swift
+class Solution {
+    func majorityElement(_ nums: [Int]) -> Int {
+        var count = 0
+        var candidate: Int?
+
+        for num in nums {
+            if count == 0 {
+                candidate = num
+                count = 1
+            } else if let candidate = candidate, candidate == num {
+                count += 1
+            } else {
+                count -= 1
+            }
+        }
+
+        count = 0
+        if let candidate = candidate {
+            for num in nums {
+                if num == candidate {
+                    count += 1
+                }
+            }
+            if count > nums.count / 2 {
+                return candidate
+            }
+        }
+
+        return -1
     }
 }
 ```

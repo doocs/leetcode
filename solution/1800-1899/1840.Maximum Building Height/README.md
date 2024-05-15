@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1840.Maximum%20Building%20Height/README.md
+rating: 2374
+tags:
+    - 数组
+    - 数学
+    - 排序
+---
+
 # [1840. 最高建筑高度](https://leetcode.cn/problems/maximum-building-height)
 
 [English Version](/solution/1800-1899/1840.Maximum%20Building%20Height/README_EN.md)
-
-<!-- tags:数组,数学,排序 -->
 
 ## 题目描述
 

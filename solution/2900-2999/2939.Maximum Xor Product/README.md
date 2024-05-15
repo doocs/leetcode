@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2939.Maximum%20Xor%20Product/README.md
+rating: 2127
+tags:
+    - 贪心
+    - 位运算
+    - 数学
+---
+
 # [2939. 最大异或乘积](https://leetcode.cn/problems/maximum-xor-product)
 
 [English Version](/solution/2900-2999/2939.Maximum%20Xor%20Product/README_EN.md)
-
-<!-- tags:贪心,位运算,数学 -->
 
 ## 题目描述
 

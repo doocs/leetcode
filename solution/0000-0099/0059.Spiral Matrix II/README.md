@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0059.Spiral%20Matrix%20II/README.md
+tags:
+    - 数组
+    - 矩阵
+    - 模拟
+---
+
 # [59. 螺旋矩阵 II](https://leetcode.cn/problems/spiral-matrix-ii)
 
 [English Version](/solution/0000-0099/0059.Spiral%20Matrix%20II/README_EN.md)
-
-<!-- tags:数组,矩阵,模拟 -->
 
 ## 题目描述
 

@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1254.Number%20of%20Closed%20Islands/README.md
+rating: 1658
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 并查集
+    - 数组
+    - 矩阵
+---
+
 # [1254. 统计封闭岛屿的数目](https://leetcode.cn/problems/number-of-closed-islands)
 
 [English Version](/solution/1200-1299/1254.Number%20of%20Closed%20Islands/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,并查集,数组,矩阵 -->
 
 ## 题目描述
 

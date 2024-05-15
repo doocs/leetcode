@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1055.Shortest%20Way%20to%20Form%20String/README.md
+tags:
+    - 贪心
+    - 双指针
+    - 字符串
+---
+
 # [1055. 形成字符串的最短路径 🔒](https://leetcode.cn/problems/shortest-way-to-form-string)
 
 [English Version](/solution/1000-1099/1055.Shortest%20Way%20to%20Form%20String/README_EN.md)
-
-<!-- tags:贪心,双指针,字符串 -->
 
 ## 题目描述
 

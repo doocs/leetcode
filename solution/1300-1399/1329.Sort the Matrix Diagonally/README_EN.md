@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1329.Sort%20the%20Matrix%20Diagonally/README_EN.md
+rating: 1548
+tags:
+    - Array
+    - Matrix
+    - Sorting
+---
+
 # [1329. Sort the Matrix Diagonally](https://leetcode.com/problems/sort-the-matrix-diagonally)
 
 [中文文档](/solution/1300-1399/1329.Sort%20the%20Matrix%20Diagonally/README.md)
-
-<!-- tags:Array,Matrix,Sorting -->
 
 ## Description
 

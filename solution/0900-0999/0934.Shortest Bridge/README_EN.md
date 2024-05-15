@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0934.Shortest%20Bridge/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Array
+    - Matrix
+---
+
 # [934. Shortest Bridge](https://leetcode.com/problems/shortest-bridge)
 
 [中文文档](/solution/0900-0999/0934.Shortest%20Bridge/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Array,Matrix -->
 
 ## Description
 

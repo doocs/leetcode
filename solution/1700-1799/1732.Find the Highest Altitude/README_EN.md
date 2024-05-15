@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1732.Find%20the%20Highest%20Altitude/README_EN.md
+rating: 1256
+tags:
+    - Array
+    - Prefix Sum
+---
+
 # [1732. Find the Highest Altitude](https://leetcode.com/problems/find-the-highest-altitude)
 
 [中文文档](/solution/1700-1799/1732.Find%20the%20Highest%20Altitude/README.md)
-
-<!-- tags:Array,Prefix Sum -->
 
 ## Description
 

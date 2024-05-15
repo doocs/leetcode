@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2438.Range%20Product%20Queries%20of%20Powers/README.md
+rating: 1609
+tags:
+    - 位运算
+    - 数组
+    - 前缀和
+---
+
 # [2438. 二的幂数组中查询范围内的乘积](https://leetcode.cn/problems/range-product-queries-of-powers)
 
 [English Version](/solution/2400-2499/2438.Range%20Product%20Queries%20of%20Powers/README_EN.md)
-
-<!-- tags:位运算,数组,前缀和 -->
 
 ## 题目描述
 

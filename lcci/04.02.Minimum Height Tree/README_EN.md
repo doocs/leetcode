@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.02.Minimum%20Height%20Tree/README_EN.md
+---
+
 # [04.02. Minimum Height Tree](https://leetcode.cn/problems/minimum-height-tree-lcci)
 
 [中文文档](/lcci/04.02.Minimum%20Height%20Tree/README.md)

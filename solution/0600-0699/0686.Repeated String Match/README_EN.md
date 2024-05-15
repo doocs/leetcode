@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0686.Repeated%20String%20Match/README_EN.md
+tags:
+    - String
+    - String Matching
+---
+
 # [686. Repeated String Match](https://leetcode.com/problems/repeated-string-match)
 
 [中文文档](/solution/0600-0699/0686.Repeated%20String%20Match/README.md)
-
-<!-- tags:String,String Matching -->
 
 ## Description
 

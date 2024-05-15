@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2070.%20%E6%B2%99%E5%9C%B0%E6%B2%BB%E7%90%86/README.md
+---
+
 # [LCP 70. 沙地治理](https://leetcode.cn/problems/XxZZjK)
 
 ## 题目描述
@@ -13,7 +19,7 @@
     > 如下图所示，(1,1)和(2,2)相邻，(3,2)和(3,3)相邻；(2,2)和(3,3)不相邻，因为它们没有共用边。
 -   若至少有两片绿地与同一片沙地相邻，则这片沙地也会转化为绿地
 -   转化为绿地的区域会影响其相邻的沙地
-    <br><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2070.%20%E6%B2%99%E5%9C%B0%E6%B2%BB%E7%90%86/images/1662692397-VlvErS-image.png" style="width: 300px;" />
+    ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2070.%20%E6%B2%99%E5%9C%B0%E6%B2%BB%E7%90%86/images/1662692397-VlvErS-image.png)
 
 现要将一片边长为 `size`  的沙地全部转化为绿地，请找到任意一种初始指定 **最少** 数量子区域种植沙柳的方案，并返回所有初始种植沙柳树的绿地坐标。
 
@@ -25,7 +31,7 @@
 > 指定所示的 5 个子区域为绿地。
 > 相邻至少两片绿地的 (2,2)，(3,2) 和 (3,4) 演变为绿地。
 > 相邻两片绿地的 (3,3) 演变为绿地。
-> <br><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2070.%20%E6%B2%99%E5%9C%B0%E6%B2%BB%E7%90%86/images/1662692503-ncjywh-image.png" style="width: 300px;" />
+> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2070.%20%E6%B2%99%E5%9C%B0%E6%B2%BB%E7%90%86/images/1662692503-ncjywh-image.png){:width=500px}
 
 **示例 2：**
 
@@ -34,7 +40,7 @@
 > 解释：如下图所示：
 > 指定所示的 3 个子区域为绿地。
 > 相邻三片绿地的 (2,2) 演变为绿地。
-> <br><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2070.%20%E6%B2%99%E5%9C%B0%E6%B2%BB%E7%90%86/images/1662692507-mgFXRj-image.png" style="width: 300px;" />
+> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2070.%20%E6%B2%99%E5%9C%B0%E6%B2%BB%E7%90%86/images/1662692507-mgFXRj-image.png){:width=276px}
 
 **提示：**
 

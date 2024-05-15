@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0508.Most%20Frequent%20Subtree%20Sum/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Hash Table
+    - Binary Tree
+---
+
 # [508. Most Frequent Subtree Sum](https://leetcode.com/problems/most-frequent-subtree-sum)
 
 [中文文档](/solution/0500-0599/0508.Most%20Frequent%20Subtree%20Sum/README.md)
-
-<!-- tags:Tree,Depth-First Search,Hash Table,Binary Tree -->
 
 ## Description
 

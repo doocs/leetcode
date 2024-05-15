@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0265.Paint%20House%20II/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [265. Paint House II 🔒](https://leetcode.com/problems/paint-house-ii)
 
 [中文文档](/solution/0200-0299/0265.Paint%20House%20II/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
 
 ## Description
 

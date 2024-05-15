@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0746.Min%20Cost%20Climbing%20Stairs/README.md
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [746. 使用最小花费爬楼梯](https://leetcode.cn/problems/min-cost-climbing-stairs)
 
 [English Version](/solution/0700-0799/0746.Min%20Cost%20Climbing%20Stairs/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
 
 ## 题目描述
 

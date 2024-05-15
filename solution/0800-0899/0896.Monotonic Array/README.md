@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0896.Monotonic%20Array/README.md
+tags:
+    - 数组
+---
+
 # [896. 单调数列](https://leetcode.cn/problems/monotonic-array)
 
 [English Version](/solution/0800-0899/0896.Monotonic%20Array/README_EN.md)
-
-<!-- tags:数组 -->
 
 ## 题目描述
 

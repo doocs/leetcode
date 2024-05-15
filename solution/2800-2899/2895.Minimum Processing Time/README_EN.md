@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2895.Minimum%20Processing%20Time/README_EN.md
+rating: 1351
+tags:
+    - Greedy
+    - Array
+    - Sorting
+---
+
 # [2895. Minimum Processing Time](https://leetcode.com/problems/minimum-processing-time)
 
 [中文文档](/solution/2800-2899/2895.Minimum%20Processing%20Time/README.md)
-
-<!-- tags:Greedy,Array,Sorting -->
 
 ## Description
 

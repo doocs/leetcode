@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0023.Merge%20k%20Sorted%20Lists/README_EN.md
+tags:
+    - Linked List
+    - Divide and Conquer
+    - Heap (Priority Queue)
+    - Merge Sort
+---
+
 # [23. Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists)
 
 [中文文档](/solution/0000-0099/0023.Merge%20k%20Sorted%20Lists/README.md)
-
-<!-- tags:Linked List,Divide and Conquer,Heap (Priority Queue),Merge Sort -->
 
 ## Description
 

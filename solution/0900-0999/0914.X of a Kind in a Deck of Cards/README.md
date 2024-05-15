@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0914.X%20of%20a%20Kind%20in%20a%20Deck%20of%20Cards/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 数学
+    - 计数
+    - 数论
+---
+
 # [914. 卡牌分组](https://leetcode.cn/problems/x-of-a-kind-in-a-deck-of-cards)
 
 [English Version](/solution/0900-0999/0914.X%20of%20a%20Kind%20in%20a%20Deck%20of%20Cards/README_EN.md)
-
-<!-- tags:数组,哈希表,数学,计数,数论 -->
 
 ## 题目描述
 

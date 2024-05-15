@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.03.Delete%20Middle%20Node/README_EN.md
+---
+
 # [02.03. Delete Middle Node](https://leetcode.cn/problems/delete-middle-node-lcci)
 
 [中文文档](/lcci/02.03.Delete%20Middle%20Node/README.md)

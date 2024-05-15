@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0212.Word%20Search%20II/README.md
+tags:
+    - 字典树
+    - 数组
+    - 字符串
+    - 回溯
+    - 矩阵
+---
+
 # [212. 单词搜索 II](https://leetcode.cn/problems/word-search-ii)
 
 [English Version](/solution/0200-0299/0212.Word%20Search%20II/README_EN.md)
-
-<!-- tags:字典树,数组,字符串,回溯,矩阵 -->
 
 ## 题目描述
 

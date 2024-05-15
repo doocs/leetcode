@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1448.Count%20Good%20Nodes%20in%20Binary%20Tree/README.md
+rating: 1360
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 二叉树
+---
+
 # [1448. 统计二叉树中好节点的数目](https://leetcode.cn/problems/count-good-nodes-in-binary-tree)
 
 [English Version](/solution/1400-1499/1448.Count%20Good%20Nodes%20in%20Binary%20Tree/README_EN.md)
-
-<!-- tags:树,深度优先搜索,广度优先搜索,二叉树 -->
 
 ## 题目描述
 

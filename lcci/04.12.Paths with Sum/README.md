@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.12.Paths%20with%20Sum/README.md
+---
+
 # [面试题 04.12. 求和路径](https://leetcode.cn/problems/paths-with-sum-lcci)
 
 [English Version](/lcci/04.12.Paths%20with%20Sum/README_EN.md)

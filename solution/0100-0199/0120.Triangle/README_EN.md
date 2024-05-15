@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0120.Triangle/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [120. Triangle](https://leetcode.com/problems/triangle)
 
 [中文文档](/solution/0100-0199/0120.Triangle/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
 
 ## Description
 

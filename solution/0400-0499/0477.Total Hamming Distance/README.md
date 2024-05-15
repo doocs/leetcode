@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0477.Total%20Hamming%20Distance/README.md
+tags:
+    - 位运算
+    - 数组
+    - 数学
+---
+
 # [477. 汉明距离总和](https://leetcode.cn/problems/total-hamming-distance)
 
 [English Version](/solution/0400-0499/0477.Total%20Hamming%20Distance/README_EN.md)
-
-<!-- tags:位运算,数组,数学 -->
 
 ## 题目描述
 
@@ -45,20 +53,19 @@ HammingDistance(4, 14) + HammingDistance(4, 2) + HammingDistance(14, 2) = 2 + 2 
 
 ### 方法一：位运算
 
+我们在 $[0, 31]$ 的范围内枚举每一位，对于当前枚举的位 $i$，我们统计所有数字中的第 $i$ 位为 $1$ 的个数 $a$，那么这些数字中的第 $i$ 位为 $0$ 的个数就是 $b = n - a$，其中 $n$ 是数组的长度。这样的话，在第 $i$ 位上的汉明距离之和就是 $a \times b$，我们把所有的位的汉明距离相加即为答案。
+
+时间复杂度 $O(n \times \log M)$，其中 $n$ 和 $M$ 分别是数组的长度和数组中的元素的最大值。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def totalHammingDistance(self, nums: List[int]) -> int:
-        ans = 0
-        for i in range(31):
-            a = b = 0
-            for v in nums:
-                t = (v >> i) & 1
-                if t:
-                    a += 1
-                else:
-                    b += 1
+        ans, n = 0, len(nums)
+        for i in range(32):
+            a = sum(x >> i & 1 for x in nums)
+            b = n - a
             ans += a * b
         return ans
 ```
@@ -66,14 +73,13 @@ class Solution:
 ```java
 class Solution {
     public int totalHammingDistance(int[] nums) {
-        int ans = 0;
-        for (int i = 0; i < 31; ++i) {
-            int a = 0, b = 0;
-            for (int v : nums) {
-                int t = (v >> i) & 1;
-                a += t;
-                b += t ^ 1;
+        int ans = 0, n = nums.length;
+        for (int i = 0; i < 32; ++i) {
+            int a = 0;
+            for (int x : nums) {
+                a += (x >> i & 1);
             }
+            int b = n - a;
             ans += a * b;
         }
         return ans;
@@ -85,14 +91,13 @@ class Solution {
 class Solution {
 public:
     int totalHammingDistance(vector<int>& nums) {
-        int ans = 0;
-        for (int i = 0; i < 31; ++i) {
-            int a = 0, b = 0;
-            for (int& v : nums) {
-                int t = (v >> i) & 1;
-                a += t;
-                b += t ^ 1;
+        int ans = 0, n = nums.size();
+        for (int i = 0; i < 32; ++i) {
+            int a = 0;
+            for (int x : nums) {
+                a += x >> i & 1;
             }
+            int b = n - a;
             ans += a * b;
         }
         return ans;
@@ -101,18 +106,45 @@ public:
 ```
 
 ```go
-func totalHammingDistance(nums []int) int {
-	ans := 0
-	for i := 0; i < 31; i++ {
-		a, b := 0, 0
-		for _, v := range nums {
-			t := (v >> i) & 1
-			a += t
-			b += t ^ 1
+func totalHammingDistance(nums []int) (ans int) {
+	for i := 0; i < 32; i++ {
+		a := 0
+		for _, x := range nums {
+			a += x >> i & 1
 		}
+		b := len(nums) - a
 		ans += a * b
 	}
-	return ans
+	return
+}
+```
+
+```ts
+function totalHammingDistance(nums: number[]): number {
+    let ans = 0;
+    for (let i = 0; i < 32; ++i) {
+        const a = nums.filter(x => (x >> i) & 1).length;
+        const b = nums.length - a;
+        ans += a * b;
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn total_hamming_distance(nums: Vec<i32>) -> i32 {
+        let mut ans = 0;
+        for i in 0..32 {
+            let mut a = 0;
+            for &x in nums.iter() {
+                a += (x >> i) & 1;
+            }
+            let b = (nums.len() as i32) - a;
+            ans += a * b;
+        }
+        ans
+    }
 }
 ```
 

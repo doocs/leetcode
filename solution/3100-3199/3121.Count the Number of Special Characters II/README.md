@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3121.Count%20the%20Number%20of%20Special%20Characters%20II/README.md
+rating: 1411
+tags:
+    - 哈希表
+    - 字符串
+---
+
 # [3121. 统计特殊字母的数量 II](https://leetcode.cn/problems/count-the-number-of-special-characters-ii)
 
 [English Version](/solution/3100-3199/3121.Count%20the%20Number%20of%20Special%20Characters%20II/README_EN.md)
-
-<!-- tags:哈希表,字符串 -->
 
 ## 题目描述
 

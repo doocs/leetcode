@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0046.Permutations/README.md
+tags:
+    - 数组
+    - 回溯
+---
+
 # [46. 全排列](https://leetcode.cn/problems/permutations)
 
 [English Version](/solution/0000-0099/0046.Permutations/README_EN.md)
-
-<!-- tags:数组,回溯 -->
 
 ## 题目描述
 

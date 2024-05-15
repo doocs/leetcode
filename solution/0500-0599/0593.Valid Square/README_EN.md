@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0593.Valid%20Square/README_EN.md
+tags:
+    - Geometry
+    - Math
+---
+
 # [593. Valid Square](https://leetcode.com/problems/valid-square)
 
 [中文文档](/solution/0500-0599/0593.Valid%20Square/README.md)
-
-<!-- tags:Geometry,Math -->
 
 ## Description
 

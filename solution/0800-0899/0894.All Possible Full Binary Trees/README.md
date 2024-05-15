@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0894.All%20Possible%20Full%20Binary%20Trees/README.md
+tags:
+    - 树
+    - 递归
+    - 记忆化搜索
+    - 动态规划
+    - 二叉树
+---
+
 # [894. 所有可能的真二叉树](https://leetcode.cn/problems/all-possible-full-binary-trees)
 
 [English Version](/solution/0800-0899/0894.All%20Possible%20Full%20Binary%20Trees/README_EN.md)
-
-<!-- tags:树,递归,记忆化搜索,动态规划,二叉树 -->
 
 ## 题目描述
 

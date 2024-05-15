@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2811.Check%20if%20it%20is%20Possible%20to%20Split%20Array/README.md
+rating: 1543
+tags:
+    - 贪心
+    - 数组
+    - 动态规划
+---
+
 # [2811. 判断是否能拆分数组](https://leetcode.cn/problems/check-if-it-is-possible-to-split-array)
 
 [English Version](/solution/2800-2899/2811.Check%20if%20it%20is%20Possible%20to%20Split%20Array/README_EN.md)
-
-<!-- tags:贪心,数组,动态规划 -->
 
 ## 题目描述
 

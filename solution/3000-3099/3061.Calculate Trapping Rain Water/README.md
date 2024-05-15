@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3061.Calculate%20Trapping%20Rain%20Water/README.md
+tags:
+    - 数据库
+---
+
 # [3061. 计算滞留雨水 🔒](https://leetcode.cn/problems/calculate-trapping-rain-water)
 
 [English Version](/solution/3000-3099/3061.Calculate%20Trapping%20Rain%20Water/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

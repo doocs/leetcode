@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1552.Magnetic%20Force%20Between%20Two%20Balls/README_EN.md
+rating: 1919
+tags:
+    - Array
+    - Binary Search
+    - Sorting
+---
+
 # [1552. Magnetic Force Between Two Balls](https://leetcode.com/problems/magnetic-force-between-two-balls)
 
 [中文文档](/solution/1500-1599/1552.Magnetic%20Force%20Between%20Two%20Balls/README.md)
-
-<!-- tags:Array,Binary Search,Sorting -->
 
 ## Description
 

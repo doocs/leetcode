@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0503.Next%20Greater%20Element%20II/README.md
+tags:
+    - 栈
+    - 数组
+    - 单调栈
+---
+
 # [503. 下一个更大元素 II](https://leetcode.cn/problems/next-greater-element-ii)
 
 [English Version](/solution/0500-0599/0503.Next%20Greater%20Element%20II/README_EN.md)
-
-<!-- tags:栈,数组,单调栈 -->
 
 ## 题目描述
 

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2285.Maximum%20Total%20Importance%20of%20Roads/README.md
+rating: 1496
+tags:
+    - 贪心
+    - 图
+    - 排序
+    - 堆（优先队列）
+---
+
 # [2285. 道路的最大总重要性](https://leetcode.cn/problems/maximum-total-importance-of-roads)
 
 [English Version](/solution/2200-2299/2285.Maximum%20Total%20Importance%20of%20Roads/README_EN.md)
-
-<!-- tags:贪心,图,排序,堆（优先队列） -->
 
 ## 题目描述
 

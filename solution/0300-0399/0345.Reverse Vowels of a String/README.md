@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0345.Reverse%20Vowels%20of%20a%20String/README.md
+tags:
+    - 双指针
+    - 字符串
+---
+
 # [345. 反转字符串中的元音字母](https://leetcode.cn/problems/reverse-vowels-of-a-string)
 
 [English Version](/solution/0300-0399/0345.Reverse%20Vowels%20of%20a%20String/README_EN.md)
-
-<!-- tags:双指针,字符串 -->
 
 ## 题目描述
 

@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2051.The%20Category%20of%20Each%20Member%20in%20the%20Store/README.md
+tags:
+    - 数据库
+---
+
 # [2051. 商店中每个成员的级别 🔒](https://leetcode.cn/problems/the-category-of-each-member-in-the-store)
 
 [English Version](/solution/2000-2099/2051.The%20Category%20of%20Each%20Member%20in%20the%20Store/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

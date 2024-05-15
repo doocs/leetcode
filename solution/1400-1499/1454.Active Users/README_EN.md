@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1454.Active%20Users/README_EN.md
+tags:
+    - Database
+---
+
 # [1454. Active Users 🔒](https://leetcode.com/problems/active-users)
 
 [中文文档](/solution/1400-1499/1454.Active%20Users/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

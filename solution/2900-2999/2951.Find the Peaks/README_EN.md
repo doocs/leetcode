@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2951.Find%20the%20Peaks/README_EN.md
+rating: 1189
+tags:
+    - Array
+    - Enumeration
+---
+
 # [2951. Find the Peaks](https://leetcode.com/problems/find-the-peaks)
 
 [中文文档](/solution/2900-2999/2951.Find%20the%20Peaks/README.md)
-
-<!-- tags:Array,Enumeration -->
 
 ## Description
 

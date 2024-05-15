@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0526.Beautiful%20Arrangement/README.md
+tags:
+    - 位运算
+    - 数组
+    - 动态规划
+    - 回溯
+    - 状态压缩
+---
+
 # [526. 优美的排列](https://leetcode.cn/problems/beautiful-arrangement)
 
 [English Version](/solution/0500-0599/0526.Beautiful%20Arrangement/README_EN.md)
-
-<!-- tags:位运算,数组,动态规划,回溯,状态压缩 -->
 
 ## 题目描述
 

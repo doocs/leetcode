@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1923.Longest%20Common%20Subpath/README_EN.md
+rating: 2661
+tags:
+    - Array
+    - Binary Search
+    - Suffix Array
+    - Hash Function
+    - Rolling Hash
+---
+
 # [1923. Longest Common Subpath](https://leetcode.com/problems/longest-common-subpath)
 
 [中文文档](/solution/1900-1999/1923.Longest%20Common%20Subpath/README.md)
-
-<!-- tags:Array,Binary Search,Suffix Array,Hash Function,Rolling Hash -->
 
 ## Description
 

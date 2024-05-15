@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.24.Max%20Submatrix/README.md
+---
+
 # [面试题 17.24. 最大子矩阵](https://leetcode.cn/problems/max-submatrix-lcci)
 
 [English Version](/lcci/17.24.Max%20Submatrix/README_EN.md)

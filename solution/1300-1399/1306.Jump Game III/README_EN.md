@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1306.Jump%20Game%20III/README_EN.md
+rating: 1396
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Array
+---
+
 # [1306. Jump Game III](https://leetcode.com/problems/jump-game-iii)
 
 [中文文档](/solution/1300-1399/1306.Jump%20Game%20III/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Array -->
 
 ## Description
 

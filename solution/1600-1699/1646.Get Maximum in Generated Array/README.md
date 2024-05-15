@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1646.Get%20Maximum%20in%20Generated%20Array/README.md
+rating: 1301
+tags:
+    - 数组
+    - 模拟
+---
+
 # [1646. 获取生成数组中的最大值](https://leetcode.cn/problems/get-maximum-in-generated-array)
 
 [English Version](/solution/1600-1699/1646.Get%20Maximum%20in%20Generated%20Array/README_EN.md)
-
-<!-- tags:数组,模拟 -->
 
 ## 题目描述
 

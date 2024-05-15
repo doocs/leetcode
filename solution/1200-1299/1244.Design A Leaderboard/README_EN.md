@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1244.Design%20A%20Leaderboard/README_EN.md
+rating: 1354
+tags:
+    - Design
+    - Hash Table
+    - Sorting
+---
+
 # [1244. Design A Leaderboard 🔒](https://leetcode.com/problems/design-a-leaderboard)
 
 [中文文档](/solution/1200-1299/1244.Design%20A%20Leaderboard/README.md)
-
-<!-- tags:Design,Hash Table,Sorting -->
 
 ## Description
 

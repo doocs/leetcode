@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20093.%20%E6%9C%80%E9%95%BF%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/README.md
+---
+
 # [剑指 Offer II 093. 最长斐波那契数列](https://leetcode.cn/problems/Q91FMA)
 
 ## 题目描述

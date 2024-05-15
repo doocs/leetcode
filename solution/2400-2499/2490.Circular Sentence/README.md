@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2490.Circular%20Sentence/README.md
+rating: 1262
+tags:
+    - 字符串
+---
+
 # [2490. 回环句](https://leetcode.cn/problems/circular-sentence)
 
 [English Version](/solution/2400-2499/2490.Circular%20Sentence/README_EN.md)
-
-<!-- tags:字符串 -->
 
 ## 题目描述
 

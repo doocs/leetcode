@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1448.Count%20Good%20Nodes%20in%20Binary%20Tree/README_EN.md
+rating: 1360
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Binary Tree
+---
+
 # [1448. Count Good Nodes in Binary Tree](https://leetcode.com/problems/count-good-nodes-in-binary-tree)
 
 [中文文档](/solution/1400-1499/1448.Count%20Good%20Nodes%20in%20Binary%20Tree/README.md)
-
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Tree -->
 
 ## Description
 

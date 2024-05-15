@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2102.Sequentially%20Ordinal%20Rank%20Tracker/README_EN.md
+rating: 2158
+tags:
+    - Design
+    - Data Stream
+    - Ordered Set
+    - Heap (Priority Queue)
+---
+
 # [2102. Sequentially Ordinal Rank Tracker](https://leetcode.com/problems/sequentially-ordinal-rank-tracker)
 
 [中文文档](/solution/2100-2199/2102.Sequentially%20Ordinal%20Rank%20Tracker/README.md)
-
-<!-- tags:Design,Data Stream,Ordered Set,Heap (Priority Queue) -->
 
 ## Description
 
@@ -76,5 +86,188 @@ tracker.get();              // Sorted locations: branford, orlando, alpine, alps
 </ul>
 
 ## Solutions
+
+### Solution 1: Ordered Set
+
+We can use an ordered set to store the attractions, and a variable $i$ to record the current number of queries, initially $i = -1$.
+
+When calling the `add` method, we take the negative of the attraction's rating, so that we can use the ordered set to sort by rating in descending order. If the ratings are the same, sort by the dictionary order of the attraction names in ascending order.
+
+When calling the `get` method, we increment $i$ by one, and then return the name of the $i$-th attraction in the ordered set.
+
+The time complexity of each operation is $O(\log n)$, where $n$ is the number of added attractions. The space complexity is $O(n)$.
+
+<!-- tabs:start -->
+
+```python
+from sortedcontainers import SortedList
+
+
+class SORTracker:
+
+    def __init__(self):
+        self.sl = SortedList()
+        self.i = -1
+
+    def add(self, name: str, score: int) -> None:
+        self.sl.add((-score, name))
+
+    def get(self) -> str:
+        self.i += 1
+        return self.sl[self.i][1]
+
+
+# Your SORTracker object will be instantiated and called as such:
+# obj = SORTracker()
+# obj.add(name,score)
+# param_2 = obj.get()
+```
+
+```cpp
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/hash_policy.hpp>
+using namespace __gnu_pbds;
+
+template <class T>
+using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+
+class SORTracker {
+public:
+    SORTracker() {
+    }
+
+    void add(string name, int score) {
+        st.insert({-score, name});
+    }
+
+    string get() {
+        return st.find_by_order(++i)->second;
+    }
+
+private:
+    ordered_set<pair<int, string>> st;
+    int i = -1;
+};
+
+/**
+ * Your SORTracker object will be instantiated and called as such:
+ * SORTracker* obj = new SORTracker();
+ * obj->add(name,score);
+ * string param_2 = obj->get();
+ */
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Double Priority Queue (Min-Max Heap)
+
+We notice that the query operations in this problem are performed in strictly increasing order. Therefore, we can use a method similar to the median in the data stream. We define two priority queues `good` and `bad`. `good` is a min-heap, storing the current best attractions, and `bad` is a max-heap, storing the current $i$-th best attraction.
+
+Each time the `add` method is called, we add the attraction's rating and name to `good`, and then add the worst attraction in `good` to `bad`.
+
+Each time the `get` method is called, we add the best attraction in `bad` to `good`, and then return the worst attraction in `good`.
+
+The time complexity of each operation is $O(\log n)$, where $n$ is the number of added attractions. The space complexity is $O(n)$.
+
+<!-- tabs:start -->
+
+```python
+class Node:
+    def __init__(self, s: str):
+        self.s = s
+
+    def __lt__(self, other):
+        return self.s > other.s
+
+
+class SORTracker:
+
+    def __init__(self):
+        self.good = []
+        self.bad = []
+
+    def add(self, name: str, score: int) -> None:
+        score, node = heappushpop(self.good, (score, Node(name)))
+        heappush(self.bad, (-score, node.s))
+
+    def get(self) -> str:
+        score, name = heappop(self.bad)
+        heappush(self.good, (-score, Node(name)))
+        return self.good[0][1].s
+
+
+# Your SORTracker object will be instantiated and called as such:
+# obj = SORTracker()
+# obj.add(name,score)
+# param_2 = obj.get()
+```
+
+```java
+class SORTracker {
+    private PriorityQueue<Map.Entry<Integer, String>> good = new PriorityQueue<>(
+        (a, b)
+            -> a.getKey().equals(b.getKey()) ? b.getValue().compareTo(a.getValue())
+                                             : a.getKey() - b.getKey());
+    private PriorityQueue<Map.Entry<Integer, String>> bad = new PriorityQueue<>(
+        (a, b)
+            -> a.getKey().equals(b.getKey()) ? a.getValue().compareTo(b.getValue())
+                                             : b.getKey() - a.getKey());
+
+    public SORTracker() {
+    }
+
+    public void add(String name, int score) {
+        good.offer(Map.entry(score, name));
+        bad.offer(good.poll());
+    }
+
+    public String get() {
+        good.offer(bad.poll());
+        return good.peek().getValue();
+    }
+}
+
+/**
+ * Your SORTracker object will be instantiated and called as such:
+ * SORTracker obj = new SORTracker();
+ * obj.add(name,score);
+ * String param_2 = obj.get();
+ */
+```
+
+```cpp
+using pis = pair<int, string>;
+
+class SORTracker {
+public:
+    SORTracker() {
+    }
+
+    void add(string name, int score) {
+        good.push({-score, name});
+        bad.push(good.top());
+        good.pop();
+    }
+
+    string get() {
+        good.push(bad.top());
+        bad.pop();
+        return good.top().second;
+    }
+
+private:
+    priority_queue<pis, vector<pis>, less<pis>> good;
+    priority_queue<pis, vector<pis>, greater<pis>> bad;
+};
+
+/**
+ * Your SORTracker object will be instantiated and called as such:
+ * SORTracker* obj = new SORTracker();
+ * obj->add(name,score);
+ * string param_2 = obj->get();
+ */
+```
+
+<!-- tabs:end -->
 
 <!-- end -->

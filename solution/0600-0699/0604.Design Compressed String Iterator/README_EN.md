@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0604.Design%20Compressed%20String%20Iterator/README_EN.md
+tags:
+    - Design
+    - Array
+    - String
+    - Iterator
+---
+
 # [604. Design Compressed String Iterator 🔒](https://leetcode.com/problems/design-compressed-string-iterator)
 
 [中文文档](/solution/0600-0699/0604.Design%20Compressed%20String%20Iterator/README.md)
-
-<!-- tags:Design,Array,String,Iterator -->
 
 ## Description
 

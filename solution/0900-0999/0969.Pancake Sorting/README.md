@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0969.Pancake%20Sorting/README.md
+tags:
+    - 贪心
+    - 数组
+    - 双指针
+    - 排序
+---
+
 # [969. 煎饼排序](https://leetcode.cn/problems/pancake-sorting)
 
 [English Version](/solution/0900-0999/0969.Pancake%20Sorting/README_EN.md)
-
-<!-- tags:贪心,数组,双指针,排序 -->
 
 ## 题目描述
 

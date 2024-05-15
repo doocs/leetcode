@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2068.%20%E7%BE%8E%E8%A7%82%E7%9A%84%E8%8A%B1%E6%9D%9F/README.md
+---
+
 # [LCP 68. 美观的花束](https://leetcode.cn/problems/1GxJYY)
 
 ## 题目描述

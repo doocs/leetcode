@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1014.Best%20Sightseeing%20Pair/README_EN.md
+rating: 1730
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [1014. Best Sightseeing Pair](https://leetcode.com/problems/best-sightseeing-pair)
 
 [中文文档](/solution/1000-1099/1014.Best%20Sightseeing%20Pair/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
 
 ## Description
 

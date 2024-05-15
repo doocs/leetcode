@@ -22,6 +22,20 @@
 
 ## 往期竞赛
 
+#### 第 397 场周赛(2024-05-12 10:30, 90 分钟) 参赛人数 3365
+
+- [3146. 两个字符串的排列差](/solution/3100-3199/3146.Permutation%20Difference%20between%20Two%20Strings/README.md)
+- [3147. 从魔法师身上吸取的最大能量](/solution/3100-3199/3147.Taking%20Maximum%20Energy%20From%20the%20Mystic%20Dungeon/README.md)
+- [3148. 矩阵中的最大得分](/solution/3100-3199/3148.Maximum%20Difference%20Score%20in%20a%20Grid/README.md)
+- [3149. 找出分数最低的排列](/solution/3100-3199/3149.Find%20the%20Minimum%20Cost%20Array%20Permutation/README.md)
+
+#### 第 130 场双周赛(2024-05-11 22:30, 90 分钟) 参赛人数 2604
+
+- [3142. 判断矩阵是否满足条件](/solution/3100-3199/3142.Check%20if%20Grid%20Satisfies%20Conditions/README.md)
+- [3143. 正方形中的最多点数](/solution/3100-3199/3143.Maximum%20Points%20Inside%20the%20Square/README.md)
+- [3144. 分割字符频率相等的最少子字符串](/solution/3100-3199/3144.Minimum%20Substring%20Partition%20of%20Equal%20Character%20Frequency/README.md)
+- [3145. 大数组元素的乘积](/solution/3100-3199/3145.Find%20Products%20of%20Elements%20of%20Big%20Array/README.md)
+
 #### 第 396 场周赛(2024-05-05 10:30, 90 分钟) 参赛人数 2931
 
 - [3136. 有效单词](/solution/3100-3199/3136.Valid%20Word/README.md)
@@ -2059,7 +2073,7 @@
 - [1558. 得到目标数组的最少函数调用次数](/solution/1500-1599/1558.Minimum%20Numbers%20of%20Function%20Calls%20to%20Make%20Target%20Array/README.md)
 - [1559. 二维网格图中探测环](/solution/1500-1599/1559.Detect%20Cycles%20in%202D%20Grid/README.md)
 
-#### 第 202 场周赛(2020-08-16 10:30, 90 分钟) 参赛人数 4989
+#### 第 202 场周赛(2020-08-16 10:30, 90 分钟) 参赛人数 4990
 
 - [1550. 存在连续三个奇数的数组](/solution/1500-1599/1550.Three%20Consecutive%20Odds/README.md)
 - [1551. 使数组中所有元素相等的最小操作数](/solution/1500-1599/1551.Minimum%20Operations%20to%20Make%20Array%20Equal/README.md)

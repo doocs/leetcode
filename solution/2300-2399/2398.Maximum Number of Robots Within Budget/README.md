@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2398.Maximum%20Number%20of%20Robots%20Within%20Budget/README.md
+rating: 1917
+tags:
+    - 队列
+    - 数组
+    - 二分查找
+    - 前缀和
+    - 滑动窗口
+    - 堆（优先队列）
+---
+
 # [2398. 预算内的最多机器人数目](https://leetcode.cn/problems/maximum-number-of-robots-within-budget)
 
 [English Version](/solution/2300-2399/2398.Maximum%20Number%20of%20Robots%20Within%20Budget/README_EN.md)
-
-<!-- tags:队列,数组,二分查找,前缀和,滑动窗口,堆（优先队列） -->
 
 ## 题目描述
 
@@ -50,7 +62,9 @@
 
 ### 方法一：双指针 + 单调队列
 
-问题实际上是求滑动窗口内的最大值，可以用单调队列来求解。只需要二分枚举窗口 $k$ 的大小，找到一个最大的 $k$，使得满足题目要求。
+问题实际上是求滑动窗口内的最大值，可以用单调队列来求解。
+
+我们只需要二分枚举窗口 $k$ 的大小，找到一个最大的 $k$，使得满足题目要求。
 
 实现过程中，实际上不需要进行二分枚举，只需要将固定窗口改为双指针非固定窗口即可。
 

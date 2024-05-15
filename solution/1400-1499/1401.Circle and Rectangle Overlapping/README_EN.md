@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1401.Circle%20and%20Rectangle%20Overlapping/README_EN.md
+rating: 1708
+tags:
+    - Geometry
+    - Math
+---
+
 # [1401. Circle and Rectangle Overlapping](https://leetcode.com/problems/circle-and-rectangle-overlapping)
 
 [中文文档](/solution/1400-1499/1401.Circle%20and%20Rectangle%20Overlapping/README.md)
-
-<!-- tags:Geometry,Math -->
 
 ## Description
 

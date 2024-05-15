@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2276.Count%20Integers%20in%20Intervals/README_EN.md
+rating: 2222
+tags:
+    - Design
+    - Segment Tree
+    - Ordered Set
+---
+
 # [2276. Count Integers in Intervals](https://leetcode.com/problems/count-integers-in-intervals)
 
 [中文文档](/solution/2200-2299/2276.Count%20Integers%20in%20Intervals/README.md)
-
-<!-- tags:Design,Segment Tree,Ordered Set -->
 
 ## Description
 

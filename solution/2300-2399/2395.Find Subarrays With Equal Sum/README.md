@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2395.Find%20Subarrays%20With%20Equal%20Sum/README.md
+rating: 1249
+tags:
+    - 数组
+    - 哈希表
+---
+
 # [2395. 和相等的子数组](https://leetcode.cn/problems/find-subarrays-with-equal-sum)
 
 [English Version](/solution/2300-2399/2395.Find%20Subarrays%20With%20Equal%20Sum/README_EN.md)
-
-<!-- tags:数组,哈希表 -->
 
 ## 题目描述
 

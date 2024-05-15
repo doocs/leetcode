@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1714.Sum%20Of%20Special%20Evenly-Spaced%20Elements%20In%20Array/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [1714. Sum Of Special Evenly-Spaced Elements In Array 🔒](https://leetcode.com/problems/sum-of-special-evenly-spaced-elements-in-array)
 
 [中文文档](/solution/1700-1799/1714.Sum%20Of%20Special%20Evenly-Spaced%20Elements%20In%20Array/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
 
 ## Description
 

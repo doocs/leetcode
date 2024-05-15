@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2276.Count%20Integers%20in%20Intervals/README.md
+rating: 2222
+tags:
+    - 设计
+    - 线段树
+    - 有序集合
+---
+
 # [2276. 统计区间中的整数数目](https://leetcode.cn/problems/count-integers-in-intervals)
 
 [English Version](/solution/2200-2299/2276.Count%20Integers%20in%20Intervals/README_EN.md)
-
-<!-- tags:设计,线段树,有序集合 -->
 
 ## 题目描述
 

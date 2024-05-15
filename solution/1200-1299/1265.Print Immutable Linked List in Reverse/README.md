@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1265.Print%20Immutable%20Linked%20List%20in%20Reverse/README.md
+tags:
+    - 栈
+    - 递归
+    - 链表
+    - 双指针
+---
+
 # [1265. 逆序打印不可变链表 🔒](https://leetcode.cn/problems/print-immutable-linked-list-in-reverse)
 
 [English Version](/solution/1200-1299/1265.Print%20Immutable%20Linked%20List%20in%20Reverse/README_EN.md)
-
-<!-- tags:栈,递归,链表,双指针 -->
 
 ## 题目描述
 

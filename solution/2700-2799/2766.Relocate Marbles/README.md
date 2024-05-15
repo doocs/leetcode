@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2766.Relocate%20Marbles/README.md
+rating: 1613
+tags:
+    - 数组
+    - 哈希表
+    - 排序
+    - 模拟
+---
+
 # [2766. 重新放置石块](https://leetcode.cn/problems/relocate-marbles)
 
 [English Version](/solution/2700-2799/2766.Relocate%20Marbles/README_EN.md)
-
-<!-- tags:数组,哈希表,排序,模拟 -->
 
 ## 题目描述
 

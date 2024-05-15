@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0974.Subarray%20Sums%20Divisible%20by%20K/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 前缀和
+---
+
 # [974. 和可被 K 整除的子数组](https://leetcode.cn/problems/subarray-sums-divisible-by-k)
 
 [English Version](/solution/0900-0999/0974.Subarray%20Sums%20Divisible%20by%20K/README_EN.md)
-
-<!-- tags:数组,哈希表,前缀和 -->
 
 ## 题目描述
 

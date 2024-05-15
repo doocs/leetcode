@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0446.Arithmetic%20Slices%20II%20-%20Subsequence/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [446. Arithmetic Slices II - Subsequence](https://leetcode.com/problems/arithmetic-slices-ii-subsequence)
 
 [中文文档](/solution/0400-0499/0446.Arithmetic%20Slices%20II%20-%20Subsequence/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
 
 ## Description
 

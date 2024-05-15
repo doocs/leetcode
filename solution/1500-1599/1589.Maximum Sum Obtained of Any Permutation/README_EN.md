@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1589.Maximum%20Sum%20Obtained%20of%20Any%20Permutation/README_EN.md
+rating: 1871
+tags:
+    - Greedy
+    - Array
+    - Prefix Sum
+    - Sorting
+---
+
 # [1589. Maximum Sum Obtained of Any Permutation](https://leetcode.com/problems/maximum-sum-obtained-of-any-permutation)
 
 [中文文档](/solution/1500-1599/1589.Maximum%20Sum%20Obtained%20of%20Any%20Permutation/README.md)
-
-<!-- tags:Greedy,Array,Prefix Sum,Sorting -->
 
 ## Description
 

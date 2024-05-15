@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0911.Online%20Election/README.md
+tags:
+    - 设计
+    - 数组
+    - 哈希表
+    - 二分查找
+---
+
 # [911. 在线选举](https://leetcode.cn/problems/online-election)
 
 [English Version](/solution/0900-0999/0911.Online%20Election/README_EN.md)
-
-<!-- tags:设计,数组,哈希表,二分查找 -->
 
 ## 题目描述
 

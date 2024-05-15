@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0334.Increasing%20Triplet%20Subsequence/README_EN.md
+tags:
+    - Greedy
+    - Array
+---
+
 # [334. Increasing Triplet Subsequence](https://leetcode.com/problems/increasing-triplet-subsequence)
 
 [中文文档](/solution/0300-0399/0334.Increasing%20Triplet%20Subsequence/README.md)
-
-<!-- tags:Greedy,Array -->
 
 ## Description
 

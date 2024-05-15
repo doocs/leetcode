@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2588.Count%20the%20Number%20of%20Beautiful%20Subarrays/README.md
+rating: 1696
+tags:
+    - 位运算
+    - 数组
+    - 哈希表
+    - 前缀和
+---
+
 # [2588. 统计美丽子数组数目](https://leetcode.cn/problems/count-the-number-of-beautiful-subarrays)
 
 [English Version](/solution/2500-2599/2588.Count%20the%20Number%20of%20Beautiful%20Subarrays/README_EN.md)
-
-<!-- tags:位运算,数组,哈希表,前缀和 -->
 
 ## 题目描述
 

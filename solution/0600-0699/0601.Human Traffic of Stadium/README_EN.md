@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0601.Human%20Traffic%20of%20Stadium/README_EN.md
+tags:
+    - Database
+---
+
 # [601. Human Traffic of Stadium](https://leetcode.com/problems/human-traffic-of-stadium)
 
 [中文文档](/solution/0600-0699/0601.Human%20Traffic%20of%20Stadium/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

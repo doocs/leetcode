@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0524.Longest%20Word%20in%20Dictionary%20through%20Deleting/README_EN.md
+tags:
+    - Array
+    - Two Pointers
+    - String
+    - Sorting
+---
+
 # [524. Longest Word in Dictionary through Deleting](https://leetcode.com/problems/longest-word-in-dictionary-through-deleting)
 
 [中文文档](/solution/0500-0599/0524.Longest%20Word%20in%20Dictionary%20through%20Deleting/README.md)
-
-<!-- tags:Array,Two Pointers,String,Sorting -->
 
 ## Description
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0844.Backspace%20String%20Compare/README_EN.md
+tags:
+    - Stack
+    - Two Pointers
+    - String
+    - Simulation
+---
+
 # [844. Backspace String Compare](https://leetcode.com/problems/backspace-string-compare)
 
 [中文文档](/solution/0800-0899/0844.Backspace%20String%20Compare/README.md)
-
-<!-- tags:Stack,Two Pointers,String,Simulation -->
 
 ## Description
 

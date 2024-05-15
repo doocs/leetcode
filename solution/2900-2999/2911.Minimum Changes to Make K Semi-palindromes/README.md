@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2911.Minimum%20Changes%20to%20Make%20K%20Semi-palindromes/README.md
+rating: 2607
+tags:
+    - 双指针
+    - 字符串
+    - 动态规划
+---
+
 # [2911. 得到 K 个半回文串的最少修改次数](https://leetcode.cn/problems/minimum-changes-to-make-k-semi-palindromes)
 
 [English Version](/solution/2900-2999/2911.Minimum%20Changes%20to%20Make%20K%20Semi-palindromes/README_EN.md)
-
-<!-- tags:双指针,字符串,动态规划 -->
 
 ## 题目描述
 

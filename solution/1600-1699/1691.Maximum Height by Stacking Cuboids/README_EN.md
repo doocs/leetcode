@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1691.Maximum%20Height%20by%20Stacking%20Cuboids/README_EN.md
+rating: 2171
+tags:
+    - Array
+    - Dynamic Programming
+    - Sorting
+---
+
 # [1691. Maximum Height by Stacking Cuboids](https://leetcode.com/problems/maximum-height-by-stacking-cuboids)
 
 [中文文档](/solution/1600-1699/1691.Maximum%20Height%20by%20Stacking%20Cuboids/README.md)
-
-<!-- tags:Array,Dynamic Programming,Sorting -->
 
 ## Description
 

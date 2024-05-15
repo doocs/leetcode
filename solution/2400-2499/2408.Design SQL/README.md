@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2408.Design%20SQL/README.md
+tags:
+    - 设计
+    - 数组
+    - 哈希表
+    - 字符串
+---
+
 # [2408. 设计 SQL 🔒](https://leetcode.cn/problems/design-sql)
 
 [English Version](/solution/2400-2499/2408.Design%20SQL/README_EN.md)
-
-<!-- tags:设计,数组,哈希表,字符串 -->
 
 ## 题目描述
 

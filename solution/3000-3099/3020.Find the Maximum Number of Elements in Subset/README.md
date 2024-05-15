@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3020.Find%20the%20Maximum%20Number%20of%20Elements%20in%20Subset/README.md
+rating: 1741
+tags:
+    - 数组
+    - 哈希表
+    - 枚举
+---
+
 # [3020. 子集中元素的最大数量](https://leetcode.cn/problems/find-the-maximum-number-of-elements-in-subset)
 
 [English Version](/solution/3000-3099/3020.Find%20the%20Maximum%20Number%20of%20Elements%20in%20Subset/README_EN.md)
-
-<!-- tags:数组,哈希表,枚举 -->
 
 ## 题目描述
 

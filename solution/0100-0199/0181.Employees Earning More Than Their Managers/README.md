@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0181.Employees%20Earning%20More%20Than%20Their%20Managers/README.md
+tags:
+    - 数据库
+---
+
 # [181. 超过经理收入的员工](https://leetcode.cn/problems/employees-earning-more-than-their-managers)
 
 [English Version](/solution/0100-0199/0181.Employees%20Earning%20More%20Than%20Their%20Managers/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

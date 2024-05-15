@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2999.Count%20the%20Number%20of%20Powerful%20Integers/README.md
+rating: 2351
+tags:
+    - 数学
+    - 字符串
+    - 动态规划
+---
+
 # [2999. 统计强大整数的数目](https://leetcode.cn/problems/count-the-number-of-powerful-integers)
 
 [English Version](/solution/2900-2999/2999.Count%20the%20Number%20of%20Powerful%20Integers/README_EN.md)
-
-<!-- tags:数学,字符串,动态规划 -->
 
 ## 题目描述
 

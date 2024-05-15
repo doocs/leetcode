@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2723.Add%20Two%20Promises/README.md
+---
+
 # [2723. 两个 Promise 对象相加](https://leetcode.cn/problems/add-two-promises)
 
 [English Version](/solution/2700-2799/2723.Add%20Two%20Promises/README_EN.md)
-
-<!-- tags: -->
 
 ## 题目描述
 

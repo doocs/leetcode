@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2803.Factorial%20Generator/README.md
+---
+
 # [2803. 阶乘生成器 🔒](https://leetcode.cn/problems/factorial-generator)
 
 [English Version](/solution/2800-2899/2803.Factorial%20Generator/README_EN.md)
-
-<!-- tags: -->
 
 ## 题目描述
 

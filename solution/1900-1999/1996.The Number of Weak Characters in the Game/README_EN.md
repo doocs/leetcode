@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1996.The%20Number%20of%20Weak%20Characters%20in%20the%20Game/README_EN.md
+rating: 1860
+tags:
+    - Stack
+    - Greedy
+    - Array
+    - Sorting
+    - Monotonic Stack
+---
+
 # [1996. The Number of Weak Characters in the Game](https://leetcode.com/problems/the-number-of-weak-characters-in-the-game)
 
 [中文文档](/solution/1900-1999/1996.The%20Number%20of%20Weak%20Characters%20in%20the%20Game/README.md)
-
-<!-- tags:Stack,Greedy,Array,Sorting,Monotonic Stack -->
 
 ## Description
 

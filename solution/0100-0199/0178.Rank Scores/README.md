@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0178.Rank%20Scores/README.md
+tags:
+    - 数据库
+---
+
 # [178. 分数排名](https://leetcode.cn/problems/rank-scores)
 
 [English Version](/solution/0100-0199/0178.Rank%20Scores/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

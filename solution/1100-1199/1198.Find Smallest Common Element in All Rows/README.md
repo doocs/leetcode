@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1198.Find%20Smallest%20Common%20Element%20in%20All%20Rows/README.md
+rating: 1401
+tags:
+    - 数组
+    - 哈希表
+    - 二分查找
+    - 计数
+    - 矩阵
+---
+
 # [1198. 找出所有行中最小公共元素 🔒](https://leetcode.cn/problems/find-smallest-common-element-in-all-rows)
 
 [English Version](/solution/1100-1199/1198.Find%20Smallest%20Common%20Element%20in%20All%20Rows/README_EN.md)
-
-<!-- tags:数组,哈希表,二分查找,计数,矩阵 -->
 
 ## 题目描述
 

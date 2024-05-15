@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2182.Construct%20String%20With%20Repeat%20Limit/README_EN.md
+rating: 1680
+tags:
+    - Greedy
+    - Hash Table
+    - String
+    - Counting
+    - Heap (Priority Queue)
+---
+
 # [2182. Construct String With Repeat Limit](https://leetcode.com/problems/construct-string-with-repeat-limit)
 
 [中文文档](/solution/2100-2199/2182.Construct%20String%20With%20Repeat%20Limit/README.md)
-
-<!-- tags:Greedy,Hash Table,String,Counting,Heap (Priority Queue) -->
 
 ## Description
 

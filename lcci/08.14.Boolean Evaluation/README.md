@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.14.Boolean%20Evaluation/README.md
+---
+
 # [面试题 08.14. 布尔运算](https://leetcode.cn/problems/boolean-evaluation-lcci)
 
 [English Version](/lcci/08.14.Boolean%20Evaluation/README_EN.md)

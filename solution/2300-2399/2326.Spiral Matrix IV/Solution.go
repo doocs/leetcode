@@ -13,22 +13,20 @@ func spiralMatrix(m int, n int, head *ListNode) [][]int {
 			ans[i][j] = -1
 		}
 	}
-	i, j, p := 0, 0, 0
-	dirs := [][]int{{0, 1}, {1, 0}, {0, -1}, {-1, 0}}
+	i, j, k := 0, 0, 0
+	dirs := [5]int{0, 1, 0, -1, 0}
 	for {
 		ans[i][j] = head.Val
-		head = head.Next
-		if head == nil {
+		if head = head.Next; head == nil {
 			break
 		}
 		for {
-			x, y := i+dirs[p][0], j+dirs[p][1]
-			if x < 0 || y < 0 || x >= m || y >= n || ans[x][y] >= 0 {
-				p = (p + 1) % 4
-			} else {
+			x, y := i+dirs[k], j+dirs[k+1]
+			if x >= 0 && x < m && y >= 0 && y < n && ans[x][y] == -1 {
 				i, j = x, y
 				break
 			}
+			k = (k + 1) % 4
 		}
 	}
 	return ans

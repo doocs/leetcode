@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0531.Lonely%20Pixel%20I/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Matrix
+---
+
 # [531. Lonely Pixel I 🔒](https://leetcode.com/problems/lonely-pixel-i)
 
 [中文文档](/solution/0500-0599/0531.Lonely%20Pixel%20I/README.md)
-
-<!-- tags:Array,Hash Table,Matrix -->
 
 ## Description
 

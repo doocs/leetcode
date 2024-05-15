@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0868.Binary%20Gap/README_EN.md
+tags:
+    - Bit Manipulation
+---
+
 # [868. Binary Gap](https://leetcode.com/problems/binary-gap)
 
 [中文文档](/solution/0800-0899/0868.Binary%20Gap/README.md)
-
-<!-- tags:Bit Manipulation -->
 
 ## Description
 

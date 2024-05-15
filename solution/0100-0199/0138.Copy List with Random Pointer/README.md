@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0138.Copy%20List%20with%20Random%20Pointer/README.md
+tags:
+    - 哈希表
+    - 链表
+---
+
 # [138. 随机链表的复制](https://leetcode.cn/problems/copy-list-with-random-pointer)
 
 [English Version](/solution/0100-0199/0138.Copy%20List%20with%20Random%20Pointer/README_EN.md)
-
-<!-- tags:哈希表,链表 -->
 
 ## 题目描述
 

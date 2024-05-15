@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3088.Make%20String%20Anti-palindrome/README.md
+tags:
+    - 贪心
+    - 字符串
+    - 排序
+---
+
 # [3088. 使字符串反回文 🔒](https://leetcode.cn/problems/make-string-anti-palindrome)
 
 [English Version](/solution/3000-3099/3088.Make%20String%20Anti-palindrome/README_EN.md)
-
-<!-- tags:贪心,字符串,排序 -->
 
 ## 题目描述
 

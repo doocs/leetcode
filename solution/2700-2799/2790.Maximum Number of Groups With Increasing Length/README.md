@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2790.Maximum%20Number%20of%20Groups%20With%20Increasing%20Length/README.md
+rating: 2619
+tags:
+    - 贪心
+    - 数组
+    - 数学
+    - 二分查找
+    - 排序
+---
+
 # [2790. 长度递增组的最大数目](https://leetcode.cn/problems/maximum-number-of-groups-with-increasing-length)
 
 [English Version](/solution/2700-2799/2790.Maximum%20Number%20of%20Groups%20With%20Increasing%20Length/README_EN.md)
-
-<!-- tags:贪心,数组,数学,二分查找,排序 -->
 
 ## 题目描述
 

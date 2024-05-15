@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2821.Delay%20the%20Resolution%20of%20Each%20Promise/README.md
+---
+
 # [2821. 延迟每个 Promise 对象的解析 🔒](https://leetcode.cn/problems/delay-the-resolution-of-each-promise)
 
 [English Version](/solution/2800-2899/2821.Delay%20the%20Resolution%20of%20Each%20Promise/README_EN.md)
-
-<!-- tags: -->
 
 ## 题目描述
 

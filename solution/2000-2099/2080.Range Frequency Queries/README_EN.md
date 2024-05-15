@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2080.Range%20Frequency%20Queries/README_EN.md
+rating: 1702
+tags:
+    - Design
+    - Segment Tree
+    - Array
+    - Hash Table
+    - Binary Search
+---
+
 # [2080. Range Frequency Queries](https://leetcode.com/problems/range-frequency-queries)
 
 [中文文档](/solution/2000-2099/2080.Range%20Frequency%20Queries/README.md)
-
-<!-- tags:Design,Segment Tree,Array,Hash Table,Binary Search -->
 
 ## Description
 
@@ -47,22 +58,28 @@ rangeFreqQuery.query(0, 11, 33); // return 2. The value 33 occurs 2 times in the
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Hash Table
+
+We use a hash table $g$ to store the array of indices corresponding to each value. In the constructor, we traverse the array $\text{arr}$, adding the index corresponding to each value to the hash table.
+
+In the query function, we first check whether the given value exists in the hash table. If it does not exist, it means that the value does not exist in the array, so we directly return $0$. Otherwise, we get the index array $\text{idx}$ corresponding to the value. Then we use binary search to find the first index $l$ that is greater than or equal to $\text{left}$, and the first index $r$ that is greater than $\text{right}$. Finally, we return $r - l$.
+
+In terms of time complexity, the time complexity of the constructor is $O(n)$, and the time complexity of the query function is $O(\log n)$. The space complexity is $O(n)$. Where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
 ```python
 class RangeFreqQuery:
+
     def __init__(self, arr: List[int]):
-        self.mp = defaultdict(list)
+        self.g = defaultdict(list)
         for i, x in enumerate(arr):
-            self.mp[x].append(i)
+            self.g[x].append(i)
 
     def query(self, left: int, right: int, value: int) -> int:
-        if value not in self.mp:
-            return 0
-        arr = self.mp[value]
-        l, r = bisect_right(arr, left - 1), bisect_right(arr, right)
+        idx = self.g[value]
+        l = bisect_left(idx, left)
+        r = bisect_left(idx, right + 1)
         return r - l
 
 
@@ -73,35 +90,24 @@ class RangeFreqQuery:
 
 ```java
 class RangeFreqQuery {
-    private Map<Integer, List<Integer>> mp = new HashMap<>();
+    private Map<Integer, List<Integer>> g = new HashMap<>();
 
     public RangeFreqQuery(int[] arr) {
         for (int i = 0; i < arr.length; ++i) {
-            mp.computeIfAbsent(arr[i], k -> new ArrayList<>()).add(i);
+            g.computeIfAbsent(arr[i], k -> new ArrayList<>()).add(i);
         }
     }
 
     public int query(int left, int right, int value) {
-        if (!mp.containsKey(value)) {
+        if (!g.containsKey(value)) {
             return 0;
         }
-        List<Integer> arr = mp.get(value);
-        int l = search(arr, left - 1);
-        int r = search(arr, right);
+        var idx = g.get(value);
+        int l = Collections.binarySearch(idx, left);
+        l = l < 0 ? -l - 1 : l;
+        int r = Collections.binarySearch(idx, right + 1);
+        r = r < 0 ? -r - 1 : r;
         return r - l;
-    }
-
-    private int search(List<Integer> arr, int val) {
-        int left = 0, right = arr.size();
-        while (left < right) {
-            int mid = (left + right) >> 1;
-            if (arr.get(mid) > val) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        return left;
     }
 }
 
@@ -115,19 +121,24 @@ class RangeFreqQuery {
 ```cpp
 class RangeFreqQuery {
 public:
-    unordered_map<int, vector<int>> mp;
     RangeFreqQuery(vector<int>& arr) {
-        for (int i = 0; i < arr.size(); ++i)
-            mp[arr[i]].push_back(i);
+        for (int i = 0; i < arr.size(); ++i) {
+            g[arr[i]].push_back(i);
+        }
     }
 
     int query(int left, int right, int value) {
-        if (!mp.count(value)) return 0;
-        auto& arr = mp[value];
-        auto l = upper_bound(arr.begin(), arr.end(), left - 1);
-        auto r = upper_bound(arr.begin(), arr.end(), right);
+        if (!g.contains(value)) {
+            return 0;
+        }
+        auto& idx = g[value];
+        auto l = lower_bound(idx.begin(), idx.end(), left);
+        auto r = lower_bound(idx.begin(), idx.end(), right + 1);
         return r - l;
     }
+
+private:
+    unordered_map<int, vector<int>> g;
 };
 
 /**
@@ -139,28 +150,73 @@ public:
 
 ```go
 type RangeFreqQuery struct {
-	mp map[int][]int
+	g map[int][]int
 }
 
 func Constructor(arr []int) RangeFreqQuery {
-	mp := make(map[int][]int)
+	g := make(map[int][]int)
 	for i, v := range arr {
-		mp[v] = append(mp[v], i)
+		g[v] = append(g[v], i)
 	}
-	return RangeFreqQuery{mp}
+	return RangeFreqQuery{g}
 }
 
 func (this *RangeFreqQuery) Query(left int, right int, value int) int {
-	arr := this.mp[value]
-	l := sort.SearchInts(arr, left)
-	r := sort.SearchInts(arr, right+1)
-	return r - l
+	if idx, ok := this.g[value]; ok {
+		l := sort.SearchInts(idx, left)
+		r := sort.SearchInts(idx, right+1)
+		return r - l
+	}
+	return 0
 }
 
 /**
  * Your RangeFreqQuery object will be instantiated and called as such:
  * obj := Constructor(arr);
  * param_1 := obj.Query(left,right,value);
+ */
+```
+
+```ts
+class RangeFreqQuery {
+    private g: Map<number, number[]> = new Map();
+
+    constructor(arr: number[]) {
+        for (let i = 0; i < arr.length; ++i) {
+            if (!this.g.has(arr[i])) {
+                this.g.set(arr[i], []);
+            }
+            this.g.get(arr[i])!.push(i);
+        }
+    }
+
+    query(left: number, right: number, value: number): number {
+        const idx = this.g.get(value);
+        if (!idx) {
+            return 0;
+        }
+        const search = (x: number): number => {
+            let [l, r] = [0, idx.length];
+            while (l < r) {
+                const mid = (l + r) >> 1;
+                if (idx[mid] >= x) {
+                    r = mid;
+                } else {
+                    l = mid + 1;
+                }
+            }
+            return l;
+        };
+        const l = search(left);
+        const r = search(right + 1);
+        return r - l;
+    }
+}
+
+/**
+ * Your RangeFreqQuery object will be instantiated and called as such:
+ * var obj = new RangeFreqQuery(arr)
+ * var param_1 = obj.query(left,right,value)
  */
 ```
 

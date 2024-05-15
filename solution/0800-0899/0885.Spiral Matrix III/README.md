@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0885.Spiral%20Matrix%20III/README.md
+tags:
+    - 数组
+    - 矩阵
+    - 模拟
+---
+
 # [885. 螺旋矩阵 III](https://leetcode.cn/problems/spiral-matrix-iii)
 
 [English Version](/solution/0800-0899/0885.Spiral%20Matrix%20III/README_EN.md)
-
-<!-- tags:数组,矩阵,模拟 -->
 
 ## 题目描述
 

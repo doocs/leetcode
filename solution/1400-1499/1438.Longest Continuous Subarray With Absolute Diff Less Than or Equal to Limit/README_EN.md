@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1438.Longest%20Continuous%20Subarray%20With%20Absolute%20Diff%20Less%20Than%20or%20Equal%20to%20Limit/README_EN.md
+rating: 1672
+tags:
+    - Queue
+    - Array
+    - Ordered Set
+    - Sliding Window
+    - Monotonic Queue
+    - Heap (Priority Queue)
+---
+
 # [1438. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit](https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit)
 
 [中文文档](/solution/1400-1499/1438.Longest%20Continuous%20Subarray%20With%20Absolute%20Diff%20Less%20Than%20or%20Equal%20to%20Limit/README.md)
-
-<!-- tags:Queue,Array,Ordered Set,Sliding Window,Monotonic Queue,Heap (Priority Queue) -->
 
 ## Description
 

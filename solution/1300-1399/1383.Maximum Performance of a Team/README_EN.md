@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1383.Maximum%20Performance%20of%20a%20Team/README_EN.md
+rating: 2091
+tags:
+    - Greedy
+    - Array
+    - Sorting
+    - Heap (Priority Queue)
+---
+
 # [1383. Maximum Performance of a Team](https://leetcode.com/problems/maximum-performance-of-a-team)
 
 [中文文档](/solution/1300-1399/1383.Maximum%20Performance%20of%20a%20Team/README.md)
-
-<!-- tags:Greedy,Array,Sorting,Heap (Priority Queue) -->
 
 ## Description
 

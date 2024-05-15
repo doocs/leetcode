@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3092.Most%20Frequent%20IDs/README_EN.md
+rating: 1793
+tags:
+    - Array
+    - Hash Table
+    - Ordered Set
+    - Heap (Priority Queue)
+---
+
 # [3092. Most Frequent IDs](https://leetcode.com/problems/most-frequent-ids)
 
 [中文文档](/solution/3000-3099/3092.Most%20Frequent%20IDs/README.md)
-
-<!-- tags:Array,Hash Table,Ordered Set,Heap (Priority Queue) -->
 
 ## Description
 

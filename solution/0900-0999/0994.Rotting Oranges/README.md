@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0994.Rotting%20Oranges/README.md
+tags:
+    - 广度优先搜索
+    - 数组
+    - 矩阵
+---
+
 # [994. 腐烂的橘子](https://leetcode.cn/problems/rotting-oranges)
 
 [English Version](/solution/0900-0999/0994.Rotting%20Oranges/README_EN.md)
-
-<!-- tags:广度优先搜索,数组,矩阵 -->
 
 ## 题目描述
 
@@ -60,7 +68,15 @@
 
 ## 解法
 
-### 方法一
+### 方法一：BFS
+
+我们首先遍历一遍整个网格，统计出新鲜橘子的数量，记为 $\text{cnt}$，并且将所有腐烂的橘子的坐标加入队列 $q$ 中。
+
+接下来，我们进行广度优先搜索，每一轮搜索，我们将队列中的所有腐烂的橘子向四个方向腐烂新鲜橘子，直到队列为空或者新鲜橘子的数量为 $0$ 为止。
+
+最后，如果新鲜橘子的数量为 $0$，则返回当前的轮数，否则返回 $-1$。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是网格的行数和列数。
 
 <!-- tabs:start -->
 
@@ -70,54 +86,53 @@ class Solution:
         m, n = len(grid), len(grid[0])
         q = deque()
         cnt = 0
-        for i in range(m):
-            for j in range(n):
-                if grid[i][j] == 2:
-                    q.append((i, j))
-                elif grid[i][j] == 1:
+        for i, row in enumerate(grid):
+            for j, x in enumerate(row):
+                if x == 1:
                     cnt += 1
+                elif x == 2:
+                    q.append((i, j))
+        dirs = (-1, 0, 1, 0, -1)
         ans = 0
         while q and cnt:
             ans += 1
             for _ in range(len(q)):
                 i, j = q.popleft()
-                for a, b in [[0, 1], [0, -1], [1, 0], [-1, 0]]:
+                for a, b in pairwise(dirs):
                     x, y = i + a, j + b
                     if 0 <= x < m and 0 <= y < n and grid[x][y] == 1:
-                        cnt -= 1
                         grid[x][y] = 2
                         q.append((x, y))
-        return ans if cnt == 0 else -1
+                        cnt -= 1
+        return -1 if cnt > 0 else ans
 ```
 
 ```java
 class Solution {
     public int orangesRotting(int[][] grid) {
         int m = grid.length, n = grid[0].length;
+        Deque<int[]> q = new ArrayDeque<>();
         int cnt = 0;
-        Deque<int[]> q = new LinkedList<>();
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (grid[i][j] == 2) {
-                    q.offer(new int[] {i, j});
-                } else if (grid[i][j] == 1) {
+                if (grid[i][j] == 1) {
                     ++cnt;
+                } else if (grid[i][j] == 2) {
+                    q.offer(new int[] {i, j});
                 }
             }
         }
+        final int[] dirs = {-1, 0, 1, 0, -1};
         int ans = 0;
-        int[] dirs = {1, 0, -1, 0, 1};
-        while (!q.isEmpty() && cnt > 0) {
-            ++ans;
-            for (int i = q.size(); i > 0; --i) {
-                int[] p = q.poll();
-                for (int j = 0; j < 4; ++j) {
-                    int x = p[0] + dirs[j];
-                    int y = p[1] + dirs[j + 1];
+        for (; !q.isEmpty() && cnt > 0; ++ans) {
+            for (int k = q.size(); k > 0; --k) {
+                var p = q.poll();
+                for (int d = 0; d < 4; ++d) {
+                    int x = p[0] + dirs[d], y = p[1] + dirs[d + 1];
                     if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 1) {
                         grid[x][y] = 2;
-                        --cnt;
                         q.offer(new int[] {x, y});
+                        --cnt;
                     }
                 }
             }
@@ -132,31 +147,29 @@ class Solution {
 public:
     int orangesRotting(vector<vector<int>>& grid) {
         int m = grid.size(), n = grid[0].size();
+        queue<pair<int, int>> q;
         int cnt = 0;
-        typedef pair<int, int> pii;
-        queue<pii> q;
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (grid[i][j] == 2)
-                    q.emplace(i, j);
-                else if (grid[i][j] == 1)
+                if (grid[i][j] == 1) {
                     ++cnt;
+                } else if (grid[i][j] == 2) {
+                    q.emplace(i, j);
+                }
             }
         }
         int ans = 0;
-        vector<int> dirs = {-1, 0, 1, 0, -1};
-        while (!q.empty() && cnt > 0) {
-            ++ans;
-            for (int i = q.size(); i > 0; --i) {
-                auto p = q.front();
+        const int dirs[5] = {-1, 0, 1, 0, -1};
+        for (; q.size() && cnt; ++ans) {
+            for (int k = q.size(); k; --k) {
+                auto [i, j] = q.front();
                 q.pop();
-                for (int j = 0; j < 4; ++j) {
-                    int x = p.first + dirs[j];
-                    int y = p.second + dirs[j + 1];
+                for (int d = 0; d < 4; ++d) {
+                    int x = i + dirs[d], y = j + dirs[d + 1];
                     if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 1) {
-                        --cnt;
                         grid[x][y] = 2;
                         q.emplace(x, y);
+                        --cnt;
                     }
                 }
             }
@@ -167,32 +180,30 @@ public:
 ```
 
 ```go
-func orangesRotting(grid [][]int) int {
+func orangesRotting(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
+	q := [][2]int{}
 	cnt := 0
-	var q [][]int
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			if grid[i][j] == 2 {
-				q = append(q, []int{i, j})
-			} else if grid[i][j] == 1 {
+	for i, row := range grid {
+		for j, x := range row {
+			if x == 1 {
 				cnt++
+			} else if x == 2 {
+				q = append(q, [2]int{i, j})
 			}
 		}
 	}
-	ans := 0
-	dirs := []int{-1, 0, 1, 0, -1}
-	for len(q) > 0 && cnt > 0 {
-		ans++
-		for i := len(q); i > 0; i-- {
+	dirs := [5]int{-1, 0, 1, 0, -1}
+	for ; len(q) > 0 && cnt > 0; ans++ {
+		for k := len(q); k > 0; k-- {
 			p := q[0]
 			q = q[1:]
-			for j := 0; j < 4; j++ {
-				x, y := p[0]+dirs[j], p[1]+dirs[j+1]
+			for d := 0; d < 4; d++ {
+				x, y := p[0]+dirs[d], p[1]+dirs[d+1]
 				if x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 1 {
-					cnt--
 					grid[x][y] = 2
-					q = append(q, []int{x, y})
+					q = append(q, [2]int{x, y})
+					cnt--
 				}
 			}
 		}
@@ -200,46 +211,42 @@ func orangesRotting(grid [][]int) int {
 	if cnt > 0 {
 		return -1
 	}
-	return ans
+	return
 }
 ```
 
 ```ts
 function orangesRotting(grid: number[][]): number {
-    const m = grid.length;
-    const n = grid[0].length;
-    let count = 0;
-    const queue = [];
-    for (let i = 0; i < m; i++) {
-        for (let j = 0; j < n; j++) {
+    const m: number = grid.length;
+    const n: number = grid[0].length;
+    const q: number[][] = [];
+    let cnt: number = 0;
+    for (let i: number = 0; i < m; ++i) {
+        for (let j: number = 0; j < n; ++j) {
             if (grid[i][j] === 1) {
-                count++;
+                cnt++;
             } else if (grid[i][j] === 2) {
-                queue.push([i, j]);
+                q.push([i, j]);
             }
         }
     }
-    let res = 0;
-    const dris = [1, 0, -1, 0, 1];
-    while (count !== 0 && queue.length !== 0) {
-        for (let i = queue.length; i > 0; i--) {
-            const [x, y] = queue.shift();
-            for (let j = 0; j < 4; j++) {
-                const newX = x + dris[j];
-                const newY = y + dris[j + 1];
-                if (newX >= 0 && newX < m && newY >= 0 && newY <= n && grid[newX][newY] === 1) {
-                    grid[newX][newY] = 2;
-                    queue.push([newX, newY]);
-                    count--;
+    let ans: number = 0;
+    const dirs: number[] = [-1, 0, 1, 0, -1];
+    for (; q.length && cnt; ++ans) {
+        const t: number[][] = [];
+        for (const [i, j] of q) {
+            for (let d = 0; d < 4; ++d) {
+                const [x, y] = [i + dirs[d], j + dirs[d + 1]];
+                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] === 1) {
+                    grid[x][y] = 2;
+                    t.push([x, y]);
+                    cnt--;
                 }
             }
         }
-        res++;
+        q.splice(0, q.length, ...t);
     }
-    if (count != 0) {
-        return -1;
-    }
-    return res;
+    return cnt > 0 ? -1 : ans;
 }
 ```
 
@@ -248,51 +255,52 @@ use std::collections::VecDeque;
 
 impl Solution {
     pub fn oranges_rotting(mut grid: Vec<Vec<i32>>) -> i32 {
-        let mut queue = VecDeque::new();
         let m = grid.len();
         let n = grid[0].len();
-        // 新鲜橘子数量
-        let mut count = 0;
+        let mut q = VecDeque::new();
+        let mut cnt = 0;
+
         for i in 0..m {
             for j in 0..n {
-                match grid[i][j] {
-                    1 => {
-                        count += 1;
-                    }
-                    2 => queue.push_back([i as i32, j as i32]),
-                    _ => (),
+                if grid[i][j] == 1 {
+                    cnt += 1;
+                } else if grid[i][j] == 2 {
+                    q.push_back(vec![i as i32, j as i32]);
                 }
             }
         }
-        let mut res = 0;
-        let dirs = [1, 0, -1, 0, 1];
-        while count != 0 && queue.len() != 0 {
-            let mut len = queue.len();
-            while len != 0 {
-                let [x, y] = queue.pop_front().unwrap();
-                for i in 0..4 {
-                    let new_x = x + dirs[i];
-                    let new_y = y + dirs[i + 1];
+
+        let dirs: [i32; 5] = [-1, 0, 1, 0, -1];
+        let mut ans = 0;
+
+        while !q.is_empty() && cnt > 0 {
+            let q_size = q.len();
+            for _ in 0..q_size {
+                let p = q.pop_front().unwrap();
+                for d in 0..4 {
+                    let x = p[0] + dirs[d];
+                    let y = p[1] + dirs[d + 1];
                     if
-                        new_x >= 0 &&
-                        new_x < (m as i32) &&
-                        new_y >= 0 &&
-                        new_y < (n as i32) &&
-                        grid[new_x as usize][new_y as usize] == 1
+                        x >= 0 &&
+                        x < (m as i32) &&
+                        y >= 0 &&
+                        y < (n as i32) &&
+                        grid[x as usize][y as usize] == 1
                     {
-                        grid[new_x as usize][new_y as usize] = 2;
-                        queue.push_back([new_x, new_y]);
-                        count -= 1;
+                        grid[x as usize][y as usize] = 2;
+                        q.push_back(vec![x, y]);
+                        cnt -= 1;
                     }
                 }
-                len -= 1;
             }
-            res += 1;
+            ans += 1;
         }
-        if count != 0 {
+
+        if cnt > 0 {
             return -1;
         }
-        res
+
+        ans
     }
 }
 ```

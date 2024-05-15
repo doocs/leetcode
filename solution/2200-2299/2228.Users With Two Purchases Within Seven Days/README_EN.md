@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2228.Users%20With%20Two%20Purchases%20Within%20Seven%20Days/README_EN.md
+tags:
+    - Database
+---
+
 # [2228. Users With Two Purchases Within Seven Days 🔒](https://leetcode.com/problems/users-with-two-purchases-within-seven-days)
 
 [中文文档](/solution/2200-2299/2228.Users%20With%20Two%20Purchases%20Within%20Seven%20Days/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

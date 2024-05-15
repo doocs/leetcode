@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2212.Maximum%20Points%20in%20an%20Archery%20Competition/README.md
+rating: 1868
+tags:
+    - 位运算
+    - 数组
+    - 回溯
+    - 枚举
+---
+
 # [2212. 射箭比赛中的最大得分](https://leetcode.cn/problems/maximum-points-in-an-archery-competition)
 
 [English Version](/solution/2200-2299/2212.Maximum%20Points%20in%20an%20Archery%20Competition/README_EN.md)
-
-<!-- tags:位运算,数组,回溯,枚举 -->
 
 ## 题目描述
 

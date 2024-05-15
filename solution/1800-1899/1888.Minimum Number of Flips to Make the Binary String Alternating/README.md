@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1888.Minimum%20Number%20of%20Flips%20to%20Make%20the%20Binary%20String%20Alternating/README.md
+rating: 2005
+tags:
+    - 贪心
+    - 字符串
+    - 动态规划
+    - 滑动窗口
+---
+
 # [1888. 使二进制字符串字符交替的最少反转次数](https://leetcode.cn/problems/minimum-number-of-flips-to-make-the-binary-string-alternating)
 
 [English Version](/solution/1800-1899/1888.Minimum%20Number%20of%20Flips%20to%20Make%20the%20Binary%20String%20Alternating/README_EN.md)
-
-<!-- tags:贪心,字符串,动态规划,滑动窗口 -->
 
 ## 题目描述
 

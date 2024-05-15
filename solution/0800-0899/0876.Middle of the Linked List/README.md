@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0876.Middle%20of%20the%20Linked%20List/README.md
+tags:
+    - 链表
+    - 双指针
+---
+
 # [876. 链表的中间结点](https://leetcode.cn/problems/middle-of-the-linked-list)
 
 [English Version](/solution/0800-0899/0876.Middle%20of%20the%20Linked%20List/README_EN.md)
-
-<!-- tags:链表,双指针 -->
 
 ## 题目描述
 

@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1692.Count%20Ways%20to%20Distribute%20Candies/README_EN.md
+tags:
+    - Dynamic Programming
+---
+
 # [1692. Count Ways to Distribute Candies 🔒](https://leetcode.com/problems/count-ways-to-distribute-candies)
 
 [中文文档](/solution/1600-1699/1692.Count%20Ways%20to%20Distribute%20Candies/README.md)
-
-<!-- tags:Dynamic Programming -->
 
 ## Description
 

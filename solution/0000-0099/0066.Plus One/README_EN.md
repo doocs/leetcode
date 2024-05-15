@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0066.Plus%20One/README_EN.md
+tags:
+    - Array
+    - Math
+---
+
 # [66. Plus One](https://leetcode.com/problems/plus-one)
 
 [中文文档](/solution/0000-0099/0066.Plus%20One/README.md)
-
-<!-- tags:Array,Math -->
 
 ## Description
 

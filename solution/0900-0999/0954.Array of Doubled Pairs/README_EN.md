@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0954.Array%20of%20Doubled%20Pairs/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Hash Table
+    - Sorting
+---
+
 # [954. Array of Doubled Pairs](https://leetcode.com/problems/array-of-doubled-pairs)
 
 [中文文档](/solution/0900-0999/0954.Array%20of%20Doubled%20Pairs/README.md)
-
-<!-- tags:Greedy,Array,Hash Table,Sorting -->
 
 ## Description
 

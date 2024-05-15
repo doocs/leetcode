@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1937.Maximum%20Number%20of%20Points%20with%20Cost/README.md
+rating: 2105
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [1937. 扣分后的最大得分](https://leetcode.cn/problems/maximum-number-of-points-with-cost)
 
 [English Version](/solution/1900-1999/1937.Maximum%20Number%20of%20Points%20with%20Cost/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
 
 ## 题目描述
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2089.Find%20Target%20Indices%20After%20Sorting%20Array/README_EN.md
+rating: 1152
+tags:
+    - Array
+    - Binary Search
+    - Sorting
+---
+
 # [2089. Find Target Indices After Sorting Array](https://leetcode.com/problems/find-target-indices-after-sorting-array)
 
 [中文文档](/solution/2000-2099/2089.Find%20Target%20Indices%20After%20Sorting%20Array/README.md)
-
-<!-- tags:Array,Binary Search,Sorting -->
 
 ## Description
 

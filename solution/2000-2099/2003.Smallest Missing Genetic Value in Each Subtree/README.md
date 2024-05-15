@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2003.Smallest%20Missing%20Genetic%20Value%20in%20Each%20Subtree/README.md
+rating: 2415
+tags:
+    - 树
+    - 深度优先搜索
+    - 并查集
+    - 动态规划
+---
+
 # [2003. 每棵子树内缺失的最小基因值](https://leetcode.cn/problems/smallest-missing-genetic-value-in-each-subtree)
 
 [English Version](/solution/2000-2099/2003.Smallest%20Missing%20Genetic%20Value%20in%20Each%20Subtree/README_EN.md)
-
-<!-- tags:树,深度优先搜索,并查集,动态规划 -->
 
 ## 题目描述
 

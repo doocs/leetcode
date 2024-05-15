@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0319.Bulb%20Switcher/README_EN.md
+tags:
+    - Brainteaser
+    - Math
+---
+
 # [319. Bulb Switcher](https://leetcode.com/problems/bulb-switcher)
 
 [中文文档](/solution/0300-0399/0319.Bulb%20Switcher/README.md)
-
-<!-- tags:Brainteaser,Math -->
 
 ## Description
 
@@ -47,14 +54,28 @@ So you should return 1 because there is only one bulb is on.</pre>
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Mathematics
+
+We can number the $n$ bulbs as $1, 2, 3, \cdots, n$. For the $i$-th bulb, it will be operated in the $d$-th round if and only if $d$ is a factor of $i$.
+
+For a number $i$, the number of its factors is finite. If the number of factors is odd, the final state is on; otherwise, it is off.
+
+Therefore, we only need to find the number of numbers from $1$ to $n$ with an odd number of factors.
+
+For a number $i$, if it has a factor $d$, then it must have a factor $i/d$. Therefore, numbers with an odd number of factors must be perfect squares.
+
+For example, the factors of the number $12$ are $1, 2, 3, 4, 6, 12$, and the number of factors is $6$, which is even. For the perfect square number $16$, the factors are $1, 2, 4, 8, 16$, and the number of factors is $5$, which is odd.
+
+Therefore, we only need to find how many perfect squares there are from $1$ to $n$, which is $\lfloor \sqrt{n} \rfloor$.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def bulbSwitch(self, n: int) -> int:
-        return int(n ** (1 / 2))
+        return int(sqrt(n))
 ```
 
 ```java
@@ -62,6 +83,27 @@ class Solution {
     public int bulbSwitch(int n) {
         return (int) Math.sqrt(n);
     }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int bulbSwitch(int n) {
+        return (int) sqrt(n);
+    }
+};
+```
+
+```go
+func bulbSwitch(n int) int {
+	return int(math.Sqrt(float64(n)))
+}
+```
+
+```ts
+function bulbSwitch(n: number): number {
+    return Math.floor(Math.sqrt(n));
 }
 ```
 

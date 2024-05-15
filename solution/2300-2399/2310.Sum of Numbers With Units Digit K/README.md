@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2310.Sum%20of%20Numbers%20With%20Units%20Digit%20K/README.md
+rating: 1558
+tags:
+    - 贪心
+    - 数学
+    - 动态规划
+    - 枚举
+---
+
 # [2310. 个位数字为 K 的整数之和](https://leetcode.cn/problems/sum-of-numbers-with-units-digit-k)
 
 [English Version](/solution/2300-2399/2310.Sum%20of%20Numbers%20With%20Units%20Digit%20K/README_EN.md)
-
-<!-- tags:贪心,数学,动态规划,枚举 -->
 
 ## 题目描述
 

@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.16.Sub%20Sort/README_EN.md
+---
+
 # [16.16. Sub Sort](https://leetcode.cn/problems/sub-sort-lcci)
 
 [中文文档](/lcci/16.15.Master%20Mind/README.md)

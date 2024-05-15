@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2020.%20%E5%BF%AB%E9%80%9F%E5%85%AC%E4%BA%A4/README.md
+---
+
 # [LCP 20. 快速公交](https://leetcode.cn/problems/meChtZ)
 
 ## 题目描述

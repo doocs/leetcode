@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2250.Count%20Number%20of%20Rectangles%20Containing%20Each%20Point/README.md
+rating: 1997
+tags:
+    - 树状数组
+    - 数组
+    - 二分查找
+    - 排序
+---
+
 # [2250. 统计包含每个点的矩形数目](https://leetcode.cn/problems/count-number-of-rectangles-containing-each-point)
 
 [English Version](/solution/2200-2299/2250.Count%20Number%20of%20Rectangles%20Containing%20Each%20Point/README_EN.md)
-
-<!-- tags:树状数组,数组,二分查找,排序 -->
 
 ## 题目描述
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2957.Remove%20Adjacent%20Almost-Equal%20Characters/README.md
+rating: 1429
+tags:
+    - 贪心
+    - 字符串
+    - 动态规划
+---
+
 # [2957. 消除相邻近似相等字符](https://leetcode.cn/problems/remove-adjacent-almost-equal-characters)
 
 [English Version](/solution/2900-2999/2957.Remove%20Adjacent%20Almost-Equal%20Characters/README_EN.md)
-
-<!-- tags:贪心,字符串,动态规划 -->
 
 ## 题目描述
 

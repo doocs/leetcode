@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2322.Minimum%20Score%20After%20Removals%20on%20a%20Tree/README_EN.md
+rating: 2391
+tags:
+    - Bit Manipulation
+    - Tree
+    - Depth-First Search
+    - Array
+---
+
 # [2322. Minimum Score After Removals on a Tree](https://leetcode.com/problems/minimum-score-after-removals-on-a-tree)
 
 [中文文档](/solution/2300-2399/2322.Minimum%20Score%20After%20Removals%20on%20a%20Tree/README.md)
-
-<!-- tags:Bit Manipulation,Tree,Depth-First Search,Array -->
 
 ## Description
 

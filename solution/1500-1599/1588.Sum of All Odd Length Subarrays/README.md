@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1588.Sum%20of%20All%20Odd%20Length%20Subarrays/README.md
+rating: 1408
+tags:
+    - 数组
+    - 数学
+    - 前缀和
+---
+
 # [1588. 所有奇数长度子数组的和](https://leetcode.cn/problems/sum-of-all-odd-length-subarrays)
 
 [English Version](/solution/1500-1599/1588.Sum%20of%20All%20Odd%20Length%20Subarrays/README_EN.md)
-
-<!-- tags:数组,数学,前缀和 -->
 
 ## 题目描述
 

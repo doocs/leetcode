@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0851.Loud%20and%20Rich/README_EN.md
+tags:
+    - Depth-First Search
+    - Graph
+    - Topological Sort
+    - Array
+---
+
 # [851. Loud and Rich](https://leetcode.com/problems/loud-and-rich)
 
 [中文文档](/solution/0800-0899/0851.Loud%20and%20Rich/README.md)
-
-<!-- tags:Depth-First Search,Graph,Topological Sort,Array -->
 
 ## Description
 

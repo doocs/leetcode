@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0718.Maximum%20Length%20of%20Repeated%20Subarray/README_EN.md
+tags:
+    - Array
+    - Binary Search
+    - Dynamic Programming
+    - Sliding Window
+    - Hash Function
+    - Rolling Hash
+---
+
 # [718. Maximum Length of Repeated Subarray](https://leetcode.com/problems/maximum-length-of-repeated-subarray)
 
 [中文文档](/solution/0700-0799/0718.Maximum%20Length%20of%20Repeated%20Subarray/README.md)
-
-<!-- tags:Array,Binary Search,Dynamic Programming,Sliding Window,Hash Function,Rolling Hash -->
 
 ## Description
 

@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0598.Range%20Addition%20II/README.md
+tags:
+    - 数组
+    - 数学
+---
+
 # [598. 区间加法 II](https://leetcode.cn/problems/range-addition-ii)
 
 [English Version](/solution/0500-0599/0598.Range%20Addition%20II/README_EN.md)
-
-<!-- tags:数组,数学 -->
 
 ## 题目描述
 

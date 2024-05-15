@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1266.Minimum%20Time%20Visiting%20All%20Points/README_EN.md
+rating: 1302
+tags:
+    - Geometry
+    - Array
+    - Math
+---
+
 # [1266. Minimum Time Visiting All Points](https://leetcode.com/problems/minimum-time-visiting-all-points)
 
 [中文文档](/solution/1200-1299/1266.Minimum%20Time%20Visiting%20All%20Points/README.md)
-
-<!-- tags:Geometry,Array,Math -->
 
 ## Description
 

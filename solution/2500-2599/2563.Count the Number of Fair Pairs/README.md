@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2563.Count%20the%20Number%20of%20Fair%20Pairs/README.md
+rating: 1720
+tags:
+    - 数组
+    - 双指针
+    - 二分查找
+    - 排序
+---
+
 # [2563. 统计公平数对的数目](https://leetcode.cn/problems/count-the-number-of-fair-pairs)
 
 [English Version](/solution/2500-2599/2563.Count%20the%20Number%20of%20Fair%20Pairs/README_EN.md)
-
-<!-- tags:数组,双指针,二分查找,排序 -->
 
 ## 题目描述
 
@@ -32,7 +42,7 @@
 <pre>
 <b>输入：</b>nums = [1,7,9,2,5], lower = 11, upper = 11
 <b>输出：</b>1
-<b>解释：</b>只有单个公平数对：(2,9) 。
+<b>解释：</b>只有单个公平数对：(2,3) 。
 </pre>
 
 <p>&nbsp;</p>

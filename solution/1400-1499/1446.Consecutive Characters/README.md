@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1446.Consecutive%20Characters/README.md
+rating: 1165
+tags:
+    - 字符串
+---
+
 # [1446. 连续字符](https://leetcode.cn/problems/consecutive-characters)
 
 [English Version](/solution/1400-1499/1446.Consecutive%20Characters/README_EN.md)
-
-<!-- tags:字符串 -->
 
 ## 题目描述
 

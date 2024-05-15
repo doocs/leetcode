@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1868.Product%20of%20Two%20Run-Length%20Encoded%20Arrays/README_EN.md
+tags:
+    - Array
+    - Two Pointers
+---
+
 # [1868. Product of Two Run-Length Encoded Arrays 🔒](https://leetcode.com/problems/product-of-two-run-length-encoded-arrays)
 
 [中文文档](/solution/1800-1899/1868.Product%20of%20Two%20Run-Length%20Encoded%20Arrays/README.md)
-
-<!-- tags:Array,Two Pointers -->
 
 ## Description
 

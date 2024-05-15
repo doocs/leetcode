@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1336.Number%20of%20Transactions%20per%20Visit/README.md
+tags:
+    - 数据库
+---
+
 # [1336. 每次访问的交易次数 🔒](https://leetcode.cn/problems/number-of-transactions-per-visit)
 
 [English Version](/solution/1300-1399/1336.Number%20of%20Transactions%20per%20Visit/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

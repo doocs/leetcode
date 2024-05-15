@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0013.Roman%20to%20Integer/README_EN.md
+tags:
+    - Hash Table
+    - Math
+    - String
+---
+
 # [13. Roman to Integer](https://leetcode.com/problems/roman-to-integer)
 
 [中文文档](/solution/0000-0099/0013.Roman%20to%20Integer/README.md)
-
-<!-- tags:Hash Table,Math,String -->
 
 ## Description
 

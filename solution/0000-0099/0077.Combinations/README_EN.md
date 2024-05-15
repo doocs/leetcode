@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0077.Combinations/README_EN.md
+tags:
+    - Backtracking
+---
+
 # [77. Combinations](https://leetcode.com/problems/combinations)
 
 [中文文档](/solution/0000-0099/0077.Combinations/README.md)
-
-<!-- tags:Backtracking -->
 
 ## Description
 

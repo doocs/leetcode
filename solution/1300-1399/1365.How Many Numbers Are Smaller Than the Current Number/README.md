@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1365.How%20Many%20Numbers%20Are%20Smaller%20Than%20the%20Current%20Number/README.md
+rating: 1152
+tags:
+    - 数组
+    - 哈希表
+    - 计数
+    - 排序
+---
+
 # [1365. 有多少小于当前数字的数字](https://leetcode.cn/problems/how-many-numbers-are-smaller-than-the-current-number)
 
 [English Version](/solution/1300-1399/1365.How%20Many%20Numbers%20Are%20Smaller%20Than%20the%20Current%20Number/README_EN.md)
-
-<!-- tags:数组,哈希表,计数,排序 -->
 
 ## 题目描述
 

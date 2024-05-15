@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1048.Longest%20String%20Chain/README.md
+rating: 1599
+tags:
+    - 数组
+    - 哈希表
+    - 双指针
+    - 字符串
+    - 动态规划
+---
+
 # [1048. 最长字符串链](https://leetcode.cn/problems/longest-string-chain)
 
 [English Version](/solution/1000-1099/1048.Longest%20String%20Chain/README_EN.md)
-
-<!-- tags:数组,哈希表,双指针,字符串,动态规划 -->
 
 ## 题目描述
 

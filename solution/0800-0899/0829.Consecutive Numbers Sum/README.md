@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0829.Consecutive%20Numbers%20Sum/README.md
+tags:
+    - 数学
+    - 枚举
+---
+
 # [829. 连续整数求和](https://leetcode.cn/problems/consecutive-numbers-sum)
 
 [English Version](/solution/0800-0899/0829.Consecutive%20Numbers%20Sum/README_EN.md)
-
-<!-- tags:数学,枚举 -->
 
 ## 题目描述
 

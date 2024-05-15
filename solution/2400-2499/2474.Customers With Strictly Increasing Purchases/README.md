@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2474.Customers%20With%20Strictly%20Increasing%20Purchases/README.md
+tags:
+    - 数据库
+---
+
 # [2474. 购买量严格增加的客户 🔒](https://leetcode.cn/problems/customers-with-strictly-increasing-purchases)
 
 [English Version](/solution/2400-2499/2474.Customers%20With%20Strictly%20Increasing%20Purchases/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

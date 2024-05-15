@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1499.Max%20Value%20of%20Equation/README_EN.md
+rating: 2456
+tags:
+    - Queue
+    - Array
+    - Sliding Window
+    - Monotonic Queue
+    - Heap (Priority Queue)
+---
+
 # [1499. Max Value of Equation](https://leetcode.com/problems/max-value-of-equation)
 
 [中文文档](/solution/1400-1499/1499.Max%20Value%20of%20Equation/README.md)
-
-<!-- tags:Queue,Array,Sliding Window,Monotonic Queue,Heap (Priority Queue) -->
 
 ## Description
 

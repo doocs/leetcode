@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0263.Ugly%20Number/README_EN.md
+tags:
+    - Math
+---
+
 # [263. Ugly Number](https://leetcode.com/problems/ugly-number)
 
 [中文文档](/solution/0200-0299/0263.Ugly%20Number/README.md)
-
-<!-- tags:Math -->
 
 ## Description
 

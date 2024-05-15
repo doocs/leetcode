@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2598.Smallest%20Missing%20Non-negative%20Integer%20After%20Operations/README.md
+rating: 1845
+tags:
+    - 贪心
+    - 数组
+    - 哈希表
+    - 数学
+---
+
 # [2598. 执行操作后的最大 MEX](https://leetcode.cn/problems/smallest-missing-non-negative-integer-after-operations)
 
 [English Version](/solution/2500-2599/2598.Smallest%20Missing%20Non-negative%20Integer%20After%20Operations/README_EN.md)
-
-<!-- tags:贪心,数组,哈希表,数学 -->
 
 ## 题目描述
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0281.Zigzag%20Iterator/README_EN.md
+tags:
+    - Design
+    - Queue
+    - Array
+    - Iterator
+---
+
 # [281. Zigzag Iterator 🔒](https://leetcode.com/problems/zigzag-iterator)
 
 [中文文档](/solution/0200-0299/0281.Zigzag%20Iterator/README.md)
-
-<!-- tags:Design,Queue,Array,Iterator -->
 
 ## Description
 

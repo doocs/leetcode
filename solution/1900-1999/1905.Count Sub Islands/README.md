@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1905.Count%20Sub%20Islands/README.md
+rating: 1678
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 并查集
+    - 数组
+    - 矩阵
+---
+
 # [1905. 统计子岛屿](https://leetcode.cn/problems/count-sub-islands)
 
 [English Version](/solution/1900-1999/1905.Count%20Sub%20Islands/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,并查集,数组,矩阵 -->
 
 ## 题目描述
 

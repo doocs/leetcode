@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0068.Text%20Justification/README.md
+tags:
+    - 数组
+    - 字符串
+    - 模拟
+---
+
 # [68. 文本左右对齐](https://leetcode.cn/problems/text-justification)
 
 [English Version](/solution/0000-0099/0068.Text%20Justification/README_EN.md)
-
-<!-- tags:数组,字符串,模拟 -->
 
 ## 题目描述
 

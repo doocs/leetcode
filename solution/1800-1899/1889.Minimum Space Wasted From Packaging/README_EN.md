@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1889.Minimum%20Space%20Wasted%20From%20Packaging/README_EN.md
+rating: 2214
+tags:
+    - Array
+    - Binary Search
+    - Prefix Sum
+    - Sorting
+---
+
 # [1889. Minimum Space Wasted From Packaging](https://leetcode.com/problems/minimum-space-wasted-from-packaging)
 
 [中文文档](/solution/1800-1899/1889.Minimum%20Space%20Wasted%20From%20Packaging/README.md)
-
-<!-- tags:Array,Binary Search,Prefix Sum,Sorting -->
 
 ## Description
 

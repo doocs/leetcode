@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1440.Evaluate%20Boolean%20Expression/README.md
+tags:
+    - 数据库
+---
+
 # [1440. 计算布尔表达式的值 🔒](https://leetcode.cn/problems/evaluate-boolean-expression)
 
 [English Version](/solution/1400-1499/1440.Evaluate%20Boolean%20Expression/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

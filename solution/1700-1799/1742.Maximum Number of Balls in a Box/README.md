@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1742.Maximum%20Number%20of%20Balls%20in%20a%20Box/README.md
+rating: 1277
+tags:
+    - 哈希表
+    - 数学
+    - 计数
+---
+
 # [1742. 盒子中小球的最大数量](https://leetcode.cn/problems/maximum-number-of-balls-in-a-box)
 
 [English Version](/solution/1700-1799/1742.Maximum%20Number%20of%20Balls%20in%20a%20Box/README_EN.md)
-
-<!-- tags:哈希表,数学,计数 -->
 
 ## 题目描述
 

@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.06.Compress%20String/README_EN.md
+---
+
 # [01.06. Compress String](https://leetcode.cn/problems/compress-string-lcci)
 
 [中文文档](/lcci/01.06.Compress%20String/README.md)

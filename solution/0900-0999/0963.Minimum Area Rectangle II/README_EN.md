@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0963.Minimum%20Area%20Rectangle%20II/README_EN.md
+tags:
+    - Geometry
+    - Array
+    - Math
+---
+
 # [963. Minimum Area Rectangle II](https://leetcode.com/problems/minimum-area-rectangle-ii)
 
 [中文文档](/solution/0900-0999/0963.Minimum%20Area%20Rectangle%20II/README.md)
-
-<!-- tags:Geometry,Array,Math -->
 
 ## Description
 

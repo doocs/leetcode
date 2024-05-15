@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2950.Number%20of%20Divisible%20Substrings/README_EN.md
+tags:
+    - Hash Table
+    - String
+    - Counting
+    - Prefix Sum
+---
+
 # [2950. Number of Divisible Substrings 🔒](https://leetcode.com/problems/number-of-divisible-substrings)
 
 [中文文档](/solution/2900-2999/2950.Number%20of%20Divisible%20Substrings/README.md)
-
-<!-- tags:Hash Table,String,Counting,Prefix Sum -->
 
 ## Description
 

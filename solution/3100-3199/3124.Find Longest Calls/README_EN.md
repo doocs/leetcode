@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3124.Find%20Longest%20Calls/README_EN.md
+tags:
+    - Database
+---
+
 # [3124. Find Longest Calls 🔒](https://leetcode.com/problems/find-longest-calls)
 
 [中文文档](/solution/3100-3199/3124.Find%20Longest%20Calls/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

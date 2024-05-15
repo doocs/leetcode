@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2851.String%20Transformation/README_EN.md
+rating: 2857
+tags:
+    - Math
+    - String
+    - Dynamic Programming
+    - String Matching
+---
+
 # [2851. String Transformation](https://leetcode.com/problems/string-transformation)
 
 [中文文档](/solution/2800-2899/2851.String%20Transformation/README.md)
-
-<!-- tags:Math,String,Dynamic Programming,String Matching -->
 
 ## Description
 

@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1555.Bank%20Account%20Summary/README.md
+tags:
+    - 数据库
+---
+
 # [1555. 银行账户概要 🔒](https://leetcode.cn/problems/bank-account-summary)
 
 [English Version](/solution/1500-1599/1555.Bank%20Account%20Summary/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

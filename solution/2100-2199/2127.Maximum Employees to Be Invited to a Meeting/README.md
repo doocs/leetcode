@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2127.Maximum%20Employees%20to%20Be%20Invited%20to%20a%20Meeting/README.md
+rating: 2449
+tags:
+    - 深度优先搜索
+    - 图
+    - 拓扑排序
+---
+
 # [2127. 参加会议的最多员工数](https://leetcode.cn/problems/maximum-employees-to-be-invited-to-a-meeting)
 
 [English Version](/solution/2100-2199/2127.Maximum%20Employees%20to%20Be%20Invited%20to%20a%20Meeting/README_EN.md)
-
-<!-- tags:深度优先搜索,图,拓扑排序 -->
 
 ## 题目描述
 

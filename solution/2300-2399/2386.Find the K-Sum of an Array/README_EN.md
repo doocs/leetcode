@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2386.Find%20the%20K-Sum%20of%20an%20Array/README_EN.md
+rating: 2647
+tags:
+    - Array
+    - Sorting
+    - Heap (Priority Queue)
+---
+
 # [2386. Find the K-Sum of an Array](https://leetcode.com/problems/find-the-k-sum-of-an-array)
 
 [中文文档](/solution/2300-2399/2386.Find%20the%20K-Sum%20of%20an%20Array/README.md)
-
-<!-- tags:Array,Sorting,Heap (Priority Queue) -->
 
 ## Description
 

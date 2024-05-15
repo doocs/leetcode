@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0476.Number%20Complement/README.md
+tags:
+    - 位运算
+---
+
 # [476. 数字的补数](https://leetcode.cn/problems/number-complement)
 
 [English Version](/solution/0400-0499/0476.Number%20Complement/README_EN.md)
-
-<!-- tags:位运算 -->
 
 ## 题目描述
 
@@ -51,41 +57,30 @@
 
 ## 解法
 
-### 方法一
+### 方法一：位运算
+
+根据题目描述，我们可以通过异或运算来实现取反的操作，步骤如下：
+
+我们首先找到 $\text{num}$ 的二进制表示中最高位的 $1$，位置记为 $k$。
+
+然后，构造一个二进制数，第 $k$ 位为 $0$，其余低位为 $1$，即 $2^k - 1$；
+
+最后，将 $\text{num}$ 与上述构造的二进制数进行异或运算，即可得到答案。
+
+时间复杂度 $O(\log \text{num})$，其中 $\text{num}$ 为输入的整数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def findComplement(self, num: int) -> int:
-        ans = 0
-        find = False
-        for i in range(30, -1, -1):
-            b = num & (1 << i)
-            if not find and b == 0:
-                continue
-            find = True
-            if b == 0:
-                ans |= 1 << i
-        return ans
+        return num ^ ((1 << num.bit_length()) - 1)
 ```
 
 ```java
 class Solution {
     public int findComplement(int num) {
-        int ans = 0;
-        boolean find = false;
-        for (int i = 30; i >= 0; --i) {
-            int b = num & (1 << i);
-            if (!find && b == 0) {
-                continue;
-            }
-            find = true;
-            if (b == 0) {
-                ans |= (1 << i);
-            }
-        }
-        return ans;
+        return num ^ ((1 << (32 - Integer.numberOfLeadingZeros(num))) - 1);
     }
 }
 ```
@@ -94,57 +89,21 @@ class Solution {
 class Solution {
 public:
     int findComplement(int num) {
-        int full = pow(2, int(log2(num)) + 1) - 1;
-        return full ^ num;
+        return num ^ ((1LL << (64 - __builtin_clzll(num))) - 1);
     }
 };
 ```
 
 ```go
 func findComplement(num int) int {
-	ans := 0
-	find := false
-	for i := 30; i >= 0; i-- {
-		b := num & (1 << i)
-		if !find && b == 0 {
-			continue
-		}
-		find = true
-		if b == 0 {
-			ans |= (1 << i)
-		}
-	}
-	return ans
+	return num ^ ((1 << bits.Len(uint(num))) - 1)
 }
 ```
 
-<!-- tabs:end -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def findComplement(self, num: int) -> int:
-        return num ^ (2 ** (len(bin(num)[2:])) - 1)
-```
-
-```cpp
-class Solution {
-public:
-    int findComplement(int num) {
-        int ans = 0;
-        bool find = false;
-        for (int i = 30; i >= 0; --i) {
-            int b = num & (1 << i);
-            if (!find && b == 0) continue;
-            find = true;
-            if (b == 0) ans |= (1 << i);
-        }
-        return ans;
-    }
-};
+```ts
+function findComplement(num: number): number {
+    return num ^ (2 ** num.toString(2).length - 1);
+}
 ```
 
 <!-- tabs:end -->

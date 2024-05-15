@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.06.Palindrome%20Linked%20List/README_EN.md
+---
+
 # [02.06. Palindrome Linked List](https://leetcode.cn/problems/palindrome-linked-list-lcci)
 
 [中文文档](/lcci/02.06.Palindrome%20Linked%20List/README.md)

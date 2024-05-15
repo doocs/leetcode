@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0273.Integer%20to%20English%20Words/README_EN.md
+tags:
+    - Recursion
+    - Math
+    - String
+---
+
 # [273. Integer to English Words](https://leetcode.com/problems/integer-to-english-words)
 
 [中文文档](/solution/0200-0299/0273.Integer%20to%20English%20Words/README.md)
-
-<!-- tags:Recursion,Math,String -->
 
 ## Description
 

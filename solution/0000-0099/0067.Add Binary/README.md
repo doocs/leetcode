@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0067.Add%20Binary/README.md
+tags:
+    - 位运算
+    - 数学
+    - 字符串
+    - 模拟
+---
+
 # [67. 二进制求和](https://leetcode.cn/problems/add-binary)
 
 [English Version](/solution/0000-0099/0067.Add%20Binary/README_EN.md)
-
-<!-- tags:位运算,数学,字符串,模拟 -->
 
 ## 题目描述
 

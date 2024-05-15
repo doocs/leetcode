@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1115.Print%20FooBar%20Alternately/README.md
+tags:
+    - 多线程
+---
+
 # [1115. 交替打印 FooBar](https://leetcode.cn/problems/print-foobar-alternately)
 
 [English Version](/solution/1100-1199/1115.Print%20FooBar%20Alternately/README_EN.md)
-
-<!-- tags:多线程 -->
 
 ## 题目描述
 

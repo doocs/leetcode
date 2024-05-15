@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1426.Counting%20Elements/README_EN.md
+tags:
+    - Array
+    - Hash Table
+---
+
 # [1426. Counting Elements 🔒](https://leetcode.com/problems/counting-elements)
 
 [中文文档](/solution/1400-1499/1426.Counting%20Elements/README.md)
-
-<!-- tags:Array,Hash Table -->
 
 ## Description
 

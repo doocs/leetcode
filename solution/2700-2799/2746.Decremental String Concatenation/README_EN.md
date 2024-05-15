@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2746.Decremental%20String%20Concatenation/README_EN.md
+rating: 2126
+tags:
+    - Array
+    - String
+    - Dynamic Programming
+---
+
 # [2746. Decremental String Concatenation](https://leetcode.com/problems/decremental-string-concatenation)
 
 [中文文档](/solution/2700-2799/2746.Decremental%20String%20Concatenation/README.md)
-
-<!-- tags:Array,String,Dynamic Programming -->
 
 ## Description
 

@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0187.Repeated%20DNA%20Sequences/README.md
+tags:
+    - 位运算
+    - 哈希表
+    - 字符串
+    - 滑动窗口
+    - 哈希函数
+    - 滚动哈希
+---
+
 # [187. 重复的 DNA 序列](https://leetcode.cn/problems/repeated-dna-sequences)
 
 [English Version](/solution/0100-0199/0187.Repeated%20DNA%20Sequences/README_EN.md)
-
-<!-- tags:位运算,哈希表,字符串,滑动窗口,哈希函数,滚动哈希 -->
 
 ## 题目描述
 

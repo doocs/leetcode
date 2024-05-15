@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2544.Alternating%20Digit%20Sum/README_EN.md
+rating: 1184
+tags:
+    - Math
+---
+
 # [2544. Alternating Digit Sum](https://leetcode.com/problems/alternating-digit-sum)
 
 [中文文档](/solution/2500-2599/2544.Alternating%20Digit%20Sum/README.md)
-
-<!-- tags:Math -->
 
 ## Description
 

@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2589.Minimum%20Time%20to%20Complete%20All%20Tasks/README_EN.md
+rating: 2380
+tags:
+    - Stack
+    - Greedy
+    - Array
+    - Binary Search
+    - Sorting
+---
+
 # [2589. Minimum Time to Complete All Tasks](https://leetcode.com/problems/minimum-time-to-complete-all-tasks)
 
 [中文文档](/solution/2500-2599/2589.Minimum%20Time%20to%20Complete%20All%20Tasks/README.md)
-
-<!-- tags:Stack,Greedy,Array,Binary Search,Sorting -->
 
 ## Description
 
@@ -152,7 +163,7 @@ func findMinimumTime(tasks [][]int) (ans int) {
 ```ts
 function findMinimumTime(tasks: number[][]): number {
     tasks.sort((a, b) => a[1] - b[1]);
-    const vis = new Array(2010).fill(0);
+    const vis: number[] = Array(2010).fill(0);
     let ans = 0;
     for (let [start, end, duration] of tasks) {
         for (let i = start; i <= end; ++i) {
@@ -166,6 +177,35 @@ function findMinimumTime(tasks: number[][]): number {
         }
     }
     return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn find_minimum_time(tasks: Vec<Vec<i32>>) -> i32 {
+        let mut tasks = tasks;
+        tasks.sort_by(|a, b| a[1].cmp(&b[1]));
+        let mut vis = vec![0; 2010];
+        let mut ans = 0;
+
+        for task in tasks {
+            let start = task[0] as usize;
+            let end = task[1] as usize;
+            let mut duration = task[2] - vis[start..=end].iter().sum::<i32>();
+            let mut i = end;
+
+            while i >= start && duration > 0 {
+                if vis[i] == 0 {
+                    duration -= 1;
+                    vis[i] = 1;
+                    ans += 1;
+                }
+                i -= 1;
+            }
+        }
+
+        ans
+    }
 }
 ```
 

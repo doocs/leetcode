@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2022.%20%E9%BB%91%E7%99%BD%E6%96%B9%E6%A0%BC%E7%94%BB/README.md
+---
+
 # [LCP 22. 黑白方格画](https://leetcode.cn/problems/ccw6C7)
 
 ## 题目描述

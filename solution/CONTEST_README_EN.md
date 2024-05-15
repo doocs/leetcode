@@ -25,6 +25,20 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 397
+
+- [3146. Permutation Difference between Two Strings](/solution/3100-3199/3146.Permutation%20Difference%20between%20Two%20Strings/README_EN.md)
+- [3147. Taking Maximum Energy From the Mystic Dungeon](/solution/3100-3199/3147.Taking%20Maximum%20Energy%20From%20the%20Mystic%20Dungeon/README_EN.md)
+- [3148. Maximum Difference Score in a Grid](/solution/3100-3199/3148.Maximum%20Difference%20Score%20in%20a%20Grid/README_EN.md)
+- [3149. Find the Minimum Cost Array Permutation](/solution/3100-3199/3149.Find%20the%20Minimum%20Cost%20Array%20Permutation/README_EN.md)
+
+#### Biweekly Contest 130
+
+- [3142. Check if Grid Satisfies Conditions](/solution/3100-3199/3142.Check%20if%20Grid%20Satisfies%20Conditions/README_EN.md)
+- [3143. Maximum Points Inside the Square](/solution/3100-3199/3143.Maximum%20Points%20Inside%20the%20Square/README_EN.md)
+- [3144. Minimum Substring Partition of Equal Character Frequency](/solution/3100-3199/3144.Minimum%20Substring%20Partition%20of%20Equal%20Character%20Frequency/README_EN.md)
+- [3145. Find Products of Elements of Big Array](/solution/3100-3199/3145.Find%20Products%20of%20Elements%20of%20Big%20Array/README_EN.md)
+
 #### Weekly Contest 396
 
 - [3136. Valid Word](/solution/3100-3199/3136.Valid%20Word/README_EN.md)

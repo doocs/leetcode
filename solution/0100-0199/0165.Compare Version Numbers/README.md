@@ -1,52 +1,69 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0165.Compare%20Version%20Numbers/README.md
+tags:
+    - 双指针
+    - 字符串
+---
+
 # [165. 比较版本号](https://leetcode.cn/problems/compare-version-numbers)
 
 [English Version](/solution/0100-0199/0165.Compare%20Version%20Numbers/README_EN.md)
-
-<!-- tags:双指针,字符串 -->
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
 
-<p>给你两个版本号 <code>version1</code> 和 <code>version2</code> ，请你比较它们。</p>
+<p>给你两个 <strong>版本号字符串</strong>&nbsp;<code>version1</code> 和 <code>version2</code> ，请你比较它们。版本号由被点&nbsp;<code>'.'</code> 分开的修订号组成。<strong>修订号的值</strong> 是它 <strong>转换为整数</strong> 并忽略前导零。</p>
 
-<p>版本号由一个或多个修订号组成，各修订号由一个 <code>'.'</code> 连接。每个修订号由 <strong>多位数字</strong> 组成，可能包含 <strong>前导零</strong> 。每个版本号至少包含一个字符。修订号从左到右编号，下标从 0 开始，最左边的修订号下标为 0 ，下一个修订号下标为 1 ，以此类推。例如，<code>2.5.33</code> 和 <code>0.1</code> 都是有效的版本号。</p>
-
-<p>比较版本号时，请按从左到右的顺序依次比较它们的修订号。比较修订号时，只需比较 <strong>忽略任何前导零后的整数值</strong> 。也就是说，修订号 <code>1</code> 和修订号 <code>001</code> <strong>相等 </strong>。如果版本号没有指定某个下标处的修订号，则该修订号视为 <code>0</code> 。例如，版本 <code>1.0</code> 小于版本 <code>1.1</code> ，因为它们下标为 <code>0</code> 的修订号相同，而下标为 <code>1</code> 的修订号分别为 <code>0</code> 和 <code>1</code> ，<code>0 &lt; 1</code> 。</p>
+<p>比较版本号时，请按 <strong>从左到右的顺序</strong> 依次比较它们的修订号。如果其中一个版本字符串的修订号较少，则将缺失的修订号视为 <code>0</code>。</p>
 
 <p>返回规则如下：</p>
 
 <ul>
-	<li>如果&nbsp;<code><em>version1&nbsp;</em>&gt;&nbsp;<em>version2</em></code>&nbsp;返回&nbsp;<code>1</code>，</li>
 	<li>如果&nbsp;<code><em>version1&nbsp;</em>&lt;&nbsp;<em>version2</em></code> 返回 <code>-1</code>，</li>
+	<li>如果&nbsp;<code><em>version1&nbsp;</em>&gt;&nbsp;<em>version2</em></code>&nbsp;返回&nbsp;<code>1</code>，</li>
 	<li>除此之外返回 <code>0</code>。</li>
 </ul>
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<pre>
-<strong>输入：</strong>version1 = "1.01", version2 = "1.001"
-<strong>输出：</strong>0
-<strong>解释：</strong>忽略前导零，"01" 和 "001" 都表示相同的整数 "1"
-</pre>
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">version1 = "1.2", version2 = "1.10"</span></p>
 
-<p><strong>示例 2：</strong></p>
+<p><strong>输出：</strong><span class="example-io">-1</span></p>
 
-<pre>
-<strong>输入：</strong>version1 = "1.0", version2 = "1.0.0"
-<strong>输出：</strong>0
-<strong>解释：</strong>version1 没有指定下标为 2 的修订号，即视为 "0"
-</pre>
+<p><strong>解释：</strong></p>
 
-<p><strong>示例 3：</strong></p>
+<p>version1 的第二个修订号为&nbsp;"2"，version2 的第二个修订号为 "10"：2 &lt; 10，所以 version1 &lt; version2。</p>
+</div>
 
-<pre>
-<strong>输入：</strong>version1 = "0.1", version2 = "1.1"
-<strong>输出：</strong>-1
-<strong>解释：</strong>version1 中下标为 0 的修订号是 "0"，version2 中下标为 0 的修订号是 "1" 。0 &lt; 1，所以 version1 &lt; version2
-</pre>
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">version1 = "1.01", version2 = "1.001"</span></p>
+
+<p><strong>输出：</strong><span class="example-io">0</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>忽略前导零，"01" 和 "001" 都代表相同的整数 "1"。</p>
+</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">version1 = "1.0", version2 = "1.0.0.0"</span></p>
+
+<p><strong>输出：</strong><span class="example-io">0</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>version1 有更少的修订号，每个缺失的修订号按 "0" 处理。</p>
+</div>
 
 <p>&nbsp;</p>
 

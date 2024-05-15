@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0569.Median%20Employee%20Salary/README.md
+tags:
+    - 数据库
+---
+
 # [569. 员工薪水中位数 🔒](https://leetcode.cn/problems/median-employee-salary)
 
 [English Version](/solution/0500-0599/0569.Median%20Employee%20Salary/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

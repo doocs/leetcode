@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2249.Count%20Lattice%20Points%20Inside%20a%20Circle/README_EN.md
+rating: 1602
+tags:
+    - Geometry
+    - Array
+    - Hash Table
+    - Math
+    - Enumeration
+---
+
 # [2249. Count Lattice Points Inside a Circle](https://leetcode.com/problems/count-lattice-points-inside-a-circle)
 
 [中文文档](/solution/2200-2299/2249.Count%20Lattice%20Points%20Inside%20a%20Circle/README.md)
-
-<!-- tags:Geometry,Array,Hash Table,Math,Enumeration -->
 
 ## Description
 

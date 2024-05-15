@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0677.Map%20Sum%20Pairs/README.md
+tags:
+    - 设计
+    - 字典树
+    - 哈希表
+    - 字符串
+---
+
 # [677. 键值映射](https://leetcode.cn/problems/map-sum-pairs)
 
 [English Version](/solution/0600-0699/0677.Map%20Sum%20Pairs/README_EN.md)
-
-<!-- tags:设计,字典树,哈希表,字符串 -->
 
 ## 题目描述
 

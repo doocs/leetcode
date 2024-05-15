@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0430.Flatten%20a%20Multilevel%20Doubly%20Linked%20List/README_EN.md
+tags:
+    - Depth-First Search
+    - Linked List
+    - Doubly-Linked List
+---
+
 # [430. Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list)
 
 [中文文档](/solution/0400-0499/0430.Flatten%20a%20Multilevel%20Doubly%20Linked%20List/README.md)
-
-<!-- tags:Depth-First Search,Linked List,Doubly-Linked List -->
 
 ## Description
 

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2831.Find%20the%20Longest%20Equal%20Subarray/README.md
+rating: 1975
+tags:
+    - 数组
+    - 哈希表
+    - 二分查找
+    - 滑动窗口
+---
+
 # [2831. 找出最长等值子数组](https://leetcode.cn/problems/find-the-longest-equal-subarray)
 
 [English Version](/solution/2800-2899/2831.Find%20the%20Longest%20Equal%20Subarray/README_EN.md)
-
-<!-- tags:数组,哈希表,二分查找,滑动窗口 -->
 
 ## 题目描述
 

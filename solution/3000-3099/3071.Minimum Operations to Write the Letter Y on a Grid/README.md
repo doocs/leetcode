@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3071.Minimum%20Operations%20to%20Write%20the%20Letter%20Y%20on%20a%20Grid/README.md
+rating: 1689
+tags:
+    - 数组
+    - 哈希表
+    - 计数
+    - 矩阵
+---
+
 # [3071. 在矩阵上写出字母 Y 所需的最少操作次数](https://leetcode.cn/problems/minimum-operations-to-write-the-letter-y-on-a-grid)
 
 [English Version](/solution/3000-3099/3071.Minimum%20Operations%20to%20Write%20the%20Letter%20Y%20on%20a%20Grid/README_EN.md)
-
-<!-- tags:数组,哈希表,计数,矩阵 -->
 
 ## 题目描述
 

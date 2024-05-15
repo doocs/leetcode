@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1766.Tree%20of%20Coprimes/README.md
+rating: 2231
+tags:
+    - 树
+    - 深度优先搜索
+    - 数组
+    - 数学
+    - 数论
+---
+
 # [1766. 互质树](https://leetcode.cn/problems/tree-of-coprimes)
 
 [English Version](/solution/1700-1799/1766.Tree%20of%20Coprimes/README_EN.md)
-
-<!-- tags:树,深度优先搜索,数组,数学,数论 -->
 
 ## 题目描述
 

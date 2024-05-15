@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1565.Unique%20Orders%20and%20Customers%20Per%20Month/README.md
+tags:
+    - 数据库
+---
+
 # [1565. 按月统计订单数与顾客数 🔒](https://leetcode.cn/problems/unique-orders-and-customers-per-month)
 
 [English Version](/solution/1500-1599/1565.Unique%20Orders%20and%20Customers%20Per%20Month/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

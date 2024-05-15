@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1250.Check%20If%20It%20Is%20a%20Good%20Array/README_EN.md
+rating: 1983
+tags:
+    - Array
+    - Math
+    - Number Theory
+---
+
 # [1250. Check If It Is a Good Array](https://leetcode.com/problems/check-if-it-is-a-good-array)
 
 [中文文档](/solution/1200-1299/1250.Check%20If%20It%20Is%20a%20Good%20Array/README.md)
-
-<!-- tags:Array,Math,Number Theory -->
 
 ## Description
 

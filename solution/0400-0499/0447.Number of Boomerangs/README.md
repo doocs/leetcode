@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0447.Number%20of%20Boomerangs/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 数学
+---
+
 # [447. 回旋镖的数量](https://leetcode.cn/problems/number-of-boomerangs)
 
 [English Version](/solution/0400-0499/0447.Number%20of%20Boomerangs/README_EN.md)
-
-<!-- tags:数组,哈希表,数学 -->
 
 ## 题目描述
 

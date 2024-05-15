@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0849.Maximize%20Distance%20to%20Closest%20Person/README.md
+tags:
+    - 数组
+---
+
 # [849. 到最近的人的最大距离](https://leetcode.cn/problems/maximize-distance-to-closest-person)
 
 [English Version](/solution/0800-0899/0849.Maximize%20Distance%20to%20Closest%20Person/README_EN.md)
-
-<!-- tags:数组 -->
 
 ## 题目描述
 

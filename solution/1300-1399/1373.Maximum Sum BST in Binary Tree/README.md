@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1373.Maximum%20Sum%20BST%20in%20Binary%20Tree/README.md
+rating: 1913
+tags:
+    - 树
+    - 深度优先搜索
+    - 二叉搜索树
+    - 动态规划
+    - 二叉树
+---
+
 # [1373. 二叉搜索子树的最大键值和](https://leetcode.cn/problems/maximum-sum-bst-in-binary-tree)
 
 [English Version](/solution/1300-1399/1373.Maximum%20Sum%20BST%20in%20Binary%20Tree/README_EN.md)
-
-<!-- tags:树,深度优先搜索,二叉搜索树,动态规划,二叉树 -->
 
 ## 题目描述
 

@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0401.Binary%20Watch/README_EN.md
+tags:
+    - Bit Manipulation
+    - Backtracking
+---
+
 # [401. Binary Watch](https://leetcode.com/problems/binary-watch)
 
 [中文文档](/solution/0400-0499/0401.Binary%20Watch/README.md)
-
-<!-- tags:Bit Manipulation,Backtracking -->
 
 ## Description
 

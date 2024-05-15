@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0502.IPO/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Sorting
+    - Heap (Priority Queue)
+---
+
 # [502. IPO](https://leetcode.com/problems/ipo)
 
 [中文文档](/solution/0500-0599/0502.IPO/README.md)
-
-<!-- tags:Greedy,Array,Sorting,Heap (Priority Queue) -->
 
 ## Description
 

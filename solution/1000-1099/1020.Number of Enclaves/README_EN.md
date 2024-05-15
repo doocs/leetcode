@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1020.Number%20of%20Enclaves/README_EN.md
+rating: 1615
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Union Find
+    - Array
+    - Matrix
+---
+
 # [1020. Number of Enclaves](https://leetcode.com/problems/number-of-enclaves)
 
 [中文文档](/solution/1000-1099/1020.Number%20of%20Enclaves/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Array,Matrix -->
 
 ## Description
 

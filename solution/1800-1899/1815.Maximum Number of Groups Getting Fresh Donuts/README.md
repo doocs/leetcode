@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1815.Maximum%20Number%20of%20Groups%20Getting%20Fresh%20Donuts/README.md
+rating: 2559
+tags:
+    - 位运算
+    - 记忆化搜索
+    - 数组
+    - 动态规划
+    - 状态压缩
+---
+
 # [1815. 得到新鲜甜甜圈的最多组数](https://leetcode.cn/problems/maximum-number-of-groups-getting-fresh-donuts)
 
 [English Version](/solution/1800-1899/1815.Maximum%20Number%20of%20Groups%20Getting%20Fresh%20Donuts/README_EN.md)
-
-<!-- tags:位运算,记忆化搜索,数组,动态规划,状态压缩 -->
 
 ## 题目描述
 

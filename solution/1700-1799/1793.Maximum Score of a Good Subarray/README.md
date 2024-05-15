@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1793.Maximum%20Score%20of%20a%20Good%20Subarray/README.md
+rating: 1945
+tags:
+    - 栈
+    - 数组
+    - 双指针
+    - 二分查找
+    - 单调栈
+---
+
 # [1793. 好子数组的最大分数](https://leetcode.cn/problems/maximum-score-of-a-good-subarray)
 
 [English Version](/solution/1700-1799/1793.Maximum%20Score%20of%20a%20Good%20Subarray/README_EN.md)
-
-<!-- tags:栈,数组,双指针,二分查找,单调栈 -->
 
 ## 题目描述
 

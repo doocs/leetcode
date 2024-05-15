@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0020.Valid%20Parentheses/README_EN.md
+tags:
+    - Stack
+    - String
+---
+
 # [20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses)
 
 [中文文档](/solution/0000-0099/0020.Valid%20Parentheses/README.md)
-
-<!-- tags:Stack,String -->
 
 ## Description
 

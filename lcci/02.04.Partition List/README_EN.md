@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.04.Partition%20List/README_EN.md
+---
+
 # [02.04. Partition List](https://leetcode.cn/problems/partition-list-lcci)
 
 [中文文档](/lcci/02.04.Partition%20List/README.md)

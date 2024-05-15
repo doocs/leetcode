@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0739.Daily%20Temperatures/README.md
+tags:
+    - 栈
+    - 数组
+    - 单调栈
+---
+
 # [739. 每日温度](https://leetcode.cn/problems/daily-temperatures)
 
 [English Version](/solution/0700-0799/0739.Daily%20Temperatures/README_EN.md)
-
-<!-- tags:栈,数组,单调栈 -->
 
 ## 题目描述
 

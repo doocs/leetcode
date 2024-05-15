@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0212.Word%20Search%20II/README_EN.md
+tags:
+    - Trie
+    - Array
+    - String
+    - Backtracking
+    - Matrix
+---
+
 # [212. Word Search II](https://leetcode.com/problems/word-search-ii)
 
 [中文文档](/solution/0200-0299/0212.Word%20Search%20II/README.md)
-
-<!-- tags:Trie,Array,String,Backtracking,Matrix -->
 
 ## Description
 

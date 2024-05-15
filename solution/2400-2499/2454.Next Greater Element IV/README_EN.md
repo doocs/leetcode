@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2454.Next%20Greater%20Element%20IV/README_EN.md
+rating: 2175
+tags:
+    - Stack
+    - Array
+    - Binary Search
+    - Sorting
+    - Monotonic Stack
+    - Heap (Priority Queue)
+---
+
 # [2454. Next Greater Element IV](https://leetcode.com/problems/next-greater-element-iv)
 
 [中文文档](/solution/2400-2499/2454.Next%20Greater%20Element%20IV/README.md)
-
-<!-- tags:Stack,Array,Binary Search,Sorting,Monotonic Stack,Heap (Priority Queue) -->
 
 ## Description
 

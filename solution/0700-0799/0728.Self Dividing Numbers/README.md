@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0728.Self%20Dividing%20Numbers/README.md
+tags:
+    - 数学
+---
+
 # [728. 自除数](https://leetcode.cn/problems/self-dividing-numbers)
 
 [English Version](/solution/0700-0799/0728.Self%20Dividing%20Numbers/README_EN.md)
-
-<!-- tags:数学 -->
 
 ## 题目描述
 

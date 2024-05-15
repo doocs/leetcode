@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0233.Number%20of%20Digit%20One/README_EN.md
+tags:
+    - Recursion
+    - Math
+    - Dynamic Programming
+---
+
 # [233. Number of Digit One](https://leetcode.com/problems/number-of-digit-one)
 
 [中文文档](/solution/0200-0299/0233.Number%20of%20Digit%20One/README.md)
-
-<!-- tags:Recursion,Math,Dynamic Programming -->
 
 ## Description
 

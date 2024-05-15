@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0585.Investments%20in%202016/README.md
+tags:
+    - 数据库
+---
+
 # [585. 2016 年的投资](https://leetcode.cn/problems/investments-in-2016)
 
 [English Version](/solution/0500-0599/0585.Investments%20in%202016/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

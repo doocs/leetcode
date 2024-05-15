@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1164.Product%20Price%20at%20a%20Given%20Date/README.md
+tags:
+    - 数据库
+---
+
 # [1164. 指定日期的产品价格](https://leetcode.cn/problems/product-price-at-a-given-date)
 
 [English Version](/solution/1100-1199/1164.Product%20Price%20at%20a%20Given%20Date/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

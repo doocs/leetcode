@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1820.Maximum%20Number%20of%20Accepted%20Invitations/README_EN.md
+tags:
+    - Array
+    - Backtracking
+    - Matrix
+---
+
 # [1820. Maximum Number of Accepted Invitations 🔒](https://leetcode.com/problems/maximum-number-of-accepted-invitations)
 
 [中文文档](/solution/1800-1899/1820.Maximum%20Number%20of%20Accepted%20Invitations/README.md)
-
-<!-- tags:Array,Backtracking,Matrix -->
 
 ## Description
 

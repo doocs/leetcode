@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0221.Maximal%20Square/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+    - Matrix
+---
+
 # [221. Maximal Square](https://leetcode.com/problems/maximal-square)
 
 [中文文档](/solution/0200-0299/0221.Maximal%20Square/README.md)
-
-<!-- tags:Array,Dynamic Programming,Matrix -->
 
 ## Description
 

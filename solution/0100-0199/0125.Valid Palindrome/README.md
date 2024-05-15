@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0125.Valid%20Palindrome/README.md
+tags:
+    - 双指针
+    - 字符串
+---
+
 # [125. 验证回文串](https://leetcode.cn/problems/valid-palindrome)
 
 [English Version](/solution/0100-0199/0125.Valid%20Palindrome/README_EN.md)
-
-<!-- tags:双指针,字符串 -->
 
 ## 题目描述
 

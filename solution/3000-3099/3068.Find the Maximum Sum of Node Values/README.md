@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3068.Find%20the%20Maximum%20Sum%20of%20Node%20Values/README.md
+rating: 2267
+tags:
+    - 贪心
+    - 位运算
+    - 树
+    - 数组
+    - 动态规划
+    - 排序
+---
+
 # [3068. 最大节点价值之和](https://leetcode.cn/problems/find-the-maximum-sum-of-node-values)
 
 [English Version](/solution/3000-3099/3068.Find%20the%20Maximum%20Sum%20of%20Node%20Values/README_EN.md)
-
-<!-- tags:贪心,位运算,树,数组,动态规划,排序 -->
 
 ## 题目描述
 

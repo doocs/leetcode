@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1406.Stone%20Game%20III/README_EN.md
+rating: 2026
+tags:
+    - Array
+    - Math
+    - Dynamic Programming
+    - Game Theory
+---
+
 # [1406. Stone Game III](https://leetcode.com/problems/stone-game-iii)
 
 [中文文档](/solution/1400-1499/1406.Stone%20Game%20III/README.md)
-
-<!-- tags:Array,Math,Dynamic Programming,Game Theory -->
 
 ## Description
 

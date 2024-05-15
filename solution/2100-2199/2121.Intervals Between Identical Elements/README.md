@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2121.Intervals%20Between%20Identical%20Elements/README.md
+rating: 1760
+tags:
+    - 数组
+    - 哈希表
+    - 前缀和
+---
+
 # [2121. 相同元素的间隔之和](https://leetcode.cn/problems/intervals-between-identical-elements)
 
 [English Version](/solution/2100-2199/2121.Intervals%20Between%20Identical%20Elements/README_EN.md)
-
-<!-- tags:数组,哈希表,前缀和 -->
 
 ## 题目描述
 

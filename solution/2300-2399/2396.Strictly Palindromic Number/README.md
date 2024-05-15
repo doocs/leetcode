@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2396.Strictly%20Palindromic%20Number/README.md
+rating: 1328
+tags:
+    - 脑筋急转弯
+    - 数学
+    - 双指针
+---
+
 # [2396. 严格回文的数字](https://leetcode.cn/problems/strictly-palindromic-number)
 
 [English Version](/solution/2300-2399/2396.Strictly%20Palindromic%20Number/README_EN.md)
-
-<!-- tags:脑筋急转弯,数学,双指针 -->
 
 ## 题目描述
 
@@ -46,11 +55,11 @@
 
 ### 方法一：脑筋急转弯
 
-当 $n=4$ 时，二进制表示为 $100$，不是回文串；
+当 $n = 4$ 时，二进制表示为 $100$，不是回文串；
 
-当 $n \gt 4$ 时，此时 $n-2$ 的二进制表示为 $12$，不是回文串。
+当 $n \gt 4$ 时，此时 $n - 2$ 进制表示为 $12$，不是回文串。
 
-因此，我们直接返回 `false` 即可。
+因此，我们可以直接返回 `false`。
 
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 

@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2533.Number%20of%20Good%20Binary%20Strings/README.md
+tags:
+    - 动态规划
+---
+
 # [2533. 好二进制字符串的数量 🔒](https://leetcode.cn/problems/number-of-good-binary-strings)
 
 [English Version](/solution/2500-2599/2533.Number%20of%20Good%20Binary%20Strings/README_EN.md)
-
-<!-- tags:动态规划 -->
 
 ## 题目描述
 

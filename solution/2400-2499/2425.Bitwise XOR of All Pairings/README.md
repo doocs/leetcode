@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2425.Bitwise%20XOR%20of%20All%20Pairings/README.md
+rating: 1622
+tags:
+    - 位运算
+    - 脑筋急转弯
+    - 数组
+---
+
 # [2425. 所有数对的异或和](https://leetcode.cn/problems/bitwise-xor-of-all-pairings)
 
 [English Version](/solution/2400-2499/2425.Bitwise%20XOR%20of%20All%20Pairings/README_EN.md)
-
-<!-- tags:位运算,脑筋急转弯,数组 -->
 
 ## 题目描述
 

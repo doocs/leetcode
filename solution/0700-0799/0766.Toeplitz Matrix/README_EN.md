@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0766.Toeplitz%20Matrix/README_EN.md
+tags:
+    - Array
+    - Matrix
+---
+
 # [766. Toeplitz Matrix](https://leetcode.com/problems/toeplitz-matrix)
 
 [中文文档](/solution/0700-0799/0766.Toeplitz%20Matrix/README.md)
-
-<!-- tags:Array,Matrix -->
 
 ## Description
 

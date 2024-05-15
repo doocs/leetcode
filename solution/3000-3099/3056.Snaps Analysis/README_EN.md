@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3056.Snaps%20Analysis/README_EN.md
+tags:
+    - Database
+---
+
 # [3056. Snaps Analysis 🔒](https://leetcode.com/problems/snaps-analysis)
 
 [中文文档](/solution/3000-3099/3056.Snaps%20Analysis/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

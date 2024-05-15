@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1218.Longest%20Arithmetic%20Subsequence%20of%20Given%20Difference/README.md
+rating: 1597
+tags:
+    - 数组
+    - 哈希表
+    - 动态规划
+---
+
 # [1218. 最长定差子序列](https://leetcode.cn/problems/longest-arithmetic-subsequence-of-given-difference)
 
 [English Version](/solution/1200-1299/1218.Longest%20Arithmetic%20Subsequence%20of%20Given%20Difference/README_EN.md)
-
-<!-- tags:数组,哈希表,动态规划 -->
 
 ## 题目描述
 

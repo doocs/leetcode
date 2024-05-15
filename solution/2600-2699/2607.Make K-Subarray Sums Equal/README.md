@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2607.Make%20K-Subarray%20Sums%20Equal/README.md
+rating: 2071
+tags:
+    - 数组
+    - 数学
+    - 数论
+    - 排序
+---
+
 # [2607. 使子数组元素和相等](https://leetcode.cn/problems/make-k-subarray-sums-equal)
 
 [English Version](/solution/2600-2699/2607.Make%20K-Subarray%20Sums%20Equal/README_EN.md)
-
-<!-- tags:数组,数学,数论,排序 -->
 
 ## 题目描述
 

@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0330.Patching%20Array/README.md
+tags:
+    - 贪心
+    - 数组
+---
+
 # [330. 按要求补齐数组](https://leetcode.cn/problems/patching-array)
 
 [English Version](/solution/0300-0399/0330.Patching%20Array/README_EN.md)
-
-<!-- tags:贪心,数组 -->
 
 ## 题目描述
 

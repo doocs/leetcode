@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0532.K-diff%20Pairs%20in%20an%20Array/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Two Pointers
+    - Binary Search
+    - Sorting
+---
+
 # [532. K-diff Pairs in an Array](https://leetcode.com/problems/k-diff-pairs-in-an-array)
 
 [中文文档](/solution/0500-0599/0532.K-diff%20Pairs%20in%20an%20Array/README.md)
-
-<!-- tags:Array,Hash Table,Two Pointers,Binary Search,Sorting -->
 
 ## Description
 

@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20068.%20%E6%9F%A5%E6%89%BE%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE/README.md
+---
+
 # [剑指 Offer II 068. 查找插入位置](https://leetcode.cn/problems/N6YdxV)
 
 ## 题目描述

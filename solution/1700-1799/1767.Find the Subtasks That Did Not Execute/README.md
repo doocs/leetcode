@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1767.Find%20the%20Subtasks%20That%20Did%20Not%20Execute/README.md
+tags:
+    - 数据库
+---
+
 # [1767. 寻找没有被执行的任务对 🔒](https://leetcode.cn/problems/find-the-subtasks-that-did-not-execute)
 
 [English Version](/solution/1700-1799/1767.Find%20the%20Subtasks%20That%20Did%20Not%20Execute/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

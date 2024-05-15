@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1472.Design%20Browser%20History/README.md
+rating: 1453
+tags:
+    - 栈
+    - 设计
+    - 数组
+    - 链表
+    - 数据流
+    - 双向链表
+---
+
 # [1472. 设计浏览器历史记录](https://leetcode.cn/problems/design-browser-history)
 
 [English Version](/solution/1400-1499/1472.Design%20Browser%20History/README_EN.md)
-
-<!-- tags:栈,设计,数组,链表,数据流,双向链表 -->
 
 ## 题目描述
 

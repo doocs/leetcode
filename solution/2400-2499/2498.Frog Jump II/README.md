@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2498.Frog%20Jump%20II/README.md
+rating: 1759
+tags:
+    - 贪心
+    - 数组
+    - 二分查找
+---
+
 # [2498. 青蛙过河 II](https://leetcode.cn/problems/frog-jump-ii)
 
 [English Version](/solution/2400-2499/2498.Frog%20Jump%20II/README_EN.md)
-
-<!-- tags:贪心,数组,二分查找 -->
 
 ## 题目描述
 

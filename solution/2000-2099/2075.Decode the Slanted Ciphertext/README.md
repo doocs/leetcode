@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2075.Decode%20the%20Slanted%20Ciphertext/README.md
+rating: 1759
+tags:
+    - 字符串
+    - 模拟
+---
+
 # [2075. 解码斜向换位密码](https://leetcode.cn/problems/decode-the-slanted-ciphertext)
 
 [English Version](/solution/2000-2099/2075.Decode%20the%20Slanted%20Ciphertext/README_EN.md)
-
-<!-- tags:字符串,模拟 -->
 
 ## 题目描述
 

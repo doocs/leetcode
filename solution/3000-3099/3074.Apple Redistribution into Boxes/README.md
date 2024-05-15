@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3074.Apple%20Redistribution%20into%20Boxes/README.md
+rating: 1197
+tags:
+    - 贪心
+    - 数组
+    - 排序
+---
+
 # [3074. 重新分装苹果](https://leetcode.cn/problems/apple-redistribution-into-boxes)
 
 [English Version](/solution/3000-3099/3074.Apple%20Redistribution%20into%20Boxes/README_EN.md)
-
-<!-- tags:贪心,数组,排序 -->
 
 ## 题目描述
 

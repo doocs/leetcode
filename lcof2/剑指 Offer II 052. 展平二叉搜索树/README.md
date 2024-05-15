@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20052.%20%E5%B1%95%E5%B9%B3%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/README.md
+---
+
 # [剑指 Offer II 052. 展平二叉搜索树](https://leetcode.cn/problems/NYBBNL)
 
 ## 题目描述

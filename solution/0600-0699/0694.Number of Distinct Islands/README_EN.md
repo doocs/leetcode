@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0694.Number%20of%20Distinct%20Islands/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Union Find
+    - Hash Table
+    - Hash Function
+---
+
 # [694. Number of Distinct Islands 🔒](https://leetcode.com/problems/number-of-distinct-islands)
 
 [中文文档](/solution/0600-0699/0694.Number%20of%20Distinct%20Islands/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Hash Table,Hash Function -->
 
 ## Description
 

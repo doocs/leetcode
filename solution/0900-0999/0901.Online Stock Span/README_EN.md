@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0901.Online%20Stock%20Span/README_EN.md
+tags:
+    - Stack
+    - Design
+    - Data Stream
+    - Monotonic Stack
+---
+
 # [901. Online Stock Span](https://leetcode.com/problems/online-stock-span)
 
 [中文文档](/solution/0900-0999/0901.Online%20Stock%20Span/README.md)
-
-<!-- tags:Stack,Design,Data Stream,Monotonic Stack -->
 
 ## Description
 

@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2920.Maximum%20Points%20After%20Collecting%20Coins%20From%20All%20Nodes/README.md
+rating: 2350
+tags:
+    - 位运算
+    - 树
+    - 深度优先搜索
+    - 数组
+    - 动态规划
+---
+
 # [2920. 收集所有金币可获得的最大积分](https://leetcode.cn/problems/maximum-points-after-collecting-coins-from-all-nodes)
 
 [English Version](/solution/2900-2999/2920.Maximum%20Points%20After%20Collecting%20Coins%20From%20All%20Nodes/README_EN.md)
-
-<!-- tags:位运算,树,深度优先搜索,数组,动态规划 -->
 
 ## 题目描述
 

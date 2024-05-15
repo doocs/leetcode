@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2520.Count%20the%20Digits%20That%20Divide%20a%20Number/README.md
+rating: 1260
+tags:
+    - 数学
+---
+
 # [2520. 统计能整除数字的位数](https://leetcode.cn/problems/count-the-digits-that-divide-a-number)
 
 [English Version](/solution/2500-2599/2520.Count%20the%20Digits%20That%20Divide%20a%20Number/README_EN.md)
-
-<!-- tags:数学 -->
 
 ## 题目描述
 

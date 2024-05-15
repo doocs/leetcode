@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1036.Escape%20a%20Large%20Maze/README.md
+rating: 2164
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 数组
+    - 哈希表
+---
+
 # [1036. 逃离大迷宫](https://leetcode.cn/problems/escape-a-large-maze)
 
 [English Version](/solution/1000-1099/1036.Escape%20a%20Large%20Maze/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,数组,哈希表 -->
 
 ## 题目描述
 

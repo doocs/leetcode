@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2444.Count%20Subarrays%20With%20Fixed%20Bounds/README.md
+rating: 2092
+tags:
+    - 队列
+    - 数组
+    - 滑动窗口
+    - 单调队列
+---
+
 # [2444. 统计定界子数组的数目](https://leetcode.cn/problems/count-subarrays-with-fixed-bounds)
 
 [English Version](/solution/2400-2499/2444.Count%20Subarrays%20With%20Fixed%20Bounds/README_EN.md)
-
-<!-- tags:队列,数组,滑动窗口,单调队列 -->
 
 ## 题目描述
 

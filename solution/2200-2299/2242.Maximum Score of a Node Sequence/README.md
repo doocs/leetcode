@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2242.Maximum%20Score%20of%20a%20Node%20Sequence/README.md
+rating: 2304
+tags:
+    - 图
+    - 数组
+    - 枚举
+    - 排序
+---
+
 # [2242. 节点序列的最大得分](https://leetcode.cn/problems/maximum-score-of-a-node-sequence)
 
 [English Version](/solution/2200-2299/2242.Maximum%20Score%20of%20a%20Node%20Sequence/README_EN.md)
-
-<!-- tags:图,数组,枚举,排序 -->
 
 ## 题目描述
 

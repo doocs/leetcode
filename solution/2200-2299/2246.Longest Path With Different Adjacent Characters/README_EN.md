@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2246.Longest%20Path%20With%20Different%20Adjacent%20Characters/README_EN.md
+rating: 2126
+tags:
+    - Tree
+    - Depth-First Search
+    - Graph
+    - Topological Sort
+    - Array
+    - String
+---
+
 # [2246. Longest Path With Different Adjacent Characters](https://leetcode.com/problems/longest-path-with-different-adjacent-characters)
 
 [中文文档](/solution/2200-2299/2246.Longest%20Path%20With%20Different%20Adjacent%20Characters/README.md)
-
-<!-- tags:Tree,Depth-First Search,Graph,Topological Sort,Array,String -->
 
 ## Description
 
@@ -44,7 +56,15 @@ It can be proven that there is no longer path that satisfies the conditions.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Tree-shaped DP
+
+First, we construct an adjacency list $g$ based on the array $parent$, where $g[i]$ represents all child nodes of node $i$.
+
+Then we start DFS from the root node. For each node $i$, we traverse each child node $j$ in $g[i]$. If $s[i] \neq s[j]$, then we can start from node $i$, pass through node $j$, and reach a leaf node. The length of this path is $x = 1 + \text{dfs}(j)$. We use $mx$ to record the longest path length starting from node $i$. At the same time, we update the answer $ans = \max(ans, mx + x)$ during the traversal process.
+
+Finally, we return $ans + 1$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0484.Find%20Permutation/README_EN.md
+tags:
+    - Stack
+    - Greedy
+    - Array
+    - String
+---
+
 # [484. Find Permutation 🔒](https://leetcode.com/problems/find-permutation)
 
 [中文文档](/solution/0400-0499/0484.Find%20Permutation/README.md)
-
-<!-- tags:Stack,Greedy,Array,String -->
 
 ## Description
 

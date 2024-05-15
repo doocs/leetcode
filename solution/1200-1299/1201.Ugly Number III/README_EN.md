@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1201.Ugly%20Number%20III/README_EN.md
+rating: 2039
+tags:
+    - Math
+    - Binary Search
+    - Combinatorics
+    - Number Theory
+---
+
 # [1201. Ugly Number III](https://leetcode.com/problems/ugly-number-iii)
 
 [中文文档](/solution/1200-1299/1201.Ugly%20Number%20III/README.md)
-
-<!-- tags:Math,Binary Search,Combinatorics,Number Theory -->
 
 ## Description
 

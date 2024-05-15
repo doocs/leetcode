@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1021.Remove%20Outermost%20Parentheses/README.md
+rating: 1311
+tags:
+    - 栈
+    - 字符串
+---
+
 # [1021. 删除最外层的括号](https://leetcode.cn/problems/remove-outermost-parentheses)
 
 [English Version](/solution/1000-1099/1021.Remove%20Outermost%20Parentheses/README_EN.md)
-
-<!-- tags:栈,字符串 -->
 
 ## 题目描述
 

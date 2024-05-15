@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0427.Construct%20Quad%20Tree/README_EN.md
+tags:
+    - Tree
+    - Array
+    - Divide and Conquer
+    - Matrix
+---
+
 # [427. Construct Quad Tree](https://leetcode.com/problems/construct-quad-tree)
 
 [中文文档](/solution/0400-0499/0427.Construct%20Quad%20Tree/README.md)
-
-<!-- tags:Tree,Array,Divide and Conquer,Matrix -->
 
 ## Description
 

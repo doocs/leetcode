@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1082.Sales%20Analysis%20I/README_EN.md
+tags:
+    - Database
+---
+
 # [1082. Sales Analysis I 🔒](https://leetcode.com/problems/sales-analysis-i)
 
 [中文文档](/solution/1000-1099/1082.Sales%20Analysis%20I/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

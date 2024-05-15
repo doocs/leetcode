@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0989.Add%20to%20Array-Form%20of%20Integer/README_EN.md
+tags:
+    - Array
+    - Math
+---
+
 # [989. Add to Array-Form of Integer](https://leetcode.com/problems/add-to-array-form-of-integer)
 
 [中文文档](/solution/0900-0999/0989.Add%20to%20Array-Form%20of%20Integer/README.md)
-
-<!-- tags:Array,Math -->
 
 ## Description
 

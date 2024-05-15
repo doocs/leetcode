@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.22.Word%20Transformer/README_EN.md
+---
+
 # [17.22. Word Transformer](https://leetcode.cn/problems/word-transformer-lcci)
 
 [中文文档](/lcci/17.22.Word%20Transformer/README.md)
@@ -50,7 +56,19 @@ wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quo
 
 ## Solutions
 
-### Solution 1
+### Solution 1: DFS
+
+We define an answer array `ans`, initially containing only `beginWord`. Then we define an array `vis` to mark whether the words in `wordList` have been visited.
+
+Next, we design a function `dfs(s)`, which represents whether we can successfully convert `s` to `endWord` starting from `s`. If successful, return `True`, otherwise return `False`.
+
+The specific implementation of the function `dfs(s)` is as follows:
+
+1. If `s` equals `endWord`, the conversion is successful, return `True`;
+2. Otherwise, we traverse each word `t` in `wordList`. If `t` has not been visited and there is only one different character between `s` and `t`, then we mark `t` as visited, add `t` to `ans`, and then recursively call `dfs(t)`. If `True` is returned, the conversion is successful, we return `True`, otherwise we remove `t` from `ans` and continue to traverse the next word;
+3. If all the words in `wordList` have been traversed and no convertible word is found, the conversion fails, we return `False`.
+
+Finally, we call `dfs(beginWord)`. If `True` is returned, the conversion is successful, we return `ans`, otherwise return an empty array.
 
 <!-- tabs:start -->
 
@@ -59,72 +77,67 @@ class Solution:
     def findLadders(
         self, beginWord: str, endWord: str, wordList: List[str]
     ) -> List[str]:
-        def check(a, b):
-            return sum(a[i] != b[i] for i in range(len(a))) == 1
+        def check(s: str, t: str) -> bool:
+            return len(s) == len(t) and sum(a != b for a, b in zip(s, t)) == 1
 
-        def dfs(begin, end, t):
-            nonlocal ans
-            if ans:
-                return
-            if begin == end:
-                ans = t.copy()
-                return
-            for word in wordList:
-                if word in visited or not check(begin, word):
-                    continue
-                visited.add(word)
-                t.append(word)
-                dfs(word, end, t)
-                t.pop()
+        def dfs(s: str) -> bool:
+            if s == endWord:
+                return True
+            for i, t in enumerate(wordList):
+                if not vis[i] and check(s, t):
+                    vis[i] = True
+                    ans.append(t)
+                    if dfs(t):
+                        return True
+                    ans.pop()
+            return False
 
-        ans = []
-        visited = set()
-        dfs(beginWord, endWord, [beginWord])
-        return ans
+        ans = [beginWord]
+        vis = [False] * len(wordList)
+        return ans if dfs(beginWord) else []
 ```
 
 ```java
 class Solution {
-    private List<String> words;
-    private List<String> ans;
-    private Set<String> visited;
+    private List<String> ans = new ArrayList<>();
+    private List<String> wordList;
+    private String endWord;
+    private boolean[] vis;
 
     public List<String> findLadders(String beginWord, String endWord, List<String> wordList) {
-        words = wordList;
-        ans = new ArrayList<>();
-        visited = new HashSet<>();
-        List<String> t = new ArrayList<>();
-        t.add(beginWord);
-        dfs(beginWord, endWord, t);
-        return ans;
+        this.wordList = wordList;
+        this.endWord = endWord;
+        ans.add(beginWord);
+        vis = new boolean[wordList.size()];
+        return dfs(beginWord) ? ans : List.of();
     }
 
-    private void dfs(String begin, String end, List<String> t) {
-        if (!ans.isEmpty()) {
-            return;
+    private boolean dfs(String s) {
+        if (s.equals(endWord)) {
+            return true;
         }
-        if (Objects.equals(begin, end)) {
-            ans = new ArrayList<>(t);
-            return;
-        }
-        for (String word : words) {
-            if (visited.contains(word) || !check(begin, word)) {
+        for (int i = 0; i < wordList.size(); ++i) {
+            String t = wordList.get(i);
+            if (vis[i] || !check(s, t)) {
                 continue;
             }
-            t.add(word);
-            visited.add(word);
-            dfs(word, end, t);
-            t.remove(t.size() - 1);
+            vis[i] = true;
+            ans.add(t);
+            if (dfs(t)) {
+                return true;
+            }
+            ans.remove(ans.size() - 1);
         }
+        return false;
     }
 
-    private boolean check(String a, String b) {
-        if (a.length() != b.length()) {
+    private boolean check(String s, String t) {
+        if (s.length() != t.length()) {
             return false;
         }
         int cnt = 0;
-        for (int i = 0; i < a.length(); ++i) {
-            if (a.charAt(i) != b.charAt(i)) {
+        for (int i = 0; i < s.length(); ++i) {
+            if (s.charAt(i) != t.charAt(i)) {
                 ++cnt;
             }
         }
@@ -136,87 +149,128 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<string> words;
-    vector<string> ans;
-    unordered_set<string> visited;
-
     vector<string> findLadders(string beginWord, string endWord, vector<string>& wordList) {
-        this->words = wordList;
-        ans.resize(0);
-        vector<string> t;
-        t.push_back(beginWord);
-        dfs(beginWord, endWord, t);
-        return ans;
+        this->endWord = move(endWord);
+        this->wordList = move(wordList);
+        vis.resize(this->wordList.size(), false);
+        ans.push_back(beginWord);
+        if (dfs(beginWord)) {
+            return ans;
+        }
+        return {};
     }
 
-    void dfs(string begin, string end, vector<string>& t) {
-        if (!ans.empty()) return;
-        if (begin == end) {
-            ans = t;
-            return;
-        }
-        for (auto word : words) {
-            if (visited.count(word) || !check(begin, word)) continue;
-            visited.insert(word);
-            t.push_back(word);
-            dfs(word, end, t);
-            t.pop_back();
-        }
-    }
+private:
+    vector<string> ans;
+    vector<bool> vis;
+    string endWord;
+    vector<string> wordList;
 
-    bool check(string a, string b) {
-        if (a.size() != b.size()) return false;
+    bool check(string& s, string& t) {
+        if (s.size() != t.size()) {
+            return false;
+        }
         int cnt = 0;
-        for (int i = 0; i < a.size(); ++i)
-            if (a[i] != b[i]) ++cnt;
+        for (int i = 0; i < s.size(); ++i) {
+            cnt += s[i] != t[i];
+        }
         return cnt == 1;
+    }
+
+    bool dfs(string& s) {
+        if (s == endWord) {
+            return true;
+        }
+        for (int i = 0; i < wordList.size(); ++i) {
+            string& t = wordList[i];
+            if (!vis[i] && check(s, t)) {
+                vis[i] = true;
+                ans.push_back(t);
+                if (dfs(t)) {
+                    return true;
+                }
+                ans.pop_back();
+            }
+        }
+        return false;
     }
 };
 ```
 
 ```go
 func findLadders(beginWord string, endWord string, wordList []string) []string {
-	var ans []string
-	visited := make(map[string]bool)
-
-	check := func(a, b string) bool {
-		if len(a) != len(b) {
+	ans := []string{beginWord}
+	vis := make([]bool, len(wordList))
+	check := func(s, t string) bool {
+		if len(s) != len(t) {
 			return false
 		}
 		cnt := 0
-		for i := 0; i < len(a); i++ {
-			if a[i] != b[i] {
+		for i := range s {
+			if s[i] != t[i] {
 				cnt++
 			}
 		}
 		return cnt == 1
 	}
-
-	var dfs func(begin, end string, t []string)
-	dfs = func(begin, end string, t []string) {
-		if len(ans) > 0 {
-			return
+	var dfs func(s string) bool
+	dfs = func(s string) bool {
+		if s == endWord {
+			return true
 		}
-		if begin == end {
-			ans = make([]string, len(t))
-			copy(ans, t)
-			return
-		}
-		for _, word := range wordList {
-			if visited[word] || !check(begin, word) {
-				continue
+		for i, t := range wordList {
+			if !vis[i] && check(s, t) {
+				vis[i] = true
+				ans = append(ans, t)
+				if dfs(t) {
+					return true
+				}
+				ans = ans[:len(ans)-1]
 			}
-			t = append(t, word)
-			visited[word] = true
-			dfs(word, end, t)
-			t = t[:len(t)-1]
 		}
+		return false
 	}
+	if dfs(beginWord) {
+		return ans
+	}
+	return []string{}
+}
+```
 
-	var t []string
-	t = append(t, beginWord)
-	dfs(beginWord, endWord, t)
-	return ans
+```ts
+function findLadders(beginWord: string, endWord: string, wordList: string[]): string[] {
+    const ans: string[] = [beginWord];
+    const vis: boolean[] = Array(wordList.length).fill(false);
+    const check = (s: string, t: string): boolean => {
+        if (s.length !== t.length) {
+            return false;
+        }
+        let cnt = 0;
+        for (let i = 0; i < s.length; ++i) {
+            if (s[i] !== t[i]) {
+                ++cnt;
+            }
+        }
+        return cnt === 1;
+    };
+    const dfs = (s: string): boolean => {
+        if (s === endWord) {
+            return true;
+        }
+        for (let i = 0; i < wordList.length; ++i) {
+            const t: string = wordList[i];
+            if (!vis[i] && check(s, t)) {
+                vis[i] = true;
+                ans.push(t);
+                if (dfs(t)) {
+                    return true;
+                }
+                ans.pop();
+            }
+        }
+        return false;
+    };
+    return dfs(beginWord) ? ans : [];
 }
 ```
 

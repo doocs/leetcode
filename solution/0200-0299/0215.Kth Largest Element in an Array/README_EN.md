@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0215.Kth%20Largest%20Element%20in%20an%20Array/README_EN.md
+tags:
+    - Array
+    - Divide and Conquer
+    - Quickselect
+    - Sorting
+    - Heap (Priority Queue)
+---
+
 # [215. Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array)
 
 [中文文档](/solution/0200-0299/0215.Kth%20Largest%20Element%20in%20an%20Array/README.md)
-
-<!-- tags:Array,Divide and Conquer,Quickselect,Sorting,Heap (Priority Queue) -->
 
 ## Description
 

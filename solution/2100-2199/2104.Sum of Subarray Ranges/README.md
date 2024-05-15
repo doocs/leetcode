@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2104.Sum%20of%20Subarray%20Ranges/README.md
+rating: 1504
+tags:
+    - 栈
+    - 数组
+    - 单调栈
+---
+
 # [2104. 子数组范围和](https://leetcode.cn/problems/sum-of-subarray-ranges)
 
 [English Version](/solution/2100-2199/2104.Sum%20of%20Subarray%20Ranges/README_EN.md)
-
-<!-- tags:栈,数组,单调栈 -->
 
 ## 题目描述
 

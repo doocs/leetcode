@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1045.Customers%20Who%20Bought%20All%20Products/README.md
+tags:
+    - 数据库
+---
+
 # [1045. 买下所有产品的客户](https://leetcode.cn/problems/customers-who-bought-all-products)
 
 [English Version](/solution/1000-1099/1045.Customers%20Who%20Bought%20All%20Products/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2004.%20%E8%A6%86%E7%9B%96/README.md
+---
+
 # [LCP 04. 覆盖](https://leetcode.cn/problems/broken-board-dominoes)
 
 ## 题目描述

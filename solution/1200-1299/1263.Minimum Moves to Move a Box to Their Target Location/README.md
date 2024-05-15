@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1263.Minimum%20Moves%20to%20Move%20a%20Box%20to%20Their%20Target%20Location/README.md
+rating: 2297
+tags:
+    - 广度优先搜索
+    - 数组
+    - 矩阵
+    - 堆（优先队列）
+---
+
 # [1263. 推箱子](https://leetcode.cn/problems/minimum-moves-to-move-a-box-to-their-target-location)
 
 [English Version](/solution/1200-1299/1263.Minimum%20Moves%20to%20Move%20a%20Box%20to%20Their%20Target%20Location/README_EN.md)
-
-<!-- tags:广度优先搜索,数组,矩阵,堆（优先队列） -->
 
 ## 题目描述
 

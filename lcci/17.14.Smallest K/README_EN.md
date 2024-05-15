@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.14.Smallest%20K/README_EN.md
+---
+
 # [17.14. Smallest K](https://leetcode.cn/problems/smallest-k-lcci)
 
 [中文文档](/lcci/17.14.Smallest%20K/README.md)
@@ -66,6 +72,16 @@ func smallestK(arr []int, k int) []int {
 		ans[i] = v
 	}
 	return ans
+}
+```
+
+```swift
+class Solution {
+    func smallestK(_ arr: [Int], _ k: Int) -> [Int] {
+        guard k > 0 else { return [] }
+        let sortedArray = arr.sorted()
+        return Array(sortedArray.prefix(k))
+    }
 }
 ```
 

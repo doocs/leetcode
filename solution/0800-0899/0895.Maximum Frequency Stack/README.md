@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0895.Maximum%20Frequency%20Stack/README.md
+tags:
+    - 栈
+    - 设计
+    - 哈希表
+    - 有序集合
+---
+
 # [895. 最大频率栈](https://leetcode.cn/problems/maximum-frequency-stack)
 
 [English Version](/solution/0800-0899/0895.Maximum%20Frequency%20Stack/README_EN.md)
-
-<!-- tags:栈,设计,哈希表,有序集合 -->
 
 ## 题目描述
 

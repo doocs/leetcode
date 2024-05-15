@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1518.Water%20Bottles/README.md
+rating: 1245
+tags:
+    - 数学
+    - 模拟
+---
+
 # [1518. 换水问题](https://leetcode.cn/problems/water-bottles)
 
 [English Version](/solution/1500-1599/1518.Water%20Bottles/README_EN.md)
-
-<!-- tags:数学,模拟 -->
 
 ## 题目描述
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2164.Sort%20Even%20and%20Odd%20Indices%20Independently/README_EN.md
+rating: 1252
+tags:
+    - Array
+    - Sorting
+---
+
 # [2164. Sort Even and Odd Indices Independently](https://leetcode.com/problems/sort-even-and-odd-indices-independently)
 
 [中文文档](/solution/2100-2199/2164.Sort%20Even%20and%20Odd%20Indices%20Independently/README.md)
-
-<!-- tags:Array,Sorting -->
 
 ## Description
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1762.Buildings%20With%20an%20Ocean%20View/README.md
+tags:
+    - 栈
+    - 数组
+    - 单调栈
+---
+
 # [1762. 能看到海景的建筑物 🔒](https://leetcode.cn/problems/buildings-with-an-ocean-view)
 
 [English Version](/solution/1700-1799/1762.Buildings%20With%20an%20Ocean%20View/README_EN.md)
-
-<!-- tags:栈,数组,单调栈 -->
 
 ## 题目描述
 

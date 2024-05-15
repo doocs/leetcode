@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2217.Find%20Palindrome%20With%20Fixed%20Length/README_EN.md
+rating: 1822
+tags:
+    - Array
+    - Math
+---
+
 # [2217. Find Palindrome With Fixed Length](https://leetcode.com/problems/find-palindrome-with-fixed-length)
 
 [中文文档](/solution/2200-2299/2217.Find%20Palindrome%20With%20Fixed%20Length/README.md)
-
-<!-- tags:Array,Math -->
 
 ## Description
 

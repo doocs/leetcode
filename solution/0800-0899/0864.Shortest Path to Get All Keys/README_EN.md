@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0864.Shortest%20Path%20to%20Get%20All%20Keys/README_EN.md
+tags:
+    - Bit Manipulation
+    - Breadth-First Search
+    - Array
+    - Matrix
+---
+
 # [864. Shortest Path to Get All Keys](https://leetcode.com/problems/shortest-path-to-get-all-keys)
 
 [中文文档](/solution/0800-0899/0864.Shortest%20Path%20to%20Get%20All%20Keys/README.md)
-
-<!-- tags:Bit Manipulation,Breadth-First Search,Array,Matrix -->
 
 ## Description
 

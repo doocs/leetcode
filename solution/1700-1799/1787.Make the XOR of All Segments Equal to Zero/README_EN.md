@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1787.Make%20the%20XOR%20of%20All%20Segments%20Equal%20to%20Zero/README_EN.md
+rating: 2640
+tags:
+    - Bit Manipulation
+    - Array
+    - Dynamic Programming
+---
+
 # [1787. Make the XOR of All Segments Equal to Zero](https://leetcode.com/problems/make-the-xor-of-all-segments-equal-to-zero)
 
 [中文文档](/solution/1700-1799/1787.Make%20the%20XOR%20of%20All%20Segments%20Equal%20to%20Zero/README.md)
-
-<!-- tags:Bit Manipulation,Array,Dynamic Programming -->
 
 ## Description
 

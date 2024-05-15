@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2289.Steps%20to%20Make%20Array%20Non-decreasing/README.md
+rating: 2481
+tags:
+    - 栈
+    - 数组
+    - 链表
+    - 单调栈
+---
+
 # [2289. 使数组按非递减顺序排列](https://leetcode.cn/problems/steps-to-make-array-non-decreasing)
 
 [English Version](/solution/2200-2299/2289.Steps%20to%20Make%20Array%20Non-decreasing/README_EN.md)
-
-<!-- tags:栈,数组,链表,单调栈 -->
 
 ## 题目描述
 

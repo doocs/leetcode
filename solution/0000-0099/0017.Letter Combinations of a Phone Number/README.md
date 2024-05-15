@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0017.Letter%20Combinations%20of%20a%20Phone%20Number/README.md
+tags:
+    - 哈希表
+    - 字符串
+    - 回溯
+---
+
 # [17. 电话号码的字母组合](https://leetcode.cn/problems/letter-combinations-of-a-phone-number)
 
 [English Version](/solution/0000-0099/0017.Letter%20Combinations%20of%20a%20Phone%20Number/README_EN.md)
-
-<!-- tags:哈希表,字符串,回溯 -->
 
 ## 题目描述
 

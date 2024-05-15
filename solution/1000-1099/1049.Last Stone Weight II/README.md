@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1049.Last%20Stone%20Weight%20II/README.md
+rating: 2092
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [1049. 最后一块石头的重量 II](https://leetcode.cn/problems/last-stone-weight-ii)
 
 [English Version](/solution/1000-1099/1049.Last%20Stone%20Weight%20II/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
 
 ## 题目描述
 

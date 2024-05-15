@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0799.Champagne%20Tower/README_EN.md
+tags:
+    - Dynamic Programming
+---
+
 # [799. Champagne Tower](https://leetcode.com/problems/champagne-tower)
 
 [中文文档](/solution/0700-0799/0799.Champagne%20Tower/README.md)
-
-<!-- tags:Dynamic Programming -->
 
 ## Description
 

@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1776.Car%20Fleet%20II/README_EN.md
+rating: 2530
+tags:
+    - Stack
+    - Array
+    - Math
+    - Monotonic Stack
+    - Heap (Priority Queue)
+---
+
 # [1776. Car Fleet II](https://leetcode.com/problems/car-fleet-ii)
 
 [中文文档](/solution/1700-1799/1776.Car%20Fleet%20II/README.md)
-
-<!-- tags:Stack,Array,Math,Monotonic Stack,Heap (Priority Queue) -->
 
 ## Description
 

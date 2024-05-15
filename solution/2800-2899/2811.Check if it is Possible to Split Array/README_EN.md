@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2811.Check%20if%20it%20is%20Possible%20to%20Split%20Array/README_EN.md
+rating: 1543
+tags:
+    - Greedy
+    - Array
+    - Dynamic Programming
+---
+
 # [2811. Check if it is Possible to Split Array](https://leetcode.com/problems/check-if-it-is-possible-to-split-array)
 
 [中文文档](/solution/2800-2899/2811.Check%20if%20it%20is%20Possible%20to%20Split%20Array/README.md)
-
-<!-- tags:Greedy,Array,Dynamic Programming -->
 
 ## Description
 

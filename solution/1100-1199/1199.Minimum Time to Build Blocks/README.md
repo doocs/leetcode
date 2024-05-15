@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1199.Minimum%20Time%20to%20Build%20Blocks/README.md
+rating: 2250
+tags:
+    - 贪心
+    - 数组
+    - 数学
+    - 堆（优先队列）
+---
+
 # [1199. 建造街区的最短时间 🔒](https://leetcode.cn/problems/minimum-time-to-build-blocks)
 
 [English Version](/solution/1100-1199/1199.Minimum%20Time%20to%20Build%20Blocks/README_EN.md)
-
-<!-- tags:贪心,数组,数学,堆（优先队列） -->
 
 ## 题目描述
 

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2197.Replace%20Non-Coprime%20Numbers%20in%20Array/README.md
+rating: 2057
+tags:
+    - 栈
+    - 数组
+    - 数学
+    - 数论
+---
+
 # [2197. 替换数组中的非互质数](https://leetcode.cn/problems/replace-non-coprime-numbers-in-array)
 
 [English Version](/solution/2100-2199/2197.Replace%20Non-Coprime%20Numbers%20in%20Array/README_EN.md)
-
-<!-- tags:栈,数组,数学,数论 -->
 
 ## 题目描述
 
@@ -65,5 +75,143 @@
 </ul>
 
 ## 解法
+
+### 方法一：栈
+
+如果存在三个相邻的数 $x$, $y$, $z$ 可以进行合并，那么我们先合并 $x$ 和 $y$，再合并 $z$ 的结果，与先合并 $y$ 和 $z$，再合并 $x$ 的结果是一样的，结果均为 $\text{LCM}(x, y, z)$。
+
+因此，我们可以总是优先合并左侧相邻的数，再将合并后的结果与右侧相邻的数进行合并。
+
+我们使用一个栈来模拟这个过程，遍历数组，对于每个数，我们将其入栈，然后不断检查栈顶的两个数是否互质，如果不互质，我们将这两个数出栈，然后将它们的最小公倍数入栈，直到栈顶的两个数互质，或者栈中元素小于两个。
+
+最后栈中的元素即为最终结果。
+
+时间复杂度 $O(n \times \log M)$，空间复杂度 $O(n)$。其中 $M$ 为数组中的最大值。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def replaceNonCoprimes(self, nums: List[int]) -> List[int]:
+        stk = []
+        for x in nums:
+            stk.append(x)
+            while len(stk) > 1:
+                x, y = stk[-2:]
+                g = gcd(x, y)
+                if g == 1:
+                    break
+                stk.pop()
+                stk[-1] = x * y // g
+        return stk
+```
+
+```java
+class Solution {
+    public List<Integer> replaceNonCoprimes(int[] nums) {
+        List<Integer> stk = new ArrayList<>();
+        for (int x : nums) {
+            stk.add(x);
+            while (stk.size() > 1) {
+                x = stk.get(stk.size() - 1);
+                int y = stk.get(stk.size() - 2);
+                int g = gcd(x, y);
+                if (g == 1) {
+                    break;
+                }
+                stk.remove(stk.size() - 1);
+                stk.set(stk.size() - 1, (int) ((long) x * y / g));
+            }
+        }
+        return stk;
+    }
+
+    private int gcd(int a, int b) {
+        if (b == 0) {
+            return a;
+        }
+        return gcd(b, a % b);
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> replaceNonCoprimes(vector<int>& nums) {
+        vector<int> stk;
+        for (int x : nums) {
+            stk.push_back(x);
+            while (stk.size() > 1) {
+                x = stk.back();
+                int y = stk[stk.size() - 2];
+                int g = __gcd(x, y);
+                if (g == 1) {
+                    break;
+                }
+                stk.pop_back();
+                stk.back() = 1LL * x * y / g;
+            }
+        }
+        return stk;
+    }
+};
+```
+
+```go
+func replaceNonCoprimes(nums []int) []int {
+	stk := []int{}
+	for _, x := range nums {
+		stk = append(stk, x)
+		for len(stk) > 1 {
+			x = stk[len(stk)-1]
+			y := stk[len(stk)-2]
+			g := gcd(x, y)
+			if g == 1 {
+				break
+			}
+			stk = stk[:len(stk)-1]
+			stk[len(stk)-1] = x * y / g
+		}
+	}
+	return stk
+}
+
+func gcd(a, b int) int {
+	if b == 0 {
+		return a
+	}
+	return gcd(b, a%b)
+}
+```
+
+```ts
+function replaceNonCoprimes(nums: number[]): number[] {
+    const gcd = (a: number, b: number): number => {
+        if (b === 0) {
+            return a;
+        }
+        return gcd(b, a % b);
+    };
+    const stk: number[] = [];
+    for (let x of nums) {
+        stk.push(x);
+        while (stk.length > 1) {
+            x = stk.at(-1)!;
+            const y = stk.at(-2)!;
+            const g = gcd(x, y);
+            if (g === 1) {
+                break;
+            }
+            stk.pop();
+            stk.pop();
+            stk.push(((x * y) / g) | 0);
+        }
+    }
+    return stk;
+}
+```
+
+<!-- tabs:end -->
 
 <!-- end -->

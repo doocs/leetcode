@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2103.Rings%20and%20Rods/README.md
+rating: 1257
+tags:
+    - 哈希表
+    - 字符串
+---
+
 # [2103. 环和杆](https://leetcode.cn/problems/rings-and-rods)
 
 [English Version](/solution/2100-2199/2103.Rings%20and%20Rods/README_EN.md)
-
-<!-- tags:哈希表,字符串 -->
 
 ## 题目描述
 

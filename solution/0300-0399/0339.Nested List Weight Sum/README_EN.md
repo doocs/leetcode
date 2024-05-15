@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0339.Nested%20List%20Weight%20Sum/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+---
+
 # [339. Nested List Weight Sum 🔒](https://leetcode.com/problems/nested-list-weight-sum)
 
 [中文文档](/solution/0300-0399/0339.Nested%20List%20Weight%20Sum/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search -->
 
 ## Description
 

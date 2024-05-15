@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0391.Perfect%20Rectangle/README.md
+tags:
+    - 数组
+    - 扫描线
+---
+
 # [391. 完美矩形](https://leetcode.cn/problems/perfect-rectangle)
 
 [English Version](/solution/0300-0399/0391.Perfect%20Rectangle/README_EN.md)
-
-<!-- tags:数组,扫描线 -->
 
 ## 题目描述
 

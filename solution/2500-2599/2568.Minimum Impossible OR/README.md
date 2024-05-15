@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2568.Minimum%20Impossible%20OR/README.md
+rating: 1754
+tags:
+    - 位运算
+    - 脑筋急转弯
+    - 数组
+---
+
 # [2568. 最小无法得到的或值](https://leetcode.cn/problems/minimum-impossible-or)
 
 [English Version](/solution/2500-2599/2568.Minimum%20Impossible%20OR/README_EN.md)
-
-<!-- tags:位运算,脑筋急转弯,数组 -->
 
 ## 题目描述
 

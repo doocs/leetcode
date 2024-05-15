@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2241.Design%20an%20ATM%20Machine/README.md
+rating: 1616
+tags:
+    - 贪心
+    - 设计
+    - 数组
+---
+
 # [2241. 设计一个 ATM 机器](https://leetcode.cn/problems/design-an-atm-machine)
 
 [English Version](/solution/2200-2299/2241.Design%20an%20ATM%20Machine/README_EN.md)
-
-<!-- tags:贪心,设计,数组 -->
 
 ## 题目描述
 

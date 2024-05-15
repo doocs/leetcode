@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1245.Tree%20Diameter/README_EN.md
+rating: 1792
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Graph
+    - Topological Sort
+---
+
 # [1245. Tree Diameter 🔒](https://leetcode.com/problems/tree-diameter)
 
 [中文文档](/solution/1200-1299/1245.Tree%20Diameter/README.md)
-
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Graph,Topological Sort -->
 
 ## Description
 

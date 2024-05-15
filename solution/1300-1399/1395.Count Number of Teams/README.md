@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1395.Count%20Number%20of%20Teams/README.md
+rating: 1343
+tags:
+    - 树状数组
+    - 数组
+    - 动态规划
+---
+
 # [1395. 统计作战单位数](https://leetcode.cn/problems/count-number-of-teams)
 
 [English Version](/solution/1300-1399/1395.Count%20Number%20of%20Teams/README_EN.md)
-
-<!-- tags:树状数组,数组,动态规划 -->
 
 ## 题目描述
 

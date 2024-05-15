@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2664.The%20Knight%E2%80%99s%20Tour/README.md
+tags:
+    - 数组
+    - 回溯
+    - 矩阵
+---
+
 # [2664. 巡逻的骑士 🔒](https://leetcode.cn/problems/the-knights-tour)
 
 [English Version](/solution/2600-2699/2664.The%20Knight%E2%80%99s%20Tour/README_EN.md)
-
-<!-- tags:数组,回溯,矩阵 -->
 
 ## 题目描述
 

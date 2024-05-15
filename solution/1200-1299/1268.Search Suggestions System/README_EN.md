@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1268.Search%20Suggestions%20System/README_EN.md
+rating: 1573
+tags:
+    - Trie
+    - Array
+    - String
+    - Binary Search
+    - Sorting
+    - Heap (Priority Queue)
+---
+
 # [1268. Search Suggestions System](https://leetcode.com/problems/search-suggestions-system)
 
 [中文文档](/solution/1200-1299/1268.Search%20Suggestions%20System/README.md)
-
-<!-- tags:Trie,Array,String,Binary Search,Sorting,Heap (Priority Queue) -->
 
 ## Description
 

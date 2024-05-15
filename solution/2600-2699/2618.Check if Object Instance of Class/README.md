@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2618.Check%20if%20Object%20Instance%20of%20Class/README.md
+---
+
 # [2618. 检查是否是类的对象实例](https://leetcode.cn/problems/check-if-object-instance-of-class)
 
 [English Version](/solution/2600-2699/2618.Check%20if%20Object%20Instance%20of%20Class/README_EN.md)
-
-<!-- tags: -->
 
 ## 题目描述
 

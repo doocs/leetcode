@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1994.The%20Number%20of%20Good%20Subsets/README.md
+rating: 2464
+tags:
+    - 位运算
+    - 数组
+    - 数学
+    - 动态规划
+    - 状态压缩
+---
+
 # [1994. 好子集的数目](https://leetcode.cn/problems/the-number-of-good-subsets)
 
 [English Version](/solution/1900-1999/1994.The%20Number%20of%20Good%20Subsets/README_EN.md)
-
-<!-- tags:位运算,数组,数学,动态规划,状态压缩 -->
 
 ## 题目描述
 

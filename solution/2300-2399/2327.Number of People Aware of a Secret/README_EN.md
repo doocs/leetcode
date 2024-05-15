@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2327.Number%20of%20People%20Aware%20of%20a%20Secret/README_EN.md
+rating: 1893
+tags:
+    - Queue
+    - Dynamic Programming
+    - Simulation
+---
+
 # [2327. Number of People Aware of a Secret](https://leetcode.com/problems/number-of-people-aware-of-a-secret)
 
 [中文文档](/solution/2300-2399/2327.Number%20of%20People%20Aware%20of%20a%20Secret/README.md)
-
-<!-- tags:Queue,Dynamic Programming,Simulation -->
 
 ## Description
 

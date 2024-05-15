@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1131.Maximum%20of%20Absolute%20Value%20Expression/README_EN.md
+rating: 2059
+tags:
+    - Array
+    - Math
+---
+
 # [1131. Maximum of Absolute Value Expression](https://leetcode.com/problems/maximum-of-absolute-value-expression)
 
 [中文文档](/solution/1100-1199/1131.Maximum%20of%20Absolute%20Value%20Expression/README.md)
-
-<!-- tags:Array,Math -->
 
 ## Description
 

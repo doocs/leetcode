@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.09.BST%20Sequences/README.md
+---
+
 # [面试题 04.09. 二叉搜索树序列](https://leetcode.cn/problems/bst-sequences-lcci)
 
 [English Version](/lcci/04.09.BST%20Sequences/README_EN.md)

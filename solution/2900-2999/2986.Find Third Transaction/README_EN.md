@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2986.Find%20Third%20Transaction/README_EN.md
+tags:
+    - Database
+---
+
 # [2986. Find Third Transaction 🔒](https://leetcode.com/problems/find-third-transaction)
 
 [中文文档](/solution/2900-2999/2986.Find%20Third%20Transaction/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

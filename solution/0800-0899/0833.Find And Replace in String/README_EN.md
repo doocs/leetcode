@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0833.Find%20And%20Replace%20in%20String/README_EN.md
+tags:
+    - Array
+    - String
+    - Sorting
+---
+
 # [833. Find And Replace in String](https://leetcode.com/problems/find-and-replace-in-string)
 
 [中文文档](/solution/0800-0899/0833.Find%20And%20Replace%20in%20String/README.md)
-
-<!-- tags:Array,String,Sorting -->
 
 ## Description
 

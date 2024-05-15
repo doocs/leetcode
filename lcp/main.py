@@ -1,5 +1,7 @@
 import json
 import os
+import re
+import yaml
 from urllib.parse import quote
 
 import requests
@@ -13,42 +15,44 @@ data = """
 
 res = json.loads(data)
 
-questions = res['data']['problemsetQuestionList']['questions']
-questions = [item for item in questions if item['frontendQuestionId'][:3] == 'LCP']
+questions = res["data"]["problemsetQuestionList"]["questions"]
+questions = [item for item in questions if item["frontendQuestionId"][:3] == "LCP"]
 
-mp = {"EASY": '简单', "MEDIUM": '中等', 'HARD': '困难'}
+mp = {"EASY": "简单", "MEDIUM": "中等", "HARD": "困难"}
+# 正则表达式模式，匹配图片链接，处理可能的尖括号
+pattern = r'!\[.*?\]\(<?(https://.*?/(.*?))>?\)'
 
 
 def get_question_detail(question_title_slug):
     """fetch question detail from lc's api"""
     form_data = {
-        'operationName': 'globalData',
-        'query': 'query globalData {\n  feature {\n    questionTranslation\n    subscription\n    signUp\n    '
-        'discuss\n    mockInterview\n    contest\n    store\n    book\n    chinaProblemDiscuss\n    '
-        'socialProviders\n    studentFooter\n    cnJobs\n    enableLsp\n    enableWs\n    '
-        'enableDebugger\n    enableDebuggerAdmin\n    enableDarkMode\n    tasks\n    '
-        'leetbook\n    __typename\n  }\n  userStatus {\n    isSignedIn\n    isAdmin\n    '
-        'isStaff\n    isSuperuser\n    isTranslator\n    isPremium\n    isVerified\n    '
-        'isPhoneVerified\n    isWechatVerified\n    checkedInToday\n    username\n    '
-        'realName\n    userSlug\n    groups\n    avatar\n    optedIn\n    '
-        'requestRegion\n    region\n    activeSessionId\n    permissions\n    notificationStatus {\n      '
-        'lastModified\n      numUnread\n      __typename\n    }\n    completedFeatureGuides\n    '
-        'useTranslation\n    accountStatus {\n      isFrozen\n      inactiveAfter\n      __typename\n    '
-        '}\n    __typename\n  }\n  siteRegion\n  chinaHost\n  websocketUrl\n  userBannedInfo {\n    '
-        'bannedData {\n      endAt\n      bannedType\n      __typename\n    }\n    __typename\n  }\n}\n',
-        'variables': {},
+        "operationName": "globalData",
+        "query": "query globalData {\n  feature {\n    questionTranslation\n    subscription\n    signUp\n    "
+        "discuss\n    mockInterview\n    contest\n    store\n    book\n    chinaProblemDiscuss\n    "
+        "socialProviders\n    studentFooter\n    cnJobs\n    enableLsp\n    enableWs\n    "
+        "enableDebugger\n    enableDebuggerAdmin\n    enableDarkMode\n    tasks\n    "
+        "leetbook\n    __typename\n  }\n  userStatus {\n    isSignedIn\n    isAdmin\n    "
+        "isStaff\n    isSuperuser\n    isTranslator\n    isPremium\n    isVerified\n    "
+        "isPhoneVerified\n    isWechatVerified\n    checkedInToday\n    username\n    "
+        "realName\n    userSlug\n    groups\n    avatar\n    optedIn\n    "
+        "requestRegion\n    region\n    activeSessionId\n    permissions\n    notificationStatus {\n      "
+        "lastModified\n      numUnread\n      __typename\n    }\n    completedFeatureGuides\n    "
+        "useTranslation\n    accountStatus {\n      isFrozen\n      inactiveAfter\n      __typename\n    "
+        "}\n    __typename\n  }\n  siteRegion\n  chinaHost\n  websocketUrl\n  userBannedInfo {\n    "
+        "bannedData {\n      endAt\n      bannedType\n      __typename\n    }\n    __typename\n  }\n}\n",
+        "variables": {},
     }
     headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
-        'Chrome/77.0.3865.120 Safari/537.36',
-        'Connection': 'keep-alive',
-        'Content-Type': 'application/json',
-        'Referer': 'https://leetcode.cn/problems/' + question_title_slug,
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/77.0.3865.120 Safari/537.36",
+        "Connection": "keep-alive",
+        "Content-Type": "application/json",
+        "Referer": "https://leetcode.cn/problems/" + question_title_slug,
         # lc-cn cookie here
-        'cookie': '',
+        "cookie": "",
     }
     requests.post(
-        url='https://leetcode.cn/graphql',
+        url="https://leetcode.cn/graphql",
         data=json.dumps(form_data),
         headers=headers,
         timeout=10,
@@ -56,69 +60,141 @@ def get_question_detail(question_title_slug):
     )
 
     form_data = {
-        'operationName': 'questionData',
-        'variables': {'titleSlug': question_title_slug},
-        'query': 'query questionData($titleSlug: String!) {\n  question(titleSlug: $titleSlug) {\n    '
-        'questionId\n    questionFrontendId\n    categoryTitle\n    boundTopicId\n    title\n    '
-        'titleSlug\n    content\n    translatedTitle\n    translatedContent\n    isPaidOnly\n    '
-        'difficulty\n    likes\n    dislikes\n    isLiked\n    similarQuestions\n    '
-        'contributors {\n      username\n      profileUrl\n      avatarUrl\n      __typename\n    '
-        '}\n    langToValidPlayground\n    topicTags {\n      name\n      slug\n      '
-        'translatedName\n      __typename\n    }\n    companyTagStats\n    codeSnippets {\n      '
-        'lang\n      langSlug\n      code\n      __typename\n    }\n    stats\n    hints\n    '
-        'solution {\n      id\n      canSeeDetail\n      __typename\n    }\n    status\n    '
-        'sampleTestCase\n    metaData\n    judgerAvailable\n    judgeType\n    mysqlSchemas\n    '
-        'enableRunCode\n    envInfo\n    book {\n      id\n      bookName\n      pressName\n      '
-        'source\n      shortDescription\n      fullDescription\n      bookImgUrl\n      '
-        'pressImgUrl\n      productUrl\n      __typename\n    }\n    isSubscribed\n    '
-        'isDailyQuestion\n    dailyRecordStatus\n    editorType\n    ugcQuestionId\n    style\n    '
-        'exampleTestcases\n    __typename\n  }\n}\n',
+        "operationName": "questionData",
+        "variables": {"titleSlug": question_title_slug},
+        "query": "query questionData($titleSlug: String!) {\n  question(titleSlug: $titleSlug) {\n    "
+        "questionId\n    questionFrontendId\n    categoryTitle\n    boundTopicId\n    title\n    "
+        "titleSlug\n    content\n    translatedTitle\n    translatedContent\n    isPaidOnly\n    "
+        "difficulty\n    likes\n    dislikes\n    isLiked\n    similarQuestions\n    "
+        "contributors {\n      username\n      profileUrl\n      avatarUrl\n      __typename\n    "
+        "}\n    langToValidPlayground\n    topicTags {\n      name\n      slug\n      "
+        "translatedName\n      __typename\n    }\n    companyTagStats\n    codeSnippets {\n      "
+        "lang\n      langSlug\n      code\n      __typename\n    }\n    stats\n    hints\n    "
+        "solution {\n      id\n      canSeeDetail\n      __typename\n    }\n    status\n    "
+        "sampleTestCase\n    metaData\n    judgerAvailable\n    judgeType\n    mysqlSchemas\n    "
+        "enableRunCode\n    envInfo\n    book {\n      id\n      bookName\n      pressName\n      "
+        "source\n      shortDescription\n      fullDescription\n      bookImgUrl\n      "
+        "pressImgUrl\n      productUrl\n      __typename\n    }\n    isSubscribed\n    "
+        "isDailyQuestion\n    dailyRecordStatus\n    editorType\n    ugcQuestionId\n    style\n    "
+        "exampleTestcases\n    __typename\n  }\n}\n",
     }
 
     # get question detail
     resp = requests.post(
-        url='https://leetcode.cn/graphql',
-        data=json.dumps(form_data).encode('utf-8'),
+        url="https://leetcode.cn/graphql",
+        data=json.dumps(form_data).encode("utf-8"),
         headers=headers,
         timeout=10,
         verify=False,
     )
     res = resp.json()
-    return res['data']['question']
+    return res["data"]["question"]
 
+
+template = """
+{}
+
+# [{}. {}]({})
+
+## 题目描述
+
+<!-- 这里写题目描述 -->
+
+{}
+
+## 解法
+
+### 方法一
+
+<!-- tabs:start -->
+
+```python
+
+```
+
+```java
+
+```
+
+```cpp
+
+```
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- end -->
+"""
 
 for question in questions:
-    question_title_slug = question['titleSlug']
-    frontend_question_id = question['frontendQuestionId']
-    title = str(question['title']).strip()
-    title_cn = str(question['titleCn']).strip()
-    url = 'https://leetcode.cn/problems/' + question_title_slug
+    question_title_slug = question["titleSlug"]
+    frontend_question_id = question["frontendQuestionId"]
+    title = str(question["title"]).strip()
+    title_cn = str(question["titleCn"]).strip()
+    url = "https://leetcode.cn/problems/" + question_title_slug
     sub_folder = frontend_question_id + ". " + title_cn
-    topics = ','.join(
-        [f'`{topic["nameTranslated"]}`' for topic in question['topicTags']]
+    topics = ",".join(
+        [f'`{topic["nameTranslated"]}`' for topic in question["topicTags"]]
     )
-    path = f'./{sub_folder}'
-    diff = mp[question['difficulty']]
+    path = f"./{sub_folder}"
+    diff = mp[question["difficulty"]]
 
     question_detail = get_question_detail(question_title_slug)
-    content = question_detail['translatedContent']
-    if content is None:
+    question_content = question_detail["translatedContent"]
+    if question_content is None:
         continue
     path = path.replace(":", " ")
+    if not os.path.exists(path):
+        os.makedirs(path)
+    path = path + "/README.md"
+    relative_path = quote(f"/lcp/{sub_folder}/README.md")
+
+    metadata = {
+        "comments": True,
+        "edit_url": "https://github.com/doocs/leetcode/edit/main" + relative_path,
+        "difficulty": diff,
+    }
+    yaml_metadata = yaml.dump(metadata, default_flow_style=False, allow_unicode=True)
+    metadata_section = f"---\n{yaml_metadata}---"
+
+    # 判断是否存在该 README.md 文件
     if os.path.exists(path):
-        continue
-    os.makedirs(path)
+        with open(path, "r", encoding="utf-8") as f:
+            readme = f.read()
+            solutions = readme[readme.index("## 解法") :]
+            content = (
+                template[: template.index("## 解法")]
+                .lstrip()
+                .format(
+                    metadata_section,
+                    frontend_question_id,
+                    title_cn,
+                    url,
+                    question_content,
+                )
+                + solutions
+            )
+    else:
+        content = template.lstrip()
 
-    with open('./problem_readme_template.md', 'r', encoding='utf-8') as f:
-        readme = f.read()
-    with open(f'{path}/README.md', 'w', encoding='utf-8') as f1:
-        f1.write(readme.format(frontend_question_id, title_cn, url, content))
+    # 使用 re.findall 找到所有匹配项
+    matches = re.findall(pattern, content)
+    for url, filename in matches:
+        new_url = (
+            'https://fastly.jsdelivr.net/gh/doocs/leetcode@main'
+            + relative_path.replace("README.md", 'images/' + filename)
+        )
+        content = content.replace(url, new_url)
 
-    relative_path = quote(f'/lcp/{sub_folder}/README.md')
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(content)
     t = f"|  [{frontend_question_id}]({url})  |  [ {title_cn}]({relative_path})  | {topics} | {diff} |"
     print(t)
 
 res = os.listdir(".")
 for file in res:
-    if os.path.isdir("./" + file) and file != '__pycache__':
-        print(f'- [{file}](/lcp/{quote(file)}/README.md)')
+    if os.path.isdir("./" + file) and file != "__pycache__":
+        print(f"- [{file}](/lcp/{quote(file)}/README.md)")

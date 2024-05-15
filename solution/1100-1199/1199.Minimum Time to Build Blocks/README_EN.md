@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1199.Minimum%20Time%20to%20Build%20Blocks/README_EN.md
+rating: 2250
+tags:
+    - Greedy
+    - Array
+    - Math
+    - Heap (Priority Queue)
+---
+
 # [1199. Minimum Time to Build Blocks 🔒](https://leetcode.com/problems/minimum-time-to-build-blocks)
 
 [中文文档](/solution/1100-1199/1199.Minimum%20Time%20to%20Build%20Blocks/README.md)
-
-<!-- tags:Greedy,Array,Math,Heap (Priority Queue) -->
 
 ## Description
 

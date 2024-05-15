@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2258.Escape%20the%20Spreading%20Fire/README.md
+rating: 2346
+tags:
+    - 广度优先搜索
+    - 数组
+    - 二分查找
+    - 矩阵
+---
+
 # [2258. 逃离火灾](https://leetcode.cn/problems/escape-the-spreading-fire)
 
 [English Version](/solution/2200-2299/2258.Escape%20the%20Spreading%20Fire/README_EN.md)
-
-<!-- tags:广度优先搜索,数组,二分查找,矩阵 -->
 
 ## 题目描述
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0561.Array%20Partition/README.md
+tags:
+    - 贪心
+    - 数组
+    - 计数排序
+    - 排序
+---
+
 # [561. 数组拆分](https://leetcode.cn/problems/array-partition)
 
 [English Version](/solution/0500-0599/0561.Array%20Partition/README_EN.md)
-
-<!-- tags:贪心,数组,计数排序,排序 -->
 
 ## 题目描述
 

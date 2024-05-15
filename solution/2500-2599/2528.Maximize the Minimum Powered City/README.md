@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2528.Maximize%20the%20Minimum%20Powered%20City/README.md
+rating: 2235
+tags:
+    - 贪心
+    - 队列
+    - 数组
+    - 二分查找
+    - 前缀和
+    - 滑动窗口
+---
+
 # [2528. 最大化城市的最小电量](https://leetcode.cn/problems/maximize-the-minimum-powered-city)
 
 [English Version](/solution/2500-2599/2528.Maximize%20the%20Minimum%20Powered%20City/README_EN.md)
-
-<!-- tags:贪心,队列,数组,二分查找,前缀和,滑动窗口 -->
 
 ## 题目描述
 

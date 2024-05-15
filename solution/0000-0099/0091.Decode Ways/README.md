@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0091.Decode%20Ways/README.md
+tags:
+    - 字符串
+    - 动态规划
+---
+
 # [91. 解码方法](https://leetcode.cn/problems/decode-ways)
 
 [English Version](/solution/0000-0099/0091.Decode%20Ways/README_EN.md)
-
-<!-- tags:字符串,动态规划 -->
 
 ## 题目描述
 

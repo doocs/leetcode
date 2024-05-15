@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0390.Elimination%20Game/README_EN.md
+tags:
+    - Recursion
+    - Math
+---
+
 # [390. Elimination Game](https://leetcode.com/problems/elimination-game)
 
 [中文文档](/solution/0300-0399/0390.Elimination%20Game/README.md)
-
-<!-- tags:Recursion,Math -->
 
 ## Description
 

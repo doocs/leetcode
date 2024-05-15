@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1553.Minimum%20Number%20of%20Days%20to%20Eat%20N%20Oranges/README.md
+rating: 2048
+tags:
+    - 记忆化搜索
+    - 动态规划
+---
+
 # [1553. 吃掉 N 个橘子的最少天数](https://leetcode.cn/problems/minimum-number-of-days-to-eat-n-oranges)
 
 [English Version](/solution/1500-1599/1553.Minimum%20Number%20of%20Days%20to%20Eat%20N%20Oranges/README_EN.md)
-
-<!-- tags:记忆化搜索,动态规划 -->
 
 ## 题目描述
 
@@ -69,13 +77,30 @@
 
 ### 方法一：记忆化搜索
 
+根据题目描述，对于每个 $n$，我们可以选择三种方式之一：
+
+1. 将 $n$ 减少 $1$；
+2. 如果 $n$ 能被 $2$ 整除，将 $n$ 的值除以 $2$；
+3. 如果 $n$ 能被 $3$ 整除，将 $n$ 的值除以 $3$。
+
+因此，问题等价于求解通过上述三种方式，将 $n$ 减少到 $0$ 的最少天数。
+
+我们设计一个函数 $dfs(n)$，表示将 $n$ 减少到 $0$ 的最少天数。函数 $dfs(n)$ 的执行过程如下：
+
+1. 如果 $n < 2$，返回 $n$；
+2. 否则，我们可以先通过 $n \bmod 2$ 次操作 $1$，将 $n$ 减少到 $2$ 的倍数，然后执行操作 $2$，将 $n$ 减少到 $n/2$；我们也可以先通过 $n \bmod 3$ 次操作 $1$，将 $n$ 减少到 $3$ 的倍数，然后执行操作 $3$，将 $n$ 减少到 $n/3$。我们选择上述两种方式中最少的一种，即 $1 + \min(n \bmod 2 + dfs(n/2), n \bmod 3 + dfs(n/3))$。
+
+为了避免重复计算，我们使用记忆化搜索的方法，将已经计算过的 $dfs(n)$ 的值存储在哈希表中。
+
+时间复杂度 $O(\log^2 n)$，空间复杂度 $O(\log^2 n)$。
+
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def minDays(self, n: int) -> int:
         @cache
-        def dfs(n):
+        def dfs(n: int) -> int:
             if n < 2:
                 return n
             return 1 + min(n % 2 + dfs(n // 2), n % 3 + dfs(n // 3))
@@ -115,8 +140,12 @@ public:
     }
 
     int dfs(int n) {
-        if (n < 2) return n;
-        if (f.count(n)) return f[n];
+        if (n < 2) {
+            return n;
+        }
+        if (f.count(n)) {
+            return f[n];
+        }
         int res = 1 + min(n % 2 + dfs(n / 2), n % 3 + dfs(n / 3));
         f[n] = res;
         return res;
@@ -137,6 +166,23 @@ func minDays(n int) int {
 		return res
 	}
 	return dfs(n)
+}
+```
+
+```ts
+function minDays(n: number): number {
+    const f: Record<number, number> = {};
+    const dfs = (n: number): number => {
+        if (n < 2) {
+            return n;
+        }
+        if (f[n] !== undefined) {
+            return f[n];
+        }
+        f[n] = 1 + Math.min((n % 2) + dfs((n / 2) | 0), (n % 3) + dfs((n / 3) | 0));
+        return f[n];
+    };
+    return dfs(n);
 }
 ```
 

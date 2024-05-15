@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0352.Data%20Stream%20as%20Disjoint%20Intervals/README.md
+tags:
+    - 设计
+    - 二分查找
+    - 有序集合
+---
+
 # [352. 将数据流变为多个不相交区间](https://leetcode.cn/problems/data-stream-as-disjoint-intervals)
 
 [English Version](/solution/0300-0399/0352.Data%20Stream%20as%20Disjoint%20Intervals/README_EN.md)
-
-<!-- tags:设计,二分查找,有序集合 -->
 
 ## 题目描述
 

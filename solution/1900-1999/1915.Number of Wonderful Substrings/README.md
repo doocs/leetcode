@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1915.Number%20of%20Wonderful%20Substrings/README.md
+rating: 2234
+tags:
+    - 位运算
+    - 哈希表
+    - 字符串
+    - 前缀和
+---
+
 # [1915. 最美子字符串的数目](https://leetcode.cn/problems/number-of-wonderful-substrings)
 
 [English Version](/solution/1900-1999/1915.Number%20of%20Wonderful%20Substrings/README_EN.md)
-
-<!-- tags:位运算,哈希表,字符串,前缀和 -->
 
 ## 题目描述
 

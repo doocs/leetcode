@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0992.Subarrays%20with%20K%20Different%20Integers/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Counting
+    - Sliding Window
+---
+
 # [992. Subarrays with K Different Integers](https://leetcode.com/problems/subarrays-with-k-different-integers)
 
 [中文文档](/solution/0900-0999/0992.Subarrays%20with%20K%20Different%20Integers/README.md)
-
-<!-- tags:Array,Hash Table,Counting,Sliding Window -->
 
 ## Description
 

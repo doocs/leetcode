@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0612.Shortest%20Distance%20in%20a%20Plane/README.md
+tags:
+    - 数据库
+---
+
 # [612. 平面上的最近距离 🔒](https://leetcode.cn/problems/shortest-distance-in-a-plane)
 
 [English Version](/solution/0600-0699/0612.Shortest%20Distance%20in%20a%20Plane/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

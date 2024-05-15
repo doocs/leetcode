@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20061.%20%E5%92%8C%E6%9C%80%E5%B0%8F%E7%9A%84%20k%20%E4%B8%AA%E6%95%B0%E5%AF%B9/README.md
+---
+
 # [剑指 Offer II 061. 和最小的 k 个数对](https://leetcode.cn/problems/qn8gGX)
 
 ## 题目描述

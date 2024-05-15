@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2341.Maximum%20Number%20of%20Pairs%20in%20Array/README.md
+rating: 1184
+tags:
+    - 数组
+    - 哈希表
+    - 计数
+---
+
 # [2341. 数组能形成多少数对](https://leetcode.cn/problems/maximum-number-of-pairs-in-array)
 
 [English Version](/solution/2300-2399/2341.Maximum%20Number%20of%20Pairs%20in%20Array/README_EN.md)
-
-<!-- tags:数组,哈希表,计数 -->
 
 ## 题目描述
 

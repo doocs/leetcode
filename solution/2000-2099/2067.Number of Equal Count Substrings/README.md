@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2067.Number%20of%20Equal%20Count%20Substrings/README.md
+tags:
+    - 字符串
+    - 计数
+    - 前缀和
+---
+
 # [2067. 等计数子串的数量 🔒](https://leetcode.cn/problems/number-of-equal-count-substrings)
 
 [English Version](/solution/2000-2099/2067.Number%20of%20Equal%20Count%20Substrings/README_EN.md)
-
-<!-- tags:字符串,计数,前缀和 -->
 
 ## 题目描述
 

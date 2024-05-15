@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20069.%20%E5%B1%B1%E5%B3%B0%E6%95%B0%E7%BB%84%E7%9A%84%E9%A1%B6%E9%83%A8/README.md
+---
+
 # [剑指 Offer II 069. 山峰数组的顶部](https://leetcode.cn/problems/B1IidL)
 
 ## 题目描述

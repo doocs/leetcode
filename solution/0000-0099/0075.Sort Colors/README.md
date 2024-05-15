@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0075.Sort%20Colors/README.md
+tags:
+    - 数组
+    - 双指针
+    - 排序
+---
+
 # [75. 颜色分类](https://leetcode.cn/problems/sort-colors)
 
 [English Version](/solution/0000-0099/0075.Sort%20Colors/README_EN.md)
-
-<!-- tags:数组,双指针,排序 -->
 
 ## 题目描述
 

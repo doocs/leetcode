@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2899.Last%20Visited%20Integers/README_EN.md
+rating: 1372
+tags:
+    - Array
+    - Simulation
+---
+
 # [2899. Last Visited Integers](https://leetcode.com/problems/last-visited-integers)
 
 [中文文档](/solution/2800-2899/2899.Last%20Visited%20Integers/README.md)
-
-<!-- tags:Array,Simulation -->
 
 ## Description
 

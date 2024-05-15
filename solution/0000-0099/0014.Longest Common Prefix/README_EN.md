@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0014.Longest%20Common%20Prefix/README_EN.md
+tags:
+    - Trie
+    - String
+---
+
 # [14. Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix)
 
 [中文文档](/solution/0000-0099/0014.Longest%20Common%20Prefix/README.md)
-
-<!-- tags:Trie,String -->
 
 ## Description
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0773.Sliding%20Puzzle/README.md
+tags:
+    - 广度优先搜索
+    - 数组
+    - 矩阵
+---
+
 # [773. 滑动谜题](https://leetcode.cn/problems/sliding-puzzle)
 
 [English Version](/solution/0700-0799/0773.Sliding%20Puzzle/README_EN.md)
-
-<!-- tags:广度优先搜索,数组,矩阵 -->
 
 ## 题目描述
 

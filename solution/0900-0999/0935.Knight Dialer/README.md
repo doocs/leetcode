@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0935.Knight%20Dialer/README.md
+tags:
+    - 动态规划
+---
+
 # [935. 骑士拨号器](https://leetcode.cn/problems/knight-dialer)
 
 [English Version](/solution/0900-0999/0935.Knight%20Dialer/README_EN.md)
-
-<!-- tags:动态规划 -->
 
 ## 题目描述
 

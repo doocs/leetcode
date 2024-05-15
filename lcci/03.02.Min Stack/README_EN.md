@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.02.Min%20Stack/README_EN.md
+---
+
 # [03.02. Min Stack](https://leetcode.cn/problems/min-stack-lcci)
 
 [中文文档](/lcci/03.02.Min%20Stack/README.md)

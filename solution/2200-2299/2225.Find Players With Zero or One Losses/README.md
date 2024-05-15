@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2225.Find%20Players%20With%20Zero%20or%20One%20Losses/README.md
+rating: 1316
+tags:
+    - 数组
+    - 哈希表
+    - 计数
+    - 排序
+---
+
 # [2225. 找出输掉零场或一场比赛的玩家](https://leetcode.cn/problems/find-players-with-zero-or-one-losses)
 
 [English Version](/solution/2200-2299/2225.Find%20Players%20With%20Zero%20or%20One%20Losses/README_EN.md)
-
-<!-- tags:数组,哈希表,计数,排序 -->
 
 ## 题目描述
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1012.Numbers%20With%20Repeated%20Digits/README.md
+rating: 2230
+tags:
+    - 数学
+    - 动态规划
+---
+
 # [1012. 至少有 1 位重复的数字](https://leetcode.cn/problems/numbers-with-repeated-digits)
 
 [English Version](/solution/1000-1099/1012.Numbers%20With%20Repeated%20Digits/README_EN.md)
-
-<!-- tags:数学,动态规划 -->
 
 ## 题目描述
 

@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0693.Binary%20Number%20with%20Alternating%20Bits/README_EN.md
+tags:
+    - Bit Manipulation
+---
+
 # [693. Binary Number with Alternating Bits](https://leetcode.com/problems/binary-number-with-alternating-bits)
 
 [中文文档](/solution/0600-0699/0693.Binary%20Number%20with%20Alternating%20Bits/README.md)
-
-<!-- tags:Bit Manipulation -->
 
 ## Description
 

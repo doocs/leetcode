@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0651.4%20Keys%20Keyboard/README_EN.md
+tags:
+    - Math
+    - Dynamic Programming
+---
+
 # [651. 4 Keys Keyboard 🔒](https://leetcode.com/problems/4-keys-keyboard)
 
 [中文文档](/solution/0600-0699/0651.4%20Keys%20Keyboard/README.md)
-
-<!-- tags:Math,Dynamic Programming -->
 
 ## Description
 

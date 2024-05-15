@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2646.Minimize%20the%20Total%20Price%20of%20the%20Trips/README_EN.md
+rating: 2238
+tags:
+    - Tree
+    - Depth-First Search
+    - Graph
+    - Array
+    - Dynamic Programming
+---
+
 # [2646. Minimize the Total Price of the Trips](https://leetcode.com/problems/minimize-the-total-price-of-the-trips)
 
 [中文文档](/solution/2600-2699/2646.Minimize%20the%20Total%20Price%20of%20the%20Trips/README.md)
-
-<!-- tags:Tree,Depth-First Search,Graph,Array,Dynamic Programming -->
 
 ## Description
 

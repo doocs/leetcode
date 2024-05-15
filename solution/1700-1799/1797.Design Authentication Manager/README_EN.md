@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1797.Design%20Authentication%20Manager/README_EN.md
+rating: 1534
+tags:
+    - Design
+    - Hash Table
+---
+
 # [1797. Design Authentication Manager](https://leetcode.com/problems/design-authentication-manager)
 
 [中文文档](/solution/1700-1799/1797.Design%20Authentication%20Manager/README.md)
-
-<!-- tags:Design,Hash Table -->
 
 ## Description
 

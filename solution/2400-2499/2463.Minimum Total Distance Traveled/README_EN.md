@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2463.Minimum%20Total%20Distance%20Traveled/README_EN.md
+rating: 2453
+tags:
+    - Array
+    - Dynamic Programming
+    - Sorting
+---
+
 # [2463. Minimum Total Distance Traveled](https://leetcode.com/problems/minimum-total-distance-traveled)
 
 [中文文档](/solution/2400-2499/2463.Minimum%20Total%20Distance%20Traveled/README.md)
-
-<!-- tags:Array,Dynamic Programming,Sorting -->
 
 ## Description
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0074.Search%20a%202D%20Matrix/README.md
+tags:
+    - 数组
+    - 二分查找
+    - 矩阵
+---
+
 # [74. 搜索二维矩阵](https://leetcode.cn/problems/search-a-2d-matrix)
 
 [English Version](/solution/0000-0099/0074.Search%20a%202D%20Matrix/README_EN.md)
-
-<!-- tags:数组,二分查找,矩阵 -->
 
 ## 题目描述
 

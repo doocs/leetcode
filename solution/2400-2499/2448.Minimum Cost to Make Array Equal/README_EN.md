@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2448.Minimum%20Cost%20to%20Make%20Array%20Equal/README_EN.md
+rating: 2005
+tags:
+    - Greedy
+    - Array
+    - Binary Search
+    - Prefix Sum
+    - Sorting
+---
+
 # [2448. Minimum Cost to Make Array Equal](https://leetcode.com/problems/minimum-cost-to-make-array-equal)
 
 [中文文档](/solution/2400-2499/2448.Minimum%20Cost%20to%20Make%20Array%20Equal/README.md)
-
-<!-- tags:Greedy,Array,Binary Search,Prefix Sum,Sorting -->
 
 ## Description
 

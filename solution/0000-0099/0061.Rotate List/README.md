@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0061.Rotate%20List/README.md
+tags:
+    - 链表
+    - 双指针
+---
+
 # [61. 旋转链表](https://leetcode.cn/problems/rotate-list)
 
 [English Version](/solution/0000-0099/0061.Rotate%20List/README_EN.md)
-
-<!-- tags:链表,双指针 -->
 
 ## 题目描述
 

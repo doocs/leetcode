@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20082.%20%E5%90%AB%E6%9C%89%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0%E9%9B%86%E5%90%88%E7%9A%84%E7%BB%84%E5%90%88/README.md
+---
+
 # [剑指 Offer II 082. 含有重复元素集合的组合](https://leetcode.cn/problems/4sjJUc)
 
 ## 题目描述

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1424.Diagonal%20Traverse%20II/README.md
+rating: 1779
+tags:
+    - 数组
+    - 排序
+    - 堆（优先队列）
+---
+
 # [1424. 对角线遍历 II](https://leetcode.cn/problems/diagonal-traverse-ii)
 
 [English Version](/solution/1400-1499/1424.Diagonal%20Traverse%20II/README_EN.md)
-
-<!-- tags:数组,排序,堆（优先队列） -->
 
 ## 题目描述
 

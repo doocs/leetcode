@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2788.Split%20Strings%20by%20Separator/README_EN.md
+rating: 1239
+tags:
+    - Array
+    - String
+---
+
 # [2788. Split Strings by Separator](https://leetcode.com/problems/split-strings-by-separator)
 
 [中文文档](/solution/2700-2799/2788.Split%20Strings%20by%20Separator/README.md)
-
-<!-- tags:Array,String -->
 
 ## Description
 

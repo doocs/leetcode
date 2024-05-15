@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20020.%20%E5%9B%9E%E6%96%87%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E4%B8%AA%E6%95%B0/README.md
+---
+
 # [剑指 Offer II 020. 回文子字符串的个数](https://leetcode.cn/problems/a7VOhD)
 
 ## 题目描述

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0096.Unique%20Binary%20Search%20Trees/README.md
+tags:
+    - 树
+    - 二叉搜索树
+    - 数学
+    - 动态规划
+    - 二叉树
+---
+
 # [96. 不同的二叉搜索树](https://leetcode.cn/problems/unique-binary-search-trees)
 
 [English Version](/solution/0000-0099/0096.Unique%20Binary%20Search%20Trees/README_EN.md)
-
-<!-- tags:树,二叉搜索树,数学,动态规划,二叉树 -->
 
 ## 题目描述
 

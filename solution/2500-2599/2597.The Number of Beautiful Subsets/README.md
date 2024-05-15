@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2597.The%20Number%20of%20Beautiful%20Subsets/README.md
+rating: 2023
+tags:
+    - 数组
+    - 动态规划
+    - 回溯
+    - 排序
+---
+
 # [2597. 美丽子集的数目](https://leetcode.cn/problems/the-number-of-beautiful-subsets)
 
 [English Version](/solution/2500-2599/2597.The%20Number%20of%20Beautiful%20Subsets/README_EN.md)
-
-<!-- tags:数组,动态规划,回溯,排序 -->
 
 ## 题目描述
 

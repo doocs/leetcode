@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0777.Swap%20Adjacent%20in%20LR%20String/README_EN.md
+tags:
+    - Two Pointers
+    - String
+---
+
 # [777. Swap Adjacent in LR String](https://leetcode.com/problems/swap-adjacent-in-lr-string)
 
 [中文文档](/solution/0700-0799/0777.Swap%20Adjacent%20in%20LR%20String/README.md)
-
-<!-- tags:Two Pointers,String -->
 
 ## Description
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0357.Count%20Numbers%20with%20Unique%20Digits/README.md
+tags:
+    - 数学
+    - 动态规划
+    - 回溯
+---
+
 # [357. 统计各位数字都不同的数字个数](https://leetcode.cn/problems/count-numbers-with-unique-digits)
 
 [English Version](/solution/0300-0399/0357.Count%20Numbers%20with%20Unique%20Digits/README_EN.md)
-
-<!-- tags:数学,动态规划,回溯 -->
 
 ## 题目描述
 

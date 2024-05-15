@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2826.Sorting%20Three%20Groups/README_EN.md
+rating: 1721
+tags:
+    - Array
+    - Binary Search
+    - Dynamic Programming
+---
+
 # [2826. Sorting Three Groups](https://leetcode.com/problems/sorting-three-groups)
 
 [中文文档](/solution/2800-2899/2826.Sorting%20Three%20Groups/README.md)
-
-<!-- tags:Array,Binary Search,Dynamic Programming -->
 
 ## Description
 

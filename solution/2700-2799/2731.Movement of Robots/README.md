@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2731.Movement%20of%20Robots/README.md
+rating: 1922
+tags:
+    - 脑筋急转弯
+    - 数组
+    - 前缀和
+    - 排序
+---
+
 # [2731. 移动机器人](https://leetcode.cn/problems/movement-of-robots)
 
 [English Version](/solution/2700-2799/2731.Movement%20of%20Robots/README_EN.md)
-
-<!-- tags:脑筋急转弯,数组,前缀和,排序 -->
 
 ## 题目描述
 

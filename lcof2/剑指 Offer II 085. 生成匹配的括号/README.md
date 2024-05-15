@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20085.%20%E7%94%9F%E6%88%90%E5%8C%B9%E9%85%8D%E7%9A%84%E6%8B%AC%E5%8F%B7/README.md
+---
+
 # [剑指 Offer II 085. 生成匹配的括号](https://leetcode.cn/problems/IDBivT)
 
 ## 题目描述

@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.07.Intersection%20of%20Two%20Linked%20Lists/README_EN.md
+---
+
 # [02.07. Intersection of Two Linked Lists](https://leetcode.cn/problems/intersection-of-two-linked-lists-lcci)
 
 [中文文档](/lcci/02.07.Intersection%20of%20Two%20Linked%20Lists/README.md)

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2218.Maximum%20Value%20of%20K%20Coins%20From%20Piles/README.md
+rating: 2157
+tags:
+    - 数组
+    - 动态规划
+    - 前缀和
+---
+
 # [2218. 从栈中取出 K 个硬币的最大面值和](https://leetcode.cn/problems/maximum-value-of-k-coins-from-piles)
 
 [English Version](/solution/2200-2299/2218.Maximum%20Value%20of%20K%20Coins%20From%20Piles/README_EN.md)
-
-<!-- tags:数组,动态规划,前缀和 -->
 
 ## 题目描述
 

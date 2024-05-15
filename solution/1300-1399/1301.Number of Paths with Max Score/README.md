@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1301.Number%20of%20Paths%20with%20Max%20Score/README.md
+rating: 1853
+tags:
+    - 数组
+    - 动态规划
+    - 矩阵
+---
+
 # [1301. 最大得分的路径数目](https://leetcode.cn/problems/number-of-paths-with-max-score)
 
 [English Version](/solution/1300-1399/1301.Number%20of%20Paths%20with%20Max%20Score/README_EN.md)
-
-<!-- tags:数组,动态规划,矩阵 -->
 
 ## 题目描述
 

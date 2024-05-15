@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0325.Maximum%20Size%20Subarray%20Sum%20Equals%20k/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 前缀和
+---
+
 # [325. 和等于 k 的最长子数组长度 🔒](https://leetcode.cn/problems/maximum-size-subarray-sum-equals-k)
 
 [English Version](/solution/0300-0399/0325.Maximum%20Size%20Subarray%20Sum%20Equals%20k/README_EN.md)
-
-<!-- tags:数组,哈希表,前缀和 -->
 
 ## 题目描述
 

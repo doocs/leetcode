@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0827.Making%20A%20Large%20Island/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 并查集
+    - 数组
+    - 矩阵
+---
+
 # [827. 最大人工岛](https://leetcode.cn/problems/making-a-large-island)
 
 [English Version](/solution/0800-0899/0827.Making%20A%20Large%20Island/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,并查集,数组,矩阵 -->
 
 ## 题目描述
 

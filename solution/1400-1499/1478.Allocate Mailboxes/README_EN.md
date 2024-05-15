@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1478.Allocate%20Mailboxes/README_EN.md
+rating: 2190
+tags:
+    - Array
+    - Math
+    - Dynamic Programming
+    - Sorting
+---
+
 # [1478. Allocate Mailboxes](https://leetcode.com/problems/allocate-mailboxes)
 
 [中文文档](/solution/1400-1499/1478.Allocate%20Mailboxes/README.md)
-
-<!-- tags:Array,Math,Dynamic Programming,Sorting -->
 
 ## Description
 

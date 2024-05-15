@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.03.Stack%20of%20Plates/README_EN.md
+---
+
 # [03.03. Stack of Plates](https://leetcode.cn/problems/stack-of-plates-lcci)
 
 [中文文档](/lcci/03.03.Stack%20of%20Plates/README.md)

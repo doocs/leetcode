@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1417.Reformat%20The%20String/README.md
+rating: 1241
+tags:
+    - 字符串
+---
+
 # [1417. 重新格式化字符串](https://leetcode.cn/problems/reformat-the-string)
 
 [English Version](/solution/1400-1499/1417.Reformat%20The%20String/README_EN.md)
-
-<!-- tags:字符串 -->
 
 ## 题目描述
 

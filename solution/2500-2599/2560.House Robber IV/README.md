@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2560.House%20Robber%20IV/README.md
+rating: 2081
+tags:
+    - 数组
+    - 二分查找
+---
+
 # [2560. 打家劫舍 IV](https://leetcode.cn/problems/house-robber-iv)
 
 [English Version](/solution/2500-2599/2560.House%20Robber%20IV/README_EN.md)
-
-<!-- tags:数组,二分查找 -->
 
 ## 题目描述
 

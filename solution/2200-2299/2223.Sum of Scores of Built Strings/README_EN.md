@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2223.Sum%20of%20Scores%20of%20Built%20Strings/README_EN.md
+rating: 2220
+tags:
+    - String
+    - Binary Search
+    - String Matching
+    - Suffix Array
+    - Hash Function
+    - Rolling Hash
+---
+
 # [2223. Sum of Scores of Built Strings](https://leetcode.com/problems/sum-of-scores-of-built-strings)
 
 [中文文档](/solution/2200-2299/2223.Sum%20of%20Scores%20of%20Built%20Strings/README.md)
-
-<!-- tags:String,Binary Search,String Matching,Suffix Array,Hash Function,Rolling Hash -->
 
 ## Description
 

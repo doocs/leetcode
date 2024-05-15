@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.03.Reverse%20Bits/README_EN.md
+---
+
 # [05.03. Reverse Bits](https://leetcode.cn/problems/reverse-bits-lcci)
 
 [中文文档](/lcci/05.03.Reverse%20Bits/README.md)

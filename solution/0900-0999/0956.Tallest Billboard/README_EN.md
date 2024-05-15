@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0956.Tallest%20Billboard/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [956. Tallest Billboard](https://leetcode.com/problems/tallest-billboard)
 
 [中文文档](/solution/0900-0999/0956.Tallest%20Billboard/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
 
 ## Description
 

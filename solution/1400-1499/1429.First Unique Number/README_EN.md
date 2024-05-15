@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1429.First%20Unique%20Number/README_EN.md
+tags:
+    - Design
+    - Queue
+    - Array
+    - Hash Table
+    - Data Stream
+---
+
 # [1429. First Unique Number 🔒](https://leetcode.com/problems/first-unique-number)
 
 [中文文档](/solution/1400-1499/1429.First%20Unique%20Number/README.md)
-
-<!-- tags:Design,Queue,Array,Hash Table,Data Stream -->
 
 ## Description
 

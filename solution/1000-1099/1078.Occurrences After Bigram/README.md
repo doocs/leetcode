@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1078.Occurrences%20After%20Bigram/README.md
+rating: 1274
+tags:
+    - 字符串
+---
+
 # [1078. Bigram 分词](https://leetcode.cn/problems/occurrences-after-bigram)
 
 [English Version](/solution/1000-1099/1078.Occurrences%20After%20Bigram/README_EN.md)
-
-<!-- tags:字符串 -->
 
 ## 题目描述
 

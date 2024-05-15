@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1354.Construct%20Target%20Array%20With%20Multiple%20Sums/README.md
+rating: 2014
+tags:
+    - 数组
+    - 堆（优先队列）
+---
+
 # [1354. 多次求和构造目标数组](https://leetcode.cn/problems/construct-target-array-with-multiple-sums)
 
 [English Version](/solution/1300-1399/1354.Construct%20Target%20Array%20With%20Multiple%20Sums/README_EN.md)
-
-<!-- tags:数组,堆（优先队列） -->
 
 ## 题目描述
 

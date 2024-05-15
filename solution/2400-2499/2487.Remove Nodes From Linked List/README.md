@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2487.Remove%20Nodes%20From%20Linked%20List/README.md
+rating: 1454
+tags:
+    - 栈
+    - 递归
+    - 链表
+    - 单调栈
+---
+
 # [2487. 从链表中移除节点](https://leetcode.cn/problems/remove-nodes-from-linked-list)
 
 [English Version](/solution/2400-2499/2487.Remove%20Nodes%20From%20Linked%20List/README_EN.md)
-
-<!-- tags:栈,递归,链表,单调栈 -->
 
 ## 题目描述
 

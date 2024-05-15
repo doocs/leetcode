@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1436.Destination%20City/README_EN.md
+rating: 1192
+tags:
+    - Array
+    - Hash Table
+    - String
+---
+
 # [1436. Destination City](https://leetcode.com/problems/destination-city)
 
 [中文文档](/solution/1400-1499/1436.Destination%20City/README.md)
-
-<!-- tags:Array,Hash Table,String -->
 
 ## Description
 

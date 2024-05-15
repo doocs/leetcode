@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1104.Path%20In%20Zigzag%20Labelled%20Binary%20Tree/README.md
+rating: 1544
+tags:
+    - 树
+    - 数学
+    - 二叉树
+---
+
 # [1104. 二叉树寻路](https://leetcode.cn/problems/path-in-zigzag-labelled-binary-tree)
 
 [English Version](/solution/1100-1199/1104.Path%20In%20Zigzag%20Labelled%20Binary%20Tree/README_EN.md)
-
-<!-- tags:树,数学,二叉树 -->
 
 ## 题目描述
 

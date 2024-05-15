@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1039.Minimum%20Score%20Triangulation%20of%20Polygon/README.md
+rating: 2130
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [1039. 多边形三角剖分的最低得分](https://leetcode.cn/problems/minimum-score-triangulation-of-polygon)
 
 [English Version](/solution/1000-1099/1039.Minimum%20Score%20Triangulation%20of%20Polygon/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
 
 ## 题目描述
 

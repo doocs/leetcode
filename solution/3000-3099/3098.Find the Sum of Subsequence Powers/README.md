@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3098.Find%20the%20Sum%20of%20Subsequence%20Powers/README.md
+rating: 2552
+tags:
+    - 数组
+    - 动态规划
+    - 排序
+---
+
 # [3098. 求出所有子序列的能量和](https://leetcode.cn/problems/find-the-sum-of-subsequence-powers)
 
 [English Version](/solution/3000-3099/3098.Find%20the%20Sum%20of%20Subsequence%20Powers/README_EN.md)
-
-<!-- tags:数组,动态规划,排序 -->
 
 ## 题目描述
 

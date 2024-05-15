@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.06.Number%20Of%202s%20In%20Range/README.md
+---
+
 # [面试题 17.06. 2 出现的次数](https://leetcode.cn/problems/number-of-2s-in-range-lcci)
 
 [English Version](/lcci/17.06.Number%20Of%202s%20In%20Range/README_EN.md)
@@ -190,6 +196,45 @@ func numberOf2sInRange(n int) int {
 		return ans
 	}
 	return dfs(l, 0, true)
+}
+```
+
+```swift
+class Solution {
+    private var a = [Int](repeating: 0, count: 12)
+    private var dp = [[Int]](repeating: [Int](repeating: -1, count: 12), count: 12)
+
+    func numberOf2sInRange(_ n: Int) -> Int {
+        var n = n
+        var len = 0
+        while n > 0 {
+            len += 1
+            a[len] = n % 10
+            n /= 10
+        }
+        for i in 0..<12 {
+            dp[i] = [Int](repeating: -1, count: 12)
+        }
+        return dfs(len, 0, true)
+    }
+
+    private func dfs(_ pos: Int, _ cnt: Int, _ limit: Bool) -> Int {
+        if pos <= 0 {
+            return cnt
+        }
+        if !limit && dp[pos][cnt] != -1 {
+            return dp[pos][cnt]
+        }
+        let up = limit ? a[pos] : 9
+        var ans = 0
+        for i in 0...up {
+            ans += dfs(pos - 1, cnt + (i == 2 ? 1 : 0), limit && i == up)
+        }
+        if !limit {
+            dp[pos][cnt] = ans
+        }
+        return ans
+    }
 }
 ```
 

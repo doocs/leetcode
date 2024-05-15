@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0263.Ugly%20Number/README.md
+tags:
+    - 数学
+---
+
 # [263. 丑数](https://leetcode.cn/problems/ugly-number)
 
 [English Version](/solution/0200-0299/0263.Ugly%20Number/README_EN.md)
-
-<!-- tags:数学 -->
 
 ## 题目描述
 

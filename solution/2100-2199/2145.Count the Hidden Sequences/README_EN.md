@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2145.Count%20the%20Hidden%20Sequences/README_EN.md
+rating: 1614
+tags:
+    - Array
+    - Prefix Sum
+---
+
 # [2145. Count the Hidden Sequences](https://leetcode.com/problems/count-the-hidden-sequences)
 
 [中文文档](/solution/2100-2199/2145.Count%20the%20Hidden%20Sequences/README.md)
-
-<!-- tags:Array,Prefix Sum -->
 
 ## Description
 

@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.26.Sparse%20Similarity/README.md
+---
+
 # [面试题 17.26. 稀疏相似度](https://leetcode.cn/problems/sparse-similarity-lcci)
 
 [English Version](/lcci/17.26.Sparse%20Similarity/README_EN.md)

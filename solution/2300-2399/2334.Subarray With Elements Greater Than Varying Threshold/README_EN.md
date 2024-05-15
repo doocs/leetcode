@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2334.Subarray%20With%20Elements%20Greater%20Than%20Varying%20Threshold/README_EN.md
+rating: 2381
+tags:
+    - Stack
+    - Union Find
+    - Array
+    - Monotonic Stack
+---
+
 # [2334. Subarray With Elements Greater Than Varying Threshold](https://leetcode.com/problems/subarray-with-elements-greater-than-varying-threshold)
 
 [中文文档](/solution/2300-2399/2334.Subarray%20With%20Elements%20Greater%20Than%20Varying%20Threshold/README.md)
-
-<!-- tags:Stack,Union Find,Array,Monotonic Stack -->
 
 ## Description
 

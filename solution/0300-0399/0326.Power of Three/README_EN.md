@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0326.Power%20of%20Three/README_EN.md
+tags:
+    - Recursion
+    - Math
+---
+
 # [326. Power of Three](https://leetcode.com/problems/power-of-three)
 
 [中文文档](/solution/0300-0399/0326.Power%20of%20Three/README.md)
-
-<!-- tags:Recursion,Math -->
 
 ## Description
 

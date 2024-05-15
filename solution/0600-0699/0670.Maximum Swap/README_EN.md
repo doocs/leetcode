@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0670.Maximum%20Swap/README_EN.md
+tags:
+    - Greedy
+    - Math
+---
+
 # [670. Maximum Swap](https://leetcode.com/problems/maximum-swap)
 
 [中文文档](/solution/0600-0699/0670.Maximum%20Swap/README.md)
-
-<!-- tags:Greedy,Math -->
 
 ## Description
 

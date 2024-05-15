@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0281.Zigzag%20Iterator/README.md
+tags:
+    - 设计
+    - 队列
+    - 数组
+    - 迭代器
+---
+
 # [281. 锯齿迭代器 🔒](https://leetcode.cn/problems/zigzag-iterator)
 
 [English Version](/solution/0200-0299/0281.Zigzag%20Iterator/README_EN.md)
-
-<!-- tags:设计,队列,数组,迭代器 -->
 
 ## 题目描述
 

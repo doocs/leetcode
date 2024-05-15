@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0642.Design%20Search%20Autocomplete%20System/README_EN.md
+tags:
+    - Design
+    - Trie
+    - String
+    - Data Stream
+    - Sorting
+    - Heap (Priority Queue)
+---
+
 # [642. Design Search Autocomplete System 🔒](https://leetcode.com/problems/design-search-autocomplete-system)
 
 [中文文档](/solution/0600-0699/0642.Design%20Search%20Autocomplete%20System/README.md)
-
-<!-- tags:Design,Trie,String,Data Stream,Sorting,Heap (Priority Queue) -->
 
 ## Description
 

@@ -1,8 +1,21 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2368.Reachable%20Nodes%20With%20Restrictions/README.md
+rating: 1476
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 并查集
+    - 图
+    - 数组
+    - 哈希表
+---
+
 # [2368. 受限条件下可到达节点的数目](https://leetcode.cn/problems/reachable-nodes-with-restrictions)
 
 [English Version](/solution/2300-2399/2368.Reachable%20Nodes%20With%20Restrictions/README_EN.md)
-
-<!-- tags:树,深度优先搜索,广度优先搜索,并查集,图,数组,哈希表 -->
 
 ## 题目描述
 

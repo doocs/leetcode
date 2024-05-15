@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1829.Maximum%20XOR%20for%20Each%20Query/README_EN.md
+rating: 1523
+tags:
+    - Bit Manipulation
+    - Array
+    - Prefix Sum
+---
+
 # [1829. Maximum XOR for Each Query](https://leetcode.com/problems/maximum-xor-for-each-query)
 
 [中文文档](/solution/1800-1899/1829.Maximum%20XOR%20for%20Each%20Query/README.md)
-
-<!-- tags:Bit Manipulation,Array,Prefix Sum -->
 
 ## Description
 

@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2519.Count%20the%20Number%20of%20K-Big%20Indices/README.md
+tags:
+    - 树状数组
+    - 线段树
+    - 数组
+    - 二分查找
+    - 分治
+    - 有序集合
+    - 归并排序
+---
+
 # [2519. 统计 K-Big 索引的数量 🔒](https://leetcode.cn/problems/count-the-number-of-k-big-indices)
 
 [English Version](/solution/2500-2599/2519.Count%20the%20Number%20of%20K-Big%20Indices/README_EN.md)
-
-<!-- tags:树状数组,线段树,数组,二分查找,分治,有序集合,归并排序 -->
 
 ## 题目描述
 

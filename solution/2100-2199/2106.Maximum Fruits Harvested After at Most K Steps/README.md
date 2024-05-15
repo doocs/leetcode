@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2106.Maximum%20Fruits%20Harvested%20After%20at%20Most%20K%20Steps/README.md
+rating: 2062
+tags:
+    - 数组
+    - 二分查找
+    - 前缀和
+    - 滑动窗口
+---
+
 # [2106. 摘水果](https://leetcode.cn/problems/maximum-fruits-harvested-after-at-most-k-steps)
 
 [English Version](/solution/2100-2199/2106.Maximum%20Fruits%20Harvested%20After%20at%20Most%20K%20Steps/README_EN.md)
-
-<!-- tags:数组,二分查找,前缀和,滑动窗口 -->
 
 ## 题目描述
 

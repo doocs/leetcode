@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1675.Minimize%20Deviation%20in%20Array/README.md
+rating: 2533
+tags:
+    - 贪心
+    - 数组
+    - 有序集合
+    - 堆（优先队列）
+---
+
 # [1675. 数组的最小偏移量](https://leetcode.cn/problems/minimize-deviation-in-array)
 
 [English Version](/solution/1600-1699/1675.Minimize%20Deviation%20in%20Array/README_EN.md)
-
-<!-- tags:贪心,数组,有序集合,堆（优先队列） -->
 
 ## 题目描述
 

@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0998.Maximum%20Binary%20Tree%20II/README_EN.md
+tags:
+    - Tree
+    - Binary Tree
+---
+
 # [998. Maximum Binary Tree II](https://leetcode.com/problems/maximum-binary-tree-ii)
 
 [中文文档](/solution/0900-0999/0998.Maximum%20Binary%20Tree%20II/README.md)
-
-<!-- tags:Tree,Binary Tree -->
 
 ## Description
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0498.Diagonal%20Traverse/README_EN.md
+tags:
+    - Array
+    - Matrix
+    - Simulation
+---
+
 # [498. Diagonal Traverse](https://leetcode.com/problems/diagonal-traverse)
 
 [中文文档](/solution/0400-0499/0498.Diagonal%20Traverse/README.md)
-
-<!-- tags:Array,Matrix,Simulation -->
 
 ## Description
 

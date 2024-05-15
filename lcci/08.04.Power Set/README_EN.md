@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.04.Power%20Set/README_EN.md
+---
+
 # [08.04. Power Set](https://leetcode.cn/problems/power-set-lcci)
 
 [中文文档](/lcci/08.04.Power%20Set/README.md)

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0947.Most%20Stones%20Removed%20with%20Same%20Row%20or%20Column/README_EN.md
+tags:
+    - Depth-First Search
+    - Union Find
+    - Graph
+    - Hash Table
+---
+
 # [947. Most Stones Removed with Same Row or Column](https://leetcode.com/problems/most-stones-removed-with-same-row-or-column)
 
 [中文文档](/solution/0900-0999/0947.Most%20Stones%20Removed%20with%20Same%20Row%20or%20Column/README.md)
-
-<!-- tags:Depth-First Search,Union Find,Graph,Hash Table -->
 
 ## Description
 

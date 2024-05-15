@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1136.Parallel%20Courses/README_EN.md
+rating: 1710
+tags:
+    - Graph
+    - Topological Sort
+---
+
 # [1136. Parallel Courses 🔒](https://leetcode.com/problems/parallel-courses)
 
 [中文文档](/solution/1100-1199/1136.Parallel%20Courses/README.md)
-
-<!-- tags:Graph,Topological Sort -->
 
 ## Description
 

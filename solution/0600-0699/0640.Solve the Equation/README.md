@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0640.Solve%20the%20Equation/README.md
+tags:
+    - 数学
+    - 字符串
+    - 模拟
+---
+
 # [640. 求解方程](https://leetcode.cn/problems/solve-the-equation)
 
 [English Version](/solution/0600-0699/0640.Solve%20the%20Equation/README_EN.md)
-
-<!-- tags:数学,字符串,模拟 -->
 
 ## 题目描述
 

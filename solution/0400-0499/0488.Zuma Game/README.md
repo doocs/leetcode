@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0488.Zuma%20Game/README.md
+tags:
+    - 栈
+    - 广度优先搜索
+    - 记忆化搜索
+    - 字符串
+    - 动态规划
+---
+
 # [488. 祖玛游戏](https://leetcode.cn/problems/zuma-game)
 
 [English Version](/solution/0400-0499/0488.Zuma%20Game/README_EN.md)
-
-<!-- tags:栈,广度优先搜索,记忆化搜索,字符串,动态规划 -->
 
 ## 题目描述
 

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1679.Max%20Number%20of%20K-Sum%20Pairs/README.md
+rating: 1345
+tags:
+    - 数组
+    - 哈希表
+    - 双指针
+    - 排序
+---
+
 # [1679. K 和数对的最大数目](https://leetcode.cn/problems/max-number-of-k-sum-pairs)
 
 [English Version](/solution/1600-1699/1679.Max%20Number%20of%20K-Sum%20Pairs/README_EN.md)
-
-<!-- tags:数组,哈希表,双指针,排序 -->
 
 ## 题目描述
 

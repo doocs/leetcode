@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0589.N-ary%20Tree%20Preorder%20Traversal/README_EN.md
+tags:
+    - Stack
+    - Tree
+    - Depth-First Search
+---
+
 # [589. N-ary Tree Preorder Traversal](https://leetcode.com/problems/n-ary-tree-preorder-traversal)
 
 [中文文档](/solution/0500-0599/0589.N-ary%20Tree%20Preorder%20Traversal/README.md)
-
-<!-- tags:Stack,Tree,Depth-First Search -->
 
 ## Description
 

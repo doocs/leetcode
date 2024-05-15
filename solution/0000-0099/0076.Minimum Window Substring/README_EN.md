@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0076.Minimum%20Window%20Substring/README_EN.md
+tags:
+    - Hash Table
+    - String
+    - Sliding Window
+---
+
 # [76. Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring)
 
 [中文文档](/solution/0000-0099/0076.Minimum%20Window%20Substring/README.md)
-
-<!-- tags:Hash Table,String,Sliding Window -->
 
 ## Description
 

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3003.Maximize%20the%20Number%20of%20Partitions%20After%20Operations/README_EN.md
+rating: 3039
+tags:
+    - Bit Manipulation
+    - String
+    - Dynamic Programming
+    - Bitmask
+---
+
 # [3003. Maximize the Number of Partitions After Operations](https://leetcode.com/problems/maximize-the-number-of-partitions-after-operations)
 
 [中文文档](/solution/3000-3099/3003.Maximize%20the%20Number%20of%20Partitions%20After%20Operations/README.md)
-
-<!-- tags:Bit Manipulation,String,Dynamic Programming,Bitmask -->
 
 ## Description
 

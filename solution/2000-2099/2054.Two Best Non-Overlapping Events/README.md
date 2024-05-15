@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2054.Two%20Best%20Non-Overlapping%20Events/README.md
+rating: 1883
+tags:
+    - 数组
+    - 二分查找
+    - 动态规划
+    - 排序
+    - 堆（优先队列）
+---
+
 # [2054. 两个最好的不重叠活动](https://leetcode.cn/problems/two-best-non-overlapping-events)
 
 [English Version](/solution/2000-2099/2054.Two%20Best%20Non-Overlapping%20Events/README_EN.md)
-
-<!-- tags:数组,二分查找,动态规划,排序,堆（优先队列） -->
 
 ## 题目描述
 

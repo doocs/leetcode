@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1183.Maximum%20Number%20of%20Ones/README.md
+rating: 2366
+tags:
+    - 贪心
+    - 堆（优先队列）
+---
+
 # [1183. 矩阵中 1 的最大数量 🔒](https://leetcode.cn/problems/maximum-number-of-ones)
 
 [English Version](/solution/1100-1199/1183.Maximum%20Number%20of%20Ones/README_EN.md)
-
-<!-- tags:贪心,堆（优先队列） -->
 
 ## 题目描述
 

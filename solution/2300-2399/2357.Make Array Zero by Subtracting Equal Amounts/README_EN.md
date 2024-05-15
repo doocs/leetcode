@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2357.Make%20Array%20Zero%20by%20Subtracting%20Equal%20Amounts/README_EN.md
+rating: 1225
+tags:
+    - Greedy
+    - Array
+    - Hash Table
+    - Sorting
+    - Simulation
+    - Heap (Priority Queue)
+---
+
 # [2357. Make Array Zero by Subtracting Equal Amounts](https://leetcode.com/problems/make-array-zero-by-subtracting-equal-amounts)
 
 [中文文档](/solution/2300-2399/2357.Make%20Array%20Zero%20by%20Subtracting%20Equal%20Amounts/README.md)
-
-<!-- tags:Greedy,Array,Hash Table,Sorting,Simulation,Heap (Priority Queue) -->
 
 ## Description
 

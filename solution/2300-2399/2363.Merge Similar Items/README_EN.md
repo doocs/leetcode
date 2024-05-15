@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2363.Merge%20Similar%20Items/README_EN.md
+rating: 1270
+tags:
+    - Array
+    - Hash Table
+    - Ordered Set
+    - Sorting
+---
+
 # [2363. Merge Similar Items](https://leetcode.com/problems/merge-similar-items)
 
 [中文文档](/solution/2300-2399/2363.Merge%20Similar%20Items/README.md)
-
-<!-- tags:Array,Hash Table,Ordered Set,Sorting -->
 
 ## Description
 

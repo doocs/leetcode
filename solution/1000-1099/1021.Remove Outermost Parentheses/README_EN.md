@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1021.Remove%20Outermost%20Parentheses/README_EN.md
+rating: 1311
+tags:
+    - Stack
+    - String
+---
+
 # [1021. Remove Outermost Parentheses](https://leetcode.com/problems/remove-outermost-parentheses)
 
 [中文文档](/solution/1000-1099/1021.Remove%20Outermost%20Parentheses/README.md)
-
-<!-- tags:Stack,String -->
 
 ## Description
 

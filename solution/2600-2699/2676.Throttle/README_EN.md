@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2676.Throttle/README_EN.md
+---
+
 # [2676. Throttle 🔒](https://leetcode.com/problems/throttle)
 
-[中文文档](/solution/2600-2699/2676.Throttle 🔒/README.md)
-
-<!-- tags: -->
+[中文文档](/solution/2600-2699/2676.Throttle/README.md)
 
 ## Description
 

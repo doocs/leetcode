@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1442.Count%20Triplets%20That%20Can%20Form%20Two%20Arrays%20of%20Equal%20XOR/README.md
+rating: 1524
+tags:
+    - 位运算
+    - 数组
+    - 哈希表
+    - 数学
+    - 前缀和
+---
+
 # [1442. 形成两个异或相等数组的三元组数目](https://leetcode.cn/problems/count-triplets-that-can-form-two-arrays-of-equal-xor)
 
 [English Version](/solution/1400-1499/1442.Count%20Triplets%20That%20Can%20Form%20Two%20Arrays%20of%20Equal%20XOR/README_EN.md)
-
-<!-- tags:位运算,数组,哈希表,数学,前缀和 -->
 
 ## 题目描述
 

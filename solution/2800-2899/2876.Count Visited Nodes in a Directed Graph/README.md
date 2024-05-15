@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2876.Count%20Visited%20Nodes%20in%20a%20Directed%20Graph/README.md
+rating: 2209
+tags:
+    - 图
+    - 记忆化搜索
+    - 动态规划
+---
+
 # [2876. 有向图访问计数](https://leetcode.cn/problems/count-visited-nodes-in-a-directed-graph)
 
 [English Version](/solution/2800-2899/2876.Count%20Visited%20Nodes%20in%20a%20Directed%20Graph/README_EN.md)
-
-<!-- tags:图,记忆化搜索,动态规划 -->
 
 ## 题目描述
 

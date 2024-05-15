@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0381.Insert%20Delete%20GetRandom%20O%281%29%20-%20Duplicates%20allowed/README.md
+tags:
+    - 设计
+    - 数组
+    - 哈希表
+    - 数学
+    - 随机化
+---
+
 # [381. O(1) 时间插入、删除和获取随机元素 - 允许重复](https://leetcode.cn/problems/insert-delete-getrandom-o1-duplicates-allowed)
 
 [English Version](/solution/0300-0399/0381.Insert%20Delete%20GetRandom%20O%281%29%20-%20Duplicates%20allowed/README_EN.md)
-
-<!-- tags:设计,数组,哈希表,数学,随机化 -->
 
 ## 题目描述
 

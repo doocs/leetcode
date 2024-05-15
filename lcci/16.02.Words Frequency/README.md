@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.02.Words%20Frequency/README.md
+---
+
 # [面试题 16.02. 单词频率](https://leetcode.cn/problems/words-frequency-lcci)
 
 [English Version](/lcci/16.02.Words%20Frequency/README_EN.md)

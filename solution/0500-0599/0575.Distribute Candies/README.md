@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0575.Distribute%20Candies/README.md
+tags:
+    - 数组
+    - 哈希表
+---
+
 # [575. 分糖果](https://leetcode.cn/problems/distribute-candies)
 
 [English Version](/solution/0500-0599/0575.Distribute%20Candies/README_EN.md)
-
-<!-- tags:数组,哈希表 -->
 
 ## 题目描述
 

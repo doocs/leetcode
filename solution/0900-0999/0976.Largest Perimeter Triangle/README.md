@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0976.Largest%20Perimeter%20Triangle/README.md
+tags:
+    - 贪心
+    - 数组
+    - 数学
+    - 排序
+---
+
 # [976. 三角形的最大周长](https://leetcode.cn/problems/largest-perimeter-triangle)
 
 [English Version](/solution/0900-0999/0976.Largest%20Perimeter%20Triangle/README_EN.md)
-
-<!-- tags:贪心,数组,数学,排序 -->
 
 ## 题目描述
 

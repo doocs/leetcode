@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0493.Reverse%20Pairs/README.md
+tags:
+    - 树状数组
+    - 线段树
+    - 数组
+    - 二分查找
+    - 分治
+    - 有序集合
+    - 归并排序
+---
+
 # [493. 翻转对](https://leetcode.cn/problems/reverse-pairs)
 
 [English Version](/solution/0400-0499/0493.Reverse%20Pairs/README_EN.md)
-
-<!-- tags:树状数组,线段树,数组,二分查找,分治,有序集合,归并排序 -->
 
 ## 题目描述
 

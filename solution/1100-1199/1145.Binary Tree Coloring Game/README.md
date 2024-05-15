@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1145.Binary%20Tree%20Coloring%20Game/README.md
+rating: 1741
+tags:
+    - 树
+    - 深度优先搜索
+    - 二叉树
+---
+
 # [1145. 二叉树着色游戏](https://leetcode.cn/problems/binary-tree-coloring-game)
 
 [English Version](/solution/1100-1199/1145.Binary%20Tree%20Coloring%20Game/README_EN.md)
-
-<!-- tags:树,深度优先搜索,二叉树 -->
 
 ## 题目描述
 

@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20002.%20%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%8A%A0%E6%B3%95/README.md
+---
+
 # [剑指 Offer II 002. 二进制加法](https://leetcode.cn/problems/JFETK5)
 
 ## 题目描述

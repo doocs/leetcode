@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3112.Minimum%20Time%20to%20Visit%20Disappearing%20Nodes/README_EN.md
+rating: 1756
+tags:
+    - Graph
+    - Array
+    - Shortest Path
+    - Heap (Priority Queue)
+---
+
 # [3112. Minimum Time to Visit Disappearing Nodes](https://leetcode.com/problems/minimum-time-to-visit-disappearing-nodes)
 
 [中文文档](/solution/3100-3199/3112.Minimum%20Time%20to%20Visit%20Disappearing%20Nodes/README.md)
-
-<!-- tags:Graph,Array,Shortest Path,Heap (Priority Queue) -->
 
 ## Description
 

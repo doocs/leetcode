@@ -1,8 +1,21 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2179.Count%20Good%20Triplets%20in%20an%20Array/README_EN.md
+rating: 2272
+tags:
+    - Binary Indexed Tree
+    - Segment Tree
+    - Array
+    - Binary Search
+    - Divide and Conquer
+    - Ordered Set
+    - Merge Sort
+---
+
 # [2179. Count Good Triplets in an Array](https://leetcode.com/problems/count-good-triplets-in-an-array)
 
 [中文文档](/solution/2100-2199/2179.Count%20Good%20Triplets%20in%20an%20Array/README.md)
-
-<!-- tags:Binary Indexed Tree,Segment Tree,Array,Binary Search,Divide and Conquer,Ordered Set,Merge Sort -->
 
 ## Description
 

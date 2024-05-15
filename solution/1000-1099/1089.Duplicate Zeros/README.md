@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1089.Duplicate%20Zeros/README.md
+rating: 1262
+tags:
+    - 数组
+    - 双指针
+---
+
 # [1089. 复写零](https://leetcode.cn/problems/duplicate-zeros)
 
 [English Version](/solution/1000-1099/1089.Duplicate%20Zeros/README_EN.md)
-
-<!-- tags:数组,双指针 -->
 
 ## 题目描述
 

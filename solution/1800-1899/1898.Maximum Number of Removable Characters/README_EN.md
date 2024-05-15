@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1898.Maximum%20Number%20of%20Removable%20Characters/README_EN.md
+rating: 1912
+tags:
+    - Array
+    - Two Pointers
+    - String
+    - Binary Search
+---
+
 # [1898. Maximum Number of Removable Characters](https://leetcode.com/problems/maximum-number-of-removable-characters)
 
 [中文文档](/solution/1800-1899/1898.Maximum%20Number%20of%20Removable%20Characters/README.md)
-
-<!-- tags:Array,Two Pointers,String,Binary Search -->
 
 ## Description
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0090.Subsets%20II/README.md
+tags:
+    - 位运算
+    - 数组
+    - 回溯
+---
+
 # [90. 子集 II](https://leetcode.cn/problems/subsets-ii)
 
 [English Version](/solution/0000-0099/0090.Subsets%20II/README_EN.md)
-
-<!-- tags:位运算,数组,回溯 -->
 
 ## 题目描述
 

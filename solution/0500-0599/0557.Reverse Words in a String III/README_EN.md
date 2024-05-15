@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0557.Reverse%20Words%20in%20a%20String%20III/README_EN.md
+tags:
+    - Two Pointers
+    - String
+---
+
 # [557. Reverse Words in a String III](https://leetcode.com/problems/reverse-words-in-a-string-iii)
 
 [中文文档](/solution/0500-0599/0557.Reverse%20Words%20in%20a%20String%20III/README.md)
-
-<!-- tags:Two Pointers,String -->
 
 ## Description
 

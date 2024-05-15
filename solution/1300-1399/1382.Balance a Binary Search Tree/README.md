@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1382.Balance%20a%20Binary%20Search%20Tree/README.md
+rating: 1540
+tags:
+    - 贪心
+    - 树
+    - 深度优先搜索
+    - 二叉搜索树
+    - 分治
+    - 二叉树
+---
+
 # [1382. 将二叉搜索树变平衡](https://leetcode.cn/problems/balance-a-binary-search-tree)
 
 [English Version](/solution/1300-1399/1382.Balance%20a%20Binary%20Search%20Tree/README_EN.md)
-
-<!-- tags:贪心,树,深度优先搜索,二叉搜索树,分治,二叉树 -->
 
 ## 题目描述
 

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0749.Contain%20Virus/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Array
+    - Matrix
+    - Simulation
+---
+
 # [749. Contain Virus](https://leetcode.com/problems/contain-virus)
 
 [中文文档](/solution/0700-0799/0749.Contain%20Virus/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Array,Matrix,Simulation -->
 
 ## Description
 

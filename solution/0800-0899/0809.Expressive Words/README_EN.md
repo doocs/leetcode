@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0809.Expressive%20Words/README_EN.md
+tags:
+    - Array
+    - Two Pointers
+    - String
+---
+
 # [809. Expressive Words](https://leetcode.com/problems/expressive-words)
 
 [中文文档](/solution/0800-0899/0809.Expressive%20Words/README.md)
-
-<!-- tags:Array,Two Pointers,String -->
 
 ## Description
 

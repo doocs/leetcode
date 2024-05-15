@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2537.Count%20the%20Number%20of%20Good%20Subarrays/README.md
+rating: 1891
+tags:
+    - 数组
+    - 哈希表
+    - 滑动窗口
+---
+
 # [2537. 统计好子数组的数目](https://leetcode.cn/problems/count-the-number-of-good-subarrays)
 
 [English Version](/solution/2500-2599/2537.Count%20the%20Number%20of%20Good%20Subarrays/README_EN.md)
-
-<!-- tags:数组,哈希表,滑动窗口 -->
 
 ## 题目描述
 

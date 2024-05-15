@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1481.Least%20Number%20of%20Unique%20Integers%20after%20K%20Removals/README.md
+rating: 1284
+tags:
+    - 贪心
+    - 数组
+    - 哈希表
+    - 计数
+    - 排序
+---
+
 # [1481. 不同整数的最少数目](https://leetcode.cn/problems/least-number-of-unique-integers-after-k-removals)
 
 [English Version](/solution/1400-1499/1481.Least%20Number%20of%20Unique%20Integers%20after%20K%20Removals/README_EN.md)
-
-<!-- tags:贪心,数组,哈希表,计数,排序 -->
 
 ## 题目描述
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1405.Longest%20Happy%20String/README.md
+rating: 1820
+tags:
+    - 贪心
+    - 字符串
+    - 堆（优先队列）
+---
+
 # [1405. 最长快乐字符串](https://leetcode.cn/problems/longest-happy-string)
 
 [English Version](/solution/1400-1499/1405.Longest%20Happy%20String/README_EN.md)
-
-<!-- tags:贪心,字符串,堆（优先队列） -->
 
 ## 题目描述
 

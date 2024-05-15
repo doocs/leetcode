@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1833.Maximum%20Ice%20Cream%20Bars/README_EN.md
+rating: 1252
+tags:
+    - Greedy
+    - Array
+    - Sorting
+---
+
 # [1833. Maximum Ice Cream Bars](https://leetcode.com/problems/maximum-ice-cream-bars)
 
 [中文文档](/solution/1800-1899/1833.Maximum%20Ice%20Cream%20Bars/README.md)
-
-<!-- tags:Greedy,Array,Sorting -->
 
 ## Description
 

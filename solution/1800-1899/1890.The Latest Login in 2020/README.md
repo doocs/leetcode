@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1890.The%20Latest%20Login%20in%202020/README.md
+tags:
+    - 数据库
+---
+
 # [1890. 2020 年最后一次登录](https://leetcode.cn/problems/the-latest-login-in-2020)
 
 [English Version](/solution/1800-1899/1890.The%20Latest%20Login%20in%202020/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

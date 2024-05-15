@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1892.Page%20Recommendations%20II/README_EN.md
+tags:
+    - Database
+---
+
 # [1892. Page Recommendations II 🔒](https://leetcode.com/problems/page-recommendations-ii)
 
 [中文文档](/solution/1800-1899/1892.Page%20Recommendations%20II/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

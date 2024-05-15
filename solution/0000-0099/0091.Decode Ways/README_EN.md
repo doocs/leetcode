@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0091.Decode%20Ways/README_EN.md
+tags:
+    - String
+    - Dynamic Programming
+---
+
 # [91. Decode Ways](https://leetcode.com/problems/decode-ways)
 
 [中文文档](/solution/0000-0099/0091.Decode%20Ways/README.md)
-
-<!-- tags:String,Dynamic Programming -->
 
 ## Description
 

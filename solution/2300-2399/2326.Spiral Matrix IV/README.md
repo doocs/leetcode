@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2326.Spiral%20Matrix%20IV/README.md
+rating: 1421
+tags:
+    - 数组
+    - 链表
+    - 矩阵
+    - 模拟
+---
+
 # [2326. 螺旋矩阵 IV](https://leetcode.cn/problems/spiral-matrix-iv)
 
 [English Version](/solution/2300-2399/2326.Spiral%20Matrix%20IV/README_EN.md)
-
-<!-- tags:数组,链表,矩阵,模拟 -->
 
 ## 题目描述
 
@@ -46,7 +56,17 @@
 
 ## 解法
 
-### 方法一
+### 方法一：模拟
+
+我们定义一个二维数组 $\text{ans}$，用来存放链表中的元素，初始时全部填充为 $-1$。定义三个变量 $i, j, k$，分别表示当前的行、列和方向。定义一个数组 $\text{dirs}$，表示四个方向的偏移量。
+
+然后我们开始遍历链表，每次遍历一个节点，就将当前节点的值填充到 $\text{ans}[i][j]$ 中，然后更新链表的指针，如果链表为空，说明所有的元素都已经填充完毕，退出循环。
+
+否则，我们需要找到下一个元素的位置，我们可以通过当前位置 $(i, j)$ 和当前方向 $k$ 来计算下一个位置 $(x, y)$，如果 $(x, y)$ 在矩阵的范围内，并且 $\text{ans}[x][y]$ 为 $-1$，说明 $(x, y)$ 还没有被填充过，我们就将 $(x, y)$ 作为下一个位置，否则我们需要更换方向。
+
+遍历完链表之后，我们就得到了一个螺旋矩阵，返回即可。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别表示矩阵的行数和列数。
 
 <!-- tabs:start -->
 
@@ -59,20 +79,19 @@
 class Solution:
     def spiralMatrix(self, m: int, n: int, head: Optional[ListNode]) -> List[List[int]]:
         ans = [[-1] * n for _ in range(m)]
-        i = j = p = 0
-        dirs = [[0, 1], [1, 0], [0, -1], [-1, 0]]
+        i = j = k = 0
+        dirs = (0, 1, 0, -1, 0)
         while 1:
             ans[i][j] = head.val
             head = head.next
-            if not head:
+            if head is None:
                 break
             while 1:
-                x, y = i + dirs[p][0], j + dirs[p][1]
-                if x < 0 or y < 0 or x >= m or y >= n or ~ans[x][y]:
-                    p = (p + 1) % 4
-                else:
+                x, y = i + dirs[k], j + dirs[k + 1]
+                if 0 <= x < m and 0 <= y < n and ans[x][y] == -1:
                     i, j = x, y
                     break
+                k = (k + 1) % 4
         return ans
 ```
 
@@ -90,11 +109,11 @@ class Solution:
 class Solution {
     public int[][] spiralMatrix(int m, int n, ListNode head) {
         int[][] ans = new int[m][n];
-        for (int[] row : ans) {
+        for (var row : ans) {
             Arrays.fill(row, -1);
         }
-        int i = 0, j = 0, p = 0;
-        int[][] dirs = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+        int i = 0, j = 0, k = 0;
+        final int[] dirs = {0, 1, 0, -1, 0};
         while (true) {
             ans[i][j] = head.val;
             head = head.next;
@@ -102,14 +121,13 @@ class Solution {
                 break;
             }
             while (true) {
-                int x = i + dirs[p][0], y = j + dirs[p][1];
-                if (x < 0 || y < 0 || x >= m || y >= n || ans[x][y] >= 0) {
-                    p = (p + 1) % 4;
-                } else {
+                int x = i + dirs[k], y = j + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && ans[x][y] == -1) {
                     i = x;
                     j = y;
                     break;
                 }
+                k = (k + 1) % 4;
             }
         }
         return ans;
@@ -132,20 +150,22 @@ class Solution {
 public:
     vector<vector<int>> spiralMatrix(int m, int n, ListNode* head) {
         vector<vector<int>> ans(m, vector<int>(n, -1));
-        int i = 0, j = 0, p = 0;
-        vector<vector<int>> dirs = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+        int i = 0, j = 0, k = 0;
+        const int dirs[5] = {0, 1, 0, -1, 0};
         while (1) {
             ans[i][j] = head->val;
             head = head->next;
-            if (!head) break;
+            if (!head) {
+                break;
+            }
             while (1) {
-                int x = i + dirs[p][0], y = j + dirs[p][1];
-                if (x < 0 || y < 0 || x >= m || y >= n || ans[x][y] >= 0)
-                    p = (p + 1) % 4;
-                else {
-                    i = x, j = y;
+                int x = i + dirs[k], y = j + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && ans[x][y] == -1) {
+                    i = x;
+                    j = y;
                     break;
                 }
+                k = (k + 1) % 4;
             }
         }
         return ans;
@@ -169,22 +189,20 @@ func spiralMatrix(m int, n int, head *ListNode) [][]int {
 			ans[i][j] = -1
 		}
 	}
-	i, j, p := 0, 0, 0
-	dirs := [][]int{{0, 1}, {1, 0}, {0, -1}, {-1, 0}}
+	i, j, k := 0, 0, 0
+	dirs := [5]int{0, 1, 0, -1, 0}
 	for {
 		ans[i][j] = head.Val
-		head = head.Next
-		if head == nil {
+		if head = head.Next; head == nil {
 			break
 		}
 		for {
-			x, y := i+dirs[p][0], j+dirs[p][1]
-			if x < 0 || y < 0 || x >= m || y >= n || ans[x][y] >= 0 {
-				p = (p + 1) % 4
-			} else {
+			x, y := i+dirs[k], j+dirs[k+1]
+			if x >= 0 && x < m && y >= 0 && y < n && ans[x][y] == -1 {
 				i, j = x, y
 				break
 			}
+			k = (k + 1) % 4
 		}
 	}
 	return ans
@@ -205,26 +223,24 @@ func spiralMatrix(m int, n int, head *ListNode) [][]int {
  */
 
 function spiralMatrix(m: number, n: number, head: ListNode | null): number[][] {
-    const dirs = [
-        [0, 1],
-        [1, 0],
-        [0, -1],
-        [-1, 0],
-    ];
-    let ans = Array.from({ length: m }, v => new Array(n).fill(-1));
-    let i = 0,
-        j = 0,
-        k = 0;
-    while (head) {
+    const ans: number[][] = Array.from({ length: m }, () => Array(n).fill(-1));
+    const dirs: number[] = [0, 1, 0, -1, 0];
+    let [i, j, k] = [0, 0, 0];
+    while (1) {
         ans[i][j] = head.val;
         head = head.next;
-        let x = i + dirs[k][0];
-        let y = j + dirs[k][1];
-        if (x < 0 || x > m - 1 || y < 0 || y > n - 1 || ans[x][y] != -1) {
+        if (!head) {
+            break;
+        }
+        while (1) {
+            const [x, y] = [i + dirs[k], j + dirs[k + 1]];
+            if (x >= 0 && x < m && y >= 0 && y < n && ans[x][y] === -1) {
+                i = x;
+                j = y;
+                break;
+            }
             k = (k + 1) % 4;
         }
-        i = i + dirs[k][0];
-        j = j + dirs[k][1];
     }
     return ans;
 }

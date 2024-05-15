@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1643.Kth%20Smallest%20Instructions/README.md
+rating: 2079
+tags:
+    - 数组
+    - 数学
+    - 动态规划
+    - 组合数学
+---
+
 # [1643. 第 K 条最小指令](https://leetcode.cn/problems/kth-smallest-instructions)
 
 [English Version](/solution/1600-1699/1643.Kth%20Smallest%20Instructions/README_EN.md)
-
-<!-- tags:数组,数学,动态规划,组合数学 -->
 
 ## 题目描述
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2999.Count%20the%20Number%20of%20Powerful%20Integers/README_EN.md
+rating: 2351
+tags:
+    - Math
+    - String
+    - Dynamic Programming
+---
+
 # [2999. Count the Number of Powerful Integers](https://leetcode.com/problems/count-the-number-of-powerful-integers)
 
 [中文文档](/solution/2900-2999/2999.Count%20the%20Number%20of%20Powerful%20Integers/README.md)
-
-<!-- tags:Math,String,Dynamic Programming -->
 
 ## Description
 

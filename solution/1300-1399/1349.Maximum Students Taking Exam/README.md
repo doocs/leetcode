@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1349.Maximum%20Students%20Taking%20Exam/README.md
+rating: 2385
+tags:
+    - 位运算
+    - 数组
+    - 动态规划
+    - 状态压缩
+    - 矩阵
+---
+
 # [1349. 参加考试的最大学生数](https://leetcode.cn/problems/maximum-students-taking-exam)
 
 [English Version](/solution/1300-1399/1349.Maximum%20Students%20Taking%20Exam/README_EN.md)
-
-<!-- tags:位运算,数组,动态规划,状态压缩,矩阵 -->
 
 ## 题目描述
 

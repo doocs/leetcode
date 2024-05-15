@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0811.Subdomain%20Visit%20Count/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+    - 计数
+---
+
 # [811. 子域名访问计数](https://leetcode.cn/problems/subdomain-visit-count)
 
 [English Version](/solution/0800-0899/0811.Subdomain%20Visit%20Count/README_EN.md)
-
-<!-- tags:数组,哈希表,字符串,计数 -->
 
 ## 题目描述
 

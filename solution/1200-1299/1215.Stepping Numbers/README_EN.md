@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1215.Stepping%20Numbers/README_EN.md
+rating: 1674
+tags:
+    - Breadth-First Search
+    - Backtracking
+---
+
 # [1215. Stepping Numbers 🔒](https://leetcode.com/problems/stepping-numbers)
 
 [中文文档](/solution/1200-1299/1215.Stepping%20Numbers/README.md)
-
-<!-- tags:Breadth-First Search,Backtracking -->
 
 ## Description
 

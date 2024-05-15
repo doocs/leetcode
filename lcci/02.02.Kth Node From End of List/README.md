@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.02.Kth%20Node%20From%20End%20of%20List/README.md
+---
+
 # [面试题 02.02. 返回倒数第 k 个节点](https://leetcode.cn/problems/kth-node-from-end-of-list-lcci)
 
 [English Version](/lcci/02.02.Kth%20Node%20From%20End%20of%20List/README_EN.md)

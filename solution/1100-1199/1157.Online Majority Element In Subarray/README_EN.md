@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1157.Online%20Majority%20Element%20In%20Subarray/README_EN.md
+rating: 2205
+tags:
+    - Design
+    - Binary Indexed Tree
+    - Segment Tree
+    - Array
+    - Binary Search
+---
+
 # [1157. Online Majority Element In Subarray](https://leetcode.com/problems/online-majority-element-in-subarray)
 
 [中文文档](/solution/1100-1199/1157.Online%20Majority%20Element%20In%20Subarray/README.md)
-
-<!-- tags:Design,Binary Indexed Tree,Segment Tree,Array,Binary Search -->
 
 ## Description
 

@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1075.Project%20Employees%20I/README.md
+tags:
+    - 数据库
+---
+
 # [1075. 项目员工 I](https://leetcode.cn/problems/project-employees-i)
 
 [English Version](/solution/1000-1099/1075.Project%20Employees%20I/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

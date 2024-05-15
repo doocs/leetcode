@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2354.Number%20of%20Excellent%20Pairs/README_EN.md
+rating: 2075
+tags:
+    - Bit Manipulation
+    - Array
+    - Hash Table
+    - Binary Search
+---
+
 # [2354. Number of Excellent Pairs](https://leetcode.com/problems/number-of-excellent-pairs)
 
 [中文文档](/solution/2300-2399/2354.Number%20of%20Excellent%20Pairs/README.md)
-
-<!-- tags:Bit Manipulation,Array,Hash Table,Binary Search -->
 
 ## Description
 

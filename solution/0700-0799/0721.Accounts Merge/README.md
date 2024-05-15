@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0721.Accounts%20Merge/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 并查集
+    - 数组
+    - 哈希表
+    - 字符串
+    - 排序
+---
+
 # [721. 账户合并](https://leetcode.cn/problems/accounts-merge)
 
 [English Version](/solution/0700-0799/0721.Accounts%20Merge/README_EN.md)
-
-<!-- tags:深度优先搜索,广度优先搜索,并查集,数组,哈希表,字符串,排序 -->
 
 ## 题目描述
 

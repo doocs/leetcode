@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2327.Number%20of%20People%20Aware%20of%20a%20Secret/README.md
+rating: 1893
+tags:
+    - 队列
+    - 动态规划
+    - 模拟
+---
+
 # [2327. 知道秘密的人数](https://leetcode.cn/problems/number-of-people-aware-of-a-secret)
 
 [English Version](/solution/2300-2399/2327.Number%20of%20People%20Aware%20of%20a%20Secret/README_EN.md)
-
-<!-- tags:队列,动态规划,模拟 -->
 
 ## 题目描述
 

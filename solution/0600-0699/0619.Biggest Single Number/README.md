@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0619.Biggest%20Single%20Number/README.md
+tags:
+    - 数据库
+---
+
 # [619. 只出现一次的最大数字](https://leetcode.cn/problems/biggest-single-number)
 
 [English Version](/solution/0600-0699/0619.Biggest%20Single%20Number/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

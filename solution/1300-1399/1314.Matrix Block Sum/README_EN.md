@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1314.Matrix%20Block%20Sum/README_EN.md
+rating: 1483
+tags:
+    - Array
+    - Matrix
+    - Prefix Sum
+---
+
 # [1314. Matrix Block Sum](https://leetcode.com/problems/matrix-block-sum)
 
 [中文文档](/solution/1300-1399/1314.Matrix%20Block%20Sum/README.md)
-
-<!-- tags:Array,Matrix,Prefix Sum -->
 
 ## Description
 

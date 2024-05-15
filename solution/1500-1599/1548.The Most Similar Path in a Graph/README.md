@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1548.The%20Most%20Similar%20Path%20in%20a%20Graph/README.md
+tags:
+    - 图
+    - 动态规划
+---
+
 # [1548. 图中最相似的路径 🔒](https://leetcode.cn/problems/the-most-similar-path-in-a-graph)
 
 [English Version](/solution/1500-1599/1548.The%20Most%20Similar%20Path%20in%20a%20Graph/README_EN.md)
-
-<!-- tags:图,动态规划 -->
 
 ## 题目描述
 

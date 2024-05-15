@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1030.Matrix%20Cells%20in%20Distance%20Order/README.md
+rating: 1585
+tags:
+    - 几何
+    - 数组
+    - 数学
+    - 矩阵
+    - 排序
+---
+
 # [1030. 距离顺序排列矩阵单元格](https://leetcode.cn/problems/matrix-cells-in-distance-order)
 
 [English Version](/solution/1000-1099/1030.Matrix%20Cells%20in%20Distance%20Order/README_EN.md)
-
-<!-- tags:几何,数组,数学,矩阵,排序 -->
 
 ## 题目描述
 

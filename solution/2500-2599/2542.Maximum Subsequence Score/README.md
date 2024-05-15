@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2542.Maximum%20Subsequence%20Score/README.md
+rating: 2056
+tags:
+    - 贪心
+    - 数组
+    - 排序
+    - 堆（优先队列）
+---
+
 # [2542. 最大子序列的分数](https://leetcode.cn/problems/maximum-subsequence-score)
 
 [English Version](/solution/2500-2599/2542.Maximum%20Subsequence%20Score/README_EN.md)
-
-<!-- tags:贪心,数组,排序,堆（优先队列） -->
 
 ## 题目描述
 

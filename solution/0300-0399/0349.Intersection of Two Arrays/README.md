@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0349.Intersection%20of%20Two%20Arrays/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 双指针
+    - 二分查找
+    - 排序
+---
+
 # [349. 两个数组的交集](https://leetcode.cn/problems/intersection-of-two-arrays)
 
 [English Version](/solution/0300-0399/0349.Intersection%20of%20Two%20Arrays/README_EN.md)
-
-<!-- tags:数组,哈希表,双指针,二分查找,排序 -->
 
 ## 题目描述
 

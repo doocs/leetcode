@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0384.Shuffle%20an%20Array/README.md
+tags:
+    - 数组
+    - 数学
+    - 随机化
+---
+
 # [384. 打乱数组](https://leetcode.cn/problems/shuffle-an-array)
 
 [English Version](/solution/0300-0399/0384.Shuffle%20an%20Array/README_EN.md)
-
-<!-- tags:数组,数学,随机化 -->
 
 ## 题目描述
 

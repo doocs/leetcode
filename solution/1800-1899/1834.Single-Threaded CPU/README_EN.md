@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1834.Single-Threaded%20CPU/README_EN.md
+rating: 1797
+tags:
+    - Array
+    - Sorting
+    - Heap (Priority Queue)
+---
+
 # [1834. Single-Threaded CPU](https://leetcode.com/problems/single-threaded-cpu)
 
 [中文文档](/solution/1800-1899/1834.Single-Threaded%20CPU/README.md)
-
-<!-- tags:Array,Sorting,Heap (Priority Queue) -->
 
 ## Description
 

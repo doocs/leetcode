@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0845.Longest%20Mountain%20in%20Array/README_EN.md
+tags:
+    - Array
+    - Two Pointers
+    - Dynamic Programming
+    - Enumeration
+---
+
 # [845. Longest Mountain in Array](https://leetcode.com/problems/longest-mountain-in-array)
 
 [中文文档](/solution/0800-0899/0845.Longest%20Mountain%20in%20Array/README.md)
-
-<!-- tags:Array,Two Pointers,Dynamic Programming,Enumeration -->
 
 ## Description
 

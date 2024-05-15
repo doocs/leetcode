@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1238.Circular%20Permutation%20in%20Binary%20Representation/README_EN.md
+rating: 1774
+tags:
+    - Bit Manipulation
+    - Math
+    - Backtracking
+---
+
 # [1238. Circular Permutation in Binary Representation](https://leetcode.com/problems/circular-permutation-in-binary-representation)
 
 [中文文档](/solution/1200-1299/1238.Circular%20Permutation%20in%20Binary%20Representation/README.md)
-
-<!-- tags:Bit Manipulation,Math,Backtracking -->
 
 ## Description
 

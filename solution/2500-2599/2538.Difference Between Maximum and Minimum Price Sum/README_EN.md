@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2538.Difference%20Between%20Maximum%20and%20Minimum%20Price%20Sum/README_EN.md
+rating: 2397
+tags:
+    - Tree
+    - Depth-First Search
+    - Array
+    - Dynamic Programming
+---
+
 # [2538. Difference Between Maximum and Minimum Price Sum](https://leetcode.com/problems/difference-between-maximum-and-minimum-price-sum)
 
 [中文文档](/solution/2500-2599/2538.Difference%20Between%20Maximum%20and%20Minimum%20Price%20Sum/README.md)
-
-<!-- tags:Tree,Depth-First Search,Array,Dynamic Programming -->
 
 ## Description
 

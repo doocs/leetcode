@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0950.Reveal%20Cards%20In%20Increasing%20Order/README.md
+tags:
+    - 队列
+    - 数组
+    - 排序
+    - 模拟
+---
+
 # [950. 按递增顺序显示卡牌](https://leetcode.cn/problems/reveal-cards-in-increasing-order)
 
 [English Version](/solution/0900-0999/0950.Reveal%20Cards%20In%20Increasing%20Order/README_EN.md)
-
-<!-- tags:队列,数组,排序,模拟 -->
 
 ## 题目描述
 

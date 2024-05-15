@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1694.Reformat%20Phone%20Number/README.md
+rating: 1321
+tags:
+    - 字符串
+---
+
 # [1694. 重新格式化电话号码](https://leetcode.cn/problems/reformat-phone-number)
 
 [English Version](/solution/1600-1699/1694.Reformat%20Phone%20Number/README_EN.md)
-
-<!-- tags:字符串 -->
 
 ## 题目描述
 

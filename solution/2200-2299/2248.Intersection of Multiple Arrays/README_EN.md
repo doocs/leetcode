@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2248.Intersection%20of%20Multiple%20Arrays/README_EN.md
+rating: 1264
+tags:
+    - Array
+    - Hash Table
+    - Counting
+    - Sorting
+---
+
 # [2248. Intersection of Multiple Arrays](https://leetcode.com/problems/intersection-of-multiple-arrays)
 
 [中文文档](/solution/2200-2299/2248.Intersection%20of%20Multiple%20Arrays/README.md)
-
-<!-- tags:Array,Hash Table,Counting,Sorting -->
 
 ## Description
 
@@ -38,7 +48,11 @@ There does not exist any integer present both in nums[0] and nums[1], so we retu
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Counting
+
+Traverse the array `nums`. For each sub-array `arr`, count the occurrence of each number in `arr`. Then traverse the count array, count the numbers that appear as many times as the length of the array `nums`, which are the answers.
+
+The time complexity is $O(N)$, and the space complexity is $O(1000)$. Where $N$ is the total number of numbers in the array `nums`.
 
 <!-- tabs:start -->
 

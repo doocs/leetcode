@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0357.Count%20Numbers%20with%20Unique%20Digits/README_EN.md
+tags:
+    - Math
+    - Dynamic Programming
+    - Backtracking
+---
+
 # [357. Count Numbers with Unique Digits](https://leetcode.com/problems/count-numbers-with-unique-digits)
 
 [中文文档](/solution/0300-0399/0357.Count%20Numbers%20with%20Unique%20Digits/README.md)
-
-<!-- tags:Math,Dynamic Programming,Backtracking -->
 
 ## Description
 

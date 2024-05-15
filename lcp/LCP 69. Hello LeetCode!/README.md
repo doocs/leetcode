@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2069.%20Hello%20LeetCode%21/README.md
+---
+
 # [LCP 69. Hello LeetCode!](https://leetcode.cn/problems/rMeRt2)
 
 ## 题目描述

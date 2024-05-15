@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0287.Find%20the%20Duplicate%20Number/README.md
+tags:
+    - 位运算
+    - 数组
+    - 双指针
+    - 二分查找
+---
+
 # [287. 寻找重复数](https://leetcode.cn/problems/find-the-duplicate-number)
 
 [English Version](/solution/0200-0299/0287.Find%20the%20Duplicate%20Number/README_EN.md)
-
-<!-- tags:位运算,数组,双指针,二分查找 -->
 
 ## 题目描述
 

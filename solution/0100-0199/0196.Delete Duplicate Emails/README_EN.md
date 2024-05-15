@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0196.Delete%20Duplicate%20Emails/README_EN.md
+tags:
+    - Database
+---
+
 # [196. Delete Duplicate Emails](https://leetcode.com/problems/delete-duplicate-emails)
 
 [中文文档](/solution/0100-0199/0196.Delete%20Duplicate%20Emails/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

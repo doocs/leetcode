@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0398.Random%20Pick%20Index/README.md
+tags:
+    - 水塘抽样
+    - 哈希表
+    - 数学
+    - 随机化
+---
+
 # [398. 随机数索引](https://leetcode.cn/problems/random-pick-index)
 
 [English Version](/solution/0300-0399/0398.Random%20Pick%20Index/README_EN.md)
-
-<!-- tags:水塘抽样,哈希表,数学,随机化 -->
 
 ## 题目描述
 

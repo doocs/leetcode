@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1079.Letter%20Tile%20Possibilities/README.md
+rating: 1740
+tags:
+    - 哈希表
+    - 字符串
+    - 回溯
+    - 计数
+---
+
 # [1079. 活字印刷](https://leetcode.cn/problems/letter-tile-possibilities)
 
 [English Version](/solution/1000-1099/1079.Letter%20Tile%20Possibilities/README_EN.md)
-
-<!-- tags:哈希表,字符串,回溯,计数 -->
 
 ## 题目描述
 

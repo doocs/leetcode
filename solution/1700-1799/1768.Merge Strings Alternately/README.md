@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1768.Merge%20Strings%20Alternately/README.md
+rating: 1166
+tags:
+    - 双指针
+    - 字符串
+---
+
 # [1768. 交替合并字符串](https://leetcode.cn/problems/merge-strings-alternately)
 
 [English Version](/solution/1700-1799/1768.Merge%20Strings%20Alternately/README_EN.md)
-
-<!-- tags:双指针,字符串 -->
 
 ## 题目描述
 

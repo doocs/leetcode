@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2067.%20%E8%A3%85%E9%A5%B0%E6%A0%91/README.md
+---
+
 # [LCP 67. 装饰树](https://leetcode.cn/problems/KnLfVT)
 
 ## 题目描述
@@ -20,7 +26,7 @@
 > 输出：`[7,-1,-1,5,null,null,6]`
 >
 > 解释：如下图所示，
-> <br><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2067.%20%E8%A3%85%E9%A5%B0%E6%A0%91/images/1663575757-yRLGaq-image.png" style="width: 400px;" />
+> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2067.%20%E8%A3%85%E9%A5%B0%E6%A0%91/images/1663575757-yRLGaq-image.png){:width=400px}
 
 **示例 2：**
 
@@ -30,7 +36,7 @@
 > 输出：`[3,-1,-1,1,null,null,7,-1,-1,null,-1,3,null,null,8,null,4]`
 >
 > 解释：如下图所示
-> <br><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2067.%20%E8%A3%85%E9%A5%B0%E6%A0%91/images/1663577920-sjrAYH-image.png" style="width: 400px;" />
+> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2067.%20%E8%A3%85%E9%A5%B0%E6%A0%91/images/1663577920-sjrAYH-image.png){:width=500px}
 
 **提示：**
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2857.Count%20Pairs%20of%20Points%20With%20Distance%20k/README.md
+rating: 2081
+tags:
+    - 位运算
+    - 数组
+    - 哈希表
+---
+
 # [2857. 统计距离为 k 的点对](https://leetcode.cn/problems/count-pairs-of-points-with-distance-k)
 
 [English Version](/solution/2800-2899/2857.Count%20Pairs%20of%20Points%20With%20Distance%20k/README_EN.md)
-
-<!-- tags:位运算,数组,哈希表 -->
 
 ## 题目描述
 

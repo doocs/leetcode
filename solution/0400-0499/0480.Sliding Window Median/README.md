@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0480.Sliding%20Window%20Median/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 滑动窗口
+    - 堆（优先队列）
+---
+
 # [480. 滑动窗口中位数](https://leetcode.cn/problems/sliding-window-median)
 
 [English Version](/solution/0400-0499/0480.Sliding%20Window%20Median/README_EN.md)
-
-<!-- tags:数组,哈希表,滑动窗口,堆（优先队列） -->
 
 ## 题目描述
 

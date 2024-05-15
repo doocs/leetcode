@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0567.Permutation%20in%20String/README.md
+tags:
+    - 哈希表
+    - 双指针
+    - 字符串
+    - 滑动窗口
+---
+
 # [567. 字符串的排列](https://leetcode.cn/problems/permutation-in-string)
 
 [English Version](/solution/0500-0599/0567.Permutation%20in%20String/README_EN.md)
-
-<!-- tags:哈希表,双指针,字符串,滑动窗口 -->
 
 ## 题目描述
 

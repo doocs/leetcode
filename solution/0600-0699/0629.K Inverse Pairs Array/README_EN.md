@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0629.K%20Inverse%20Pairs%20Array/README_EN.md
+tags:
+    - Dynamic Programming
+---
+
 # [629. K Inverse Pairs Array](https://leetcode.com/problems/k-inverse-pairs-array)
 
 [中文文档](/solution/0600-0699/0629.K%20Inverse%20Pairs%20Array/README.md)
-
-<!-- tags:Dynamic Programming -->
 
 ## Description
 

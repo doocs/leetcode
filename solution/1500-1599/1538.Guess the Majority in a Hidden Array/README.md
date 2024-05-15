@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1538.Guess%20the%20Majority%20in%20a%20Hidden%20Array/README.md
+tags:
+    - 数组
+    - 数学
+    - 交互
+---
+
 # [1538. 找出隐藏数组中出现次数最多的元素 🔒](https://leetcode.cn/problems/guess-the-majority-in-a-hidden-array)
 
 [English Version](/solution/1500-1599/1538.Guess%20the%20Majority%20in%20a%20Hidden%20Array/README_EN.md)
-
-<!-- tags:数组,数学,交互 -->
 
 ## 题目描述
 

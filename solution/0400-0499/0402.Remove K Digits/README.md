@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0402.Remove%20K%20Digits/README.md
+tags:
+    - 栈
+    - 贪心
+    - 字符串
+    - 单调栈
+---
+
 # [402. 移掉 K 位数字](https://leetcode.cn/problems/remove-k-digits)
 
 [English Version](/solution/0400-0499/0402.Remove%20K%20Digits/README_EN.md)
-
-<!-- tags:栈,贪心,字符串,单调栈 -->
 
 ## 题目描述
 

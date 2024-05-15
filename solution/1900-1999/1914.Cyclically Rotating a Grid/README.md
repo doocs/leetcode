@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1914.Cyclically%20Rotating%20a%20Grid/README.md
+rating: 1766
+tags:
+    - 数组
+    - 矩阵
+    - 模拟
+---
+
 # [1914. 循环轮转矩阵](https://leetcode.cn/problems/cyclically-rotating-a-grid)
 
 [English Version](/solution/1900-1999/1914.Cyclically%20Rotating%20a%20Grid/README_EN.md)
-
-<!-- tags:数组,矩阵,模拟 -->
 
 ## 题目描述
 

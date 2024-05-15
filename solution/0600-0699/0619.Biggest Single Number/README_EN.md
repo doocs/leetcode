@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0619.Biggest%20Single%20Number/README_EN.md
+tags:
+    - Database
+---
+
 # [619. Biggest Single Number](https://leetcode.com/problems/biggest-single-number)
 
 [中文文档](/solution/0600-0699/0619.Biggest%20Single%20Number/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

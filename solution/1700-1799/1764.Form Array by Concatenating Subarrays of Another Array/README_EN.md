@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1764.Form%20Array%20by%20Concatenating%20Subarrays%20of%20Another%20Array/README_EN.md
+rating: 1588
+tags:
+    - Greedy
+    - Array
+    - Two Pointers
+    - String Matching
+---
+
 # [1764. Form Array by Concatenating Subarrays of Another Array](https://leetcode.com/problems/form-array-by-concatenating-subarrays-of-another-array)
 
 [中文文档](/solution/1700-1799/1764.Form%20Array%20by%20Concatenating%20Subarrays%20of%20Another%20Array/README.md)
-
-<!-- tags:Greedy,Array,Two Pointers,String Matching -->
 
 ## Description
 

@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1197.Minimum%20Knight%20Moves/README.md
+rating: 1722
+tags:
+    - 广度优先搜索
+---
+
 # [1197. 进击的骑士 🔒](https://leetcode.cn/problems/minimum-knight-moves)
 
 [English Version](/solution/1100-1199/1197.Minimum%20Knight%20Moves/README_EN.md)
-
-<!-- tags:广度优先搜索 -->
 
 ## 题目描述
 

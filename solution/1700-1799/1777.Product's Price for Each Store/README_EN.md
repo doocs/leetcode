@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1777.Product%27s%20Price%20for%20Each%20Store/README_EN.md
+tags:
+    - Database
+---
+
 # [1777. Product's Price for Each Store 🔒](https://leetcode.com/problems/products-price-for-each-store)
 
 [中文文档](/solution/1700-1799/1777.Product%27s%20Price%20for%20Each%20Store/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

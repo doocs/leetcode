@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2002.%20%E5%88%86%E5%BC%8F%E5%8C%96%E7%AE%80/README.md
+---
+
 # [LCP 02. 分式化简](https://leetcode.cn/problems/deep-dark-fraction)
 
 ## 题目描述

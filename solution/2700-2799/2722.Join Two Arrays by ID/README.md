@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2722.Join%20Two%20Arrays%20by%20ID/README.md
+---
+
 # [2722. 根据 ID 合并两个数组](https://leetcode.cn/problems/join-two-arrays-by-id)
 
 [English Version](/solution/2700-2799/2722.Join%20Two%20Arrays%20by%20ID/README_EN.md)
-
-<!-- tags: -->
 
 ## 题目描述
 

@@ -1,8 +1,21 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1102.Path%20With%20Maximum%20Minimum%20Value/README_EN.md
+rating: 2011
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Union Find
+    - Array
+    - Binary Search
+    - Matrix
+    - Heap (Priority Queue)
+---
+
 # [1102. Path With Maximum Minimum Value 🔒](https://leetcode.com/problems/path-with-maximum-minimum-value)
 
 [中文文档](/solution/1100-1199/1102.Path%20With%20Maximum%20Minimum%20Value/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Array,Binary Search,Matrix,Heap (Priority Queue) -->
 
 ## Description
 

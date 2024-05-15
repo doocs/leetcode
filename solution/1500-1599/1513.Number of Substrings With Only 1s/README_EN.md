@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1513.Number%20of%20Substrings%20With%20Only%201s/README_EN.md
+rating: 1351
+tags:
+    - Math
+    - String
+---
+
 # [1513. Number of Substrings With Only 1s](https://leetcode.com/problems/number-of-substrings-with-only-1s)
 
 [中文文档](/solution/1500-1599/1513.Number%20of%20Substrings%20With%20Only%201s/README.md)
-
-<!-- tags:Math,String -->
 
 ## Description
 

@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0667.Beautiful%20Arrangement%20II/README.md
+tags:
+    - 数组
+    - 数学
+---
+
 # [667. 优美的排列 II](https://leetcode.cn/problems/beautiful-arrangement-ii)
 
 [English Version](/solution/0600-0699/0667.Beautiful%20Arrangement%20II/README_EN.md)
-
-<!-- tags:数组,数学 -->
 
 ## 题目描述
 

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1894.Find%20the%20Student%20that%20Will%20Replace%20the%20Chalk/README.md
+rating: 1355
+tags:
+    - 数组
+    - 二分查找
+    - 前缀和
+    - 模拟
+---
+
 # [1894. 找到需要补充粉笔的学生编号](https://leetcode.cn/problems/find-the-student-that-will-replace-the-chalk)
 
 [English Version](/solution/1800-1899/1894.Find%20the%20Student%20that%20Will%20Replace%20the%20Chalk/README_EN.md)
-
-<!-- tags:数组,二分查找,前缀和,模拟 -->
 
 ## 题目描述
 

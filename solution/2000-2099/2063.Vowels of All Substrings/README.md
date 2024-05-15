@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2063.Vowels%20of%20All%20Substrings/README.md
+rating: 1663
+tags:
+    - 数学
+    - 字符串
+    - 动态规划
+    - 组合数学
+---
+
 # [2063. 所有子字符串中的元音](https://leetcode.cn/problems/vowels-of-all-substrings)
 
 [English Version](/solution/2000-2099/2063.Vowels%20of%20All%20Substrings/README_EN.md)
-
-<!-- tags:数学,字符串,动态规划,组合数学 -->
 
 ## 题目描述
 

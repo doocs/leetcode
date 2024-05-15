@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1476.Subrectangle%20Queries/README_EN.md
+rating: 1326
+tags:
+    - Design
+    - Array
+    - Matrix
+---
+
 # [1476. Subrectangle Queries](https://leetcode.com/problems/subrectangle-queries)
 
 [中文文档](/solution/1400-1499/1476.Subrectangle%20Queries/README.md)
-
-<!-- tags:Design,Array,Matrix -->
 
 ## Description
 

@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1615.Maximal%20Network%20Rank/README_EN.md
+rating: 1521
+tags:
+    - Graph
+---
+
 # [1615. Maximal Network Rank](https://leetcode.com/problems/maximal-network-rank)
 
 [中文文档](/solution/1600-1699/1615.Maximal%20Network%20Rank/README.md)
-
-<!-- tags:Graph -->
 
 ## Description
 

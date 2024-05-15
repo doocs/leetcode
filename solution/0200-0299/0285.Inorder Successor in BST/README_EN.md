@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0285.Inorder%20Successor%20in%20BST/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Binary Search Tree
+    - Binary Tree
+---
+
 # [285. Inorder Successor in BST 🔒](https://leetcode.com/problems/inorder-successor-in-bst)
 
 [中文文档](/solution/0200-0299/0285.Inorder%20Successor%20in%20BST/README.md)
-
-<!-- tags:Tree,Depth-First Search,Binary Search Tree,Binary Tree -->
 
 ## Description
 

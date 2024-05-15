@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0713.Subarray%20Product%20Less%20Than%20K/README_EN.md
+tags:
+    - Array
+    - Sliding Window
+---
+
 # [713. Subarray Product Less Than K](https://leetcode.com/problems/subarray-product-less-than-k)
 
 [中文文档](/solution/0700-0799/0713.Subarray%20Product%20Less%20Than%20K/README.md)
-
-<!-- tags:Array,Sliding Window -->
 
 ## Description
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0287.Find%20the%20Duplicate%20Number/README_EN.md
+tags:
+    - Bit Manipulation
+    - Array
+    - Two Pointers
+    - Binary Search
+---
+
 # [287. Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number)
 
 [中文文档](/solution/0200-0299/0287.Find%20the%20Duplicate%20Number/README.md)
-
-<!-- tags:Bit Manipulation,Array,Two Pointers,Binary Search -->
 
 ## Description
 

@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0576.Out%20of%20Boundary%20Paths/README.md
+tags:
+    - 动态规划
+---
+
 # [576. 出界的路径数](https://leetcode.cn/problems/out-of-boundary-paths)
 
 [English Version](/solution/0500-0599/0576.Out%20of%20Boundary%20Paths/README_EN.md)
-
-<!-- tags:动态规划 -->
 
 ## 题目描述
 

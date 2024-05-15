@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0491.Non-decreasing%20Subsequences/README.md
+tags:
+    - 位运算
+    - 数组
+    - 哈希表
+    - 回溯
+---
+
 # [491. 非递减子序列](https://leetcode.cn/problems/non-decreasing-subsequences)
 
 [English Version](/solution/0400-0499/0491.Non-decreasing%20Subsequences/README_EN.md)
-
-<!-- tags:位运算,数组,哈希表,回溯 -->
 
 ## 题目描述
 

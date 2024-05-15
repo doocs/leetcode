@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1129.Shortest%20Path%20with%20Alternating%20Colors/README_EN.md
+rating: 1779
+tags:
+    - Breadth-First Search
+    - Graph
+---
+
 # [1129. Shortest Path with Alternating Colors](https://leetcode.com/problems/shortest-path-with-alternating-colors)
 
 [中文文档](/solution/1100-1199/1129.Shortest%20Path%20with%20Alternating%20Colors/README.md)
-
-<!-- tags:Breadth-First Search,Graph -->
 
 ## Description
 

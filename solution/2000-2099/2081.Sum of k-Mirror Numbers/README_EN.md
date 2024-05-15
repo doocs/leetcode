@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2081.Sum%20of%20k-Mirror%20Numbers/README_EN.md
+rating: 2209
+tags:
+    - Math
+    - Enumeration
+---
+
 # [2081. Sum of k-Mirror Numbers](https://leetcode.com/problems/sum-of-k-mirror-numbers)
 
 [中文文档](/solution/2000-2099/2081.Sum%20of%20k-Mirror%20Numbers/README.md)
-
-<!-- tags:Math,Enumeration -->
 
 ## Description
 

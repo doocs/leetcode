@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0033.Search%20in%20Rotated%20Sorted%20Array/README_EN.md
+tags:
+    - Array
+    - Binary Search
+---
+
 # [33. Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array)
 
 [中文文档](/solution/0000-0099/0033.Search%20in%20Rotated%20Sorted%20Array/README.md)
-
-<!-- tags:Array,Binary Search -->
 
 ## Description
 

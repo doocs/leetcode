@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.16.The%20Masseuse/README.md
+---
+
 # [面试题 17.16. 按摩师](https://leetcode.cn/problems/the-masseuse-lcci)
 
 [English Version](/lcci/17.16.The%20Masseuse/README_EN.md)
@@ -116,6 +122,24 @@ function massage(nums: number[]): number {
         g = gg;
     }
     return Math.max(f, g);
+}
+```
+
+```swift
+class Solution {
+    func massage(_ nums: [Int]) -> Int {
+        var f = 0
+        var g = 0
+
+        for x in nums {
+            let ff = g + x
+            let gg = max(f, g)
+            f = ff
+            g = gg
+        }
+
+        return max(f, g)
+    }
 }
 ```
 

@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.05.Find%20Longest%20Subarray/README.md
+---
+
 # [面试题 17.05. 字母与数字](https://leetcode.cn/problems/find-longest-subarray-lcci)
 
 [English Version](/lcci/17.05.Find%20Longest%20Subarray/README_EN.md)
@@ -155,6 +161,29 @@ function findLongestSubarray(array: string[]): string[] {
         }
     }
     return array.slice(k, k + mx);
+}
+```
+
+```swift
+class Solution {
+    func findLongestSubarray(_ array: [String]) -> [String] {
+        var vis: [Int: Int] = [0: -1]
+        var s = 0, mx = 0, k = 0
+
+        for i in 0..<array.count {
+            s += array[i].first!.isLetter ? 1 : -1
+            if let j = vis[s] {
+                if mx < i - j {
+                    mx = i - j
+                    k = j + 1
+                }
+            } else {
+                vis[s] = i
+            }
+        }
+
+        return Array(array[k..<(k + mx)])
+    }
 }
 ```
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0531.Lonely%20Pixel%20I/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 矩阵
+---
+
 # [531. 孤独像素 I 🔒](https://leetcode.cn/problems/lonely-pixel-i)
 
 [English Version](/solution/0500-0599/0531.Lonely%20Pixel%20I/README_EN.md)
-
-<!-- tags:数组,哈希表,矩阵 -->
 
 ## 题目描述
 

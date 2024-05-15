@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2655.Find%20Maximal%20Uncovered%20Ranges/README_EN.md
+tags:
+    - Array
+    - Sorting
+---
+
 # [2655. Find Maximal Uncovered Ranges 🔒](https://leetcode.com/problems/find-maximal-uncovered-ranges)
 
 [中文文档](/solution/2600-2699/2655.Find%20Maximal%20Uncovered%20Ranges/README.md)
-
-<!-- tags:Array,Sorting -->
 
 ## Description
 

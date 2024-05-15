@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1589.Maximum%20Sum%20Obtained%20of%20Any%20Permutation/README.md
+rating: 1871
+tags:
+    - 贪心
+    - 数组
+    - 前缀和
+    - 排序
+---
+
 # [1589. 所有排列中的最大和](https://leetcode.cn/problems/maximum-sum-obtained-of-any-permutation)
 
 [English Version](/solution/1500-1599/1589.Maximum%20Sum%20Obtained%20of%20Any%20Permutation/README_EN.md)
-
-<!-- tags:贪心,数组,前缀和,排序 -->
 
 ## 题目描述
 

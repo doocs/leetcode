@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2425.Bitwise%20XOR%20of%20All%20Pairings/README_EN.md
+rating: 1622
+tags:
+    - Bit Manipulation
+    - Brainteaser
+    - Array
+---
+
 # [2425. Bitwise XOR of All Pairings](https://leetcode.com/problems/bitwise-xor-of-all-pairings)
 
 [中文文档](/solution/2400-2499/2425.Bitwise%20XOR%20of%20All%20Pairings/README.md)
-
-<!-- tags:Bit Manipulation,Brainteaser,Array -->
 
 ## Description
 

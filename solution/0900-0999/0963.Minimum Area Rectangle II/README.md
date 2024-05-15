@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0963.Minimum%20Area%20Rectangle%20II/README.md
+tags:
+    - 几何
+    - 数组
+    - 数学
+---
+
 # [963. 最小面积矩形 II](https://leetcode.cn/problems/minimum-area-rectangle-ii)
 
 [English Version](/solution/0900-0999/0963.Minimum%20Area%20Rectangle%20II/README_EN.md)
-
-<!-- tags:几何,数组,数学 -->
 
 ## 题目描述
 

@@ -1,8 +1,21 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2035.Partition%20Array%20Into%20Two%20Arrays%20to%20Minimize%20Sum%20Difference/README_EN.md
+rating: 2489
+tags:
+    - Bit Manipulation
+    - Array
+    - Two Pointers
+    - Binary Search
+    - Dynamic Programming
+    - Bitmask
+    - Ordered Set
+---
+
 # [2035. Partition Array Into Two Arrays to Minimize Sum Difference](https://leetcode.com/problems/partition-array-into-two-arrays-to-minimize-sum-difference)
 
 [中文文档](/solution/2000-2099/2035.Partition%20Array%20Into%20Two%20Arrays%20to%20Minimize%20Sum%20Difference/README.md)
-
-<!-- tags:Bit Manipulation,Array,Two Pointers,Binary Search,Dynamic Programming,Bitmask,Ordered Set -->
 
 ## Description
 

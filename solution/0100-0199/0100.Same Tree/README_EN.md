@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0100.Same%20Tree/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Binary Tree
+---
+
 # [100. Same Tree](https://leetcode.com/problems/same-tree)
 
 [中文文档](/solution/0100-0199/0100.Same%20Tree/README.md)
-
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Tree -->
 
 ## Description
 

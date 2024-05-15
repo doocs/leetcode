@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2315.Count%20Asterisks/README_EN.md
+rating: 1250
+tags:
+    - String
+---
+
 # [2315. Count Asterisks](https://leetcode.com/problems/count-asterisks)
 
 [中文文档](/solution/2300-2399/2315.Count%20Asterisks/README.md)
-
-<!-- tags:String -->
 
 ## Description
 

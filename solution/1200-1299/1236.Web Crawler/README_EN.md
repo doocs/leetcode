@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1236.Web%20Crawler/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - String
+    - Interactive
+---
+
 # [1236. Web Crawler 🔒](https://leetcode.com/problems/web-crawler)
 
 [中文文档](/solution/1200-1299/1236.Web%20Crawler/README.md)
-
-<!-- tags:Depth-First Search,Breadth-First Search,String,Interactive -->
 
 ## Description
 

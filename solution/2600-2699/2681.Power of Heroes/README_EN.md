@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2681.Power%20of%20Heroes/README_EN.md
+rating: 2060
+tags:
+    - Array
+    - Math
+    - Dynamic Programming
+    - Prefix Sum
+    - Sorting
+---
+
 # [2681. Power of Heroes](https://leetcode.com/problems/power-of-heroes)
 
 [中文文档](/solution/2600-2699/2681.Power%20of%20Heroes/README.md)
-
-<!-- tags:Array,Math,Dynamic Programming,Prefix Sum,Sorting -->
 
 ## Description
 

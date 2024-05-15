@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2602.Minimum%20Operations%20to%20Make%20All%20Array%20Elements%20Equal/README.md
+rating: 1903
+tags:
+    - 数组
+    - 二分查找
+    - 前缀和
+    - 排序
+---
+
 # [2602. 使数组元素全部相等的最少操作次数](https://leetcode.cn/problems/minimum-operations-to-make-all-array-elements-equal)
 
 [English Version](/solution/2600-2699/2602.Minimum%20Operations%20to%20Make%20All%20Array%20Elements%20Equal/README_EN.md)
-
-<!-- tags:数组,二分查找,前缀和,排序 -->
 
 ## 题目描述
 

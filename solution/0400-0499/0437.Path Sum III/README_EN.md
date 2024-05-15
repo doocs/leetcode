@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0437.Path%20Sum%20III/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Binary Tree
+---
+
 # [437. Path Sum III](https://leetcode.com/problems/path-sum-iii)
 
 [中文文档](/solution/0400-0499/0437.Path%20Sum%20III/README.md)
-
-<!-- tags:Tree,Depth-First Search,Binary Tree -->
 
 ## Description
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0899.Orderly%20Queue/README.md
+tags:
+    - 数学
+    - 字符串
+    - 排序
+---
+
 # [899. 有序队列](https://leetcode.cn/problems/orderly-queue)
 
 [English Version](/solution/0800-0899/0899.Orderly%20Queue/README_EN.md)
-
-<!-- tags:数学,字符串,排序 -->
 
 ## 题目描述
 

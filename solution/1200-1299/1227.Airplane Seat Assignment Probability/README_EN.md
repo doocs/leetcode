@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1227.Airplane%20Seat%20Assignment%20Probability/README_EN.md
+tags:
+    - Brainteaser
+    - Math
+    - Dynamic Programming
+    - Probability and Statistics
+---
+
 # [1227. Airplane Seat Assignment Probability](https://leetcode.com/problems/airplane-seat-assignment-probability)
 
 [中文文档](/solution/1200-1299/1227.Airplane%20Seat%20Assignment%20Probability/README.md)
-
-<!-- tags:Brainteaser,Math,Dynamic Programming,Probability and Statistics -->
 
 ## Description
 

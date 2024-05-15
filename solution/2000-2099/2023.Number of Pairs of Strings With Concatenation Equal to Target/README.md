@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2023.Number%20of%20Pairs%20of%20Strings%20With%20Concatenation%20Equal%20to%20Target/README.md
+rating: 1341
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+    - 计数
+---
+
 # [2023. 连接后等于目标字符串的字符串对](https://leetcode.cn/problems/number-of-pairs-of-strings-with-concatenation-equal-to-target)
 
 [English Version](/solution/2000-2099/2023.Number%20of%20Pairs%20of%20Strings%20With%20Concatenation%20Equal%20to%20Target/README_EN.md)
-
-<!-- tags:数组,哈希表,字符串,计数 -->
 
 ## 题目描述
 

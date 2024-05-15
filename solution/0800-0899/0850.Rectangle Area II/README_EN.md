@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0850.Rectangle%20Area%20II/README_EN.md
+tags:
+    - Segment Tree
+    - Array
+    - Ordered Set
+    - Line Sweep
+---
+
 # [850. Rectangle Area II](https://leetcode.com/problems/rectangle-area-ii)
 
 [中文文档](/solution/0800-0899/0850.Rectangle%20Area%20II/README.md)
-
-<!-- tags:Segment Tree,Array,Ordered Set,Line Sweep -->
 
 ## Description
 

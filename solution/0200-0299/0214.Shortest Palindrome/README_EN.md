@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0214.Shortest%20Palindrome/README_EN.md
+tags:
+    - String
+    - String Matching
+    - Hash Function
+    - Rolling Hash
+---
+
 # [214. Shortest Palindrome](https://leetcode.com/problems/shortest-palindrome)
 
 [中文文档](/solution/0200-0299/0214.Shortest%20Palindrome/README.md)
-
-<!-- tags:String,String Matching,Hash Function,Rolling Hash -->
 
 ## Description
 

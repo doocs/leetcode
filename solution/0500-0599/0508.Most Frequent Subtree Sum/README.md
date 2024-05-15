@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0508.Most%20Frequent%20Subtree%20Sum/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 哈希表
+    - 二叉树
+---
+
 # [508. 出现次数最多的子树元素和](https://leetcode.cn/problems/most-frequent-subtree-sum)
 
 [English Version](/solution/0500-0599/0508.Most%20Frequent%20Subtree%20Sum/README_EN.md)
-
-<!-- tags:树,深度优先搜索,哈希表,二叉树 -->
 
 ## 题目描述
 

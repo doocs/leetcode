@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1526.Minimum%20Number%20of%20Increments%20on%20Subarrays%20to%20Form%20a%20Target%20Array/README.md
+rating: 1872
+tags:
+    - 栈
+    - 贪心
+    - 数组
+    - 动态规划
+    - 单调栈
+---
+
 # [1526. 形成目标数组的子数组最少增加次数](https://leetcode.cn/problems/minimum-number-of-increments-on-subarrays-to-form-a-target-array)
 
 [English Version](/solution/1500-1599/1526.Minimum%20Number%20of%20Increments%20on%20Subarrays%20to%20Form%20a%20Target%20Array/README_EN.md)
-
-<!-- tags:栈,贪心,数组,动态规划,单调栈 -->
 
 ## 题目描述
 

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1739.Building%20Boxes/README_EN.md
+rating: 2198
+tags:
+    - Greedy
+    - Math
+    - Binary Search
+---
+
 # [1739. Building Boxes](https://leetcode.com/problems/building-boxes)
 
 [中文文档](/solution/1700-1799/1739.Building%20Boxes/README.md)
-
-<!-- tags:Greedy,Math,Binary Search -->
 
 ## Description
 

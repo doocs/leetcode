@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0870.Advantage%20Shuffle/README.md
+tags:
+    - 贪心
+    - 数组
+    - 双指针
+    - 排序
+---
+
 # [870. 优势洗牌](https://leetcode.cn/problems/advantage-shuffle)
 
 [English Version](/solution/0800-0899/0870.Advantage%20Shuffle/README_EN.md)
-
-<!-- tags:贪心,数组,双指针,排序 -->
 
 ## 题目描述
 

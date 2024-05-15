@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0355.Design%20Twitter/README_EN.md
+tags:
+    - Design
+    - Hash Table
+    - Linked List
+    - Heap (Priority Queue)
+---
+
 # [355. Design Twitter](https://leetcode.com/problems/design-twitter)
 
 [中文文档](/solution/0300-0399/0355.Design%20Twitter/README.md)
-
-<!-- tags:Design,Hash Table,Linked List,Heap (Priority Queue) -->
 
 ## Description
 

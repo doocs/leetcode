@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.04.Missing%20Number/README_EN.md
+---
+
 # [17.04. Missing Number](https://leetcode.cn/problems/missing-number-lcci)
 
 [中文文档](/lcci/17.04.Missing%20Number/README.md)
@@ -119,6 +125,20 @@ var missingNumber = function (nums) {
 };
 ```
 
+```swift
+class Solution {
+    func missingNumber(_ nums: [Int]) -> Int {
+        let nums = nums.sorted()
+        for (i, x) in nums.enumerated() {
+            if i != x {
+                return i
+            }
+        }
+        return nums.count
+    }
+}
+```
+
 <!-- tabs:end -->
 
 ### Solution 2
@@ -200,6 +220,15 @@ var missingNumber = function (nums) {
     }
     return ans;
 };
+```
+
+```swift
+class Solution {
+    func missingNumber(_ nums: [Int]) -> Int {
+        let n = nums.count
+        return n * (n + 1) / 2 - nums.reduce(0, +)
+    }
+}
 ```
 
 <!-- tabs:end -->

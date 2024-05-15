@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0136.Single%20Number/README.md
+tags:
+    - 位运算
+    - 数组
+---
+
 # [136. 只出现一次的数字](https://leetcode.cn/problems/single-number)
 
 [English Version](/solution/0100-0199/0136.Single%20Number/README_EN.md)
-
-<!-- tags:位运算,数组 -->
 
 ## 题目描述
 

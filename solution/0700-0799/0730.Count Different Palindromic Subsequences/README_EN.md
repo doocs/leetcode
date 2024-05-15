@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0730.Count%20Different%20Palindromic%20Subsequences/README_EN.md
+tags:
+    - String
+    - Dynamic Programming
+---
+
 # [730. Count Different Palindromic Subsequences](https://leetcode.com/problems/count-different-palindromic-subsequences)
 
 [中文文档](/solution/0700-0799/0730.Count%20Different%20Palindromic%20Subsequences/README.md)
-
-<!-- tags:String,Dynamic Programming -->
 
 ## Description
 

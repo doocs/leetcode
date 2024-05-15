@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1376.Time%20Needed%20to%20Inform%20All%20Employees/README_EN.md
+rating: 1561
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+---
+
 # [1376. Time Needed to Inform All Employees](https://leetcode.com/problems/time-needed-to-inform-all-employees)
 
 [中文文档](/solution/1300-1399/1376.Time%20Needed%20to%20Inform%20All%20Employees/README.md)
-
-<!-- tags:Tree,Depth-First Search,Breadth-First Search -->
 
 ## Description
 

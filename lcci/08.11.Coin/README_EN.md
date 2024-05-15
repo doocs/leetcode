@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.11.Coin/README_EN.md
+---
+
 # [08.11. Coin](https://leetcode.cn/problems/coin-lcci)
 
 [中文文档](/lcci/08.11.Coin/README.md)

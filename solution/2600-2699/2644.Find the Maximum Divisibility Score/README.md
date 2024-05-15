@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2644.Find%20the%20Maximum%20Divisibility%20Score/README.md
+rating: 1257
+tags:
+    - 数组
+---
+
 # [2644. 找出可整除性得分最大的整数](https://leetcode.cn/problems/find-the-maximum-divisibility-score)
 
 [English Version](/solution/2600-2699/2644.Find%20the%20Maximum%20Divisibility%20Score/README_EN.md)
-
-<!-- tags:数组 -->
 
 ## 题目描述
 

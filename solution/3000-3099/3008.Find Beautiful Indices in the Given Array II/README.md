@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3008.Find%20Beautiful%20Indices%20in%20the%20Given%20Array%20II/README.md
+rating: 2016
+tags:
+    - 双指针
+    - 字符串
+    - 二分查找
+    - 字符串匹配
+    - 哈希函数
+    - 滚动哈希
+---
+
 # [3008. 找出数组中的美丽下标 II](https://leetcode.cn/problems/find-beautiful-indices-in-the-given-array-ii)
 
 [English Version](/solution/3000-3099/3008.Find%20Beautiful%20Indices%20in%20the%20Given%20Array%20II/README_EN.md)
-
-<!-- tags:双指针,字符串,二分查找,字符串匹配,哈希函数,滚动哈希 -->
 
 ## 题目描述
 

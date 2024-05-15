@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0094.Binary%20Tree%20Inorder%20Traversal/README.md
+tags:
+    - 栈
+    - 树
+    - 深度优先搜索
+    - 二叉树
+---
+
 # [94. 二叉树的中序遍历](https://leetcode.cn/problems/binary-tree-inorder-traversal)
 
 [English Version](/solution/0000-0099/0094.Binary%20Tree%20Inorder%20Traversal/README_EN.md)
-
-<!-- tags:栈,树,深度优先搜索,二叉树 -->
 
 ## 题目描述
 

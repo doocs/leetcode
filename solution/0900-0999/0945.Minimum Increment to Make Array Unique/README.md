@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0945.Minimum%20Increment%20to%20Make%20Array%20Unique/README.md
+tags:
+    - 贪心
+    - 数组
+    - 计数
+    - 排序
+---
+
 # [945. 使数组唯一的最小增量](https://leetcode.cn/problems/minimum-increment-to-make-array-unique)
 
 [English Version](/solution/0900-0999/0945.Minimum%20Increment%20to%20Make%20Array%20Unique/README_EN.md)
-
-<!-- tags:贪心,数组,计数,排序 -->
 
 ## 题目描述
 

@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1696.Jump%20Game%20VI/README.md
+rating: 1954
+tags:
+    - 队列
+    - 数组
+    - 动态规划
+    - 单调队列
+    - 堆（优先队列）
+---
+
 # [1696. 跳跃游戏 VI](https://leetcode.cn/problems/jump-game-vi)
 
 [English Version](/solution/1600-1699/1696.Jump%20Game%20VI/README_EN.md)
-
-<!-- tags:队列,数组,动态规划,单调队列,堆（优先队列） -->
 
 ## 题目描述
 

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1943.Describe%20the%20Painting/README.md
+rating: 1969
+tags:
+    - 数组
+    - 哈希表
+    - 前缀和
+    - 排序
+---
+
 # [1943. 描述绘画结果](https://leetcode.cn/problems/describe-the-painting)
 
 [English Version](/solution/1900-1999/1943.Describe%20the%20Painting/README_EN.md)
-
-<!-- tags:数组,哈希表,前缀和,排序 -->
 
 ## 题目描述
 

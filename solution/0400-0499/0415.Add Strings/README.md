@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0415.Add%20Strings/README.md
+tags:
+    - 数学
+    - 字符串
+    - 模拟
+---
+
 # [415. 字符串相加](https://leetcode.cn/problems/add-strings)
 
 [English Version](/solution/0400-0499/0415.Add%20Strings/README_EN.md)
-
-<!-- tags:数学,字符串,模拟 -->
 
 ## 题目描述
 

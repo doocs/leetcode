@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0312.Burst%20Balloons/README.md
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [312. 戳气球](https://leetcode.cn/problems/burst-balloons)
 
 [English Version](/solution/0300-0399/0312.Burst%20Balloons/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
 
 ## 题目描述
 

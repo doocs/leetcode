@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2069.Walking%20Robot%20Simulation%20II/README.md
+rating: 1918
+tags:
+    - 设计
+    - 模拟
+---
+
 # [2069. 模拟行走机器人 II](https://leetcode.cn/problems/walking-robot-simulation-ii)
 
 [English Version](/solution/2000-2099/2069.Walking%20Robot%20Simulation%20II/README_EN.md)
-
-<!-- tags:设计,模拟 -->
 
 ## 题目描述
 

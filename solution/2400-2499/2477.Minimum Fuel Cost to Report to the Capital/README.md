@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2477.Minimum%20Fuel%20Cost%20to%20Report%20to%20the%20Capital/README.md
+rating: 2011
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 图
+---
+
 # [2477. 到达首都的最少油耗](https://leetcode.cn/problems/minimum-fuel-cost-to-report-to-the-capital)
 
 [English Version](/solution/2400-2499/2477.Minimum%20Fuel%20Cost%20to%20Report%20to%20the%20Capital/README_EN.md)
-
-<!-- tags:树,深度优先搜索,广度优先搜索,图 -->
 
 ## 题目描述
 

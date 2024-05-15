@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1888.Minimum%20Number%20of%20Flips%20to%20Make%20the%20Binary%20String%20Alternating/README_EN.md
+rating: 2005
+tags:
+    - Greedy
+    - String
+    - Dynamic Programming
+    - Sliding Window
+---
+
 # [1888. Minimum Number of Flips to Make the Binary String Alternating](https://leetcode.com/problems/minimum-number-of-flips-to-make-the-binary-string-alternating)
 
 [中文文档](/solution/1800-1899/1888.Minimum%20Number%20of%20Flips%20to%20Make%20the%20Binary%20String%20Alternating/README.md)
-
-<!-- tags:Greedy,String,Dynamic Programming,Sliding Window -->
 
 ## Description
 

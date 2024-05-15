@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.15.Master%20Mind/README.md
+---
+
 # [面试题 16.15. 珠玑妙算](https://leetcode.cn/problems/master-mind-lcci)
 
 [English Version](/lcci/16.15.Master%20Mind/README_EN.md)
@@ -129,7 +135,7 @@ class Solution {
         var y = 0
         var cnt1: [Character: Int] = [:]
         var cnt2: [Character: Int] = [:]
-        
+
         for i in solution.indices {
             let a = solution[i]
             let b = guess[i]
@@ -139,13 +145,13 @@ class Solution {
             cnt1[a, default: 0] += 1
             cnt2[b, default: 0] += 1
         }
-        
+
         let colors = "RYGB"
         for c in colors {
             let minCount = min(cnt1[c, default: 0], cnt2[c, default: 0])
             y += minCount
         }
-        
+
         return [x, y - x]
     }
 }

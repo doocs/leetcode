@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2998.Minimum%20Number%20of%20Operations%20to%20Make%20X%20and%20Y%20Equal/README_EN.md
+rating: 1794
+tags:
+    - Breadth-First Search
+    - Memoization
+    - Dynamic Programming
+---
+
 # [2998. Minimum Number of Operations to Make X and Y Equal](https://leetcode.com/problems/minimum-number-of-operations-to-make-x-and-y-equal)
 
 [中文文档](/solution/2900-2999/2998.Minimum%20Number%20of%20Operations%20to%20Make%20X%20and%20Y%20Equal/README.md)
-
-<!-- tags:Breadth-First Search,Memoization,Dynamic Programming -->
 
 ## Description
 

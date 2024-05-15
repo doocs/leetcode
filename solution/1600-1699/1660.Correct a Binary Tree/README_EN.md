@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1660.Correct%20a%20Binary%20Tree/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Hash Table
+    - Binary Tree
+---
+
 # [1660. Correct a Binary Tree 🔒](https://leetcode.com/problems/correct-a-binary-tree)
 
 [中文文档](/solution/1600-1699/1660.Correct%20a%20Binary%20Tree/README.md)
-
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Hash Table,Binary Tree -->
 
 ## Description
 

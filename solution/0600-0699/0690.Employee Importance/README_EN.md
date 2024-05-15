@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0690.Employee%20Importance/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Array
+    - Hash Table
+---
+
 # [690. Employee Importance](https://leetcode.com/problems/employee-importance)
 
 [中文文档](/solution/0600-0699/0690.Employee%20Importance/README.md)
-
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Array,Hash Table -->
 
 ## Description
 

@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof/README_TEMPLATE.md
+---
+
 # [{}. {}]({})
 
 [English Version]({})

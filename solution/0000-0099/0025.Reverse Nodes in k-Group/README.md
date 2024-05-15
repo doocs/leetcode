@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0025.Reverse%20Nodes%20in%20k-Group/README.md
+tags:
+    - 递归
+    - 链表
+---
+
 # [25. K 个一组翻转链表](https://leetcode.cn/problems/reverse-nodes-in-k-group)
 
 [English Version](/solution/0000-0099/0025.Reverse%20Nodes%20in%20k-Group/README_EN.md)
-
-<!-- tags:递归,链表 -->
 
 ## 题目描述
 

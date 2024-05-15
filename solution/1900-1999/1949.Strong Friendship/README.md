@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1949.Strong%20Friendship/README.md
+tags:
+    - 数据库
+---
+
 # [1949. 坚定的友谊 🔒](https://leetcode.cn/problems/strong-friendship)
 
 [English Version](/solution/1900-1999/1949.Strong%20Friendship/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

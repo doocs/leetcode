@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1661.Average%20Time%20of%20Process%20per%20Machine/README_EN.md
+tags:
+    - Database
+---
+
 # [1661. Average Time of Process per Machine](https://leetcode.com/problems/average-time-of-process-per-machine)
 
 [中文文档](/solution/1600-1699/1661.Average%20Time%20of%20Process%20per%20Machine/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

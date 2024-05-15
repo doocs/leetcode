@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20028.%20%E5%B1%95%E5%B9%B3%E5%A4%9A%E7%BA%A7%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/README.md
+---
+
 # [剑指 Offer II 028. 展平多级双向链表](https://leetcode.cn/problems/Qv1Da2)
 
 ## 题目描述

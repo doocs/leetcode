@@ -1,8 +1,21 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2736.Maximum%20Sum%20Queries/README_EN.md
+rating: 2533
+tags:
+    - Stack
+    - Binary Indexed Tree
+    - Segment Tree
+    - Array
+    - Binary Search
+    - Sorting
+    - Monotonic Stack
+---
+
 # [2736. Maximum Sum Queries](https://leetcode.com/problems/maximum-sum-queries)
 
 [中文文档](/solution/2700-2799/2736.Maximum%20Sum%20Queries/README.md)
-
-<!-- tags:Stack,Binary Indexed Tree,Segment Tree,Array,Binary Search,Sorting,Monotonic Stack -->
 
 ## Description
 

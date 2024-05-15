@@ -1,3 +1,9 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2058.%20%E7%A7%AF%E6%9C%A8%E6%8B%BC%E6%8E%A5/README.md
+---
+
 # [LCP 58. 积木拼接](https://leetcode.cn/problems/De4qBB)
 
 ## 题目描述
@@ -16,7 +22,7 @@
 -   **每片积木片 `shapes[i]` 的中心点在拼接时必须处于正方体对应面的中心点**
 
 例如 `3*3`、`4*4` 的积木片的中心点如图所示（红色点）：
-![middle_img_v2_c2d91eb5-9beb-4c06-9726-f7dae149d86g.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2058.%20%E7%A7%AF%E6%9C%A8%E6%8B%BC%E6%8E%A5/images/1650509082-wObiEp-middle_img_v2_c2d91eb5-9beb-4c06-9726-f7dae149d86g.png)
+![middle_img_v2_c2d91eb5-9beb-4c06-9726-f7dae149d86g.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2058.%20%E7%A7%AF%E6%9C%A8%E6%8B%BC%E6%8E%A5/images/1650509082-wObiEp-middle_img_v2_c2d91eb5-9beb-4c06-9726-f7dae149d86g.png){:height="150px"}
 
 请返回这 6 片积木能否拼接成一个**严丝合缝的正方体**且每片积木正好对应正方体的一个面。
 

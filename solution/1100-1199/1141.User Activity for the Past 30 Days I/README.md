@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1141.User%20Activity%20for%20the%20Past%2030%20Days%20I/README.md
+tags:
+    - 数据库
+---
+
 # [1141. 查询近 30 天活跃用户数](https://leetcode.cn/problems/user-activity-for-the-past-30-days-i)
 
 [English Version](/solution/1100-1199/1141.User%20Activity%20for%20the%20Past%2030%20Days%20I/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

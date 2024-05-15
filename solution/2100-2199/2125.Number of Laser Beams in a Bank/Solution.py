@@ -1,8 +1,8 @@
 class Solution:
     def numberOfBeams(self, bank: List[str]) -> int:
-        last = ans = 0
-        for b in bank:
-            if (t := b.count('1')) > 0:
-                ans += last * t
-                last = t
+        ans = pre = 0
+        for row in bank:
+            if (cur := row.count("1")) > 0:
+                ans += pre * cur
+                pre = cur
         return ans

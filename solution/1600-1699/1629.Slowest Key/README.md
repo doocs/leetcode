@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1629.Slowest%20Key/README.md
+rating: 1315
+tags:
+    - 数组
+    - 字符串
+---
+
 # [1629. 按键持续时间最长的键](https://leetcode.cn/problems/slowest-key)
 
 [English Version](/solution/1600-1699/1629.Slowest%20Key/README_EN.md)
-
-<!-- tags:数组,字符串 -->
 
 ## 题目描述
 

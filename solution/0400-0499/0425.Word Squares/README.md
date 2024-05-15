@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0425.Word%20Squares/README.md
+tags:
+    - 字典树
+    - 数组
+    - 字符串
+    - 回溯
+---
+
 # [425. 单词方块 🔒](https://leetcode.cn/problems/word-squares)
 
 [English Version](/solution/0400-0499/0425.Word%20Squares/README_EN.md)
-
-<!-- tags:字典树,数组,字符串,回溯 -->
 
 ## 题目描述
 

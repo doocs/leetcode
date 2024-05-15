@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2439.Minimize%20Maximum%20of%20Array/README.md
+rating: 1965
+tags:
+    - 贪心
+    - 数组
+    - 二分查找
+    - 动态规划
+    - 前缀和
+---
+
 # [2439. 最小化数组中的最大值](https://leetcode.cn/problems/minimize-maximum-of-array)
 
 [English Version](/solution/2400-2499/2439.Minimize%20Maximum%20of%20Array/README_EN.md)
-
-<!-- tags:贪心,数组,二分查找,动态规划,前缀和 -->
 
 ## 题目描述
 

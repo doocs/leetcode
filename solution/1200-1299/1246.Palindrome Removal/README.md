@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1246.Palindrome%20Removal/README.md
+rating: 2203
+tags:
+    - 数组
+    - 动态规划
+---
+
 # [1246. 删除回文子数组 🔒](https://leetcode.cn/problems/palindrome-removal)
 
 [English Version](/solution/1200-1299/1246.Palindrome%20Removal/README_EN.md)
-
-<!-- tags:数组,动态规划 -->
 
 ## 题目描述
 

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0244.Shortest%20Word%20Distance%20II/README_EN.md
+tags:
+    - Design
+    - Array
+    - Hash Table
+    - Two Pointers
+    - String
+---
+
 # [244. Shortest Word Distance II 🔒](https://leetcode.com/problems/shortest-word-distance-ii)
 
 [中文文档](/solution/0200-0299/0244.Shortest%20Word%20Distance%20II/README.md)
-
-<!-- tags:Design,Array,Hash Table,Two Pointers,String -->
 
 ## Description
 

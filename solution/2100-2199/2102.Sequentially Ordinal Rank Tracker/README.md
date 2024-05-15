@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2102.Sequentially%20Ordinal%20Rank%20Tracker/README.md
+rating: 2158
+tags:
+    - 设计
+    - 数据流
+    - 有序集合
+    - 堆（优先队列）
+---
+
 # [2102. 序列顺序查询](https://leetcode.cn/problems/sequentially-ordinal-rank-tracker)
 
 [English Version](/solution/2100-2199/2102.Sequentially%20Ordinal%20Rank%20Tracker/README_EN.md)
-
-<!-- tags:设计,数据流,有序集合,堆（优先队列） -->
 
 ## 题目描述
 
@@ -80,5 +90,188 @@ tracker.get();              // 从好到坏的景点为：branford, orlando, alp
 </ul>
 
 ## 解法
+
+### 方法一：有序集合
+
+我们可以使用有序集合来存储景点，用一个变量 $i$ 来记录当前查询的次数，初始时 $i = -1$。
+
+调用 `add` 方法时，我们将景点的评分取负数，这样就可以使用有序集合按照评分从大到小排序，如果评分相同，按照景点名字的字典序从小到大排序。
+
+调用 `get` 方法时，我们将 $i$ 加一，然后返回有序集合中第 $i$ 个景点的名字。
+
+每次操作的时间复杂度为 $O(\log n)$，其中 $n$ 为已添加的景点数。空间复杂度为 $O(n)$。
+
+<!-- tabs:start -->
+
+```python
+from sortedcontainers import SortedList
+
+
+class SORTracker:
+
+    def __init__(self):
+        self.sl = SortedList()
+        self.i = -1
+
+    def add(self, name: str, score: int) -> None:
+        self.sl.add((-score, name))
+
+    def get(self) -> str:
+        self.i += 1
+        return self.sl[self.i][1]
+
+
+# Your SORTracker object will be instantiated and called as such:
+# obj = SORTracker()
+# obj.add(name,score)
+# param_2 = obj.get()
+```
+
+```cpp
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/hash_policy.hpp>
+using namespace __gnu_pbds;
+
+template <class T>
+using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+
+class SORTracker {
+public:
+    SORTracker() {
+    }
+
+    void add(string name, int score) {
+        st.insert({-score, name});
+    }
+
+    string get() {
+        return st.find_by_order(++i)->second;
+    }
+
+private:
+    ordered_set<pair<int, string>> st;
+    int i = -1;
+};
+
+/**
+ * Your SORTracker object will be instantiated and called as such:
+ * SORTracker* obj = new SORTracker();
+ * obj->add(name,score);
+ * string param_2 = obj->get();
+ */
+```
+
+<!-- tabs:end -->
+
+### 方法二：双优先队列（大小根堆）
+
+我们注意到，由于本题中的查询操作是按照严格递增的顺序进行的，因此我们可以使用类似于数据流中的中位数的方法，定义两个优先队列 `good` 和 `bad`，其中 `good` 是一个小根堆，存储当前最好的景点，`bad` 是一个大根堆，存储当前第 $i$ 好的景点。
+
+每次调用 `add` 方法时，我们将景点的评分和名字加入 `good` 中，然后将 `good` 中的最差的景点加入 `bad` 中。
+
+每次调用 `get` 方法时，我们将 `bad` 中的最好的景点加入 `good` 中，然后返回 `good` 中的最差的景点。
+
+每次操作的时间复杂度为 $O(\log n)$，其中 $n$ 为已添加的景点数。空间复杂度为 $O(n)$。
+
+<!-- tabs:start -->
+
+```python
+class Node:
+    def __init__(self, s: str):
+        self.s = s
+
+    def __lt__(self, other):
+        return self.s > other.s
+
+
+class SORTracker:
+
+    def __init__(self):
+        self.good = []
+        self.bad = []
+
+    def add(self, name: str, score: int) -> None:
+        score, node = heappushpop(self.good, (score, Node(name)))
+        heappush(self.bad, (-score, node.s))
+
+    def get(self) -> str:
+        score, name = heappop(self.bad)
+        heappush(self.good, (-score, Node(name)))
+        return self.good[0][1].s
+
+
+# Your SORTracker object will be instantiated and called as such:
+# obj = SORTracker()
+# obj.add(name,score)
+# param_2 = obj.get()
+```
+
+```java
+class SORTracker {
+    private PriorityQueue<Map.Entry<Integer, String>> good = new PriorityQueue<>(
+        (a, b)
+            -> a.getKey().equals(b.getKey()) ? b.getValue().compareTo(a.getValue())
+                                             : a.getKey() - b.getKey());
+    private PriorityQueue<Map.Entry<Integer, String>> bad = new PriorityQueue<>(
+        (a, b)
+            -> a.getKey().equals(b.getKey()) ? a.getValue().compareTo(b.getValue())
+                                             : b.getKey() - a.getKey());
+
+    public SORTracker() {
+    }
+
+    public void add(String name, int score) {
+        good.offer(Map.entry(score, name));
+        bad.offer(good.poll());
+    }
+
+    public String get() {
+        good.offer(bad.poll());
+        return good.peek().getValue();
+    }
+}
+
+/**
+ * Your SORTracker object will be instantiated and called as such:
+ * SORTracker obj = new SORTracker();
+ * obj.add(name,score);
+ * String param_2 = obj.get();
+ */
+```
+
+```cpp
+using pis = pair<int, string>;
+
+class SORTracker {
+public:
+    SORTracker() {
+    }
+
+    void add(string name, int score) {
+        good.push({-score, name});
+        bad.push(good.top());
+        good.pop();
+    }
+
+    string get() {
+        good.push(bad.top());
+        bad.pop();
+        return good.top().second;
+    }
+
+private:
+    priority_queue<pis, vector<pis>, less<pis>> good;
+    priority_queue<pis, vector<pis>, greater<pis>> bad;
+};
+
+/**
+ * Your SORTracker object will be instantiated and called as such:
+ * SORTracker* obj = new SORTracker();
+ * obj->add(name,score);
+ * string param_2 = obj->get();
+ */
+```
+
+<!-- tabs:end -->
 
 <!-- end -->

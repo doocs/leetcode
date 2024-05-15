@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0906.Super%20Palindromes/README.md
+tags:
+    - 数学
+    - 枚举
+---
+
 # [906. 超级回文数](https://leetcode.cn/problems/super-palindromes)
 
 [English Version](/solution/0900-0999/0906.Super%20Palindromes/README_EN.md)
-
-<!-- tags:数学,枚举 -->
 
 ## 题目描述
 

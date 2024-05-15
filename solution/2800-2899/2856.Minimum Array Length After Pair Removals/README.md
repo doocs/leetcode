@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2856.Minimum%20Array%20Length%20After%20Pair%20Removals/README.md
+rating: 1749
+tags:
+    - 贪心
+    - 数组
+    - 哈希表
+    - 双指针
+    - 二分查找
+    - 计数
+---
+
 # [2856. 删除数对后的最小数组长度](https://leetcode.cn/problems/minimum-array-length-after-pair-removals)
 
 [English Version](/solution/2800-2899/2856.Minimum%20Array%20Length%20After%20Pair%20Removals/README_EN.md)
-
-<!-- tags:贪心,数组,哈希表,双指针,二分查找,计数 -->
 
 ## 题目描述
 

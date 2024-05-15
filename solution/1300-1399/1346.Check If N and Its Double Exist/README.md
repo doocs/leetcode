@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1346.Check%20If%20N%20and%20Its%20Double%20Exist/README.md
+rating: 1225
+tags:
+    - 数组
+    - 哈希表
+    - 双指针
+    - 二分查找
+    - 排序
+---
+
 # [1346. 检查整数及其两倍数是否存在](https://leetcode.cn/problems/check-if-n-and-its-double-exist)
 
 [English Version](/solution/1300-1399/1346.Check%20If%20N%20and%20Its%20Double%20Exist/README_EN.md)
-
-<!-- tags:数组,哈希表,双指针,二分查找,排序 -->
 
 ## 题目描述
 

@@ -1,8 +1,20 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1483.Kth%20Ancestor%20of%20a%20Tree%20Node/README.md
+rating: 2115
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 设计
+    - 二分查找
+    - 动态规划
+---
+
 # [1483. 树节点的第 K 个祖先](https://leetcode.cn/problems/kth-ancestor-of-a-tree-node)
 
 [English Version](/solution/1400-1499/1483.Kth%20Ancestor%20of%20a%20Tree%20Node/README_EN.md)
-
-<!-- tags:树,深度优先搜索,广度优先搜索,设计,二分查找,动态规划 -->
 
 ## 题目描述
 

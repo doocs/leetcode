@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1122.Relative%20Sort%20Array/README.md
+rating: 1188
+tags:
+    - 数组
+    - 哈希表
+    - 计数排序
+    - 排序
+---
+
 # [1122. 数组的相对排序](https://leetcode.cn/problems/relative-sort-array)
 
 [English Version](/solution/1100-1199/1122.Relative%20Sort%20Array/README_EN.md)
-
-<!-- tags:数组,哈希表,计数排序,排序 -->
 
 ## 题目描述
 

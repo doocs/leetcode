@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2595.Number%20of%20Even%20and%20Odd%20Bits/README.md
+rating: 1206
+tags:
+    - 位运算
+---
+
 # [2595. 奇偶位数](https://leetcode.cn/problems/number-of-even-and-odd-bits)
 
 [English Version](/solution/2500-2599/2595.Number%20of%20Even%20and%20Odd%20Bits/README_EN.md)
-
-<!-- tags:位运算 -->
 
 ## 题目描述
 

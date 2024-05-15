@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2983.Palindrome%20Rearrangement%20Queries/README.md
+rating: 2779
+tags:
+    - 哈希表
+    - 字符串
+    - 前缀和
+---
+
 # [2983. 回文串重新排列查询](https://leetcode.cn/problems/palindrome-rearrangement-queries)
 
 [English Version](/solution/2900-2999/2983.Palindrome%20Rearrangement%20Queries/README_EN.md)
-
-<!-- tags:哈希表,字符串,前缀和 -->
 
 ## 题目描述
 

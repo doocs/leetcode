@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0720.Longest%20Word%20in%20Dictionary/README.md
+tags:
+    - 字典树
+    - 数组
+    - 哈希表
+    - 字符串
+    - 排序
+---
+
 # [720. 词典中最长的单词](https://leetcode.cn/problems/longest-word-in-dictionary)
 
 [English Version](/solution/0700-0799/0720.Longest%20Word%20in%20Dictionary/README_EN.md)
-
-<!-- tags:字典树,数组,哈希表,字符串,排序 -->
 
 ## 题目描述
 

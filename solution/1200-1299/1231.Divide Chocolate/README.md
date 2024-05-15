@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1231.Divide%20Chocolate/README.md
+rating: 2029
+tags:
+    - 数组
+    - 二分查找
+---
+
 # [1231. 分享巧克力 🔒](https://leetcode.cn/problems/divide-chocolate)
 
 [English Version](/solution/1200-1299/1231.Divide%20Chocolate/README_EN.md)
-
-<!-- tags:数组,二分查找 -->
 
 ## 题目描述
 

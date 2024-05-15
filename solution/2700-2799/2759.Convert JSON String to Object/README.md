@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2759.Convert%20JSON%20String%20to%20Object/README.md
+---
+
 # [2759. 将 JSON 字符串转换为对象 🔒](https://leetcode.cn/problems/convert-json-string-to-object)
 
 [English Version](/solution/2700-2799/2759.Convert%20JSON%20String%20to%20Object/README_EN.md)
-
-<!-- tags: -->
 
 ## 题目描述
 

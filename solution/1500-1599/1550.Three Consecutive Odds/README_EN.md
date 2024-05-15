@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1550.Three%20Consecutive%20Odds/README_EN.md
+rating: 1221
+tags:
+    - Array
+---
+
 # [1550. Three Consecutive Odds](https://leetcode.com/problems/three-consecutive-odds)
 
 [中文文档](/solution/1500-1599/1550.Three%20Consecutive%20Odds/README.md)
-
-<!-- tags:Array -->
 
 ## Description
 

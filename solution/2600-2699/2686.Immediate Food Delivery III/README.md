@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2686.Immediate%20Food%20Delivery%20III/README.md
+tags:
+    - 数据库
+---
+
 # [2686. 即时食物配送 III 🔒](https://leetcode.cn/problems/immediate-food-delivery-iii)
 
 [English Version](/solution/2600-2699/2686.Immediate%20Food%20Delivery%20III/README_EN.md)
-
-<!-- tags:数据库 -->
 
 ## 题目描述
 

@@ -1,8 +1,12 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2625.Flatten%20Deeply%20Nested%20Array/README.md
+---
+
 # [2625. 扁平化嵌套数组](https://leetcode.cn/problems/flatten-deeply-nested-array)
 
 [English Version](/solution/2600-2699/2625.Flatten%20Deeply%20Nested%20Array/README_EN.md)
-
-<!-- tags: -->
 
 ## 题目描述
 

@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2480.Form%20a%20Chemical%20Bond/README_EN.md
+tags:
+    - Database
+---
+
 # [2480. Form a Chemical Bond 🔒](https://leetcode.com/problems/form-a-chemical-bond)
 
 [中文文档](/solution/2400-2499/2480.Form%20a%20Chemical%20Bond/README.md)
-
-<!-- tags:Database -->
 
 ## Description
 

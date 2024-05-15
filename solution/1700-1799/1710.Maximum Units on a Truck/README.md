@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1710.Maximum%20Units%20on%20a%20Truck/README.md
+rating: 1309
+tags:
+    - 贪心
+    - 数组
+    - 排序
+---
+
 # [1710. 卡车上的最大单元数](https://leetcode.cn/problems/maximum-units-on-a-truck)
 
 [English Version](/solution/1700-1799/1710.Maximum%20Units%20on%20a%20Truck/README_EN.md)
-
-<!-- tags:贪心,数组,排序 -->
 
 ## 题目描述
 

@@ -1,8 +1,14 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0461.Hamming%20Distance/README_EN.md
+tags:
+    - Bit Manipulation
+---
+
 # [461. Hamming Distance](https://leetcode.com/problems/hamming-distance)
 
 [中文文档](/solution/0400-0499/0461.Hamming%20Distance/README.md)
-
-<!-- tags:Bit Manipulation -->
 
 ## Description
 

@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2006.%20%E6%8B%BF%E7%A1%AC%E5%B8%81/README.md
+---
+
 # [LCP 06. 拿硬币](https://leetcode.cn/problems/na-ying-bi)
 
 ## 题目描述

@@ -1,8 +1,17 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2045.Second%20Minimum%20Time%20to%20Reach%20Destination/README.md
+rating: 2201
+tags:
+    - 广度优先搜索
+    - 图
+    - 最短路
+---
+
 # [2045. 到达目的地的第二短时间](https://leetcode.cn/problems/second-minimum-time-to-reach-destination)
 
 [English Version](/solution/2000-2099/2045.Second%20Minimum%20Time%20to%20Reach%20Destination/README_EN.md)
-
-<!-- tags:广度优先搜索,图,最短路 -->
 
 ## 题目描述
 

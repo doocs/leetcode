@@ -1,8 +1,15 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3018.Maximum%20Number%20of%20Removal%20Queries%20That%20Can%20Be%20Processed%20I/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+---
+
 # [3018. Maximum Number of Removal Queries That Can Be Processed I 🔒](https://leetcode.com/problems/maximum-number-of-removal-queries-that-can-be-processed-i)
 
 [中文文档](/solution/3000-3099/3018.Maximum%20Number%20of%20Removal%20Queries%20That%20Can%20Be%20Processed%20I/README.md)
-
-<!-- tags:Array,Dynamic Programming -->
 
 ## Description
 

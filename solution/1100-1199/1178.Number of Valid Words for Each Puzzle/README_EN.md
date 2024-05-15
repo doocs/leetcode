@@ -1,8 +1,19 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1178.Number%20of%20Valid%20Words%20for%20Each%20Puzzle/README_EN.md
+rating: 2233
+tags:
+    - Bit Manipulation
+    - Trie
+    - Array
+    - Hash Table
+    - String
+---
+
 # [1178. Number of Valid Words for Each Puzzle](https://leetcode.com/problems/number-of-valid-words-for-each-puzzle)
 
 [中文文档](/solution/1100-1199/1178.Number%20of%20Valid%20Words%20for%20Each%20Puzzle/README.md)
-
-<!-- tags:Bit Manipulation,Trie,Array,Hash Table,String -->
 
 ## Description
 

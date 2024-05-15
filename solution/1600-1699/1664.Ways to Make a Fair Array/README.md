@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1664.Ways%20to%20Make%20a%20Fair%20Array/README.md
+rating: 1590
+tags:
+    - 数组
+    - 前缀和
+---
+
 # [1664. 生成平衡数组的方案数](https://leetcode.cn/problems/ways-to-make-a-fair-array)
 
 [English Version](/solution/1600-1699/1664.Ways%20to%20Make%20a%20Fair%20Array/README_EN.md)
-
-<!-- tags:数组,前缀和 -->
 
 ## 题目描述
 
