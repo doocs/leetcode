@@ -61,11 +61,7 @@ class CommitterPlugin:
 
     @staticmethod
     def get_request_url(edit_url: str) -> str:
-        path = requests.utils.quote(
-            edit_url.replace("https://github.com/doocs/leetcode/edit/main", "").replace(
-                "%20", " "
-            )
-        )
+        path = edit_url.replace("https://github.com/doocs/leetcode/edit/main", "")
         return f"https://api.github.com/repos/doocs/leetcode/commits?path={path}&sha=main&per_page=100"
 
     def on_pre_build(self, config):
