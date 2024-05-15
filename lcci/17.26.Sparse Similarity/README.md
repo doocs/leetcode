@@ -1,5 +1,5 @@
 ---
-comment: true
+comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.26.Sparse%20Similarity/README.md
 ---

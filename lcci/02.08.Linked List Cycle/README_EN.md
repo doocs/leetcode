@@ -1,5 +1,5 @@
 ---
-comment: true
+comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.08.Linked%20List%20Cycle/README_EN.md
 ---

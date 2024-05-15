@@ -1,5 +1,5 @@
 ---
-comment: true
+comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.21.Volume%20of%20Histogram/README_EN.md
 ---

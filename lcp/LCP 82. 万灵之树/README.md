@@ -1,5 +1,5 @@
 ---
-comment: true
+comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2082.%20%E4%B8%87%E7%81%B5%E4%B9%8B%E6%A0%91/README.md
 ---
 
