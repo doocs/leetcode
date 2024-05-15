@@ -2,8 +2,6 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2061.%20%E6%B0%94%E6%B8%A9%E5%8F%98%E5%8C%96%E8%B6%8B%E5%8A%BF/README.md
-tags:
-    - 数组
 ---
 
 # [LCP 61. 气温变化趋势](https://leetcode.cn/problems/6CE719)

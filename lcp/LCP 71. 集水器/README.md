@@ -2,10 +2,6 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2071.%20%E9%9B%86%E6%B0%B4%E5%99%A8/README.md
-tags:
-    - 并查集
-    - 数组
-    - 矩阵
 ---
 
 # [LCP 71. 集水器](https://leetcode.cn/problems/kskhHQ)

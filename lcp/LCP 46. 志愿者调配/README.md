@@ -2,10 +2,6 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2046.%20%E5%BF%97%E6%84%BF%E8%80%85%E8%B0%83%E9%85%8D/README.md
-tags:
-    - 图
-    - 数组
-    - 数学
 ---
 
 # [LCP 46. 志愿者调配](https://leetcode.cn/problems/05ZEDJ)

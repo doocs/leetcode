@@ -2,9 +2,6 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2047.%20%E5%85%A5%E5%9C%BA%E5%AE%89%E6%A3%80/README.md
-tags:
-    - 数组
-    - 动态规划
 ---
 
 # [LCP 47. 入场安检](https://leetcode.cn/problems/oPs9Bm)

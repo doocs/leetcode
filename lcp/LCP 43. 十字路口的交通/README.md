@@ -2,10 +2,6 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2043.%20%E5%8D%81%E5%AD%97%E8%B7%AF%E5%8F%A3%E7%9A%84%E4%BA%A4%E9%80%9A/README.md
-tags:
-    - 数组
-    - 字符串
-    - 动态规划
 ---
 
 # [LCP 43. 十字路口的交通](https://leetcode.cn/problems/Y1VbOX)

@@ -2,12 +2,6 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2069.%20Hello%20LeetCode%21/README.md
-tags:
-    - 位运算
-    - 数组
-    - 字符串
-    - 动态规划
-    - 状态压缩
 ---
 
 # [LCP 69. Hello LeetCode!](https://leetcode.cn/problems/rMeRt2)

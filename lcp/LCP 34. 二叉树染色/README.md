@@ -2,10 +2,6 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2034.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E6%9F%93%E8%89%B2/README.md
-tags:
-    - 树
-    - 动态规划
-    - 二叉树
 ---
 
 # [LCP 34. 二叉树染色](https://leetcode.cn/problems/er-cha-shu-ran-se-UGC)

@@ -2,10 +2,6 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2036.%20%E6%9C%80%E5%A4%9A%E7%89%8C%E7%BB%84%E6%95%B0/README.md
-tags:
-    - 数组
-    - 动态规划
-    - 排序
 ---
 
 # [LCP 36. 最多牌组数](https://leetcode.cn/problems/Up5XYM)
