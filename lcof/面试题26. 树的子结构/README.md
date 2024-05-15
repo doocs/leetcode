@@ -1,5 +1,5 @@
 ---
-comment: true
+comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9826.%20%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84/README.md
 ---

@@ -1,5 +1,5 @@
 ---
-comment: true
+comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.03.Intersection/README.md
 ---

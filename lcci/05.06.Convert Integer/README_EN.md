@@ -1,5 +1,5 @@
 ---
-comment: true
+comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.06.Convert%20Integer/README_EN.md
 ---

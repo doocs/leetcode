@@ -1,5 +1,5 @@
 ---
-comment: true
+comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.01.Remove%20Duplicate%20Node/README.md
 ---

@@ -1,5 +1,5 @@
 ---
-comment: true
+comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.04.Missing%20Number/README_EN.md
 ---

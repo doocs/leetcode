@@ -1,5 +1,5 @@
 ---
-comment: true
+comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.01.Insert%20Into%20Bits/README.md
 ---

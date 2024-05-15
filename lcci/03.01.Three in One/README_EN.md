@@ -1,5 +1,5 @@
 ---
-comment: true
+comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.01.Three%20in%20One/README_EN.md
 ---

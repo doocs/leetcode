@@ -1,5 +1,5 @@
 ---
-comment: true
+comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.08.Draw%20Line/README_EN.md
 ---

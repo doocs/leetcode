@@ -1,5 +1,5 @@
 ---
-comment: true
+comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.02.Words%20Frequency/README_EN.md
 ---

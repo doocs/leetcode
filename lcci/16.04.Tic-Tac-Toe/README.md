@@ -1,5 +1,5 @@
 ---
-comment: true
+comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.04.Tic-Tac-Toe/README.md
 ---

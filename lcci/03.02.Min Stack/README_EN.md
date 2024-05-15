@@ -1,5 +1,5 @@
 ---
-comment: true
+comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.02.Min%20Stack/README_EN.md
 ---

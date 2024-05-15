@@ -1,5 +1,5 @@
 ---
-comment: true
+comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.12.Eight%20Queens/README_EN.md
 ---

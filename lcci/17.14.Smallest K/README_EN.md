@@ -1,5 +1,5 @@
 ---
-comment: true
+comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.14.Smallest%20K/README_EN.md
 ---

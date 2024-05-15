@@ -1,5 +1,5 @@
 ---
-comment: true
+comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.06.Palindrome%20Linked%20List/README.md
 ---

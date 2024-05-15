@@ -1,5 +1,5 @@
 ---
-comment: true
+comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.23.Max%20Black%20Square/README_EN.md
 ---

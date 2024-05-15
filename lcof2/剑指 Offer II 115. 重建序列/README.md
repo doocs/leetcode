@@ -1,5 +1,5 @@
 ---
-comment: true
+comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20115.%20%E9%87%8D%E5%BB%BA%E5%BA%8F%E5%88%97/README.md
 ---
 

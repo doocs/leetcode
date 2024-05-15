@@ -1,5 +1,5 @@
 ---
-comment: true
+comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2044.%20%E5%BC%80%E5%B9%95%E5%BC%8F%E7%84%B0%E7%81%AB/README.md
 ---
 

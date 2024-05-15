@@ -1,5 +1,5 @@
 ---
-comment: true
+comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.16.The%20Masseuse/README_EN.md
 ---
