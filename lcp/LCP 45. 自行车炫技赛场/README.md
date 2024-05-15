@@ -2,13 +2,6 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2045.%20%E8%87%AA%E8%A1%8C%E8%BD%A6%E7%82%AB%E6%8A%80%E8%B5%9B%E5%9C%BA/README.md
-tags:
-    - 深度优先搜索
-    - 广度优先搜索
-    - 记忆化搜索
-    - 数组
-    - 动态规划
-    - 矩阵
 ---
 
 # [LCP 45. 自行车炫技赛场](https://leetcode.cn/problems/kplEvH)

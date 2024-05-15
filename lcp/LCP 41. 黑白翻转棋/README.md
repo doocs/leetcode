@@ -2,10 +2,6 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2041.%20%E9%BB%91%E7%99%BD%E7%BF%BB%E8%BD%AC%E6%A3%8B/README.md
-tags:
-    - 广度优先搜索
-    - 数组
-    - 矩阵
 ---
 
 # [LCP 41. 黑白翻转棋](https://leetcode.cn/problems/fHi6rV)

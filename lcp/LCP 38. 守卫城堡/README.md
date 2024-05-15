@@ -2,10 +2,6 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2038.%20%E5%AE%88%E5%8D%AB%E5%9F%8E%E5%A0%A1/README.md
-tags:
-    - 数组
-    - 动态规划
-    - 矩阵
 ---
 
 # [LCP 38. 守卫城堡](https://leetcode.cn/problems/7rLGCR)

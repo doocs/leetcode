@@ -2,11 +2,6 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2049.%20%E7%8E%AF%E5%BD%A2%E9%97%AF%E5%85%B3%E6%B8%B8%E6%88%8F/README.md
-tags:
-    - 位运算
-    - 并查集
-    - 数组
-    - 堆（优先队列）
 ---
 
 # [LCP 49. 环形闯关游戏](https://leetcode.cn/problems/K8GULz)

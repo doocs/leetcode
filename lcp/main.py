@@ -139,7 +139,6 @@ for question in questions:
     topics = ",".join(
         [f'`{topic["nameTranslated"]}`' for topic in question["topicTags"]]
     )
-    tags = [topic["nameTranslated"] for topic in question["topicTags"]]
     path = f"./{sub_folder}"
     diff = mp[question["difficulty"]]
 
@@ -158,8 +157,6 @@ for question in questions:
         "edit_url": "https://github.com/doocs/leetcode/edit/main" + relative_path,
         "difficulty": diff,
     }
-    if tags:
-        metadata["tags"] = tags
     yaml_metadata = yaml.dump(metadata, default_flow_style=False, allow_unicode=True)
     metadata_section = f"---\n{yaml_metadata}---"
 

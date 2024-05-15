@@ -2,13 +2,6 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2037.%20%E6%9C%80%E5%B0%8F%E7%9F%A9%E5%BD%A2%E9%9D%A2%E7%A7%AF/README.md
-tags:
-    - 贪心
-    - 几何
-    - 数组
-    - 数学
-    - 组合数学
-    - 排序
 ---
 
 # [LCP 37. 最小矩形面积](https://leetcode.cn/problems/zui-xiao-ju-xing-mian-ji)

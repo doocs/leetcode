@@ -2,15 +2,6 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2063.%20%E5%BC%B9%E7%8F%A0%E6%B8%B8%E6%88%8F/README.md
-tags:
-    - 深度优先搜索
-    - 广度优先搜索
-    - 图
-    - 拓扑排序
-    - 记忆化搜索
-    - 数组
-    - 动态规划
-    - 矩阵
 ---
 
 # [LCP 63. 弹珠游戏](https://leetcode.cn/problems/EXvqDp)

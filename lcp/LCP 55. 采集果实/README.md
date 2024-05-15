@@ -2,8 +2,6 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2055.%20%E9%87%87%E9%9B%86%E6%9E%9C%E5%AE%9E/README.md
-tags:
-    - 数组
 ---
 
 # [LCP 55. 采集果实](https://leetcode.cn/problems/PTXy4P)

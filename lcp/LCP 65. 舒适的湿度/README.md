@@ -2,9 +2,6 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2065.%20%E8%88%92%E9%80%82%E7%9A%84%E6%B9%BF%E5%BA%A6/README.md
-tags:
-    - 数组
-    - 动态规划
 ---
 
 # [LCP 65. 舒适的湿度](https://leetcode.cn/problems/3aqs1c)

@@ -2,10 +2,6 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2033.%20%E8%93%84%E6%B0%B4/README.md
-tags:
-    - 贪心
-    - 数组
-    - 堆（优先队列）
 ---
 
 # [LCP 33. 蓄水](https://leetcode.cn/problems/o8SXZn)
