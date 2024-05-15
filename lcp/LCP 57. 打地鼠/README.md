@@ -1,6 +1,12 @@
 ---
 comments: true
+difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2057.%20%E6%89%93%E5%9C%B0%E9%BC%A0/README.md
+tags:
+    - 数组
+    - 动态规划
+    - 矩阵
+    - 排序
 ---
 
 # [LCP 57. 打地鼠](https://leetcode.cn/problems/ZbAuEH)
@@ -10,9 +16,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2057.%20%E6%89%93%
 <!-- 这里写题目描述 -->
 
 欢迎各位勇者来到力扣城，本次试炼主题为「打地鼠」。
-
-![middle_img_v2_d5d09656-0616-4a80-845e-ece461c5ba9g.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2057.%20%E6%89%93%E5%9C%B0%E9%BC%A0/images/1650273183-nZIijm-middle_img_v2_d5d09656-0616-4a80-845e-ece461c5ba9g.png)
-
+![middle_img_v2_d5d09656-0616-4a80-845e-ece461c5ba9g.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2057.%20%E6%89%93%E5%9C%B0%E9%BC%A0/images/1650273183-nZIijm-middle_img_v2_d5d09656-0616-4a80-845e-ece461c5ba9g.png){:height="200px"}
 勇者面前有一个大小为 `3*3` 的打地鼠游戏机，地鼠将随机出现在各个位置，`moles[i] = [t,x,y]` 表示在第 `t` 秒会有地鼠出现在 `(x,y)` 位置上，并于第 `t+1` 秒该地鼠消失。
 
 勇者有一把可敲打地鼠的锤子，初始时刻（即第 `0` 秒）锤子位于正中间的格子 `(1,1)`，锤子的使用规则如下：

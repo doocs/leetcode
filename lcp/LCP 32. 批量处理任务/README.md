@@ -1,6 +1,11 @@
 ---
 comments: true
+difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2032.%20%E6%89%B9%E9%87%8F%E5%A4%84%E7%90%86%E4%BB%BB%E5%8A%A1/README.md
+tags:
+    - 贪心
+    - 数组
+    - 堆（优先队列）
 ---
 
 # [LCP 32. 批量处理任务](https://leetcode.cn/problems/t3fKg1)

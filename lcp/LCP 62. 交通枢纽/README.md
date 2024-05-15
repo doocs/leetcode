@@ -1,6 +1,9 @@
 ---
 comments: true
+difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2062.%20%E4%BA%A4%E9%80%9A%E6%9E%A2%E7%BA%BD/README.md
+tags:
+    - 图
 ---
 
 # [LCP 62. 交通枢纽](https://leetcode.cn/problems/D9PW8w)
@@ -30,7 +33,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2062.%20%E4%BA%A4%
 > 解释：如下图所示：
 > 地点 `0,1,2` 各有一条通往地点 `3` 的交通专线，
 > 且地点 `3` 不存在任何**通往其他地点**的交通专线。
-> <br><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2062.%20%E4%BA%A4%E9%80%9A%E6%9E%A2%E7%BA%BD/images/1663902572-yOlUCr-image.png" style="width: 200px;" />
+> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2062.%20%E4%BA%A4%E9%80%9A%E6%9E%A2%E7%BA%BD/images/1663902572-yOlUCr-image.png){:width=200px}
 
 **示例 2：**
 
@@ -39,7 +42,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2062.%20%E4%BA%A4%
 > 输出：`-1`
 >
 > 解释：如下图所示：不存在满足 **交通枢纽** 的地点。
-> <br><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2062.%20%E4%BA%A4%E9%80%9A%E6%9E%A2%E7%BA%BD/images/1663902595-McsEkY-image.png" style="width: 200px;" />
+> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2062.%20%E4%BA%A4%E9%80%9A%E6%9E%A2%E7%BA%BD/images/1663902595-McsEkY-image.png){:width=200px}
 
 **提示：**
 

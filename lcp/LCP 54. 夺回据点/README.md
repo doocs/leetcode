@@ -1,6 +1,11 @@
 ---
 comments: true
+difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2054.%20%E5%A4%BA%E5%9B%9E%E6%8D%AE%E7%82%B9/README.md
+tags:
+    - 图
+    - 数组
+    - 双连通分量
 ---
 
 # [LCP 54. 夺回据点](https://leetcode.cn/problems/s5kipK)
@@ -41,7 +46,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2054.%20%E5%A4%BA%
 > 第三次夺回据点 `2`，剩余魔物据点 `5`；
 > 第四次夺回据点 `5`，无剩余魔物据点；
 > 因此最少需要消耗资源为 `6`，可占领所有据点。
-> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2054.%20%E5%A4%BA%E5%9B%9E%E6%8D%AE%E7%82%B9/images/1648706944-KJstUN-image.png)
+> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2054.%20%E5%A4%BA%E5%9B%9E%E6%8D%AE%E7%82%B9/images/1648706944-KJstUN-image.png){:height=170px}
 
 **示例 2：**
 
@@ -56,7 +61,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2054.%20%E5%A4%BA%
 > 第二次夺回据点 `2`，剩余魔物据点 `0`；
 > 第三次夺回据点 `0`，无剩余魔物据点；
 > 因此最少需要消耗资源为 `2`，可占领所有据点。
-> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2054.%20%E5%A4%BA%E5%9B%9E%E6%8D%AE%E7%82%B9/images/1648707186-LJRwzU-image.png)
+> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2054.%20%E5%A4%BA%E5%9B%9E%E6%8D%AE%E7%82%B9/images/1648707186-LJRwzU-image.png){:height=60px}
 
 **提示：**
 

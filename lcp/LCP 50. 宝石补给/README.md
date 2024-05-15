@@ -1,6 +1,10 @@
 ---
 comments: true
+difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2050.%20%E5%AE%9D%E7%9F%B3%E8%A1%A5%E7%BB%99/README.md
+tags:
+    - 数组
+    - 模拟
 ---
 
 # [LCP 50. 宝石补给](https://leetcode.cn/problems/WHnhjV)

@@ -1,6 +1,11 @@
 ---
 comments: true
+difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2033.%20%E8%93%84%E6%B0%B4/README.md
+tags:
+    - 贪心
+    - 数组
+    - 堆（优先队列）
 ---
 
 # [LCP 33. 蓄水](https://leetcode.cn/problems/o8SXZn)
@@ -27,7 +32,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2033.%20%E8%93%84%
 > 解释：
 > 第 1 次操作升级 bucket[0]；
 > 第 2 ~ 4 次操作均选择蓄水，即可完成蓄水要求。
-> ![vat1.gif](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2033.%20蓄水/images/1616122992-RkDxoL-vat1.gif)
+> ![vat1.gif](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2033.%20%E8%93%84%E6%B0%B4/images/1616122992-RkDxoL-vat1.gif)
 
 **示例 2：**
 

@@ -1,6 +1,11 @@
 ---
 comments: true
+difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2038.%20%E5%AE%88%E5%8D%AB%E5%9F%8E%E5%A0%A1/README.md
+tags:
+    - 数组
+    - 动态规划
+    - 矩阵
 ---
 
 # [LCP 38. 守卫城堡](https://leetcode.cn/problems/7rLGCR)
@@ -31,7 +36,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2038.%20%E5%AE%88%
 > 输出：`3`
 >
 > 解释：至少需要放置三个障碍物
-> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2038.%20守卫城堡/images/1614828255-uuNdNJ-image.png)
+> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2038.%20%E5%AE%88%E5%8D%AB%E5%9F%8E%E5%A0%A1/images/1614828255-uuNdNJ-image.png)
 
 **示例 2：**
 
@@ -40,7 +45,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2038.%20%E5%AE%88%
 > 输出：`-1`
 >
 > 解释：无论怎样修筑障碍物，均无法阻挡最左侧出生的恶魔到达城堡位置
-> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2038.%20守卫城堡/images/1614828208-oFlpVs-image.png)
+> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2038.%20%E5%AE%88%E5%8D%AB%E5%9F%8E%E5%A0%A1/images/1614828208-oFlpVs-image.png)
 
 **示例 3：**
 
@@ -49,7 +54,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2038.%20%E5%AE%88%
 > 输出：`0`
 >
 > 解释：无需放置障碍物即可获得胜利
-> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2038.%20守卫城堡/images/1614828242-oveClu-image.png)
+> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2038.%20%E5%AE%88%E5%8D%AB%E5%9F%8E%E5%A0%A1/images/1614828242-oveClu-image.png)
 
 **示例 4：**
 
@@ -58,7 +63,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2038.%20%E5%AE%88%
 > 输出：`4`
 >
 > 解释：至少需要放置 4 个障碍物，示意图为放置方法之一
-> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2038.%20守卫城堡/images/1614828218-sIAYkb-image.png)
+> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2038.%20%E5%AE%88%E5%8D%AB%E5%9F%8E%E5%A0%A1/images/1614828218-sIAYkb-image.png)
 
 **提示：**
 
