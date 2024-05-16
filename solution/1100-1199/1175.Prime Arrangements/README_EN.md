@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1175.Prime%20Arrangements/README_EN.md
 rating: 1489
+source: Weekly Contest 152 Q1
 tags:
     - Math
 ---

@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2798.Number%20of%20Employees%20Who%20Met%20the%20Target/README_EN.md
 rating: 1142
+source: Weekly Contest 356 Q1
 tags:
     - Array
 ---

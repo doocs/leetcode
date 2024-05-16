@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2961.Double%20Modular%20Exponentiation/README_EN.md
 rating: 1450
+source: Weekly Contest 375 Q2
 tags:
     - Array
     - Math

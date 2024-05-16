@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1487.Making%20File%20Names%20Unique/README.md
 rating: 1696
+source: 第 194 场周赛 Q2
 tags:
     - 数组
     - 哈希表

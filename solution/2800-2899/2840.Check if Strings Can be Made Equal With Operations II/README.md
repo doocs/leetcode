@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2840.Check%20if%20Strings%20Can%20be%20Made%20Equal%20With%20Operations%20II/README.md
 rating: 1486
+source: 第 112 场双周赛 Q2
 tags:
     - 哈希表
     - 字符串

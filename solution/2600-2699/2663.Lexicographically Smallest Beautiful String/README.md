@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2663.Lexicographically%20Smallest%20Beautiful%20String/README.md
 rating: 2415
+source: 第 343 场周赛 Q4
 tags:
     - 贪心
     - 字符串

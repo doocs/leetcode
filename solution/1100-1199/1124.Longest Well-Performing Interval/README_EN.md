@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1124.Longest%20Well-Performing%20Interval/README_EN.md
 rating: 1908
+source: Weekly Contest 145 Q3
 tags:
     - Stack
     - Array

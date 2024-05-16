@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1053.Previous%20Permutation%20With%20One%20Swap/README.md
 rating: 1633
+source: 第 138 场周赛 Q3
 tags:
     - 贪心
     - 数组

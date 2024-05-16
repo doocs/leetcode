@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2119.A%20Number%20After%20a%20Double%20Reversal/README_EN.md
 rating: 1187
+source: Weekly Contest 273 Q1
 tags:
     - Math
 ---

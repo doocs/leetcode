@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1542.Find%20Longest%20Awesome%20Substring/README.md
 rating: 2221
+source: 第 32 场双周赛 Q4
 tags:
     - 位运算
     - 哈希表

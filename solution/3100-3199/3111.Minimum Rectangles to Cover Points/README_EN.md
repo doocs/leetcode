@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3111.Minimum%20Rectangles%20to%20Cover%20Points/README_EN.md
 rating: 1401
+source: Biweekly Contest 128 Q2
 tags:
     - Greedy
     - Array

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1946.Largest%20Number%20After%20Mutating%20Substring/README_EN.md
 rating: 1445
+source: Weekly Contest 251 Q2
 tags:
     - Greedy
     - Array

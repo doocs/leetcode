@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1817.Finding%20the%20Users%20Active%20Minutes/README.md
 rating: 1360
+source: 第 235 场周赛 Q2
 tags:
     - 数组
     - 哈希表

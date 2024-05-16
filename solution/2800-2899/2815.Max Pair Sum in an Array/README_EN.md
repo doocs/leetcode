@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2815.Max%20Pair%20Sum%20in%20an%20Array/README_EN.md
 rating: 1295
+source: Weekly Contest 358 Q1
 tags:
     - Array
     - Hash Table

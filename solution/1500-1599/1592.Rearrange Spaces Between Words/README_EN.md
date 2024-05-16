@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1592.Rearrange%20Spaces%20Between%20Words/README_EN.md
 rating: 1362
+source: Weekly Contest 207 Q1
 tags:
     - String
 ---

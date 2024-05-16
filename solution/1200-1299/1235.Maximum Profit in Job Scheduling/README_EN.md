@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1235.Maximum%20Profit%20in%20Job%20Scheduling/README_EN.md
 rating: 2022
+source: Weekly Contest 159 Q4
 tags:
     - Array
     - Binary Search

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2456.Most%20Popular%20Video%20Creator/README.md
 rating: 1548
+source: 第 317 场周赛 Q2
 tags:
     - 数组
     - 哈希表

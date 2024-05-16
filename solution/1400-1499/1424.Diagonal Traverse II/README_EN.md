@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1424.Diagonal%20Traverse%20II/README_EN.md
 rating: 1779
+source: Weekly Contest 186 Q3
 tags:
     - Array
     - Sorting

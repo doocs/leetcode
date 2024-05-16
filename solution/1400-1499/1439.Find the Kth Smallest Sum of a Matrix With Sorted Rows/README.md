@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1439.Find%20the%20Kth%20Smallest%20Sum%20of%20a%20Matrix%20With%20Sorted%20Rows/README.md
 rating: 2133
+source: 第 187 场周赛 Q4
 tags:
     - 数组
     - 二分查找

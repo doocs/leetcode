@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3030.Find%20the%20Grid%20of%20Region%20Average/README_EN.md
 rating: 1896
+source: Weekly Contest 383 Q3
 tags:
     - Array
     - Matrix

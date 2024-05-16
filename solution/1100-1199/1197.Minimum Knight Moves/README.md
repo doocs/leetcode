@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1197.Minimum%20Knight%20Moves/README.md
 rating: 1722
+source: 第 9 场双周赛 Q2
 tags:
     - 广度优先搜索
 ---

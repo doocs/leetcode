@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1499.Max%20Value%20of%20Equation/README_EN.md
 rating: 2456
+source: Weekly Contest 195 Q4
 tags:
     - Queue
     - Array

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1306.Jump%20Game%20III/README_EN.md
 rating: 1396
+source: Weekly Contest 169 Q3
 tags:
     - Depth-First Search
     - Breadth-First Search

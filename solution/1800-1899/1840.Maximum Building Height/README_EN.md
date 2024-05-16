@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1840.Maximum%20Building%20Height/README_EN.md
 rating: 2374
+source: Weekly Contest 238 Q4
 tags:
     - Array
     - Math

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2171.Removing%20Minimum%20Number%20of%20Magic%20Beans/README.md
 rating: 1748
+source: 第 280 场周赛 Q3
 tags:
     - 贪心
     - 数组

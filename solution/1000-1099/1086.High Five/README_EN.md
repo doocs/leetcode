@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1086.High%20Five/README_EN.md
 rating: 1327
+source: Biweekly Contest 2 Q2
 tags:
     - Array
     - Hash Table

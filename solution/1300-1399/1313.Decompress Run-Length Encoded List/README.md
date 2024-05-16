@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1313.Decompress%20Run-Length%20Encoded%20List/README.md
 rating: 1317
+source: 第 17 场双周赛 Q1
 tags:
     - 数组
 ---

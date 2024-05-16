@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2469.Convert%20the%20Temperature/README_EN.md
 rating: 1153
+source: Weekly Contest 319 Q1
 tags:
     - Math
 ---

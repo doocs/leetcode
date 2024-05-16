@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2410.Maximum%20Matching%20of%20Players%20With%20Trainers/README.md
 rating: 1381
+source: 第 87 场双周赛 Q2
 tags:
     - 贪心
     - 数组

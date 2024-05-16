@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1991.Find%20the%20Middle%20Index%20in%20Array/README_EN.md
 rating: 1302
+source: Biweekly Contest 60 Q1
 tags:
     - Array
     - Prefix Sum

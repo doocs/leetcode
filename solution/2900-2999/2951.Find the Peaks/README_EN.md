@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2951.Find%20the%20Peaks/README_EN.md
 rating: 1189
+source: Weekly Contest 374 Q1
 tags:
     - Array
     - Enumeration

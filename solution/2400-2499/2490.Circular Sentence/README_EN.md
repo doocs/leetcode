@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2490.Circular%20Sentence/README_EN.md
 rating: 1262
+source: Weekly Contest 322 Q1
 tags:
     - String
 ---

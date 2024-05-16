@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2374.Node%20With%20Highest%20Edge%20Score/README.md
 rating: 1418
+source: 第 306 场周赛 Q2
 tags:
     - 图
     - 哈希表

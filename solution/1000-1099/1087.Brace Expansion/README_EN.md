@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1087.Brace%20Expansion/README_EN.md
 rating: 1480
+source: Biweekly Contest 2 Q3
 tags:
     - Breadth-First Search
     - String

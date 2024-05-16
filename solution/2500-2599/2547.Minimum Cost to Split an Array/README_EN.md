@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2547.Minimum%20Cost%20to%20Split%20an%20Array/README_EN.md
 rating: 2019
+source: Weekly Contest 329 Q4
 tags:
     - Array
     - Hash Table

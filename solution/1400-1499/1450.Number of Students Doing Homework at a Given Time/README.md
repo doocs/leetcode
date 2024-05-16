@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1450.Number%20of%20Students%20Doing%20Homework%20at%20a%20Given%20Time/README.md
 rating: 1129
+source: 第 189 场周赛 Q1
 tags:
     - 数组
 ---

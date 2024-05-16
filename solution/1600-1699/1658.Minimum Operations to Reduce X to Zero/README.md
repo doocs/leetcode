@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1658.Minimum%20Operations%20to%20Reduce%20X%20to%20Zero/README.md
 rating: 1817
+source: 第 215 场周赛 Q3
 tags:
     - 数组
     - 哈希表

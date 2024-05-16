@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1678.Goal%20Parser%20Interpretation/README.md
 rating: 1221
+source: 第 218 场周赛 Q1
 tags:
     - 字符串
 ---

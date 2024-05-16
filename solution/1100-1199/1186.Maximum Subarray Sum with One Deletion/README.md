@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1186.Maximum%20Subarray%20Sum%20with%20One%20Deletion/README.md
 rating: 1799
+source: 第 153 场周赛 Q3
 tags:
     - 数组
     - 动态规划

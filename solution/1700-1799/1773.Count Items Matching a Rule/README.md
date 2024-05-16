@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1773.Count%20Items%20Matching%20a%20Rule/README.md
 rating: 1174
+source: 第 230 场周赛 Q1
 tags:
     - 数组
     - 字符串

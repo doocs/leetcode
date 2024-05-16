@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2262.Total%20Appeal%20of%20A%20String/README.md
 rating: 2033
+source: 第 291 场周赛 Q4
 tags:
     - 哈希表
     - 字符串

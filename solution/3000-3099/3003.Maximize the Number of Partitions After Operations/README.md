@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3003.Maximize%20the%20Number%20of%20Partitions%20After%20Operations/README.md
 rating: 3039
+source: 第 379 场周赛 Q4
 tags:
     - 位运算
     - 字符串

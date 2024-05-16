@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1006.Clumsy%20Factorial/README_EN.md
 rating: 1407
+source: Weekly Contest 127 Q2
 tags:
     - Stack
     - Math

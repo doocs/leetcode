@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2911.Minimum%20Changes%20to%20Make%20K%20Semi-palindromes/README.md
 rating: 2607
+source: 第 368 场周赛 Q4
 tags:
     - 双指针
     - 字符串

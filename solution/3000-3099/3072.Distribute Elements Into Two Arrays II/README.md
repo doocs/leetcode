@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3072.Distribute%20Elements%20Into%20Two%20Arrays%20II/README.md
 rating: 2052
+source: 第 387 场周赛 Q4
 tags:
     - 树状数组
     - 线段树

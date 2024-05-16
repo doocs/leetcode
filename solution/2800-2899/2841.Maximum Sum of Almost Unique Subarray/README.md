@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2841.Maximum%20Sum%20of%20Almost%20Unique%20Subarray/README.md
 rating: 1545
+source: 第 112 场双周赛 Q3
 tags:
     - 数组
     - 哈希表

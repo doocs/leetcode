@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2697.Lexicographically%20Smallest%20Palindrome/README.md
 rating: 1303
+source: 第 346 场周赛 Q2
 tags:
     - 贪心
     - 双指针

@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1335.Minimum%20Difficulty%20of%20a%20Job%20Schedule/README.md
 rating: 2034
+source: 第 173 场周赛 Q4
 tags:
     - 数组
     - 动态规划

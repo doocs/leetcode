@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2800.Shortest%20String%20That%20Contains%20Three%20Strings/README_EN.md
 rating: 1855
+source: Weekly Contest 356 Q3
 tags:
     - Greedy
     - String

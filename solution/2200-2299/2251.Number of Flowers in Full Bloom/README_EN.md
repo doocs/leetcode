@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2251.Number%20of%20Flowers%20in%20Full%20Bloom/README_EN.md
 rating: 2022
+source: Weekly Contest 290 Q4
 tags:
     - Array
     - Hash Table

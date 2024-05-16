@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1774.Closest%20Dessert%20Cost/README_EN.md
 rating: 1701
+source: Weekly Contest 230 Q2
 tags:
     - Array
     - Dynamic Programming

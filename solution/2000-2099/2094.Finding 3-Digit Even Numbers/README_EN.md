@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2094.Finding%203-Digit%20Even%20Numbers/README_EN.md
 rating: 1454
+source: Weekly Contest 270 Q1
 tags:
     - Array
     - Hash Table

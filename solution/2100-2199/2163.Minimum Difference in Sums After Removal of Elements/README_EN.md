@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2163.Minimum%20Difference%20in%20Sums%20After%20Removal%20of%20Elements/README_EN.md
 rating: 2225
+source: Biweekly Contest 71 Q4
 tags:
     - Array
     - Dynamic Programming

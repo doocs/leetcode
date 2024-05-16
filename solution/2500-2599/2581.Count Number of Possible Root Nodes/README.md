@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2581.Count%20Number%20of%20Possible%20Root%20Nodes/README.md
 rating: 2228
+source: 第 99 场双周赛 Q4
 tags:
     - 树
     - 深度优先搜索

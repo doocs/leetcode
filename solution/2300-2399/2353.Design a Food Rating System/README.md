@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2353.Design%20a%20Food%20Rating%20System/README.md
 rating: 1781
+source: 第 303 场周赛 Q3
 tags:
     - 设计
     - 哈希表

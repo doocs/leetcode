@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2399.Check%20Distances%20Between%20Same%20Letters/README.md
 rating: 1243
+source: 第 309 场周赛 Q1
 tags:
     - 数组
     - 哈希表

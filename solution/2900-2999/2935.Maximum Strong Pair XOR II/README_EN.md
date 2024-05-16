@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2935.Maximum%20Strong%20Pair%20XOR%20II/README_EN.md
 rating: 2348
+source: Weekly Contest 371 Q4
 tags:
     - Bit Manipulation
     - Trie

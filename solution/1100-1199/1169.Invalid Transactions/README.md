@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1169.Invalid%20Transactions/README.md
 rating: 1658
+source: 第 151 场周赛 Q1
 tags:
     - 数组
     - 哈希表

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1054.Distant%20Barcodes/README_EN.md
 rating: 1701
+source: Weekly Contest 138 Q4
 tags:
     - Greedy
     - Array

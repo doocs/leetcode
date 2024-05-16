@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2771.Longest%20Non-decreasing%20Subarray%20From%20Two%20Arrays/README_EN.md
 rating: 1791
+source: Weekly Contest 353 Q3
 tags:
     - Array
     - Dynamic Programming

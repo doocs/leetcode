@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2317.Maximum%20XOR%20After%20Operations/README.md
 rating: 1678
+source: 第 81 场双周赛 Q3
 tags:
     - 位运算
     - 数组

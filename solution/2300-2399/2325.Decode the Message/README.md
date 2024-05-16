@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2325.Decode%20the%20Message/README.md
 rating: 1268
+source: 第 300 场周赛 Q1
 tags:
     - 哈希表
     - 字符串

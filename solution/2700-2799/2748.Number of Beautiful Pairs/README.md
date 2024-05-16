@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2748.Number%20of%20Beautiful%20Pairs/README.md
 rating: 1301
+source: 第 351 场周赛 Q1
 tags:
     - 数组
     - 数学

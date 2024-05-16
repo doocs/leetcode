@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2045.Second%20Minimum%20Time%20to%20Reach%20Destination/README.md
 rating: 2201
+source: 第 263 场周赛 Q4
 tags:
     - 广度优先搜索
     - 图

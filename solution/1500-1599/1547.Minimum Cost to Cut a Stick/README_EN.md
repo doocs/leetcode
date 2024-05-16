@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1547.Minimum%20Cost%20to%20Cut%20a%20Stick/README_EN.md
 rating: 2116
+source: Weekly Contest 201 Q4
 tags:
     - Array
     - Dynamic Programming

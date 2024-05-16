@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2781.Length%20of%20the%20Longest%20Valid%20Substring/README.md
 rating: 2203
+source: 第 354 场周赛 Q4
 tags:
     - 数组
     - 哈希表

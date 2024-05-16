@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2438.Range%20Product%20Queries%20of%20Powers/README_EN.md
 rating: 1609
+source: Biweekly Contest 89 Q2
 tags:
     - Bit Manipulation
     - Array

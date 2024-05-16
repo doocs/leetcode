@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2685.Count%20the%20Number%20of%20Complete%20Components/README.md
 rating: 1769
+source: 第 345 场周赛 Q4
 tags:
     - 深度优先搜索
     - 广度优先搜索

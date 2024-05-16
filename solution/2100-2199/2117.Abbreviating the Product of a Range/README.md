@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2117.Abbreviating%20the%20Product%20of%20a%20Range/README.md
 rating: 2476
+source: 第 68 场双周赛 Q4
 tags:
     - 数学
 ---

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1977.Number%20of%20Ways%20to%20Separate%20Numbers/README_EN.md
 rating: 2817
+source: Biweekly Contest 59 Q4
 tags:
     - String
     - Dynamic Programming

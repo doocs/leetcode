@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2043.Simple%20Bank%20System/README_EN.md
 rating: 1356
+source: Weekly Contest 263 Q2
 tags:
     - Design
     - Array

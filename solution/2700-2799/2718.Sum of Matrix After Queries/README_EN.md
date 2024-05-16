@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2718.Sum%20of%20Matrix%20After%20Queries/README_EN.md
 rating: 1768
+source: Weekly Contest 348 Q3
 tags:
     - Array
     - Hash Table

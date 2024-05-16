@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1713.Minimum%20Operations%20to%20Make%20a%20Subsequence/README.md
 rating: 2350
+source: 第 222 场周赛 Q4
 tags:
     - 贪心
     - 数组

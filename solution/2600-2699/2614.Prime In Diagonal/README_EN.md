@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2614.Prime%20In%20Diagonal/README_EN.md
 rating: 1375
+source: Weekly Contest 340 Q1
 tags:
     - Array
     - Math

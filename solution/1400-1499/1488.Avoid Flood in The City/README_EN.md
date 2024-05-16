@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1488.Avoid%20Flood%20in%20The%20City/README_EN.md
 rating: 1973
+source: Weekly Contest 194 Q3
 tags:
     - Greedy
     - Array

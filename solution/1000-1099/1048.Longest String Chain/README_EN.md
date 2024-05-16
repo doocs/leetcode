@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1048.Longest%20String%20Chain/README_EN.md
 rating: 1599
+source: Weekly Contest 137 Q3
 tags:
     - Array
     - Hash Table

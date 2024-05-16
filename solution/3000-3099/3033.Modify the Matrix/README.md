@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3033.Modify%20the%20Matrix/README.md
 rating: 1180
+source: 第 384 场周赛 Q1
 tags:
     - 数组
     - 矩阵

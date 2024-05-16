@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2050.Parallel%20Courses%20III/README.md
 rating: 2084
+source: 第 264 场周赛 Q4
 tags:
     - 图
     - 拓扑排序

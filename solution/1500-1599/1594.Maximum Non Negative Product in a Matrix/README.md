@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1594.Maximum%20Non%20Negative%20Product%20in%20a%20Matrix/README.md
 rating: 1807
+source: 第 207 场周赛 Q3
 tags:
     - 数组
     - 动态规划

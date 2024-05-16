@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1472.Design%20Browser%20History/README_EN.md
 rating: 1453
+source: Weekly Contest 192 Q3
 tags:
     - Stack
     - Design

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2182.Construct%20String%20With%20Repeat%20Limit/README_EN.md
 rating: 1680
+source: Weekly Contest 281 Q3
 tags:
     - Greedy
     - Hash Table

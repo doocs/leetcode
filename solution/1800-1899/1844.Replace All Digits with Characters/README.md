@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1844.Replace%20All%20Digits%20with%20Characters/README.md
 rating: 1300
+source: 第 51 场双周赛 Q1
 tags:
     - 字符串
 ---

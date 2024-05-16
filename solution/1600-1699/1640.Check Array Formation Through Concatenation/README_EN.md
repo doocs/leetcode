@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1640.Check%20Array%20Formation%20Through%20Concatenation/README_EN.md
 rating: 1524
+source: Weekly Contest 213 Q1
 tags:
     - Array
     - Hash Table

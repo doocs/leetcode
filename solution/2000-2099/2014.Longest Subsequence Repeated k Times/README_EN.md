@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2014.Longest%20Subsequence%20Repeated%20k%20Times/README_EN.md
 rating: 2558
+source: Weekly Contest 259 Q4
 tags:
     - Greedy
     - String

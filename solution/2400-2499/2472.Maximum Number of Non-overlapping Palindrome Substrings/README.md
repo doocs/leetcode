@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2472.Maximum%20Number%20of%20Non-overlapping%20Palindrome%20Substrings/README.md
 rating: 2013
+source: 第 319 场周赛 Q4
 tags:
     - 字符串
     - 动态规划

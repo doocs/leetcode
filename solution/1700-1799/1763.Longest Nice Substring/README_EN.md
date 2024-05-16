@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1763.Longest%20Nice%20Substring/README_EN.md
 rating: 1521
+source: Biweekly Contest 46 Q1
 tags:
     - Bit Manipulation
     - Hash Table

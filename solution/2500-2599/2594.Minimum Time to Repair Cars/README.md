@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2594.Minimum%20Time%20to%20Repair%20Cars/README.md
 rating: 1915
+source: 第 100 场双周赛 Q4
 tags:
     - 数组
     - 二分查找

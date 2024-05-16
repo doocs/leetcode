@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1035.Uncrossed%20Lines/README_EN.md
 rating: 1805
+source: Weekly Contest 134 Q3
 tags:
     - Array
     - Dynamic Programming

@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2506.Count%20Pairs%20Of%20Similar%20Strings/README.md
 rating: 1335
+source: 第 324 场周赛 Q1
 tags:
     - 位运算
     - 数组

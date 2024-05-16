@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2243.Calculate%20Digit%20Sum%20of%20a%20String/README_EN.md
 rating: 1301
+source: Weekly Contest 289 Q1
 tags:
     - String
     - Simulation

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1277.Count%20Square%20Submatrices%20with%20All%20Ones/README.md
 rating: 1613
+source: 第 165 场周赛 Q3
 tags:
     - 数组
     - 动态规划

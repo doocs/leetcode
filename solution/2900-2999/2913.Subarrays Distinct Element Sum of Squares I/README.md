@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2913.Subarrays%20Distinct%20Element%20Sum%20of%20Squares%20I/README.md
 rating: 1297
+source: 第 116 场双周赛 Q1
 tags:
     - 数组
     - 哈希表

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2827.Number%20of%20Beautiful%20Integers%20in%20the%20Range/README_EN.md
 rating: 2324
+source: Biweekly Contest 111 Q4
 tags:
     - Math
     - Dynamic Programming

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1584.Min%20Cost%20to%20Connect%20All%20Points/README.md
 rating: 1857
+source: 第 206 场周赛 Q3
 tags:
     - 并查集
     - 图

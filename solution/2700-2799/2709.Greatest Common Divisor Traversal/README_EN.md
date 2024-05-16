@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2709.Greatest%20Common%20Divisor%20Traversal/README_EN.md
 rating: 2171
+source: Biweekly Contest 105 Q4
 tags:
     - Union Find
     - Array

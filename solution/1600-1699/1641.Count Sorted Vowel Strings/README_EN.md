@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1641.Count%20Sorted%20Vowel%20Strings/README_EN.md
 rating: 1519
+source: Weekly Contest 213 Q2
 tags:
     - Math
     - Dynamic Programming

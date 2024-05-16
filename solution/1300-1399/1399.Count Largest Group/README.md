@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1399.Count%20Largest%20Group/README.md
 rating: 1341
+source: 第 23 场双周赛 Q1
 tags:
     - 哈希表
     - 数学

@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2540.Minimum%20Common%20Value/README_EN.md
 rating: 1249
+source: Biweekly Contest 96 Q1
 tags:
     - Array
     - Hash Table

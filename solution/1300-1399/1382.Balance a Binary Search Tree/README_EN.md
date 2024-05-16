@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1382.Balance%20a%20Binary%20Search%20Tree/README_EN.md
 rating: 1540
+source: Weekly Contest 180 Q3
 tags:
     - Greedy
     - Tree

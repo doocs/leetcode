@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2732.Find%20a%20Good%20Subset%20of%20the%20Matrix/README_EN.md
 rating: 2239
+source: Biweekly Contest 106 Q4
 tags:
     - Greedy
     - Bit Manipulation

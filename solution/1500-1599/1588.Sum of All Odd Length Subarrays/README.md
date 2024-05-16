@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1588.Sum%20of%20All%20Odd%20Length%20Subarrays/README.md
 rating: 1408
+source: 第 35 场双周赛 Q1
 tags:
     - 数组
     - 数学

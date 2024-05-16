@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2983.Palindrome%20Rearrangement%20Queries/README.md
 rating: 2779
+source: 第 378 场周赛 Q4
 tags:
     - 哈希表
     - 字符串

@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1652.Defuse%20the%20Bomb/README_EN.md
 rating: 1416
+source: Biweekly Contest 39 Q1
 tags:
     - Array
     - Sliding Window

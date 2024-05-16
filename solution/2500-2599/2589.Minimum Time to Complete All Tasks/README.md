@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2589.Minimum%20Time%20to%20Complete%20All%20Tasks/README.md
 rating: 2380
+source: 第 336 场周赛 Q4
 tags:
     - 栈
     - 贪心

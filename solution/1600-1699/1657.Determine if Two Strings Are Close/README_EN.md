@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1657.Determine%20if%20Two%20Strings%20Are%20Close/README_EN.md
 rating: 1530
+source: Weekly Contest 215 Q2
 tags:
     - Hash Table
     - String

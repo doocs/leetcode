@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2181.Merge%20Nodes%20in%20Between%20Zeros/README.md
 rating: 1333
+source: 第 281 场周赛 Q2
 tags:
     - 链表
     - 模拟

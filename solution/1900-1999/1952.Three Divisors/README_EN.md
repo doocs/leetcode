@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1952.Three%20Divisors/README_EN.md
 rating: 1203
+source: Weekly Contest 252 Q1
 tags:
     - Math
     - Enumeration

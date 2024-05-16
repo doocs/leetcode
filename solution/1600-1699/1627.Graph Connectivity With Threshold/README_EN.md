@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1627.Graph%20Connectivity%20With%20Threshold/README_EN.md
 rating: 2221
+source: Weekly Contest 211 Q4
 tags:
     - Union Find
     - Array

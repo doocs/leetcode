@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1041.Robot%20Bounded%20In%20Circle/README_EN.md
 rating: 1521
+source: Weekly Contest 136 Q1
 tags:
     - Math
     - String

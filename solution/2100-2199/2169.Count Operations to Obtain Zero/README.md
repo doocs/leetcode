@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2169.Count%20Operations%20to%20Obtain%20Zero/README.md
 rating: 1199
+source: 第 280 场周赛 Q1
 tags:
     - 数学
     - 模拟

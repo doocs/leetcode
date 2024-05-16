@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1493.Longest%20Subarray%20of%201%27s%20After%20Deleting%20One%20Element/README.md
 rating: 1423
+source: 第 29 场双周赛 Q3
 tags:
     - 数组
     - 动态规划

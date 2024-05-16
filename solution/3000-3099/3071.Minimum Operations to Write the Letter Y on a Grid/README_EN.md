@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3071.Minimum%20Operations%20to%20Write%20the%20Letter%20Y%20on%20a%20Grid/README_EN.md
 rating: 1689
+source: Weekly Contest 387 Q3
 tags:
     - Array
     - Hash Table

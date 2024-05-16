@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2827.Number%20of%20Beautiful%20Integers%20in%20the%20Range/README.md
 rating: 2324
+source: 第 111 场双周赛 Q4
 tags:
     - 数学
     - 动态规划

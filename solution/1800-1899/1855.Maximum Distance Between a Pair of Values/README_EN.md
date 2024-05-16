@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1855.Maximum%20Distance%20Between%20a%20Pair%20of%20Values/README_EN.md
 rating: 1514
+source: Weekly Contest 240 Q2
 tags:
     - Array
     - Two Pointers

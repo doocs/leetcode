@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1316.Distinct%20Echo%20Substrings/README_EN.md
 rating: 1836
+source: Biweekly Contest 17 Q4
 tags:
     - Trie
     - String

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2857.Count%20Pairs%20of%20Points%20With%20Distance%20k/README.md
 rating: 2081
+source: 第 113 场双周赛 Q3
 tags:
     - 位运算
     - 数组

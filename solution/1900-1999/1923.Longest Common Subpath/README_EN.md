@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1923.Longest%20Common%20Subpath/README_EN.md
 rating: 2661
+source: Weekly Contest 248 Q4
 tags:
     - Array
     - Binary Search

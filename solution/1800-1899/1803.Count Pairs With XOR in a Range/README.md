@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1803.Count%20Pairs%20With%20XOR%20in%20a%20Range/README.md
 rating: 2479
+source: 第 233 场周赛 Q4
 tags:
     - 位运算
     - 字典树

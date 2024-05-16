@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1626.Best%20Team%20With%20No%20Conflicts/README_EN.md
 rating: 2027
+source: Weekly Contest 211 Q3
 tags:
     - Array
     - Dynamic Programming

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2069.Walking%20Robot%20Simulation%20II/README_EN.md
 rating: 1918
+source: Biweekly Contest 65 Q2
 tags:
     - Design
     - Simulation

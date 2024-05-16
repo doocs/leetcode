@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2514.Count%20Anagrams/README.md
 rating: 2069
+source: 第 94 场双周赛 Q4
 tags:
     - 哈希表
     - 数学

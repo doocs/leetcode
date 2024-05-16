@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1686.Stone%20Game%20VI/README.md
 rating: 2000
+source: 第 41 场双周赛 Q3
 tags:
     - 贪心
     - 数组

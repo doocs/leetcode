@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2045.Second%20Minimum%20Time%20to%20Reach%20Destination/README_EN.md
 rating: 2201
+source: Weekly Contest 263 Q4
 tags:
     - Breadth-First Search
     - Graph

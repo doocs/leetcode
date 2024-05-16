@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2081.Sum%20of%20k-Mirror%20Numbers/README.md
 rating: 2209
+source: 第 268 场周赛 Q4
 tags:
     - 数学
     - 枚举

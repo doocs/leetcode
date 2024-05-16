@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1157.Online%20Majority%20Element%20In%20Subarray/README_EN.md
 rating: 2205
+source: Weekly Contest 149 Q4
 tags:
     - Design
     - Binary Indexed Tree

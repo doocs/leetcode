@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1019.Next%20Greater%20Node%20In%20Linked%20List/README.md
 rating: 1570
+source: 第 130 场周赛 Q3
 tags:
     - 栈
     - 数组

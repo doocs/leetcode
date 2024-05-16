@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2395.Find%20Subarrays%20With%20Equal%20Sum/README_EN.md
 rating: 1249
+source: Biweekly Contest 86 Q1
 tags:
     - Array
     - Hash Table

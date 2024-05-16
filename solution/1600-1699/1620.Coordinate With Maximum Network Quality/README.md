@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1620.Coordinate%20With%20Maximum%20Network%20Quality/README.md
 rating: 1665
+source: 第 37 场双周赛 Q2
 tags:
     - 数组
     - 枚举

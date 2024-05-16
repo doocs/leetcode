@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1638.Count%20Substrings%20That%20Differ%20by%20One%20Character/README.md
 rating: 1744
+source: 第 38 场双周赛 Q3
 tags:
     - 哈希表
     - 字符串

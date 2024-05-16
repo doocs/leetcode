@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1856.Maximum%20Subarray%20Min-Product/README_EN.md
 rating: 2051
+source: Weekly Contest 240 Q3
 tags:
     - Stack
     - Array

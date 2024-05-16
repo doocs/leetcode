@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2563.Count%20the%20Number%20of%20Fair%20Pairs/README_EN.md
 rating: 1720
+source: Weekly Contest 332 Q2
 tags:
     - Array
     - Two Pointers

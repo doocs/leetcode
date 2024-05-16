@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1462.Course%20Schedule%20IV/README_EN.md
 rating: 1692
+source: Biweekly Contest 27 Q3
 tags:
     - Depth-First Search
     - Breadth-First Search

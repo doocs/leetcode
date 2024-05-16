@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3079.Find%20the%20Sum%20of%20Encrypted%20Integers/README.md
 rating: 1190
+source: 第 126 场双周赛 Q1
 tags:
     - 数组
     - 数学

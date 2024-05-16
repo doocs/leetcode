@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2537.Count%20the%20Number%20of%20Good%20Subarrays/README.md
 rating: 1891
+source: 第 328 场周赛 Q3
 tags:
     - 数组
     - 哈希表

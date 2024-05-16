@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1512.Number%20of%20Good%20Pairs/README.md
 rating: 1160
+source: 第 197 场周赛 Q1
 tags:
     - 数组
     - 哈希表

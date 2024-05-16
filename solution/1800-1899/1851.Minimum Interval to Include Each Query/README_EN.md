@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1851.Minimum%20Interval%20to%20Include%20Each%20Query/README_EN.md
 rating: 2286
+source: Weekly Contest 239 Q4
 tags:
     - Array
     - Binary Search

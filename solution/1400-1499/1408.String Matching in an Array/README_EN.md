@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1408.String%20Matching%20in%20an%20Array/README_EN.md
 rating: 1223
+source: Weekly Contest 184 Q1
 tags:
     - Array
     - String

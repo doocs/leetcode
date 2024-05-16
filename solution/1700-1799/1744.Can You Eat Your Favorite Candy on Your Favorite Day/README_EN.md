@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1744.Can%20You%20Eat%20Your%20Favorite%20Candy%20on%20Your%20Favorite%20Day/README_EN.md
 rating: 1858
+source: Weekly Contest 226 Q3
 tags:
     - Array
     - Prefix Sum

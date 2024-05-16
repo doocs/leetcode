@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2411.Smallest%20Subarrays%20With%20Maximum%20Bitwise%20OR/README_EN.md
 rating: 1938
+source: Biweekly Contest 87 Q3
 tags:
     - Bit Manipulation
     - Array

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2781.Length%20of%20the%20Longest%20Valid%20Substring/README_EN.md
 rating: 2203
+source: Weekly Contest 354 Q4
 tags:
     - Array
     - Hash Table

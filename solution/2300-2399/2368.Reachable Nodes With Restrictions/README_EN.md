@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2368.Reachable%20Nodes%20With%20Restrictions/README_EN.md
 rating: 1476
+source: Weekly Contest 305 Q2
 tags:
     - Tree
     - Depth-First Search

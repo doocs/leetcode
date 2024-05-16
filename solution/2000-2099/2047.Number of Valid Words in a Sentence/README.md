@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2047.Number%20of%20Valid%20Words%20in%20a%20Sentence/README.md
 rating: 1471
+source: 第 264 场周赛 Q1
 tags:
     - 字符串
 ---

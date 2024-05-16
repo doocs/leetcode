@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1165.Single-Row%20Keyboard/README.md
 rating: 1199
+source: 第 7 场双周赛 Q1
 tags:
     - 哈希表
     - 字符串

@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1118.Number%20of%20Days%20in%20a%20Month/README.md
 rating: 1227
+source: 第 4 场双周赛 Q1
 tags:
     - 数学
 ---

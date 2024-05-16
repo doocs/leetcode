@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1176.Diet%20Plan%20Performance/README.md
 rating: 1397
+source: 第 152 场周赛 Q2
 tags:
     - 数组
     - 滑动窗口

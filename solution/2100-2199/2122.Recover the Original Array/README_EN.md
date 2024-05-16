@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2122.Recover%20the%20Original%20Array/README_EN.md
 rating: 2158
+source: Weekly Contest 273 Q4
 tags:
     - Array
     - Hash Table

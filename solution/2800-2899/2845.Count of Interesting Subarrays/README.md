@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2845.Count%20of%20Interesting%20Subarrays/README.md
 rating: 2073
+source: 第 361 场周赛 Q3
 tags:
     - 数组
     - 哈希表

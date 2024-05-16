@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1401.Circle%20and%20Rectangle%20Overlapping/README.md
 rating: 1708
+source: 第 23 场双周赛 Q3
 tags:
     - 几何
     - 数学

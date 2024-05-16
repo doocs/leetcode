@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2351.First%20Letter%20to%20Appear%20Twice/README_EN.md
 rating: 1155
+source: Weekly Contest 303 Q1
 tags:
     - Bit Manipulation
     - Hash Table

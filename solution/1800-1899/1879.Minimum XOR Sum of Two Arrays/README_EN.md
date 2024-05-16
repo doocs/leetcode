@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1879.Minimum%20XOR%20Sum%20of%20Two%20Arrays/README_EN.md
 rating: 2145
+source: Biweekly Contest 53 Q4
 tags:
     - Bit Manipulation
     - Array

@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2085.Count%20Common%20Words%20With%20One%20Occurrence/README.md
 rating: 1307
+source: 第 66 场双周赛 Q1
 tags:
     - 数组
     - 哈希表

@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3108.Minimum%20Cost%20Walk%20in%20Weighted%20Graph/README.md
 rating: 2108
+source: 第 392 场周赛 Q4
 tags:
     - 位运算
     - 并查集

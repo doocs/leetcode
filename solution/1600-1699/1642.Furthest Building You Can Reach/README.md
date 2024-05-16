@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1642.Furthest%20Building%20You%20Can%20Reach/README.md
 rating: 1962
+source: 第 213 场周赛 Q3
 tags:
     - 贪心
     - 数组

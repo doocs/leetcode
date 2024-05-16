@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1065.Index%20Pairs%20of%20a%20String/README_EN.md
 rating: 1389
+source: Biweekly Contest 1 Q2
 tags:
     - Trie
     - Array

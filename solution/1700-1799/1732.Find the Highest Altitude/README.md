@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1732.Find%20the%20Highest%20Altitude/README.md
 rating: 1256
+source: 第 44 场双周赛 Q1
 tags:
     - 数组
     - 前缀和

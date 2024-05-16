@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2412.Minimum%20Money%20Required%20Before%20Transactions/README_EN.md
 rating: 2092
+source: Biweekly Contest 87 Q4
 tags:
     - Greedy
     - Array

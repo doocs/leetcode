@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2717.Semi-Ordered%20Permutation/README.md
 rating: 1295
+source: 第 348 场周赛 Q2
 tags:
     - 数组
     - 模拟

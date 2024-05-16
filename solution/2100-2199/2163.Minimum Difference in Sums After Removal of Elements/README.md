@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2163.Minimum%20Difference%20in%20Sums%20After%20Removal%20of%20Elements/README.md
 rating: 2225
+source: 第 71 场双周赛 Q4
 tags:
     - 数组
     - 动态规划

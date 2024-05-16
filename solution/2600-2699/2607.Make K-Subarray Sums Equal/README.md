@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2607.Make%20K-Subarray%20Sums%20Equal/README.md
 rating: 2071
+source: 第 101 场双周赛 Q3
 tags:
     - 数组
     - 数学

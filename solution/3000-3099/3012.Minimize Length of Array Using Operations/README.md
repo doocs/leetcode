@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3012.Minimize%20Length%20of%20Array%20Using%20Operations/README.md
 rating: 1832
+source: 第 122 场双周赛 Q3
 tags:
     - 贪心
     - 数组

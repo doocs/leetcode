@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1838.Frequency%20of%20the%20Most%20Frequent%20Element/README_EN.md
 rating: 1876
+source: Weekly Contest 238 Q2
 tags:
     - Greedy
     - Array

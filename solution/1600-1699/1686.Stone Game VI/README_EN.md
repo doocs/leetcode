@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1686.Stone%20Game%20VI/README_EN.md
 rating: 2000
+source: Biweekly Contest 41 Q3
 tags:
     - Greedy
     - Array

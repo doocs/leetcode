@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1040.Moving%20Stones%20Until%20Consecutive%20II/README.md
 rating: 2455
+source: 第 135 场周赛 Q4
 tags:
     - 数组
     - 数学

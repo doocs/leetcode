@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2972.Count%20the%20Number%20of%20Incremovable%20Subarrays%20II/README_EN.md
 rating: 2152
+source: Biweekly Contest 120 Q3
 tags:
     - Array
     - Two Pointers

@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1825.Finding%20MK%20Average/README.md
 rating: 2395
+source: 第 236 场周赛 Q4
 tags:
     - 设计
     - 队列

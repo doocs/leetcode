@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2506.Count%20Pairs%20Of%20Similar%20Strings/README_EN.md
 rating: 1335
+source: Weekly Contest 324 Q1
 tags:
     - Bit Manipulation
     - Array

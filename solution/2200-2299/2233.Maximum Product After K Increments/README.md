@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2233.Maximum%20Product%20After%20K%20Increments/README.md
 rating: 1685
+source: 第 288 场周赛 Q3
 tags:
     - 贪心
     - 数组

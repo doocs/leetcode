@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1829.Maximum%20XOR%20for%20Each%20Query/README.md
 rating: 1523
+source: 第 50 场双周赛 Q3
 tags:
     - 位运算
     - 数组

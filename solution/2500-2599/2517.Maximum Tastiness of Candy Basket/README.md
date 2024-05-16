@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2517.Maximum%20Tastiness%20of%20Candy%20Basket/README.md
 rating: 2020
+source: 第 325 场周赛 Q3
 tags:
     - 贪心
     - 数组

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1655.Distribute%20Repeating%20Integers/README_EN.md
 rating: 2307
+source: Biweekly Contest 39 Q4
 tags:
     - Bit Manipulation
     - Array

@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1154.Day%20of%20the%20Year/README.md
 rating: 1199
+source: 第 149 场周赛 Q1
 tags:
     - 数学
     - 字符串

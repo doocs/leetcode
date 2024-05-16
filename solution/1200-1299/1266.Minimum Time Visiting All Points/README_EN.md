@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1266.Minimum%20Time%20Visiting%20All%20Points/README_EN.md
 rating: 1302
+source: Weekly Contest 164 Q1
 tags:
     - Geometry
     - Array

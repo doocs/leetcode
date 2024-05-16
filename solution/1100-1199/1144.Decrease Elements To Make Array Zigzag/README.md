@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1144.Decrease%20Elements%20To%20Make%20Array%20Zigzag/README.md
 rating: 1558
+source: 第 148 场周赛 Q1
 tags:
     - 贪心
     - 数组

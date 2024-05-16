@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2270.Number%20of%20Ways%20to%20Split%20Array/README_EN.md
 rating: 1334
+source: Biweekly Contest 78 Q2
 tags:
     - Array
     - Prefix Sum

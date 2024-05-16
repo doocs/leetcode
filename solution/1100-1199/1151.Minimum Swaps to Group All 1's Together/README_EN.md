@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1151.Minimum%20Swaps%20to%20Group%20All%201%27s%20Together/README_EN.md
 rating: 1508
+source: Biweekly Contest 6 Q2
 tags:
     - Array
     - Sliding Window

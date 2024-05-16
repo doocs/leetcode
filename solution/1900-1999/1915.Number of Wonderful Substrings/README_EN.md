@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1915.Number%20of%20Wonderful%20Substrings/README_EN.md
 rating: 2234
+source: Weekly Contest 247 Q3
 tags:
     - Bit Manipulation
     - Hash Table

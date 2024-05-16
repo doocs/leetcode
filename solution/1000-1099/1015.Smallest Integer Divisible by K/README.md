@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1015.Smallest%20Integer%20Divisible%20by%20K/README.md
 rating: 1874
+source: 第 129 场周赛 Q2
 tags:
     - 哈希表
     - 数学

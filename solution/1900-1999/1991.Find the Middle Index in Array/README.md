@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1991.Find%20the%20Middle%20Index%20in%20Array/README.md
 rating: 1302
+source: 第 60 场双周赛 Q1
 tags:
     - 数组
     - 前缀和

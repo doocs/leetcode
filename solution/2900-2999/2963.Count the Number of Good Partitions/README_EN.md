@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2963.Count%20the%20Number%20of%20Good%20Partitions/README_EN.md
 rating: 1984
+source: Weekly Contest 375 Q4
 tags:
     - Array
     - Hash Table

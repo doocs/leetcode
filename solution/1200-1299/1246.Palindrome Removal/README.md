@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1246.Palindrome%20Removal/README.md
 rating: 2203
+source: 第 12 场双周赛 Q4
 tags:
     - 数组
     - 动态规划

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1815.Maximum%20Number%20of%20Groups%20Getting%20Fresh%20Donuts/README_EN.md
 rating: 2559
+source: Biweekly Contest 49 Q4
 tags:
     - Bit Manipulation
     - Memoization

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2080.Range%20Frequency%20Queries/README_EN.md
 rating: 1702
+source: Weekly Contest 268 Q3
 tags:
     - Design
     - Segment Tree

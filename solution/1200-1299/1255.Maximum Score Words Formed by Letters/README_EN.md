@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1255.Maximum%20Score%20Words%20Formed%20by%20Letters/README_EN.md
 rating: 1881
+source: Weekly Contest 162 Q4
 tags:
     - Bit Manipulation
     - Array

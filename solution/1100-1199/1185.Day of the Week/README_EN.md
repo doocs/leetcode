@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1185.Day%20of%20the%20Week/README_EN.md
 rating: 1382
+source: Weekly Contest 153 Q2
 tags:
     - Math
 ---

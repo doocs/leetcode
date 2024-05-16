@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2320.Count%20Number%20of%20Ways%20to%20Place%20Houses/README_EN.md
 rating: 1607
+source: Weekly Contest 299 Q2
 tags:
     - Dynamic Programming
 ---

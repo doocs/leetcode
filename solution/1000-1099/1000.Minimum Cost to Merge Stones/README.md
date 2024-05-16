@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1000.Minimum%20Cost%20to%20Merge%20Stones/README.md
 rating: 2422
+source: 第 126 场周赛 Q4
 tags:
     - 数组
     - 动态规划

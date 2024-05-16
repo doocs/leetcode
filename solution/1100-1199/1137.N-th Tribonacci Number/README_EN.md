@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1137.N-th%20Tribonacci%20Number/README_EN.md
 rating: 1142
+source: Weekly Contest 147 Q1
 tags:
     - Memoization
     - Math

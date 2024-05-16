@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2224.Minimum%20Number%20of%20Operations%20to%20Convert%20Time/README.md
 rating: 1295
+source: 第 287 场周赛 Q1
 tags:
     - 贪心
     - 字符串

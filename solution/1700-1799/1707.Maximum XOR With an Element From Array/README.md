@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1707.Maximum%20XOR%20With%20an%20Element%20From%20Array/README.md
 rating: 2358
+source: 第 221 场周赛 Q4
 tags:
     - 位运算
     - 字典树

@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2019.The%20Score%20of%20Students%20Solving%20Math%20Expression/README.md
 rating: 2583
+source: 第 260 场周赛 Q4
 tags:
     - 栈
     - 记忆化搜索

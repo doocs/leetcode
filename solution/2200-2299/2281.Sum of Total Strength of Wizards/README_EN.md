@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2281.Sum%20of%20Total%20Strength%20of%20Wizards/README_EN.md
 rating: 2621
+source: Weekly Contest 294 Q4
 tags:
     - Stack
     - Array

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2044.Count%20Number%20of%20Maximum%20Bitwise-OR%20Subsets/README_EN.md
 rating: 1567
+source: Weekly Contest 263 Q3
 tags:
     - Bit Manipulation
     - Array

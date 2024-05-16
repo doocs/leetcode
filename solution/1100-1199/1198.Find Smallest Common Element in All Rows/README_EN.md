@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1198.Find%20Smallest%20Common%20Element%20in%20All%20Rows/README_EN.md
 rating: 1401
+source: Biweekly Contest 9 Q3
 tags:
     - Array
     - Hash Table

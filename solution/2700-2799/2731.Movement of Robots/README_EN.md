@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2731.Movement%20of%20Robots/README_EN.md
 rating: 1922
+source: Biweekly Contest 106 Q3
 tags:
     - Brainteaser
     - Array

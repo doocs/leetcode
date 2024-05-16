@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3098.Find%20the%20Sum%20of%20Subsequence%20Powers/README.md
 rating: 2552
+source: 第 127 场双周赛 Q4
 tags:
     - 数组
     - 动态规划

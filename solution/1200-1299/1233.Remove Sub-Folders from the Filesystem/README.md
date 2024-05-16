@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1233.Remove%20Sub-Folders%20from%20the%20Filesystem/README.md
 rating: 1544
+source: 第 159 场周赛 Q2
 tags:
     - 深度优先搜索
     - 字典树

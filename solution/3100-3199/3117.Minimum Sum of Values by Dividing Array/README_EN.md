@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3117.Minimum%20Sum%20of%20Values%20by%20Dividing%20Array/README_EN.md
 rating: 2735
+source: Weekly Contest 393 Q4
 tags:
     - Bit Manipulation
     - Segment Tree

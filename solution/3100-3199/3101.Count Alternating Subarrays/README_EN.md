@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3101.Count%20Alternating%20Subarrays/README_EN.md
 rating: 1404
+source: Weekly Contest 391 Q3
 tags:
     - Array
     - Math

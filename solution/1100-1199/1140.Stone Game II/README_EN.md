@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1140.Stone%20Game%20II/README_EN.md
 rating: 2034
+source: Weekly Contest 147 Q4
 tags:
     - Array
     - Math

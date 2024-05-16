@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2405.Optimal%20Partition%20of%20String/README.md
 rating: 1355
+source: 第 310 场周赛 Q2
 tags:
     - 贪心
     - 哈希表

@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1688.Count%20of%20Matches%20in%20Tournament/README.md
 rating: 1203
+source: 第 219 场周赛 Q1
 tags:
     - 数学
     - 模拟

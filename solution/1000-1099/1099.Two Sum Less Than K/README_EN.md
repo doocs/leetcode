@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1099.Two%20Sum%20Less%20Than%20K/README_EN.md
 rating: 1245
+source: Biweekly Contest 3 Q1
 tags:
     - Array
     - Two Pointers

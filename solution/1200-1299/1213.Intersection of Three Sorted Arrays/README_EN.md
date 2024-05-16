@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1213.Intersection%20of%20Three%20Sorted%20Arrays/README_EN.md
 rating: 1259
+source: Biweekly Contest 10 Q1
 tags:
     - Array
     - Hash Table

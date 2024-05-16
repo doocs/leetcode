@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1542.Find%20Longest%20Awesome%20Substring/README_EN.md
 rating: 2221
+source: Biweekly Contest 32 Q4
 tags:
     - Bit Manipulation
     - Hash Table

@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3093.Longest%20Common%20Suffix%20Queries/README.md
 rating: 2118
+source: 第 390 场周赛 Q4
 tags:
     - 字典树
     - 数组

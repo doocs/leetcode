@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1376.Time%20Needed%20to%20Inform%20All%20Employees/README_EN.md
 rating: 1561
+source: Weekly Contest 179 Q3
 tags:
     - Tree
     - Depth-First Search

@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2765.Longest%20Alternating%20Subarray/README.md
 rating: 1580
+source: 第 108 场双周赛 Q1
 tags:
     - 数组
     - 枚举

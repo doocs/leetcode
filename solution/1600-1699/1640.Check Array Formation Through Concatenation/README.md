@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1640.Check%20Array%20Formation%20Through%20Concatenation/README.md
 rating: 1524
+source: 第 213 场周赛 Q1
 tags:
     - 数组
     - 哈希表

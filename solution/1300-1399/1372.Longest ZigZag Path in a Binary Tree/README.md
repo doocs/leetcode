@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1372.Longest%20ZigZag%20Path%20in%20a%20Binary%20Tree/README.md
 rating: 1713
+source: 第 21 场双周赛 Q3
 tags:
     - 树
     - 深度优先搜索

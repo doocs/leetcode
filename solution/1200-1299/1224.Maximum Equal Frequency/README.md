@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1224.Maximum%20Equal%20Frequency/README.md
 rating: 2050
+source: 第 158 场周赛 Q4
 tags:
     - 数组
     - 哈希表

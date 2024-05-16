@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1383.Maximum%20Performance%20of%20a%20Team/README.md
 rating: 2091
+source: 第 180 场周赛 Q4
 tags:
     - 贪心
     - 数组

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3044.Most%20Frequent%20Prime/README.md
 rating: 1737
+source: 第 385 场周赛 Q3
 tags:
     - 数组
     - 哈希表

@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2899.Last%20Visited%20Integers/README_EN.md
 rating: 1372
+source: Biweekly Contest 115 Q1
 tags:
     - Array
     - Simulation

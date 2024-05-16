@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2973.Find%20Number%20of%20Coins%20to%20Place%20in%20Tree%20Nodes/README_EN.md
 rating: 2276
+source: Biweekly Contest 120 Q4
 tags:
     - Tree
     - Depth-First Search

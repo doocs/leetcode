@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1030.Matrix%20Cells%20in%20Distance%20Order/README.md
 rating: 1585
+source: 第 133 场周赛 Q2
 tags:
     - 几何
     - 数组

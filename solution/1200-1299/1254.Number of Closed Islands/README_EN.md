@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1254.Number%20of%20Closed%20Islands/README_EN.md
 rating: 1658
+source: Weekly Contest 162 Q3
 tags:
     - Depth-First Search
     - Breadth-First Search

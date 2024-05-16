@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2320.Count%20Number%20of%20Ways%20to%20Place%20Houses/README.md
 rating: 1607
+source: 第 299 场周赛 Q2
 tags:
     - 动态规划
 ---

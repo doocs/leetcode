@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2276.Count%20Integers%20in%20Intervals/README.md
 rating: 2222
+source: 第 293 场周赛 Q4
 tags:
     - 设计
     - 线段树

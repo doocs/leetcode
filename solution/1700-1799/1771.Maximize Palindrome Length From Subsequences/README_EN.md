@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1771.Maximize%20Palindrome%20Length%20From%20Subsequences/README_EN.md
 rating: 2182
+source: Weekly Contest 229 Q4
 tags:
     - String
     - Dynamic Programming

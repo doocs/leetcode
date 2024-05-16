@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2287.Rearrange%20Characters%20to%20Make%20Target%20String/README.md
 rating: 1299
+source: 第 295 场周赛 Q1
 tags:
     - 哈希表
     - 字符串

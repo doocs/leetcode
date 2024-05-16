@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1770.Maximum%20Score%20from%20Performing%20Multiplication%20Operations/README_EN.md
 rating: 2068
+source: Weekly Contest 229 Q3
 tags:
     - Array
     - Dynamic Programming

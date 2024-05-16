@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1162.As%20Far%20from%20Land%20as%20Possible/README.md
 rating: 1666
+source: 第 150 场周赛 Q3
 tags:
     - 广度优先搜索
     - 数组

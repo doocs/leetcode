@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1023.Camelcase%20Matching/README_EN.md
 rating: 1537
+source: Weekly Contest 131 Q3
 tags:
     - Trie
     - Array

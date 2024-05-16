@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2167.Minimum%20Time%20to%20Remove%20All%20Cars%20Containing%20Illegal%20Goods/README_EN.md
 rating: 2219
+source: Weekly Contest 279 Q4
 tags:
     - String
     - Dynamic Programming

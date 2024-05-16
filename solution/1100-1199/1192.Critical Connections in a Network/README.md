@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1192.Critical%20Connections%20in%20a%20Network/README.md
 rating: 2084
+source: 第 154 场周赛 Q4
 tags:
     - 深度优先搜索
     - 图

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1090.Largest%20Values%20From%20Labels/README.md
 rating: 1501
+source: 第 141 场周赛 Q2
 tags:
     - 贪心
     - 数组

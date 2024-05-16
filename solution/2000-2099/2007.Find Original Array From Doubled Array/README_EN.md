@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2007.Find%20Original%20Array%20From%20Doubled%20Array/README_EN.md
 rating: 1557
+source: Biweekly Contest 61 Q2
 tags:
     - Greedy
     - Array

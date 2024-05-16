@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2606.Find%20the%20Substring%20With%20Maximum%20Cost/README_EN.md
 rating: 1422
+source: Biweekly Contest 101 Q2
 tags:
     - Array
     - Hash Table

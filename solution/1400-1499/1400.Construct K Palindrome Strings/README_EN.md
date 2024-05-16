@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1400.Construct%20K%20Palindrome%20Strings/README_EN.md
 rating: 1530
+source: Biweekly Contest 23 Q2
 tags:
     - Greedy
     - Hash Table

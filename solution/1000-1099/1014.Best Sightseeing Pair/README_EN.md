@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1014.Best%20Sightseeing%20Pair/README_EN.md
 rating: 1730
+source: Weekly Contest 129 Q3
 tags:
     - Array
     - Dynamic Programming

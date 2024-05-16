@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2057.Smallest%20Index%20With%20Equal%20Value/README_EN.md
 rating: 1167
+source: Weekly Contest 265 Q1
 tags:
     - Array
 ---

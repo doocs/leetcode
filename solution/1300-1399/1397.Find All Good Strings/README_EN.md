@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1397.Find%20All%20Good%20Strings/README_EN.md
 rating: 2666
+source: Weekly Contest 182 Q4
 tags:
     - String
     - Dynamic Programming

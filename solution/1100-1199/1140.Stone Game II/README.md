@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1140.Stone%20Game%20II/README.md
 rating: 2034
+source: 第 147 场周赛 Q4
 tags:
     - 数组
     - 数学

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1696.Jump%20Game%20VI/README_EN.md
 rating: 1954
+source: Weekly Contest 220 Q3
 tags:
     - Queue
     - Array

@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1425.Constrained%20Subsequence%20Sum/README.md
 rating: 2032
+source: 第 186 场周赛 Q4
 tags:
     - 队列
     - 数组

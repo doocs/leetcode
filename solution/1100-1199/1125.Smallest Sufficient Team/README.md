@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1125.Smallest%20Sufficient%20Team/README.md
 rating: 2250
+source: 第 145 场周赛 Q4
 tags:
     - 位运算
     - 数组

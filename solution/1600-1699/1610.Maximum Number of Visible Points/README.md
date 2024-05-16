@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1610.Maximum%20Number%20of%20Visible%20Points/README.md
 rating: 2147
+source: 第 209 场周赛 Q3
 tags:
     - 几何
     - 数组

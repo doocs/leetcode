@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2961.Double%20Modular%20Exponentiation/README.md
 rating: 1450
+source: 第 375 场周赛 Q2
 tags:
     - 数组
     - 数学

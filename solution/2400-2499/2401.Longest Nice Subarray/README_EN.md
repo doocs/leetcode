@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2401.Longest%20Nice%20Subarray/README_EN.md
 rating: 1749
+source: Weekly Contest 309 Q3
 tags:
     - Bit Manipulation
     - Array

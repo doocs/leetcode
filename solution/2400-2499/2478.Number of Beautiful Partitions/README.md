@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2478.Number%20of%20Beautiful%20Partitions/README.md
 rating: 2344
+source: 第 320 场周赛 Q4
 tags:
     - 字符串
     - 动态规划

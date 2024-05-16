@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2561.Rearranging%20Fruits/README.md
 rating: 2221
+source: 第 331 场周赛 Q4
 tags:
     - 贪心
     - 数组

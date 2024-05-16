@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2799.Count%20Complete%20Subarrays%20in%20an%20Array/README.md
 rating: 1397
+source: 第 356 场周赛 Q2
 tags:
     - 数组
     - 哈希表

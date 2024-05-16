@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2286.Booking%20Concert%20Tickets%20in%20Groups/README.md
 rating: 2470
+source: 第 79 场双周赛 Q4
 tags:
     - 设计
     - 树状数组

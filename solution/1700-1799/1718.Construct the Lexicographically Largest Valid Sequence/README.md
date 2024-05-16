@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1718.Construct%20the%20Lexicographically%20Largest%20Valid%20Sequence/README.md
 rating: 2080
+source: 第 43 场双周赛 Q3
 tags:
     - 数组
     - 回溯

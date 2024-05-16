@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1078.Occurrences%20After%20Bigram/README.md
 rating: 1274
+source: 第 140 场周赛 Q1
 tags:
     - 字符串
 ---

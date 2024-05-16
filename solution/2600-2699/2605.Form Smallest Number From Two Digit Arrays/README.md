@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2605.Form%20Smallest%20Number%20From%20Two%20Digit%20Arrays/README.md
 rating: 1241
+source: 第 101 场双周赛 Q1
 tags:
     - 数组
     - 哈希表

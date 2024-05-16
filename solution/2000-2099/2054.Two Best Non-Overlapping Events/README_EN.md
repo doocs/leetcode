@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2054.Two%20Best%20Non-Overlapping%20Events/README_EN.md
 rating: 1883
+source: Biweekly Contest 64 Q2
 tags:
     - Array
     - Binary Search

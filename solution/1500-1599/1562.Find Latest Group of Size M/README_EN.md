@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1562.Find%20Latest%20Group%20of%20Size%20M/README_EN.md
 rating: 1928
+source: Weekly Contest 203 Q3
 tags:
     - Array
     - Binary Search

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1324.Print%20Words%20Vertically/README_EN.md
 rating: 1328
+source: Weekly Contest 172 Q2
 tags:
     - Array
     - String

@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2842.Count%20K-Subsequences%20of%20a%20String%20With%20Maximum%20Beauty/README.md
 rating: 2091
+source: 第 112 场双周赛 Q4
 tags:
     - 贪心
     - 哈希表

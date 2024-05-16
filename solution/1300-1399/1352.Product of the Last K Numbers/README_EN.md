@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1352.Product%20of%20the%20Last%20K%20Numbers/README_EN.md
 rating: 1473
+source: Weekly Contest 176 Q2
 tags:
     - Design
     - Queue

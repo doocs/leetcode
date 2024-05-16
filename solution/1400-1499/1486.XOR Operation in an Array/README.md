@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1486.XOR%20Operation%20in%20an%20Array/README.md
 rating: 1180
+source: 第 194 场周赛 Q1
 tags:
     - 位运算
     - 数学

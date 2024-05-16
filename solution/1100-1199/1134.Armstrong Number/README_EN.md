@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1134.Armstrong%20Number/README_EN.md
 rating: 1231
+source: Biweekly Contest 5 Q2
 tags:
     - Math
 ---

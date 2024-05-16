@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3022.Minimize%20OR%20of%20Remaining%20Elements%20Using%20Operations/README_EN.md
 rating: 2917
+source: Weekly Contest 382 Q4
 tags:
     - Greedy
     - Bit Manipulation

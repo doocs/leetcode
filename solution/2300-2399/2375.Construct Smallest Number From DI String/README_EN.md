@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2375.Construct%20Smallest%20Number%20From%20DI%20String/README_EN.md
 rating: 1641
+source: Weekly Contest 306 Q3
 tags:
     - Stack
     - Greedy

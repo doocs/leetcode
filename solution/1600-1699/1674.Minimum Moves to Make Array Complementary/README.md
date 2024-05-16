@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1674.Minimum%20Moves%20to%20Make%20Array%20Complementary/README.md
 rating: 2333
+source: 第 217 场周赛 Q3
 tags:
     - 数组
     - 哈希表

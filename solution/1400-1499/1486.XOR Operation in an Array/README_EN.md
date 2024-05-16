@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1486.XOR%20Operation%20in%20an%20Array/README_EN.md
 rating: 1180
+source: Weekly Contest 194 Q1
 tags:
     - Bit Manipulation
     - Math

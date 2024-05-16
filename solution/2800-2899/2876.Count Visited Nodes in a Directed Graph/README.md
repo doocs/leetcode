@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2876.Count%20Visited%20Nodes%20in%20a%20Directed%20Graph/README.md
 rating: 2209
+source: 第 365 场周赛 Q4
 tags:
     - 图
     - 记忆化搜索

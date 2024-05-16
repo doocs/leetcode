@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1716.Calculate%20Money%20in%20Leetcode%20Bank/README_EN.md
 rating: 1294
+source: Biweekly Contest 43 Q1
 tags:
     - Math
 ---

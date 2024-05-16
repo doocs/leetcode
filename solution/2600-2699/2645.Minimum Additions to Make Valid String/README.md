@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2645.Minimum%20Additions%20to%20Make%20Valid%20String/README.md
 rating: 1477
+source: 第 341 场周赛 Q3
 tags:
     - 栈
     - 贪心

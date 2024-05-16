@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1982.Find%20Array%20Given%20Subset%20Sums/README.md
 rating: 2872
+source: 第 255 场周赛 Q4
 tags:
     - 数组
     - 分治

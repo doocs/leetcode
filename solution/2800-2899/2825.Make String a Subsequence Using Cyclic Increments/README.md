@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2825.Make%20String%20a%20Subsequence%20Using%20Cyclic%20Increments/README.md
 rating: 1414
+source: 第 111 场双周赛 Q2
 tags:
     - 双指针
     - 字符串

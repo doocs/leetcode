@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1512.Number%20of%20Good%20Pairs/README_EN.md
 rating: 1160
+source: Weekly Contest 197 Q1
 tags:
     - Array
     - Hash Table

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2866.Beautiful%20Towers%20II/README.md
 rating: 2071
+source: 第 364 场周赛 Q3
 tags:
     - 栈
     - 数组

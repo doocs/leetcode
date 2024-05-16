@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1716.Calculate%20Money%20in%20Leetcode%20Bank/README.md
 rating: 1294
+source: 第 43 场双周赛 Q1
 tags:
     - 数学
 ---

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1253.Reconstruct%20a%202-Row%20Binary%20Matrix/README.md
 rating: 1505
+source: 第 162 场周赛 Q2
 tags:
     - 贪心
     - 数组

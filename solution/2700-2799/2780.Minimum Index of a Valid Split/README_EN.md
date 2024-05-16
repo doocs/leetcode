@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2780.Minimum%20Index%20of%20a%20Valid%20Split/README_EN.md
 rating: 1549
+source: Weekly Contest 354 Q3
 tags:
     - Array
     - Hash Table

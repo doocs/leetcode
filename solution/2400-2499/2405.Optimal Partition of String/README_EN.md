@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2405.Optimal%20Partition%20of%20String/README_EN.md
 rating: 1355
+source: Weekly Contest 310 Q2
 tags:
     - Greedy
     - Hash Table

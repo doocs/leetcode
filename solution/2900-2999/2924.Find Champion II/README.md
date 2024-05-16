@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2924.Find%20Champion%20II/README.md
 rating: 1430
+source: 第 370 场周赛 Q2
 tags:
     - 图
 ---

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2139.Minimum%20Moves%20to%20Reach%20Target%20Score/README.md
 rating: 1417
+source: 第 276 场周赛 Q2
 tags:
     - 贪心
     - 数学

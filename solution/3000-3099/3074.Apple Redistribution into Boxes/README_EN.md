@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3074.Apple%20Redistribution%20into%20Boxes/README_EN.md
 rating: 1197
+source: Weekly Contest 388 Q1
 tags:
     - Greedy
     - Array

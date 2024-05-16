@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1504.Count%20Submatrices%20With%20All%20Ones/README_EN.md
 rating: 1845
+source: Weekly Contest 196 Q3
 tags:
     - Stack
     - Array

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2467.Most%20Profitable%20Path%20in%20a%20Tree/README.md
 rating: 2053
+source: 第 91 场双周赛 Q3
 tags:
     - 树
     - 深度优先搜索

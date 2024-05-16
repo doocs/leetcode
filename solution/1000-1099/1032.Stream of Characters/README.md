@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1032.Stream%20of%20Characters/README.md
 rating: 1970
+source: 第 133 场周赛 Q4
 tags:
     - 设计
     - 字典树

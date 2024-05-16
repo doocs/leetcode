@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1964.Find%20the%20Longest%20Valid%20Obstacle%20Course%20at%20Each%20Position/README_EN.md
 rating: 1933
+source: Weekly Contest 253 Q4
 tags:
     - Binary Indexed Tree
     - Array

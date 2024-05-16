@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1085.Sum%20of%20Digits%20in%20the%20Minimum%20Number/README.md
 rating: 1256
+source: 第 2 场双周赛 Q1
 tags:
     - 数组
     - 数学

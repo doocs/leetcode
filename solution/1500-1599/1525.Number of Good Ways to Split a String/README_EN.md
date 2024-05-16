@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1525.Number%20of%20Good%20Ways%20to%20Split%20a%20String/README_EN.md
 rating: 1499
+source: Biweekly Contest 31 Q3
 tags:
     - Bit Manipulation
     - Hash Table

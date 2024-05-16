@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3075.Maximize%20Happiness%20of%20Selected%20Children/README_EN.md
 rating: 1325
+source: Weekly Contest 388 Q2
 tags:
     - Greedy
     - Array

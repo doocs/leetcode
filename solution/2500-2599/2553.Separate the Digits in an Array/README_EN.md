@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2553.Separate%20the%20Digits%20in%20an%20Array/README_EN.md
 rating: 1216
+source: Biweekly Contest 97 Q1
 tags:
     - Array
     - Simulation

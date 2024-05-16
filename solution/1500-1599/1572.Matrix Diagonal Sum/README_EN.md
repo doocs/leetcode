@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1572.Matrix%20Diagonal%20Sum/README_EN.md
 rating: 1280
+source: Biweekly Contest 34 Q1
 tags:
     - Array
     - Matrix

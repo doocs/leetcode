@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1717.Maximum%20Score%20From%20Removing%20Substrings/README.md
 rating: 1867
+source: 第 43 场双周赛 Q2
 tags:
     - 栈
     - 贪心

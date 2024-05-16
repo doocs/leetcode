@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2963.Count%20the%20Number%20of%20Good%20Partitions/README.md
 rating: 1984
+source: 第 375 场周赛 Q4
 tags:
     - 数组
     - 哈希表

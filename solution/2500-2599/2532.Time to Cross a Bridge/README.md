@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2532.Time%20to%20Cross%20a%20Bridge/README.md
 rating: 2588
+source: 第 327 场周赛 Q4
 tags:
     - 数组
     - 模拟

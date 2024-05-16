@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2278.Percentage%20of%20Letter%20in%20String/README.md
 rating: 1161
+source: 第 294 场周赛 Q1
 tags:
     - 字符串
 ---

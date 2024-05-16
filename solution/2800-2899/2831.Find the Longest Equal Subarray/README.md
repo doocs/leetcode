@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2831.Find%20the%20Longest%20Equal%20Subarray/README.md
 rating: 1975
+source: 第 359 场周赛 Q4
 tags:
     - 数组
     - 哈希表

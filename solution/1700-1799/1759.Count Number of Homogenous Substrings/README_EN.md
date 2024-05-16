@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1759.Count%20Number%20of%20Homogenous%20Substrings/README_EN.md
 rating: 1490
+source: Weekly Contest 228 Q2
 tags:
     - Math
     - String

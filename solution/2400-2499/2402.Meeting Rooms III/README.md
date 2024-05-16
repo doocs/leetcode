@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2402.Meeting%20Rooms%20III/README.md
 rating: 2092
+source: 第 309 场周赛 Q4
 tags:
     - 数组
     - 哈希表

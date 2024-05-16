@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2154.Keep%20Multiplying%20Found%20Values%20by%20Two/README_EN.md
 rating: 1235
+source: Weekly Contest 278 Q1
 tags:
     - Array
     - Hash Table

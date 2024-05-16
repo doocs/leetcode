@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1679.Max%20Number%20of%20K-Sum%20Pairs/README.md
 rating: 1345
+source: 第 218 场周赛 Q2
 tags:
     - 数组
     - 哈希表

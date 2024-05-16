@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2699.Modify%20Graph%20Edge%20Weights/README_EN.md
 rating: 2873
+source: Weekly Contest 346 Q4
 tags:
     - Graph
     - Shortest Path

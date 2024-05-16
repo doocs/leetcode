@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2351.First%20Letter%20to%20Appear%20Twice/README.md
 rating: 1155
+source: 第 303 场周赛 Q1
 tags:
     - 位运算
     - 哈希表

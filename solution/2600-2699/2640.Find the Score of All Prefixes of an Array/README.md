@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2640.Find%20the%20Score%20of%20All%20Prefixes%20of%20an%20Array/README.md
 rating: 1314
+source: 第 102 场双周赛 Q2
 tags:
     - 数组
     - 前缀和

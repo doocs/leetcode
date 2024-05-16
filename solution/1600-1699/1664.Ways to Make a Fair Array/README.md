@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1664.Ways%20to%20Make%20a%20Fair%20Array/README.md
 rating: 1590
+source: 第 216 场周赛 Q3
 tags:
     - 数组
     - 前缀和

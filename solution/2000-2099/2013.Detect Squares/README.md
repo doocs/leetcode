@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2013.Detect%20Squares/README.md
 rating: 1841
+source: 第 259 场周赛 Q3
 tags:
     - 设计
     - 数组

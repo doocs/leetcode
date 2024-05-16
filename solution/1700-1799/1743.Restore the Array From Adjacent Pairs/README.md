@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1743.Restore%20the%20Array%20From%20Adjacent%20Pairs/README.md
 rating: 1579
+source: 第 226 场周赛 Q2
 tags:
     - 数组
     - 哈希表

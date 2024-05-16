@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2678.Number%20of%20Senior%20Citizens/README_EN.md
 rating: 1198
+source: Biweekly Contest 104 Q1
 tags:
     - Array
     - String

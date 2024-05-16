@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2869.Minimum%20Operations%20to%20Collect%20Elements/README.md
 rating: 1272
+source: 第 114 场双周赛 Q1
 tags:
     - 位运算
     - 数组

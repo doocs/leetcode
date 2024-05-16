@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2572.Count%20the%20Number%20of%20Square-Free%20Subsets/README_EN.md
 rating: 2419
+source: Weekly Contest 333 Q3
 tags:
     - Bit Manipulation
     - Array

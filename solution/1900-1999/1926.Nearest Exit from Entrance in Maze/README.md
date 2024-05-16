@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1926.Nearest%20Exit%20from%20Entrance%20in%20Maze/README.md
 rating: 1638
+source: 第 56 场双周赛 Q2
 tags:
     - 广度优先搜索
     - 数组

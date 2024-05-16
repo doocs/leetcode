@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2116.Check%20if%20a%20Parentheses%20String%20Can%20Be%20Valid/README.md
 rating: 2037
+source: 第 68 场双周赛 Q3
 tags:
     - 栈
     - 贪心

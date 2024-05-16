@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2299.Strong%20Password%20Checker%20II/README.md
 rating: 1241
+source: 第 80 场双周赛 Q1
 tags:
     - 字符串
 ---

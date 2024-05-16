@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1838.Frequency%20of%20the%20Most%20Frequent%20Element/README.md
 rating: 1876
+source: 第 238 场周赛 Q2
 tags:
     - 贪心
     - 数组

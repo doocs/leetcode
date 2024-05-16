@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1876.Substrings%20of%20Size%20Three%20with%20Distinct%20Characters/README.md
 rating: 1248
+source: 第 53 场双周赛 Q1
 tags:
     - 哈希表
     - 字符串

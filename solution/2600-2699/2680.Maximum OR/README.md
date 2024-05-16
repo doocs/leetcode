@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2680.Maximum%20OR/README.md
 rating: 1912
+source: 第 104 场双周赛 Q3
 tags:
     - 贪心
     - 位运算

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2333.Minimum%20Sum%20of%20Squared%20Difference/README.md
 rating: 2011
+source: 第 82 场双周赛 Q3
 tags:
     - 数组
     - 数学

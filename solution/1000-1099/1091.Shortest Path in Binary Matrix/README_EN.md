@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1091.Shortest%20Path%20in%20Binary%20Matrix/README_EN.md
 rating: 1658
+source: Weekly Contest 141 Q3
 tags:
     - Breadth-First Search
     - Array

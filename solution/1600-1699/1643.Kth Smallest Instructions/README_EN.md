@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1643.Kth%20Smallest%20Instructions/README_EN.md
 rating: 2079
+source: Weekly Contest 213 Q4
 tags:
     - Array
     - Math

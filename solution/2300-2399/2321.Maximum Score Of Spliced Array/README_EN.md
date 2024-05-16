@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2321.Maximum%20Score%20Of%20Spliced%20Array/README_EN.md
 rating: 1790
+source: Weekly Contest 299 Q3
 tags:
     - Array
     - Dynamic Programming

@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2833.Furthest%20Point%20From%20Origin/README.md
 rating: 1294
+source: 第 360 场周赛 Q1
 tags:
     - 字符串
     - 计数

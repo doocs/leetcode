@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2179.Count%20Good%20Triplets%20in%20an%20Array/README_EN.md
 rating: 2272
+source: Biweekly Contest 72 Q4
 tags:
     - Binary Indexed Tree
     - Segment Tree

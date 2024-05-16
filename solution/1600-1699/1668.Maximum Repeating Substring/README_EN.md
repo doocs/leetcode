@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1668.Maximum%20Repeating%20Substring/README_EN.md
 rating: 1395
+source: Biweekly Contest 40 Q1
 tags:
     - String
     - Dynamic Programming

@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2218.Maximum%20Value%20of%20K%20Coins%20From%20Piles/README.md
 rating: 2157
+source: 第 286 场周赛 Q4
 tags:
     - 数组
     - 动态规划

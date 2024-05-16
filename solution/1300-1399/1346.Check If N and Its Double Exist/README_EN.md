@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1346.Check%20If%20N%20and%20Its%20Double%20Exist/README_EN.md
 rating: 1225
+source: Weekly Contest 175 Q1
 tags:
     - Array
     - Hash Table

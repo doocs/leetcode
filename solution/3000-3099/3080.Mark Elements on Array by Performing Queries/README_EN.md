@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3080.Mark%20Elements%20on%20Array%20by%20Performing%20Queries/README_EN.md
 rating: 1607
+source: Biweekly Contest 126 Q2
 tags:
     - Array
     - Hash Table

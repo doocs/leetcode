@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1878.Get%20Biggest%20Three%20Rhombus%20Sums%20in%20a%20Grid/README.md
 rating: 1897
+source: 第 53 场双周赛 Q3
 tags:
     - 数组
     - 数学

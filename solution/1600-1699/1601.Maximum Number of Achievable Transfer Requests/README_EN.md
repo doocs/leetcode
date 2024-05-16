@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1601.Maximum%20Number%20of%20Achievable%20Transfer%20Requests/README_EN.md
 rating: 2118
+source: Weekly Contest 208 Q4
 tags:
     - Bit Manipulation
     - Array

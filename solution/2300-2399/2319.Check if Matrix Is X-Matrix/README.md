@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2319.Check%20if%20Matrix%20Is%20X-Matrix/README.md
 rating: 1200
+source: 第 299 场周赛 Q1
 tags:
     - 数组
     - 矩阵

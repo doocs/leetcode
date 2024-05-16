@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1247.Minimum%20Swaps%20to%20Make%20Strings%20Equal/README.md
 rating: 1597
+source: 第 161 场周赛 Q1
 tags:
     - 贪心
     - 数学

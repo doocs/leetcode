@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2242.Maximum%20Score%20of%20a%20Node%20Sequence/README_EN.md
 rating: 2304
+source: Biweekly Contest 76 Q4
 tags:
     - Graph
     - Array

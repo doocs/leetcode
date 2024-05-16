@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2945.Find%20Maximum%20Non-decreasing%20Array%20Length/README_EN.md
 rating: 2943
+source: Biweekly Contest 118 Q4
 tags:
     - Stack
     - Queue

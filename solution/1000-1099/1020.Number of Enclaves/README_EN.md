@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1020.Number%20of%20Enclaves/README_EN.md
 rating: 1615
+source: Weekly Contest 130 Q4
 tags:
     - Depth-First Search
     - Breadth-First Search

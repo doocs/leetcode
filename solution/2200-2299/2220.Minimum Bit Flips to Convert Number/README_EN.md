@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2220.Minimum%20Bit%20Flips%20to%20Convert%20Number/README_EN.md
 rating: 1282
+source: Biweekly Contest 75 Q1
 tags:
     - Bit Manipulation
 ---

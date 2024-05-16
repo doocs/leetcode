@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1847.Closest%20Room/README.md
 rating: 2081
+source: 第 51 场双周赛 Q4
 tags:
     - 数组
     - 二分查找

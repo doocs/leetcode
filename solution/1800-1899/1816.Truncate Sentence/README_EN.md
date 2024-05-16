@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1816.Truncate%20Sentence/README_EN.md
 rating: 1235
+source: Weekly Contest 235 Q1
 tags:
     - Array
     - String

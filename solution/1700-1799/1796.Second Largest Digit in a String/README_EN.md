@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1796.Second%20Largest%20Digit%20in%20a%20String/README_EN.md
 rating: 1341
+source: Biweekly Contest 48 Q1
 tags:
     - Hash Table
     - String

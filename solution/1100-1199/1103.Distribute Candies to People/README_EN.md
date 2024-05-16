@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1103.Distribute%20Candies%20to%20People/README_EN.md
 rating: 1287
+source: Weekly Contest 143 Q1
 tags:
     - Math
     - Simulation

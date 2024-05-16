@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2685.Count%20the%20Number%20of%20Complete%20Components/README_EN.md
 rating: 1769
+source: Weekly Contest 345 Q4
 tags:
     - Depth-First Search
     - Breadth-First Search

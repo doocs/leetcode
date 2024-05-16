@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1563.Stone%20Game%20V/README_EN.md
 rating: 2087
+source: Weekly Contest 203 Q4
 tags:
     - Array
     - Math

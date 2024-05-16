@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2287.Rearrange%20Characters%20to%20Make%20Target%20String/README_EN.md
 rating: 1299
+source: Weekly Contest 295 Q1
 tags:
     - Hash Table
     - String

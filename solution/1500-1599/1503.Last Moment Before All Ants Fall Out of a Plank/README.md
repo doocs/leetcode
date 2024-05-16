@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1503.Last%20Moment%20Before%20All%20Ants%20Fall%20Out%20of%20a%20Plank/README.md
 rating: 1618
+source: 第 196 场周赛 Q2
 tags:
     - 脑筋急转弯
     - 数组

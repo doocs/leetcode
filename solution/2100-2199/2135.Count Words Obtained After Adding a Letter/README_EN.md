@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2135.Count%20Words%20Obtained%20After%20Adding%20a%20Letter/README_EN.md
 rating: 1828
+source: Weekly Contest 275 Q3
 tags:
     - Bit Manipulation
     - Array

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1930.Unique%20Length-3%20Palindromic%20Subsequences/README.md
 rating: 1533
+source: 第 249 场周赛 Q2
 tags:
     - 位运算
     - 哈希表

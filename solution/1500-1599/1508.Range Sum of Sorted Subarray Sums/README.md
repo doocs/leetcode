@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1508.Range%20Sum%20of%20Sorted%20Subarray%20Sums/README.md
 rating: 1402
+source: 第 30 场双周赛 Q2
 tags:
     - 数组
     - 双指针

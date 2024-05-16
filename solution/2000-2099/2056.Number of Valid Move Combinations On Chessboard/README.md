@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2056.Number%20of%20Valid%20Move%20Combinations%20On%20Chessboard/README.md
 rating: 2610
+source: 第 64 场双周赛 Q4
 tags:
     - 数组
     - 字符串

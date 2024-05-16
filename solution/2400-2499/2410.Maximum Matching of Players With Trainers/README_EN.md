@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2410.Maximum%20Matching%20of%20Players%20With%20Trainers/README_EN.md
 rating: 1381
+source: Biweekly Contest 87 Q2
 tags:
     - Greedy
     - Array

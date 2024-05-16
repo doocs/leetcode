@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1012.Numbers%20With%20Repeated%20Digits/README_EN.md
 rating: 2230
+source: Weekly Contest 128 Q4
 tags:
     - Math
     - Dynamic Programming

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2747.Count%20Zero%20Request%20Servers/README_EN.md
 rating: 2405
+source: Biweekly Contest 107 Q4
 tags:
     - Array
     - Hash Table

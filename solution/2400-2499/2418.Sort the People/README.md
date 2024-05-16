@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2418.Sort%20the%20People/README.md
 rating: 1193
+source: 第 312 场周赛 Q1
 tags:
     - 数组
     - 哈希表

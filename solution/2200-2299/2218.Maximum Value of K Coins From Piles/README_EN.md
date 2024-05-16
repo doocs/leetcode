@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2218.Maximum%20Value%20of%20K%20Coins%20From%20Piles/README_EN.md
 rating: 2157
+source: Weekly Contest 286 Q4
 tags:
     - Array
     - Dynamic Programming

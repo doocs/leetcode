@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2499.Minimum%20Total%20Cost%20to%20Make%20Arrays%20Unequal/README.md
 rating: 2633
+source: 第 93 场双周赛 Q4
 tags:
     - 贪心
     - 数组

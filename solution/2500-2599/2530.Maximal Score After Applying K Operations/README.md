@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2530.Maximal%20Score%20After%20Applying%20K%20Operations/README.md
 rating: 1386
+source: 第 327 场周赛 Q2
 tags:
     - 贪心
     - 数组

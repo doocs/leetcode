@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1038.Binary%20Search%20Tree%20to%20Greater%20Sum%20Tree/README.md
 rating: 1374
+source: 第 135 场周赛 Q2
 tags:
     - 树
     - 深度优先搜索

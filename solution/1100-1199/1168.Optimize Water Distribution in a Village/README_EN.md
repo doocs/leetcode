@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1168.Optimize%20Water%20Distribution%20in%20a%20Village/README_EN.md
 rating: 2069
+source: Biweekly Contest 7 Q4
 tags:
     - Union Find
     - Graph

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1087.Brace%20Expansion/README.md
 rating: 1480
+source: 第 2 场双周赛 Q3
 tags:
     - 广度优先搜索
     - 字符串

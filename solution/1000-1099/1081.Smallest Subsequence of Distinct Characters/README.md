@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1081.Smallest%20Subsequence%20of%20Distinct%20Characters/README.md
 rating: 2184
+source: 第 140 场周赛 Q4
 tags:
     - 栈
     - 贪心

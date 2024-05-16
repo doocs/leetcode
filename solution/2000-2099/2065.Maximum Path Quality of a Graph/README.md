@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2065.Maximum%20Path%20Quality%20of%20a%20Graph/README.md
 rating: 2178
+source: 第 266 场周赛 Q4
 tags:
     - 图
     - 数组

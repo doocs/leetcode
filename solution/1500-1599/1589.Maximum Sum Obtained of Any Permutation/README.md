@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1589.Maximum%20Sum%20Obtained%20of%20Any%20Permutation/README.md
 rating: 1871
+source: 第 35 场双周赛 Q2
 tags:
     - 贪心
     - 数组

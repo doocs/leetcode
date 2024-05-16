@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3123.Find%20Edges%20in%20Shortest%20Paths/README_EN.md
 rating: 2093
+source: Weekly Contest 394 Q4
 tags:
     - Depth-First Search
     - Breadth-First Search

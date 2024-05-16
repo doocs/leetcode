@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2826.Sorting%20Three%20Groups/README.md
 rating: 1721
+source: 第 111 场双周赛 Q3
 tags:
     - 数组
     - 二分查找

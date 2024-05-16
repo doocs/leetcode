@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3102.Minimize%20Manhattan%20Distances/README.md
 rating: 2215
+source: 第 391 场周赛 Q4
 tags:
     - 几何
     - 数组

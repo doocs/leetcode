@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2784.Check%20if%20Array%20is%20Good/README.md
 rating: 1376
+source: 第 109 场双周赛 Q1
 tags:
     - 数组
     - 哈希表

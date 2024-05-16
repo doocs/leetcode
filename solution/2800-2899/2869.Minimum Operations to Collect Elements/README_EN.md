@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2869.Minimum%20Operations%20to%20Collect%20Elements/README_EN.md
 rating: 1272
+source: Biweekly Contest 114 Q1
 tags:
     - Bit Manipulation
     - Array

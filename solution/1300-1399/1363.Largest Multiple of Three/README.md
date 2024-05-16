@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1363.Largest%20Multiple%20of%20Three/README.md
 rating: 1822
+source: 第 177 场周赛 Q4
 tags:
     - 贪心
     - 数组

@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1235.Maximum%20Profit%20in%20Job%20Scheduling/README.md
 rating: 2022
+source: 第 159 场周赛 Q4
 tags:
     - 数组
     - 二分查找

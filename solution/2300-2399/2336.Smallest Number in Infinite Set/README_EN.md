@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2336.Smallest%20Number%20in%20Infinite%20Set/README_EN.md
 rating: 1375
+source: Weekly Contest 301 Q2
 tags:
     - Design
     - Hash Table

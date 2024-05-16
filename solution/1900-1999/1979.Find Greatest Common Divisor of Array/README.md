@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1979.Find%20Greatest%20Common%20Divisor%20of%20Array/README.md
 rating: 1184
+source: 第 255 场周赛 Q1
 tags:
     - 数组
     - 数学

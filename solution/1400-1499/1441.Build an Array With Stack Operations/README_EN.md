@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1441.Build%20an%20Array%20With%20Stack%20Operations/README_EN.md
 rating: 1180
+source: Weekly Contest 188 Q1
 tags:
     - Stack
     - Array

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1302.Deepest%20Leaves%20Sum/README_EN.md
 rating: 1387
+source: Biweekly Contest 16 Q3
 tags:
     - Tree
     - Depth-First Search

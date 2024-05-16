@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1632.Rank%20Transform%20of%20a%20Matrix/README_EN.md
 rating: 2529
+source: Weekly Contest 212 Q4
 tags:
     - Union Find
     - Graph

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1942.The%20Number%20of%20the%20Smallest%20Unoccupied%20Chair/README.md
 rating: 1695
+source: 第 57 场双周赛 Q2
 tags:
     - 数组
     - 哈希表

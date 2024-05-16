@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2115.Find%20All%20Possible%20Recipes%20from%20Given%20Supplies/README.md
 rating: 1678
+source: 第 68 场双周赛 Q2
 tags:
     - 图
     - 拓扑排序

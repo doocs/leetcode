@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1385.Find%20the%20Distance%20Value%20Between%20Two%20Arrays/README.md
 rating: 1234
+source: 第 22 场双周赛 Q1
 tags:
     - 数组
     - 双指针

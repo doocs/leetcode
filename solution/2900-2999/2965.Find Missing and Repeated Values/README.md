@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2965.Find%20Missing%20and%20Repeated%20Values/README.md
 rating: 1244
+source: 第 376 场周赛 Q1
 tags:
     - 数组
     - 哈希表

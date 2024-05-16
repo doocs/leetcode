@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1191.K-Concatenation%20Maximum%20Sum/README_EN.md
 rating: 1747
+source: Weekly Contest 154 Q3
 tags:
     - Array
     - Dynamic Programming

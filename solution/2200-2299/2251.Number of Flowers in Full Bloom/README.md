@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2251.Number%20of%20Flowers%20in%20Full%20Bloom/README.md
 rating: 2022
+source: 第 290 场周赛 Q4
 tags:
     - 数组
     - 哈希表

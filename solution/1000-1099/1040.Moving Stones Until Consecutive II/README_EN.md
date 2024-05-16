@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1040.Moving%20Stones%20Until%20Consecutive%20II/README_EN.md
 rating: 2455
+source: Weekly Contest 135 Q4
 tags:
     - Array
     - Math

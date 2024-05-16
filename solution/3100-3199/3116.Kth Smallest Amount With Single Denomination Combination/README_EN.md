@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3116.Kth%20Smallest%20Amount%20With%20Single%20Denomination%20Combination/README_EN.md
 rating: 2387
+source: Weekly Contest 393 Q3
 tags:
     - Bit Manipulation
     - Array

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2949.Count%20Beautiful%20Substrings%20II/README_EN.md
 rating: 2444
+source: Weekly Contest 373 Q4
 tags:
     - Hash Table
     - Math

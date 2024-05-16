@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1679.Max%20Number%20of%20K-Sum%20Pairs/README_EN.md
 rating: 1345
+source: Weekly Contest 218 Q2
 tags:
     - Array
     - Hash Table

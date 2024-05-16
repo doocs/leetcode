@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1630.Arithmetic%20Subarrays/README_EN.md
 rating: 1421
+source: Weekly Contest 212 Q2
 tags:
     - Array
     - Hash Table

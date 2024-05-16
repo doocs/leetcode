@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1376.Time%20Needed%20to%20Inform%20All%20Employees/README.md
 rating: 1561
+source: 第 179 场周赛 Q3
 tags:
     - 树
     - 深度优先搜索

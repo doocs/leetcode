@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2786.Visit%20Array%20Positions%20to%20Maximize%20Score/README_EN.md
 rating: 1732
+source: Biweekly Contest 109 Q3
 tags:
     - Array
     - Dynamic Programming

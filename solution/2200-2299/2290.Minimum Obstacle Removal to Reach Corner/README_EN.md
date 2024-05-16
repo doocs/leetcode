@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2290.Minimum%20Obstacle%20Removal%20to%20Reach%20Corner/README_EN.md
 rating: 2137
+source: Weekly Contest 295 Q4
 tags:
     - Breadth-First Search
     - Graph

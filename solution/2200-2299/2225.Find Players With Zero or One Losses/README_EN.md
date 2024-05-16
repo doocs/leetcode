@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2225.Find%20Players%20With%20Zero%20or%20One%20Losses/README_EN.md
 rating: 1316
+source: Weekly Contest 287 Q2
 tags:
     - Array
     - Hash Table

@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1436.Destination%20City/README_EN.md
 rating: 1192
+source: Weekly Contest 187 Q1
 tags:
     - Array
     - Hash Table

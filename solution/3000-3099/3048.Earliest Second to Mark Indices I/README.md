@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3048.Earliest%20Second%20to%20Mark%20Indices%20I/README.md
 rating: 2262
+source: 第 386 场周赛 Q3
 tags:
     - 数组
     - 二分查找

@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2974.Minimum%20Number%20Game/README.md
 rating: 1184
+source: 第 377 场周赛 Q1
 tags:
     - 数组
     - 排序

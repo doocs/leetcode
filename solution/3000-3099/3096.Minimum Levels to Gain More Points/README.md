@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3096.Minimum%20Levels%20to%20Gain%20More%20Points/README.md
 rating: 1500
+source: 第 127 场双周赛 Q2
 tags:
     - 数组
     - 前缀和

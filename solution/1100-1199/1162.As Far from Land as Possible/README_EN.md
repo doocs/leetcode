@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1162.As%20Far%20from%20Land%20as%20Possible/README_EN.md
 rating: 1666
+source: Weekly Contest 150 Q3
 tags:
     - Breadth-First Search
     - Array

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1274.Number%20of%20Ships%20in%20a%20Rectangle/README_EN.md
 rating: 1997
+source: Biweekly Contest 14 Q4
 tags:
     - Array
     - Divide and Conquer

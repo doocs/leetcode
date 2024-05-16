@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2682.Find%20the%20Losers%20of%20the%20Circular%20Game/README_EN.md
 rating: 1382
+source: Weekly Contest 345 Q1
 tags:
     - Array
     - Hash Table

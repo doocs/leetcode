@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1717.Maximum%20Score%20From%20Removing%20Substrings/README_EN.md
 rating: 1867
+source: Biweekly Contest 43 Q2
 tags:
     - Stack
     - Greedy

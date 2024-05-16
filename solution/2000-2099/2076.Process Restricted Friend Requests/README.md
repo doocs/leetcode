@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2076.Process%20Restricted%20Friend%20Requests/README.md
 rating: 2130
+source: 第 267 场周赛 Q4
 tags:
     - 并查集
     - 图

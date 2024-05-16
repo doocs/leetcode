@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1178.Number%20of%20Valid%20Words%20for%20Each%20Puzzle/README.md
 rating: 2233
+source: 第 152 场周赛 Q4
 tags:
     - 位运算
     - 字典树

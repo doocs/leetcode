@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2208.Minimum%20Operations%20to%20Halve%20Array%20Sum/README.md
 rating: 1550
+source: 第 74 场双周赛 Q3
 tags:
     - 贪心
     - 数组

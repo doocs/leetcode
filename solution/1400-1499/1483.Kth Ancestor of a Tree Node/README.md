@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1483.Kth%20Ancestor%20of%20a%20Tree%20Node/README.md
 rating: 2115
+source: 第 193 场周赛 Q4
 tags:
     - 树
     - 深度优先搜索

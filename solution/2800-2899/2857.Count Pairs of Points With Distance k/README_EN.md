@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2857.Count%20Pairs%20of%20Points%20With%20Distance%20k/README_EN.md
 rating: 2081
+source: Biweekly Contest 113 Q3
 tags:
     - Bit Manipulation
     - Array

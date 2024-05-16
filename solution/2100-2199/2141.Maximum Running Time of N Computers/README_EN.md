@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2141.Maximum%20Running%20Time%20of%20N%20Computers/README_EN.md
 rating: 2265
+source: Weekly Contest 276 Q4
 tags:
     - Greedy
     - Array

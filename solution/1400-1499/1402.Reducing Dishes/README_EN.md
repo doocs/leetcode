@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1402.Reducing%20Dishes/README_EN.md
 rating: 1679
+source: Biweekly Contest 23 Q4
 tags:
     - Greedy
     - Array

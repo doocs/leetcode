@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1535.Find%20the%20Winner%20of%20an%20Array%20Game/README_EN.md
 rating: 1433
+source: Weekly Contest 200 Q2
 tags:
     - Array
     - Simulation

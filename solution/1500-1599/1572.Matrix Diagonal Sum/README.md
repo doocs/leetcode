@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1572.Matrix%20Diagonal%20Sum/README.md
 rating: 1280
+source: 第 34 场双周赛 Q1
 tags:
     - 数组
     - 矩阵

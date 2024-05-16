@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2258.Escape%20the%20Spreading%20Fire/README_EN.md
 rating: 2346
+source: Biweekly Contest 77 Q4
 tags:
     - Breadth-First Search
     - Array

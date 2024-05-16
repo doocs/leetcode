@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2663.Lexicographically%20Smallest%20Beautiful%20String/README_EN.md
 rating: 2415
+source: Weekly Contest 343 Q4
 tags:
     - Greedy
     - String

@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2290.Minimum%20Obstacle%20Removal%20to%20Reach%20Corner/README.md
 rating: 2137
+source: 第 295 场周赛 Q4
 tags:
     - 广度优先搜索
     - 图

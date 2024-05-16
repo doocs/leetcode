@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2426.Number%20of%20Pairs%20Satisfying%20Inequality/README.md
 rating: 2030
+source: 第 88 场双周赛 Q4
 tags:
     - 树状数组
     - 线段树

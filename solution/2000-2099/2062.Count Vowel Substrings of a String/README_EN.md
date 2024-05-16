@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2062.Count%20Vowel%20Substrings%20of%20a%20String/README_EN.md
 rating: 1458
+source: Weekly Contest 266 Q1
 tags:
     - Hash Table
     - String

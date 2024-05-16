@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2765.Longest%20Alternating%20Subarray/README_EN.md
 rating: 1580
+source: Biweekly Contest 108 Q1
 tags:
     - Array
     - Enumeration

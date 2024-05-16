@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2536.Increment%20Submatrices%20by%20One/README.md
 rating: 1583
+source: 第 328 场周赛 Q2
 tags:
     - 数组
     - 矩阵

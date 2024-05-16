@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2022.Convert%201D%20Array%20Into%202D%20Array/README.md
 rating: 1307
+source: 第 62 场双周赛 Q1
 tags:
     - 数组
     - 矩阵

@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1480.Running%20Sum%20of%201d%20Array/README.md
 rating: 1104
+source: 第 193 场周赛 Q1
 tags:
     - 数组
     - 前缀和

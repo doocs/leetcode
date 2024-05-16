@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2563.Count%20the%20Number%20of%20Fair%20Pairs/README.md
 rating: 1720
+source: 第 332 场周赛 Q2
 tags:
     - 数组
     - 双指针

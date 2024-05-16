@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2497.Maximum%20Star%20Sum%20of%20a%20Graph/README.md
 rating: 1682
+source: 第 93 场双周赛 Q2
 tags:
     - 贪心
     - 图

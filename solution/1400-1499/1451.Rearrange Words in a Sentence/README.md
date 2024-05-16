@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1451.Rearrange%20Words%20in%20a%20Sentence/README.md
 rating: 1309
+source: 第 189 场周赛 Q2
 tags:
     - 字符串
     - 排序

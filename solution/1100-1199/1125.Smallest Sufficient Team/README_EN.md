@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1125.Smallest%20Sufficient%20Team/README_EN.md
 rating: 2250
+source: Weekly Contest 145 Q4
 tags:
     - Bit Manipulation
     - Array

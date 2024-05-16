@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2485.Find%20the%20Pivot%20Integer/README.md
 rating: 1207
+source: 第 321 场周赛 Q1
 tags:
     - 数学
     - 前缀和

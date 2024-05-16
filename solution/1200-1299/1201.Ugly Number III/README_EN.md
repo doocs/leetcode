@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1201.Ugly%20Number%20III/README_EN.md
 rating: 2039
+source: Weekly Contest 155 Q2
 tags:
     - Math
     - Binary Search

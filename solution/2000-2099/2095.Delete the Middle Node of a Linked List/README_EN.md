@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2095.Delete%20the%20Middle%20Node%20of%20a%20Linked%20List/README_EN.md
 rating: 1324
+source: Weekly Contest 270 Q2
 tags:
     - Linked List
     - Two Pointers

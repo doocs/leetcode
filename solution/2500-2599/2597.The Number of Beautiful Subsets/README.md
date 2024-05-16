@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2597.The%20Number%20of%20Beautiful%20Subsets/README.md
 rating: 2023
+source: 第 337 场周赛 Q3
 tags:
     - 数组
     - 动态规划

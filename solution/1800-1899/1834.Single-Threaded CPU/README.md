@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1834.Single-Threaded%20CPU/README.md
 rating: 1797
+source: 第 237 场周赛 Q3
 tags:
     - 数组
     - 排序

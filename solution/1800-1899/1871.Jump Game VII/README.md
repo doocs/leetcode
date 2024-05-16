@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1871.Jump%20Game%20VII/README.md
 rating: 1896
+source: 第 242 场周赛 Q3
 tags:
     - 字符串
     - 动态规划

@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2027.Minimum%20Moves%20to%20Convert%20String/README.md
 rating: 1346
+source: 第 261 场周赛 Q1
 tags:
     - 贪心
     - 字符串

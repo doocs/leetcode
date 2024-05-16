@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1750.Minimum%20Length%20of%20String%20After%20Deleting%20Similar%20Ends/README.md
 rating: 1501
+source: 第 45 场双周赛 Q3
 tags:
     - 双指针
     - 字符串

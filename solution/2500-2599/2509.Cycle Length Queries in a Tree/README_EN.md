@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2509.Cycle%20Length%20Queries%20in%20a%20Tree/README_EN.md
 rating: 1948
+source: Weekly Contest 324 Q4
 tags:
     - Tree
     - Array

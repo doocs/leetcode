@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1961.Check%20If%20String%20Is%20a%20Prefix%20of%20Array/README.md
 rating: 1234
+source: 第 253 场周赛 Q1
 tags:
     - 数组
     - 双指针

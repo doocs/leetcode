@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2366.Minimum%20Replacements%20to%20Sort%20the%20Array/README.md
 rating: 2060
+source: 第 84 场双周赛 Q4
 tags:
     - 贪心
     - 数组

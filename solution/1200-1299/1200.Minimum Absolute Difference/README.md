@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1200.Minimum%20Absolute%20Difference/README.md
 rating: 1198
+source: 第 155 场周赛 Q1
 tags:
     - 数组
     - 排序

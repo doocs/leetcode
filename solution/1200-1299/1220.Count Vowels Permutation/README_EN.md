@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1220.Count%20Vowels%20Permutation/README_EN.md
 rating: 1729
+source: Weekly Contest 157 Q4
 tags:
     - Dynamic Programming
 ---

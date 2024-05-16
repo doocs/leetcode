@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1662.Check%20If%20Two%20String%20Arrays%20are%20Equivalent/README.md
 rating: 1217
+source: 第 216 场周赛 Q1
 tags:
     - 数组
     - 字符串

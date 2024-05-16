@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1451.Rearrange%20Words%20in%20a%20Sentence/README_EN.md
 rating: 1309
+source: Weekly Contest 189 Q2
 tags:
     - String
     - Sorting

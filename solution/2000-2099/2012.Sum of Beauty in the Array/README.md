@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2012.Sum%20of%20Beauty%20in%20the%20Array/README.md
 rating: 1467
+source: 第 259 场周赛 Q2
 tags:
     - 数组
 ---

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2809.Minimum%20Time%20to%20Make%20Array%20Sum%20At%20Most%20x/README_EN.md
 rating: 2978
+source: Biweekly Contest 110 Q4
 tags:
     - Array
     - Dynamic Programming

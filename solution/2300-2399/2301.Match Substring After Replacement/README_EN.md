@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2301.Match%20Substring%20After%20Replacement/README_EN.md
 rating: 1860
+source: Biweekly Contest 80 Q3
 tags:
     - Array
     - Hash Table

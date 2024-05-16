@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1416.Restore%20The%20Array/README_EN.md
 rating: 1919
+source: Biweekly Contest 24 Q4
 tags:
     - String
     - Dynamic Programming

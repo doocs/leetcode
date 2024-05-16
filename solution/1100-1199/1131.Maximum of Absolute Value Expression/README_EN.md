@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1131.Maximum%20of%20Absolute%20Value%20Expression/README_EN.md
 rating: 2059
+source: Weekly Contest 146 Q4
 tags:
     - Array
     - Math

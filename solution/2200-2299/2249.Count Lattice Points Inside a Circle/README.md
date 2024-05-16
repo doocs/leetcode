@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2249.Count%20Lattice%20Points%20Inside%20a%20Circle/README.md
 rating: 1602
+source: 第 290 场周赛 Q2
 tags:
     - 几何
     - 数组

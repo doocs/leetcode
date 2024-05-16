@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2426.Number%20of%20Pairs%20Satisfying%20Inequality/README_EN.md
 rating: 2030
+source: Biweekly Contest 88 Q4
 tags:
     - Binary Indexed Tree
     - Segment Tree

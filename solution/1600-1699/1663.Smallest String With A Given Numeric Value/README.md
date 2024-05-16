@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1663.Smallest%20String%20With%20A%20Given%20Numeric%20Value/README.md
 rating: 1460
+source: 第 216 场周赛 Q2
 tags:
     - 贪心
     - 字符串

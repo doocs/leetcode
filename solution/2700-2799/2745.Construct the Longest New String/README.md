@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2745.Construct%20the%20Longest%20New%20String/README.md
 rating: 1607
+source: 第 107 场双周赛 Q2
 tags:
     - 贪心
     - 脑筋急转弯

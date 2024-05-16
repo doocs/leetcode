@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1938.Maximum%20Genetic%20Difference%20Query/README.md
 rating: 2502
+source: 第 250 场周赛 Q4
 tags:
     - 位运算
     - 字典树

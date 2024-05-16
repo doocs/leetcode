@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1256.Encode%20Number/README_EN.md
 rating: 1561
+source: Biweekly Contest 13 Q1
 tags:
     - Bit Manipulation
     - Math

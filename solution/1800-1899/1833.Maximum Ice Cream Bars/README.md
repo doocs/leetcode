@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1833.Maximum%20Ice%20Cream%20Bars/README.md
 rating: 1252
+source: 第 237 场周赛 Q2
 tags:
     - 贪心
     - 数组

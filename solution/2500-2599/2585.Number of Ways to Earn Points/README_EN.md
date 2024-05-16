@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2585.Number%20of%20Ways%20to%20Earn%20Points/README_EN.md
 rating: 1909
+source: Weekly Contest 335 Q4
 tags:
     - Array
     - Dynamic Programming

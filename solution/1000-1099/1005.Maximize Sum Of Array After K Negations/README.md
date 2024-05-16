@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1005.Maximize%20Sum%20Of%20Array%20After%20K%20Negations/README.md
 rating: 1274
+source: 第 127 场周赛 Q1
 tags:
     - 贪心
     - 数组

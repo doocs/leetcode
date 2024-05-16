@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2048.Next%20Greater%20Numerically%20Balanced%20Number/README_EN.md
 rating: 1734
+source: Weekly Contest 264 Q2
 tags:
     - Math
     - Backtracking

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2100.Find%20Good%20Days%20to%20Rob%20the%20Bank/README.md
 rating: 1702
+source: 第 67 场双周赛 Q2
 tags:
     - 数组
     - 动态规划

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2929.Distribute%20Candies%20Among%20Children%20II/README_EN.md
 rating: 1701
+source: Biweekly Contest 117 Q2
 tags:
     - Math
     - Combinatorics

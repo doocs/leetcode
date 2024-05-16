@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3129.Find%20All%20Possible%20Stable%20Binary%20Arrays%20I/README_EN.md
 rating: 2200
+source: Biweekly Contest 129 Q3
 tags:
     - Dynamic Programming
     - Prefix Sum

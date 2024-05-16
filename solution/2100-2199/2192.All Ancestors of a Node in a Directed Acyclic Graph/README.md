@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2192.All%20Ancestors%20of%20a%20Node%20in%20a%20Directed%20Acyclic%20Graph/README.md
 rating: 1787
+source: 第 73 场双周赛 Q3
 tags:
     - 深度优先搜索
     - 广度优先搜索

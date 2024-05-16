@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3008.Find%20Beautiful%20Indices%20in%20the%20Given%20Array%20II/README.md
 rating: 2016
+source: 第 380 场周赛 Q4
 tags:
     - 双指针
     - 字符串

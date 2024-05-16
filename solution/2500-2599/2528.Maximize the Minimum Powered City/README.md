@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2528.Maximize%20the%20Minimum%20Powered%20City/README.md
 rating: 2235
+source: 第 95 场双周赛 Q4
 tags:
     - 贪心
     - 队列

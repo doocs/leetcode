@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1135.Connecting%20Cities%20With%20Minimum%20Cost/README_EN.md
 rating: 1752
+source: Biweekly Contest 5 Q3
 tags:
     - Union Find
     - Graph

@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1356.Sort%20Integers%20by%20The%20Number%20of%201%20Bits/README_EN.md
 rating: 1257
+source: Biweekly Contest 20 Q1
 tags:
     - Bit Manipulation
     - Array

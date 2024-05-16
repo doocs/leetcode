@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3080.Mark%20Elements%20on%20Array%20by%20Performing%20Queries/README.md
 rating: 1607
+source: 第 126 场双周赛 Q2
 tags:
     - 数组
     - 哈希表

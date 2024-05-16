@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3101.Count%20Alternating%20Subarrays/README.md
 rating: 1404
+source: 第 391 场周赛 Q3
 tags:
     - 数组
     - 数学

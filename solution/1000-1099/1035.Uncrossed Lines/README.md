@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1035.Uncrossed%20Lines/README.md
 rating: 1805
+source: 第 134 场周赛 Q3
 tags:
     - 数组
     - 动态规划

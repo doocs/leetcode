@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2983.Palindrome%20Rearrangement%20Queries/README_EN.md
 rating: 2779
+source: Weekly Contest 378 Q4
 tags:
     - Hash Table
     - String

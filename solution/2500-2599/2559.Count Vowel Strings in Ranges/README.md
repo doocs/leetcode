@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2559.Count%20Vowel%20Strings%20in%20Ranges/README.md
 rating: 1435
+source: 第 331 场周赛 Q2
 tags:
     - 数组
     - 字符串

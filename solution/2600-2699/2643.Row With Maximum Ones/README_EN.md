@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2643.Row%20With%20Maximum%20Ones/README_EN.md
 rating: 1174
+source: Weekly Contest 341 Q1
 tags:
     - Array
     - Matrix

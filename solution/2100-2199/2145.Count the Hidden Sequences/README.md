@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2145.Count%20the%20Hidden%20Sequences/README.md
 rating: 1614
+source: 第 70 场双周赛 Q2
 tags:
     - 数组
     - 前缀和

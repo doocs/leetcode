@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2197.Replace%20Non-Coprime%20Numbers%20in%20Array/README.md
 rating: 2057
+source: 第 283 场周赛 Q4
 tags:
     - 栈
     - 数组

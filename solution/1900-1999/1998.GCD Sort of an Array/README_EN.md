@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1998.GCD%20Sort%20of%20an%20Array/README_EN.md
 rating: 2429
+source: Weekly Contest 257 Q4
 tags:
     - Union Find
     - Array

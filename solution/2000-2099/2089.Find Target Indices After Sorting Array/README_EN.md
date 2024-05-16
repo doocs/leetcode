@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2089.Find%20Target%20Indices%20After%20Sorting%20Array/README_EN.md
 rating: 1152
+source: Weekly Contest 269 Q1
 tags:
     - Array
     - Binary Search

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2305.Fair%20Distribution%20of%20Cookies/README_EN.md
 rating: 1886
+source: Weekly Contest 297 Q3
 tags:
     - Bit Manipulation
     - Array

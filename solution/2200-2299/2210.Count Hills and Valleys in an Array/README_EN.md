@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2210.Count%20Hills%20and%20Valleys%20in%20an%20Array/README_EN.md
 rating: 1354
+source: Weekly Contest 285 Q1
 tags:
     - Array
 ---

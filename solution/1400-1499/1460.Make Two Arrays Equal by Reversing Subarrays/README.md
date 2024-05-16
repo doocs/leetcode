@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1460.Make%20Two%20Arrays%20Equal%20by%20Reversing%20Subarrays/README.md
 rating: 1151
+source: 第 27 场双周赛 Q1
 tags:
     - 数组
     - 哈希表

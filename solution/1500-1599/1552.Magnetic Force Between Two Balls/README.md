@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1552.Magnetic%20Force%20Between%20Two%20Balls/README.md
 rating: 1919
+source: 第 202 场周赛 Q3
 tags:
     - 数组
     - 二分查找

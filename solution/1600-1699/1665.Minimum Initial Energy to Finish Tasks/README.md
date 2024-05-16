@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1665.Minimum%20Initial%20Energy%20to%20Finish%20Tasks/README.md
 rating: 1900
+source: 第 216 场周赛 Q4
 tags:
     - 贪心
     - 数组

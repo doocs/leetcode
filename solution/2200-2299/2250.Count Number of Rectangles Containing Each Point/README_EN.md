@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2250.Count%20Number%20of%20Rectangles%20Containing%20Each%20Point/README_EN.md
 rating: 1997
+source: Weekly Contest 290 Q3
 tags:
     - Binary Indexed Tree
     - Array

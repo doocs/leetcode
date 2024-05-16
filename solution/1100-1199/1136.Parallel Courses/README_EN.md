@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1136.Parallel%20Courses/README_EN.md
 rating: 1710
+source: Biweekly Contest 5 Q4
 tags:
     - Graph
     - Topological Sort

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2919.Minimum%20Increment%20Operations%20to%20Make%20Array%20Beautiful/README_EN.md
 rating: 2030
+source: Weekly Contest 369 Q3
 tags:
     - Array
     - Dynamic Programming

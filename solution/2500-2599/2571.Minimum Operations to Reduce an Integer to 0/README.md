@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2571.Minimum%20Operations%20to%20Reduce%20an%20Integer%20to%200/README.md
 rating: 1649
+source: 第 333 场周赛 Q2
 tags:
     - 贪心
     - 位运算

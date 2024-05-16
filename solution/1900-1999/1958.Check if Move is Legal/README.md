@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1958.Check%20if%20Move%20is%20Legal/README.md
 rating: 1658
+source: 第 58 场双周赛 Q2
 tags:
     - 数组
     - 枚举

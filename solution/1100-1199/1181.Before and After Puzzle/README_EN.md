@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1181.Before%20and%20After%20Puzzle/README_EN.md
 rating: 1558
+source: Biweekly Contest 8 Q2
 tags:
     - Array
     - Hash Table

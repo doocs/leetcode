@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1562.Find%20Latest%20Group%20of%20Size%20M/README.md
 rating: 1928
+source: 第 203 场周赛 Q3
 tags:
     - 数组
     - 二分查找

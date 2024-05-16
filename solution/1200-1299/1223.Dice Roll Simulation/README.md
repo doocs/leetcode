@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1223.Dice%20Roll%20Simulation/README.md
 rating: 2008
+source: 第 158 场周赛 Q3
 tags:
     - 数组
     - 动态规划

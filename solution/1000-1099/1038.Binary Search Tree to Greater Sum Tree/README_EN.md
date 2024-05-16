@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1038.Binary%20Search%20Tree%20to%20Greater%20Sum%20Tree/README_EN.md
 rating: 1374
+source: Weekly Contest 135 Q2
 tags:
     - Tree
     - Depth-First Search

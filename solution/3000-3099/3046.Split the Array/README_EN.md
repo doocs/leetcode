@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3046.Split%20the%20Array/README_EN.md
 rating: 1212
+source: Weekly Contest 386 Q1
 tags:
     - Array
     - Hash Table

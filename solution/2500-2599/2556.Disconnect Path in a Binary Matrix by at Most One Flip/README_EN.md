@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2556.Disconnect%20Path%20in%20a%20Binary%20Matrix%20by%20at%20Most%20One%20Flip/README_EN.md
 rating: 2368
+source: Biweekly Contest 97 Q4
 tags:
     - Depth-First Search
     - Breadth-First Search

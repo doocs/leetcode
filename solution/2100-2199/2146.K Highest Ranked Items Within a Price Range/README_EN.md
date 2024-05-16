@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2146.K%20Highest%20Ranked%20Items%20Within%20a%20Price%20Range/README_EN.md
 rating: 1836
+source: Biweekly Contest 70 Q3
 tags:
     - Breadth-First Search
     - Array

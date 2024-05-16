@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2392.Build%20a%20Matrix%20With%20Conditions/README_EN.md
 rating: 1960
+source: Weekly Contest 308 Q4
 tags:
     - Graph
     - Topological Sort

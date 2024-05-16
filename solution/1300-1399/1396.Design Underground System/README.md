@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1396.Design%20Underground%20System/README.md
 rating: 1464
+source: 第 182 场周赛 Q3
 tags:
     - 设计
     - 哈希表

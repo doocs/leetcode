@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2518.Number%20of%20Great%20Partitions/README_EN.md
 rating: 2414
+source: Weekly Contest 325 Q4
 tags:
     - Array
     - Dynamic Programming

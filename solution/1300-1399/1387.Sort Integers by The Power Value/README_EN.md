@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1387.Sort%20Integers%20by%20The%20Power%20Value/README_EN.md
 rating: 1506
+source: Biweekly Contest 22 Q3
 tags:
     - Memoization
     - Dynamic Programming

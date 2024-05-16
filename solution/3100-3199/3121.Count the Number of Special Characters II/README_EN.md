@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3121.Count%20the%20Number%20of%20Special%20Characters%20II/README_EN.md
 rating: 1411
+source: Weekly Contest 394 Q2
 tags:
     - Hash Table
     - String

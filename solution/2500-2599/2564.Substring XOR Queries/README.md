@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2564.Substring%20XOR%20Queries/README.md
 rating: 1959
+source: 第 332 场周赛 Q3
 tags:
     - 位运算
     - 数组

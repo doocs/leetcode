@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2830.Maximize%20the%20Profit%20as%20the%20Salesman/README_EN.md
 rating: 1851
+source: Weekly Contest 359 Q3
 tags:
     - Array
     - Hash Table

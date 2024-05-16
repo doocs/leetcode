@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1356.Sort%20Integers%20by%20The%20Number%20of%201%20Bits/README.md
 rating: 1257
+source: 第 20 场双周赛 Q1
 tags:
     - 位运算
     - 数组

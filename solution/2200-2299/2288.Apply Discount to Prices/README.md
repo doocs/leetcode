@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2288.Apply%20Discount%20to%20Prices/README.md
 rating: 1577
+source: 第 295 场周赛 Q2
 tags:
     - 字符串
 ---

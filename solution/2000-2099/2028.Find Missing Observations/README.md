@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2028.Find%20Missing%20Observations/README.md
 rating: 1444
+source: 第 261 场周赛 Q2
 tags:
     - 数组
     - 数学

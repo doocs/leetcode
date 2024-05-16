@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1707.Maximum%20XOR%20With%20an%20Element%20From%20Array/README_EN.md
 rating: 2358
+source: Weekly Contest 221 Q4
 tags:
     - Bit Manipulation
     - Trie

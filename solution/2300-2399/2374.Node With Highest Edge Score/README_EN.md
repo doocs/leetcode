@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2374.Node%20With%20Highest%20Edge%20Score/README_EN.md
 rating: 1418
+source: Weekly Contest 306 Q2
 tags:
     - Graph
     - Hash Table

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3001.Minimum%20Moves%20to%20Capture%20The%20Queen/README_EN.md
 rating: 1796
+source: Weekly Contest 379 Q2
 tags:
     - Array
     - Enumeration

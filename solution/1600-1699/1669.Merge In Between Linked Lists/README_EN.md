@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1669.Merge%20In%20Between%20Linked%20Lists/README_EN.md
 rating: 1428
+source: Biweekly Contest 40 Q2
 tags:
     - Linked List
 ---

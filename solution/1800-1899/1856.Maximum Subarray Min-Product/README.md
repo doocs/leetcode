@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1856.Maximum%20Subarray%20Min-Product/README.md
 rating: 2051
+source: 第 240 场周赛 Q3
 tags:
     - 栈
     - 数组

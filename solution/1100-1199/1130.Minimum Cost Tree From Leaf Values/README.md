@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1130.Minimum%20Cost%20Tree%20From%20Leaf%20Values/README.md
 rating: 1919
+source: 第 146 场周赛 Q3
 tags:
     - 栈
     - 贪心

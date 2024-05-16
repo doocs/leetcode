@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1846.Maximum%20Element%20After%20Decreasing%20and%20Rearranging/README.md
 rating: 1454
+source: 第 51 场双周赛 Q3
 tags:
     - 贪心
     - 数组

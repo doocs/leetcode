@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3085.Minimum%20Deletions%20to%20Make%20String%20K-Special/README_EN.md
 rating: 1764
+source: Weekly Contest 389 Q3
 tags:
     - Greedy
     - Hash Table

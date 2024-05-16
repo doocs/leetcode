@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1881.Maximum%20Value%20after%20Insertion/README_EN.md
 rating: 1381
+source: Weekly Contest 243 Q2
 tags:
     - Greedy
     - String

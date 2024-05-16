@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1513.Number%20of%20Substrings%20With%20Only%201s/README_EN.md
 rating: 1351
+source: Weekly Contest 197 Q2
 tags:
     - Math
     - String

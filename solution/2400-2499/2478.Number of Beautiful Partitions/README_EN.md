@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2478.Number%20of%20Beautiful%20Partitions/README_EN.md
 rating: 2344
+source: Weekly Contest 320 Q4
 tags:
     - String
     - Dynamic Programming

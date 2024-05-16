@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2945.Find%20Maximum%20Non-decreasing%20Array%20Length/README.md
 rating: 2943
+source: 第 118 场双周赛 Q4
 tags:
     - 栈
     - 队列

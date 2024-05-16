@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1094.Car%20Pooling/README_EN.md
 rating: 1441
+source: Weekly Contest 142 Q2
 tags:
     - Array
     - Prefix Sum

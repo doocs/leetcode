@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1034.Coloring%20A%20Border/README.md
 rating: 1578
+source: 第 134 场周赛 Q2
 tags:
     - 深度优先搜索
     - 广度优先搜索

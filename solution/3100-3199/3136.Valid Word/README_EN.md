@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3136.Valid%20Word/README_EN.md
 rating: 1249
+source: Weekly Contest 396 Q1
 tags:
     - String
 ---

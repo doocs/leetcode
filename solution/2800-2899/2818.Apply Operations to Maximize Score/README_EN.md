@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2818.Apply%20Operations%20to%20Maximize%20Score/README_EN.md
 rating: 2396
+source: Weekly Contest 358 Q4
 tags:
     - Stack
     - Greedy

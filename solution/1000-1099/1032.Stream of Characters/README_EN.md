@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1032.Stream%20of%20Characters/README_EN.md
 rating: 1970
+source: Weekly Contest 133 Q4
 tags:
     - Design
     - Trie

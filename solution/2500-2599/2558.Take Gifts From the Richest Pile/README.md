@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2558.Take%20Gifts%20From%20the%20Richest%20Pile/README.md
 rating: 1276
+source: 第 331 场周赛 Q1
 tags:
     - 数组
     - 模拟

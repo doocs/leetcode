@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1530.Number%20of%20Good%20Leaf%20Nodes%20Pairs/README.md
 rating: 1745
+source: 第 199 场周赛 Q3
 tags:
     - 树
     - 深度优先搜索

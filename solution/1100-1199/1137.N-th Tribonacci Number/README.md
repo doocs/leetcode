@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1137.N-th%20Tribonacci%20Number/README.md
 rating: 1142
+source: 第 147 场周赛 Q1
 tags:
     - 记忆化搜索
     - 数学

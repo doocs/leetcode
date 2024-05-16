@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1447.Simplified%20Fractions/README_EN.md
 rating: 1268
+source: Biweekly Contest 26 Q2
 tags:
     - Math
     - String

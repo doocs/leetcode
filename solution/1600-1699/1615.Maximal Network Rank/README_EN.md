@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1615.Maximal%20Network%20Rank/README_EN.md
 rating: 1521
+source: Weekly Contest 210 Q2
 tags:
     - Graph
 ---

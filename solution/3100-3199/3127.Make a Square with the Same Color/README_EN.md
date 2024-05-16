@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3127.Make%20a%20Square%20with%20the%20Same%20Color/README_EN.md
 rating: 1337
+source: Biweekly Contest 129 Q1
 tags:
     - Array
     - Enumeration

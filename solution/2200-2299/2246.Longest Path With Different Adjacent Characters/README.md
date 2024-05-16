@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2246.Longest%20Path%20With%20Different%20Adjacent%20Characters/README.md
 rating: 2126
+source: 第 289 场周赛 Q4
 tags:
     - 树
     - 深度优先搜索

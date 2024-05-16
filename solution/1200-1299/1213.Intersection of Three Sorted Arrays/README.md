@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1213.Intersection%20of%20Three%20Sorted%20Arrays/README.md
 rating: 1259
+source: 第 10 场双周赛 Q1
 tags:
     - 数组
     - 哈希表

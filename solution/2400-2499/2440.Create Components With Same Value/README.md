@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2440.Create%20Components%20With%20Same%20Value/README.md
 rating: 2460
+source: 第 89 场双周赛 Q4
 tags:
     - 树
     - 深度优先搜索

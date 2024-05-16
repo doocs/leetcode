@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2258.Escape%20the%20Spreading%20Fire/README.md
 rating: 2346
+source: 第 77 场双周赛 Q4
 tags:
     - 广度优先搜索
     - 数组

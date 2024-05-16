@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1448.Count%20Good%20Nodes%20in%20Binary%20Tree/README_EN.md
 rating: 1360
+source: Biweekly Contest 26 Q3
 tags:
     - Tree
     - Depth-First Search

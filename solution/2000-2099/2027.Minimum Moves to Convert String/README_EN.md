@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2027.Minimum%20Moves%20to%20Convert%20String/README_EN.md
 rating: 1346
+source: Weekly Contest 261 Q1
 tags:
     - Greedy
     - String

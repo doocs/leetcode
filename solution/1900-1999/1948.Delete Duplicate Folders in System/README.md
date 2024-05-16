@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1948.Delete%20Duplicate%20Folders%20in%20System/README.md
 rating: 2533
+source: 第 251 场周赛 Q4
 tags:
     - 字典树
     - 数组

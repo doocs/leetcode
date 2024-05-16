@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1863.Sum%20of%20All%20Subset%20XOR%20Totals/README_EN.md
 rating: 1372
+source: Weekly Contest 241 Q1
 tags:
     - Bit Manipulation
     - Array

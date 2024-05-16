@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1176.Diet%20Plan%20Performance/README_EN.md
 rating: 1397
+source: Weekly Contest 152 Q2
 tags:
     - Array
     - Sliding Window

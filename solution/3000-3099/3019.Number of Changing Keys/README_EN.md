@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3019.Number%20of%20Changing%20Keys/README_EN.md
 rating: 1175
+source: Weekly Contest 382 Q1
 tags:
     - String
 ---

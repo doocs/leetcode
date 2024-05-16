@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1652.Defuse%20the%20Bomb/README.md
 rating: 1416
+source: 第 39 场双周赛 Q1
 tags:
     - 数组
     - 滑动窗口

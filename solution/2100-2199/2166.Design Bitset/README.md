@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2166.Design%20Bitset/README.md
 rating: 1751
+source: 第 279 场周赛 Q3
 tags:
     - 设计
     - 数组

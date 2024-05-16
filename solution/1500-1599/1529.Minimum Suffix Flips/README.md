@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1529.Minimum%20Suffix%20Flips/README.md
 rating: 1392
+source: 第 199 场周赛 Q2
 tags:
     - 贪心
     - 字符串

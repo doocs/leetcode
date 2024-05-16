@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2215.Find%20the%20Difference%20of%20Two%20Arrays/README_EN.md
 rating: 1207
+source: Weekly Contest 286 Q1
 tags:
     - Array
     - Hash Table

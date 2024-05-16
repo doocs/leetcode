@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2729.Check%20if%20The%20Number%20is%20Fascinating/README_EN.md
 rating: 1227
+source: Biweekly Contest 106 Q1
 tags:
     - Hash Table
     - Math

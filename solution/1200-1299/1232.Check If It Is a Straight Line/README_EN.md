@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1232.Check%20If%20It%20Is%20a%20Straight%20Line/README_EN.md
 rating: 1247
+source: Weekly Contest 159 Q1
 tags:
     - Geometry
     - Array

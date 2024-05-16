@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1260.Shift%202D%20Grid/README_EN.md
 rating: 1337
+source: Weekly Contest 163 Q1
 tags:
     - Array
     - Matrix

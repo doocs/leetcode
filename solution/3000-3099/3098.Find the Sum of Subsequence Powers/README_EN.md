@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3098.Find%20the%20Sum%20of%20Subsequence%20Powers/README_EN.md
 rating: 2552
+source: Biweekly Contest 127 Q4
 tags:
     - Array
     - Dynamic Programming

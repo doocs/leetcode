@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1669.Merge%20In%20Between%20Linked%20Lists/README.md
 rating: 1428
+source: 第 40 场双周赛 Q2
 tags:
     - 链表
 ---

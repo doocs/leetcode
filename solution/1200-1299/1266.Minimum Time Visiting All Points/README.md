@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1266.Minimum%20Time%20Visiting%20All%20Points/README.md
 rating: 1302
+source: 第 164 场周赛 Q1
 tags:
     - 几何
     - 数组

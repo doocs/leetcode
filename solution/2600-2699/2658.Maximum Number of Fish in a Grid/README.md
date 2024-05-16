@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2658.Maximum%20Number%20of%20Fish%20in%20a%20Grid/README.md
 rating: 1489
+source: 第 103 场双周赛 Q3
 tags:
     - 深度优先搜索
     - 广度优先搜索

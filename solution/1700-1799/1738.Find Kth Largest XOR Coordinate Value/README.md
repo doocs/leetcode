@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1738.Find%20Kth%20Largest%20XOR%20Coordinate%20Value/README.md
 rating: 1671
+source: 第 225 场周赛 Q3
 tags:
     - 位运算
     - 数组

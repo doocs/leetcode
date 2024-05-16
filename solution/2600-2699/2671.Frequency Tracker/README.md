@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2671.Frequency%20Tracker/README.md
 rating: 1509
+source: 第 344 场周赛 Q2
 tags:
     - 设计
     - 哈希表

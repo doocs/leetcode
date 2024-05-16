@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1340.Jump%20Game%20V/README.md
 rating: 1866
+source: 第 174 场周赛 Q4
 tags:
     - 数组
     - 动态规划

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1955.Count%20Number%20of%20Special%20Subsequences/README_EN.md
 rating: 2125
+source: Weekly Contest 252 Q4
 tags:
     - Array
     - Dynamic Programming

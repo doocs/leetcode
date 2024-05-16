@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2516.Take%20K%20of%20Each%20Character%20From%20Left%20and%20Right/README.md
 rating: 1947
+source: 第 325 场周赛 Q2
 tags:
     - 哈希表
     - 字符串

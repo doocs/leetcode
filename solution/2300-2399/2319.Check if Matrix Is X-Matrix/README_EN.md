@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2319.Check%20if%20Matrix%20Is%20X-Matrix/README_EN.md
 rating: 1200
+source: Weekly Contest 299 Q1
 tags:
     - Array
     - Matrix

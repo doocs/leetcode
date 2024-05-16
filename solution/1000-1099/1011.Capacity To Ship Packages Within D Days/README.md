@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1011.Capacity%20To%20Ship%20Packages%20Within%20D%20Days/README.md
 rating: 1725
+source: 第 128 场周赛 Q3
 tags:
     - 数组
     - 二分查找

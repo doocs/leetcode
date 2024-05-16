@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3016.Minimum%20Number%20of%20Pushes%20to%20Type%20Word%20II/README.md
 rating: 1533
+source: 第 381 场周赛 Q3
 tags:
     - 贪心
     - 哈希表

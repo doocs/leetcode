@@ -280,7 +280,7 @@ class Solution {
     private var wordList: [String] = []
     private var endWord: String = ""
     private var vis: [Bool] = []
-    
+
     func findLadders(_ beginWord: String, _ endWord: String, _ wordList: [String]) -> [String] {
         self.wordList = wordList
         self.endWord = endWord
@@ -288,7 +288,7 @@ class Solution {
         vis = Array(repeating: false, count: wordList.count)
         return dfs(beginWord) ? ans : []
     }
-    
+
     private func dfs(_ s: String) -> Bool {
         if s == endWord {
             return true
@@ -307,7 +307,7 @@ class Solution {
         }
         return false
     }
-    
+
     private func check(_ s: String, _ t: String) -> Bool {
         if s.count != t.count {
             return false

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1611.Minimum%20One%20Bit%20Operations%20to%20Make%20Integers%20Zero/README_EN.md
 rating: 2345
+source: Weekly Contest 209 Q4
 tags:
     - Bit Manipulation
     - Memoization

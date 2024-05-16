@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2085.Count%20Common%20Words%20With%20One%20Occurrence/README_EN.md
 rating: 1307
+source: Biweekly Contest 66 Q1
 tags:
     - Array
     - Hash Table

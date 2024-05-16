@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2385.Amount%20of%20Time%20for%20Binary%20Tree%20to%20Be%20Infected/README.md
 rating: 1711
+source: 第 307 场周赛 Q3
 tags:
     - 树
     - 深度优先搜索

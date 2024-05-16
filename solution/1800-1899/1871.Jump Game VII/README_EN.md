@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1871.Jump%20Game%20VII/README_EN.md
 rating: 1896
+source: Weekly Contest 242 Q3
 tags:
     - String
     - Dynamic Programming

@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2303.Calculate%20Amount%20Paid%20in%20Taxes/README_EN.md
 rating: 1283
+source: Weekly Contest 297 Q1
 tags:
     - Array
     - Simulation

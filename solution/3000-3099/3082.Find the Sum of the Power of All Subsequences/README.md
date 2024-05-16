@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3082.Find%20the%20Sum%20of%20the%20Power%20of%20All%20Subsequences/README.md
 rating: 2241
+source: 第 126 场双周赛 Q4
 tags:
     - 数组
     - 动态规划

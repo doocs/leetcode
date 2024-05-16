@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1203.Sort%20Items%20by%20Groups%20Respecting%20Dependencies/README_EN.md
 rating: 2418
+source: Weekly Contest 155 Q4
 tags:
     - Depth-First Search
     - Breadth-First Search

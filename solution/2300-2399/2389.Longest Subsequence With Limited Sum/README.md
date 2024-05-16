@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2389.Longest%20Subsequence%20With%20Limited%20Sum/README.md
 rating: 1387
+source: 第 308 场周赛 Q1
 tags:
     - 贪心
     - 数组

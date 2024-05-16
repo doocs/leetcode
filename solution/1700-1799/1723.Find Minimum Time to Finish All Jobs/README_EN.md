@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1723.Find%20Minimum%20Time%20to%20Finish%20All%20Jobs/README_EN.md
 rating: 2284
+source: Weekly Contest 223 Q4
 tags:
     - Bit Manipulation
     - Array

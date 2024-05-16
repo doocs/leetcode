@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1447.Simplified%20Fractions/README.md
 rating: 1268
+source: 第 26 场双周赛 Q2
 tags:
     - 数学
     - 字符串

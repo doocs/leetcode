@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2227.Encrypt%20and%20Decrypt%20Strings/README.md
 rating: 1944
+source: 第 287 场周赛 Q4
 tags:
     - 设计
     - 字典树

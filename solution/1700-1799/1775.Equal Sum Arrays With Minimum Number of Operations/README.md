@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1775.Equal%20Sum%20Arrays%20With%20Minimum%20Number%20of%20Operations/README.md
 rating: 1850
+source: 第 230 场周赛 Q3
 tags:
     - 贪心
     - 数组

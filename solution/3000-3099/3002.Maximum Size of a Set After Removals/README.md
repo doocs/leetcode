@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3002.Maximum%20Size%20of%20a%20Set%20After%20Removals/README.md
 rating: 1917
+source: 第 379 场周赛 Q3
 tags:
     - 贪心
     - 数组

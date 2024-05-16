@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3040.Maximum%20Number%20of%20Operations%20With%20the%20Same%20Score%20II/README.md
 rating: 1708
+source: 第 124 场双周赛 Q3
 tags:
     - 记忆化搜索
     - 数组

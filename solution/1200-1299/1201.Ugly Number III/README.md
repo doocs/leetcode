@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1201.Ugly%20Number%20III/README.md
 rating: 2039
+source: 第 155 场周赛 Q2
 tags:
     - 数学
     - 二分查找

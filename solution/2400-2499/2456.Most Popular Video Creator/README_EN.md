@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2456.Most%20Popular%20Video%20Creator/README_EN.md
 rating: 1548
+source: Weekly Contest 317 Q2
 tags:
     - Array
     - Hash Table

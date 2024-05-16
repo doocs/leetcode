@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1687.Delivering%20Boxes%20from%20Storage%20to%20Ports/README_EN.md
 rating: 2610
+source: Biweekly Contest 41 Q4
 tags:
     - Segment Tree
     - Queue

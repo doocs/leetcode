@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1706.Where%20Will%20the%20Ball%20Fall/README_EN.md
 rating: 1764
+source: Weekly Contest 221 Q3
 tags:
     - Array
     - Matrix

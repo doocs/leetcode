@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2530.Maximal%20Score%20After%20Applying%20K%20Operations/README_EN.md
 rating: 1386
+source: Weekly Contest 327 Q2
 tags:
     - Greedy
     - Array

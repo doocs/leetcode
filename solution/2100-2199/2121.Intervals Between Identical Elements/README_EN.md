@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2121.Intervals%20Between%20Identical%20Elements/README_EN.md
 rating: 1760
+source: Weekly Contest 273 Q3
 tags:
     - Array
     - Hash Table

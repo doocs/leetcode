@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1220.Count%20Vowels%20Permutation/README.md
 rating: 1729
+source: 第 157 场周赛 Q4
 tags:
     - 动态规划
 ---

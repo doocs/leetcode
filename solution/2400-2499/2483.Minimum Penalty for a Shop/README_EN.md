@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2483.Minimum%20Penalty%20for%20a%20Shop/README_EN.md
 rating: 1494
+source: Biweekly Contest 92 Q3
 tags:
     - String
     - Prefix Sum

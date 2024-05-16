@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2697.Lexicographically%20Smallest%20Palindrome/README_EN.md
 rating: 1303
+source: Weekly Contest 346 Q2
 tags:
     - Greedy
     - Two Pointers

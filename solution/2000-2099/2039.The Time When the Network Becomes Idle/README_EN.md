@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2039.The%20Time%20When%20the%20Network%20Becomes%20Idle/README_EN.md
 rating: 1865
+source: Biweekly Contest 63 Q3
 tags:
     - Breadth-First Search
     - Graph

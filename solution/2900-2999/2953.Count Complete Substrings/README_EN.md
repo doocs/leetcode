@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2953.Count%20Complete%20Substrings/README_EN.md
 rating: 2449
+source: Weekly Contest 374 Q3
 tags:
     - Hash Table
     - String

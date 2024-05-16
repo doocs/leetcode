@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2053.Kth%20Distinct%20String%20in%20an%20Array/README_EN.md
 rating: 1350
+source: Biweekly Contest 64 Q1
 tags:
     - Array
     - Hash Table

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2938.Separate%20Black%20and%20White%20Balls/README.md
 rating: 1422
+source: 第 372 场周赛 Q2
 tags:
     - 贪心
     - 双指针

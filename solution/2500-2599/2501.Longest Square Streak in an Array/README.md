@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2501.Longest%20Square%20Streak%20in%20an%20Array/README.md
 rating: 1479
+source: 第 323 场周赛 Q2
 tags:
     - 数组
     - 哈希表

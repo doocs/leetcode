@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1616.Split%20Two%20Strings%20to%20Make%20Palindrome/README_EN.md
 rating: 1868
+source: Weekly Contest 210 Q3
 tags:
     - Two Pointers
     - String

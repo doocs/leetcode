@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1359.Count%20All%20Valid%20Pickup%20and%20Delivery%20Options/README.md
 rating: 1722
+source: 第 20 场双周赛 Q4
 tags:
     - 数学
     - 动态规划

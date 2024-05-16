@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1095.Find%20in%20Mountain%20Array/README_EN.md
 rating: 1827
+source: Weekly Contest 142 Q3
 tags:
     - Array
     - Binary Search

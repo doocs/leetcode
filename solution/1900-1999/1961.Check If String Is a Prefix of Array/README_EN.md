@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1961.Check%20If%20String%20Is%20a%20Prefix%20of%20Array/README_EN.md
 rating: 1234
+source: Weekly Contest 253 Q1
 tags:
     - Array
     - Two Pointers

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2831.Find%20the%20Longest%20Equal%20Subarray/README_EN.md
 rating: 1975
+source: Weekly Contest 359 Q4
 tags:
     - Array
     - Hash Table

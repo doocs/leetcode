@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2114.Maximum%20Number%20of%20Words%20Found%20in%20Sentences/README.md
 rating: 1257
+source: 第 68 场双周赛 Q1
 tags:
     - 数组
     - 字符串

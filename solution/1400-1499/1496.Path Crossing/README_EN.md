@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1496.Path%20Crossing/README_EN.md
 rating: 1508
+source: Weekly Contest 195 Q1
 tags:
     - Hash Table
     - String

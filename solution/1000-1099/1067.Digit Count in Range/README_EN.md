@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1067.Digit%20Count%20in%20Range/README_EN.md
 rating: 2025
+source: Biweekly Contest 1 Q4
 tags:
     - Math
     - Dynamic Programming

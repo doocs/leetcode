@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1156.Swap%20For%20Longest%20Repeated%20Character%20Substring/README.md
 rating: 1787
+source: 第 149 场周赛 Q3
 tags:
     - 哈希表
     - 字符串

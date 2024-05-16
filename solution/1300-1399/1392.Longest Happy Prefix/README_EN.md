@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1392.Longest%20Happy%20Prefix/README_EN.md
 rating: 1876
+source: Weekly Contest 181 Q4
 tags:
     - String
     - String Matching

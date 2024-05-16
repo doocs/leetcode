@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1515.Best%20Position%20for%20a%20Service%20Centre/README.md
 rating: 2156
+source: 第 197 场周赛 Q4
 tags:
     - 几何
     - 数学

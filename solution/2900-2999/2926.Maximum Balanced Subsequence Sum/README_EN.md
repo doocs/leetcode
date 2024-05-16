@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2926.Maximum%20Balanced%20Subsequence%20Sum/README_EN.md
 rating: 2448
+source: Weekly Contest 370 Q4
 tags:
     - Binary Indexed Tree
     - Segment Tree

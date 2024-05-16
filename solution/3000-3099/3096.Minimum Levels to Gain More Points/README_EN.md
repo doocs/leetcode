@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3096.Minimum%20Levels%20to%20Gain%20More%20Points/README_EN.md
 rating: 1500
+source: Biweekly Contest 127 Q2
 tags:
     - Array
     - Prefix Sum

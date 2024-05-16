@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2644.Find%20the%20Maximum%20Divisibility%20Score/README_EN.md
 rating: 1257
+source: Weekly Contest 341 Q2
 tags:
     - Array
 ---

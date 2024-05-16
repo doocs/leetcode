@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2717.Semi-Ordered%20Permutation/README_EN.md
 rating: 1295
+source: Weekly Contest 348 Q2
 tags:
     - Array
     - Simulation

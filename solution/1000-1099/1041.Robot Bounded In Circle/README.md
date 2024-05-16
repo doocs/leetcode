@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1041.Robot%20Bounded%20In%20Circle/README.md
 rating: 1521
+source: 第 136 场周赛 Q1
 tags:
     - 数学
     - 字符串

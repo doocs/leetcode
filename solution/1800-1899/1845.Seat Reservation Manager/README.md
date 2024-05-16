@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1845.Seat%20Reservation%20Manager/README.md
 rating: 1428
+source: 第 51 场双周赛 Q2
 tags:
     - 设计
     - 堆（优先队列）

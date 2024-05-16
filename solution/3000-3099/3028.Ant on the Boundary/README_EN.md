@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3028.Ant%20on%20the%20Boundary/README_EN.md
 rating: 1115
+source: Weekly Contest 383 Q1
 tags:
     - Array
     - Prefix Sum

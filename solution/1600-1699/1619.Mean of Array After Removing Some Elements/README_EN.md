@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1619.Mean%20of%20Array%20After%20Removing%20Some%20Elements/README_EN.md
 rating: 1374
+source: Biweekly Contest 37 Q1
 tags:
     - Array
     - Sorting

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1120.Maximum%20Average%20Subtree/README.md
 rating: 1361
+source: 第 4 场双周赛 Q3
 tags:
     - 树
     - 深度优先搜索

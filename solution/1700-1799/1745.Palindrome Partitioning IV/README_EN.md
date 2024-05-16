@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1745.Palindrome%20Partitioning%20IV/README_EN.md
 rating: 1924
+source: Weekly Contest 226 Q4
 tags:
     - String
     - Dynamic Programming

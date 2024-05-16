@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2503.Maximum%20Number%20of%20Points%20From%20Grid%20Queries/README.md
 rating: 2195
+source: 第 323 场周赛 Q4
 tags:
     - 广度优先搜索
     - 并查集

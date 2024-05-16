@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1161.Maximum%20Level%20Sum%20of%20a%20Binary%20Tree/README_EN.md
 rating: 1249
+source: Weekly Contest 150 Q2
 tags:
     - Tree
     - Depth-First Search

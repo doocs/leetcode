@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3021.Alice%20and%20Bob%20Playing%20Flower%20Game/README.md
 rating: 1581
+source: 第 382 场周赛 Q3
 tags:
     - 数学
 ---

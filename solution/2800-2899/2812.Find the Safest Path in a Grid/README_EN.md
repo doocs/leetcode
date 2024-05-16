@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2812.Find%20the%20Safest%20Path%20in%20a%20Grid/README_EN.md
 rating: 2153
+source: Weekly Contest 357 Q3
 tags:
     - Breadth-First Search
     - Union Find

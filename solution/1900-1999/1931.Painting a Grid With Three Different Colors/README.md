@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1931.Painting%20a%20Grid%20With%20Three%20Different%20Colors/README.md
 rating: 2170
+source: 第 249 场周赛 Q3
 tags:
     - 动态规划
 ---

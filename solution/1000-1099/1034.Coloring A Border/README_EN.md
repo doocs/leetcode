@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1034.Coloring%20A%20Border/README_EN.md
 rating: 1578
+source: Weekly Contest 134 Q2
 tags:
     - Depth-First Search
     - Breadth-First Search

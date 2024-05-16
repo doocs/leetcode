@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1419.Minimum%20Number%20of%20Frogs%20Croaking/README_EN.md
 rating: 1689
+source: Weekly Contest 185 Q3
 tags:
     - String
     - Counting

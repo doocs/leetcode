@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2736.Maximum%20Sum%20Queries/README_EN.md
 rating: 2533
+source: Weekly Contest 349 Q4
 tags:
     - Stack
     - Binary Indexed Tree

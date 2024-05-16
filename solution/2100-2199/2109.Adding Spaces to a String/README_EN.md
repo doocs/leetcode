@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2109.Adding%20Spaces%20to%20a%20String/README_EN.md
 rating: 1315
+source: Weekly Contest 272 Q2
 tags:
     - Array
     - Two Pointers

@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1998.GCD%20Sort%20of%20an%20Array/README.md
 rating: 2429
+source: 第 257 场周赛 Q4
 tags:
     - 并查集
     - 数组

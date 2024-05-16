@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2281.Sum%20of%20Total%20Strength%20of%20Wizards/README.md
 rating: 2621
+source: 第 294 场周赛 Q4
 tags:
     - 栈
     - 数组

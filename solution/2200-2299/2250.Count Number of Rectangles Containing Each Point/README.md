@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2250.Count%20Number%20of%20Rectangles%20Containing%20Each%20Point/README.md
 rating: 1997
+source: 第 290 场周赛 Q3
 tags:
     - 树状数组
     - 数组

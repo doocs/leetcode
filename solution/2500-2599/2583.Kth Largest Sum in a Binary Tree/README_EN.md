@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2583.Kth%20Largest%20Sum%20in%20a%20Binary%20Tree/README_EN.md
 rating: 1374
+source: Weekly Contest 335 Q2
 tags:
     - Tree
     - Breadth-First Search

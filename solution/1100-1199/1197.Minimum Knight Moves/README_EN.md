@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1197.Minimum%20Knight%20Moves/README_EN.md
 rating: 1722
+source: Biweekly Contest 9 Q2
 tags:
     - Breadth-First Search
 ---

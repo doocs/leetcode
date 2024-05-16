@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1499.Max%20Value%20of%20Equation/README.md
 rating: 2456
+source: 第 195 场周赛 Q4
 tags:
     - 队列
     - 数组

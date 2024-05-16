@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2451.Odd%20String%20Difference/README_EN.md
 rating: 1406
+source: Biweekly Contest 90 Q1
 tags:
     - Array
     - Hash Table

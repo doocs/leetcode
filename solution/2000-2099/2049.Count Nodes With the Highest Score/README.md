@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2049.Count%20Nodes%20With%20the%20Highest%20Score/README.md
 rating: 1911
+source: 第 264 场周赛 Q3
 tags:
     - 树
     - 深度优先搜索

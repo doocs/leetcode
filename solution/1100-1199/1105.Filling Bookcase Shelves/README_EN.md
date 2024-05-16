@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1105.Filling%20Bookcase%20Shelves/README_EN.md
 rating: 2014
+source: Weekly Contest 143 Q3
 tags:
     - Array
     - Dynamic Programming

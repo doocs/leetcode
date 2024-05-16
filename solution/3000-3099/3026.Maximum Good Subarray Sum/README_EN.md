@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3026.Maximum%20Good%20Subarray%20Sum/README_EN.md
 rating: 1816
+source: Biweekly Contest 123 Q3
 tags:
     - Array
     - Hash Table

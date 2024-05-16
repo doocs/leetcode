@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1781.Sum%20of%20Beauty%20of%20All%20Substrings/README.md
 rating: 1714
+source: 第 47 场双周赛 Q3
 tags:
     - 哈希表
     - 字符串

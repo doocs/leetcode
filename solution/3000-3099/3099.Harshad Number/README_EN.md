@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3099.Harshad%20Number/README_EN.md
 rating: 1100
+source: Weekly Contest 391 Q1
 tags:
     - Math
 ---

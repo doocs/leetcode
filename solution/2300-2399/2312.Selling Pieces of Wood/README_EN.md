@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2312.Selling%20Pieces%20of%20Wood/README_EN.md
 rating: 2363
+source: Weekly Contest 298 Q4
 tags:
     - Memoization
     - Array

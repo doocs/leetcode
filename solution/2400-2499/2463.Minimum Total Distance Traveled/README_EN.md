@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2463.Minimum%20Total%20Distance%20Traveled/README_EN.md
 rating: 2453
+source: Weekly Contest 318 Q4
 tags:
     - Array
     - Dynamic Programming

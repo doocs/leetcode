@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1818.Minimum%20Absolute%20Sum%20Difference/README.md
 rating: 1934
+source: 第 235 场周赛 Q3
 tags:
     - 数组
     - 二分查找

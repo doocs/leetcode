@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2569.Handling%20Sum%20Queries%20After%20Update/README.md
 rating: 2397
+source: 第 98 场双周赛 Q4
 tags:
     - 线段树
     - 数组

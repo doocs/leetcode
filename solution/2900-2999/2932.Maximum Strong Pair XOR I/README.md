@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2932.Maximum%20Strong%20Pair%20XOR%20I/README.md
 rating: 1246
+source: 第 371 场周赛 Q1
 tags:
     - 位运算
     - 字典树

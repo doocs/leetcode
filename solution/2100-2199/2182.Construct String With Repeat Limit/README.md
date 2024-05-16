@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2182.Construct%20String%20With%20Repeat%20Limit/README.md
 rating: 1680
+source: 第 281 场周赛 Q3
 tags:
     - 贪心
     - 哈希表

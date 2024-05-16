@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1172.Dinner%20Plate%20Stacks/README_EN.md
 rating: 2109
+source: Weekly Contest 151 Q4
 tags:
     - Stack
     - Design

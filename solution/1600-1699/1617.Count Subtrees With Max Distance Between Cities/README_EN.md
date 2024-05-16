@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1617.Count%20Subtrees%20With%20Max%20Distance%20Between%20Cities/README_EN.md
 rating: 2308
+source: Weekly Contest 210 Q4
 tags:
     - Bit Manipulation
     - Tree

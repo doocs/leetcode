@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2761.Prime%20Pairs%20With%20Target%20Sum/README.md
 rating: 1504
+source: 第 352 场周赛 Q2
 tags:
     - 数组
     - 数学

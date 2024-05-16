@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2585.Number%20of%20Ways%20to%20Earn%20Points/README.md
 rating: 1909
+source: 第 335 场周赛 Q4
 tags:
     - 数组
     - 动态规划

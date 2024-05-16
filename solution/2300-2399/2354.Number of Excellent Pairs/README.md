@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2354.Number%20of%20Excellent%20Pairs/README.md
 rating: 2075
+source: 第 303 场周赛 Q4
 tags:
     - 位运算
     - 数组

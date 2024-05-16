@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1268.Search%20Suggestions%20System/README_EN.md
 rating: 1573
+source: Weekly Contest 164 Q3
 tags:
     - Trie
     - Array

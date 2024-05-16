@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1400.Construct%20K%20Palindrome%20Strings/README.md
 rating: 1530
+source: 第 23 场双周赛 Q2
 tags:
     - 贪心
     - 哈希表

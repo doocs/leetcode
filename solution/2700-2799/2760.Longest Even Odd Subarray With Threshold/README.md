@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2760.Longest%20Even%20Odd%20Subarray%20With%20Threshold/README.md
 rating: 1420
+source: 第 352 场周赛 Q1
 tags:
     - 数组
     - 滑动窗口

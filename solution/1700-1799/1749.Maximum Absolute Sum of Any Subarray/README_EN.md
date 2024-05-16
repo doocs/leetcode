@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1749.Maximum%20Absolute%20Sum%20of%20Any%20Subarray/README_EN.md
 rating: 1541
+source: Biweekly Contest 45 Q2
 tags:
     - Array
     - Dynamic Programming

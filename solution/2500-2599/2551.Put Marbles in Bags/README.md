@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2551.Put%20Marbles%20in%20Bags/README.md
 rating: 2042
+source: 第 330 场周赛 Q3
 tags:
     - 贪心
     - 数组

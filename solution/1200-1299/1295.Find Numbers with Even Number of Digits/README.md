@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1295.Find%20Numbers%20with%20Even%20Number%20of%20Digits/README.md
 rating: 1139
+source: 第 168 场周赛 Q1
 tags:
     - 数组
 ---

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2157.Groups%20of%20Strings/README_EN.md
 rating: 2499
+source: Weekly Contest 278 Q4
 tags:
     - Bit Manipulation
     - Union Find

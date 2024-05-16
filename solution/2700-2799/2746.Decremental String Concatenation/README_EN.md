@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2746.Decremental%20String%20Concatenation/README_EN.md
 rating: 2126
+source: Biweekly Contest 107 Q3
 tags:
     - Array
     - String

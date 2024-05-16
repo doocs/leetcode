@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1711.Count%20Good%20Meals/README.md
 rating: 1797
+source: 第 222 场周赛 Q2
 tags:
     - 数组
     - 哈希表

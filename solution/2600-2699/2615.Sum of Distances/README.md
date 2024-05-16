@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2615.Sum%20of%20Distances/README.md
 rating: 1793
+source: 第 340 场周赛 Q2
 tags:
     - 数组
     - 哈希表

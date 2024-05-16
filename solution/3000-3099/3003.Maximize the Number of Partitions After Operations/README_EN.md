@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3003.Maximize%20the%20Number%20of%20Partitions%20After%20Operations/README_EN.md
 rating: 3039
+source: Weekly Contest 379 Q4
 tags:
     - Bit Manipulation
     - String

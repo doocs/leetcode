@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1675.Minimize%20Deviation%20in%20Array/README.md
 rating: 2533
+source: 第 217 场周赛 Q4
 tags:
     - 贪心
     - 数组

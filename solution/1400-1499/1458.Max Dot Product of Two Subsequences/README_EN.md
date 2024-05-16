@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1458.Max%20Dot%20Product%20of%20Two%20Subsequences/README_EN.md
 rating: 1823
+source: Weekly Contest 190 Q4
 tags:
     - Array
     - Dynamic Programming

@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2639.Find%20the%20Width%20of%20Columns%20of%20a%20Grid/README.md
 rating: 1282
+source: 第 102 场双周赛 Q1
 tags:
     - 数组
     - 矩阵

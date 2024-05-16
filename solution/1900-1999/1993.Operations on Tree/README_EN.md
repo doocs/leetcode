@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1993.Operations%20on%20Tree/README_EN.md
 rating: 1861
+source: Biweekly Contest 60 Q3
 tags:
     - Tree
     - Depth-First Search

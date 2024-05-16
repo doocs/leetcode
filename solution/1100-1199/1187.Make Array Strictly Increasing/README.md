@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1187.Make%20Array%20Strictly%20Increasing/README.md
 rating: 2315
+source: 第 153 场周赛 Q4
 tags:
     - 数组
     - 二分查找

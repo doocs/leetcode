@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2850.Minimum%20Moves%20to%20Spread%20Stones%20Over%20Grid/README_EN.md
 rating: 2001
+source: Weekly Contest 362 Q3
 tags:
     - Breadth-First Search
     - Array

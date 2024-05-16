@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2601.Prime%20Subtraction%20Operation/README.md
 rating: 1779
+source: 第 338 场周赛 Q2
 tags:
     - 贪心
     - 数组

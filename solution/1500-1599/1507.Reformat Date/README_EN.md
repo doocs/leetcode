@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1507.Reformat%20Date/README_EN.md
 rating: 1283
+source: Biweekly Contest 30 Q1
 tags:
     - String
 ---

@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2709.Greatest%20Common%20Divisor%20Traversal/README.md
 rating: 2171
+source: 第 105 场双周赛 Q4
 tags:
     - 并查集
     - 数组

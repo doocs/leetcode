@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2538.Difference%20Between%20Maximum%20and%20Minimum%20Price%20Sum/README.md
 rating: 2397
+source: 第 328 场周赛 Q4
 tags:
     - 树
     - 深度优先搜索

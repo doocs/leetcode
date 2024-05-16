@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1987.Number%20of%20Unique%20Good%20Subsequences/README_EN.md
 rating: 2422
+source: Weekly Contest 256 Q4
 tags:
     - String
     - Dynamic Programming

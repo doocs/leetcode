@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2778.Sum%20of%20Squares%20of%20Special%20Elements/README.md
 rating: 1151
+source: 第 354 场周赛 Q1
 tags:
     - 数组
     - 枚举

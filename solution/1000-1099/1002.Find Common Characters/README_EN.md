@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1002.Find%20Common%20Characters/README_EN.md
 rating: 1279
+source: Weekly Contest 126 Q1
 tags:
     - Array
     - Hash Table

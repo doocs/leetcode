@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2790.Maximum%20Number%20of%20Groups%20With%20Increasing%20Length/README_EN.md
 rating: 2619
+source: Weekly Contest 355 Q3
 tags:
     - Greedy
     - Array

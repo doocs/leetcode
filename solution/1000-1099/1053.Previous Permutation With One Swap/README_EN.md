@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1053.Previous%20Permutation%20With%20One%20Swap/README_EN.md
 rating: 1633
+source: Weekly Contest 138 Q3
 tags:
     - Greedy
     - Array

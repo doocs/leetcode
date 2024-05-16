@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1721.Swapping%20Nodes%20in%20a%20Linked%20List/README.md
 rating: 1386
+source: 第 223 场周赛 Q2
 tags:
     - 链表
     - 双指针

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2304.Minimum%20Path%20Cost%20in%20a%20Grid/README.md
 rating: 1658
+source: 第 297 场周赛 Q2
 tags:
     - 数组
     - 动态规划

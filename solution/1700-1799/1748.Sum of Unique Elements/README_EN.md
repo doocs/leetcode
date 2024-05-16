@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1748.Sum%20of%20Unique%20Elements/README_EN.md
 rating: 1228
+source: Biweekly Contest 45 Q1
 tags:
     - Array
     - Hash Table

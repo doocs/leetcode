@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1641.Count%20Sorted%20Vowel%20Strings/README.md
 rating: 1519
+source: 第 213 场周赛 Q2
 tags:
     - 数学
     - 动态规划

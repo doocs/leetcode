@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2375.Construct%20Smallest%20Number%20From%20DI%20String/README.md
 rating: 1641
+source: 第 306 场周赛 Q3
 tags:
     - 栈
     - 贪心

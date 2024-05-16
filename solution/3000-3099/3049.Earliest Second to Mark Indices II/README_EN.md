@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3049.Earliest%20Second%20to%20Mark%20Indices%20II/README_EN.md
 rating: 3111
+source: Weekly Contest 386 Q4
 tags:
     - Greedy
     - Array

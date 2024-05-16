@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1508.Range%20Sum%20of%20Sorted%20Subarray%20Sums/README_EN.md
 rating: 1402
+source: Biweekly Contest 30 Q2
 tags:
     - Array
     - Two Pointers

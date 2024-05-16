@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2349.Design%20a%20Number%20Container%20System/README_EN.md
 rating: 1540
+source: Biweekly Contest 83 Q3
 tags:
     - Design
     - Hash Table

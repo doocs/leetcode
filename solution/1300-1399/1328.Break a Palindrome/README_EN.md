@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1328.Break%20a%20Palindrome/README_EN.md
 rating: 1473
+source: Biweekly Contest 18 Q2
 tags:
     - Greedy
     - String

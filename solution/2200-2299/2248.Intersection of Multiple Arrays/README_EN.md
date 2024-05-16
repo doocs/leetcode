@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2248.Intersection%20of%20Multiple%20Arrays/README_EN.md
 rating: 1264
+source: Weekly Contest 290 Q1
 tags:
     - Array
     - Hash Table

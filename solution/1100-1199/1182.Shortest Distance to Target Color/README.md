@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1182.Shortest%20Distance%20to%20Target%20Color/README.md
 rating: 1626
+source: 第 8 场双周赛 Q3
 tags:
     - 数组
     - 二分查找

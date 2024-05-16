@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2156.Find%20Substring%20With%20Given%20Hash%20Value/README.md
 rating: 2062
+source: 第 278 场周赛 Q3
 tags:
     - 字符串
     - 滑动窗口

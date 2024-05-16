@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2451.Odd%20String%20Difference/README.md
 rating: 1406
+source: 第 90 场双周赛 Q1
 tags:
     - 数组
     - 哈希表

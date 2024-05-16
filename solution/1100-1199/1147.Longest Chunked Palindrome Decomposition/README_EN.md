@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1147.Longest%20Chunked%20Palindrome%20Decomposition/README_EN.md
 rating: 1912
+source: Weekly Contest 148 Q4
 tags:
     - Greedy
     - Two Pointers

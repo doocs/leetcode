@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1017.Convert%20to%20Base%20-2/README_EN.md
 rating: 1697
+source: Weekly Contest 130 Q2
 tags:
     - Math
 ---

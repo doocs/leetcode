@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1354.Construct%20Target%20Array%20With%20Multiple%20Sums/README.md
 rating: 2014
+source: 第 176 场周赛 Q4
 tags:
     - 数组
     - 堆（优先队列）

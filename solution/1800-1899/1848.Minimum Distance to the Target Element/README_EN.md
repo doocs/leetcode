@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1848.Minimum%20Distance%20to%20the%20Target%20Element/README_EN.md
 rating: 1216
+source: Weekly Contest 239 Q1
 tags:
     - Array
 ---

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1181.Before%20and%20After%20Puzzle/README.md
 rating: 1558
+source: 第 8 场双周赛 Q2
 tags:
     - 数组
     - 哈希表

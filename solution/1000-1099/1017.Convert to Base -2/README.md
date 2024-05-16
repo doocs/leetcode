@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1017.Convert%20to%20Base%20-2/README.md
 rating: 1697
+source: 第 130 场周赛 Q2
 tags:
     - 数学
 ---

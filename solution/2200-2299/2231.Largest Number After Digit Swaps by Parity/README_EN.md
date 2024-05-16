@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2231.Largest%20Number%20After%20Digit%20Swaps%20by%20Parity/README_EN.md
 rating: 1365
+source: Weekly Contest 288 Q1
 tags:
     - Sorting
     - Heap (Priority Queue)

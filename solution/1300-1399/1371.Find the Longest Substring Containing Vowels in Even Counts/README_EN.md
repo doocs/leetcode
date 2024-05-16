@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1371.Find%20the%20Longest%20Substring%20Containing%20Vowels%20in%20Even%20Counts/README_EN.md
 rating: 2040
+source: Biweekly Contest 21 Q2
 tags:
     - Bit Manipulation
     - Hash Table

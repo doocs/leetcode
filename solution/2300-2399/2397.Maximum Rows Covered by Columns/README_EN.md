@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2397.Maximum%20Rows%20Covered%20by%20Columns/README_EN.md
 rating: 1718
+source: Biweekly Contest 86 Q3
 tags:
     - Bit Manipulation
     - Array

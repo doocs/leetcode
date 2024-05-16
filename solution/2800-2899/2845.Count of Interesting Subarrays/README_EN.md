@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2845.Count%20of%20Interesting%20Subarrays/README_EN.md
 rating: 2073
+source: Weekly Contest 361 Q3
 tags:
     - Array
     - Hash Table

@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3033.Modify%20the%20Matrix/README_EN.md
 rating: 1180
+source: Weekly Contest 384 Q1
 tags:
     - Array
     - Matrix

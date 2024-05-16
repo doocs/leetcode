@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1599.Maximum%20Profit%20of%20Operating%20a%20Centennial%20Wheel/README.md
 rating: 1548
+source: 第 208 场周赛 Q2
 tags:
     - 数组
     - 模拟

@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1221.Split%20a%20String%20in%20Balanced%20Strings/README_EN.md
 rating: 1219
+source: Weekly Contest 158 Q1
 tags:
     - Greedy
     - String

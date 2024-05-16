@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2661.First%20Completely%20Painted%20Row%20or%20Column/README.md
 rating: 1502
+source: 第 343 场周赛 Q2
 tags:
     - 数组
     - 哈希表

@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1694.Reformat%20Phone%20Number/README_EN.md
 rating: 1321
+source: Weekly Contest 220 Q1
 tags:
     - String
 ---

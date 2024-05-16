@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3134.Find%20the%20Median%20of%20the%20Uniqueness%20Array/README.md
 rating: 2451
+source: 第 395 场周赛 Q4
 tags:
     - 数组
     - 哈希表

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1182.Shortest%20Distance%20to%20Target%20Color/README_EN.md
 rating: 1626
+source: Biweekly Contest 8 Q3
 tags:
     - Array
     - Binary Search

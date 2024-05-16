@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2536.Increment%20Submatrices%20by%20One/README_EN.md
 rating: 1583
+source: Weekly Contest 328 Q2
 tags:
     - Array
     - Matrix

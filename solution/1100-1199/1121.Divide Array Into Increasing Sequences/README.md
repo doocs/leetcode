@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1121.Divide%20Array%20Into%20Increasing%20Sequences/README.md
 rating: 1664
+source: 第 4 场双周赛 Q4
 tags:
     - 数组
     - 计数

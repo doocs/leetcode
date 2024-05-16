@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1766.Tree%20of%20Coprimes/README.md
 rating: 2231
+source: 第 46 场双周赛 Q4
 tags:
     - 树
     - 深度优先搜索

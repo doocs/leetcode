@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2925.Maximum%20Score%20After%20Applying%20Operations%20on%20a%20Tree/README.md
 rating: 1939
+source: 第 370 场周赛 Q3
 tags:
     - 树
     - 深度优先搜索

@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2032.Two%20Out%20of%20Three/README_EN.md
 rating: 1269
+source: Weekly Contest 262 Q1
 tags:
     - Bit Manipulation
     - Array

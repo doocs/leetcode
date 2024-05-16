@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2427.Number%20of%20Common%20Factors/README_EN.md
 rating: 1172
+source: Weekly Contest 313 Q1
 tags:
     - Math
     - Enumeration

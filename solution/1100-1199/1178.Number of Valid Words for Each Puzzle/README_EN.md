@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1178.Number%20of%20Valid%20Words%20for%20Each%20Puzzle/README_EN.md
 rating: 2233
+source: Weekly Contest 152 Q4
 tags:
     - Bit Manipulation
     - Trie

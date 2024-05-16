@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1791.Find%20Center%20of%20Star%20Graph/README.md
 rating: 1286
+source: 第 232 场周赛 Q2
 tags:
     - 图
 ---
