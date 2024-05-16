@@ -353,7 +353,7 @@ func maxRectangle(words []string) (ans []string) {
 class Trie {
     var children = [Trie?](repeating: nil, count: 26)
     var isEnd = false
-    
+
     func insert(_ word: String) {
         var node = self
         for c in word {
@@ -381,7 +381,7 @@ class Solution {
             trie.insert(word)
             d[word.count, default: []].append(word)
         }
-        
+
         for ws in d.values {
             t.removeAll()
             dfs(ws)
