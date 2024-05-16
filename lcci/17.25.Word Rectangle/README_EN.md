@@ -375,11 +375,11 @@ class Trie {
 class Solution {
     private var maxL = 0
     private var maxS = 0
-    private var ans: [String]?
+    private var ans: [String] = []
     private var trie = Trie()
     private var t = [String]()
 
-    func maxRectangle(_ words: [String]) -> [String]? {
+    func maxRectangle(_ words: [String]) -> [String] {
         var d = [Int: [String]]()
         for word in words {
             maxL = max(maxL, word.count)
