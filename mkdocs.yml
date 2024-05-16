@@ -86,7 +86,7 @@ hooks:
   - hooks/tags.py
   - hooks/committer.py
   - hooks/fix_markdown_block.py
-  # - hooks/ext_info.py
+  - hooks/ext_info.py
 
 markdown_extensions:
   - admonition

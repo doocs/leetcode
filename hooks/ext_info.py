@@ -1,39 +1,41 @@
-from mkdocs import plugins
+import re
 
-from bs4 import BeautifulSoup
+from mkdocs import plugins
 
 
 # https://www.mkdocs.org/dev-guide/plugins/#events
 
-colors = {
-    "简单": "#46c6c2",
-    "中等": "#fac31d",
-    "困难": "#f8615c",
-    "Easy": "#46c6c2",
-    "Medium": "#fac31d",
-    "Hard": "#f8615c",
-}
 
-
-@plugins.event_priority(90)
-def on_post_page(output, page, config):
-    is_cn_problem_page = (page.edit_url or "").endswith("README.md")
+@plugins.event_priority(100)
+def on_page_markdown(markdown, page, config, files):
     difficulty = page.meta.get("difficulty")
     rating = page.meta.get("rating")
     if not difficulty and not rating:
-        return output
+        return markdown
+    is_cn_problem_page = (page.edit_url or "").endswith("README.md")
+    images = []
+    if difficulty:
+        title = "难度" if is_cn_problem_page else "Difficulty"
+        images.append(
+            f'<img src="https://img.shields.io/badge/{title}-{difficulty}-4051B5?style=flat-square">'
+        )
     if rating:
-        rating = f"难度分 {rating}" if is_cn_problem_page else f"Rating {rating}"
-    html = str(output)
-    soup = BeautifulSoup(html, "html.parser")
-    div = soup.new_tag("div", attrs={"class": "rating"})
-    soup.select_one("h1").insert_after(div)
-    color = colors.get(difficulty) or "black"
-    for s in (difficulty, rating):
-        if not s:
-            continue
-        sub = soup.new_tag("div", attrs={"class": "rating-item"})
-        sub.string = str(s)
-        sub["style"] = f"color: {color};"
-        div.append(sub)
-    return str(soup)
+        title = "难度分" if is_cn_problem_page else "Rating"
+        images.append(
+            f'<img src="https://img.shields.io/badge/{title}-{rating}-4051B5?style=flat-square">'
+        )
+    # 将 images 放到 <p> 标签中
+    images_html = '<p>' + " ".join(images) + "</p>"
+    heading_pattern = re.compile(r"(^# .+?$)", re.MULTILINE)
+    match = heading_pattern.search(markdown)
+    if match:
+        insert_position = match.end()
+        markdown = (
+            markdown[:insert_position]
+            + "\n\n"
+            + images_html
+            + "\n\n"
+            + markdown[insert_position:]
+        )
+
+    return markdown
