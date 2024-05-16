@@ -38,8 +38,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2052.%20%E4%BA%8C%
 
 **示例 2：**
 
-> 输入：`root = [4,2,7,1,null,5,null,null,null,null,6]`
-> `ops = [[0,2,2],[1,1,5],[0,4,5],[1,5,7]]`
+> 输入：`root = [4,2,7,1,null,5,null,null,null,null,6]` > `ops = [[0,2,2],[1,1,5],[0,4,5],[1,5,7]]`
 >
 > 输出：`5`
 >
