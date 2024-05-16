@@ -9,6 +9,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [2307. Check for Contradictions in Equations 🔒](https://leetcode.com/problems/check-for-contradictions-in-equations)
 
 [中文文档](/solution/2300-2399/2307.Check%20for%20Contradictions%20in%20Equations/README.md)
@@ -63,6 +65,8 @@ Since the third equation is code / et = 0.5, we get a contradiction.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Weighted Union-Find
 
@@ -294,4 +298,6 @@ function checkContradictions(equations: string[][], values: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

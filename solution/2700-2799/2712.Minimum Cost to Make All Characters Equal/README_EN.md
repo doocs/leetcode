@@ -10,6 +10,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2712. Minimum Cost to Make All Characters Equal](https://leetcode.com/problems/minimum-cost-to-make-all-characters-equal)
 
 [中文文档](/solution/2700-2799/2712.Minimum%20Cost%20to%20Make%20All%20Characters%20Equal/README.md)
@@ -58,6 +60,8 @@ The total cost to make all characters equal is 9. It can be shown that 9 is the 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -131,4 +135,6 @@ function minimumCost(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

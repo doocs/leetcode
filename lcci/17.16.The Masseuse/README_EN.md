@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.16.The%20Masseuse/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [17.16. The Masseuse](https://leetcode.cn/problems/the-masseuse-lcci)
 
 [中文文档](/lcci/17.16.The%20Masseuse/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A popular masseuse receives a sequence of back-to-back appointment requests and is debating which ones to accept. She needs a break between appointments and therefore she cannot accept any adjacent requests. Given a sequence of back-to-back appoint&shy; ment requests, find the optimal (highest total booked minutes) set the masseuse can honor. Return the number of minutes.</p>
 
@@ -52,7 +56,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.16.The%20Masseuse/
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -142,4 +150,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

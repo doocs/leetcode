@@ -9,13 +9,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [2739. 总行驶距离](https://leetcode.cn/problems/total-distance-traveled)
 
 [English Version](/solution/2700-2799/2739.Total%20Distance%20Traveled/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>卡车有两个油箱。给你两个整数，<code>mainTank</code> 表示主油箱中的燃料（以升为单位），<code>additionalTank</code> 表示副油箱中的燃料（以升为单位）。</p>
 
@@ -54,7 +56,11 @@ tags:
 	<li><code>1 &lt;= mainTank, additionalTank &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -172,4 +178,6 @@ var distanceTraveled = function (mainTank, additionalTank) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

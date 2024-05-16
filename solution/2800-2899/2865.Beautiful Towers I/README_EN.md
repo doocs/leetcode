@@ -10,6 +10,8 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [2865. Beautiful Towers I](https://leetcode.com/problems/beautiful-towers-i)
 
 [中文文档](/solution/2800-2899/2865.Beautiful%20Towers%20I/README.md)
@@ -66,6 +68,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -184,6 +188,10 @@ function maximumSumOfHeights(maxHeights: number[]): number {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Dynamic Programming + Monotonic Stack
 
@@ -480,4 +488,6 @@ function maximumSumOfHeights(maxHeights: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

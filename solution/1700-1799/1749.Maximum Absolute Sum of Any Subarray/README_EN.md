@@ -9,6 +9,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1749. Maximum Absolute Sum of Any Subarray](https://leetcode.com/problems/maximum-absolute-sum-of-any-subarray)
 
 [中文文档](/solution/1700-1799/1749.Maximum%20Absolute%20Sum%20of%20Any%20Subarray/README.md)
@@ -52,6 +54,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -166,4 +170,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

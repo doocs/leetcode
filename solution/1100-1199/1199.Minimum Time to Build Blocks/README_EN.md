@@ -11,6 +11,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1199. Minimum Time to Build Blocks 🔒](https://leetcode.com/problems/minimum-time-to-build-blocks)
 
 [中文文档](/solution/1100-1199/1199.Minimum%20Time%20to%20Build%20Blocks/README.md)
@@ -64,6 +66,8 @@ The cost is 1 + max(3, 1 + max(1, 2)) = 4.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Priority Queue (Min Heap)
 
@@ -187,4 +191,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

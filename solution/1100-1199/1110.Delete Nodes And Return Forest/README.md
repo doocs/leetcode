@@ -12,13 +12,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [1110. 删点成林](https://leetcode.cn/problems/delete-nodes-and-return-forest)
 
 [English Version](/solution/1100-1199/1110.Delete%20Nodes%20And%20Return%20Forest/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给出二叉树的根节点&nbsp;<code>root</code>，树上每个节点都有一个不同的值。</p>
 
@@ -55,7 +57,11 @@ tags:
 	<li><code>to_delete</code> 包含一些从&nbsp;<code>1</code> 到&nbsp;<code>1000</code>、各不相同的值。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -284,4 +290,6 @@ function delNodes(root: TreeNode | null, to_delete: number[]): Array<TreeNode | 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

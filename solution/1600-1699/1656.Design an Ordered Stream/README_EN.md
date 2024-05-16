@@ -11,6 +11,8 @@ tags:
     - Data Stream
 ---
 
+<!-- problem:start -->
+
 # [1656. Design an Ordered Stream](https://leetcode.com/problems/design-an-ordered-stream)
 
 [中文文档](/solution/1600-1699/1656.Design%20an%20Ordered%20Stream/README.md)
@@ -66,6 +68,8 @@ os.insert(4, &quot;ddddd&quot;); // Inserts (4, &quot;ddddd&quot;), returns [&qu
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -236,4 +240,6 @@ impl OrderedStream {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

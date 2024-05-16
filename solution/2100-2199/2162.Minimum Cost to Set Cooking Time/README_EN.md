@@ -9,6 +9,8 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [2162. Minimum Cost to Set Cooking Time](https://leetcode.com/problems/minimum-cost-to-set-cooking-time)
 
 [中文文档](/solution/2100-2199/2162.Minimum%20Cost%20to%20Set%20Cooking%20Time/README.md)
@@ -77,6 +79,8 @@ Note other possible ways are 0076, 076, 0116, and 116, but none of them produces
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -191,4 +195,6 @@ func minCostSetTime(startAt int, moveCost int, pushCost int, targetSeconds int) 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

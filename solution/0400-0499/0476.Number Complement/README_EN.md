@@ -6,6 +6,8 @@ tags:
     - Bit Manipulation
 ---
 
+<!-- problem:start -->
+
 # [476. Number Complement](https://leetcode.com/problems/number-complement)
 
 [中文文档](/solution/0400-0499/0476.Number%20Complement/README.md)
@@ -48,6 +50,8 @@ tags:
 <p><strong>Note:</strong> This question is the same as 1009: <a href="https://leetcode.com/problems/complement-of-base-10-integer/" target="_blank">https://leetcode.com/problems/complement-of-base-10-integer/</a></p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
 
@@ -100,4 +104,6 @@ function findComplement(num: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,6 +7,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [516. Longest Palindromic Subsequence](https://leetcode.com/problems/longest-palindromic-subsequence)
 
 [中文文档](/solution/0500-0599/0516.Longest%20Palindromic%20Subsequence/README.md)
@@ -43,6 +45,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -163,4 +167,6 @@ function longestPalindromeSubseq(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

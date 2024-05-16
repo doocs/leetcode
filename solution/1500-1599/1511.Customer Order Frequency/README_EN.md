@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1511. Customer Order Frequency 🔒](https://leetcode.com/problems/customer-order-frequency)
 
 [中文文档](/solution/1500-1599/1511.Customer%20Order%20Frequency/README.md)
@@ -120,6 +122,8 @@ Moustafa spent $110 (10 * 2 + 45 * 2) in June and $0 in July 2020.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Join + Group By + Having
 
 We can use the `JOIN` statement to join the `Orders` table and the `Product` table, and then join the result with the `Customers` table. We can filter out the records where the `order_date` is not in the year $2020$, and then use the `GROUP BY` statement to group the data by `customer_id`. Finally, we can use the `HAVING` statement to filter out the customers whose spending in June and July is greater than or equal to $100$.
@@ -142,4 +146,6 @@ HAVING
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

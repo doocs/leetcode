@@ -10,6 +10,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [2088. Count Fertile Pyramids in a Land](https://leetcode.com/problems/count-fertile-pyramids-in-a-land)
 
 [中文文档](/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/README.md)
@@ -78,6 +80,8 @@ The total number of plots is 7 + 6 = 13.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -216,4 +220,6 @@ func countPyramids(grid [][]int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

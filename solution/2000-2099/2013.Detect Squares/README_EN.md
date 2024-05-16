@@ -11,6 +11,8 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [2013. Detect Squares](https://leetcode.com/problems/detect-squares)
 
 [中文文档](/solution/2000-2099/2013.Detect%20Squares/README.md)
@@ -69,6 +71,8 @@ detectSquares.count([11, 10]); // return 2. You can choose:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -233,4 +237,6 @@ func (this *DetectSquares) Count(point []int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

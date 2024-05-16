@@ -11,6 +11,8 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [1434. Number of Ways to Wear Different Hats to Each Other](https://leetcode.com/problems/number-of-ways-to-wear-different-hats-to-each-other)
 
 [中文文档](/solution/1400-1499/1434.Number%20of%20Ways%20to%20Wear%20Different%20Hats%20to%20Each%20Other/README.md)
@@ -65,6 +67,8 @@ Number of Permutations of (1,2,3,4) = 24.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -240,4 +244,6 @@ function numberWays(hats: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

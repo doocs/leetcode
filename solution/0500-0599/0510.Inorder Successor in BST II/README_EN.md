@@ -8,6 +8,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [510. Inorder Successor in BST II 🔒](https://leetcode.com/problems/inorder-successor-in-bst-ii)
 
 [中文文档](/solution/0500-0599/0510.Inorder%20Successor%20in%20BST%20II/README.md)
@@ -59,6 +61,8 @@ class Node {
 <p><strong>Follow up:</strong> Could you solve it without looking up any of the node&#39;s values?</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Case Discussion
 
@@ -241,4 +245,6 @@ var inorderSuccessor = function (node) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

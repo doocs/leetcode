@@ -8,6 +8,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [506. Relative Ranks](https://leetcode.com/problems/relative-ranks)
 
 [中文文档](/solution/0500-0599/0506.Relative%20Ranks/README.md)
@@ -55,6 +57,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -136,4 +140,6 @@ func findRelativeRanks(score []int) []string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

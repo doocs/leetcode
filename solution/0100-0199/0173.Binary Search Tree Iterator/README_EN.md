@@ -11,6 +11,8 @@ tags:
     - Iterator
 ---
 
+<!-- problem:start -->
+
 # [173. Binary Search Tree Iterator](https://leetcode.com/problems/binary-search-tree-iterator)
 
 [中文文档](/solution/0100-0199/0173.Binary%20Search%20Tree%20Iterator/README.md)
@@ -70,6 +72,8 @@ bSTIterator.hasNext(); // return False
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -412,6 +416,10 @@ BSTIterator.prototype.hasNext = function () {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -662,4 +670,6 @@ impl BSTIterator {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

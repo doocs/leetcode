@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1468. Calculate Salaries 🔒](https://leetcode.com/problems/calculate-salaries)
 
 [中文文档](/solution/1400-1499/1468.Calculate%20Salaries/README.md)
@@ -88,6 +90,8 @@ For example, Salary for Morninngcat (3, 15) after taxes = 7777 - 7777 * (24 / 10
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -118,4 +122,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

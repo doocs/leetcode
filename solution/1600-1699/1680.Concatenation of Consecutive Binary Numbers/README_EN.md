@@ -10,6 +10,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1680. Concatenation of Consecutive Binary Numbers](https://leetcode.com/problems/concatenation-of-consecutive-binary-numbers)
 
 [中文文档](/solution/1600-1699/1680.Concatenation%20of%20Consecutive%20Binary%20Numbers/README.md)
@@ -54,6 +56,8 @@ After modulo 10<sup>9</sup> + 7, the result is 505379714.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
 
@@ -127,6 +131,10 @@ function concatenatedBinary(n: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -194,4 +202,6 @@ func concatenatedBinary(n int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

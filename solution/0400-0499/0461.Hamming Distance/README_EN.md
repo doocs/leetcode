@@ -6,6 +6,8 @@ tags:
     - Bit Manipulation
 ---
 
+<!-- problem:start -->
+
 # [461. Hamming Distance](https://leetcode.com/problems/hamming-distance)
 
 [中文文档](/solution/0400-0499/0461.Hamming%20Distance/README.md)
@@ -44,6 +46,8 @@ The above arrows point to positions where the corresponding bits are different.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -109,4 +113,6 @@ var hammingDistance = function (x, y) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

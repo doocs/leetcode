@@ -10,6 +10,8 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [456. 132 Pattern](https://leetcode.com/problems/132-pattern)
 
 [中文文档](/solution/0400-0499/0456.132%20Pattern/README.md)
@@ -55,6 +57,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -170,6 +174,10 @@ impl Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -459,4 +467,6 @@ function search(nums: number[], x: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

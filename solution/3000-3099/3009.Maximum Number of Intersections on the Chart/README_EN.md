@@ -9,6 +9,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [3009. Maximum Number of Intersections on the Chart 🔒](https://leetcode.com/problems/maximum-number-of-intersections-on-the-chart)
 
 [中文文档](/solution/3000-3099/3009.Maximum%20Number%20of%20Intersections%20on%20the%20Chart/README.md)
@@ -48,6 +50,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -92,4 +96,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

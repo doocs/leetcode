@@ -11,6 +11,8 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [2338. Count the Number of Ideal Arrays](https://leetcode.com/problems/count-the-number-of-ideal-arrays)
 
 [中文文档](/solution/2300-2399/2338.Count%20the%20Number%20of%20Ideal%20Arrays/README.md)
@@ -67,6 +69,8 @@ There are a total of 9 + 1 + 1 = 11 distinct ideal arrays.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -221,6 +225,10 @@ func idealArrays(n int, maxValue int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -353,4 +361,6 @@ func idealArrays(n int, maxValue int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

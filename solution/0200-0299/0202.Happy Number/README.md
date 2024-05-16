@@ -8,13 +8,15 @@ tags:
     - 双指针
 ---
 
+<!-- problem:start -->
+
 # [202. 快乐数](https://leetcode.cn/problems/happy-number)
 
 [English Version](/solution/0200-0299/0202.Happy%20Number/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>编写一个算法来判断一个数 <code>n</code> 是不是快乐数。</p>
 
@@ -57,7 +59,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 模拟
 
@@ -205,6 +211,10 @@ bool isHappy(int n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：快慢指针
 
 与判断链表是否存在环原理一致。如果 $n$ 是快乐数，那么快指针最终会与慢指针相遇，且相遇时的数字为 $1$；否则，快指针最终会与慢指针相遇，且相遇时的数字不为 $1$。
@@ -335,4 +345,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

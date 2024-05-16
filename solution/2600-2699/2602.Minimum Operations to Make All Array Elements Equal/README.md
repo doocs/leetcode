@@ -11,13 +11,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [2602. 使数组元素全部相等的最少操作次数](https://leetcode.cn/problems/minimum-operations-to-make-all-array-elements-equal)
 
 [English Version](/solution/2600-2699/2602.Minimum%20Operations%20to%20Make%20All%20Array%20Elements%20Equal/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个正整数数组&nbsp;<code>nums</code>&nbsp;。</p>
 
@@ -68,7 +70,11 @@ tags:
 	<li><code>1 &lt;= nums[i], queries[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 前缀和 + 二分查找
 
@@ -213,4 +219,6 @@ function minOperations(nums: number[], queries: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

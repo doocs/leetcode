@@ -9,6 +9,8 @@ tags:
     - Ordered Set
 ---
 
+<!-- problem:start -->
+
 # [2254. Design Video Sharing Platform 🔒](https://leetcode.com/problems/design-video-sharing-platform)
 
 [中文文档](/solution/2200-2299/2254.Design%20Video%20Sharing%20Platform/README.md)
@@ -96,4 +98,30 @@ videoSharingPlatform.getViews(0);            // There is no video associated wit
 
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+```python
+
+```
+
+```java
+
+```
+
+```cpp
+
+```
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

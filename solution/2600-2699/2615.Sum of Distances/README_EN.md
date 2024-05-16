@@ -10,6 +10,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2615. Sum of Distances](https://leetcode.com/problems/sum-of-distances)
 
 [中文文档](/solution/2600-2699/2615.Sum%20of%20Distances/README.md)
@@ -52,6 +54,8 @@ When i = 4, arr[4] = 0 because there is no other index with value 2.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -161,4 +165,6 @@ func distance(nums []int) []int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

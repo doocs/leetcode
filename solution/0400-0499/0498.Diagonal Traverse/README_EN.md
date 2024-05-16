@@ -8,6 +8,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [498. Diagonal Traverse](https://leetcode.com/problems/diagonal-traverse)
 
 [中文文档](/solution/0400-0499/0498.Diagonal%20Traverse/README.md)
@@ -43,6 +45,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -220,4 +224,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

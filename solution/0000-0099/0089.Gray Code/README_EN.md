@@ -8,6 +8,8 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [89. Gray Code](https://leetcode.com/problems/gray-code)
 
 [中文文档](/solution/0000-0099/0089.Gray%20Code/README.md)
@@ -60,6 +62,8 @@ The binary representation of [0,1,3,2] is [00,01,11,10].
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary to Gray Code Conversion
 
@@ -139,4 +143,6 @@ var grayCode = function (n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

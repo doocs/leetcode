@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2268. Minimum Number of Keypresses 🔒](https://leetcode.com/problems/minimum-number-of-keypresses)
 
 [中文文档](/solution/2200-2299/2268.Minimum%20Number%20of%20Keypresses/README.md)
@@ -67,6 +69,8 @@ A total of 15 button presses are needed, so return 15.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -143,4 +147,6 @@ func minimumKeypresses(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

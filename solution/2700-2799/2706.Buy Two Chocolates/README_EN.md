@@ -9,6 +9,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2706. Buy Two Chocolates](https://leetcode.com/problems/buy-two-chocolates)
 
 [中文文档](/solution/2700-2799/2706.Buy%20Two%20Chocolates/README.md)
@@ -48,6 +50,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting
 
@@ -119,6 +123,10 @@ impl Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: One-pass Traversal
 
@@ -237,4 +245,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

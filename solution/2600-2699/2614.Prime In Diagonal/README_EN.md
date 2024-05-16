@@ -11,6 +11,8 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [2614. Prime In Diagonal](https://leetcode.com/problems/prime-in-diagonal)
 
 [中文文档](/solution/2600-2699/2614.Prime%20In%20Diagonal/README.md)
@@ -59,6 +61,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Math + Simulation
 
@@ -213,4 +217,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

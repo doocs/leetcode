@@ -9,6 +9,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [2383. Minimum Hours of Training to Win a Competition](https://leetcode.com/problems/minimum-hours-of-training-to-win-a-competition)
 
 [中文文档](/solution/2300-2399/2383.Minimum%20Hours%20of%20Training%20to%20Win%20a%20Competition/README.md)
@@ -65,6 +67,8 @@ It can be proven that no smaller answer exists.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -235,6 +239,10 @@ int minNumberOfHours(int initialEnergy, int initialExperience, int* energy, int 
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -344,6 +352,10 @@ function minNumberOfHours(
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
@@ -370,4 +382,6 @@ function minNumberOfHours(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

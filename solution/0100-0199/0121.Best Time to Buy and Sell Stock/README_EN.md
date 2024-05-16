@@ -7,6 +7,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [121. Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock)
 
 [中文文档](/solution/0100-0199/0121.Best%20Time%20to%20Buy%20and%20Sell%20Stock/README.md)
@@ -46,6 +48,8 @@ Note that buying on day 2 and selling on day 1 is not allowed because you must b
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumerate + Maintain the Minimum Value of the Prefix
 
@@ -183,4 +187,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

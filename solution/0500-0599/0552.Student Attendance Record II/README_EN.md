@@ -6,6 +6,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [552. Student Attendance Record II](https://leetcode.com/problems/student-attendance-record-ii)
 
 [中文文档](/solution/0500-0599/0552.Student%20Attendance%20Record%20II/README.md)
@@ -62,6 +64,8 @@ Only &quot;AA&quot; is not eligible because there are 2 absences (there need to 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -189,6 +193,10 @@ func checkRecord(n int) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -338,4 +346,6 @@ func checkRecord(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

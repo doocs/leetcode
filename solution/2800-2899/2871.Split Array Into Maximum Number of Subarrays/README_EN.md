@@ -10,6 +10,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [2871. Split Array Into Maximum Number of Subarrays](https://leetcode.com/problems/split-array-into-maximum-number-of-subarrays)
 
 [中文文档](/solution/2800-2899/2871.Split%20Array%20Into%20Maximum%20Number%20of%20Subarrays/README.md)
@@ -63,6 +65,8 @@ It can be shown that we cannot split the array into more than 1 subarray with a 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Bitwise Operation
 
@@ -151,4 +155,6 @@ function maxSubarrays(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

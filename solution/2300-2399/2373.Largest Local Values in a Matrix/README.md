@@ -9,13 +9,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [2373. 矩阵中的局部最大值](https://leetcode.cn/problems/largest-local-values-in-a-matrix)
 
 [English Version](/solution/2300-2399/2373.Largest%20Local%20Values%20in%20a%20Matrix/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个大小为 <code>n x n</code> 的整数矩阵 <code>grid</code> 。</p>
 
@@ -61,7 +63,11 @@ tags:
 	<li><code>1 &lt;= grid[i][j] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -162,4 +168,6 @@ function largestLocal(grid: number[][]): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

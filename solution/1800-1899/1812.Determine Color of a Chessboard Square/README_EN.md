@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1812. Determine Color of a Chessboard Square](https://leetcode.com/problems/determine-color-of-a-chessboard-square)
 
 [中文文档](/solution/1800-1899/1812.Determine%20Color%20of%20a%20Chessboard%20Square/README.md)
@@ -57,6 +59,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Find the Pattern
 
@@ -132,4 +136,6 @@ bool squareIsWhite(char* coordinates) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

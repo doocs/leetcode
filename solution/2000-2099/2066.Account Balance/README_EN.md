@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2066. Account Balance 🔒](https://leetcode.com/problems/account-balance)
 
 [中文文档](/solution/2000-2099/2066.Account%20Balance/README.md)
@@ -75,6 +77,8 @@ Account 2:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -94,4 +98,6 @@ ORDER BY 1, 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,6 +4,8 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2722.Join%20Two%20Arrays%20by%20ID/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2722. Join Two Arrays by ID](https://leetcode.com/problems/join-two-arrays-by-id)
 
 [中文文档](/solution/2700-2799/2722.Join%20Two%20Arrays%20by%20ID/README.md)
@@ -92,6 +94,8 @@ arr2 = [
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -112,4 +116,6 @@ function join(arr1: any[], arr2: any[]): any[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

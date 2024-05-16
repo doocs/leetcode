@@ -9,6 +9,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [1486. XOR Operation in an Array](https://leetcode.com/problems/xor-operation-in-an-array)
 
 [中文文档](/solution/1400-1499/1486.XOR%20Operation%20in%20an%20Array/README.md)
@@ -49,6 +51,8 @@ Where &quot;^&quot; corresponds to bitwise XOR operator.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -110,4 +114,6 @@ function xorOperation(n: number, start: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

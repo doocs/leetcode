@@ -8,13 +8,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [500. 键盘行](https://leetcode.cn/problems/keyboard-row)
 
 [English Version](/solution/0500-0599/0500.Keyboard%20Row/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串数组 <code>words</code> ，只返回可以使用在 <strong>美式键盘</strong> 同一行的字母打印出来的单词。键盘如下图所示。</p>
 
@@ -61,7 +63,11 @@ tags:
 	<li><code>words[i]</code> 由英文字母（小写和大写字母）组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：字符映射
 
@@ -200,6 +206,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -218,4 +228,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,13 +6,15 @@ tags:
     - 多线程
 ---
 
+<!-- problem:start -->
+
 # [1188. 设计有限阻塞队列 🔒](https://leetcode.cn/problems/design-bounded-blocking-queue)
 
 [English Version](/solution/1100-1199/1188.Design%20Bounded%20Blocking%20Queue/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>实现一个拥有如下方法的线程安全有限阻塞队列：</p>
 
@@ -102,7 +104,11 @@ queue.size();       // 队列中还有 1 个元素。
 	<li>&nbsp;<code>enque</code>,&nbsp;<code>deque</code> 和&nbsp;<code>size</code>&nbsp;最多被调用&nbsp;<code>40</code>&nbsp;次</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -199,4 +205,6 @@ private:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

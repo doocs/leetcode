@@ -8,6 +8,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [804. Unique Morse Code Words](https://leetcode.com/problems/unique-morse-code-words)
 
 [中文文档](/solution/0800-0899/0804.Unique%20Morse%20Code%20Words/README.md)
@@ -66,6 +68,8 @@ There are 2 different transformations: &quot;--...-.&quot; and &quot;--...--.&qu
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -248,4 +252,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

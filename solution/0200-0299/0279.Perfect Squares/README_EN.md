@@ -8,6 +8,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [279. Perfect Squares](https://leetcode.com/problems/perfect-squares)
 
 [中文文档](/solution/0200-0299/0279.Perfect%20Squares/README.md)
@@ -43,6 +45,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -169,6 +173,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -268,4 +276,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

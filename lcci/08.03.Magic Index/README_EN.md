@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.03.Magic%20Index/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [08.03. Magic Index](https://leetcode.cn/problems/magic-index-lcci)
 
 [中文文档](/lcci/08.03.Magic%20Index/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A magic index in an array <code>A[0...n-1]</code> is defined to be an index such that <code>A[i] = i</code>. Given a sorted array of distinct integers, write a method to find a magic index, if one exists, in array A. If not, return -1. If there are more than one magic index, return the smallest one.</p>
 
@@ -38,7 +42,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.03.Magic%20Index/R
 	<li><code>1 &lt;= nums.length &lt;= 1000000</code></li>
 </ol>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -230,4 +238,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

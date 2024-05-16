@@ -4,13 +4,16 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.01.Three%20in%20One/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 03.01. 三合一](https://leetcode.cn/problems/three-in-one-lcci)
 
 [English Version](/lcci/03.01.Three%20in%20One/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>三合一。描述如何只用一个数组来实现三个栈。</p>
 
 <p>你应该实现<code>push(stackNum, value)</code>、<code>pop(stackNum)</code>、<code>isEmpty(stackNum)</code>、<code>peek(stackNum)</code>方法。<code>stackNum</code>表示栈下标，<code>value</code>表示压入的值。</p>
@@ -36,7 +39,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.01.Three%20in%20On
 [null, null, null, null, 2, 1, -1, -1]
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数组模拟
 
@@ -321,4 +328,6 @@ class TripleInOne {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

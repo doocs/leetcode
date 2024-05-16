@@ -8,13 +8,15 @@ tags:
     - 回溯
 ---
 
+<!-- problem:start -->
+
 # [1240. 铺瓷砖](https://leetcode.cn/problems/tiling-a-rectangle-with-the-fewest-squares)
 
 [English Version](/solution/1200-1299/1240.Tiling%20a%20Rectangle%20with%20the%20Fewest%20Squares/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你是一位施工队的工长，根据设计师的要求准备为一套设计风格独特的房子进行室内装修。</p>
 
@@ -61,7 +63,11 @@ tags:
 	<li><code>1 &lt;= m&nbsp;&lt;=&nbsp;13</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归回溯 + 状态压缩
 
@@ -335,6 +341,10 @@ function tilingRectangle(n: number, m: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -607,4 +617,6 @@ function tilingRectangle(n: number, m: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

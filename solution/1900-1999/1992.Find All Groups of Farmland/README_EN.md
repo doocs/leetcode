@@ -11,6 +11,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1992. Find All Groups of Farmland](https://leetcode.com/problems/find-all-groups-of-farmland)
 
 [中文文档](/solution/1900-1999/1992.Find%20All%20Groups%20of%20Farmland/README.md)
@@ -66,6 +68,8 @@ There are no groups of farmland.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -166,4 +170,6 @@ func findFarmland(land [][]int) [][]int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

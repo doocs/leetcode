@@ -8,6 +8,8 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [3. Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters)
 
 [中文文档](/solution/0000-0099/0003.Longest%20Substring%20Without%20Repeating%20Characters/README.md)
@@ -51,6 +53,8 @@ Notice that the answer must be a substring, &quot;pwke&quot; is a subsequence an
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two pointers + Hash Table
 
@@ -280,4 +284,6 @@ proc lengthOfLongestSubstring(s: string): int =
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

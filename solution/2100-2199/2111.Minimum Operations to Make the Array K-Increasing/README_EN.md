@@ -9,6 +9,8 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [2111. Minimum Operations to Make the Array K-Increasing](https://leetcode.com/problems/minimum-operations-to-make-the-array-k-increasing)
 
 [中文文档](/solution/2100-2199/2111.Minimum%20Operations%20to%20Make%20the%20Array%20K-Increasing/README.md)
@@ -81,6 +83,8 @@ Note that there can be other ways to make the array K-increasing, but none of th
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -215,4 +219,6 @@ func kIncreasing(arr []int, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

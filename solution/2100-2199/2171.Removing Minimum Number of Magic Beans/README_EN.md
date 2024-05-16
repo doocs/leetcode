@@ -12,6 +12,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2171. Removing Minimum Number of Magic Beans](https://leetcode.com/problems/removing-minimum-number-of-magic-beans)
 
 [中文文档](/solution/2100-2199/2171.Removing%20Minimum%20Number%20of%20Magic%20Beans/README.md)
@@ -66,6 +68,8 @@ There are no other solutions that removes 7 beans or fewer.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Enumeration
 
@@ -148,4 +152,6 @@ function minimumRemoval(beans: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

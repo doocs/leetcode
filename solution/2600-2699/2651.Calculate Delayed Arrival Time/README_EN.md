@@ -8,6 +8,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [2651. Calculate Delayed Arrival Time](https://leetcode.com/problems/calculate-delayed-arrival-time)
 
 [中文文档](/solution/2600-2699/2651.Calculate%20Delayed%20Arrival%20Time/README.md)
@@ -46,6 +48,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -96,4 +100,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

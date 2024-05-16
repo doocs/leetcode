@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1241. Number of Comments per Post 🔒](https://leetcode.com/problems/number-of-comments-per-post)
 
 [中文文档](/solution/1200-1299/1241.Number%20of%20Comments%20per%20Post/README.md)
@@ -77,6 +79,8 @@ The comment with id 6 is a comment on a deleted post with id 7 so we ignored it.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -99,4 +103,6 @@ ORDER BY post_id;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

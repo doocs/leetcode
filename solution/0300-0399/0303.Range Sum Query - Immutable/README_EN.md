@@ -8,6 +8,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [303. Range Sum Query - Immutable](https://leetcode.com/problems/range-sum-query-immutable)
 
 [中文文档](/solution/0300-0399/0303.Range%20Sum%20Query%20-%20Immutable/README.md)
@@ -55,6 +57,8 @@ numArray.sumRange(0, 5); // return (-2) + 0 + 3 + (-5) + 2 + (-1) = -3
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum
 
@@ -299,4 +303,6 @@ void numArrayFree(NumArray* obj) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

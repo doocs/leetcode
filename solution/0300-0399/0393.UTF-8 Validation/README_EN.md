@@ -7,6 +7,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [393. UTF-8 Validation](https://leetcode.com/problems/utf-8-validation)
 
 [中文文档](/solution/0300-0399/0393.UTF-8%20Validation/README.md)
@@ -68,6 +70,8 @@ But the second continuation byte does not start with 10, so it is invalid.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -174,4 +178,6 @@ func validUtf8(data []int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

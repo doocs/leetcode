@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2292. Products With Three or More Orders in Two Consecutive Years 🔒](https://leetcode.com/problems/products-with-three-or-more-orders-in-two-consecutive-years)
 
 [中文文档](/solution/2200-2299/2292.Products%20With%20Three%20or%20More%20Orders%20in%20Two%20Consecutive%20Years/README.md)
@@ -65,6 +67,8 @@ Product 2 was ordered one time in 2022. We do not include it in the answer.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -85,6 +89,10 @@ WHERE p1.mark AND p2.mark;
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -107,4 +115,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

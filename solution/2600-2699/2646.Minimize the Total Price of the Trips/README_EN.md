@@ -12,6 +12,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2646. Minimize the Total Price of the Trips](https://leetcode.com/problems/minimize-the-total-price-of-the-trips)
 
 [中文文档](/solution/2600-2699/2646.Minimize%20the%20Total%20Price%20of%20the%20Trips/README.md)
@@ -70,6 +72,8 @@ The total price sum of all trips is 1. It can be proven, that 1 is the minimum a
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -334,4 +338,6 @@ function minimumTotalPrice(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

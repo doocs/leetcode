@@ -11,6 +11,8 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [2334. Subarray With Elements Greater Than Varying Threshold](https://leetcode.com/problems/subarray-with-elements-greater-than-varying-threshold)
 
 [中文文档](/solution/2300-2399/2334.Subarray%20With%20Elements%20Greater%20Than%20Varying%20Threshold/README.md)
@@ -54,6 +56,8 @@ Therefore, 2, 3, 4, or 5 may also be returned.</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -237,6 +241,10 @@ func validSubarraySize(nums []int, threshold int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -383,4 +391,6 @@ func validSubarraySize(nums []int, threshold int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

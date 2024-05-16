@@ -7,6 +7,8 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [69. Sqrt(x)](https://leetcode.com/problems/sqrtx)
 
 [中文文档](/solution/0000-0099/0069.Sqrt%28x%29/README.md)
@@ -46,6 +48,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -172,4 +176,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

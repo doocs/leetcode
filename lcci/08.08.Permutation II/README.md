@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.08.Permutation%20II/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 08.08. 有重复字符串的排列组合](https://leetcode.cn/problems/permutation-ii-lcci)
 
 [English Version](/lcci/08.08.Permutation%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有重复字符串的排列组合。编写一种方法，计算某字符串的所有排列组合。</p>
 <p><strong>示例1:</strong></p>
@@ -27,7 +29,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.08.Permutation%20I
 	<li>字符串长度在[1, 9]之间。</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 回溯
 
@@ -263,4 +269,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

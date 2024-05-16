@@ -8,6 +8,8 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [1634. Add Two Polynomials Represented as Linked Lists 🔒](https://leetcode.com/problems/add-two-polynomials-represented-as-linked-lists)
 
 [中文文档](/solution/1600-1699/1634.Add%20Two%20Polynomials%20Represented%20as%20Linked%20Lists/README.md)
@@ -99,6 +101,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -323,4 +327,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,6 +9,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [2373. Largest Local Values in a Matrix](https://leetcode.com/problems/largest-local-values-in-a-matrix)
 
 [中文文档](/solution/2300-2399/2373.Largest%20Local%20Values%20in%20a%20Matrix/README.md)
@@ -54,6 +56,8 @@ Notice that each value in the generated matrix corresponds to the largest value 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -150,4 +154,6 @@ function largestLocal(grid: number[][]): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

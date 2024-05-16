@@ -12,6 +12,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2034. Stock Price Fluctuation](https://leetcode.com/problems/stock-price-fluctuation)
 
 [中文文档](/solution/2000-2099/2034.Stock%20Price%20Fluctuation/README.md)
@@ -74,6 +76,8 @@ stockPrice.minimum();     // return 2, the minimum price is 2 at timestamp 4.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Ordered Set
 
@@ -276,4 +280,6 @@ func (this *StockPrice) Minimum() int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,6 +10,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [2241. Design an ATM Machine](https://leetcode.com/problems/design-an-atm-machine)
 
 [中文文档](/solution/2200-2299/2241.Design%20an%20ATM%20Machine/README.md)
@@ -73,6 +75,8 @@ atm.withdraw(550);        // Returns [0,1,0,0,1]. The machine uses 1 $50 banknot
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -225,4 +229,6 @@ func (this *ATM) Withdraw(amount int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

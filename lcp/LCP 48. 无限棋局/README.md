@@ -4,11 +4,13 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2048.%20%E6%97%A0%E9%99%90%E6%A3%8B%E5%B1%80/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 48. 无限棋局](https://leetcode.cn/problems/fsa7oZ)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 小力正在通过残局练习来备战「力扣挑战赛」中的「五子棋」项目，他想请你能帮他预测当前残局的输赢情况。棋盘中的棋子分布信息记录于二维数组 `pieces` 中，其中 `pieces[i] = [x,y,color]` 表示第 `i` 枚棋子的横坐标为 `x`，纵坐标为 `y`，棋子颜色为 `color`(`0` 表示黑棋，`1` 表示白棋)。假如黑棋先行，并且黑棋和白棋都按最优策略落子，请你求出当前棋局在三步（按 **黑、白、黑** 的落子顺序）之内的输赢情况（三步之内先构成同行、列或对角线连续同颜色的至少 5 颗即为获胜）：
 
@@ -49,6 +51,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2048.%20%E6%97%A0%
 -   `-10^9 <= pieces[i][0], pieces[i][1] <=10^9`
 -   `0 <= pieces[i][2] <=1`
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

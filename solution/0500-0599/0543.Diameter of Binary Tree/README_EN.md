@@ -8,6 +8,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [543. Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree)
 
 [中文文档](/solution/0500-0599/0543.Diameter%20of%20Binary%20Tree/README.md)
@@ -45,6 +47,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -270,6 +274,10 @@ int diameterOfBinaryTree(struct TreeNode* root) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -320,4 +328,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

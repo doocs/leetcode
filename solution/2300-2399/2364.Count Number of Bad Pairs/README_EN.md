@@ -9,6 +9,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [2364. Count Number of Bad Pairs](https://leetcode.com/problems/count-number-of-bad-pairs)
 
 [中文文档](/solution/2300-2399/2364.Count%20Number%20of%20Bad%20Pairs/README.md)
@@ -50,6 +52,8 @@ There are a total of 5 bad pairs, so we return 5.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Equation Transformation + Hash Table
 
@@ -134,4 +138,6 @@ function countBadPairs(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

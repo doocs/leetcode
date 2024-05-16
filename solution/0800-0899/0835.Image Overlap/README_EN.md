@@ -7,6 +7,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [835. Image Overlap](https://leetcode.com/problems/image-overlap)
 
 [中文文档](/solution/0800-0899/0835.Image%20Overlap/README.md)
@@ -59,6 +61,8 @@ The number of positions that have a 1 in both images is 3 (shown in red).
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -178,4 +182,6 @@ function largestOverlap(img1: number[][], img2: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

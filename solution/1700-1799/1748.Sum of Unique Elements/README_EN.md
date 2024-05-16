@@ -10,6 +10,8 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [1748. Sum of Unique Elements](https://leetcode.com/problems/sum-of-unique-elements)
 
 [中文文档](/solution/1700-1799/1748.Sum%20of%20Unique%20Elements/README.md)
@@ -54,6 +56,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -176,6 +180,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -270,4 +278,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,6 +10,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [95. Unique Binary Search Trees II](https://leetcode.com/problems/unique-binary-search-trees-ii)
 
 [中文文档](/solution/0000-0099/0095.Unique%20Binary%20Search%20Trees%20II/README.md)
@@ -41,6 +43,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS (Depth-First Search)
 
@@ -281,4 +285,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

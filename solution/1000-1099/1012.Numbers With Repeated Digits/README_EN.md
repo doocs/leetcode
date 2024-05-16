@@ -9,6 +9,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1012. Numbers With Repeated Digits](https://leetcode.com/problems/numbers-with-repeated-digits)
 
 [中文文档](/solution/1000-1099/1012.Numbers%20With%20Repeated%20Digits/README.md)
@@ -49,6 +51,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -259,6 +263,10 @@ function f(n: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -435,4 +443,6 @@ func f(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -12,6 +12,8 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2981. Find Longest Special Substring That Occurs Thrice I](https://leetcode.com/problems/find-longest-special-substring-that-occurs-thrice-i)
 
 [中文文档](/solution/2900-2999/2981.Find%20Longest%20Special%20Substring%20That%20Occurs%20Thrice%20I/README.md)
@@ -62,6 +64,8 @@ It can be shown that the maximum length achievable is 1.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search + Sliding Window Counting
 
@@ -247,4 +251,6 @@ function maximumLength(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

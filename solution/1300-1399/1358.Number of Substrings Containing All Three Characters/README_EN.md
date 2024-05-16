@@ -10,6 +10,8 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [1358. Number of Substrings Containing All Three Characters](https://leetcode.com/problems/number-of-substrings-containing-all-three-characters)
 
 [中文文档](/solution/1300-1399/1358.Number%20of%20Substrings%20Containing%20All%20Three%20Characters/README.md)
@@ -53,6 +55,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Single Pass
 
@@ -118,4 +122,6 @@ func numberOfSubstrings(s string) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

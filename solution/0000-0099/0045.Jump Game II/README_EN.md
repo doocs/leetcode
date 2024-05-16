@@ -8,6 +8,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [45. Jump Game II](https://leetcode.com/problems/jump-game-ii)
 
 [中文文档](/solution/0000-0099/0045.Jump%20Game%20II/README.md)
@@ -51,6 +53,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy Algorithm
 
@@ -221,4 +225,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

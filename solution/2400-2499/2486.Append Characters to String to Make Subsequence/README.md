@@ -10,13 +10,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [2486. 追加字符以获得子序列](https://leetcode.cn/problems/append-characters-to-string-to-make-subsequence)
 
 [English Version](/solution/2400-2499/2486.Append%20Characters%20to%20String%20to%20Make%20Subsequence/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个仅由小写英文字母组成的字符串 <code>s</code> 和 <code>t</code> 。</p>
 
@@ -63,7 +65,11 @@ tags:
 	<li><code>s</code> 和 <code>t</code> 仅由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -154,4 +160,6 @@ function appendCharacters(s: string, t: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

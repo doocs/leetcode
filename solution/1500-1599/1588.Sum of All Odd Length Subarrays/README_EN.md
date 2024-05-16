@@ -10,6 +10,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1588. Sum of All Odd Length Subarrays](https://leetcode.com/problems/sum-of-all-odd-length-subarrays)
 
 [中文文档](/solution/1500-1599/1588.Sum%20of%20All%20Odd%20Length%20Subarrays/README.md)
@@ -66,6 +68,8 @@ If we add all these together we get 1 + 4 + 2 + 5 + 3 + 7 + 11 + 10 + 15 = 58</p
 <p>Could you solve this problem in O(n) time complexity?</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -193,4 +197,6 @@ int sumOddLengthSubarrays(int* arr, int arrSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

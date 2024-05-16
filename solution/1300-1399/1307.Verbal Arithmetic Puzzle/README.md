@@ -11,13 +11,15 @@ tags:
     - 回溯
 ---
 
+<!-- problem:start -->
+
 # [1307. 口算难题](https://leetcode.cn/problems/verbal-arithmetic-puzzle)
 
 [English Version](/solution/1300-1399/1307.Verbal%20Arithmetic%20Puzzle/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个方程，左边用&nbsp;<code>words</code>&nbsp;表示，右边用&nbsp;<code>result</code> 表示。</p>
 
@@ -71,6 +73,34 @@ tags:
 	<li>表达式中使用的不同字符数最大为&nbsp;10</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+### 方法一
+
+<!-- tabs:start -->
+
+```python
+
+```
+
+```java
+
+```
+
+```cpp
+
+```
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

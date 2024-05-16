@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1308. Running Total for Different Genders 🔒](https://leetcode.com/problems/running-total-for-different-genders)
 
 [中文文档](/solution/1300-1399/1308.Running%20Total%20for%20Different%20Genders/README.md)
@@ -87,6 +89,8 @@ The fifth day is 2020-01-07, Bajrang scored 7 points and the total score for the
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -105,4 +109,6 @@ FROM Scores;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

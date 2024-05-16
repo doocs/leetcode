@@ -9,6 +9,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [1899. Merge Triplets to Form Target Triplet](https://leetcode.com/problems/merge-triplets-to-form-target-triplet)
 
 [中文文档](/solution/1800-1899/1899.Merge%20Triplets%20to%20Form%20Target%20Triplet/README.md)
@@ -71,6 +73,8 @@ The target triplet [5,5,5] is now an element of triplets.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -159,4 +163,6 @@ function mergeTriplets(triplets: number[][], target: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

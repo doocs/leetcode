@@ -12,6 +12,8 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [1130. Minimum Cost Tree From Leaf Values](https://leetcode.com/problems/minimum-cost-tree-from-leaf-values)
 
 [中文文档](/solution/1100-1199/1130.Minimum%20Cost%20Tree%20From%20Leaf%20Values/README.md)
@@ -57,6 +59,8 @@ The first has a non-leaf node sum 36, and the second has non-leaf node sum 32.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -240,6 +244,10 @@ function mctFromLeafValues(arr: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Dynamic Programming
 
 We can change the memoization search in Solution 1 to dynamic programming.
@@ -367,6 +375,10 @@ function mctFromLeafValues(arr: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
@@ -389,4 +401,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

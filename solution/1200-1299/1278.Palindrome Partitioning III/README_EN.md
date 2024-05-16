@@ -9,6 +9,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1278. Palindrome Partitioning III](https://leetcode.com/problems/palindrome-partitioning-iii)
 
 [中文文档](/solution/1200-1299/1278.Palindrome%20Partitioning%20III/README.md)
@@ -56,6 +58,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -184,4 +188,6 @@ func palindromePartition(s string, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

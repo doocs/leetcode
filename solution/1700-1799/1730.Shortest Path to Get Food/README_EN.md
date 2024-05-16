@@ -8,6 +8,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1730. Shortest Path to Get Food 🔒](https://leetcode.com/problems/shortest-path-to-get-food)
 
 [中文文档](/solution/1700-1799/1730.Shortest%20Path%20to%20Get%20Food/README.md)
@@ -65,6 +67,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: BFS (Breadth-First Search)
 
@@ -265,4 +269,6 @@ var getFood = function (grid) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

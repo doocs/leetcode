@@ -12,13 +12,15 @@ tags:
     - 归并排序
 ---
 
+<!-- problem:start -->
+
 # [493. 翻转对](https://leetcode.cn/problems/reverse-pairs)
 
 [English Version](/solution/0400-0499/0493.Reverse%20Pairs/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个数组&nbsp;<code>nums</code>&nbsp;，如果&nbsp;<code>i &lt; j</code>&nbsp;且&nbsp;<code>nums[i] &gt; 2*nums[j]</code>&nbsp;我们就将&nbsp;<code>(i, j)</code>&nbsp;称作一个<strong><em>重要翻转对</em></strong>。</p>
 
@@ -45,7 +47,11 @@ tags:
 	<li>输入数组中的所有数字都在32位整数的表示范围内。</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：归并排序
 
@@ -229,6 +235,10 @@ func reversePairs(nums []int) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：树状数组
 
@@ -451,6 +461,10 @@ func reversePairs(nums []int) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法三：线段树
 
@@ -693,4 +707,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

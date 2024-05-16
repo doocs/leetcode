@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [534. 游戏玩法分析 III 🔒](https://leetcode.cn/problems/game-play-analysis-iii)
 
 [English Version](/solution/0500-0599/0534.Game%20Play%20Analysis%20III/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Activity</code></p>
 
@@ -70,7 +72,11 @@ Activity table:
 请注意，对于每个玩家，我们只关心玩家的登录日期。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：使用窗口函数
 
@@ -91,6 +97,10 @@ FROM Activity;
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：使用自连接 + 分组
 
@@ -113,6 +123,10 @@ GROUP BY 1, 2;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三
 
 <!-- tabs:start -->
@@ -131,4 +145,6 @@ GROUP BY 1, 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

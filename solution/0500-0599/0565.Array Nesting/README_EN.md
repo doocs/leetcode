@@ -7,6 +7,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [565. Array Nesting](https://leetcode.com/problems/array-nesting)
 
 [中文文档](/solution/0500-0599/0565.Array%20Nesting/README.md)
@@ -54,6 +56,8 @@ s[0] = {nums[0], nums[5], nums[6], nums[2]} = {5, 6, 2, 0}
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -151,6 +155,10 @@ func arrayNesting(nums []int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -232,4 +240,6 @@ func arrayNesting(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

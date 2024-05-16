@@ -12,6 +12,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2115. Find All Possible Recipes from Given Supplies](https://leetcode.com/problems/find-all-possible-recipes-from-given-supplies)
 
 [中文文档](/solution/2100-2199/2115.Find%20All%20Possible%20Recipes%20from%20Given%20Supplies/README.md)
@@ -71,6 +73,8 @@ We can create &quot;burger&quot; since we have the ingredient &quot;meat&quot; a
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -202,4 +206,6 @@ func findAllRecipes(recipes []string, ingredients [][]string, supplies []string)
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

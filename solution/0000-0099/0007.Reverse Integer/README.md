@@ -6,13 +6,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [7. 整数反转](https://leetcode.cn/problems/reverse-integer)
 
 [English Version](/solution/0000-0099/0007.Reverse%20Integer/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 32 位的有符号整数 <code>x</code> ，返回将 <code>x</code> 中的数字部分反转后的结果。</p>
 
@@ -57,7 +59,11 @@ tags:
 	<li><code>-2<sup>31</sup> <= x <= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学
 
@@ -233,4 +239,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

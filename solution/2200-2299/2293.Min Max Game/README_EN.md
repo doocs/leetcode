@@ -9,6 +9,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2293. Min Max Game](https://leetcode.com/problems/min-max-game)
 
 [中文文档](/solution/2200-2299/2293.Min%20Max%20Game/README.md)
@@ -60,6 +62,8 @@ Third: nums = [1]
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -176,4 +180,6 @@ int minMaxGame(int* nums, int numsSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

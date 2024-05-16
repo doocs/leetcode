@@ -9,6 +9,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2473. Minimum Cost to Buy Apples 🔒](https://leetcode.com/problems/minimum-cost-to-buy-apples)
 
 [中文文档](/solution/2400-2499/2473.Minimum%20Cost%20to%20Buy%20Apples/README.md)
@@ -60,6 +62,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Heap-optimized Dijkstra's Algorithm
 
@@ -250,4 +254,6 @@ func (a *pairs) Pop() any         { l := len(*a); t := (*a)[l-1]; *a = (*a)[:l-1
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

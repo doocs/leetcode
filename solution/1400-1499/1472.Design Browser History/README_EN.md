@@ -13,6 +13,8 @@ tags:
     - Doubly-Linked List
 ---
 
+<!-- problem:start -->
+
 # [1472. Design Browser History](https://leetcode.com/problems/design-browser-history)
 
 [中文文档](/solution/1400-1499/1472.Design%20Browser%20History/README.md)
@@ -66,6 +68,8 @@ browserHistory.back(7);                   // You are in &quot;google.com&quot;, 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -225,4 +229,6 @@ func (this *BrowserHistory) Forward(steps int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

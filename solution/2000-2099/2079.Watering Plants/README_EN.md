@@ -9,6 +9,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2079. Watering Plants](https://leetcode.com/problems/watering-plants)
 
 [中文文档](/solution/2000-2099/2079.Watering%20Plants/README.md)
@@ -78,6 +80,8 @@ Steps needed = 1 + 1 + 2 + 2 + 3 + 3 + 4 + 4 + 5 + 5 + 6 + 6 + 7 = 49.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -214,4 +218,6 @@ int wateringPlants(int* plants, int plantsSize, int capacity) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

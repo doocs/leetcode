@@ -11,6 +11,8 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [1703. Minimum Adjacent Swaps for K Consecutive Ones](https://leetcode.com/problems/minimum-adjacent-swaps-for-k-consecutive-ones)
 
 [中文文档](/solution/1700-1799/1703.Minimum%20Adjacent%20Swaps%20for%20K%20Consecutive%20Ones/README.md)
@@ -56,6 +58,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Median Enumeration
 
@@ -179,4 +183,6 @@ func minMoves(nums []int, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

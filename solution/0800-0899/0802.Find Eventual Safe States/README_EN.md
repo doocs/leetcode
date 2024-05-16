@@ -9,6 +9,8 @@ tags:
     - Topological Sort
 ---
 
+<!-- problem:start -->
+
 # [802. Find Eventual Safe States](https://leetcode.com/problems/find-eventual-safe-states)
 
 [中文文档](/solution/0800-0899/0802.Find%20Eventual%20Safe%20States/README.md)
@@ -54,6 +56,8 @@ Only node 4 is a terminal node, and every path starting at node 4 leads to node 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -215,6 +219,10 @@ var eventualSafeNodes = function (graph) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -357,4 +365,6 @@ var eventualSafeNodes = function (graph) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

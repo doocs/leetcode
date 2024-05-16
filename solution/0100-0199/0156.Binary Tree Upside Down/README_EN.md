@@ -8,6 +8,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [156. Binary Tree Upside Down 🔒](https://leetcode.com/problems/binary-tree-upside-down)
 
 [中文文档](/solution/0100-0199/0156.Binary%20Tree%20Upside%20Down/README.md)
@@ -59,6 +61,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -164,4 +168,6 @@ func upsideDownBinaryTree(root *TreeNode) *TreeNode {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -11,6 +11,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [2965. Find Missing and Repeated Values](https://leetcode.com/problems/find-missing-and-repeated-values)
 
 [中文文档](/solution/2900-2999/2965.Find%20Missing%20and%20Repeated%20Values/README.md)
@@ -50,6 +52,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -170,4 +174,6 @@ function findMissingAndRepeatedValues(grid: number[][]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

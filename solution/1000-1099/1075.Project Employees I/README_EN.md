@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1075. Project Employees I](https://leetcode.com/problems/project-employees-i)
 
 [中文文档](/solution/1000-1099/1075.Project%20Employees%20I/README.md)
@@ -86,6 +88,8 @@ Employee table:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -101,4 +105,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

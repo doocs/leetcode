@@ -6,6 +6,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [521. Longest Uncommon Subsequence I](https://leetcode.com/problems/longest-uncommon-subsequence-i)
 
 [中文文档](/solution/0500-0599/0521.Longest%20Uncommon%20Subsequence%20I/README.md)
@@ -51,6 +53,8 @@ Note that &quot;cdc&quot; is also a longest uncommon subsequence.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -110,4 +114,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

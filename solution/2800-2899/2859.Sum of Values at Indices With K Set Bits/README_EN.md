@@ -9,6 +9,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [2859. Sum of Values at Indices With K Set Bits](https://leetcode.com/problems/sum-of-values-at-indices-with-k-set-bits)
 
 [中文文档](/solution/2800-2899/2859.Sum%20of%20Values%20at%20Indices%20With%20K%20Set%20Bits/README.md)
@@ -64,6 +66,8 @@ Hence, the answer is nums[3] = 1.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -144,4 +148,6 @@ function bitCount(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

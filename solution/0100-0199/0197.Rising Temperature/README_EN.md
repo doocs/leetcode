@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [197. Rising Temperature](https://leetcode.com/problems/rising-temperature)
 
 [中文文档](/solution/0100-0199/0197.Rising%20Temperature/README.md)
@@ -63,6 +65,8 @@ In 2015-01-04, the temperature was higher than the previous day (20 -&gt; 30).
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Self-Join + DATEDIFF/SUBDATE Function
 
 We can use self-join to compare each row in the `Weather` table with its previous row. If the temperature is higher and the date difference is one day, then it is the result we are looking for.
@@ -91,6 +95,10 @@ FROM
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -106,4 +114,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

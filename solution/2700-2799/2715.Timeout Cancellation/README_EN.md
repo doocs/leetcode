@@ -4,6 +4,8 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2715.Timeout%20Cancellation/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2715. Timeout Cancellation](https://leetcode.com/problems/timeout-cancellation)
 
 [中文文档](/solution/2700-2799/2715.Timeout%20Cancellation/README.md)
@@ -74,6 +76,8 @@ The cancellation was scheduled to occur after a delay of cancelTimeMs (100ms), w
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -157,4 +161,6 @@ var cancellable = function (fn, args, t) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

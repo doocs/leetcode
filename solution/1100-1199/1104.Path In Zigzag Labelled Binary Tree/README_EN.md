@@ -10,6 +10,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1104. Path In Zigzag Labelled Binary Tree](https://leetcode.com/problems/path-in-zigzag-labelled-binary-tree)
 
 [中文文档](/solution/1100-1199/1104.Path%20In%20Zigzag%20Labelled%20Binary%20Tree/README.md)
@@ -47,6 +49,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematics
 
@@ -132,4 +136,6 @@ func pathInZigZagTree(label int) (ans []int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

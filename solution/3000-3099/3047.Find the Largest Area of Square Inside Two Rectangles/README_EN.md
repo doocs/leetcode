@@ -10,6 +10,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [3047. Find the Largest Area of Square Inside Two Rectangles](https://leetcode.com/problems/find-the-largest-area-of-square-inside-two-rectangles)
 
 [中文文档](/solution/3000-3099/3047.Find%20the%20Largest%20Area%20of%20Square%20Inside%20Two%20Rectangles/README.md)
@@ -64,6 +66,8 @@ Note that the region can be formed by the intersection of more than 2 rectangles
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -190,4 +194,6 @@ function largestSquareArea(bottomLeft: number[][], topRight: number[][]): number
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

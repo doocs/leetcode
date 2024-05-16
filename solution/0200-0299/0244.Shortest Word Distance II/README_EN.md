@@ -10,6 +10,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [244. Shortest Word Distance II 🔒](https://leetcode.com/problems/shortest-word-distance-ii)
 
 [中文文档](/solution/0200-0299/0244.Shortest%20Word%20Distance%20II/README.md)
@@ -54,6 +56,8 @@ wordDistance.shortest(&quot;makes&quot;, &quot;coding&quot;);    // return 1
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -196,4 +200,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

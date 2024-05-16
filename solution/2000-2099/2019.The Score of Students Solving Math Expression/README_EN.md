@@ -13,6 +13,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2019. The Score of Students Solving Math Expression](https://leetcode.com/problems/the-score-of-students-solving-math-expression)
 
 [中文文档](/solution/2000-2099/2019.The%20Score%20of%20Students%20Solving%20Math%20Expression/README.md)
@@ -83,6 +85,8 @@ The points for the students are: [0,0,5,0,0,5]. The sum of the points is 10.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming (Interval DP)
 
@@ -386,4 +390,6 @@ function scoreOfStudents(s: string, answers: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

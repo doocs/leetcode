@@ -8,6 +8,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [53. Maximum Subarray](https://leetcode.com/problems/maximum-subarray)
 
 [中文文档](/solution/0000-0099/0053.Maximum%20Subarray/README.md)
@@ -53,6 +55,8 @@ tags:
 <p><strong>Follow up:</strong> If you have figured out the <code>O(n)</code> solution, try coding another solution using the <strong>divide and conquer</strong> approach, which is more subtle.</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -180,6 +184,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -245,4 +253,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

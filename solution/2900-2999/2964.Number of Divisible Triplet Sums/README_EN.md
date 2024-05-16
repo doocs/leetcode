@@ -7,6 +7,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [2964. Number of Divisible Triplet Sums 🔒](https://leetcode.com/problems/number-of-divisible-triplet-sums)
 
 [中文文档](/solution/2900-2999/2964.Number%20of%20Divisible%20Triplet%20Sums/README.md)
@@ -51,6 +53,8 @@ It can be shown that no other triplet is divisible by 5. Hence, the answer is 3.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Enumeration
 
@@ -141,4 +145,6 @@ function divisibleTripletCount(nums: number[], d: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,13 +7,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [972. 相等的有理数](https://leetcode.cn/problems/equal-rational-numbers)
 
 [English Version](/solution/0900-0999/0972.Equal%20Rational%20Numbers/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个字符串&nbsp;<code>s</code>&nbsp;和&nbsp;<code>t</code>&nbsp;，每个字符串代表一个非负有理数，只有当它们表示相同的数字时才返回 <code>true</code>&nbsp;。字符串中可以使用括号来表示有理数的重复部分。</p>
 
@@ -83,6 +85,34 @@ tags:
 </ul>
 <span style="display:block"><span style="height:0px"><span style="position:absolute">​​​​​</span></span></span>
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+### 方法一
+
+<!-- tabs:start -->
+
+```python
+
+```
+
+```java
+
+```
+
+```cpp
+
+```
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

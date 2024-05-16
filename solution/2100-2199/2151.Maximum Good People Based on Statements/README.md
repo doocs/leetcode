@@ -11,13 +11,15 @@ tags:
     - 枚举
 ---
 
+<!-- problem:start -->
+
 # [2151. 基于陈述统计最多好人数](https://leetcode.cn/problems/maximum-good-people-based-on-statements)
 
 [English Version](/solution/2100-2199/2151.Maximum%20Good%20People%20Based%20on%20Statements/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>游戏中存在两种角色：</p>
 
@@ -99,7 +101,11 @@ tags:
 	<li><code>statements[i][i] == 2</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二进制枚举
 
@@ -233,4 +239,6 @@ function maximumGood(statements: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

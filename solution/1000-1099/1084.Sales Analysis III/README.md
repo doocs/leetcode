@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1084. 销售分析 III](https://leetcode.cn/problems/sales-analysis-iii)
 
 [English Version](/solution/1000-1099/1084.Sales%20Analysis%20III/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：&nbsp;<code>Product</code></p>
 
@@ -89,7 +91,11 @@ id 为 2 的产品在 2019 年春季销售，但也在 2019 年春季之后销�
 id 为 3 的产品在 2019 年春季之后销售。
 我们只返回 id 为 1 的产品，因为它是 2019 年春季才销售的产品。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：JOIN + GROUP BY + HAVING
 
@@ -109,4 +115,6 @@ HAVING COUNT(1) = SUM(sale_date BETWEEN '2019-01-01' AND '2019-03-31');
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

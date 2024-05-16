@@ -9,13 +9,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [750. 角矩形的数量 🔒](https://leetcode.cn/problems/number-of-corner-rectangles)
 
 [English Version](/solution/0700-0799/0750.Number%20Of%20Corner%20Rectangles/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个只包含 <code>0</code> 和 <code>1</code> 的&nbsp;<code>m x n</code>&nbsp;整数矩阵&nbsp;<code>grid</code>&nbsp;，返回 <em>其中 「<strong>角矩形 」</strong>的数量</em> 。</p>
 
@@ -67,7 +69,11 @@ tags:
 	<li>网格中&nbsp;<code>1</code>&nbsp;的个数在&nbsp;<code>[1, 6000]</code> 范围内</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 枚举
 
@@ -187,4 +193,6 @@ function countCornerRectangles(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

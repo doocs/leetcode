@@ -13,6 +13,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2246. Longest Path With Different Adjacent Characters](https://leetcode.com/problems/longest-path-with-different-adjacent-characters)
 
 [中文文档](/solution/2200-2299/2246.Longest%20Path%20With%20Different%20Adjacent%20Characters/README.md)
@@ -56,6 +58,8 @@ It can be proven that there is no longer path that satisfies the conditions.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Tree-shaped DP
 
@@ -200,4 +204,6 @@ function longestPath(parent: number[], s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

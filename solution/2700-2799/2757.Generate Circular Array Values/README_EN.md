@@ -4,6 +4,8 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2757.Generate%20Circular%20Array%20Values/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2757. Generate Circular Array Values 🔒](https://leetcode.com/problems/generate-circular-array-values)
 
 [中文文档](/solution/2700-2799/2757.Generate%20Circular%20Array%20Values/README.md)
@@ -76,6 +78,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2757.Ge
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -99,4 +103,6 @@ function* cycleGenerator(arr: number[], startIndex: number): Generator<number, v
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

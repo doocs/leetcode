@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [484. Find Permutation 🔒](https://leetcode.com/problems/find-permutation)
 
 [中文文档](/solution/0400-0499/0484.Find%20Permutation/README.md)
@@ -50,6 +52,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -148,4 +152,6 @@ func reverse(arr []int, i, j int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,13 +7,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [369. 给单链表加一 🔒](https://leetcode.cn/problems/plus-one-linked-list)
 
 [English Version](/solution/0300-0399/0369.Plus%20One%20Linked%20List/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个用<strong>链表</strong>表示的非负整数， 然后将这个整数&nbsp;<em>再加上 1</em> 。</p>
 
@@ -47,7 +49,11 @@ tags:
 	<li>由链表表示的数字不包含前导零，除了零本身。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：链表遍历
 
@@ -178,4 +184,6 @@ func plusOne(head *ListNode) *ListNode {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

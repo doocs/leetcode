@@ -11,6 +11,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [3043. Find the Length of the Longest Common Prefix](https://leetcode.com/problems/find-the-length-of-the-longest-common-prefix)
 
 [中文文档](/solution/3000-3099/3043.Find%20the%20Length%20of%20the%20Longest%20Common%20Prefix/README.md)
@@ -58,6 +60,8 @@ Note that common prefixes between elements of the same array do not count.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -174,4 +178,6 @@ function longestCommonPrefix(arr1: number[], arr2: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

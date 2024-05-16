@@ -7,6 +7,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [747. Largest Number At Least Twice of Others](https://leetcode.com/problems/largest-number-at-least-twice-of-others)
 
 [中文文档](/solution/0700-0799/0747.Largest%20Number%20At%20Least%20Twice%20of%20Others/README.md)
@@ -46,6 +48,8 @@ The index of value 6 is 1, so we return 1.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Traversal
 
@@ -162,4 +166,6 @@ var dominantIndex = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

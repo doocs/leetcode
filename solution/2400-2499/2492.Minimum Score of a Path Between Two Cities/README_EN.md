@@ -11,6 +11,8 @@ tags:
     - Graph
 ---
 
+<!-- problem:start -->
+
 # [2492. Minimum Score of a Path Between Two Cities](https://leetcode.com/problems/minimum-score-of-a-path-between-two-cities)
 
 [中文文档](/solution/2400-2499/2492.Minimum%20Score%20of%20a%20Path%20Between%20Two%20Cities/README.md)
@@ -64,6 +66,8 @@ It can be shown that no other path has less score.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -261,6 +265,10 @@ var minScore = function (n, roads) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: BFS
 
 We can also use BFS to solve this problem.
@@ -390,4 +398,6 @@ func minScore(n int, roads [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

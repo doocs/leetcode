@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.14.Smallest%20K/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [17.14. Smallest K](https://leetcode.cn/problems/smallest-k-lcci)
 
 [中文文档](/lcci/17.14.Smallest%20K/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design an algorithm to find the smallest K numbers in an array.</p>
 <p><strong>Example: </strong></p>
@@ -25,7 +29,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.14.Smallest%20K/RE
 	<li><code>0 &lt;= k &lt;= min(100000, len(arr))</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -86,6 +94,8 @@ class Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
 
 ### Solution 2
 
@@ -173,4 +183,6 @@ func (h *hp) Pop() any {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

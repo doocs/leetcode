@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.01.Is%20Unique/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [01.01. Is Unique](https://leetcode.cn/problems/is-unique-lcci)
 
 [中文文档](/lcci/01.01.Is%20Unique/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Implement an algorithm to determine if a string has all unique characters. What if you cannot use additional data structures?</p>
 
@@ -38,7 +42,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.01.Is%20Unique/REA
 	<li><code>0 &lt;= len(s) &lt;= 100 </code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
 
@@ -159,4 +167,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

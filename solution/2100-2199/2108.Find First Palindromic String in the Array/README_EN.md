@@ -10,6 +10,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2108. Find First Palindromic String in the Array](https://leetcode.com/problems/find-first-palindromic-string-in-the-array)
 
 [中文文档](/solution/2100-2199/2108.Find%20First%20Palindromic%20String%20in%20the%20Array/README.md)
@@ -56,6 +58,8 @@ Note that &quot;racecar&quot; is also palindromic, but it is not the first.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -188,4 +192,6 @@ char* firstPalindrome(char** words, int wordsSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

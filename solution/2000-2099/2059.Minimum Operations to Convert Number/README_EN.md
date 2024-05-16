@@ -9,6 +9,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [2059. Minimum Operations to Convert Number](https://leetcode.com/problems/minimum-operations-to-convert-number)
 
 [中文文档](/solution/2000-2099/2059.Minimum%20Operations%20to%20Convert%20Number/README.md)
@@ -71,6 +73,8 @@ Note that the last operation sets x out of the range 0 &lt;= x &lt;= 1000, which
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -235,6 +239,10 @@ function minimumOperations(nums: number[], start: number, goal: number): number 
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -372,6 +380,10 @@ func minimumOperations(nums []int, start int, goal int) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 3
 
@@ -559,4 +571,6 @@ func minimumOperations(nums []int, start int, goal int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

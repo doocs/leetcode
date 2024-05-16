@@ -12,6 +12,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1030. Matrix Cells in Distance Order](https://leetcode.com/problems/matrix-cells-in-distance-order)
 
 [中文文档](/solution/1000-1099/1030.Matrix%20Cells%20in%20Distance%20Order/README.md)
@@ -61,6 +63,8 @@ There are other answers that would also be accepted as correct, such as [[1,2],[
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -177,4 +181,6 @@ func allCellsDistOrder(rows int, cols int, rCenter int, cCenter int) (ans [][]in
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

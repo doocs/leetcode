@@ -9,6 +9,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [726. Number of Atoms](https://leetcode.com/problems/number-of-atoms)
 
 [中文文档](/solution/0700-0799/0726.Number%20of%20Atoms/README.md)
@@ -77,4 +79,30 @@ tags:
 
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+```python
+
+```
+
+```java
+
+```
+
+```cpp
+
+```
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

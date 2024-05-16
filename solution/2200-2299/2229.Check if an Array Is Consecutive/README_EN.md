@@ -8,6 +8,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2229. Check if an Array Is Consecutive 🔒](https://leetcode.com/problems/check-if-an-array-is-consecutive)
 
 [中文文档](/solution/2200-2299/2229.Check%20if%20an%20Array%20Is%20Consecutive/README.md)
@@ -61,6 +63,8 @@ Therefore, nums is consecutive.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -117,4 +121,6 @@ func isConsecutive(nums []int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

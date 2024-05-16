@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [2230. 查找可享受优惠的用户 🔒](https://leetcode.cn/problems/the-users-that-are-eligible-for-discount)
 
 [English Version](/solution/2200-2299/2230.The%20Users%20That%20Are%20Eligible%20for%20Discount/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>Table: <code>Purchases</code></p>
 
@@ -63,7 +65,11 @@ startDate = 2022-03-08, endDate = 2022-03-20, minAmount = 1000
 重要提示: 这个问题基本上与有资格享受折扣的用户数量相同。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -82,4 +88,6 @@ END;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

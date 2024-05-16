@@ -9,6 +9,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [1936. Add Minimum Number of Rungs](https://leetcode.com/problems/add-minimum-number-of-rungs)
 
 [中文文档](/solution/1900-1999/1936.Add%20Minimum%20Number%20of%20Rungs/README.md)
@@ -64,6 +66,8 @@ The ladder will now have rungs at [<u>1</u>,3,4,6,7].
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Simulation
 
@@ -148,4 +152,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

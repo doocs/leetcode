@@ -9,6 +9,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [44. Wildcard Matching](https://leetcode.com/problems/wildcard-matching)
 
 [中文文档](/solution/0000-0099/0044.Wildcard%20Matching/README.md)
@@ -59,6 +61,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -260,6 +264,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Dynamic Programming
 
 We can convert the memoization search in Solution 1 into dynamic programming.
@@ -440,4 +448,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

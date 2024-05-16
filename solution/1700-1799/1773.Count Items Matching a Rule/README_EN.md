@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1773. Count Items Matching a Rule](https://leetcode.com/problems/count-items-matching-a-rule)
 
 [中文文档](/solution/1700-1799/1773.Count%20Items%20Matching%20a%20Rule/README.md)
@@ -54,6 +56,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -138,4 +142,6 @@ int countMatches(char*** items, int itemsSize, int* itemsColSize, char* ruleKey,
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,6 +9,8 @@ tags:
     - Line Sweep
 ---
 
+<!-- problem:start -->
+
 # [850. Rectangle Area II](https://leetcode.com/problems/rectangle-area-ii)
 
 [中文文档](/solution/0800-0899/0850.Rectangle%20Area%20II/README.md)
@@ -52,6 +54,8 @@ From (1,0) to (2,3), all three rectangles overlap.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -412,4 +416,6 @@ func (t *segmentTree) pushup(u int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

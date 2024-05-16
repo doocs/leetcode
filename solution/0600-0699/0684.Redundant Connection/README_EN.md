@@ -9,6 +9,8 @@ tags:
     - Graph
 ---
 
+<!-- problem:start -->
+
 # [684. Redundant Connection](https://leetcode.com/problems/redundant-connection)
 
 [中文文档](/solution/0600-0699/0684.Redundant%20Connection/README.md)
@@ -50,6 +52,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -171,4 +175,6 @@ var findRedundantConnection = function (edges) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

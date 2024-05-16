@@ -10,6 +10,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1293. Shortest Path in a Grid with Obstacles Elimination](https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination)
 
 [中文文档](/solution/1200-1299/1293.Shortest%20Path%20in%20a%20Grid%20with%20Obstacles%20Elimination/README.md)
@@ -52,6 +54,8 @@ The shortest path with one obstacle elimination at position (3,2) is 6. Such pat
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -210,4 +214,6 @@ func shortestPath(grid [][]int, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

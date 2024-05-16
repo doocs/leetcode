@@ -7,13 +7,15 @@ tags:
     - 链表
 ---
 
+<!-- problem:start -->
+
 # [707. 设计链表](https://leetcode.cn/problems/design-linked-list)
 
 [English Version](/solution/0700-0799/0707.Design%20Linked%20List/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你可以选择使用单链表或者双链表，设计并实现自己的链表。</p>
 
@@ -63,7 +65,11 @@ myLinkedList.get(1);              // 返回 3
 	<li>调用 <code>get</code>、<code>addAtHead</code>、<code>addAtTail</code>、<code>addAtIndex</code> 和 <code>deleteAtIndex</code> 的次数不超过 <code>2000</code> 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：指针引用实现单链表
 
@@ -535,6 +541,10 @@ impl MyLinkedList {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：静态数组实现单链表
 
 在方法一中，我们使用了指针引用的方式，每次动态创建一个链表节点。在链表节点数量达到 $10^5$ 甚至更大时，频繁执行 new 操作，会大大增加程序的执行耗时。
@@ -944,4 +954,6 @@ class MyLinkedList {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

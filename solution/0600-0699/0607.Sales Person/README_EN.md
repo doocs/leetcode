@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [607. Sales Person](https://leetcode.com/problems/sales-person)
 
 [中文文档](/solution/0600-0699/0607.Sales%20Person/README.md)
@@ -119,6 +121,8 @@ According to orders 3 and 4 in the Orders table, it is easy to tell that only sa
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: LEFT JOIN + GROUP BY
 
 We can use a left join to join the `SalesPerson` table with the `Orders` table on the condition of sales id, and then join the result with the `Company` table on the condition of company id. After that, we can group by `sales_id` and count the number of orders with the company name `RED`. Finally, we can filter out the salespersons who do not have any orders with the company name `RED`.
@@ -138,4 +142,6 @@ HAVING IFNULL(SUM(c.name = 'RED'), 0) = 0;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

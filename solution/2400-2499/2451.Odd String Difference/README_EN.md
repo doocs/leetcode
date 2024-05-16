@@ -10,6 +10,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2451. Odd String Difference](https://leetcode.com/problems/odd-string-difference)
 
 [中文文档](/solution/2400-2499/2451.Odd%20String%20Difference/README.md)
@@ -60,6 +62,8 @@ The odd array out is [1, 1], so we return the corresponding string, &quot;abc&qu
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table Simulation
 
@@ -197,6 +201,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -238,4 +246,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

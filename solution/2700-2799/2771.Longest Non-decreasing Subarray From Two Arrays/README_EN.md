@@ -9,6 +9,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2771. Longest Non-decreasing Subarray From Two Arrays](https://leetcode.com/problems/longest-non-decreasing-subarray-from-two-arrays)
 
 [中文文档](/solution/2700-2799/2771.Longest%20Non-decreasing%20Subarray%20From%20Two%20Arrays/README.md)
@@ -65,6 +67,8 @@ The entire array forms a non-decreasing subarray of length 2, making it the maxi
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -220,4 +224,6 @@ function maxNonDecreasingLength(nums1: number[], nums2: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

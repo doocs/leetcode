@@ -6,6 +6,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [818. Race Car](https://leetcode.com/problems/race-car)
 
 [中文文档](/solution/0800-0899/0818.Race%20Car/README.md)
@@ -64,6 +66,8 @@ Your position goes from 0 --&gt; 1 --&gt; 3 --&gt; 7 --&gt; 7 --&gt; 6.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -145,4 +149,6 @@ func racecar(target int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

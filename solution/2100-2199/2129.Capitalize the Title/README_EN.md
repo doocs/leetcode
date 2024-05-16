@@ -8,6 +8,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2129. Capitalize the Title](https://leetcode.com/problems/capitalize-the-title)
 
 [中文文档](/solution/2100-2199/2129.Capitalize%20the%20Title/README.md)
@@ -63,6 +65,8 @@ The remaining words have a length of at least 3, so the first letter of each rem
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -157,4 +161,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

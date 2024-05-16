@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1083. Sales Analysis II 🔒](https://leetcode.com/problems/sales-analysis-ii)
 
 [中文文档](/solution/1000-1099/1083.Sales%20Analysis%20II/README.md)
@@ -87,6 +89,8 @@ Sales table:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -103,4 +107,6 @@ HAVING SUM(product_name = 'S8') > 0 AND SUM(product_name = 'iPhone') = 0;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

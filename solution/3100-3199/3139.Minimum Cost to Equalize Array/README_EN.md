@@ -10,6 +10,8 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [3139. Minimum Cost to Equalize Array](https://leetcode.com/problems/minimum-cost-to-equalize-array)
 
 [中文文档](/solution/3100-3199/3139.Minimum%20Cost%20to%20Equalize%20Array/README.md)
@@ -103,6 +105,8 @@ tags:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -125,4 +129,6 @@ tags:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,6 +8,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [157. Read N Characters Given Read4 🔒](https://leetcode.com/problems/read-n-characters-given-read4)
 
 [中文文档](/solution/0100-0199/0157.Read%20N%20Characters%20Given%20Read4/README.md)
@@ -104,6 +106,8 @@ Note that &quot;abc&quot; is the file&#39;s content, not buf. buf is the destina
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -241,4 +245,6 @@ var solution = func(read4 func([]byte) int) func([]byte, int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

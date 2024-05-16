@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [3061. Calculate Trapping Rain Water 🔒](https://leetcode.com/problems/calculate-trapping-rain-water)
 
 [中文文档](/solution/3000-3099/3061.Calculate%20Trapping%20Rain%20Water/README.md)
@@ -67,6 +69,8 @@ The elevation map depicted above (in the black section) is graphically represent
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Window Function + Summation
 
 We use the window function `MAX(height) OVER (ORDER BY id)` to calculate the maximum height for each position and its left side, and use `MAX(height) OVER (ORDER BY id DESC)` to calculate the maximum height for each position and its right side, denoted as `l` and `r` respectively. Then, the amount of water stored at each position is `min(l, r) - height`. Finally, we sum them up.
@@ -100,4 +104,6 @@ def calculate_trapped_rain_water(heights: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,6 +9,8 @@ tags:
     - Graph
 ---
 
+<!-- problem:start -->
+
 # [886. Possible Bipartition](https://leetcode.com/problems/possible-bipartition)
 
 [中文文档](/solution/0800-0899/0886.Possible%20Bipartition/README.md)
@@ -48,6 +50,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -230,6 +234,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -352,4 +360,6 @@ func possibleBipartition(n int, dislikes [][]int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

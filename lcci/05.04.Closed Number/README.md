@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.04.Closed%20Number/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 05.04. 下一个数](https://leetcode.cn/problems/closed-number-lcci)
 
 [English Version](/lcci/05.04.Closed%20Number/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>下一个数。给定一个正整数，找出与其二进制表达式中1的个数相同且大小最接近的那两个数（一个略大，一个略小）。</p>
 <p> <strong>示例1:</strong></p>
@@ -29,7 +31,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.04.Closed%20Number
 <li>如果找不到前一个或者后一个满足条件的正数，那么输出 -1。</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：位运算
 
@@ -256,4 +262,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

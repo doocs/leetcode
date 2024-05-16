@@ -9,6 +9,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1583. Count Unhappy Friends](https://leetcode.com/problems/count-unhappy-friends)
 
 [中文文档](/solution/1500-1599/1583.Count%20Unhappy%20Friends/README.md)
@@ -80,6 +82,8 @@ Friends 0 and 2 are happy.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -202,4 +206,6 @@ func unhappyFriends(n int, preferences [][]int, pairs [][]int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

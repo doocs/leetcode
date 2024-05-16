@@ -10,13 +10,15 @@ tags:
     - 数论
 ---
 
+<!-- problem:start -->
+
 # [3115. 质数的最大距离](https://leetcode.cn/problems/maximum-prime-difference)
 
 [English Version](/solution/3100-3199/3115.Maximum%20Prime%20Difference/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code>。</p>
 
@@ -54,7 +56,11 @@ tags:
 	<li>输入保证 <code>nums</code> 中至少有一个质数。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：遍历
 
@@ -191,4 +197,6 @@ function maximumPrimeDifference(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -11,6 +11,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1166. Design File System 🔒](https://leetcode.com/problems/design-file-system)
 
 [中文文档](/solution/1100-1199/1166.Design%20File%20System/README.md)
@@ -73,6 +75,8 @@ fileSystem.get(&quot;/c&quot;); // return -1 because this path doesn&#39;t exist
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Trie
 
@@ -405,4 +409,6 @@ class FileSystem {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

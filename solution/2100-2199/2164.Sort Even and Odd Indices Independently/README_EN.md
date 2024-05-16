@@ -9,6 +9,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2164. Sort Even and Odd Indices Independently](https://leetcode.com/problems/sort-even-and-odd-indices-independently)
 
 [中文文档](/solution/2100-2199/2164.Sort%20Even%20and%20Odd%20Indices%20Independently/README.md)
@@ -67,6 +69,8 @@ The resultant array formed is [2,1], which is the same as the initial array.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -161,4 +165,6 @@ func sortEvenOdd(nums []int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

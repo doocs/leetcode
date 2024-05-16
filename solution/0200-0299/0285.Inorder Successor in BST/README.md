@@ -9,13 +9,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [285. 二叉搜索树中的中序后继 🔒](https://leetcode.cn/problems/inorder-successor-in-bst)
 
 [English Version](/solution/0200-0299/0285.Inorder%20Successor%20in%20BST/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一棵二叉搜索树和其中的一个节点 <code>p</code> ，找到该节点在树中的中序后继。如果节点没有中序后继，请返回 <code>null</code> 。</p>
 
@@ -53,7 +55,11 @@ tags:
 	<li>树中各节点的值均保证唯一。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分搜索
 
@@ -224,4 +230,6 @@ var inorderSuccessor = function (root, p) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,6 +10,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2848. Points That Intersect With Cars](https://leetcode.com/problems/points-that-intersect-with-cars)
 
 [中文文档](/solution/2800-2899/2848.Points%20That%20Intersect%20With%20Cars/README.md)
@@ -47,6 +49,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Difference Array
 
@@ -144,4 +148,6 @@ function numberOfPoints(nums: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

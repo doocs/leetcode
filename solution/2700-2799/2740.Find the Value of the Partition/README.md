@@ -9,13 +9,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [2740. 找出分区值](https://leetcode.cn/problems/find-the-value-of-the-partition)
 
 [English Version](/solution/2700-2799/2740.Find%20the%20Value%20of%20the%20Partition/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <strong>正</strong> 整数数组 <code>nums</code> 。</p>
 
@@ -66,7 +68,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
@@ -123,4 +129,6 @@ func findValueOfPartition(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

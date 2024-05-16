@@ -13,6 +13,8 @@ tags:
     - Rolling Hash
 ---
 
+<!-- problem:start -->
+
 # [3008. Find Beautiful Indices in the Given Array II](https://leetcode.com/problems/find-beautiful-indices-in-the-given-array-ii)
 
 [中文文档](/solution/3000-3099/3008.Find%20Beautiful%20Indices%20in%20the%20Given%20Array%20II/README.md)
@@ -69,6 +71,8 @@ Thus we return [0] as the result.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -384,4 +388,6 @@ func beautifulIndices(s string, a string, b string, k int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

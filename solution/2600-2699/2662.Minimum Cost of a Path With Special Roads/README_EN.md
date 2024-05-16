@@ -11,6 +11,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2662. Minimum Cost of a Path With Special Roads](https://leetcode.com/problems/minimum-cost-of-a-path-with-special-roads)
 
 [中文文档](/solution/2600-2699/2662.Minimum%20Cost%20of%20a%20Path%20With%20Special%20Roads/README.md)
@@ -63,6 +65,8 @@ It can be shown that we cannot achieve a smaller total cost than 5.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dijkstra
 
@@ -305,4 +309,6 @@ class Heap<T = number> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

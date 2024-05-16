@@ -7,13 +7,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [132. 分割回文串 II](https://leetcode.cn/problems/palindrome-partitioning-ii)
 
 [English Version](/solution/0100-0199/0132.Palindrome%20Partitioning%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>s</code>，请你将 <code>s</code> 分割成一些子串，使每个子串都是<span data-keyword="palindrome-string">回文串</span>。</p>
 
@@ -56,7 +58,11 @@ tags:
 </div>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -235,4 +241,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

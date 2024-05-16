@@ -10,6 +10,8 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [2513. Minimize the Maximum of Two Arrays](https://leetcode.com/problems/minimize-the-maximum-of-two-arrays)
 
 [中文文档](/solution/2500-2599/2513.Minimize%20the%20Maximum%20of%20Two%20Arrays/README.md)
@@ -68,6 +70,8 @@ It can be shown that it is not possible to obtain a lower maximum satisfying all
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -175,4 +179,6 @@ func gcd(a, b int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

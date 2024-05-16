@@ -9,6 +9,8 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [1802. Maximum Value at a Given Index in a Bounded Array](https://leetcode.com/problems/maximum-value-at-a-given-index-in-a-bounded-array)
 
 [中文文档](/solution/1800-1899/1802.Maximum%20Value%20at%20a%20Given%20Index%20in%20a%20Bounded%20Array/README.md)
@@ -55,6 +57,8 @@ There are no arrays that satisfy all the conditions and have nums[2] == 3, so 2 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -152,4 +156,6 @@ func maxValue(n int, index int, maxSum int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,13 +8,15 @@ tags:
     - 数组
 ---
 
+<!-- problem:start -->
+
 # [2239. 找到最接近 0 的数字](https://leetcode.cn/problems/find-closest-number-to-zero)
 
 [English Version](/solution/2200-2299/2239.Find%20Closest%20Number%20to%20Zero/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code>&nbsp;的整数数组&nbsp;<code>nums</code>&nbsp;，请你返回 <code>nums</code>&nbsp;中最 <strong>接近</strong>&nbsp;<code>0</code>&nbsp;的数字。如果有多个答案，请你返回它们中的 <strong>最大值</strong>&nbsp;。</p>
 
@@ -49,7 +51,11 @@ tags:
 	<li><code>-10<sup>5</sup> &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：一次遍历
 
@@ -138,4 +144,6 @@ function findClosestNumber(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

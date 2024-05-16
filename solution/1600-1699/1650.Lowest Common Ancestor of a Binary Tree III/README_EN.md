@@ -9,6 +9,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1650. Lowest Common Ancestor of a Binary Tree III 🔒](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii)
 
 [中文文档](/solution/1600-1699/1650.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree%20III/README.md)
@@ -66,6 +68,8 @@ class Node {
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -210,6 +214,10 @@ function lowestCommonAncestor(p: Node | null, q: Node | null): Node | null {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Two Pointers
 
 We can use two pointers $a$ and $b$ to point to nodes $p$ and $q$ respectively, and then traverse towards the root node. When $a$ and $b$ meet, it is the nearest common ancestor of $p$ and $q$. Otherwise, if pointer $a$ traverses to the root node, then we let it point to node $q$, and do the same for pointer $b$. In this way, when the two pointers meet, it is the nearest common ancestor of $p$ and $q$.
@@ -346,4 +354,6 @@ function lowestCommonAncestor(p: Node | null, q: Node | null): Node | null {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

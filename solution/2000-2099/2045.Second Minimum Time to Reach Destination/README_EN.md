@@ -10,6 +10,8 @@ tags:
     - Shortest Path
 ---
 
+<!-- problem:start -->
+
 # [2045. Second Minimum Time to Reach Destination](https://leetcode.com/problems/second-minimum-time-to-reach-destination)
 
 [中文文档](/solution/2000-2099/2045.Second%20Minimum%20Time%20to%20Reach%20Destination/README.md)
@@ -84,6 +86,8 @@ The second minimum time path is 1 -&gt; 2 -&gt; 1 -&gt; 2 with time = 11 minutes
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -167,4 +171,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

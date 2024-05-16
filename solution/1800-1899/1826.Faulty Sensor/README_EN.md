@@ -7,6 +7,8 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [1826. Faulty Sensor 🔒](https://leetcode.com/problems/faulty-sensor)
 
 [中文文档](/solution/1800-1899/1826.Faulty%20Sensor/README.md)
@@ -61,6 +63,8 @@ The fourth data point from sensor 1 is dropped, and the last value of sensor 1 i
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Traversal
 
@@ -167,4 +171,6 @@ function badSensor(sensor1: number[], sensor2: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

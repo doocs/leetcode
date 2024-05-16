@@ -11,6 +11,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [787. Cheapest Flights Within K Stops](https://leetcode.com/problems/cheapest-flights-within-k-stops)
 
 [中文文档](/solution/0700-0799/0787.Cheapest%20Flights%20Within%20K%20Stops/README.md)
@@ -69,6 +71,8 @@ The optimal path with no stops from city 0 to 2 is marked in red and has cost 50
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -154,6 +158,10 @@ func findCheapestPrice(n int, flights [][]int, src int, dst int, k int) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -306,4 +314,6 @@ func findCheapestPrice(n int, flights [][]int, src int, dst int, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

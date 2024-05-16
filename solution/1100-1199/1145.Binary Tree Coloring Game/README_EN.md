@@ -10,6 +10,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1145. Binary Tree Coloring Game](https://leetcode.com/problems/binary-tree-coloring-game)
 
 [中文文档](/solution/1100-1199/1145.Binary%20Tree%20Coloring%20Game/README.md)
@@ -54,6 +56,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -279,4 +283,6 @@ var btreeGameWinningMove = function (root, n, x) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

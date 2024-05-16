@@ -11,6 +11,8 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [2351. First Letter to Appear Twice](https://leetcode.com/problems/first-letter-to-appear-twice)
 
 [中文文档](/solution/2300-2399/2351.First%20Letter%20to%20Appear%20Twice/README.md)
@@ -59,6 +61,8 @@ The only letter that appears twice is &#39;d&#39; so we return &#39;d&#39;.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Array or Hash Table
 
@@ -179,6 +183,10 @@ char repeatedCharacter(char* s) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Bit Manipulation
 
 We can also use an integer `mask` to record whether each letter has appeared, where the $i$-th bit of `mask` indicates whether the $i$-th letter has appeared. When a letter appears twice, we return that letter.
@@ -284,4 +292,6 @@ char repeatedCharacter(char* s) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

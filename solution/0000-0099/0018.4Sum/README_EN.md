@@ -8,6 +8,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [18. 4Sum](https://leetcode.com/problems/4sum)
 
 [中文文档](/solution/0000-0099/0018.4Sum/README.md)
@@ -49,6 +51,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Double Pointers
 
@@ -400,4 +404,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,6 +7,8 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [1868. Product of Two Run-Length Encoded Arrays 🔒](https://leetcode.com/problems/product-of-two-run-length-encoded-arrays)
 
 [中文文档](/solution/1800-1899/1868.Product%20of%20Two%20Run-Length%20Encoded%20Arrays/README.md)
@@ -65,6 +67,8 @@ prodNums = [2,2,2,6,9,9], which is compressed into the run-length encoded array 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -174,4 +178,6 @@ func findRLEArray(encoded1 [][]int, encoded2 [][]int) (ans [][]int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

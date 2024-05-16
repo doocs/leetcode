@@ -8,13 +8,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [2802. 找出第 K 个幸运数字 🔒](https://leetcode.cn/problems/find-the-k-th-lucky-number)
 
 [English Version](/solution/2800-2899/2802.Find%20The%20K-th%20Lucky%20Number/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>我们知道 <code>4</code> 和 <code>7</code> 是 <strong>幸运</strong> 数字。同时，如果一个数字只包含幸运数字，那么它被称为幸运数字。</p>
 
@@ -54,7 +56,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学
 
@@ -174,4 +180,6 @@ function kthLuckyNumber(k: number): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

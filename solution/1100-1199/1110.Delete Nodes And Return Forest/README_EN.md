@@ -12,6 +12,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1110. Delete Nodes And Return Forest](https://leetcode.com/problems/delete-nodes-and-return-forest)
 
 [中文文档](/solution/1100-1199/1110.Delete%20Nodes%20And%20Return%20Forest/README.md)
@@ -50,6 +52,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -278,4 +282,6 @@ function delNodes(root: TreeNode | null, to_delete: number[]): Array<TreeNode | 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

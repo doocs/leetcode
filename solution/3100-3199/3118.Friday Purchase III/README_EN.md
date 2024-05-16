@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [3118. Friday Purchase III 🔒](https://leetcode.com/problems/friday-purchase-iii)
 
 [中文文档](/solution/3100-3199/3118.Friday%20Purchase%20III/README.md)
@@ -118,6 +120,8 @@ Each row of this table indicates the user_id, membership type.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Recursion + Join
 
 First, we create a recursive table `T` that includes a `week_of_month` column, representing the week of the month. Then we create a table `M` that includes a `membership` column, representing the type of membership, with values `'Premium'` and `'VIP'`.
@@ -159,4 +163,6 @@ ORDER BY 1, 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

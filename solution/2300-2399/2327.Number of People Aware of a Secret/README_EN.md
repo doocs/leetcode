@@ -10,6 +10,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2327. Number of People Aware of a Secret](https://leetcode.com/problems/number-of-people-aware-of-a-secret)
 
 [中文文档](/solution/2300-2399/2327.Number%20of%20People%20Aware%20of%20a%20Secret/README.md)
@@ -58,6 +60,8 @@ Day 4: A forgets the secret. B, C, and D share the secret with 3 new people. (6 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -192,4 +196,6 @@ function peopleAwareOfSecret(n: number, delay: number, forget: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

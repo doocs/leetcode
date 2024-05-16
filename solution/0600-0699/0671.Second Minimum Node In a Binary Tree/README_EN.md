@@ -8,6 +8,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [671. Second Minimum Node In a Binary Tree](https://leetcode.com/problems/second-minimum-node-in-a-binary-tree)
 
 [中文文档](/solution/0600-0699/0671.Second%20Minimum%20Node%20In%20a%20Binary%20Tree/README.md)
@@ -49,6 +51,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -206,4 +210,6 @@ var findSecondMinimumValue = function (root) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

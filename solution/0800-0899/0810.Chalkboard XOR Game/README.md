@@ -10,13 +10,15 @@ tags:
     - 博弈
 ---
 
+<!-- problem:start -->
+
 # [810. 黑板异或游戏](https://leetcode.cn/problems/chalkboard-xor-game)
 
 [English Version](/solution/0800-0899/0810.Chalkboard%20XOR%20Game/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>黑板上写着一个非负整数数组 <code>nums[i]</code> 。</p>
 
@@ -62,7 +64,11 @@ Alice 有两个选择: 擦掉数字 1 或 2。
 	<li><code>0 &lt;= nums[i] &lt; 2<sup>16</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：位运算
 
@@ -153,4 +159,6 @@ func xorGame(nums []int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

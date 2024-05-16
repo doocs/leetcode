@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [534. Game Play Analysis III 🔒](https://leetcode.com/problems/game-play-analysis-iii)
 
 [中文文档](/solution/0500-0599/0534.Game%20Play%20Analysis%20III/README.md)
@@ -69,6 +71,8 @@ Note that for each player we only care about the days when the player logged in.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Window Function
 
 We can use the window function `SUM() OVER()` to group by `player_id`, sort by `event_date`, and calculate the total number of games played by each user up to the current date.
@@ -88,6 +92,10 @@ FROM Activity;
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Self-Join + Group By
 
@@ -110,6 +118,10 @@ GROUP BY 1, 2;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
@@ -128,4 +140,6 @@ GROUP BY 1, 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

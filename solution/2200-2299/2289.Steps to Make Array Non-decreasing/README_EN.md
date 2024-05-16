@@ -11,6 +11,8 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [2289. Steps to Make Array Non-decreasing](https://leetcode.com/problems/steps-to-make-array-non-decreasing)
 
 [中文文档](/solution/2200-2299/2289.Steps%20to%20Make%20Array%20Non-decreasing/README.md)
@@ -51,6 +53,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -145,4 +149,6 @@ function totalSteps(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

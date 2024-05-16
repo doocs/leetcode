@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [2388. 将表中的空值更改为前一个值 🔒](https://leetcode.cn/problems/change-null-values-in-a-table-to-the-previous-value)
 
 [English Version](/solution/2300-2399/2388.Change%20Null%20Values%20in%20a%20Table%20to%20the%20Previous%20Value/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>CoffeeShop</code></p>
 
@@ -70,7 +72,11 @@ CoffeeShop 表:
 请注意，输出中的行与输入中的行相同。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：临时变量
 
@@ -90,6 +96,10 @@ FROM CoffeeShop;
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：窗口函数
 
@@ -126,4 +136,6 @@ FROM T;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

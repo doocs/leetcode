@@ -9,13 +9,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [617. 合并二叉树](https://leetcode.cn/problems/merge-two-binary-trees)
 
 [English Version](/solution/0600-0699/0617.Merge%20Two%20Binary%20Trees/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两棵二叉树： <code>root1</code> 和 <code>root2</code> 。</p>
 
@@ -50,7 +52,11 @@ tags:
 	<li><code>-10<sup>4</sup> &lt;= Node.val &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -264,4 +270,6 @@ var mergeTrees = function (root1, root2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

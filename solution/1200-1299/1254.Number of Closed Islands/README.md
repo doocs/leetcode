@@ -12,13 +12,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [1254. 统计封闭岛屿的数目](https://leetcode.cn/problems/number-of-closed-islands)
 
 [English Version](/solution/1200-1299/1254.Number%20of%20Closed%20Islands/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>二维矩阵 <code>grid</code>&nbsp;由 <code>0</code>&nbsp;（土地）和 <code>1</code>&nbsp;（水）组成。岛是由最大的4个方向连通的 <code>0</code>&nbsp;组成的群，封闭岛是一个&nbsp;<code>完全</code> 由1包围（左、上、右、下）的岛。</p>
 
@@ -67,7 +69,11 @@ tags:
 	<li><code>0 &lt;= grid[i][j] &lt;=1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -255,6 +261,10 @@ public class Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：并查集
 
@@ -641,4 +651,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

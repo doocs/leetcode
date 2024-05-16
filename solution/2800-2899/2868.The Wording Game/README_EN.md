@@ -10,6 +10,8 @@ tags:
     - Game Theory
 ---
 
+<!-- problem:start -->
+
 # [2868. The Wording Game 🔒](https://leetcode.com/problems/the-wording-game)
 
 [中文文档](/solution/2800-2899/2868.The%20Wording%20Game/README.md)
@@ -80,6 +82,8 @@ So Alice wins, and the game ends.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -239,4 +243,6 @@ function canAliceWin(a: string[], b: string[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

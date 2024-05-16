@@ -9,6 +9,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [934. Shortest Bridge](https://leetcode.com/problems/shortest-bridge)
 
 [中文文档](/solution/0900-0999/0934.Shortest%20Bridge/README.md)
@@ -56,6 +58,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -244,4 +248,6 @@ func shortestBridge(grid [][]int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

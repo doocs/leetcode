@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.02.Check%20Permutation/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [01.02. Check Permutation](https://leetcode.cn/problems/check-permutation-lcci)
 
 [中文文档](/lcci/01.02.Check%20Permutation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two strings,write a method to decide if one is a permutation of the other.</p>
 
@@ -38,7 +42,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.02.Check%20Permuta
 	<li><code>0 &lt;= len(s2) &lt;= 100</code></li>
 </ol>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Array or Hash Table
 
@@ -211,6 +219,8 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
 ### Solution 2: Sorting
 
 We can also sort the two strings in lexicographical order, and then compare whether the two strings are equal.
@@ -277,4 +287,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

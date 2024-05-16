@@ -10,6 +10,8 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [2178. Maximum Split of Positive Even Integers](https://leetcode.com/problems/maximum-split-of-positive-even-integers)
 
 [中文文档](/solution/2100-2199/2178.Maximum%20Split%20of%20Positive%20Even%20Integers/README.md)
@@ -62,6 +64,8 @@ Note that [10,2,4,12], [6,2,4,16], etc. are also accepted.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -163,4 +167,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [262. Trips and Users](https://leetcode.com/problems/trips-and-users)
 
 [中文文档](/solution/0200-0299/0262.Trips%20and%20Users/README.md)
@@ -118,6 +120,8 @@ On 2013-10-03:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -183,4 +187,6 @@ GROUP BY request_at;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

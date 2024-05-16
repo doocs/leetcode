@@ -9,6 +9,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [857. Minimum Cost to Hire K Workers](https://leetcode.com/problems/minimum-cost-to-hire-k-workers)
 
 [中文文档](/solution/0800-0899/0857.Minimum%20Cost%20to%20Hire%20K%20Workers/README.md)
@@ -53,6 +55,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -177,4 +181,6 @@ func (h *hp) Less(i, j int) bool { return h.IntSlice[i] > h.IntSlice[j] }
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

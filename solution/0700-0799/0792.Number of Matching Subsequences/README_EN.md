@@ -12,6 +12,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [792. Number of Matching Subsequences](https://leetcode.com/problems/number-of-matching-subsequences)
 
 [中文文档](/solution/0700-0799/0792.Number%20of%20Matching%20Subsequences/README.md)
@@ -53,6 +55,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -145,6 +149,10 @@ func numMatchingSubseq(s string, words []string) (ans int) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -241,6 +249,10 @@ func numMatchingSubseq(s string, words []string) (ans int) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 3
 
@@ -362,4 +374,6 @@ func numMatchingSubseq(s string, words []string) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

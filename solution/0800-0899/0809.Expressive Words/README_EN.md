@@ -8,6 +8,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [809. Expressive Words](https://leetcode.com/problems/expressive-words)
 
 [中文文档](/solution/0800-0899/0809.Expressive%20Words/README.md)
@@ -59,6 +61,8 @@ We can&#39;t extend &quot;helo&quot; to get &quot;heeellooo&quot; because the gr
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -203,4 +207,6 @@ func expressiveWords(s string, words []string) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

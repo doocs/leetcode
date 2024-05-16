@@ -9,6 +9,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [523. Continuous Subarray Sum](https://leetcode.com/problems/continuous-subarray-sum)
 
 [中文文档](/solution/0500-0599/0523.Continuous%20Subarray%20Sum/README.md)
@@ -67,6 +69,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -146,4 +150,6 @@ func checkSubarraySum(nums []int, k int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

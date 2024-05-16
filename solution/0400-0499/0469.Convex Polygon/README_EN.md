@@ -7,6 +7,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [469. Convex Polygon 🔒](https://leetcode.com/problems/convex-polygon)
 
 [中文文档](/solution/0400-0499/0469.Convex%20Polygon/README.md)
@@ -45,6 +47,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -141,4 +145,6 @@ func isConvex(points [][]int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

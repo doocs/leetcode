@@ -11,6 +11,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1700. Number of Students Unable to Eat Lunch](https://leetcode.com/problems/number-of-students-unable-to-eat-lunch)
 
 [中文文档](/solution/1700-1799/1700.Number%20of%20Students%20Unable%20to%20Eat%20Lunch/README.md)
@@ -66,6 +68,8 @@ Hence all students are able to eat.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -195,4 +199,6 @@ int countStudents(int* students, int studentsSize, int* sandwiches, int sandwich
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,6 +8,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [415. Add Strings](https://leetcode.com/problems/add-strings)
 
 [中文文档](/solution/0400-0499/0415.Add%20Strings/README.md)
@@ -50,6 +52,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -353,4 +357,6 @@ var subStrings = function (num1, num2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

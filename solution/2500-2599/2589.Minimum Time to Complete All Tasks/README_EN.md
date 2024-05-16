@@ -12,6 +12,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2589. Minimum Time to Complete All Tasks](https://leetcode.com/problems/minimum-time-to-complete-all-tasks)
 
 [中文文档](/solution/2500-2599/2589.Minimum%20Time%20to%20Complete%20All%20Tasks/README.md)
@@ -60,6 +62,8 @@ The computer will be on for a total of 4 seconds.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
 
@@ -212,4 +216,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2015.%20%E6%B8%B8%E4%B9%90%E5%9B%AD%E7%9A%84%E8%BF%B7%E5%AE%AB/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 15. 游乐园的迷宫](https://leetcode.cn/problems/you-le-yuan-de-mi-gong)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>小王来到了游乐园，她玩的第一个项目是模拟推销员。有一个二维平面地图，其中散布着 <code>N</code> 个推销点，编号 <code>0</code> 到 <code>N-1</code>，不存在三点共线的情况。每两点之间有一条直线相连。游戏没有规定起点和终点，但限定了每次转角的方向。首先，小王需要先选择两个点分别作为起点和终点，然后从起点开始访问剩余 <code>N-2</code> 个点恰好一次并回到终点。访问的顺序需要满足一串给定的长度为 <code>N-2</code> 由 <code>L</code> 和 <code>R</code> 组成的字符串 <code>direction</code>，表示从起点出发之后在每个顶点上转角的方向。根据这个提示，小王希望你能够帮她找到一个可行的遍历顺序，输出顺序下标（若有多个方案，输出任意一种）。可以证明这样的遍历顺序一定是存在的。</p>
 
@@ -44,6 +46,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2015.%20%E6%B8%B8%
 	<li><code>direction 只包含 "L","R"</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

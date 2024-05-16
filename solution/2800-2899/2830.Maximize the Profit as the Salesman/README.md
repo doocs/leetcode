@@ -12,13 +12,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [2830. 销售利润最大化](https://leetcode.cn/problems/maximize-the-profit-as-the-salesman)
 
 [English Version](/solution/2800-2899/2830.Maximize%20the%20Profit%20as%20the%20Salesman/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数 <code>n</code> 表示数轴上的房屋数量，编号从 <code>0</code> 到 <code>n - 1</code> 。</p>
 
@@ -63,7 +65,11 @@ tags:
 	<li><code>1 &lt;= gold<sub>i</sub> &lt;= 10<sup>3</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 二分查找 + 动态规划
 
@@ -191,4 +197,6 @@ function maximizeTheProfit(n: number, offers: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

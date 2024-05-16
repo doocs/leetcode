@@ -10,6 +10,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1405. Longest Happy String](https://leetcode.com/problems/longest-happy-string)
 
 [中文文档](/solution/1400-1499/1405.Longest%20Happy%20String/README.md)
@@ -56,6 +58,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Priority Queue
 
@@ -264,4 +268,6 @@ function longestDiverseString(a: number, b: number, c: number): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,6 +8,8 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2107. Number of Unique Flavors After Sharing K Candies 🔒](https://leetcode.com/problems/number-of-unique-flavors-after-sharing-k-candies)
 
 [中文文档](/solution/2100-2199/2107.Number%20of%20Unique%20Flavors%20After%20Sharing%20K%20Candies/README.md)
@@ -63,6 +65,8 @@ There are 3 unique flavors, so return 3.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sliding Window + Hash Table
 
@@ -206,4 +210,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

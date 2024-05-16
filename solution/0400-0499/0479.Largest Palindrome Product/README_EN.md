@@ -6,6 +6,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [479. Largest Palindrome Product](https://leetcode.com/problems/largest-palindrome-product)
 
 [中文文档](/solution/0400-0499/0479.Largest%20Palindrome%20Product/README.md)
@@ -38,6 +40,8 @@ Explanation: 99 x 91 = 9009, 9009 % 1337 = 987
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -123,4 +127,6 @@ func largestPalindrome(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

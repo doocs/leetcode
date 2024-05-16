@@ -8,6 +8,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1446. Consecutive Characters](https://leetcode.com/problems/consecutive-characters)
 
 [中文文档](/solution/1400-1499/1446.Consecutive%20Characters/README.md)
@@ -44,6 +46,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -127,4 +131,6 @@ function maxPower(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

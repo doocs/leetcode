@@ -10,6 +10,8 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [473. Matchsticks to Square](https://leetcode.com/problems/matchsticks-to-square)
 
 [中文文档](/solution/0400-0499/0473.Matchsticks%20to%20Square/README.md)
@@ -46,6 +48,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -207,6 +211,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -236,4 +244,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

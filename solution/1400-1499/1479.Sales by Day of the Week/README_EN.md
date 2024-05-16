@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1479. Sales by Day of the Week 🔒](https://leetcode.com/problems/sales-by-day-of-the-week)
 
 [中文文档](/solution/1400-1499/1479.Sales%20by%20Day%20of%20the%20Week/README.md)
@@ -108,6 +110,8 @@ There are no sales of T-shirts.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -132,4 +136,6 @@ ORDER BY category;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

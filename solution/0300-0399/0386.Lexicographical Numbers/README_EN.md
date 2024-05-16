@@ -7,6 +7,8 @@ tags:
     - Trie
 ---
 
+<!-- problem:start -->
+
 # [386. Lexicographical Numbers](https://leetcode.com/problems/lexicographical-numbers)
 
 [中文文档](/solution/0300-0399/0386.Lexicographical%20Numbers/README.md)
@@ -33,6 +35,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -160,6 +164,10 @@ var lexicalOrder = function (n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -226,4 +234,6 @@ func lexicalOrder(n int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

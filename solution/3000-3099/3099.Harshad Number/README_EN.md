@@ -8,6 +8,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [3099. Harshad Number](https://leetcode.com/problems/harshad-number)
 
 [中文文档](/solution/3000-3099/3099.Harshad%20Number/README.md)
@@ -49,6 +51,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -118,4 +122,6 @@ function sumOfTheDigitsOfHarshadNumber(x: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

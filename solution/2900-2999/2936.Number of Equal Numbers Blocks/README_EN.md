@@ -8,6 +8,8 @@ tags:
     - Interactive
 ---
 
+<!-- problem:start -->
+
 # [2936. Number of Equal Numbers Blocks 🔒](https://leetcode.com/problems/number-of-equal-numbers-blocks)
 
 [中文文档](/solution/2900-2999/2936.Number%20of%20Equal%20Numbers%20Blocks/README.md)
@@ -72,6 +74,8 @@ So the answer would be 5.</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -208,6 +212,10 @@ function countBlocks(nums: BigArray | null): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Divide and Conquer
 
 We can use the divide and conquer method to calculate the answer. Specifically, we divide the array into two subarrays, recursively calculate the answer for each subarray, and then merge the answers. If the last element of the first subarray is equal to the first element of the second subarray, then we need to subtract one from the answer.
@@ -295,4 +303,6 @@ function countBlocks(nums: BigArray | null): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -11,13 +11,15 @@ tags:
     - 数组
 ---
 
+<!-- problem:start -->
+
 # [1273. 删除树节点 🔒](https://leetcode.cn/problems/delete-tree-nodes)
 
 [English Version](/solution/1200-1299/1273.Delete%20Tree%20Nodes/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一棵以节点 0 为根节点的树，定义如下：</p>
 
@@ -73,7 +75,11 @@ tags:
 	<li>题目输入数据 <strong>保证</strong> 是一棵 <strong>有效的树</strong> 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -187,4 +193,6 @@ func deleteTreeNodes(nodes int, parent []int, value []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1294. Weather Type in Each Country 🔒](https://leetcode.com/problems/weather-type-in-each-country)
 
 [中文文档](/solution/1200-1299/1294.Weather%20Type%20in%20Each%20Country/README.md)
@@ -116,6 +118,8 @@ We know nothing about the average weather_state in Spain in November so we do no
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -138,4 +142,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

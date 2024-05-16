@@ -10,6 +10,8 @@ tags:
     - Graph
 ---
 
+<!-- problem:start -->
+
 # [765. Couples Holding Hands](https://leetcode.com/problems/couples-holding-hands)
 
 [中文文档](/solution/0700-0799/0765.Couples%20Holding%20Hands/README.md)
@@ -51,6 +53,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -220,4 +224,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

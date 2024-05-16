@@ -11,6 +11,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1235. Maximum Profit in Job Scheduling](https://leetcode.com/problems/maximum-profit-in-job-scheduling)
 
 [中文文档](/solution/1200-1299/1235.Maximum%20Profit%20in%20Job%20Scheduling/README.md)
@@ -65,6 +67,8 @@ Profit obtained 150 = 20 + 70 + 60.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search + Binary Search
 
@@ -236,6 +240,10 @@ function jobScheduling(startTime: number[], endTime: number[], profit: number[])
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Dynamic Programming + Binary Search
 
 We can also change the memoization search in Solution 1 to dynamic programming.
@@ -374,4 +382,6 @@ function jobScheduling(startTime: number[], endTime: number[], profit: number[])
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

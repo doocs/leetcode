@@ -9,6 +9,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1105. Filling Bookcase Shelves](https://leetcode.com/problems/filling-bookcase-shelves)
 
 [中文文档](/solution/1100-1199/1105.Filling%20Bookcase%20Shelves/README.md)
@@ -57,6 +59,8 @@ Notice that book number 2 does not have to be on the first shelf.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -199,4 +203,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

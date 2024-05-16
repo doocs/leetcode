@@ -8,13 +8,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [392. 判断子序列](https://leetcode.cn/problems/is-subsequence)
 
 [English Version](/solution/0300-0399/0392.Is%20Subsequence/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定字符串 <strong>s</strong> 和 <strong>t</strong> ，判断 <strong>s</strong> 是否为 <strong>t</strong> 的子序列。</p>
 
@@ -54,7 +56,11 @@ tags:
 	<li>两个字符串都只由小写字符组成。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -185,4 +191,6 @@ bool isSubsequence(char* s, char* t) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,6 +9,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2243. Calculate Digit Sum of a String](https://leetcode.com/problems/calculate-digit-sum-of-a-string)
 
 [中文文档](/solution/2200-2299/2243.Calculate%20Digit%20Sum%20of%20a%20String/README.md)
@@ -64,6 +66,8 @@ s becomes &quot;0&quot; + &quot;0&quot; + &quot;0&quot; = &quot;000&quot;, whose
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -160,6 +164,10 @@ function digitSum(s: string, k: number): string {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -178,4 +186,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

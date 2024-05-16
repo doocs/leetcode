@@ -10,6 +10,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1024. Video Stitching](https://leetcode.com/problems/video-stitching)
 
 [中文文档](/solution/1000-1099/1024.Video%20Stitching/README.md)
@@ -66,6 +68,8 @@ Now we have segments [0,2] + [2,8] + [8,10] which cover the sporting event [0, 1
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy
 
@@ -189,4 +193,6 @@ func videoStitching(clips [][]int, time int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

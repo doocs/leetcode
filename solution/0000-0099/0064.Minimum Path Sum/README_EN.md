@@ -8,6 +8,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [64. Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum)
 
 [中文文档](/solution/0000-0099/0064.Minimum%20Path%20Sum/README.md)
@@ -45,6 +47,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -241,4 +245,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

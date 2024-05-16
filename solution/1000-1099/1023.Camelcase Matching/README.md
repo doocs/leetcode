@@ -12,13 +12,15 @@ tags:
     - 字符串匹配
 ---
 
+<!-- problem:start -->
+
 # [1023. 驼峰式匹配](https://leetcode.cn/problems/camelcase-matching)
 
 [English Version](/solution/1000-1099/1023.Camelcase%20Matching/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串数组 <code>queries</code>，和一个表示模式的字符串&nbsp;<code>pattern</code>，请你返回一个布尔数组 <code>answer</code> 。只有在待查项&nbsp;<code>queries[i]</code> 与模式串&nbsp;<code>pattern</code> 匹配时，&nbsp;<code>answer[i]</code>&nbsp;才为 <code>true</code>，否则为 <code>false</code>。</p>
 
@@ -65,7 +67,11 @@ tags:
 	<li><code>queries[i]</code> 和 <code>pattern</code> 由英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -213,4 +219,6 @@ function camelMatch(queries: string[], pattern: string): boolean[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

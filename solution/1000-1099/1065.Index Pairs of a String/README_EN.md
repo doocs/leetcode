@@ -11,6 +11,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1065. Index Pairs of a String 🔒](https://leetcode.com/problems/index-pairs-of-a-string)
 
 [中文文档](/solution/1000-1099/1065.Index%20Pairs%20of%20a%20String/README.md)
@@ -49,6 +51,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -198,6 +202,10 @@ func indexPairs(text string, words []string) [][]int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -239,4 +247,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

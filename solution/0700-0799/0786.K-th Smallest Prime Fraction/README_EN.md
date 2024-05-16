@@ -10,6 +10,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [786. K-th Smallest Prime Fraction](https://leetcode.com/problems/k-th-smallest-prime-fraction)
 
 [中文文档](/solution/0700-0799/0786.K-th%20Smallest%20Prime%20Fraction/README.md)
@@ -56,6 +58,8 @@ The third fraction is 2/5.
 <strong>Follow up:</strong> Can you solve the problem with better than <code>O(n<sup>2</sup>)</code> complexity?
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -163,4 +167,6 @@ func kthSmallestPrimeFraction(arr []int, k int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

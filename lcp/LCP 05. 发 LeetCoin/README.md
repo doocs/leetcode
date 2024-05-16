@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2005.%20%E5%8F%91%20LeetCoin/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 05. 发 LeetCoin](https://leetcode.cn/problems/coin-bonus)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>力扣决定给一个刷题团队发<code>LeetCoin</code>作为奖励。同时，为了监控给大家发了多少<code>LeetCoin</code>，力扣有时候也会进行查询。</p>
 
@@ -73,7 +75,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2005.%20%E5%8F%91%
 	<li><code>operations[i][0] != 3 时，1 &lt;= operations[i][2]&nbsp;&lt;= 5000</code></li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：线段树
 
@@ -439,4 +445,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

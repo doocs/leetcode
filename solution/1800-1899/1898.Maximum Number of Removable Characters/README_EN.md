@@ -11,6 +11,8 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [1898. Maximum Number of Removable Characters](https://leetcode.com/problems/maximum-number-of-removable-characters)
 
 [中文文档](/solution/1800-1899/1898.Maximum%20Number%20of%20Removable%20Characters/README.md)
@@ -67,6 +69,8 @@ Hence, the maximum k is 2.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -264,4 +268,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

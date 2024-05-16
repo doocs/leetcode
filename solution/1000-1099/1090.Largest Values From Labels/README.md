@@ -12,13 +12,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [1090. 受标签影响的最大值](https://leetcode.cn/problems/largest-values-from-labels)
 
 [English Version](/solution/1000-1099/1090.Largest%20Values%20From%20Labels/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>我们有一个&nbsp;<code>n</code>&nbsp;项的集合。给出两个整数数组&nbsp;<code>values</code>&nbsp;和 <code>labels</code>&nbsp;，第 <code>i</code> 个元素的值和标签分别是&nbsp;<code>values[i]</code>&nbsp;和&nbsp;<code>labels[i]</code>。还会给出两个整数&nbsp;<code>numWanted</code>&nbsp;和 <code>useLimit</code> 。</p>
 
@@ -70,7 +72,11 @@ tags:
 	<li><code>1 &lt;= numWanted, useLimit &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 排序 + 哈希表
 
@@ -200,4 +206,6 @@ function largestValsFromLabels(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

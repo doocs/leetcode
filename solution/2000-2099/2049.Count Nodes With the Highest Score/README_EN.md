@@ -11,6 +11,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [2049. Count Nodes With the Highest Score](https://leetcode.com/problems/count-nodes-with-the-highest-score)
 
 [中文文档](/solution/2000-2099/2049.Count%20Nodes%20With%20the%20Highest%20Score/README.md)
@@ -62,6 +64,8 @@ The highest score is 2, and two nodes (node 0 and node 1) have the highest score
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -314,4 +318,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

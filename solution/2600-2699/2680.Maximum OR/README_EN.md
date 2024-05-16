@@ -11,6 +11,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2680. Maximum OR](https://leetcode.com/problems/maximum-or)
 
 [中文文档](/solution/2600-2699/2680.Maximum%20OR/README.md)
@@ -50,6 +52,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Preprocessing
 
@@ -172,4 +176,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

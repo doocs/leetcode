@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1709. 访问日期之间最大的空档期 🔒](https://leetcode.cn/problems/biggest-window-between-visits)
 
 [English Version](/solution/1700-1799/1709.Biggest%20Window%20Between%20Visits/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：&nbsp;<code>UserVisits</code></p>
 
@@ -73,7 +75,11 @@ UserVisits 表：
 由此得出，最大的空档期为 65 天。
 对于第三个用户，问题中的唯一空档期在 2020-11-11 至 2021-1-1 之间，共计 51 天。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：窗口函数
 
@@ -104,4 +110,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

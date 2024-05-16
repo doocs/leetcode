@@ -7,6 +7,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [408. Valid Word Abbreviation 🔒](https://leetcode.com/problems/valid-word-abbreviation)
 
 [中文文档](/solution/0400-0499/0408.Valid%20Word%20Abbreviation/README.md)
@@ -66,6 +68,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -206,4 +210,6 @@ function validWordAbbreviation(word: string, abbr: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,6 +10,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1314. Matrix Block Sum](https://leetcode.com/problems/matrix-block-sum)
 
 [中文文档](/solution/1300-1399/1314.Matrix%20Block%20Sum/README.md)
@@ -50,6 +52,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two-Dimensional Prefix Sum
 
@@ -209,4 +213,6 @@ function matrixBlockSum(mat: number[][], k: number): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

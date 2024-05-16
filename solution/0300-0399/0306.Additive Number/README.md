@@ -7,13 +7,15 @@ tags:
     - 回溯
 ---
 
+<!-- problem:start -->
+
 # [306. 累加数](https://leetcode.cn/problems/additive-number)
 
 [English Version](/solution/0300-0399/0306.Additive%20Number/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><strong>累加数</strong> 是一个字符串，组成它的数字可以形成累加序列。</p>
 
@@ -53,7 +55,11 @@ tags:
 
 <p><strong>进阶：</strong>你计划如何处理由过大的整数输入导致的溢出?</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -197,4 +203,6 @@ func isAdditiveNumber(num string) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

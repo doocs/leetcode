@@ -9,13 +9,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [1528. 重新排列字符串](https://leetcode.cn/problems/shuffle-string)
 
 [English Version](/solution/1500-1599/1528.Shuffle%20String/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>s</code> 和一个 <strong>长度相同</strong> 的整数数组 <code>indices</code> 。</p>
 
@@ -55,7 +57,11 @@ tags:
 	<li><code>indices</code> 的所有的值都是 <strong>唯一</strong> 的</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -124,4 +130,6 @@ var restoreString = function (s, indices) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

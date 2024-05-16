@@ -10,6 +10,8 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [1742. Maximum Number of Balls in a Box](https://leetcode.com/problems/maximum-number-of-balls-in-a-box)
 
 [中文文档](/solution/1700-1799/1742.Maximum%20Number%20of%20Balls%20in%20a%20Box/README.md)
@@ -63,6 +65,8 @@ Box 10 has the most number of balls with 2 balls.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Array + Simulation
 
@@ -154,4 +158,6 @@ function countBalls(lowLimit: number, highLimit: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

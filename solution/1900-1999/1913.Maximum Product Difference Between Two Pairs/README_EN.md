@@ -9,6 +9,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1913. Maximum Product Difference Between Two Pairs](https://leetcode.com/problems/maximum-product-difference-between-two-pairs)
 
 [中文文档](/solution/1900-1999/1913.Maximum%20Product%20Difference%20Between%20Two%20Pairs/README.md)
@@ -71,6 +73,8 @@ The product difference is (9 * 8) - (2 * 4) = 64.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -126,4 +130,6 @@ var maxProductDifference = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

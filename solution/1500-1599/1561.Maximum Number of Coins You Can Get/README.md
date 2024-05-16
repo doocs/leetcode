@@ -12,13 +12,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [1561. 你可以获得的最大硬币数目](https://leetcode.cn/problems/maximum-number-of-coins-you-can-get)
 
 [English Version](/solution/1500-1599/1561.Maximum%20Number%20of%20Coins%20You%20Can%20Get/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有 3n 堆数目不一的硬币，你和你的朋友们打算按以下方式分硬币：</p>
 
@@ -68,7 +70,11 @@ tags:
 	<li><code>1 &lt;= piles[i] &lt;= 10^4</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -163,4 +169,6 @@ int maxCoins(int* piles, int pilesSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,13 +9,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [1796. 字符串中第二大的数字](https://leetcode.cn/problems/second-largest-digit-in-a-string)
 
 [English Version](/solution/1700-1799/1796.Second%20Largest%20Digit%20in%20a%20String/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个混合字符串 <code>s</code> ，请你返回 <code>s</code> 中 <strong>第二大 </strong>的数字，如果不存在第二大的数字，请你返回 <code>-1</code> 。</p>
 
@@ -48,7 +50,11 @@ tags:
 	<li><code>s</code> 只包含小写英文字母和（或）数字。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：一次遍历
 
@@ -194,6 +200,10 @@ int secondHighest(char* s) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：位运算
 
 我们可以用一个整数 $mask$ 来标识字符串中出现的数字，其中 $mask$ 的第 $i$ 位表示数字 $i$ 是否出现过。
@@ -275,4 +285,6 @@ func secondHighest(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

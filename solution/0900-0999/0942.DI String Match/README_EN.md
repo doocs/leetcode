@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [942. DI String Match](https://leetcode.com/problems/di-string-match)
 
 [中文文档](/solution/0900-0999/0942.DI%20String%20Match/README.md)
@@ -44,6 +46,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -168,4 +172,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

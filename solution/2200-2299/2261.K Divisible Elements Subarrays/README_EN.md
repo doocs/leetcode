@@ -13,6 +13,8 @@ tags:
     - Rolling Hash
 ---
 
+<!-- problem:start -->
+
 # [2261. K Divisible Elements Subarrays](https://leetcode.com/problems/k-divisible-elements-subarrays)
 
 [中文文档](/solution/2200-2299/2261.K%20Divisible%20Elements%20Subarrays/README.md)
@@ -70,6 +72,8 @@ Since all subarrays are distinct, the total number of subarrays satisfying all t
 <p>Can you solve this problem in O(n<sup>2</sup>) time complexity?</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -174,6 +178,10 @@ function countDistinct(nums: number[], k: number, p: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -197,4 +205,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

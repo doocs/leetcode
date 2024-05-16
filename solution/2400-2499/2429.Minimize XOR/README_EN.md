@@ -9,6 +9,8 @@ tags:
     - Bit Manipulation
 ---
 
+<!-- problem:start -->
+
 # [2429. Minimize XOR](https://leetcode.com/problems/minimize-xor)
 
 [中文文档](/solution/2400-2499/2429.Minimize%20XOR/README.md)
@@ -57,6 +59,8 @@ The integer <strong>3</strong> has the same number of set bits as num2, and the 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Bit Manipulation
 
@@ -173,6 +177,10 @@ function minimizeXor(num1: number, num2: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -263,4 +271,6 @@ function bitCount(i: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

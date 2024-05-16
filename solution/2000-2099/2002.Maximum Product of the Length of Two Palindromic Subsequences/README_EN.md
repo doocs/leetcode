@@ -12,6 +12,8 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [2002. Maximum Product of the Length of Two Palindromic Subsequences](https://leetcode.com/problems/maximum-product-of-the-length-of-two-palindromic-subsequences)
 
 [中文文档](/solution/2000-2099/2002.Maximum%20Product%20of%20the%20Length%20of%20Two%20Palindromic%20Subsequences/README.md)
@@ -61,6 +63,8 @@ The product of their lengths is: 5 * 5 = 25.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Enumeration
 
@@ -218,4 +222,6 @@ func maxProduct(s string) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

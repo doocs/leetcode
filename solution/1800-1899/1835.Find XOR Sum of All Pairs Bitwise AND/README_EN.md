@@ -10,6 +10,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [1835. Find XOR Sum of All Pairs Bitwise AND](https://leetcode.com/problems/find-xor-sum-of-all-pairs-bitwise-and)
 
 [中文文档](/solution/1800-1899/1835.Find%20XOR%20Sum%20of%20All%20Pairs%20Bitwise%20AND/README.md)
@@ -55,6 +57,8 @@ The XOR sum = 0 XOR 1 XOR 2 XOR 0 XOR 2 XOR 1 = 0.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bitwise Operation
 
@@ -138,4 +142,6 @@ function getXORSum(arr1: number[], arr2: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

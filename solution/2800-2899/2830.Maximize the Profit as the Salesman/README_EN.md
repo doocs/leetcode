@@ -12,6 +12,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2830. Maximize the Profit as the Salesman](https://leetcode.com/problems/maximize-the-profit-as-the-salesman)
 
 [中文文档](/solution/2800-2899/2830.Maximize%20the%20Profit%20as%20the%20Salesman/README.md)
@@ -61,6 +63,8 @@ It can be proven that 10 is the maximum amount of gold we can achieve.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Binary Search + Dynamic Programming
 
@@ -188,4 +192,6 @@ function maximizeTheProfit(n: number, offers: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,6 +10,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2384. Largest Palindromic Number](https://leetcode.com/problems/largest-palindromic-number)
 
 [中文文档](/solution/2300-2399/2384.Largest%20Palindromic%20Number/README.md)
@@ -57,6 +59,8 @@ Note that the integer returned should not contain leading zeroes.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -223,4 +227,6 @@ function largestPalindromic(num: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

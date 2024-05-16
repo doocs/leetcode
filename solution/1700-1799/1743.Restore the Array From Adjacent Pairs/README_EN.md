@@ -9,6 +9,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [1743. Restore the Array From Adjacent Pairs](https://leetcode.com/problems/restore-the-array-from-adjacent-pairs)
 
 [中文文档](/solution/1700-1799/1743.Restore%20the%20Array%20From%20Adjacent%20Pairs/README.md)
@@ -62,6 +64,8 @@ Another solution is [-3,1,4,-2], which would also be accepted.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -210,6 +214,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -327,4 +335,6 @@ func restoreArray(adjacentPairs [][]int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

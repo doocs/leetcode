@@ -9,13 +9,15 @@ tags:
     - 数论
 ---
 
+<!-- problem:start -->
+
 # [2543. 判断一个点是否可以到达](https://leetcode.cn/problems/check-if-point-is-reachable)
 
 [English Version](/solution/2500-2599/2543.Check%20if%20Point%20Is%20Reachable/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个无穷大的网格图。一开始你在&nbsp;<code>(1, 1)</code>&nbsp;，你需要通过有限步移动到达点&nbsp;<code>(targetX, targetY)</code>&nbsp;。</p>
 
@@ -54,7 +56,11 @@ tags:
 	<li><code>1 &lt;= targetX, targetY&nbsp;&lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学
 
@@ -127,4 +133,6 @@ function gcd(a: number, b: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

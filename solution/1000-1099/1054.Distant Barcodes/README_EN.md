@@ -13,6 +13,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1054. Distant Barcodes](https://leetcode.com/problems/distant-barcodes)
 
 [中文文档](/solution/1000-1099/1054.Distant%20Barcodes/README.md)
@@ -40,6 +42,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting + Sorting
 
@@ -160,4 +164,6 @@ function rearrangeBarcodes(barcodes: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,6 +6,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [6. Zigzag Conversion](https://leetcode.com/problems/zigzag-conversion)
 
 [中文文档](/solution/0000-0099/0006.Zigzag%20Conversion/README.md)
@@ -65,6 +67,8 @@ P     I
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -258,6 +262,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -449,4 +457,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

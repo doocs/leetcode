@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2987. Find Expensive Cities 🔒](https://leetcode.com/problems/find-expensive-cities)
 
 [中文文档](/solution/2900-2999/2987.Find%20Expensive%20Cities/README.md)
@@ -72,6 +74,8 @@ Only Chicago and Los Angeles have average home prices exceeding the national ave
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Grouping Aggregation + Subquery
 
 We group the `Listings` table by `city`, then calculate the average house price for each city, and finally filter out the cities where the average house price is greater than the national average house price.
@@ -89,4 +93,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

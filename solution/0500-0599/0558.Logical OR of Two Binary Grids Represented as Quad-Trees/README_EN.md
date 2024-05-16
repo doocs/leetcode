@@ -7,6 +7,8 @@ tags:
     - Divide and Conquer
 ---
 
+<!-- problem:start -->
+
 # [558. Logical OR of Two Binary Grids Represented as Quad-Trees](https://leetcode.com/problems/logical-or-of-two-binary-grids-represented-as-quad-trees)
 
 [中文文档](/solution/0500-0599/0558.Logical%20OR%20of%20Two%20Binary%20Grids%20Represented%20as%20Quad-Trees/README.md)
@@ -87,6 +89,8 @@ The resulting matrix is of size 1*1 with also zero.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -305,4 +309,6 @@ func intersect(quadTree1 *Node, quadTree2 *Node) *Node {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

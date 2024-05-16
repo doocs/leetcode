@@ -7,6 +7,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [2236. Root Equals Sum of Children](https://leetcode.com/problems/root-equals-sum-of-children)
 
 [中文文档](/solution/2200-2299/2236.Root%20Equals%20Sum%20of%20Children/README.md)
@@ -45,6 +47,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -187,4 +191,6 @@ bool checkTree(struct TreeNode* root) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

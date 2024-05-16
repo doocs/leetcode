@@ -11,13 +11,15 @@ tags:
     - 计数
 ---
 
+<!-- problem:start -->
+
 # [2547. 拆分数组的最小代价](https://leetcode.cn/problems/minimum-cost-to-split-an-array)
 
 [English Version](/solution/2500-2599/2547.Minimum%20Cost%20to%20Split%20an%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> 和一个整数 <code>k</code> 。</p>
 
@@ -85,7 +87,11 @@ tags:
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -260,4 +266,6 @@ function minCost(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,6 +9,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2582. Pass the Pillow](https://leetcode.com/problems/pass-the-pillow)
 
 [中文文档](/solution/2500-2599/2582.Pass%20the%20Pillow/README.md)
@@ -50,6 +52,8 @@ Afer two seconds, the pillow is given to the 3<sup>r</sup><sup>d</sup> person.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -149,6 +153,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Math
 
 We notice that there are $n - 1$ passes in each round. Therefore, we can divide $time$ by $n - 1$ to get the number of rounds $k$ that the pillow is passed, and then take the remainder of $time$ modulo $n - 1$ to get the remaining passes $mod$ in the current round.
@@ -225,4 +233,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

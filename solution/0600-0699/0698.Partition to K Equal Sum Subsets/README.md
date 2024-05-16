@@ -11,13 +11,15 @@ tags:
     - 状态压缩
 ---
 
+<!-- problem:start -->
+
 # [698. 划分为 k 个相等的子集](https://leetcode.cn/problems/partition-to-k-equal-sum-subsets)
 
 [English Version](/solution/0600-0699/0698.Partition%20to%20K%20Equal%20Sum%20Subsets/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数数组&nbsp;&nbsp;<code>nums</code> 和一个正整数 <code>k</code>，找出是否有可能把这个数组分成 <code>k</code> 个非空子集，其总和都相等。</p>
 
@@ -46,7 +48,11 @@ tags:
 	<li>每个元素的频率在 <code>[1,4]</code> 范围内</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS + 剪枝
 
@@ -223,6 +229,10 @@ function canPartitionKSubsets(nums: number[], k: number): boolean {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：状态压缩 + 记忆化搜索
 
@@ -402,6 +412,10 @@ func canPartitionKSubsets(nums []int, k int) bool {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三：动态规划
 
 我们可以使用动态规划的方法求解本题。
@@ -546,4 +560,6 @@ func canPartitionKSubsets(nums []int, k int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

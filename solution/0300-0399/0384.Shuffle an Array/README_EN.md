@@ -8,6 +8,8 @@ tags:
     - Randomized
 ---
 
+<!-- problem:start -->
+
 # [384. Shuffle an Array](https://leetcode.com/problems/shuffle-an-array)
 
 [中文文档](/solution/0300-0399/0384.Shuffle%20an%20Array/README.md)
@@ -55,6 +57,8 @@ solution.shuffle();    // Returns the random shuffling of array [1,2,3]. Example
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -295,4 +299,6 @@ Solution.prototype.shuffle = function () {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

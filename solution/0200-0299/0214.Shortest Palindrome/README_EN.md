@@ -9,6 +9,8 @@ tags:
     - Rolling Hash
 ---
 
+<!-- problem:start -->
+
 # [214. Shortest Palindrome](https://leetcode.com/problems/shortest-palindrome)
 
 [中文文档](/solution/0200-0299/0214.Shortest%20Palindrome/README.md)
@@ -36,6 +38,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -205,4 +209,6 @@ public partial class Solution
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,6 +9,8 @@ tags:
     - Interactive
 ---
 
+<!-- problem:start -->
+
 # [1778. Shortest Path in a Hidden Grid 🔒](https://leetcode.com/problems/shortest-path-in-a-hidden-grid)
 
 [中文文档](/solution/1700-1799/1778.Shortest%20Path%20in%20a%20Hidden%20Grid/README.md)
@@ -96,6 +98,8 @@ We now know that the target is the cell (0, 1), and the shortest path to the tar
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS for Graph Construction + BFS for Shortest Path
 
@@ -298,4 +302,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

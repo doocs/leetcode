@@ -9,6 +9,8 @@ tags:
     - Iterator
 ---
 
+<!-- problem:start -->
+
 # [281. Zigzag Iterator 🔒](https://leetcode.com/problems/zigzag-iterator)
 
 [中文文档](/solution/0200-0299/0281.Zigzag%20Iterator/README.md)
@@ -72,6 +74,8 @@ tags:
 </pre>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -209,4 +213,6 @@ impl ZigzagIterator {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

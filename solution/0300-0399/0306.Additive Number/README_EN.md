@@ -7,6 +7,8 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [306. Additive Number](https://leetcode.com/problems/additive-number)
 
 [中文文档](/solution/0300-0399/0306.Additive%20Number/README.md)
@@ -54,6 +56,8 @@ The additive sequence is: 1, 99, 100, 199.&nbsp;
 <p><strong>Follow up:</strong> How would you handle overflow for very large input integers?</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -197,4 +201,6 @@ func isAdditiveNumber(num string) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

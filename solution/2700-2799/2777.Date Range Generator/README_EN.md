@@ -4,6 +4,8 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2777.Date%20Range%20Generator/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2777. Date Range Generator 🔒](https://leetcode.com/problems/date-range-generator)
 
 [中文文档](/solution/2700-2799/2777.Date%20Range%20Generator/README.md)
@@ -63,6 +65,8 @@ g.next().value // &#39;2023-04-10&#39;
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -90,4 +94,6 @@ function* dateRangeGenerator(start: string, end: string, step: number): Generato
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

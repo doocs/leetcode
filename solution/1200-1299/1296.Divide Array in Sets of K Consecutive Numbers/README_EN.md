@@ -11,6 +11,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1296. Divide Array in Sets of K Consecutive Numbers](https://leetcode.com/problems/divide-array-in-sets-of-k-consecutive-numbers)
 
 [中文文档](/solution/1200-1299/1296.Divide%20Array%20in%20Sets%20of%20K%20Consecutive%20Numbers/README.md)
@@ -58,6 +60,8 @@ tags:
 <strong>Note:</strong> This question is the same as&nbsp;846:&nbsp;<a href="https://leetcode.com/problems/hand-of-straights/" target="_blank">https://leetcode.com/problems/hand-of-straights/</a>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -153,6 +157,10 @@ func isPossibleDivide(nums []int, k int) bool {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -266,4 +274,6 @@ func isPossibleDivide(nums []int, k int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

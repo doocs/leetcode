@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.04.Partition%20List/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [02.04. Partition List](https://leetcode.cn/problems/partition-list-lcci)
 
 [中文文档](/lcci/02.04.Partition%20List/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write code to partition a linked list around a value x, such that all nodes less than x come before all nodes greater than or equal to x. If x is contained within the list, the values of x only need to be after the elements less than x (see below). The partition element x can appear anywhere in the &quot;right partition&quot;; it does not need to appear between the left and right partitions.</p>
 
@@ -22,7 +26,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.04.Partition%20Lis
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Concatenating Lists
 
@@ -225,4 +233,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

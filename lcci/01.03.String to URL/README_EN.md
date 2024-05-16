@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.03.String%20to%20URL/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [01.03. String to URL](https://leetcode.cn/problems/string-to-url-lcci)
 
 [中文文档](/lcci/01.03.String%20to%20URL/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write a method to replace all spaces in a string with &#39;%20&#39;. You may assume that the string has sufficient space at the end to hold the additional characters,and that you are given the &quot;true&quot; length of the string. (Note: If implementing in Java,please use a character array so that you can perform this operation in place.)</p>
 
@@ -44,7 +48,11 @@ The missing numbers are [5,6,8,...], hence the third missing number is 8.
 	<li><code>0 &lt;= S.length &lt;= 500000</code></li>
 </ol>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Using `replace()` function
 
@@ -105,6 +113,8 @@ class Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
 
 ### Solution 2: Simulation
 
@@ -174,4 +184,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,13 +8,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [963. 最小面积矩形 II](https://leetcode.cn/problems/minimum-area-rectangle-ii)
 
 [English Version](/solution/0900-0999/0963.Minimum%20Area%20Rectangle%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定在 xy 平面上的一组点，确定由这些点组成的任何矩形的最小面积，其中矩形的边<strong>不一定平行于</strong> x 轴和 y 轴。</p>
 
@@ -69,7 +71,11 @@ tags:
 	<li>与真实值误差不超过 <code>10^-5</code>&nbsp;的答案将视为正确结果。</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 枚举
 
@@ -261,4 +267,6 @@ function minAreaFreeRect(points: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,6 +9,8 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [2437. Number of Valid Clock Times](https://leetcode.com/problems/number-of-valid-clock-times)
 
 [中文文档](/solution/2400-2499/2437.Number%20of%20Valid%20Clock%20Times/README.md)
@@ -57,6 +59,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -194,6 +198,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Optimized Enumeration
 
 We can separately enumerate hours and minutes, count how many hours and minutes meet the condition, and then multiply them together.
@@ -313,4 +321,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

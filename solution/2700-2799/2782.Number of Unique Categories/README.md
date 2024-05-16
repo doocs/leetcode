@@ -8,13 +8,15 @@ tags:
     - 交互
 ---
 
+<!-- problem:start -->
+
 # [2782. 唯一类别的数量 🔒](https://leetcode.cn/problems/number-of-unique-categories)
 
 [English Version](/solution/2700-2799/2782.Number%20of%20Unique%20Categories/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>现给定一个整数 <code>n</code> 和一个 <code>CategoryHandler</code> 类的对象 <code>categoryHandler</code> 。</p>
 
@@ -62,7 +64,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：并查集
 
@@ -241,4 +247,6 @@ function numberOfCategories(n: number, categoryHandler: CategoryHandler): number
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

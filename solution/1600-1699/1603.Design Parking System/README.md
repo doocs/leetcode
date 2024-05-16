@@ -10,13 +10,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [1603. 设计停车系统](https://leetcode.cn/problems/design-parking-system)
 
 [English Version](/solution/1600-1699/1603.Design%20Parking%20System/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你给一个停车场设计一个停车系统。停车场总共有三种不同大小的车位：大，中和小，每种尺寸分别有固定数目的车位。</p>
 
@@ -56,7 +58,11 @@ parkingSystem.addCar(1); // 返回 false ，因为没有空的大车位，唯一
 	<li>最多会调用 <code>addCar</code> 函数 <code>1000</code> 次</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -275,4 +281,6 @@ void parkingSystemFree(ParkingSystem* obj) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

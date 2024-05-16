@@ -4,6 +4,8 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3147.Taking%20Maximum%20Energy%20From%20the%20Mystic%20Dungeon/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [3147. Taking Maximum Energy From the Mystic Dungeon](https://leetcode.com/problems/taking-maximum-energy-from-the-mystic-dungeon)
 
 [中文文档](/solution/3100-3199/3147.Taking%20Maximum%20Energy%20From%20the%20Mystic%20Dungeon/README.md)
@@ -82,6 +84,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3147.Ta
 ​​​​​​
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration + Suffix Sum
 
@@ -168,4 +172,6 @@ function maximumEnergy(energy: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

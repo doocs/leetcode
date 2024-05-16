@@ -9,6 +9,8 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [1231. Divide Chocolate 🔒](https://leetcode.com/problems/divide-chocolate)
 
 [中文文档](/solution/1200-1299/1231.Divide%20Chocolate/README.md)
@@ -57,6 +59,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search + Greedy
 
@@ -212,4 +216,6 @@ function maximizeSweetness(sweetness: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

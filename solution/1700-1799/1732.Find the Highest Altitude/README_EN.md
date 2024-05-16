@@ -9,6 +9,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1732. Find the Highest Altitude](https://leetcode.com/problems/find-the-highest-altitude)
 
 [中文文档](/solution/1700-1799/1732.Find%20the%20Highest%20Altitude/README.md)
@@ -46,6 +48,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum (Difference Array)
 
@@ -177,6 +181,10 @@ int largestAltitude(int* gain, int gainSize) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -193,4 +201,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

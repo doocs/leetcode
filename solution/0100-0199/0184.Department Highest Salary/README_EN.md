@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [184. Department Highest Salary](https://leetcode.com/problems/department-highest-salary)
 
 [中文文档](/solution/0100-0199/0184.Department%20Highest%20Salary/README.md)
@@ -86,6 +88,8 @@ Department table:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Equi-Join + Subquery
 
 We can use an equi-join to join the `Employee` table and the `Department` table based on `Employee.departmentId = Department.id`, and then use a subquery to find the highest salary for each department. Finally, we can use a `WHERE` clause to filter out the employees with the highest salary in each department.
@@ -107,6 +111,10 @@ WHERE
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Equi-Join + Window Function
 
@@ -137,4 +145,6 @@ WHERE rk = 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

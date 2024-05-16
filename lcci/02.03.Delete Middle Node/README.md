@@ -4,13 +4,15 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.03.Delete%20Middle%20Node/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 02.03. 删除中间节点](https://leetcode.cn/problems/delete-middle-node-lcci)
 
 [English Version](/lcci/02.03.Delete%20Middle%20Node/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>若链表中的某个节点，既不是链表头节点，也不是链表尾节点，则称其为该链表的「中间节点」。</p>
 
@@ -29,7 +31,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.03.Delete%20Middle
 
 <p> </p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：节点赋值
 
@@ -142,4 +148,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

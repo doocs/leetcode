@@ -9,13 +9,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [2582. 递枕头](https://leetcode.cn/problems/pass-the-pillow)
 
 [English Version](/solution/2500-2599/2582.Pass%20the%20Pillow/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><code>n</code> 个人站成一排，按从 <code>1</code> 到 <code>n</code> 编号。</p>
 
@@ -56,7 +58,11 @@ tags:
 	<li><code>1 &lt;= time &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -156,6 +162,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：数学
 
 我们注意到，每一轮有 $n - 1$ 次传递，因此我们可以将 $time$ 除以 $n - 1$ 得到枕头传递的轮数 $k$，然后再将 $time$ 对 $n - 1$ 取余得到枕头在当前轮的剩余传递次数 $mod$。
@@ -232,4 +242,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

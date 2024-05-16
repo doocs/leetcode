@@ -4,6 +4,8 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2648.Generate%20Fibonacci%20Sequence/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2648. Generate Fibonacci Sequence](https://leetcode.com/problems/generate-fibonacci-sequence)
 
 [中文文档](/solution/2600-2699/2648.Generate%20Fibonacci%20Sequence/README.md)
@@ -48,6 +50,8 @@ gen.next().value; // 3
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -71,4 +75,6 @@ function* fibGenerator(): Generator<number, any, number> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

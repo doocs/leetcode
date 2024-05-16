@@ -11,6 +11,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2371. Minimize Maximum Value in a Grid 🔒](https://leetcode.com/problems/minimize-maximum-value-in-a-grid)
 
 [中文文档](/solution/2300-2399/2371.Minimize%20Maximum%20Value%20in%20a%20Grid/README.md)
@@ -63,6 +65,8 @@ The maximum number in the matrix is 2. It can be shown that no smaller value can
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -182,4 +186,6 @@ function minScore(grid: number[][]): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

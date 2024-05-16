@@ -9,6 +9,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2785. Sort Vowels in a String](https://leetcode.com/problems/sort-vowels-in-a-string)
 
 [中文文档](/solution/2700-2799/2785.Sort%20Vowels%20in%20a%20String/README.md)
@@ -52,6 +54,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting
 
@@ -190,4 +194,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

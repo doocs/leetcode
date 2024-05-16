@@ -11,6 +11,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [1273. Delete Tree Nodes 🔒](https://leetcode.com/problems/delete-tree-nodes)
 
 [中文文档](/solution/1200-1299/1273.Delete%20Tree%20Nodes/README.md)
@@ -58,6 +60,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -171,4 +175,6 @@ func deleteTreeNodes(nodes int, parent []int, value []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

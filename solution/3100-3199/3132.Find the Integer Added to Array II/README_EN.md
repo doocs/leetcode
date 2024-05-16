@@ -11,6 +11,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [3132. Find the Integer Added to Array II](https://leetcode.com/problems/find-the-integer-added-to-array-ii)
 
 [中文文档](/solution/3100-3199/3132.Find%20the%20Integer%20Added%20to%20Array%20II/README.md)
@@ -73,6 +75,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Enumeration + Two Pointers
 
@@ -220,4 +224,6 @@ function minimumAddedInteger(nums1: number[], nums2: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

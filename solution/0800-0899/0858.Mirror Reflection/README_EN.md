@@ -8,6 +8,8 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [858. Mirror Reflection](https://leetcode.com/problems/mirror-reflection)
 
 [中文文档](/solution/0800-0899/0858.Mirror%20Reflection/README.md)
@@ -46,6 +48,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -135,4 +139,6 @@ function gcd(a: number, b: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

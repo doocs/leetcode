@@ -11,6 +11,8 @@ tags:
     - Randomized
 ---
 
+<!-- problem:start -->
+
 # [710. Random Pick with Blacklist](https://leetcode.com/problems/random-pick-with-blacklist)
 
 [中文文档](/solution/0700-0799/0710.Random%20Pick%20with%20Blacklist/README.md)
@@ -62,6 +64,8 @@ solution.pick(); // return 4
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -201,4 +205,6 @@ func (this *Solution) Pick() int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

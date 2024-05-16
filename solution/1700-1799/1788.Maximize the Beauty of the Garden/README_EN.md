@@ -8,6 +8,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1788. Maximize the Beauty of the Garden 🔒](https://leetcode.com/problems/maximize-the-beauty-of-the-garden)
 
 [中文文档](/solution/1700-1799/1788.Maximize%20the%20Beauty%20of%20the%20Garden/README.md)
@@ -81,6 +83,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Prefix Sum
 
@@ -212,4 +216,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

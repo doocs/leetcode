@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1796. Second Largest Digit in a String](https://leetcode.com/problems/second-largest-digit-in-a-string)
 
 [中文文档](/solution/1700-1799/1796.Second%20Largest%20Digit%20in%20a%20String/README.md)
@@ -45,6 +47,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: One Pass
 
@@ -190,6 +194,10 @@ int secondHighest(char* s) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Bit Manipulation
 
 We can use an integer $mask$ to mark the numbers that appear in the string, where the $i$-th bit of $mask$ indicates whether the number $i$ has appeared.
@@ -271,4 +279,6 @@ func secondHighest(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

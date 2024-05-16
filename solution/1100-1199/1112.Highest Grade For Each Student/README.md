@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1112. 每位学生的最高成绩 🔒](https://leetcode.cn/problems/highest-grade-for-each-student)
 
 [English Version](/solution/1100-1199/1112.Highest%20Grade%20For%20Each%20Student/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Enrollments</code></p>
 
@@ -60,7 +62,11 @@ Enrollments 表：
 | 3          | 3         | 82    |
 +------------+-----------+-------+</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：RANK() OVER() 窗口函数
 
@@ -88,6 +94,10 @@ ORDER BY student_id;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：子查询
 
 我们可以先查询每个学生的最高成绩，然后再查询每个学生的最高成绩对应的最小课程号。
@@ -110,4 +120,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

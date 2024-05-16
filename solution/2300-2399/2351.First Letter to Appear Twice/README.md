@@ -11,13 +11,15 @@ tags:
     - 计数
 ---
 
+<!-- problem:start -->
+
 # [2351. 第一个出现两次的字母](https://leetcode.cn/problems/first-letter-to-appear-twice)
 
 [English Version](/solution/2300-2399/2351.First%20Letter%20to%20Appear%20Twice/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个由小写英文字母组成的字符串 <code>s</code> ，请你找出并返回第一个出现 <strong>两次</strong> 的字母。</p>
 
@@ -60,7 +62,11 @@ tags:
 	<li><code>s</code> 包含至少一个重复字母</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数组或哈希表
 
@@ -181,6 +187,10 @@ char repeatedCharacter(char* s) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：位运算
 
 我们也可以用一个整数 `mask` 记录每个字母是否出现过，其中 `mask` 的第 $i$ 位表示第 $i$ 个字母是否出现过。当某个字母出现两次时，返回该字母。
@@ -286,4 +296,6 @@ char repeatedCharacter(char* s) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

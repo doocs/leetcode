@@ -7,6 +7,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [345. Reverse Vowels of a String](https://leetcode.com/problems/reverse-vowels-of-a-string)
 
 [中文文档](/solution/0300-0399/0345.Reverse%20Vowels%20of%20a%20String/README.md)
@@ -34,6 +36,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -178,4 +182,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

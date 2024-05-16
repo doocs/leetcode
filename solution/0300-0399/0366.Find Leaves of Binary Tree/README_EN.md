@@ -8,6 +8,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [366. Find Leaves of Binary Tree 🔒](https://leetcode.com/problems/find-leaves-of-binary-tree)
 
 [中文文档](/solution/0300-0399/0366.Find%20Leaves%20of%20Binary%20Tree/README.md)
@@ -48,6 +50,8 @@ Explanation:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -212,4 +216,6 @@ func dfs(root, prev *TreeNode, t *[]int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

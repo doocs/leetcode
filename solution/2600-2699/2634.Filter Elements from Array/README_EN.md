@@ -4,6 +4,8 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2634.Filter%20Elements%20from%20Array/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2634. Filter Elements from Array](https://leetcode.com/problems/filter-elements-from-array)
 
 [中文文档](/solution/2600-2699/2634.Filter%20Elements%20from%20Array/README.md)
@@ -62,6 +64,8 @@ Falsey values such as 0 should be filtered out
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Traversal
 
 We traverse the array $arr$ and for each element $arr[i]$, if $fn(arr[i], i)$ is true, we add it to the answer array. Finally, we return the answer array.
@@ -84,4 +88,6 @@ function filter(arr: number[], fn: (n: number, i: number) => any): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

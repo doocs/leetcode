@@ -11,6 +11,8 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [1871. Jump Game VII](https://leetcode.com/problems/jump-game-vii)
 
 [中文文档](/solution/1800-1899/1871.Jump%20Game%20VII/README.md)
@@ -55,6 +57,8 @@ In the second step, move from index 3 to index 5.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Dynamic Programming
 
@@ -193,4 +197,6 @@ var canReach = function (s, minJump, maxJump) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

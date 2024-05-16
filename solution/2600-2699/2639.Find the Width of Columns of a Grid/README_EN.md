@@ -9,6 +9,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [2639. Find the Width of Columns of a Grid](https://leetcode.com/problems/find-the-width-of-columns-of-a-grid)
 
 [中文文档](/solution/2600-2699/2639.Find%20the%20Width%20of%20Columns%20of%20a%20Grid/README.md)
@@ -56,6 +58,8 @@ In the 2<sup>nd</sup> column, both 12 and -2 are of length 2.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -154,4 +158,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,13 +8,15 @@ tags:
     - 数组
 ---
 
+<!-- problem:start -->
+
 # [1550. 存在连续三个奇数的数组](https://leetcode.cn/problems/three-consecutive-odds)
 
 [English Version](/solution/1500-1599/1550.Three%20Consecutive%20Odds/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>arr</code>，请你判断数组中是否存在连续三个元素都是奇数的情况：如果存在，请返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
 
@@ -43,7 +45,11 @@ tags:
 	<li><code>1 &lt;= arr[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：遍历数组
 
@@ -139,6 +145,10 @@ function threeConsecutiveOdds(arr: number[]): boolean {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -154,4 +164,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

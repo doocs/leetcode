@@ -11,6 +11,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1862. Sum of Floored Pairs](https://leetcode.com/problems/sum-of-floored-pairs)
 
 [中文文档](/solution/1800-1899/1862.Sum%20of%20Floored%20Pairs/README.md)
@@ -52,6 +54,8 @@ We calculate the floor of the division for every pair of indices in the array th
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum of Value Range + Optimized Enumeration
 
@@ -233,4 +237,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

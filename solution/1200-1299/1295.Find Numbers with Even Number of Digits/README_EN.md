@@ -8,6 +8,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [1295. Find Numbers with Even Number of Digits](https://leetcode.com/problems/find-numbers-with-even-number-of-digits)
 
 [中文文档](/solution/1200-1299/1295.Find%20Numbers%20with%20Even%20Number%20of%20Digits/README.md)
@@ -49,6 +51,8 @@ Only 1771 contains an even number of digits.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -114,4 +118,6 @@ var findNumbers = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

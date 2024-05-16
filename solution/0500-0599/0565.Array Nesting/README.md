@@ -7,13 +7,15 @@ tags:
     - 数组
 ---
 
+<!-- problem:start -->
+
 # [565. 数组嵌套](https://leetcode.cn/problems/array-nesting)
 
 [English Version](/solution/0500-0599/0565.Array%20Nesting/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>索引从<code>0</code>开始长度为<code>N</code>的数组<code>A</code>，包含<code>0</code>到<code>N - 1</code>的所有整数。找到最大的集合<code>S</code>并返回其大小，其中 <code>S[i] = {A[i], A[A[i]], A[A[A[i]]], ... }</code>且遵守以下的规则。</p>
 
@@ -43,7 +45,11 @@ S[0] = {A[0], A[5], A[6], A[2]} = {5, 6, 2, 0}
 	<li><code>A</code>中不含有重复的元素。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：图
 
@@ -145,6 +151,10 @@ func arrayNesting(nums []int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：原地标记
 
 由于 $nums$ 元素均在 $[0..n-1]$ 之间，因此，对于访问过的元素，我们可以令 $nums[i]=n$，从而省略 $vis$ 数组。
@@ -230,4 +240,6 @@ func arrayNesting(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

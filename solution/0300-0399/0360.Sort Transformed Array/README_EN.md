@@ -9,6 +9,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [360. Sort Transformed Array 🔒](https://leetcode.com/problems/sort-transformed-array)
 
 [中文文档](/solution/0300-0399/0360.Sort%20Transformed%20Array/README.md)
@@ -38,6 +40,8 @@ tags:
 <p><strong>Follow up:</strong> Could you solve it in <code>O(n)</code> time?</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -190,4 +194,6 @@ func f(a, b, c, x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

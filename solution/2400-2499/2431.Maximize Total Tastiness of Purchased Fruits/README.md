@@ -7,13 +7,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [2431. 最大限度地提高购买水果的口味 🔒](https://leetcode.cn/problems/maximize-total-tastiness-of-purchased-fruits)
 
 [English Version](/solution/2400-2499/2431.Maximize%20Total%20Tastiness%20of%20Purchased%20Fruits/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你有两个非负整数数组 <code>price</code> 和 <code>tastiness</code>，两个数组的长度都是 <code>n</code>。同时给你两个非负整数 <code>maxAmount</code> 和 <code>maxCoupons</code>。</p>
 
@@ -76,7 +78,11 @@ tags:
 	<li><code>0 &lt;= maxCoupons &lt;= 5</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -206,4 +212,6 @@ func maxTastiness(price []int, tastiness []int, maxAmount int, maxCoupons int) i
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

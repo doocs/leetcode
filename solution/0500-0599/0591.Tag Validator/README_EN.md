@@ -7,6 +7,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [591. Tag Validator](https://leetcode.com/problems/tag-validator)
 
 [中文文档](/solution/0500-0599/0591.Tag%20Validator/README.md)
@@ -75,6 +77,8 @@ The reason why cdata is NOT <b>&quot;&lt;![CDATA[&lt;div&gt;]&gt;]]&gt;]]&gt;&qu
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -339,4 +343,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

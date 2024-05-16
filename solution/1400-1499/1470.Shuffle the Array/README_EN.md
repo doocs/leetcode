@@ -8,6 +8,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [1470. Shuffle the Array](https://leetcode.com/problems/shuffle-the-array)
 
 [中文文档](/solution/1400-1499/1470.Shuffle%20the%20Array/README.md)
@@ -67,6 +69,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -161,6 +165,10 @@ int* shuffle(int* nums, int numsSize, int n, int* returnSize) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -194,4 +202,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

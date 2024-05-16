@@ -8,6 +8,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1678. Goal Parser Interpretation](https://leetcode.com/problems/goal-parser-interpretation)
 
 [中文文档](/solution/1600-1699/1678.Goal%20Parser%20Interpretation/README.md)
@@ -54,6 +56,8 @@ The final concatenated result is &quot;Goal&quot;.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: String Replacement
 
@@ -132,6 +136,10 @@ char* interpret(char* command) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: String Iteration
 
@@ -248,4 +256,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

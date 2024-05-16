@@ -9,6 +9,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [919. Complete Binary Tree Inserter](https://leetcode.com/problems/complete-binary-tree-inserter)
 
 [中文文档](/solution/0900-0999/0919.Complete%20Binary%20Tree%20Inserter/README.md)
@@ -57,6 +59,8 @@ cBTInserter.get_root(); // return [1, 2, 3, 4]
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: BFS
 
@@ -408,4 +412,6 @@ CBTInserter.prototype.get_root = function () {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

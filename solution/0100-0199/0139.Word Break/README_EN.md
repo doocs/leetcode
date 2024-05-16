@@ -11,6 +11,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [139. Word Break](https://leetcode.com/problems/word-break)
 
 [中文文档](/solution/0100-0199/0139.Word%20Break/README.md)
@@ -58,6 +60,8 @@ Note that you are allowed to reuse a dictionary word.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -192,6 +196,10 @@ public class Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -479,4 +487,6 @@ class Trie {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

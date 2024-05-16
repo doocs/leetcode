@@ -8,6 +8,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2098. Subsequence of Size K With the Largest Even Sum 🔒](https://leetcode.com/problems/subsequence-of-size-k-with-the-largest-even-sum)
 
 [中文文档](/solution/2000-2099/2098.Subsequence%20of%20Size%20K%20With%20the%20Largest%20Even%20Sum/README.md)
@@ -58,6 +60,8 @@ No subsequence of nums with length 1 has an even sum.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -196,4 +200,6 @@ func largestEvenSum(nums []int, k int) int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

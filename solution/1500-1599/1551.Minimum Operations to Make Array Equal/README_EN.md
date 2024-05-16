@@ -8,6 +8,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [1551. Minimum Operations to Make Array Equal](https://leetcode.com/problems/minimum-operations-to-make-array-equal)
 
 [中文文档](/solution/1500-1599/1551.Minimum%20Operations%20to%20Make%20Array%20Equal/README.md)
@@ -46,6 +48,8 @@ In the second operation choose x = 2 and y = 0 again, thus arr = [3, 3, 3].
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematics
 
@@ -121,4 +125,6 @@ function minOperations(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

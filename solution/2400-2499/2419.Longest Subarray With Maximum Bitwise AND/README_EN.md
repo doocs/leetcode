@@ -10,6 +10,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [2419. Longest Subarray With Maximum Bitwise AND](https://leetcode.com/problems/longest-subarray-with-maximum-bitwise-and)
 
 [中文文档](/solution/2400-2499/2419.Longest%20Subarray%20With%20Maximum%20Bitwise%20AND/README.md)
@@ -60,6 +62,8 @@ The longest subarray with that value is [4], so we return 1.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Quick Thinking
 
@@ -145,4 +149,6 @@ func longestSubarray(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

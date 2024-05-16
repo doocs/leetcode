@@ -12,6 +12,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2931. Maximum Spending After Buying Items](https://leetcode.com/problems/maximum-spending-after-buying-items)
 
 [中文文档](/solution/2900-2999/2931.Maximum%20Spending%20After%20Buying%20Items/README.md)
@@ -80,6 +82,8 @@ It can be shown that 386 is the maximum amount of money that can be spent buying
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Priority Queue
 
@@ -202,4 +206,6 @@ function maxSpending(values: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

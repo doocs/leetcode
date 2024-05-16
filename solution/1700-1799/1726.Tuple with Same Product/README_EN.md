@@ -10,6 +10,8 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [1726. Tuple with Same Product](https://leetcode.com/problems/tuple-with-same-product)
 
 [中文文档](/solution/1700-1799/1726.Tuple%20with%20Same%20Product/README.md)
@@ -51,6 +53,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Combination + Hash Table
 
@@ -172,4 +176,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

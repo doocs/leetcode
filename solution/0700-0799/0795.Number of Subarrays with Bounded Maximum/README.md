@@ -7,13 +7,15 @@ tags:
     - 双指针
 ---
 
+<!-- problem:start -->
+
 # [795. 区间子数组个数](https://leetcode.cn/problems/number-of-subarrays-with-bounded-maximum)
 
 [English Version](/solution/0700-0799/0795.Number%20of%20Subarrays%20with%20Bounded%20Maximum/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> 和两个整数：<code>left</code> 及 <code>right</code> 。找出 <code>nums</code> 中连续、非空且其中最大元素在范围&nbsp;<code>[left, right]</code> 内的子数组，并返回满足条件的子数组的个数。</p>
 
@@ -46,7 +48,11 @@ tags:
 	<li><code>0 &lt;= left &lt;= right &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：区间计数
 
@@ -133,6 +139,10 @@ func numSubarrayBoundedMax(nums []int, left int, right int) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：单调栈 + 枚举元素计算贡献
 
@@ -285,4 +295,6 @@ func numSubarrayBoundedMax(nums []int, left int, right int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

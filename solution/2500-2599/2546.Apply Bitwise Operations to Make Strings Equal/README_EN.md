@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2546. Apply Bitwise Operations to Make Strings Equal](https://leetcode.com/problems/apply-bitwise-operations-to-make-strings-equal)
 
 [中文文档](/solution/2500-2599/2546.Apply%20Bitwise%20Operations%20to%20Make%20Strings%20Equal/README.md)
@@ -56,6 +58,8 @@ Since we can make s equal to target, we return true.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Lateral Thinking
 
@@ -131,4 +135,6 @@ bool makeStringsEqual(char* s, char* target) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

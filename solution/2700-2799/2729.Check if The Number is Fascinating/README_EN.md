@@ -9,6 +9,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [2729. Check if The Number is Fascinating](https://leetcode.com/problems/check-if-the-number-is-fascinating)
 
 [中文文档](/solution/2700-2799/2729.Check%20if%20The%20Number%20is%20Fascinating/README.md)
@@ -52,6 +54,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -132,6 +136,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -177,4 +185,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

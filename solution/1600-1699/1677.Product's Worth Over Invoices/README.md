@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1677. 发票中的产品金额 🔒](https://leetcode.cn/problems/products-worth-over-invoices)
 
 [English Version](/solution/1600-1699/1677.Product%27s%20Worth%20Over%20Invoices/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><code>Product</code> 表：</p>
 
@@ -92,7 +94,11 @@ Result 表：
 - ham 的总已退款金额为 0 + 3 = 3
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -115,4 +121,6 @@ ORDER BY name;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,6 +7,8 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [1060. Missing Element in Sorted Array 🔒](https://leetcode.com/problems/missing-element-in-sorted-array)
 
 [中文文档](/solution/1000-1099/1060.Missing%20Element%20in%20Sorted%20Array/README.md)
@@ -54,6 +56,8 @@ tags:
 <strong>Follow up:</strong> Can you find a logarithmic time complexity (i.e., <code>O(log(n))</code>) solution?
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -152,4 +156,6 @@ func missingElement(nums []int, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

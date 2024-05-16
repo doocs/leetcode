@@ -6,6 +6,8 @@ tags:
     - Linked List
 ---
 
+<!-- problem:start -->
+
 # [328. Odd Even Linked List](https://leetcode.com/problems/odd-even-linked-list)
 
 [中文文档](/solution/0300-0399/0328.Odd%20Even%20Linked%20List/README.md)
@@ -44,6 +46,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Single Pass
 
@@ -195,4 +199,6 @@ function oddEvenList(head: ListNode | null): ListNode | null {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

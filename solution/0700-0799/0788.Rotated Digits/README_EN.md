@@ -7,6 +7,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [788. Rotated Digits](https://leetcode.com/problems/rotated-digits)
 
 [中文文档](/solution/0700-0799/0788.Rotated%20Digits/README.md)
@@ -58,6 +60,8 @@ Note that 1 and 10 are not good numbers, since they remain unchanged after rotat
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -170,6 +174,10 @@ func rotatedDigits(n int) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -330,4 +338,6 @@ func rotatedDigits(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

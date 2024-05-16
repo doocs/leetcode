@@ -9,6 +9,8 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [911. Online Election](https://leetcode.com/problems/online-election)
 
 [中文文档](/solution/0900-0999/0911.Online%20Election/README.md)
@@ -61,6 +63,8 @@ topVotedCandidate.q(8); // return 1
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -251,4 +255,6 @@ class TopVotedCandidate {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

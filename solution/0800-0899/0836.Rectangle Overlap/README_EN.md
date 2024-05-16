@@ -7,6 +7,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [836. Rectangle Overlap](https://leetcode.com/problems/rectangle-overlap)
 
 [中文文档](/solution/0800-0899/0836.Rectangle%20Overlap/README.md)
@@ -41,6 +43,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -85,4 +89,6 @@ func isRectangleOverlap(rec1 []int, rec2 []int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,13 +9,15 @@ tags:
     - 数组
 ---
 
+<!-- problem:start -->
+
 # [2307. 检查方程中的矛盾之处 🔒](https://leetcode.cn/problems/check-for-contradictions-in-equations)
 
 [English Version](/solution/2300-2399/2307.Check%20for%20Contradictions%20in%20Equations/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个由字符串二维数组&nbsp;<code>equations</code> 和实数数组&nbsp;&nbsp;<code>values</code>&nbsp;，其中 <code>equations[i] = [A<sub>i</sub>, B<sub>i</sub>]</code>，<code>values[i]</code> 表示 <code>A<sub>i</sub> / B<sub>i</sub> = values[i]</code>.。</p>
 
@@ -66,7 +68,11 @@ a = 3, b = 1 和 c = 2.
 	<li><code>values[i]</code> 小数点后最多 2 位。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：带权并查集
 
@@ -298,4 +304,6 @@ function checkContradictions(equations: string[][], values: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

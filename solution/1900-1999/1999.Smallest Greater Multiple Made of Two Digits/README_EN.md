@@ -7,6 +7,8 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [1999. Smallest Greater Multiple Made of Two Digits 🔒](https://leetcode.com/problems/smallest-greater-multiple-made-of-two-digits)
 
 [中文文档](/solution/1900-1999/1999.Smallest%20Greater%20Multiple%20Made%20of%20Two%20Digits/README.md)
@@ -61,6 +63,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -170,4 +174,6 @@ func findInteger(k int, digit1 int, digit2 int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

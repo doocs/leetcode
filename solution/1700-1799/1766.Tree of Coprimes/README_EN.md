@@ -12,6 +12,8 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [1766. Tree of Coprimes](https://leetcode.com/problems/tree-of-coprimes)
 
 [中文文档](/solution/1700-1799/1766.Tree%20of%20Coprimes/README.md)
@@ -68,6 +70,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Preprocessing + Enumeration + Stack + Backtracking
 
@@ -266,4 +270,6 @@ func gcd(a, b int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

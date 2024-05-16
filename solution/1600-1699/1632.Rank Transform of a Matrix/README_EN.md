@@ -13,6 +13,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1632. Rank Transform of a Matrix](https://leetcode.com/problems/rank-transform-of-a-matrix)
 
 [中文文档](/solution/1600-1699/1632.Rank%20Transform%20of%20a%20Matrix/README.md)
@@ -75,6 +77,8 @@ The rank of matrix[1][1] is 3 because matrix[1][1] &gt; matrix[0][1], matrix[1][
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -369,4 +373,6 @@ func matrixRankTransform(matrix [][]int) [][]int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,13 +8,15 @@ tags:
     - 枚举
 ---
 
+<!-- problem:start -->
+
 # [816. 模糊坐标](https://leetcode.cn/problems/ambiguous-coordinates)
 
 [English Version](/solution/0800-0899/0816.Ambiguous%20Coordinates/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>我们有一些二维坐标，如&nbsp;<code>&quot;(1, 3)&quot;</code>&nbsp;或&nbsp;<code>&quot;(2, 0.5)&quot;</code>，然后我们移除所有逗号，小数点和空格，得到一个字符串<code>S</code>。返回所有可能的原始字符串到一个列表中。</p>
 
@@ -63,7 +65,11 @@ tags:
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：暴力模拟
 
@@ -218,4 +224,6 @@ function ambiguousCoordinates(s: string): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

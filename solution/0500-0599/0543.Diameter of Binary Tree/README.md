@@ -8,13 +8,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [543. 二叉树的直径](https://leetcode.cn/problems/diameter-of-binary-tree)
 
 [English Version](/solution/0500-0599/0543.Diameter%20of%20Binary%20Tree/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一棵二叉树的根节点，返回该树的 <strong>直径</strong> 。</p>
 
@@ -48,7 +50,11 @@ tags:
 	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -274,6 +280,10 @@ int diameterOfBinaryTree(struct TreeNode* root) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -324,4 +334,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,6 +8,8 @@ tags:
     - Ordered Set
 ---
 
+<!-- problem:start -->
+
 # [699. Falling Squares](https://leetcode.com/problems/falling-squares)
 
 [中文文档](/solution/0600-0699/0699.Falling%20Squares/README.md)
@@ -59,6 +61,8 @@ Note that square 2 only brushes the right side of square 1, which does not count
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -444,4 +448,6 @@ func fallingSquares(positions [][]int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

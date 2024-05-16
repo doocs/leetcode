@@ -11,6 +11,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1915. Number of Wonderful Substrings](https://leetcode.com/problems/number-of-wonderful-substrings)
 
 [中文文档](/solution/1900-1999/1915.Number%20of%20Wonderful%20Substrings/README.md)
@@ -110,6 +112,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -227,4 +231,6 @@ var wonderfulSubstrings = function (word) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

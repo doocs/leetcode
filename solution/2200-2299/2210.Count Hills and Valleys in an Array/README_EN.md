@@ -8,6 +8,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [2210. Count Hills and Valleys in an Array](https://leetcode.com/problems/count-hills-and-valleys-in-an-array)
 
 [中文文档](/solution/2200-2299/2210.Count%20Hills%20and%20Valleys%20in%20an%20Array/README.md)
@@ -60,6 +62,8 @@ There are 0 hills and valleys so we return 0.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Traversal
 
@@ -197,4 +201,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,6 +10,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [897. Increasing Order Search Tree](https://leetcode.com/problems/increasing-order-search-tree)
 
 [中文文档](/solution/0800-0899/0897.Increasing%20Order%20Search%20Tree/README.md)
@@ -42,6 +44,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS In-order Traversal
 
@@ -213,4 +217,6 @@ function increasingBST(root: TreeNode | null): TreeNode | null {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

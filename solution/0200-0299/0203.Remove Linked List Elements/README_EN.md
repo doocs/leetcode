@@ -7,6 +7,8 @@ tags:
     - Linked List
 ---
 
+<!-- problem:start -->
+
 # [203. Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements)
 
 [中文文档](/solution/0200-0299/0203.Remove%20Linked%20List%20Elements/README.md)
@@ -47,6 +49,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -222,4 +226,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

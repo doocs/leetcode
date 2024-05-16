@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [3111. Minimum Rectangles to Cover Points](https://leetcode.com/problems/minimum-rectangles-to-cover-points)
 
 [中文文档](/solution/3100-3199/3111.Minimum%20Rectangles%20to%20Cover%20Points/README.md)
@@ -144,6 +146,8 @@ tags:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Greedy + Sorting
 
 According to the problem description, we don't need to consider the height of the rectangle, only the width.
@@ -235,4 +239,6 @@ function minRectanglesToCoverPoints(points: number[][], w: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

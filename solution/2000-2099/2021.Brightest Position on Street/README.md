@@ -8,13 +8,15 @@ tags:
     - 前缀和
 ---
 
+<!-- problem:start -->
+
 # [2021. 街上最亮的位置 🔒](https://leetcode.cn/problems/brightest-position-on-street)
 
 [English Version](/solution/2000-2099/2021.Brightest%20Position%20on%20Street/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一条街上有很多的路灯，路灯的坐标由数组&nbsp;<code>lights&nbsp;</code>的形式给出。&nbsp;每个&nbsp;<code>lights[i] = [position<sub>i</sub>, range<sub>i</sub>]</code>&nbsp;代表坐标为&nbsp;<code>position<sub>i</sub></code>&nbsp;的路灯照亮的范围为&nbsp;<code>[position<sub>i</sub> - range<sub>i</sub>, position<sub>i</sub> + range<sub>i</sub>]</code>&nbsp;<strong>（包括顶点）。</strong></p>
 
@@ -60,7 +62,11 @@ tags:
 	<li><code>0 &lt;= range<sub>i</sub> &lt;= 10<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：差分数组 + 哈希表 + 排序
 
@@ -196,4 +202,6 @@ var brightestPosition = function (lights) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

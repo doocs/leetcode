@@ -10,6 +10,8 @@ tags:
     - String Matching
 ---
 
+<!-- problem:start -->
+
 # [1668. Maximum Repeating Substring](https://leetcode.com/problems/maximum-repeating-substring)
 
 [中文文档](/solution/1600-1699/1668.Maximum%20Repeating%20Substring/README.md)
@@ -55,6 +57,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -170,4 +174,6 @@ int maxRepeating(char* sequence, char* word) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

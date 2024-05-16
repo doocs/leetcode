@@ -10,6 +10,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [666. Path Sum IV 🔒](https://leetcode.com/problems/path-sum-iv)
 
 [中文文档](/solution/0600-0699/0666.Path%20Sum%20IV/README.md)
@@ -57,6 +59,8 @@ The path sum is (3 + 1) = 4.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -179,4 +183,6 @@ func pathSum(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

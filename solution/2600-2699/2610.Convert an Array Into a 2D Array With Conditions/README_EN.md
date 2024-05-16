@@ -9,6 +9,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [2610. Convert an Array Into a 2D Array With Conditions](https://leetcode.com/problems/convert-an-array-into-a-2d-array-with-conditions)
 
 [中文文档](/solution/2600-2699/2610.Convert%20an%20Array%20Into%20a%202D%20Array%20With%20Conditions/README.md)
@@ -57,6 +59,8 @@ It can be shown that we cannot have less than 3 rows in a valid array.</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Array or Hash Table
 
@@ -171,4 +175,6 @@ function findMatrix(nums: number[]): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

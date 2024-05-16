@@ -11,6 +11,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1514. Path with Maximum Probability](https://leetcode.com/problems/path-with-maximum-probability)
 
 [中文文档](/solution/1500-1599/1514.Path%20with%20Maximum%20Probability/README.md)
@@ -68,6 +70,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -211,6 +215,10 @@ type pair struct {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -322,4 +330,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

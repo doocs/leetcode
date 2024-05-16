@@ -7,6 +7,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [634. Find the Derangement of An Array 🔒](https://leetcode.com/problems/find-the-derangement-of-an-array)
 
 [中文文档](/solution/0600-0699/0634.Find%20the%20Derangement%20of%20An%20Array/README.md)
@@ -41,6 +43,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -117,6 +121,10 @@ func findDerangement(n int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Dynamic Programming (Space Optimization)
 
 We notice that the state transition equation only relates to $f[i - 1]$ and $f[i - 2]$. Therefore, we can use two variables $a$ and $b$ to represent $f[i - 1]$ and $f[i - 2]$ respectively, thereby reducing the space complexity to $O(1)$.
@@ -177,4 +185,6 @@ func findDerangement(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

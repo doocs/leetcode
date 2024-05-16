@@ -8,6 +8,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [546. Remove Boxes](https://leetcode.com/problems/remove-boxes)
 
 [中文文档](/solution/0500-0599/0546.Remove%20Boxes/README.md)
@@ -57,6 +59,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -182,4 +186,6 @@ func removeBoxes(boxes []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

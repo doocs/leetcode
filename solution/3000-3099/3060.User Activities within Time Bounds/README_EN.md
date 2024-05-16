@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [3060. User Activities within Time Bounds 🔒](https://leetcode.com/problems/user-activities-within-time-bounds)
 
 [中文文档](/solution/3000-3099/3060.User%20Activities%20within%20Time%20Bounds/README.md)
@@ -72,6 +74,8 @@ Output table is ordered by user_id in increasing order.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Window Function + Time Function
 
 First, we use the `LAG` window function to find the end time of the previous session of the same type for each user, denoted as `prev_session_end`. Then we use the `TIMESTAMPDIFF` function to calculate the time difference between the start time of the current session and the end time of the previous session. If the time difference is less than or equal to 12 hours, then this user meets the requirements of the problem.
@@ -115,4 +119,6 @@ def user_activities(sessions: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

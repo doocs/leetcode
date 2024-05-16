@@ -8,6 +8,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [54. Spiral Matrix](https://leetcode.com/problems/spiral-matrix)
 
 [中文文档](/solution/0000-0099/0054.Spiral%20Matrix/README.md)
@@ -42,6 +44,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -252,6 +256,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Layer-by-layer Simulation
 
 We can also traverse and store the matrix elements from the outside to the inside, layer by layer.
@@ -439,6 +447,10 @@ public class Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 3
 
@@ -655,4 +667,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

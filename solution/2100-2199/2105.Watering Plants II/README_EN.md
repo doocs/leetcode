@@ -10,6 +10,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2105. Watering Plants II](https://leetcode.com/problems/watering-plants-ii)
 
 [中文文档](/solution/2100-2199/2105.Watering%20Plants%20II/README.md)
@@ -78,6 +80,8 @@ So, the total number of times they have to refill is 0.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers + Simulation
 
@@ -240,4 +244,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

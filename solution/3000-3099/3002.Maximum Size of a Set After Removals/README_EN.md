@@ -10,6 +10,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [3002. Maximum Size of a Set After Removals](https://leetcode.com/problems/maximum-size-of-a-set-after-removals)
 
 [中文文档](/solution/3000-3099/3002.Maximum%20Size%20of%20a%20Set%20After%20Removals/README.md)
@@ -61,6 +63,8 @@ It can be shown that 6 is the maximum possible size of the set s after the remov
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -192,4 +196,6 @@ function maximumSetSize(nums1: number[], nums2: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

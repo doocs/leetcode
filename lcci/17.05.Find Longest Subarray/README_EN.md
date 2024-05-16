@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.05.Find%20Longest%20Subarray/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [17.05. Find Longest Subarray](https://leetcode.cn/problems/find-longest-subarray-lcci)
 
 [中文文档](/lcci/17.05.Find%20Longest%20Subarray/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array filled with letters and numbers, find the longest subarray with an equal number of letters and numbers.</p>
 
@@ -44,7 +48,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.05.Find%20Longest%
 	<li><code>array.length &lt;= 100000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Hash Table
 
@@ -198,4 +206,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

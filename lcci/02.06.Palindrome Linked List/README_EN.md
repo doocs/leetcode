@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.06.Palindrome%20Linked%20List/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [02.06. Palindrome Linked List](https://leetcode.cn/problems/palindrome-linked-list-lcci)
 
 [中文文档](/lcci/02.06.Palindrome%20Linked%20List/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Implement a function to check if a linked list is a palindrome.</p>
 
@@ -40,7 +44,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.06.Palindrome%20Li
 
 Could you do it in O(n) time and O(1) space?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Fast and Slow Pointers + Reverse List
 
@@ -391,4 +399,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

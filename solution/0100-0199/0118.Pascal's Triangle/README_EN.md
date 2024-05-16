@@ -7,6 +7,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [118. Pascal's Triangle](https://leetcode.com/problems/pascals-triangle)
 
 [中文文档](/solution/0100-0199/0118.Pascal%27s%20Triangle/README.md)
@@ -33,6 +35,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -163,4 +167,6 @@ var generate = function (numRows) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

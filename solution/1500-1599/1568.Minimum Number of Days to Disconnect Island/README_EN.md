@@ -12,6 +12,8 @@ tags:
     - Strongly Connected Component
 ---
 
+<!-- problem:start -->
+
 # [1568. Minimum Number of Days to Disconnect Island](https://leetcode.com/problems/minimum-number-of-days-to-disconnect-island)
 
 [中文文档](/solution/1500-1599/1568.Minimum%20Number%20of%20Days%20to%20Disconnect%20Island/README.md)
@@ -57,6 +59,8 @@ Change land grid[1][1] and grid[0][2] to water and get 2 disconnected island.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -272,4 +276,6 @@ func minDays(grid [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

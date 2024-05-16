@@ -10,6 +10,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [1381. Design a Stack With Increment Operation](https://leetcode.com/problems/design-a-stack-with-increment-operation)
 
 [中文文档](/solution/1300-1399/1381.Design%20a%20Stack%20With%20Increment%20Operation/README.md)
@@ -62,6 +64,8 @@ stk.pop();                            // return -1 --&gt; Stack is empty return 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Array Simulation
 
@@ -299,4 +303,6 @@ class CustomStack {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

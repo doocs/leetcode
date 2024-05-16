@@ -7,6 +7,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [1708. Largest Subarray Length K 🔒](https://leetcode.com/problems/largest-subarray-length-k)
 
 [中文文档](/solution/1700-1799/1708.Largest%20Subarray%20Length%20K/README.md)
@@ -63,6 +65,8 @@ Of these, [4,5,2,3] is the largest.</pre>
 <strong>Follow up:</strong> What if the integers in <code>nums</code> are not distinct?
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -143,4 +147,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

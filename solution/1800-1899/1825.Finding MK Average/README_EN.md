@@ -12,6 +12,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1825. Finding MK Average](https://leetcode.com/problems/finding-mk-average)
 
 [中文文档](/solution/1800-1899/1825.Finding%20MK%20Average/README.md)
@@ -74,6 +76,8 @@ obj.calculateMKAverage(); // The last 3 elements are [5,5,5].
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Ordered Set + Queue
 
@@ -425,6 +429,10 @@ func (this *MKAverage) CalculateMKAverage() int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -478,4 +486,6 @@ class MKAverage:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

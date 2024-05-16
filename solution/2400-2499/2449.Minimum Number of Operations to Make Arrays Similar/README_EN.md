@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2449. Minimum Number of Operations to Make Arrays Similar](https://leetcode.com/problems/minimum-number-of-operations-to-make-arrays-similar)
 
 [中文文档](/solution/2400-2499/2449.Minimum%20Number%20of%20Operations%20to%20Make%20Arrays%20Similar/README.md)
@@ -69,6 +71,8 @@ It can be shown that 2 is the minimum number of operations needed.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Odd-Even Classification + Sorting
 
@@ -235,4 +239,6 @@ function makeSimilar(nums: number[], target: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

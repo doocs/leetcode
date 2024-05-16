@@ -13,6 +13,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [3068. Find the Maximum Sum of Node Values](https://leetcode.com/problems/find-the-maximum-sum-of-node-values)
 
 [中文文档](/solution/3000-3099/3068.Find%20the%20Maximum%20Sum%20of%20Node%20Values/README.md)
@@ -82,6 +84,8 @@ It can be shown that 9 is the maximum achievable sum of values.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -104,4 +108,6 @@ It can be shown that 9 is the maximum achievable sum of values.
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

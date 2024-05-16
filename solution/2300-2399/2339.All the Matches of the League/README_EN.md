@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2339. All the Matches of the League 🔒](https://leetcode.com/problems/all-the-matches-of-the-league)
 
 [中文文档](/solution/2300-2399/2339.All%20the%20Matches%20of%20the%20League/README.md)
@@ -61,6 +63,8 @@ Teams table:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -76,4 +80,6 @@ WHERE t1.team_name != t2.team_name;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

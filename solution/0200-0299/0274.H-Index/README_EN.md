@@ -8,6 +8,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [274. H-Index](https://leetcode.com/problems/h-index)
 
 [中文文档](/solution/0200-0299/0274.H-Index/README.md)
@@ -45,6 +47,8 @@ Since the researcher has 3 papers with at least 3 citations each and the remaini
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting
 
@@ -141,6 +145,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Counting + Sum
 
 We can use an array $cnt$ of length $n+1$, where $cnt[i]$ represents the number of papers with the reference count of $i$. We traverse the array `citations` and treat the papers with the reference count greater than $n$ as papers with a reference count of $n$. Then we use the reference count as the index and add $1$ to the corresponding element of $cnt$ for each paper. In this way, we have counted the number of papers for each reference count.
@@ -236,6 +244,10 @@ function hIndex(citations: number[]): number {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 3: Binary Search
 
@@ -352,4 +364,6 @@ function hIndex(citations: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

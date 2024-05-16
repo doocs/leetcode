@@ -8,6 +8,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [741. Cherry Pickup](https://leetcode.com/problems/cherry-pickup)
 
 [中文文档](/solution/0700-0799/0741.Cherry%20Pickup/README.md)
@@ -63,6 +65,8 @@ The total number of cherries picked up is 5, and this is the maximum possible.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -291,4 +295,6 @@ var cherryPickup = function (grid) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

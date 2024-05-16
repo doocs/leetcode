@@ -7,6 +7,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [760. Find Anagram Mappings 🔒](https://leetcode.com/problems/find-anagram-mappings)
 
 [中文文档](/solution/0700-0799/0760.Find%20Anagram%20Mappings/README.md)
@@ -47,6 +49,8 @@ tags:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -80,4 +84,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

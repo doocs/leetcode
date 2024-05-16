@@ -9,13 +9,15 @@ tags:
     - 前缀和
 ---
 
+<!-- problem:start -->
+
 # [3129. 找出所有稳定的二进制数组 I](https://leetcode.cn/problems/find-all-possible-stable-binary-arrays-i)
 
 [English Version](/solution/3100-3199/3129.Find%20All%20Possible%20Stable%20Binary%20Arrays%20I/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你 3 个正整数&nbsp;<code>zero</code>&nbsp;，<code>one</code>&nbsp;和&nbsp;<code>limit</code>&nbsp;。</p>
 
@@ -79,7 +81,11 @@ tags:
 	<li><code>1 &lt;= zero, one, limit &lt;= 200</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -247,6 +253,10 @@ func numberOfStableArrays(zero int, one int, limit int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划
 
 我们也可以将方法一的记忆化搜索转换为动态规划。
@@ -374,4 +384,6 @@ func numberOfStableArrays(zero int, one int, limit int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

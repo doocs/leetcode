@@ -13,6 +13,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2398. Maximum Number of Robots Within Budget](https://leetcode.com/problems/maximum-number-of-robots-within-budget)
 
 [中文文档](/solution/2300-2399/2398.Maximum%20Number%20of%20Robots%20Within%20Budget/README.md)
@@ -56,6 +58,8 @@ It can be shown that it is not possible to run more than 3 consecutive robots wi
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers + Monotonic Queue
 
@@ -169,4 +173,6 @@ func maximumRobots(chargeTimes []int, runningCosts []int, budget int64) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -11,6 +11,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1478. Allocate Mailboxes](https://leetcode.com/problems/allocate-mailboxes)
 
 [中文文档](/solution/1400-1499/1478.Allocate%20Mailboxes/README.md)
@@ -52,6 +54,8 @@ Minimum total distance from each houses to nearest mailboxes is |2-3| + |3-3| + 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -165,4 +169,6 @@ func minDistance(houses []int, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

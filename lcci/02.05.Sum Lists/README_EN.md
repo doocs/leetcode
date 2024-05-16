@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.05.Sum%20Lists/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [02.05. Sum Lists](https://leetcode.cn/problems/sum-lists-lcci)
 
 [中文文档](/lcci/02.05.Sum%20Lists/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have two numbers represented by a linked list, where each node contains a single digit. The digits are stored in reverse order, such that the 1&#39;s digit is at the head of the list. Write a function that adds the two numbers and returns the sum as a linked list.</p>
 
@@ -36,7 +40,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.05.Sum%20Lists/REA
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -303,4 +311,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

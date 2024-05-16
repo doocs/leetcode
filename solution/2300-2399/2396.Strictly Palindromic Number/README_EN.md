@@ -10,6 +10,8 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [2396. Strictly Palindromic Number](https://leetcode.com/problems/strictly-palindromic-number)
 
 [中文文档](/solution/2300-2399/2396.Strictly%20Palindromic%20Number/README.md)
@@ -52,6 +54,8 @@ Therefore, we return false.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Quick Thinking
 
@@ -116,4 +120,6 @@ bool isStrictlyPalindromic(int n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

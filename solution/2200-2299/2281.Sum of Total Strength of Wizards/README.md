@@ -11,13 +11,15 @@ tags:
     - 单调栈
 ---
 
+<!-- problem:start -->
+
 # [2281. 巫师的总力量和](https://leetcode.cn/problems/sum-of-total-strength-of-wizards)
 
 [English Version](/solution/2200-2299/2281.Sum%20of%20Total%20Strength%20of%20Wizards/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>作为国王的统治者，你有一支巫师军队听你指挥。</p>
 
@@ -75,7 +77,11 @@ tags:
 	<li><code>1 &lt;= strength[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：单调栈 + 前缀和
 
@@ -255,4 +261,6 @@ func totalStrength(strength []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

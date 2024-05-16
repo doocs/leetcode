@@ -10,6 +10,8 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [3020. Find the Maximum Number of Elements in Subset](https://leetcode.com/problems/find-the-maximum-number-of-elements-in-subset)
 
 [中文文档](/solution/3000-3099/3020.Find%20the%20Maximum%20Number%20of%20Elements%20in%20Subset/README.md)
@@ -52,6 +54,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Enumeration
 
@@ -175,4 +179,6 @@ function maximumLength(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

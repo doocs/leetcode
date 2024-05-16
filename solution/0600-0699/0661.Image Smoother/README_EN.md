@@ -7,6 +7,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [661. Image Smoother](https://leetcode.com/problems/image-smoother)
 
 [中文文档](/solution/0600-0699/0661.Image%20Smoother/README.md)
@@ -51,6 +53,8 @@ For the point (1,1): floor((50+200+200+200+200+100+100+100+100)/9) = floor(138.8
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -223,4 +227,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

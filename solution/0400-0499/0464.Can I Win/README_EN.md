@@ -11,6 +11,8 @@ tags:
     - Game Theory
 ---
 
+<!-- problem:start -->
+
 # [464. Can I Win](https://leetcode.com/problems/can-i-win)
 
 [中文文档](/solution/0400-0499/0464.Can%20I%20Win/README.md)
@@ -62,6 +64,8 @@ Same with other integers chosen by the first player, the second player will alwa
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -174,4 +178,6 @@ func canIWin(maxChoosableInteger int, desiredTotal int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

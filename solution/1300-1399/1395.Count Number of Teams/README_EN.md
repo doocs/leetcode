@@ -10,6 +10,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1395. Count Number of Teams](https://leetcode.com/problems/count-number-of-teams)
 
 [中文文档](/solution/1300-1399/1395.Count%20Number%20of%20Teams/README.md)
@@ -62,6 +64,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumerate Middle Element
 
@@ -181,6 +185,10 @@ function numTeams(rating: number[]): number {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Binary Indexed Tree
 
@@ -491,4 +499,6 @@ function numTeams(rating: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

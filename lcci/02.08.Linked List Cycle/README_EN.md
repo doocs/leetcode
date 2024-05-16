@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.08.Linked%20List%20Cycle/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [02.08. Linked List Cycle](https://leetcode.cn/problems/linked-list-cycle-lcci)
 
 [中文文档](/lcci/02.08.Linked%20List%20Cycle/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a circular linked list, implement an algorithm that returns the node at the beginning of the loop.</p>
 
@@ -42,7 +46,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.08.Linked%20List%2
 
 Can you solve it without using additional space?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -275,4 +283,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

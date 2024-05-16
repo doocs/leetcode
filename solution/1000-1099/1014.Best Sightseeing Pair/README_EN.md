@@ -9,6 +9,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1014. Best Sightseeing Pair](https://leetcode.com/problems/best-sightseeing-pair)
 
 [中文文档](/solution/1000-1099/1014.Best%20Sightseeing%20Pair/README.md)
@@ -46,6 +48,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -112,4 +116,6 @@ function maxScoreSightseeingPair(values: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

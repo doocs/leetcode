@@ -8,6 +8,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [2908. Minimum Sum of Mountain Triplets I](https://leetcode.com/problems/minimum-sum-of-mountain-triplets-i)
 
 [中文文档](/solution/2900-2999/2908.Minimum%20Sum%20of%20Mountain%20Triplets%20I/README.md)
@@ -65,6 +67,8 @@ And the sum of this triplet is nums[1] + nums[3] + nums[5] = 13. It can be shown
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Preprocessing + Enumeration
 
@@ -181,4 +185,6 @@ function minimumSum(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

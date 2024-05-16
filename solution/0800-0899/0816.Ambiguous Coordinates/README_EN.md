@@ -8,6 +8,8 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [816. Ambiguous Coordinates](https://leetcode.com/problems/ambiguous-coordinates)
 
 [中文文档](/solution/0800-0899/0816.Ambiguous%20Coordinates/README.md)
@@ -59,6 +61,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -204,4 +208,6 @@ function ambiguousCoordinates(s: string): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

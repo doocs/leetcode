@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [3140. 连续空余座位 II 🔒](https://leetcode.cn/problems/consecutive-available-seats-ii)
 
 [English Version](/solution/3100-3199/3140.Consecutive%20Available%20Seats%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Cinema</code></p>
 
@@ -78,7 +80,11 @@ seat_id 是这张表中的自增列。
 </ul>
 输出表以 first_seat_id 升序排序。</div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：使用窗口函数
 
@@ -113,4 +119,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

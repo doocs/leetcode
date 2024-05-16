@@ -9,6 +9,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [264. Ugly Number II](https://leetcode.com/problems/ugly-number-ii)
 
 [中文文档](/solution/0200-0299/0264.Ugly%20Number%20II/README.md)
@@ -44,6 +46,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -200,6 +204,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -282,4 +290,6 @@ func nthUglyNumber(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

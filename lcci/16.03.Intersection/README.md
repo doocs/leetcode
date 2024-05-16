@@ -4,13 +4,16 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.03.Intersection/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 16.03. 交点](https://leetcode.cn/problems/intersection-lcci)
 
 [English Version](/lcci/16.03.Intersection/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>给定两条线段（表示为起点<code>start = {X1, Y1}</code>和终点<code>end = {X2, Y2}</code>），如果它们有交点，请计算其交点，没有交点则返回空值。</p>
 </p>要求浮点型误差不超过<code>10^-6</code>。若有多个交点（线段重叠）则返回X值最小的点，X坐标相同则返回Y值最小的点。</p>
 <p><strong>示例 1：</strong></p>
@@ -37,6 +40,10 @@ line2 = {1, 0}, {2, 1}
 <li>输入的坐标均是有效的二维坐标</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

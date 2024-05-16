@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1532. The Most Recent Three Orders 🔒](https://leetcode.com/problems/the-most-recent-three-orders)
 
 [中文文档](/solution/1500-1599/1532.The%20Most%20Recent%20Three%20Orders/README.md)
@@ -108,6 +110,8 @@ We sort the result table by customer_name in ascending order, by customer_id in 
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Equi-Join + Window Function
 
 We can use an equi-join to join the `Customers` table and the `Orders` table based on `customer_id`, and then use the window function `row_number()` to sort the orders for each customer by `order_date` in descending order and assign a row number to each order. Finally, we can filter out the orders with a row number less than or equal to $3$.
@@ -136,4 +140,6 @@ ORDER BY 1, 2, 4 DESC;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

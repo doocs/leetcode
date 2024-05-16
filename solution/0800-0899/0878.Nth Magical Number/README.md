@@ -7,13 +7,15 @@ tags:
     - 二分查找
 ---
 
+<!-- problem:start -->
+
 # [878. 第 N 个神奇数字](https://leetcode.cn/problems/nth-magical-number)
 
 [English Version](/solution/0800-0899/0878.Nth%20Magical%20Number/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一个正整数如果能被 <code>a</code> 或 <code>b</code> 整除，那么它是神奇的。</p>
 
@@ -49,7 +51,11 @@ tags:
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学 + 二分查找
 
@@ -152,4 +158,6 @@ func gcd(a, b int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

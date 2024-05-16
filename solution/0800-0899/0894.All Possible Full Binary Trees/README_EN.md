@@ -10,6 +10,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [894. All Possible Full Binary Trees](https://leetcode.com/problems/all-possible-full-binary-trees)
 
 [中文文档](/solution/0800-0899/0894.All%20Possible%20Full%20Binary%20Trees/README.md)
@@ -45,6 +47,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -353,4 +357,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

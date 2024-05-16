@@ -6,6 +6,8 @@ tags:
     - Shell
 ---
 
+<!-- problem:start -->
+
 # [192. Word Frequency](https://leetcode.com/problems/word-frequency)
 
 [中文文档](/solution/0100-0199/0192.Word%20Frequency/README.md)
@@ -49,6 +51,8 @@ day 1
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: awk
 
 <!-- tabs:start -->
@@ -60,4 +64,6 @@ cat words.txt | tr -s ' ' '\n' | sort | uniq -c | sort -nr | awk '{print $2, $1}
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

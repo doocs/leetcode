@@ -10,6 +10,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [743. Network Delay Time](https://leetcode.com/problems/network-delay-time)
 
 [中文文档](/solution/0700-0799/0743.Network%20Delay%20Time/README.md)
@@ -56,6 +58,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -187,6 +191,10 @@ func networkDelayTime(times [][]int, n int, k int) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -339,6 +347,10 @@ func networkDelayTime(times [][]int, n int, k int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
@@ -428,6 +440,10 @@ func networkDelayTime(times [][]int, n int, k int) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 4
 
@@ -583,4 +599,6 @@ func networkDelayTime(times [][]int, n int, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

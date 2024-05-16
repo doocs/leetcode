@@ -10,6 +10,8 @@ tags:
     - Ordered Set
 ---
 
+<!-- problem:start -->
+
 # [2817. Minimum Absolute Difference Between Elements With Constraint](https://leetcode.com/problems/minimum-absolute-difference-between-elements-with-constraint)
 
 [中文文档](/solution/2800-2899/2817.Minimum%20Absolute%20Difference%20Between%20Elements%20With%20Constraint/README.md)
@@ -65,6 +67,8 @@ It can be shown that 3 is the optimal answer.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Ordered Set
 
@@ -680,4 +684,6 @@ class TreeMultiSet<T = number> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

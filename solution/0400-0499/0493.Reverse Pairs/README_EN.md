@@ -12,6 +12,8 @@ tags:
     - Merge Sort
 ---
 
+<!-- problem:start -->
+
 # [493. Reverse Pairs](https://leetcode.com/problems/reverse-pairs)
 
 [中文文档](/solution/0400-0499/0493.Reverse%20Pairs/README.md)
@@ -58,6 +60,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -237,6 +241,10 @@ func reversePairs(nums []int) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -446,6 +454,10 @@ func reversePairs(nums []int) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 3
 
@@ -681,4 +693,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

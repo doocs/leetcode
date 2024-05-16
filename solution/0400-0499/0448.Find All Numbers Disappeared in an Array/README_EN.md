@@ -7,6 +7,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [448. Find All Numbers Disappeared in an Array](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array)
 
 [中文文档](/solution/0400-0499/0448.Find%20All%20Numbers%20Disappeared%20in%20an%20Array/README.md)
@@ -36,6 +38,8 @@ tags:
 <p><strong>Follow up:</strong> Could you do it without extra space and in <code>O(n)</code> runtime? You may assume the returned list does not count as extra space.</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -122,6 +126,10 @@ function findDisappearedNumbers(nums: number[]): number[] {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -226,4 +234,6 @@ function findDisappearedNumbers(nums: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

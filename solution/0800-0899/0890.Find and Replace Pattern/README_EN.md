@@ -8,6 +8,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [890. Find and Replace Pattern](https://leetcode.com/problems/find-and-replace-pattern)
 
 [中文文档](/solution/0800-0899/0890.Find%20and%20Replace%20Pattern/README.md)
@@ -48,6 +50,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -186,4 +190,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

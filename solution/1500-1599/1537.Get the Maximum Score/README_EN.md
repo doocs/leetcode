@@ -11,6 +11,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1537. Get the Maximum Score](https://leetcode.com/problems/get-the-maximum-score)
 
 [中文文档](/solution/1500-1599/1537.Get%20the%20Maximum%20Score/README.md)
@@ -70,6 +72,8 @@ Maximum sum is obtained with the path [6,7,8,9,10].
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -215,4 +219,6 @@ function maxSum(nums1: number[], nums2: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

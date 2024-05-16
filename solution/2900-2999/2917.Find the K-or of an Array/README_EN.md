@@ -9,6 +9,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [2917. Find the K-or of an Array](https://leetcode.com/problems/find-the-k-or-of-an-array)
 
 [中文文档](/solution/2900-2999/2917.Find%20the%20K-or%20of%20an%20Array/README.md)
@@ -127,6 +129,8 @@ Only bits 0 and 3 qualify. The result is <code>(1001)<sub>2</sub> = 9</code>.</p
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Enumeration
 
 We can enumerate each bit $i$ in the range $[0, 32)$, and count the number of numbers in the array $nums$ whose $i$-th bit is $1$, denoted as $cnt$. If $cnt \ge k$, we add $2^i$ to the answer.
@@ -236,4 +240,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

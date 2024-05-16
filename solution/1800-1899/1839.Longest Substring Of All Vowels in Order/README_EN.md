@@ -9,6 +9,8 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [1839. Longest Substring Of All Vowels in Order](https://leetcode.com/problems/longest-substring-of-all-vowels-in-order)
 
 [中文文档](/solution/1800-1899/1839.Longest%20Substring%20Of%20All%20Vowels%20in%20Order/README.md)
@@ -61,6 +63,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers + Simulation
 
@@ -185,4 +189,6 @@ type pair struct {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -12,6 +12,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1349. Maximum Students Taking Exam](https://leetcode.com/problems/maximum-students-taking-exam)
 
 [中文文档](/solution/1300-1399/1349.Maximum%20Students%20Taking%20Exam/README.md)
@@ -72,6 +74,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: State Compression + Memoization Search
 
@@ -295,4 +299,6 @@ function maxStudents(seats: string[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

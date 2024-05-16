@@ -8,6 +8,8 @@ tags:
     - Interactive
 ---
 
+<!-- problem:start -->
+
 # [277. Find the Celebrity 🔒](https://leetcode.com/problems/find-the-celebrity)
 
 [中文文档](/solution/0200-0299/0277.Find%20the%20Celebrity/README.md)
@@ -53,6 +55,8 @@ tags:
 <p><strong>Follow up:</strong> If the maximum number of allowed calls to the API <code>knows</code> is <code>3 * n</code>, could you find a solution without exceeding the maximum number of calls?</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -153,4 +157,6 @@ func solution(knows func(a int, b int) bool) func(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

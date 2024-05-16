@@ -10,6 +10,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [1722. Minimize Hamming Distance After Swap Operations](https://leetcode.com/problems/minimize-hamming-distance-after-swap-operations)
 
 [中文文档](/solution/1700-1799/1722.Minimize%20Hamming%20Distance%20After%20Swap%20Operations/README.md)
@@ -64,6 +66,8 @@ The Hamming distance of source and target is 2 as they differ in 2 positions: in
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Union-Find + Hash Table
 
@@ -244,4 +248,6 @@ function minimumHammingDistance(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

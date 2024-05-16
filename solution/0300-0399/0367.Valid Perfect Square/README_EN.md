@@ -7,6 +7,8 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [367. Valid Perfect Square](https://leetcode.com/problems/valid-perfect-square)
 
 [中文文档](/solution/0300-0399/0367.Valid%20Perfect%20Square/README.md)
@@ -44,6 +46,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary search
 
@@ -155,6 +159,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Math trick
 
 This is a math problem：
@@ -238,4 +246,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

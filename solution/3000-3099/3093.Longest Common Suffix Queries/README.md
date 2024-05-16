@@ -10,13 +10,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [3093. 最长公共后缀查询](https://leetcode.cn/problems/longest-common-suffix-queries)
 
 [English Version](/solution/3000-3099/3093.Longest%20Common%20Suffix%20Queries/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个字符串数组&nbsp;<code>wordsContainer</code> 和&nbsp;<code>wordsQuery</code>&nbsp;。</p>
 
@@ -76,7 +78,11 @@ tags:
 	<li><code>wordsQuery[i].length</code>&nbsp;的和至多为&nbsp;<code>5 * 10<sup>5</sup></code>&nbsp;。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：字典树
 
@@ -368,4 +374,6 @@ function stringIndices(wordsContainer: string[], wordsQuery: string[]): number[]
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

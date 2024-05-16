@@ -8,6 +8,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [874. Walking Robot Simulation](https://leetcode.com/problems/walking-robot-simulation)
 
 [中文文档](/solution/0800-0899/0874.Walking%20Robot%20Simulation/README.md)
@@ -88,6 +90,8 @@ The furthest point the robot ever gets from the origin is (0, 6), which squared 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash table + simulation
 
@@ -260,4 +264,6 @@ function robotSim(commands: number[], obstacles: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,6 +9,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [149. Max Points on a Line](https://leetcode.com/problems/max-points-on-a-line)
 
 [中文文档](/solution/0100-0199/0149.Max%20Points%20on%20a%20Line/README.md)
@@ -43,6 +45,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -174,6 +178,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -283,4 +291,6 @@ func gcd(a, b int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

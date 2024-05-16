@@ -11,6 +11,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2266. Count Number of Texts](https://leetcode.com/problems/count-number-of-texts)
 
 [中文文档](/solution/2200-2299/2266.Count%20Number%20of%20Texts/README.md)
@@ -67,6 +69,8 @@ Since we need to return the answer modulo 10<sup>9</sup> + 7, we return 20828761
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -164,4 +168,6 @@ func countTexts(pressedKeys string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

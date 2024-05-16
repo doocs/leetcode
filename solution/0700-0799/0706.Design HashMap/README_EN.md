@@ -10,6 +10,8 @@ tags:
     - Hash Function
 ---
 
+<!-- problem:start -->
+
 # [706. Design HashMap](https://leetcode.com/problems/design-hashmap)
 
 [中文文档](/solution/0700-0799/0706.Design%20HashMap/README.md)
@@ -58,6 +60,8 @@ myHashMap.get(2);    // return -1 (i.e., not found), The map is now [[1,1]]
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -211,4 +215,6 @@ class MyHashMap {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

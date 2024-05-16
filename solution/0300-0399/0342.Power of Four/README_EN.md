@@ -8,6 +8,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [342. Power of Four](https://leetcode.com/problems/power-of-four)
 
 [中文文档](/solution/0300-0399/0342.Power%20of%20Four/README.md)
@@ -40,6 +42,8 @@ tags:
 <strong>Follow up:</strong> Could you solve it without loops/recursion?
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -92,4 +96,6 @@ var isPowerOfFour = function (n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

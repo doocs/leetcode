@@ -8,6 +8,8 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [84. Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram)
 
 [中文文档](/solution/0000-0099/0084.Largest%20Rectangle%20in%20Histogram/README.md)
@@ -42,6 +44,8 @@ The largest rectangle is shown in the red area, which has an area = 10 units.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Monotonic Stack
 
@@ -231,6 +235,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -261,4 +269,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,6 +9,8 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2090. K Radius Subarray Averages](https://leetcode.com/problems/k-radius-subarray-averages)
 
 [中文文档](/solution/2000-2099/2090.K%20Radius%20Subarray%20Averages/README.md)
@@ -71,6 +73,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sliding Window
 
@@ -202,6 +206,10 @@ function getAverages(nums: number[], k: number): number[] {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Another Way of Sliding Window
 
 We maintain a window of size $k \times 2 + 1$, and let the sum of all elements in the window be $s$.
@@ -301,4 +309,6 @@ function getAverages(nums: number[], k: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

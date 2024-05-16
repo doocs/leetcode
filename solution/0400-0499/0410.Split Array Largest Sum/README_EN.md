@@ -10,6 +10,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [410. Split Array Largest Sum](https://leetcode.com/problems/split-array-largest-sum)
 
 [中文文档](/solution/0400-0499/0410.Split%20Array%20Largest%20Sum/README.md)
@@ -51,6 +53,8 @@ The best way is to split it into [1,2,3] and [4,5], where the largest sum among 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -202,4 +206,6 @@ function splitArray(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [3055. Top Percentile Fraud 🔒](https://leetcode.com/problems/top-percentile-fraud)
 
 [中文文档](/solution/3000-3099/3055.Top%20Percentile%20Fraud/README.md)
@@ -77,6 +79,8 @@ Output table is ordered by state in ascending order, fraud score in descending o
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Using Window Function
 
 We can use the `RANK()` window function to calculate the ranking of fraud scores for each state, then filter out the records with a rank of 1, and sort them as required by the problem.
@@ -103,4 +107,6 @@ ORDER BY 2, 3 DESC, 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

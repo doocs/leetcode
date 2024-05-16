@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2126. Destroying Asteroids](https://leetcode.com/problems/destroying-asteroids)
 
 [中文文档](/solution/2100-2199/2126.Destroying%20Asteroids/README.md)
@@ -57,6 +59,8 @@ This is less than 23, so a collision would not destroy the last asteroid.</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -120,4 +124,6 @@ func asteroidsDestroyed(mass int, asteroids []int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

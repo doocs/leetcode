@@ -10,13 +10,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [3074. 重新分装苹果](https://leetcode.cn/problems/apple-redistribution-into-boxes)
 
 [English Version](/solution/3000-3099/3074.Apple%20Redistribution%20into%20Boxes/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code> 的数组 <code>apple</code> 和另一个长度为 <code>m</code> 的数组 <code>capacity</code> 。</p>
 
@@ -56,7 +58,11 @@ tags:
 	<li>输入数据保证可以将包裹中的苹果重新分装到箱子中。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 排序
 
@@ -142,4 +148,6 @@ function minimumBoxes(apple: number[], capacity: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

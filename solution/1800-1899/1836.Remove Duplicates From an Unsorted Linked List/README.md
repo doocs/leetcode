@@ -7,13 +7,15 @@ tags:
     - 链表
 ---
 
+<!-- problem:start -->
+
 # [1836. 从未排序的链表中移除重复元素 🔒](https://leetcode.cn/problems/remove-duplicates-from-an-unsorted-linked-list)
 
 [English Version](/solution/1800-1899/1836.Remove%20Duplicates%20From%20an%20Unsorted%20Linked%20List/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个链表的第一个节点 <code>head</code> ，找到链表中所有出现<strong>多于一次</strong>的元素，并删除这些元素所在的节点。</p>
 
@@ -51,7 +53,11 @@ tags:
 	<li><code>1 &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -204,4 +210,6 @@ function deleteDuplicatesUnsorted(head: ListNode | null): ListNode | null {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

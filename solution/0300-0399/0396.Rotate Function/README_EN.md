@@ -8,6 +8,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [396. Rotate Function](https://leetcode.com/problems/rotate-function)
 
 [中文文档](/solution/0300-0399/0396.Rotate%20Function/README.md)
@@ -57,6 +59,8 @@ So the maximum value of F(0), F(1), F(2), F(3) is F(3) = 26.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -169,4 +173,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

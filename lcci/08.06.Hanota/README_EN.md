@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.06.Hanota/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [08.06. Hanota](https://leetcode.cn/problems/hanota-lcci)
 
 [中文文档](/lcci/08.06.Hanota/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>In the classic problem of the Towers of Hanoi, you have 3 towers and N disks of different sizes which can slide onto any tower. The puzzle starts with disks sorted in ascending order of size from top to bottom (i.e., each disk sits on top of an even larger one). You have the following constraints:</p>
 <p>(1) Only one disk can be moved at a time.<br />
@@ -36,7 +40,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.06.Hanota/README_E
 	<li><code>A.length &lt;= 14</code></li>
 </ol>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -156,6 +164,8 @@ class Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
 
 ### Solution 2: Iteration (Stack)
 
@@ -302,4 +312,6 @@ function hanota(A: number[], B: number[], C: number[]): void {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

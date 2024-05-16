@@ -4,9 +4,13 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.09.Get%20Kth%20Magic%20Number/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [17.09. Get Kth Magic Number](https://leetcode.cn/problems/get-kth-magic-number-lcci)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design an algorithm to find the kth number such that the only prime factors are 3, 5, and 7. Note that 3, 5, and 7 do not have to be factors, but it should not have any other prime factors. For example, the first several multiples would be (in order) 1, 3, 5, 7, 9, 15, 21.</p>
 <p><strong>Example 1:</strong></p>
@@ -18,7 +22,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.09.Get%20Kth%20Mag
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -225,6 +233,8 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -322,4 +332,6 @@ func getKthMagicNumber(k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

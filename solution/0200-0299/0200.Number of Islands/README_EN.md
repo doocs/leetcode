@@ -10,6 +10,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [200. Number of Islands](https://leetcode.com/problems/number-of-islands)
 
 [中文文档](/solution/0200-0299/0200.Number%20of%20Islands/README.md)
@@ -56,6 +58,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -285,6 +289,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -505,6 +513,10 @@ impl Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 3
 
@@ -745,4 +757,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

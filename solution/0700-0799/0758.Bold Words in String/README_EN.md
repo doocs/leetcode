@@ -10,6 +10,8 @@ tags:
     - String Matching
 ---
 
+<!-- problem:start -->
+
 # [758. Bold Words in String 🔒](https://leetcode.com/problems/bold-words-in-string)
 
 [中文文档](/solution/0700-0799/0758.Bold%20Words%20in%20String/README.md)
@@ -50,6 +52,8 @@ tags:
 <p><strong>Note:</strong> This question is the same as 616: <a href="https://leetcode.com/problems/add-bold-tag-in-string/" target="_blank">https://leetcode.com/problems/add-bold-tag-in-string/</a></p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -341,4 +345,6 @@ func boldWords(words []string, s string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

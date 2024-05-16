@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1651. Hopper Company Queries III 🔒](https://leetcode.com/problems/hopper-company-queries-iii)
 
 [中文文档](/solution/1600-1699/1651.Hopper%20Company%20Queries%20III/README.md)
@@ -153,6 +155,8 @@ By the end of October --&gt; average_ride_distance = (0+163+6)/3=56.33, average_
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -195,4 +199,6 @@ LIMIT 10;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

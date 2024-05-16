@@ -10,6 +10,8 @@ tags:
     - Interactive
 ---
 
+<!-- problem:start -->
+
 # [1095. Find in Mountain Array](https://leetcode.com/problems/find-in-mountain-array)
 
 [中文文档](/solution/1000-1099/1095.Find%20in%20Mountain%20Array/README.md)
@@ -67,6 +69,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -326,4 +330,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

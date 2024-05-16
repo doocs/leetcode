@@ -8,6 +8,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [365. Water and Jug Problem](https://leetcode.com/problems/water-and-jug-problem)
 
 [中文文档](/solution/0300-0399/0365.Water%20and%20Jug%20Problem/README.md)
@@ -73,6 +75,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -207,4 +211,6 @@ func canMeasureWater(x int, y int, z int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

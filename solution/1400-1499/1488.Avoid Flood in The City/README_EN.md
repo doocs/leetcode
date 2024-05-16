@@ -12,6 +12,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1488. Avoid Flood in The City](https://leetcode.com/problems/avoid-flood-in-the-city)
 
 [中文文档](/solution/1400-1499/1488.Avoid%20Flood%20in%20The%20City/README.md)
@@ -84,6 +86,8 @@ After that, it will rain over lakes [1,2]. It&#39;s easy to prove that no matter
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Binary Search
 
@@ -730,4 +734,6 @@ class TreeSet<T = number> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

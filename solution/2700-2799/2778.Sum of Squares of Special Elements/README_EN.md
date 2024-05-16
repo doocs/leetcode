@@ -9,6 +9,8 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [2778. Sum of Squares of Special Elements](https://leetcode.com/problems/sum-of-squares-of-special-elements)
 
 [中文文档](/solution/2700-2799/2778.Sum%20of%20Squares%20of%20Special%20Elements/README.md)
@@ -49,6 +51,8 @@ Hence, the sum of the squares of all special elements of nums is nums[1] * nums[
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -119,4 +123,6 @@ function sumOfSquares(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

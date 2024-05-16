@@ -11,13 +11,15 @@ tags:
     - 状态压缩
 ---
 
+<!-- problem:start -->
+
 # [1879. 两个数组最小的异或值之和](https://leetcode.cn/problems/minimum-xor-sum-of-two-arrays)
 
 [English Version](/solution/1800-1899/1879.Minimum%20XOR%20Sum%20of%20Two%20Arrays/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个整数数组 <code>nums1</code> 和 <code>nums2</code> ，它们长度都为 <code>n</code> 。</p>
 
@@ -59,7 +61,11 @@ tags:
 	<li><code>0 &lt;= nums1[i], nums2[i] &lt;= 10<sup>7</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：状态压缩动态规划
 
@@ -185,6 +191,10 @@ function minimumXORSum(nums1: number[], nums2: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：状态压缩动态规划（枚举优化）
 
 我们也可以直接在 $[0, 2^n)$ 范围内枚举状态 $i$，假设 $i$ 的二进制表示中有 $k$ 个 $1$，那么当前枚举的就是 $nums1$ 的第 $k$ 个数，下标为 $k-1$。状态转移方程为 $f[i]=\min(f[i],f[i\oplus 2^j]+(nums1[k-1]\oplus nums2[j]))$，其中 $j$ 是 $i$ 的二进制表示中的某个 $1$ 所在的位置。
@@ -290,6 +300,10 @@ function minimumXORSum(nums1: number[], nums2: number[]): number {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法三
 
@@ -398,4 +412,6 @@ function bitCount(i: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

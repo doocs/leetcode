@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1271. Hexspeak 🔒](https://leetcode.com/problems/hexspeak)
 
 [中文文档](/solution/1200-1299/1271.Hexspeak/README.md)
@@ -45,6 +47,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -117,4 +121,6 @@ func toHexspeak 🔒(num string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

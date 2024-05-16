@@ -4,6 +4,8 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2636.Promise%20Pool/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2636. Promise Pool 🔒](https://leetcode.com/problems/promise-pool)
 
 [中文文档](/solution/2600-2699/2636.Promise%20Pool/README.md)
@@ -89,6 +91,8 @@ At t=900, the 3rd function resolves. Pool size is 0 so the returned promise reso
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -111,4 +115,6 @@ function promisePool(functions: F[], n: number): Promise<any> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

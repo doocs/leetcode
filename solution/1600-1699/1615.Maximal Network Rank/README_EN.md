@@ -8,6 +8,8 @@ tags:
     - Graph
 ---
 
+<!-- problem:start -->
+
 # [1615. Maximal Network Rank](https://leetcode.com/problems/maximal-network-rank)
 
 [中文文档](/solution/1600-1699/1615.Maximal%20Network%20Rank/README.md)
@@ -64,6 +66,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -176,6 +180,10 @@ function maximalNetworkRank(n: number, roads: number[][]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -194,4 +202,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

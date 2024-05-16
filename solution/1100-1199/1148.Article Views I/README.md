@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1148. 文章浏览 I](https://leetcode.cn/problems/article-views-i)
 
 [English Version](/solution/1100-1199/1148.Article%20Views%20I/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><code>Views</code>&nbsp;表：</p>
 
@@ -66,7 +68,11 @@ Views 表：
 +------+
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DISTINCT + WHERE
 
@@ -84,4 +90,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

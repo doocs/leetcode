@@ -9,6 +9,8 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [2095. Delete the Middle Node of a Linked List](https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list)
 
 [中文文档](/solution/2000-2099/2095.Delete%20the%20Middle%20Node%20of%20a%20Linked%20List/README.md)
@@ -64,6 +66,8 @@ Node 0 with value 2 is the only node remaining after removing node 1.</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -185,4 +189,6 @@ function deleteMiddle(head: ListNode | null): ListNode | null {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

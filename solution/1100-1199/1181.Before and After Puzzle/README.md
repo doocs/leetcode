@@ -11,13 +11,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [1181. 前后拼接 🔒](https://leetcode.cn/problems/before-and-after-puzzle)
 
 [English Version](/solution/1100-1199/1181.Before%20and%20After%20Puzzle/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个「短语」列表&nbsp;<code>phrases</code>，请你帮忙按规则生成拼接后的「新短语」列表。</p>
 
@@ -72,7 +74,11 @@ tags:
 	<li><code>1 &lt;= phrases[i].length &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 排序
 
@@ -203,4 +209,6 @@ function beforeAndAfterPuzzles(phrases: string[]): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

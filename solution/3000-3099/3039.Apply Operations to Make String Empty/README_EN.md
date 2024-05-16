@@ -11,6 +11,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [3039. Apply Operations to Make String Empty](https://leetcode.com/problems/apply-operations-to-make-string-empty)
 
 [中文文档](/solution/3000-3099/3039.Apply%20Operations%20to%20Make%20String%20Empty/README.md)
@@ -63,6 +65,8 @@ The string just before the last operation is &quot;abcd&quot;.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table or Array
 
@@ -179,4 +183,6 @@ function lastNonEmptyString(s: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

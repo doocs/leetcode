@@ -10,6 +10,8 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [769. Max Chunks To Make Sorted](https://leetcode.com/problems/max-chunks-to-make-sorted)
 
 [中文文档](/solution/0700-0799/0769.Max%20Chunks%20To%20Make%20Sorted/README.md)
@@ -54,6 +56,8 @@ However, splitting into [1, 0], [2], [3], [4] is the highest number of chunks po
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -161,6 +165,10 @@ int maxChunksToSorted(int* arr, int arrSize) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -243,4 +251,6 @@ func maxChunksToSorted(arr []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

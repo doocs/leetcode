@@ -9,13 +9,15 @@ tags:
     - 二分查找
 ---
 
+<!-- problem:start -->
+
 # [911. 在线选举](https://leetcode.cn/problems/online-election)
 
 [English Version](/solution/0900-0999/0911.Online%20Election/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个整数数组 <code>persons</code> 和 <code>times</code> 。在选举中，第&nbsp;<code>i</code>&nbsp;张票是在时刻为&nbsp;<code>times[i]</code>&nbsp;时投给候选人 <code>persons[i]</code>&nbsp;的。</p>
 
@@ -64,7 +66,11 @@ topVotedCandidate.q(8); // 返回 1
 	<li>每个测试用例最多调用 <code>10<sup>4</sup></code> 次 <code>q</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -255,4 +261,6 @@ class TopVotedCandidate {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

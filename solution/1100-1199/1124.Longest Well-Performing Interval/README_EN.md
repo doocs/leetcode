@@ -12,6 +12,8 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [1124. Longest Well-Performing Interval](https://leetcode.com/problems/longest-well-performing-interval)
 
 [中文文档](/solution/1100-1199/1124.Longest%20Well-Performing%20Interval/README.md)
@@ -51,6 +53,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Hash Table
 
@@ -150,4 +154,6 @@ func longestWPI(hours []int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

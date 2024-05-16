@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.14.Best%20Line/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [16.14. Best Line](https://leetcode.cn/problems/best-line-lcci)
 
 [中文文档](/lcci/16.14.Best%20Line/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a two-dimensional graph with points on it, find a line which passes the most number of points.</p>
 <p>Assume all the points that passed by the line are stored in list <code>S</code>&nbsp;sorted by their number. You need to return <code>[S[0], S[1]]</code>, that is , two points that have smallest number. If there are more than one line that passes the most number of points, choose the one that has the smallest <code>S[0].</code>&nbsp;If there are more that one line that has the same <code>S[0]</code>, choose the one that has smallest <code>S[1]</code>.</p>
@@ -28,7 +32,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.14.Best%20Line/REA
 	<li><code>len(Points[i]) = 2</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Brute Force
 
@@ -183,6 +191,8 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
 ### Solution 2: Enumeration + Hash Table
 
 We can enumerate a point $(x_1, y_1)$, store the slope of the line connecting $(x_1, y_1)$ and all other points $(x_2, y_2)$ in a hash table. Points with the same slope are on the same line, and the key of the hash table is the slope, and the value is the number of points on the line. Find the maximum value in the hash table, which is the answer. To avoid precision issues, we can reduce the slope $\frac{y_2 - y_1}{x_2 - x_1}$, and the reduction method is to find the greatest common divisor, and then divide the numerator and denominator by the greatest common divisor. The resulting numerator and denominator are used as the key of the hash table.
@@ -313,4 +323,6 @@ func gcd(a, b int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

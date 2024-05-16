@@ -9,6 +9,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1920. Build Array from Permutation](https://leetcode.com/problems/build-array-from-permutation)
 
 [中文文档](/solution/1900-1999/1920.Build%20Array%20from%20Permutation/README.md)
@@ -53,6 +55,8 @@ ans = [nums[nums[0]], nums[nums[1]], nums[nums[2]], nums[nums[3]], nums[nums[4]]
 <p><strong>Follow-up:</strong> Can you solve it without using an extra space (i.e., <code>O(1)</code> memory)?</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -145,4 +149,6 @@ int* buildArray(int* nums, int numsSize, int* returnSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

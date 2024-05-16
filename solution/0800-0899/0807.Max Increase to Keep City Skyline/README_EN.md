@@ -8,6 +8,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [807. Max Increase to Keep City Skyline](https://leetcode.com/problems/max-increase-to-keep-city-skyline)
 
 [中文文档](/solution/0800-0899/0807.Max%20Increase%20to%20Keep%20City%20Skyline/README.md)
@@ -56,6 +58,8 @@ gridNew = [ [8, 4, 8, 7],
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -164,4 +168,6 @@ function maxIncreaseKeepingSkyline(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

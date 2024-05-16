@@ -8,6 +8,8 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [78. Subsets](https://leetcode.com/problems/subsets)
 
 [中文文档](/solution/0000-0099/0078.Subsets/README.md)
@@ -43,6 +45,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS (Backtracking)
 
@@ -183,6 +187,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Binary Enumeration
 
 We can also use the method of binary enumeration to get all subsets.
@@ -277,4 +285,6 @@ function subsets(nums: number[]): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

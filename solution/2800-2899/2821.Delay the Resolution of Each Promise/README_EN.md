@@ -4,6 +4,8 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2821.Delay%20the%20Resolution%20of%20Each%20Promise/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2821. Delay the Resolution of Each Promise 🔒](https://leetcode.com/problems/delay-the-resolution-of-each-promise)
 
 [中文文档](/solution/2800-2899/2821.Delay%20the%20Resolution%20of%20Each%20Promise/README.md)
@@ -70,6 +72,8 @@ ms = 30
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -87,4 +91,6 @@ function delayAll(functions: Function[], ms: number): Function[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

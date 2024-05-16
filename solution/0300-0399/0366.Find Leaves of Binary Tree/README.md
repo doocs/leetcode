@@ -8,13 +8,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [366. 寻找二叉树的叶子节点 🔒](https://leetcode.cn/problems/find-leaves-of-binary-tree)
 
 [English Version](/solution/0300-0399/0366.Find%20Leaves%20of%20Binary%20Tree/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一棵二叉树的 <code>root</code> 节点，请按照以下方式收集树的节点：</p>
 
@@ -51,7 +53,11 @@ tags:
 	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -216,4 +222,6 @@ func dfs(root, prev *TreeNode, t *[]int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

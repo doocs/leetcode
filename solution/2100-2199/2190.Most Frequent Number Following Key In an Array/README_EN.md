@@ -10,6 +10,8 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [2190. Most Frequent Number Following Key In an Array](https://leetcode.com/problems/most-frequent-number-following-key-in-an-array)
 
 [中文文档](/solution/2100-2199/2190.Most%20Frequent%20Number%20Following%20Key%20In%20an%20Array/README.md)
@@ -58,6 +60,8 @@ target = 2 has the maximum number of occurrences following an occurrence of key,
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -174,4 +178,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

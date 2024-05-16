@@ -10,6 +10,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [1345. Jump Game IV](https://leetcode.com/problems/jump-game-iv)
 
 [中文文档](/solution/1300-1399/1345.Jump%20Game%20IV/README.md)
@@ -64,6 +66,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -217,4 +221,6 @@ func minJumps(arr []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

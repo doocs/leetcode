@@ -8,6 +8,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [280. Wiggle Sort 🔒](https://leetcode.com/problems/wiggle-sort)
 
 [中文文档](/solution/0200-0299/0280.Wiggle%20Sort/README.md)
@@ -47,6 +49,8 @@ tags:
 <p><strong>Follow up:</strong> Could you solve the problem in <code>O(n)</code> time complexity?</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -108,4 +112,6 @@ func wiggleSort(nums []int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

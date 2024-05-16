@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [2159. 分别排序两列 🔒](https://leetcode.cn/problems/order-two-columns-independently)
 
 [English Version](/solution/2100-2199/2159.Order%20Two%20Columns%20Independently/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Data</code></p>
 
@@ -63,7 +65,11 @@ Data 表：
 +-----------+------------+
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -92,4 +98,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

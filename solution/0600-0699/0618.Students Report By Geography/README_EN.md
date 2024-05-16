@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [618. Students Report By Geography 🔒](https://leetcode.com/problems/students-report-by-geography)
 
 [中文文档](/solution/0600-0699/0618.Students%20Report%20By%20Geography/README.md)
@@ -63,6 +65,8 @@ Student table:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -89,4 +93,6 @@ GROUP BY rk;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

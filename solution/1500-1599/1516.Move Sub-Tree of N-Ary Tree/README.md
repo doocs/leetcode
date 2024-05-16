@@ -7,13 +7,15 @@ tags:
     - 深度优先搜索
 ---
 
+<!-- problem:start -->
+
 # [1516. 移动 N 叉树的子树 🔒](https://leetcode.cn/problems/move-sub-tree-of-n-ary-tree)
 
 [English Version](/solution/1500-1599/1516.Move%20Sub-Tree%20of%20N-Ary%20Tree/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一棵没有重复值的 <span data-keyword="n-ary-tree">N 叉树</span> 的根节点&nbsp;<code>root</code>&nbsp;，以及其中的两个节点&nbsp;<code>p</code> 和&nbsp;<code>q</code>。</p>
 
@@ -87,6 +89,34 @@ tags:
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+### 方法一
+
+<!-- tabs:start -->
+
+```python
+
+```
+
+```java
+
+```
+
+```cpp
+
+```
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

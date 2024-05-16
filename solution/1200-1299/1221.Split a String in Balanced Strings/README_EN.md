@@ -10,6 +10,8 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [1221. Split a String in Balanced Strings](https://leetcode.com/problems/split-a-string-in-balanced-strings)
 
 [中文文档](/solution/1200-1299/1221.Split%20a%20String%20in%20Balanced%20Strings/README.md)
@@ -61,6 +63,8 @@ Note that s cannot be split into &quot;RL&quot;, &quot;RR&quot;, &quot;RL&quot;,
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy
 
@@ -163,4 +167,6 @@ var balancedStringSplit = function (s) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

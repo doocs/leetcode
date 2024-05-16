@@ -6,13 +6,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [504. 七进制数](https://leetcode.cn/problems/base-7)
 
 [English Version](/solution/0500-0599/0504.Base%207/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数 <code>num</code>，将其转化为 <strong>7 进制</strong>，并以字符串形式输出。</p>
 
@@ -40,7 +42,11 @@ tags:
 	<li><code>-10<sup>7</sup>&nbsp;&lt;= num &lt;= 10<sup>7</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -160,4 +166,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

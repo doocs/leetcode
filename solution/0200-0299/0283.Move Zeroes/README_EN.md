@@ -7,6 +7,8 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [283. Move Zeroes](https://leetcode.com/problems/move-zeroes)
 
 [中文文档](/solution/0200-0299/0283.Move%20Zeroes/README.md)
@@ -37,6 +39,8 @@ tags:
 <strong>Follow up:</strong> Could you minimize the total number of operations done?
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -168,4 +172,6 @@ void moveZeroes(int* nums, int numsSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

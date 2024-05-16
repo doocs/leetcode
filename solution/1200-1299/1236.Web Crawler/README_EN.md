@@ -9,6 +9,8 @@ tags:
     - Interactive
 ---
 
+<!-- problem:start -->
+
 # [1236. Web Crawler 🔒](https://leetcode.com/problems/web-crawler)
 
 [中文文档](/solution/1200-1299/1236.Web%20Crawler/README.md)
@@ -99,6 +101,8 @@ startUrl = &quot;http://news.google.com&quot;
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -249,4 +253,6 @@ func crawl(startUrl string, htmlParser HtmlParser) []string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

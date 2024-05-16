@@ -7,6 +7,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [1426. Counting Elements 🔒](https://leetcode.com/problems/counting-elements)
 
 [中文文档](/solution/1400-1499/1426.Counting%20Elements/README.md)
@@ -41,6 +43,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -186,4 +190,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

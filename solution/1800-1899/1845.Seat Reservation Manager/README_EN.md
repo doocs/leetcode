@@ -9,6 +9,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1845. Seat Reservation Manager](https://leetcode.com/problems/seat-reservation-manager)
 
 [中文文档](/solution/1800-1899/1845.Seat%20Reservation%20Manager/README.md)
@@ -59,6 +61,8 @@ seatManager.unreserve(5); // Unreserve seat 5, so now the available seats are [5
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Priority Queue (Min Heap)
 
@@ -223,4 +227,6 @@ public class SeatManager {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

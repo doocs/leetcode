@@ -10,6 +10,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1829. Maximum XOR for Each Query](https://leetcode.com/problems/maximum-xor-for-each-query)
 
 [中文文档](/solution/1800-1899/1829.Maximum%20XOR%20for%20Each%20Query/README.md)
@@ -69,6 +71,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bitwise Operation + Enumeration
 
@@ -247,6 +251,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Enumeration Optimization
 
 Similar to Solution 1, we first preprocess the XOR sum $xs$ of the array `nums`, i.e., $xs=nums[0] \oplus nums[1] \oplus \cdots \oplus nums[n-1]$.
@@ -396,4 +404,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

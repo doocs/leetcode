@@ -8,6 +8,8 @@ tags:
     - Interactive
 ---
 
+<!-- problem:start -->
+
 # [1538. Guess the Majority in a Hidden Array 🔒](https://leetcode.com/problems/guess-the-majority-in-a-hidden-array)
 
 [中文文档](/solution/1500-1599/1538.Guess%20the%20Majority%20in%20a%20Hidden%20Array/README.md)
@@ -74,6 +76,8 @@ Index 2, 4, 6, 7 is also a correct answer.
 <p><strong>Follow up:</strong> What is the minimum number of calls needed to find the majority element?</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -368,4 +372,6 @@ function guessMajority(reader: ArrayReader): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

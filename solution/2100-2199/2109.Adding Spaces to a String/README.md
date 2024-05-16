@@ -11,13 +11,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [2109. 向字符串添加空格](https://leetcode.cn/problems/adding-spaces-to-a-string)
 
 [English Version](/solution/2100-2199/2109.Adding%20Spaces%20to%20a%20String/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的字符串 <code>s</code> ，以及一个下标从 <strong>0</strong> 开始的整数数组 <code>spaces</code> 。</p>
 
@@ -72,7 +74,11 @@ tags:
 	<li><code>spaces</code> 中的所有值 <strong>严格递增</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -158,6 +164,10 @@ function addSpaces(s: string, spaces: number[]): string {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -178,4 +188,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

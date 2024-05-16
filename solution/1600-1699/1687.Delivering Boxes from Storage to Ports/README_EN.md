@@ -14,6 +14,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1687. Delivering Boxes from Storage to Ports](https://leetcode.com/problems/delivering-boxes-from-storage-to-ports)
 
 [中文文档](/solution/1600-1699/1687.Delivering%20Boxes%20from%20Storage%20to%20Ports/README.md)
@@ -89,6 +91,8 @@ So the total number of trips is 2 + 2 + 2 = 6.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming + Monotonic Queue Optimization
 
@@ -357,4 +361,6 @@ func boxDelivering(boxes [][]int, portsCount int, maxBoxes int, maxWeight int) i
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

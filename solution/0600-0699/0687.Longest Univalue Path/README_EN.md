@@ -8,6 +8,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [687. Longest Univalue Path](https://leetcode.com/problems/longest-univalue-path)
 
 [中文文档](/solution/0600-0699/0687.Longest%20Univalue%20Path/README.md)
@@ -45,6 +47,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -339,4 +343,6 @@ int longestUnivaluePath(struct TreeNode* root) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

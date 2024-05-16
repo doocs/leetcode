@@ -11,6 +11,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2933. High-Access Employees](https://leetcode.com/problems/high-access-employees)
 
 [中文文档](/solution/2900-2999/2933.High-Access%20Employees/README.md)
@@ -71,6 +73,8 @@ So the answer is [&quot;ab&quot;,&quot;cd&quot;].</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Sorting
 
@@ -201,4 +205,6 @@ function findHighAccessEmployees(access_times: string[][]): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,13 +9,15 @@ tags:
     - 单调栈
 ---
 
+<!-- problem:start -->
+
 # [853. 车队](https://leetcode.cn/problems/car-fleet)
 
 [English Version](/solution/0800-0899/0853.Car%20Fleet/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在一条单行道上，有 <code>n</code> 辆车开往同一目的地。目的地是几英里以外的&nbsp;<code>target</code>&nbsp;。</p>
 
@@ -73,7 +75,11 @@ tags:
 	<li><code>0 &lt; speed[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
@@ -187,4 +193,6 @@ function carFleet(target: number, position: number[], speed: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

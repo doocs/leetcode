@@ -7,6 +7,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [252. Meeting Rooms 🔒](https://leetcode.com/problems/meeting-rooms)
 
 [中文文档](/solution/0200-0299/0252.Meeting%20Rooms/README.md)
@@ -33,6 +35,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -139,4 +143,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

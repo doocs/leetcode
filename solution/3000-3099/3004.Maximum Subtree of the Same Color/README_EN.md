@@ -9,6 +9,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [3004. Maximum Subtree of the Same Color 🔒](https://leetcode.com/problems/maximum-subtree-of-the-same-color)
 
 [中文文档](/solution/3000-3099/3004.Maximum%20Subtree%20of%20the%20Same%20Color/README.md)
@@ -66,6 +68,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -245,4 +249,6 @@ function maximumSubtreeSize(edges: number[][], colors: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

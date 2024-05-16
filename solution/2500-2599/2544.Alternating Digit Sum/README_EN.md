@@ -8,6 +8,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [2544. Alternating Digit Sum](https://leetcode.com/problems/alternating-digit-sum)
 
 [中文文档](/solution/2500-2599/2544.Alternating%20Digit%20Sum/README.md)
@@ -65,6 +67,8 @@ tags:
 </style>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -166,6 +170,10 @@ int alternateDigitSum(int n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -200,4 +208,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

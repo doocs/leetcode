@@ -9,6 +9,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [1207. Unique Number of Occurrences](https://leetcode.com/problems/unique-number-of-occurrences)
 
 [中文文档](/solution/1200-1299/1207.Unique%20Number%20of%20Occurrences/README.md)
@@ -48,6 +50,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -125,4 +129,6 @@ function uniqueOccurrences(arr: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

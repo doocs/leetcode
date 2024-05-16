@@ -7,6 +7,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [925. Long Pressed Name](https://leetcode.com/problems/long-pressed-name)
 
 [中文文档](/solution/0900-0999/0925.Long%20Pressed%20Name/README.md)
@@ -43,6 +45,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -151,4 +155,6 @@ func isLongPressedName(name string, typed string) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

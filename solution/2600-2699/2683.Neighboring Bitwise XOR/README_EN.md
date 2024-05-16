@@ -9,6 +9,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [2683. Neighboring Bitwise XOR](https://leetcode.com/problems/neighboring-bitwise-xor)
 
 [中文文档](/solution/2600-2699/2683.Neighboring%20Bitwise%20XOR/README.md)
@@ -73,6 +75,8 @@ derived[1] = original[1] &oplus; original[0] = 1
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -130,6 +134,10 @@ function doesValidArrayExist(derived: number[]): boolean {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -142,4 +150,6 @@ function doesValidArrayExist(derived: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

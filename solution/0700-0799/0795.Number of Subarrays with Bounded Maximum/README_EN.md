@@ -7,6 +7,8 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [795. Number of Subarrays with Bounded Maximum](https://leetcode.com/problems/number-of-subarrays-with-bounded-maximum)
 
 [中文文档](/solution/0700-0799/0795.Number%20of%20Subarrays%20with%20Bounded%20Maximum/README.md)
@@ -43,6 +45,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -113,6 +117,10 @@ func numSubarrayBoundedMax(nums []int, left int, right int) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -255,4 +263,6 @@ func numSubarrayBoundedMax(nums []int, left int, right int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

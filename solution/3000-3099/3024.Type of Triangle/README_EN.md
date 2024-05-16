@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [3024. Type of Triangle](https://leetcode.com/problems/type-of-triangle)
 
 [中文文档](/solution/3000-3099/3024.Type%20of%20Triangle/README.md)
@@ -57,6 +59,8 @@ As all the sides are of different lengths, it will form a scalene triangle.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Case Discussion
 
@@ -173,4 +177,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

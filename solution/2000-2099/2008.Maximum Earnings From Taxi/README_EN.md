@@ -12,6 +12,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2008. Maximum Earnings From Taxi](https://leetcode.com/problems/maximum-earnings-from-taxi)
 
 [中文文档](/solution/2000-2099/2008.Maximum%20Earnings%20From%20Taxi/README.md)
@@ -60,6 +62,8 @@ We earn 9 + 5 + 6 = 20 dollars in total.</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search + Binary Search
 
@@ -218,6 +222,10 @@ function maxTaxiEarnings(n: number, rides: number[][]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Dynamic Programming + Binary Search
 
 We can change the memoization search in Solution 1 to dynamic programming.
@@ -344,4 +352,6 @@ function maxTaxiEarnings(n: number, rides: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

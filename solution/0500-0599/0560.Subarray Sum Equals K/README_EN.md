@@ -8,6 +8,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [560. Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k)
 
 [中文文档](/solution/0500-0599/0560.Subarray%20Sum%20Equals%20K/README.md)
@@ -36,6 +38,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -138,6 +142,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -163,4 +171,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

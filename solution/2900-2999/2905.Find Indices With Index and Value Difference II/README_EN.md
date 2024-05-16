@@ -9,6 +9,8 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [2905. Find Indices With Index and Value Difference II](https://leetcode.com/problems/find-indices-with-index-and-value-difference-ii)
 
 [中文文档](/solution/2900-2999/2905.Find%20Indices%20With%20Index%20and%20Value%20Difference%20II/README.md)
@@ -70,6 +72,8 @@ Hence, [-1,-1] is returned.</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -222,4 +226,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

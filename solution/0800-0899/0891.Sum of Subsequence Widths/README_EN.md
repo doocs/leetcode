@@ -8,6 +8,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [891. Sum of Subsequence Widths](https://leetcode.com/problems/sum-of-subsequence-widths)
 
 [中文文档](/solution/0800-0899/0891.Sum%20of%20Subsequence%20Widths/README.md)
@@ -47,6 +49,8 @@ The sum of these widths is 6.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -114,4 +118,6 @@ func sumSubseqWidths(nums []int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

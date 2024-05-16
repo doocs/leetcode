@@ -8,6 +8,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [48. Rotate Image](https://leetcode.com/problems/rotate-image)
 
 [中文文档](/solution/0000-0099/0048.Rotate%20Image/README.md)
@@ -43,6 +45,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: In-place Rotation
 
@@ -200,4 +204,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

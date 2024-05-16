@@ -8,6 +8,8 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [142. Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii)
 
 [中文文档](/solution/0100-0199/0142.Linked%20List%20Cycle%20II/README.md)
@@ -58,6 +60,8 @@ tags:
 <p><strong>Follow up:</strong> Can you solve it using <code>O(1)</code> (i.e. constant) memory?</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -256,4 +260,6 @@ var detectCycle = function (head) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

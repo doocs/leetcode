@@ -9,6 +9,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [2815. Max Pair Sum in an Array](https://leetcode.com/problems/max-pair-sum-in-an-array)
 
 [中文文档](/solution/2800-2899/2815.Max%20Pair%20Sum%20in%20an%20Array/README.md)
@@ -47,6 +49,8 @@ It can be shown that there are no other pairs with equal maximum digits, so the 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -166,4 +170,6 @@ function maxSum(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

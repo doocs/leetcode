@@ -8,13 +8,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [274. H 指数](https://leetcode.cn/problems/h-index)
 
 [English Version](/solution/0200-0299/0274.H-Index/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>citations</code> ，其中 <code>citations[i]</code> 表示研究者的第 <code>i</code> 篇论文被引用的次数。计算并返回该研究者的 <strong><code>h</code><em>&nbsp;</em>指数</strong>。</p>
 
@@ -47,7 +49,11 @@ tags:
 	<li><code>0 &lt;= citations[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
@@ -144,6 +150,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：计数 + 求和
 
 我们可以使用一个长度为 $n+1$ 的数组 $cnt$，其中 $cnt[i]$ 表示引用次数为 $i$ 的论文的篇数。我们遍历数组 `citations`，将引用次数大于 $n$ 的论文都当作引用次数为 $n$ 的论文，然后将每篇论文的引用次数作为下标，将 $cnt$ 中对应的元素值加 $1$。这样我们就统计出了每个引用次数对应的论文篇数。
@@ -239,6 +249,10 @@ function hIndex(citations: number[]): number {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法三：二分查找
 
@@ -355,4 +369,6 @@ function hIndex(citations: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

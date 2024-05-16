@@ -11,6 +11,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2349. Design a Number Container System](https://leetcode.com/problems/design-a-number-container-system)
 
 [中文文档](/solution/2300-2399/2349.Design%20a%20Number%20Container%20System/README.md)
@@ -63,6 +65,8 @@ nc.find(10); // Number 10 is at the indices 2, 3, and 5. The smallest index that
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -200,4 +204,6 @@ func (this *NumberContainers) Find(number int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

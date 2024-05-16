@@ -8,6 +8,8 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [1291. Sequential Digits](https://leetcode.com/problems/sequential-digits)
 
 [中文文档](/solution/1200-1299/1291.Sequential%20Digits/README.md)
@@ -34,6 +36,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -126,4 +130,6 @@ function sequentialDigits(low: number, high: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

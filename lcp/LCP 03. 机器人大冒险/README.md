@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2003.%20%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%A4%A7%E5%86%92%E9%99%A9/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 03. 机器人大冒险](https://leetcode.cn/problems/programmable-robot)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>力扣团队买了一个可编程机器人，机器人初始位置在原点<code>(0, 0)</code>。小伙伴事先给机器人输入一串指令<code>command</code>，机器人就会<strong>无限循环</strong>这条指令的步骤进行移动。指令有两种：</p>
 
@@ -52,7 +54,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2003.%20%E6%9C%BA%
 	<li><code>obstacles[i]</code>不为原点或者终点</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -225,4 +231,6 @@ function robot(command: string, obstacles: number[][], x: number, y: number): bo
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

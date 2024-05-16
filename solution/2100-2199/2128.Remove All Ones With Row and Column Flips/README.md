@@ -9,13 +9,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [2128. 通过翻转行或列来去除所有的 1 🔒](https://leetcode.cn/problems/remove-all-ones-with-row-and-column-flips)
 
 [English Version](/solution/2100-2199/2128.Remove%20All%20Ones%20With%20Row%20and%20Column%20Flips/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个大小为&nbsp;<code>m x n</code> 的二进制矩阵&nbsp;<code>grid</code>。</p>
 
@@ -59,7 +61,11 @@ tags:
 	<li><code>grid[i][j]</code> 是&nbsp;<code>0</code>&nbsp;或者&nbsp;<code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -164,4 +170,6 @@ function removeOnes(grid: number[][]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [180. Consecutive Numbers](https://leetcode.com/problems/consecutive-numbers)
 
 [中文文档](/solution/0100-0199/0180.Consecutive%20Numbers/README.md)
@@ -61,6 +63,8 @@ Logs table:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Two Joins
 
 We can use two joins to solve this problem.
@@ -96,6 +100,10 @@ FROM
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Window Function
 
 We can use the window functions `LAG` and `LEAD` to obtain the `num` of the previous row and the next row of the current row, and record them in the fields $a$ and $b$, respectively. Finally, we only need to filter out the rows where $a = num$ and $b = num$, which are the numbers that appear at least three times in a row. Note that we need to use the `DISTINCT` keyword to remove duplicates from the results.
@@ -120,6 +128,10 @@ WHERE a = num AND b = num;
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 3
 
@@ -146,4 +158,6 @@ HAVING COUNT(1) >= 3;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

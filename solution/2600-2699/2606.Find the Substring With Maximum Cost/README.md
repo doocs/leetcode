@@ -11,13 +11,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [2606. 找到最大开销的子字符串](https://leetcode.cn/problems/find-the-substring-with-maximum-cost)
 
 [English Version](/solution/2600-2699/2606.Find%20the%20Substring%20With%20Maximum%20Cost/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串&nbsp;<code>s</code>&nbsp;，一个字符&nbsp;<strong>互不相同</strong>&nbsp;的字符串&nbsp;<code>chars</code>&nbsp;和一个长度与 <code>chars</code>&nbsp;相同的整数数组&nbsp;<code>vals</code>&nbsp;。</p>
 
@@ -71,7 +73,11 @@ tags:
 	<li><code>-1000 &lt;= vals[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀和 + 维护前缀和的最小值
 
@@ -182,6 +188,10 @@ function maximumCostSubstring(s: string, chars: string, vals: number[]): number 
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：转化为最大子数组和问题
 
 我们可以将每个字符 $c$ 的价值 $v$ 看作是一个整数，那么题目实际上转化为求最大子数组和问题。
@@ -285,4 +295,6 @@ function maximumCostSubstring(s: string, chars: string, vals: number[]): number 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

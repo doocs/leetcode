@@ -11,13 +11,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [1027. 最长等差数列](https://leetcode.cn/problems/longest-arithmetic-subsequence)
 
 [English Version](/solution/1000-1099/1027.Longest%20Arithmetic%20Subsequence/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>nums</code>，返回 <code>nums</code>&nbsp;中最长等差子序列的<strong>长度</strong>。</p>
 
@@ -61,7 +63,11 @@ tags:
 	<li><code>0 &lt;= nums[i] &lt;= 500</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -168,4 +174,6 @@ function longestArithSeqLength(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

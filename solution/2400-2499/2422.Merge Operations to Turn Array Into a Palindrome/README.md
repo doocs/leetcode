@@ -8,13 +8,15 @@ tags:
     - 双指针
 ---
 
+<!-- problem:start -->
+
 # [2422. 使用合并操作将数组转换为回文序列 🔒](https://leetcode.cn/problems/merge-operations-to-turn-array-into-a-palindrome)
 
 [English Version](/solution/2400-2499/2422.Merge%20Operations%20to%20Turn%20Array%20Into%20a%20Palindrome/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个由&nbsp;<strong>正整数&nbsp;</strong>组成的数组 <code>nums</code>。</p>
 
@@ -63,7 +65,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 双指针
 
@@ -174,4 +180,6 @@ func minimumOperations(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

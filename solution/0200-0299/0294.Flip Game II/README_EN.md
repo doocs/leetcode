@@ -10,6 +10,8 @@ tags:
     - Game Theory
 ---
 
+<!-- problem:start -->
+
 # [294. Flip Game II 🔒](https://leetcode.com/problems/flip-game-ii)
 
 [中文文档](/solution/0200-0299/0294.Flip%20Game%20II/README.md)
@@ -50,6 +52,8 @@ tags:
 <strong>Follow up:</strong> Derive your algorithm&#39;s runtime complexity.
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -174,6 +178,10 @@ func canWin(currentState string) bool {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -316,4 +324,6 @@ func canWin(currentState string) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

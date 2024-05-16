@@ -10,6 +10,8 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [3090. Maximum Length Substring With Two Occurrences](https://leetcode.com/problems/maximum-length-substring-with-two-occurrences)
 
 [中文文档](/solution/3000-3099/3090.Maximum%20Length%20Substring%20With%20Two%20Occurrences/README.md)
@@ -48,6 +50,8 @@ The following substring has a length of 2 and contains at most two occurrences o
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -147,4 +151,6 @@ function maximumLengthSubstring(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

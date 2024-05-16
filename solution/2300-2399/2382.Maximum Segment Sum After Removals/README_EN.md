@@ -11,6 +11,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2382. Maximum Segment Sum After Removals](https://leetcode.com/problems/maximum-segment-sum-after-removals)
 
 [中文文档](/solution/2300-2399/2382.Maximum%20Segment%20Sum%20After%20Removals/README.md)
@@ -64,6 +66,8 @@ Finally, we return [16,5,3,0].
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -222,4 +226,6 @@ func maximumSegmentSum(nums []int, removeQueries []int) []int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

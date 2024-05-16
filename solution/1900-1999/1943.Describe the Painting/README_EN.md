@@ -11,6 +11,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1943. Describe the Painting](https://leetcode.com/problems/describe-the-painting)
 
 [中文文档](/solution/1900-1999/1943.Describe%20the%20Painting/README.md)
@@ -91,6 +93,8 @@ Note that returning a single segment [1,7) is incorrect because the mixed color 
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -167,4 +171,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

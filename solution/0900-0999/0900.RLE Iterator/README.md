@@ -9,13 +9,15 @@ tags:
     - 迭代器
 ---
 
+<!-- problem:start -->
+
 # [900. RLE 迭代器](https://leetcode.cn/problems/rle-iterator)
 
 [English Version](/solution/0900-0999/0900.RLE%20Iterator/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>我们可以使用游程编码(即&nbsp;<strong>RLE&nbsp;</strong>)来编码一个整数序列。在偶数长度&nbsp;<code>encoding</code>&nbsp;( <strong>从 0 开始</strong> )的游程编码数组中，对于所有偶数 <code>i</code> ，<code>encoding[i]</code>&nbsp;告诉我们非负整数&nbsp;<code>encoding[i + 1]</code>&nbsp;在序列中重复的次数。</p>
 
@@ -63,7 +65,11 @@ rLEIterator.next(2); // 耗去序列的 2 个项，返回 -1。 这是由于第�
 	<li>每个测试用例调用<code>next </code>不高于&nbsp;<code>1000</code>&nbsp;次&nbsp;</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：维护两个指针
 
@@ -234,4 +240,6 @@ class RLEIterator {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

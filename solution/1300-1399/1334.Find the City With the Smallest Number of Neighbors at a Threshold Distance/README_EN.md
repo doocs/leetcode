@@ -10,6 +10,8 @@ tags:
     - Shortest Path
 ---
 
+<!-- problem:start -->
+
 # [1334. Find the City With the Smallest Number of Neighbors at a Threshold Distance](https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance)
 
 [中文文档](/solution/1300-1399/1334.Find%20the%20City%20With%20the%20Smallest%20Number%20of%20Neighbors%20at%20a%20Threshold%20Distance/README.md)
@@ -65,6 +67,8 @@ The city 0 has 1 neighboring city at a distanceThreshold = 2.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -303,6 +307,10 @@ function findTheCity(n: number, edges: number[][], distanceThreshold: number): n
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -474,4 +482,6 @@ function findTheCity(n: number, edges: number[][], distanceThreshold: number): n
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

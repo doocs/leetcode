@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2994. Friday Purchases II 🔒](https://leetcode.com/problems/friday-purchases-ii)
 
 [中文文档](/solution/2900-2999/2994.Friday%20Purchases%20II/README.md)
@@ -69,6 +71,8 @@ Output table is ordered by week_of_month in ascending order.</pre>
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Recursion + Left Join + Date Functions
 
 We can generate a table `T` that contains all dates in November 2023 using recursion, then use a left join to connect `T` and the `Purchases` table by date. Finally, group and sum according to the requirements of the problem.
@@ -98,4 +102,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

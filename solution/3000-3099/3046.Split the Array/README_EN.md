@@ -10,6 +10,8 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [3046. Split the Array](https://leetcode.com/problems/split-the-array)
 
 [中文文档](/solution/3000-3099/3046.Split%20the%20Array/README.md)
@@ -53,6 +55,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -124,4 +128,6 @@ function isPossibleToSplit(nums: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

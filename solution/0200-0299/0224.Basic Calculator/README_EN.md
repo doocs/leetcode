@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [224. Basic Calculator](https://leetcode.com/problems/basic-calculator)
 
 [中文文档](/solution/0200-0299/0224.Basic%20Calculator/README.md)
@@ -55,6 +57,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Stack
 
@@ -288,4 +292,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

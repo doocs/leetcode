@@ -9,6 +9,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [99. Recover Binary Search Tree](https://leetcode.com/problems/recover-binary-search-tree)
 
 [中文文档](/solution/0000-0099/0099.Recover%20Binary%20Search%20Tree/README.md)
@@ -46,6 +48,8 @@ tags:
 <strong>Follow up:</strong> A solution using <code>O(n)</code> space is pretty straight-forward. Could you devise a constant <code>O(1)</code> space solution?
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: In-order Traversal
 
@@ -276,4 +280,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2010.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 10. 二叉树任务调度](https://leetcode.cn/problems/er-cha-shu-ren-wu-diao-du)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>任务调度优化是计算机性能优化的关键任务之一。在任务众多时，不同的调度策略可能会得到不同的总体执行时间，因此寻求一个最优的调度方案是非常有必要的。</p>
 
@@ -56,7 +58,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2010.%20%E4%BA%8C%
 	<li><code>1 &lt;= 单节点执行时间 &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -190,4 +196,6 @@ function minimalExecTime(root: TreeNode | null): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

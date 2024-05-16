@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [169. Majority Element](https://leetcode.com/problems/majority-element)
 
 [中文文档](/solution/0100-0199/0169.Majority%20Element/README.md)
@@ -41,6 +43,8 @@ tags:
 <strong>Follow-up:</strong> Could you solve the problem in linear time and in <code>O(1)</code> space?
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Moore Voting Algorithm
 
@@ -219,4 +223,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

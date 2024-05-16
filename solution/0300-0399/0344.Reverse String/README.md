@@ -7,13 +7,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [344. 反转字符串](https://leetcode.cn/problems/reverse-string)
 
 [English Version](/solution/0300-0399/0344.Reverse%20String/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组 <code>s</code> 的形式给出。</p>
 
@@ -43,7 +45,11 @@ tags:
 	<li><code>s[i]</code> 都是 <a href="https://baike.baidu.com/item/ASCII" target="_blank">ASCII</a> 码表中的可打印字符</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -132,6 +138,10 @@ var reverseString = function (s) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -153,4 +163,6 @@ function reverseString(s: string[]): void {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

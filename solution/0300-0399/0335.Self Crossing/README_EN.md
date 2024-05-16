@@ -8,6 +8,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [335. Self Crossing](https://leetcode.com/problems/self-crossing)
 
 [中文文档](/solution/0300-0399/0335.Self%20Crossing/README.md)
@@ -54,6 +56,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -152,4 +156,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

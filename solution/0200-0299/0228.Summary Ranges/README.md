@@ -6,13 +6,15 @@ tags:
     - 数组
 ---
 
+<!-- problem:start -->
+
 # [228. 汇总区间](https://leetcode.cn/problems/summary-ranges)
 
 [English Version](/solution/0200-0299/0228.Summary%20Ranges/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个 &nbsp;<strong>无重复元素</strong> 的&nbsp;<strong>有序</strong> 整数数组 <code>nums</code> 。</p>
 
@@ -61,7 +63,11 @@ tags:
 	<li><code>nums</code> 按升序排列</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -230,4 +236,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

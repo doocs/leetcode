@@ -8,6 +8,8 @@ tags:
     - Bit Manipulation
 ---
 
+<!-- problem:start -->
+
 # [2220. Minimum Bit Flips to Convert Number](https://leetcode.com/problems/minimum-bit-flips-to-convert-number)
 
 [中文文档](/solution/2200-2299/2220.Minimum%20Bit%20Flips%20to%20Convert%20Number/README.md)
@@ -54,6 +56,8 @@ It can be shown we cannot convert 3 to 4 in less than 3 steps. Hence, we return 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -151,4 +155,6 @@ int minBitFlips(int start, int goal) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

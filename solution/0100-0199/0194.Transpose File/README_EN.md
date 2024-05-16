@@ -6,6 +6,8 @@ tags:
     - Shell
 ---
 
+<!-- problem:start -->
+
 # [194. Transpose File](https://leetcode.com/problems/transpose-file)
 
 [中文文档](/solution/0100-0199/0194.Transpose%20File/README.md)
@@ -35,6 +37,8 @@ age 21 30
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: awk
 
 <!-- tabs:start -->
@@ -60,4 +64,6 @@ awk '
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

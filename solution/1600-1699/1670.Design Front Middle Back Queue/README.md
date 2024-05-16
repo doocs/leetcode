@@ -12,13 +12,15 @@ tags:
     - 数据流
 ---
 
+<!-- problem:start -->
+
 # [1670. 设计前中后队列](https://leetcode.cn/problems/design-front-middle-back-queue)
 
 [English Version](/solution/1600-1699/1670.Design%20Front%20Middle%20Back%20Queue/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你设计一个队列，支持在前，中，后三个位置的 <code>push</code> 和 <code>pop</code> 操作。</p>
 
@@ -74,7 +76,11 @@ q.popFront();     // 返回 -1 -> [] （队列为空）
 	<li>最多调用 <code>1000</code> 次 <code>pushFront</code>， <code>pushMiddle</code>， <code>pushBack</code>， <code>popFront</code>， <code>popMiddle</code> 和 <code>popBack</code> 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：两个双端队列
 
@@ -784,4 +790,6 @@ class Deque {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

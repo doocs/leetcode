@@ -10,6 +10,8 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [1979. Find Greatest Common Divisor of Array](https://leetcode.com/problems/find-greatest-common-divisor-of-array)
 
 [中文文档](/solution/1900-1999/1979.Find%20Greatest%20Common%20Divisor%20of%20Array/README.md)
@@ -63,6 +65,8 @@ The greatest common divisor of 3 and 3 is 3.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -137,4 +141,6 @@ function gcd(a: number, b: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

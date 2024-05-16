@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1165. Single-Row Keyboard 🔒](https://leetcode.com/problems/single-row-keyboard)
 
 [中文文档](/solution/1100-1199/1165.Single-Row%20Keyboard/README.md)
@@ -49,6 +51,8 @@ Total time = 2 + 1 + 1 = 4.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table or Array
 
@@ -152,4 +156,6 @@ function calculateTime(keyboard: string, word: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

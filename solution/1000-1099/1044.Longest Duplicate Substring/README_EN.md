@@ -13,6 +13,8 @@ tags:
     - Rolling Hash
 ---
 
+<!-- problem:start -->
+
 # [1044. Longest Duplicate Substring](https://leetcode.com/problems/longest-duplicate-substring)
 
 [中文文档](/solution/1000-1099/1044.Longest%20Duplicate%20Substring/README.md)
@@ -40,6 +42,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -200,4 +204,6 @@ func longestDupSubstring(s string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

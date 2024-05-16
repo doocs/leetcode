@@ -8,6 +8,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [418. Sentence Screen Fitting 🔒](https://leetcode.com/problems/sentence-screen-fitting)
 
 [中文文档](/solution/0400-0499/0418.Sentence%20Screen%20Fitting/README.md)
@@ -66,6 +68,8 @@ The character &#39;-&#39; signifies an empty space on the screen.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -173,4 +177,6 @@ function wordsTyping(sentence: string[], rows: number, cols: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -11,6 +11,8 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [2547. Minimum Cost to Split an Array](https://leetcode.com/problems/minimum-cost-to-split-an-array)
 
 [中文文档](/solution/2500-2599/2547.Minimum%20Cost%20to%20Split%20an%20Array/README.md)
@@ -89,6 +91,8 @@ The cost of the split is 10. It can be shown that this is the minimum possible c
 </style>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -262,4 +266,6 @@ function minCost(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

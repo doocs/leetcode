@@ -7,6 +7,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [416. Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum)
 
 [中文文档](/solution/0400-0499/0416.Partition%20Equal%20Subset%20Sum/README.md)
@@ -41,6 +43,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -222,6 +226,10 @@ var canPartition = function (nums) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -384,4 +392,6 @@ var canPartition = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

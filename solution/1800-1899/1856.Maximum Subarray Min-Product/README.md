@@ -11,13 +11,15 @@ tags:
     - 单调栈
 ---
 
+<!-- problem:start -->
+
 # [1856. 子数组最小乘积的最大值](https://leetcode.cn/problems/maximum-subarray-min-product)
 
 [English Version](/solution/1800-1899/1856.Maximum%20Subarray%20Min-Product/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一个数组的 <strong>最小乘积</strong> 定义为这个数组中 <strong>最小值</strong> <strong>乘以 </strong>数组的 <strong>和</strong> 。</p>
 
@@ -69,7 +71,11 @@ tags:
 	<li><code>1 <= nums[i] <= 10<sup>7</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：单调栈 + 前缀和
 
@@ -279,4 +285,6 @@ function maxSumMinProduct(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

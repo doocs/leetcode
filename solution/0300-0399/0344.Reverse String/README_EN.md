@@ -7,6 +7,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [344. Reverse String](https://leetcode.com/problems/reverse-string)
 
 [中文文档](/solution/0300-0399/0344.Reverse%20String/README.md)
@@ -34,6 +36,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -118,6 +122,10 @@ var reverseString = function (s) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -139,4 +147,6 @@ function reverseString(s: string[]): void {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -13,6 +13,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1970. Last Day Where You Can Still Cross](https://leetcode.com/problems/last-day-where-you-can-still-cross)
 
 [中文文档](/solution/1900-1999/1970.Last%20Day%20Where%20You%20Can%20Still%20Cross/README.md)
@@ -68,6 +70,8 @@ The last day where it is possible to cross from top to bottom is on day 3.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -247,4 +251,6 @@ func find(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

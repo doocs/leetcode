@@ -9,6 +9,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [502. IPO](https://leetcode.com/problems/ipo)
 
 [中文文档](/solution/0500-0599/0502.IPO/README.md)
@@ -59,6 +61,8 @@ Therefore, output the final maximized capital, which is 0 + 1 + 3 = 4.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -176,4 +180,6 @@ func (h *hp2) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1];
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,6 +8,8 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [299. Bulls and Cows](https://leetcode.com/problems/bulls-and-cows)
 
 [中文文档](/solution/0200-0299/0299.Bulls%20and%20Cows/README.md)
@@ -60,6 +62,8 @@ Note that only one of the two unmatched 1s is counted as a cow since the non-bul
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -210,4 +214,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

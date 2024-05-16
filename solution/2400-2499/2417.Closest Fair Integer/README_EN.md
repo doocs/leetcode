@@ -7,6 +7,8 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [2417. Closest Fair Integer 🔒](https://leetcode.com/problems/closest-fair-integer)
 
 [中文文档](/solution/2400-2499/2417.Closest%20Fair%20Integer/README.md)
@@ -45,6 +47,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Case Discussion
 
@@ -169,4 +173,6 @@ func closestFair(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

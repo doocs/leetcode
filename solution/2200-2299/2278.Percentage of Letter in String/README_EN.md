@@ -8,6 +8,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2278. Percentage of Letter in String](https://leetcode.com/problems/percentage-of-letter-in-string)
 
 [中文文档](/solution/2200-2299/2278.Percentage%20of%20Letter%20in%20String/README.md)
@@ -44,6 +46,8 @@ The percentage of characters in s that equal the letter &#39;k&#39; is 0%, so we
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -119,4 +123,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

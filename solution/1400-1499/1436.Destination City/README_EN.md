@@ -10,6 +10,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1436. Destination City](https://leetcode.com/problems/destination-city)
 
 [中文文档](/solution/1400-1499/1436.Destination%20City/README.md)
@@ -61,6 +63,8 @@ Clearly the destination city is &quot;A&quot;.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -192,4 +196,6 @@ char* destCity(char*** paths, int pathsSize, int* pathsColSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

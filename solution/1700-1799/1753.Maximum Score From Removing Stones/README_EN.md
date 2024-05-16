@@ -10,6 +10,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1753. Maximum Score From Removing Stones](https://leetcode.com/problems/maximum-score-from-removing-stones)
 
 [中文文档](/solution/1700-1799/1753.Maximum%20Score%20From%20Removing%20Stones/README.md)
@@ -69,6 +71,8 @@ After that, there are fewer than two non-empty piles, so the game ends.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -138,6 +142,10 @@ func maximumScore(a int, b int, c int) (ans int) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -189,4 +197,6 @@ func maximumScore(a int, b int, c int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

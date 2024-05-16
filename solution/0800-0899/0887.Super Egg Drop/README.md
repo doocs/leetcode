@@ -8,13 +8,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [887. 鸡蛋掉落](https://leetcode.cn/problems/super-egg-drop)
 
 [English Version](/solution/0800-0899/0887.Super%20Egg%20Drop/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你 <code>k</code> 枚相同的鸡蛋，并可以使用一栋从第 <code>1</code> 层到第 <code>n</code> 层共有 <code>n</code> 层楼的建筑。</p>
 
@@ -60,7 +62,11 @@ tags:
 	<li><code>1 <= n <= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索 + 二分查找
 
@@ -241,6 +247,10 @@ function superEggDrop(k: number, n: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划 + 二分查找
 
 我们也可以使用动态规划的方法解决这个问题。
@@ -390,4 +400,6 @@ function superEggDrop(k: number, n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

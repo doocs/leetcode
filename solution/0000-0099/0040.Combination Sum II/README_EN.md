@@ -7,6 +7,8 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [40. Combination Sum II](https://leetcode.com/problems/combination-sum-ii)
 
 [中文文档](/solution/0000-0099/0040.Combination%20Sum%20II/README.md)
@@ -54,6 +56,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Pruning + Backtracking
 
@@ -312,6 +316,10 @@ public class Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Sorting + Pruning + Backtracking(Another Form)
 
@@ -606,4 +614,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,6 +9,8 @@ tags:
     - Ordered Set
 ---
 
+<!-- problem:start -->
+
 # [731. My Calendar II](https://leetcode.com/problems/my-calendar-ii)
 
 [中文文档](/solution/0700-0799/0731.My%20Calendar%20II/README.md)
@@ -57,6 +59,8 @@ myCalendarTwo.book(25, 55); // return True, The event can be booked, as the time
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -189,6 +193,10 @@ func (this *MyCalendarTwo) Book(start int, end int) bool {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -592,4 +600,6 @@ func (this *MyCalendarTwo) Book(start int, end int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

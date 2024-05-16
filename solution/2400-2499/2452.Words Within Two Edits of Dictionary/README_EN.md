@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2452. Words Within Two Edits of Dictionary](https://leetcode.com/problems/words-within-two-edits-of-dictionary)
 
 [中文文档](/solution/2400-2499/2452.Words%20Within%20Two%20Edits%20of%20Dictionary/README.md)
@@ -55,6 +57,8 @@ Applying any two edits to &quot;yes&quot; cannot make it equal to &quot;not&quot
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Brute Force Enumeration
 
@@ -206,4 +210,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

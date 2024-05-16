@@ -4,6 +4,8 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3141.Maximum%20Hamming%20Distances/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [3141. Maximum Hamming Distances 🔒](https://leetcode.com/problems/maximum-hamming-distances)
 
 [中文文档](/solution/3100-3199/3141.Maximum%20Hamming%20Distances/README.md)
@@ -67,6 +69,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3141.Ma
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Reverse Thinking + BFS
 
@@ -231,4 +235,6 @@ function maxHammingDistances(nums: number[], m: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

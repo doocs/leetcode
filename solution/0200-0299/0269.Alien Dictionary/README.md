@@ -11,13 +11,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [269. 火星词典 🔒](https://leetcode.cn/problems/alien-dictionary)
 
 [English Version](/solution/0200-0299/0269.Alien%20Dictionary/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>现有一种使用英语字母的火星语言，这门语言的字母顺序对你来说是未知的。</p>
 
@@ -61,7 +63,11 @@ tags:
 	<li><code>words[i]</code> 仅由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：拓扑排序 + BFS
 
@@ -278,4 +284,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

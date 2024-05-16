@@ -9,6 +9,8 @@ tags:
     - Probability and Statistics
 ---
 
+<!-- problem:start -->
+
 # [1227. Airplane Seat Assignment Probability](https://leetcode.com/problems/airplane-seat-assignment-probability)
 
 [中文文档](/solution/1200-1299/1227.Airplane%20Seat%20Assignment%20Probability/README.md)
@@ -48,6 +50,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematics
 
@@ -164,4 +168,6 @@ func nthPersonGetsNthSeat(n int) float64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

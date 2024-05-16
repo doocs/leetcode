@@ -8,6 +8,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [5. Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring)
 
 [中文文档](/solution/0000-0099/0005.Longest%20Palindromic%20Substring/README.md)
@@ -41,6 +43,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -277,6 +281,10 @@ proc longestPalindrome(s: string): string =
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Enumerate Palindrome Midpoint
 
 We can enumerate the midpoint of the palindrome, spread to both sides, and find the longest palindrome.
@@ -452,4 +460,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

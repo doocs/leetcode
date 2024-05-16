@@ -10,13 +10,15 @@ tags:
     - 枚举
 ---
 
+<!-- problem:start -->
+
 # [2309. 兼具大小写的最好英文字母](https://leetcode.cn/problems/greatest-english-letter-in-upper-and-lower-case)
 
 [English Version](/solution/2300-2399/2309.Greatest%20English%20Letter%20in%20Upper%20and%20Lower%20Case/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个由英文字母组成的字符串 <code>s</code> ，请你找出并返回 <code>s</code> 中的 <strong>最好</strong> 英文字母。返回的字母必须为大写形式。如果不存在满足条件的字母，则返回一个空字符串。</p>
 
@@ -62,7 +64,11 @@ tags:
 	<li><code>s</code> 由小写和大写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 枚举
 
@@ -188,6 +194,10 @@ var greatestLetter = function (s) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：位运算（空间优化）
 
 我们可以用两个整数 $mask1$ 和 $mask2$ 分别记录字符串 $s$ 中出现的小写字母和大写字母，其中 $mask1$ 的第 $i$ 位表示第 $i$ 个小写字母是否出现，而 $mask2$ 的第 $i$ 位表示第 $i$ 个大写字母是否出现。
@@ -270,4 +280,6 @@ func greatestLetter(s string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1180. Count Substrings with Only One Distinct Letter 🔒](https://leetcode.com/problems/count-substrings-with-only-one-distinct-letter)
 
 [中文文档](/solution/1100-1199/1180.Count%20Substrings%20with%20Only%20One%20Distinct%20Letter/README.md)
@@ -47,6 +49,8 @@ So the answer is 1 + 2 + 4 + 1 = 8.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -139,6 +143,10 @@ function countLetters(s: string): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -217,4 +225,6 @@ func countLetters(s string) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

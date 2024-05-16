@@ -9,6 +9,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2739. Total Distance Traveled](https://leetcode.com/problems/total-distance-traveled)
 
 [中文文档](/solution/2700-2799/2739.Total%20Distance%20Traveled/README.md)
@@ -54,6 +56,8 @@ Total distance traveled is 10km.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -171,4 +175,6 @@ var distanceTraveled = function (mainTank, additionalTank) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

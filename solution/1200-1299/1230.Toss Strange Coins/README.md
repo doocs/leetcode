@@ -11,13 +11,15 @@ tags:
     - 概率与统计
 ---
 
+<!-- problem:start -->
+
 # [1230. 抛掷硬币 🔒](https://leetcode.cn/problems/toss-strange-coins)
 
 [English Version](/solution/1200-1299/1230.Toss%20Strange%20Coins/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一些不规则的硬币。在这些硬币中，<code>prob[i]</code>&nbsp;表示第&nbsp;<code>i</code>&nbsp;枚硬币正面朝上的概率。</p>
 
@@ -48,7 +50,11 @@ tags:
 	<li>如果答案与标准答案的误差在&nbsp;<code>10^-5</code>&nbsp;内，则被视为正确答案。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -164,6 +170,10 @@ function probabilityOfHeads(prob: number[], target: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -253,4 +263,6 @@ function probabilityOfHeads(prob: number[], target: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

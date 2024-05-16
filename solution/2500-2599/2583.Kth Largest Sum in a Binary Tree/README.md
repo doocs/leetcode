@@ -11,13 +11,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [2583. 二叉树中的第 K 大层和](https://leetcode.cn/problems/kth-largest-sum-in-a-binary-tree)
 
 [English Version](/solution/2500-2599/2583.Kth%20Largest%20Sum%20in%20a%20Binary%20Tree/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一棵二叉树的根节点 <code>root</code> 和一个正整数 <code>k</code> 。</p>
 
@@ -65,7 +67,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：BFS + 排序
 
@@ -261,6 +267,10 @@ function kthLargestLevelSum(root: TreeNode | null, k: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：DFS + 排序
 
 我们也可以使用 DFS 遍历二叉树，同时记录每一层的节点和，然后对节点和数组进行排序，最后返回第 $k$ 大的节点和即可。注意，如果二叉树的层数小于 $k$，则返回 $-1$。
@@ -443,4 +453,6 @@ function kthLargestLevelSum(root: TreeNode | null, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,13 +10,15 @@ tags:
     - 枚举
 ---
 
+<!-- problem:start -->
+
 # [2929. 给小朋友们分糖果 II](https://leetcode.cn/problems/distribute-candies-among-children-ii)
 
 [English Version](/solution/2900-2999/2929.Distribute%20Candies%20Among%20Children%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个正整数&nbsp;<code>n</code> 和&nbsp;<code>limit</code>&nbsp;。</p>
 
@@ -49,7 +51,11 @@ tags:
 	<li><code>1 &lt;= limit &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：组合数学 + 容斥原理
 
@@ -158,4 +164,6 @@ function distributeCandies(n: number, limit: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

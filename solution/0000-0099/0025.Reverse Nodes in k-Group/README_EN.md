@@ -7,6 +7,8 @@ tags:
     - Linked List
 ---
 
+<!-- problem:start -->
+
 # [25. Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group)
 
 [中文文档](/solution/0000-0099/0025.Reverse%20Nodes%20in%20k-Group/README.md)
@@ -47,6 +49,8 @@ tags:
 <p><strong>Follow-up:</strong> Can you solve the problem in <code>O(1)</code> extra memory space?</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Iteration
 
@@ -386,6 +390,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Recursion
 
 The time complexity is $O(n)$, and the space complexity is $O(\log_k n)$. Here, $n$ is the length of the linked list.
@@ -475,4 +483,6 @@ function reverseKGroup(head: ListNode | null, k: number): ListNode | null {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

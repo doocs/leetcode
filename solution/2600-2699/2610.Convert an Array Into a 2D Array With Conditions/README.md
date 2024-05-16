@@ -9,13 +9,15 @@ tags:
     - 哈希表
 ---
 
+<!-- problem:start -->
+
 # [2610. 转换二维数组](https://leetcode.cn/problems/convert-an-array-into-a-2d-array-with-conditions)
 
 [English Version](/solution/2600-2699/2610.Convert%20an%20Array%20Into%20a%202D%20Array%20With%20Conditions/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> 。请你创建一个满足以下条件的二维数组：</p>
 
@@ -58,7 +60,11 @@ nums 中的所有元素都有用到，并且每一行都由不同的整数组成
 	<li><code>1 &lt;= nums[i] &lt;= nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数组或哈希表
 
@@ -173,4 +179,6 @@ function findMatrix(nums: number[]): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

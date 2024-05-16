@@ -7,6 +7,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [165. Compare Version Numbers](https://leetcode.com/problems/compare-version-numbers)
 
 [中文文档](/solution/0100-0199/0165.Compare%20Version%20Numbers/README.md)
@@ -73,6 +75,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -204,4 +208,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

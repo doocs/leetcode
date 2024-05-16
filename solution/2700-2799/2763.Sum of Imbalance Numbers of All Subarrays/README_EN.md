@@ -10,6 +10,8 @@ tags:
     - Ordered Set
 ---
 
+<!-- problem:start -->
+
 # [2763. Sum of Imbalance Numbers of All Subarrays](https://leetcode.com/problems/sum-of-imbalance-numbers-of-all-subarrays)
 
 [中文文档](/solution/2700-2799/2763.Sum%20of%20Imbalance%20Numbers%20of%20All%20Subarrays/README.md)
@@ -66,6 +68,8 @@ The imbalance number of all other subarrays is 0. Hence, the sum of imbalance nu
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration + Ordered Set
 
@@ -168,4 +172,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

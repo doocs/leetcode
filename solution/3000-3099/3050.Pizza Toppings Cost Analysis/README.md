@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [3050. 披萨配料成本分析 🔒](https://leetcode.cn/problems/pizza-toppings-cost-analysis)
 
 [English Version](/solution/3000-3099/3050.Pizza%20Toppings%20Cost%20Analysis/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code><font face="monospace">Toppings</font></code></p>
 
@@ -72,7 +74,11 @@ Toppings 表：
 - Chicken, Extra Cheese, Pepperoni：总花费是 $1.45 (Chicken $0.55，Extra Cheese $0.40，Pepperoni $0.50)。
 输出表根据总花费降序排序。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：窗口函数 + 条件连接
 
@@ -101,4 +107,6 @@ ORDER BY 2 DESC, 1 ASC;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

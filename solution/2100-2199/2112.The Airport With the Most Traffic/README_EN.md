@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2112. The Airport With the Most Traffic 🔒](https://leetcode.com/problems/the-airport-with-the-most-traffic)
 
 [中文文档](/solution/2100-2199/2112.The%20Airport%20With%20the%20Most%20Traffic/README.md)
@@ -95,6 +97,8 @@ The airports with the most traffic are airports 1, 2, 3, and 4.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -119,4 +123,6 @@ WHERE cnt = (SELECT MAX(cnt) FROM P);
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

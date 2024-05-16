@@ -8,6 +8,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [1313. Decompress Run-Length Encoded List](https://leetcode.com/problems/decompress-run-length-encoded-list)
 
 [中文文档](/solution/1300-1399/1313.Decompress%20Run-Length%20Encoded%20List/README.md)
@@ -48,6 +50,8 @@ At the end the concatenation [2] + [4,4,4] is [2,4,4,4].
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -157,4 +161,6 @@ int* decompressRLElist(int* nums, int numsSize, int* returnSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

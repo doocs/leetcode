@@ -7,6 +7,8 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [86. Partition List](https://leetcode.com/problems/partition-list)
 
 [中文文档](/solution/0000-0099/0086.Partition%20List/README.md)
@@ -42,6 +44,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -244,4 +248,6 @@ var partition = function (head, x) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

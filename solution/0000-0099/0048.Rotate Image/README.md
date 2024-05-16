@@ -8,13 +8,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [48. 旋转图像](https://leetcode.cn/problems/rotate-image)
 
 [English Version](/solution/0000-0099/0048.Rotate%20Image/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个 <em>n&nbsp;</em>×&nbsp;<em>n</em> 的二维矩阵&nbsp;<code>matrix</code> 表示一个图像。请你将图像顺时针旋转 90 度。</p>
 
@@ -48,7 +50,11 @@ tags:
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：原地翻转
 
@@ -206,4 +212,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,6 +4,8 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2723.Add%20Two%20Promises/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2723. Add Two Promises](https://leetcode.com/problems/add-two-promises)
 
 [中文文档](/solution/2700-2799/2723.Add%20Two%20Promises/README.md)
@@ -42,6 +44,8 @@ promise2 = new Promise(resolve =&gt; setTimeout(() =&gt; resolve(-12), 30))
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -68,4 +72,6 @@ var addTwoPromises = async function (promise1, promise2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

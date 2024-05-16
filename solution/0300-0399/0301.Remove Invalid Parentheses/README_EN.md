@@ -8,6 +8,8 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [301. Remove Invalid Parentheses](https://leetcode.com/problems/remove-invalid-parentheses)
 
 [中文文档](/solution/0300-0399/0301.Remove%20Invalid%20Parentheses/README.md)
@@ -50,6 +52,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -231,4 +235,6 @@ func removeInvalidParentheses(s string) []string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

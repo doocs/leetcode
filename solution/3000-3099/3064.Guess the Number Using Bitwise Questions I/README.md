@@ -7,13 +7,15 @@ tags:
     - 交互
 ---
 
+<!-- problem:start -->
+
 # [3064. 使用按位查询猜测数字 I 🔒](https://leetcode.cn/problems/guess-the-number-using-bitwise-questions-i)
 
 [English Version](/solution/3000-3099/3064.Guess%20the%20Number%20Using%20Bitwise%20Questions%20I/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你需要找到一个数字&nbsp;<code>n</code>。</p>
 
@@ -53,7 +55,11 @@ tags:
 	<li>如果你查询的&nbsp;<code>num</code>&nbsp;超出了给定的范围，输出就不可靠。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -147,4 +153,6 @@ function findNumber(): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

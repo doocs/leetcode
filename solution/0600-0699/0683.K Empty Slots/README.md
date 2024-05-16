@@ -9,13 +9,15 @@ tags:
     - 滑动窗口
 ---
 
+<!-- problem:start -->
+
 # [683. K 个关闭的灯泡 🔒](https://leetcode.cn/problems/k-empty-slots)
 
 [English Version](/solution/0600-0699/0683.K%20Empty%20Slots/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><code>n</code>&nbsp;个灯泡排成一行，编号从 <code>1</code> 到<meta charset="UTF-8" />&nbsp;<code>n</code>&nbsp;。最初，所有灯泡都关闭。每天&nbsp;<strong>只打开一个</strong>&nbsp;灯泡，直到<meta charset="UTF-8" />&nbsp;<code>n</code>&nbsp;天后所有灯泡都打开。</p>
 
@@ -57,7 +59,11 @@ bulbs = [1,3,2]，k = 1
 	<li><code>0 &lt;= k &lt;= 2 * 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：树状数组
 
@@ -294,4 +300,6 @@ function kEmptySlots(bulbs: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

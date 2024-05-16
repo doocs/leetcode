@@ -10,13 +10,15 @@ tags:
     - 滑动窗口
 ---
 
+<!-- problem:start -->
+
 # [220. 存在重复元素 III](https://leetcode.cn/problems/contains-duplicate-iii)
 
 [English Version](/solution/0200-0299/0220.Contains%20Duplicate%20III/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> 和两个整数 <code>indexDiff</code> 和 <code>valueDiff</code> 。</p>
 
@@ -63,7 +65,11 @@ abs(nums[i] - nums[j]) &lt;= valueDiff --&gt; abs(1 - 1) &lt;= 0
 	<li><code>0 &lt;= valueDiff &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：滑动窗口 + 有序集合
 
@@ -842,4 +848,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

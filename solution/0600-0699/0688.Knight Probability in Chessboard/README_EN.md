@@ -6,6 +6,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [688. Knight Probability in Chessboard](https://leetcode.com/problems/knight-probability-in-chessboard)
 
 [中文文档](/solution/0600-0699/0688.Knight%20Probability%20in%20Chessboard/README.md)
@@ -50,6 +52,8 @@ The total probability the knight stays on the board is 0.0625.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -257,4 +261,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

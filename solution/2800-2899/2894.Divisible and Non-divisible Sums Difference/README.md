@@ -8,13 +8,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [2894. 分类求和并作差](https://leetcode.cn/problems/divisible-and-non-divisible-sums-difference)
 
 [English Version](/solution/2800-2899/2894.Divisible%20and%20Non-divisible%20Sums%20Difference/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个正整数 <code>n</code> 和 <code>m</code> 。</p>
 
@@ -70,7 +72,11 @@ tags:
 	<li><code>1 &lt;= n, m &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -138,6 +144,10 @@ function differenceOfSums(n: number, m: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -155,4 +165,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

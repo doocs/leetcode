@@ -9,6 +9,8 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [2951. Find the Peaks](https://leetcode.com/problems/find-the-peaks)
 
 [中文文档](/solution/2900-2999/2951.Find%20the%20Peaks/README.md)
@@ -57,6 +59,8 @@ So the answer is [1,3].
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Direct Traversal
 
@@ -132,4 +136,6 @@ function findPeaks(mountain: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,6 +10,8 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [1739. Building Boxes](https://leetcode.com/problems/building-boxes)
 
 [中文文档](/solution/1700-1799/1739.Building%20Boxes/README.md)
@@ -66,6 +68,8 @@ These boxes are placed in the corner of the room, where the corner is on the bac
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematical Rule
 
@@ -160,4 +164,6 @@ func minimumBoxes(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

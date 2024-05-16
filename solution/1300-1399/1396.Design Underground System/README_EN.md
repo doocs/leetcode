@@ -10,6 +10,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1396. Design Underground System](https://leetcode.com/problems/design-underground-system)
 
 [中文文档](/solution/1300-1399/1396.Design%20Underground%20System/README.md)
@@ -108,6 +110,8 @@ undergroundSystem.getAverageTime(&quot;Leyton&quot;, &quot;Paradise&quot;); // r
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -280,4 +284,6 @@ type pair struct {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

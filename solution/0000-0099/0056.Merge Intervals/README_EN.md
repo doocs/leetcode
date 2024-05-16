@@ -7,6 +7,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [56. Merge Intervals](https://leetcode.com/problems/merge-intervals)
 
 [中文文档](/solution/0000-0099/0056.Merge%20Intervals/README.md)
@@ -42,6 +44,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + One-pass Traversal
 
@@ -202,6 +206,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -307,6 +315,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
@@ -332,4 +344,6 @@ function merge(intervals: number[][]): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

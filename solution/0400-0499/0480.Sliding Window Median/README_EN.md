@@ -9,6 +9,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [480. Sliding Window Median](https://leetcode.com/problems/sliding-window-median)
 
 [中文文档](/solution/0400-0499/0480.Sliding%20Window%20Median/README.md)
@@ -59,6 +61,8 @@ Window position                Median
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -413,4 +417,6 @@ func (h *hp) Pop() any {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

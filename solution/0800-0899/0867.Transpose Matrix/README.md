@@ -8,13 +8,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [867. 转置矩阵](https://leetcode.cn/problems/transpose-matrix)
 
 [English Version](/solution/0800-0899/0867.Transpose%20Matrix/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个二维整数数组 <code>matrix</code>， 返回 <code>matrix</code> 的 <strong>转置矩阵</strong> 。</p>
 
@@ -50,7 +52,11 @@ tags:
 	<li><code>-10<sup>9</sup> <= matrix[i][j] <= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -125,4 +131,6 @@ var transpose = function (matrix) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

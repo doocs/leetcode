@@ -11,6 +11,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2122. Recover the Original Array](https://leetcode.com/problems/recover-the-original-array)
 
 [中文文档](/solution/2100-2199/2122.Recover%20the%20Original%20Array/README.md)
@@ -74,6 +76,8 @@ The only possible combination is arr = [220] and k = 215. Using them, we get low
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -207,4 +211,6 @@ func recoverArray(nums []int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

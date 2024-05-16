@@ -9,6 +9,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1882. Process Tasks Using Servers](https://leetcode.com/problems/process-tasks-using-servers)
 
 [中文文档](/solution/1800-1899/1882.Process%20Tasks%20Using%20Servers/README.md)
@@ -69,6 +71,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -135,4 +139,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

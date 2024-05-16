@@ -4,11 +4,13 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2042.%20%E7%8E%A9%E5%85%B7%E5%A5%97%E5%9C%88/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 42. 玩具套圈](https://leetcode.cn/problems/vFjcfV)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 「力扣挑战赛」场地外，小力组织了一个套玩具的游戏。所有的玩具摆在平地上，`toys[i]` 以 `[xi,yi,ri]` 的形式记录了第 `i` 个玩具的坐标 `(xi,yi)` 和半径 `ri`。小扣试玩了一下，他扔了若干个半径均为 `r` 的圈，`circles[j]` 记录了第 `j` 个圈的坐标 `(xj,yj)`。套圈的规则如下：
 
@@ -47,6 +49,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2042.%20%E7%8E%A9%
 -   `0 <= circles[i][0], circles[i][1] <= 10^9`
 -   `1 <= toys[i][2], r <= 10`
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

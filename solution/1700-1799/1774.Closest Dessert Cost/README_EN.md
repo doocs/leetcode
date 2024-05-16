@@ -10,6 +10,8 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [1774. Closest Dessert Cost](https://leetcode.com/problems/closest-dessert-cost)
 
 [中文文档](/solution/1700-1799/1774.Closest%20Dessert%20Cost/README.md)
@@ -82,6 +84,8 @@ Total: 3 + 4 + 10 + 0 = 17. You cannot make a dessert with a total cost of 18.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -284,4 +288,6 @@ const closestCost = function (baseCosts, toppingCosts, target) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

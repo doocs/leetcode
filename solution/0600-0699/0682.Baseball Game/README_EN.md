@@ -8,6 +8,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [682. Baseball Game](https://leetcode.com/problems/baseball-game)
 
 [中文文档](/solution/0600-0699/0682.Baseball%20Game/README.md)
@@ -101,6 +103,8 @@ Since the record is empty, the total sum is 0.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -240,4 +244,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

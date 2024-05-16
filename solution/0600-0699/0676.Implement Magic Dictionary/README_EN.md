@@ -10,6 +10,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [676. Implement Magic Dictionary](https://leetcode.com/problems/implement-magic-dictionary)
 
 [中文文档](/solution/0600-0699/0676.Implement%20Magic%20Dictionary/README.md)
@@ -60,6 +62,8 @@ magicDictionary.search(&quot;leetcoded&quot;); // return False
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Trie + DFS
 
@@ -486,6 +490,10 @@ impl MagicDictionary {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -543,4 +551,6 @@ class MagicDictionary:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

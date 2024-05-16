@@ -4,11 +4,13 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2051.%20%E7%83%B9%E9%A5%AA%E6%96%99%E7%90%86/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 51. 烹饪料理](https://leetcode.cn/problems/UEcfPD)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 欢迎各位勇者来到力扣城，城内设有烹饪锅供勇者制作料理，为自己恢复状态。
 
@@ -49,7 +51,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2051.%20%E7%83%B9%
 -   `0 <= materials[i], cookbooks[i][j], attribute[i][j] <= 20`
 -   `1 <= limit <= 100`
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二进制枚举
 
@@ -221,4 +227,6 @@ function perfectMenu(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

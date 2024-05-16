@@ -9,6 +9,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [1001. Grid Illumination](https://leetcode.com/problems/grid-illumination)
 
 [中文文档](/solution/1000-1099/1001.Grid%20Illumination/README.md)
@@ -66,6 +68,8 @@ The 1<sup>st</sup>&nbsp;query asks if the lamp at grid[1][0] is illuminated or n
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -283,4 +287,6 @@ function gridIllumination(n: number, lamps: number[][], queries: number[][]): nu
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

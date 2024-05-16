@@ -7,6 +7,8 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [2702. Minimum Operations to Make Numbers Non-positive 🔒](https://leetcode.com/problems/minimum-operations-to-make-numbers-non-positive)
 
 [中文文档](/solution/2700-2799/2702.Minimum%20Operations%20to%20Make%20Numbers%20Non-positive/README.md)
@@ -53,6 +55,8 @@ Now, all the numbers in nums are non-positive. Therefore, we return 3.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -198,4 +202,6 @@ function minOperations(nums: number[], x: number, y: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

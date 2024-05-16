@@ -9,13 +9,15 @@ tags:
     - 拓扑排序
 ---
 
+<!-- problem:start -->
+
 # [207. 课程表](https://leetcode.cn/problems/course-schedule)
 
 [English Version](/solution/0200-0299/0207.Course%20Schedule/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你这个学期必须选修 <code>numCourses</code> 门课程，记为&nbsp;<code>0</code>&nbsp;到&nbsp;<code>numCourses - 1</code> 。</p>
 
@@ -55,7 +57,11 @@ tags:
 	<li><code>prerequisites[i]</code> 中的所有课程对 <strong>互不相同</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：拓扑排序
 
@@ -299,4 +305,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

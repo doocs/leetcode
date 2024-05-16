@@ -10,6 +10,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2682. Find the Losers of the Circular Game](https://leetcode.com/problems/find-the-losers-of-the-circular-game)
 
 [中文文档](/solution/2600-2699/2682.Find%20the%20Losers%20of%20the%20Circular%20Game/README.md)
@@ -67,6 +69,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -186,4 +190,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,13 +9,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [455. 分发饼干](https://leetcode.cn/problems/assign-cookies)
 
 [English Version](/solution/0400-0499/0455.Assign%20Cookies/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>假设你是一位很棒的家长，想要给你的孩子们一些小饼干。但是，每个孩子最多只能给一块饼干。</p>
 
@@ -54,7 +56,11 @@ tags:
 	<li><code>1 <= g[i], s[j] <= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 双指针
 
@@ -187,4 +193,6 @@ var findContentChildren = function (g, s) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,6 +9,8 @@ tags:
     - Randomized
 ---
 
+<!-- problem:start -->
+
 # [519. Random Flip Matrix](https://leetcode.com/problems/random-flip-matrix)
 
 [中文文档](/solution/0500-0599/0519.Random%20Flip%20Matrix/README.md)
@@ -56,6 +58,8 @@ solution.flip();  // return [2, 0], [0,0], [1,0], and [2,0] should be equally li
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -124,4 +128,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

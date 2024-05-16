@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1821. 寻找今年具有正收入的客户 🔒](https://leetcode.cn/problems/find-customers-with-positive-revenue-this-year)
 
 [English Version](/solution/1800-1899/1821.Find%20Customers%20With%20Positive%20Revenue%20this%20Year/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Customers</code></p>
 
@@ -69,7 +71,11 @@ Customers
 客户 4 在 2021 年的收入等于 20 。
 因此，只有客户 1 和 4 在 2021 年有正收入。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：WHERE 子句
 
@@ -87,4 +93,6 @@ WHERE year = '2021' AND revenue > 0;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

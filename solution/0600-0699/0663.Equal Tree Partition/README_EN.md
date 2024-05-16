@@ -8,6 +8,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [663. Equal Tree Partition 🔒](https://leetcode.com/problems/equal-tree-partition)
 
 [中文文档](/solution/0600-0699/0663.Equal%20Tree%20Partition/README.md)
@@ -41,6 +43,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -183,4 +187,6 @@ func checkEqualTree(root *TreeNode) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

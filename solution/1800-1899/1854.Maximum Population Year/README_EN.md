@@ -10,6 +10,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1854. Maximum Population Year](https://leetcode.com/problems/maximum-population-year)
 
 [中文文档](/solution/1800-1899/1854.Maximum%20Population%20Year/README.md)
@@ -49,6 +51,8 @@ The earlier year between them is 1960.</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Difference Array
 
@@ -197,4 +201,6 @@ var maximumPopulation = function (logs) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

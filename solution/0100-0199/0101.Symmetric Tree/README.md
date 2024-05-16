@@ -9,13 +9,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [101. 对称二叉树](https://leetcode.cn/problems/symmetric-tree)
 
 [English Version](/solution/0100-0199/0101.Symmetric%20Tree/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个二叉树的根节点 <code>root</code> ， 检查它是否轴对称。</p>
 
@@ -48,7 +50,11 @@ tags:
 
 <p><strong>进阶：</strong>你可以运用递归和迭代两种方法解决这个问题吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -263,6 +269,10 @@ var isSymmetric = function (root) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -319,4 +329,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

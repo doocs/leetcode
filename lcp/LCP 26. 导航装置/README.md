@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2026.%20%E5%AF%BC%E8%88%AA%E8%A3%85%E7%BD%AE/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 26. 导航装置](https://leetcode.cn/problems/hSRGyL)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 小扣参加的秋日市集景区共有 $N$ 个景点，景点编号为 $1$~$N$。景点内设有 $N-1$ 条双向道路，使所有景点形成了一个二叉树结构，根结点记为 `root`，景点编号即为节点值。
 
@@ -51,6 +53,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2026.%20%E5%AF%BC%
 
 -   二叉树的非空节点值为 `1~N` 的一个排列。
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

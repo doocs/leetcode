@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2788. Split Strings by Separator](https://leetcode.com/problems/split-strings-by-separator)
 
 [中文文档](/solution/2700-2799/2788.Split%20Strings%20by%20Separator/README.md)
@@ -72,6 +74,8 @@ Hence, the resulting array is [&quot;easy&quot;,&quot;problem&quot;].
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -145,4 +149,6 @@ function splitWordsBySeparator(words: string[], separator: string): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

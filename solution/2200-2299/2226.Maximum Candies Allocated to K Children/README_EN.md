@@ -9,6 +9,8 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [2226. Maximum Candies Allocated to K Children](https://leetcode.com/problems/maximum-candies-allocated-to-k-children)
 
 [中文文档](/solution/2200-2299/2226.Maximum%20Candies%20Allocated%20to%20K%20Children/README.md)
@@ -47,6 +49,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -127,4 +131,6 @@ func maximumCandies(candies []int, k int64) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

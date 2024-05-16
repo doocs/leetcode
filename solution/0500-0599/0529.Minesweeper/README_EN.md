@@ -9,6 +9,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [529. Minesweeper](https://leetcode.com/problems/minesweeper)
 
 [中文文档](/solution/0500-0599/0529.Minesweeper/README.md)
@@ -68,6 +70,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -262,4 +266,6 @@ function updateBoard(board: string[][], click: number[]): string[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

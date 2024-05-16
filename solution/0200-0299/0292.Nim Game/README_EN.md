@@ -8,6 +8,8 @@ tags:
     - Game Theory
 ---
 
+<!-- problem:start -->
+
 # [292. Nim Game](https://leetcode.com/problems/nim-game)
 
 [中文文档](/solution/0200-0299/0292.Nim%20Game/README.md)
@@ -60,6 +62,8 @@ In all outcomes, your friend wins.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Finding the Pattern
 
@@ -123,4 +127,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

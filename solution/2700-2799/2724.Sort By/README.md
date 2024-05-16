@@ -4,13 +4,15 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2724.Sort%20By/README.md
 ---
 
+<!-- problem:start -->
+
 # [2724. 排序方式](https://leetcode.cn/problems/sort-by)
 
 [English Version](/solution/2700-2799/2724.Sort%20By/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个数组 <code>arr</code> 和一个函数 <code>fn</code>，返回一个排序后的数组 <code>sortedArr</code>。你可以假设 <code>fn</code> 只返回数字，并且这些数字决定了 <code>sortedArr</code> 的排序顺序。<code>sortedArr</code> 必须按照 <code>fn</code> 的输出值&nbsp;<strong>升序</strong> 排序。</p>
 
@@ -52,7 +54,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2724.So
 	<li><code>1 &lt;=&nbsp;arr.length &lt;= 5 * 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -66,4 +72,6 @@ function sortBy(arr: any[], fn: Function): any[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

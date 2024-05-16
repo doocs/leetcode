@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1547. Minimum Cost to Cut a Stick](https://leetcode.com/problems/minimum-cost-to-cut-a-stick)
 
 [中文文档](/solution/1500-1599/1547.Minimum%20Cost%20to%20Cut%20a%20Stick/README.md)
@@ -57,6 +59,8 @@ There are much ordering with total cost &lt;= 25, for example, the order [4, 6, 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming (Interval DP)
 
@@ -182,6 +186,10 @@ function minCost(n: number, cuts: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -271,4 +279,6 @@ func minCost(n int, cuts []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

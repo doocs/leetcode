@@ -10,6 +10,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [130. Surrounded Regions](https://leetcode.com/problems/surrounded-regions)
 
 [中文文档](/solution/0100-0199/0130.Surrounded%20Regions/README.md)
@@ -51,6 +53,8 @@ The other three &#39;O&#39; form a surrounded region, so they are flipped.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Depth-First Search (DFS)
 
@@ -334,6 +338,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Union-Find Set
 
 We can also use a union-find set, connecting each 'O' on the matrix boundary with a super node $m \times n$, and connecting each 'O' in the matrix with the 'O's above, below, left, and right of it.
@@ -539,4 +547,6 @@ function solve(board: string[][]): void {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

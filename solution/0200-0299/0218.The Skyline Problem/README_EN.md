@@ -12,6 +12,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [218. The Skyline Problem](https://leetcode.com/problems/the-skyline-problem)
 
 [中文文档](/solution/0200-0299/0218.The%20Skyline%20Problem/README.md)
@@ -63,6 +65,8 @@ Figure B shows the skyline formed by those buildings. The red points in figure B
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -218,4 +222,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -11,6 +11,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1737. Change Minimum Characters to Satisfy One of Three Conditions](https://leetcode.com/problems/change-minimum-characters-to-satisfy-one-of-three-conditions)
 
 [中文文档](/solution/1700-1799/1737.Change%20Minimum%20Characters%20to%20Satisfy%20One%20of%20Three%20Conditions/README.md)
@@ -59,6 +61,8 @@ The best way was done in 2 operations (either condition 1 or condition 3).
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting + Enumeration
 
@@ -227,4 +231,6 @@ function minCharacters(a: string, b: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

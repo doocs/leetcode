@@ -12,6 +12,8 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [2080. Range Frequency Queries](https://leetcode.com/problems/range-frequency-queries)
 
 [中文文档](/solution/2000-2099/2080.Range%20Frequency%20Queries/README.md)
@@ -58,6 +60,8 @@ rangeFreqQuery.query(0, 11, 33); // return 2. The value 33 occurs 2 times in the
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -223,4 +227,6 @@ class RangeFreqQuery {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

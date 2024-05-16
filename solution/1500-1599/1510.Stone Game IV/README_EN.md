@@ -10,6 +10,8 @@ tags:
     - Game Theory
 ---
 
+<!-- problem:start -->
+
 # [1510. Stone Game IV](https://leetcode.com/problems/stone-game-iv)
 
 [中文文档](/solution/1500-1599/1510.Stone%20Game%20IV/README.md)
@@ -56,6 +58,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -180,6 +184,10 @@ function winnerSquareGame(n: number): boolean {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -266,4 +274,6 @@ function winnerSquareGame(n: number): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

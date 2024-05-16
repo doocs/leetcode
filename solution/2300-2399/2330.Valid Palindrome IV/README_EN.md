@@ -7,6 +7,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2330. Valid Palindrome IV 🔒](https://leetcode.com/problems/valid-palindrome-iv)
 
 [中文文档](/solution/2300-2399/2330.Valid%20Palindrome%20IV/README.md)
@@ -56,6 +58,8 @@ Two operations could be performed to make s a palindrome so return true.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -130,4 +134,6 @@ function makePalindrome(s: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

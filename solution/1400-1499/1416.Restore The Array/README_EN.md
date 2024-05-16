@@ -9,6 +9,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1416. Restore The Array](https://leetcode.com/problems/restore-the-array)
 
 [中文文档](/solution/1400-1499/1416.Restore%20The%20Array/README.md)
@@ -55,4 +57,30 @@ tags:
 
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+```python
+
+```
+
+```java
+
+```
+
+```cpp
+
+```
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

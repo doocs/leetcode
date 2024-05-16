@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1495. 上月播放的儿童适宜电影 🔒](https://leetcode.cn/problems/friendly-movies-streamed-last-month)
 
 [English Version](/solution/1400-1499/1495.Friendly%20Movies%20Streamed%20Last%20Month/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>TVProgram</code></p>
 
@@ -95,7 +97,11 @@ TVProgram</code> 表:
 "Aladin" 是电影, 儿童适宜, 并且在 2020 年 6 月份播放.
 "Cinderella" 不在 2020 年 6 月份播放.</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：等值连接 + 条件筛选
 
@@ -117,4 +123,6 @@ WHERE
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

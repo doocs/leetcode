@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [2066. 账户余额 🔒](https://leetcode.cn/problems/account-balance)
 
 [English Version](/solution/2000-2099/2066.Account%20Balance/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表名: <code>Transactions</code></p>
 
@@ -77,7 +79,11 @@ Transactions 表:
 - 2021-12-12 --&gt; 取出 7000. 余额变为 7000 - 7000 = 0.
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -98,4 +104,6 @@ ORDER BY 1, 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,6 +7,8 @@ tags:
     - Divide and Conquer
 ---
 
+<!-- problem:start -->
+
 # [191. Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits)
 
 [中文文档](/solution/0100-0199/0191.Number%20of%201%20Bits/README.md)
@@ -63,6 +65,8 @@ tags:
 <strong>Follow up:</strong> If this function is called many times, how would you optimize it?
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -164,6 +168,10 @@ int hammingWeight(uint32_t n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -232,4 +240,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

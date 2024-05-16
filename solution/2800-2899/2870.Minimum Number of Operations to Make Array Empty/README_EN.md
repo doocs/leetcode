@@ -11,6 +11,8 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [2870. Minimum Number of Operations to Make Array Empty](https://leetcode.com/problems/minimum-number-of-operations-to-make-array-empty)
 
 [中文文档](/solution/2800-2899/2870.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20Empty/README.md)
@@ -59,6 +61,8 @@ It can be shown that we cannot make the array empty in less than 4 operations.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Greedy
 
@@ -164,4 +168,6 @@ function minOperations(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

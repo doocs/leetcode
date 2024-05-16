@@ -9,6 +9,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [669. Trim a Binary Search Tree](https://leetcode.com/problems/trim-a-binary-search-tree)
 
 [中文文档](/solution/0600-0699/0669.Trim%20a%20Binary%20Search%20Tree/README.md)
@@ -46,6 +48,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -300,6 +304,10 @@ struct TreeNode* trimBST(struct TreeNode* root, int low, int high) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -505,4 +513,6 @@ var trimBST = function (root, low, high) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

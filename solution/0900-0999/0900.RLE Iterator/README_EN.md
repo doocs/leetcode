@@ -9,6 +9,8 @@ tags:
     - Iterator
 ---
 
+<!-- problem:start -->
+
 # [900. RLE Iterator](https://leetcode.com/problems/rle-iterator)
 
 [中文文档](/solution/0900-0999/0900.RLE%20Iterator/README.md)
@@ -61,6 +63,8 @@ but the second term did not exist. Since the last term exhausted does not exist,
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Maintain Two Pointers
 
@@ -231,4 +235,6 @@ class RLEIterator {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

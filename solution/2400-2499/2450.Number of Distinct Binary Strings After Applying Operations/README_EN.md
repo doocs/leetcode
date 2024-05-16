@@ -7,6 +7,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2450. Number of Distinct Binary Strings After Applying Operations 🔒](https://leetcode.com/problems/number-of-distinct-binary-strings-after-applying-operations)
 
 [中文文档](/solution/2400-2499/2450.Number%20of%20Distinct%20Binary%20Strings%20After%20Applying%20Operations/README.md)
@@ -64,6 +66,8 @@ It can be shown that we cannot obtain any other string, so the answer is 2.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Mathematics
 
 Assume the length of the string $s$ is $n$. Then there are $n - k + 1$ substrings of length $k$, and each substring can be flipped, so there are $2^{n - k + 1}$ ways to flip.
@@ -120,4 +124,6 @@ func countDistinctStrings(s string, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

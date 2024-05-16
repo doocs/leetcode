@@ -12,6 +12,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1499. Max Value of Equation](https://leetcode.com/problems/max-value-of-equation)
 
 [中文文档](/solution/1400-1499/1499.Max%20Value%20of%20Equation/README.md)
@@ -55,6 +57,8 @@ No other pairs satisfy the condition, so we return the max of 4 and 1.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -231,6 +235,10 @@ class Heap<T = number> {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -341,4 +349,6 @@ function findMaxValueOfEquation(points: number[][], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

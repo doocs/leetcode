@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [3057. 员工项目分配 🔒](https://leetcode.cn/problems/employees-project-allocation)
 
 [English Version](/solution/3000-3099/3057.Employees%20Project%20Allocation/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Project</code></p>
 
@@ -88,7 +90,11 @@ Employees 表：
 结果表以 employee_id，project_id 升序排序。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分组统计 + 等值连接
 
@@ -141,4 +147,6 @@ def employees_with_above_avg_workload(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

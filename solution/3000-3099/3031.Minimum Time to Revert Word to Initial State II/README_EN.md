@@ -11,6 +11,8 @@ tags:
     - Rolling Hash
 ---
 
+<!-- problem:start -->
+
 # [3031. Minimum Time to Revert Word to Initial State II](https://leetcode.com/problems/minimum-time-to-revert-word-to-initial-state-ii)
 
 [中文文档](/solution/3000-3099/3031.Minimum%20Time%20to%20Revert%20Word%20to%20Initial%20State%20II/README.md)
@@ -70,6 +72,8 @@ It can be shown that 4 seconds is the minimum time greater than zero required fo
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -215,4 +219,6 @@ func minimumTimeToInitialState(word string, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

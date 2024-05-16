@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [579. Find Cumulative Salary of an Employee 🔒](https://leetcode.com/problems/find-cumulative-salary-of-an-employee)
 
 [中文文档](/solution/0500-0599/0579.Find%20Cumulative%20Salary%20of%20an%20Employee/README.md)
@@ -116,6 +118,8 @@ So the cumulative salary summary for this employee is:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -143,6 +147,10 @@ ORDER BY id, month DESC;
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -174,4 +182,6 @@ ORDER BY 1, 2 DESC;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

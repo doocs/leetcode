@@ -8,6 +8,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1507. Reformat Date](https://leetcode.com/problems/reformat-date)
 
 [中文文档](/solution/1500-1599/1507.Reformat%20Date/README.md)
@@ -60,6 +62,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -159,4 +163,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

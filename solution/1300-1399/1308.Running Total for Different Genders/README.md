@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1308. 不同性别每日分数总计 🔒](https://leetcode.cn/problems/running-total-for-different-genders)
 
 [English Version](/solution/1300-1399/1308.Running%20Total%20for%20Different%20Genders/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Scores</code></p>
 
@@ -87,7 +89,11 @@ Scores表:
 第四天是 2019-12-31, Joe 获得 3 分，队伍的总分是 29 分
 第五天是 2020-01-07, Bajrang 获得 7 分，队伍的总分是 36 分</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -107,4 +113,6 @@ FROM Scores;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

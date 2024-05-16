@@ -10,13 +10,15 @@ tags:
     - 交互
 ---
 
+<!-- problem:start -->
+
 # [1274. 矩形内船只的数目 🔒](https://leetcode.cn/problems/number-of-ships-in-a-rectangle)
 
 [English Version](/solution/1200-1299/1274.Number%20of%20Ships%20in%20a%20Rectangle/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><em>(此题是 <strong>交互式问题&nbsp;</strong>)</em></p>
 
@@ -61,7 +63,11 @@ ships = [[1,1],[2,2],[3,3],[5,5]], topRight = [4,4], bottomLeft = [0,0]
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归 + 分治
 
@@ -236,4 +242,6 @@ function countShips(sea: Sea, topRight: number[], bottomLeft: number[]): number 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

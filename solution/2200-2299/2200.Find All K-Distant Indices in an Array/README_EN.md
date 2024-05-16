@@ -9,6 +9,8 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [2200. Find All K-Distant Indices in an Array](https://leetcode.com/problems/find-all-k-distant-indices-in-an-array)
 
 [中文文档](/solution/2200-2299/2200.Find%20All%20K-Distant%20Indices%20in%20an%20Array/README.md)
@@ -56,6 +58,8 @@ Hence, we return [0,1,2,3,4].
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -151,6 +155,10 @@ function findKDistantIndices(nums: number[], key: number, k: number): number[] {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Preprocessing + Binary Search
 
@@ -277,6 +285,10 @@ function findKDistantIndices(nums: number[], key: number, k: number): number[] {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3: Two Pointers
 
 We enumerate the index $i$, and use a pointer $j$ to point to the smallest index that satisfies $j \geq i - k$ and $nums[j] = key$. If $j$ exists and $j \leq i + k$, then $i$ is a K-nearest neighbor index. We add $i$ to the answer array.
@@ -368,4 +380,6 @@ function findKDistantIndices(nums: number[], key: number, k: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

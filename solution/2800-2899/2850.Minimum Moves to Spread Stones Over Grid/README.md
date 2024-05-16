@@ -11,13 +11,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [2850. 将石头分散到网格图的最少移动次数](https://leetcode.cn/problems/minimum-moves-to-spread-stones-over-grid)
 
 [English Version](/solution/2800-2899/2850.Minimum%20Moves%20to%20Spread%20Stones%20Over%20Grid/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个大小为 <code>3 * 3</code>&nbsp;，下标从 <strong>0</strong>&nbsp;开始的二维整数矩阵&nbsp;<code>grid</code>&nbsp;，分别表示每一个格子里石头的数目。网格图中总共恰好有&nbsp;<code>9</code>&nbsp;个石头，一个格子里可能会有 <strong>多个</strong>&nbsp;石头。</p>
 
@@ -68,7 +70,11 @@ tags:
 	<li><code>grid</code>&nbsp;中元素之和为&nbsp;<code>9</code> 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：朴素 BFS
 
@@ -288,6 +294,10 @@ function minimumMoves(grid: number[][]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：状态压缩动态规划
 
 我们可以把所有值为 $0$ 的单元格坐标 $(i, j)$ 放入数组 $left$ 中，如果单元格的值 $v$ 大于 $1$，那么我们把 $v-1$ 个坐标 $(i, j)$ 放入数组 $right$ 中。那么问题就转化为，每个 $right$ 中的坐标 $(i, j)$ 都要移动到 $left$ 中的一个坐标 $(x, y)$，求最少的移动次数。
@@ -365,4 +375,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

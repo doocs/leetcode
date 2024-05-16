@@ -4,11 +4,15 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.19.Missing%20Two/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [17.19. Missing Two](https://leetcode.cn/problems/missing-two-lcci)
 
 [中文文档](/lcci/17.19.Missing%20Two/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array with all the numbers from 1 to N appearing exactly once, except for two number that is missing. How can you find the missing number in O(N) time and 0(1) space?</p>
 
@@ -36,7 +40,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.19.Missing%20Two/R
 	<li><code>nums.length &lt;=&nbsp;30000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -179,4 +187,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

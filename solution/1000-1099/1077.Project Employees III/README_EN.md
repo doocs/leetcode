@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1077. Project Employees III 🔒](https://leetcode.com/problems/project-employees-iii)
 
 [中文文档](/solution/1000-1099/1077.Project%20Employees%20III/README.md)
@@ -87,6 +89,8 @@ Employee table:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Inner Join + Window Function
 
 We can first perform an inner join between the `Project` table and the `Employee` table, and then use the window function `rank()` to group the `Project` table, sort it in descending order by `experience_years`, and finally select the most experienced employee for each project.
@@ -114,4 +118,6 @@ WHERE rk = 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

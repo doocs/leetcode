@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [3051. Find Candidates for Data Scientist Position 🔒](https://leetcode.com/problems/find-candidates-for-data-scientist-position)
 
 [中文文档](/solution/3000-3099/3051.Find%20Candidates%20for%20Data%20Scientist%20Position/README.md)
@@ -69,6 +71,8 @@ The output table is sorted by candidate_id in ascending order.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Conditional Filtering + Grouping Statistics
 
 First, we filter out candidates who have the skills `Python`, `Tableau`, and `PostgreSQL`. Then, we group by `candidate_id` and count the number of skills each candidate has. Finally, we filter out candidates who have these three skills and sort them in ascending order by `candidate_id`.
@@ -87,4 +91,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

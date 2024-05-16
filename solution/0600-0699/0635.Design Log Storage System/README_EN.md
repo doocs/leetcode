@@ -9,6 +9,8 @@ tags:
     - Ordered Set
 ---
 
+<!-- problem:start -->
+
 # [635. Design Log Storage System 🔒](https://leetcode.com/problems/design-log-storage-system)
 
 [中文文档](/solution/0600-0699/0635.Design%20Log%20Storage%20System/README.md)
@@ -64,6 +66,8 @@ logSystem.retrieve(&quot;2016:01:01:01:01:01&quot;, &quot;2017:01:01:23:00:00&qu
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: String Comparison
 
@@ -243,4 +247,6 @@ type pair struct {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

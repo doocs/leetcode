@@ -8,13 +8,15 @@ tags:
     - 回溯
 ---
 
+<!-- problem:start -->
+
 # [494. 目标和](https://leetcode.cn/problems/target-sum)
 
 [English Version](/solution/0400-0499/0494.Target%20Sum/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个非负整数数组 <code>nums</code> 和一个整数 <code>target</code> 。</p>
 
@@ -59,7 +61,11 @@ tags:
 	<li><code>-1000 &lt;= target &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -230,6 +236,10 @@ var findTargetSumWays = function (nums, target) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -344,6 +354,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三
 
 <!-- tabs:start -->
@@ -365,4 +379,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

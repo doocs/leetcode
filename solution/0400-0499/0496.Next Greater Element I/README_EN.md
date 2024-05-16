@@ -9,6 +9,8 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [496. Next Greater Element I](https://leetcode.com/problems/next-greater-element-i)
 
 [中文文档](/solution/0400-0499/0496.Next%20Greater%20Element%20I/README.md)
@@ -59,6 +61,8 @@ tags:
 <strong>Follow up:</strong> Could you find an <code>O(nums1.length + nums2.length)</code> solution?
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -196,6 +200,10 @@ var nextGreaterElement = function (nums1, nums2) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -327,4 +335,6 @@ var nextGreaterElement = function (nums1, nums2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

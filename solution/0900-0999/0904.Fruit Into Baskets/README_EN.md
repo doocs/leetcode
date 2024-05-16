@@ -8,6 +8,8 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [904. Fruit Into Baskets](https://leetcode.com/problems/fruit-into-baskets)
 
 [中文文档](/solution/0900-0999/0904.Fruit%20Into%20Baskets/README.md)
@@ -62,6 +64,8 @@ If we had started at the first tree, we would only pick from trees [1,2].
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Sliding Window
 
@@ -220,6 +224,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Sliding Window Optimization
 
 In Solution 1, we find that the window size sometimes increases and sometimes decreases, which requires us to update the answer each time.
@@ -351,4 +359,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

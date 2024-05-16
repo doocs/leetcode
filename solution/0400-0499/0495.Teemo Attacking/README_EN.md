@@ -7,6 +7,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [495. Teemo Attacking](https://leetcode.com/problems/teemo-attacking)
 
 [中文文档](/solution/0400-0499/0495.Teemo%20Attacking/README.md)
@@ -51,6 +53,8 @@ Ashe is poisoned for seconds 1, 2, and 3, which is 3 seconds in total.</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -128,4 +132,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

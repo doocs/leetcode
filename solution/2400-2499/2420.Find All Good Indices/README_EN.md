@@ -10,6 +10,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2420. Find All Good Indices](https://leetcode.com/problems/find-all-good-indices)
 
 [中文文档](/solution/2400-2499/2420.Find%20All%20Good%20Indices/README.md)
@@ -57,6 +59,8 @@ Note that the index 4 is not good because [4,1] is not non-decreasing.</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -173,4 +177,6 @@ func goodIndices(nums []int, k int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

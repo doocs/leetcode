@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3143.Maximum%20Points%20Inside%20the%20Square/README.md
 ---
 
+<!-- problem:start -->
+
 # [3143. 正方形中的最多点数](https://leetcode.cn/problems/maximum-points-inside-the-square)
 
 [English Version](/solution/3100-3199/3143.Maximum%20Points%20Inside%20the%20Square/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个二维数组&nbsp;<code>points</code>&nbsp;和一个字符串&nbsp;<code>s</code>&nbsp;，其中&nbsp;<code>points[i]</code>&nbsp;表示第 <code>i</code>&nbsp;个点的坐标，<code>s[i]</code>&nbsp;表示第 <code>i</code>&nbsp;个点的 <strong>标签</strong>&nbsp;。</p>
 
@@ -80,7 +82,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3143.Ma
 	<li><code>s</code>&nbsp;只包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 排序
 
@@ -223,4 +229,6 @@ function maxPointsInsideSquare(points: number[][], s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

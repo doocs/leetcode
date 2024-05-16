@@ -9,13 +9,15 @@ tags:
     - 拓扑排序
 ---
 
+<!-- problem:start -->
+
 # [310. 最小高度树](https://leetcode.cn/problems/minimum-height-trees)
 
 [English Version](/solution/0300-0399/0310.Minimum%20Height%20Trees/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>树是一个无向图，其中任何两个顶点只通过一条路径连接。 换句话说，任何一个没有简单环路的连通图都是一棵树。</p>
 
@@ -58,7 +60,11 @@ tags:
 	<li>给定的输入 <strong>保证</strong> 是一棵树，并且 <strong>不会有重复的边</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：拓扑排序
 
@@ -254,4 +260,6 @@ function findMinHeightTrees(n: number, edges: number[][]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

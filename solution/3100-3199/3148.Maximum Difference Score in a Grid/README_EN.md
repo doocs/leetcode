@@ -4,6 +4,8 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3148.Maximum%20Difference%20Score%20in%20a%20Grid/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [3148. Maximum Difference Score in a Grid](https://leetcode.com/problems/maximum-difference-score-in-a-grid)
 
 [中文文档](/solution/3100-3199/3148.Maximum%20Difference%20Score%20in%20a%20Grid/README.md)
@@ -54,6 +56,8 @@ The total score is <code>2 + 7 = 9</code>.</p>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -189,4 +193,6 @@ function maxScore(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

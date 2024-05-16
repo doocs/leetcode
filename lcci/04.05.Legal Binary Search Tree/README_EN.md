@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.05.Legal%20Binary%20Search%20Tree/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [04.05. Legal Binary Search Tree](https://leetcode.cn/problems/legal-binary-search-tree-lcci)
 
 [中文文档](/lcci/04.05.Legal%20Binary%20Search%20Tree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Implement a function to check if a binary tree is a binary search tree.</p>
 
@@ -50,7 +54,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.05.Legal%20Binary%
 
 &nbsp;    the value of root node is 5, but its right child has value 4.</pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -377,4 +385,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

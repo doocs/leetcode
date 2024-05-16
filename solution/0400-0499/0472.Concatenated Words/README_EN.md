@@ -10,6 +10,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [472. Concatenated Words](https://leetcode.com/problems/concatenated-words)
 
 [中文文档](/solution/0400-0499/0472.Concatenated%20Words/README.md)
@@ -49,6 +51,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -257,4 +261,6 @@ func findAllConcatenatedWordsInADict(words []string) (ans []string) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

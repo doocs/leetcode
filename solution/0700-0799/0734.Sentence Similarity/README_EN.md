@@ -8,6 +8,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [734. Sentence Similarity 🔒](https://leetcode.com/problems/sentence-similarity)
 
 [中文文档](/solution/0700-0799/0734.Sentence%20Similarity/README.md)
@@ -69,6 +71,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -147,4 +151,6 @@ func areSentencesSimilar(sentence1 []string, sentence2 []string, similarPairs []
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

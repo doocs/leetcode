@@ -9,13 +9,15 @@ tags:
     - 计数
 ---
 
+<!-- problem:start -->
+
 # [819. 最常见的单词](https://leetcode.cn/problems/most-common-word)
 
 [English Version](/solution/0800-0899/0819.Most%20Common%20Word/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>paragraph</code> 和一个表示禁用词的字符串数组 <code>banned</code> ，返回出现频率最高的非禁用词。题目数据 <strong>保证 </strong>至少存在一个非禁用词，且答案<strong> 唯一 </strong>。</p>
 
@@ -55,7 +57,11 @@ tags:
 	<li><code>banned[i]</code> 仅由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：正则匹配/双指针 + 哈希表
 
@@ -206,4 +212,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

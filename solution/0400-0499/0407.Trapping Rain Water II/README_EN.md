@@ -9,6 +9,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [407. Trapping Rain Water II](https://leetcode.com/problems/trapping-rain-water-ii)
 
 [中文文档](/solution/0400-0499/0407.Trapping%20Rain%20Water%20II/README.md)
@@ -46,6 +48,8 @@ The total volume of water trapped is 4.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -184,4 +188,6 @@ func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1978. Employees Whose Manager Left the Company](https://leetcode.com/problems/employees-whose-manager-left-the-company)
 
 [中文文档](/solution/1900-1999/1978.Employees%20Whose%20Manager%20Left%20the%20Company/README.md)
@@ -66,6 +68,8 @@ Joziah&#39;s manager is employee 6, who left the company because there is no row
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Left Join
 
 We can use a left join to connect the employee table with itself, and then filter out the employees whose salary is less than $30000$ and have a superior manager who has left the company.
@@ -84,6 +88,10 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Subquery
 
 We can also use a subquery to first find all the managers who have left the company, and then find the employees whose salary is less than $30000$ and whose superior manager is not in the list of managers who have left the company.
@@ -100,4 +108,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

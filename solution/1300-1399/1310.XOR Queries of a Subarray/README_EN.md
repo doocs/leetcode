@@ -10,6 +10,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1310. XOR Queries of a Subarray](https://leetcode.com/problems/xor-queries-of-a-subarray)
 
 [中文文档](/solution/1300-1399/1310.XOR%20Queries%20of%20a%20Subarray/README.md)
@@ -59,6 +61,8 @@ The XOR values for queries are:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -162,4 +166,6 @@ var xorQueries = function (arr, queries) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

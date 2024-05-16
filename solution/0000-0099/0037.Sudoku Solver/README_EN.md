@@ -9,6 +9,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [37. Sudoku Solver](https://leetcode.com/problems/sudoku-solver)
 
 [中文文档](/solution/0000-0099/0037.Sudoku%20Solver/README.md)
@@ -49,6 +51,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Backtracking
 
@@ -435,4 +439,6 @@ function isValid($board, $row, $col, $num) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

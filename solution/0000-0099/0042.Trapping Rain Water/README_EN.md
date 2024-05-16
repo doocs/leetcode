@@ -10,6 +10,8 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [42. Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water)
 
 [中文文档](/solution/0000-0099/0042.Trapping%20Rain%20Water/README.md)
@@ -44,6 +46,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -235,4 +239,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

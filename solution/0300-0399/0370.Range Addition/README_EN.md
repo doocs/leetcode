@@ -7,6 +7,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [370. Range Addition 🔒](https://leetcode.com/problems/range-addition)
 
 [中文文档](/solution/0300-0399/0370.Range%20Addition/README.md)
@@ -45,6 +47,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -135,6 +139,10 @@ var getModifiedArray = function (length, updates) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -315,4 +323,6 @@ func getModifiedArray(length int, updates [][]int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -13,13 +13,15 @@ tags:
     - 前缀和
 ---
 
+<!-- problem:start -->
+
 # [2947. 统计美丽子字符串 I](https://leetcode.cn/problems/count-beautiful-substrings-i)
 
 [English Version](/solution/2900-2999/2947.Count%20Beautiful%20Substrings%20I/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>s</code> 和一个正整数 <code>k</code> 。</p>
 
@@ -85,7 +87,11 @@ tags:
 	<li><code>s</code> 仅由小写英文字母组成。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -202,4 +208,6 @@ function beautifulSubstrings(s: string, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

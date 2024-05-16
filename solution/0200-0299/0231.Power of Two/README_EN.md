@@ -8,6 +8,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [231. Power of Two](https://leetcode.com/problems/power-of-two)
 
 [中文文档](/solution/0200-0299/0231.Power%20of%20Two/README.md)
@@ -53,6 +55,8 @@ tags:
 <strong>Follow up:</strong> Could you solve it without loops/recursion?
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -105,6 +109,10 @@ var isPowerOfTwo = function (n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -156,4 +164,6 @@ var isPowerOfTwo = function (n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

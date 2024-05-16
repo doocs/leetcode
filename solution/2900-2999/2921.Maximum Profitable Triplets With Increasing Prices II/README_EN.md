@@ -8,6 +8,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [2921. Maximum Profitable Triplets With Increasing Prices II 🔒](https://leetcode.com/problems/maximum-profitable-triplets-with-increasing-prices-ii)
 
 [中文文档](/solution/2900-2999/2921.Maximum%20Profitable%20Triplets%20With%20Increasing%20Prices%20II/README.md)
@@ -63,6 +65,8 @@ The answer would be sum of their profits which is 5 + 4 + 6 = 15.</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Indexed Tree
 
@@ -420,4 +424,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

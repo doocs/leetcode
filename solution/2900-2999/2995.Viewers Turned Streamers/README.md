@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [2995. 观众变主播 🔒](https://leetcode.cn/problems/viewers-turned-streamers)
 
 [English Version](/solution/2900-2999/2995.Viewers%20Turned%20Streamers/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：&nbsp;<code>Sessions</code></p>
 
@@ -69,7 +71,11 @@ Sessions table:
 输出表按照会话数量和 user_id 降序排序。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：窗口函数 + 等值连接
 
@@ -101,4 +107,6 @@ ORDER BY 2 DESC, 1 DESC;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

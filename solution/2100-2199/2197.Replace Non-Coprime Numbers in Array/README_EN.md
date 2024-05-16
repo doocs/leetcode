@@ -11,6 +11,8 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [2197. Replace Non-Coprime Numbers in Array](https://leetcode.com/problems/replace-non-coprime-numbers-in-array)
 
 [中文文档](/solution/2100-2199/2197.Replace%20Non-Coprime%20Numbers%20in%20Array/README.md)
@@ -72,6 +74,8 @@ Note that there are other ways to obtain the same resultant array.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Stack
 
@@ -211,4 +215,6 @@ function replaceNonCoprimes(nums: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

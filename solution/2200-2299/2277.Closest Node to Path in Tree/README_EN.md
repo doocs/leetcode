@@ -9,6 +9,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [2277. Closest Node to Path in Tree 🔒](https://leetcode.com/problems/closest-node-to-path-in-tree)
 
 [中文文档](/solution/2200-2299/2277.Closest%20Node%20to%20Path%20in%20Tree/README.md)
@@ -72,4 +74,30 @@ Since 0 is the only node on the path, the answer to the first query is 0.</pre>
 
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+```python
+
+```
+
+```java
+
+```
+
+```cpp
+
+```
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,13 +9,15 @@ tags:
     - 图
 ---
 
+<!-- problem:start -->
+
 # [261. 以图判树 🔒](https://leetcode.cn/problems/graph-valid-tree)
 
 [English Version](/solution/0200-0299/0261.Graph%20Valid%20Tree/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定编号从 <code>0</code> 到 <code>n - 1</code>&nbsp;的&nbsp;<code>n</code> 个结点。给定一个整数&nbsp;<code>n</code>&nbsp;和一个&nbsp;<code>edges</code>&nbsp;列表，其中&nbsp;<code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>]</code>&nbsp;表示图中节点&nbsp;<code>a<sub>i</sub></code>&nbsp;和&nbsp;<code>b<sub>i</sub></code>&nbsp;之间存在一条无向边。</p>
 
@@ -52,7 +54,11 @@ tags:
 	<li>不存在自循环或重复的边</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：并查集
 
@@ -192,6 +198,10 @@ var validTree = function (n, edges) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：DFS
 
@@ -340,4 +350,6 @@ var validTree = function (n, edges) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

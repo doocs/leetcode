@@ -8,6 +8,8 @@ tags:
     - Divide and Conquer
 ---
 
+<!-- problem:start -->
+
 # [4. Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays)
 
 [中文文档](/solution/0000-0099/0004.Median%20of%20Two%20Sorted%20Arrays/README.md)
@@ -48,6 +50,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Divide and Conquer
 
@@ -322,4 +326,6 @@ proc medianOfTwoSortedArrays(nums1: seq[int], nums2: seq[int]): float =
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

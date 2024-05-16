@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.03.Stack%20of%20Plates/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [03.03. Stack of Plates](https://leetcode.cn/problems/stack-of-plates-lcci)
 
 [中文文档](/lcci/03.03.Stack%20of%20Plates/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Imagine a (literal) stack of plates. If the stack gets too high, it might topple. Therefore, in real life, we would likely start a new stack when the previous stack exceeds some threshold. Implement a data structure <code>SetOfStacks</code> that mimics this.&nbsp;<code>SetOfStacks</code> should be composed of several stacks and should create a new stack once the previous one exceeds capacity. <code>SetOfStacks.push()</code> and <code>SetOfStacks.pop()</code> should behave identically to a single stack (that is, <code>pop()</code> should return the same values as it would if there were just a single stack). Follow Up: Implement a function <code>popAt(int index)</code> which performs a pop operation on a specific sub-stack.</p>
 <p>You should delete the sub-stack when it becomes empty. <code>pop</code>, <code>popAt</code> should return -1 when there&#39;s no element to pop.</p>
@@ -43,7 +47,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.03.Stack%20of%20Pl
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -326,4 +334,6 @@ class StackOfPlates {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

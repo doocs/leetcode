@@ -8,6 +8,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [388. Longest Absolute File Path](https://leetcode.com/problems/longest-absolute-file-path)
 
 [中文文档](/solution/0300-0399/0388.Longest%20Absolute%20File%20Path/README.md)
@@ -78,6 +80,8 @@ We return 32 since it is the longest absolute path to a file.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -253,4 +257,6 @@ func lengthLongestPath(input string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

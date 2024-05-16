@@ -4,6 +4,8 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2690.Infinite%20Method%20Object/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2690. Infinite Method Object 🔒](https://leetcode.com/problems/infinite-method-object)
 
 [中文文档](/solution/2600-2699/2690.Infinite%20Method%20Object/README.md)
@@ -43,6 +45,8 @@ The returned string should always match the method name.</pre>
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -65,4 +69,6 @@ function createInfiniteObject(): Record<string, () => string> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

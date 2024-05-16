@@ -9,13 +9,15 @@ tags:
     - 双指针
 ---
 
+<!-- problem:start -->
+
 # [234. 回文链表](https://leetcode.cn/problems/palindrome-linked-list)
 
 [English Version](/solution/0200-0299/0234.Palindrome%20Linked%20List/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个单链表的头节点 <code>head</code> ，请你判断该链表是否为<span data-keyword="palindrome-sequence">回文链表</span>。如果是，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
 
@@ -48,7 +50,11 @@ tags:
 
 <p><strong>进阶：</strong>你能否用&nbsp;<code>O(n)</code> 时间复杂度和 <code>O(1)</code> 空间复杂度解决此题？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：快慢指针
 
@@ -310,4 +316,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

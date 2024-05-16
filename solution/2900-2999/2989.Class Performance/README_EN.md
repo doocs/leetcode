@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2989. Class Performance 🔒](https://leetcode.com/problems/class-performance)
 
 [中文文档](/solution/2900-2999/2989.Class%20Performance/README.md)
@@ -68,6 +70,8 @@ student_id 321 has the highest score of 230, while student_id 896 has the lowest
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Maximum and Minimum
 
 We can use the `MAX` and `MIN` functions to get the maximum and minimum sums of `assignment1`, `assignment2`, and `assignment3`, respectively. Then, subtract the minimum from the maximum.
@@ -85,4 +89,6 @@ FROM Scores;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

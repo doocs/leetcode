@@ -10,6 +10,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [2032. Two Out of Three](https://leetcode.com/problems/two-out-of-three)
 
 [中文文档](/solution/2000-2099/2032.Two%20Out%20of%20Three/README.md)
@@ -57,6 +59,8 @@ Given three integer arrays <code>nums1</code>, <code>nums2</code>, and <code>num
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Array + Enumeration
 
@@ -195,4 +199,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

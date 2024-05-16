@@ -9,6 +9,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [561. Array Partition](https://leetcode.com/problems/array-partition)
 
 [中文文档](/solution/0500-0599/0561.Array%20Partition/README.md)
@@ -47,6 +49,8 @@ So the maximum possible sum is 4.</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -127,4 +131,6 @@ var arrayPairSum = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

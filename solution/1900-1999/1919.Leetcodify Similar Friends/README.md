@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1919. 兴趣相同的朋友 🔒](https://leetcode.cn/problems/leetcodify-similar-friends)
 
 [English Version](/solution/1900-1999/1919.Leetcodify%20Similar%20Friends/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Listens</code></p>
 
@@ -103,7 +105,11 @@ Friendship table:
 用户 2 和 4 是朋友，但他们同一天内听过相同的歌曲的数量小于3。
 用户 2 和 5 是朋友，并且在都听了了10、11、12的歌曲，但不在同一天内。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -123,4 +129,6 @@ HAVING COUNT(DISTINCT l1.song_id) >= 3;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

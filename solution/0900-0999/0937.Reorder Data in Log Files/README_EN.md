@@ -8,6 +8,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [937. Reorder Data in Log Files](https://leetcode.com/problems/reorder-data-in-log-files)
 
 [中文文档](/solution/0900-0999/0937.Reorder%20Data%20in%20Log%20Files/README.md)
@@ -62,6 +64,8 @@ The digit-logs have a relative order of &quot;dig1 8 1 5 1&quot;, &quot;dig2 3 6
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -151,4 +155,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -12,6 +12,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1177. Can Make Palindrome from Substring](https://leetcode.com/problems/can-make-palindrome-from-substring)
 
 [中文文档](/solution/1100-1199/1177.Can%20Make%20Palindrome%20from%20Substring/README.md)
@@ -58,6 +60,8 @@ queries[4]: substring = &quot;abcda&quot;, could be changed to &quot;abcba&quot;
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum
 
@@ -182,4 +186,6 @@ function canMakePaliQueries(s: string, queries: number[][]): boolean[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

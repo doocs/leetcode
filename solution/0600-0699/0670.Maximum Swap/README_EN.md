@@ -7,6 +7,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [670. Maximum Swap](https://leetcode.com/problems/maximum-swap)
 
 [中文文档](/solution/0600-0699/0670.Maximum%20Swap/README.md)
@@ -42,6 +44,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy Algorithm
 
@@ -217,4 +221,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

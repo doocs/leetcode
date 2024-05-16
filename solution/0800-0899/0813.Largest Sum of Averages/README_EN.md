@@ -8,6 +8,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [813. Largest Sum of Averages](https://leetcode.com/problems/largest-sum-of-averages)
 
 [中文文档](/solution/0800-0899/0813.Largest%20Sum%20of%20Averages/README.md)
@@ -49,6 +51,8 @@ That partition would lead to a score of 5 + 2 + 6 = 13, which is worse.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -169,4 +173,6 @@ func largestSumOfAverages(nums []int, k int) float64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

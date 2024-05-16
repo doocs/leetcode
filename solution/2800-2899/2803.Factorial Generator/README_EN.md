@@ -4,6 +4,8 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2803.Factorial%20Generator/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2803. Factorial Generator 🔒](https://leetcode.com/problems/factorial-generator)
 
 [中文文档](/solution/2800-2899/2803.Factorial%20Generator/README.md)
@@ -61,6 +63,8 @@ gen.next().value // 1
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -86,4 +90,6 @@ function* factorial(n: number): Generator<number> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

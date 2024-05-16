@@ -12,6 +12,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [2673. Make Costs of Paths Equal in a Binary Tree](https://leetcode.com/problems/make-costs-of-paths-equal-in-a-binary-tree)
 
 [中文文档](/solution/2600-2699/2673.Make%20Costs%20of%20Paths%20Equal%20in%20a%20Binary%20Tree/README.md)
@@ -65,6 +67,8 @@ It can be shown that this is the minimum answer we can achieve.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy Algorithm
 
@@ -154,4 +158,6 @@ function minIncrements(n: number, cost: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

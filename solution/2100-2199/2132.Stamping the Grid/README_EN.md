@@ -11,6 +11,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2132. Stamping the Grid](https://leetcode.com/problems/stamping-the-grid)
 
 [中文文档](/solution/2100-2199/2132.Stamping%20the%20Grid/README.md)
@@ -62,6 +64,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two-Dimensional Prefix Sum + Two-Dimensional Difference
 
@@ -377,4 +381,6 @@ var possibleToStamp = function (grid, stampHeight, stampWidth) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

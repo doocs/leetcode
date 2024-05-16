@@ -13,6 +13,8 @@ tags:
     - Shortest Path
 ---
 
+<!-- problem:start -->
+
 # [2977. Minimum Cost to Convert String II](https://leetcode.com/problems/minimum-cost-to-convert-string-ii)
 
 [中文文档](/solution/2900-2999/2977.Minimum%20Cost%20to%20Convert%20String%20II/README.md)
@@ -84,6 +86,8 @@ If you select substring source[3..7] as the first operation to change &quot;abcd
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Trie + Floyd Algorithm + Memoization Search
 
@@ -549,4 +553,6 @@ function minimumCost(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

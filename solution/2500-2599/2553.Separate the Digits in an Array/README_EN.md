@@ -9,6 +9,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2553. Separate the Digits in an Array](https://leetcode.com/problems/separate-the-digits-in-an-array)
 
 [中文文档](/solution/2500-2599/2553.Separate%20the%20Digits%20in%20an%20Array/README.md)
@@ -55,6 +57,8 @@ answer = [7,1,3,9].
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -197,6 +201,10 @@ int* separateDigits(int* nums, int numsSize, int* returnSize) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -227,4 +235,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

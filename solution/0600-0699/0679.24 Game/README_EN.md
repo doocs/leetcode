@@ -8,6 +8,8 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [679. 24 Game](https://leetcode.com/problems/24-game)
 
 [中文文档](/solution/0600-0699/0679.24%20Game/README.md)
@@ -65,6 +67,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -340,4 +344,6 @@ function judgePoint24(cards: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

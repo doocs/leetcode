@@ -7,6 +7,8 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [713. Subarray Product Less Than K](https://leetcode.com/problems/subarray-product-less-than-k)
 
 [中文文档](/solution/0700-0799/0713.Subarray%20Product%20Less%20Than%20K/README.md)
@@ -43,6 +45,8 @@ Note that [10, 5, 2] is not included as the product of 100 is not strictly less 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -168,4 +172,6 @@ var numSubarrayProductLessThanK = function (nums, k) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

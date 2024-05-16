@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [2978. 对称坐标 🔒](https://leetcode.cn/problems/symmetric-coordinates)
 
 [English Version](/solution/2900-2999/2978.Symmetric%20Coordinates/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：&nbsp;<font face="monospace"><code>Coordinates</code></font></p>
 
@@ -66,7 +68,11 @@ Coordinates table:
 输出表按照 X 和 Y 升序排列。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：窗口函数 + 自连接
 
@@ -95,4 +101,6 @@ ORDER BY 1, 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

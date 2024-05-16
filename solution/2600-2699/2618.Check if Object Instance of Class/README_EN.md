@@ -4,6 +4,8 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2618.Check%20if%20Object%20Instance%20of%20Class/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2618. Check if Object Instance of Class](https://leetcode.com/problems/check-if-object-instance-of-class)
 
 [中文文档](/solution/2600-2699/2618.Check%20if%20Object%20Instance%20of%20Class/README.md)
@@ -53,6 +55,8 @@ Dog is a subclass of Animal. Therefore, a Dog object is an instance of both Dog 
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -79,4 +83,6 @@ function checkIfInstanceOf(obj: any, classFunction: any): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

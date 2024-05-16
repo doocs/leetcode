@@ -10,6 +10,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1476. Subrectangle Queries](https://leetcode.com/problems/subrectangle-queries)
 
 [中文文档](/solution/1400-1499/1476.Subrectangle%20Queries/README.md)
@@ -99,6 +101,8 @@ subrectangleQueries.getValue(2, 2); // return 20
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -264,4 +268,6 @@ class SubrectangleQueries {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

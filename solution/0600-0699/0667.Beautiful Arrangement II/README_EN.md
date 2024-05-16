@@ -7,6 +7,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [667. Beautiful Arrangement II](https://leetcode.com/problems/beautiful-arrangement-ii)
 
 [中文文档](/solution/0600-0699/0667.Beautiful%20Arrangement%20II/README.md)
@@ -46,6 +48,8 @@ Explanation: The [1,3,2] has three different positive integers ranging from 1 to
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -149,4 +153,6 @@ function constructArray(n: number, k: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

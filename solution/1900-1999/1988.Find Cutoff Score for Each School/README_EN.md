@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1988. Find Cutoff Score for Each School 🔒](https://leetcode.com/problems/find-cutoff-score-for-each-school)
 
 [中文文档](/solution/1900-1999/1988.Find%20Cutoff%20Score%20for%20Each%20School/README.md)
@@ -99,6 +101,8 @@ Exam table:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -114,4 +118,6 @@ GROUP BY school_id;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

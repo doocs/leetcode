@@ -9,6 +9,8 @@ tags:
     - Randomized
 ---
 
+<!-- problem:start -->
+
 # [470. Implement Rand10() Using Rand7()](https://leetcode.com/problems/implement-rand10-using-rand7)
 
 [中文文档](/solution/0400-0499/0470.Implement%20Rand10%28%29%20Using%20Rand7%28%29/README.md)
@@ -46,6 +48,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -143,6 +147,7 @@ function rand10(): number {
 ```
 
 ```rust
+
 /**
  * The rand7() API is already defined for you.
  * @return a random integer in the range 1 to 7
@@ -165,4 +170,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

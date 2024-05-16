@@ -6,13 +6,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [728. 自除数](https://leetcode.cn/problems/self-dividing-numbers)
 
 [English Version](/solution/0700-0799/0728.Self%20Dividing%20Numbers/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><strong>自除数</strong><em>&nbsp;</em>是指可以被它包含的每一位数整除的数。</p>
 
@@ -48,7 +50,11 @@ tags:
 	<li><code>1 &lt;= left &lt;= right &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -159,4 +165,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

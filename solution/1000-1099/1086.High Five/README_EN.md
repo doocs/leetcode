@@ -11,6 +11,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1086. High Five 🔒](https://leetcode.com/problems/high-five)
 
 [中文文档](/solution/1000-1099/1086.High%20Five/README.md)
@@ -53,6 +55,8 @@ The student with ID = 2 got scores 93, 97, 77, 100, and 76. Their top five avera
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -182,4 +186,6 @@ function highFive(items: number[][]): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

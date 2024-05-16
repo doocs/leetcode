@@ -10,6 +10,8 @@ tags:
     - Rolling Hash
 ---
 
+<!-- problem:start -->
+
 # [3037. Find Pattern in Infinite Stream II 🔒](https://leetcode.com/problems/find-pattern-in-infinite-stream-ii)
 
 [中文文档](/solution/3000-3099/3037.Find%20Pattern%20in%20Infinite%20Stream%20II/README.md)
@@ -63,6 +65,8 @@ tags:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -85,4 +89,6 @@ tags:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

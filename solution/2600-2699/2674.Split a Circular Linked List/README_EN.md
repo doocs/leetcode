@@ -7,6 +7,8 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [2674. Split a Circular Linked List 🔒](https://leetcode.com/problems/split-a-circular-linked-list)
 
 [中文文档](/solution/2600-2699/2674.Split%20a%20Circular%20Linked%20List/README.md)
@@ -46,6 +48,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Fast and Slow Pointers
 
@@ -193,4 +197,6 @@ function splitCircularLinkedList(list: ListNode | null): Array<ListNode | null> 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

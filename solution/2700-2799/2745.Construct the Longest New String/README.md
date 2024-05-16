@@ -11,13 +11,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [2745. 构造最长的新字符串](https://leetcode.cn/problems/construct-the-longest-new-string)
 
 [English Version](/solution/2700-2799/2745.Construct%20the%20Longest%20New%20String/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你三个整数&nbsp;<code>x</code>&nbsp;，<code>y</code>&nbsp;和&nbsp;<code>z</code>&nbsp;。</p>
 
@@ -55,7 +57,11 @@ tags:
 	<li><code>1 &lt;= x, y, z &lt;= 50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分类讨论
 
@@ -134,4 +140,6 @@ function longestString(x: number, y: number, z: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

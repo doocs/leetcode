@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [2922. 市场分析 III 🔒](https://leetcode.cn/problems/market-analysis-iii)
 
 [English Version](/solution/2900-2999/2922.Market%20Analysis%20III/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：&nbsp;<code>Users</code></p>
 
@@ -108,7 +110,11 @@ Items table:
 因为卖家 ID 为 2 和 3 的卖家都有一件商品列入计数，所以他们都将显示在输出中。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：等值连接 + 分组 + 子查询
 
@@ -136,4 +142,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

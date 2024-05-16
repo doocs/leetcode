@@ -10,6 +10,8 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [220. Contains Duplicate III](https://leetcode.com/problems/contains-duplicate-iii)
 
 [中文文档](/solution/0200-0299/0220.Contains%20Duplicate%20III/README.md)
@@ -60,6 +62,8 @@ abs(nums[i] - nums[j]) &lt;= valueDiff --&gt; abs(1 - 1) &lt;= 0
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sliding Window + Ordered Set
 
@@ -838,4 +842,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

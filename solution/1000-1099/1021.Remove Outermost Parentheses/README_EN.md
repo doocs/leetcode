@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1021. Remove Outermost Parentheses](https://leetcode.com/problems/remove-outermost-parentheses)
 
 [中文文档](/solution/1000-1099/1021.Remove%20Outermost%20Parentheses/README.md)
@@ -68,6 +70,8 @@ After removing outer parentheses of each part, this is &quot;&quot; + &quot;&quo
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -197,6 +201,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -281,4 +289,6 @@ func removeOuterParentheses(s string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

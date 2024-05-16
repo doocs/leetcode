@@ -9,6 +9,8 @@ tags:
     - Ordered Set
 ---
 
+<!-- problem:start -->
+
 # [732. My Calendar III](https://leetcode.com/problems/my-calendar-iii)
 
 [中文文档](/solution/0700-0799/0732.My%20Calendar%20III/README.md)
@@ -56,6 +58,8 @@ myCalendarThree.book(25, 55); // return 3
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -451,4 +455,6 @@ func (this *MyCalendarThree) Book(start int, end int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,13 +8,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [951. 翻转等价二叉树](https://leetcode.cn/problems/flip-equivalent-binary-trees)
 
 [English Version](/solution/0900-0999/0951.Flip%20Equivalent%20Binary%20Trees/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>我们可以为二叉树 <strong>T</strong> 定义一个&nbsp;<strong>翻转操作&nbsp;</strong>，如下所示：选择任意节点，然后交换它的左子树和右子树。</p>
 
@@ -57,7 +59,11 @@ tags:
 	<li>每棵树中的每个值都是唯一的、在 <code>[0, 99]</code>&nbsp;范围内的整数</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -170,4 +176,6 @@ func flipEquiv(root1 *TreeNode, root2 *TreeNode) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,6 +10,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2312. Selling Pieces of Wood](https://leetcode.com/problems/selling-pieces-of-wood)
 
 [中文文档](/solution/2300-2399/2312.Selling%20Pieces%20of%20Wood/README.md)
@@ -64,6 +66,8 @@ Notice that we cannot rotate the 1 x 4 piece of wood to obtain a 4 x 1 piece of 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -220,6 +224,10 @@ function sellingWood(m: number, n: number, prices: number[][]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Dynamic Programming
 
 We can transform the memoization search in Solution 1 into dynamic programming.
@@ -358,4 +366,6 @@ function sellingWood(m: number, n: number, prices: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

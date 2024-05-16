@@ -10,6 +10,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [295. Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream)
 
 [中文文档](/solution/0200-0299/0295.Find%20Median%20from%20Data%20Stream/README.md)
@@ -68,6 +70,8 @@ medianFinder.findMedian(); // return 2.0
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -396,4 +400,6 @@ public class MedianFinder {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,6 +8,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [305. Number of Islands II 🔒](https://leetcode.com/problems/number-of-islands-ii)
 
 [中文文档](/solution/0300-0399/0305.Number%20of%20Islands%20II/README.md)
@@ -58,6 +60,8 @@ Initially, the 2d grid is filled with water.
 <p><strong>Follow up:</strong> Could you solve it in time complexity <code>O(k log(mn))</code>, where <code>k == positions.length</code>?</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Union-Find
 
@@ -379,4 +383,6 @@ function numIslands2(m: number, n: number, positions: number[][]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

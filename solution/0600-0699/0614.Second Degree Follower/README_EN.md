@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [614. Second Degree Follower 🔒](https://leetcode.com/problems/second-degree-follower)
 
 [中文文档](/solution/0600-0699/0614.Second%20Degree%20Follower/README.md)
@@ -70,6 +72,8 @@ User Alice has 1 follower. Alice is not a second-degree follower because she doe
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -91,4 +95,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

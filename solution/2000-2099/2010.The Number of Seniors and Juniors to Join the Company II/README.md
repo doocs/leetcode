@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [2010. 职员招聘人数 II 🔒](https://leetcode.cn/problems/the-number-of-seniors-and-juniors-to-join-the-company-ii)
 
 [English Version](/solution/2000-2099/2010.The%20Number%20of%20Seniors%20and%20Juniors%20to%20Join%20the%20Company%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Candidates</code></p>
 
@@ -101,7 +103,11 @@ Candidates table:
 我们不能用目前的预算雇佣任何高级员工，因为我们需要至少 80000 美元来雇佣一名高级员工。
 我们可以用剩下的预算雇佣三名初级员工。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：窗口函数
 
@@ -147,4 +153,6 @@ WHERE cur <= 70000;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

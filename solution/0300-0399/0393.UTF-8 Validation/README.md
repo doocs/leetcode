@@ -7,13 +7,15 @@ tags:
     - 数组
 ---
 
+<!-- problem:start -->
+
 # [393. UTF-8 编码验证](https://leetcode.cn/problems/utf-8-validation)
 
 [English Version](/solution/0300-0399/0393.UTF-8%20Validation/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个表示数据的整数数组&nbsp;<code>data</code>&nbsp;，返回它是否为有效的 <strong>UTF-8</strong> 编码。</p>
 
@@ -71,7 +73,11 @@ tags:
 	<li><code>0 &lt;= data[i] &lt;= 255</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -178,4 +184,6 @@ func validUtf8(data []int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

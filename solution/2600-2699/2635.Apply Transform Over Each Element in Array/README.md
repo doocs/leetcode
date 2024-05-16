@@ -4,13 +4,15 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2635.Apply%20Transform%20Over%20Each%20Element%20in%20Array/README.md
 ---
 
+<!-- problem:start -->
+
 # [2635. 转换数组中的每个元素](https://leetcode.cn/problems/apply-transform-over-each-element-in-array)
 
 [English Version](/solution/2600-2699/2635.Apply%20Transform%20Over%20Each%20Element%20in%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>编写一个函数，这个函数接收一个整数数组&nbsp;<code>arr</code> 和一个映射函数&nbsp; <code>fn</code>&nbsp;，通过该映射函数返回一个新的数组。</p>
 
@@ -57,7 +59,11 @@ const newArray = map(arr, plusone); // [2,3,4]
 </ul>
 <span style="display:block"><span style="height:0px"><span style="position:absolute">​​​​​​</span></span></span>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：遍历
 
@@ -78,4 +84,6 @@ function map(arr: number[], fn: (n: number, i: number) => number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

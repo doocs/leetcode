@@ -12,6 +12,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [3102. Minimize Manhattan Distances](https://leetcode.com/problems/minimize-manhattan-distances)
 
 [中文文档](/solution/3100-3199/3102.Minimize%20Manhattan%20Distances/README.md)
@@ -68,6 +70,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -180,4 +184,6 @@ func minimumDistance(points [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

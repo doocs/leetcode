@@ -8,6 +8,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [533. Lonely Pixel II 🔒](https://leetcode.com/problems/lonely-pixel-ii)
 
 [中文文档](/solution/0500-0599/0533.Lonely%20Pixel%20II/README.md)
@@ -54,6 +56,8 @@ Take &#39;B&#39; at row r = 0 and column c = 1 as an example:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -243,4 +247,6 @@ function findBlackPixel(picture: string[][], target: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

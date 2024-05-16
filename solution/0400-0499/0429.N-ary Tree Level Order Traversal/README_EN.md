@@ -7,6 +7,8 @@ tags:
     - Breadth-First Search
 ---
 
+<!-- problem:start -->
+
 # [429. N-ary Tree Level Order Traversal](https://leetcode.com/problems/n-ary-tree-level-order-traversal)
 
 [中文文档](/solution/0400-0499/0429.N-ary%20Tree%20Level%20Order%20Traversal/README.md)
@@ -45,6 +47,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: BFS
 
@@ -243,6 +247,10 @@ function levelOrder(root: Node | null): number[][] {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: DFS
 
 We can use the Depth-First Search method to traverse the entire tree.
@@ -434,4 +442,6 @@ function levelOrder(root: Node | null): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

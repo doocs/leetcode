@@ -7,6 +7,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [575. Distribute Candies](https://leetcode.com/problems/distribute-candies)
 
 [中文文档](/solution/0500-0599/0575.Distribute%20Candies/README.md)
@@ -56,6 +58,8 @@ tags:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -101,4 +105,6 @@ func distributeCandies(candyType []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

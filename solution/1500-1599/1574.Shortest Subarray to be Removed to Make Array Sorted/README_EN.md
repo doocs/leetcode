@@ -12,6 +12,8 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [1574. Shortest Subarray to be Removed to Make Array Sorted](https://leetcode.com/problems/shortest-subarray-to-be-removed-to-make-array-sorted)
 
 [中文文档](/solution/1500-1599/1574.Shortest%20Subarray%20to%20be%20Removed%20to%20Make%20Array%20Sorted/README.md)
@@ -59,6 +61,8 @@ Another correct solution is to remove the subarray [3,10,4].
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -168,6 +172,10 @@ func findLengthOfShortestSubarray(arr []int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -272,4 +280,6 @@ func findLengthOfShortestSubarray(arr []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [603. Consecutive Available Seats 🔒](https://leetcode.com/problems/consecutive-available-seats)
 
 [中文文档](/solution/0600-0699/0603.Consecutive%20Available%20Seats/README.md)
@@ -62,6 +64,8 @@ Cinema table:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Self-Join
 
 We can use a self-join to join the `Seat` table with itself, and then filter out the records where the `id` of the left seat is equal to the `id` of the right seat minus $1$, and where both seats are empty.
@@ -78,6 +82,10 @@ ORDER BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Window Function
 
@@ -101,6 +109,10 @@ WHERE a = 2 OR b = 2;
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 3
 
@@ -126,4 +138,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

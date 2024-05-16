@@ -10,6 +10,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1603. Design Parking System](https://leetcode.com/problems/design-parking-system)
 
 [中文文档](/solution/1600-1699/1603.Design%20Parking%20System/README.md)
@@ -53,6 +55,8 @@ parkingSystem.addCar(1); // return false because there is no available slot for 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -267,4 +271,6 @@ void parkingSystemFree(ParkingSystem* obj) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,6 +9,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [782. Transform to Chessboard](https://leetcode.com/problems/transform-to-chessboard)
 
 [中文文档](/solution/0700-0799/0782.Transform%20to%20Chessboard/README.md)
@@ -59,6 +61,8 @@ The second move swaps the second and third row.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -280,4 +284,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

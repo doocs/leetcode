@@ -10,6 +10,8 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [2347. Best Poker Hand](https://leetcode.com/problems/best-poker-hand)
 
 [中文文档](/solution/2300-2399/2347.Best%20Poker%20Hand/README.md)
@@ -69,6 +71,8 @@ Note that we cannot make a &quot;Flush&quot; or a &quot;Three of a Kind&quot;.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -230,4 +234,6 @@ char* bestHand(int* ranks, int ranksSize, char* suits, int suitsSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

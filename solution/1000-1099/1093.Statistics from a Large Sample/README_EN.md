@@ -10,6 +10,8 @@ tags:
     - Probability and Statistics
 ---
 
+<!-- problem:start -->
+
 # [1093. Statistics from a Large Sample](https://leetcode.com/problems/statistics-from-a-large-sample)
 
 [中文文档](/solution/1000-1099/1093.Statistics%20from%20a%20Large%20Sample/README.md)
@@ -71,6 +73,8 @@ The mode is 1 as it appears the most in the sample.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -238,4 +242,6 @@ function sampleStats(count: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

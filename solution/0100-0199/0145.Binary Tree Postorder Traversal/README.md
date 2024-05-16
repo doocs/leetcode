@@ -9,13 +9,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [145. 二叉树的后序遍历](https://leetcode.cn/problems/binary-tree-postorder-traversal)
 
 [English Version](/solution/0100-0199/0145.Binary%20Tree%20Postorder%20Traversal/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一棵二叉树的根节点 <code>root</code> ，返回其节点值的 <strong>后序遍历 </strong>。</p>
 
@@ -55,7 +57,11 @@ tags:
 
 <p><strong>进阶：</strong>递归算法很简单，你可以通过迭代算法完成吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -247,6 +253,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：栈实现后序遍历
 
 先序遍历的顺序是：根、左、右，如果我们改变左右孩子的顺序，就能将顺序变成：根、右、左。最后再将结果反转一下，就得到了后序遍历的结果。
@@ -429,6 +439,10 @@ function postorderTraversal(root: TreeNode | null): number[] {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法三：Morris 实现后序遍历
 
@@ -637,4 +651,6 @@ function postorderTraversal(root: TreeNode | null): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

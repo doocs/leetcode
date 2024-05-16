@@ -11,6 +11,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2225. Find Players With Zero or One Losses](https://leetcode.com/problems/find-players-with-zero-or-one-losses)
 
 [中文文档](/solution/2200-2299/2225.Find%20Players%20With%20Zero%20or%20One%20Losses/README.md)
@@ -71,6 +73,8 @@ Thus, answer[0] = [1,2,5,6] and answer[1] = [].
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -206,6 +210,10 @@ var findWinners = function (matches) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -242,4 +250,6 @@ var findWinners = function (matches) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

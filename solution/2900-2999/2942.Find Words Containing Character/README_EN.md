@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2942. Find Words Containing Character](https://leetcode.com/problems/find-words-containing-character)
 
 [中文文档](/solution/2900-2999/2942.Find%20Words%20Containing%20Character/README.md)
@@ -57,6 +59,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Traversal
 
@@ -131,4 +135,6 @@ function findWordsContaining(words: string[], x: string): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

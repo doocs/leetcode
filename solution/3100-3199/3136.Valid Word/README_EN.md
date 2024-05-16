@@ -8,6 +8,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [3136. Valid Word](https://leetcode.com/problems/valid-word)
 
 [中文文档](/solution/3100-3199/3136.Valid%20Word/README.md)
@@ -80,6 +82,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -219,4 +223,6 @@ function isValid(word: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

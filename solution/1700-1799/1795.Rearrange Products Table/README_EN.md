@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1795. Rearrange Products Table](https://leetcode.com/problems/rearrange-products-table)
 
 [中文文档](/solution/1700-1799/1795.Rearrange%20Products%20Table/README.md)
@@ -65,6 +67,8 @@ Product 1 is available in store1 with price 70 and store3 with price 80. The pro
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Union
 
 We can select the products and prices for each store, and then use the `UNION` operator to combine the results.
@@ -82,4 +86,6 @@ SELECT product_id, 'store3' AS store, store3 AS price FROM Products WHERE store3
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

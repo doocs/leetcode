@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1702. Maximum Binary String After Change](https://leetcode.com/problems/maximum-binary-string-after-change)
 
 [中文文档](/solution/1700-1799/1702.Maximum%20Binary%20String%20After%20Change/README.md)
@@ -65,6 +67,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Quick Thinking
 
@@ -191,4 +195,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

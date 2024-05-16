@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1211. Queries Quality and Percentage](https://leetcode.com/problems/queries-quality-and-percentage)
 
 [中文文档](/solution/1200-1299/1211.Queries%20Quality%20and%20Percentage/README.md)
@@ -84,6 +86,8 @@ Cat queries poor_ query_percentage is (1 / 3) * 100 = 33.33
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Grouping and Aggregation
 
 We can group the query results by `query_name`, and then use the `AVG` and `ROUND` functions to calculate `quality` and `poor_query_percentage`.
@@ -124,4 +128,6 @@ HAVING query_name IS NOT NULL;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

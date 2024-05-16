@@ -11,6 +11,8 @@ tags:
     - Iterator
 ---
 
+<!-- problem:start -->
+
 # [1586. Binary Search Tree Iterator II 🔒](https://leetcode.com/problems/binary-search-tree-iterator-ii)
 
 [中文文档](/solution/1500-1599/1586.Binary%20Search%20Tree%20Iterator%20II/README.md)
@@ -73,6 +75,8 @@ bSTIterator.prev(); // state becomes [3, 7, <u>9</u>, 15, 20], return 9
 <strong>Follow up:</strong> Could you solve the problem without precalculating the values of the tree?
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: In-order Traversal + Array
 
@@ -367,4 +371,6 @@ class BSTIterator {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

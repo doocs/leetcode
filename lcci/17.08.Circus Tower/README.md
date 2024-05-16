@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.08.Circus%20Tower/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 17.08. 马戏团人塔](https://leetcode.cn/problems/circus-tower-lcci)
 
 [English Version](/lcci/17.08.Circus%20Tower/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有个马戏团正在设计叠罗汉的表演节目，一个人要站在另一人的肩膀上。出于实际和美观的考虑，在上面的人要比下面的人矮一点且轻一点。已知马戏团每个人的身高和体重，请编写代码计算叠罗汉最多能叠几个人。</p>
 <p><strong>示例：</strong></p>
@@ -22,7 +24,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.08.Circus%20Tower/
 	<li><code>height.length == weight.length &lt;= 10000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 离散化 + 树状数组
 
@@ -309,4 +315,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

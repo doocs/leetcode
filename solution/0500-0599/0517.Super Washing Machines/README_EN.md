@@ -7,6 +7,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [517. Super Washing Machines](https://leetcode.com/problems/super-washing-machines)
 
 [中文文档](/solution/0500-0599/0517.Super%20Washing%20Machines/README.md)
@@ -60,6 +62,8 @@ It&#39;s impossible to make all three washing machines have the same number of d
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy
 
@@ -192,4 +196,6 @@ function findMinMoves(machines: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

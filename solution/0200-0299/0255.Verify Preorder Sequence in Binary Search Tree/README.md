@@ -12,13 +12,15 @@ tags:
     - 单调栈
 ---
 
+<!-- problem:start -->
+
 # [255. 验证二叉搜索树的前序遍历序列 🔒](https://leetcode.cn/problems/verify-preorder-sequence-in-binary-search-tree)
 
 [English Version](/solution/0200-0299/0255.Verify%20Preorder%20Sequence%20in%20Binary%20Search%20Tree/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个&nbsp;<b>无重复元素</b>&nbsp;的整数数组&nbsp;<code>preorder</code>&nbsp;，&nbsp;<em>如果它是以二叉搜索树的<strong>先序遍历</strong>排列</em><em>&nbsp;</em>，返回 <code>true</code> 。</p>
 
@@ -52,7 +54,11 @@ tags:
 
 <p><strong>进阶：</strong>您能否使用恒定的空间复杂度来完成此题？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -130,4 +136,6 @@ func verifyPreorder(preorder []int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

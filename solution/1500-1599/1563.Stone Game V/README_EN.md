@@ -11,6 +11,8 @@ tags:
     - Game Theory
 ---
 
+<!-- problem:start -->
+
 # [1563. Stone Game V](https://leetcode.com/problems/stone-game-v)
 
 [中文文档](/solution/1500-1599/1563.Stone%20Game%20V/README.md)
@@ -59,6 +61,8 @@ The last round Alice has only one choice to divide the row which is [2], [3]. Bo
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -231,4 +235,6 @@ func stoneGameV(stoneValue []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

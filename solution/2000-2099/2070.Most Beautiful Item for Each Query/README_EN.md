@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2070. Most Beautiful Item for Each Query](https://leetcode.com/problems/most-beautiful-item-for-each-query)
 
 [中文文档](/solution/2000-2099/2070.Most%20Beautiful%20Item%20for%20Each%20Query/README.md)
@@ -68,6 +70,8 @@ Hence, the answer to the query is 0.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Offline Query
 
@@ -193,6 +197,10 @@ function maximumBeauty(items: number[][], queries: number[]): number[] {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Sorting + Binary Search
 
 We can sort the items by price, and then preprocess the maximum beauty value of the items that are less than or equal to each price, recorded in the array $mx$ or the original $items$ array.
@@ -314,4 +322,6 @@ function maximumBeauty(items: number[][], queries: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

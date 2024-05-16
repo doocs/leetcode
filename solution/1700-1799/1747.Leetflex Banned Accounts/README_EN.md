@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1747. Leetflex Banned Accounts 🔒](https://leetcode.com/problems/leetflex-banned-accounts)
 
 [中文文档](/solution/1700-1799/1747.Leetflex%20Banned%20Accounts/README.md)
@@ -70,6 +72,8 @@ Account ID 4 --&gt; The account was active from &quot;2021-02-01 17:00:00&quot; 
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Self-Join
 
 We can use a self-join to find out the cases where each account logs in from different IP addresses on the same day. The conditions for joining are:
@@ -94,4 +98,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

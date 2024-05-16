@@ -11,6 +11,8 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [2367. Number of Arithmetic Triplets](https://leetcode.com/problems/number-of-arithmetic-triplets)
 
 [中文文档](/solution/2300-2399/2367.Number%20of%20Arithmetic%20Triplets/README.md)
@@ -59,6 +61,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Brute Force
 
@@ -148,6 +152,10 @@ function arithmeticTriplets(nums: number[], diff: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Array or Hash Table
 
 We can first store the elements of $nums$ in a hash table or array $vis$. Then, for each element $x$ in $nums$, we check if $x+diff$ and $x+diff+diff$ are also in $vis$. If they are, we increment the count of the triplet.
@@ -233,4 +241,6 @@ function arithmeticTriplets(nums: number[], diff: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

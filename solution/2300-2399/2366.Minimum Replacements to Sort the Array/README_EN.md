@@ -10,6 +10,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [2366. Minimum Replacements to Sort the Array](https://leetcode.com/problems/minimum-replacements-to-sort-the-array)
 
 [中文文档](/solution/2300-2399/2366.Minimum%20Replacements%20to%20Sort%20the%20Array/README.md)
@@ -54,6 +56,8 @@ There are 2 steps to sort the array in non-decreasing order. Therefore, we retur
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy Approach
 
@@ -193,4 +197,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

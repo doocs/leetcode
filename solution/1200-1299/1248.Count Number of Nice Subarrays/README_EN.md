@@ -11,6 +11,8 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [1248. Count Number of Nice Subarrays](https://leetcode.com/problems/count-number-of-nice-subarrays)
 
 [中文文档](/solution/1200-1299/1248.Count%20Number%20of%20Nice%20Subarrays/README.md)
@@ -72,6 +74,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Array or Hash Table
 
@@ -169,4 +173,6 @@ function numberOfSubarrays(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

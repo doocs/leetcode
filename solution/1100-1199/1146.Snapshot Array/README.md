@@ -11,13 +11,15 @@ tags:
     - 二分查找
 ---
 
+<!-- problem:start -->
+
 # [1146. 快照数组](https://leetcode.cn/problems/snapshot-array)
 
 [English Version](/solution/1100-1199/1146.Snapshot%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>实现支持下列接口的「快照数组」-&nbsp;SnapshotArray：</p>
 
@@ -54,7 +56,11 @@ snapshotArr.get(0,0);  // 获取 snap_id = 0 的快照中 array[0] 的值，返�
 	<li><code>0 &lt;=&nbsp;val &lt;= 10^9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数组 + 二分查找
 
@@ -250,4 +256,6 @@ class SnapshotArray {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

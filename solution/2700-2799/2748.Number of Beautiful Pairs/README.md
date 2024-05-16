@@ -10,13 +10,15 @@ tags:
     - 数论
 ---
 
+<!-- problem:start -->
+
 # [2748. 美丽下标对的数目](https://leetcode.cn/problems/number-of-beautiful-pairs)
 
 [English Version](/solution/2700-2799/2748.Number%20of%20Beautiful%20Pairs/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> 。如果下标对 <code>i</code>、<code>j</code> 满足 <code>0 ≤ i &lt; j &lt; nums.length</code> ，如果&nbsp;<code>nums[i]</code> 的 <strong>第一个数字</strong> 和 <code>nums[j]</code> 的 <strong>最后一个数字</strong> <strong>互质</strong> ，则认为 <code>nums[i]</code> 和 <code>nums[j]</code> 是一组 <strong>美丽下标对</strong> 。</p>
 
@@ -60,7 +62,11 @@ i = 0 和 j = 2 ：nums[0] 的第一个数字是 1 ，nums[2] 的最后一个数
 	<li><code>nums[i] % 10 != 0</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -179,4 +185,6 @@ function gcd(a: number, b: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

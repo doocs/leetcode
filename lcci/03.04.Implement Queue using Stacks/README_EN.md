@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.04.Implement%20Queue%20using%20Stacks/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [03.04. Implement Queue using Stacks](https://leetcode.cn/problems/implement-queue-using-stacks-lcci)
 
 [中文文档](/lcci/03.04.Implement%20Queue%20using%20Stacks/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Implement a MyQueue class which implements a queue using two stacks.</p>
 
@@ -44,7 +48,11 @@ queue.empty(); // return false</pre>
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Double Stack
 
@@ -384,4 +392,6 @@ class MyQueue {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,6 +7,8 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [19. Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list)
 
 [中文文档](/solution/0000-0099/0019.Remove%20Nth%20Node%20From%20End%20of%20List/README.md)
@@ -51,6 +53,8 @@ tags:
 <p><strong>Follow up:</strong> Could you do this in one pass?</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Fast and Slow Pointers
 
@@ -326,4 +330,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

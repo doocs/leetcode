@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1683. 无效的推文](https://leetcode.cn/problems/invalid-tweets)
 
 [English Version](/solution/1600-1699/1683.Invalid%20Tweets/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Tweets</code></p>
 
@@ -59,7 +61,11 @@ Tweets 表：
 推文 2 的长度 length = 32。该推文是无效的。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：使用 `CHAR_LENGTH` 函数
 
@@ -81,4 +87,6 @@ WHERE CHAR_LENGTH(content) > 15;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

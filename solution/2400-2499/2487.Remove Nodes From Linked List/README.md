@@ -11,13 +11,15 @@ tags:
     - 单调栈
 ---
 
+<!-- problem:start -->
+
 # [2487. 从链表中移除节点](https://leetcode.cn/problems/remove-nodes-from-linked-list)
 
 [English Version](/solution/2400-2499/2487.Remove%20Nodes%20From%20Linked%20List/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个链表的头节点 <code>head</code> 。</p>
 
@@ -57,7 +59,11 @@ tags:
 	<li><code>1 &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：单调栈模拟
 
@@ -241,6 +247,10 @@ function removeNodes(head: ListNode | null): ListNode | null {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -373,4 +383,6 @@ function removeNodes(head: ListNode | null): ListNode | null {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

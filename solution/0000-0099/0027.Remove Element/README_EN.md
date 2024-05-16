@@ -7,6 +7,8 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [27. Remove Element](https://leetcode.com/problems/remove-element)
 
 [中文文档](/solution/0000-0099/0027.Remove%20Element/README.md)
@@ -73,6 +75,8 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: One Pass
 
@@ -202,4 +206,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

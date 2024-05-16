@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1154. Day of the Year](https://leetcode.com/problems/day-of-the-year)
 
 [中文文档](/solution/1100-1199/1154.Day%20of%20the%20Year/README.md)
@@ -43,6 +45,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Direct Calculation
 
@@ -147,4 +151,6 @@ var dayOfYear = function (date) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

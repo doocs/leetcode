@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2408. Design SQL 🔒](https://leetcode.com/problems/design-sql)
 
 [中文文档](/solution/2400-2499/2408.Design%20SQL/README.md)
@@ -71,6 +73,8 @@ sql.selectCell(&quot;two&quot;, 2, 2); // return &quot;fifth&quot;, finds the va
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -191,4 +195,6 @@ func (this *SQL) SelectCell(name string, rowId int, columnId int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,6 +7,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [330. Patching Array](https://leetcode.com/problems/patching-array)
 
 [中文文档](/solution/0300-0399/0330.Patching%20Array/README.md)
@@ -56,6 +58,8 @@ Explanation: The two patches can be [2, 4].
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy
 
@@ -166,4 +170,6 @@ function minPatches(nums: number[], n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

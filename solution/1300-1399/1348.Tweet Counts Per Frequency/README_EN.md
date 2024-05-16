@@ -12,6 +12,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1348. Tweet Counts Per Frequency](https://leetcode.com/problems/tweet-counts-per-frequency)
 
 [中文文档](/solution/1300-1399/1348.Tweet%20Counts%20Per%20Frequency/README.md)
@@ -76,6 +78,8 @@ tweetCounts.getTweetCountsPerFrequency(&quot;hour&quot;, &quot;tweet3&quot;, 0, 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -196,4 +200,6 @@ private:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

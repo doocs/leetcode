@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1919. Leetcodify Similar Friends 🔒](https://leetcode.com/problems/leetcodify-similar-friends)
 
 [中文文档](/solution/1900-1999/1919.Leetcodify%20Similar%20Friends/README.md)
@@ -103,6 +105,8 @@ Users 2 and 5 are friends and listened to songs 10, 11, and 12, but they did not
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -121,4 +125,6 @@ HAVING COUNT(DISTINCT l1.song_id) >= 3;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -11,6 +11,8 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [2053. Kth Distinct String in an Array](https://leetcode.com/problems/kth-distinct-string-in-an-array)
 
 [中文文档](/solution/2000-2099/2053.Kth%20Distinct%20String%20in%20an%20Array/README.md)
@@ -64,6 +66,8 @@ The only distinct string is &quot;b&quot;. Since there are fewer than 3 distinct
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -138,4 +142,6 @@ func kthDistinct(arr []string, k int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

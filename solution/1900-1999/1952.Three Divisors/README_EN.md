@@ -10,6 +10,8 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [1952. Three Divisors](https://leetcode.com/problems/three-divisors)
 
 [中文文档](/solution/1900-1999/1952.Three%20Divisors/README.md)
@@ -45,6 +47,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -112,6 +116,10 @@ var isThree = function (n) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -192,4 +200,6 @@ var isThree = function (n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

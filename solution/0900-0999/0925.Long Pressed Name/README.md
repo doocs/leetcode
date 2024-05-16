@@ -7,13 +7,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [925. 长按键入](https://leetcode.cn/problems/long-pressed-name)
 
 [English Version](/solution/0900-0999/0925.Long%20Pressed%20Name/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你的朋友正在使用键盘输入他的名字&nbsp;<code>name</code>。偶尔，在键入字符&nbsp;<code>c</code>&nbsp;时，按键可能会被<em>长按</em>，而字符可能被输入 1 次或多次。</p>
 
@@ -46,7 +48,11 @@ tags:
 	<li><code>name</code> 和&nbsp;<code>typed</code>&nbsp;的字符都是小写字母</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -155,4 +161,6 @@ func isLongPressedName(name string, typed string) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

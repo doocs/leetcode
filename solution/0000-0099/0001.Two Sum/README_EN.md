@@ -7,6 +7,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [1. Two Sum](https://leetcode.com/problems/two-sum)
 
 [中文文档](/solution/0000-0099/0001.Two%20Sum/README.md)
@@ -56,6 +58,8 @@ tags:
 <strong>Follow-up:&nbsp;</strong>Can you come up with an algorithm that is less than <code>O(n<sup>2</sup>)</code><font face="monospace">&nbsp;</font>time complexity?
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -284,4 +288,6 @@ proc twoSum(nums: seq[int], target: int): seq[int] =
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

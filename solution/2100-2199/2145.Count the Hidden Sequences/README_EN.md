@@ -9,6 +9,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2145. Count the Hidden Sequences](https://leetcode.com/problems/count-the-hidden-sequences)
 
 [中文文档](/solution/2100-2199/2145.Count%20the%20Hidden%20Sequences/README.md)
@@ -78,6 +80,8 @@ Thus, we return 4.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -136,4 +140,6 @@ func numberOfArrays(differences []int, lower int, upper int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

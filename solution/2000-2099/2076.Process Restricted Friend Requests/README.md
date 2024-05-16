@@ -9,13 +9,15 @@ tags:
     - 图
 ---
 
+<!-- problem:start -->
+
 # [2076. 处理含限制条件的好友请求](https://leetcode.cn/problems/process-restricted-friend-requests)
 
 [English Version](/solution/2000-2099/2076.Process%20Restricted%20Friend%20Requests/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数 <code>n</code> ，表示网络上的用户数目。每个用户按从 <code>0</code> 到 <code>n - 1</code> 进行编号。</p>
 
@@ -79,7 +81,11 @@ tags:
 	<li><code>u<sub>j</sub> != v<sub>j</sub></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：并查集
 
@@ -274,4 +280,6 @@ function friendRequests(n: number, restrictions: number[][], requests: number[][
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,6 +10,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1106. Parsing A Boolean Expression](https://leetcode.com/problems/parsing-a-boolean-expression)
 
 [中文文档](/solution/1100-1199/1106.Parsing%20A%20Boolean%20Expression/README.md)
@@ -69,6 +71,8 @@ Then, evaluate !(f) --&gt; NOT false --&gt; true. We return true.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Stack
 
@@ -275,4 +279,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

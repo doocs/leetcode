@@ -10,13 +10,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [2838. 英雄可以获得的最大金币数 🔒](https://leetcode.cn/problems/maximum-coins-heroes-can-collect)
 
 [English Version](/solution/2800-2899/2838.Maximum%20Coins%20Heroes%20Can%20Collect/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在一场战斗中，<code>n</code> 位英雄正在试图击败 <code>m</code> 个怪物。你将得到两个下标从 <strong>1</strong> 开始的<strong> 正整数 </strong>数组 <code><font face="monospace">heroes</font></code> 和 <code><font face="monospace">monsters</font></code>，长度分别为 <code>n</code> 和 <code>m</code>。数组 <code><font face="monospace">heroes</font>[i]</code> 代表第 <code>i</code> 位英雄的力量，而 <code><font face="monospace">monsters</font>[i]</code> 代表第 <code>i</code> 个怪物的力量。</p>
 
@@ -74,7 +76,11 @@ tags:
 	<li><code>1 &lt;= heroes[i], monsters[i], coins[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 前缀和 + 二分查找
 
@@ -223,4 +229,6 @@ function maximumCoins(heroes: number[], monsters: number[], coins: number[]): nu
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,6 +9,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [1906. Minimum Absolute Difference Queries](https://leetcode.com/problems/minimum-absolute-difference-queries)
 
 [中文文档](/solution/1900-1999/1906.Minimum%20Absolute%20Difference%20Queries/README.md)
@@ -71,6 +73,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -244,4 +248,6 @@ function minDifference(nums: number[], queries: number[][]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

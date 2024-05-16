@@ -4,6 +4,8 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2804.Array%20Prototype%20ForEach/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2804. Array Prototype ForEach 🔒](https://leetcode.com/problems/array-prototype-foreach)
 
 [中文文档](/solution/2800-2899/2804.Array%20Prototype%20ForEach/README.md)
@@ -77,6 +79,8 @@ context = {&quot;context&quot;: 5}
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -101,4 +105,6 @@ Array.prototype.forEach = function (callback: Function, context: any): void {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -11,6 +11,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2597. The Number of Beautiful Subsets](https://leetcode.com/problems/the-number-of-beautiful-subsets)
 
 [中文文档](/solution/2500-2599/2597.The%20Number%20of%20Beautiful%20Subsets/README.md)
@@ -53,6 +55,8 @@ It can be proved that there is only 1 beautiful subset in the array [1].
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting + Backtracking
 
@@ -199,4 +203,6 @@ function beautifulSubsets(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

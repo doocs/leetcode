@@ -8,6 +8,8 @@ tags:
     - Combinatorics
 ---
 
+<!-- problem:start -->
+
 # [458. Poor Pigs](https://leetcode.com/problems/poor-pigs)
 
 [中文文档](/solution/0400-0499/0458.Poor%20Pigs/README.md)
@@ -66,6 +68,8 @@ At time 30, one of the two pigs must die, and the poisonous bucket is the one it
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -119,4 +123,6 @@ func poorPigs(buckets int, minutesToDie int, minutesToTest int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

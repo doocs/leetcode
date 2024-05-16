@@ -6,13 +6,15 @@ tags:
     - 数组
 ---
 
+<!-- problem:start -->
+
 # [163. 缺失的区间 🔒](https://leetcode.cn/problems/missing-ranges)
 
 [English Version](/solution/0100-0199/0163.Missing%20Ranges/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个闭区间&nbsp;<code>[lower, upper]</code> 和一个 <strong>按从小到大排序</strong> 的整数数组 <code>nums</code><em><strong>&nbsp;</strong></em>，其中元素的范围在闭区间&nbsp;<code>[lower, upper]</code>&nbsp;当中。</p>
 
@@ -50,7 +52,11 @@ tags:
 	<li><code>nums</code> 中的所有值 <strong>互不相同</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -173,4 +179,6 @@ function findMissingRanges(nums: number[], lower: number, upper: number): number
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

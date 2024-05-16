@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1132. Reported Posts II 🔒](https://leetcode.com/problems/reported-posts-ii)
 
 [中文文档](/solution/1100-1199/1132.Reported%20Posts%20II/README.md)
@@ -95,6 +97,8 @@ Note that the output is only one number and that we do not care about the remove
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -117,4 +121,6 @@ FROM T;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

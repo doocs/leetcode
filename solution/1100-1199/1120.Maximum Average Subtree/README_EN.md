@@ -10,6 +10,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1120. Maximum Average Subtree 🔒](https://leetcode.com/problems/maximum-average-subtree)
 
 [中文文档](/solution/1100-1199/1120.Maximum%20Average%20Subtree/README.md)
@@ -51,6 +53,8 @@ So the answer is 6 which is the maximum.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -194,4 +198,6 @@ func maximumAverageSubtree(root *TreeNode) (ans float64) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

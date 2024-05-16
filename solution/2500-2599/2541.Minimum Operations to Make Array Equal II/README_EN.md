@@ -10,6 +10,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [2541. Minimum Operations to Make Array Equal II](https://leetcode.com/problems/minimum-operations-to-make-array-equal-ii)
 
 [中文文档](/solution/2500-2599/2541.Minimum%20Operations%20to%20Make%20Array%20Equal%20II/README.md)
@@ -56,6 +58,8 @@ One can prove that it is impossible to make arrays equal in fewer operations.</p
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Single Pass
 
@@ -254,4 +258,6 @@ long long minOperations(int* nums1, int nums1Size, int* nums2, int nums2Size, in
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

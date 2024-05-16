@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2394. Employees With Deductions 🔒](https://leetcode.com/problems/employees-with-deductions)
 
 [中文文档](/solution/2300-2399/2394.Employees%20With%20Deductions/README.md)
@@ -103,6 +105,8 @@ Employee 3:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -126,4 +130,6 @@ WHERE IFNULL(tot, 0) < needed_hours;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

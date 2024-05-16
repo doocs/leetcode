@@ -8,6 +8,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [821. Shortest Distance to a Character](https://leetcode.com/problems/shortest-distance-to-a-character)
 
 [中文文档](/solution/0800-0899/0821.Shortest%20Distance%20to%20a%20Character/README.md)
@@ -48,6 +50,8 @@ The closest occurrence of &#39;e&#39; for index 8 is at index 6, so the distance
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -191,4 +195,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

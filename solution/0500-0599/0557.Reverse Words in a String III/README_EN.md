@@ -7,6 +7,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [557. Reverse Words in a String III](https://leetcode.com/problems/reverse-words-in-a-string-iii)
 
 [中文文档](/solution/0500-0599/0557.Reverse%20Words%20in%20a%20String%20III/README.md)
@@ -42,6 +44,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -145,4 +149,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

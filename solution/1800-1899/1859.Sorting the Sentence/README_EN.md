@@ -9,6 +9,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1859. Sorting the Sentence](https://leetcode.com/problems/sorting-the-sentence)
 
 [中文文档](/solution/1800-1899/1859.Sorting%20the%20Sentence/README.md)
@@ -72,6 +74,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: String Splitting
 
@@ -171,6 +175,10 @@ var sortSentence = function (s) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -187,4 +195,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

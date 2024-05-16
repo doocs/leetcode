@@ -8,6 +8,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [73. Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes)
 
 [中文文档](/solution/0000-0099/0073.Set%20Matrix%20Zeroes/README.md)
@@ -53,6 +55,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Array Mark
 
@@ -234,6 +238,10 @@ public class Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Mark in Place
 
@@ -524,4 +532,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

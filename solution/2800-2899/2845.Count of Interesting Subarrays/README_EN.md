@@ -10,6 +10,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2845. Count of Interesting Subarrays](https://leetcode.com/problems/count-of-interesting-subarrays)
 
 [中文文档](/solution/2800-2899/2845.Count%20of%20Interesting%20Subarrays/README.md)
@@ -73,6 +75,8 @@ It can be shown that there are no other interesting subarrays. So, the answer is
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Prefix Sum
 
@@ -190,4 +194,6 @@ function countInterestingSubarrays(nums: number[], modulo: number, k: number): n
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

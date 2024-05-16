@@ -7,6 +7,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses)
 
 [中文文档](/solution/0000-0099/0020.Valid%20Parentheses/README.md)
@@ -54,6 +56,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Stack
 
@@ -288,4 +292,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

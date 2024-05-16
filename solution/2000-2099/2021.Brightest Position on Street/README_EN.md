@@ -8,6 +8,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2021. Brightest Position on Street 🔒](https://leetcode.com/problems/brightest-position-on-street)
 
 [中文文档](/solution/2000-2099/2021.Brightest%20Position%20on%20Street/README.md)
@@ -73,6 +75,8 @@ Out of all these positions, -1 is the smallest, so return it.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Difference Array + Hash Table + Sorting
 
@@ -208,4 +212,6 @@ var brightestPosition = function (lights) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,13 +8,15 @@ tags:
     - 回溯
 ---
 
+<!-- problem:start -->
+
 # [78. 子集](https://leetcode.cn/problems/subsets)
 
 [English Version](/solution/0000-0099/0078.Subsets/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>nums</code> ，数组中的元素 <strong>互不相同</strong> 。返回该数组所有可能的<span data-keyword="subset">子集</span>（幂集）。</p>
 
@@ -46,7 +48,11 @@ tags:
 	<li><code>nums</code> 中的所有元素 <strong>互不相同</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS(回溯)
 
@@ -187,6 +193,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：二进制枚举
 
 我们也可以使用二进制枚举的方法得到所有的子集。
@@ -281,4 +291,6 @@ function subsets(nums: number[]): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

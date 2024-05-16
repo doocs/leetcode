@@ -10,6 +10,8 @@ tags:
     - Graph
 ---
 
+<!-- problem:start -->
+
 # [2493. Divide Nodes Into the Maximum Number of Groups](https://leetcode.com/problems/divide-nodes-into-the-maximum-number-of-groups)
 
 [中文文档](/solution/2400-2499/2493.Divide%20Nodes%20Into%20the%20Maximum%20Number%20of%20Groups/README.md)
@@ -66,6 +68,8 @@ It can be shown that no grouping is possible.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: BFS + Enumeration
 
@@ -270,4 +274,6 @@ var magnificentSets = function (n, edges) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

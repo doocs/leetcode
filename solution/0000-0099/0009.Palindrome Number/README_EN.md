@@ -6,6 +6,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [9. Palindrome Number](https://leetcode.com/problems/palindrome-number)
 
 [中文文档](/solution/0000-0099/0009.Palindrome%20Number/README.md)
@@ -50,6 +52,8 @@ tags:
 <strong>Follow up:</strong> Could you solve it without converting the integer to a string?
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Reverse Half of the Number
 
@@ -220,4 +224,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

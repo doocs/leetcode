@@ -8,6 +8,8 @@ tags:
     - Breadth-First Search
 ---
 
+<!-- problem:start -->
+
 # [756. Pyramid Transition Matrix](https://leetcode.com/problems/pyramid-transition-matrix)
 
 [中文文档](/solution/0700-0799/0756.Pyramid%20Transition%20Matrix/README.md)
@@ -58,6 +60,8 @@ Starting from the bottom (level 4), there are multiple ways to build level 3, bu
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -212,4 +216,6 @@ func pyramidTransition(bottom string, allowed []string) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,6 +9,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [1323. Maximum 69 Number](https://leetcode.com/problems/maximum-69-number)
 
 [中文文档](/solution/1300-1399/1323.Maximum%2069%20Number/README.md)
@@ -58,6 +60,8 @@ The maximum number is 9969.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -155,4 +159,6 @@ int maximum69Number(int num) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,6 +8,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [2239. Find Closest Number to Zero](https://leetcode.com/problems/find-closest-number-to-zero)
 
 [中文文档](/solution/2200-2299/2239.Find%20Closest%20Number%20to%20Zero/README.md)
@@ -47,6 +49,8 @@ Thus, the closest number to 0 in the array is 1.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -129,4 +133,6 @@ function findClosestNumber(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

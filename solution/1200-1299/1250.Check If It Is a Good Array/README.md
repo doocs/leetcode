@@ -10,13 +10,15 @@ tags:
     - 数论
 ---
 
+<!-- problem:start -->
+
 # [1250. 检查「好数组」](https://leetcode.cn/problems/check-if-it-is-a-good-array)
 
 [English Version](/solution/1200-1299/1250.Check%20If%20It%20Is%20a%20Good%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个正整数数组 <code>nums</code>，你需要从中任选一些子集，然后将子集中每一个数乘以一个 <strong>任意整数</strong>，并求出他们的和。</p>
 
@@ -55,7 +57,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10^9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学（裴蜀定理）
 
@@ -125,4 +131,6 @@ func gcd(a, b int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

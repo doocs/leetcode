@@ -10,6 +10,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [257. Binary Tree Paths](https://leetcode.com/problems/binary-tree-paths)
 
 [中文文档](/solution/0200-0299/0257.Binary%20Tree%20Paths/README.md)
@@ -44,6 +46,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -231,4 +235,6 @@ function binaryTreePaths(root: TreeNode | null): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,13 +7,15 @@ tags:
     - 二分查找
 ---
 
+<!-- problem:start -->
+
 # [2702. 使数字变为非正数的最小操作次数 🔒](https://leetcode.cn/problems/minimum-operations-to-make-numbers-non-positive)
 
 [English Version](/solution/2700-2799/2702.Minimum%20Operations%20to%20Make%20Numbers%20Non-positive/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个 <strong>下标从0开始</strong> 的整数数组 <code>nums</code>，以及两个整数 <code>x</code> 和 <code>y</code>。在每一次操作中，你需要选择一个满足条件 <code>0 &lt;= i &lt; nums.length</code> 的下标 <code>i</code>&nbsp;，并执行以下操作：</p>
 
@@ -56,7 +58,11 @@ tags:
 	<li><code>1 &lt;= y &lt; x &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -208,4 +214,6 @@ function minOperations(nums: number[], x: number, y: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

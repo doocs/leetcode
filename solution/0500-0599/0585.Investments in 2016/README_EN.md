@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [585. Investments in 2016](https://leetcode.com/problems/investments-in-2016)
 
 [中文文档](/solution/0500-0599/0585.Investments%20in%202016/README.md)
@@ -75,6 +77,8 @@ So, the result is the sum of tiv_2016 of the first and last record, which is 45.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -96,4 +100,6 @@ WHERE cnt1 > 1 AND cnt2 = 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

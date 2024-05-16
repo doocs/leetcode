@@ -8,6 +8,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [15. 3Sum](https://leetcode.com/problems/3sum)
 
 [中文文档](/solution/0000-0099/0015.3Sum/README.md)
@@ -57,6 +59,8 @@ Notice that the order of the output and the order of the triplets does not matte
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sort + Two Pointers
 
@@ -423,4 +427,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

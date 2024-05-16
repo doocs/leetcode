@@ -8,6 +8,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1427. Perform String Shifts 🔒](https://leetcode.com/problems/perform-string-shifts)
 
 [中文文档](/solution/1400-1499/1427.Perform%20String%20Shifts/README.md)
@@ -59,6 +61,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -142,4 +146,6 @@ function stringShift(s: string, shift: number[][]): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,6 +10,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1903. Largest Odd Number in String](https://leetcode.com/problems/largest-odd-number-in-string)
 
 [中文文档](/solution/1900-1999/1903.Largest%20Odd%20Number%20in%20String/README.md)
@@ -54,6 +56,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Reverse Traversal
 
@@ -141,4 +145,6 @@ var largestOddNumber = function (num) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

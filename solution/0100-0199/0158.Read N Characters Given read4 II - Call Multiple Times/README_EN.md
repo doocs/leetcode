@@ -8,6 +8,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [158. Read N Characters Given read4 II - Call Multiple Times 🔒](https://leetcode.com/problems/read-n-characters-given-read4-ii-call-multiple-times)
 
 [中文文档](/solution/0100-0199/0158.Read%20N%20Characters%20Given%20read4%20II%20-%20Call%20Multiple%20Times/README.md)
@@ -108,6 +110,8 @@ sol.read(buf, 1); // We have reached the end of file, no more characters can be 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -246,4 +250,6 @@ var solution = func(read4 func([]byte) int) func([]byte, int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1421. NPV Queries 🔒](https://leetcode.com/problems/npv-queries)
 
 [中文文档](/solution/1400-1499/1421.NPV%20Queries/README.md)
@@ -98,6 +100,8 @@ The npv values of all other queries can be found in the NPV table.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -112,4 +116,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

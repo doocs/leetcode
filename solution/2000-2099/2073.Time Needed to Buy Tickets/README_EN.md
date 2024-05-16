@@ -10,6 +10,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2073. Time Needed to Buy Tickets](https://leetcode.com/problems/time-needed-to-buy-tickets)
 
 [中文文档](/solution/2000-2099/2073.Time%20Needed%20to%20Buy%20Tickets/README.md)
@@ -58,6 +60,8 @@ The person at&nbsp;position 0 has successfully bought 5 tickets and it took 4 + 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -150,4 +154,6 @@ function timeRequiredToBuy(tickets: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

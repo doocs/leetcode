@@ -7,6 +7,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [454. 4Sum II](https://leetcode.com/problems/4sum-ii)
 
 [中文文档](/solution/0400-0499/0454.4Sum%20II/README.md)
@@ -52,6 +54,8 @@ The two tuples are:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: HashMap
 
@@ -148,4 +152,6 @@ function fourSumCount(nums1: number[], nums2: number[], nums3: number[], nums4: 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

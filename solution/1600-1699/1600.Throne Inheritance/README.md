@@ -11,13 +11,15 @@ tags:
     - 哈希表
 ---
 
+<!-- problem:start -->
+
 # [1600. 王位继承顺序](https://leetcode.cn/problems/throne-inheritance)
 
 [English Version](/solution/1600-1699/1600.Throne%20Inheritance/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一个王国里住着国王、他的孩子们、他的孙子们等等。每一个时间点，这个家庭里有人出生也有人死亡。</p>
 
@@ -90,7 +92,11 @@ t.getInheritanceOrder(); // 返回 ["king", "andy", "matthew", "alex", "asha", "
 	<li>最多调用&nbsp;<code>10</code>&nbsp;次&nbsp;<code>getInheritanceOrder</code>&nbsp;。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：多叉树的前序遍历
 
@@ -367,4 +373,6 @@ public class ThroneInheritance {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

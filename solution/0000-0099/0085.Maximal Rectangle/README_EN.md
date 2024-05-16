@@ -10,6 +10,8 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [85. Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle)
 
 [中文文档](/solution/0000-0099/0085.Maximal%20Rectangle/README.md)
@@ -52,6 +54,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Monotonic Stack
 
@@ -353,4 +357,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -11,6 +11,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [2392. Build a Matrix With Conditions](https://leetcode.com/problems/build-a-matrix-with-conditions)
 
 [中文文档](/solution/2300-2399/2392.Build%20a%20Matrix%20With%20Conditions/README.md)
@@ -75,6 +77,8 @@ No matrix can satisfy all the conditions, so we return the empty matrix.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -326,4 +330,6 @@ function buildMatrix(k: number, rowConditions: number[][], colConditions: number
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

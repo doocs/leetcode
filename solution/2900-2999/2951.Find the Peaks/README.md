@@ -9,13 +9,15 @@ tags:
     - 枚举
 ---
 
+<!-- problem:start -->
+
 # [2951. 找出峰值](https://leetcode.cn/problems/find-the-peaks)
 
 [English Version](/solution/2900-2999/2951.Find%20the%20Peaks/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的数组 <code>mountain</code> 。你的任务是找出数组&nbsp;<code>mountain</code> 中的所有 <strong>峰值</strong>。</p>
 
@@ -60,7 +62,11 @@ mountain[2] 也不可能是峰值，因为它不严格大于 mountain[3] 和 mou
 	<li><code>1 &lt;= mountain[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：直接遍历
 
@@ -136,4 +142,6 @@ function findPeaks(mountain: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -12,6 +12,8 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [1655. Distribute Repeating Integers](https://leetcode.com/problems/distribute-repeating-integers)
 
 [中文文档](/solution/1600-1699/1655.Distribute%20Repeating%20Integers/README.md)
@@ -67,6 +69,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: State Compression Dynamic Programming + Subset Enumeration
 
@@ -309,4 +313,6 @@ function canDistribute(nums: number[], quantity: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

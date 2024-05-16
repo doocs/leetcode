@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1907. 按分类统计薪水](https://leetcode.cn/problems/count-salary-categories)
 
 [English Version](/solution/1900-1999/1907.Count%20Salary%20Categories/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Accounts</code></p>
 
@@ -73,7 +75,11 @@ Accounts 表:
 中等薪水: 没有.
 高薪: 有三个账户，他们是 3, 6和 8.</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：构建临时表 + 分组统计 + 左连接
 
@@ -110,6 +116,10 @@ FROM
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：筛选 + 合并
 
 我们可以分别筛选出每个工资类别的银行账户数量，然后再将结果合并起来。这里我们使用 `UNION` 来合并结果。
@@ -130,4 +140,6 @@ SELECT 'High Salary' AS category, IFNULL(SUM(income > 50000), 0) AS accounts_cou
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

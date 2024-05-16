@@ -8,6 +8,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [740. Delete and Earn](https://leetcode.com/problems/delete-and-earn)
 
 [中文文档](/solution/0700-0799/0740.Delete%20and%20Earn/README.md)
@@ -54,6 +56,8 @@ You earn a total of 9 points.</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -157,4 +161,6 @@ func deleteAndEarn(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

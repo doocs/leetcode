@@ -9,6 +9,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [1490. Clone N-ary Tree 🔒](https://leetcode.com/problems/clone-n-ary-tree)
 
 [中文文档](/solution/1400-1499/1490.Clone%20N-ary%20Tree/README.md)
@@ -59,6 +61,8 @@ class Node {
 <strong>Follow up: </strong>Can your solution work for the <a href="https://leetcode.com/problems/clone-graph/" target="_blank">graph problem</a>?
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -179,4 +183,6 @@ func cloneTree(root *Node) *Node {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

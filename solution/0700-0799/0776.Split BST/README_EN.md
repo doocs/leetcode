@@ -9,6 +9,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [776. Split BST 🔒](https://leetcode.com/problems/split-bst)
 
 [中文文档](/solution/0700-0799/0776.Split%20BST/README.md)
@@ -45,6 +47,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -218,4 +222,6 @@ var splitBST = function (root, target) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

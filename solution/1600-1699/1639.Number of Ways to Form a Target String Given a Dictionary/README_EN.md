@@ -10,6 +10,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1639. Number of Ways to Form a Target String Given a Dictionary](https://leetcode.com/problems/number-of-ways-to-form-a-target-string-given-a-dictionary)
 
 [中文文档](/solution/1600-1699/1639.Number%20of%20Ways%20to%20Form%20a%20Target%20String%20Given%20a%20Dictionary/README.md)
@@ -70,6 +72,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Preprocessing + Memory Search
 
@@ -249,6 +253,10 @@ function numWays(words: string[], target: string): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Preprocessing + Dynamic Programming
 
 Similar to Solution 1, we can first preprocess a two-dimensional array $cnt$, where $cnt[j][c]$ represents the number of characters $c$ in the $j$-th position of the string array $words$.
@@ -364,4 +372,6 @@ func numWays(words []string, target string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

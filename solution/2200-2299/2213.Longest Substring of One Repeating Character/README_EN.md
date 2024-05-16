@@ -11,6 +11,8 @@ tags:
     - Ordered Set
 ---
 
+<!-- problem:start -->
+
 # [2213. Longest Substring of One Repeating Character](https://leetcode.com/problems/longest-substring-of-one-repeating-character)
 
 [中文文档](/solution/2200-2299/2213.Longest%20Substring%20of%20One%20Repeating%20Character/README.md)
@@ -61,6 +63,8 @@ Thus, we return [2,3].
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -450,4 +454,6 @@ func longestRepeating(s string, queryCharacters string, queryIndices []int) []in
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

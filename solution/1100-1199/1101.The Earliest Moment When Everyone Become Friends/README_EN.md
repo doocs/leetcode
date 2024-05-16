@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1101. The Earliest Moment When Everyone Become Friends 🔒](https://leetcode.com/problems/the-earliest-moment-when-everyone-become-friends)
 
 [中文文档](/solution/1100-1199/1101.The%20Earliest%20Moment%20When%20Everyone%20Become%20Friends/README.md)
@@ -60,6 +62,8 @@ The sixth event occurs at timestamp = 20190301, and after 0 and 3 become friends
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Union-Find
 
@@ -263,6 +267,10 @@ impl Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -511,4 +519,6 @@ function earliestAcq(logs: number[][], n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

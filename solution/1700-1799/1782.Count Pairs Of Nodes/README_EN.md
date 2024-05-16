@@ -12,6 +12,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1782. Count Pairs Of Nodes](https://leetcode.com/problems/count-pairs-of-nodes)
 
 [中文文档](/solution/1700-1799/1782.Count%20Pairs%20Of%20Nodes/README.md)
@@ -65,6 +67,8 @@ The answers for each of the queries are as follows:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Sorting + Binary Search
 
@@ -265,4 +269,6 @@ function countPairs(n: number, edges: number[][], queries: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

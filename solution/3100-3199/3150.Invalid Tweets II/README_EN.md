@@ -4,6 +4,8 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3150.Invalid%20Tweets%20II/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [3150. Invalid Tweets II 🔒](https://leetcode.com/problems/invalid-tweets-ii)
 
 [中文文档](/solution/3100-3199/3150.Invalid%20Tweets%20II/README.md)
@@ -75,6 +77,8 @@ Output table is ordered by tweet_id in ascending order.</div>
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: LENGTH() Function + REPLACE() Function
 
 We can use the `LENGTH()` function to calculate the length of the string, calculate the length after excluding `@` or `#`, then use the `OR` operator to connect these three conditions, filter out the corresponding tweet_id, and sort by tweet_id in ascending order.
@@ -106,4 +110,6 @@ def find_invalid_tweets(tweets: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

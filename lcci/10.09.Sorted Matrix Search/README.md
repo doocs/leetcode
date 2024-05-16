@@ -4,13 +4,16 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.09.Sorted%20Matrix%20Search/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 10.09. 排序矩阵查找](https://leetcode.cn/problems/sorted-matrix-search-lcci)
 
 [English Version](/lcci/10.09.Sorted%20Matrix%20Search/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>给定M&times;N矩阵，每一行、每一列都按升序排列，请编写代码找出某元素。</p>
 
 <p><strong>示例:</strong></p>
@@ -30,7 +33,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.09.Sorted%20Matrix
 
 <p>给定&nbsp;target&nbsp;=&nbsp;<code>20</code>，返回&nbsp;<code>false</code>。</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -216,6 +223,8 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
 ### 方法二：从左下角或右上角搜索
 
 这里我们以左下角作为起始搜索点，往右上方向开始搜索，比较当前元素 `matrix[i][j]`与 `target` 的大小关系：
@@ -361,4 +370,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,13 +10,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [1622. 奇妙序列](https://leetcode.cn/problems/fancy-sequence)
 
 [English Version](/solution/1600-1699/1622.Fancy%20Sequence/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你实现三个 API <code>append</code>，<code>addAll</code> 和 <code>multAll</code> 来实现奇妙序列。</p>
 
@@ -66,7 +68,11 @@ fancy.getIndex(2); // 返回 20
 	<li>总共最多会有 <code>10<sup>5</sup></code> 次对 <code>append</code>，<code>addAll</code>，<code>multAll</code> 和 <code>getIndex</code> 的调用。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：线段树
 
@@ -493,4 +499,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

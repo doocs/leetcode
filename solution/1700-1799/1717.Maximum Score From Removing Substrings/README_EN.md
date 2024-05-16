@@ -10,6 +10,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1717. Maximum Score From Removing Substrings](https://leetcode.com/problems/maximum-score-from-removing-substrings)
 
 [中文文档](/solution/1700-1799/1717.Maximum%20Score%20From%20Removing%20Substrings/README.md)
@@ -65,6 +67,8 @@ Total score = 5 + 4 + 5 + 5 = 19.</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -220,4 +224,6 @@ func maximumGain(s string, x int, y int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

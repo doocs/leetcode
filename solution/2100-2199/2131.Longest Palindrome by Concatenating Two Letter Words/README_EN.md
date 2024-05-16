@@ -12,6 +12,8 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [2131. Longest Palindrome by Concatenating Two Letter Words](https://leetcode.com/problems/longest-palindrome-by-concatenating-two-letter-words)
 
 [中文文档](/solution/2100-2199/2131.Longest%20Palindrome%20by%20Concatenating%20Two%20Letter%20Words/README.md)
@@ -64,6 +66,8 @@ Note that &quot;ll&quot; is another longest palindrome that can be created, and 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -159,4 +163,6 @@ func longestPalindrome(words []string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

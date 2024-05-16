@@ -9,6 +9,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1646. Get Maximum in Generated Array](https://leetcode.com/problems/get-maximum-in-generated-array)
 
 [中文文档](/solution/1600-1699/1646.Get%20Maximum%20in%20Generated%20Array/README.md)
@@ -68,6 +70,8 @@ Hence, nums = [0,1,1,2,1,3,2,3], and the maximum is max(0,1,1,2,1,3,2,3) = 3.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -153,4 +157,6 @@ function getMaximumGenerated(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

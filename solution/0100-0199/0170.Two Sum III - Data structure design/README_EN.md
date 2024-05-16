@@ -10,6 +10,8 @@ tags:
     - Data Stream
 ---
 
+<!-- problem:start -->
+
 # [170. Two Sum III - Data structure design 🔒](https://leetcode.com/problems/two-sum-iii-data-structure-design)
 
 [中文文档](/solution/0100-0199/0170.Two%20Sum%20III%20-%20Data%20structure%20design/README.md)
@@ -55,6 +57,8 @@ twoSum.find(7);  // No two integers sum up to 7, return false
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -220,4 +224,6 @@ class TwoSum {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

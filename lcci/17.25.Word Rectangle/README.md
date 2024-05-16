@@ -4,13 +4,15 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.25.Word%20Rectangle/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 17.25. 单词矩阵](https://leetcode.cn/problems/word-rectangle-lcci)
 
 [English Version](/lcci/17.25.Word%20Rectangle/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一份单词的清单，设计一个算法，创建由字母组成的面积最大的矩形，其中每一行组成一个单词(自左向右)，每一列也组成一个单词(自上而下)。不要求这些单词在清单里连续出现，但要求所有行等长，所有列等高。</p>
 <p>如果有多个面积最大的矩形，输出任意一个均可。一个单词可以重复使用。</p>
@@ -32,7 +34,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.25.Word%20Rectangl
 	<li>数据保证单词足够随机</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分组 + 回溯 + 字典树
 
@@ -432,4 +438,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

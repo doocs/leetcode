@@ -9,13 +9,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [536. 从字符串生成二叉树 🔒](https://leetcode.cn/problems/construct-binary-tree-from-string)
 
 [English Version](/solution/0500-0599/0536.Construct%20Binary%20Tree%20from%20String/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你需要用一个包括括号和整数的字符串构建一棵二叉树。</p>
 
@@ -56,7 +58,11 @@ tags:
 	<li>空树由&nbsp;<code>""</code>&nbsp;而非<code>"()"</code>表示。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -238,4 +244,6 @@ func str2tree(s string) *TreeNode {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

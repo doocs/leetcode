@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1840. Maximum Building Height](https://leetcode.com/problems/maximum-building-height)
 
 [中文文档](/solution/1800-1899/1840.Maximum%20Building%20Height/README.md)
@@ -71,6 +73,8 @@ We can build the buildings with heights [0,1,2,3,3,4,4,5,4,3], and the tallest b
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -176,4 +180,6 @@ func maxBuilding(n int, restrictions [][]int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

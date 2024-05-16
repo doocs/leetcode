@@ -10,6 +10,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2121. Intervals Between Identical Elements](https://leetcode.com/problems/intervals-between-identical-elements)
 
 [中文文档](/solution/2100-2199/2121.Intervals%20Between%20Identical%20Elements/README.md)
@@ -62,6 +64,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -167,4 +171,6 @@ func getDistances(arr []int) []int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,6 +7,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [908. Smallest Range I](https://leetcode.com/problems/smallest-range-i)
 
 [中文文档](/solution/0900-0999/0908.Smallest%20Range%20I/README.md)
@@ -56,6 +58,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematics
 
@@ -125,4 +129,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

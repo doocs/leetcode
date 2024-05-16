@@ -10,6 +10,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1824. Minimum Sideway Jumps](https://leetcode.com/problems/minimum-sideway-jumps)
 
 [中文文档](/solution/1800-1899/1824.Minimum%20Sideway%20Jumps/README.md)
@@ -71,6 +73,8 @@ Note that the frog can jump over obstacles only when making side jumps (as shown
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -197,4 +201,6 @@ function minSideJumps(obstacles: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

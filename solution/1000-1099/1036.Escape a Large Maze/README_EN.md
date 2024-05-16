@@ -11,6 +11,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [1036. Escape a Large Maze](https://leetcode.com/problems/escape-a-large-maze)
 
 [中文文档](/solution/1000-1099/1036.Escape%20a%20Large%20Maze/README.md)
@@ -58,6 +60,8 @@ We cannot move south or west because we cannot go outside of the grid.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -240,4 +244,6 @@ fn bfs(block: &HashSet<(i32, i32)>, source: &Vec<i32>, target: &Vec<i32>) -> boo
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

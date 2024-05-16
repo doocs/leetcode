@@ -14,6 +14,8 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [2945. Find Maximum Non-decreasing Array Length](https://leetcode.com/problems/find-maximum-non-decreasing-array-length)
 
 [中文文档](/solution/2900-2999/2945.Find%20Maximum%20Non-decreasing%20Array%20Length/README.md)
@@ -68,6 +70,8 @@ Because the given array is not non-decreasing, the maximum<!-- notionvc: 3447a50
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -185,4 +189,6 @@ function findMaximumLength(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

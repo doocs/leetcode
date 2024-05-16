@@ -11,6 +11,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2642. Design Graph With Shortest Path Calculator](https://leetcode.com/problems/design-graph-with-shortest-path-calculator)
 
 [中文文档](/solution/2600-2699/2642.Design%20Graph%20With%20Shortest%20Path%20Calculator/README.md)
@@ -61,6 +63,8 @@ g.shortestPath(0, 3); // return 6. The shortest path from 0 to 3 now is 0 -&gt; 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dijsktra's Algorithm
 
@@ -372,4 +376,6 @@ public class Graph {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

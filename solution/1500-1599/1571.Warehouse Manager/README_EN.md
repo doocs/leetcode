@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1571. Warehouse Manager 🔒](https://leetcode.com/problems/warehouse-manager)
 
 [中文文档](/solution/1500-1599/1571.Warehouse%20Manager/README.md)
@@ -100,6 +102,8 @@ LCHouse3: 1 unit of LC-T-Shirt.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Inner Join + Group By + Sum Function
 
 We can use an inner join to join the `Warehouse` table and the `Products` table on the condition of `product_id`, and then group by warehouse name to calculate the inventory of each warehouse using the `SUM` function.
@@ -119,4 +123,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

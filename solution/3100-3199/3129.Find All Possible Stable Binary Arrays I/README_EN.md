@@ -9,6 +9,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [3129. Find All Possible Stable Binary Arrays I](https://leetcode.com/problems/find-all-possible-stable-binary-arrays-i)
 
 [中文文档](/solution/3100-3199/3129.Find%20All%20Possible%20Stable%20Binary%20Arrays%20I/README.md)
@@ -76,6 +78,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -236,6 +240,10 @@ func numberOfStableArrays(zero int, one int, limit int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Dynamic Programming
 
 We can also convert the memoization search of Solution 1 into dynamic programming.
@@ -374,4 +382,6 @@ func numberOfStableArrays(zero int, one int, limit int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

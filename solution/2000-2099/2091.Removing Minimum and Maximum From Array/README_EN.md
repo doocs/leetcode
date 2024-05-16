@@ -9,6 +9,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [2091. Removing Minimum and Maximum From Array](https://leetcode.com/problems/removing-minimum-and-maximum-from-array)
 
 [中文文档](/solution/2000-2099/2091.Removing%20Minimum%20and%20Maximum%20From%20Array/README.md)
@@ -68,6 +70,8 @@ We can remove it with 1 deletion.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -163,4 +167,6 @@ function minimumDeletions(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

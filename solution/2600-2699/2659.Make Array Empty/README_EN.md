@@ -14,6 +14,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2659. Make Array Empty](https://leetcode.com/problems/make-array-empty)
 
 [中文文档](/solution/2600-2699/2659.Make%20Array%20Empty/README.md)
@@ -146,6 +148,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Sorting + Fenwick Tree
 
@@ -377,6 +381,10 @@ function countOperationsToEmptyArray(nums: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -417,4 +425,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

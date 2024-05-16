@@ -8,6 +8,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2061. Number of Spaces Cleaning Robot Cleaned 🔒](https://leetcode.com/problems/number-of-spaces-cleaning-robot-cleaned)
 
 [中文文档](/solution/2000-2099/2061.Number%20of%20Spaces%20Cleaning%20Robot%20Cleaned/README.md)
@@ -64,6 +66,8 @@ The robot has cleaned 1 space, so return 1.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -184,6 +188,10 @@ func numberOfCleanRooms(room [][]int) (ans int) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -287,4 +295,6 @@ func numberOfCleanRooms(room [][]int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

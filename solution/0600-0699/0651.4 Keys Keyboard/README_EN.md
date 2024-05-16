@@ -7,6 +7,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [651. 4 Keys Keyboard 🔒](https://leetcode.com/problems/4-keys-keyboard)
 
 [中文文档](/solution/0600-0699/0651.4%20Keys%20Keyboard/README.md)
@@ -51,6 +53,8 @@ A, A, A, Ctrl A, Ctrl C, Ctrl V, Ctrl V
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -116,4 +120,6 @@ func maxA(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

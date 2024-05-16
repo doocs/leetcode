@@ -9,13 +9,15 @@ tags:
     - 图
 ---
 
+<!-- problem:start -->
+
 # [684. 冗余连接](https://leetcode.cn/problems/redundant-connection)
 
 [English Version](/solution/0600-0699/0684.Redundant%20Connection/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>树可以看成是一个连通且 <strong>无环&nbsp;</strong>的&nbsp;<strong>无向&nbsp;</strong>图。</p>
 
@@ -57,7 +59,11 @@ tags:
 	<li>给定的图是连通的&nbsp;</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -179,4 +185,6 @@ var findRedundantConnection = function (edges) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

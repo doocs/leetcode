@@ -7,6 +7,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [312. Burst Balloons](https://leetcode.com/problems/burst-balloons)
 
 [中文文档](/solution/0300-0399/0312.Burst%20Balloons/README.md)
@@ -46,6 +48,8 @@ coins =  3*1*5    +   3*5*8   +  1*3*8  + 1*8*1 = 167</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -154,4 +158,6 @@ function maxCoins(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

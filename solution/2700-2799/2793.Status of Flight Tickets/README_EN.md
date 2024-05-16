@@ -4,6 +4,8 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2793.Status%20of%20Flight%20Tickets/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2793. Status of Flight Tickets 🔒](https://leetcode.com/problems/status-of-flight-tickets)
 
 [中文文档](/solution/2700-2799/2793.Status%20of%20Flight%20Tickets/README.md)
@@ -91,6 +93,8 @@ Passengers table:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -117,4 +121,6 @@ ORDER BY passenger_id;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

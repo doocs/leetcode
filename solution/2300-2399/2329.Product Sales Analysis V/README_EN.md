@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2329. Product Sales Analysis V 🔒](https://leetcode.com/problems/product-sales-analysis-v)
 
 [中文文档](/solution/2300-2399/2329.Product%20Sales%20Analysis%20V/README.md)
@@ -91,6 +93,8 @@ Users 102 and 103 spent the same amount and we break the tie by their ID while u
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -107,4 +111,6 @@ ORDER BY 2 DESC, 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

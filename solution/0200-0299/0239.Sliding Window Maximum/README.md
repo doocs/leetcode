@@ -10,13 +10,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [239. 滑动窗口最大值](https://leetcode.cn/problems/sliding-window-maximum)
 
 [English Version](/solution/0200-0299/0239.Sliding%20Window%20Maximum/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code>，有一个大小为&nbsp;<code>k</code><em>&nbsp;</em>的滑动窗口从数组的最左侧移动到数组的最右侧。你只可以看到在滑动窗口内的 <code>k</code>&nbsp;个数字。滑动窗口每次只向右移动一位。</p>
 
@@ -57,7 +59,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：优先队列（大根堆）
 
@@ -247,6 +253,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：单调队列
 
 这道题也可以使用单调队列来解决。时间复杂度 $O(n)$，空间复杂度 $O(k)$。
@@ -349,4 +359,6 @@ func maxSlidingWindow(nums []int, k int) (ans []int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

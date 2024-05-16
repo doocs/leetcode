@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2590. Design a Todo List 🔒](https://leetcode.com/problems/design-a-todo-list)
 
 [中文文档](/solution/2500-2599/2590.Design%20a%20Todo%20List/README.md)
@@ -68,6 +70,8 @@ todoList.getAllTasks(1); // return [&quot;Task3&quot;, &quot;Task1&quot;]. User 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Sorted Set
 
@@ -315,4 +319,6 @@ impl TodoList {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

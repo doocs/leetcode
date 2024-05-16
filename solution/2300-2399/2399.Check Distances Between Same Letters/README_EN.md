@@ -10,6 +10,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2399. Check Distances Between Same Letters](https://leetcode.com/problems/check-distances-between-same-letters)
 
 [中文文档](/solution/2300-2399/2399.Check%20Distances%20Between%20Same%20Letters/README.md)
@@ -60,6 +62,8 @@ Because distance[0] = 1, s is not a well-spaced string.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -174,4 +178,6 @@ bool checkDistances(char* s, int* distance, int distanceSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

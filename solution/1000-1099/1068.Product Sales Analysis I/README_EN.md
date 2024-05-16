@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1068. Product Sales Analysis I](https://leetcode.com/problems/product-sales-analysis-i)
 
 [中文文档](/solution/1000-1099/1068.Product%20Sales%20Analysis%20I/README.md)
@@ -90,6 +92,8 @@ From sale_id = 7, we can conclude that Apple was sold for 9000 in the year 2011.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -104,4 +108,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

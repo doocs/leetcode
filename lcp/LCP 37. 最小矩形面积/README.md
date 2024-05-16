@@ -4,11 +4,13 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2037.%20%E6%9C%80%E5%B0%8F%E7%9F%A9%E5%BD%A2%E9%9D%A2%E7%A7%AF/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 37. 最小矩形面积](https://leetcode.cn/problems/zui-xiao-ju-xing-mian-ji)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 二维平面上有 $N$ 条直线，形式为 `y = kx + b`，其中 `k`、`b`为整数 且 `k > 0`。所有直线以 `[k,b]` 的形式存于二维数组 `lines` 中，不存在重合的两条直线。两两直线之间可能存在一个交点，最多会有 $C_N^2$ 个交点。我们用一个平行于坐标轴的矩形覆盖所有的交点，请问这个矩形最小面积是多少。若直线之间无交点、仅有一个交点或所有交点均在同一条平行坐标轴的直线上，则返回 0。
 
@@ -37,6 +39,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2037.%20%E6%9C%80%
 -   `-10000 <= lines[1] <= 10000`
 -   `与标准答案绝对误差或相对误差在 10^-4 以内的结果都被视为正确结果`
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

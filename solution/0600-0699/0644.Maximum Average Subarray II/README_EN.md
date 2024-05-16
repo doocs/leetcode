@@ -8,6 +8,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [644. Maximum Average Subarray II 🔒](https://leetcode.com/problems/maximum-average-subarray-ii)
 
 [中文文档](/solution/0600-0699/0644.Maximum%20Average%20Subarray%20II/README.md)
@@ -49,6 +51,8 @@ Note that we do not consider the subarrays of length &lt; 4.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -271,4 +275,6 @@ function findMaxAverage(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,6 +8,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [640. Solve the Equation](https://leetcode.com/problems/solve-the-equation)
 
 [中文文档](/solution/0600-0699/0640.Solve%20the%20Equation/README.md)
@@ -50,6 +52,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -233,4 +237,6 @@ function solveEquation(equation: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

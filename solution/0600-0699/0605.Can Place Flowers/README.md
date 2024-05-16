@@ -7,13 +7,15 @@ tags:
     - 数组
 ---
 
+<!-- problem:start -->
+
 # [605. 种花问题](https://leetcode.cn/problems/can-place-flowers)
 
 [English Version](/solution/0600-0699/0605.Can%20Place%20Flowers/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>假设有一个很长的花坛，一部分地块种植了花，另一部分却没有。可是，花不能种植在相邻的地块上，它们会争夺水源，两者都会死去。</p>
 
@@ -46,7 +48,11 @@ tags:
 	<li><code>0 &lt;= n &lt;= flowerbed.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -181,4 +187,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

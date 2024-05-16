@@ -9,13 +9,15 @@ tags:
     - 哈希表
 ---
 
+<!-- problem:start -->
+
 # [2215. 找出两数组的不同](https://leetcode.cn/problems/find-the-difference-of-two-arrays)
 
 [English Version](/solution/2200-2299/2215.Find%20the%20Difference%20of%20Two%20Arrays/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个下标从 <code>0</code> 开始的整数数组 <code>nums1</code> 和 <code>nums2</code> ，请你返回一个长度为 <code>2</code> 的列表 <code>answer</code> ，其中：</p>
 
@@ -56,7 +58,11 @@ nums2 中的每个整数都在 nums1 中出现，因此，answer[1] = [] 。
 	<li><code>-1000 &lt;= nums1[i], nums2[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -217,4 +223,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

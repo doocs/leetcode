@@ -9,6 +9,8 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [402. Remove K Digits](https://leetcode.com/problems/remove-k-digits)
 
 [中文文档](/solution/0400-0499/0402.Remove%20K%20Digits/README.md)
@@ -52,6 +54,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy Algorithm
 
@@ -157,4 +161,6 @@ function removeKdigits(num: string, k: number): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

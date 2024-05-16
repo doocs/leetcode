@@ -9,6 +9,8 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [2523. Closest Prime Numbers in Range](https://leetcode.com/problems/closest-prime-numbers-in-range)
 
 [中文文档](/solution/2500-2599/2523.Closest%20Prime%20Numbers%20in%20Range/README.md)
@@ -63,6 +65,8 @@ Since 11 is smaller than 17, we return the first pair.
 </style>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -226,4 +230,6 @@ func closestPrimes(left int, right int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

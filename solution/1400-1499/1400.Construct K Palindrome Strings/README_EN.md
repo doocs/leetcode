@@ -11,6 +11,8 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [1400. Construct K Palindrome Strings](https://leetcode.com/problems/construct-k-palindrome-strings)
 
 [中文文档](/solution/1400-1499/1400.Construct%20K%20Palindrome%20Strings/README.md)
@@ -55,6 +57,8 @@ Some possible constructions &quot;anna&quot; + &quot;elble&quot;, &quot;anbna&qu
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -151,4 +155,6 @@ function canConstruct(s: string, k: number): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

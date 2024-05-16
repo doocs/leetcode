@@ -6,6 +6,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [665. Non-decreasing Array](https://leetcode.com/problems/non-decreasing-array)
 
 [中文文档](/solution/0600-0699/0665.Non-decreasing%20Array/README.md)
@@ -43,6 +45,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -172,4 +176,6 @@ function checkPossibility(nums: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

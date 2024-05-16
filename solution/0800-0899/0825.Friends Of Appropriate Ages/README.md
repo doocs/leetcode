@@ -9,13 +9,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [825. 适龄的朋友](https://leetcode.cn/problems/friends-of-appropriate-ages)
 
 [English Version](/solution/0800-0899/0825.Friends%20Of%20Appropriate%20Ages/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在社交媒体网站上有 <code>n</code> 个用户。给你一个整数数组 <code>ages</code> ，其中 <code>ages[i]</code> 是第 <code>i</code> 个用户的年龄。</p>
 
@@ -69,7 +71,11 @@ tags:
 	<li><code>1 &lt;= ages[i] &lt;= 120</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -163,4 +169,6 @@ func numFriendRequests(ages []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

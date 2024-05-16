@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1890. The Latest Login in 2020](https://leetcode.com/problems/the-latest-login-in-2020)
 
 [中文文档](/solution/1800-1899/1890.The%20Latest%20Login%20in%202020/README.md)
@@ -69,6 +71,8 @@ User 14 did not login in 2020, so we do not include them in the result table.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Group By + Max Function
 
 We can first filter out the login records in 2020, and then group by `user_id`, and use the `max` function to calculate the maximum login time for each user.
@@ -85,4 +89,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -13,6 +13,8 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [2152. Minimum Number of Lines to Cover Points 🔒](https://leetcode.com/problems/minimum-number-of-lines-to-cover-points)
 
 [中文文档](/solution/2100-2199/2152.Minimum%20Number%20of%20Lines%20to%20Cover%20Points/README.md)
@@ -56,6 +58,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -224,4 +228,6 @@ func minimumLines(points [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

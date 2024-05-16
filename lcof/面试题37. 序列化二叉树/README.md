@@ -4,11 +4,13 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9837.%20%E5%BA%8F%E5%88%97%E5%8C%96%E4%BA%8C%E5%8F%89%E6%A0%91/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 37. 序列化二叉树](https://leetcode.cn/problems/xu-lie-hua-er-cha-shu-lcof/)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请实现两个函数，分别用来序列化和反序列化二叉树。</p>
 
@@ -29,7 +31,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <p>注意：本题与主站 297 题相同：<a href="https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/">https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：层序遍历
 
@@ -426,6 +432,8 @@ public class Codec {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
 ### 方法二：前序遍历
 
 当二叉树的前中后序列不包含叶子节点时需要前中、前后、中后三种组合方式之一才能确定一颗二叉树，但当前序和后序遍历序列中包含叶子节点时，可以仅通过前序或后序遍历序列构建一颗二叉树。
@@ -542,6 +550,8 @@ var deserialize = function (data) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
 ### 方法三：后序遍历
 
 在后序遍历序列化时，我们以任意特殊字符表示叶子节点，返回序列化后的字符串；反序列化时对序列化字符串根据分隔符进行切分后使用列表的最后一个元素作为二叉树的根节点，然后利用列表的其他元素递归生成左右子树即可。
@@ -607,4 +617,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

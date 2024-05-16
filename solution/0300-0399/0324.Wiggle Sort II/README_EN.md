@@ -9,6 +9,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [324. Wiggle Sort II](https://leetcode.com/problems/wiggle-sort-ii)
 
 [中文文档](/solution/0300-0399/0324.Wiggle%20Sort%20II/README.md)
@@ -48,6 +50,8 @@ tags:
 <strong>Follow Up:</strong> Can you do it in <code>O(n)</code> time and/or <strong>in-place</strong> with <code>O(1)</code> extra space?
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -157,6 +161,10 @@ var wiggleSort = function (nums) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -259,4 +267,6 @@ func wiggleSort(nums []int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

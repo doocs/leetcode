@@ -9,6 +9,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [2792. Count Nodes That Are Great Enough 🔒](https://leetcode.com/problems/count-nodes-that-are-great-enough)
 
 [中文文档](/solution/2700-2799/2792.Count%20Nodes%20That%20Are%20Great%20Enough/README.md)
@@ -77,6 +79,8 @@ See the picture below for a better understanding.</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -258,4 +262,6 @@ func (h *hp) pop() int   { return heap.Pop(h).(int) }
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

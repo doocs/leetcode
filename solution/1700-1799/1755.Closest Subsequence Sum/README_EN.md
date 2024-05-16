@@ -12,6 +12,8 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [1755. Closest Subsequence Sum](https://leetcode.com/problems/closest-subsequence-sum)
 
 [中文文档](/solution/1700-1799/1755.Closest%20Subsequence%20Sum/README.md)
@@ -62,6 +64,8 @@ The absolute difference is abs(-4 - (-5)) = abs(1) = 1, which is the minimum.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -250,6 +254,10 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -404,4 +412,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

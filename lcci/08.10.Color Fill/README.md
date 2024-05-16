@@ -4,13 +4,16 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.10.Color%20Fill/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 08.10. 颜色填充](https://leetcode.cn/problems/color-fill-lcci)
 
 [English Version](/lcci/08.10.Color%20Fill/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>颜色填充。编写函数，实现许多图片编辑软件都支持的“颜色填充”功能。给定一个屏幕（以二维数组表示，元素为颜色值）、一个点和一个新的颜色值，将新颜色值填入这个点的周围区域，直到原来的颜色值全都改变。</p>
 
 <p> <strong>示例1:</strong></p>
@@ -35,7 +38,11 @@ sr = 1, sc = 1, newColor = 2
 <li>image[i][j] 和 newColor 表示的颜色值在范围 [0, 65535]内。</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -227,6 +234,8 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
 ### 方法二：BFS
 
 我们可以使用广度优先搜索的方法，从起始点开始，将起始点的颜色填充成新的颜色，然后将起始点加入队列。每次从队列中取出一个点，然后将其上下左右四个方向的点加入队列，直到队列为空。
@@ -360,4 +369,6 @@ function floodFill(image: number[][], sr: number, sc: number, newColor: number):
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

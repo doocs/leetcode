@@ -9,13 +9,15 @@ tags:
     - 数组
 ---
 
+<!-- problem:start -->
+
 # [2569. 更新数组后处理求和查询](https://leetcode.cn/problems/handling-sum-queries-after-update)
 
 [English Version](/solution/2500-2599/2569.Handling%20Sum%20Queries%20After%20Update/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个下标从 <strong>0</strong>&nbsp;开始的数组&nbsp;<code>nums1</code> 和&nbsp;<code>nums2</code>&nbsp;，和一个二维数组&nbsp;<code>queries</code>&nbsp;表示一些操作。总共有 3 种类型的操作：</p>
 
@@ -60,7 +62,11 @@ tags:
 	<li><code>0 &lt;= nums2[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：线段树
 
@@ -499,4 +505,6 @@ func handleQuery(nums1 []int, nums2 []int, queries [][]int) (ans []int64) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

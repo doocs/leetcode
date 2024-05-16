@@ -9,6 +9,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [1817. Finding the Users Active Minutes](https://leetcode.com/problems/finding-the-users-active-minutes)
 
 [中文文档](/solution/1800-1899/1817.Finding%20the%20Users%20Active%20Minutes/README.md)
@@ -60,6 +62,8 @@ Hence, answer[1] = 1, answer[2] = 1, and the remaining values are 0.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -153,4 +157,6 @@ function findingUsersActiveMinutes(logs: number[][], k: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

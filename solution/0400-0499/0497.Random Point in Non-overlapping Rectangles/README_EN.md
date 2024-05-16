@@ -12,6 +12,8 @@ tags:
     - Randomized
 ---
 
+<!-- problem:start -->
+
 # [497. Random Point in Non-overlapping Rectangles](https://leetcode.com/problems/random-point-in-non-overlapping-rectangles)
 
 [中文文档](/solution/0400-0499/0497.Random%20Point%20in%20Non-overlapping%20Rectangles/README.md)
@@ -66,6 +68,8 @@ solution.pick(); // return [0, 0]
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -198,4 +202,6 @@ func (this *Solution) Pick() []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

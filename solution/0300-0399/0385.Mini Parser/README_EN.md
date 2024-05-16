@@ -8,6 +8,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [385. Mini Parser](https://leetcode.com/problems/mini-parser)
 
 [中文文档](/solution/0300-0399/0385.Mini%20Parser/README.md)
@@ -51,6 +53,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -349,6 +353,10 @@ function deserialize(s: string): NestedInteger {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Stack
 
@@ -703,4 +711,6 @@ function deserialize(s: string): NestedInteger {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

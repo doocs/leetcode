@@ -13,6 +13,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [3035. Maximum Palindromes After Operations](https://leetcode.com/problems/maximum-palindromes-after-operations)
 
 [中文文档](/solution/3000-3099/3035.Maximum%20Palindromes%20After%20Operations/README.md)
@@ -74,6 +76,8 @@ Hence, the answer is 1.</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -199,4 +203,6 @@ function maxPalindromesAfterOperations(words: string[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

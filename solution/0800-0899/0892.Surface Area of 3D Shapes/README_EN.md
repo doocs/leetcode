@@ -9,6 +9,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [892. Surface Area of 3D Shapes](https://leetcode.com/problems/surface-area-of-3d-shapes)
 
 [中文文档](/solution/0800-0899/0892.Surface%20Area%20of%203D%20Shapes/README.md)
@@ -55,6 +57,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -140,4 +144,6 @@ func surfaceArea(grid [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

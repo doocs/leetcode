@@ -13,6 +13,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2577. Minimum Time to Visit a Cell In a Grid](https://leetcode.com/problems/minimum-time-to-visit-a-cell-in-a-grid)
 
 [中文文档](/solution/2500-2599/2577.Minimum%20Time%20to%20Visit%20a%20Cell%20In%20a%20Grid/README.md)
@@ -77,6 +79,8 @@ The final time is 7. It can be shown that it is the minimum time possible.
 </style>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Shortest Path + Priority Queue (Min Heap)
 
@@ -246,4 +250,6 @@ func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

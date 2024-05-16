@@ -10,6 +10,8 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [3091. Apply Operations to Make Sum of Array Greater Than or Equal to k](https://leetcode.com/problems/apply-operations-to-make-sum-of-array-greater-than-or-equal-to-k)
 
 [中文文档](/solution/3000-3099/3091.Apply%20Operations%20to%20Make%20Sum%20of%20Array%20Greater%20Than%20or%20Equal%20to%20k/README.md)
@@ -68,6 +70,8 @@ The total number of operations performed is <code>3 + 2 = 5</code>.</p>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -145,4 +149,6 @@ function minOperations(k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

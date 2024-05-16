@@ -10,6 +10,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1685. Sum of Absolute Differences in a Sorted Array](https://leetcode.com/problems/sum-of-absolute-differences-in-a-sorted-array)
 
 [中文文档](/solution/1600-1699/1685.Sum%20of%20Absolute%20Differences%20in%20a%20Sorted%20Array/README.md)
@@ -50,6 +52,8 @@ result[2] = |5-2| + |5-3| + |5-5| = 3 + 2 + 0 = 5.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Summation + Enumeration
 
@@ -180,4 +184,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

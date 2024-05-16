@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.11.Find%20Closest/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [17.11. Find Closest](https://leetcode.cn/problems/find-closest-lcci)
 
 [中文文档](/lcci/17.11.Find%20Closest/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have a large text file containing words. Given any two words, find the shortest distance (in terms of number of words) between them in the file. If the operation will be repeated many times for the same file (but different pairs of words), can you optimize your solution?</p>
 
@@ -26,7 +30,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.11.Find%20Closest/
 	<li><code>words.length &lt;= 100000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Single Pass
 
@@ -169,6 +177,8 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
 ### Solution 2: Hash Table + Two Pointers
 
 We can use a hash table $d$ to record the positions of each word. Then, for each pair of $\textit{word1}$ and $\textit{word2}$, we can find their shortest distance using the two-pointer method.
@@ -299,4 +309,6 @@ function findClosest(words: string[], word1: string, word2: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2103. Rings and Rods](https://leetcode.com/problems/rings-and-rods)
 
 [中文文档](/solution/2100-2199/2103.Rings%20and%20Rods/README.md)
@@ -72,6 +74,8 @@ Only one ring is given. Thus, no rods have all three colors.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
 
@@ -228,6 +232,10 @@ int countPoints(char* rings) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -244,4 +252,6 @@ function countPoints(rings: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

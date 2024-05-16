@@ -8,13 +8,15 @@ tags:
     - 双指针
 ---
 
+<!-- problem:start -->
+
 # [1634. 求两个多项式链表的和 🔒](https://leetcode.cn/problems/add-two-polynomials-represented-as-linked-lists)
 
 [English Version](/solution/1600-1699/1634.Add%20Two%20Polynomials%20Represented%20as%20Linked%20Lists/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>多项式链表是一种特殊形式的链表，每个节点表示多项式的一项。</p>
 
@@ -78,7 +80,11 @@ tags:
 	<li><code>PolyNode.power > PolyNode.next.power</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：遍历链表
 
@@ -309,4 +315,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

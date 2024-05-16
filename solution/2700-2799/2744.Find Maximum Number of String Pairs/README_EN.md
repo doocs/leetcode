@@ -11,6 +11,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2744. Find Maximum Number of String Pairs](https://leetcode.com/problems/find-maximum-number-of-string-pairs)
 
 [中文文档](/solution/2700-2799/2744.Find%20Maximum%20Number%20of%20String%20Pairs/README.md)
@@ -70,6 +72,8 @@ It can be proven that 1 is the maximum number of pairs that can be formed.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -152,4 +156,6 @@ function maximumNumberOfStringPairs(words: string[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

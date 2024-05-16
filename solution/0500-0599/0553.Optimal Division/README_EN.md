@@ -8,6 +8,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [553. Optimal Division](https://leetcode.com/problems/optimal-division)
 
 [中文文档](/solution/0500-0599/0553.Optimal%20Division/README.md)
@@ -61,6 +63,8 @@ It can be shown that after trying all possibilities, we cannot get an expression
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -169,4 +173,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

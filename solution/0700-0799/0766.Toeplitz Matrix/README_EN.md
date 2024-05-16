@@ -7,6 +7,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [766. Toeplitz Matrix](https://leetcode.com/problems/toeplitz-matrix)
 
 [中文文档](/solution/0700-0799/0766.Toeplitz%20Matrix/README.md)
@@ -57,6 +59,8 @@ The diagonal &quot;[1, 2]&quot; has different elements.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -141,4 +145,6 @@ var isToeplitzMatrix = function (matrix) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

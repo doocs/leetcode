@@ -4,6 +4,8 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2721.Execute%20Asynchronous%20Functions%20in%20Parallel/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2721. Execute Asynchronous Functions in Parallel](https://leetcode.com/problems/execute-asynchronous-functions-in-parallel)
 
 [中文文档](/solution/2700-2799/2721.Execute%20Asynchronous%20Functions%20in%20Parallel/README.md)
@@ -73,6 +75,8 @@ The single function was resolved at 200ms with a value of 5.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -107,4 +111,6 @@ async function promiseAll<T>(functions: (() => Promise<T>)[]): Promise<T[]> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

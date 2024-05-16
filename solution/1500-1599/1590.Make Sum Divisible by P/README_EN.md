@@ -10,6 +10,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1590. Make Sum Divisible by P](https://leetcode.com/problems/make-sum-divisible-by-p)
 
 [中文文档](/solution/1500-1599/1590.Make%20Sum%20Divisible%20by%20P/README.md)
@@ -57,6 +59,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -194,4 +198,6 @@ function minSubarray(nums: number[], p: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

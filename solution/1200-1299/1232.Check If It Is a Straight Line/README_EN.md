@@ -10,6 +10,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [1232. Check If It Is a Straight Line](https://leetcode.com/problems/check-if-it-is-a-straight-line)
 
 [中文文档](/solution/1200-1299/1232.Check%20If%20It%20Is%20a%20Straight%20Line/README.md)
@@ -50,6 +52,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematics
 
@@ -117,4 +121,6 @@ func checkStraightLine(coordinates [][]int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

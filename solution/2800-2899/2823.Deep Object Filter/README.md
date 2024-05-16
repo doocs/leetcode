@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2823.Deep%20Object%20Filter/README.md
 ---
 
+<!-- problem:start -->
+
 # [2823. 深度对象筛选 🔒](https://leetcode.cn/problems/deep-object-filter)
 
 [English Version](/solution/2800-2899/2823.Deep%20Object%20Filter/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个对象 <code>obj</code> 和一个函数 <code>fn</code>，返回一个经过筛选的对象 <code>filteredObject</code>。</p>
 
@@ -67,7 +69,11 @@ fn = (x) =&gt; Array.isArray(x)
 	<li><code>2 &lt;= JSON.stringify(obj).length &lt;= 10**5</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -109,4 +115,6 @@ function deepFilter(obj: Record<string, any>, fn: Function): Record<string, any>
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,6 +10,8 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [3115. Maximum Prime Difference](https://leetcode.com/problems/maximum-prime-difference)
 
 [中文文档](/solution/3100-3199/3115.Maximum%20Prime%20Difference/README.md)
@@ -51,6 +53,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Traversal
 
@@ -187,4 +191,6 @@ function maximumPrimeDifference(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

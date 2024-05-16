@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1555. Bank Account Summary 🔒](https://leetcode.com/problems/bank-account-summary)
 
 [中文文档](/solution/1500-1599/1555.Bank%20Account%20Summary/README.md)
@@ -102,6 +104,8 @@ Luis did not received any transfer, credit = $800
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -127,4 +131,6 @@ GROUP BY t.user_id;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

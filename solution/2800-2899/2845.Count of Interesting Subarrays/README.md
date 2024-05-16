@@ -10,13 +10,15 @@ tags:
     - 前缀和
 ---
 
+<!-- problem:start -->
+
 # [2845. 统计趣味子数组的数目](https://leetcode.cn/problems/count-of-interesting-subarrays)
 
 [English Version](/solution/2800-2899/2845.Count%20of%20Interesting%20Subarrays/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> ，以及整数 <code>modulo</code> 和整数 <code>k</code> 。</p>
 
@@ -76,7 +78,11 @@ tags:
 	<li><code>0 &lt;= k &lt; modulo</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 前缀和
 
@@ -194,4 +200,6 @@ function countInterestingSubarrays(nums: number[], modulo: number, k: number): n
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

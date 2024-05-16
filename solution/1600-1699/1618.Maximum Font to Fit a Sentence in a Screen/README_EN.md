@@ -9,6 +9,8 @@ tags:
     - Interactive
 ---
 
+<!-- problem:start -->
+
 # [1618. Maximum Font to Fit a Sentence in a Screen 🔒](https://leetcode.com/problems/maximum-font-to-fit-a-sentence-in-a-screen)
 
 [中文文档](/solution/1600-1699/1618.Maximum%20Font%20to%20Fit%20a%20Sentence%20in%20a%20Screen/README.md)
@@ -112,6 +114,8 @@ interface FontInfo {
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -287,4 +291,6 @@ var maxFont = function (text, w, h, fonts, fontInfo) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

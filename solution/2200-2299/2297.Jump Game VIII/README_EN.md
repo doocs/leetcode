@@ -11,6 +11,8 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [2297. Jump Game VIII 🔒](https://leetcode.com/problems/jump-game-viii)
 
 [中文文档](/solution/2200-2299/2297.Jump%20Game%20VIII/README.md)
@@ -63,6 +65,8 @@ The total cost is 2. Note that you cannot jump directly from index 0 to index 2 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -248,4 +252,6 @@ function minCost(nums: number[], costs: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

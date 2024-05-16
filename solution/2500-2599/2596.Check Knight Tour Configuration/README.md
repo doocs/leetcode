@@ -12,13 +12,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [2596. 检查骑士巡视方案](https://leetcode.cn/problems/check-knight-tour-configuration)
 
 [English Version](/solution/2500-2599/2596.Check%20Knight%20Tour%20Configuration/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>骑士在一张 <code>n x n</code> 的棋盘上巡视。在&nbsp;<strong>有效&nbsp;</strong>的巡视方案中，骑士会从棋盘的 <strong>左上角</strong> 出发，并且访问棋盘上的每个格子 <strong>恰好一次</strong> 。</p>
 
@@ -58,7 +60,11 @@ tags:
 	<li><code>grid</code> 中的所有整数 <strong>互不相同</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -206,4 +212,6 @@ function checkValidGrid(grid: number[][]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

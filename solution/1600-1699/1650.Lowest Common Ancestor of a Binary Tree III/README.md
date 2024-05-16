@@ -9,13 +9,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [1650. 二叉树的最近公共祖先 III 🔒](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree-iii)
 
 [English Version](/solution/1600-1699/1650.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree%20III/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一棵二叉树中的两个节点 <code>p</code> 和 <code>q</code>，返回它们的最近公共祖先节点（LCA）。</p>
 
@@ -65,7 +67,11 @@ tags:
 	<li><code>p</code> 和 <code>q</code> 存在于树中。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -210,6 +216,10 @@ function lowestCommonAncestor(p: Node | null, q: Node | null): Node | null {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：双指针
 
 我们可以用两个指针 $a$ 和 $b$ 分别指向节点 $p$ 和 $q$，然后分别往根节点方向遍历，当 $a$ 和 $b$ 相遇时，就是 $p$ 和 $q$ 的最近公共祖先节点。否则，如果指针 $a$ 遍历到了根节点，那么我们就让它指向节点 $q$，指针 $b$ 同理。这样，当两个指针相遇时，就是 $p$ 和 $q$ 的最近公共祖先节点。
@@ -346,4 +356,6 @@ function lowestCommonAncestor(p: Node | null, q: Node | null): Node | null {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,6 +8,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [815. Bus Routes](https://leetcode.com/problems/bus-routes)
 
 [中文文档](/solution/0800-0899/0815.Bus%20Routes/README.md)
@@ -55,6 +57,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -324,4 +328,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1244. Design A Leaderboard 🔒](https://leetcode.com/problems/design-a-leaderboard)
 
 [中文文档](/solution/1200-1299/1244.Design%20A%20Leaderboard/README.md)
@@ -61,6 +63,8 @@ leaderboard.top(3);           // returns 141 = 51 + 51 + 39;
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Ordered List
 
@@ -262,4 +266,6 @@ impl Leaderboard {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

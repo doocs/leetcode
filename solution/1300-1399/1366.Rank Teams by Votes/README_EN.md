@@ -12,6 +12,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1366. Rank Teams by Votes](https://leetcode.com/problems/rank-teams-by-votes)
 
 [中文文档](/solution/1300-1399/1366.Rank%20Teams%20by%20Votes/README.md)
@@ -69,6 +71,8 @@ X is the winner due to the tie-breaking rule. X has the same votes as W for the 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting + Custom Sorting
 
@@ -174,4 +178,6 @@ func rankTeams(votes []string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

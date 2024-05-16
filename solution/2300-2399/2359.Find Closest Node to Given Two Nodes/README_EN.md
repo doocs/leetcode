@@ -9,6 +9,8 @@ tags:
     - Graph
 ---
 
+<!-- problem:start -->
+
 # [2359. Find Closest Node to Given Two Nodes](https://leetcode.com/problems/find-closest-node-to-given-two-nodes)
 
 [中文文档](/solution/2300-2399/2359.Find%20Closest%20Node%20to%20Given%20Two%20Nodes/README.md)
@@ -56,6 +58,8 @@ The maximum of those two distances is 2. It can be proven that we cannot get a n
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -281,6 +285,10 @@ function closestMeetingNode(edges: number[], node1: number, node2: number): numb
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -453,4 +461,6 @@ func closestMeetingNode(edges []int, node1 int, node2 int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

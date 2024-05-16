@@ -7,6 +7,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [822. Card Flipping Game](https://leetcode.com/problems/card-flipping-game)
 
 [中文文档](/solution/0800-0899/0822.Card%20Flipping%20Game/README.md)
@@ -50,6 +52,8 @@ There are no good integers no matter how we flip the cards, so we return 0.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -188,4 +192,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

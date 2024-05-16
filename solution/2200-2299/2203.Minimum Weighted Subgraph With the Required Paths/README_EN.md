@@ -9,6 +9,8 @@ tags:
     - Shortest Path
 ---
 
+<!-- problem:start -->
+
 # [2203. Minimum Weighted Subgraph With the Required Paths](https://leetcode.com/problems/minimum-weighted-subgraph-with-the-required-paths)
 
 [中文文档](/solution/2200-2299/2203.Minimum%20Weighted%20Subgraph%20With%20the%20Required%20Paths/README.md)
@@ -61,6 +63,8 @@ It can be seen that there does not exist any path from node 1 to node 2, hence t
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -161,4 +165,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

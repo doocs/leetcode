@@ -9,13 +9,15 @@ tags:
     - 滑动窗口
 ---
 
+<!-- problem:start -->
+
 # [1176. 健身计划评估 🔒](https://leetcode.cn/problems/diet-plan-performance)
 
 [English Version](/solution/1100-1199/1176.Diet%20Plan%20Performance/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你的好友是一位健身爱好者。前段日子，他给自己制定了一份健身计划。现在想请你帮他评估一下这份计划是否合理。</p>
 
@@ -65,7 +67,11 @@ tags:
 	<li><code>0 &lt;= lower &lt;= upper</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀和
 
@@ -179,6 +185,10 @@ function dietPlanPerformance(calories: number[], k: number, lower: number, upper
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：滑动窗口
 
@@ -307,4 +317,6 @@ function dietPlanPerformance(calories: number[], k: number, lower: number, upper
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

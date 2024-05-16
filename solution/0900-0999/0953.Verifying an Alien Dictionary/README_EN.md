@@ -8,6 +8,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [953. Verifying an Alien Dictionary](https://leetcode.com/problems/verifying-an-alien-dictionary)
 
 [中文文档](/solution/0900-0999/0953.Verifying%20an%20Alien%20Dictionary/README.md)
@@ -54,6 +56,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -257,4 +261,6 @@ bool isAlienSorted(char** words, int wordsSize, char* order) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

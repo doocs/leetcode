@@ -9,13 +9,15 @@ tags:
     - 有序集合
 ---
 
+<!-- problem:start -->
+
 # [895. 最大频率栈](https://leetcode.cn/problems/maximum-frequency-stack)
 
 [English Version](/solution/0800-0899/0895.Maximum%20Frequency%20Stack/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计一个类似堆栈的数据结构，将元素推入堆栈，并从堆栈中弹出<strong>出现频率</strong>最高的元素。</p>
 
@@ -63,7 +65,11 @@ freqStack.pop ();//返回 4 ，因为 4, 5 和 7 出现频率最高，但 4 是�
 	<li>输入保证在调用&nbsp;<code>pop</code>&nbsp;之前堆栈中至少有一个元素。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 优先队列（大根堆）
 
@@ -206,6 +212,10 @@ func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; retur
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：双哈希表
 
@@ -350,4 +360,6 @@ func (this *FreqStack) Pop() int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

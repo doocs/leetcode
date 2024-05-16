@@ -7,13 +7,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [60. 排列序列](https://leetcode.cn/problems/permutation-sequence)
 
 [English Version](/solution/0000-0099/0060.Permutation%20Sequence/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给出集合 <code>[1,2,3,...,n]</code>，其所有元素共有 <code>n!</code> 种排列。</p>
 
@@ -62,7 +64,11 @@ tags:
 	<li><code>1 <= k <= n!</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -259,4 +265,6 @@ function getPermutation(n: number, k: number): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

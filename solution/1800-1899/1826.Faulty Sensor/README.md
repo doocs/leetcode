@@ -7,13 +7,15 @@ tags:
     - 双指针
 ---
 
+<!-- problem:start -->
+
 # [1826. 有缺陷的传感器 🔒](https://leetcode.cn/problems/faulty-sensor)
 
 [English Version](/solution/1800-1899/1826.Faulty%20Sensor/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>实验室里正在进行一项实验。为了确保数据的准确性，同时使用 <strong>两个</strong> 传感器来采集数据。您将获得2个数组 <code>sensor1</code> and <code>sensor2</code>，其中 <code>sensor1[i]</code>&nbsp;和&nbsp;<code>sensor2[i]</code>&nbsp;分别是两个传感器对<span style="">第 <code>i</code> 个</span>数据点采集到的数据。</p>
 
@@ -65,7 +67,11 @@ tags:
 	<li><code>1 &lt;= sensor1[i], sensor2[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：遍历
 
@@ -172,4 +178,6 @@ function badSensor(sensor1: number[], sensor2: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

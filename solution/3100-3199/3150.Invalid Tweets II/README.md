@@ -4,13 +4,15 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3150.Invalid%20Tweets%20II/README.md
 ---
 
+<!-- problem:start -->
+
 # [3150. 无效的推文 II 🔒](https://leetcode.cn/problems/invalid-tweets-ii)
 
 [English Version](/solution/3100-3199/3150.Invalid%20Tweets%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Tweets</code></p>
 
@@ -75,7 +77,11 @@ tweet_id 是这个表的主键（有不同值的列）。
 </ul>
 输出表以 tweet_id 升序排序。</div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：LENGTH() 函数 + REPLACE() 函数
 
@@ -108,4 +114,6 @@ def find_invalid_tweets(tweets: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

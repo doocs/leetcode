@@ -11,6 +11,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1383. Maximum Performance of a Team](https://leetcode.com/problems/maximum-performance-of-a-team)
 
 [中文文档](/solution/1300-1399/1383.Maximum%20Performance%20of%20a%20Team/README.md)
@@ -63,6 +65,8 @@ We have the maximum performance of the team by selecting engineer 2 (with speed=
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -174,4 +178,6 @@ func (h *hp) Less(i, j int) bool { return h.IntSlice[i] < h.IntSlice[j] }
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

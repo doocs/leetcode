@@ -9,6 +9,8 @@ tags:
     - Graph
 ---
 
+<!-- problem:start -->
+
 # [2076. Process Restricted Friend Requests](https://leetcode.com/problems/process-restricted-friend-requests)
 
 [中文文档](/solution/2000-2099/2076.Process%20Restricted%20Friend%20Requests/README.md)
@@ -76,6 +78,8 @@ Request 3: Person 3 and person 4 cannot be friends since person 0 and person 1 w
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Union-Find
 
@@ -270,4 +274,6 @@ function friendRequests(n: number, restrictions: number[][], requests: number[][
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

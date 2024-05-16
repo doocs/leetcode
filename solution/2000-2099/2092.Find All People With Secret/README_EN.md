@@ -12,6 +12,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2092. Find All People With Secret](https://leetcode.com/problems/find-all-people-with-secret)
 
 [中文文档](/solution/2000-2099/2092.Find%20All%20People%20With%20Secret/README.md)
@@ -79,6 +81,8 @@ Thus, people 0, 1, 2, 3, and 4 know the secret after all the meetings.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -310,4 +314,6 @@ function findAllPeople(n: number, meetings: number[][], firstPerson: number): nu
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

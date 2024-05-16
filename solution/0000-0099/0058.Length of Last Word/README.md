@@ -6,13 +6,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [58. 最后一个单词的长度](https://leetcode.cn/problems/length-of-last-word)
 
 [English Version](/solution/0000-0099/0058.Length%20of%20Last%20Word/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>s</code>，由若干单词组成，单词前后用一些空格字符隔开。返回字符串中 <strong>最后一个</strong> 单词的长度。</p>
 
@@ -54,7 +56,11 @@ tags:
 	<li><code>s</code> 中至少存在一个单词</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：逆向遍历 + 双指针
 
@@ -208,4 +214,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

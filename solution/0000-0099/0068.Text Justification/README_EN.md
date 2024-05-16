@@ -8,6 +8,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [68. Text Justification](https://leetcode.com/problems/text-justification)
 
 [中文文档](/solution/0000-0099/0068.Text%20Justification/README.md)
@@ -81,6 +83,8 @@ Note that the second line is also left-justified because it contains only one wo
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -296,4 +300,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

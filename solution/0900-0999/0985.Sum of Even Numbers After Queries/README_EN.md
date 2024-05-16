@@ -7,6 +7,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [985. Sum of Even Numbers After Queries](https://leetcode.com/problems/sum-of-even-numbers-after-queries)
 
 [中文文档](/solution/0900-0999/0985.Sum%20of%20Even%20Numbers%20After%20Queries/README.md)
@@ -51,6 +53,8 @@ After adding 2 to nums[3], the array is [-2,-1,3,6], and the sum of even values 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -204,4 +208,6 @@ var sumEvenAfterQueries = function (nums, queries) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.02.Words%20Frequency/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [16.02. Words Frequency](https://leetcode.cn/problems/words-frequency-lcci)
 
 [中文文档](/lcci/16.02.Words%20Frequency/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design a method to find the frequency of occurrences of any given word in a book. What if we were running this algorithm multiple times?</p>
 
@@ -46,7 +50,11 @@ wordsFrequency.get(&quot;pen&quot;); //returns 1
     <li><code>get</code>&nbsp;function will not be called more than&nbsp;100000 times.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -239,4 +247,6 @@ class WordsFrequency {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

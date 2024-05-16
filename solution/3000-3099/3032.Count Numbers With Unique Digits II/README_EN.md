@@ -8,6 +8,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [3032. Count Numbers With Unique Digits II 🔒](https://leetcode.com/problems/count-numbers-with-unique-digits-ii)
 
 [中文文档](/solution/3000-3099/3032.Count%20Numbers%20With%20Unique%20Digits%20II/README.md)
@@ -49,6 +51,8 @@ Given two <strong>positive</strong> integers <code>a</code> and <code>b</code>, 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: State Compression + Digit DP
 
@@ -265,6 +269,10 @@ function numberCount(a: number, b: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -369,4 +377,6 @@ function hasUniqueDigits(num: number): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

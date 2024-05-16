@@ -10,13 +10,15 @@ tags:
     - 单调栈
 ---
 
+<!-- problem:start -->
+
 # [321. 拼接最大数](https://leetcode.cn/problems/create-maximum-number)
 
 [English Version](/solution/0300-0399/0321.Create%20Maximum%20Number/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个整数数组 <code>nums1</code> 和 <code>nums2</code>，它们的长度分别为 <code>m</code> 和 <code>n</code>。数组 <code>nums1</code> 和 <code>nums2</code> 分别代表两个数各位上的数字。同时你也会得到一个整数 <code>k</code>。</p>
 
@@ -59,7 +61,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= m + n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举 + 单调栈
 
@@ -406,4 +412,6 @@ function merge(nums1: number[], nums2: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

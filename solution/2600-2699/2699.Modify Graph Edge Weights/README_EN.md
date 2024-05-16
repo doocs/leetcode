@@ -10,6 +10,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2699. Modify Graph Edge Weights](https://leetcode.com/problems/modify-graph-edge-weights)
 
 [中文文档](/solution/2600-2699/2699.Modify%20Graph%20Edge%20Weights/README.md)
@@ -74,6 +76,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Shortest Path (Dijkstra's Algorithm)
 
@@ -389,4 +393,6 @@ function modifiedGraphEdges(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

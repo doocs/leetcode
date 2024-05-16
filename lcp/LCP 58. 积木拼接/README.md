@@ -4,11 +4,13 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2058.%20%E7%A7%AF%E6%9C%A8%E6%8B%BC%E6%8E%A5/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 58. 积木拼接](https://leetcode.cn/problems/De4qBB)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 欢迎各位勇者来到力扣城，本次试炼主题为「积木拼接」。
 勇者面前有 `6` 片积木（厚度均为 1），每片积木的形状记录于二维字符串数组 `shapes` 中，`shapes[i]` 表示第 `i` 片积木，其中 `1` 表示积木对应位置无空缺，`0` 表示积木对应位置有空缺。
@@ -56,6 +58,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2058.%20%E7%A7%AF%
 -   `shapes[i].length == shapes[i][j].length`
 -   `3 <= shapes[i].length <= 10`
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

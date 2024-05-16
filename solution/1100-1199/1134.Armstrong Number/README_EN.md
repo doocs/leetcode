@@ -8,6 +8,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [1134. Armstrong Number 🔒](https://leetcode.com/problems/armstrong-number)
 
 [中文文档](/solution/1100-1199/1134.Armstrong%20Number/README.md)
@@ -43,6 +45,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -132,4 +136,6 @@ var isArmstrong = function (n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

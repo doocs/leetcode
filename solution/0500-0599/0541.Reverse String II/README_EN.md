@@ -7,6 +7,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [541. Reverse String II](https://leetcode.com/problems/reverse-string-ii)
 
 [中文文档](/solution/0500-0599/0541.Reverse%20String%20II/README.md)
@@ -35,6 +37,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -91,4 +95,6 @@ func reverseStr(s string, k int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

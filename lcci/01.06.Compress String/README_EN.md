@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.06.Compress%20String/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [01.06. Compress String](https://leetcode.cn/problems/compress-string-lcci)
 
 [中文文档](/lcci/01.06.Compress%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Implement a method to perform basic string compression using the counts of repeated characters. For example, the string aabcccccaaa would become a2blc5a3. If the &quot;compressed&quot; string would not become smaller than the original string, your method should return the original string. You can assume the string has only uppercase and lowercase letters (a - z).</p>
 
@@ -40,7 +44,11 @@ The compressed string is &quot;a1b2c2d1&quot;, which is longer than the original
 
 -   `0 <= S.length <= 50000`
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -203,4 +211,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

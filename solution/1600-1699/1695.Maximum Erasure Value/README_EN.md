@@ -10,6 +10,8 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [1695. Maximum Erasure Value](https://leetcode.com/problems/maximum-erasure-value)
 
 [中文文档](/solution/1600-1699/1695.Maximum%20Erasure%20Value/README.md)
@@ -48,6 +50,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Array or Hash Table + Prefix Sum
 
@@ -155,6 +159,10 @@ function maximumUniqueSubarray(nums: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Two Pointers
 
 The problem is actually asking us to find the longest subarray in which all elements are distinct. We can use two pointers $i$ and $j$ to point to the left and right boundaries of the subarray, initially $i = 0$, $j = 0$. In addition, we use a hash table $vis$ to record the elements in the subarray.
@@ -260,4 +268,6 @@ function maximumUniqueSubarray(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

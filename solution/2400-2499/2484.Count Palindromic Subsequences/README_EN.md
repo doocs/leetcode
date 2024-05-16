@@ -9,6 +9,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2484. Count Palindromic Subsequences](https://leetcode.com/problems/count-palindromic-subsequences)
 
 [中文文档](/solution/2400-2499/2484.Count%20Palindromic%20Subsequences/README.md)
@@ -60,6 +62,8 @@ Two of them (both equal to &quot;10301&quot;) are palindromic.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration + Counting
 
@@ -257,4 +261,6 @@ func countPalindromes(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

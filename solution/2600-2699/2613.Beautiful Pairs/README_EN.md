@@ -11,6 +11,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2613. Beautiful Pairs 🔒](https://leetcode.com/problems/beautiful-pairs)
 
 [中文文档](/solution/2600-2699/2613.Beautiful%20Pairs/README.md)
@@ -56,6 +58,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Divide and Conquer
 
@@ -393,4 +397,6 @@ function f(x: number, y: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,6 +4,8 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2775.Undefined%20to%20Null/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2775. Undefined to Null 🔒](https://leetcode.com/problems/undefined-to-null)
 
 [中文文档](/solution/2700-2799/2775.Undefined%20to%20Null/README.md)
@@ -41,6 +43,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2775.Un
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -66,4 +70,6 @@ function undefinedToNull(obj: Record<any, any>): Record<any, any> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

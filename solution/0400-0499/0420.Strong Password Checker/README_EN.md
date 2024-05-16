@@ -8,6 +8,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [420. Strong Password Checker](https://leetcode.com/problems/strong-password-checker)
 
 [中文文档](/solution/0400-0499/0420.Strong%20Password%20Checker/README.md)
@@ -52,6 +54,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -280,4 +284,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

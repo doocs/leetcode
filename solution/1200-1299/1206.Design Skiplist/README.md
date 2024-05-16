@@ -7,13 +7,15 @@ tags:
     - 链表
 ---
 
+<!-- problem:start -->
+
 # [1206. 设计跳表](https://leetcode.cn/problems/design-skiplist)
 
 [English Version](/solution/1200-1299/1206.Design%20Skiplist/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>不使用任何库函数，设计一个 <strong>跳表</strong> 。</p>
 
@@ -70,7 +72,11 @@ skiplist.search(1);   // 返回 false，1 已被擦除
 	<li>调用<code>search</code>, <code>add</code>, &nbsp;<code>erase</code>操作次数不大于&nbsp;<code>5 * 10<sup>4</sup></code>&nbsp;</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数据结构
 
@@ -412,4 +418,6 @@ func randomLevel() int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

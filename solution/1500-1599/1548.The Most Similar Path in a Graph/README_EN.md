@@ -7,6 +7,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1548. The Most Similar Path in a Graph 🔒](https://leetcode.com/problems/the-most-similar-path-in-a-graph)
 
 [中文文档](/solution/1500-1599/1548.The%20Most%20Similar%20Path%20in%20a%20Graph/README.md)
@@ -75,6 +77,8 @@ It&#39;s equivalent to [&quot;ATL&quot;,&quot;DXB&quot;,&quot;HND&quot;,&quot;DX
 <p><strong>Follow up:</strong> If each node can be visited only once in the path, What should you change in your solution?</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -329,4 +333,6 @@ function mostSimilar(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

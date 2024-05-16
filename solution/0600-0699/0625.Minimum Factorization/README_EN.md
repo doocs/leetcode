@@ -7,6 +7,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [625. Minimum Factorization 🔒](https://leetcode.com/problems/minimum-factorization)
 
 [中文文档](/solution/0600-0699/0625.Minimum%20Factorization/README.md)
@@ -31,6 +33,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -117,4 +121,6 @@ func smallestFactorization(num int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

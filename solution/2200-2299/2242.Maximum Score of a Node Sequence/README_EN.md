@@ -11,6 +11,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2242. Maximum Score of a Node Sequence](https://leetcode.com/problems/maximum-score-of-a-node-sequence)
 
 [中文文档](/solution/2200-2299/2242.Maximum%20Score%20of%20a%20Node%20Sequence/README.md)
@@ -70,6 +72,8 @@ There are no valid node sequences of length 4, so we return -1.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -127,4 +131,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

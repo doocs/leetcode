@@ -10,6 +10,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1660. Correct a Binary Tree 🔒](https://leetcode.com/problems/correct-a-binary-tree)
 
 [中文文档](/solution/1600-1699/1660.Correct%20a%20Binary%20Tree/README.md)
@@ -89,6 +91,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -218,4 +222,6 @@ var correctBinaryTree = function (root) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

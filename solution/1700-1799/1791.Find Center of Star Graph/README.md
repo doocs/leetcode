@@ -8,13 +8,15 @@ tags:
     - 图
 ---
 
+<!-- problem:start -->
+
 # [1791. 找出星型图的中心节点](https://leetcode.cn/problems/find-center-of-star-graph)
 
 [English Version](/solution/1700-1799/1791.Find%20Center%20of%20Star%20Graph/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一个无向的 <strong>星型</strong> 图，由 <code>n</code> 个编号从 <code>1</code> 到 <code>n</code> 的节点组成。星型图有一个 <strong>中心</strong> 节点，并且恰有 <code>n - 1</code> 条边将中心节点与其他每个节点连接起来。</p>
 
@@ -50,7 +52,11 @@ tags:
 	<li>题目数据给出的 <code>edges</code> 表示一个有效的星型图</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：直接比较前两条边的点
 
@@ -133,4 +139,6 @@ var findCenter = function (edges) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

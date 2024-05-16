@@ -4,6 +4,8 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2753.Count%20Houses%20in%20a%20Circular%20Street%20II/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2753. Count Houses in a Circular Street II 🔒](https://leetcode.com/problems/count-houses-in-a-circular-street-ii)
 
 [中文文档](/solution/2700-2799/2753.Count%20Houses%20in%20a%20Circular%20Street%20II/README.md)
@@ -55,6 +57,8 @@ The number of houses is equal to k, which is 5.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -191,4 +195,6 @@ function houseCount(street: Street | null, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

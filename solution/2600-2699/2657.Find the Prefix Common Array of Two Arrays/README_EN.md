@@ -10,6 +10,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [2657. Find the Prefix Common Array of Two Arrays](https://leetcode.com/problems/find-the-prefix-common-array-of-two-arrays)
 
 [中文文档](/solution/2600-2699/2657.Find%20the%20Prefix%20Common%20Array%20of%20Two%20Arrays/README.md)
@@ -56,6 +58,8 @@ At i = 2: 1, 2, and 3 are common in A and B, so C[2] = 3.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -157,6 +161,10 @@ function findThePrefixCommonArray(A: number[], B: number[]): number[] {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Bit Operation (XOR Operation)
 
@@ -266,4 +274,6 @@ function findThePrefixCommonArray(A: number[], B: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

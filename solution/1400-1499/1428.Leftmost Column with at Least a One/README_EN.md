@@ -9,6 +9,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1428. Leftmost Column with at Least a One 🔒](https://leetcode.com/problems/leftmost-column-with-at-least-a-one)
 
 [中文文档](/solution/1400-1499/1428.Leftmost%20Column%20with%20at%20Least%20a%20One/README.md)
@@ -64,6 +66,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -223,6 +227,7 @@ function leftMostColumnWithOne(binaryMatrix: BinaryMatrix) {
 ```
 
 ```rust
+
 /**
  * // This is the BinaryMatrix's API interface.
  * // You should not implement it, or speculate about its implementation
@@ -296,4 +301,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

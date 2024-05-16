@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1757. Recyclable and Low Fat Products](https://leetcode.com/problems/recyclable-and-low-fat-products)
 
 [中文文档](/solution/1700-1799/1757.Recyclable%20and%20Low%20Fat%20Products/README.md)
@@ -61,6 +63,8 @@ Products table:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Conditional Filtering
 
 We can directly filter the product IDs where `low_fats` is `Y` and `recyclable` is `Y`.
@@ -86,4 +90,6 @@ WHERE low_fats = 'Y' AND recyclable = 'Y';
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

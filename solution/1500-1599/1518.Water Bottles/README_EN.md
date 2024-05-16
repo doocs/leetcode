@@ -9,6 +9,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1518. Water Bottles](https://leetcode.com/problems/water-bottles)
 
 [中文文档](/solution/1500-1599/1518.Water%20Bottles/README.md)
@@ -49,6 +51,8 @@ Number of water bottles you can drink: 15 + 3 + 1 = 19.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -144,4 +148,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

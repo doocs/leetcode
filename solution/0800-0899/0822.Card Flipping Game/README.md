@@ -7,13 +7,15 @@ tags:
     - 哈希表
 ---
 
+<!-- problem:start -->
+
 # [822. 翻转卡片游戏](https://leetcode.cn/problems/card-flipping-game)
 
 [English Version](/solution/0800-0899/0822.Card%20Flipping%20Game/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在桌子上有 <code>n</code> 张卡片，每张卡片的正面和背面都写着一个正数（正面与背面上的数有可能不一样）。</p>
 
@@ -56,7 +58,11 @@ tags:
 	<li><code>1 &lt;= fronts[i], backs[i] &lt;= 2000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -205,4 +211,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

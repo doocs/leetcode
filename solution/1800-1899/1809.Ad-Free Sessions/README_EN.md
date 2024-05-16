@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1809. Ad-Free Sessions 🔒](https://leetcode.com/problems/ad-free-sessions)
 
 [中文文档](/solution/1800-1899/1809.Ad-Free%20Sessions/README.md)
@@ -93,6 +95,8 @@ We can see that sessions 1 and 4 had at least one ad. Sessions 2, 3, and 5 did n
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -113,4 +117,6 @@ WHERE
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

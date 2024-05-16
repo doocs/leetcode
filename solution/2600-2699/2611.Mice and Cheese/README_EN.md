@@ -11,6 +11,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2611. Mice and Cheese](https://leetcode.com/problems/mice-and-cheese)
 
 [中文文档](/solution/2600-2699/2611.Mice%20and%20Cheese/README.md)
@@ -61,6 +63,8 @@ It can be proven that 2 is the maximum total points that the mice can achieve.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Sort
 
@@ -160,6 +164,10 @@ function miceAndCheese(reward1: number[], reward2: number[], k: number): number 
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -241,4 +249,6 @@ function miceAndCheese(reward1: number[], reward2: number[], k: number): number 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

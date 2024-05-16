@@ -11,6 +11,8 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [2767. Partition String Into Minimum Beautiful Substrings](https://leetcode.com/problems/partition-string-into-minimum-beautiful-substrings)
 
 [中文文档](/solution/2700-2799/2767.Partition%20String%20Into%20Minimum%20Beautiful%20Substrings/README.md)
@@ -69,6 +71,8 @@ It can be shown that 3 is the minimum number of beautiful substrings that s can 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -274,4 +278,6 @@ function minimumBeautifulSubstrings(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

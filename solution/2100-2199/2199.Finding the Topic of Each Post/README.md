@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [2199. 找到每篇文章的主题 🔒](https://leetcode.cn/problems/finding-the-topic-of-each-post)
 
 [English Version](/solution/2100-2199/2199.Finding%20the%20Topic%20of%20Each%20Post/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Keywords</code></p>
 
@@ -109,7 +111,11 @@ Posts 表:
 所以这篇文章 “Ambiguous!”
 请注意，可以使用一个词来表达多个主题。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -128,4 +134,6 @@ GROUP BY post_id;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2253. Dynamic Unpivoting of a Table 🔒](https://leetcode.com/problems/dynamic-unpivoting-of-a-table)
 
 [中文文档](/solution/2200-2299/2253.Dynamic%20Unpivoting%20of%20a%20Table/README.md)
@@ -76,6 +78,8 @@ Product 3 is sold in Shop and Souq with prices of 1000 and 1900.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -112,4 +116,6 @@ END;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

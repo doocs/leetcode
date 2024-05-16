@@ -9,6 +9,8 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2379. Minimum Recolors to Get K Consecutive Black Blocks](https://leetcode.com/problems/minimum-recolors-to-get-k-consecutive-black-blocks)
 
 [中文文档](/solution/2300-2399/2379.Minimum%20Recolors%20to%20Get%20K%20Consecutive%20Black%20Blocks/README.md)
@@ -57,6 +59,8 @@ Therefore, we return 0.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sliding Window
 
@@ -227,4 +231,6 @@ int minimumRecolors(char* blocks, int k) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,6 +4,8 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2797.Partial%20Function%20with%20Placeholders/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2797. Partial Function with Placeholders 🔒](https://leetcode.com/problems/partial-function-with-placeholders)
 
 [中文文档](/solution/2700-2799/2797.Partial%20Function%20with%20Placeholders/README.md)
@@ -69,6 +71,8 @@ Placeholder &quot;_&quot; is replaced with 5 and 20 is added at the end of args.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -114,4 +118,6 @@ var partial = function (fn, args) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

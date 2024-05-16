@@ -10,6 +10,8 @@ tags:
     - Interactive
 ---
 
+<!-- problem:start -->
+
 # [843. Guess the Word](https://leetcode.com/problems/guess-the-word)
 
 [中文文档](/solution/0800-0899/0843.Guess%20the%20Word/README.md)
@@ -73,4 +75,30 @@ We made 5 calls to master.guess, and one of them was the secret, so we pass the 
 
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+```python
+
+```
+
+```java
+
+```
+
+```cpp
+
+```
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

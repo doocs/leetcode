@@ -9,6 +9,8 @@ tags:
     - Graph
 ---
 
+<!-- problem:start -->
+
 # [2204. Distance to a Cycle in Undirected Graph 🔒](https://leetcode.com/problems/distance-to-a-cycle-in-undirected-graph)
 
 [中文文档](/solution/2200-2299/2204.Distance%20to%20a%20Cycle%20in%20Undirected%20Graph/README.md)
@@ -73,6 +75,8 @@ The distance from 8 to 2 is 2.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Topological Sorting
 
@@ -279,4 +283,6 @@ function distanceToCycle(n: number, edges: number[][]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

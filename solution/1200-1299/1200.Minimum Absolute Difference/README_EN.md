@@ -9,6 +9,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1200. Minimum Absolute Difference](https://leetcode.com/problems/minimum-absolute-difference)
 
 [中文文档](/solution/1200-1299/1200.Minimum%20Absolute%20Difference/README.md)
@@ -56,6 +58,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting
 
@@ -155,4 +159,6 @@ function minimumAbsDifference(arr: number[]): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

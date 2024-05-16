@@ -9,6 +9,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2574. Left and Right Sum Differences](https://leetcode.com/problems/left-and-right-sum-differences)
 
 [中文文档](/solution/2500-2599/2574.Left%20and%20Right%20Sum%20Differences/README.md)
@@ -59,6 +61,8 @@ The array answer is [|0 - 0|] = [0].
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum
 
@@ -197,6 +201,10 @@ int* leftRigthDifference(int* nums, int numsSize, int* returnSize) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -240,6 +248,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
@@ -264,4 +276,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

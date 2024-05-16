@@ -9,6 +9,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2075. Decode the Slanted Ciphertext](https://leetcode.com/problems/decode-the-slanted-ciphertext)
 
 [中文文档](/solution/2000-2099/2075.Decode%20the%20Slanted%20Ciphertext/README.md)
@@ -71,6 +73,8 @@ The blue arrows show how we can find originalText from encodedText.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -163,4 +167,6 @@ function decodeCiphertext(encodedText: string, rows: number): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

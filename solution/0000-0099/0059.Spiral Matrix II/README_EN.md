@@ -8,6 +8,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [59. Spiral Matrix II](https://leetcode.com/problems/spiral-matrix-ii)
 
 [中文文档](/solution/0000-0099/0059.Spiral%20Matrix%20II/README.md)
@@ -39,6 +41,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -219,6 +223,10 @@ var generateMatrix = function (n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -250,4 +258,6 @@ function generateMatrix(n: number): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

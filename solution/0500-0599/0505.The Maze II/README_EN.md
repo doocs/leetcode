@@ -12,6 +12,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [505. The Maze II 🔒](https://leetcode.com/problems/the-maze-ii)
 
 [中文文档](/solution/0500-0599/0505.The%20Maze%20II/README.md)
@@ -68,6 +70,8 @@ The length of the path is 1 + 1 + 3 + 1 + 2 + 2 + 2 = 12.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -242,4 +246,6 @@ function shortestDistance(maze: number[][], start: number[], destination: number
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,6 +8,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [3131. Find the Integer Added to Array I](https://leetcode.com/problems/find-the-integer-added-to-array-i)
 
 [中文文档](/solution/3100-3199/3131.Find%20the%20Integer%20Added%20to%20Array%20I/README.md)
@@ -88,6 +90,8 @@ tags:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Calculate Minimum Difference
 
 We can find the minimum value of each array, then return the difference between the two minimum values.
@@ -133,4 +137,6 @@ function addedInteger(nums1: number[], nums2: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

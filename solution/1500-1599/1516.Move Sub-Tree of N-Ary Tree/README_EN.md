@@ -7,6 +7,8 @@ tags:
     - Depth-First Search
 ---
 
+<!-- problem:start -->
+
 # [1516. Move Sub-Tree of N-Ary Tree 🔒](https://leetcode.com/problems/move-sub-tree-of-n-ary-tree)
 
 [中文文档](/solution/1500-1599/1516.Move%20Sub-Tree%20of%20N-Ary%20Tree/README.md)
@@ -77,4 +79,30 @@ Notice that node 4 is the last child of node 1.</pre>
 
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+```python
+
+```
+
+```java
+
+```
+
+```cpp
+
+```
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

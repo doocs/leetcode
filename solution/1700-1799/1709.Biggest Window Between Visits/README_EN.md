@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1709. Biggest Window Between Visits 🔒](https://leetcode.com/problems/biggest-window-between-visits)
 
 [中文文档](/solution/1700-1799/1709.Biggest%20Window%20Between%20Visits/README.md)
@@ -74,6 +76,8 @@ For the third user, the only window in question is between dates 2020-11-11 and 
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Window Function
 
 We can use the window function `LEAD` to obtain the date of the next visit for each user (if the date of the next visit does not exist, it is considered as `2021-1-1`), and then use the `DATEDIFF` function to calculate the number of days between two visits. Finally, we can take the maximum value of the number of days between visits for each user.
@@ -103,4 +107,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

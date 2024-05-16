@@ -11,6 +11,8 @@ tags:
     - Graph
 ---
 
+<!-- problem:start -->
+
 # [2477. Minimum Fuel Cost to Report to the Capital](https://leetcode.com/problems/minimum-fuel-cost-to-report-to-the-capital)
 
 [中文文档](/solution/2400-2499/2477.Minimum%20Fuel%20Cost%20to%20Report%20to%20the%20Capital/README.md)
@@ -80,6 +82,8 @@ It can be proven that 7 is the minimum number of liters of fuel needed.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + DFS
 
@@ -260,4 +264,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

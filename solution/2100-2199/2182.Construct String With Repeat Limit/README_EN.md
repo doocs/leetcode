@@ -12,6 +12,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2182. Construct String With Repeat Limit](https://leetcode.com/problems/construct-string-with-repeat-limit)
 
 [中文文档](/solution/2100-2199/2182.Construct%20String%20With%20Repeat%20Limit/README.md)
@@ -61,6 +63,8 @@ Note that the string &quot;bbabaaa&quot; is lexicographically larger but the let
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy Algorithm
 
@@ -226,4 +230,6 @@ function repeatLimitedString(s: string, repeatLimit: number): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,6 +4,8 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2650.Design%20Cancellable%20Function/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2650. Design Cancellable Function](https://leetcode.com/problems/design-cancellable-function)
 
 [中文文档](/solution/2600-2699/2650.Design%20Cancellable%20Function/README.md)
@@ -148,6 +150,8 @@ The first yielded promise immediately rejects. This error is caught. Because the
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -189,4 +193,6 @@ function cancellable<T>(generator: Generator<Promise<any>, T, unknown>): [() => 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

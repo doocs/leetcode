@@ -9,6 +9,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [259. 3Sum Smaller 🔒](https://leetcode.com/problems/3sum-smaller)
 
 [中文文档](/solution/0200-0299/0259.3Sum%20Smaller/README.md)
@@ -52,6 +54,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -168,4 +172,6 @@ var threeSumSmaller = function (nums, target) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,6 +10,8 @@ tags:
     - Game Theory
 ---
 
+<!-- problem:start -->
+
 # [486. Predict the Winner](https://leetcode.com/problems/predict-the-winner)
 
 [中文文档](/solution/0400-0499/0486.Predict%20the%20Winner/README.md)
@@ -52,6 +54,8 @@ Finally, player 1 has more score (234) than player 2 (12), so you need to return
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -183,6 +187,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -273,4 +281,6 @@ function PredictTheWinner(nums: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

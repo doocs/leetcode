@@ -4,6 +4,8 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2666.Allow%20One%20Function%20Call/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2666. Allow One Function Call](https://leetcode.com/problems/allow-one-function-call)
 
 [中文文档](/solution/2600-2699/2666.Allow%20One%20Function%20Call/README.md)
@@ -53,6 +55,8 @@ onceFn(4, 6, 8); // undefined, fn was not called
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -81,4 +85,6 @@ function once<T extends (...args: any[]) => any>(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

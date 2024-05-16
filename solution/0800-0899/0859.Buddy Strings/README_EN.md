@@ -7,6 +7,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [859. Buddy Strings](https://leetcode.com/problems/buddy-strings)
 
 [中文文档](/solution/0800-0899/0859.Buddy%20Strings/README.md)
@@ -55,6 +57,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -186,4 +190,6 @@ function buddyStrings(s: string, goal: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

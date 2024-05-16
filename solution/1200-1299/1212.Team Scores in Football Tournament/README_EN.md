@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1212. Team Scores in Football Tournament 🔒](https://leetcode.com/problems/team-scores-in-football-tournament)
 
 [中文文档](/solution/1200-1299/1212.Team%20Scores%20in%20Football%20Tournament/README.md)
@@ -98,6 +100,8 @@ Matches table:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Left Join + Group By + Case Expression
 
 We can join the `Teams` table and the `Matches` table using a left join, where the join condition is `team_id = host_team OR team_id = guest_team`, to obtain all the match information for each team.
@@ -136,4 +140,6 @@ ORDER BY 3 DESC, 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

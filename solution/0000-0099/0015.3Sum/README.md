@@ -8,13 +8,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [15. 三数之和](https://leetcode.cn/problems/3sum)
 
 [English Version](/solution/0000-0099/0015.3Sum/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> ，判断是否存在三元组 <code>[nums[i], nums[j], nums[k]]</code> 满足 <code>i != j</code>、<code>i != k</code> 且 <code>j != k</code> ，同时还满足 <code>nums[i] + nums[j] + nums[k] == 0</code> 。请</p>
 
@@ -64,7 +66,11 @@ nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0 。
 	<li><code>-10<sup>5</sup> &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 双指针
 
@@ -431,4 +437,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

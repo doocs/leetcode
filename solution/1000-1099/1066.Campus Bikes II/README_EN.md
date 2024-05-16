@@ -12,6 +12,8 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [1066. Campus Bikes II 🔒](https://leetcode.com/problems/campus-bikes-ii)
 
 [中文文档](/solution/1000-1099/1066.Campus%20Bikes%20II/README.md)
@@ -66,6 +68,8 @@ We first assign bike 0 to worker 0, then assign bike 1 to worker 1 or worker 2, 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -195,4 +199,6 @@ function assignBikes(workers: number[][], bikes: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

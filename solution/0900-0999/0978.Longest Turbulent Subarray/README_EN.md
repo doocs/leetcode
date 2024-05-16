@@ -8,6 +8,8 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [978. Longest Turbulent Subarray](https://leetcode.com/problems/longest-turbulent-subarray)
 
 [中文文档](/solution/0900-0999/0978.Longest%20Turbulent%20Subarray/README.md)
@@ -69,6 +71,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -155,4 +159,6 @@ function maxTurbulenceSize(arr: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

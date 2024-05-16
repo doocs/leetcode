@@ -11,6 +11,8 @@ tags:
     - Monotonic Queue
 ---
 
+<!-- problem:start -->
+
 # [2444. Count Subarrays With Fixed Bounds](https://leetcode.com/problems/count-subarrays-with-fixed-bounds)
 
 [中文文档](/solution/2400-2499/2444.Count%20Subarrays%20With%20Fixed%20Bounds/README.md)
@@ -56,6 +58,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration of Right Endpoint
 
@@ -224,4 +228,6 @@ long long countSubarrays(int* nums, int numsSize, int minK, int maxK) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

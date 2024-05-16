@@ -10,6 +10,8 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [2866. Beautiful Towers II](https://leetcode.com/problems/beautiful-towers-ii)
 
 [中文文档](/solution/2800-2899/2866.Beautiful%20Towers%20II/README.md)
@@ -78,6 +80,8 @@ It can be shown that there exists no other beautiful configuration with a sum of
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming + Monotonic Stack
 
@@ -372,4 +376,6 @@ function maximumSumOfHeights(maxHeights: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

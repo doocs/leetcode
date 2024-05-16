@@ -8,6 +8,8 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [494. Target Sum](https://leetcode.com/problems/target-sum)
 
 [中文文档](/solution/0400-0499/0494.Target%20Sum/README.md)
@@ -56,6 +58,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -220,6 +224,10 @@ var findTargetSumWays = function (nums, target) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -334,6 +342,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
@@ -355,4 +367,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

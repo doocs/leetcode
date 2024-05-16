@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.02.Min%20Stack/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [03.02. Min Stack](https://leetcode.cn/problems/min-stack-lcci)
 
 [中文文档](/lcci/03.02.Min%20Stack/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>How would you design a stack which, in addition to push and pop, has a function min which returns the minimum element? Push, pop and min should all operate in 0(1) time.</p>
 
@@ -32,7 +36,11 @@ minStack.top();      --&gt; return 0.
 
 minStack.getMin();   --&gt; return -2.</pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Double Stack
 
@@ -365,4 +373,6 @@ class MinStack {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -12,13 +12,15 @@ tags:
     - 计数
 ---
 
+<!-- problem:start -->
+
 # [2514. 统计同位异构字符串数目](https://leetcode.cn/problems/count-anagrams)
 
 [English Version](/solution/2500-2599/2514.Count%20Anagrams/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串&nbsp;<code>s</code>&nbsp;，它包含一个或者多个单词。单词之间用单个空格&nbsp;<code>' '</code>&nbsp;隔开。</p>
 
@@ -55,7 +57,11 @@ tags:
 	<li>相邻单词之间由单个空格隔开。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -174,6 +180,10 @@ func pow(x, n int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -194,4 +204,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

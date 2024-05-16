@@ -9,6 +9,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [164. Maximum Gap](https://leetcode.com/problems/maximum-gap)
 
 [中文文档](/solution/0100-0199/0164.Maximum%20Gap/README.md)
@@ -45,6 +47,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Discuss Different Cases
 
@@ -240,4 +244,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

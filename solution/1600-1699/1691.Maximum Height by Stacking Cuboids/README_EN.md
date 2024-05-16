@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1691. Maximum Height by Stacking Cuboids](https://leetcode.com/problems/maximum-height-by-stacking-cuboids)
 
 [中文文档](/solution/1600-1699/1691.Maximum%20Height%20by%20Stacking%20Cuboids/README.md)
@@ -68,6 +70,8 @@ The maximum height of stacked cuboids is 6 * 17 = 102.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Dynamic Programming
 
@@ -238,4 +242,6 @@ var maxHeight = function (cuboids) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,6 +9,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [950. Reveal Cards In Increasing Order](https://leetcode.com/problems/reveal-cards-in-increasing-order)
 
 [中文文档](/solution/0900-0999/0950.Reveal%20Cards%20In%20Increasing%20Order/README.md)
@@ -67,6 +69,8 @@ Since all the cards revealed are in increasing order, the answer is correct.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -138,4 +142,6 @@ func deckRevealedIncreasing(deck []int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

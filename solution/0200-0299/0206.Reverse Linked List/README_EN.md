@@ -7,6 +7,8 @@ tags:
     - Linked List
 ---
 
+<!-- problem:start -->
+
 # [206. Reverse Linked List](https://leetcode.com/problems/reverse-linked-list)
 
 [中文文档](/solution/0200-0299/0206.Reverse%20Linked%20List/README.md)
@@ -49,6 +51,8 @@ tags:
 <p><strong>Follow up:</strong> A linked list can be reversed either iteratively or recursively. Could you implement both?</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -259,6 +263,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -413,4 +421,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

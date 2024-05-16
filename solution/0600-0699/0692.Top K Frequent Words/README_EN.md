@@ -12,6 +12,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [692. Top K Frequent Words](https://leetcode.com/problems/top-k-frequent-words)
 
 [中文文档](/solution/0600-0699/0692.Top%20K%20Frequent%20Words/README.md)
@@ -54,6 +56,8 @@ Note that &quot;i&quot; comes before &quot;love&quot; due to a lower alphabetica
 <p><strong>Follow-up:</strong> Could you solve it in <code>O(n log(k))</code> time and <code>O(n)</code> extra space?</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -129,4 +133,6 @@ func topKFrequent(words []string, k int) []string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

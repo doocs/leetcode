@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [923. 3Sum With Multiplicity](https://leetcode.com/problems/3sum-with-multiplicity)
 
 [中文文档](/solution/0900-0999/0923.3Sum%20With%20Multiplicity/README.md)
@@ -63,6 +65,8 @@ and two 2s from [2,2,2,2] in 6 ways.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting + Enumeration
 
@@ -182,4 +186,6 @@ function threeSumMulti(arr: number[], target: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

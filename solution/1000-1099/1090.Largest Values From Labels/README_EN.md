@@ -12,6 +12,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1090. Largest Values From Labels](https://leetcode.com/problems/largest-values-from-labels)
 
 [中文文档](/solution/1000-1099/1090.Largest%20Values%20From%20Labels/README.md)
@@ -67,6 +69,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -188,4 +192,6 @@ function largestValsFromLabels(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

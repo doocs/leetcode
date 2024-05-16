@@ -10,6 +10,8 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [2048. Next Greater Numerically Balanced Number](https://leetcode.com/problems/next-greater-numerically-balanced-number)
 
 [中文文档](/solution/2000-2099/2048.Next%20Greater%20Numerically%20Balanced%20Number/README.md)
@@ -65,6 +67,8 @@ It is also the smallest numerically balanced number strictly greater than 3000.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -178,4 +182,6 @@ function nextBeautifulNumber(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

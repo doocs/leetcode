@@ -3,11 +3,15 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.02.Binary%20Number%20to%20String/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [05.02. Binary Number to String](https://leetcode.cn/problems/binary-number-to-string-lcci)
 
 [中文文档](/lcci/05.02.Binary%20Number%20to%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a real number between O and 1 (e.g., 0.72) that is passed in as a double, print the binary representation. If the number cannot be represented accurately in binary with at most 32 characters, print &quot;ERROR&quot;.</p>
 <p><strong>Example1:</strong></p>
@@ -33,7 +37,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.02.Binary%20Number
 	<li>This two characters &quot;0.&quot; should be counted into 32 characters.</li>
 </ol>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Decimal Fraction to Binary Fraction
 
@@ -140,4 +148,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

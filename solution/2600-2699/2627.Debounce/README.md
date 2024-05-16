@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2627.Debounce/README.md
 ---
 
+<!-- problem:start -->
+
 # [2627. 函数防抖](https://leetcode.cn/problems/debounce)
 
 [English Version](/solution/2600-2699/2627.Debounce/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你编写一个函数，接收参数为另一个函数和一个以毫秒为单位的时间 <code>t</code> ，并返回该函数的&nbsp;<b>函数防抖&nbsp;</b>后的结果。</p>
 
@@ -92,7 +94,11 @@ calls = [
 	<li><code>0 &lt;= calls[i].inputs.length &lt;= 10</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -124,4 +130,6 @@ function debounce(fn: F, t: number): F {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

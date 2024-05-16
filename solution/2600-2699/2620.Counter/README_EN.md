@@ -4,6 +4,8 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2620.Counter/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2620. Counter](https://leetcode.com/problems/counter)
 
 [中文文档](/solution/2600-2699/2620.Counter/README.md)
@@ -47,6 +49,8 @@ n = -2
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -69,4 +73,6 @@ function createCounter(n: number): () => number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

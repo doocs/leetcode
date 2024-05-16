@@ -10,6 +10,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2149. Rearrange Array Elements by Sign](https://leetcode.com/problems/rearrange-array-elements-by-sign)
 
 [中文文档](/solution/2100-2199/2149.Rearrange%20Array%20Elements%20by%20Sign/README.md)
@@ -64,6 +66,8 @@ So nums is rearranged to [1,-1].
 It is not required to do the modifications in-place.
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -161,4 +165,6 @@ function rearrangeArray(nums: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

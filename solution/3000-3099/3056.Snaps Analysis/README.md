@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [3056. 快照分析 🔒](https://leetcode.cn/problems/snaps-analysis)
 
 [English Version](/solution/3000-3099/3056.Snaps%20Analysis/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Activities</code></p>
 
@@ -103,7 +105,11 @@ Age 表：
 输出表中的所有百分比舍入到两位。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：等值连接 + 分组求和
 
@@ -149,4 +155,6 @@ def snap_analysis(activities: pd.DataFrame, age: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -11,6 +11,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2946. Matrix Similarity After Cyclic Shifts](https://leetcode.com/problems/matrix-similarity-after-cyclic-shifts)
 
 [中文文档](/solution/2900-2999/2946.Matrix%20Similarity%20After%20Cyclic%20Shifts/README.md)
@@ -63,6 +65,8 @@ Therefore, return true.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -161,4 +165,6 @@ function areSimilar(mat: number[][], k: number): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,13 +10,15 @@ tags:
     - 枚举
 ---
 
+<!-- problem:start -->
+
 # [2768. 黑格子的数目](https://leetcode.cn/problems/number-of-black-blocks)
 
 [English Version](/solution/2700-2799/2768.Number%20of%20Black%20Blocks/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个整数&nbsp;<code>m</code> 和&nbsp;<code>n</code>&nbsp;，表示一个下标从 <strong>0</strong>&nbsp;开始的&nbsp;<code>m x n</code>&nbsp;的网格图。</p>
 
@@ -66,7 +68,11 @@ tags:
 	<li><code>coordinates</code>&nbsp;中的坐标对两两互不相同。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表计数
 
@@ -199,4 +205,6 @@ function countBlackBlocks(m: number, n: number, coordinates: number[][]): number
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,6 +9,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2485. Find the Pivot Integer](https://leetcode.com/problems/find-the-pivot-integer)
 
 [中文文档](/solution/2400-2499/2485.Find%20the%20Pivot%20Integer/README.md)
@@ -56,6 +58,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -164,6 +168,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Mathematics
 
 We can transform the above equation to get:
@@ -234,4 +242,6 @@ function pivotInteger(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

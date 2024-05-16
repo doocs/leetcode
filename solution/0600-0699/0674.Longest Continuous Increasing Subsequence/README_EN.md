@@ -6,6 +6,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [674. Longest Continuous Increasing Subsequence](https://leetcode.com/problems/longest-continuous-increasing-subsequence)
 
 [中文文档](/solution/0600-0699/0674.Longest%20Continuous%20Increasing%20Subsequence/README.md)
@@ -45,6 +47,8 @@ increasing.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: One-pass Scan
 
@@ -173,6 +177,10 @@ class Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Two Pointers
 
@@ -309,4 +317,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

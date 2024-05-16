@@ -12,6 +12,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1932. Merge BSTs to Create Single BST](https://leetcode.com/problems/merge-bsts-to-create-single-bst)
 
 [中文文档](/solution/1900-1999/1932.Merge%20BSTs%20to%20Create%20Single%20BST/README.md)
@@ -87,4 +89,30 @@ The resulting tree is shown above. This is the only valid operation that can be 
 
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+```python
+
+```
+
+```java
+
+```
+
+```cpp
+
+```
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

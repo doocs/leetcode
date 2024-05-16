@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20116.%20%E6%9C%8B%E5%8F%8B%E5%9C%88/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 116. 朋友圈](https://leetcode.cn/problems/bLyHh0)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <div class="original__bRMd">
 <p>一个班上有 <code>n</code> 个同学，其中一些彼此是朋友，另一些不是。朋友关系是可以传递的，如果&nbsp;<font color="#c7254e" face="Menlo, Monaco, Consolas, Courier New, monospace"><span style="caret-color: rgb(199, 37, 78); font-size: 12.600000381469727px; background-color: rgb(249, 242, 244);">a</span></font>&nbsp;与&nbsp;<code>b</code>&nbsp;直接是朋友，且&nbsp;<code>b</code> 与&nbsp;<code>c</code>&nbsp;是直接朋友，那么&nbsp;<code>a</code> 与&nbsp;<code>c</code>&nbsp;就是间接朋友。</p>
@@ -52,7 +54,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p><meta charset="UTF-8" />注意：本题与主站 547&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/number-of-provinces/">https://leetcode.cn/problems/number-of-provinces/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：深度优先搜索
 
@@ -165,6 +171,8 @@ func findCircleNum(isConnected [][]int) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
 
 ### 方法二：并查集
 
@@ -345,4 +353,6 @@ func findCircleNum(isConnected [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

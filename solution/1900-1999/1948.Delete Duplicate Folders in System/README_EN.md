@@ -12,6 +12,8 @@ tags:
     - Hash Function
 ---
 
+<!-- problem:start -->
+
 # [1948. Delete Duplicate Folders in System](https://leetcode.com/problems/delete-duplicate-folders-in-system)
 
 [中文文档](/solution/1900-1999/1948.Delete%20Duplicate%20Folders%20in%20System/README.md)
@@ -93,4 +95,30 @@ Note that the returned array can be in a different order as the order does not m
 
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+```python
+
+```
+
+```java
+
+```
+
+```cpp
+
+```
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,13 +8,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [1417. 重新格式化字符串](https://leetcode.cn/problems/reformat-the-string)
 
 [English Version](/solution/1400-1499/1417.Reformat%20The%20String/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个混合了数字和字母的字符串 <code>s</code>，其中的字母均为小写英文字母。</p>
 
@@ -66,7 +68,11 @@ tags:
 	<li><code>s</code> 仅由小写英文字母和/或数字组成。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -195,4 +201,6 @@ func reformat(s string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

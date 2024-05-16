@@ -8,6 +8,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2315. Count Asterisks](https://leetcode.com/problems/count-asterisks)
 
 [中文文档](/solution/2300-2399/2315.Count%20Asterisks/README.md)
@@ -56,6 +58,8 @@ There are 2 asterisks considered. Therefore, we return 2.</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -186,4 +190,6 @@ int countAsterisks(char* s) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

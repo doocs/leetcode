@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [613. 直线上的最近距离 🔒](https://leetcode.cn/problems/shortest-distance-in-a-line)
 
 [English Version](/solution/0600-0699/0613.Shortest%20Distance%20in%20a%20Line/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：&nbsp;<code>Point</code></p>
 
@@ -59,7 +61,11 @@ Point 表:
 
 <p><strong>进阶：</strong>如果 <code>Point</code> 表按 <strong>升序排列</strong>，如何优化你的解决方案？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：自连接
 
@@ -77,6 +83,10 @@ FROM
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：窗口函数
 
 我们也可以使用窗口函数，将表中的点按照 $x$ 排序，然后计算相邻两点之间的距离，最后取最小值。
@@ -93,4 +103,6 @@ LIMIT 1, 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

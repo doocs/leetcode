@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [990. Satisfiability of Equality Equations](https://leetcode.com/problems/satisfiability-of-equality-equations)
 
 [中文文档](/solution/0900-0999/0990.Satisfiability%20of%20Equality%20Equations/README.md)
@@ -50,6 +52,8 @@ There is no way to assign the variables to satisfy both equations.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -208,4 +212,6 @@ function equationsPossible(equations: string[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

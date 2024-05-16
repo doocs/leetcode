@@ -12,6 +12,8 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [1258. Synonymous Sentences 🔒](https://leetcode.com/problems/synonymous-sentences)
 
 [中文文档](/solution/1200-1299/1258.Synonymous%20Sentences/README.md)
@@ -51,6 +53,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Union-Find + DFS
 
@@ -402,4 +406,6 @@ func generateSentences(synonyms [][]string, text string) (ans []string) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

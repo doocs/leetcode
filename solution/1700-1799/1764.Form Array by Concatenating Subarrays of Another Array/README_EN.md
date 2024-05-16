@@ -11,6 +11,8 @@ tags:
     - String Matching
 ---
 
+<!-- problem:start -->
+
 # [1764. Form Array by Concatenating Subarrays of Another Array](https://leetcode.com/problems/form-array-by-concatenating-subarrays-of-another-array)
 
 [中文文档](/solution/1700-1799/1764.Form%20Array%20by%20Concatenating%20Subarrays%20of%20Another%20Array/README.md)
@@ -65,6 +67,8 @@ They share a common elements nums[4] (0-indexed).
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -171,4 +175,6 @@ func canChoose(groups [][]int, nums []int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

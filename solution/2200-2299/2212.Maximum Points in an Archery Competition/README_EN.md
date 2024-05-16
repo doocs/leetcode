@@ -11,6 +11,8 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [2212. Maximum Points in an Archery Competition](https://leetcode.com/problems/maximum-points-in-an-archery-competition)
 
 [中文文档](/solution/2200-2299/2212.Maximum%20Points%20in%20an%20Archery%20Competition/README.md)
@@ -74,6 +76,8 @@ It can be shown that Bob cannot obtain a score higher than 27 points.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -257,4 +261,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

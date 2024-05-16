@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.17.Multi%20Search/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [17.17. Multi Search](https://leetcode.cn/problems/multi-search-lcci)
 
 [中文文档](/lcci/17.17.Multi%20Search/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string band an array of smaller strings T, design a method to search b for each small string in T. Output&nbsp;<code>positions</code> of all strings in&nbsp;<code>smalls</code>&nbsp;that appear in <code>big</code>,&nbsp;where <code>positions[i]</code> is all positions of <code>smalls[i]</code>.</p>
 
@@ -36,7 +40,11 @@ smalls = [&quot;is&quot;,&quot;ppi&quot;,&quot;hi&quot;,&quot;sis&quot;,&quot;i&
 	<li>All characters are lowercase letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -329,4 +337,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

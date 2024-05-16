@@ -9,6 +9,8 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [387. First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string)
 
 [中文文档](/solution/0300-0399/0387.First%20Unique%20Character%20in%20a%20String/README.md)
@@ -37,6 +39,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -160,4 +164,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

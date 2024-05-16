@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1138. Alphabet Board Path](https://leetcode.com/problems/alphabet-board-path)
 
 [中文文档](/solution/1100-1199/1138.Alphabet%20Board%20Path/README.md)
@@ -70,6 +72,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -197,4 +201,6 @@ func alphabetBoardPath(target string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

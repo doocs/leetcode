@@ -12,13 +12,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [2812. 找出最安全路径](https://leetcode.cn/problems/find-the-safest-path-in-a-grid)
 
 [English Version](/solution/2800-2899/2812.Find%20the%20Safest%20Path%20in%20a%20Grid/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始、大小为 <code>n x n</code> 的二维矩阵 <code>grid</code> ，其中 <code>(r, c)</code> 表示：</p>
 
@@ -80,7 +82,11 @@ tags:
 	<li><code>grid</code> 至少存在一个小偷</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：多源 BFS + 排序 + 并查集
 
@@ -560,6 +566,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -624,4 +634,6 @@ function maximumSafenessFactor(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

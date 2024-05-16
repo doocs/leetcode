@@ -12,6 +12,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1905. Count Sub Islands](https://leetcode.com/problems/count-sub-islands)
 
 [中文文档](/solution/1900-1999/1905.Count%20Sub%20Islands/README.md)
@@ -54,6 +56,8 @@ The 1s colored red in grid2 are those considered to be part of a sub-island. The
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -204,6 +208,10 @@ function countSubIslands(grid1: number[][], grid2: number[][]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -232,4 +240,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

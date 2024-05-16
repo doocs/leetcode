@@ -7,6 +7,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [390. Elimination Game](https://leetcode.com/problems/elimination-game)
 
 [中文文档](/solution/0300-0399/0390.Elimination%20Game/README.md)
@@ -51,6 +53,8 @@ arr = [6]
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -139,4 +143,6 @@ func lastRemaining(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

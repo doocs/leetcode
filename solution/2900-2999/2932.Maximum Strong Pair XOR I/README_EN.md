@@ -12,6 +12,8 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2932. Maximum Strong Pair XOR I](https://leetcode.com/problems/maximum-strong-pair-xor-i)
 
 [中文文档](/solution/2900-2999/2932.Maximum%20Strong%20Pair%20XOR%20I/README.md)
@@ -67,6 +69,8 @@ The maximum XOR possible from these pairs is 25 XOR 30 = 7 since the only other 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -150,6 +154,10 @@ function maximumStrongPairXor(nums: number[]): number {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Sorting + Binary Trie
 
@@ -471,4 +479,6 @@ function maximumStrongPairXor(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

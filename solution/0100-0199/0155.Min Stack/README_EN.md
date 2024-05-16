@@ -7,6 +7,8 @@ tags:
     - Design
 ---
 
+<!-- problem:start -->
+
 # [155. Min Stack](https://leetcode.com/problems/min-stack)
 
 [中文文档](/solution/0100-0199/0155.Min%20Stack/README.md)
@@ -59,6 +61,8 @@ minStack.getMin(); // return -2
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -382,4 +386,6 @@ public class MinStack {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

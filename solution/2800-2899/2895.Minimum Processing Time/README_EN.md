@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2895. Minimum Processing Time](https://leetcode.com/problems/minimum-processing-time)
 
 [中文文档](/solution/2800-2899/2895.Minimum%20Processing%20Time/README.md)
@@ -65,6 +67,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
 
@@ -148,4 +152,6 @@ function minProcessingTime(processorTime: number[], tasks: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

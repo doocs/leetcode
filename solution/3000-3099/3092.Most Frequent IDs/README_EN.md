@@ -11,6 +11,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [3092. Most Frequent IDs](https://leetcode.com/problems/most-frequent-ids)
 
 [中文文档](/solution/3000-3099/3092.Most%20Frequent%20IDs/README.md)
@@ -68,6 +70,8 @@ After step 2, we have 1 ID with the value of 3. So <code>ans[2] = 1</code>.</p>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Priority Queue (Max Heap)
 
@@ -185,4 +189,6 @@ func (h *hp) Pop() any {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

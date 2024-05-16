@@ -6,6 +6,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [799. Champagne Tower](https://leetcode.com/problems/champagne-tower)
 
 [中文文档](/solution/0700-0799/0799.Champagne%20Tower/README.md)
@@ -71,6 +73,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -190,6 +194,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -271,4 +279,6 @@ func champagneTower(poured int, query_row int, query_glass int) float64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

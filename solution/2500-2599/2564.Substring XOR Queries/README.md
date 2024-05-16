@@ -11,13 +11,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [2564. 子字符串异或查询](https://leetcode.cn/problems/substring-xor-queries)
 
 [English Version](/solution/2500-2599/2564.Substring%20XOR%20Queries/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <strong>二进制字符串</strong>&nbsp;<code>s</code>&nbsp;和一个整数数组&nbsp;<code>queries</code>&nbsp;，其中&nbsp;<code>queries[i] = [first<sub>i</sub>, second<sub>i</sub>]</code>&nbsp;。</p>
 
@@ -68,7 +70,11 @@ tags:
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：预处理 + 枚举
 
@@ -188,4 +194,6 @@ func substringXorQueries(s string, queries [][]int) (ans [][]int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

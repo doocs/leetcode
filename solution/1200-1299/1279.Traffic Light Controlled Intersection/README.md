@@ -6,13 +6,15 @@ tags:
     - 多线程
 ---
 
+<!-- problem:start -->
+
 # [1279. 红绿灯路口 🔒](https://leetcode.cn/problems/traffic-light-controlled-intersection)
 
 [English Version](/solution/1200-1299/1279.Traffic%20Light%20Controlled%20Intersection/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>这是两条路的交叉路口。第一条路是 A 路，车辆可沿&nbsp;1 号方向由北向南行驶，也可沿&nbsp;2 号方向由南向北行驶。第二条路是 B 路，车辆可沿&nbsp;3 号方向由西向东行驶，也可沿 4 号方向由东向西行驶。</p>
 
@@ -89,7 +91,11 @@ tags:
 	<li><code>arrivalTimes</code> 是非递减的。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -147,4 +153,6 @@ class TrafficLight {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -11,6 +11,8 @@ tags:
     - Probability and Statistics
 ---
 
+<!-- problem:start -->
+
 # [1230. Toss Strange Coins 🔒](https://leetcode.com/problems/toss-strange-coins)
 
 [中文文档](/solution/1200-1299/1230.Toss%20Strange%20Coins/README.md)
@@ -40,6 +42,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -155,6 +159,10 @@ function probabilityOfHeads(prob: number[], target: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -244,4 +252,6 @@ function probabilityOfHeads(prob: number[], target: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

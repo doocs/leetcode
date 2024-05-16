@@ -8,6 +8,8 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [202. Happy Number](https://leetcode.com/problems/happy-number)
 
 [中文文档](/solution/0200-0299/0202.Happy%20Number/README.md)
@@ -54,6 +56,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -197,6 +201,10 @@ bool isHappy(int n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -321,4 +329,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

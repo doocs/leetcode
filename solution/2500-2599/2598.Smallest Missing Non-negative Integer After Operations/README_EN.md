@@ -11,6 +11,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [2598. Smallest Missing Non-negative Integer After Operations](https://leetcode.com/problems/smallest-missing-non-negative-integer-after-operations)
 
 [中文文档](/solution/2500-2599/2598.Smallest%20Missing%20Non-negative%20Integer%20After%20Operations/README.md)
@@ -65,6 +67,8 @@ The MEX of nums is 2. It can be shown that 2 is the maximum MEX we can achieve.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Count
 
@@ -151,4 +155,6 @@ function findSmallestInteger(nums: number[], value: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

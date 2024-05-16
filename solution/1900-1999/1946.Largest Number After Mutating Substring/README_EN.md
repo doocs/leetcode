@@ -10,6 +10,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1946. Largest Number After Mutating Substring](https://leetcode.com/problems/largest-number-after-mutating-substring)
 
 [中文文档](/solution/1900-1999/1946.Largest%20Number%20After%20Mutating%20Substring/README.md)
@@ -68,6 +70,8 @@ Thus, &quot;<u>021</u>&quot; becomes &quot;<u>934</u>&quot;.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -138,4 +142,6 @@ func maximumNumber(num string, change []int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

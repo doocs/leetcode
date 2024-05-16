@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.01.Sorted%20Merge/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [10.01. Sorted Merge](https://leetcode.cn/problems/sorted-merge-lcci)
 
 [中文文档](/lcci/10.01.Sorted%20Merge/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two sorted arrays, A and B, where A has a large enough buffer at the end to hold B. Write a method to merge B into A in sorted order.</p>
 
@@ -28,7 +32,11 @@ B = [2,5,6],       n = 3
 
 <strong>Output:</strong>&nbsp;[1,2,2,3,5,6]</pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -169,4 +177,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

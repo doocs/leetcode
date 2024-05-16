@@ -7,6 +7,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2431. Maximize Total Tastiness of Purchased Fruits 🔒](https://leetcode.com/problems/maximize-total-tastiness-of-purchased-fruits)
 
 [中文文档](/solution/2400-2499/2431.Maximize%20Total%20Tastiness%20of%20Purchased%20Fruits/README.md)
@@ -71,6 +73,8 @@ It can be proven that 28 is the maximum total tastiness that can be obtained.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -200,4 +204,6 @@ func maxTastiness(price []int, tastiness []int, maxAmount int, maxCoupons int) i
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

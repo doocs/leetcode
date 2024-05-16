@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1322. Ads Performance 🔒](https://leetcode.com/problems/ads-performance)
 
 [中文文档](/solution/1300-1399/1322.Ads%20Performance/README.md)
@@ -78,6 +80,8 @@ Note that we do not care about Ignored Ads.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -93,4 +97,6 @@ ORDER BY 2 DESC, 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

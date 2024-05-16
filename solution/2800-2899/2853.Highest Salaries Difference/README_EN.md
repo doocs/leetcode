@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2853. Highest Salaries Difference 🔒](https://leetcode.com/problems/highest-salaries-difference)
 
 [中文文档](/solution/2800-2899/2853.Highest%20Salaries%20Difference/README.md)
@@ -64,6 +66,8 @@ Salaries table:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: GROUP BY Clause
 
 We can first calculate the highest salary for each department, and then calculate the difference between the two highest salaries.
@@ -83,4 +87,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

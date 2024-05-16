@@ -11,6 +11,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2542. Maximum Subsequence Score](https://leetcode.com/problems/maximum-subsequence-score)
 
 [中文文档](/solution/2500-2599/2542.Maximum%20Subsequence%20Score/README.md)
@@ -65,6 +67,8 @@ Choosing index 2 is optimal: nums1[2] * nums2[2] = 3 * 10 = 30 is the maximum po
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Priority Queue (Min Heap)
 
@@ -176,4 +180,6 @@ func (h *hp) Pop() any {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

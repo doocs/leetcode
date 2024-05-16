@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1127. User Purchase Platform 🔒](https://leetcode.com/problems/user-purchase-platform)
 
 [中文文档](/solution/1100-1199/1127.User%20Purchase%20Platform/README.md)
@@ -70,6 +72,8 @@ On 2019-07-02, user 2 purchased using mobile <strong>only</strong>, user 3 purch
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -105,4 +109,6 @@ GROUP BY 1, 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

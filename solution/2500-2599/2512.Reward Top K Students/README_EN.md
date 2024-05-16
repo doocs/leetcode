@@ -12,6 +12,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2512. Reward Top K Students](https://leetcode.com/problems/reward-top-k-students)
 
 [中文文档](/solution/2500-2599/2512.Reward%20Top%20K%20Students/README.md)
@@ -66,6 +68,8 @@ Since student 2 has more points, [2,1] is returned.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Sorting
 
@@ -293,4 +297,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

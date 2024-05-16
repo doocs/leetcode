@@ -8,6 +8,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1220. Count Vowels Permutation](https://leetcode.com/problems/count-vowels-permutation)
 
 [中文文档](/solution/1200-1299/1220.Count%20Vowels%20Permutation/README.md)
@@ -58,6 +60,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -225,6 +229,10 @@ var countVowelPermutation = function (n) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Matrix Exponentiation to Accelerate Recursion
 
@@ -492,6 +500,10 @@ function pow(a, n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
@@ -551,4 +563,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

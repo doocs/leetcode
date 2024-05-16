@@ -7,13 +7,15 @@ tags:
     - 二分查找
 ---
 
+<!-- problem:start -->
+
 # [162. 寻找峰值](https://leetcode.cn/problems/find-peak-element)
 
 [English Version](/solution/0100-0199/0162.Find%20Peak%20Element/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>峰值元素是指其值严格大于左右相邻值的元素。</p>
 
@@ -51,7 +53,11 @@ tags:
 	<li>对于所有有效的 <code>i</code> 都有 <code>nums[i] != nums[i + 1]</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -145,4 +151,6 @@ function findPeakElement(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

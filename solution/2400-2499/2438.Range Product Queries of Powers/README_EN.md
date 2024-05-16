@@ -10,6 +10,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2438. Range Product Queries of Powers](https://leetcode.com/problems/range-product-queries-of-powers)
 
 [中文文档](/solution/2400-2499/2438.Range%20Product%20Queries%20of%20Powers/README.md)
@@ -56,6 +58,8 @@ The answer to the only query is powers[0] = 2. The answer modulo 10<sup>9</sup> 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bit Manipulation + Simulation
 
@@ -158,4 +162,6 @@ func productQueries(n int, queries [][]int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -12,6 +12,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2054. Two Best Non-Overlapping Events](https://leetcode.com/problems/two-best-non-overlapping-events)
 
 [中文文档](/solution/2000-2099/2054.Two%20Best%20Non-Overlapping%20Events/README.md)
@@ -59,6 +61,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -172,4 +176,6 @@ func maxTwoEvents(events [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

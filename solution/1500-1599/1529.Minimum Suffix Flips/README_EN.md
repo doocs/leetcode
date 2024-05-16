@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1529. Minimum Suffix Flips](https://leetcode.com/problems/minimum-suffix-flips)
 
 [中文文档](/solution/1500-1599/1529.Minimum%20Suffix%20Flips/README.md)
@@ -64,6 +66,8 @@ We need at least 3 flip operations to form target.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -125,4 +129,6 @@ func minFlips(target string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

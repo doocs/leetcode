@@ -11,6 +11,8 @@ tags:
     - Combinatorics
 ---
 
+<!-- problem:start -->
+
 # [1643. Kth Smallest Instructions](https://leetcode.com/problems/kth-smallest-instructions)
 
 [中文文档](/solution/1600-1699/1643.Kth%20Smallest%20Instructions/README.md)
@@ -72,6 +74,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -203,4 +207,6 @@ func kthSmallestPath(destination []int, k int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

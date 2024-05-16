@@ -10,6 +10,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [690. Employee Importance](https://leetcode.com/problems/employee-importance)
 
 [中文文档](/solution/0600-0699/0690.Employee%20Importance/README.md)
@@ -61,6 +63,8 @@ Thus, the total importance value of employee 5 is -3.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -157,4 +161,6 @@ var GetImportance = function (employees, id) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

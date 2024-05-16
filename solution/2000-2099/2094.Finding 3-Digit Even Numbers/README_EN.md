@@ -11,6 +11,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2094. Finding 3-Digit Even Numbers](https://leetcode.com/problems/finding-3-digit-even-numbers)
 
 [中文文档](/solution/2000-2099/2094.Finding%203-Digit%20Even%20Numbers/README.md)
@@ -67,6 +69,8 @@ In this example, the digit 8 is used twice each time in 288, 828, and 882.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -227,4 +231,6 @@ function check(target: Array<number>, digits: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,6 +7,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [66. Plus One](https://leetcode.com/problems/plus-one)
 
 [中文文档](/solution/0000-0099/0066.Plus%20One/README.md)
@@ -58,6 +60,8 @@ Thus, the result should be [1,0].
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -175,4 +179,6 @@ var plusOne = function (digits) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -13,6 +13,8 @@ tags:
     - Merge Sort
 ---
 
+<!-- problem:start -->
+
 # [912. Sort an Array](https://leetcode.com/problems/sort-an-array)
 
 [中文文档](/solution/0900-0999/0912.Sort%20an%20Array/README.md)
@@ -49,6 +51,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -228,6 +232,10 @@ var sortArray = function (nums) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -448,6 +456,10 @@ var sortArray = function (nums) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
@@ -493,4 +505,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

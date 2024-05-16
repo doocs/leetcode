@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1949. Strong Friendship 🔒](https://leetcode.com/problems/strong-friendship)
 
 [中文文档](/solution/1900-1999/1949.Strong%20Friendship/README.md)
@@ -75,6 +77,8 @@ We did not include the friendship of users 2 and 3 because they only have two co
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -107,4 +111,6 @@ HAVING COUNT(1) >= 3;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

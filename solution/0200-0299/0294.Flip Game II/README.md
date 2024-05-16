@@ -10,13 +10,15 @@ tags:
     - 博弈
 ---
 
+<!-- problem:start -->
+
 # [294. 翻转游戏 II 🔒](https://leetcode.cn/problems/flip-game-ii)
 
 [English Version](/solution/0200-0299/0294.Flip%20Game%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你和朋友玩一个叫做「翻转游戏」的游戏。游戏规则如下：</p>
 
@@ -52,7 +54,11 @@ tags:
 
 <p><strong>进阶：</strong>请推导你算法的时间复杂度。</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：状态压缩 + 记忆化搜索
 
@@ -177,6 +183,10 @@ func canWin(currentState string) bool {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：Sprague-Grundy 定理
 
@@ -344,4 +354,6 @@ func canWin(currentState string) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

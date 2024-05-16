@@ -10,6 +10,8 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [526. Beautiful Arrangement](https://leetcode.com/problems/beautiful-arrangement)
 
 [中文文档](/solution/0500-0599/0526.Beautiful%20Arrangement/README.md)
@@ -55,6 +57,8 @@ The second beautiful arrangement is [2,1]:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -265,6 +269,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -293,4 +301,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

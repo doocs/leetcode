@@ -7,6 +7,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [860. Lemonade Change](https://leetcode.com/problems/lemonade-change)
 
 [中文文档](/solution/0800-0899/0860.Lemonade%20Change/README.md)
@@ -53,6 +55,8 @@ Since not every customer received the correct change, the answer is false.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -225,4 +229,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

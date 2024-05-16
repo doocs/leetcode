@@ -11,6 +11,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2102. Sequentially Ordinal Rank Tracker](https://leetcode.com/problems/sequentially-ordinal-rank-tracker)
 
 [中文文档](/solution/2100-2199/2102.Sequentially%20Ordinal%20Rank%20Tracker/README.md)
@@ -88,6 +90,8 @@ tracker.get();              // Sorted locations: branford, orlando, alpine, alps
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Ordered Set
 
 We can use an ordered set to store the attractions, and a variable $i$ to record the current number of queries, initially $i = -1$.
@@ -159,6 +163,10 @@ private:
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Double Priority Queue (Min-Max Heap)
 
@@ -271,4 +279,6 @@ private:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

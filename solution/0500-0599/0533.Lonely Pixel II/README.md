@@ -8,13 +8,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [533. 孤独像素 II 🔒](https://leetcode.cn/problems/lonely-pixel-ii)
 
 [English Version](/solution/0500-0599/0533.Lonely%20Pixel%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个大小为 <code>m x n</code> 的二维字符数组 <code>picture</code> ，表示一张黑白图像，数组中的 <code>'B'</code> 表示黑色像素，<code>'W'</code> 表示白色像素。另给你一个整数 <code>target</code> ，请你找出并返回符合规则的 <strong>黑色</strong> 孤独像素的数量。</p>
 
@@ -57,7 +59,11 @@ tags:
 	<li><code>1 &lt;= target &lt;= min(m, n)</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数
 
@@ -247,4 +253,6 @@ function findBlackPixel(picture: string[][], target: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -11,6 +11,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2043. Simple Bank System](https://leetcode.com/problems/simple-bank-system)
 
 [中文文档](/solution/2000-2099/2043.Simple%20Bank%20System/README.md)
@@ -69,6 +71,8 @@ bank.withdraw(10, 50);   // return false, it is invalid because account 10 does 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -346,4 +350,6 @@ impl Bank {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1029. Two City Scheduling](https://leetcode.com/problems/two-city-scheduling)
 
 [中文文档](/solution/1000-1099/1029.Two%20City%20Scheduling/README.md)
@@ -60,6 +62,8 @@ The total minimum cost is 10 + 30 + 50 + 20 = 110 to have half the people interv
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -131,4 +135,6 @@ function twoCitySchedCost(costs: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

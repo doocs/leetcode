@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1544. Make The String Great](https://leetcode.com/problems/make-the-string-great)
 
 [中文文档](/solution/1500-1599/1544.Make%20The%20String%20Great/README.md)
@@ -65,6 +67,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -138,4 +142,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

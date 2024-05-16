@@ -7,6 +7,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [2898. Maximum Linear Stock Score 🔒](https://leetcode.com/problems/maximum-linear-stock-score)
 
 [中文文档](/solution/2800-2899/2898.Maximum%20Linear%20Stock%20Score/README.md)
@@ -61,6 +63,8 @@ The sum of all the elements is 35 which is the maximum possible some out of ever
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -164,4 +168,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

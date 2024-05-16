@@ -4,6 +4,8 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2633.Convert%20Object%20to%20JSON%20String/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2633. Convert Object to JSON String 🔒](https://leetcode.com/problems/convert-object-to-json-string)
 
 [中文文档](/solution/2600-2699/2633.Convert%20Object%20to%20JSON%20String/README.md)
@@ -62,6 +64,8 @@ Primitive types are valid inputs.</pre>
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -91,4 +95,6 @@ function jsonStringify(object: any): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

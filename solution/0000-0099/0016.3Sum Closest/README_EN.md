@@ -8,6 +8,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [16. 3Sum Closest](https://leetcode.com/problems/3sum-closest)
 
 [中文文档](/solution/0000-0099/0016.3Sum%20Closest/README.md)
@@ -47,6 +49,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Two Pointers
 
@@ -264,4 +268,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

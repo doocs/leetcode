@@ -4,6 +4,8 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2692.Make%20Object%20Immutable/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2692. Make Object Immutable 🔒](https://leetcode.com/problems/make-object-immutable)
 
 [中文文档](/solution/2600-2699/2692.Make%20Object%20Immutable/README.md)
@@ -95,6 +97,8 @@ fn = (obj) =&gt; {
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -142,4 +146,6 @@ function makeImmutable(obj: Obj): Obj {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

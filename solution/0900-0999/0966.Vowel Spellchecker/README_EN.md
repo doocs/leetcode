@@ -8,6 +8,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [966. Vowel Spellchecker](https://leetcode.com/problems/vowel-spellchecker)
 
 [中文文档](/solution/0900-0999/0966.Vowel%20Spellchecker/README.md)
@@ -66,6 +68,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -251,4 +255,6 @@ func spellchecker(wordlist []string, queries []string) (ans []string) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

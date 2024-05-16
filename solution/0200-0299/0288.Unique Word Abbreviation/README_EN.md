@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [288. Unique Word Abbreviation 🔒](https://leetcode.com/problems/unique-word-abbreviation)
 
 [中文文档](/solution/0200-0299/0288.Unique%20Word%20Abbreviation/README.md)
@@ -69,6 +71,8 @@ validWordAbbr.isUnique(&quot;cake&quot;); // return true, because &quot;cake&quo
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -231,4 +235,6 @@ class ValidWordAbbr {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,11 +4,13 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2062.%20%E4%BA%A4%E9%80%9A%E6%9E%A2%E7%BA%BD/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 62. 交通枢纽](https://leetcode.cn/problems/D9PW8w)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 为了缓解「力扣嘉年华」期间的人流压力，组委会在活动期间开设了一些交通专线。`path[i] = [a, b]` 表示有一条从地点 `a`通往地点 `b` 的 **单向** 交通专线。
 若存在一个地点，满足以下要求，我们则称之为 **交通枢纽**：
@@ -48,7 +50,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2062.%20%E4%BA%A4%
 -   `0 <= path[i][0], path[i][1] <= 1000`
 -   `path[i][0]` 与 `path[i][1]` 不相等
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：统计入度和出度
 
@@ -191,4 +197,6 @@ function transportationHub(path: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

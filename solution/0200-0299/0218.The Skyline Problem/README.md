@@ -12,13 +12,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [218. 天际线问题](https://leetcode.cn/problems/the-skyline-problem)
 
 [English Version](/solution/0200-0299/0218.The%20Skyline%20Problem/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>城市的 <strong>天际线</strong> 是从远处观看该城市中所有建筑物形成的轮廓的外部轮廓。给你所有建筑物的位置和高度，请返回 <em>由这些建筑物形成的<strong> 天际线</strong></em> 。</p>
 
@@ -65,7 +67,11 @@ tags:
 	<li><code>buildings</code> 按 <code>left<sub>i</sub></code> 非递减排序</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：扫描线+优先队列
 
@@ -223,4 +229,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

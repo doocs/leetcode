@@ -8,13 +8,15 @@ tags:
     - 链表
 ---
 
+<!-- problem:start -->
+
 # [1669. 合并两个链表](https://leetcode.cn/problems/merge-in-between-linked-lists)
 
 [English Version](/solution/1600-1699/1669.Merge%20In%20Between%20Linked%20Lists/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个链表&nbsp;<code>list1</code> 和&nbsp;<code>list2</code>&nbsp;，它们包含的元素分别为&nbsp;<code>n</code> 个和&nbsp;<code>m</code> 个。</p>
 
@@ -54,7 +56,11 @@ tags:
 	<li><code>1 &lt;= list2.length &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -251,4 +257,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

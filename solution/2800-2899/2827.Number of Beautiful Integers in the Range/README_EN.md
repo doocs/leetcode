@@ -9,6 +9,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2827. Number of Beautiful Integers in the Range](https://leetcode.com/problems/number-of-beautiful-integers-in-the-range)
 
 [中文文档](/solution/2800-2899/2827.Number%20of%20Beautiful%20Integers%20in%20the%20Range/README.md)
@@ -69,6 +71,8 @@ It can be shown that there is only 1 beautiful integer in the given range.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Digit DP
 
@@ -311,4 +315,6 @@ function numberOfBeautifulIntegers(low: number, high: number, k: number): number
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

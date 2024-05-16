@@ -9,6 +9,8 @@ tags:
     - Doubly-Linked List
 ---
 
+<!-- problem:start -->
+
 # [460. LFU Cache](https://leetcode.com/problems/lfu-cache)
 
 [中文文档](/solution/0400-0499/0460.LFU%20Cache/README.md)
@@ -77,6 +79,8 @@ lfu.get(4);      // return 4
 <span style="display: none;">&nbsp;</span>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -728,4 +732,6 @@ impl LFUCache {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

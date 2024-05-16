@@ -8,6 +8,8 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [383. Ransom Note](https://leetcode.com/problems/ransom-note)
 
 [中文文档](/solution/0300-0399/0383.Ransom%20Note/README.md)
@@ -38,6 +40,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table or Array
 
@@ -169,4 +173,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

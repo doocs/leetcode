@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1596. 每位顾客最经常订购的商品 🔒](https://leetcode.cn/problems/the-most-frequently-ordered-products-for-each-customer)
 
 [English Version](/solution/1500-1599/1596.The%20Most%20Frequently%20Ordered%20Products%20for%20Each%20Customer/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Customers</code></p>
 
@@ -128,7 +130,11 @@ Tom (customer 3) 只两次订购显示器, 所以显示器是 Tom 最经常订�
 Jerry (customer 4) 只一次订购键盘, 所以键盘是 Jerry 最经常订购的商品.
 John (customer 5) 没有订购过商品, 所以我们并没有把 John 包含在结果表中.</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分组 + 窗口函数
 
@@ -159,4 +165,6 @@ WHERE rk = 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

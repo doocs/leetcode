@@ -11,6 +11,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2055. Plates Between Candles](https://leetcode.com/problems/plates-between-candles)
 
 [中文文档](/solution/2000-2099/2055.Plates%20Between%20Candles/README.md)
@@ -60,6 +62,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -191,4 +195,6 @@ func platesBetweenCandles(s string, queries [][]int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

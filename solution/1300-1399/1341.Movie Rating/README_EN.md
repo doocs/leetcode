@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1341. Movie Rating](https://leetcode.com/problems/movie-rating)
 
 [中文文档](/solution/1300-1399/1341.Movie%20Rating/README.md)
@@ -118,6 +120,8 @@ Frozen 2 and Joker have a rating average of 3.5 in February but Frozen 2 is smal
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -148,4 +152,6 @@ UNION ALL
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

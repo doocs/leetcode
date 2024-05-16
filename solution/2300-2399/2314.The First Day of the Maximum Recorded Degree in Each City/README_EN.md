@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2314. The First Day of the Maximum Recorded Degree in Each City 🔒](https://leetcode.com/problems/the-first-day-of-the-maximum-recorded-degree-in-each-city)
 
 [中文文档](/solution/2300-2399/2314.The%20First%20Day%20of%20the%20Maximum%20Recorded%20Degree%20in%20Each%20City/README.md)
@@ -68,6 +70,8 @@ For city 3, the maximum degree was recorded on 2022-12-07 with -6 degrees.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -92,4 +96,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

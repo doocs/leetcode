@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [3075. Maximize Happiness of Selected Children](https://leetcode.com/problems/maximize-happiness-of-selected-children)
 
 [中文文档](/solution/3000-3099/3075.Maximize%20Happiness%20of%20Selected%20Children/README.md)
@@ -67,6 +69,8 @@ The sum of the happiness values of the selected children is 5.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
 
@@ -141,4 +145,6 @@ function maximumHappinessSum(happiness: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

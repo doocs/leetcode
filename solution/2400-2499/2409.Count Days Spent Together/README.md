@@ -9,13 +9,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [2409. 统计共同度过的日子数](https://leetcode.cn/problems/count-days-spent-together)
 
 [English Version](/solution/2400-2499/2409.Count%20Days%20Spent%20Together/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>Alice 和 Bob 计划分别去罗马开会。</p>
 
@@ -53,7 +55,11 @@ tags:
 	<li>题目测试用例所给出的日期均为 <strong>非闰年</strong> 的有效日期。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -156,4 +162,6 @@ func countDaysTogether(arriveAlice string, leaveAlice string, arriveBob string, 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

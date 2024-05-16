@@ -10,13 +10,15 @@ tags:
     - 哈希表
 ---
 
+<!-- problem:start -->
+
 # [1733. 需要教语言的最少人数](https://leetcode.cn/problems/minimum-number-of-people-to-teach)
 
 [English Version](/solution/1700-1799/1733.Minimum%20Number%20of%20People%20to%20Teach/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在一个由 <code>m</code> 个用户组成的社交网络里，我们获取到一些用户之间的好友关系。两个用户之间可以相互沟通的条件是他们都掌握同一门语言。</p>
 
@@ -65,7 +67,11 @@ tags:
 	<li><code>languages[i]</code> 中包含的值互不相同。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟 + 统计
 
@@ -212,4 +218,6 @@ func minimumTeachings(n int, languages [][]int, friendships [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

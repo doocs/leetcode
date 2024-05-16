@@ -7,6 +7,8 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [866. Prime Palindrome](https://leetcode.com/problems/prime-palindrome)
 
 [中文文档](/solution/0800-0899/0866.Prime%20Palindrome/README.md)
@@ -48,6 +50,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -184,4 +188,6 @@ func primePalindrome(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

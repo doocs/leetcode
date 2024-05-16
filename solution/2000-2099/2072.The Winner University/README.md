@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [2072. 赢得比赛的大学 🔒](https://leetcode.cn/problems/the-winner-university)
 
 [English Version](/solution/2000-2099/2072.The%20Winner%20University/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表： <code>NewYork</code></p>
 
@@ -144,7 +146,11 @@ California 表:
 纽约大学和加州大学均有 1 名优秀学生。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -165,4 +171,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

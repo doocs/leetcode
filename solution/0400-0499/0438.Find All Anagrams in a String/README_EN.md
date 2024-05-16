@@ -8,6 +8,8 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [438. Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string)
 
 [中文文档](/solution/0400-0499/0438.Find%20All%20Anagrams%20in%20a%20String/README.md)
@@ -49,6 +51,8 @@ The substring with start index = 2 is &quot;ab&quot;, which is an anagram of &qu
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -241,6 +245,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -378,4 +386,6 @@ function findAnagrams(s: string, p: string): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

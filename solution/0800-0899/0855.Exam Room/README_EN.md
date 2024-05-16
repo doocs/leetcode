@@ -8,6 +8,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [855. Exam Room](https://leetcode.com/problems/exam-room)
 
 [中文文档](/solution/0800-0899/0855.Exam%20Room/README.md)
@@ -59,6 +61,8 @@ examRoom.seat(); // return 5, the student sits at the last seat number 5.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -321,4 +325,6 @@ func (this *ExamRoom) del(s []int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

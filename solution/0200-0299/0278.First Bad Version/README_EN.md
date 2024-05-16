@@ -7,6 +7,8 @@ tags:
     - Interactive
 ---
 
+<!-- problem:start -->
+
 # [278. First Bad Version](https://leetcode.com/problems/first-bad-version)
 
 [中文文档](/solution/0200-0299/0278.First%20Bad%20Version/README.md)
@@ -47,6 +49,8 @@ Then 4 is the first bad version.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -199,4 +203,6 @@ var solution = function (isBadVersion) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,13 +8,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [1427. 字符串的左右移 🔒](https://leetcode.cn/problems/perform-string-shifts)
 
 [English Version](/solution/1400-1499/1427.Perform%20String%20Shifts/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个包含小写英文字母的字符串&nbsp;<code>s</code>&nbsp;以及一个矩阵&nbsp;<code>shift</code>，其中&nbsp;<code>shift[i] = [direction, amount]</code>：</p>
 
@@ -62,7 +64,11 @@ tags:
 	<li><code>0 &lt;= shift[i][1] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -146,4 +152,6 @@ function stringShift(s: string, shift: number[][]): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

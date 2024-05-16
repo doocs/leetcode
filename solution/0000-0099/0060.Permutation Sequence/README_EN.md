@@ -7,6 +7,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [60. Permutation Sequence](https://leetcode.com/problems/permutation-sequence)
 
 [中文文档](/solution/0000-0099/0060.Permutation%20Sequence/README.md)
@@ -48,6 +50,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -244,4 +248,6 @@ function getPermutation(n: number, k: number): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

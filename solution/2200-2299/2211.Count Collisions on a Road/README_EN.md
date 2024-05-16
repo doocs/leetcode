@@ -10,6 +10,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2211. Count Collisions on a Road](https://leetcode.com/problems/count-collisions-on-a-road)
 
 [中文文档](/solution/2200-2299/2211.Count%20Collisions%20on%20a%20Road/README.md)
@@ -63,6 +65,8 @@ No cars will collide with each other. Thus, the total number of collisions that 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -149,4 +153,6 @@ function countCollisions(directions: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,6 +7,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [927. Three Equal Parts](https://leetcode.com/problems/three-equal-parts)
 
 [中文文档](/solution/0900-0999/0927.Three%20Equal%20Parts/README.md)
@@ -48,6 +50,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting + Three Pointers
 
@@ -237,4 +241,6 @@ var threeEqualParts = function (arr) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

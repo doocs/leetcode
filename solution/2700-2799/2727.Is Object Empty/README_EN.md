@@ -4,6 +4,8 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2727.Is%20Object%20Empty/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2727. Is Object Empty](https://leetcode.com/problems/is-object-empty)
 
 [中文文档](/solution/2700-2799/2727.Is%20Object%20Empty/README.md)
@@ -57,6 +59,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2727.Is
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -85,6 +89,10 @@ var isEmpty = function (obj) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -97,4 +105,6 @@ function isEmpty(obj: Record<string, any> | any[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

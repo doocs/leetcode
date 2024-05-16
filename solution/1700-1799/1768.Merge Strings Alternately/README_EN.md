@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1768. Merge Strings Alternately](https://leetcode.com/problems/merge-strings-alternately)
 
 [中文文档](/solution/1700-1799/1768.Merge%20Strings%20Alternately/README.md)
@@ -88,6 +90,8 @@ merged: a p b q c   d
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Direct Simulation
 
@@ -212,4 +216,6 @@ char* mergeAlternately(char* word1, char* word2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

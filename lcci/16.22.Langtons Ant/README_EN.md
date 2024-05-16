@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.22.Langtons%20Ant/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [16.22. Langtons Ant](https://leetcode.cn/problems/langtons-ant-lcci)
 
 [中文文档](/lcci/16.22.Langtons%20Ant/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>An ant is sitting on an infinite grid of white and black squares. It initially faces right. All squares are white initially.</p>
 <p>At each step, it does the following:</p>
@@ -63,7 +67,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.22.Langtons%20Ant/
 	<li><code>K &lt;= 100000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Simulation
 
@@ -278,4 +286,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

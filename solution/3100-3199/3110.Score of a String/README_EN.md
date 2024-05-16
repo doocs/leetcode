@@ -8,6 +8,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [3110. Score of a String](https://leetcode.com/problems/score-of-a-string)
 
 [中文文档](/solution/3100-3199/3110.Score%20of%20a%20String/README.md)
@@ -52,6 +54,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -120,4 +124,6 @@ function scoreOfString(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

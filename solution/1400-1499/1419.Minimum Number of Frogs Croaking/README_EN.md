@@ -9,6 +9,8 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [1419. Minimum Number of Frogs Croaking](https://leetcode.com/problems/minimum-number-of-frogs-croaking)
 
 [中文文档](/solution/1400-1499/1419.Minimum%20Number%20of%20Frogs%20Croaking/README.md)
@@ -57,6 +59,8 @@ The second frog could yell later &quot;cr<strong>c</strong>oak<strong>roak</stro
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -216,4 +220,6 @@ function minNumberOfFrogs(croakOfFrogs: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

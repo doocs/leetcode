@@ -8,6 +8,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1556. Thousand Separator](https://leetcode.com/problems/thousand-separator)
 
 [中文文档](/solution/1500-1599/1556.Thousand%20Separator/README.md)
@@ -39,6 +41,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -132,4 +136,6 @@ func thousandSeparator(n int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

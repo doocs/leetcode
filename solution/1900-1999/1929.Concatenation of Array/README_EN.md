@@ -9,6 +9,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1929. Concatenation of Array](https://leetcode.com/problems/concatenation-of-array)
 
 [中文文档](/solution/1900-1999/1929.Concatenation%20of%20Array/README.md)
@@ -51,6 +53,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -135,4 +139,6 @@ int* getConcatenation(int* nums, int numsSize, int* returnSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

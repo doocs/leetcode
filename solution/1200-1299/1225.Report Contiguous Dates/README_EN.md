@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1225. Report Contiguous Dates 🔒](https://leetcode.com/problems/report-contiguous-dates)
 
 [中文文档](/solution/1200-1299/1225.Report%20Contiguous%20Dates/README.md)
@@ -92,6 +94,8 @@ From 2019-01-06 to 2019-01-06 all tasks succeeded and the system state was &quot
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Union + Window Function + Group By
 
 We can merge the two tables into one table with a field `st` representing the status, where `failed` indicates failure and `succeeded` indicates success. Then, we can use a window function to group the records with the same status into one group, and calculate the difference between each date and its rank within the group as `pt`, which serves as the identifier for the same continuous status. Finally, we can group by `st` and `pt`, and calculate the minimum and maximum dates for each group, and sort by the minimum date.
@@ -133,4 +137,6 @@ ORDER BY 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

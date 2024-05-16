@@ -9,6 +9,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [851. Loud and Rich](https://leetcode.com/problems/loud-and-rich)
 
 [中文文档](/solution/0800-0899/0851.Loud%20and%20Rich/README.md)
@@ -59,6 +61,8 @@ The other answers can be filled out with similar reasoning.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -215,4 +219,6 @@ function loudAndRich(richer: number[][], quiet: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,6 +8,8 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [2979. Most Expensive Item That Can Not Be Bought 🔒](https://leetcode.com/problems/most-expensive-item-that-can-not-be-bought)
 
 [中文文档](/solution/2900-2999/2979.Most%20Expensive%20Item%20That%20Can%20Not%20Be%20Bought/README.md)
@@ -47,6 +49,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Chicken McNugget Theorem
 
@@ -101,4 +105,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

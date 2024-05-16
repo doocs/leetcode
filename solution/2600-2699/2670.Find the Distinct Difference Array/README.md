@@ -9,13 +9,15 @@ tags:
     - 哈希表
 ---
 
+<!-- problem:start -->
+
 # [2670. 找出不同元素数目差数组](https://leetcode.cn/problems/find-the-distinct-difference-array)
 
 [English Version](/solution/2600-2699/2670.Find%20the%20Distinct%20Difference%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的数组 <code>nums</code> ，数组长度为 <code>n</code> 。</p>
 
@@ -62,7 +64,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 预处理后缀
 
@@ -200,4 +206,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

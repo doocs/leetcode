@@ -10,6 +10,8 @@ tags:
     - Graph
 ---
 
+<!-- problem:start -->
+
 # [1042. Flower Planting With No Adjacent](https://leetcode.com/problems/flower-planting-with-no-adjacent)
 
 [中文文档](/solution/1000-1099/1042.Flower%20Planting%20With%20No%20Adjacent/README.md)
@@ -64,6 +66,8 @@ Hence, [1,2,3] is a valid answer. Other valid answers include [1,2,4], [1,4,2], 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -196,4 +200,6 @@ function gardenNoAdj(n: number, paths: number[][]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

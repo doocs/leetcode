@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1327. List the Products Ordered in a Period](https://leetcode.com/problems/list-the-products-ordered-in-a-period)
 
 [中文文档](/solution/1300-1399/1327.List%20the%20Products%20Ordered%20in%20a%20Period/README.md)
@@ -100,6 +102,8 @@ Products with product_id = 5 is ordered in February a total of (50 + 50) = 100.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -117,4 +121,6 @@ HAVING unit >= 100;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

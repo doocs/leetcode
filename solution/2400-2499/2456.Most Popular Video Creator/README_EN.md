@@ -12,6 +12,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2456. Most Popular Video Creator](https://leetcode.com/problems/most-popular-video-creator)
 
 [中文文档](/solution/2400-2499/2456.Most%20Popular%20Video%20Creator/README.md)
@@ -66,6 +68,8 @@ Since &quot;b&quot; is lexicographically smaller than &quot;c&quot;, it is inclu
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -204,4 +208,6 @@ function mostPopularCreator(creators: string[], ids: string[], views: number[]):
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

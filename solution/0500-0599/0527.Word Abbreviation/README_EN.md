@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [527. Word Abbreviation 🔒](https://leetcode.com/problems/word-abbreviation)
 
 [中文文档](/solution/0500-0599/0527.Word%20Abbreviation/README.md)
@@ -54,6 +56,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Grouped Trie
 
@@ -348,4 +352,6 @@ function wordsAbbreviation(words: string[]): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

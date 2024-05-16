@@ -8,6 +8,8 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [22. Generate Parentheses](https://leetcode.com/problems/generate-parentheses)
 
 [中文文档](/solution/0000-0099/0022.Generate%20Parentheses/README.md)
@@ -32,6 +34,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS + Pruning
 
@@ -200,6 +204,10 @@ var generateParenthesis = function (n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -265,4 +273,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

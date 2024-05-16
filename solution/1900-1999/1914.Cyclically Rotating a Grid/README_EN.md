@@ -10,6 +10,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1914. Cyclically Rotating a Grid](https://leetcode.com/problems/cyclically-rotating-a-grid)
 
 [中文文档](/solution/1900-1999/1914.Cyclically%20Rotating%20a%20Grid/README.md)
@@ -79,6 +81,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -310,4 +314,6 @@ function rotateGrid(grid: number[][], k: number): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

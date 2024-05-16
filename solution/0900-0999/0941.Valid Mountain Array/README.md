@@ -6,13 +6,15 @@ tags:
     - 数组
 ---
 
+<!-- problem:start -->
+
 # [941. 有效的山脉数组](https://leetcode.cn/problems/valid-mountain-array)
 
 [English Version](/solution/0900-0999/0941.Valid%20Mountain%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数数组 <code>arr</code>，如果它是有效的山脉数组就返回&nbsp;<code>true</code>，否则返回 <code>false</code>。</p>
 
@@ -63,7 +65,11 @@ tags:
 	<li><code>0 &lt;= arr[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -164,4 +170,6 @@ function validMountainArray(arr: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

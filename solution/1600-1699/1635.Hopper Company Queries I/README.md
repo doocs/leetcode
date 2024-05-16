@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1635. Hopper 公司查询 I 🔒](https://leetcode.cn/problems/hopper-company-queries-i)
 
 [English Version](/solution/1600-1699/1635.Hopper%20Company%20Queries%20I/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Drivers</code></p>
 
@@ -160,7 +162,11 @@ ride_id 是该表的主键(具有唯一值的列)。
 截至11月底-&gt;六个活跃的驾驶员（10,8,5,7,4,1），两个被接受的行程（20,5）。
 截至12月底-&gt;六个活跃的驾驶员（10,8,5,7,4,1），一个被接受的行程（2）。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -201,4 +207,6 @@ GROUP BY month;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

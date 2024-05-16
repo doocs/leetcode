@@ -11,13 +11,15 @@ tags:
     - 迭代器
 ---
 
+<!-- problem:start -->
+
 # [173. 二叉搜索树迭代器](https://leetcode.cn/problems/binary-search-tree-iterator)
 
 [English Version](/solution/0100-0199/0173.Binary%20Search%20Tree%20Iterator/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 实现一个二叉搜索树迭代器类<code>BSTIterator</code> ，表示一个按中序遍历二叉搜索树（BST）的迭代器：
 
@@ -78,7 +80,11 @@ bSTIterator.hasNext(); // 返回 False
 	<li>你可以设计一个满足下述条件的解决方案吗？<code>next()</code> 和 <code>hasNext()</code> 操作均摊时间复杂度为 <code>O(1)</code> ，并使用 <code>O(h)</code> 内存。其中 <code>h</code> 是树的高度。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -425,6 +431,10 @@ BSTIterator.prototype.hasNext = function () {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：栈迭代
 
 初始化时，从根节点一路遍历所有左子节点，压入栈 `stack` 中。
@@ -679,4 +689,6 @@ impl BSTIterator {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

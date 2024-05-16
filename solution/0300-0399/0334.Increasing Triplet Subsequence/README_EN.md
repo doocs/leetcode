@@ -7,6 +7,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [334. Increasing Triplet Subsequence](https://leetcode.com/problems/increasing-triplet-subsequence)
 
 [中文文档](/solution/0300-0399/0334.Increasing%20Triplet%20Subsequence/README.md)
@@ -52,6 +54,8 @@ tags:
 <strong>Follow up:</strong> Could you implement a solution that runs in <code>O(n)</code> time complexity and <code>O(1)</code> space complexity?
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -173,6 +177,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -198,4 +206,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

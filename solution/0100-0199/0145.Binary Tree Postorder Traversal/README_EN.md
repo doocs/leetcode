@@ -9,6 +9,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [145. Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal)
 
 [中文文档](/solution/0100-0199/0145.Binary%20Tree%20Postorder%20Traversal/README.md)
@@ -51,6 +53,8 @@ tags:
 <strong>Follow up:</strong> Recursive solution is trivial, could you do it iteratively?
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -242,6 +246,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Stack Implementation for Postorder Traversal
 
 The order of preorder traversal is: root, left, right. If we change the order of the left and right children, the order becomes: root, right, left. Finally, reversing the result gives us the postorder traversal result.
@@ -424,6 +432,10 @@ function postorderTraversal(root: TreeNode | null): number[] {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 3: Morris Implementation for Postorder Traversal
 
@@ -632,4 +644,6 @@ function postorderTraversal(root: TreeNode | null): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -12,13 +12,15 @@ tags:
     - 状态压缩
 ---
 
+<!-- problem:start -->
+
 # [1994. 好子集的数目](https://leetcode.cn/problems/the-number-of-good-subsets)
 
 [English Version](/solution/1900-1999/1994.The%20Number%20of%20Good%20Subsets/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>nums</code>&nbsp;。如果&nbsp;<code>nums</code>&nbsp;的一个子集中，所有元素的乘积可以表示为一个或多个 <strong>互不相同的质数</strong> 的乘积，那么我们称它为&nbsp;<strong>好子集</strong>&nbsp;。</p>
 
@@ -75,7 +77,11 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 30</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：状态压缩动态规划
 
@@ -239,4 +245,6 @@ func numberOfGoodSubsets(nums []int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

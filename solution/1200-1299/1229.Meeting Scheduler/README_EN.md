@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1229. Meeting Scheduler 🔒](https://leetcode.com/problems/meeting-scheduler)
 
 [中文文档](/solution/1200-1299/1229.Meeting%20Scheduler/README.md)
@@ -52,6 +54,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Two Pointers
 
@@ -202,4 +206,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

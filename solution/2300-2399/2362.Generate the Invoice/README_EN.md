@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2362. Generate the Invoice 🔒](https://leetcode.com/problems/generate-the-invoice)
 
 [中文文档](/solution/2300-2399/2362.Generate%20the%20Invoice/README.md)
@@ -89,6 +91,8 @@ The highest price is $1000, and the invoices with the highest prices are 2 and 4
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -117,4 +121,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

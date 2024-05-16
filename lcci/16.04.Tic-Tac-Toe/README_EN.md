@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.04.Tic-Tac-Toe/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [16.04. Tic-Tac-Toe](https://leetcode.cn/problems/tic-tac-toe-lcci)
 
 [中文文档](/lcci/16.04.Tic-Tac-Toe/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design an algorithm to figure out if someone has won a game of tic-tac-toe.&nbsp;Input is a string array&nbsp;of size N x N, including characters &quot; &quot;, &quot;X&quot; and &quot;O&quot;, where &quot; &quot; represents a empty grid.</p>
 <p>The rules of tic-tac-toe are as follows:</p>
@@ -55,7 +59,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.04.Tic-Tac-Toe/REA
 	<li>Input follows the rules.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -287,4 +295,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

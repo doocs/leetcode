@@ -12,6 +12,8 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [1504. Count Submatrices With All Ones](https://leetcode.com/problems/count-submatrices-with-all-ones)
 
 [中文文档](/solution/1500-1599/1504.Count%20Submatrices%20With%20All%20Ones/README.md)
@@ -60,6 +62,8 @@ Total number of rectangles = 8 + 5 + 2 + 4 + 2 + 2 + 1 = 24.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -170,4 +174,6 @@ func numSubmat(mat [][]int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1355. Activity Participants 🔒](https://leetcode.com/problems/activity-participants)
 
 [中文文档](/solution/1300-1399/1355.Activity%20Participants/README.md)
@@ -90,6 +92,8 @@ Singing is performed by 2 friends (Victor J. and Jade W.)
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -109,4 +113,6 @@ WHERE cnt > (SELECT MIN(cnt) FROM t) AND cnt < (SELECT MAX(cnt) FROM t);
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

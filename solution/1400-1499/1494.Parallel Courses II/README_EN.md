@@ -11,6 +11,8 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [1494. Parallel Courses II](https://leetcode.com/problems/parallel-courses-ii)
 
 [中文文档](/solution/1400-1499/1494.Parallel%20Courses%20II/README.md)
@@ -62,6 +64,8 @@ In the fourth semester, you can take course 5.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -230,4 +234,6 @@ func minNumberOfSemesters(n int, relations [][]int, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

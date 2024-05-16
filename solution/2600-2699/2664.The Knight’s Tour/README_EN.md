@@ -8,6 +8,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [2664. The Knight’s Tour 🔒](https://leetcode.com/problems/the-knights-tour)
 
 [中文文档](/solution/2600-2699/2664.The%20Knight%E2%80%99s%20Tour/README.md)
@@ -50,6 +52,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -256,4 +260,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

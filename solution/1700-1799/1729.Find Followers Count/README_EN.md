@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1729. Find Followers Count](https://leetcode.com/problems/find-followers-count)
 
 [中文文档](/solution/1700-1799/1729.Find%20Followers%20Count/README.md)
@@ -62,6 +64,8 @@ The followers of 2 are {0,1}
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Grouping and Aggregation
 
 We can directly group the `Followers` table by `user_id`, and use the `COUNT` function to count the number of followers for each user.
@@ -78,4 +82,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

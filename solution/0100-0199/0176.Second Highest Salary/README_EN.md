@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [176. Second Highest Salary](https://leetcode.com/problems/second-highest-salary)
 
 [中文文档](/solution/0100-0199/0176.Second%20Highest%20Salary/README.md)
@@ -72,6 +74,8 @@ Employee table:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Use Sub Query and LIMIT
 
 <!-- tabs:start -->
@@ -112,6 +116,10 @@ SELECT
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Use `MAX()` function
 
 <!-- tabs:start -->
@@ -125,6 +133,10 @@ WHERE salary < (SELECT MAX(salary) FROM Employee);
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3: Use `IFNULL()` and window function
 
 <!-- tabs:start -->
@@ -137,4 +149,6 @@ SELECT (SELECT DISTINCT salary FROM T WHERE rk = 2) AS SecondHighestSalary;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,13 +9,15 @@ tags:
     - 单调栈
 ---
 
+<!-- problem:start -->
+
 # [2282. 在一个网格中可以看到的人数 🔒](https://leetcode.cn/problems/number-of-people-that-can-be-seen-in-a-grid)
 
 [English Version](/solution/2200-2299/2282.Number%20of%20People%20That%20Can%20Be%20Seen%20in%20a%20Grid/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个 <code>m x n</code> <strong>下标从 0 开始</strong>的二维正整数数组 <code>heights</code>，其中 <code>heights[i][j]</code> 是站在位置 <code>(i, j)</code>&nbsp;上的人的高度。</p>
 
@@ -66,7 +68,11 @@ tags:
 	<li><code>1 &lt;= heights[i][j] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：单调栈
 
@@ -283,4 +289,6 @@ function seePeople(heights: number[][]): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

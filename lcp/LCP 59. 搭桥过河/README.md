@@ -4,11 +4,13 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2059.%20%E6%90%AD%E6%A1%A5%E8%BF%87%E6%B2%B3/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 59. 搭桥过河](https://leetcode.cn/problems/NfY1m5)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 欢迎各位勇者来到力扣城，本次试炼主题为「搭桥过河」。
 
@@ -54,6 +56,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2059.%20%E6%90%AD%
 -   `wood[i].length == 2`
 -   `1 <= wood[i][0] <= wood[i][1] <= num`
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

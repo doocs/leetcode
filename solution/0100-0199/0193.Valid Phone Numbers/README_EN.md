@@ -6,6 +6,8 @@ tags:
     - Shell
 ---
 
+<!-- problem:start -->
+
 # [193. Valid Phone Numbers](https://leetcode.com/problems/valid-phone-numbers)
 
 [中文文档](/solution/0100-0199/0193.Valid%20Phone%20Numbers/README.md)
@@ -37,6 +39,8 @@ tags:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: awk
 
 <!-- tabs:start -->
@@ -48,4 +52,6 @@ awk '/^([0-9]{3}-|\([0-9]{3}\) )[0-9]{3}-[0-9]{4}$/' file.txt
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

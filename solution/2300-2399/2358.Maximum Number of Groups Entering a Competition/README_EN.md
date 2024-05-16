@@ -11,6 +11,8 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [2358. Maximum Number of Groups Entering a Competition](https://leetcode.com/problems/maximum-number-of-groups-entering-a-competition)
 
 [中文文档](/solution/2300-2399/2358.Maximum%20Number%20of%20Groups%20Entering%20a%20Competition/README.md)
@@ -56,6 +58,8 @@ It can be shown that it is not possible to form more than 3 groups.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -134,4 +138,6 @@ function maximumGroups(grades: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

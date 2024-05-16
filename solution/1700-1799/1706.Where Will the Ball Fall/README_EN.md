@@ -10,6 +10,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1706. Where Will the Ball Fall](https://leetcode.com/problems/where-will-the-ball-fall)
 
 [中文文档](/solution/1700-1799/1706.Where%20Will%20the%20Ball%20Fall/README.md)
@@ -71,6 +73,8 @@ Ball b4 is dropped at column 4 and will get stuck on the box between column 2 an
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Case Discussion + DFS
 
@@ -270,4 +274,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

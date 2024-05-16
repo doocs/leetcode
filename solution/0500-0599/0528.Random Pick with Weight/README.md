@@ -10,13 +10,15 @@ tags:
     - 随机化
 ---
 
+<!-- problem:start -->
+
 # [528. 按权重随机选择](https://leetcode.cn/problems/random-pick-with-weight)
 
 [English Version](/solution/0500-0599/0528.Random%20Pick%20with%20Weight/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <strong>下标从 0 开始</strong> 的正整数数组&nbsp;<code>w</code> ，其中&nbsp;<code>w[i]</code> 代表第 <code>i</code> 个下标的权重。</p>
 
@@ -79,7 +81,11 @@ solution.pickIndex(); // 返回 0，返回下标 0，返回该下标概率为 1/
 	<li><code>pickIndex</code>&nbsp;将被调用不超过 <code>10<sup>4</sup></code>&nbsp;次</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -294,4 +300,6 @@ Solution.prototype.pickIndex = function () {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

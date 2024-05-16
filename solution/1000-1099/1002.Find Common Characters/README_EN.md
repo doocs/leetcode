@@ -10,6 +10,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1002. Find Common Characters](https://leetcode.com/problems/find-common-characters)
 
 [中文文档](/solution/1000-1099/1002.Find%20Common%20Characters/README.md)
@@ -36,6 +38,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -155,4 +159,6 @@ function commonChars(words: string[]): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

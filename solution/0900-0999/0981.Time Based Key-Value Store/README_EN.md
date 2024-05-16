@@ -9,6 +9,8 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [981. Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store)
 
 [中文文档](/solution/0900-0999/0981.Time%20Based%20Key-Value%20Store/README.md)
@@ -57,6 +59,8 @@ timeMap.get(&quot;foo&quot;, 5);         // return &quot;bar2&quot;
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -179,4 +183,6 @@ type pair struct {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

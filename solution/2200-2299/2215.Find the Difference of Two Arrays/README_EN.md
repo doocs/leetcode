@@ -9,6 +9,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [2215. Find the Difference of Two Arrays](https://leetcode.com/problems/find-the-difference-of-two-arrays)
 
 [中文文档](/solution/2200-2299/2215.Find%20the%20Difference%20of%20Two%20Arrays/README.md)
@@ -53,6 +55,8 @@ Every integer in nums2 is present in nums1. Therefore, answer[1] = [].
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -213,4 +217,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

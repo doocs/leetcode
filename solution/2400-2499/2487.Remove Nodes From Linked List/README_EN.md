@@ -11,6 +11,8 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [2487. Remove Nodes From Linked List](https://leetcode.com/problems/remove-nodes-from-linked-list)
 
 [中文文档](/solution/2400-2499/2487.Remove%20Nodes%20From%20Linked%20List/README.md)
@@ -52,6 +54,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Monotonic Stack Simulation
 
@@ -235,6 +239,10 @@ function removeNodes(head: ListNode | null): ListNode | null {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -367,4 +375,6 @@ function removeNodes(head: ListNode | null): ListNode | null {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

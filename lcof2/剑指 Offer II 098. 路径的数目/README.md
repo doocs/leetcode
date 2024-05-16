@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20098.%20%E8%B7%AF%E5%BE%84%E7%9A%84%E6%95%B0%E7%9B%AE/README.md
 ---
 
+<!-- problem:start -->
+
 # [剑指 Offer II 098. 路径的数目](https://leetcode.cn/problems/2AoeFn)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一个机器人位于一个 <code>m x n</code><em>&nbsp;</em>网格的左上角 （起始点在下图中标记为 &ldquo;Start&rdquo; ）。</p>
 
@@ -63,7 +65,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <p><meta charset="UTF-8" />注意：本题与主站 62&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/unique-paths/">https://leetcode.cn/problems/unique-paths/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -229,6 +235,8 @@ var uniquePaths = function (m, n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -328,6 +336,8 @@ var uniquePaths = function (m, n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
 ### 方法三
 
 <!-- tabs:start -->
@@ -418,4 +428,6 @@ var uniquePaths = function (m, n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

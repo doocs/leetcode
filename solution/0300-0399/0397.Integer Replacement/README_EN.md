@@ -9,6 +9,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [397. Integer Replacement](https://leetcode.com/problems/integer-replacement)
 
 [中文文档](/solution/0300-0399/0397.Integer%20Replacement/README.md)
@@ -57,6 +59,8 @@ or 7 -&gt; 6 -&gt; 3 -&gt; 2 -&gt; 1
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -135,4 +139,6 @@ func integerReplacement(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

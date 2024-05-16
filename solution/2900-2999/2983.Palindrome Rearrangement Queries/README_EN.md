@@ -10,6 +10,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2983. Palindrome Rearrangement Queries](https://leetcode.com/problems/palindrome-rearrangement-queries)
 
 [中文文档](/solution/2900-2999/2983.Palindrome%20Rearrangement%20Queries/README.md)
@@ -96,6 +98,8 @@ Now, s is a palindrome. So, answer[0] = true.</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Case Discussion
 
@@ -482,4 +486,6 @@ function arraysEqual(arr1: number[], arr2: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

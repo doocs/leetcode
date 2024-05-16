@@ -7,6 +7,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [789. Escape The Ghosts](https://leetcode.com/problems/escape-the-ghosts)
 
 [中文文档](/solution/0700-0799/0789.Escape%20The%20Ghosts/README.md)
@@ -59,6 +61,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -136,4 +140,6 @@ function escapeGhosts(ghosts: number[][], target: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

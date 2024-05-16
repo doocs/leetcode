@@ -12,13 +12,15 @@ tags:
     - 数据流
 ---
 
+<!-- problem:start -->
+
 # [1032. 字符流](https://leetcode.cn/problems/stream-of-characters)
 
 [English Version](/solution/1000-1099/1032.Stream%20of%20Characters/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计一个算法：接收一个字符流，并检查这些字符的后缀是否是字符串数组 <code>words</code> 中的一个字符串。</p>
 
@@ -70,7 +72,11 @@ streamChecker.query("l"); // 返回 True ，因为 'kl' 在 words 中
 	<li>最多调用查询 <code>4 * 10<sup>4</sup></code> 次</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀树
 
@@ -315,4 +321,6 @@ func (this *StreamChecker) Query(letter byte) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

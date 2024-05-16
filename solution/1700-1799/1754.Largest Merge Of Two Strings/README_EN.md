@@ -10,6 +10,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1754. Largest Merge Of Two Strings](https://leetcode.com/problems/largest-merge-of-two-strings)
 
 [中文文档](/solution/1700-1799/1754.Largest%20Merge%20Of%20Two%20Strings/README.md)
@@ -68,6 +70,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -222,4 +226,6 @@ char* largestMerge(char* word1, char* word2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

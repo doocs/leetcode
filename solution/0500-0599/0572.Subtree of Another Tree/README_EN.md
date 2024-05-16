@@ -10,6 +10,8 @@ tags:
     - Hash Function
 ---
 
+<!-- problem:start -->
+
 # [572. Subtree of Another Tree](https://leetcode.com/problems/subtree-of-another-tree)
 
 [中文文档](/solution/0500-0599/0572.Subtree%20of%20Another%20Tree/README.md)
@@ -46,6 +48,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -295,4 +299,6 @@ var isSubtree = function (root, subRoot) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

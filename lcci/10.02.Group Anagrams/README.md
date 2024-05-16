@@ -4,13 +4,16 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.02.Group%20Anagrams/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 10.02. 变位词组](https://leetcode.cn/problems/group-anagrams-lcci)
 
 [English Version](/lcci/10.02.Group%20Anagrams/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>编写一种方法，对字符串数组进行排序，将所有变位词组合在一起。变位词是指字母相同，但排列不同的字符串。</p>
 
 <p><strong>注意：</strong>本题相对原题稍作修改</p>
@@ -32,7 +35,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.02.Group%20Anagram
 	<li>不考虑答案输出的顺序。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -141,6 +148,8 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
 ### 方法二：计数
 
 我们也可以将方法一中的排序部分改为计数，也就是说，将每个字符串 $s$ 中的字符以及出现的次数作为 `key`，将字符串 $s$ 作为 `value` 存入哈希表当中。
@@ -227,4 +236,6 @@ func groupAnagrams(strs []string) (ans [][]string) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

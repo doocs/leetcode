@@ -6,13 +6,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [9. 回文数](https://leetcode.cn/problems/palindrome-number)
 
 [English Version](/solution/0000-0099/0009.Palindrome%20Number/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数 <code>x</code> ，如果 <code>x</code> 是一个回文整数，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
 
@@ -59,7 +61,11 @@ tags:
 
 <p><strong>进阶：</strong>你能不将整数转为字符串来解决这个问题吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：反转一半数字
 
@@ -230,4 +236,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

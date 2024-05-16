@@ -11,6 +11,8 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2411. Smallest Subarrays With Maximum Bitwise OR](https://leetcode.com/problems/smallest-subarrays-with-maximum-bitwise-or)
 
 [中文文档](/solution/2400-2499/2411.Smallest%20Subarrays%20With%20Maximum%20Bitwise%20OR/README.md)
@@ -66,6 +68,8 @@ Therefore, we return [2,1].
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Reverse Traversal
 
@@ -167,4 +171,6 @@ func smallestSubarrays(nums []int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

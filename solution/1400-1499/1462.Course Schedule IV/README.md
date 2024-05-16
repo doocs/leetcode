@@ -11,13 +11,15 @@ tags:
     - 拓扑排序
 ---
 
+<!-- problem:start -->
+
 # [1462. 课程表 IV](https://leetcode.cn/problems/course-schedule-iv)
 
 [English Version](/solution/1400-1499/1462.Course%20Schedule%20IV/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你总共需要上<meta charset="UTF-8" />&nbsp;<code>numCourses</code>&nbsp;门课，课程编号依次为 <code>0</code>&nbsp;到&nbsp;<code>numCourses-1</code>&nbsp;。你会得到一个数组&nbsp;<code>prerequisite</code> ，其中<meta charset="UTF-8" />&nbsp;<code>prerequisites[i] = [a<sub>i</sub>, b<sub>i</sub>]</code>&nbsp;表示如果你想选<meta charset="UTF-8" />&nbsp;<code>b<sub>i</sub></code> 课程，你<strong> 必须</strong> 先选<meta charset="UTF-8" />&nbsp;<code>a<sub>i</sub></code>&nbsp;课程。</p>
 
@@ -79,7 +81,11 @@ tags:
 	<li><code>u<sub>i</sub>&nbsp;!= v<sub>i</sub></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：Floyd 算法
 
@@ -200,6 +206,10 @@ function checkIfPrerequisite(n: number, prerequisites: number[][], queries: numb
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：拓扑排序
 
@@ -392,4 +402,6 @@ function checkIfPrerequisite(n: number, prerequisites: number[][], queries: numb
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

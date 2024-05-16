@@ -10,6 +10,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [1306. Jump Game III](https://leetcode.com/problems/jump-game-iii)
 
 [中文文档](/solution/1300-1399/1306.Jump%20Game%20III/README.md)
@@ -60,6 +62,8 @@ index 0 -&gt; index 4 -&gt; index 1 -&gt; index 3
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -171,4 +175,6 @@ function canReach(arr: number[], start: number): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

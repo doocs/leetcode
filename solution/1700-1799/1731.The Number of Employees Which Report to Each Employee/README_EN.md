@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1731. The Number of Employees Which Report to Each Employee](https://leetcode.com/problems/the-number-of-employees-which-report-to-each-employee)
 
 [中文文档](/solution/1700-1799/1731.The%20Number%20of%20Employees%20Which%20Report%20to%20Each%20Employee/README.md)
@@ -90,6 +92,8 @@ Employees table:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Self-Join + Grouping
 
 We can use self-join to connect the information of each employee's superior manager to the information of each employee, and then use grouping and aggregation to count the number of subordinates and the average age of each manager.
@@ -112,4 +116,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

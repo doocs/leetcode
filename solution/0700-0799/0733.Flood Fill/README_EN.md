@@ -9,6 +9,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [733. Flood Fill](https://leetcode.com/problems/flood-fill)
 
 [中文文档](/solution/0700-0799/0733.Flood%20Fill/README.md)
@@ -54,6 +56,8 @@ Note the bottom corner is not colored 2, because it is not 4-directionally conne
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -209,6 +213,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -315,4 +323,6 @@ func floodFill(image [][]int, sr int, sc int, color int) [][]int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

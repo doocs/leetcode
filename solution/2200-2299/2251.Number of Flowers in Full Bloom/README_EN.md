@@ -13,6 +13,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2251. Number of Flowers in Full Bloom](https://leetcode.com/problems/number-of-flowers-in-full-bloom)
 
 [中文文档](/solution/2200-2299/2251.Number%20of%20Flowers%20in%20Full%20Bloom/README.md)
@@ -54,6 +56,8 @@ For each person, we return the number of flowers in full bloom during their arri
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -235,6 +239,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -377,4 +385,6 @@ function fullBloomFlowers(flowers: number[][], people: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

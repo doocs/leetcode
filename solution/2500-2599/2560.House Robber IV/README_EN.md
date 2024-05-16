@@ -9,6 +9,8 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [2560. House Robber IV](https://leetcode.com/problems/house-robber-iv)
 
 [中文文档](/solution/2500-2599/2560.House%20Robber%20IV/README.md)
@@ -57,6 +59,8 @@ Therefore, we return min(5, 9, 9) = 5.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search + Greedy
 
@@ -185,4 +189,6 @@ function minCapability(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

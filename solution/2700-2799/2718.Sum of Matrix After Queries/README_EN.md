@@ -9,6 +9,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [2718. Sum of Matrix After Queries](https://leetcode.com/problems/sum-of-matrix-after-queries)
 
 [中文文档](/solution/2700-2799/2718.Sum%20of%20Matrix%20After%20Queries/README.md)
@@ -56,6 +58,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -188,4 +192,6 @@ function matrixSumQueries(n: number, queries: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

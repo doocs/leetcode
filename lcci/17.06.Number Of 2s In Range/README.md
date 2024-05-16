@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.06.Number%20Of%202s%20In%20Range/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 17.06. 2 出现的次数](https://leetcode.cn/problems/number-of-2s-in-range-lcci)
 
 [English Version](/lcci/17.06.Number%20Of%202s%20In%20Range/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>编写一个方法，计算从 0 到 n (含 n) 中数字 2 出现的次数。</p>
 <p><strong>示例:</strong></p>
@@ -22,7 +24,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.06.Number%20Of%202
 	<li><code>n &lt;= 10^9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数位 DP
 
@@ -240,4 +246,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

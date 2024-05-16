@@ -4,6 +4,8 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2693.Call%20Function%20with%20Custom%20Context/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2693. Call Function with Custom Context](https://leetcode.com/problems/call-function-with-custom-context)
 
 [中文文档](/solution/2600-2699/2693.Call%20Function%20with%20Custom%20Context/README.md)
@@ -65,6 +67,8 @@ args = [{&quot;item&quot;: &quot;burger&quot;}, 10, 1.1]
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -89,4 +93,6 @@ Function.prototype.callPolyfill = function (context, ...args): any {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,6 +9,8 @@ tags:
     - Topological Sort
 ---
 
+<!-- problem:start -->
+
 # [210. Course Schedule II](https://leetcode.com/problems/course-schedule-ii)
 
 [中文文档](/solution/0200-0299/0210.Course%20Schedule%20II/README.md)
@@ -61,6 +63,8 @@ So one correct course order is [0,1,2,3]. Another correct ordering is [0,2,1,3].
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -292,4 +296,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

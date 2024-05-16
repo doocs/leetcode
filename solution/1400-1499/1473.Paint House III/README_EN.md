@@ -9,6 +9,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1473. Paint House III](https://leetcode.com/problems/paint-house-iii)
 
 [中文文档](/solution/1400-1499/1473.Paint%20House%20III/README.md)
@@ -75,6 +77,8 @@ Cost of paint the first and last house (10 + 1) = 11.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -324,4 +328,6 @@ function minCost(houses: number[], cost: number[][], m: number, n: number, targe
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1142. User Activity for the Past 30 Days II 🔒](https://leetcode.com/problems/user-activity-for-the-past-30-days-ii)
 
 [中文文档](/solution/1100-1199/1142.User%20Activity%20for%20the%20Past%2030%20Days%20II/README.md)
@@ -70,6 +72,8 @@ Activity table:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -90,6 +94,10 @@ FROM T;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -106,4 +114,6 @@ WHERE DATEDIFF('2019-07-27', activity_date) < 30;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

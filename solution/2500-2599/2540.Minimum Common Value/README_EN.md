@@ -11,6 +11,8 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [2540. Minimum Common Value](https://leetcode.com/problems/minimum-common-value)
 
 [中文文档](/solution/2500-2599/2540.Minimum%20Common%20Value/README.md)
@@ -48,6 +50,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -190,6 +194,10 @@ int getCommon(int* nums1, int nums1Size, int* nums2, int nums2Size) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -219,4 +227,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

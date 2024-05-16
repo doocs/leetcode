@@ -8,6 +8,8 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [3063. Linked List Frequency 🔒](https://leetcode.com/problems/linked-list-frequency)
 
 [中文文档](/solution/3000-3099/3063.Linked%20List%20Frequency/README.md)
@@ -58,6 +60,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -187,4 +191,6 @@ function frequenciesOfElements(head: ListNode | null): ListNode | null {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

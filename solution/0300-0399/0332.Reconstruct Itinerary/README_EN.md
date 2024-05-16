@@ -8,6 +8,8 @@ tags:
     - Eulerian Circuit
 ---
 
+<!-- problem:start -->
+
 # [332. Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary)
 
 [中文文档](/solution/0300-0399/0332.Reconstruct%20Itinerary/README.md)
@@ -53,6 +55,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -150,4 +154,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

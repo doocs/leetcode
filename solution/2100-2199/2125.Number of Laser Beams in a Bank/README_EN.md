@@ -11,6 +11,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [2125. Number of Laser Beams in a Bank](https://leetcode.com/problems/number-of-laser-beams-in-a-bank)
 
 [中文文档](/solution/2100-2199/2125.Number%20of%20Laser%20Beams%20in%20a%20Bank/README.md)
@@ -68,6 +70,8 @@ This is because the 2<sup>nd</sup> row contains security devices, which breaks t
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Row by Row Counting
 
@@ -192,4 +196,6 @@ int numberOfBeams(char** bank, int bankSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

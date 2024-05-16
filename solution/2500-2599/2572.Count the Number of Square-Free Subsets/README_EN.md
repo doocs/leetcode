@@ -12,6 +12,8 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [2572. Count the Number of Square-Free Subsets](https://leetcode.com/problems/count-the-number-of-square-free-subsets)
 
 [中文文档](/solution/2500-2599/2572.Count%20the%20Number%20of%20Square-Free%20Subsets/README.md)
@@ -59,6 +61,8 @@ It can be proven that there is no more than 1 square-free subset in the given ar
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: State Compression Dynamic Programming
 
@@ -263,4 +267,6 @@ function squareFreeSubsets(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

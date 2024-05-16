@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2700.Differences%20Between%20Two%20Objects/README.md
 ---
 
+<!-- problem:start -->
+
 # [2700. 两个对象之间的差异 🔒](https://leetcode.cn/problems/differences-between-two-objects)
 
 [English Version](/solution/2700-2799/2700.Differences%20Between%20Two%20Objects/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你编写一个函数，它接收两个深度嵌套的对象或数组 <code>obj1</code> 和 <code>obj2</code> ，并返回一个新对象表示它们之间差异。</p>
 
@@ -135,7 +137,11 @@ obj2 = { &nbsp;
 	<li><code>2 &lt;= JSON.stringify(obj2).length &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -165,4 +171,6 @@ function isObject(obj: unknown): obj is Record<string, unknown> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

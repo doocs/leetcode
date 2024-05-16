@@ -9,6 +9,8 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [1620. Coordinate With Maximum Network Quality](https://leetcode.com/problems/coordinate-with-maximum-network-quality)
 
 [中文文档](/solution/1600-1699/1620.Coordinate%20With%20Maximum%20Network%20Quality/README.md)
@@ -76,6 +78,8 @@ No other coordinate has a higher network quality.</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -175,4 +179,6 @@ func bestCoordinate(towers [][]int, radius int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

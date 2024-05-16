@@ -9,6 +9,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [490. The Maze 🔒](https://leetcode.com/problems/the-maze)
 
 [中文文档](/solution/0400-0499/0490.The%20Maze/README.md)
@@ -62,6 +64,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -201,6 +205,10 @@ func hasPath(maze [][]int, start []int, destination []int) bool {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -331,4 +339,6 @@ func hasPath(maze [][]int, start []int, destination []int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

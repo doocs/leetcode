@@ -9,6 +9,8 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [1534. Count Good Triplets](https://leetcode.com/problems/count-good-triplets)
 
 [中文文档](/solution/1500-1599/1534.Count%20Good%20Triplets/README.md)
@@ -76,6 +78,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -159,4 +163,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

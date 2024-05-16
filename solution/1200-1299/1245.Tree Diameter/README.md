@@ -12,13 +12,15 @@ tags:
     - 拓扑排序
 ---
 
+<!-- problem:start -->
+
 # [1245. 树的直径 🔒](https://leetcode.cn/problems/tree-diameter)
 
 [English Version](/solution/1200-1299/1245.Tree%20Diameter/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你这棵「无向树」，请你测算并返回它的「直径」：这棵树上最长简单路径的 <strong>边数</strong>。</p>
 
@@ -59,7 +61,11 @@ tags:
 	<li><code>edges</code>&nbsp;会形成一棵无向树</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：两次 DFS
 
@@ -222,4 +228,6 @@ func treeDiameter(edges [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

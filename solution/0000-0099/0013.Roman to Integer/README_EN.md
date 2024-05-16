@@ -8,6 +8,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [13. Roman to Integer](https://leetcode.com/problems/roman-to-integer)
 
 [中文文档](/solution/0000-0099/0013.Roman%20to%20Integer/README.md)
@@ -73,6 +75,8 @@ M             1000</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Simulation
 
@@ -276,4 +280,6 @@ end
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,6 +8,8 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [970. Powerful Integers](https://leetcode.com/problems/powerful-integers)
 
 [中文文档](/solution/0900-0999/0970.Powerful%20Integers/README.md)
@@ -52,6 +54,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Enumeration
 
@@ -191,4 +195,6 @@ var powerfulIntegers = function (x, y, bound) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

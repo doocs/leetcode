@@ -7,6 +7,8 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [275. H-Index II](https://leetcode.com/problems/h-index-ii)
 
 [中文文档](/solution/0200-0299/0275.H-Index%20II/README.md)
@@ -47,6 +49,8 @@ Since the researcher has 3 papers with at least 3 citations each and the remaini
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -179,4 +183,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

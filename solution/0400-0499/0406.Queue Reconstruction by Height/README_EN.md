@@ -9,6 +9,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [406. Queue Reconstruction by Height](https://leetcode.com/problems/queue-reconstruction-by-height)
 
 [中文文档](/solution/0400-0499/0406.Queue%20Reconstruction%20by%20Height/README.md)
@@ -53,6 +55,8 @@ Hence [[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]] is the reconstructed queue.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -113,4 +117,6 @@ func reconstructQueue(people [][]int) [][]int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

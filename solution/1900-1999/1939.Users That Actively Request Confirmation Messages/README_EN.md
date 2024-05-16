@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1939. Users That Actively Request Confirmation Messages 🔒](https://leetcode.com/problems/users-that-actively-request-confirmation-messages)
 
 [中文文档](/solution/1900-1999/1939.Users%20That%20Actively%20Request%20Confirmation%20Messages/README.md)
@@ -94,6 +96,8 @@ User 7 requested two messages within 24 hours and 1 second of each other, so we 
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -110,4 +114,6 @@ WHERE
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

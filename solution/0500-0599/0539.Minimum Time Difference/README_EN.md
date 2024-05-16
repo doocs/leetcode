@@ -9,6 +9,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [539. Minimum Time Difference](https://leetcode.com/problems/minimum-time-difference)
 
 [中文文档](/solution/0500-0599/0539.Minimum%20Time%20Difference/README.md)
@@ -34,6 +36,8 @@ Given a list of 24-hour clock time points in <strong>&quot;HH:MM&quot;</strong> 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -136,4 +140,6 @@ function findMinDifference(timePoints: string[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

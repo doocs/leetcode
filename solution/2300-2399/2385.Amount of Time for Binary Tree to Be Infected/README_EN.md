@@ -12,6 +12,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [2385. Amount of Time for Binary Tree to Be Infected](https://leetcode.com/problems/amount-of-time-for-binary-tree-to-be-infected)
 
 [中文文档](/solution/2300-2399/2385.Amount%20of%20Time%20for%20Binary%20Tree%20to%20Be%20Infected/README.md)
@@ -63,6 +65,8 @@ It takes 4 minutes for the whole tree to be infected so we return 4.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two DFS
 
@@ -281,4 +285,6 @@ function amountOfTime(root: TreeNode | null, start: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

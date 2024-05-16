@@ -9,6 +9,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2069. Walking Robot Simulation II](https://leetcode.com/problems/walking-robot-simulation-ii)
 
 [中文文档](/solution/2000-2099/2069.Walking%20Robot%20Simulation%20II/README.md)
@@ -73,4 +75,30 @@ robot.getDir(); // return &quot;West&quot;
 
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+```python
+
+```
+
+```java
+
+```
+
+```cpp
+
+```
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

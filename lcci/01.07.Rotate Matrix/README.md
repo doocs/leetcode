@@ -4,13 +4,16 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.07.Rotate%20Matrix/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 01.07. 旋转矩阵](https://leetcode.cn/problems/rotate-matrix-lcci)
 
 [English Version](/lcci/01.07.Rotate%20Matrix/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>给定一幅由N × N矩阵表示的图像，其中每个像素的大小为4字节，编写一种方法，将图像旋转90度。</p>
 
 <p>不占用额外内存空间能否做到？</p>
@@ -53,7 +56,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.07.Rotate%20Matrix
 ]
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：原地翻转
 
@@ -235,4 +242,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

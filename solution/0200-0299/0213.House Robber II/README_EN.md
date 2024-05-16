@@ -7,6 +7,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [213. House Robber II](https://leetcode.com/problems/house-robber-ii)
 
 [中文文档](/solution/0200-0299/0213.House%20Robber%20II/README.md)
@@ -51,6 +53,8 @@ Total amount you can rob = 1 + 3 = 4.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -175,4 +179,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

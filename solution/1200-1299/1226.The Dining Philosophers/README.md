@@ -6,13 +6,15 @@ tags:
     - 多线程
 ---
 
+<!-- problem:start -->
+
 # [1226. 哲学家进餐](https://leetcode.cn/problems/the-dining-philosophers)
 
 [English Version](/solution/1200-1299/1226.The%20Dining%20Philosophers/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>5 个沉默寡言的哲学家围坐在圆桌前，每人面前一盘意面。叉子放在哲学家之间的桌面上。（5 个哲学家，5 根叉子）</p>
 
@@ -64,7 +66,11 @@ output[i] = [a, b, c] (3个整数)
 	<li><code>1 &lt;= n &lt;= 60</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -94,4 +100,6 @@ private:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

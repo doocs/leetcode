@@ -8,6 +8,8 @@ tags:
     - Combinatorics
 ---
 
+<!-- problem:start -->
+
 # [2912. Number of Ways to Reach Destination in the Grid 🔒](https://leetcode.com/problems/number-of-ways-to-reach-destination-in-the-grid)
 
 [中文文档](/solution/2900-2999/2912.Number%20of%20Ways%20to%20Reach%20Destination%20in%20the%20Grid/README.md)
@@ -67,6 +69,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -207,4 +211,6 @@ func numberOfWays(n int, m int, k int, source []int, dest []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,6 +4,8 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2884.Modify%20Columns/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2884. Modify Columns](https://leetcode.com/problems/modify-columns)
 
 [中文文档](/solution/2800-2899/2884.Modify%20Columns/README.md)
@@ -54,6 +56,8 @@ DataFrame <code>employees</code>
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -69,4 +73,6 @@ def modifySalaryColumn(employees: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

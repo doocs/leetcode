@@ -11,6 +11,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2751. Robot Collisions](https://leetcode.com/problems/robot-collisions)
 
 [中文文档](/solution/2700-2799/2751.Robot%20Collisions/README.md)
@@ -75,4 +77,30 @@ tags:
 
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+```python
+
+```
+
+```java
+
+```
+
+```cpp
+
+```
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

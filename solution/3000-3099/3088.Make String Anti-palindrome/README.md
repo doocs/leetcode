@@ -8,13 +8,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [3088. 使字符串反回文 🔒](https://leetcode.cn/problems/make-string-anti-palindrome)
 
 [English Version](/solution/3000-3099/3088.Make%20String%20Anti-palindrome/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>我们称一个长度为偶数的字符串&nbsp;<code>s</code>&nbsp;为&nbsp;<strong>反回文</strong>&nbsp;的，如果对于每一个下标&nbsp;<code>0 &lt;= i &lt; n</code>&nbsp;，<code>s[i] != s[n - i - 1]</code>。</p>
 
@@ -72,7 +74,11 @@ tags:
 	<li><code>s</code> 只包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 排序
 
@@ -196,4 +202,6 @@ function makeAntiPalindrome(s: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

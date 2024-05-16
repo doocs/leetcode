@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [577. 员工奖金](https://leetcode.cn/problems/employee-bonus)
 
 [English Version](/solution/0500-0599/0577.Employee%20Bonus/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Employee</code>&nbsp;</p>
 
@@ -84,7 +86,11 @@ Bonus table:
 | Dan  | 500   |
 +------+-------+</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：左连接
 
@@ -103,4 +109,6 @@ WHERE IFNULL(bonus, 0) < 1000;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

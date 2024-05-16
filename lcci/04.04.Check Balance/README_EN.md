@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.04.Check%20Balance/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [04.04. Check Balance](https://leetcode.cn/problems/check-balance-lcci)
 
 [中文文档](/lcci/04.04.Check%20Balance/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Implement a function to check if a binary tree is balanced. For the purposes of this question, a balanced tree is defined to be a tree such that the heights of the two subtrees of any node never differ by more than one.</p>
 
@@ -56,7 +60,11 @@ return&nbsp;false.</pre>
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion (Post-order Traversal)
 
@@ -252,4 +260,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,6 +7,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [466. Count The Repetitions](https://leetcode.com/problems/count-the-repetitions)
 
 [中文文档](/solution/0400-0499/0466.Count%20The%20Repetitions/README.md)
@@ -47,6 +49,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -188,4 +192,6 @@ function getMaxRepetitions(s1: string, n1: number, s2: string, n2: number): numb
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

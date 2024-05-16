@@ -10,13 +10,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [1575. 统计所有可行路径](https://leetcode.cn/problems/count-all-possible-routes)
 
 [English Version](/solution/1500-1599/1575.Count%20All%20Possible%20Routes/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <strong>互不相同</strong>&nbsp;的整数数组，其中&nbsp;<code>locations[i]</code>&nbsp;表示第&nbsp;<code>i</code>&nbsp;个城市的位置。同时给你&nbsp;<code>start</code>，<code>finish</code>&nbsp;和&nbsp;<code>fuel</code>&nbsp;分别表示出发城市、目的地城市和你初始拥有的汽油总量</p>
 
@@ -74,7 +76,11 @@ tags:
 	<li><code>1 &lt;= fuel &lt;= 200</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -242,6 +248,10 @@ function countRoutes(locations: number[], start: number, finish: number, fuel: n
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划
 
 我们也可以将方法一的记忆化搜索转换为动态规划。
@@ -378,4 +388,6 @@ function countRoutes(locations: number[], start: number, finish: number, fuel: n
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

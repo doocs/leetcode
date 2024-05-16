@@ -8,6 +8,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [63. Unique Paths II](https://leetcode.com/problems/unique-paths-ii)
 
 [中文文档](/solution/0000-0099/0063.Unique%20Paths%20II/README.md)
@@ -52,6 +54,8 @@ There are two ways to reach the bottom-right corner:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -187,6 +191,10 @@ function uniquePathsWithObstacles(obstacleGrid: number[][]): number {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Dynamic Programming
 
@@ -356,4 +364,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

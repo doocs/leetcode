@@ -10,6 +10,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [749. Contain Virus](https://leetcode.com/problems/contain-virus)
 
 [中文文档](/solution/0700-0799/0749.Contain%20Virus/README.md)
@@ -66,6 +68,8 @@ Notice that walls are only built on the shared boundary of two different cells.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -384,4 +388,6 @@ func containVirus(isInfected [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

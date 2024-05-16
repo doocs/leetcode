@@ -8,13 +8,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [250. 统计同值子树 🔒](https://leetcode.cn/problems/count-univalue-subtrees)
 
 [English Version](/solution/0200-0299/0250.Count%20Univalue%20Subtrees/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个二叉树，统计该二叉树数值相同的<span data-keyword="subtree">子树</span>个数。</p>
 
@@ -34,7 +36,11 @@ tags:
 <strong>输出:</strong> 4
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -275,4 +281,6 @@ var countUnivalSubtrees = function (root) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,6 +10,8 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [2565. Subsequence With the Minimum Score](https://leetcode.com/problems/subsequence-with-the-minimum-score)
 
 [中文文档](/solution/2500-2599/2565.Subsequence%20With%20the%20Minimum%20Score/README.md)
@@ -63,6 +65,8 @@ It can be proven that 3 is the minimum score that we can achieve.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix and Suffix Preprocessing + Binary Search
 
@@ -249,4 +253,6 @@ func minimumScore(s string, t string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

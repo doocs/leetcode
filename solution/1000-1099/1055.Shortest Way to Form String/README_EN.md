@@ -8,6 +8,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1055. Shortest Way to Form String 🔒](https://leetcode.com/problems/shortest-way-to-form-string)
 
 [中文文档](/solution/1000-1099/1055.Shortest%20Way%20to%20Form%20String/README.md)
@@ -52,6 +54,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -158,4 +162,6 @@ func shortestWay(source string, target string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

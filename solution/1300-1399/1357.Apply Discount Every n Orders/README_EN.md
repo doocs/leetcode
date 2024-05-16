@@ -10,6 +10,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [1357. Apply Discount Every n Orders](https://leetcode.com/problems/apply-discount-every-n-orders)
 
 [中文文档](/solution/1300-1399/1357.Apply%20Discount%20Every%20n%20Orders/README.md)
@@ -76,6 +78,8 @@ cashier.getBill([2,3,5],[5,3,2]);                    // return 2500.0.  7<sup>th
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Simulation
 
@@ -215,4 +219,6 @@ func (this *Cashier) GetBill(product []int, amount []int) (ans float64) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

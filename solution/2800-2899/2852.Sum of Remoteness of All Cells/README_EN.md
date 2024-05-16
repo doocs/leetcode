@@ -10,6 +10,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [2852. Sum of Remoteness of All Cells 🔒](https://leetcode.com/problems/sum-of-remoteness-of-all-cells)
 
 [中文文档](/solution/2800-2899/2852.Sum%20of%20Remoteness%20of%20All%20Cells/README.md)
@@ -71,6 +73,8 @@ Now let&#39;s jump on the bottom-right grid in the above picture and calculate R
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -272,4 +276,6 @@ function sumRemoteness(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

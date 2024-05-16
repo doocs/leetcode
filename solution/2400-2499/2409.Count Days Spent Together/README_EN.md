@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2409. Count Days Spent Together](https://leetcode.com/problems/count-days-spent-together)
 
 [中文文档](/solution/2400-2499/2409.Count%20Days%20Spent%20Together/README.md)
@@ -50,6 +52,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -152,4 +156,6 @@ func countDaysTogether(arriveAlice string, leaveAlice string, arriveBob string, 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

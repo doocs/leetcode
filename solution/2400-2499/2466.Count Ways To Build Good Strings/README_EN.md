@@ -8,6 +8,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2466. Count Ways To Build Good Strings](https://leetcode.com/problems/count-ways-to-build-good-strings)
 
 [中文文档](/solution/2400-2499/2466.Count%20Ways%20To%20Build%20Good%20Strings/README.md)
@@ -56,6 +58,8 @@ All binary strings from &quot;000&quot; to &quot;111&quot; are good strings in t
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -178,4 +182,6 @@ func countGoodStrings(low int, high int, zero int, one int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

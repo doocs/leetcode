@@ -9,13 +9,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [834. 树中距离之和](https://leetcode.cn/problems/sum-of-distances-in-tree)
 
 [English Version](/solution/0800-0899/0834.Sum%20of%20Distances%20in%20Tree/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个无向、连通的树。树中有 <code>n</code> 个标记为 <code>0...n-1</code> 的节点以及 <code>n-1</code>&nbsp;条边&nbsp;。</p>
 
@@ -64,7 +66,11 @@ tags:
 	<li>给定的输入保证为有效的树</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：树形 DP（换根）
 
@@ -265,4 +271,6 @@ function sumOfDistancesInTree(n: number, edges: number[][]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

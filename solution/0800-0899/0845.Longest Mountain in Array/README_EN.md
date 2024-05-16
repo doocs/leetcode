@@ -9,6 +9,8 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [845. Longest Mountain in Array](https://leetcode.com/problems/longest-mountain-in-array)
 
 [中文文档](/solution/0800-0899/0845.Longest%20Mountain%20in%20Array/README.md)
@@ -63,6 +65,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -169,6 +173,10 @@ func longestMountain(arr []int) (ans int) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -271,4 +279,6 @@ func longestMountain(arr []int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

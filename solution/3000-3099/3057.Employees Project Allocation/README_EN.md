@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [3057. Employees Project Allocation 🔒](https://leetcode.com/problems/employees-project-allocation)
 
 [中文文档](/solution/3000-3099/3057.Employees%20Project%20Allocation/README.md)
@@ -87,6 +89,8 @@ Result table orderd by employee_id, project_id in ascending order.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Grouping Statistics + Equi-Join
 
 First, we join the `Project` table and the `Employees` table based on `employee_id`, then group by `team` to calculate the average workload of each team, and record it in the temporary table `T`.
@@ -138,4 +142,6 @@ def employees_with_above_avg_workload(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

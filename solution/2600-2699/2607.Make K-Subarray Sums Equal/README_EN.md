@@ -11,6 +11,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2607. Make K-Subarray Sums Equal](https://leetcode.com/problems/make-k-subarray-sums-equal)
 
 [中文文档](/solution/2600-2699/2607.Make%20K-Subarray%20Sums%20Equal/README.md)
@@ -65,6 +67,8 @@ The array after the operations is [5,5,5,5]
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -194,4 +198,6 @@ function gcd(a: number, b: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

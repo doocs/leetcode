@@ -9,6 +9,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [404. Sum of Left Leaves](https://leetcode.com/problems/sum-of-left-leaves)
 
 [中文文档](/solution/0400-0499/0404.Sum%20of%20Left%20Leaves/README.md)
@@ -44,6 +46,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -270,6 +274,10 @@ int sumOfLeftLeaves(struct TreeNode* root) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Stack
 
 We can also convert the recursion in Solution 1 to iteration, using a stack to simulate the recursion process.
@@ -463,4 +471,6 @@ function sumOfLeftLeaves(root: TreeNode | null): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

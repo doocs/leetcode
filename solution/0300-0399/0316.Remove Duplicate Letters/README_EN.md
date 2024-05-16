@@ -9,6 +9,8 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [316. Remove Duplicate Letters](https://leetcode.com/problems/remove-duplicate-letters)
 
 [中文文档](/solution/0300-0399/0316.Remove%20Duplicate%20Letters/README.md)
@@ -44,6 +46,8 @@ tags:
 <p><strong>Note:</strong> This question is the same as 1081: <a href="https://leetcode.com/problems/smallest-subsequence-of-distinct-characters/" target="_blank">https://leetcode.com/problems/smallest-subsequence-of-distinct-characters/</a></p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Stack
 
@@ -156,6 +160,10 @@ func removeDuplicateLetters(s string) string {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -208,4 +216,6 @@ func removeDuplicateLetters(s string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

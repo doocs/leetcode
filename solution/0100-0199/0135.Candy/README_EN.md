@@ -7,6 +7,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [135. Candy](https://leetcode.com/problems/candy)
 
 [中文文档](/solution/0100-0199/0135.Candy/README.md)
@@ -52,6 +54,8 @@ The third child gets 1 candy because it satisfies the above two conditions.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two traversals
 
@@ -213,6 +217,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -249,4 +257,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

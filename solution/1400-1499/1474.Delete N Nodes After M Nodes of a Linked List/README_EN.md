@@ -6,6 +6,8 @@ tags:
     - Linked List
 ---
 
+<!-- problem:start -->
+
 # [1474. Delete N Nodes After M Nodes of a Linked List 🔒](https://leetcode.com/problems/delete-n-nodes-after-m-nodes-of-a-linked-list)
 
 [中文文档](/solution/1400-1499/1474.Delete%20N%20Nodes%20After%20M%20Nodes%20of%20a%20Linked%20List/README.md)
@@ -58,6 +60,8 @@ Head of the linked list after removing nodes is returned.
 <p><strong>Follow up:</strong> Could you solve this problem by modifying the list in-place?</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -187,4 +191,6 @@ func deleteNodes(head *ListNode, m int, n int) *ListNode {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

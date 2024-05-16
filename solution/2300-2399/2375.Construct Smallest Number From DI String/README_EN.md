@@ -11,6 +11,8 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [2375. Construct Smallest Number From DI String](https://leetcode.com/problems/construct-smallest-number-from-di-string)
 
 [中文文档](/solution/2300-2399/2375.Construct%20Smallest%20Number%20From%20DI%20String/README.md)
@@ -61,6 +63,8 @@ It can be proven that &quot;4321&quot; is the smallest possible num that meets t
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -263,4 +267,6 @@ function smallestNumber(pattern: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

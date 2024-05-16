@@ -10,6 +10,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1301. Number of Paths with Max Score](https://leetcode.com/problems/number-of-paths-with-max-score)
 
 [中文文档](/solution/1300-1399/1301.Number%20of%20Paths%20with%20Max%20Score/README.md)
@@ -57,6 +59,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -237,4 +241,6 @@ func pathsWithMaxScore(board []string) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

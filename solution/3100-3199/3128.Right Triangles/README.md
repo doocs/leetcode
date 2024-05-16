@@ -12,13 +12,15 @@ tags:
     - 计数
 ---
 
+<!-- problem:start -->
+
 # [3128. 直角三角形](https://leetcode.cn/problems/right-triangles)
 
 [English Version](/solution/3100-3199/3128.Right%20Triangles/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个二维 boolean 矩阵&nbsp;<code>grid</code>&nbsp;。</p>
 
@@ -187,7 +189,11 @@ tags:
 	<li><code>0 &lt;= grid[i][j] &lt;= 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数 + 枚举
 
@@ -315,4 +321,6 @@ function numberOfRightTriangles(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

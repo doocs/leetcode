@@ -8,6 +8,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [376. Wiggle Subsequence](https://leetcode.com/problems/wiggle-subsequence)
 
 [中文文档](/solution/0300-0399/0376.Wiggle%20Subsequence/README.md)
@@ -62,6 +64,8 @@ One is [1, 17, 10, 13, 10, 16, 8] with differences (16, -7, 3, -3, 6, -8).
 <p><strong>Follow up:</strong> Could you solve this in <code>O(n)</code> time?</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -145,4 +149,6 @@ function wiggleMaxLength(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

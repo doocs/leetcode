@@ -10,13 +10,15 @@ tags:
     - 有序集合
 ---
 
+<!-- problem:start -->
+
 # [2276. 统计区间中的整数数目](https://leetcode.cn/problems/count-integers-in-intervals)
 
 [English Version](/solution/2200-2299/2276.Count%20Integers%20in%20Intervals/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你区间的 <strong>空</strong> 集，请你设计并实现满足要求的数据结构：</p>
 
@@ -70,7 +72,11 @@ countIntervals.count();    // 返回 8
 	<li>调用 <code>count</code> 方法至少一次</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：线段树（动态开点）
 
@@ -530,6 +536,10 @@ class CountIntervals {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -619,4 +629,6 @@ class CountIntervals:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

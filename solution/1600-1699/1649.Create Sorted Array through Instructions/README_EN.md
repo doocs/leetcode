@@ -14,6 +14,8 @@ tags:
     - Merge Sort
 ---
 
+<!-- problem:start -->
+
 # [1649. Create Sorted Array through Instructions](https://leetcode.com/problems/create-sorted-array-through-instructions)
 
 [中文文档](/solution/1600-1699/1649.Create%20Sorted%20Array%20through%20Instructions/README.md)
@@ -127,6 +129,8 @@ The total cost is 0 + 0 + 0 + 0 + 1 + 0 + 1 + 0 + 2 = 4.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -340,6 +344,10 @@ function createSortedArray(instructions: number[]): number {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -562,4 +570,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

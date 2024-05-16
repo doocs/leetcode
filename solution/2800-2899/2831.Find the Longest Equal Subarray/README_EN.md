@@ -11,6 +11,8 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2831. Find the Longest Equal Subarray](https://leetcode.com/problems/find-the-longest-equal-subarray)
 
 [中文文档](/solution/2800-2899/2831.Find%20the%20Longest%20Equal%20Subarray/README.md)
@@ -58,6 +60,8 @@ It can be proven that no longer equal subarrays can be created.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Two Pointers
 
@@ -157,4 +161,6 @@ function longestEqualSubarray(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,6 +10,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1167. Minimum Cost to Connect Sticks 🔒](https://leetcode.com/problems/minimum-cost-to-connect-sticks)
 
 [中文文档](/solution/1100-1199/1167.Minimum%20Cost%20to%20Connect%20Sticks/README.md)
@@ -63,6 +65,8 @@ There is only one stick left, so you are done. The total cost is 4 + 9 + 17 = 30
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Priority Queue (Min Heap)
 
@@ -233,4 +237,6 @@ class Heap<T = number> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

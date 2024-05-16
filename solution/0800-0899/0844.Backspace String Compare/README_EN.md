@@ -9,6 +9,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [844. Backspace String Compare](https://leetcode.com/problems/backspace-string-compare)
 
 [中文文档](/solution/0800-0899/0844.Backspace%20String%20Compare/README.md)
@@ -56,6 +58,8 @@ tags:
 <p><strong>Follow up:</strong> Can you solve it in <code>O(n)</code> time and <code>O(1)</code> space?</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -294,4 +298,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

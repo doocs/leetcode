@@ -8,6 +8,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [43. Multiply Strings](https://leetcode.com/problems/multiply-strings)
 
 [中文文档](/solution/0000-0099/0043.Multiply%20Strings/README.md)
@@ -36,6 +38,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulating Mathematical Multiplication
 
@@ -296,4 +300,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

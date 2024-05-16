@@ -9,6 +9,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [229. Majority Element II](https://leetcode.com/problems/majority-element-ii)
 
 [中文文档](/solution/0200-0299/0229.Majority%20Element%20II/README.md)
@@ -51,6 +53,8 @@ tags:
 <p><strong>Follow up:</strong> Could you solve the problem in linear time and in <code>O(1)</code> space?</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -244,4 +248,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

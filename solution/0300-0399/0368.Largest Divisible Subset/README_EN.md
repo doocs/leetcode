@@ -9,6 +9,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [368. Largest Divisible Subset](https://leetcode.com/problems/largest-divisible-subset)
 
 [中文文档](/solution/0300-0399/0368.Largest%20Divisible%20Subset/README.md)
@@ -50,6 +52,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -175,4 +179,6 @@ func largestDivisibleSubset(nums []int) (ans []int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

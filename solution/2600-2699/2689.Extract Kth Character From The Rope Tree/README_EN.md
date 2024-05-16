@@ -8,6 +8,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [2689. Extract Kth Character From The Rope Tree 🔒](https://leetcode.com/problems/extract-kth-character-from-the-rope-tree)
 
 [中文文档](/solution/2600-2699/2689.Extract%20Kth%20Character%20From%20The%20Rope%20Tree/README.md)
@@ -80,6 +82,8 @@ You can see that S[root] = &quot;ropetree&quot;. So S[root][7], which represents
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -210,4 +214,6 @@ func getKthCharacter(root *RopeTreeNode, k int) byte {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

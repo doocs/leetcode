@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [3140. Consecutive Available Seats II 🔒](https://leetcode.com/problems/consecutive-available-seats-ii)
 
 [中文文档](/solution/3100-3199/3140.Consecutive%20Available%20Seats%20II/README.md)
@@ -77,6 +79,8 @@ Output table is ordered by first_seat_id in ascending order.</div>
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Using Window Function
 
 First, we find all the vacant seats, and then group the seats. The grouping is based on the seat number minus its ranking. In this way, consecutive vacant seats will be grouped together. Then we find the minimum seat number, maximum seat number, and length of consecutive seats in each group. Finally, we find the group with the longest length of consecutive seats, and output the minimum seat number, maximum seat number, and length of consecutive seats in this group.
@@ -110,4 +114,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

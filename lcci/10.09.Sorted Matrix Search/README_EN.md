@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.09.Sorted%20Matrix%20Search/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [10.09. Sorted Matrix Search](https://leetcode.cn/problems/sorted-matrix-search-lcci)
 
 [中文文档](/lcci/10.09.Sorted%20Matrix%20Search/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an M x N matrix in which each row and each column is sorted in ascending order, write a method to find an element.</p>
 
@@ -38,7 +42,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.09.Sorted%20Matrix
 
 <p>Given target&nbsp;=&nbsp;20, return&nbsp;<code>false.</code></p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -224,6 +232,8 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
 ### Solution 2: Search from the Bottom Left or Top Right
 
 Here, we start searching from the bottom left corner and move towards the top right direction, comparing the current element `matrix[i][j]` with `target`:
@@ -369,4 +379,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

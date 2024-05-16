@@ -8,13 +8,15 @@ tags:
     - 组合数学
 ---
 
+<!-- problem:start -->
+
 # [62. 不同路径](https://leetcode.cn/problems/unique-paths)
 
 [English Version](/solution/0000-0099/0062.Unique%20Paths/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一个机器人位于一个 <code>m x n</code><em>&nbsp;</em>网格的左上角 （起始点在下图中标记为 “Start” ）。</p>
 
@@ -64,7 +66,11 @@ tags:
 	<li>题目数据保证答案小于等于 <code>2 * 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -230,6 +236,10 @@ var uniquePaths = function (m, n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -329,6 +339,10 @@ var uniquePaths = function (m, n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三
 
 <!-- tabs:start -->
@@ -419,4 +433,6 @@ var uniquePaths = function (m, n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

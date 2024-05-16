@@ -11,6 +11,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2592. Maximize Greatness of an Array](https://leetcode.com/problems/maximize-greatness-of-an-array)
 
 [中文文档](/solution/2500-2599/2592.Maximize%20Greatness%20of%20an%20Array/README.md)
@@ -50,6 +52,8 @@ At indices = 0, 1, and 2, perm[i] &gt; nums[i]. Hence, we return 3.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy
 
@@ -130,4 +134,6 @@ function maximizeGreatness(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,6 +9,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [1390. Four Divisors](https://leetcode.com/problems/four-divisors)
 
 [中文文档](/solution/1300-1399/1390.Four%20Divisors/README.md)
@@ -53,6 +55,8 @@ The answer is the sum of divisors of 21 only.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Factor Decomposition
 
@@ -189,4 +193,6 @@ function sumFourDivisors(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

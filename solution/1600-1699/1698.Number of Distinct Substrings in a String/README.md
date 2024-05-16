@@ -10,13 +10,15 @@ tags:
     - 滚动哈希
 ---
 
+<!-- problem:start -->
+
 # [1698. 字符串的不同子字符串个数 🔒](https://leetcode.cn/problems/number-of-distinct-substrings-in-a-string)
 
 [English Version](/solution/1600-1699/1698.Number%20of%20Distinct%20Substrings%20in%20a%20String/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个字符串 <code>s</code>，返回 <code>s</code> 的不同子字符串的个数。</p>
 
@@ -50,7 +52,11 @@ tags:
 
 <p><b>进阶：</b>你可以以 <code>O(n)</code> 时间复杂度解决此问题吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：暴力枚举
 
@@ -113,6 +119,10 @@ func countDistinct(s string) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：字符串哈希
 
@@ -219,4 +229,6 @@ func countDistinct(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

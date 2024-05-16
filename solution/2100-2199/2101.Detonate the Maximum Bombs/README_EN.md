@@ -13,6 +13,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [2101. Detonate the Maximum Bombs](https://leetcode.com/problems/detonate-the-maximum-bombs)
 
 [中文文档](/solution/2100-2199/2101.Detonate%20the%20Maximum%20Bombs/README.md)
@@ -72,6 +74,8 @@ Thus all 5 bombs are detonated.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -242,4 +246,6 @@ func maximumDetonation(bombs [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

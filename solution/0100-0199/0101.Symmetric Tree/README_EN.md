@@ -9,6 +9,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [101. Symmetric Tree](https://leetcode.com/problems/symmetric-tree)
 
 [中文文档](/solution/0100-0199/0101.Symmetric%20Tree/README.md)
@@ -44,6 +46,8 @@ tags:
 <strong>Follow up:</strong> Could you solve it both recursively and iteratively?
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -258,6 +262,10 @@ var isSymmetric = function (root) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -314,4 +322,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -13,6 +13,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1686. Stone Game VI](https://leetcode.com/problems/stone-game-vi)
 
 [中文文档](/solution/1600-1699/1686.Stone%20Game%20VI/README.md)
@@ -78,6 +80,8 @@ Bob wins.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
 
@@ -208,4 +212,6 @@ function stoneGameVI(aliceValues: number[], bobValues: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

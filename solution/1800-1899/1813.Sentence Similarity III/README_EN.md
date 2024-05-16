@@ -10,6 +10,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1813. Sentence Similarity III](https://leetcode.com/problems/sentence-similarity-iii)
 
 [中文文档](/solution/1800-1899/1813.Sentence%20Similarity%20III/README.md)
@@ -57,6 +59,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -180,4 +184,6 @@ function areSentencesSimilar(sentence1: string, sentence2: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

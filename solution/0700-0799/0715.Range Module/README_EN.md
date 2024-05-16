@@ -8,6 +8,8 @@ tags:
     - Ordered Set
 ---
 
+<!-- problem:start -->
+
 # [715. Range Module](https://leetcode.com/problems/range-module)
 
 [中文文档](/solution/0700-0799/0715.Range%20Module/README.md)
@@ -55,6 +57,8 @@ rangeModule.queryRange(16, 17); // return True, (The number 16 in [16, 17) is st
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Segment Tree
 
@@ -634,4 +638,6 @@ class RangeModule {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

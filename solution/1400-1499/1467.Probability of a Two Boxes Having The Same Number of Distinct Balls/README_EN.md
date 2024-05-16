@@ -13,6 +13,8 @@ tags:
     - Probability and Statistics
 ---
 
+<!-- problem:start -->
+
 # [1467. Probability of a Two Boxes Having The Same Number of Distinct Balls](https://leetcode.com/problems/probability-of-a-two-boxes-having-the-same-number-of-distinct-balls)
 
 [中文文档](/solution/1400-1499/1467.Probability%20of%20a%20Two%20Boxes%20Having%20The%20Same%20Number%20of%20Distinct%20Balls/README.md)
@@ -71,6 +73,8 @@ Probability = 108 / 180 = 0.6
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -292,4 +296,6 @@ function getProbability(balls: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

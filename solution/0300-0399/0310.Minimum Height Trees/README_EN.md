@@ -9,6 +9,8 @@ tags:
     - Topological Sort
 ---
 
+<!-- problem:start -->
+
 # [310. Minimum Height Trees](https://leetcode.com/problems/minimum-height-trees)
 
 [中文文档](/solution/0300-0399/0310.Minimum%20Height%20Trees/README.md)
@@ -52,6 +54,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Topological Sorting
 
@@ -247,4 +251,6 @@ function findMinHeightTrees(n: number, edges: number[][]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

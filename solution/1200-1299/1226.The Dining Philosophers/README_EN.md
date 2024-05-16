@@ -6,6 +6,8 @@ tags:
     - Concurrency
 ---
 
+<!-- problem:start -->
+
 # [1226. The Dining Philosophers](https://leetcode.com/problems/the-dining-philosophers)
 
 [中文文档](/solution/1200-1299/1226.The%20Dining%20Philosophers/README.md)
@@ -61,6 +63,8 @@ output[i] = [a, b, c] (three integers)
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -89,4 +93,6 @@ private:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,13 +6,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [293. 翻转游戏 🔒](https://leetcode.cn/problems/flip-game)
 
 [English Version](/solution/0200-0299/0293.Flip%20Game/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你和朋友玩一个叫做「翻转游戏」的游戏。游戏规则如下：</p>
 
@@ -45,7 +47,11 @@ tags:
 	<li><code>currentState[i]</code> 不是 <code>'+'</code> 就是 <code>'-'</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：遍历 + 模拟
 
@@ -137,4 +143,6 @@ function generatePossibleNextMoves(currentState: string): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

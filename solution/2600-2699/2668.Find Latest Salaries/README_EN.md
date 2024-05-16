@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2668. Find Latest Salaries 🔒](https://leetcode.com/problems/find-latest-salaries)
 
 [中文文档](/solution/2600-2699/2668.Find%20Latest%20Salaries/README.md)
@@ -77,6 +79,8 @@ Each row contains employees details and their yearly salaries, however, some of 
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -96,4 +100,6 @@ ORDER BY emp_id;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

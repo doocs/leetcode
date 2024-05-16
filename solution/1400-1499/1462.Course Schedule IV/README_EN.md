@@ -11,6 +11,8 @@ tags:
     - Topological Sort
 ---
 
+<!-- problem:start -->
+
 # [1462. Course Schedule IV](https://leetcode.com/problems/course-schedule-iv)
 
 [中文文档](/solution/1400-1499/1462.Course%20Schedule%20IV/README.md)
@@ -71,6 +73,8 @@ Course 0 is not a prerequisite of course 1, but the opposite is true.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -179,6 +183,10 @@ function checkIfPrerequisite(n: number, prerequisites: number[][], queries: numb
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -359,4 +367,6 @@ function checkIfPrerequisite(n: number, prerequisites: number[][], queries: numb
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,6 +7,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [771. Jewels and Stones](https://leetcode.com/problems/jewels-and-stones)
 
 [中文文档](/solution/0700-0799/0771.Jewels%20and%20Stones/README.md)
@@ -35,6 +37,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -144,4 +148,6 @@ int numJewelsInStones(char* jewels, char* stones) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,6 +4,8 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2883.Drop%20Missing%20Data/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2883. Drop Missing Data](https://leetcode.com/problems/drop-missing-data)
 
 [中文文档](/solution/2800-2899/2883.Drop%20Missing%20Data/README.md)
@@ -53,6 +55,8 @@ Student with id 217 havs empty value in the name column, so it will be removed.<
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -67,4 +71,6 @@ def dropMissingData(students: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

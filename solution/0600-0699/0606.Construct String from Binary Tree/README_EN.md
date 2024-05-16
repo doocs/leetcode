@@ -9,6 +9,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [606. Construct String from Binary Tree](https://leetcode.com/problems/construct-string-from-binary-tree)
 
 [中文文档](/solution/0600-0699/0606.Construct%20String%20from%20Binary%20Tree/README.md)
@@ -63,6 +65,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -248,4 +252,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

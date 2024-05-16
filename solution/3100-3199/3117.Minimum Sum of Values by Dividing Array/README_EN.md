@@ -13,6 +13,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [3117. Minimum Sum of Values by Dividing Array](https://leetcode.com/problems/minimum-sum-of-values-by-dividing-array)
 
 [中文文档](/solution/3100-3199/3117.Minimum%20Sum%20of%20Values%20by%20Dividing%20Array/README.md)
@@ -92,6 +94,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -289,4 +293,6 @@ function minimumValueSum(nums: number[], andValues: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

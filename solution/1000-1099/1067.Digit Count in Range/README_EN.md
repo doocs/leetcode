@@ -9,6 +9,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1067. Digit Count in Range 🔒](https://leetcode.com/problems/digit-count-in-range)
 
 [中文文档](/solution/1000-1099/1067.Digit%20Count%20in%20Range/README.md)
@@ -44,6 +46,8 @@ Note that the digit d = 1 occurs twice in the number 11.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -226,4 +230,6 @@ func digitsCount(d int, low int, high int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,6 +9,8 @@ tags:
     - Iterator
 ---
 
+<!-- problem:start -->
+
 # [604. Design Compressed String Iterator 🔒](https://leetcode.com/problems/design-compressed-string-iterator)
 
 [中文文档](/solution/0600-0699/0604.Design%20Compressed%20String%20Iterator/README.md)
@@ -58,6 +60,8 @@ stringIterator.hasNext(); // return True
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -246,4 +250,6 @@ func (this *StringIterator) HasNext() bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

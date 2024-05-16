@@ -10,6 +10,8 @@ tags:
     - Data Stream
 ---
 
+<!-- problem:start -->
+
 # [362. Design Hit Counter 🔒](https://leetcode.com/problems/design-hit-counter)
 
 [中文文档](/solution/0300-0399/0362.Design%20Hit%20Counter/README.md)
@@ -62,6 +64,8 @@ hitCounter.getHits(301); // get hits at timestamp 301, return 3.
 <p><strong>Follow up:</strong> What if the number of hits per second could be huge? Does your design scale?</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -172,4 +176,6 @@ impl HitCounter {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

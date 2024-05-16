@@ -11,6 +11,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2549. Count Distinct Numbers on Board](https://leetcode.com/problems/count-distinct-numbers-on-board)
 
 [中文文档](/solution/2500-2599/2549.Count%20Distinct%20Numbers%20on%20Board/README.md)
@@ -63,6 +65,8 @@ After a billion days, the only two distinct numbers on the board are 2 and 3.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Lateral Thinking
 
@@ -119,4 +123,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

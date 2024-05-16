@@ -9,6 +9,8 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [1089. Duplicate Zeros](https://leetcode.com/problems/duplicate-zeros)
 
 [中文文档](/solution/1000-1099/1089.Duplicate%20Zeros/README.md)
@@ -45,6 +47,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -208,4 +212,6 @@ void duplicateZeros(int* arr, int arrSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

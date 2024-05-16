@@ -9,6 +9,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [3078. Match Alphanumerical Pattern in Matrix I 🔒](https://leetcode.com/problems/match-alphanumerical-pattern-in-matrix-i)
 
 [中文文档](/solution/3000-3099/3078.Match%20Alphanumerical%20Pattern%20in%20Matrix%20I/README.md)
@@ -176,6 +178,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -398,4 +402,6 @@ function findPattern(board: number[][], pattern: string[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

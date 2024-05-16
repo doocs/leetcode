@@ -9,6 +9,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [2374. Node With Highest Edge Score](https://leetcode.com/problems/node-with-highest-edge-score)
 
 [中文文档](/solution/2300-2399/2374.Node%20With%20Highest%20Edge%20Score/README.md)
@@ -59,6 +61,8 @@ Nodes 0 and 2 both have an edge score of 3. Since node 0 has a smaller index, we
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -152,4 +156,6 @@ function edgeScore(edges: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

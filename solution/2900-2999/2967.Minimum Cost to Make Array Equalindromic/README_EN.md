@@ -11,6 +11,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2967. Minimum Cost to Make Array Equalindromic](https://leetcode.com/problems/minimum-cost-to-make-array-equalindromic)
 
 [中文文档](/solution/2900-2999/2967.Minimum%20Cost%20to%20Make%20Array%20Equalindromic/README.md)
@@ -70,6 +72,8 @@ It can be shown that changing all elements to any palindromic number other than 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Preprocessing + Sorting + Binary Search
 
@@ -289,4 +293,6 @@ function minimumCost(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

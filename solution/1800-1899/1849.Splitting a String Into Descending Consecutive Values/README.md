@@ -9,13 +9,15 @@ tags:
     - 回溯
 ---
 
+<!-- problem:start -->
+
 # [1849. 将字符串拆分为递减的连续值](https://leetcode.cn/problems/splitting-a-string-into-descending-consecutive-values)
 
 [English Version](/solution/1800-1899/1849.Splitting%20a%20String%20Into%20Descending%20Consecutive%20Values/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个仅由数字组成的字符串 <code>s</code> 。</p>
 
@@ -74,7 +76,11 @@ tags:
 	<li><code>s</code> 仅由数字组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -175,4 +181,6 @@ func splitString(s string) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

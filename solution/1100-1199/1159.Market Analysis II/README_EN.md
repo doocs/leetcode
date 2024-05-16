@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1159. Market Analysis II 🔒](https://leetcode.com/problems/market-analysis-ii)
 
 [中文文档](/solution/1100-1199/1159.Market%20Analysis%20II/README.md)
@@ -118,6 +120,8 @@ The answer for the user with id 4 is no because the brand of their second sold i
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -149,4 +153,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

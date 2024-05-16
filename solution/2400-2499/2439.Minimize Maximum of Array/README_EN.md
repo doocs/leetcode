@@ -12,6 +12,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2439. Minimize Maximum of Array](https://leetcode.com/problems/minimize-maximum-of-array)
 
 [中文文档](/solution/2400-2499/2439.Minimize%20Maximum%20of%20Array/README.md)
@@ -64,6 +66,8 @@ It is optimal to leave nums as is, and since 10 is the maximum value, we return 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -177,4 +181,6 @@ func minimizeArrayValue(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

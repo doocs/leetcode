@@ -8,6 +8,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [313. Super Ugly Number](https://leetcode.com/problems/super-ugly-number)
 
 [中文文档](/solution/0300-0399/0313.Super%20Ugly%20Number/README.md)
@@ -49,6 +51,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Priority Queue (Min Heap)
 
@@ -158,6 +162,10 @@ func (h *hp) Pop() any {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -197,4 +205,6 @@ func nthSuperUglyNumber(n int, primes []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

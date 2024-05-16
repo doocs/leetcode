@@ -9,6 +9,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1955. Count Number of Special Subsequences](https://leetcode.com/problems/count-number-of-special-subsequences)
 
 [中文文档](/solution/1900-1999/1955.Count%20Number%20of%20Special%20Subsequences/README.md)
@@ -67,6 +69,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -207,6 +211,10 @@ function countSpecialSubsequences(nums: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -319,4 +327,6 @@ function countSpecialSubsequences(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

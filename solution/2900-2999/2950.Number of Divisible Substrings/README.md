@@ -9,13 +9,15 @@ tags:
     - 前缀和
 ---
 
+<!-- problem:start -->
+
 # [2950. 可整除子串的数量 🔒](https://leetcode.cn/problems/number-of-divisible-substrings)
 
 [English Version](/solution/2900-2999/2950.Number%20of%20Divisible%20Substrings/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>每个英文字母都被映射到一个数字，如下所示。</p>
 
@@ -146,7 +148,11 @@ tags:
 	<li><code>word</code> 仅包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -304,6 +310,10 @@ impl Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：哈希表 + 前缀和 + 枚举
 
@@ -466,4 +476,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

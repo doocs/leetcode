@@ -9,6 +9,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [2671. Frequency Tracker](https://leetcode.com/problems/frequency-tracker)
 
 [中文文档](/solution/2600-2699/2671.Frequency%20Tracker/README.md)
@@ -88,6 +90,8 @@ frequencyTracker.hasFrequency(1); // Returns true, because 3 occurs once
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -339,4 +343,6 @@ impl FrequencyTracker {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

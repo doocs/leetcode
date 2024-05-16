@@ -10,6 +10,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [3093. Longest Common Suffix Queries](https://leetcode.com/problems/longest-common-suffix-queries)
 
 [中文文档](/solution/3000-3099/3093.Longest%20Common%20Suffix%20Queries/README.md)
@@ -73,6 +75,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Trie
 
@@ -364,4 +368,6 @@ function stringIndices(wordsContainer: string[], wordsQuery: string[]): number[]
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

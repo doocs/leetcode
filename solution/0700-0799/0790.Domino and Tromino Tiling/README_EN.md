@@ -6,6 +6,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [790. Domino and Tromino Tiling](https://leetcode.com/problems/domino-and-tromino-tiling)
 
 [中文文档](/solution/0700-0799/0790.Domino%20and%20Tromino%20Tiling/README.md)
@@ -42,6 +44,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -131,6 +135,10 @@ func numTilings(n int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -152,4 +160,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

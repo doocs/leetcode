@@ -11,6 +11,8 @@ tags:
     - Shortest Path
 ---
 
+<!-- problem:start -->
+
 # [2976. Minimum Cost to Convert String I](https://leetcode.com/problems/minimum-cost-to-convert-string-i)
 
 [中文文档](/solution/2900-2999/2976.Minimum%20Cost%20to%20Convert%20String%20I/README.md)
@@ -69,6 +71,8 @@ It can be shown that this is the minimum possible cost.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Floyd Algorithm
 
@@ -287,4 +291,6 @@ function minimumCost(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,6 +7,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [605. Can Place Flowers](https://leetcode.com/problems/can-place-flowers)
 
 [中文文档](/solution/0600-0699/0605.Can%20Place%20Flowers/README.md)
@@ -36,6 +38,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy
 
@@ -170,4 +174,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,6 +7,8 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [51. N-Queens](https://leetcode.com/problems/n-queens)
 
 [中文文档](/solution/0000-0099/0051.N-Queens/README.md)
@@ -43,6 +45,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS (Backtracking)
 
@@ -263,4 +267,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

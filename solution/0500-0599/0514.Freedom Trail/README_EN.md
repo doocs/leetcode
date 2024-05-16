@@ -9,6 +9,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [514. Freedom Trail](https://leetcode.com/problems/freedom-trail)
 
 [中文文档](/solution/0500-0599/0514.Freedom%20Trail/README.md)
@@ -58,6 +60,8 @@ So the final output is 4.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -233,4 +237,6 @@ function findRotateSteps(ring: string, key: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

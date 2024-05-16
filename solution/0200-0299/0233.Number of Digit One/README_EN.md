@@ -8,6 +8,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [233. Number of Digit One](https://leetcode.com/problems/number-of-digit-one)
 
 [中文文档](/solution/0200-0299/0233.Number%20of%20Digit%20One/README.md)
@@ -39,6 +41,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -206,4 +210,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

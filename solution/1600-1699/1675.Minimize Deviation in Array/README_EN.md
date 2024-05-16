@@ -11,6 +11,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1675. Minimize Deviation in Array](https://leetcode.com/problems/minimize-deviation-in-array)
 
 [中文文档](/solution/1600-1699/1675.Minimize%20Deviation%20in%20Array/README.md)
@@ -74,6 +76,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Priority Queue
 
@@ -192,4 +196,6 @@ func (h *hp) Less(i, j int) bool { return h.IntSlice[i] > h.IntSlice[j] }
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

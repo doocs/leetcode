@@ -9,6 +9,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2140. Solving Questions With Brainpower](https://leetcode.com/problems/solving-questions-with-brainpower)
 
 [中文文档](/solution/2100-2199/2140.Solving%20Questions%20With%20Brainpower/README.md)
@@ -68,6 +70,8 @@ Total points earned: 2 + 5 = 7. There is no other way to earn 7 or more points.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -174,6 +178,10 @@ function mostPoints(questions: number[][]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -252,4 +260,6 @@ function mostPoints(questions: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

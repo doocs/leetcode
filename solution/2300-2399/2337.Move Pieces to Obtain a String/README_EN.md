@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2337. Move Pieces to Obtain a String](https://leetcode.com/problems/move-pieces-to-obtain-a-string)
 
 [中文文档](/solution/2300-2399/2337.Move%20Pieces%20to%20Obtain%20a%20String/README.md)
@@ -63,6 +65,8 @@ After that, no pieces can move anymore, so it is impossible to obtain the string
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -224,6 +228,10 @@ function canChange(start: string, target: string): boolean {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -353,4 +361,6 @@ function canChange(start: string, target: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

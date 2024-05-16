@@ -4,11 +4,13 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2041.%20%E9%BB%91%E7%99%BD%E7%BF%BB%E8%BD%AC%E6%A3%8B/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 41. 黑白翻转棋](https://leetcode.cn/problems/fHi6rV)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 在 `n*m` 大小的棋盘中，有黑白两种棋子，黑棋记作字母 `"X"`, 白棋记作字母 `"O"`，空余位置记作 `"."`。当落下的棋子与其他相同颜色的棋子在行、列或对角线完全包围（中间不存在空白位置）另一种颜色的棋子，则可以翻转这些棋子的颜色。
 
@@ -55,7 +57,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2041.%20%E9%BB%91%
 -   `1 <= chessboard.length, chessboard[i].length <= 8`
 -   `chessboard[i]` 仅包含 `"."、"O"` 和 `"X"`
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：BFS
 
@@ -280,4 +286,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

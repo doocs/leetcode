@@ -8,6 +8,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [1175. Prime Arrangements](https://leetcode.com/problems/prime-arrangements)
 
 [中文文档](/solution/1100-1199/1175.Prime%20Arrangements/README.md)
@@ -44,6 +46,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematics
 
@@ -182,4 +186,6 @@ func numPrimeArrangements(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,13 +4,16 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.05.Sparse%20Array%20Search/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 10.05. 稀疏数组搜索](https://leetcode.cn/problems/sparse-array-search-lcci)
 
 [中文文档](/lcci/10.05.Sparse%20Array%20Search/README.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>稀疏数组搜索。有个排好序的字符串数组，其中散布着一些空字符串，编写一种方法，找出给定字符串的位置。</p>
 
 <p><strong>示例1:</strong></p>
@@ -32,7 +35,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.05.Sparse%20Array%
 	<li>words的长度在[1, 1000000]之间</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分搜索
 
@@ -175,4 +182,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1741. Find Total Time Spent by Each Employee](https://leetcode.com/problems/find-total-time-spent-by-each-employee)
 
 [中文文档](/solution/1700-1799/1741.Find%20Total%20Time%20Spent%20by%20Each%20Employee/README.md)
@@ -69,6 +71,8 @@ Employee 2 has two events: one on day 2020-11-28 with a total of (33 - 3) = 30, 
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Group By + Sum Function
 
 We can first group by `emp_id` and `event_day`, and then calculate the total time for each group. The total time is equal to the sum of the differences between `out_time` and `in_time` for each record in the group.
@@ -84,4 +88,6 @@ GROUP BY 1, 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,6 +10,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2826. Sorting Three Groups](https://leetcode.com/problems/sorting-three-groups)
 
 [中文文档](/solution/2800-2899/2826.Sorting%20Three%20Groups/README.md)
@@ -67,6 +69,8 @@ tags:
 <strong>Follow-up:</strong> Can you come up with an algorithm that runs in <code>O(n)</code> time complexity?
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -203,6 +207,10 @@ function minimumOperations(nums: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -231,4 +239,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

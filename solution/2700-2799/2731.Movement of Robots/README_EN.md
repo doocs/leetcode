@@ -11,6 +11,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2731. Movement of Robots](https://leetcode.com/problems/movement-of-robots)
 
 [中文文档](/solution/2700-2799/2731.Movement%20of%20Robots/README.md)
@@ -78,6 +80,8 @@ The distance between the two robots is abs(-2 - 3) = 5.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Quick thinking + Sorting
 
@@ -185,4 +189,6 @@ function sumDistance(nums: number[], s: string, d: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

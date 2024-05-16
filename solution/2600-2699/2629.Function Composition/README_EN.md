@@ -4,6 +4,8 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2629.Function%20Composition/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2629. Function Composition](https://leetcode.com/problems/function-composition)
 
 [中文文档](/solution/2600-2699/2629.Function%20Composition/README.md)
@@ -63,6 +65,8 @@ The composition of zero functions is the identity function</pre>
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -84,4 +88,6 @@ function compose(functions: F[]): F {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

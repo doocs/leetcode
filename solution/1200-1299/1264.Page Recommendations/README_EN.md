@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1264. Page Recommendations 🔒](https://leetcode.com/problems/page-recommendations)
 
 [中文文档](/solution/1200-1299/1264.Page%20Recommendations/README.md)
@@ -98,6 +100,8 @@ Page 88 is not suggested because user 1 already likes it.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Union + Equi-Join + Subquery
 
 First, we query all users who are friends with `user_id = 1` and record them in the `T` table. Then, we query all pages that users in the `T` table like, and finally exclude the pages that `user_id = 1` likes.
@@ -121,6 +125,10 @@ WHERE page_id NOT IN (SELECT page_id FROM Likes WHERE user_id = 1);
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -140,4 +148,6 @@ WHERE
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

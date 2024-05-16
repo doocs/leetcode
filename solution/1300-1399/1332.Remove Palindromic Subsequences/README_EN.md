@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1332. Remove Palindromic Subsequences](https://leetcode.com/problems/remove-palindromic-subsequences)
 
 [中文文档](/solution/1300-1399/1332.Remove%20Palindromic%20Subsequences/README.md)
@@ -59,6 +61,8 @@ Remove palindromic subsequence &quot;baab&quot; then &quot;b&quot;.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -139,4 +143,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

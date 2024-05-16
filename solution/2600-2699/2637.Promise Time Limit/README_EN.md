@@ -4,6 +4,8 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2637.Promise%20Time%20Limit/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2637. Promise Time Limit](https://leetcode.com/problems/promise-time-limit)
 
 [中文文档](/solution/2600-2699/2637.Promise%20Time%20Limit/README.md)
@@ -100,6 +102,8 @@ The function immediately throws an error.</pre>
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -124,4 +128,6 @@ function timeLimit(fn: Fn, t: number): Fn {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

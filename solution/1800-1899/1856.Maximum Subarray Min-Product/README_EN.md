@@ -11,6 +11,8 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [1856. Maximum Subarray Min-Product](https://leetcode.com/problems/maximum-subarray-min-product)
 
 [中文文档](/solution/1800-1899/1856.Maximum%20Subarray%20Min-Product/README.md)
@@ -66,6 +68,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Monotonic Stack + Prefix Sum
 
@@ -275,4 +279,6 @@ function maxSumMinProduct(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

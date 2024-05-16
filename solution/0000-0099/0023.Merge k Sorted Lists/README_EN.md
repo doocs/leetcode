@@ -9,6 +9,8 @@ tags:
     - Merge Sort
 ---
 
+<!-- problem:start -->
+
 # [23. Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists)
 
 [中文文档](/solution/0000-0099/0023.Merge%20k%20Sorted%20Lists/README.md)
@@ -62,6 +64,8 @@ merging them into one sorted list:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Priority Queue (Min Heap)
 
@@ -410,4 +414,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

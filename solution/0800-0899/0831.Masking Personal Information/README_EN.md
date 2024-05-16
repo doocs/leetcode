@@ -6,6 +6,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [831. Masking Personal Information](https://leetcode.com/problems/masking-personal-information)
 
 [中文文档](/solution/0800-0899/0831.Masking%20Personal%20Information/README.md)
@@ -107,6 +109,8 @@ Thus, the resulting masked number is &quot;***-***-7890&quot;.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -222,4 +226,6 @@ function maskPII(s: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [612. Shortest Distance in a Plane 🔒](https://leetcode.com/problems/shortest-distance-in-a-plane)
 
 [中文文档](/solution/0600-0699/0612.Shortest%20Distance%20in%20a%20Plane/README.md)
@@ -57,6 +59,8 @@ Point2D table:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -73,4 +77,6 @@ LIMIT 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

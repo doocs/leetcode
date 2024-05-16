@@ -7,6 +7,8 @@ tags:
     - Interactive
 ---
 
+<!-- problem:start -->
+
 # [489. Robot Room Cleaner 🔒](https://leetcode.com/problems/robot-room-cleaner)
 
 [中文文档](/solution/0400-0499/0489.Robot%20Room%20Cleaner/README.md)
@@ -82,6 +84,8 @@ From the top left corner, its position is one row below and three columns right.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -335,4 +339,6 @@ function cleanRoom(robot: Robot) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

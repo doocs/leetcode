@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2986. Find Third Transaction 🔒](https://leetcode.com/problems/find-third-transaction)
 
 [中文文档](/solution/2900-2999/2986.Find%20Third%20Transaction/README.md)
@@ -67,6 +69,8 @@ Output table is ordered by user_id in ascending order.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -102,4 +106,6 @@ WHERE rk = 3 AND st = 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

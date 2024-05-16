@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2985. Calculate Compressed Mean 🔒](https://leetcode.com/problems/calculate-compressed-mean)
 
 [中文文档](/solution/2900-2999/2985.Calculate%20Compressed%20Mean/README.md)
@@ -60,6 +62,8 @@ The calculation is as follows:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Summation
 
 We use the `SUM` function to calculate the total quantity of products and the total number of orders, then divide the total quantity by the total number of orders to get the average. Finally, we use the `ROUND` function to round the result to two decimal places.
@@ -78,4 +82,6 @@ FROM Orders;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

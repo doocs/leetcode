@@ -8,6 +8,8 @@ tags:
     - Doubly-Linked List
 ---
 
+<!-- problem:start -->
+
 # [430. Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list)
 
 [中文文档](/solution/0400-0499/0430.Flatten%20a%20Multilevel%20Doubly%20Linked%20List/README.md)
@@ -94,6 +96,8 @@ After flattening the multilevel linked list it becomes:
 </pre>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -222,4 +226,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

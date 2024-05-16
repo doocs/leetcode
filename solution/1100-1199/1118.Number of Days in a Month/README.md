@@ -8,13 +8,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [1118. 一月有多少天 🔒](https://leetcode.cn/problems/number-of-days-in-a-month)
 
 [English Version](/solution/1100-1199/1118.Number%20of%20Days%20in%20a%20Month/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>指定年份&nbsp;<code>year</code> 和月份&nbsp;<code>month</code>，返回 <em>该月天数&nbsp;</em>。</p>
 
@@ -50,7 +52,11 @@ tags:
 	<li><code>1 &lt;= month &lt;= 12</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：判断闰年
 
@@ -115,4 +121,6 @@ function numberOfDays(year: number, month: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

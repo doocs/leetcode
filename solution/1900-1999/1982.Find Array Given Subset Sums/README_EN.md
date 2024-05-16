@@ -9,6 +9,8 @@ tags:
     - Divide and Conquer
 ---
 
+<!-- problem:start -->
+
 # [1982. Find Array Given Subset Sums](https://leetcode.com/problems/find-array-given-subset-sums)
 
 [中文文档](/solution/1900-1999/1982.Find%20Array%20Given%20Subset%20Sums/README.md)
@@ -67,6 +69,8 @@ Note that any permutation of [1,2,-3] and also any permutation of [-1,-2,3] will
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -259,6 +263,10 @@ func recoverArray(n int, sums []int) []int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -398,4 +406,6 @@ func recoverArray(n int, sums []int) (ans []int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

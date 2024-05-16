@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.20.T9/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 16.20. T9 键盘](https://leetcode.cn/problems/t9-lcci)
 
 [English Version](/lcci/16.20.T9/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在老式手机上，用户通过数字键盘输入，手机将提供与这些数字相匹配的单词列表。每个数字映射到0至4个字母。给定一个数字序列，实现一个算法来返回匹配单词的列表。你会得到一张含有有效单词的列表。映射如下图所示：</p>
 ![](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcci/16.20.T9/images/17_telephone_keypad.png)
@@ -29,7 +31,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.20.T9/README.md
 	<li><code>num</code>中不会出现 0, 1 这两个数字</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：逆向思维
 
@@ -190,4 +196,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

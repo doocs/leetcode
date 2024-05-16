@@ -9,13 +9,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [1486. 数组异或操作](https://leetcode.cn/problems/xor-operation-in-an-array)
 
 [English Version](/solution/1400-1499/1486.XOR%20Operation%20in%20an%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个整数，<code>n</code> 和 <code>start</code> 。</p>
 
@@ -61,7 +63,11 @@ tags:
 	<li><code>n == nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -123,4 +129,6 @@ function xorOperation(n: number, start: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

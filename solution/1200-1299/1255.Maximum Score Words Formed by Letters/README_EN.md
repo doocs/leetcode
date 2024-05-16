@@ -13,6 +13,8 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [1255. Maximum Score Words Formed by Letters](https://leetcode.com/problems/maximum-score-words-formed-by-letters)
 
 [中文文档](/solution/1200-1299/1255.Maximum%20Score%20Words%20Formed%20by%20Letters/README.md)
@@ -68,6 +70,8 @@ Letter &quot;e&quot; can only be used once.</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Enumeration
 
@@ -207,4 +211,6 @@ func maxScoreWords(words []string, letters []byte, score []int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

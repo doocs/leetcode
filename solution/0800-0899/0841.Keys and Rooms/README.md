@@ -8,13 +8,15 @@ tags:
     - 图
 ---
 
+<!-- problem:start -->
+
 # [841. 钥匙和房间](https://leetcode.cn/problems/keys-and-rooms)
 
 [English Version](/solution/0800-0899/0841.Keys%20and%20Rooms/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有 <code>n</code> 个房间，房间按从 <code>0</code> 到 <code>n - 1</code> 编号。最初，除 <code>0</code> 号房间外的其余所有房间都被锁住。你的目标是进入所有的房间。然而，你不能在没有获得钥匙的时候进入锁住的房间。</p>
 
@@ -61,7 +63,11 @@ tags:
 	<li>所有 <code>rooms[i]</code> 的值 <strong>互不相同</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -198,4 +204,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

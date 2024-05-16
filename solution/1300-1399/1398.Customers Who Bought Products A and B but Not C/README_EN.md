@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1398. Customers Who Bought Products A and B but Not C 🔒](https://leetcode.com/problems/customers-who-bought-products-a-and-b-but-not-c)
 
 [中文文档](/solution/1300-1399/1398.Customers%20Who%20Bought%20Products%20A%20and%20B%20but%20Not%20C/README.md)
@@ -87,6 +89,8 @@ Orders table:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: LEFT JOIN + GROUP BY + HAVING
 
 We can use `LEFT JOIN` to join the `Customers` table and the `Orders` table, then group them by `customer_id`, and finally filter out the customers who have purchased products A and B but not product C.
@@ -106,4 +110,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

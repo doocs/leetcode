@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.01.Three%20in%20One/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [03.01. Three in One](https://leetcode.cn/problems/three-in-one-lcci)
 
 [中文文档](/lcci/03.01.Three%20in%20One/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Describe how you could use a single array to implement three stacks.</p>
 
@@ -50,7 +54,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.01.Three%20in%20On
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Array Simulation
 
@@ -335,4 +343,6 @@ class TripleInOne {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

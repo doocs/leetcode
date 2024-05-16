@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2838. Maximum Coins Heroes Can Collect 🔒](https://leetcode.com/problems/maximum-coins-heroes-can-collect)
 
 [中文文档](/solution/2800-2899/2838.Maximum%20Coins%20Heroes%20Can%20Collect/README.md)
@@ -70,6 +72,8 @@ So the answer would be [5,16,10].</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Prefix Sum + Binary Search
 
@@ -218,4 +222,6 @@ function maximumCoins(heroes: number[], monsters: number[], coins: number[]): nu
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

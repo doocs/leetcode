@@ -9,6 +9,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [1720. Decode XORed Array](https://leetcode.com/problems/decode-xored-array)
 
 [中文文档](/solution/1700-1799/1720.Decode%20XORed%20Array/README.md)
@@ -50,6 +52,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -102,4 +106,6 @@ func decode(encoded []int, first int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

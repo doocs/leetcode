@@ -7,6 +7,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [198. House Robber](https://leetcode.com/problems/house-robber)
 
 [中文文档](/solution/0100-0199/0198.House%20Robber/README.md)
@@ -45,6 +47,8 @@ Total amount you can rob = 2 + 9 + 1 = 12.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -129,6 +133,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -193,4 +201,6 @@ function rob(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

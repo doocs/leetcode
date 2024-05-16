@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1412. 查找成绩处于中游的学生 🔒](https://leetcode.cn/problems/find-the-quiet-students-in-all-exams)
 
 [English Version](/solution/1400-1499/1412.Find%20the%20Quiet%20Students%20in%20All%20Exams/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Student</code></p>
 
@@ -97,7 +99,11 @@ Exam 表：
 因为学生 5 从来没有参加过任何测验, 所以他被排除于结果表。
 由此, 我们仅仅返回学生 2 的信息。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：使用 RANK() 窗口函数 + 分组聚合
 
@@ -134,4 +140,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

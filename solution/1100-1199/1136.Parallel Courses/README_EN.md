@@ -9,6 +9,8 @@ tags:
     - Topological Sort
 ---
 
+<!-- problem:start -->
+
 # [1136. Parallel Courses 🔒](https://leetcode.com/problems/parallel-courses)
 
 [中文文档](/solution/1100-1199/1136.Parallel%20Courses/README.md)
@@ -53,6 +55,8 @@ In the second semester, you can take course 3.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Topological Sorting
 
@@ -227,4 +231,6 @@ function minimumSemesters(n: number, relations: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

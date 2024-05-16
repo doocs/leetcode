@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2776.Convert%20Callback%20Based%20Function%20to%20Promise%20Based%20Function/README.md
 ---
 
+<!-- problem:start -->
+
 # [2776. 转换回调函数为 Promise 函数 🔒](https://leetcode.cn/problems/convert-callback-based-function-to-promise-based-function)
 
 [English Version](/solution/2700-2799/2776.Convert%20Callback%20Based%20Function%20to%20Promise%20Based%20Function/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>编写一个函数，接受另一个函数 <code>fn</code> ，并将基于回调函数的函数转换为基于 Promise 的函数。</p>
 
@@ -86,7 +88,11 @@ fn 以回调函数作为第一个参数和 args 作为其余参数进行调用�
 	<li><code>0 &lt;= args[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -118,4 +124,6 @@ function promisify(fn: CallbackFn): Promisified {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

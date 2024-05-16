@@ -4,6 +4,8 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2755.Deep%20Merge%20of%20Two%20Objects/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2755. Deep Merge of Two Objects 🔒](https://leetcode.com/problems/deep-merge-of-two-objects)
 
 [中文文档](/solution/2700-2799/2755.Deep%20Merge%20of%20Two%20Objects/README.md)
@@ -69,6 +71,8 @@ obj2[&quot;b&quot;][&quot;c&quot;] has key &quot;e&quot; that obj1 doesn&#39;t h
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -97,4 +101,6 @@ function deepMerge(obj1: any, obj2: any): any {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

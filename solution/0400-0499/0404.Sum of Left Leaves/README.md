@@ -9,13 +9,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [404. 左叶子之和](https://leetcode.cn/problems/sum-of-left-leaves)
 
 [English Version](/solution/0400-0499/0404.Sum%20of%20Left%20Leaves/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定二叉树的根节点&nbsp;<code>root</code>&nbsp;，返回所有左叶子之和。</p>
 
@@ -49,7 +51,11 @@ tags:
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -276,6 +282,10 @@ int sumOfLeftLeaves(struct TreeNode* root) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：栈
 
 我们也可以将方法一的递归改为迭代，使用栈来模拟递归的过程。
@@ -469,4 +479,6 @@ function sumOfLeftLeaves(root: TreeNode | null): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

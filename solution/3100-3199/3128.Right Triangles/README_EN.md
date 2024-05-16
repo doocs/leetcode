@@ -12,6 +12,8 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [3128. Right Triangles](https://leetcode.com/problems/right-triangles)
 
 [中文文档](/solution/3100-3199/3128.Right%20Triangles/README.md)
@@ -185,6 +187,8 @@ tags:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Counting + Enumeration
 
 First, we can count the number of $1$s in each row and each column, and record them in the arrays $rows$ and $cols$.
@@ -311,4 +315,6 @@ function numberOfRightTriangles(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

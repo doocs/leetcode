@@ -10,6 +10,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2460. Apply Operations to an Array](https://leetcode.com/problems/apply-operations-to-an-array)
 
 [中文文档](/solution/2400-2499/2460.Apply%20Operations%20to%20an%20Array/README.md)
@@ -66,6 +68,8 @@ After that, we shift the 0&#39;s to the end, which gives the array [1,4,2,0,0,0]
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -211,4 +215,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

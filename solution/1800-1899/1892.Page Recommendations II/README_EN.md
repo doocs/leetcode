@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1892. Page Recommendations II 🔒](https://leetcode.com/problems/page-recommendations-ii)
 
 [中文文档](/solution/1800-1899/1892.Page%20Recommendations%20II/README.md)
@@ -123,6 +125,8 @@ You can recommend pages for users 2, 3, 4, and 5 using a similar process.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -150,4 +154,6 @@ GROUP BY user1_id, page_id;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

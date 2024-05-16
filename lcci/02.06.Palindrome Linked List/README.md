@@ -4,13 +4,16 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.06.Palindrome%20Linked%20List/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 02.06. 回文链表](https://leetcode.cn/problems/palindrome-linked-list-lcci)
 
 [English Version](/lcci/02.06.Palindrome%20Linked%20List/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>编写一个函数，检查输入的链表是否是回文的。</p>
 
 <p>&nbsp;</p>
@@ -32,7 +35,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.06.Palindrome%20Li
 <p><strong>进阶：</strong><br>
 你能否用 O(n) 时间复杂度和 O(1) 空间复杂度解决此题？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：快慢指针 + 反转链表
 
@@ -383,4 +390,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

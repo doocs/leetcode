@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.18.Shortest%20Supersequence/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [17.18. Shortest Supersequence](https://leetcode.cn/problems/shortest-supersequence-lcci)
 
 [中文文档](/lcci/17.18.Shortest%20Supersequence/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two arrays, one shorter (with all distinct elements) and one longer. Find the shortest subarray in the longer array that contains all the elements in the shorter array. The items can appear in any order.</p>
 <p>Return the indexes of the leftmost and the rightmost elements of the array. If there are more than one answer, return the one that has the smallest left index. If there is no answer, return an empty array.</p>
@@ -40,7 +44,11 @@ small = [4]
 	<li><code>1 &lt;= small.length&nbsp;&lt;= 100000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -243,4 +251,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

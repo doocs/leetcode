@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.07.Maximum/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [16.07. Maximum](https://leetcode.cn/problems/maximum-lcci)
 
 [中文文档](/lcci/16.07.Maximum/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write a method that finds the maximum of two numbers. You should not use if-else or any other comparison operator.</p>
 <p><strong>Example: </strong></p>
@@ -20,7 +24,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.07.Maximum/README_
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bitwise Operation
 
@@ -84,4 +92,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

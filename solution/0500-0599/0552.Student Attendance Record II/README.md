@@ -6,13 +6,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [552. 学生出勤记录 II](https://leetcode.cn/problems/student-attendance-record-ii)
 
 [English Version](/solution/0500-0599/0552.Student%20Attendance%20Record%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 可以用字符串表示一个学生的出勤记录，其中的每个字符用来标记当天的出勤情况（缺勤、迟到、到场）。记录中只含下面三种字符：
 
@@ -66,7 +68,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -209,6 +215,10 @@ func checkRecord(n int) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：动态规划
 
@@ -366,4 +376,6 @@ func checkRecord(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,6 +8,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [1550. Three Consecutive Odds](https://leetcode.com/problems/three-consecutive-odds)
 
 [中文文档](/solution/1500-1599/1550.Three%20Consecutive%20Odds/README.md)
@@ -42,6 +44,8 @@ Given an integer array <code>arr</code>, return <code>true</code>&nbsp;if there 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -133,6 +137,10 @@ function threeConsecutiveOdds(arr: number[]): boolean {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -148,4 +156,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

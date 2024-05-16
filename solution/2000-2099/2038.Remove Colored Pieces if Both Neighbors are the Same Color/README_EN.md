@@ -11,6 +11,8 @@ tags:
     - Game Theory
 ---
 
+<!-- problem:start -->
+
 # [2038. Remove Colored Pieces if Both Neighbors are the Same Color](https://leetcode.com/problems/remove-colored-pieces-if-both-neighbors-are-the-same-color)
 
 [中文文档](/solution/2000-2099/2038.Remove%20Colored%20Pieces%20if%20Both%20Neighbors%20are%20the%20Same%20Color/README.md)
@@ -84,6 +86,8 @@ Thus, Bob wins, so return false.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -199,4 +203,6 @@ function winnerOfGame(colors: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

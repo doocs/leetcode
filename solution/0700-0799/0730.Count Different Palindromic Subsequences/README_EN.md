@@ -7,6 +7,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [730. Count Different Palindromic Subsequences](https://leetcode.com/problems/count-different-palindromic-subsequences)
 
 [中文文档](/solution/0700-0799/0730.Count%20Different%20Palindromic%20Subsequences/README.md)
@@ -48,6 +50,8 @@ Note that &#39;bcb&#39; is counted only once, even though it occurs twice.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -188,4 +192,6 @@ func countPalindromicSubsequences(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

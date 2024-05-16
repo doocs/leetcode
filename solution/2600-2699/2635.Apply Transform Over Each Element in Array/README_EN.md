@@ -4,6 +4,8 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2635.Apply%20Transform%20Over%20Each%20Element%20in%20Array/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2635. Apply Transform Over Each Element in Array](https://leetcode.com/problems/apply-transform-over-each-element-in-array)
 
 [中文文档](/solution/2600-2699/2635.Apply%20Transform%20Over%20Each%20Element%20in%20Array/README.md)
@@ -54,6 +56,8 @@ The function increases each value in the array by one.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: traversal
 
 We traverse the array $arr$, for each element $arr[i]$, replace it with $fn(arr[i], i)$. Finally, return the array $arr$.
@@ -73,4 +77,6 @@ function map(arr: number[], fn: (n: number, i: number) => number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

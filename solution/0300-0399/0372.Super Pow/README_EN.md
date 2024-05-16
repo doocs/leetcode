@@ -7,6 +7,8 @@ tags:
     - Divide and Conquer
 ---
 
+<!-- problem:start -->
+
 # [372. Super Pow](https://leetcode.com/problems/super-pow)
 
 [中文文档](/solution/0300-0399/0372.Super%20Pow/README.md)
@@ -48,6 +50,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -162,4 +166,6 @@ function superPow(a: number, b: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

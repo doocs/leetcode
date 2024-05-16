@@ -12,6 +12,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2552. Count Increasing Quadruplets](https://leetcode.com/problems/count-increasing-quadruplets)
 
 [中文文档](/solution/2500-2599/2552.Count%20Increasing%20Quadruplets/README.md)
@@ -57,6 +59,8 @@ There are no other quadruplets, so we return 2.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration + Preprocessing
 
@@ -236,4 +240,6 @@ func countQuadruplets(nums []int) int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,6 +9,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2270. Number of Ways to Split Array](https://leetcode.com/problems/number-of-ways-to-split-array)
 
 [中文文档](/solution/2200-2299/2270.Number%20of%20Ways%20to%20Split%20Array/README.md)
@@ -60,6 +62,8 @@ There are two valid splits in nums:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -132,4 +136,6 @@ func waysToSplitArray(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

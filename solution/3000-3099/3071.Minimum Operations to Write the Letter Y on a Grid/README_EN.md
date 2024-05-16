@@ -11,6 +11,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [3071. Minimum Operations to Write the Letter Y on a Grid](https://leetcode.com/problems/minimum-operations-to-write-the-letter-y-on-a-grid)
 
 [中文文档](/solution/3000-3099/3071.Minimum%20Operations%20to%20Write%20the%20Letter%20Y%20on%20a%20Grid/README.md)
@@ -66,6 +68,8 @@ It can be shown that 12 is the minimum number of operations needed to write Y on
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -218,4 +222,6 @@ function minimumOperationsToWriteY(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

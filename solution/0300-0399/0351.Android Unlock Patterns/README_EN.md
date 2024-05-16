@@ -9,6 +9,8 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [351. Android Unlock Patterns 🔒](https://leetcode.com/problems/android-unlock-patterns)
 
 [中文文档](/solution/0300-0399/0351.Android%20Unlock%20Patterns/README.md)
@@ -65,6 +67,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -256,4 +260,6 @@ function numberOfPatterns(m: number, n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

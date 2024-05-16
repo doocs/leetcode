@@ -11,13 +11,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [2502. 设计内存分配器](https://leetcode.cn/problems/design-memory-allocator)
 
 [English Version](/solution/2500-2599/2502.Design%20Memory%20Allocator/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数 <code>n</code> ，表示下标从 <strong>0</strong> 开始的内存数组的大小。所有内存单元开始都是空闲的。</p>
 
@@ -76,7 +78,11 @@ loc.free(7); // 释放 mID 为 7 的所有内存单元。内存数组保持原�
 	<li>最多调用 <code>allocate</code> 和 <code>free</code> 方法 <code>1000</code> 次</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：暴力模拟
 
@@ -260,6 +266,10 @@ func (this *Allocator) Free(mID int) (ans int) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：哈希表 + 有序集合
 
@@ -453,4 +463,6 @@ func (this *Allocator) Free(mID int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

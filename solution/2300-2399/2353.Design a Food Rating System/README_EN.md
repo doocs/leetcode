@@ -11,6 +11,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2353. Design a Food Rating System](https://leetcode.com/problems/design-a-food-rating-system)
 
 [中文文档](/solution/2300-2399/2353.Design%20a%20Food%20Rating%20System/README.md)
@@ -83,6 +85,8 @@ foodRatings.highestRated(&quot;japanese&quot;); // return &quot;ramen&quot;
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -157,4 +161,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

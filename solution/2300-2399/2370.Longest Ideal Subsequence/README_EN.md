@@ -10,6 +10,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2370. Longest Ideal Subsequence](https://leetcode.com/problems/longest-ideal-subsequence)
 
 [中文文档](/solution/2300-2399/2370.Longest%20Ideal%20Subsequence/README.md)
@@ -56,6 +58,8 @@ Note that &quot;acfgbd&quot; is not ideal because &#39;c&#39; and &#39;f&#39; ha
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -175,4 +179,6 @@ function longestIdealString(s: string, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

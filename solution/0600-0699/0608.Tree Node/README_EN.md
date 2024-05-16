@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [608. Tree Node](https://leetcode.com/problems/tree-node)
 
 [中文文档](/solution/0600-0699/0608.Tree%20Node/README.md)
@@ -94,6 +96,8 @@ Tree table:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Conditional Statements + Subquery
 
 We can use the `CASE WHEN` conditional statement to determine the type of each node as follows:
@@ -118,4 +122,6 @@ FROM Tree;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

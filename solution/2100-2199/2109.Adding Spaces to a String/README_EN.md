@@ -11,6 +11,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2109. Adding Spaces to a String](https://leetcode.com/problems/adding-spaces-to-a-string)
 
 [中文文档](/solution/2100-2199/2109.Adding%20Spaces%20to%20a%20String/README.md)
@@ -67,6 +69,8 @@ We are also able to place spaces before the first character of the string.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -148,6 +152,10 @@ function addSpaces(s: string, spaces: number[]): string {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -168,4 +176,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

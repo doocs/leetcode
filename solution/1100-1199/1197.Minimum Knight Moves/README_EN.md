@@ -8,6 +8,8 @@ tags:
     - Breadth-First Search
 ---
 
+<!-- problem:start -->
+
 # [1197. Minimum Knight Moves 🔒](https://leetcode.com/problems/minimum-knight-moves)
 
 [中文文档](/solution/1100-1199/1197.Minimum%20Knight%20Moves/README.md)
@@ -46,6 +48,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: BFS
 
@@ -250,6 +254,10 @@ impl Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -532,4 +540,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

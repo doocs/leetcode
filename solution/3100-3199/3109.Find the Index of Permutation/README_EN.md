@@ -12,6 +12,8 @@ tags:
     - Merge Sort
 ---
 
+<!-- problem:start -->
+
 # [3109. Find the Index of Permutation 🔒](https://leetcode.com/problems/find-the-index-of-permutation)
 
 [中文文档](/solution/3100-3199/3109.Find%20the%20Index%20of%20Permutation/README.md)
@@ -64,6 +66,8 @@ And <code>[3,1,2]</code> is at index 4.</p>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Indexed Tree
 
@@ -299,4 +303,6 @@ function getPermutationIndex(perm: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -11,13 +11,15 @@ tags:
     - 前缀和
 ---
 
+<!-- problem:start -->
+
 # [2132. 用邮票贴满网格图](https://leetcode.cn/problems/stamping-the-grid)
 
 [English Version](/solution/2100-2199/2132.Stamping%20the%20Grid/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个&nbsp;<code>m x n</code>&nbsp;的二进制矩阵&nbsp;<code>grid</code>&nbsp;，每个格子要么为&nbsp;<code>0</code>&nbsp;（空）要么为&nbsp;<code>1</code>&nbsp;（被占据）。</p>
 
@@ -67,7 +69,11 @@ tags:
 	<li><code>1 &lt;= stampHeight, stampWidth &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二维前缀和 + 二维差分
 
@@ -383,4 +389,6 @@ var possibleToStamp = function (grid, stampHeight, stampWidth) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

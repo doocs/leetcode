@@ -9,6 +9,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [1922. Count Good Numbers](https://leetcode.com/problems/count-good-numbers)
 
 [中文文档](/solution/1900-1999/1922.Count%20Good%20Numbers/README.md)
@@ -56,6 +58,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -146,4 +150,6 @@ func myPow(x, n int64) int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

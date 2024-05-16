@@ -9,6 +9,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1701. Average Waiting Time](https://leetcode.com/problems/average-waiting-time)
 
 [中文文档](/solution/1700-1799/1701.Average%20Waiting%20Time/README.md)
@@ -62,6 +64,8 @@ So the average waiting time = (2 + 6 + 4 + 1) / 4 = 3.25.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -143,4 +147,6 @@ function averageWaitingTime(customers: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

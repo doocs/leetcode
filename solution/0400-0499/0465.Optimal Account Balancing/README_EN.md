@@ -10,6 +10,8 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [465. Optimal Account Balancing 🔒](https://leetcode.com/problems/optimal-account-balancing)
 
 [中文文档](/solution/0400-0499/0465.Optimal%20Account%20Balancing/README.md)
@@ -57,6 +59,8 @@ Therefore, person #1 only need to give person #0 $4, and all debt is settled.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -236,4 +240,6 @@ function bitCount(i: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

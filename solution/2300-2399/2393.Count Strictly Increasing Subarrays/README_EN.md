@@ -8,6 +8,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2393. Count Strictly Increasing Subarrays 🔒](https://leetcode.com/problems/count-strictly-increasing-subarrays)
 
 [中文文档](/solution/2300-2399/2393.Count%20Strictly%20Increasing%20Subarrays/README.md)
@@ -50,6 +52,8 @@ The total number of subarrays is 6 + 3 + 1 = 10.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -145,6 +149,10 @@ function countSubarrays(nums: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -238,4 +246,6 @@ function countSubarrays(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

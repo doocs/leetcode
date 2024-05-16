@@ -11,6 +11,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1038. Binary Search Tree to Greater Sum Tree](https://leetcode.com/problems/binary-search-tree-to-greater-sum-tree)
 
 [中文文档](/solution/1000-1099/1038.Binary%20Search%20Tree%20to%20Greater%20Sum%20Tree/README.md)
@@ -55,6 +57,8 @@ tags:
 <p><strong>Note:</strong> This question is the same as 538: <a href="https://leetcode.com/problems/convert-bst-to-greater-tree/" target="_blank">https://leetcode.com/problems/convert-bst-to-greater-tree/</a></p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -302,6 +306,10 @@ struct TreeNode* bstToGst(struct TreeNode* root) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -547,4 +555,6 @@ struct TreeNode* bstToGst(struct TreeNode* root) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

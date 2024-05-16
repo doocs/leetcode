@@ -10,13 +10,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [130. 被围绕的区域](https://leetcode.cn/problems/surrounded-regions)
 
 [English Version](/solution/0100-0199/0130.Surrounded%20Regions/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 给你一个 <code>m x n</code> 的矩阵 <code>board</code> ，由若干字符 <code>'X'</code> 和 <code>'O'</code> ，找到所有被 <code>'X'</code> 围绕的区域，并将这些区域里所有的  <code>'O'</code> 用 <code>'X'</code> 填充。
 
@@ -52,7 +54,11 @@ tags:
 </div>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -336,6 +342,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：并查集
 
 我们也可以使用并查集，将矩阵边界上的每个 `O` 与一个超级节点 $m \times n$ 相连，将矩阵中的每个 `O` 与其上下左右的 `O` 相连。
@@ -541,4 +551,6 @@ function solve(board: string[][]): void {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

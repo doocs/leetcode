@@ -11,6 +11,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [2603. Collect Coins in a Tree](https://leetcode.com/problems/collect-coins-in-a-tree)
 
 [中文文档](/solution/2600-2699/2603.Collect%20Coins%20in%20a%20Tree/README.md)
@@ -62,6 +64,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Topological sorting
 
@@ -319,4 +323,6 @@ function collectTheCoins(coins: number[], edges: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1608. Special Array With X Elements Greater Than or Equal X](https://leetcode.com/problems/special-array-with-x-elements-greater-than-or-equal-x)
 
 [中文文档](/solution/1600-1699/1608.Special%20Array%20With%20X%20Elements%20Greater%20Than%20or%20Equal%20X/README.md)
@@ -60,6 +62,8 @@ x cannot be greater since there are only 2 numbers in nums.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Brute Force Enumeration
 
@@ -162,6 +166,10 @@ impl Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Sorting + Binary Search
 
@@ -305,4 +313,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -13,13 +13,15 @@ tags:
     - 状态压缩
 ---
 
+<!-- problem:start -->
+
 # [2152. 穿过所有点的所需最少直线数量 🔒](https://leetcode.cn/problems/minimum-number-of-lines-to-cover-points)
 
 [English Version](/solution/2100-2199/2152.Minimum%20Number%20of%20Lines%20to%20Cover%20Points/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个 <code>points</code>&nbsp;数组，<code>points[i] = [xi, yi]</code>&nbsp;表示直角坐标系 <strong>X-Y</strong> 的一个点。</p>
 
@@ -59,7 +61,11 @@ tags:
 	<li><code>points</code>&nbsp;中元素都是唯一的</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：状态压缩 + 记忆化搜索
 
@@ -241,4 +247,6 @@ func minimumLines(points [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

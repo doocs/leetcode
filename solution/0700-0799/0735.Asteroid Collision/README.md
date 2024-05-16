@@ -8,13 +8,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [735. 小行星碰撞](https://leetcode.cn/problems/asteroid-collision)
 
 [English Version](/solution/0700-0799/0735.Asteroid%20Collision/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数数组 <code>asteroids</code>，表示在同一行的小行星。</p>
 
@@ -55,7 +57,11 @@ tags:
 	<li><code>asteroids[i] != 0</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：栈
 
@@ -201,4 +207,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

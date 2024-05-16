@@ -8,6 +8,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [1848. Minimum Distance to the Target Element](https://leetcode.com/problems/minimum-distance-to-the-target-element)
 
 [中文文档](/solution/1800-1899/1848.Minimum%20Distance%20to%20the%20Target%20Element/README.md)
@@ -56,6 +58,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Single Pass
 
@@ -148,4 +152,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

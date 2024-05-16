@@ -11,13 +11,15 @@ tags:
     - 博弈
 ---
 
+<!-- problem:start -->
+
 # [1690. 石子游戏 VII](https://leetcode.cn/problems/stone-game-vii)
 
 [English Version](/solution/1600-1699/1690.Stone%20Game%20VII/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>石子游戏中，爱丽丝和鲍勃轮流进行自己的回合，<strong>爱丽丝先开始</strong> 。</p>
 
@@ -59,7 +61,11 @@ tags:
 	<li><code>1 <= stones[i] <= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -203,6 +209,10 @@ function stoneGameVII(stones: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划
 
 我们可以将方法一中的记忆化搜索转换为动态规划，定义 $f[i][j]$ 表示当剩下的石子为 $stones[i], stones[i + 1], \dots, stones[j]$ 时，先手与后手的得分差值。那么答案即为 $f[0][n - 1]$。
@@ -319,4 +329,6 @@ function stoneGameVII(stones: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

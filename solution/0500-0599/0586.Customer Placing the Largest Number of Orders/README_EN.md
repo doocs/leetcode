@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [586. Customer Placing the Largest Number of Orders](https://leetcode.com/problems/customer-placing-the-largest-number-of-orders)
 
 [中文文档](/solution/0500-0599/0586.Customer%20Placing%20the%20Largest%20Number%20of%20Orders/README.md)
@@ -63,6 +65,8 @@ So the result is customer_number 3.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Group By + Sorting
 
 We can use `GROUP BY` to group the data by `customer_number`, and then sort the groups in descending order by `count(1)`. Finally, we can take the `customer_number` of the first record as the result.
@@ -81,6 +85,10 @@ LIMIT 1;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -97,4 +105,6 @@ ORDER BY COUNT(customer_number) DESC;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

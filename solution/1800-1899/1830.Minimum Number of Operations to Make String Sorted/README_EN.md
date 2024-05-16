@@ -10,6 +10,8 @@ tags:
     - Combinatorics
 ---
 
+<!-- problem:start -->
+
 # [1830. Minimum Number of Operations to Make String Sorted](https://leetcode.com/problems/minimum-number-of-operations-to-make-string-sorted)
 
 [中文文档](/solution/1800-1899/1830.Minimum%20Number%20of%20Operations%20to%20Make%20String%20Sorted/README.md)
@@ -60,6 +62,8 @@ Operation 2: i=4, j=4. Swap s[3] and s[4] to get s=&quot;aaaab&quot;, then rever
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting + Permutation and Combination + Preprocessing
 
@@ -261,4 +265,6 @@ func makeStringSorted(s string) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

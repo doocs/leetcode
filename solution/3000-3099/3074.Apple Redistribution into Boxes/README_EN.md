@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [3074. Apple Redistribution into Boxes](https://leetcode.com/problems/apple-redistribution-into-boxes)
 
 [中文文档](/solution/3000-3099/3074.Apple%20Redistribution%20into%20Boxes/README.md)
@@ -53,6 +55,8 @@ It is possible to distribute the apples as the total capacity is greater than or
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
 
@@ -138,4 +142,6 @@ function minimumBoxes(apple: number[], capacity: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

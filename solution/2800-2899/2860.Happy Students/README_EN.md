@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2860. Happy Students](https://leetcode.com/problems/happy-students)
 
 [中文文档](/solution/2800-2899/2860.Happy%20Students/README.md)
@@ -61,6 +63,8 @@ The class teacher selects all the students to form the group.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Enumeration
 
@@ -159,4 +163,6 @@ function countWays(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

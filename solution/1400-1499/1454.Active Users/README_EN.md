@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1454. Active Users 🔒](https://leetcode.com/problems/active-users)
 
 [中文文档](/solution/1400-1499/1454.Active%20Users/README.md)
@@ -92,6 +94,8 @@ User Jonathan with id = 7 logged in 7 times in 6 different days, five of them we
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -114,4 +118,6 @@ WHERE cnt=5;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

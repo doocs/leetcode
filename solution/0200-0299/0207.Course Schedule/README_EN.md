@@ -9,6 +9,8 @@ tags:
     - Topological Sort
 ---
 
+<!-- problem:start -->
+
 # [207. Course Schedule](https://leetcode.com/problems/course-schedule)
 
 [中文文档](/solution/0200-0299/0207.Course%20Schedule/README.md)
@@ -54,6 +56,8 @@ To take course 1 you should have finished course 0, and to take course 0 you sho
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Topological Sorting
 
@@ -297,4 +301,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

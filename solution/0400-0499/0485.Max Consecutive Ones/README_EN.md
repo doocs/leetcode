@@ -6,6 +6,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [485. Max Consecutive Ones](https://leetcode.com/problems/max-consecutive-ones)
 
 [中文文档](/solution/0400-0499/0485.Max%20Consecutive%20Ones/README.md)
@@ -39,6 +41,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -184,4 +188,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

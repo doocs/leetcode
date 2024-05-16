@@ -7,6 +7,8 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [39. Combination Sum](https://leetcode.com/problems/combination-sum)
 
 [中文文档](/solution/0000-0099/0039.Combination%20Sum/README.md)
@@ -56,6 +58,8 @@ These are the only two combinations.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Pruning + Backtracking
 
@@ -260,6 +264,10 @@ public class Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Sorting + Pruning + Backtracking(Another Form)
 
@@ -485,4 +493,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

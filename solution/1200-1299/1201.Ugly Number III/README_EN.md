@@ -11,6 +11,8 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [1201. Ugly Number III](https://leetcode.com/problems/ugly-number-iii)
 
 [中文文档](/solution/1200-1299/1201.Ugly%20Number%20III/README.md)
@@ -56,6 +58,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search + Inclusion-Exclusion Principle
 
@@ -226,4 +230,6 @@ function lcm(a: bigint, b: bigint): bigint {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1211. 查询结果的质量和占比](https://leetcode.cn/problems/queries-quality-and-percentage)
 
 [English Version](/solution/1200-1299/1211.Queries%20Quality%20and%20Percentage/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><code>Queries</code>&nbsp;表：&nbsp;</p>
 
@@ -85,7 +87,11 @@ Cat 查询结果的质量为 ((2 / 5) + (3 / 3) + (4 / 7)) / 3 = 0.66
 Cat 查询结果的劣质查询百分比为 (1 / 3) * 100 = 33.33
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分组统计
 
@@ -127,4 +133,6 @@ HAVING query_name IS NOT NULL;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

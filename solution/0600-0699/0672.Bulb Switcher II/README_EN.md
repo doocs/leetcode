@@ -9,6 +9,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [672. Bulb Switcher II](https://leetcode.com/problems/bulb-switcher-ii)
 
 [中文文档](/solution/0600-0699/0672.Bulb%20Switcher%20II/README.md)
@@ -71,6 +73,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -172,4 +176,6 @@ func flipLights(n int, presses int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

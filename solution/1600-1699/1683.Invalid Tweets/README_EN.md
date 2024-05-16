@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1683. Invalid Tweets](https://leetcode.com/problems/invalid-tweets)
 
 [中文文档](/solution/1600-1699/1683.Invalid%20Tweets/README.md)
@@ -58,6 +60,8 @@ Tweet 2 has length = 32. It is an invalid tweet.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Using `CHAR_LENGTH` Function
 
 The `CHAR_LENGTH()` function returns the length of a string, where Chinese characters, numbers, and letters are all counted as $1$ byte.
@@ -78,4 +82,6 @@ WHERE CHAR_LENGTH(content) > 15;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

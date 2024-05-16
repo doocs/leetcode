@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2014.%20%E5%88%87%E5%88%86%E6%95%B0%E7%BB%84/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 14. 切分数组](https://leetcode.cn/problems/qie-fen-shu-zu)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数数组 <code>nums</code> ，小李想将 <code>nums</code> 切割成若干个非空子数组，使得每个子数组最左边的数和最右边的数的最大公约数大于 1 。为了减少他的工作量，请求出最少可以切成多少个子数组。</p>
 
@@ -38,6 +40,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2014.%20%E5%88%87%
 	<li><code>2 &lt;= nums[i] &lt;= 10^6</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

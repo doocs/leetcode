@@ -7,6 +7,8 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [2137. Pour Water Between Buckets to Make Water Levels Equal 🔒](https://leetcode.com/problems/pour-water-between-buckets-to-make-water-levels-equal)
 
 [中文文档](/solution/2100-2199/2137.Pour%20Water%20Between%20Buckets%20to%20Make%20Water%20Levels%20Equal/README.md)
@@ -61,6 +63,8 @@ All buckets have 3.5 gallons of water in them so return 3.5.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -203,4 +207,6 @@ function equalizeWater(buckets: number[], loss: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

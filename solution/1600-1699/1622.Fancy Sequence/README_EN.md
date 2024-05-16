@@ -10,6 +10,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [1622. Fancy Sequence](https://leetcode.com/problems/fancy-sequence)
 
 [中文文档](/solution/1600-1699/1622.Fancy%20Sequence/README.md)
@@ -63,6 +65,8 @@ fancy.getIndex(2); // return 20
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -482,4 +486,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

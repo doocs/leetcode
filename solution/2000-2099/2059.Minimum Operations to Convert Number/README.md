@@ -9,13 +9,15 @@ tags:
     - 数组
 ---
 
+<!-- problem:start -->
+
 # [2059. 转化数字的最小运算数](https://leetcode.cn/problems/minimum-operations-to-convert-number)
 
 [English Version](/solution/2000-2099/2059.Minimum%20Operations%20to%20Convert%20Number/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> ，该数组由 <strong>互不相同</strong> 的数字组成。另给你两个整数 <code>start</code> 和 <code>goal</code> 。</p>
 
@@ -78,7 +80,11 @@ tags:
 	<li><code>nums</code> 中的所有整数互不相同</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -243,6 +249,10 @@ function minimumOperations(nums: number[], start: number, goal: number): number 
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -380,6 +390,10 @@ func minimumOperations(nums []int, start int, goal int) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法三
 
@@ -567,4 +581,6 @@ func minimumOperations(nums []int, start int, goal int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

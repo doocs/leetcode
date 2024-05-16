@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [182. Duplicate Emails](https://leetcode.com/problems/duplicate-emails)
 
 [中文文档](/solution/0100-0199/0182.Duplicate%20Emails/README.md)
@@ -57,6 +59,8 @@ Person table:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Group By + Having
 
 We can use the `GROUP BY` statement to group the data by the `email` field, and then use the `HAVING` statement to filter out the `email` addresses that appear more than once.
@@ -85,6 +89,10 @@ HAVING COUNT(1) > 1;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Self-Join
 
 We can use a self-join to join the `Person` table with itself, and then filter out the records where the `id` is different but the `email` is the same.
@@ -101,4 +109,6 @@ WHERE p1.id != p2.id AND p1.email = p2.email;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1387. Sort Integers by The Power Value](https://leetcode.com/problems/sort-integers-by-the-power-value)
 
 [中文文档](/solution/1300-1399/1387.Sort%20Integers%20by%20The%20Power%20Value/README.md)
@@ -64,6 +66,8 @@ The fourth number in the sorted array is 7.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Custom Sorting
 
@@ -207,4 +211,6 @@ function getKth(lo: number, hi: number, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

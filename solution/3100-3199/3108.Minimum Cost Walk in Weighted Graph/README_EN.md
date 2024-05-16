@@ -11,6 +11,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [3108. Minimum Cost Walk in Weighted Graph](https://leetcode.com/problems/minimum-cost-walk-in-weighted-graph)
 
 [中文文档](/solution/3100-3199/3108.Minimum%20Cost%20Walk%20in%20Weighted%20Graph/README.md)
@@ -73,6 +75,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Union Find
 
@@ -414,4 +418,6 @@ function minimumCost(n: number, edges: number[][], query: number[][]): number[] 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

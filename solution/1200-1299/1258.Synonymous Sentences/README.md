@@ -12,13 +12,15 @@ tags:
     - 回溯
 ---
 
+<!-- problem:start -->
+
 # [1258. 近义词句子 🔒](https://leetcode.cn/problems/synonymous-sentences)
 
 [English Version](/solution/1200-1299/1258.Synonymous%20Sentences/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个近义词表&nbsp;<code>synonyms</code> 和一个句子&nbsp;<code>text</code>&nbsp;，&nbsp;<code>synonyms</code> 表中是一些近义词对 ，你可以将句子&nbsp;<code>text</code> 中每个单词用它的近义词来替换。</p>
 
@@ -53,7 +55,11 @@ text = &quot;I am happy today but was sad yesterday&quot;
 	<li><code>text</code>&nbsp;最多包含&nbsp;<code>10</code> 个单词，且单词间用单个空格分隔开。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：并查集 + DFS
 
@@ -405,4 +411,6 @@ func generateSentences(synonyms [][]string, text string) (ans []string) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

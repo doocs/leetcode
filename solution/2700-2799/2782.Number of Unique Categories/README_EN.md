@@ -8,6 +8,8 @@ tags:
     - Interactive
 ---
 
+<!-- problem:start -->
+
 # [2782. Number of Unique Categories 🔒](https://leetcode.com/problems/number-of-unique-categories)
 
 [中文文档](/solution/2700-2799/2782.Number%20of%20Unique%20Categories/README.md)
@@ -59,6 +61,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -233,4 +237,6 @@ function numberOfCategories(n: number, categoryHandler: CategoryHandler): number
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

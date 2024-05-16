@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2175. The Change in Global Rankings 🔒](https://leetcode.com/problems/the-change-in-global-rankings)
 
 [中文文档](/solution/2100-2199/2175.The%20Change%20in%20Global%20Rankings/README.md)
@@ -118,6 +120,8 @@ New Zealand did not gain or lose points and their rank did not change.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -143,4 +147,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

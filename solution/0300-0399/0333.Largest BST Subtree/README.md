@@ -10,13 +10,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [333. 最大二叉搜索子树 🔒](https://leetcode.cn/problems/largest-bst-subtree)
 
 [English Version](/solution/0300-0399/0333.Largest%20BST%20Subtree/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个二叉树，找到其中最大的二叉搜索树（BST）子树，并返回该<span data-keyword="subtree">子树</span>的大小。其中，最大指的是子树节点数最多的。</p>
 
@@ -64,7 +66,11 @@ tags:
 
 <p><strong>进阶:</strong>&nbsp; 你能想出 O(n) 时间复杂度的解法吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -202,4 +208,6 @@ func largestBSTSubtree(root *TreeNode) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

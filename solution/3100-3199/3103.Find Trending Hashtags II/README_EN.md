@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [3103. Find Trending Hashtags II 🔒](https://leetcode.com/problems/find-trending-hashtags-ii)
 
 [中文文档](/solution/3100-3199/3103.Find%20Trending%20Hashtags%20II/README.md)
@@ -81,6 +83,8 @@ Each row of this table contains user_id, tweet_id, tweet_date and tweet.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Regular Expression Matching
 
 We can use regular expressions to match all tags in each tweet, and then count the occurrence of each tag. Finally, we can sort the tags in descending order by the number of occurrences. If the number of occurrences is the same, we sort them in descending order by the tag name, and return the top three tags.
@@ -118,4 +122,6 @@ def find_trending_hashtags(tweets: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

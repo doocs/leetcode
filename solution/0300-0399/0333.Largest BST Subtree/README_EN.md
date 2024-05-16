@@ -10,6 +10,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [333. Largest BST Subtree 🔒](https://leetcode.com/problems/largest-bst-subtree)
 
 [中文文档](/solution/0300-0399/0333.Largest%20BST%20Subtree/README.md)
@@ -56,6 +58,8 @@ tags:
 <p><strong>Follow up:</strong> Can you figure out ways to solve it with <code>O(n)</code> time complexity?</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -193,4 +197,6 @@ func largestBSTSubtree(root *TreeNode) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

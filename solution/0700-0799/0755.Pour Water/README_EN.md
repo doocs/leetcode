@@ -7,6 +7,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [755. Pour Water 🔒](https://leetcode.com/problems/pour-water)
 
 [中文文档](/solution/0700-0799/0755.Pour%20Water/README.md)
@@ -71,6 +73,8 @@ Finally, the fourth droplet falls at index k = 3. Since moving left would not ev
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -177,4 +181,6 @@ func pourWater(heights []int, volume int, k int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -12,6 +12,8 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [2867. Count Valid Paths in a Tree](https://leetcode.com/problems/count-valid-paths-in-a-tree)
 
 [中文文档](/solution/2800-2899/2867.Count%20Valid%20Paths%20in%20a%20Tree/README.md)
@@ -72,6 +74,8 @@ It can be shown that there are only 6 valid paths.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Preprocessing + Union-Find + Enumeration
 
@@ -490,6 +494,10 @@ function countPaths(n: number, edges: number[][]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -667,4 +675,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,6 +9,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1092. Shortest Common Supersequence](https://leetcode.com/problems/shortest-common-supersequence)
 
 [中文文档](/solution/1000-1099/1092.Shortest%20Common%20Supersequence/README.md)
@@ -47,6 +49,8 @@ The answer provided is the shortest such string that satisfies these properties.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -242,4 +246,6 @@ function shortestCommonSupersequence(str1: string, str2: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

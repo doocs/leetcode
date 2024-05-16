@@ -8,6 +8,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [2012. Sum of Beauty in the Array](https://leetcode.com/problems/sum-of-beauty-in-the-array)
 
 [中文文档](/solution/2000-2099/2012.Sum%20of%20Beauty%20in%20the%20Array/README.md)
@@ -62,6 +64,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Preprocessing Right Minimum + Traversing to Maintain Left Maximum
 
@@ -187,4 +191,6 @@ function sumOfBeauties(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

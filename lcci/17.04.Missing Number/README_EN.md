@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.04.Missing%20Number/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [17.04. Missing Number](https://leetcode.cn/problems/missing-number-lcci)
 
 [中文文档](/lcci/17.04.Missing%20Number/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>An array&nbsp;contains all the integers from 0 to n, except for one number which is missing.&nbsp; Write code to find the missing integer. Can you do it in O(n) time?</p>
 
@@ -34,7 +38,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.04.Missing%20Numbe
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -141,6 +149,8 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -233,6 +243,8 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
 ### Solution 3
 
 <!-- tabs:start -->
@@ -309,4 +321,6 @@ var missingNumber = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

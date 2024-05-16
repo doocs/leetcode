@@ -11,6 +11,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1172. Dinner Plate Stacks](https://leetcode.com/problems/dinner-plate-stacks)
 
 [中文文档](/solution/1100-1199/1172.Dinner%20Plate%20Stacks/README.md)
@@ -84,6 +86,8 @@ D.pop()            // Returns -1.  There are still no stacks.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Stack Array + Ordered Set
 
@@ -876,4 +880,6 @@ class TreeSet<T = number> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

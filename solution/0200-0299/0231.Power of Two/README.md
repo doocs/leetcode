@@ -8,13 +8,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [231. 2 的幂](https://leetcode.cn/problems/power-of-two)
 
 [English Version](/solution/0200-0299/0231.Power%20of%20Two/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数 <code>n</code>，请你判断该整数是否是 2 的幂次方。如果是，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
 
@@ -57,7 +59,11 @@ tags:
 
 <p><strong>进阶：</strong>你能够不使用循环/递归解决此问题吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：位运算
 
@@ -111,6 +117,10 @@ var isPowerOfTwo = function (n) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：lowbit
 
@@ -167,4 +177,6 @@ var isPowerOfTwo = function (n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

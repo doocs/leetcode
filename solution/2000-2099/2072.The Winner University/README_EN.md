@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2072. The Winner University 🔒](https://leetcode.com/problems/the-winner-university)
 
 [中文文档](/solution/2000-2099/2072.The%20Winner%20University/README.md)
@@ -143,6 +145,8 @@ Both New York University and California University have 1 excellent student.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -162,4 +166,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

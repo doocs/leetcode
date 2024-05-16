@@ -8,6 +8,8 @@ tags:
     - Interactive
 ---
 
+<!-- problem:start -->
+
 # [1533. Find the Index of the Large Integer 🔒](https://leetcode.com/problems/find-the-index-of-the-large-integer)
 
 [中文文档](/solution/1500-1599/1533.Find%20the%20Index%20of%20the%20Large%20Integer/README.md)
@@ -72,6 +74,8 @@ Notice that we made only 3 calls, so the answer is valid.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -222,4 +226,6 @@ func getIndex(reader *ArrayReader) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

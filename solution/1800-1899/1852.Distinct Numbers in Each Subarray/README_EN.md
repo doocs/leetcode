@@ -8,6 +8,8 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [1852. Distinct Numbers in Each Subarray 🔒](https://leetcode.com/problems/distinct-numbers-in-each-subarray)
 
 [中文文档](/solution/1800-1899/1852.Distinct%20Numbers%20in%20Each%20Subarray/README.md)
@@ -75,6 +77,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sliding Window + Hash Table
 
@@ -188,6 +192,10 @@ function distinctNumbers(nums: number[], k: number): number[] {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Sliding Window + Array
 
@@ -311,4 +319,6 @@ function distinctNumbers(nums: number[], k: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

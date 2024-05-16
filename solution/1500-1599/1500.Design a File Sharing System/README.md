@@ -9,13 +9,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [1500. 设计文件分享系统 🔒](https://leetcode.cn/problems/design-a-file-sharing-system)
 
 [English Version](/solution/1500-1599/1500.Design%20a%20File%20Sharing%20System/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>我们需要使用一套文件分享系统来分享一个非常大的文件，该文件由&nbsp;<code>m</code> 个从&nbsp;<code>1</code>&nbsp;到&nbsp;<code>m</code>&nbsp;编号的文件块组成。</p>
 
@@ -91,7 +93,11 @@ fileSharing.join([]);        // 一个不拥有任何文件块的用户加入系
 	<li>如果系统用于分享&nbsp;<code>n</code>&nbsp;个文件，其中第 &nbsp;<code>i</code>&nbsp;个文件由&nbsp;<code>m[i]</code>&nbsp;组成，你需要如何修改？</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -196,4 +202,6 @@ class FileSharing {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

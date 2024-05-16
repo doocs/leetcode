@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2082. The Number of Rich Customers 🔒](https://leetcode.com/problems/the-number-of-rich-customers)
 
 [中文文档](/solution/2000-2099/2082.The%20Number%20of%20Rich%20Customers/README.md)
@@ -61,6 +63,8 @@ Customer 3 has one bill with an amount strictly greater than 500.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -75,4 +79,6 @@ WHERE amount > 500;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

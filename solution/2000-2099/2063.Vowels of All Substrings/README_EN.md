@@ -11,6 +11,8 @@ tags:
     - Combinatorics
 ---
 
+<!-- problem:start -->
+
 # [2063. Vowels of All Substrings](https://leetcode.com/problems/vowels-of-all-substrings)
 
 [中文文档](/solution/2000-2099/2063.Vowels%20of%20All%20Substrings/README.md)
@@ -66,6 +68,8 @@ Hence, the total sum of vowels = 1 + 1 + 1 + 0 + 0 + 0 = 3.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -135,4 +139,6 @@ function countVowels(word: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

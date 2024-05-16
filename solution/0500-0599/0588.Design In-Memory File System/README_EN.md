@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [588. Design In-Memory File System 🔒](https://leetcode.com/problems/design-in-memory-file-system)
 
 [中文文档](/solution/0500-0599/0588.Design%20In-Memory%20File%20System/README.md)
@@ -70,6 +72,8 @@ fileSystem.readContentFromFile(&quot;/a/b/c/d&quot;); // return &quot;hello&quot
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -321,4 +325,6 @@ func (this *FileSystem) ReadContentFromFile(filePath string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

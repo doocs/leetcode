@@ -9,6 +9,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2740. Find the Value of the Partition](https://leetcode.com/problems/find-the-value-of-the-partition)
 
 [中文文档](/solution/2700-2799/2740.Find%20the%20Value%20of%20the%20Partition/README.md)
@@ -66,6 +68,8 @@ It can be proven that 9 is the minimum value out of all partitions.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Sorting
 
 The problem requires us to minimize the partition value. Therefore, we can sort the array and then take the minimum difference between two adjacent numbers.
@@ -121,4 +125,6 @@ func findValueOfPartition(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

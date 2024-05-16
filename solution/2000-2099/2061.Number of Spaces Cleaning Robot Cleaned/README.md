@@ -8,13 +8,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [2061. 扫地机器人清扫过的空间个数 🔒](https://leetcode.cn/problems/number-of-spaces-cleaning-robot-cleaned)
 
 [English Version](/solution/2000-2099/2061.Number%20of%20Spaces%20Cleaning%20Robot%20Cleaned/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一个房间用一个<strong>从 0 开始索引</strong>的二维二进制矩阵 <code>room</code> 表示，其中 <code>0</code> 表示<strong>空闲</strong>空间， <code>1</code> 表示放有<strong>物体</strong>的空间。在每个测试用例中，房间左上角永远是空闲的。</p>
 
@@ -67,7 +69,11 @@ tags:
 	<li><code>room[0][0] == 0</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS 模拟
 
@@ -194,6 +200,10 @@ func numberOfCleanRooms(room [][]int) (ans int) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -297,4 +307,6 @@ func numberOfCleanRooms(room [][]int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

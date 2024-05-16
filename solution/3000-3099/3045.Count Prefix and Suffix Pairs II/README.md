@@ -13,13 +13,15 @@ tags:
     - 滚动哈希
 ---
 
+<!-- problem:start -->
+
 # [3045. 统计前后缀下标对 II](https://leetcode.cn/problems/count-prefix-and-suffix-pairs-ii)
 
 [English Version](/solution/3000-3099/3045.Count%20Prefix%20and%20Suffix%20Pairs%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的字符串数组 <code>words</code> 。</p>
 
@@ -76,7 +78,11 @@ i = 2 且 j = 3 ，因为 isPrefixAndSuffix("ma", "mama") 为 true 。
 	<li>所有 <code>words[i]</code> 的长度之和不超过 <code>5 * 10<sup>5</sup></code> 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：字典树
 
@@ -224,4 +230,6 @@ function countPrefixSuffixPairs(words: string[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

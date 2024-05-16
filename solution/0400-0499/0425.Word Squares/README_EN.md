@@ -9,6 +9,8 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [425. Word Squares 🔒](https://leetcode.com/problems/word-squares)
 
 [中文文档](/solution/0400-0499/0425.Word%20Squares/README.md)
@@ -54,6 +56,8 @@ The output consists of two word squares. The order of output does not matter (ju
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -244,4 +248,6 @@ func wordSquares(words []string) [][]string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

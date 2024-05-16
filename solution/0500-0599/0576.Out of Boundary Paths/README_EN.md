@@ -6,6 +6,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [576. Out of Boundary Paths](https://leetcode.com/problems/out-of-boundary-paths)
 
 [中文文档](/solution/0500-0599/0576.Out%20of%20Boundary%20Paths/README.md)
@@ -42,6 +44,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -184,6 +188,10 @@ func findPaths(m int, n int, maxMove int, startRow int, startColumn int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -221,4 +229,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

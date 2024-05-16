@@ -7,13 +7,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [466. 统计重复个数](https://leetcode.cn/problems/count-the-repetitions)
 
 [English Version](/solution/0400-0499/0466.Count%20The%20Repetitions/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>定义 <code>str = [s, n]</code> 表示 <code>str</code> 由 <code>n</code> 个字符串 <code>s</code> 连接构成。</p>
 
@@ -57,7 +59,11 @@ tags:
 	<li><code>1 <= n1, n2 <= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：预处理 + 递推
 
@@ -207,4 +213,6 @@ function getMaxRepetitions(s1: string, n1: number, s2: string, n2: number): numb
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

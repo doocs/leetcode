@@ -8,6 +8,8 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [90. Subsets II](https://leetcode.com/problems/subsets-ii)
 
 [中文文档](/solution/0000-0099/0090.Subsets%20II/README.md)
@@ -35,6 +37,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + DFS
 
@@ -208,6 +212,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Sorting + Binary Enumeration
 
 Similar to Solution 1, we first sort the array $nums$ to facilitate deduplication.
@@ -374,4 +382,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

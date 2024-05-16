@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1630. Arithmetic Subarrays](https://leetcode.com/problems/arithmetic-subarrays)
 
 [中文文档](/solution/1600-1699/1630.Arithmetic%20Subarrays/README.md)
@@ -66,6 +68,8 @@ In the 2<sup>nd</sup> query, the subarray is <code>[5,9,3,7]. This</code> can be
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -265,4 +269,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

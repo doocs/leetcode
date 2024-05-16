@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [569. Median Employee Salary 🔒](https://leetcode.com/problems/median-employee-salary)
 
 [中文文档](/solution/0500-0599/0569.Median%20Employee%20Salary/README.md)
@@ -111,6 +113,8 @@ For company C, the rows sorted are as follows:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -138,4 +142,6 @@ WHERE rk >= n / 2 AND rk <= n / 2 + 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

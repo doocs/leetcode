@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1133. Largest Unique Number 🔒](https://leetcode.com/problems/largest-unique-number)
 
 [中文文档](/solution/1100-1199/1133.Largest%20Unique%20Number/README.md)
@@ -43,6 +45,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting + Reverse Traversal
 
@@ -145,4 +149,6 @@ var largestUniqueNumber = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

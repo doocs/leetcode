@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1384. Total Sales Amount by Year 🔒](https://leetcode.com/problems/total-sales-amount-by-year)
 
 [中文文档](/solution/1300-1399/1384.Total%20Sales%20Amount%20by%20Year/README.md)
@@ -92,6 +94,8 @@ LC Keychain was sold for the period of 2019-12-01 to 2020-01-31, and there are 3
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -139,4 +143,6 @@ ORDER BY
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

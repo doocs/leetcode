@@ -10,6 +10,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [745. Prefix and Suffix Search](https://leetcode.com/problems/prefix-and-suffix-search)
 
 [中文文档](/solution/0700-0799/0745.Prefix%20and%20Suffix%20Search/README.md)
@@ -51,6 +53,8 @@ wordFilter.f(&quot;a&quot;, &quot;e&quot;); // return 0, because the word at ind
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -175,6 +179,10 @@ func (this *WordFilter) F(pref string, suff string) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -392,4 +400,6 @@ func reverse(w string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

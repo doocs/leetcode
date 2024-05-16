@@ -12,6 +12,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1595. Minimum Cost to Connect Two Groups of Points](https://leetcode.com/problems/minimum-cost-to-connect-two-groups-of-points)
 
 [中文文档](/solution/1500-1599/1595.Minimum%20Cost%20to%20Connect%20Two%20Groups%20of%20Points/README.md)
@@ -69,6 +71,8 @@ Note that there are multiple points connected to point 2 in the first group and 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -196,6 +200,10 @@ function connectTwoGroups(cost: number[][]): number {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -332,4 +340,6 @@ function connectTwoGroups(cost: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,13 +8,15 @@ tags:
     - 滑动窗口
 ---
 
+<!-- problem:start -->
+
 # [904. 水果成篮](https://leetcode.cn/problems/fruit-into-baskets)
 
 [English Version](/solution/0900-0999/0904.Fruit%20Into%20Baskets/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你正在探访一家农场，农场从左到右种植了一排果树。这些树用一个整数数组 <code>fruits</code> 表示，其中 <code>fruits[i]</code> 是第 <code>i</code> 棵树上的水果 <strong>种类</strong> 。</p>
 
@@ -73,7 +75,11 @@ tags:
 	<li><code>0 &lt;= fruits[i] &lt; fruits.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 滑动窗口
 
@@ -232,6 +238,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：滑动窗口优化
 
 在方法一中，我们发现，窗口大小会时而变大，时而变小，这就需要我们每一次更新答案。
@@ -363,4 +373,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

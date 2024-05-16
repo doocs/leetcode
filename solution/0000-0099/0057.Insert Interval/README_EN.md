@@ -6,6 +6,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [57. Insert Interval](https://leetcode.com/problems/insert-interval)
 
 [中文文档](/solution/0000-0099/0057.Insert%20Interval/README.md)
@@ -49,6 +51,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Interval Merging
 
@@ -224,6 +228,10 @@ public class Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: One-pass Traversal
 
@@ -436,4 +444,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,6 +7,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [593. Valid Square](https://leetcode.com/problems/valid-square)
 
 [中文文档](/solution/0500-0599/0593.Valid%20Square/README.md)
@@ -50,6 +52,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -156,4 +160,6 @@ func validSquare(p1 []int, p2 []int, p3 []int, p4 []int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

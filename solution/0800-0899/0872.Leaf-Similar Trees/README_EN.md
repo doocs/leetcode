@@ -8,6 +8,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [872. Leaf-Similar Trees](https://leetcode.com/problems/leaf-similar-trees)
 
 [中文文档](/solution/0800-0899/0872.Leaf-Similar%20Trees/README.md)
@@ -48,6 +50,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -242,4 +246,6 @@ var leafSimilar = function (root1, root2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

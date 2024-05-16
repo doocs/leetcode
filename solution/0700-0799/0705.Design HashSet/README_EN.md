@@ -10,6 +10,8 @@ tags:
     - Hash Function
 ---
 
+<!-- problem:start -->
+
 # [705. Design HashSet](https://leetcode.com/problems/design-hashset)
 
 [中文文档](/solution/0700-0799/0705.Design%20HashSet/README.md)
@@ -56,6 +58,8 @@ myHashSet.contains(2); // return False, (already removed)</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -204,6 +208,10 @@ class MyHashSet {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -398,4 +406,6 @@ func (this *MyHashSet) hash(key int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

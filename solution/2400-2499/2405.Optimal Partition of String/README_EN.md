@@ -10,6 +10,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2405. Optimal Partition of String](https://leetcode.com/problems/optimal-partition-of-string)
 
 [中文文档](/solution/2400-2499/2405.Optimal%20Partition%20of%20String/README.md)
@@ -51,6 +53,8 @@ It can be shown that 4 is the minimum number of substrings needed.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy
 
@@ -160,6 +164,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -231,4 +239,6 @@ func partitionString(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

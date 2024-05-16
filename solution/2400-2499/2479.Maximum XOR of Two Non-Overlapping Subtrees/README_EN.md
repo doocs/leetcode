@@ -9,6 +9,8 @@ tags:
     - Trie
 ---
 
+<!-- problem:start -->
+
 # [2479. Maximum XOR of Two Non-Overlapping Subtrees 🔒](https://leetcode.com/problems/maximum-xor-of-two-non-overlapping-subtrees)
 
 [中文文档](/solution/2400-2499/2479.Maximum%20XOR%20of%20Two%20Non-Overlapping%20Subtrees/README.md)
@@ -60,6 +62,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -356,4 +360,6 @@ func maxXor(n int, edges [][]int, values []int) int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

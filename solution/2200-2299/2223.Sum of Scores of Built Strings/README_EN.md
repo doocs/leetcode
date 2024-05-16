@@ -13,6 +13,8 @@ tags:
     - Rolling Hash
 ---
 
+<!-- problem:start -->
+
 # [2223. Sum of Scores of Built Strings](https://leetcode.com/problems/sum-of-scores-of-built-strings)
 
 [中文文档](/solution/2200-2299/2223.Sum%20of%20Scores%20of%20Built%20Strings/README.md)
@@ -66,4 +68,30 @@ The sum of the scores is 2 + 3 + 9 = 14, so we return 14.
 
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+```python
+
+```
+
+```java
+
+```
+
+```cpp
+
+```
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -11,6 +11,8 @@ tags:
     - Game Theory
 ---
 
+<!-- problem:start -->
+
 # [1927. Sum Game](https://leetcode.com/problems/sum-game)
 
 [中文文档](/solution/1900-1999/1927.Sum%20Game/README.md)
@@ -77,6 +79,8 @@ Bob wins because 9 + 3 + 2 + 9 = 5 + 9 + 2 + 7.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -190,4 +194,6 @@ function sumGame(num: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

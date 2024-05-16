@@ -4,6 +4,8 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2627.Debounce/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2627. Debounce](https://leetcode.com/problems/debounce)
 
 [中文文档](/solution/2600-2699/2627.Debounce/README.md)
@@ -94,6 +96,8 @@ The 3rd call is delayed by 150ms and ran at 450ms. The inputs were (5, 6).
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -124,4 +128,6 @@ function debounce(fn: F, t: number): F {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

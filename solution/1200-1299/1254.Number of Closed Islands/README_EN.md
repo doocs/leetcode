@@ -12,6 +12,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1254. Number of Closed Islands](https://leetcode.com/problems/number-of-closed-islands)
 
 [中文文档](/solution/1200-1299/1254.Number%20of%20Closed%20Islands/README.md)
@@ -64,6 +66,8 @@ Islands in gray are closed because they are completely surrounded by water (grou
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -251,6 +255,10 @@ public class Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Union-Find
 
@@ -637,4 +645,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,13 +4,15 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2650.Design%20Cancellable%20Function/README.md
 ---
 
+<!-- problem:start -->
+
 # [2650. 设计可取消函数](https://leetcode.cn/problems/design-cancellable-function)
 
 [English Version](/solution/2600-2699/2650.Design%20Cancellable%20Function/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有时候你会有一个长时间运行的任务，并且你可能希望在它完成之前取消它。为了实现这个目标，请你编写一个名为 <code>cancellable</code> 的函数，它接收一个生成器对象，并返回一个包含两个值的数组：一个 <strong>取消函数</strong> 和一个 <strong>promise</strong> 对象。</p>
 
@@ -150,7 +152,11 @@ cancelledAt = null
 	<li><code>generatorFunction</code> 返回一个生成器对象</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -193,4 +199,6 @@ function cancellable<T>(generator: Generator<Promise<any>, T, unknown>): [() => 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

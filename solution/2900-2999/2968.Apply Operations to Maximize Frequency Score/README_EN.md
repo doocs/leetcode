@@ -12,6 +12,8 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2968. Apply Operations to Maximize Frequency Score](https://leetcode.com/problems/apply-operations-to-maximize-frequency-score)
 
 [中文文档](/solution/2900-2999/2968.Apply%20Operations%20to%20Maximize%20Frequency%20Score/README.md)
@@ -64,6 +66,8 @@ It can be shown that we cannot achieve a better score.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Prefix Sum + Binary Search
 
@@ -273,4 +277,6 @@ function maxFrequencyScore(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

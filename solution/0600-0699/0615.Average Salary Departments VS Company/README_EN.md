@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [615. Average Salary Departments VS Company 🔒](https://leetcode.com/problems/average-salary-departments-vs-company)
 
 [中文文档](/solution/0600-0699/0615.Average%20Salary%20Departments%20VS%20Company/README.md)
@@ -94,6 +96,8 @@ With he same formula for the average salary comparison in February, the result i
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -123,6 +127,10 @@ FROM t;
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -159,4 +167,6 @@ GROUP BY 1, 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

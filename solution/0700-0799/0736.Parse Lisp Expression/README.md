@@ -9,13 +9,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [736. Lisp 语法解析](https://leetcode.cn/problems/parse-lisp-expression)
 
 [English Version](/solution/0700-0799/0736.Parse%20Lisp%20Expression/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个类似 Lisp 语句的字符串表达式 <code>expression</code>，求出其计算结果。</p>
 
@@ -73,7 +75,11 @@ tags:
 	<li>测试用例中的表达式均为合法的且最终结果为整数</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -365,4 +371,6 @@ func evaluate(expression string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,13 +8,15 @@ tags:
     - 广度优先搜索
 ---
 
+<!-- problem:start -->
+
 # [364. 嵌套列表加权和 II 🔒](https://leetcode.cn/problems/nested-list-weight-sum-ii)
 
 [English Version](/solution/0300-0399/0364.Nested%20List%20Weight%20Sum%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数嵌套列表&nbsp;<code>nestedList</code> ，每一个元素要么是一个整数，要么是一个列表（这个列表中的每个元素也同样是整数或列表）。</p>
 
@@ -54,7 +56,11 @@ tags:
 	<li>任意整数的最大 <strong>深度</strong> 小于等于 <code>50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -258,4 +264,6 @@ var depthSumInverse = function (nestedList) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2854. Rolling Average Steps 🔒](https://leetcode.com/problems/rolling-average-steps)
 
 [中文文档](/solution/2800-2899/2854.Rolling%20Average%20Steps/README.md)
@@ -87,6 +89,8 @@ Steps table:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Window Functions
 
 We can use the window function `LAG() OVER()` to calculate the difference in days between the current date and the date before the last date for each user. If the difference is $2$, it means that there are continuous data for $3$ days between these two dates. We can use the window function `AVG() OVER()` to calculate the average of these $3$ data.
@@ -128,4 +132,6 @@ ORDER BY 1, 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

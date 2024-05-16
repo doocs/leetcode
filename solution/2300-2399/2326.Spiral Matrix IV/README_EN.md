@@ -11,6 +11,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2326. Spiral Matrix IV](https://leetcode.com/problems/spiral-matrix-iv)
 
 [中文文档](/solution/2300-2399/2326.Spiral%20Matrix%20IV/README.md)
@@ -54,6 +56,8 @@ The last space in the matrix is set to -1.</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -247,4 +251,6 @@ function spiralMatrix(m: number, n: number, head: ListNode | null): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

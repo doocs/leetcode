@@ -8,6 +8,8 @@ tags:
     - Graph
 ---
 
+<!-- problem:start -->
+
 # [841. Keys and Rooms](https://leetcode.com/problems/keys-and-rooms)
 
 [中文文档](/solution/0800-0899/0841.Keys%20and%20Rooms/README.md)
@@ -55,6 +57,8 @@ Since we were able to visit every room, we return true.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Depth-First Search (DFS)
 
@@ -191,4 +195,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

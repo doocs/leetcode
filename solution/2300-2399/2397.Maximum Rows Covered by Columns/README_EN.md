@@ -12,6 +12,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [2397. Maximum Rows Covered by Columns](https://leetcode.com/problems/maximum-rows-covered-by-columns)
 
 [中文文档](/solution/2300-2399/2397.Maximum%20Rows%20Covered%20by%20Columns/README.md)
@@ -68,6 +70,8 @@ Therefore, we return 2.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Enumeration
 
@@ -224,4 +228,6 @@ function bitCount(i: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

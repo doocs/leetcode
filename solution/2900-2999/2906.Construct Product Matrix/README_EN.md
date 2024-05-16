@@ -10,6 +10,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2906. Construct Product Matrix](https://leetcode.com/problems/construct-product-matrix)
 
 [中文文档](/solution/2900-2999/2906.Construct%20Product%20Matrix/README.md)
@@ -57,6 +59,8 @@ So the answer is [[2],[0],[0]].</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix and Suffix Decomposition
 
@@ -223,4 +227,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,6 +6,8 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [77. Combinations](https://leetcode.com/problems/combinations)
 
 [中文文档](/solution/0000-0099/0077.Combinations/README.md)
@@ -43,6 +45,8 @@ Note that combinations are unordered, i.e., [1,2] and [2,1] are considered to be
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Backtracking (Two Ways)
 
@@ -243,6 +247,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -428,4 +436,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

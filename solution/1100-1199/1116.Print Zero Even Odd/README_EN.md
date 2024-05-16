@@ -6,6 +6,8 @@ tags:
     - Concurrency
 ---
 
+<!-- problem:start -->
+
 # [1116. Print Zero Even Odd](https://leetcode.com/problems/print-zero-even-odd)
 
 [中文文档](/solution/1100-1199/1116.Print%20Zero%20Even%20Odd/README.md)
@@ -63,6 +65,8 @@ One of them calls zero(), the other calls even(), and the last one calls odd().
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Multithreading + Semaphore
 
@@ -201,4 +205,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

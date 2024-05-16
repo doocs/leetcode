@@ -7,6 +7,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [326. Power of Three](https://leetcode.com/problems/power-of-three)
 
 [中文文档](/solution/0300-0399/0326.Power%20of%20Three/README.md)
@@ -53,6 +55,8 @@ tags:
 <strong>Follow up:</strong> Could you solve it without loops/recursion?
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -127,6 +131,10 @@ var isPowerOfThree = function (n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -162,4 +170,6 @@ func isPowerOfThree(n int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

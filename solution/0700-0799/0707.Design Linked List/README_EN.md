@@ -7,6 +7,8 @@ tags:
     - Linked List
 ---
 
+<!-- problem:start -->
+
 # [707. Design Linked List](https://leetcode.com/problems/design-linked-list)
 
 [中文文档](/solution/0700-0799/0707.Design%20Linked%20List/README.md)
@@ -58,6 +60,8 @@ myLinkedList.get(1);              // return 3
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -515,6 +519,10 @@ impl MyLinkedList {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -910,4 +918,6 @@ class MyLinkedList {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

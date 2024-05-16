@@ -11,6 +11,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2745. Construct the Longest New String](https://leetcode.com/problems/construct-the-longest-new-string)
 
 [中文文档](/solution/2700-2799/2745.Construct%20the%20Longest%20New%20String/README.md)
@@ -52,6 +54,8 @@ That string has length 14, and we can show that it is impossible to construct a 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Case Discussion
 
@@ -130,4 +134,6 @@ function longestString(x: number, y: number, z: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

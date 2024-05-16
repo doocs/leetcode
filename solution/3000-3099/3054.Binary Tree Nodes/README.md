@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [3054. 二叉树节点 🔒](https://leetcode.cn/problems/binary-tree-nodes)
 
 [English Version](/solution/3000-3099/3054.Binary%20Tree%20Nodes/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<font face="monospace"><code>Tree</code></font></p>
 
@@ -75,7 +77,11 @@ Tree 表：
 - 节点 2，4，7 是内部节点，因为它们充当结构中某些节点的父节点。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：左连接
 
@@ -98,4 +104,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

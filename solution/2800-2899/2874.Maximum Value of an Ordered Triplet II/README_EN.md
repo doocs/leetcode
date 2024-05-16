@@ -8,6 +8,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [2874. Maximum Value of an Ordered Triplet II](https://leetcode.com/problems/maximum-value-of-an-ordered-triplet-ii)
 
 [中文文档](/solution/2800-2899/2874.Maximum%20Value%20of%20an%20Ordered%20Triplet%20II/README.md)
@@ -56,6 +58,8 @@ It can be shown that there are no ordered triplets of indices with a value great
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Maintain Maximum Prefix Value and Maximum Difference
 
@@ -135,4 +139,6 @@ function maximumTripletValue(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

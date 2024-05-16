@@ -8,6 +8,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [2769. Find the Maximum Achievable Number](https://leetcode.com/problems/find-the-maximum-achievable-number)
 
 [中文文档](/solution/2700-2799/2769.Find%20the%20Maximum%20Achievable%20Number/README.md)
@@ -56,6 +58,8 @@ It can be proven that there is no achievable number larger than 7.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Mathematics
 
 Notice that every time we can decrease $x$ by $1$ and increase $num$ by $1$, the difference between $x$ and $num$ will decrease by $2$, and we can do this operation at most $t$ times, so the maximum reachable number is $num + t \times 2$.
@@ -101,4 +105,6 @@ function theMaximumAchievableX(num: number, t: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

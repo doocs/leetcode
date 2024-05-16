@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [2346. 以百分比计算排名 🔒](https://leetcode.cn/problems/compute-the-rank-as-a-percentage)
 
 [English Version](/solution/2300-2399/2346.Compute%20the%20Rank%20as%20a%20Percentage/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Students</code></p>
 
@@ -76,7 +78,11 @@ Students 表:
  - 学生 8: percentage = (1 - 1) * 100 / (2 - 1) = 0.0
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：窗口函数
 
@@ -106,4 +112,6 @@ FROM Students;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

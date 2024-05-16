@@ -9,13 +9,15 @@ tags:
     - 滑动窗口
 ---
 
+<!-- problem:start -->
+
 # [1652. 拆炸弹](https://leetcode.cn/problems/defuse-the-bomb)
 
 [English Version](/solution/1600-1699/1652.Defuse%20the%20Bomb/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你有一个炸弹需要拆除，时间紧迫！你的情报员会给你一个长度为 <code>n</code> 的 <strong>循环</strong> 数组 <code>code</code> 以及一个密钥 <code>k</code> 。</p>
 
@@ -68,7 +70,11 @@ tags:
 	<li><code>-(n - 1) <= k <= n - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -207,6 +213,10 @@ function decrypt(code: number[], k: number): number[] {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：前缀和
 
 在方法一中，对于每个位置 $i$，都需要遍历 $k$ 个位置，有很多重复计算的操作。我们可以利用前缀和来优化。
@@ -336,4 +346,6 @@ function decrypt(code: number[], k: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

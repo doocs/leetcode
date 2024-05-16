@@ -9,13 +9,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [1278. 分割回文串 III](https://leetcode.cn/problems/palindrome-partitioning-iii)
 
 [English Version](/solution/1200-1299/1278.Palindrome%20Partitioning%20III/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个由小写字母组成的字符串&nbsp;<code>s</code>，和一个整数&nbsp;<code>k</code>。</p>
 
@@ -58,7 +60,11 @@ tags:
 	<li><code>s</code>&nbsp;中只含有小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -193,4 +199,6 @@ func palindromePartition(s string, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

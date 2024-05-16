@@ -6,6 +6,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [551. Student Attendance Record I](https://leetcode.com/problems/student-attendance-record-i)
 
 [中文文档](/solution/0500-0599/0551.Student%20Attendance%20Record%20I/README.md)
@@ -56,6 +58,8 @@ tags:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -97,4 +101,6 @@ function checkRecord(s: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

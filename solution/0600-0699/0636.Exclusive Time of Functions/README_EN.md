@@ -7,6 +7,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [636. Exclusive Time of Functions](https://leetcode.com/problems/exclusive-time-of-functions)
 
 [中文文档](/solution/0600-0699/0636.Exclusive%20Time%20of%20Functions/README.md)
@@ -78,6 +80,8 @@ So function 0 spends 2 + 4 + 1 = 7 units of total time executing, and function 1
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -215,4 +219,6 @@ function exclusiveTime(n: number, logs: string[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

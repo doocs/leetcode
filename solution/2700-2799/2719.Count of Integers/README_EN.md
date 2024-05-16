@@ -10,6 +10,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2719. Count of Integers](https://leetcode.com/problems/count-of-integers)
 
 [中文文档](/solution/2700-2799/2719.Count%20of%20Integers/README.md)
@@ -53,6 +55,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Digit DP
 
@@ -265,4 +269,6 @@ function count(num1: string, num2: string, min_sum: number, max_sum: number): nu
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

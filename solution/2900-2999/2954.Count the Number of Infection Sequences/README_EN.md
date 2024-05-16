@@ -10,6 +10,8 @@ tags:
     - Combinatorics
 ---
 
+<!-- problem:start -->
+
 # [2954. Count the Number of Infection Sequences](https://leetcode.com/problems/count-the-number-of-infection-sequences)
 
 [中文文档](/solution/2900-2999/2954.Count%20the%20Number%20of%20Infection%20Sequences/README.md)
@@ -65,6 +67,8 @@ Finally, the child at position 2 gets infected because it is adjacent to childre
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Combinatorial Mathematics + Multiplicative Inverse + Fast Power
 
@@ -319,4 +323,6 @@ function numberOfSequence(n: number, sick: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

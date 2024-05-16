@@ -7,6 +7,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [223. Rectangle Area](https://leetcode.com/problems/rectangle-area)
 
 [中文文档](/solution/0200-0299/0223.Rectangle%20Area/README.md)
@@ -45,6 +47,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Calculate Overlapping Area
 
@@ -142,4 +146,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

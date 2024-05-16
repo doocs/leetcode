@@ -12,6 +12,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [449. Serialize and Deserialize BST](https://leetcode.com/problems/serialize-and-deserialize-bst)
 
 [中文文档](/solution/0400-0499/0449.Serialize%20and%20Deserialize%20BST/README.md)
@@ -42,6 +44,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -308,4 +312,6 @@ func (this *Codec) deserialize(data string) *TreeNode {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

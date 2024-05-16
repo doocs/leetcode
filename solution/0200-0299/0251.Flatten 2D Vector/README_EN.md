@@ -9,6 +9,8 @@ tags:
     - Iterator
 ---
 
+<!-- problem:start -->
+
 # [251. Flatten 2D Vector 🔒](https://leetcode.com/problems/flatten-2d-vector)
 
 [中文文档](/solution/0200-0299/0251.Flatten%202D%20Vector/README.md)
@@ -60,6 +62,8 @@ vector2D.hasNext(); // return False
 <p><strong>Follow up:</strong> As an added challenge, try to code it using only <a href="http://www.cplusplus.com/reference/iterator/iterator/" target="_blank">iterators in C++</a> or <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Iterator.html" target="_blank">iterators in Java</a>.</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -245,4 +249,6 @@ class Vector2D {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

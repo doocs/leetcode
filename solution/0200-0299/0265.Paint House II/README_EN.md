@@ -7,6 +7,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [265. Paint House II 🔒](https://leetcode.com/problems/paint-house-ii)
 
 [中文文档](/solution/0200-0299/0265.Paint%20House%20II/README.md)
@@ -56,6 +58,8 @@ Or paint house 0 into color 2, paint house 1 into color 0. Minimum cost: 3 + 2 =
 <p><strong>Follow up:</strong> Could you solve it in <code>O(nk)</code> runtime?</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -151,4 +155,6 @@ func cp(arr []int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,13 +7,15 @@ tags:
     - 滑动窗口
 ---
 
+<!-- problem:start -->
+
 # [713. 乘积小于 K 的子数组](https://leetcode.cn/problems/subarray-product-less-than-k)
 
 [English Version](/solution/0700-0799/0713.Subarray%20Product%20Less%20Than%20K/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 给你一个整数数组 <code>nums</code> 和一个整数 <code>k</code> ，请你返回子数组内所有元素的乘积严格小于<em> </em><code>k</code> 的连续子数组的数目。
 
@@ -44,7 +46,11 @@ tags:
 	<li><code>0 &lt;= k &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -189,4 +195,6 @@ var numSubarrayProductLessThanK = function (nums, k) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

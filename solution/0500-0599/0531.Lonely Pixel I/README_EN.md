@@ -8,6 +8,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [531. Lonely Pixel I 🔒](https://leetcode.com/problems/lonely-pixel-i)
 
 [中文文档](/solution/0500-0599/0531.Lonely%20Pixel%20I/README.md)
@@ -45,6 +47,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting + Enumeration
 
@@ -178,4 +182,6 @@ function findLonelyPixel(picture: string[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -11,6 +11,8 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [1681. Minimum Incompatibility](https://leetcode.com/problems/minimum-incompatibility)
 
 [中文文档](/solution/1600-1699/1681.Minimum%20Incompatibility/README.md)
@@ -62,6 +64,8 @@ The incompatibility is (2-1) + (3-2) + (8-6) + (3-1) = 6.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Preprocessing + State Compression + Dynamic Programming
 
@@ -425,6 +429,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -456,4 +464,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

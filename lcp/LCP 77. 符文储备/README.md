@@ -4,11 +4,13 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2077.%20%E7%AC%A6%E6%96%87%E5%82%A8%E5%A4%87/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 77. 符文储备](https://leetcode.cn/problems/W2ZX4X)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 远征队在出发前需要携带一些「符文」，作为后续的冒险储备。`runes[i]` 表示第 `i` 枚符文的魔力值。
 
@@ -40,7 +42,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2077.%20%E7%AC%A6%
 -   `1 <= runes.length <= 10^4`
 -   `0 <= runes[i] <= 10^4`
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
@@ -131,4 +137,6 @@ function runeReserve(runes: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

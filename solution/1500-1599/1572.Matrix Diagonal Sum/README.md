@@ -9,13 +9,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [1572. 矩阵对角线元素的和](https://leetcode.cn/problems/matrix-diagonal-sum)
 
 [English Version](/solution/1500-1599/1572.Matrix%20Diagonal%20Sum/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个正方形矩阵 <code>mat</code>，请你返回矩阵对角线元素的和。</p>
 
@@ -63,7 +65,11 @@ tags:
 	<li><code>1 &lt;= mat[i][j] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：逐行遍历
 
@@ -171,6 +177,10 @@ int diagonalSum(int** mat, int matSize, int* matColSize) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -191,4 +201,6 @@ function diagonalSum(mat: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

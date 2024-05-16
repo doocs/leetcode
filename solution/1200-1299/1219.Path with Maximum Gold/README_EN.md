@@ -10,6 +10,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1219. Path with Maximum Gold](https://leetcode.com/problems/path-with-maximum-gold)
 
 [中文文档](/solution/1200-1299/1219.Path%20with%20Maximum%20Gold/README.md)
@@ -67,6 +69,8 @@ Path to get the maximum gold, 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; 6 -&gt; 7.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -236,4 +240,6 @@ var getMaximumGold = function (grid) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

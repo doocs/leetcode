@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1369. Get the Second Most Recent Activity 🔒](https://leetcode.com/problems/get-the-second-most-recent-activity)
 
 [中文文档](/solution/1300-1399/1369.Get%20the%20Second%20Most%20Recent%20Activity/README.md)
@@ -66,6 +68,8 @@ Bob only has one record, we just take that one.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -92,4 +96,6 @@ WHERE a.rk = 2 OR a.cnt = 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1329. Sort the Matrix Diagonally](https://leetcode.com/problems/sort-the-matrix-diagonally)
 
 [中文文档](/solution/1300-1399/1329.Sort%20the%20Matrix%20Diagonally/README.md)
@@ -46,6 +48,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting
 
@@ -223,4 +227,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

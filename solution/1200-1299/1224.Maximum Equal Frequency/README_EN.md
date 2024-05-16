@@ -9,6 +9,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [1224. Maximum Equal Frequency](https://leetcode.com/problems/maximum-equal-frequency)
 
 [中文文档](/solution/1200-1299/1224.Maximum%20Equal%20Frequency/README.md)
@@ -44,6 +46,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Array or Hash Table
 
@@ -201,4 +205,6 @@ function maxEqualFreq(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

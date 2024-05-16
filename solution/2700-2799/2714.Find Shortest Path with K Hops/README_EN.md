@@ -8,6 +8,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2714. Find Shortest Path with K Hops 🔒](https://leetcode.com/problems/find-shortest-path-with-k-hops)
 
 [中文文档](/solution/2700-2799/2714.Find%20Shortest%20Path%20with%20K%20Hops/README.md)
@@ -66,6 +68,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dijkstra Algorithm
 
@@ -229,4 +233,6 @@ func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

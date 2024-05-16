@@ -14,6 +14,8 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [3044. Most Frequent Prime](https://leetcode.com/problems/most-frequent-prime)
 
 [中文文档](/solution/3000-3099/3044.Most%20Frequent%20Prime/README.md)
@@ -86,6 +88,8 @@ The most frequent prime number among all the created numbers is 97.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Enumeration
 
@@ -316,4 +320,6 @@ function mostFrequentPrime(mat: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

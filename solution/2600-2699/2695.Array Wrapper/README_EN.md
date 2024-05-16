@@ -4,6 +4,8 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2695.Array%20Wrapper/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2695. Array Wrapper](https://leetcode.com/problems/array-wrapper)
 
 [中文文档](/solution/2600-2699/2695.Array%20Wrapper/README.md)
@@ -61,6 +63,8 @@ obj1 + obj2; // 0
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -95,4 +99,6 @@ class ArrayWrapper {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

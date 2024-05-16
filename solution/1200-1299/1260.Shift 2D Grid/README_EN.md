@@ -10,6 +10,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1260. Shift 2D Grid](https://leetcode.com/problems/shift-2d-grid)
 
 [中文文档](/solution/1200-1299/1260.Shift%202D%20Grid/README.md)
@@ -63,6 +65,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Flattening the 2D Array
 
@@ -163,4 +167,6 @@ function shiftGrid(grid: number[][], k: number): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

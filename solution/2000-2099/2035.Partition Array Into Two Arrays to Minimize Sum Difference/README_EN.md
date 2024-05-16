@@ -14,6 +14,8 @@ tags:
     - Ordered Set
 ---
 
+<!-- problem:start -->
+
 # [2035. Partition Array Into Two Arrays to Minimize Sum Difference](https://leetcode.com/problems/partition-array-into-two-arrays-to-minimize-sum-difference)
 
 [中文文档](/solution/2000-2099/2035.Partition%20Array%20Into%20Two%20Arrays%20to%20Minimize%20Sum%20Difference/README.md)
@@ -62,6 +64,8 @@ The absolute difference between the sums of the arrays is abs((2 + 4 + -9) - (-1
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -265,4 +269,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

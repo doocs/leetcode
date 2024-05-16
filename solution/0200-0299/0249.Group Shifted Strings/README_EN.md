@@ -8,6 +8,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [249. Group Shifted Strings 🔒](https://leetcode.com/problems/group-shifted-strings)
 
 [中文文档](/solution/0200-0299/0249.Group%20Shifted%20Strings/README.md)
@@ -46,6 +48,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -145,4 +149,6 @@ func groupStrings(strings []string) [][]string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

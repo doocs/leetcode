@@ -11,6 +11,8 @@ tags:
     - String Matching
 ---
 
+<!-- problem:start -->
+
 # [2851. String Transformation](https://leetcode.com/problems/string-transformation)
 
 [中文文档](/solution/2800-2899/2851.String%20Transformation/README.md)
@@ -68,6 +70,8 @@ Choose suffix from index = 4, so resulting s = &quot;ababab&quot;.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -345,4 +349,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

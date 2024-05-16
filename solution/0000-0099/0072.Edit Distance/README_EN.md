@@ -7,6 +7,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [72. Edit Distance](https://leetcode.com/problems/edit-distance)
 
 [中文文档](/solution/0000-0099/0072.Edit%20Distance/README.md)
@@ -57,6 +59,8 @@ exection -&gt; execution (insert &#39;u&#39;)
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -227,4 +231,6 @@ var minDistance = function (word1, word2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

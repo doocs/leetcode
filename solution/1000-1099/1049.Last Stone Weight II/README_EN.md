@@ -9,6 +9,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1049. Last Stone Weight II](https://leetcode.com/problems/last-stone-weight-ii)
 
 [中文文档](/solution/1000-1099/1049.Last%20Stone%20Weight%20II/README.md)
@@ -57,6 +59,8 @@ we can combine 1 and 1 to get 0, so the array converts to [1], then that&#39;s t
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -198,6 +202,10 @@ var lastStoneWeightII = function (stones) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -268,4 +276,6 @@ func lastStoneWeightII(stones []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

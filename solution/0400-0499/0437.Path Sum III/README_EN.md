@@ -8,6 +8,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [437. Path Sum III](https://leetcode.com/problems/path-sum-iii)
 
 [中文文档](/solution/0400-0499/0437.Path%20Sum%20III/README.md)
@@ -44,6 +46,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -208,4 +212,6 @@ function pathSum(root: TreeNode | null, targetSum: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,6 +8,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [931. Minimum Falling Path Sum](https://leetcode.com/problems/minimum-falling-path-sum)
 
 [中文文档](/solution/0900-0999/0931.Minimum%20Falling%20Path%20Sum/README.md)
@@ -45,6 +47,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -161,4 +165,6 @@ function minFallingPathSum(matrix: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

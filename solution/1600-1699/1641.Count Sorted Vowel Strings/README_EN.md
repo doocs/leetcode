@@ -10,6 +10,8 @@ tags:
     - Combinatorics
 ---
 
+<!-- problem:start -->
+
 # [1641. Count Sorted Vowel Strings](https://leetcode.com/problems/count-sorted-vowel-strings)
 
 [中文文档](/solution/1600-1699/1641.Count%20Sorted%20Vowel%20Strings/README.md)
@@ -54,6 +56,8 @@ Note that &quot;ea&quot; is not a valid string since &#39;e&#39; comes after &#3
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -144,6 +148,10 @@ func countVowelStrings(n int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -212,4 +220,6 @@ func countVowelStrings(n int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

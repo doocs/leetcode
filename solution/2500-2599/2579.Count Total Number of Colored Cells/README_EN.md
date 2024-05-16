@@ -8,6 +8,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [2579. Count Total Number of Colored Cells](https://leetcode.com/problems/count-total-number-of-colored-cells)
 
 [中文文档](/solution/2500-2599/2579.Count%20Total%20Number%20of%20Colored%20Cells/README.md)
@@ -50,6 +52,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematics
 
@@ -104,4 +108,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,6 +10,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2022. Convert 1D Array Into 2D Array](https://leetcode.com/problems/convert-1d-array-into-2d-array)
 
 [中文文档](/solution/2000-2099/2022.Convert%201D%20Array%20Into%202D%20Array/README.md)
@@ -61,6 +63,8 @@ It is impossible to fit 2 elements in a 1x1 2D array, so return an empty 2D arra
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -161,4 +165,6 @@ var construct2DArray = function (original, m, n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

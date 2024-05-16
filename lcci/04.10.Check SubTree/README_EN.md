@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.10.Check%20SubTree/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [04.10. Check SubTree](https://leetcode.cn/problems/check-subtree-lcci)
 
 [中文文档](/lcci/04.10.Check%20SubTree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>T1&nbsp;and T2 are two very large binary trees, with T1&nbsp;much bigger than T2. Create an algorithm to determine if T2 is a subtree of T1.</p>
 
@@ -40,7 +44,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.10.Check%20SubTree
 	<li>The node numbers of both tree are in [0, 20000].</li>
 </ol>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -327,4 +335,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

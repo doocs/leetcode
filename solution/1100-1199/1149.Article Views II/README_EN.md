@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1149. Article Views II 🔒](https://leetcode.com/problems/article-views-ii)
 
 [中文文档](/solution/1100-1199/1149.Article%20Views%20II/README.md)
@@ -64,6 +66,8 @@ Views table:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -79,4 +83,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

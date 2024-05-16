@@ -7,6 +7,8 @@ tags:
     - Breadth-First Search
 ---
 
+<!-- problem:start -->
+
 # [339. Nested List Weight Sum 🔒](https://leetcode.com/problems/nested-list-weight-sum)
 
 [中文文档](/solution/0300-0399/0339.Nested%20List%20Weight%20Sum/README.md)
@@ -52,6 +54,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -223,4 +227,6 @@ var depthSum = function (nestedList) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

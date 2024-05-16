@@ -11,6 +11,8 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [2709. Greatest Common Divisor Traversal](https://leetcode.com/problems/greatest-common-divisor-traversal)
 
 [中文文档](/solution/2700-2799/2709.Greatest%20Common%20Divisor%20Traversal/README.md)
@@ -59,6 +61,8 @@ To go from index 0 to index 2, we can just go directly because gcd(nums[0], nums
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -350,4 +354,6 @@ func canTraverseAllPairs(nums []int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

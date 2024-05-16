@@ -7,13 +7,15 @@ tags:
     - 回溯
 ---
 
+<!-- problem:start -->
+
 # [47. 全排列 II](https://leetcode.cn/problems/permutations-ii)
 
 [English Version](/solution/0000-0099/0047.Permutations%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个可包含重复数字的序列 <code>nums</code> ，<em><strong>按任意顺序</strong></em> 返回所有不重复的全排列。</p>
 
@@ -45,7 +47,11 @@ tags:
 	<li><code>-10 &lt;= nums[i] &lt;= 10</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 回溯
 
@@ -274,4 +280,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

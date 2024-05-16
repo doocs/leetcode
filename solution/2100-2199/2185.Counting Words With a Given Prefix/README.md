@@ -10,13 +10,15 @@ tags:
     - 字符串匹配
 ---
 
+<!-- problem:start -->
+
 # [2185. 统计包含给定前缀的字符串](https://leetcode.cn/problems/counting-words-with-a-given-prefix)
 
 [English Version](/solution/2100-2199/2185.Counting%20Words%20With%20a%20Given%20Prefix/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串数组 <code>words</code> 和一个字符串 <code>pref</code> 。</p>
 
@@ -50,7 +52,11 @@ tags:
 	<li><code>words[i]</code> 和 <code>pref</code> 由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：一次遍历
 
@@ -133,6 +139,10 @@ int prefixCount(char** words, int wordsSize, char* pref) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：前缀树
 
@@ -323,4 +333,6 @@ func prefixCount(words []string, pref string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -12,6 +12,8 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [1735. Count Ways to Make Array With Product](https://leetcode.com/problems/count-ways-to-make-array-with-product)
 
 [中文文档](/solution/1700-1799/1735.Count%20Ways%20to%20Make%20Array%20With%20Product/README.md)
@@ -50,6 +52,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prime Factorization + Combinatorial Mathematics
 
@@ -296,4 +300,6 @@ func waysToFillArray(queries [][]int) (ans []int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

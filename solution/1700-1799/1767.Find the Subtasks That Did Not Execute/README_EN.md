@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1767. Find the Subtasks That Did Not Execute 🔒](https://leetcode.com/problems/find-the-subtasks-that-did-not-execute)
 
 [中文文档](/solution/1700-1799/1767.Find%20the%20Subtasks%20That%20Did%20Not%20Execute/README.md)
@@ -89,6 +91,8 @@ Task 3 was divided into 4 subtasks (1, 2, 3, 4). All of the subtasks were execut
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Recursive Table Generation + Left Join
 
 We can generate a table recursively that contains all pairs of (parent task, child task), and then use a left join to find the pairs that have not been executed.
@@ -120,4 +124,6 @@ WHERE Executed.subtask_id IS NULL;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

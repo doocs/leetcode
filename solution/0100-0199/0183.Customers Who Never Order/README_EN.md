@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [183. Customers Who Never Order](https://leetcode.com/problems/customers-who-never-order)
 
 [中文文档](/solution/0100-0199/0183.Customers%20Who%20Never%20Order/README.md)
@@ -81,6 +83,8 @@ Orders table:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: NOT IN
 
 List all customer IDs of existing orders, and use `NOT IN` to find customers who are not in the list.
@@ -114,6 +118,10 @@ WHERE
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: LEFT JOIN
 
 Use `LEFT JOIN` to join the tables and return the data where `CustomerId` is `NULL`.
@@ -131,4 +139,6 @@ WHERE o.id IS NULL;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

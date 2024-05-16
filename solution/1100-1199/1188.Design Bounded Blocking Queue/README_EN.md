@@ -6,6 +6,8 @@ tags:
     - Concurrency
 ---
 
+<!-- problem:start -->
+
 # [1188. Design Bounded Blocking Queue 🔒](https://leetcode.com/problems/design-bounded-blocking-queue)
 
 [中文文档](/solution/1100-1199/1188.Design%20Bounded%20Blocking%20Queue/README.md)
@@ -97,6 +99,8 @@ Since the number of threads for producer/consumer is greater than 1, we do not k
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -193,4 +197,6 @@ private:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

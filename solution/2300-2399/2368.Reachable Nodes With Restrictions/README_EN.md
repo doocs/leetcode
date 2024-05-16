@@ -14,6 +14,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [2368. Reachable Nodes With Restrictions](https://leetcode.com/problems/reachable-nodes-with-restrictions)
 
 [中文文档](/solution/2300-2399/2368.Reachable%20Nodes%20With%20Restrictions/README.md)
@@ -63,6 +65,8 @@ We have that [0,5,6] are the only nodes that can be reached from node 0 without 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -208,6 +212,10 @@ function reachableNodes(n: number, edges: number[][], restricted: number[]): num
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: BFS
 
@@ -360,4 +368,6 @@ function reachableNodes(n: number, edges: number[][], restricted: number[]): num
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,6 +4,8 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2820.Election%20Results/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2820. Election Results 🔒](https://leetcode.com/problems/election-results)
 
 [中文文档](/solution/2800-2899/2820.Election%20Results/README.md)
@@ -65,6 +67,8 @@ Since Ryan and Christine received an equal number of votes, we will display thei
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Window Function + Group Statistics
 
 We can use the window function `count` to calculate the number of votes each voter gives to the candidates, then use the group statistics function `sum` to calculate the total number of votes for each candidate. Next, we use the window function `rank` to calculate the ranking of each candidate, and finally filter out the candidate who ranks first.
@@ -102,4 +106,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

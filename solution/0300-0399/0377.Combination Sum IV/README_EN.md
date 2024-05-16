@@ -7,6 +7,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [377. Combination Sum IV](https://leetcode.com/problems/combination-sum-iv)
 
 [中文文档](/solution/0300-0399/0377.Combination%20Sum%20IV/README.md)
@@ -56,6 +58,8 @@ Note that different sequences are counted as different combinations.
 <p><strong>Follow up:</strong> What if negative numbers are allowed in the given array? How does it change the problem? What limitation we need to add to the question to allow negative numbers?</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -185,4 +189,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,6 +4,8 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2677.Chunk%20Array/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2677. Chunk Array](https://leetcode.com/problems/chunk-array)
 
 [中文文档](/solution/2600-2699/2677.Chunk%20Array/README.md)
@@ -61,6 +63,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2677.Ch
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -92,4 +96,6 @@ var chunk = function (arr, size) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

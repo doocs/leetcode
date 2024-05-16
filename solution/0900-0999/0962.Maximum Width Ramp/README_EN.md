@@ -8,6 +8,8 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [962. Maximum Width Ramp](https://leetcode.com/problems/maximum-width-ramp)
 
 [中文文档](/solution/0900-0999/0962.Maximum%20Width%20Ramp/README.md)
@@ -44,6 +46,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -136,4 +140,6 @@ func maxWidthRamp(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

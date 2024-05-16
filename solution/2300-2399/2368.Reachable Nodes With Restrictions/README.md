@@ -14,13 +14,15 @@ tags:
     - 哈希表
 ---
 
+<!-- problem:start -->
+
 # [2368. 受限条件下可到达节点的数目](https://leetcode.cn/problems/reachable-nodes-with-restrictions)
 
 [English Version](/solution/2300-2399/2368.Reachable%20Nodes%20With%20Restrictions/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>现有一棵由 <code>n</code> 个节点组成的无向树，节点编号从 <code>0</code> 到 <code>n - 1</code> ，共有 <code>n - 1</code> 条边。</p>
 
@@ -63,7 +65,11 @@ tags:
 	<li><code>restricted</code> 中的所有值 <strong>互不相同</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -211,6 +217,10 @@ function reachableNodes(n: number, edges: number[][], restricted: number[]): num
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：BFS
 
@@ -363,4 +373,6 @@ function reachableNodes(n: number, edges: number[][], restricted: number[]): num
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

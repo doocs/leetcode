@@ -10,13 +10,15 @@ tags:
     - 字符串匹配
 ---
 
+<!-- problem:start -->
+
 # [1397. 找到所有好字符串](https://leetcode.cn/problems/find-all-good-strings)
 
 [English Version](/solution/1300-1399/1397.Find%20All%20Good%20Strings/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个长度为 <code>n</code>&nbsp;的字符串&nbsp;<code>s1</code> 和&nbsp;<code>s2</code>&nbsp;，以及一个字符串&nbsp;<code>evil</code>&nbsp;。请你返回 <strong>好字符串&nbsp;</strong>的数目。</p>
 
@@ -59,6 +61,34 @@ tags:
 	<li>所有字符串都只包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+### 方法一
+
+<!-- tabs:start -->
+
+```python
+
+```
+
+```java
+
+```
+
+```cpp
+
+```
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

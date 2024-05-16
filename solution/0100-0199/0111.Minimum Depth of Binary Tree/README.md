@@ -9,13 +9,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [111. 二叉树的最小深度](https://leetcode.cn/problems/minimum-depth-of-binary-tree)
 
 [English Version](/solution/0100-0199/0111.Minimum%20Depth%20of%20Binary%20Tree/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个二叉树，找出其最小深度。</p>
 
@@ -48,7 +50,11 @@ tags:
 	<li><code>-1000 <= Node.val <= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -289,6 +295,10 @@ int minDepth(struct TreeNode* root) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：BFS
 
 使用队列实现广度优先搜索，初始时将根节点加入队列。每次从队列中取出一个节点，如果该节点是叶子节点，则直接返回当前深度；如果该节点不是叶子节点，则将该节点的所有非空子节点加入队列。继续搜索下一层节点，直到找到叶子节点。
@@ -516,4 +526,6 @@ var minDepth = function (root) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

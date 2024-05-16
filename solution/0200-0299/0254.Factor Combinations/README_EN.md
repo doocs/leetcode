@@ -6,6 +6,8 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [254. Factor Combinations 🔒](https://leetcode.com/problems/factor-combinations)
 
 [中文文档](/solution/0200-0299/0254.Factor%20Combinations/README.md)
@@ -52,6 +54,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -154,4 +158,6 @@ func getFactors(n int) [][]int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

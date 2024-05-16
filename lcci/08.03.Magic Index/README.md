@@ -4,13 +4,16 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.03.Magic%20Index/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 08.03. 魔术索引](https://leetcode.cn/problems/magic-index-lcci)
 
 [English Version](/lcci/08.03.Magic%20Index/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>魔术索引。 在数组<code>A[0...n-1]</code>中，有所谓的魔术索引，满足条件<code>A[i] = i</code>。给定一个有序整数数组，编写一种方法找出魔术索引，若有的话，在数组A中找出一个魔术索引，如果没有，则返回-1。若有多个魔术索引，返回索引值最小的一个。</p>
 
 <p><strong>示例1:</strong></p>
@@ -32,7 +35,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.03.Magic%20Index/R
 	<li>nums长度在[1, 1000000]之间</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分搜索
 
@@ -224,4 +231,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,6 +4,8 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2630.Memoize%20II/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2630. Memoize II](https://leetcode.com/problems/memoize-ii)
 
 [中文文档](/solution/2600-2699/2630.Memoize%20II/README.md)
@@ -69,6 +71,8 @@ Merging two empty objects will always result in an empty object. The 2nd and 3rd
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -110,4 +114,6 @@ function memoize(fn: Fn): Fn {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

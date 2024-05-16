@@ -9,6 +9,8 @@ tags:
     - Hash Function
 ---
 
+<!-- problem:start -->
+
 # [535. Encode and Decode TinyURL](https://leetcode.com/problems/encode-and-decode-tinyurl)
 
 [中文文档](/solution/0500-0599/0535.Encode%20and%20Decode%20TinyURL/README.md)
@@ -51,6 +53,8 @@ string ans = obj.decode(tiny); // returns the original url after decoding it.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -167,4 +171,6 @@ func (this *Codec) decode(shortUrl string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

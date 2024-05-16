@@ -6,6 +6,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [2198. Number of Single Divisor Triplets 🔒](https://leetcode.com/problems/number-of-single-divisor-triplets)
 
 [中文文档](/solution/2100-2199/2198.Number%20of%20Single%20Divisor%20Triplets/README.md)
@@ -58,6 +60,8 @@ Note that (0, 1, 2) is not a single divisor triplet because nums[0] + nums[1] + 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting + Enumeration
 
@@ -233,4 +237,6 @@ function singleDivisorTriplet(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

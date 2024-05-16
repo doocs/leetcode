@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1540. Can Convert String in K Moves](https://leetcode.com/problems/can-convert-string-in-k-moves)
 
 [中文文档](/solution/1500-1599/1540.Can%20Convert%20String%20in%20K%20Moves/README.md)
@@ -65,6 +67,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -149,4 +153,6 @@ func canConvertString(s string, t string, k int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

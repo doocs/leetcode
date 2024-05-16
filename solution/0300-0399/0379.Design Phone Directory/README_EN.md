@@ -10,6 +10,8 @@ tags:
     - Linked List
 ---
 
+<!-- problem:start -->
+
 # [379. Design Phone Directory 🔒](https://leetcode.com/problems/design-phone-directory)
 
 [中文文档](/solution/0300-0399/0379.Design%20Phone%20Directory/README.md)
@@ -58,6 +60,8 @@ phoneDirectory.check(2);   // Number 2 is available again, return true.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -152,4 +156,6 @@ class PhoneDirectory {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

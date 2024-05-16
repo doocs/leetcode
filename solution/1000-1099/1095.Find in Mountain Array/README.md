@@ -10,13 +10,15 @@ tags:
     - 交互
 ---
 
+<!-- problem:start -->
+
 # [1095. 山脉数组中查找目标值](https://leetcode.cn/problems/find-in-mountain-array)
 
 [English Version](/solution/1000-1099/1095.Find%20in%20Mountain%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>（这是一个 <strong>交互式问题&nbsp;</strong>）</p>
 
@@ -82,7 +84,11 @@ tags:
 	<li><code>0 &lt;= mountain_arr.get(index) &lt;=&nbsp;10^9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -348,4 +354,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

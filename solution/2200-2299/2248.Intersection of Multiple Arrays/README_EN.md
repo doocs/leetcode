@@ -11,6 +11,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2248. Intersection of Multiple Arrays](https://leetcode.com/problems/intersection-of-multiple-arrays)
 
 [中文文档](/solution/2200-2299/2248.Intersection%20of%20Multiple%20Arrays/README.md)
@@ -48,6 +50,8 @@ There does not exist any integer present both in nums[0] and nums[1], so we retu
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -167,6 +171,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -256,4 +264,6 @@ function intersection(nums: number[][]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

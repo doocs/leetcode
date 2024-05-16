@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2013.%20%E5%AF%BB%E5%AE%9D/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 13. 寻宝](https://leetcode.cn/problems/xun-bao)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>我们得到了一副藏宝图，藏宝图显示，在一个迷宫中存在着未被世人发现的宝藏。</p>
 
@@ -60,6 +62,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2013.%20%E5%AF%BB%
 	<li>0 &lt;= O的数量 &lt;= 40，题目保证当迷宫中存在 M 时，一定存在至少一个 O 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

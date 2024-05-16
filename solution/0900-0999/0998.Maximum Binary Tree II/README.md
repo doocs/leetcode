@@ -7,13 +7,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [998. 最大二叉树 II](https://leetcode.cn/problems/maximum-binary-tree-ii)
 
 [English Version](/solution/0900-0999/0998.Maximum%20Binary%20Tree%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><strong>最大树</strong> 定义：一棵树，并满足：其中每个节点的值都大于其子树中的任何其他值。</p>
 
@@ -76,7 +78,11 @@ tags:
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -267,6 +273,10 @@ struct TreeNode* insertIntoMaxTree(struct TreeNode* root, int val) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：迭代
 
 搜索右子树，找到 $curr.val \gt val \gt curr.right.val$ 的节点，然后创建新的节点 $node$，把 $node.left$ 指向 $curr.right$，然后 $curr.right$ 指向 $node$。
@@ -414,4 +424,6 @@ function insertIntoMaxTree(root: TreeNode | null, val: number): TreeNode | null 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

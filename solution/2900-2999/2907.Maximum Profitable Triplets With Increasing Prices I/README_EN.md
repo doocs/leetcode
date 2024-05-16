@@ -8,6 +8,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [2907. Maximum Profitable Triplets With Increasing Prices I 🔒](https://leetcode.com/problems/maximum-profitable-triplets-with-increasing-prices-i)
 
 [中文文档](/solution/2900-2999/2907.Maximum%20Profitable%20Triplets%20With%20Increasing%20Prices%20I/README.md)
@@ -63,6 +65,8 @@ The answer would be sum of their profits which is 5 + 4 + 6 = 15.</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumerate the Middle Element
 
@@ -224,6 +228,10 @@ impl Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Binary Indexed Tree
 
@@ -583,6 +591,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
@@ -921,4 +933,6 @@ function maxProfit(prices: number[], profits: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

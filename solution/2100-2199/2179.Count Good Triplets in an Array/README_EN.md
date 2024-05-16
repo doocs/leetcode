@@ -14,6 +14,8 @@ tags:
     - Merge Sort
 ---
 
+<!-- problem:start -->
+
 # [2179. Count Good Triplets in an Array](https://leetcode.com/problems/count-good-triplets-in-an-array)
 
 [中文文档](/solution/2100-2199/2179.Count%20Good%20Triplets%20in%20an%20Array/README.md)
@@ -56,6 +58,8 @@ Out of those triplets, only the triplet (0,1,3) satisfies pos2<sub>x</sub> &lt; 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -253,6 +257,10 @@ func goodTriplets(nums1 []int, nums2 []int) int64 {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -481,4 +489,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -11,6 +11,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [1386. Cinema Seat Allocation](https://leetcode.com/problems/cinema-seat-allocation)
 
 [中文文档](/solution/1300-1399/1386.Cinema%20Seat%20Allocation/README.md)
@@ -63,6 +65,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Bit Manipulation
 
@@ -186,4 +190,6 @@ function maxNumberOfFamilies(n: number, reservedSeats: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,6 +10,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [3127. Make a Square with the Same Color](https://leetcode.com/problems/make-a-square-with-the-same-color)
 
 [中文文档](/solution/3100-3199/3127.Make%20a%20Square%20with%20the%20Same%20Color/README.md)
@@ -148,6 +150,8 @@ tags:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Enumeration
 
 We can enumerate each $2 \times 2$ square, count the number of black and white cells. If the counts are not equal, then we can construct a square of the same color, and return `true`.
@@ -266,4 +270,6 @@ function canMakeSquare(grid: string[][]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

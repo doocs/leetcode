@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1393. Capital GainLoss](https://leetcode.com/problems/capital-gainloss)
 
 [中文文档](/solution/1300-1399/1393.Capital%20GainLoss/README.md)
@@ -75,6 +77,8 @@ Corona Masks stock was bought at day 1 for 10$ and was sold at day 3 for 1010$. 
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: GROUP BY + SUM(IF())
 
 We use `GROUP BY` to group the buy and sell operations of the same stock, and then use `SUM(IF())` to calculate the capital gains and losses of each stock.
@@ -92,4 +96,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

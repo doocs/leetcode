@@ -8,6 +8,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1973. Count Nodes Equal to Sum of Descendants 🔒](https://leetcode.com/problems/count-nodes-equal-to-sum-of-descendants)
 
 [中文文档](/solution/1900-1999/1973.Count%20Nodes%20Equal%20to%20Sum%20of%20Descendants/README.md)
@@ -55,6 +57,8 @@ For the node with value 0: The sum of its descendants is 0 since it has no desce
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -180,4 +184,6 @@ func equalToDescendants(root *TreeNode) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

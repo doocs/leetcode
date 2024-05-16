@@ -13,6 +13,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2762. Continuous Subarrays](https://leetcode.com/problems/continuous-subarrays)
 
 [中文文档](/solution/2700-2799/2762.Continuous%20Subarrays/README.md)
@@ -67,6 +69,8 @@ Total continuous subarrays = 3 + 2 + 1 = 6.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Ordered List + Two Pointers
 
@@ -170,4 +174,6 @@ func continuousSubarrays(nums []int) (ans int64) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

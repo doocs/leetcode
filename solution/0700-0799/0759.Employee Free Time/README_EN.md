@@ -8,6 +8,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [759. Employee Free Time 🔒](https://leetcode.com/problems/employee-free-time)
 
 [中文文档](/solution/0700-0799/0759.Employee%20Free%20Time/README.md)
@@ -50,4 +52,30 @@ We discard any intervals that contain inf as they aren&#39;t finite.
 
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+```python
+
+```
+
+```java
+
+```
+
+```cpp
+
+```
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

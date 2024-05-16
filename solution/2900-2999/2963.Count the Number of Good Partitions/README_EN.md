@@ -11,6 +11,8 @@ tags:
     - Combinatorics
 ---
 
+<!-- problem:start -->
+
 # [2963. Count the Number of Good Partitions](https://leetcode.com/problems/count-the-number-of-good-partitions)
 
 [中文文档](/solution/2900-2999/2963.Count%20the%20Number%20of%20Good%20Partitions/README.md)
@@ -59,6 +61,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Grouping + Fast Power
 
@@ -206,4 +210,6 @@ function numberOfGoodPartitions(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

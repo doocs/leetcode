@@ -6,6 +6,8 @@ tags:
     - Bit Manipulation
 ---
 
+<!-- problem:start -->
+
 # [868. Binary Gap](https://leetcode.com/problems/binary-gap)
 
 [中文文档](/solution/0800-0899/0868.Binary%20Gap/README.md)
@@ -54,6 +56,8 @@ There are not any adjacent pairs of 1&#39;s in the binary representation of 8, s
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -160,4 +164,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

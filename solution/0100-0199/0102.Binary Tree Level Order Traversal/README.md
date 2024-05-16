@@ -8,13 +8,15 @@ tags:
     - 二叉树
 ---
 
+<!-- problem:start -->
+
 # [102. 二叉树的层序遍历](https://leetcode.cn/problems/binary-tree-level-order-traversal)
 
 [English Version](/solution/0100-0199/0102.Binary%20Tree%20Level%20Order%20Traversal/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你二叉树的根节点 <code>root</code> ，返回其节点值的 <strong>层序遍历</strong> 。 （即逐层地，从左到右访问所有节点）。</p>
 
@@ -50,7 +52,11 @@ tags:
 	<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：BFS
 
@@ -327,4 +333,6 @@ var levelOrder = function (root) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

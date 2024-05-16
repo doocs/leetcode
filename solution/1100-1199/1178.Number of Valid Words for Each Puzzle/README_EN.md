@@ -12,6 +12,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1178. Number of Valid Words for Each Puzzle](https://leetcode.com/problems/number-of-valid-words-for-each-puzzle)
 
 [中文文档](/solution/1100-1199/1178.Number%20of%20Valid%20Words%20for%20Each%20Puzzle/README.md)
@@ -65,6 +67,8 @@ There are no valid words for &quot;gaswxyz&quot; cause none of the words in the 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: State Compression + Hash Table + Subset Enumeration
 
@@ -225,4 +229,6 @@ function findNumOfValidWords(words: string[], puzzles: string[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

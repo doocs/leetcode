@@ -9,6 +9,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2272. Substring With Largest Variance](https://leetcode.com/problems/substring-with-largest-variance)
 
 [中文文档](/solution/2200-2299/2272.Substring%20With%20Largest%20Variance/README.md)
@@ -54,6 +56,8 @@ No letter occurs more than once in s, so the variance of every substring is 0.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -160,4 +164,6 @@ func largestVariance(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

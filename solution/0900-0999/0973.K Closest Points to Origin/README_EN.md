@@ -12,6 +12,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [973. K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin)
 
 [中文文档](/solution/0900-0999/0973.K%20Closest%20Points%20to%20Origin/README.md)
@@ -54,6 +56,8 @@ We only want the closest k = 1 points from the origin, so the answer is just [[-
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -120,4 +124,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

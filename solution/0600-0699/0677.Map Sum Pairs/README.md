@@ -9,13 +9,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [677. 键值映射](https://leetcode.cn/problems/map-sum-pairs)
 
 [English Version](/solution/0600-0699/0677.Map%20Sum%20Pairs/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计一个 map ，满足以下几点:</p>
 
@@ -62,7 +64,11 @@ mapSum.sum("ap");           // 返回 5 (<u>ap</u>ple + <u>ap</u>p = 3 + 2 = 5)
 	<li>最多调用 <code>50</code> 次 <code>insert</code> 和 <code>sum</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 前缀树
 
@@ -365,4 +371,6 @@ class MapSum {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

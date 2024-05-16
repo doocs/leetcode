@@ -8,6 +8,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2323. Find Minimum Time to Finish All Jobs II 🔒](https://leetcode.com/problems/find-minimum-time-to-finish-all-jobs-ii)
 
 [中文文档](/solution/2300-2399/2323.Find%20Minimum%20Time%20to%20Finish%20All%20Jobs%20II/README.md)
@@ -58,6 +60,8 @@ It can be proven that 3 days is the minimum number of days needed.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -113,4 +117,6 @@ func minimumTime(jobs []int, workers []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

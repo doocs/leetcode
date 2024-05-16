@@ -9,6 +9,8 @@ tags:
     - Randomized
 ---
 
+<!-- problem:start -->
+
 # [398. Random Pick Index](https://leetcode.com/problems/random-pick-index)
 
 [中文文档](/solution/0300-0399/0398.Random%20Pick%20Index/README.md)
@@ -52,6 +54,8 @@ solution.pick(3); // It should return either index 2, 3, or 4 randomly. Each ind
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -170,4 +174,6 @@ func (this *Solution) Pick(target int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

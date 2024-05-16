@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2795.Parallel%20Execution%20of%20Promises%20for%20Individual%20Results%20Retrieval/README.md
 ---
 
+<!-- problem:start -->
+
 # [2795. 并行执行 Promise 以获取独有的结果 🔒](https://leetcode.cn/problems/parallel-execution-of-promises-for-individual-results-retrieval)
 
 [English Version](/solution/2700-2799/2795.Parallel%20Execution%20of%20Promises%20for%20Individual%20Results%20Retrieval/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个数组 <code>functions</code>，返回一个 promise 对象 <code>promise</code>。<code>functions</code> 是一个返回多个 promise&nbsp;对象 <code>fnPromise</code> 的函数数组。每个 <code>fnPromise</code> 可以被解析（resolved）或拒绝（rejected）。</p>
 
@@ -91,7 +93,11 @@ promise.then(res =&gt; {
 	<li><code>1 &lt;= functions.length &lt;= 10</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -167,4 +173,6 @@ var promiseAllSettled = function (functions) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

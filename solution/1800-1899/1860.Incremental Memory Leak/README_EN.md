@@ -9,6 +9,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1860. Incremental Memory Leak](https://leetcode.com/problems/incremental-memory-leak)
 
 [中文文档](/solution/1800-1899/1860.Incremental%20Memory%20Leak/README.md)
@@ -55,6 +57,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -165,4 +169,6 @@ var memLeak = function (memory1, memory2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

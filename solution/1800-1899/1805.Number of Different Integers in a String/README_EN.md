@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1805. Number of Different Integers in a String](https://leetcode.com/problems/number-of-different-integers-in-a-string)
 
 [中文文档](/solution/1800-1899/1805.Number%20of%20Different%20Integers%20in%20a%20String/README.md)
@@ -57,6 +59,8 @@ the leading zeros are ignored when comparing their decimal values.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Double Pointers + Simulation
 
@@ -195,4 +199,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

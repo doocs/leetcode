@@ -9,13 +9,15 @@ tags:
     - 双指针
 ---
 
+<!-- problem:start -->
+
 # [143. 重排链表](https://leetcode.cn/problems/reorder-list)
 
 [English Version](/solution/0100-0199/0143.Reorder%20List/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个单链表 <code>L</code><em> </em>的头节点 <code>head</code> ，单链表 <code>L</code> 表示为：</p>
 
@@ -57,7 +59,11 @@ L<sub>0</sub> → L<sub>n</sub> → L<sub>1</sub> → L<sub>n - 1</sub> → L<su
 	<li><code>1 &lt;= node.val &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：快慢指针 + 反转链表 + 合并链表
 
@@ -416,4 +422,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,13 +10,15 @@ tags:
     - 前缀和
 ---
 
+<!-- problem:start -->
+
 # [2428. 沙漏的最大总和](https://leetcode.cn/problems/maximum-sum-of-an-hourglass)
 
 [English Version](/solution/2400-2499/2428.Maximum%20Sum%20of%20an%20Hourglass/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个大小为 <code>m x n</code> 的整数矩阵 <code>grid</code> 。</p>
 
@@ -53,7 +55,11 @@ tags:
 	<li><code>0 &lt;= grid[i][j] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -161,4 +167,6 @@ function maxSum(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

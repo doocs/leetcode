@@ -7,6 +7,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [689. Maximum Sum of 3 Non-Overlapping Subarrays](https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays)
 
 [中文文档](/solution/0600-0699/0689.Maximum%20Sum%20of%203%20Non-Overlapping%20Subarrays/README.md)
@@ -44,6 +46,8 @@ We could have also taken [2, 1], but an answer of [1, 3, 5] would be lexicograph
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sliding Window
 
@@ -237,6 +241,10 @@ function maxSumOfThreeSubarrays(nums: number[], k: number): number[] {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Preprocessing Prefix and Suffix + Enumerating Middle Subarray
 
 We can preprocess to get the prefix sum array $s$ of the array $nums$, where $s[i] = \sum_{j=0}^{i-1} nums[j]$. Then for any $i$, $j$, $s[j] - s[i]$ is the sum of the subarray $[i, j)$.
@@ -416,4 +424,6 @@ func maxSumOfThreeSubarrays(nums []int, k int) (ans []int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

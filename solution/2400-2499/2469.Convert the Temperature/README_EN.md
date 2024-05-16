@@ -8,6 +8,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [2469. Convert the Temperature](https://leetcode.com/problems/convert-the-temperature)
 
 [中文文档](/solution/2400-2499/2469.Convert%20the%20Temperature/README.md)
@@ -52,6 +54,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -119,4 +123,6 @@ double* convertTemperature(double celsius, int* returnSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

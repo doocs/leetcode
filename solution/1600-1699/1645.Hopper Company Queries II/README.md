@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1645. Hopper 公司查询 II 🔒](https://leetcode.cn/problems/hopper-company-queries-ii)
 
 [English Version](/solution/1600-1699/1645.Hopper%20Company%20Queries%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Drivers</code></p>
 
@@ -161,7 +163,11 @@ ride_id 是该表具有唯一值的列。
 截至 12 月底 --&gt; 6 个活跃的驾驶员 (10, 8, 5, 7, 4, 1)，1 个被接受的行程 (4)。百分比是 (1 / 6) * 100 = 16.67%。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归 + 左连接 + 分组
 
@@ -217,4 +223,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

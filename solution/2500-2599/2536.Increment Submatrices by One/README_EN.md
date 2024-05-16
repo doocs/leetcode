@@ -10,6 +10,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2536. Increment Submatrices by One](https://leetcode.com/problems/increment-submatrices-by-one)
 
 [中文文档](/solution/2500-2599/2536.Increment%20Submatrices%20by%20One/README.md)
@@ -57,6 +59,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -195,4 +199,6 @@ func rangeAddQueries(n int, queries [][]int) [][]int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,6 +7,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [414. Third Maximum Number](https://leetcode.com/problems/third-maximum-number)
 
 [中文文档](/solution/0400-0499/0414.Third%20Maximum%20Number/README.md)
@@ -61,6 +63,8 @@ The third distinct maximum is 1.
 <strong>Follow up:</strong> Can you find an <code>O(n)</code> solution?
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -155,4 +159,6 @@ func thirdMax(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

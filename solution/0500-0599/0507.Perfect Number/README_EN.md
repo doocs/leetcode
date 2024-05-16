@@ -6,6 +6,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [507. Perfect Number](https://leetcode.com/problems/perfect-number)
 
 [中文文档](/solution/0500-0599/0507.Perfect%20Number/README.md)
@@ -41,6 +43,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -119,4 +123,6 @@ func checkPerfectNumber(num int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

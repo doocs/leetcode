@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [677. Map Sum Pairs](https://leetcode.com/problems/map-sum-pairs)
 
 [中文文档](/solution/0600-0699/0677.Map%20Sum%20Pairs/README.md)
@@ -59,6 +61,8 @@ mapSum.sum(&quot;ap&quot;);           // return 5 (<u>ap</u>ple + <u>ap</u>p = 3
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -348,4 +352,6 @@ class MapSum {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

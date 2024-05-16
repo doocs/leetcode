@@ -9,6 +9,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2950. Number of Divisible Substrings 🔒](https://leetcode.com/problems/number-of-divisible-substrings)
 
 [中文文档](/solution/2900-2999/2950.Number%20of%20Divisible%20Substrings/README.md)
@@ -143,6 +145,8 @@ It can be shown that there are no other substrings of word that are divisible.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -300,6 +304,10 @@ impl Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Hash Table + Prefix Sum + Enumeration
 
@@ -462,4 +470,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

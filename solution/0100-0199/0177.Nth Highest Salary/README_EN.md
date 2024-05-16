@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [177. Nth Highest Salary](https://leetcode.com/problems/nth-highest-salary)
 
 [中文文档](/solution/0100-0199/0177.Nth%20Highest%20Salary/README.md)
@@ -74,6 +76,8 @@ n = 2
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -109,4 +113,6 @@ END
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

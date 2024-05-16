@@ -9,6 +9,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [678. Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string)
 
 [中文文档](/solution/0600-0699/0678.Valid%20Parenthesis%20String/README.md)
@@ -46,6 +48,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -145,6 +149,10 @@ func checkValidString(s string) bool {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Greedy
 
@@ -263,4 +271,6 @@ func checkValidString(s string) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

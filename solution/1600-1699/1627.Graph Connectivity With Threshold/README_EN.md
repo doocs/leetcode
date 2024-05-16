@@ -11,6 +11,8 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [1627. Graph Connectivity With Threshold](https://leetcode.com/problems/graph-connectivity-with-threshold)
 
 [中文文档](/solution/1600-1699/1627.Graph%20Connectivity%20With%20Threshold/README.md)
@@ -80,6 +82,8 @@ Please notice that there can be multiple queries for the same pair of nodes [x, 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Union-Find
 
@@ -330,4 +334,6 @@ function areConnected(n: number, threshold: number, queries: number[][]): boolea
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

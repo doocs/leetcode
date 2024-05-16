@@ -11,6 +11,8 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [1601. Maximum Number of Achievable Transfer Requests](https://leetcode.com/problems/maximum-number-of-achievable-transfer-requests)
 
 [中文文档](/solution/1600-1699/1601.Maximum%20Number%20of%20Achievable%20Transfer%20Requests/README.md)
@@ -70,6 +72,8 @@ We can achieve all the requests. </pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Enumeration
 
@@ -325,4 +329,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

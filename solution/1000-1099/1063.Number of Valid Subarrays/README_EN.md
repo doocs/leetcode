@@ -8,6 +8,8 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [1063. Number of Valid Subarrays 🔒](https://leetcode.com/problems/number-of-valid-subarrays)
 
 [中文文档](/solution/1000-1099/1063.Number%20of%20Valid%20Subarrays/README.md)
@@ -52,6 +54,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -170,6 +174,10 @@ function validSubarrays(nums: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -264,4 +272,6 @@ function validSubarrays(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

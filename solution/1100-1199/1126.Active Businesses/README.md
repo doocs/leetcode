@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1126. 查询活跃业务 🔒](https://leetcode.cn/problems/active-businesses)
 
 [English Version](/solution/1100-1199/1126.Active%20Businesses/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>事件表：<code>Events</code></p>
 
@@ -71,7 +73,11 @@ Events table:
 - 'page views': (3+12)/2 = 7.5
 id=1 的业务有 7 个 'reviews' 事件(多于 5 个)和 11 个 'ads' 事件(多于 8 个)，所以它是一个活跃的业务。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -97,6 +103,10 @@ HAVING COUNT(1) > 1;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -119,4 +129,6 @@ HAVING COUNT(1) > 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

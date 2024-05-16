@@ -12,6 +12,8 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [1763. Longest Nice Substring](https://leetcode.com/problems/longest-nice-substring)
 
 [中文文档](/solution/1700-1799/1763.Longest%20Nice%20Substring/README.md)
@@ -57,6 +59,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -191,6 +195,10 @@ function longestNiceSubstring(s: string): string {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -290,4 +298,6 @@ func longestNiceSubstring(s string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

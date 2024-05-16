@@ -7,13 +7,15 @@ tags:
     - 交互
 ---
 
+<!-- problem:start -->
+
 # [374. 猜数字大小](https://leetcode.cn/problems/guess-number-higher-or-lower)
 
 [English Version](/solution/0300-0399/0374.Guess%20Number%20Higher%20or%20Lower/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>猜数字游戏的规则如下：</p>
 
@@ -71,7 +73,11 @@ tags:
 	<li><code>1 <= pick <= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -203,6 +209,7 @@ function guessNumber(n: number): number {
 ```
 
 ```rust
+
 /**
  * Forward declaration of guess API.
  * @param  num   your guess
@@ -262,6 +269,10 @@ public class Solution : GuessGame {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -300,4 +311,6 @@ func guessNumber(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

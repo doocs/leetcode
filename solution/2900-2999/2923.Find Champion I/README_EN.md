@@ -9,6 +9,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [2923. Find Champion I](https://leetcode.com/problems/find-champion-i)
 
 [中文文档](/solution/2900-2999/2923.Find%20Champion%20I/README.md)
@@ -58,6 +60,8 @@ So team 1 will be the champion.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -149,4 +153,6 @@ function findChampion(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

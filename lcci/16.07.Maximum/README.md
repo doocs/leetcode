@@ -4,13 +4,15 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.07.Maximum/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 16.07. 最大数值](https://leetcode.cn/problems/maximum-lcci)
 
 [English Version](/lcci/16.07.Maximum/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>编写一个方法，找出两个数字<code>a</code>和<code>b</code>中最大的那一个。不得使用if-else或其他比较运算符。</p>
 <p><strong>示例：</strong></p>
@@ -18,7 +20,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.07.Maximum/README.
 <strong>输出：</strong> 2
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：位运算
 
@@ -82,4 +88,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

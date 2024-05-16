@@ -10,6 +10,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2028. Find Missing Observations](https://leetcode.com/problems/find-missing-observations)
 
 [中文文档](/solution/2000-2099/2028.Find%20Missing%20Observations/README.md)
@@ -61,6 +63,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Construction
 
@@ -215,4 +219,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

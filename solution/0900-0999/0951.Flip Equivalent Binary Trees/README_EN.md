@@ -8,6 +8,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [951. Flip Equivalent Binary Trees](https://leetcode.com/problems/flip-equivalent-binary-trees)
 
 [中文文档](/solution/0900-0999/0951.Flip%20Equivalent%20Binary%20Trees/README.md)
@@ -52,6 +54,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -164,4 +168,6 @@ func flipEquiv(root1 *TreeNode, root2 *TreeNode) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

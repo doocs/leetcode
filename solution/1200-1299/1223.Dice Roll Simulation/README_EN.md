@@ -9,6 +9,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1223. Dice Roll Simulation](https://leetcode.com/problems/dice-roll-simulation)
 
 [中文文档](/solution/1200-1299/1223.Dice%20Roll%20Simulation/README.md)
@@ -54,6 +56,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -178,6 +182,10 @@ func dieSimulator(n int, rollMax []int) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Dynamic Programming
 
@@ -319,4 +327,6 @@ func dieSimulator(n int, rollMax []int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

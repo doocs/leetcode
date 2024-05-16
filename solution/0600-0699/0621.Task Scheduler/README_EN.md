@@ -11,6 +11,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [621. Task Scheduler](https://leetcode.com/problems/task-scheduler)
 
 [中文文档](/solution/0600-0699/0621.Task%20Scheduler/README.md)
@@ -114,6 +116,8 @@ font-size: 0.85rem;
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -207,4 +211,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

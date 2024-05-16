@@ -12,6 +12,8 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [2601. Prime Subtraction Operation](https://leetcode.com/problems/prime-subtraction-operation)
 
 [中文文档](/solution/2600-2699/2601.Prime%20Subtraction%20Operation/README.md)
@@ -64,6 +66,8 @@ After the second operation, nums is sorted in strictly increasing order, so the 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Preprocessing prime numbers + binary search
 
@@ -251,4 +255,6 @@ function primeSubOperation(nums: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

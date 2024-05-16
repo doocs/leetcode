@@ -9,6 +9,8 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [811. Subdomain Visit Count](https://leetcode.com/problems/subdomain-visit-count)
 
 [中文文档](/solution/0800-0899/0811.Subdomain%20Visit%20Count/README.md)
@@ -56,6 +58,8 @@ For the subdomains, we will visit &quot;mail.com&quot; 900 + 1 = 901 times, &quo
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -141,4 +145,6 @@ func subdomainVisits(cpdomains []string) []string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

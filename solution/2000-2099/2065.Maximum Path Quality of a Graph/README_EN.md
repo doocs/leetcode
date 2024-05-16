@@ -10,6 +10,8 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [2065. Maximum Path Quality of a Graph](https://leetcode.com/problems/maximum-path-quality-of-a-graph)
 
 [中文文档](/solution/2000-2099/2065.Maximum%20Path%20Quality%20of%20a%20Graph/README.md)
@@ -73,6 +75,8 @@ The nodes visited are 0, 1, and 3, giving a maximal path quality of 1 + 2 + 4 = 
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -117,4 +121,6 @@ function maximalPathQuality(values: number[], edges: number[][], maxTime: number
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,6 +10,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1895. Largest Magic Square](https://leetcode.com/problems/largest-magic-square)
 
 [中文文档](/solution/1800-1899/1895.Largest%20Magic%20Square/README.md)
@@ -51,6 +53,8 @@ Every row sum, column sum, and diagonal sum of this magic square is equal to 12.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -345,4 +349,6 @@ function valid(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

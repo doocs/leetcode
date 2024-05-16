@@ -9,13 +9,15 @@ tags:
     - 回溯
 ---
 
+<!-- problem:start -->
+
 # [491. 非递减子序列](https://leetcode.cn/problems/non-decreasing-subsequences)
 
 [English Version](/solution/0400-0499/0491.Non-decreasing%20Subsequences/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> ，找出并返回所有该数组中不同的递增子序列，递增子序列中 <strong>至少有两个元素</strong> 。你可以按 <strong>任意顺序</strong> 返回答案。</p>
 
@@ -46,7 +48,11 @@ tags:
 	<li><code>-100 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -161,4 +167,6 @@ func findSubsequences(nums []int) [][]int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

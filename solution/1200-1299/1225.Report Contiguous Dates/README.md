@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1225. 报告系统状态的连续日期 🔒](https://leetcode.cn/problems/report-contiguous-dates)
 
 [English Version](/solution/1200-1299/1225.Report%20Contiguous%20Dates/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Failed</code></p>
 
@@ -91,7 +93,11 @@ Succeeded table:
 从 2019-01-06 到 2019-01-06 所有任务成功，系统状态为 "succeeded"。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：合并 + 窗口函数 + 分组求最大最小值
 
@@ -134,4 +140,6 @@ ORDER BY 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

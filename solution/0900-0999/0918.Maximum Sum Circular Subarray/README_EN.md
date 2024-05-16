@@ -10,6 +10,8 @@ tags:
     - Monotonic Queue
 ---
 
+<!-- problem:start -->
+
 # [918. Maximum Sum Circular Subarray](https://leetcode.com/problems/maximum-sum-circular-subarray)
 
 [中文文档](/solution/0900-0999/0918.Maximum%20Sum%20Circular%20Subarray/README.md)
@@ -57,6 +59,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -147,6 +151,10 @@ function maxSubarraySumCircular(nums: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -236,4 +244,6 @@ function maxSubarraySumCircular(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

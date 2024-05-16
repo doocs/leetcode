@@ -8,6 +8,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [592. Fraction Addition and Subtraction](https://leetcode.com/problems/fraction-addition-and-subtraction)
 
 [中文文档](/solution/0500-0599/0592.Fraction%20Addition%20and%20Subtraction/README.md)
@@ -52,6 +54,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -160,4 +164,6 @@ func gcd(a, b int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

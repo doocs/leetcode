@@ -8,6 +8,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [447. Number of Boomerangs](https://leetcode.com/problems/number-of-boomerangs)
 
 [中文文档](/solution/0400-0499/0447.Number%20of%20Boomerangs/README.md)
@@ -53,6 +55,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration + Counting
 
@@ -143,6 +147,10 @@ function numberOfBoomerangs(points: number[][]): number {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -235,4 +243,6 @@ function numberOfBoomerangs(points: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

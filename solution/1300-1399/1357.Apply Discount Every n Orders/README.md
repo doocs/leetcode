@@ -10,13 +10,15 @@ tags:
     - 哈希表
 ---
 
+<!-- problem:start -->
+
 # [1357. 每隔 n 个顾客打折](https://leetcode.cn/problems/apply-discount-every-n-orders)
 
 [English Version](/solution/1300-1399/1357.Apply%20Discount%20Every%20n%20Orders/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>超市里正在举行打折活动，每隔&nbsp;<code>n</code>&nbsp;个顾客会得到 <code>discount</code>&nbsp;的折扣。</p>
 
@@ -73,7 +75,11 @@ cashier.getBill([2,3,5],[5,3,2]);                    // 返回 2500.0
 	<li>返回结果与标准答案误差在&nbsp;<code>10^-5</code>&nbsp;以内都视为正确结果。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 模拟
 
@@ -213,4 +219,6 @@ func (this *Cashier) GetBill(product []int, amount []int) (ans float64) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

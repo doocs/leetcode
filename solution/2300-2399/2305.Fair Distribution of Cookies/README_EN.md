@@ -12,6 +12,8 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [2305. Fair Distribution of Cookies](https://leetcode.com/problems/fair-distribution-of-cookies)
 
 [中文文档](/solution/2300-2399/2305.Fair%20Distribution%20of%20Cookies/README.md)
@@ -60,6 +62,8 @@ It can be shown that there is no distribution with an unfairness less than 7.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Backtracking + Pruning
 
@@ -213,4 +217,6 @@ function distributeCookies(cookies: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

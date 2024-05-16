@@ -7,6 +7,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [806. Number of Lines To Write String](https://leetcode.com/problems/number-of-lines-to-write-string)
 
 [中文文档](/solution/0800-0899/0806.Number%20of%20Lines%20To%20Write%20String/README.md)
@@ -57,6 +59,8 @@ There are a total of 2 lines, and the last line is 4 pixels wide.</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -176,4 +180,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

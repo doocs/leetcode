@@ -4,11 +4,13 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2049.%20%E7%8E%AF%E5%BD%A2%E9%97%AF%E5%85%B3%E6%B8%B8%E6%88%8F/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 49. 环形闯关游戏](https://leetcode.cn/problems/K8GULz)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 「力扣挑战赛」中有一个由 `N` 个关卡组成的**环形**闯关游戏，关卡编号为 `0`~`N-1`，编号 `0` 的关卡和编号 `N-1` 的关卡相邻。每个关卡均有积分要求，`challenge[i]` 表示挑战编号 `i` 的关卡最少需要拥有的积分。
 ![图片.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2049.%20%E7%8E%AF%E5%BD%A2%E9%97%AF%E5%85%B3%E6%B8%B8%E6%88%8F/images/1630392170-ucncVS-%E5%9B%BE%E7%89%87.png){:width="240px"}
@@ -58,6 +60,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2049.%20%E7%8E%AF%
 -   `1 <= challenge.length <= 5*10^4`
 -   `1 <= challenge[i] <= 10^14`
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

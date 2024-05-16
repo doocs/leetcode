@@ -12,6 +12,8 @@ tags:
     - Data Stream
 ---
 
+<!-- problem:start -->
+
 # [1032. Stream of Characters](https://leetcode.com/problems/stream-of-characters)
 
 [中文文档](/solution/1000-1099/1032.Stream%20of%20Characters/README.md)
@@ -67,6 +69,8 @@ streamChecker.query(&quot;l&quot;); // return True, because &#39;kl&#39; is in t
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -300,4 +304,6 @@ func (this *StreamChecker) Query(letter byte) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

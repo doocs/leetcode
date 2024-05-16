@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1715. Count Apples and Oranges 🔒](https://leetcode.com/problems/count-apples-and-oranges)
 
 [中文文档](/solution/1700-1799/1715.Count%20Apples%20and%20Oranges/README.md)
@@ -97,6 +99,8 @@ Total number of oranges = 15 + 25 + 8 + 28 + 15 + 15 + 17 = 123
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -113,4 +117,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

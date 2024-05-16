@@ -9,6 +9,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2557. Maximum Number of Integers to Choose From a Range II 🔒](https://leetcode.com/problems/maximum-number-of-integers-to-choose-from-a-range-ii)
 
 [中文文档](/solution/2500-2599/2557.Maximum%20Number%20of%20Integers%20to%20Choose%20From%20a%20Range%20II/README.md)
@@ -55,6 +57,8 @@ All these integers are in the range [1, 7], all do not appear in banned, and the
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Deduplication + Sorting + Binary Search
 
@@ -186,4 +190,6 @@ func maxCount(banned []int, n int, maxSum int64) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

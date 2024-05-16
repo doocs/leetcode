@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1328. Break a Palindrome](https://leetcode.com/problems/break-a-palindrome)
 
 [中文文档](/solution/1300-1399/1328.Break%20a%20Palindrome/README.md)
@@ -48,6 +50,8 @@ Of all the ways, &quot;aaccba&quot; is the lexicographically smallest.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -156,4 +160,6 @@ function breakPalindrome(palindrome: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

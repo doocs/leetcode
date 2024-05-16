@@ -12,6 +12,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1697. Checking Existence of Edge Length Limited Paths](https://leetcode.com/problems/checking-existence-of-edge-length-limited-paths)
 
 [中文文档](/solution/1600-1699/1697.Checking%20Existence%20of%20Edge%20Length%20Limited%20Paths/README.md)
@@ -59,6 +61,8 @@ For the second query, there is a path (0 -&gt; 1 -&gt; 2) of two edges with dist
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Offline Queries + Union-Find
 
@@ -384,4 +388,6 @@ func union(a, b int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

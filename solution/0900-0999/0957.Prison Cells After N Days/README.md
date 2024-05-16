@@ -9,13 +9,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [957. N 天后的牢房](https://leetcode.cn/problems/prison-cells-after-n-days)
 
 [English Version](/solution/0900-0999/0957.Prison%20Cells%20After%20N%20Days/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>监狱中 <code>8</code> 间牢房排成一排，每间牢房可能被占用或空置。</p>
 
@@ -67,6 +69,34 @@ Day 7: [0, 0, 1, 1, 0, 0, 0, 0]
 	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+### 方法一
+
+<!-- tabs:start -->
+
+```python
+
+```
+
+```java
+
+```
+
+```cpp
+
+```
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

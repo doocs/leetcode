@@ -7,13 +7,15 @@ tags:
     - 链表
 ---
 
+<!-- problem:start -->
+
 # [25. K 个一组翻转链表](https://leetcode.cn/problems/reverse-nodes-in-k-group)
 
 [English Version](/solution/0000-0099/0025.Reverse%20Nodes%20in%20k-Group/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你链表的头节点 <code>head</code> ，每&nbsp;<code>k</code><em>&nbsp;</em>个节点一组进行翻转，请你返回修改后的链表。</p>
 
@@ -55,7 +57,11 @@ tags:
 <ul>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：迭代
 
@@ -395,6 +401,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：递归
 
 时间复杂度为 $O(n)$，空间复杂度为 $O(\log _k n)$，其中 $n$ 是链表的长度。
@@ -484,4 +494,6 @@ function reverseKGroup(head: ListNode | null, k: number): ListNode | null {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

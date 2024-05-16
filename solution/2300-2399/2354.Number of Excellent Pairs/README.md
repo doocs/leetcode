@@ -11,13 +11,15 @@ tags:
     - 二分查找
 ---
 
+<!-- problem:start -->
+
 # [2354. 优质数对的数目](https://leetcode.cn/problems/number-of-excellent-pairs)
 
 [English Version](/solution/2300-2399/2354.Number%20of%20Excellent%20Pairs/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的正整数数组 <code>nums</code> 和一个正整数 <code>k</code> 。</p>
 
@@ -65,7 +67,11 @@ tags:
 	<li><code>1 &lt;= k &lt;= 60</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -160,4 +166,6 @@ func countExcellentPairs(nums []int, k int) int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

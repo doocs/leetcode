@@ -9,6 +9,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [1033. Moving Stones Until Consecutive](https://leetcode.com/problems/moving-stones-until-consecutive)
 
 [中文文档](/solution/1000-1099/1033.Moving%20Stones%20Until%20Consecutive/README.md)
@@ -62,6 +64,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -146,4 +150,6 @@ function numMovesStones(a: number, b: number, c: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

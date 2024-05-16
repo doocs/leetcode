@@ -7,6 +7,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [777. Swap Adjacent in LR String](https://leetcode.com/problems/swap-adjacent-in-lr-string)
 
 [中文文档](/solution/0700-0799/0777.Swap%20Adjacent%20in%20LR%20String/README.md)
@@ -46,6 +48,8 @@ XRLXXRRLX
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -150,4 +154,6 @@ func canTransform(start string, end string) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

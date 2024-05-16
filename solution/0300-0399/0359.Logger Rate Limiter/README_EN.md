@@ -8,6 +8,8 @@ tags:
     - Data Stream
 ---
 
+<!-- problem:start -->
+
 # [359. Logger Rate Limiter 🔒](https://leetcode.com/problems/logger-rate-limiter)
 
 [中文文档](/solution/0300-0399/0359.Logger%20Rate%20Limiter/README.md)
@@ -56,6 +58,8 @@ logger.shouldPrintMessage(11, &quot;foo&quot;); // 11 &gt;= 11, return true, nex
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -153,4 +157,6 @@ Logger.prototype.shouldPrintMessage = function (timestamp, message) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

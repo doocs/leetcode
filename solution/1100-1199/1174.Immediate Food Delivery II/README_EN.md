@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1174. Immediate Food Delivery II](https://leetcode.com/problems/immediate-food-delivery-ii)
 
 [中文文档](/solution/1100-1199/1174.Immediate%20Food%20Delivery%20II/README.md)
@@ -70,6 +72,8 @@ Hence, half the customers have immediate first orders.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Subquery
 
 We can use a subquery to first find the first order of each user, and then calculate the proportion of instant orders.
@@ -90,6 +94,10 @@ WHERE
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Window Function
 
@@ -117,4 +125,6 @@ WHERE rk = 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

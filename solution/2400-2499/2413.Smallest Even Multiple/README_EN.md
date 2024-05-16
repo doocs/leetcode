@@ -9,6 +9,8 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [2413. Smallest Even Multiple](https://leetcode.com/problems/smallest-even-multiple)
 
 [中文文档](/solution/2400-2499/2413.Smallest%20Even%20Multiple/README.md)
@@ -42,6 +44,8 @@ Given a <strong>positive</strong> integer <code>n</code>, return <em>the smalles
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematics
 
@@ -108,4 +112,6 @@ int smallestEvenMultiple(int n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

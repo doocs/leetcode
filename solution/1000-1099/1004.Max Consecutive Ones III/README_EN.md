@@ -11,6 +11,8 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [1004. Max Consecutive Ones III](https://leetcode.com/problems/max-consecutive-ones-iii)
 
 [中文文档](/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README.md)
@@ -47,6 +49,8 @@ Bolded numbers were flipped from 0 to 1. The longest subarray is underlined.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sliding Window
 
@@ -156,6 +160,10 @@ function longestOnes(nums: number[], k: number): number {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Sliding Window (Optimized)
 
@@ -277,4 +285,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

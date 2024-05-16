@@ -6,6 +6,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [896. Monotonic Array](https://leetcode.com/problems/monotonic-array)
 
 [中文文档](/solution/0800-0899/0896.Monotonic%20Array/README.md)
@@ -49,6 +51,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Single Traversal
 
@@ -184,4 +188,6 @@ var isMonotonic = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

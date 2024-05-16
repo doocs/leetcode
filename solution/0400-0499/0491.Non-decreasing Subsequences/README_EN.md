@@ -9,6 +9,8 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [491. Non-decreasing Subsequences](https://leetcode.com/problems/non-decreasing-subsequences)
 
 [中文文档](/solution/0400-0499/0491.Non-decreasing%20Subsequences/README.md)
@@ -41,6 +43,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -150,4 +154,6 @@ func findSubsequences(nums []int) [][]int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

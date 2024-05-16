@@ -8,6 +8,8 @@ tags:
     - Bit Manipulation
 ---
 
+<!-- problem:start -->
+
 # [2595. Number of Even and Odd Bits](https://leetcode.com/problems/number-of-even-and-odd-bits)
 
 [中文文档](/solution/2500-2599/2595.Number%20of%20Even%20and%20Odd%20Bits/README.md)
@@ -51,6 +53,8 @@ There are 0 even and 1 odd indices.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumerate
 
@@ -137,6 +141,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -213,4 +221,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

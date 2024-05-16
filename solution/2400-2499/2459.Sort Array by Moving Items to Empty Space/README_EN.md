@@ -8,6 +8,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2459. Sort Array by Moving Items to Empty Space 🔒](https://leetcode.com/problems/sort-array-by-moving-items-to-empty-space)
 
 [中文文档](/solution/2400-2499/2459.Sort%20Array%20by%20Moving%20Items%20to%20Empty%20Space/README.md)
@@ -72,6 +74,8 @@ It can be proven that 2 is the minimum number of operations needed.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Permutation Cycle
 
@@ -210,4 +214,6 @@ func sortArray(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

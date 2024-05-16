@@ -12,6 +12,8 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [1610. Maximum Number of Visible Points](https://leetcode.com/problems/maximum-number-of-visible-points)
 
 [中文文档](/solution/1600-1699/1610.Maximum%20Number%20of%20Visible%20Points/README.md)
@@ -69,6 +71,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -186,4 +190,6 @@ func visiblePoints(points [][]int, angle int, location []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,6 +4,8 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2623.Memoize/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2623. Memoize](https://leetcode.com/problems/memoize)
 
 [中文文档](/solution/2600-2699/2623.Memoize/README.md)
@@ -87,6 +89,8 @@ values = [[5],[]]
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -121,4 +125,6 @@ function memoize(fn: Fn): Fn {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

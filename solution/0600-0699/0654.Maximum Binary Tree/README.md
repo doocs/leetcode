@@ -11,13 +11,15 @@ tags:
     - 单调栈
 ---
 
+<!-- problem:start -->
+
 # [654. 最大二叉树](https://leetcode.cn/problems/maximum-binary-tree)
 
 [English Version](/solution/0600-0699/0654.Maximum%20Binary%20Tree/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个不重复的整数数组&nbsp;<code>nums</code> 。&nbsp;<strong>最大二叉树</strong>&nbsp;可以用下面的算法从&nbsp;<code>nums</code> 递归地构建:</p>
 
@@ -65,7 +67,11 @@ tags:
 	<li><code>nums</code> 中的所有整数 <strong>互不相同</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -318,6 +324,10 @@ struct TreeNode* constructMaximumBinaryTree(int* nums, int numsSize) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：线段树
 
@@ -657,6 +667,10 @@ func (t *segmentTree) pushup(u int) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三：单调栈
 
 题目表达了一个意思：如果 $nums$ 中间有一个数字 $v$，找出它左右两侧最大的数，这两个最大的数应该比 $v$ 小。
@@ -798,4 +812,6 @@ func constructMaximumBinaryTree(nums []int) *TreeNode {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

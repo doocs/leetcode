@@ -9,6 +9,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [893. Groups of Special-Equivalent Strings](https://leetcode.com/problems/groups-of-special-equivalent-strings)
 
 [中文文档](/solution/0800-0899/0893.Groups%20of%20Special-Equivalent%20Strings/README.md)
@@ -64,6 +66,8 @@ Note that in particular, &quot;zzxy&quot; is not special equivalent to &quot;zzy
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -159,4 +163,6 @@ func numSpecialEquivGroups(words []string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

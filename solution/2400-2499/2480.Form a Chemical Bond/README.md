@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [2480. 形成化学键 🔒](https://leetcode.cn/problems/form-a-chemical-bond)
 
 [English Version](/solution/2400-2499/2480.Form%20a%20Chemical%20Bond/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Elements</code></p>
 
@@ -79,7 +81,11 @@ Metal 元素包括 La, Ca, and Na.
 Nonmetal 元素包括 Cl, O, and N.
 每个 Metal 元素与输出表中的 Nonmeal 元素配对。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -96,4 +102,6 @@ WHERE a.type = 'Metal' AND b.type = 'Nonmetal';
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

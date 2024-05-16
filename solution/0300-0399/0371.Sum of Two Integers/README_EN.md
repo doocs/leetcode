@@ -7,6 +7,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [371. Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers)
 
 [中文文档](/solution/0300-0399/0371.Sum%20of%20Two%20Integers/README.md)
@@ -31,6 +33,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -81,4 +85,6 @@ func getSum(a int, b int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

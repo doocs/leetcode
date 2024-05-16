@@ -10,6 +10,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1182. Shortest Distance to Target Color 🔒](https://leetcode.com/problems/shortest-distance-to-target-color)
 
 [中文文档](/solution/1100-1199/1182.Shortest%20Distance%20to%20Target%20Color/README.md)
@@ -53,6 +55,8 @@ The nearest 1 from index 6 is at index 3 (3 steps away).
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Preprocessing
 
@@ -217,4 +221,6 @@ function shortestDistanceColor(colors: number[], queries: number[][]): number[] 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

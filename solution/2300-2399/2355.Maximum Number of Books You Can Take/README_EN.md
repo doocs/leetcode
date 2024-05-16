@@ -9,6 +9,8 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [2355. Maximum Number of Books You Can Take 🔒](https://leetcode.com/problems/maximum-number-of-books-you-can-take)
 
 [中文文档](/solution/2300-2399/2355.Maximum%20Number%20of%20Books%20You%20Can%20Take/README.md)
@@ -72,6 +74,8 @@ It can be proven that 13 is the maximum number of books you can take.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -216,4 +220,6 @@ func maximumBooks(books []int) int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

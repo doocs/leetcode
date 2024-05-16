@@ -7,6 +7,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [2647. Color the Triangle Red 🔒](https://leetcode.com/problems/color-the-triangle-red)
 
 [中文文档](/solution/2600-2699/2647.Color%20the%20Triangle%20Red/README.md)
@@ -75,6 +77,8 @@ It can be shown that choosing any 2 triangles and running the algorithm will not
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Find the Pattern
 
@@ -212,4 +216,6 @@ function colorRed(n: number): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

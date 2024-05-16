@@ -9,6 +9,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2376. Count Special Integers](https://leetcode.com/problems/count-special-integers)
 
 [中文文档](/solution/2300-2399/2376.Count%20Special%20Integers/README.md)
@@ -52,6 +54,8 @@ Some of the integers that are not special are: 22, 114, and 131.</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -206,6 +210,10 @@ func A(m, n int) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -392,4 +400,6 @@ func f(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

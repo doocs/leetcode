@@ -9,6 +9,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [617. Merge Two Binary Trees](https://leetcode.com/problems/merge-two-binary-trees)
 
 [中文文档](/solution/0600-0699/0617.Merge%20Two%20Binary%20Trees/README.md)
@@ -47,6 +49,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -253,4 +257,6 @@ var mergeTrees = function (root1, root2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

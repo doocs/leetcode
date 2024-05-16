@@ -9,6 +9,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1103. Distribute Candies to People](https://leetcode.com/problems/distribute-candies-to-people)
 
 [中文文档](/solution/1100-1199/1103.Distribute%20Candies%20to%20People/README.md)
@@ -59,6 +61,8 @@ On the fourth turn, ans[0] += 4, and the final array is [5,2,3].
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -131,4 +135,6 @@ function distributeCandies(candies: number, num_people: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

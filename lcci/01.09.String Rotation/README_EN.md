@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.09.String%20Rotation/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [01.09. String Rotation](https://leetcode.cn/problems/string-rotation-lcci)
 
 [中文文档](/lcci/01.09.String%20Rotation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two strings, <code>s1</code>&nbsp;and <code>s2</code>, write code to check if <code>s2</code> is a rotation of <code>s1</code> (e.g.,&quot;waterbottle&quot; is a rotation of&quot;erbottlewat&quot;).&nbsp;Can you use&nbsp;only one call to the method that&nbsp;checks if one word is a substring of another?</p>
 
@@ -40,7 +44,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.09.String%20Rotati
 	<li><code><font face="monospace">0 &lt;= s1.length, s1.length &lt;=&nbsp;</font>100000</code></li>
 </ol>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: String Matching
 
@@ -118,4 +126,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

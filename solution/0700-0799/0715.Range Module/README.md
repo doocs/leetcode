@@ -8,13 +8,15 @@ tags:
     - 有序集合
 ---
 
+<!-- problem:start -->
+
 # [715. Range 模块](https://leetcode.cn/problems/range-module)
 
 [English Version](/solution/0700-0799/0715.Range%20Module/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>Range模块是跟踪数字范围的模块。设计一个数据结构来跟踪表示为 <strong>半开区间</strong> 的范围并查询它们。</p>
 
@@ -58,7 +60,11 @@ rangeModule.queryRange(16, 17); 返回 true （尽管执行了删除操作，区
 	<li>在单个测试用例中，对&nbsp;<code>addRange</code>&nbsp;、&nbsp; <code>queryRange</code>&nbsp;和 <code>removeRange</code> 的调用总数不超过&nbsp;<code>10<sup>4</sup></code>&nbsp;次</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：线段树
 
@@ -638,4 +644,6 @@ class RangeModule {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

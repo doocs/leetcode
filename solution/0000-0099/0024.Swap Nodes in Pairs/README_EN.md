@@ -7,6 +7,8 @@ tags:
     - Linked List
 ---
 
+<!-- problem:start -->
+
 # [24. Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs)
 
 [中文文档](/solution/0000-0099/0024.Swap%20Nodes%20in%20Pairs/README.md)
@@ -46,6 +48,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -261,6 +265,10 @@ end
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Iteration
 
 We set a dummy head node $dummy$, initially pointing to $head$, and then set two pointers $pre$ and $cur$, initially $pre$ points to $dummy$, and $cur$ points to $head$.
@@ -466,4 +474,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

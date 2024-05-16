@@ -9,13 +9,15 @@ tags:
     - 概率与统计
 ---
 
+<!-- problem:start -->
+
 # [837. 新 21 点](https://leetcode.cn/problems/new-21-game)
 
 [English Version](/solution/0800-0899/0837.New%2021%20Game/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>爱丽丝参与一个大致基于纸牌游戏 <strong>“21点”</strong> 规则的游戏，描述如下：</p>
 
@@ -60,7 +62,11 @@ tags:
 	<li><code>1 &lt;= maxPts &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -249,6 +255,10 @@ function new21Game(n: number, k: number, maxPts: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划
 
 我们可以将方法一中的记忆化搜索改成动态规划。
@@ -353,4 +363,6 @@ function new21Game(n: number, k: number, maxPts: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

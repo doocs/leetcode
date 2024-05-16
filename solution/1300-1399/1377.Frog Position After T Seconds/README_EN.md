@@ -11,6 +11,8 @@ tags:
     - Graph
 ---
 
+<!-- problem:start -->
+
 # [1377. Frog Position After T Seconds](https://leetcode.com/problems/frog-position-after-t-seconds)
 
 [中文文档](/solution/1300-1399/1377.Frog%20Position%20After%20T%20Seconds/README.md)
@@ -54,6 +56,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: BFS
 
@@ -280,4 +284,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

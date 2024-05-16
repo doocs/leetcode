@@ -7,13 +7,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [319. 灯泡开关](https://leetcode.cn/problems/bulb-switcher)
 
 [English Version](/solution/0300-0399/0319.Bulb%20Switcher/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>初始时有&nbsp;<code>n</code><em> </em>个灯泡处于关闭状态。第一轮，你将会打开所有灯泡。接下来的第二轮，你将会每两个灯泡关闭第二个。</p>
 
@@ -61,7 +63,11 @@ tags:
 	<li><code>0 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学
 
@@ -118,4 +124,6 @@ function bulbSwitch(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

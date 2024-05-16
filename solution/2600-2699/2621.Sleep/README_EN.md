@@ -4,6 +4,8 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2621.Sleep/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2621. Sleep](https://leetcode.com/problems/sleep)
 
 [中文文档](/solution/2600-2699/2621.Sleep/README.md)
@@ -42,6 +44,8 @@ sleep(100).then(() =&gt; {
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -59,4 +63,6 @@ async function sleep(millis: number): Promise<void> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

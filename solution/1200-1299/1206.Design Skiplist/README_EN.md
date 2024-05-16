@@ -7,6 +7,8 @@ tags:
     - Linked List
 ---
 
+<!-- problem:start -->
+
 # [1206. Design Skiplist](https://leetcode.com/problems/design-skiplist)
 
 [中文文档](/solution/1200-1299/1206.Design%20Skiplist/README.md)
@@ -68,6 +70,8 @@ skiplist.search(1); // return False, 1 has already been erased.</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -407,4 +411,6 @@ func randomLevel() int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

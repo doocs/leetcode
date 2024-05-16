@@ -9,6 +9,8 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [2941. Maximum GCD-Sum of a Subarray 🔒](https://leetcode.com/problems/maximum-gcd-sum-of-a-subarray)
 
 [中文文档](/solution/2900-2999/2941.Maximum%20GCD-Sum%20of%20a%20Subarray/README.md)
@@ -55,6 +57,8 @@ It can be shown that we can not select any other subarray with a gcd-sum greater
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -228,6 +232,10 @@ function gcd(a: number, b: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -270,4 +278,6 @@ function gcd(a: number, b: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

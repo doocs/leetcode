@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [2173. 最多连胜的次数 🔒](https://leetcode.cn/problems/longest-winning-streak)
 
 [English Version](/solution/2100-2199/2173.Longest%20Winning%20Streak/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Matches</code></p>
 
@@ -85,7 +87,11 @@ Player 3:
 
 <p><strong>进阶:</strong> 如果我们想计算最长的连续不输的次数（即获胜或平局），你将如何调整？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -118,4 +124,6 @@ GROUP BY player_id;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,6 +8,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [649. Dota2 Senate](https://leetcode.com/problems/dota2-senate)
 
 [中文文档](/solution/0600-0699/0649.Dota2%20Senate/README.md)
@@ -63,6 +65,8 @@ And in round 2, the third senator can just announce the victory since he is the 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -234,4 +238,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

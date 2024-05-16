@@ -9,6 +9,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [2174. Remove All Ones With Row and Column Flips II 🔒](https://leetcode.com/problems/remove-all-ones-with-row-and-column-flips-ii)
 
 [中文文档](/solution/2100-2199/2174.Remove%20All%20Ones%20With%20Row%20and%20Column%20Flips%20II/README.md)
@@ -72,6 +74,8 @@ There are no 1&#39;s to remove so return 0.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -241,4 +245,6 @@ func removeOnes(grid [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

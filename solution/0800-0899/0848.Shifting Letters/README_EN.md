@@ -8,6 +8,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [848. Shifting Letters](https://leetcode.com/problems/shifting-letters)
 
 [中文文档](/solution/0800-0899/0848.Shifting%20Letters/README.md)
@@ -56,6 +58,8 @@ After shifting the first 3 letters of s by 9, we have &quot;rpl&quot;, the answe
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -142,4 +146,6 @@ func shiftingLetters(s string, shifts []int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

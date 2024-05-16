@@ -12,6 +12,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1912. Design Movie Rental System](https://leetcode.com/problems/design-movie-rental-system)
 
 [中文文档](/solution/1900-1999/1912.Design%20Movie%20Rental%20System/README.md)
@@ -77,6 +79,8 @@ movieRentingSystem.search(2);  // return [0, 1]. Movies of ID 2 are unrented at 
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -121,4 +125,6 @@ class MovieRentingSystem:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

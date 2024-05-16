@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.08.Permutation%20II/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [08.08. Permutation II](https://leetcode.cn/problems/permutation-ii-lcci)
 
 [中文文档](/lcci/08.08.Permutation%20II/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write a method to compute all permutations of a string whose charac&shy; ters are not necessarily unique. The list of permutations should not have duplicates.</p>
 <p><strong>Example1:</strong></p>
@@ -33,7 +37,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.08.Permutation%20I
 	<li><code>1 &lt;= S.length &lt;= 9</code></li>
 </ol>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Backtracking
 
@@ -269,4 +277,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

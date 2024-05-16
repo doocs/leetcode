@@ -13,6 +13,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1261. Find Elements in a Contaminated Binary Tree](https://leetcode.com/problems/find-elements-in-a-contaminated-binary-tree)
 
 [中文文档](/solution/1200-1299/1261.Find%20Elements%20in%20a%20Contaminated%20Binary%20Tree/README.md)
@@ -92,6 +94,8 @@ findElements.find(5); // return True
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS + Hash Table
 
@@ -318,4 +322,6 @@ class FindElements {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

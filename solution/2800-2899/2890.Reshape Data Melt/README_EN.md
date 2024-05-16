@@ -4,6 +4,8 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2890.Reshape%20Data%20Melt/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2890. Reshape Data Melt](https://leetcode.com/problems/reshape-data-melt)
 
 [中文文档](/solution/2800-2899/2890.Reshape%20Data%20Melt/README.md)
@@ -57,6 +59,8 @@ The DataFrame is reshaped from wide to long format. Each row represents the sale
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -71,4 +75,6 @@ def meltTable(report: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

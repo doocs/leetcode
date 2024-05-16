@@ -9,6 +9,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [888. Fair Candy Swap](https://leetcode.com/problems/fair-candy-swap)
 
 [中文文档](/solution/0800-0899/0888.Fair%20Candy%20Swap/README.md)
@@ -54,6 +56,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -131,4 +135,6 @@ function fairCandySwap(aliceSizes: number[], bobSizes: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1126. Active Businesses 🔒](https://leetcode.com/problems/active-businesses)
 
 [中文文档](/solution/1100-1199/1126.Active%20Businesses/README.md)
@@ -69,6 +71,8 @@ The business with id=1 has 7 &#39;reviews&#39; events (more than 5) and 11 &#39;
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -93,6 +97,10 @@ HAVING COUNT(1) > 1;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -115,4 +123,6 @@ HAVING COUNT(1) > 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

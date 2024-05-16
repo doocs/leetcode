@@ -9,6 +9,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [355. Design Twitter](https://leetcode.com/problems/design-twitter)
 
 [中文文档](/solution/0300-0399/0355.Design%20Twitter/README.md)
@@ -59,6 +61,8 @@ twitter.getNewsFeed(1);  // User 1&#39;s news feed should return a list with 1 t
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -187,4 +191,6 @@ class Twitter {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

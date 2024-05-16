@@ -11,6 +11,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1727. Largest Submatrix With Rearrangements](https://leetcode.com/problems/largest-submatrix-with-rearrangements)
 
 [中文文档](/solution/1700-1799/1727.Largest%20Submatrix%20With%20Rearrangements/README.md)
@@ -59,6 +61,8 @@ The largest submatrix of 1s, in bold, has an area of 3.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Preprocessing + Sorting
 
@@ -199,4 +203,6 @@ function largestSubmatrix(matrix: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

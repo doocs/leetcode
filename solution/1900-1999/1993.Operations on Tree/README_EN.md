@@ -13,6 +13,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [1993. Operations on Tree](https://leetcode.com/problems/operations-on-tree)
 
 [中文文档](/solution/1900-1999/1993.Operations%20on%20Tree/README.md)
@@ -84,6 +86,8 @@ lockingTree.lock(0, 1); // return false because node 0 is already locked.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -424,4 +428,6 @@ class LockingTree {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

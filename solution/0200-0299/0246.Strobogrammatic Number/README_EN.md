@@ -8,6 +8,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [246. Strobogrammatic Number 🔒](https://leetcode.com/problems/strobogrammatic-number)
 
 [中文文档](/solution/0200-0299/0246.Strobogrammatic%20Number/README.md)
@@ -50,6 +52,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers Simulation
 
@@ -120,4 +124,6 @@ func isStrobogrammatic(num string) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

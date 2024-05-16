@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1841. League Statistics 🔒](https://leetcode.com/problems/league-statistics)
 
 [中文文档](/solution/1800-1899/1841.League%20Statistics/README.md)
@@ -103,6 +105,8 @@ Dortmund is the first team in the table. Ajax and Arsenal have the same points, 
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -149,4 +153,6 @@ ORDER BY points DESC, goal_diff DESC, team_name;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

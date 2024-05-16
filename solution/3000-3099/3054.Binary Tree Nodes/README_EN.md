@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [3054. Binary Tree Nodes 🔒](https://leetcode.com/problems/binary-tree-nodes)
 
 [中文文档](/solution/3000-3099/3054.Binary%20Tree%20Nodes/README.md)
@@ -74,6 +76,8 @@ Tree table:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Left Join
 
 If a node's parent is null, then it is a root node; if a node is not the parent of any node, then it is a leaf node; otherwise, it is an internal node.
@@ -95,4 +99,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,6 +10,8 @@ tags:
     - String Matching
 ---
 
+<!-- problem:start -->
+
 # [1397. Find All Good Strings](https://leetcode.com/problems/find-all-good-strings)
 
 [中文文档](/solution/1300-1399/1397.Find%20All%20Good%20Strings/README.md)
@@ -58,4 +60,30 @@ tags:
 
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+```python
+
+```
+
+```java
+
+```
+
+```cpp
+
+```
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

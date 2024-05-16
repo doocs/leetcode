@@ -8,6 +8,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2548. Maximum Price to Fill a Bag 🔒](https://leetcode.com/problems/maximum-price-to-fill-a-bag)
 
 [中文文档](/solution/2500-2599/2548.Maximum%20Price%20to%20Fill%20a%20Bag/README.md)
@@ -60,6 +62,8 @@ It can be proved that 55.0 is the maximum total price that we can achieve.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
 
@@ -146,4 +150,6 @@ function maxPrice(items: number[][], capacity: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

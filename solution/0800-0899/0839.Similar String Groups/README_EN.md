@@ -11,6 +11,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [839. Similar String Groups](https://leetcode.com/problems/similar-string-groups)
 
 [中文文档](/solution/0800-0899/0839.Similar%20String%20Groups/README.md)
@@ -51,6 +53,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -196,4 +200,6 @@ func numSimilarGroups(strs []string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

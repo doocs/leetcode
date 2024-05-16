@@ -10,6 +10,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2955. Number of Same-End Substrings 🔒](https://leetcode.com/problems/number-of-same-end-substrings)
 
 [中文文档](/solution/2900-2999/2955.Number%20of%20Same-End%20Substrings/README.md)
@@ -57,6 +59,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Enumeration
 
@@ -219,4 +223,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

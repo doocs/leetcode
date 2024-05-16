@@ -10,6 +10,8 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [2539. Count the Number of Good Subsequences 🔒](https://leetcode.com/problems/count-the-number-of-good-subsequences)
 
 [中文文档](/solution/2500-2599/2539.Count%20the%20Number%20of%20Good%20Subsequences/README.md)
@@ -55,6 +57,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -248,4 +252,6 @@ func countGoodSubsequences(s string) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

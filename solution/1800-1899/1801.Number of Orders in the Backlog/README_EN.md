@@ -10,6 +10,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1801. Number of Orders in the Backlog](https://leetcode.com/problems/number-of-orders-in-the-backlog)
 
 [中文文档](/solution/1800-1899/1801.Number%20of%20Orders%20in%20the%20Backlog/README.md)
@@ -107,6 +109,8 @@ Finally, the backlog has (1000000000-3) sell orders with price 7, and (999999995
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Priority Queue (Max-Min Heap) + Simulation
 
@@ -311,4 +315,6 @@ func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

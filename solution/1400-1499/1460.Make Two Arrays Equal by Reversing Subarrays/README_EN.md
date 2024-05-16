@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1460. Make Two Arrays Equal by Reversing Subarrays](https://leetcode.com/problems/make-two-arrays-equal-by-reversing-subarrays)
 
 [中文文档](/solution/1400-1499/1460.Make%20Two%20Arrays%20Equal%20by%20Reversing%20Subarrays/README.md)
@@ -60,6 +62,8 @@ There are multiple ways to convert arr to target, this is not the only way to do
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting
 
@@ -158,6 +162,10 @@ bool canBeEqual(int* target, int targetSize, int* arr, int arrSize) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Counting
 
 We note that the range of the array elements given in the problem is $1 \sim 1000$. Therefore, we can use two arrays `cnt1` and `cnt2` of length $1001$ to record the number of times each element appears in the arrays `target` and `arr` respectively. Finally, we just need to check if the two arrays are equal.
@@ -249,4 +257,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

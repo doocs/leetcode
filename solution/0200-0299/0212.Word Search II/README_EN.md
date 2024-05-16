@@ -10,6 +10,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [212. Word Search II](https://leetcode.com/problems/word-search-ii)
 
 [中文文档](/solution/0200-0299/0212.Word%20Search%20II/README.md)
@@ -50,6 +52,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -350,4 +354,6 @@ function findWords(board: string[][], words: string[]): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

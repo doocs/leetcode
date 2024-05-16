@@ -8,6 +8,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2490. Circular Sentence](https://leetcode.com/problems/circular-sentence)
 
 [中文文档](/solution/2400-2499/2490.Circular%20Sentence/README.md)
@@ -75,6 +77,8 @@ The sentence is <strong>not</strong> circular.</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -192,6 +196,10 @@ var isCircularSentence = function (sentence) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Simulation (Space Optimization)
 
@@ -316,4 +324,6 @@ var isCircularSentence = function (s) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

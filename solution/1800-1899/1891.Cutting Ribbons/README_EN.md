@@ -7,6 +7,8 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [1891. Cutting Ribbons 🔒](https://leetcode.com/problems/cutting-ribbons)
 
 [中文文档](/solution/1800-1899/1891.Cutting%20Ribbons/README.md)
@@ -75,6 +77,8 @@ Now you have 4 ribbons of length 4.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -239,4 +243,6 @@ var maxLength = function (ribbons, k) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,11 +4,13 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2065.%20%E8%88%92%E9%80%82%E7%9A%84%E6%B9%BF%E5%BA%A6/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 65. 舒适的湿度](https://leetcode.cn/problems/3aqs1c)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 力扣嘉年华为了确保更舒适的游览环境条件，在会场的各处设置了湿度调节装置，这些调节装置受控于总控室中的一台控制器。
 控制器中已经预设了一些调节指令，整数数组`operate[i]` 表示第 `i` 条指令增加空气湿度的大小。现在你可以将任意数量的指令修改为降低湿度（变化的数值不变），以确保湿度尽可能的适宜：
@@ -43,6 +45,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2065.%20%E8%88%92%
 -   `1 <= operate.length <= 1000`
 -   `1 <= operate[i] <= 1000`
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

@@ -10,13 +10,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [2384. 最大回文数字](https://leetcode.cn/problems/largest-palindromic-number)
 
 [English Version](/solution/2300-2399/2384.Largest%20Palindromic%20Number/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个仅由数字（<code>0 - 9</code>）组成的字符串 <code>num</code> 。</p>
 
@@ -60,7 +62,11 @@ tags:
 	<li><code>num</code> 由数字（<code>0 - 9</code>）组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：统计 + 贪心
 
@@ -237,4 +243,6 @@ function largestPalindromic(num: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

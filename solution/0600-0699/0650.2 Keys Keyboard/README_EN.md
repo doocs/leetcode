@@ -7,6 +7,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [650. 2 Keys Keyboard](https://leetcode.com/problems/2-keys-keyboard)
 
 [中文文档](/solution/0600-0699/0650.2%20Keys%20Keyboard/README.md)
@@ -49,6 +51,8 @@ In step 3, we use Paste operation to get &#39;AAA&#39;.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -153,6 +157,10 @@ func minSteps(n int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -230,6 +238,10 @@ func minSteps(n int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
@@ -251,4 +263,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -11,6 +11,8 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [638. Shopping Offers](https://leetcode.com/problems/shopping-offers)
 
 [中文文档](/solution/0600-0699/0638.Shopping%20Offers/README.md)
@@ -61,6 +63,8 @@ You cannot add more items, though only $9 for 2A ,2B and 1C.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -187,4 +191,6 @@ func shoppingOffers(price []int, special [][]int, needs []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

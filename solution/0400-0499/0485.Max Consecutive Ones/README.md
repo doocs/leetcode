@@ -6,13 +6,15 @@ tags:
     - 数组
 ---
 
+<!-- problem:start -->
+
 # [485. 最大连续 1 的个数](https://leetcode.cn/problems/max-consecutive-ones)
 
 [English Version](/solution/0400-0499/0485.Max%20Consecutive%20Ones/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个二进制数组 <code>nums</code> ， 计算其中最大连续 <code>1</code> 的个数。</p>
 
@@ -42,7 +44,11 @@ tags:
 	<li><code>nums[i]</code>&nbsp;不是&nbsp;<code>0</code>&nbsp;就是&nbsp;<code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：一次遍历
 
@@ -192,4 +198,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

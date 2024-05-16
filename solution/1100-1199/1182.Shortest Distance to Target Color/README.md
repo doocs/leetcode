@@ -10,13 +10,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [1182. 与目标颜色间的最短距离 🔒](https://leetcode.cn/problems/shortest-distance-to-target-color)
 
 [English Version](/solution/1100-1199/1182.Shortest%20Distance%20to%20Target%20Color/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个数组&nbsp;<code>colors</code>，里面有&nbsp;&nbsp;<code>1</code>、<code>2</code>、&nbsp;<code>3</code> 三种颜色。</p>
 
@@ -58,7 +60,11 @@ tags:
 	<li><code>1 &lt;= queries[i][1] &lt;= 3</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：预处理
 
@@ -223,4 +229,6 @@ function shortestDistanceColor(colors: number[], queries: number[][]): number[] 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

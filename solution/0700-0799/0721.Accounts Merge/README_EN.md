@@ -12,6 +12,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [721. Accounts Merge](https://leetcode.com/problems/accounts-merge)
 
 [中文文档](/solution/0700-0799/0721.Accounts%20Merge/README.md)
@@ -56,6 +58,8 @@ We could return these lists in any order, for example the answer [[&#39;Mary&#39
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -194,4 +198,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

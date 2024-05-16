@@ -10,6 +10,8 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [2498. Frog Jump II](https://leetcode.com/problems/frog-jump-ii)
 
 [中文文档](/solution/2400-2499/2498.Frog%20Jump%20II/README.md)
@@ -64,6 +66,8 @@ It can be shown that this is the minimum achievable cost.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -112,4 +116,6 @@ func maxJump(stones []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

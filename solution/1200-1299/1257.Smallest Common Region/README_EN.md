@@ -13,6 +13,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1257. Smallest Common Region 🔒](https://leetcode.com/problems/smallest-common-region)
 
 [中文文档](/solution/1200-1299/1257.Smallest%20Common%20Region/README.md)
@@ -63,6 +65,8 @@ region2 = &quot;New York&quot;
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -160,4 +164,6 @@ func findSmallestRegion(regions [][]string, region1 string, region2 string) stri
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,6 +9,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2015. Average Height of Buildings in Each Segment 🔒](https://leetcode.com/problems/average-height-of-buildings-in-each-segment)
 
 [中文文档](/solution/2000-2099/2015.Average%20Height%20of%20Buildings%20in%20Each%20Segment/README.md)
@@ -86,6 +88,8 @@ We cannot group the segments together because an empty space with no buildings s
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Differential Ordered Hash Table
 
@@ -226,4 +230,6 @@ func averageHeightOfBuildings(buildings [][]int) [][]int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

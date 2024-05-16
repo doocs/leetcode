@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1875. Group Employees of the Same Salary 🔒](https://leetcode.com/problems/group-employees-of-the-same-salary)
 
 [中文文档](/solution/1800-1899/1875.Group%20Employees%20of%20the%20Same%20Salary/README.md)
@@ -80,6 +82,8 @@ Juan&#39;s salary of 6100 is not included in the ranking because they are not on
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -106,4 +110,6 @@ ORDER BY 4, 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

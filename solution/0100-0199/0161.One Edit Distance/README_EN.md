@@ -7,6 +7,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [161. One Edit Distance 🔒](https://leetcode.com/problems/one-edit-distance)
 
 [中文文档](/solution/0100-0199/0161.One%20Edit%20Distance/README.md)
@@ -49,6 +51,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Discuss Different Cases
 
@@ -163,4 +167,6 @@ function isOneEditDistance(s: string, t: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

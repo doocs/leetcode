@@ -7,13 +7,15 @@ tags:
     - 数学
 ---
 
+<!-- problem:start -->
+
 # [593. 有效的正方形](https://leetcode.cn/problems/valid-square)
 
 [English Version](/solution/0500-0599/0593.Valid%20Square/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定2D空间中四个点的坐标&nbsp;<code>p1</code>,&nbsp;<code>p2</code>,&nbsp;<code>p3</code>&nbsp;和&nbsp;<code>p4</code>，如果这四个点构成一个正方形，则返回 <code>true</code> 。</p>
 
@@ -53,7 +55,11 @@ tags:
 	<li><code>-10<sup>4</sup>&nbsp;&lt;= x<sub>i</sub>, y<sub>i</sub>&nbsp;&lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学
 
@@ -164,4 +170,6 @@ func validSquare(p1 []int, p2 []int, p3 []int, p4 []int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

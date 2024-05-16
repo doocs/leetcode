@@ -10,6 +10,8 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [3137. Minimum Number of Operations to Make Word K-Periodic](https://leetcode.com/problems/minimum-number-of-operations-to-make-word-k-periodic)
 
 [中文文档](/solution/3100-3199/3137.Minimum%20Number%20of%20Operations%20to%20Make%20Word%20K-Periodic/README.md)
@@ -102,6 +104,8 @@ font-size: 0.85rem;
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Counting
 
 We can divide the string `word` into substrings of length $k$, then count the occurrence of each substring, and finally return $n/k$ minus the count of the most frequently occurring substring.
@@ -176,4 +180,6 @@ function minimumOperationsToMakeKPeriodic(word: string, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,6 +10,8 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [975. Odd Even Jump](https://leetcode.com/problems/odd-even-jump)
 
 [中文文档](/solution/0900-0999/0975.Odd%20Even%20Jump/README.md)
@@ -82,6 +84,8 @@ number of jumps.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -234,4 +238,6 @@ func oddEvenJumps(arr []int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

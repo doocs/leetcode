@@ -14,6 +14,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1214. Two Sum BSTs 🔒](https://leetcode.com/problems/two-sum-bsts)
 
 [中文文档](/solution/1200-1299/1214.Two%20Sum%20BSTs/README.md)
@@ -47,6 +49,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: In-order Traversal + Two Pointers
 
@@ -271,4 +275,6 @@ function twoSumBSTs(root1: TreeNode | null, root2: TreeNode | null, target: numb
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

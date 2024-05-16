@@ -10,13 +10,15 @@ tags:
     - 随机化
 ---
 
+<!-- problem:start -->
+
 # [380. O(1) 时间插入、删除和获取随机元素](https://leetcode.cn/problems/insert-delete-getrandom-o1)
 
 [English Version](/solution/0300-0399/0380.Insert%20Delete%20GetRandom%20O%281%29/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>实现<code>RandomizedSet</code> 类：</p>
 
@@ -65,7 +67,11 @@ randomizedSet.getRandom(); // 由于 2 是集合中唯一的数字，getRandom �
 </div>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 动态列表
 
@@ -376,4 +382,6 @@ public class RandomizedSet {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

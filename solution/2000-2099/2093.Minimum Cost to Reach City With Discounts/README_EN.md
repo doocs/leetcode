@@ -8,6 +8,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2093. Minimum Cost to Reach City With Discounts 🔒](https://leetcode.com/problems/minimum-cost-to-reach-city-with-discounts)
 
 [中文文档](/solution/2000-2099/2093.Minimum%20Cost%20to%20Reach%20City%20With%20Discounts/README.md)
@@ -71,6 +73,8 @@ It is impossible to go from 0 to 3 so return -1.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -169,4 +173,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

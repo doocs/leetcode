@@ -9,6 +9,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1389. Create Target Array in the Given Order](https://leetcode.com/problems/create-target-array-in-the-given-order)
 
 [中文文档](/solution/1300-1399/1389.Create%20Target%20Array%20in%20the%20Given%20Order/README.md)
@@ -74,6 +76,8 @@ nums       index     target
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -146,4 +150,6 @@ function createTargetArray(nums: number[], index: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

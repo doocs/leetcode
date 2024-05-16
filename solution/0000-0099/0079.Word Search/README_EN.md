@@ -9,6 +9,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [79. Word Search](https://leetcode.com/problems/word-search)
 
 [中文文档](/solution/0000-0099/0079.Word%20Search/README.md)
@@ -56,6 +58,8 @@ tags:
 <p><strong>Follow up:</strong> Could you use search pruning to make your solution faster with a larger <code>board</code>?</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS (Backtracking)
 
@@ -345,4 +349,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

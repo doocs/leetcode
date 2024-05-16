@@ -6,6 +6,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [2235. Add Two Integers](https://leetcode.com/problems/add-two-integers)
 
 [中文文档](/solution/2200-2299/2235.Add%20Two%20Integers/README.md)
@@ -39,6 +41,8 @@ Given two integers <code>num1</code> and <code>num2</code>, return <em>the <stro
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -94,6 +98,10 @@ int sum(int num1, int num2) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -175,4 +183,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

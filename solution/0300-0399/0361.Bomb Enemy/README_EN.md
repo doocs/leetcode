@@ -8,6 +8,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [361. Bomb Enemy 🔒](https://leetcode.com/problems/bomb-enemy)
 
 [中文文档](/solution/0300-0399/0361.Bomb%20Enemy/README.md)
@@ -44,6 +46,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -263,4 +267,6 @@ func maxKilledEnemies(grid [][]byte) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

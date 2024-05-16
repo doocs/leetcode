@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2199. Finding the Topic of Each Post 🔒](https://leetcode.com/problems/finding-the-topic-of-each-post)
 
 [中文文档](/solution/2100-2199/2199.Finding%20the%20Topic%20of%20Each%20Post/README.md)
@@ -110,6 +112,8 @@ Note that it is okay to have one word that expresses more than one topic.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -127,4 +131,6 @@ GROUP BY post_id;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,6 +7,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [761. Special Binary String](https://leetcode.com/problems/special-binary-string)
 
 [中文文档](/solution/0700-0799/0761.Special%20Binary%20String/README.md)
@@ -53,6 +55,8 @@ This is the lexicographically largest string possible after some number of swaps
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -143,4 +147,6 @@ func makeLargestSpecial(s string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

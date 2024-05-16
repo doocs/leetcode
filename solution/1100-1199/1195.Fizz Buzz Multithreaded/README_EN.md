@@ -6,6 +6,8 @@ tags:
     - Concurrency
 ---
 
+<!-- problem:start -->
+
 # [1195. Fizz Buzz Multithreaded](https://leetcode.com/problems/fizz-buzz-multithreaded)
 
 [中文文档](/solution/1100-1199/1195.Fizz%20Buzz%20Multithreaded/README.md)
@@ -65,6 +67,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -192,4 +196,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

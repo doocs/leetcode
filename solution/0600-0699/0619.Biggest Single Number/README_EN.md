@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [619. Biggest Single Number](https://leetcode.com/problems/biggest-single-number)
 
 [中文文档](/solution/0600-0699/0619.Biggest%20Single%20Number/README.md)
@@ -87,6 +89,8 @@ MyNumbers table:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Grouping and Subquery
 
 We can first group the `MyNumbers` table by `num` and count the number of occurrences of each number. Then, we can use a subquery to find the maximum number among the numbers that appear only once.
@@ -106,6 +110,10 @@ FROM
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Grouping and `CASE` Expression
 
@@ -128,4 +136,6 @@ LIMIT 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

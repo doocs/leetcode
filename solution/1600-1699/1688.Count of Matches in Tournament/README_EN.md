@@ -9,6 +9,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1688. Count of Matches in Tournament](https://leetcode.com/problems/count-of-matches-in-tournament)
 
 [中文文档](/solution/1600-1699/1688.Count%20of%20Matches%20in%20Tournament/README.md)
@@ -58,6 +60,8 @@ Total number of matches = 7 + 3 + 2 + 1 = 13.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Quick Thinking
 
@@ -114,4 +118,6 @@ var numberOfMatches = function (n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

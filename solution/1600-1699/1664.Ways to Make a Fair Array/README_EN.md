@@ -9,6 +9,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1664. Ways to Make a Fair Array](https://leetcode.com/problems/ways-to-make-a-fair-array)
 
 [中文文档](/solution/1600-1699/1664.Ways%20to%20Make%20a%20Fair%20Array/README.md)
@@ -68,6 +70,8 @@ There is 1 index that you can remove to make nums fair.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration + Prefix Sum
 
@@ -203,4 +207,6 @@ var waysToMakeFair = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

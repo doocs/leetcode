@@ -9,13 +9,15 @@ tags:
     - 状态压缩
 ---
 
+<!-- problem:start -->
+
 # [2403. 杀死所有怪物的最短时间 🔒](https://leetcode.cn/problems/minimum-time-to-kill-all-monsters)
 
 [English Version](/solution/2400-2499/2403.Minimum%20Time%20to%20Kill%20All%20Monsters/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你有一个整数数组 <code>power</code>，其中&nbsp; <code>power[i]</code> 是第 <code>i</code> 个怪物的力量。</p>
 
@@ -86,7 +88,11 @@ tags:
 	<li><code>1 &lt;= power[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：状态压缩 + 记忆化搜索或动态规划
 
@@ -250,6 +256,10 @@ function bitCount(x) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -357,4 +367,6 @@ function bitCount(x) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

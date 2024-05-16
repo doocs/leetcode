@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1710. Maximum Units on a Truck](https://leetcode.com/problems/maximum-units-on-a-truck)
 
 [中文文档](/solution/1700-1799/1710.Maximum%20Units%20on%20a%20Truck/README.md)
@@ -58,6 +60,8 @@ The total number of units will be = (1 * 3) + (2 * 2) + (1 * 1) = 8.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
 
@@ -171,6 +175,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Counting Sort
 
 We can also use the idea of counting sort, create an array $cnt$ of length $1001$, where $cnt[b]$ represents the number of boxes with $b$ units.
@@ -279,4 +287,6 @@ function maximumUnits(boxTypes: number[][], truckSize: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

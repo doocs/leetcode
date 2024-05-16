@@ -10,6 +10,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2017. Grid Game](https://leetcode.com/problems/grid-game)
 
 [中文文档](/solution/2000-2099/2017.Grid%20Game/README.md)
@@ -66,6 +68,8 @@ The second robot will collect 0 + 1 + 3 + 3 + 0 = 7 points.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum
 
@@ -164,4 +168,6 @@ function gridGame(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

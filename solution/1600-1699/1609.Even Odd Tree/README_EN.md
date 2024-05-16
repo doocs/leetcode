@@ -10,6 +10,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1609. Even Odd Tree](https://leetcode.com/problems/even-odd-tree)
 
 [中文文档](/solution/1600-1699/1609.Even%20Odd%20Tree/README.md)
@@ -69,6 +71,8 @@ Node values in level 2 must be in strictly increasing order, so the tree is not 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: BFS
 
@@ -237,6 +241,10 @@ func isEvenOddTree(root *TreeNode) bool {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: DFS
 
 DFS performs a pre-order traversal of the binary tree, and similarly judges whether it meets the conditions based on the parity of the layer where the node is located. During the traversal, a hash table is used to record the node value that was most recently visited at each layer.
@@ -389,4 +397,6 @@ func isEvenOddTree(root *TreeNode) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

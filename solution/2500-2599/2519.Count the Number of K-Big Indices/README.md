@@ -12,13 +12,15 @@ tags:
     - 归并排序
 ---
 
+<!-- problem:start -->
+
 # [2519. 统计 K-Big 索引的数量 🔒](https://leetcode.cn/problems/count-the-number-of-k-big-indices)
 
 [English Version](/solution/2500-2599/2519.Count%20the%20Number%20of%20K-Big%20Indices/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个 <strong>下标从0开始</strong> 的整数数组 <code>nums</code> 和一个正整数 <code>k</code> 。</p>
 
@@ -59,7 +61,11 @@ tags:
 	<li><code>1 &lt;= nums[i], k &lt;= nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：树状数组
 
@@ -248,4 +254,6 @@ func kBigIndices(nums []int, k int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

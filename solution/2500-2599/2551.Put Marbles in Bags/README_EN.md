@@ -11,6 +11,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2551. Put Marbles in Bags](https://leetcode.com/problems/put-marbles-in-bags)
 
 [中文文档](/solution/2500-2599/2551.Put%20Marbles%20in%20Bags/README.md)
@@ -61,6 +63,8 @@ Since both the maximal and minimal score are the same, we return 0.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Problem Transformation + Sorting
 
@@ -151,4 +155,6 @@ function putMarbles(weights: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

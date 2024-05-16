@@ -9,6 +9,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1109. Corporate Flight Bookings](https://leetcode.com/problems/corporate-flight-bookings)
 
 [中文文档](/solution/1100-1199/1109.Corporate%20Flight%20Bookings/README.md)
@@ -62,6 +64,8 @@ Hence, answer = [10,25]
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Difference Array
 
@@ -185,6 +189,10 @@ var corpFlightBookings = function (bookings, n) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Binary Indexed Tree + Difference Idea
 
@@ -365,4 +373,6 @@ func corpFlightBookings(bookings [][]int, n int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

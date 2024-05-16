@@ -11,6 +11,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1122. Relative Sort Array](https://leetcode.com/problems/relative-sort-array)
 
 [中文文档](/solution/1100-1199/1122.Relative%20Sort%20Array/README.md)
@@ -47,6 +49,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Custom Sorting
 
@@ -147,4 +151,6 @@ function relativeSortArray(arr1: number[], arr2: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

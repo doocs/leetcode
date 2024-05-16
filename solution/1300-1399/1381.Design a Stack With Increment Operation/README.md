@@ -10,13 +10,15 @@ tags:
     - 数组
 ---
 
+<!-- problem:start -->
+
 # [1381. 设计一个支持增量操作的栈](https://leetcode.cn/problems/design-a-stack-with-increment-operation)
 
 [English Version](/solution/1300-1399/1381.Design%20a%20Stack%20With%20Increment%20Operation/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你设计一个支持对其元素进行增量操作的栈。</p>
 
@@ -65,7 +67,11 @@ stk.pop();                            // 返回 -1 --&gt; 栈为空，返回 -1
 	<li>每种方法 <code>increment</code>，<code>push</code> 以及 <code>pop</code> 分别最多调用 <code>1000</code> 次</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数组模拟
 
@@ -303,4 +309,6 @@ class CustomStack {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,6 +9,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [112. Path Sum](https://leetcode.com/problems/path-sum)
 
 [中文文档](/solution/0100-0199/0112.Path%20Sum/README.md)
@@ -57,6 +59,8 @@ There is no root-to-leaf path with sum = 5.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -265,4 +269,6 @@ var hasPathSum = function (root, targetSum) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

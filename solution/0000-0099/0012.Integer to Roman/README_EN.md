@@ -8,6 +8,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [12. Integer to Roman](https://leetcode.com/problems/integer-to-roman)
 
 [中文文档](/solution/0000-0099/0012.Integer%20to%20Roman/README.md)
@@ -124,6 +126,8 @@ Note: 49 is not 1 (I) less of 50 (L) because the conversion is based on decimal 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy
 
@@ -269,4 +273,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,6 +6,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [293. Flip Game 🔒](https://leetcode.com/problems/flip-game)
 
 [中文文档](/solution/0200-0299/0293.Flip%20Game/README.md)
@@ -42,6 +44,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Traversal + Simulation
 
@@ -133,4 +137,6 @@ function generatePossibleNextMoves(currentState: string): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,13 +9,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [1428. 至少有一个 1 的最左端列 🔒](https://leetcode.cn/problems/leftmost-column-with-at-least-a-one)
 
 [English Version](/solution/1400-1499/1428.Leftmost%20Column%20with%20at%20Least%20a%20One/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><em>（这是一个<strong>交互题</strong>）</em></p>
 
@@ -83,7 +85,11 @@ tags:
 	<li><code>mat[i]</code>&nbsp;已按非递减顺序排序。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -243,6 +249,7 @@ function leftMostColumnWithOne(binaryMatrix: BinaryMatrix) {
 ```
 
 ```rust
+
 /**
  * // This is the BinaryMatrix's API interface.
  * // You should not implement it, or speculate about its implementation
@@ -316,4 +323,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

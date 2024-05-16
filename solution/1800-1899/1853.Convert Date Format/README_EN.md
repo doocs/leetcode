@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1853. Convert Date Format 🔒](https://leetcode.com/problems/convert-date-format)
 
 [中文文档](/solution/1800-1899/1853.Convert%20Date%20Format/README.md)
@@ -57,6 +59,8 @@ Days table:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -68,4 +72,6 @@ SELECT DATE_FORMAT(day, '%W, %M %e, %Y') AS day FROM Days;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

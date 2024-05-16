@@ -13,6 +13,8 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2528. Maximize the Minimum Powered City](https://leetcode.com/problems/maximize-the-minimum-powered-city)
 
 [中文文档](/solution/2500-2599/2528.Maximize%20the%20Minimum%20Powered%20City/README.md)
@@ -74,6 +76,8 @@ It can be proved that we cannot make the minimum power of a city greater than 4.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -323,4 +327,6 @@ function maxPower(stations: number[], r: number, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

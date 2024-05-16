@@ -7,13 +7,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [664. 奇怪的打印机](https://leetcode.cn/problems/strange-printer)
 
 [English Version](/solution/0600-0699/0664.Strange%20Printer/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有台奇怪的打印机有以下两个特殊要求：</p>
 
@@ -50,7 +52,11 @@ tags:
 	<li><code>s</code> 由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -187,4 +193,6 @@ function strangePrinter(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

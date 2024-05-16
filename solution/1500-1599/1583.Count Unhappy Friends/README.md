@@ -9,13 +9,15 @@ tags:
     - 模拟
 ---
 
+<!-- problem:start -->
+
 # [1583. 统计不开心的朋友](https://leetcode.cn/problems/count-unhappy-friends)
 
 [English Version](/solution/1500-1599/1583.Count%20Unhappy%20Friends/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一份 <code>n</code> 位朋友的亲近程度列表，其中 <code>n</code> 总是 <strong>偶数</strong> 。</p>
 
@@ -83,7 +85,11 @@ tags:
 	<li>每位朋友都 <strong>恰好</strong> 被包含在一对中</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数组 + 枚举
 
@@ -214,4 +220,6 @@ func unhappyFriends(n int, preferences [][]int, pairs [][]int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

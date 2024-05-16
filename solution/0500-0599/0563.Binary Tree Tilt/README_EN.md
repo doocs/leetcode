@@ -8,6 +8,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [563. Binary Tree Tilt](https://leetcode.com/problems/binary-tree-tilt)
 
 [中文文档](/solution/0500-0599/0563.Binary%20Tree%20Tilt/README.md)
@@ -62,6 +64,8 @@ Sum of every tilt : 0 + 0 + 0 + 2 + 7 + 6 = 15
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -195,4 +199,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

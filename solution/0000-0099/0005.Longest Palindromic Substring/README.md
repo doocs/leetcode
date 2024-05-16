@@ -8,13 +8,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [5. 最长回文子串](https://leetcode.cn/problems/longest-palindromic-substring)
 
 [English Version](/solution/0000-0099/0005.Longest%20Palindromic%20Substring/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>s</code>，找到 <code>s</code> 中最长的回文<span data-keyword="substring">子串</span>。</p>
 
@@ -46,7 +48,11 @@ tags:
 	<li><code>s</code> 仅由数字和英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -283,6 +289,10 @@ proc longestPalindrome(s: string): string =
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：枚举回文中间点
 
 我们可以枚举回文中间点，向两边扩散，找到最长的回文串。
@@ -458,4 +468,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

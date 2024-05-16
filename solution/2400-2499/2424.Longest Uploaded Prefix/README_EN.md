@@ -14,6 +14,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2424. Longest Uploaded Prefix](https://leetcode.com/problems/longest-uploaded-prefix)
 
 [中文文档](/solution/2400-2499/2424.Longest%20Uploaded%20Prefix/README.md)
@@ -65,6 +67,8 @@ server.longest();                    // The prefix [1,2,3] is the longest upload
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -186,4 +190,6 @@ func (this *LUPrefix) Longest() int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

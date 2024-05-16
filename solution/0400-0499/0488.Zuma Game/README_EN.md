@@ -10,6 +10,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [488. Zuma Game](https://leetcode.com/problems/zuma-game)
 
 [中文文档](/solution/0400-0499/0488.Zuma%20Game/README.md)
@@ -79,6 +81,8 @@ There are still balls remaining on the board, and you are out of balls to insert
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -280,4 +284,6 @@ record Zuma(long board, long hand) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

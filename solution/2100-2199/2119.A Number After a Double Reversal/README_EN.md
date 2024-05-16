@@ -8,6 +8,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [2119. A Number After a Double Reversal](https://leetcode.com/problems/a-number-after-a-double-reversal)
 
 [中文文档](/solution/2100-2199/2119.A%20Number%20After%20a%20Double%20Reversal/README.md)
@@ -56,6 +58,8 @@ tags:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -91,4 +95,6 @@ func isSameAfterReversals(num int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

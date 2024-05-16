@@ -8,13 +8,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [1901. 寻找峰值 II](https://leetcode.cn/problems/find-a-peak-element-ii)
 
 [English Version](/solution/1900-1999/1901.Find%20a%20Peak%20Element%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一个 2D 网格中的 <strong>峰值</strong><strong> </strong>是指那些 <strong>严格大于 </strong>其相邻格子(上、下、左、右)的元素。</p>
 
@@ -60,7 +62,11 @@ tags:
 	<li>任意两个相邻元素均不相等.</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -218,4 +224,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

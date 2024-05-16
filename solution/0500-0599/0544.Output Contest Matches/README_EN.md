@@ -8,6 +8,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [544. Output Contest Matches 🔒](https://leetcode.com/problems/output-contest-matches)
 
 [中文文档](/solution/0500-0599/0544.Output%20Contest%20Matches/README.md)
@@ -55,6 +57,8 @@ Since the third round will generate the final winner, you need to output the ans
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -122,4 +126,6 @@ func findContestMatch(n int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

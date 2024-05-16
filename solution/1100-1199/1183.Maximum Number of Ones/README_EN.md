@@ -9,6 +9,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1183. Maximum Number of Ones 🔒](https://leetcode.com/problems/maximum-number-of-ones)
 
 [中文文档](/solution/1100-1199/1183.Maximum%20Number%20of%20Ones/README.md)
@@ -54,6 +56,8 @@ The best solution that has 4 ones is:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Count Equivalent Positions
 
@@ -166,4 +170,6 @@ var maximumNumberOfOnes = function (width, height, sideLength, maxOnes) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

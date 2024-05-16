@@ -8,6 +8,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1694. Reformat Phone Number](https://leetcode.com/problems/reformat-phone-number)
 
 [中文文档](/solution/1600-1699/1694.Reformat%20Phone%20Number/README.md)
@@ -73,6 +75,8 @@ Joining the blocks gives &quot;123-456-78&quot;.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simple Simulation
 
@@ -211,4 +215,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

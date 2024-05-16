@@ -7,13 +7,15 @@ tags:
     - 链表
 ---
 
+<!-- problem:start -->
+
 # [206. 反转链表](https://leetcode.cn/problems/reverse-linked-list)
 
 [English Version](/solution/0200-0299/0206.Reverse%20Linked%20List/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 给你单链表的头节点 <code>head</code> ，请你反转链表，并返回反转后的链表。
 
@@ -57,7 +59,11 @@ tags:
 </div>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：头插法
 
@@ -272,6 +278,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：递归
 
 递归反转链表的第二个节点到尾部的所有节点，然后 $head$ 插在反转后的链表的尾部。
@@ -430,4 +440,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

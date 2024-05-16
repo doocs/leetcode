@@ -14,6 +14,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1202. Smallest String With Swaps](https://leetcode.com/problems/smallest-string-with-swaps)
 
 [中文文档](/solution/1200-1299/1202.Smallest%20String%20With%20Swaps/README.md)
@@ -69,6 +71,8 @@ Swap s[0] and s[1], s = &quot;abc&quot;
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Union-Find
 
@@ -298,4 +302,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

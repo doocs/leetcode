@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [601. Human Traffic of Stadium](https://leetcode.com/problems/human-traffic-of-stadium)
 
 [中文文档](/solution/0600-0699/0601.Human%20Traffic%20of%20Stadium/README.md)
@@ -69,6 +71,8 @@ The rows with ids 2 and 3 are not included because we need at least three consec
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -92,4 +96,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

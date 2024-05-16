@@ -10,6 +10,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2864. Maximum Odd Binary Number](https://leetcode.com/problems/maximum-odd-binary-number)
 
 [中文文档](/solution/2800-2899/2864.Maximum%20Odd%20Binary%20Number/README.md)
@@ -51,6 +53,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy
 
@@ -114,4 +118,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

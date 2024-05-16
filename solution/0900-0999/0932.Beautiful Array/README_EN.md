@@ -8,6 +8,8 @@ tags:
     - Divide and Conquer
 ---
 
+<!-- problem:start -->
+
 # [932. Beautiful Array](https://leetcode.com/problems/beautiful-array)
 
 [中文文档](/solution/0900-0999/0932.Beautiful%20Array/README.md)
@@ -39,6 +41,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -113,4 +117,6 @@ func beautifulArray(n int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

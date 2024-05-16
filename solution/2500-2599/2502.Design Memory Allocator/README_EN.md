@@ -11,6 +11,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2502. Design Memory Allocator](https://leetcode.com/problems/design-memory-allocator)
 
 [中文文档](/solution/2500-2599/2502.Design%20Memory%20Allocator/README.md)
@@ -74,6 +76,8 @@ loc.free(7); // Free all memory units with mID 7. The memory array remains the s
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -247,6 +251,10 @@ func (this *Allocator) Free(mID int) (ans int) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -432,4 +440,6 @@ func (this *Allocator) Free(mID int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

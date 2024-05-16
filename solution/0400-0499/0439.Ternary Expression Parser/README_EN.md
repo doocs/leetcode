@@ -8,6 +8,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [439. Ternary Expression Parser 🔒](https://leetcode.com/problems/ternary-expression-parser)
 
 [中文文档](/solution/0400-0499/0439.Ternary%20Expression%20Parser/README.md)
@@ -59,6 +61,8 @@ or &quot;(F ? 1 : (T ? 4 : 5))&quot; --&gt; &quot;(T ? 4 : 5)&quot; --&gt; &quot
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -186,4 +190,6 @@ func parseTernary(expression string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

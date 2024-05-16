@@ -4,6 +4,8 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2622.Cache%20With%20Time%20Limit/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2622. Cache With Time Limit](https://leetcode.com/problems/cache-with-time-limit)
 
 [中文文档](/solution/2600-2699/2622.Cache%20With%20Time%20Limit/README.md)
@@ -73,6 +75,8 @@ At t=250, count() returns 0 because the cache is empty.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -125,4 +129,6 @@ class TimeLimitedCache {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

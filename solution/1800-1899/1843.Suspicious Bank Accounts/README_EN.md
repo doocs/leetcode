@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1843. Suspicious Bank Accounts 🔒](https://leetcode.com/problems/suspicious-bank-accounts)
 
 [中文文档](/solution/1800-1899/1843.Suspicious%20Bank%20Accounts/README.md)
@@ -103,6 +105,8 @@ We can see that the income exceeded the max income in May and July, but not in J
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -133,6 +137,10 @@ ORDER BY s1.tx;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -160,4 +168,6 @@ ORDER BY tx;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -11,6 +11,8 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [2970. Count the Number of Incremovable Subarrays I](https://leetcode.com/problems/count-the-number-of-incremovable-subarrays-i)
 
 [中文文档](/solution/2900-2999/2970.Count%20the%20Number%20of%20Incremovable%20Subarrays%20I/README.md)
@@ -62,6 +64,8 @@ It can be shown that there are only 7 incremovable subarrays in nums.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -213,4 +217,6 @@ function incremovableSubarrayCount(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,6 +9,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [662. Maximum Width of Binary Tree](https://leetcode.com/problems/maximum-width-of-binary-tree)
 
 [中文文档](/solution/0600-0699/0662.Maximum%20Width%20of%20Binary%20Tree/README.md)
@@ -57,6 +59,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -196,6 +200,10 @@ type pair struct {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -334,4 +342,6 @@ func widthOfBinaryTree(root *TreeNode) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

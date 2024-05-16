@@ -4,6 +4,8 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2632.Curry/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2632. Curry 🔒](https://leetcode.com/problems/curry)
 
 [中文文档](/solution/2600-2699/2632.Curry/README.md)
@@ -80,6 +82,8 @@ curriedLife() === 42
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -103,4 +107,6 @@ function curry(fn: Function): Function {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

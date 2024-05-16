@@ -6,6 +6,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [482. License Key Formatting](https://leetcode.com/problems/license-key-formatting)
 
 [中文文档](/solution/0400-0499/0482.License%20Key%20Formatting/README.md)
@@ -46,6 +48,8 @@ Note that the two extra dashes are not needed and can be removed.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -149,4 +153,6 @@ func licenseKeyFormatting(s string, k int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

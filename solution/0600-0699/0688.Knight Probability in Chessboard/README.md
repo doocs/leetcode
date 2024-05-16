@@ -6,13 +6,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [688. 骑士在棋盘上的概率](https://leetcode.cn/problems/knight-probability-in-chessboard)
 
 [English Version](/solution/0600-0699/0688.Knight%20Probability%20in%20Chessboard/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在一个&nbsp;<code>n x n</code>&nbsp;的国际象棋棋盘上，一个骑士从单元格 <code>(row, column)</code>&nbsp;开始，并尝试进行 <code>k</code> 次移动。行和列是 <strong>从 0 开始</strong> 的，所以左上单元格是 <code>(0,0)</code> ，右下单元格是 <code>(n - 1, n - 1)</code> 。</p>
 
@@ -55,7 +57,11 @@ tags:
 	<li><code>0 &lt;= row, column &lt;= n - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -263,4 +269,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,6 +9,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1451. Rearrange Words in a Sentence](https://leetcode.com/problems/rearrange-words-in-a-sentence)
 
 [中文文档](/solution/1400-1499/1451.Rearrange%20Words%20in%20a%20Sentence/README.md)
@@ -65,6 +67,8 @@ Output is ordered by length and the new first word starts with capital letter.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -176,4 +180,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

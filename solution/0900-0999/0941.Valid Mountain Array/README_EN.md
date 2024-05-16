@@ -6,6 +6,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [941. Valid Mountain Array](https://leetcode.com/problems/valid-mountain-array)
 
 [中文文档](/solution/0900-0999/0941.Valid%20Mountain%20Array/README.md)
@@ -46,6 +48,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -146,4 +150,6 @@ function validMountainArray(arr: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -11,13 +11,15 @@ tags:
     - 状态压缩
 ---
 
+<!-- problem:start -->
+
 # [1659. 最大化网格幸福感](https://leetcode.cn/problems/maximize-grid-happiness)
 
 [English Version](/solution/1600-1699/1659.Maximize%20Grid%20Happiness/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你四个整数 <code>m</code>、<code>n</code>、<code>introvertsCount</code> 和 <code>extrovertsCount</code> 。有一个 <code>m x n</code> 网格，和两种类型的人：内向的人和外向的人。总共有 <code>introvertsCount</code> 个内向的人和 <code>extrovertsCount</code> 个外向的人。</p>
 
@@ -78,7 +80,11 @@ tags:
 	<li><code>0 <= introvertsCount, extrovertsCount <= min(m * n, 6)</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：三进制状态压缩 + 记忆化搜索
 
@@ -439,6 +445,10 @@ function getMaxGridHappiness(
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：轮廓线记忆化搜索
 
 我们可以考虑搜索每个网格单元，每次搜索一个位置 $(i, j)$，我们记 $pos = i \times n + j$。那么它左边以及上边的相邻网格会影响到它们之间的幸福感贡献。
@@ -678,4 +688,6 @@ function getMaxGridHappiness(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

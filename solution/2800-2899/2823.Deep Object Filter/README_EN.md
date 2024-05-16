@@ -4,6 +4,8 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2823.Deep%20Object%20Filter/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2823. Deep Object Filter 🔒](https://leetcode.com/problems/deep-object-filter)
 
 [中文文档](/solution/2800-2899/2823.Deep%20Object%20Filter/README.md)
@@ -66,6 +68,8 @@ fn = (x) =&gt; Array.isArray(x)
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -98,4 +102,6 @@ function deepFilter(obj: Record<string, any>, fn: Function): Record<string, any>
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,6 +10,8 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [2404. Most Frequent Even Element](https://leetcode.com/problems/most-frequent-even-element)
 
 [中文文档](/solution/2400-2499/2404.Most%20Frequent%20Even%20Element/README.md)
@@ -55,6 +57,8 @@ We return the smallest one, which is 2.</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -207,4 +211,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,6 +8,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [587. Erect the Fence](https://leetcode.com/problems/erect-the-fence)
 
 [中文文档](/solution/0500-0599/0587.Erect%20the%20Fence/README.md)
@@ -48,6 +50,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -201,4 +205,6 @@ func outerTrees(trees [][]int) [][]int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

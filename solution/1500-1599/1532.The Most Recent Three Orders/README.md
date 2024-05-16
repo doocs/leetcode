@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1532. 最近的三笔订单 🔒](https://leetcode.cn/problems/the-most-recent-three-orders)
 
 [English Version](/solution/1500-1599/1532.The%20Most%20Recent%20Three%20Orders/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Customers</code></p>
 
@@ -115,7 +117,11 @@ Marwan 只有 1 笔订单。
 	<li>你能写出最近&nbsp;<code>n</code>&nbsp;笔订单的通用解决方案吗?</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：等值连接 + 窗口函数
 
@@ -145,4 +151,6 @@ ORDER BY 1, 2, 4 DESC;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

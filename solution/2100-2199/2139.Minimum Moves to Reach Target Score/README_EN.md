@@ -9,6 +9,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [2139. Minimum Moves to Reach Target Score](https://leetcode.com/problems/minimum-moves-to-reach-target-score)
 
 [中文文档](/solution/2100-2199/2139.Minimum%20Moves%20to%20Reach%20Target%20Score/README.md)
@@ -71,6 +73,8 @@ Double again so x = 10
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Backtracking + Greedy
 
@@ -169,6 +173,10 @@ function minMoves(target: number, maxDoubles: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -262,4 +270,6 @@ function minMoves(target: number, maxDoubles: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

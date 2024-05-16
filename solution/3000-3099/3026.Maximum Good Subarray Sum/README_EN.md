@@ -10,6 +10,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [3026. Maximum Good Subarray Sum](https://leetcode.com/problems/maximum-good-subarray-sum)
 
 [中文文档](/solution/3000-3099/3026.Maximum%20Good%20Subarray%20Sum/README.md)
@@ -57,6 +59,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Hash Table
 
@@ -222,4 +226,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

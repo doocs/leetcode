@@ -9,6 +9,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [957. Prison Cells After N Days](https://leetcode.com/problems/prison-cells-after-n-days)
 
 [中文文档](/solution/0900-0999/0957.Prison%20Cells%20After%20N%20Days/README.md)
@@ -65,4 +67,30 @@ Day 7: [0, 0, 1, 1, 0, 0, 0, 0]
 
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+```python
+
+```
+
+```java
+
+```
+
+```cpp
+
+```
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

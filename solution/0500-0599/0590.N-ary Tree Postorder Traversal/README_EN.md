@@ -8,6 +8,8 @@ tags:
     - Depth-First Search
 ---
 
+<!-- problem:start -->
+
 # [590. N-ary Tree Postorder Traversal](https://leetcode.com/problems/n-ary-tree-postorder-traversal)
 
 [中文文档](/solution/0500-0599/0590.N-ary%20Tree%20Postorder%20Traversal/README.md)
@@ -46,6 +48,8 @@ tags:
 <p><strong>Follow up:</strong> Recursive solution is trivial, could you do it iteratively?</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -214,6 +218,10 @@ function postorder(root: Node | null): number[] {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Iteration (Stack Implementation)
 
@@ -389,4 +397,6 @@ function postorder(root: Node | null): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

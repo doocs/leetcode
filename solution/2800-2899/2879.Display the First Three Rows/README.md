@@ -4,13 +4,15 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2879.Display%20the%20First%20Three%20Rows/README.md
 ---
 
+<!-- problem:start -->
+
 # [2879. 显示前三行](https://leetcode.cn/problems/display-the-first-three-rows)
 
 [English Version](/solution/2800-2899/2879.Display%20the%20First%20Three%20Rows/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <pre>
 DataFrame: <code>employees</code>
@@ -54,7 +56,11 @@ DataFrame: <code>employees</code>
 <b>解释：</b>
 只有前 3 行被显示。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -70,4 +76,6 @@ def selectFirstRows(employees: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

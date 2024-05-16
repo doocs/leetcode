@@ -10,6 +10,8 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [2748. Number of Beautiful Pairs](https://leetcode.com/problems/number-of-beautiful-pairs)
 
 [中文文档](/solution/2700-2799/2748.Number%20of%20Beautiful%20Pairs/README.md)
@@ -58,6 +60,8 @@ Thus, we return 2.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -176,4 +180,6 @@ function gcd(a: number, b: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

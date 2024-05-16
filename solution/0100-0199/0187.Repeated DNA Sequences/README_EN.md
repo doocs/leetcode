@@ -11,6 +11,8 @@ tags:
     - Rolling Hash
 ---
 
+<!-- problem:start -->
+
 # [187. Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences)
 
 [中文文档](/solution/0100-0199/0187.Repeated%20DNA%20Sequences/README.md)
@@ -44,6 +46,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -196,6 +200,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Rabin-Karp String Matching Algorithm
 
 This method essentially combines sliding window and hash. Similar to 0028. Find the Index of the First Occurrence in a String, this problem can use a hash function to reduce the time complexity of counting subsequences to $O(1)$.
@@ -227,4 +235,6 @@ func findRepeatedDnaSequences(s string) []string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

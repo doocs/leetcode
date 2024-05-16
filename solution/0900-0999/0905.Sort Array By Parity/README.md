@@ -8,13 +8,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [905. 按奇偶排序数组](https://leetcode.cn/problems/sort-array-by-parity)
 
 [English Version](/solution/0900-0999/0905.Sort%20Array%20By%20Parity/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code>，将 <code>nums</code> 中的的所有偶数元素移动到数组的前面，后跟所有奇数元素。</p>
 
@@ -46,7 +48,11 @@ tags:
 	<li><code>0 &lt;= nums[i] &lt;= 5000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -193,4 +199,6 @@ var sortArrayByParity = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

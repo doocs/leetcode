@@ -11,13 +11,15 @@ tags:
     - 博弈
 ---
 
+<!-- problem:start -->
+
 # [1927. 求和游戏](https://leetcode.cn/problems/sum-game)
 
 [English Version](/solution/1900-1999/1927.Sum%20Game/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>Alice 和 Bob 玩一个游戏，两人轮流行动，<strong>Alice 先手</strong> 。</p>
 
@@ -80,7 +82,11 @@ Bob 获胜，因为 9 + 3 + 2 + 9 = 5 + 9 + 2 + 7 。
 	<li><code>num</code> 只包含数字字符和 <code>'?'</code> 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分类讨论
 
@@ -210,4 +216,6 @@ function sumGame(num: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

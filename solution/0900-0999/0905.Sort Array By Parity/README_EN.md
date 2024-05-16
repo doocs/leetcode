@@ -8,6 +8,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [905. Sort Array By Parity](https://leetcode.com/problems/sort-array-by-parity)
 
 [中文文档](/solution/0900-0999/0905.Sort%20Array%20By%20Parity/README.md)
@@ -43,6 +45,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -189,4 +193,6 @@ var sortArrayByParity = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

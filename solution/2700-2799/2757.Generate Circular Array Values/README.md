@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2757.Generate%20Circular%20Array%20Values/README.md
 ---
 
+<!-- problem:start -->
+
 # [2757. 生成循环数组的值 🔒](https://leetcode.cn/problems/generate-circular-array-values)
 
 [English Version](/solution/2700-2799/2757.Generate%20Circular%20Array%20Values/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定你一个 <strong>循环</strong> 数组 <code>arr</code> 和一个整数 <code>startIndex</code> ，返回一个生成器对象 <code>gen</code>&nbsp;，它从 <code>arr</code> 中生成值。第一次调用 <code>gen.next()</code> 时，它应该生成 <code>arr[startIndex]</code> 。每次调用 <code>gen.next()</code> 时，都会传入一个整数参数&nbsp;<code>jump</code>（例如：<code>gen.next(-3)</code> ）。</p>
 
@@ -74,7 +76,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2757.Ge
 	<li><code>0 &lt;= startIndex &lt;&nbsp;arr.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -99,4 +105,6 @@ function* cycleGenerator(arr: number[], startIndex: number): Generator<number, v
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

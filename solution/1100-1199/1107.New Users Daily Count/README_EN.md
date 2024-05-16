@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1107. New Users Daily Count 🔒](https://leetcode.com/problems/new-users-daily-count)
 
 [中文文档](/solution/1100-1199/1107.New%20Users%20Daily%20Count/README.md)
@@ -73,6 +75,8 @@ The user with id 5 first logged in on 2019-03-01 so he&#39;s not counted on 2019
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -95,4 +99,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

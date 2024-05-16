@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [3052. Maximize Items 🔒](https://leetcode.com/problems/maximize-items)
 
 [中文文档](/solution/3000-3099/3052.Maximize%20Items/README.md)
@@ -76,6 +78,8 @@ Output table is ordered by item count in descending order.</pre>
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Join Query + Union All
 
 First, we calculate the total area of all items of type `prime_eligible` and record it in the `s` field of table `T`.
@@ -111,4 +115,6 @@ WHERE item_type = 'not_prime';
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

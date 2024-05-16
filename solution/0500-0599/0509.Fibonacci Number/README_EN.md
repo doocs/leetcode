@@ -9,6 +9,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [509. Fibonacci Number](https://leetcode.com/problems/fibonacci-number)
 
 [中文文档](/solution/0500-0599/0509.Fibonacci%20Number/README.md)
@@ -57,6 +59,8 @@ F(n) = F(n - 1) + F(n - 2), for n &gt; 1.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -174,6 +178,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -200,4 +208,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

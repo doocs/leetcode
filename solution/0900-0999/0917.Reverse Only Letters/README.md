@@ -7,13 +7,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [917. 仅仅反转字母](https://leetcode.cn/problems/reverse-only-letters)
 
 [English Version](/solution/0900-0999/0917.Reverse%20Only%20Letters/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>s</code> ，根据下述规则反转字符串：</p>
 
@@ -66,7 +68,11 @@ tags:
 	<li><code>s</code> 不含 <code>'\"'</code> 或 <code>'\\'</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -203,4 +209,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

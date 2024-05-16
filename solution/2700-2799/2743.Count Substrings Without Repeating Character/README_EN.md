@@ -8,6 +8,8 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2743. Count Substrings Without Repeating Character 🔒](https://leetcode.com/problems/count-substrings-without-repeating-character)
 
 [中文文档](/solution/2700-2799/2743.Count%20Substrings%20Without%20Repeating%20Character/README.md)
@@ -56,6 +58,8 @@ And it can be shown that there are no special substrings with a length of at lea
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting + Two Pointers
 
@@ -155,4 +159,6 @@ function numberOfSpecialSubstrings(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

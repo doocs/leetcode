@@ -10,6 +10,8 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [2453. Destroy Sequential Targets](https://leetcode.com/problems/destroy-sequential-targets)
 
 [中文文档](/solution/2400-2499/2453.Destroy%20Sequential%20Targets/README.md)
@@ -61,6 +63,8 @@ Since nums[0] is the minimal integer that can destroy 3 targets, we return 1.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Modulo + Enumeration
 
@@ -143,4 +147,6 @@ func destroyTargets(nums []int, space int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

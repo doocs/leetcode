@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2991. Top Three Wineries 🔒](https://leetcode.com/problems/top-three-wineries)
 
 [中文文档](/solution/2900-2999/2991.Top%20Three%20Wineries/README.md)
@@ -79,6 +81,8 @@ Output table is ordered by country in ascending order.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Grouping + Window Function + Left Join
 
 We can first group the `Wineries` table by `country` and `winery`, calculate the total score `points` for each group, then use the window function `RANK()` to group the data by `country` again, sort by `points` in descending order and `winery` in ascending order, and use the `CONCAT()` function to concatenate `winery` and `points`, resulting in the following data, denoted as table `T`:
@@ -126,4 +130,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

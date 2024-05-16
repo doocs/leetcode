@@ -10,6 +10,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [1485. Clone Binary Tree With Random Pointer 🔒](https://leetcode.com/problems/clone-binary-tree-with-random-pointer)
 
 [中文文档](/solution/1400-1499/1485.Clone%20Binary%20Tree%20With%20Random%20Pointer/README.md)
@@ -65,6 +67,8 @@ The random pointer of node 7 is node 1, so it is represented as [7, 0] where 0 i
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -210,4 +214,6 @@ func copyRandomBinaryTree(root *Node) *NodeCopy {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

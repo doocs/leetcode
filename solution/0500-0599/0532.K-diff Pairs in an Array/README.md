@@ -10,13 +10,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [532. 数组中的 k-diff 数对](https://leetcode.cn/problems/k-diff-pairs-in-an-array)
 
 [English Version](/solution/0500-0599/0532.K-diff%20Pairs%20in%20an%20Array/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>nums</code> 和一个整数&nbsp;<code>k</code>，请你在数组中找出<strong> 不同的&nbsp;</strong>k-diff 数对，并返回不同的 <strong>k-diff 数对</strong> 的数目。</p>
 
@@ -67,7 +69,11 @@ tags:
 	<li><code>0 &lt;= k &lt;= 10<sup>7</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -179,6 +185,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：排序 + 双指针
 
 只需要统计组合的数量，因此可以改动原数组，对其排序，使用双指针来统计。
@@ -187,4 +197,6 @@ impl Solution {
 
 需要注意的是，**不能出现重复的组合**，所以移动指针时，不能仅仅是 `+1`，需要到一个不等于当前值的位置。
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,6 +8,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [814. Binary Tree Pruning](https://leetcode.com/problems/binary-tree-pruning)
 
 [中文文档](/solution/0800-0899/0814.Binary%20Tree%20Pruning/README.md)
@@ -52,6 +54,8 @@ The diagram on the right represents the answer.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -247,4 +251,6 @@ var pruneTree = function (root) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

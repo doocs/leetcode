@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1051. Height Checker](https://leetcode.com/problems/height-checker)
 
 [中文文档](/solution/1000-1099/1051.Height%20Checker/README.md)
@@ -65,6 +67,8 @@ All indices match.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -122,6 +126,10 @@ func heightChecker(heights []int) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -204,4 +212,6 @@ func heightChecker(heights []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

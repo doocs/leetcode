@@ -12,6 +12,8 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [1617. Count Subtrees With Max Distance Between Cities](https://leetcode.com/problems/count-subtrees-with-max-distance-between-cities)
 
 [中文文档](/solution/1600-1699/1617.Count%20Subtrees%20With%20Max%20Distance%20Between%20Cities/README.md)
@@ -89,6 +91,8 @@ No subtree has two nodes where the max distance between them is 3.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -324,6 +328,10 @@ function numberOfLeadingZeros(i: number): number {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -590,4 +598,6 @@ function numberOfLeadingZeros(i: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

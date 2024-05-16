@@ -11,6 +11,8 @@ tags:
     - Iterator
 ---
 
+<!-- problem:start -->
+
 # [341. Flatten Nested List Iterator](https://leetcode.com/problems/flatten-nested-list-iterator)
 
 [中文文档](/solution/0300-0399/0341.Flatten%20Nested%20List%20Iterator/README.md)
@@ -65,6 +67,8 @@ return res
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -423,6 +427,10 @@ impl NestedIterator {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -487,4 +495,6 @@ func (this *NestedIterator) HasNext() bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

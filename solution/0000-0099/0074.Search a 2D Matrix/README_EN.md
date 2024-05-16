@@ -8,6 +8,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [74. Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix)
 
 [中文文档](/solution/0000-0099/0074.Search%20a%202D%20Matrix/README.md)
@@ -51,6 +53,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -208,6 +212,10 @@ var searchMatrix = function (matrix, target) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Search from the Bottom Left or Top Right
 
 Here, we start searching from the bottom left corner and move towards the top right direction. We compare the current element $matrix[i][j]$ with $target$:
@@ -344,4 +352,6 @@ var searchMatrix = function (matrix, target) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

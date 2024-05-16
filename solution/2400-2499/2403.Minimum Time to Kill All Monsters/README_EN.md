@@ -9,6 +9,8 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [2403. Minimum Time to Kill All Monsters 🔒](https://leetcode.com/problems/minimum-time-to-kill-all-monsters)
 
 [中文文档](/solution/2400-2499/2403.Minimum%20Time%20to%20Kill%20All%20Monsters/README.md)
@@ -79,6 +81,8 @@ It can be proven that 6 is the minimum number of days needed.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: State Compression + Memorization Search or Dynamic Programming
 
@@ -242,6 +246,10 @@ function bitCount(x) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -349,4 +357,6 @@ function bitCount(x) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

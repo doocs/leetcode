@@ -8,6 +8,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [964. Least Operators to Express Number](https://leetcode.com/problems/least-operators-to-express-number)
 
 [中文文档](/solution/0900-0999/0964.Least%20Operators%20to%20Express%20Number/README.md)
@@ -64,6 +66,8 @@ The expression contains 3 operations.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -206,4 +210,6 @@ function leastOpsExpressTarget(x: number, target: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

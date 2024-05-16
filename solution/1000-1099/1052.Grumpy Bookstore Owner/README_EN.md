@@ -9,6 +9,8 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [1052. Grumpy Bookstore Owner](https://leetcode.com/problems/grumpy-bookstore-owner)
 
 [中文文档](/solution/1000-1099/1052.Grumpy%20Bookstore%20Owner/README.md)
@@ -53,6 +55,8 @@ The maximum number of customers that can be satisfied = 1 + 1 + 1 + 1 + 7 + 5 = 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sliding Window
 
@@ -185,4 +189,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

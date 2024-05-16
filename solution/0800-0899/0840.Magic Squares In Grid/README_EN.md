@@ -9,6 +9,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [840. Magic Squares In Grid](https://leetcode.com/problems/magic-squares-in-grid)
 
 [中文文档](/solution/0800-0899/0840.Magic%20Squares%20In%20Grid/README.md)
@@ -51,6 +53,8 @@ In total, there is only one magic square inside the given grid.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -292,4 +296,6 @@ function numMagicSquaresInside(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

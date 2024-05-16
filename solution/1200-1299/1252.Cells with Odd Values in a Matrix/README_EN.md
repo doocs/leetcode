@@ -10,6 +10,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1252. Cells with Odd Values in a Matrix](https://leetcode.com/problems/cells-with-odd-values-in-a-matrix)
 
 [中文文档](/solution/1200-1299/1252.Cells%20with%20Odd%20Values%20in%20a%20Matrix/README.md)
@@ -60,6 +62,8 @@ The final matrix is [[1,3,1],[1,3,1]], which contains 6 odd numbers.
 <p><strong>Follow up:</strong> Could you solve this in <code>O(n + m + indices.length)</code> time with only <code>O(n + m)</code> extra space?</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -152,6 +156,10 @@ func oddCells(m int, n int, indices [][]int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Space Optimization
 
 We use row array $row$ and column array $col$ to record the number of times each row and column are increased. For each pair $(r_i, c_i)$ in $indices$, we add $1$ to $row[r_i]$ and $col[c_i]$ respectively.
@@ -233,6 +241,10 @@ func oddCells(m int, n int, indices [][]int) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 3: Mathematical Optimization
 
@@ -320,4 +332,6 @@ func oddCells(m int, n int, indices [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,6 +9,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2191. Sort the Jumbled Numbers](https://leetcode.com/problems/sort-the-jumbled-numbers)
 
 [中文文档](/solution/2100-2199/2191.Sort%20the%20Jumbled%20Numbers/README.md)
@@ -65,6 +67,8 @@ Thus, the sorted array is [338,38,991].
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Custom Sorting
 
@@ -276,4 +280,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

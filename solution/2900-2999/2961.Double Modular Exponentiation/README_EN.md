@@ -10,6 +10,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2961. Double Modular Exponentiation](https://leetcode.com/problems/double-modular-exponentiation)
 
 [中文文档](/solution/2900-2999/2961.Double%20Modular%20Exponentiation/README.md)
@@ -61,6 +63,8 @@ Therefore we return [] as the answer.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation + Fast Power
 
@@ -181,4 +185,6 @@ function getGoodIndices(variables: number[][], target: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

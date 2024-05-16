@@ -10,6 +10,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [2939. Maximum Xor Product](https://leetcode.com/problems/maximum-xor-product)
 
 [中文文档](/solution/2900-2999/2939.Maximum%20Xor%20Product/README.md)
@@ -58,6 +60,8 @@ It can be shown that 12 is the maximum value of (a XOR x) * (b XOR x) for all 0 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Bitwise Operation
 
@@ -189,4 +193,6 @@ function maximumXorProduct(a: number, b: number, n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

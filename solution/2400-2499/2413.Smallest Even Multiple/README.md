@@ -9,13 +9,15 @@ tags:
     - 数论
 ---
 
+<!-- problem:start -->
+
 # [2413. 最小偶倍数](https://leetcode.cn/problems/smallest-even-multiple)
 
 [English Version](/solution/2400-2499/2413.Smallest%20Even%20Multiple/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 给你一个正整数 <code>n</code> ，返回 <code>2</code><em> </em>和<em> </em><code>n</code> 的最小公倍数（正整数）。
 
@@ -43,7 +45,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 150</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学
 
@@ -110,4 +116,6 @@ int smallestEvenMultiple(int n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

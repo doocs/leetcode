@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [1729. 求关注者的数量](https://leetcode.cn/problems/find-followers-count)
 
 [English Version](/solution/1700-1799/1729.Find%20Followers%20Count/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：&nbsp;<code>Followers</code></p>
 
@@ -62,7 +64,11 @@ Followers 表：
 1 的关注者有 {0}
 2 的关注者有 {0,1}</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分组统计
 
@@ -80,4 +86,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

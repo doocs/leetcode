@@ -11,6 +11,8 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2747. Count Zero Request Servers](https://leetcode.com/problems/count-zero-request-servers)
 
 [中文文档](/solution/2700-2799/2747.Count%20Zero%20Request%20Servers/README.md)
@@ -63,6 +65,8 @@ For queries[1]: Only server with id 3 gets no request in the duration [2,4].
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -223,4 +227,6 @@ function countServers(n: number, logs: number[][], x: number, queries: number[])
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

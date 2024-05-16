@@ -9,6 +9,8 @@ tags:
     - Doubly-Linked List
 ---
 
+<!-- problem:start -->
+
 # [146. LRU Cache](https://leetcode.com/problems/lru-cache)
 
 [中文文档](/solution/0100-0199/0146.LRU%20Cache/README.md)
@@ -61,6 +63,8 @@ lRUCache.get(4);    // return 4
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Doubly Linked List
 
@@ -645,4 +649,6 @@ public class LRUCache {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,6 +9,8 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [681. Next Closest Time 🔒](https://leetcode.com/problems/next-closest-time)
 
 [中文文档](/solution/0600-0699/0681.Next%20Closest%20Time/README.md)
@@ -49,6 +51,8 @@ It may be assumed that the returned time is next day&#39;s time since it is smal
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -141,4 +145,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

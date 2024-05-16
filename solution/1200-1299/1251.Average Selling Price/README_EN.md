@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1251. Average Selling Price](https://leetcode.com/problems/average-selling-price)
 
 [中文文档](/solution/1200-1299/1251.Average%20Selling%20Price/README.md)
@@ -90,6 +92,8 @@ Average selling price for product 2 = ((200 * 15) + (30 * 30)) / 230 = 16.96
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Left Join + Grouping
 
 We can use a left join to join the `Prices` table and the `UnitsSold` table on `product_id`, and the condition that `purchase_date` is between `start_date` and `end_date`. Then, we can use `GROUP BY` to group by `product_id` for aggregation, and use the `AVG` function to calculate the average price. Note that if a product has no sales records, the `AVG` function will return `NULL`, so we can use the `IFNULL` function to convert it to $0$.
@@ -110,4 +114,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,6 +10,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1562. Find Latest Group of Size M](https://leetcode.com/problems/find-latest-group-of-size-m)
 
 [中文文档](/solution/1500-1599/1562.Find%20Latest%20Group%20of%20Size%20M/README.md)
@@ -64,6 +66,8 @@ No group of size 2 exists during any step.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -255,6 +259,10 @@ func findLatestStep(arr []int, m int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -339,4 +347,6 @@ func findLatestStep(arr []int, m int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

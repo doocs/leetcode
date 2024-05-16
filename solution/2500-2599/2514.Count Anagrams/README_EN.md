@@ -12,6 +12,8 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [2514. Count Anagrams](https://leetcode.com/problems/count-anagrams)
 
 [中文文档](/solution/2500-2599/2514.Count%20Anagrams/README.md)
@@ -54,6 +56,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -172,6 +176,10 @@ func pow(x, n int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -192,4 +200,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

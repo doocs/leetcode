@@ -11,6 +11,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2766. Relocate Marbles](https://leetcode.com/problems/relocate-marbles)
 
 [中文文档](/solution/2700-2799/2766.Relocate%20Marbles/README.md)
@@ -65,6 +67,8 @@ Since 2 is the only occupied position, we return [2].
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -156,4 +160,6 @@ function relocateMarbles(nums: number[], moveFrom: number[], moveTo: number[]): 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

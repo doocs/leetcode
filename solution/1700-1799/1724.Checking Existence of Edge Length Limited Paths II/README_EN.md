@@ -8,6 +8,8 @@ tags:
     - Minimum Spanning Tree
 ---
 
+<!-- problem:start -->
+
 # [1724. Checking Existence of Edge Length Limited Paths II 🔒](https://leetcode.com/problems/checking-existence-of-edge-length-limited-paths-ii)
 
 [中文文档](/solution/1700-1799/1724.Checking%20Existence%20of%20Edge%20Length%20Limited%20Paths%20II/README.md)
@@ -58,6 +60,8 @@ distanceLimitedPathsExist.query(0, 5, 6); // return false. There are no paths fr
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -391,4 +395,6 @@ class DistanceLimitedPathsExist {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

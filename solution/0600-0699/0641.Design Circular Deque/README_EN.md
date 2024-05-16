@@ -9,6 +9,8 @@ tags:
     - Linked List
 ---
 
+<!-- problem:start -->
+
 # [641. Design Circular Deque](https://leetcode.com/problems/design-circular-deque)
 
 [中文文档](/solution/0600-0699/0641.Design%20Circular%20Deque/README.md)
@@ -64,6 +66,8 @@ myCircularDeque.getFront();     // return 4
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -551,4 +555,6 @@ class MyCircularDeque {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,6 +10,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [1037. Valid Boomerang](https://leetcode.com/problems/valid-boomerang)
 
 [中文文档](/solution/1000-1099/1037.Valid%20Boomerang/README.md)
@@ -38,6 +40,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -104,4 +108,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

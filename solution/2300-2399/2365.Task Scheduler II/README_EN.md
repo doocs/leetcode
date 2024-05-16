@@ -10,6 +10,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2365. Task Scheduler II](https://leetcode.com/problems/task-scheduler-ii)
 
 [中文文档](/solution/2300-2399/2365.Task%20Scheduler%20II/README.md)
@@ -75,6 +77,8 @@ It can be shown that the tasks cannot be completed in less than 6 days.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Simulation
 
@@ -160,4 +164,6 @@ function taskSchedulerII(tasks: number[], space: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

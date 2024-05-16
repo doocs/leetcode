@@ -11,6 +11,8 @@ tags:
     - Shortest Path
 ---
 
+<!-- problem:start -->
+
 # [1976. Number of Ways to Arrive at Destination](https://leetcode.com/problems/number-of-ways-to-arrive-at-destination)
 
 [中文文档](/solution/1900-1999/1976.Number%20of%20Ways%20to%20Arrive%20at%20Destination/README.md)
@@ -60,6 +62,8 @@ The four ways to get there in 7 minutes are:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Naive Dijkstra Algorithm
 
@@ -306,4 +310,6 @@ function countPaths(n: number, roads: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

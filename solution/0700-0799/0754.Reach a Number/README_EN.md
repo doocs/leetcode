@@ -7,6 +7,8 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [754. Reach a Number](https://leetcode.com/problems/reach-a-number)
 
 [中文文档](/solution/0700-0799/0754.Reach%20a%20Number/README.md)
@@ -55,6 +57,8 @@ On the 2<sup>nd</sup> move, we step from 1 to 3 (2 steps).
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -139,4 +143,6 @@ var reachNumber = function (target) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

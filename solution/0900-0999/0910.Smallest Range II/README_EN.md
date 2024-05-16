@@ -9,6 +9,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [910. Smallest Range II](https://leetcode.com/problems/smallest-range-ii)
 
 [中文文档](/solution/0900-0999/0910.Smallest%20Range%20II/README.md)
@@ -58,6 +60,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Enumeration
 
@@ -143,4 +147,6 @@ function smallestRangeII(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

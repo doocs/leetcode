@@ -9,6 +9,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [623. Add One Row to Tree](https://leetcode.com/problems/add-one-row-to-tree)
 
 [中文文档](/solution/0600-0699/0623.Add%20One%20Row%20to%20Tree/README.md)
@@ -55,6 +57,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -242,6 +246,10 @@ function addOneRow(root: TreeNode | null, val: number, depth: number): TreeNode 
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -432,4 +440,6 @@ function addOneRow(root: TreeNode | null, val: number, depth: number): TreeNode 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

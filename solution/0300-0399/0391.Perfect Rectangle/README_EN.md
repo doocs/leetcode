@@ -7,6 +7,8 @@ tags:
     - Line Sweep
 ---
 
+<!-- problem:start -->
+
 # [391. Perfect Rectangle](https://leetcode.com/problems/perfect-rectangle)
 
 [中文文档](/solution/0300-0399/0391.Perfect%20Rectangle/README.md)
@@ -52,6 +54,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -253,4 +257,6 @@ func isRectangleCover(rectangles [][]int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

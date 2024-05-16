@@ -11,13 +11,15 @@ tags:
     - 计数
 ---
 
+<!-- problem:start -->
+
 # [1079. 活字印刷](https://leetcode.cn/problems/letter-tile-possibilities)
 
 [English Version](/solution/1000-1099/1079.Letter%20Tile%20Possibilities/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你有一套活字字模&nbsp;<code>tiles</code>，其中每个字模上都刻有一个字母&nbsp;<code>tiles[i]</code>。返回你可以印出的非空字母序列的数目。</p>
 
@@ -55,7 +57,11 @@ tags:
 	<li><code>tiles</code> 由大写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数 + 回溯
 
@@ -182,4 +188,6 @@ function numTilePossibilities(tiles: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

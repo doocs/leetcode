@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1528. Shuffle String](https://leetcode.com/problems/shuffle-string)
 
 [中文文档](/solution/1500-1599/1528.Shuffle%20String/README.md)
@@ -48,6 +50,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -116,4 +120,6 @@ var restoreString = function (s, indices) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

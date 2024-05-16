@@ -7,13 +7,15 @@ tags:
     - 广度优先搜索
 ---
 
+<!-- problem:start -->
+
 # [429. N 叉树的层序遍历](https://leetcode.cn/problems/n-ary-tree-level-order-traversal)
 
 [English Version](/solution/0400-0499/0429.N-ary%20Tree%20Level%20Order%20Traversal/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个 N 叉树，返回其节点值的<em>层序遍历</em>。（即从左到右，逐层遍历）。</p>
 
@@ -48,7 +50,11 @@ tags:
 	<li>树的节点总数在 <code>[0, 10^4]</code> 之间</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：BFS
 
@@ -247,6 +253,10 @@ function levelOrder(root: Node | null): number[][] {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：DFS
 
 我们可以使用深度优先搜索的方法，遍历整棵树。
@@ -438,4 +448,6 @@ function levelOrder(root: Node | null): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

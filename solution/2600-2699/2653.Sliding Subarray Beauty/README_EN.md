@@ -10,6 +10,8 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2653. Sliding Subarray Beauty](https://leetcode.com/problems/sliding-subarray-beauty)
 
 [中文文档](/solution/2600-2699/2653.Sliding%20Subarray%20Beauty/README.md)
@@ -74,6 +76,8 @@ For <code>[0, -3]</code>, the 1<sup>st</sup> smallest negative integer is -3.</p
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sliding Window
 
@@ -241,6 +245,10 @@ function getSubarrayBeauty(nums: number[], k: number, x: number): number[] {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Double Priority Queue (Min-Max Heap) + Delayed Deletion
 
@@ -644,4 +652,6 @@ func getSubarrayBeauty(nums []int, k int, x int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

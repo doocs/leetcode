@@ -9,6 +9,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [2810. Faulty Keyboard](https://leetcode.com/problems/faulty-keyboard)
 
 [中文文档](/solution/2800-2899/2810.Faulty%20Keyboard/README.md)
@@ -63,6 +65,8 @@ Therefore, we return &quot;ponter&quot;.</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -169,4 +173,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

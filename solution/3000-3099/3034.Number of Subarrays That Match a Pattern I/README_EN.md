@@ -11,6 +11,8 @@ tags:
     - Rolling Hash
 ---
 
+<!-- problem:start -->
+
 # [3034. Number of Subarrays That Match a Pattern I](https://leetcode.com/problems/number-of-subarrays-that-match-a-pattern-i)
 
 [中文文档](/solution/3000-3099/3034.Number%20of%20Subarrays%20That%20Match%20a%20Pattern%20I/README.md)
@@ -59,6 +61,8 @@ Hence, there are 2 subarrays in nums that match the pattern.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -197,4 +201,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

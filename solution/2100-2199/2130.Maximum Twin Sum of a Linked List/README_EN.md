@@ -10,6 +10,8 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [2130. Maximum Twin Sum of a Linked List](https://leetcode.com/problems/maximum-twin-sum-of-a-linked-list)
 
 [中文文档](/solution/2100-2199/2130.Maximum%20Twin%20Sum%20of%20a%20Linked%20List/README.md)
@@ -68,6 +70,8 @@ There is only one node with a twin in the linked list having twin sum of 1 + 100
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -227,6 +231,10 @@ impl Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -437,4 +445,6 @@ function pairSum(head: ListNode | null): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

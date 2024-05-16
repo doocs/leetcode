@@ -4,11 +4,13 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2063.%20%E5%BC%B9%E7%8F%A0%E6%B8%B8%E6%88%8F/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 63. 弹珠游戏](https://leetcode.cn/problems/EXvqDp)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 欢迎各位来到「力扣嘉年华」，接下来将为各位介绍在活动中广受好评的弹珠游戏。
 
@@ -66,7 +68,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2063.%20%E5%BC%B9%
 -   `1 <= plate.length, plate[i].length <= 1000`
 -   `plate[i][j]` 仅包含 `"O"`、`"W"`、`"E"`、`"."`
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -262,4 +268,6 @@ func ballGame(num int, plate []string) (ans [][]int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

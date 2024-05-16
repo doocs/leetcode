@@ -9,6 +9,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [1808. Maximize Number of Nice Divisors](https://leetcode.com/problems/maximize-number-of-nice-divisors)
 
 [中文文档](/solution/1800-1899/1808.Maximize%20Number%20of%20Nice%20Divisors/README.md)
@@ -68,6 +70,8 @@ There is not other value of n that has at most 5 prime factors and more nice div
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Problem Transformation + Fast Power
 
@@ -219,4 +223,6 @@ var maxNiceDivisors = function (primeFactors) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

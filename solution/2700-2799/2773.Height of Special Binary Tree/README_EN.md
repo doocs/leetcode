@@ -9,6 +9,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [2773. Height of Special Binary Tree 🔒](https://leetcode.com/problems/height-of-special-binary-tree)
 
 [中文文档](/solution/2700-2799/2773.Height%20of%20Special%20Binary%20Tree/README.md)
@@ -70,6 +72,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -229,4 +233,6 @@ function heightOfTree(root: TreeNode | null): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

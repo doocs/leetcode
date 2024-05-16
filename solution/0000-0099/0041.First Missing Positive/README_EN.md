@@ -7,6 +7,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [41. First Missing Positive](https://leetcode.com/problems/first-missing-positive)
 
 [中文文档](/solution/0000-0099/0041.First%20Missing%20Positive/README.md)
@@ -51,6 +53,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: In-place Swap
 
@@ -265,4 +269,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,13 +7,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [856. 括号的分数](https://leetcode.cn/problems/score-of-parentheses)
 
 [English Version](/solution/0800-0899/0856.Score%20of%20Parentheses/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个平衡括号字符串&nbsp;<code>S</code>，按下述规则计算该字符串的分数：</p>
 
@@ -58,7 +60,11 @@ tags:
 	<li><code>2 &lt;= S.length &lt;= 50</code></li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数
 
@@ -161,4 +167,6 @@ func scoreOfParentheses(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

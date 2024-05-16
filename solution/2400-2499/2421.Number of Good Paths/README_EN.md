@@ -13,6 +13,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2421. Number of Good Paths](https://leetcode.com/problems/number-of-good-paths)
 
 [中文文档](/solution/2400-2499/2421.Number%20of%20Good%20Paths/README.md)
@@ -78,6 +80,8 @@ There are 2 additional good paths: 0 -&gt; 1 and 2 -&gt; 3.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Union Find
 
@@ -269,4 +273,6 @@ func numberOfGoodPaths(vals []int, edges [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

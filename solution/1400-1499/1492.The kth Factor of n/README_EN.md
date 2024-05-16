@@ -9,6 +9,8 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [1492. The kth Factor of n](https://leetcode.com/problems/the-kth-factor-of-n)
 
 [中文文档](/solution/1400-1499/1492.The%20kth%20Factor%20of%20n/README.md)
@@ -57,6 +59,8 @@ tags:
 <p>Could you solve this problem in less than O(n) complexity?</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Brute Force Enumeration
 
@@ -130,6 +134,10 @@ function kthFactor(n: number, k: number): number {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Optimized Enumeration
 
@@ -255,4 +263,6 @@ function kthFactor(n: number, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [578. Get Highest Answer Rate Question 🔒](https://leetcode.com/problems/get-highest-answer-rate-question)
 
 [中文文档](/solution/0500-0599/0578.Get%20Highest%20Answer%20Rate%20Question/README.md)
@@ -67,6 +69,8 @@ Question 285 has the highest answer rate.</pre>
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -81,6 +85,10 @@ LIMIT 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -104,4 +112,6 @@ LIMIT 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -12,6 +12,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1140. Stone Game II](https://leetcode.com/problems/stone-game-ii)
 
 [中文文档](/solution/1100-1199/1140.Stone%20Game%20II/README.md)
@@ -53,6 +55,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Memoization Search
 
@@ -205,6 +209,10 @@ function stoneGameII(piles: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -227,4 +235,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

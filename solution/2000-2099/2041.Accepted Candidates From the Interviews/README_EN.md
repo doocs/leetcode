@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2041. Accepted Candidates From the Interviews 🔒](https://leetcode.com/problems/accepted-candidates-from-the-interviews)
 
 [中文文档](/solution/2000-2099/2041.Accepted%20Candidates%20From%20the%20Interviews/README.md)
@@ -97,6 +99,8 @@ Rounds table:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -114,4 +118,6 @@ HAVING SUM(score) > 15;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

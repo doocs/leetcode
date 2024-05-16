@@ -9,13 +9,15 @@ tags:
     - 双向链表
 ---
 
+<!-- problem:start -->
+
 # [460. LFU 缓存](https://leetcode.cn/problems/lfu-cache)
 
 [English Version](/solution/0400-0499/0460.LFU%20Cache/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你为 <a href="https://baike.baidu.com/item/%E7%BC%93%E5%AD%98%E7%AE%97%E6%B3%95">最不经常使用（LFU）</a>缓存算法设计并实现数据结构。</p>
 
@@ -76,7 +78,11 @@ lfu.get(4);      // 返回 4
 	<li>最多调用 <code>2 * 10<sup>5</sup></code> 次 <code>get</code> 和 <code>put</code> 方法</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双哈希表 + 双向链表
 
@@ -749,4 +755,6 @@ impl LFUCache {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

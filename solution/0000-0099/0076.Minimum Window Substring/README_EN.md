@@ -8,6 +8,8 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [76. Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring)
 
 [中文文档](/solution/0000-0099/0076.Minimum%20Window%20Substring/README.md)
@@ -58,6 +60,8 @@ Since the largest window of s only has one &#39;a&#39;, return empty string.
 <p><strong>Follow up:</strong> Could you find an algorithm that runs in <code>O(m + n)</code> time?</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting + Two Pointers
 
@@ -288,4 +292,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

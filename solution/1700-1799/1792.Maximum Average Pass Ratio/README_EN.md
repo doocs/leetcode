@@ -10,6 +10,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1792. Maximum Average Pass Ratio](https://leetcode.com/problems/maximum-average-pass-ratio)
 
 [中文文档](/solution/1700-1799/1792.Maximum%20Average%20Pass%20Ratio/README.md)
@@ -51,6 +53,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Priority Queue (Max-Heap of Increment)
 
@@ -175,4 +179,6 @@ func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; retur
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

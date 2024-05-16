@@ -9,13 +9,15 @@ tags:
     - 堆（优先队列）
 ---
 
+<!-- problem:start -->
+
 # [659. 分割数组为连续子序列](https://leetcode.cn/problems/split-array-into-consecutive-subsequences)
 
 [English Version](/solution/0600-0699/0659.Split%20Array%20into%20Consecutive%20Subsequences/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个按 <strong>非递减顺序</strong> 排列的整数数组 <code>nums</code> 。</p>
 
@@ -72,7 +74,11 @@ tags:
 	<li><code>nums</code> 按非递减顺序排列</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 优先队列（小根堆）
 
@@ -189,4 +195,6 @@ func (h *hp) Pop() any {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

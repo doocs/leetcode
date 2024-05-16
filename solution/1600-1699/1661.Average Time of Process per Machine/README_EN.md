@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1661. Average Time of Process per Machine](https://leetcode.com/problems/average-time-of-process-per-machine)
 
 [中文文档](/solution/1600-1699/1661.Average%20Time%20of%20Process%20per%20Machine/README.md)
@@ -83,6 +85,8 @@ Machine 2&#39;s average time is ((4.512 - 4.100) + (5.000 - 2.500)) / 2 = 1.456
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Grouping and Aggregation
 
 We can group by `machine_id` and use the `AVG` function to calculate the average time consumption of all process tasks on each machine. Since each process task on the machine has a pair of start and end timestamps, the time consumption of each process task can be calculated by subtracting the `start` timestamp from the `end` timestamp. Therefore, we can use the `CASE WHEN` or `IF` function to calculate the time consumption of each process task, and then use the `AVG` function to calculate the average time consumption of all process tasks on each machine.
@@ -110,6 +114,10 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -125,4 +133,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

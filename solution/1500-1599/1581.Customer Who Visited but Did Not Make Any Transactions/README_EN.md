@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1581. Customer Who Visited but Did Not Make Any Transactions](https://leetcode.com/problems/customer-who-visited-but-did-not-make-any-transactions)
 
 [中文文档](/solution/1500-1599/1581.Customer%20Who%20Visited%20but%20Did%20Not%20Make%20Any%20Transactions/README.md)
@@ -95,6 +97,8 @@ As we can see, users with IDs 30 and 96 visited the mall one time without making
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Subquery + Grouping
 
 We can use a subquery to first find all `visit_id`s that have not made any transactions, and then group by `customer_id` to count the number of times each customer has not made any transactions.
@@ -110,6 +114,10 @@ GROUP BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Left Join + Grouping
 
@@ -129,4 +137,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

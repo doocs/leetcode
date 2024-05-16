@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [183. 从不订购的客户](https://leetcode.cn/problems/customers-who-never-order)
 
 [English Version](/solution/0100-0199/0183.Customers%20Who%20Never%20Order/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><code>Customers</code> 表：</p>
 
@@ -77,7 +79,11 @@ Orders table:
 | Max       |
 +-----------+</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：NOT IN
 
@@ -112,6 +118,10 @@ WHERE
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：LEFT JOIN
 
 使用 `LEFT JOIN` 连接表格，返回 `CustomerId` 为 `NULL` 的数据。
@@ -129,4 +139,6 @@ WHERE o.id IS NULL;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,6 +7,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [798. Smallest Rotation with Highest Score](https://leetcode.com/problems/smallest-rotation-with-highest-score)
 
 [中文文档](/solution/0700-0799/0798.Smallest%20Rotation%20with%20Highest%20Score/README.md)
@@ -54,6 +56,8 @@ So we will choose the smallest k, which is 0.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -153,4 +157,6 @@ func bestRotation(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

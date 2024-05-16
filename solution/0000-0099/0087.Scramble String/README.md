@@ -7,13 +7,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [87. 扰乱字符串](https://leetcode.cn/problems/scramble-string)
 
 [English Version](/solution/0000-0099/0087.Scramble%20String/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 使用下面描述的算法可以扰乱字符串 <code>s</code> 得到字符串 <code>t</code> ：
 
@@ -72,7 +74,11 @@ tags:
 	<li><code>s1</code> 和 <code>s2</code> 由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -268,6 +274,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划（区间 DP）
 
 我们定义 $f[i][j][k]$ 表示字符串 $s_1$ 从 $i$ 开始长度为 $k$ 的子串是否能变换为字符串 $s_2$ 从 $j$ 开始长度为 $k$ 的子串。那么答案就是 $f[0][0][n]$，其中 $n$ 是字符串的长度。
@@ -458,4 +468,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

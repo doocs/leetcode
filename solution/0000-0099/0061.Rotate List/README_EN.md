@@ -7,6 +7,8 @@ tags:
     - Two Pointers
 ---
 
+<!-- problem:start -->
+
 # [61. Rotate List](https://leetcode.com/problems/rotate-list)
 
 [中文文档](/solution/0000-0099/0061.Rotate%20List/README.md)
@@ -40,6 +42,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Fast and Slow Pointers + Link List Concatenation
 
@@ -349,4 +353,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

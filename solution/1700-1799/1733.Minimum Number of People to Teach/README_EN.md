@@ -10,6 +10,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [1733. Minimum Number of People to Teach](https://leetcode.com/problems/minimum-number-of-people-to-teach)
 
 [中文文档](/solution/1700-1799/1733.Minimum%20Number%20of%20People%20to%20Teach/README.md)
@@ -61,6 +63,8 @@ Note that friendships are not transitive, meaning if <code>x</code> is a friend 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation + Statistics
 
@@ -207,4 +211,6 @@ func minimumTeachings(n int, languages [][]int, friendships [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

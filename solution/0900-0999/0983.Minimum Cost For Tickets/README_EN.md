@@ -7,6 +7,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [983. Minimum Cost For Tickets](https://leetcode.com/problems/minimum-cost-for-tickets)
 
 [中文文档](/solution/0900-0999/0983.Minimum%20Cost%20For%20Tickets/README.md)
@@ -67,6 +69,8 @@ In total, you spent $17 and covered all the days of your travel.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -227,4 +231,6 @@ function mincostTickets(days: number[], costs: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,6 +8,8 @@ tags:
     - Data Stream
 ---
 
+<!-- problem:start -->
+
 # [933. Number of Recent Calls](https://leetcode.com/problems/number-of-recent-calls)
 
 [中文文档](/solution/0900-0999/0933.Number%20of%20Recent%20Calls/README.md)
@@ -53,6 +55,8 @@ recentCounter.ping(3002);  // requests = [1, <u>100</u>, <u>3001</u>, <u>3002</u
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -264,6 +268,10 @@ public class RecentCounter {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -339,4 +347,6 @@ func (this *RecentCounter) Ping(t int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

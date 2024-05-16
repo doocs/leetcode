@@ -9,6 +9,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [630. Course Schedule III](https://leetcode.com/problems/course-schedule-iii)
 
 [中文文档](/solution/0600-0699/0630.Course%20Schedule%20III/README.md)
@@ -58,6 +60,8 @@ The 4<sup>th</sup> course cannot be taken now, since you will finish it on the 3
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -167,4 +171,6 @@ function scheduleCourse(courses: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

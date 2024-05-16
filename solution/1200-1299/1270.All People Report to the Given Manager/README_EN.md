@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1270. All People Report to the Given Manager 🔒](https://leetcode.com/problems/all-people-report-to-the-given-manager)
 
 [中文文档](/solution/1200-1299/1270.All%20People%20Report%20to%20the%20Given%20Manager/README.md)
@@ -74,6 +76,8 @@ The employees with employee_id 3, 8, and 9 do not report their work to the head 
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Two Joins
 
 We can use two joins to find all employees who report directly or indirectly to the company CEO.
@@ -94,4 +98,6 @@ WHERE e1.employee_id != 1 AND e3.manager_id = 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

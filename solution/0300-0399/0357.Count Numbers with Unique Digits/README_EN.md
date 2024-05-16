@@ -8,6 +8,8 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [357. Count Numbers with Unique Digits](https://leetcode.com/problems/count-numbers-with-unique-digits)
 
 [中文文档](/solution/0300-0399/0357.Count%20Numbers%20with%20Unique%20Digits/README.md)
@@ -40,6 +42,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -112,6 +116,10 @@ func countNumbersWithUniqueDigits(n int) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -248,4 +256,6 @@ func countNumbersWithUniqueDigits(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

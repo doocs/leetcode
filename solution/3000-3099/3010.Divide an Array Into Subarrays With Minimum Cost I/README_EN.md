@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [3010. Divide an Array Into Subarrays With Minimum Cost I](https://leetcode.com/problems/divide-an-array-into-subarrays-with-minimum-cost-i)
 
 [中文文档](/solution/3000-3099/3010.Divide%20an%20Array%20Into%20Subarrays%20With%20Minimum%20Cost%20I/README.md)
@@ -63,6 +65,8 @@ It can be shown that 12 is the minimum cost achievable.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Traverse to Find the Smallest and Second Smallest Values
 
@@ -149,4 +153,6 @@ function minimumCost(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

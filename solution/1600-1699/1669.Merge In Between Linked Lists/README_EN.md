@@ -8,6 +8,8 @@ tags:
     - Linked List
 ---
 
+<!-- problem:start -->
+
 # [1669. Merge In Between Linked Lists](https://leetcode.com/problems/merge-in-between-linked-lists)
 
 [中文文档](/solution/1600-1699/1669.Merge%20In%20Between%20Linked%20Lists/README.md)
@@ -49,6 +51,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -245,4 +249,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

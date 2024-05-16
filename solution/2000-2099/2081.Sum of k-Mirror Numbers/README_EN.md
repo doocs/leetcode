@@ -9,6 +9,8 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [2081. Sum of k-Mirror Numbers](https://leetcode.com/problems/sum-of-k-mirror-numbers)
 
 [中文文档](/solution/2000-2099/2081.Sum%20of%20k-Mirror%20Numbers/README.md)
@@ -78,6 +80,8 @@ Their sum = 1 + 2 + 4 + 8 + 121 + 151 + 212 = 499.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -118,4 +122,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

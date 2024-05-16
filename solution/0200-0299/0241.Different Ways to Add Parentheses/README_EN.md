@@ -10,6 +10,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [241. Different Ways to Add Parentheses](https://leetcode.com/problems/different-ways-to-add-parentheses)
 
 [中文文档](/solution/0200-0299/0241.Different%20Ways%20to%20Add%20Parentheses/README.md)
@@ -54,6 +56,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -265,4 +269,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

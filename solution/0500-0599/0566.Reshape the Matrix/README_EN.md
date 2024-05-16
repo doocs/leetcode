@@ -8,6 +8,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [566. Reshape the Matrix](https://leetcode.com/problems/reshape-the-matrix)
 
 [中文文档](/solution/0500-0599/0566.Reshape%20the%20Matrix/README.md)
@@ -49,6 +51,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -194,6 +198,10 @@ int** matrixReshape(int** mat, int matSize, int* matColSize, int r, int c, int* 
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -215,4 +223,6 @@ function matrixReshape(mat: number[][], r: number, c: number): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

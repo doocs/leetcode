@@ -9,6 +9,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [389. Find the Difference](https://leetcode.com/problems/find-the-difference)
 
 [中文文档](/solution/0300-0399/0389.Find%20the%20Difference/README.md)
@@ -47,6 +49,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -177,6 +181,10 @@ char findTheDifference(char* s, char* t) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Summation
 
 We can sum the ASCII values of each character in string $t$, then subtract the sum of the ASCII values of each character in string $s$. The final result is the ASCII value of the added character.
@@ -276,4 +284,6 @@ char findTheDifference(char* s, char* t) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

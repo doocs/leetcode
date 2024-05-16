@@ -9,6 +9,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2737. Find the Closest Marked Node 🔒](https://leetcode.com/problems/find-the-closest-marked-node)
 
 [中文文档](/solution/2700-2799/2737.Find%20the%20Closest%20Marked%20Node/README.md)
@@ -74,6 +76,8 @@ So the answer is 3.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dijkstra's Algorithm
 
@@ -256,4 +260,6 @@ function minimumDistance(n: number, edges: number[][], s: number, marked: number
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

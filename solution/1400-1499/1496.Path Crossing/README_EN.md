@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1496. Path Crossing](https://leetcode.com/problems/path-crossing)
 
 [中文文档](/solution/1400-1499/1496.Path%20Crossing/README.md)
@@ -44,6 +46,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -171,4 +175,6 @@ function isPathCrossing(path: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

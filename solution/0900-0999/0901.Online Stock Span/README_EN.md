@@ -9,6 +9,8 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [901. Online Stock Span](https://leetcode.com/problems/online-stock-span)
 
 [中文文档](/solution/0900-0999/0901.Online%20Stock%20Span/README.md)
@@ -61,6 +63,8 @@ stockSpanner.next(85);  // return 6
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Monotonic Stack
 
@@ -234,4 +238,6 @@ impl StockSpanner {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

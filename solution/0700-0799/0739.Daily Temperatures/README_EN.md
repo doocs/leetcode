@@ -8,6 +8,8 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [739. Daily Temperatures](https://leetcode.com/problems/daily-temperatures)
 
 [中文文档](/solution/0700-0799/0739.Daily%20Temperatures/README.md)
@@ -36,6 +38,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -167,6 +171,10 @@ var dailyTemperatures = function (temperatures) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -243,4 +251,6 @@ func dailyTemperatures(temperatures []int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

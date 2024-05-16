@@ -8,6 +8,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [748. Shortest Completing Word](https://leetcode.com/problems/shortest-completing-word)
 
 [中文文档](/solution/0700-0799/0748.Shortest%20Completing%20Word/README.md)
@@ -56,6 +58,8 @@ Since &quot;steps&quot; is the only word containing all the letters, that is the
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -251,4 +255,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

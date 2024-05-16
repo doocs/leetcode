@@ -11,6 +11,8 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [2284. Sender With Largest Word Count](https://leetcode.com/problems/sender-with-largest-word-count)
 
 [中文文档](/solution/2200-2299/2284.Sender%20With%20Largest%20Word%20Count/README.md)
@@ -66,6 +68,8 @@ Since there is a tie for the largest word count, we return the sender with the l
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -150,4 +154,6 @@ func largestWordCount(messages []string, senders []string) (ans string) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,6 +7,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [764. Largest Plus Sign](https://leetcode.com/problems/largest-plus-sign)
 
 [中文文档](/solution/0700-0799/0764.Largest%20Plus%20Sign/README.md)
@@ -47,6 +49,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -169,4 +173,6 @@ func orderOfLargestPlusSign(n int, mines [][]int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

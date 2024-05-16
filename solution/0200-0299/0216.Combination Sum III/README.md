@@ -7,13 +7,15 @@ tags:
     - 回溯
 ---
 
+<!-- problem:start -->
+
 # [216. 组合总和 III](https://leetcode.cn/problems/combination-sum-iii)
 
 [English Version](/solution/0200-0299/0216.Combination%20Sum%20III/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>找出所有相加之和为&nbsp;<code>n</code><em> </em>的&nbsp;<code>k</code><strong>&nbsp;</strong>个数的组合，且满足下列条件：</p>
 
@@ -64,7 +66,11 @@ tags:
 	<li><code>1 &lt;= n &lt;= 60</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：剪枝 + 回溯（两种方式）
 
@@ -452,6 +458,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：二进制枚举
 
 我们可以用一个长度为 $9$ 的二进制整数表示数字 $1$ 到 $9$ 的选取情况，其中二进制整数的第 $i$ 位表示数字 $i + 1$ 是否被选取，如果第 $i$ 位为 $1$，则表示数字 $i + 1$ 被选取，否则表示数字 $i + 1$ 没有被选取。
@@ -616,4 +626,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

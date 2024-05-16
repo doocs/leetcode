@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.16.Sub%20Sort/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 16.16. 部分排序](https://leetcode.cn/problems/sub-sort-lcci)
 
 [English Version](/lcci/16.15.Master%20Mind/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数数组，编写一个函数，找出索引<code>m</code>和<code>n</code>，只要将索引区间<code>[m,n]</code>的元素排好序，整个数组就是有序的。注意：<code>n-m</code>尽量最小，也就是说，找出符合条件的最短序列。函数返回值为<code>[m,n]</code>，若不存在这样的<code>m</code>和<code>n</code>（例如整个数组是有序的），请返回<code>[-1,-1]</code>。</p>
 <p><strong>示例：</strong></p>
@@ -22,7 +24,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.16.Sub%20Sort/READ
 <li><code>0 <= len(array) <= 1000000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：两次遍历
 
@@ -182,4 +188,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,6 +10,8 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [321. Create Maximum Number](https://leetcode.com/problems/create-maximum-number)
 
 [中文文档](/solution/0300-0399/0321.Create%20Maximum%20Number/README.md)
@@ -56,6 +58,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -394,4 +398,6 @@ function merge(nums1: number[], nums2: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

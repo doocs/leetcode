@@ -7,6 +7,8 @@ tags:
     - String Matching
 ---
 
+<!-- problem:start -->
+
 # [686. Repeated String Match](https://leetcode.com/problems/repeated-string-match)
 
 [中文文档](/solution/0600-0699/0686.Repeated%20String%20Match/README.md)
@@ -42,6 +44,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -134,4 +138,6 @@ function repeatedStringMatch(a: string, b: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -12,6 +12,8 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [1157. Online Majority Element In Subarray](https://leetcode.com/problems/online-majority-element-in-subarray)
 
 [中文文档](/solution/1100-1199/1157.Online%20Majority%20Element%20In%20Subarray/README.md)
@@ -59,6 +61,8 @@ majorityChecker.query(2, 3, 2); // return 2
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Segment Tree + Boyer-Moore Voting Algorithm + Binary Search
 
@@ -481,4 +485,6 @@ func (this *MajorityChecker) Query(left int, right int, threshold int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

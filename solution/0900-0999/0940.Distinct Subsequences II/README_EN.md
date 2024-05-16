@@ -7,6 +7,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [940. Distinct Subsequences II](https://leetcode.com/problems/distinct-subsequences-ii)
 
 [中文文档](/solution/0900-0999/0940.Distinct%20Subsequences%20II/README.md)
@@ -49,6 +51,8 @@ A <strong>subsequence</strong> of a string is a new string that is formed from t
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -187,6 +191,10 @@ int distinctSubseqII(char* s) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -256,6 +264,10 @@ func distinctSubseqII(s string) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
@@ -276,4 +288,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

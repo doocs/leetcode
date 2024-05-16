@@ -8,6 +8,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [3125. Maximum Number That Makes Result of Bitwise AND Zero 🔒](https://leetcode.com/problems/maximum-number-that-makes-result-of-bitwise-and-zero)
 
 [中文文档](/solution/3100-3199/3125.Maximum%20Number%20That%20Makes%20Result%20of%20Bitwise%20AND%20Zero/README.md)
@@ -65,6 +67,8 @@ The bitwise <code>AND</code> of <code>[3, 4, 5, 6, 7]</code> is 0.</p>
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Bit Manipulation
 
 We can find the highest bit of $1$ in the binary representation of $n$. The maximum $x$ must be less than $n$ and this bit is $0$, and all other lower bits are $1$, i.e., $x = 2^{\text{number of the highest bit}} - 1$. This is because $x \text{ and } (x + 1) = 0$ must hold.
@@ -104,4 +108,6 @@ func maxNumber(n int64) int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

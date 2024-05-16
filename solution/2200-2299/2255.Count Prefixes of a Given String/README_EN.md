@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2255. Count Prefixes of a Given String](https://leetcode.com/problems/count-prefixes-of-a-given-string)
 
 [中文文档](/solution/2200-2299/2255.Count%20Prefixes%20of%20a%20Given%20String/README.md)
@@ -51,6 +53,8 @@ Note that the same string can occur multiple times in words, and it should be co
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Traversal Counting
 
@@ -114,4 +118,6 @@ function countPrefixes(words: string[], s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,6 +4,8 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2700.Differences%20Between%20Two%20Objects/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2700. Differences Between Two Objects 🔒](https://leetcode.com/problems/differences-between-two-objects)
 
 [中文文档](/solution/2700-2799/2700.Differences%20Between%20Two%20Objects/README.md)
@@ -135,6 +137,8 @@ obj2 = { &nbsp;
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -163,4 +167,6 @@ function isObject(obj: unknown): obj is Record<string, unknown> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

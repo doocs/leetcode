@@ -8,13 +8,15 @@ tags:
     - 数据流
 ---
 
+<!-- problem:start -->
+
 # [933. 最近的请求次数](https://leetcode.cn/problems/number-of-recent-calls)
 
 [English Version](/solution/0900-0999/0933.Number%20of%20Recent%20Calls/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>写一个&nbsp;<code>RecentCounter</code>&nbsp;类来计算特定时间范围内最近的请求。</p>
 
@@ -56,7 +58,11 @@ recentCounter.ping(3002);  // requests = [1, <strong>100</strong>, <strong>3001<
 	<li>至多调用 <code>ping</code> 方法 <code>10<sup>4</sup></code> 次</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：队列
 
@@ -274,6 +280,10 @@ public class RecentCounter {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：二分查找
 
 `t` 严格单调递增，非常适合用二分查找来定位 `[t-3000, t]` 的左右边界。
@@ -351,4 +361,6 @@ func (this *RecentCounter) Ping(t int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

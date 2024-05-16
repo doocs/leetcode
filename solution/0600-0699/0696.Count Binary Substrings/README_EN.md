@@ -7,6 +7,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [696. Count Binary Substrings](https://leetcode.com/problems/count-binary-substrings)
 
 [中文文档](/solution/0600-0699/0696.Count%20Binary%20Substrings/README.md)
@@ -45,6 +47,8 @@ Also, &quot;00110011&quot; is not a valid substring because all the 0&#39;s (and
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -136,4 +140,6 @@ func countBinarySubstrings(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

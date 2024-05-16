@@ -9,6 +9,8 @@ tags:
     - Game Theory
 ---
 
+<!-- problem:start -->
+
 # [877. Stone Game](https://leetcode.com/problems/stone-game)
 
 [中文文档](/solution/0800-0899/0877.Stone%20Game/README.md)
@@ -55,6 +57,8 @@ This demonstrated that taking the first 5 was a winning move for Alice, so we re
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -157,6 +161,10 @@ function stoneGame(piles: number[]): boolean {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -247,4 +255,6 @@ function stoneGame(piles: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

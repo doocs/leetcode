@@ -7,13 +7,15 @@ tags:
     - 深度优先搜索
 ---
 
+<!-- problem:start -->
+
 # [1522. N 叉树的直径 🔒](https://leetcode.cn/problems/diameter-of-n-ary-tree)
 
 [English Version](/solution/1500-1599/1522.Diameter%20of%20N-Ary%20Tree/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一棵 <code>N 叉树</code> 的根节点&nbsp;<code>root</code>&nbsp;，计算这棵树的直径长度。</p>
 
@@ -59,7 +61,11 @@ tags:
 	<li>节点的总个数在&nbsp;<code>[0,&nbsp;10^4]</code>&nbsp;间。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -236,6 +242,10 @@ func diameter(root *Node) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二
 
@@ -472,4 +482,6 @@ func diameter(root *Node) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

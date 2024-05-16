@@ -4,13 +4,16 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.25.LRU%20Cache/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 16.25. LRU 缓存](https://leetcode.cn/problems/lru-cache-lcci)
 
 [English Version](/lcci/16.25.LRU%20Cache/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>设计和构建一个&ldquo;最近最少使用&rdquo;缓存，该缓存会删除最近最少使用的项目。缓存应该从键映射到值(允许你插入和检索特定键对应的值)，并在初始化时指定最大容量。当缓存被填满时，它应该删除最近最少使用的项目。</p>
 
 <p>它应该支持以下操作： 获取数据 <code>get</code> 和 写入数据 <code>put</code> 。</p>
@@ -33,7 +36,11 @@ cache.get(3);       // 返回  3
 cache.get(4);       // 返回  4
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 双向链表
 
@@ -697,4 +704,6 @@ class LRUCache {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

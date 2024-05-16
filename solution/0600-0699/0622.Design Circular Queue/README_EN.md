@@ -9,6 +9,8 @@ tags:
     - Linked List
 ---
 
+<!-- problem:start -->
+
 # [622. Design Circular Queue](https://leetcode.com/problems/design-circular-queue)
 
 [中文文档](/solution/0600-0699/0622.Design%20Circular%20Queue/README.md)
@@ -66,6 +68,8 @@ myCircularQueue.Rear();     // return 4
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -457,4 +461,6 @@ impl MyCircularQueue {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

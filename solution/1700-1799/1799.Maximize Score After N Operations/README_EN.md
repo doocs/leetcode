@@ -14,6 +14,8 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [1799. Maximize Score After N Operations](https://leetcode.com/problems/maximize-score-after-n-operations)
 
 [中文文档](/solution/1700-1799/1799.Maximize%20Score%20After%20N%20Operations/README.md)
@@ -72,6 +74,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: State Compression + Dynamic Programming
 
@@ -257,4 +261,6 @@ function bitCount(i: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

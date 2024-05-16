@@ -8,6 +8,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [909. Snakes and Ladders](https://leetcode.com/problems/snakes-and-ladders)
 
 [中文文档](/solution/0900-0999/0909.Snakes%20and%20Ladders/README.md)
@@ -73,6 +75,8 @@ This is the lowest possible number of moves to reach the last square, so return 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -234,4 +238,6 @@ func snakesAndLadders(board [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

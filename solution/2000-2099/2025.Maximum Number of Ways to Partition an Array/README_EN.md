@@ -12,6 +12,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2025. Maximum Number of Ways to Partition an Array](https://leetcode.com/problems/maximum-number-of-ways-to-partition-an-array)
 
 [中文文档](/solution/2000-2099/2025.Maximum%20Number%20of%20Ways%20to%20Partition%20an%20Array/README.md)
@@ -70,6 +72,8 @@ There are four ways to partition the array.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Hash Table
 
@@ -204,4 +208,6 @@ func waysToPartition(nums []int, k int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

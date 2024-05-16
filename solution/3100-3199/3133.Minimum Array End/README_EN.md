@@ -8,6 +8,8 @@ tags:
     - Bit Manipulation
 ---
 
+<!-- problem:start -->
+
 # [3133. Minimum Array End](https://leetcode.com/problems/minimum-array-end)
 
 [中文文档](/solution/3100-3199/3133.Minimum%20Array%20End/README.md)
@@ -51,6 +53,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Bit Manipulation
 
@@ -146,4 +150,6 @@ function minEnd(n: number, x: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -12,6 +12,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2949. Count Beautiful Substrings II](https://leetcode.com/problems/count-beautiful-substrings-ii)
 
 [中文文档](/solution/2900-2999/2949.Count%20Beautiful%20Substrings%20II/README.md)
@@ -82,6 +84,8 @@ It can be shown that there are only 3 beautiful substrings in the given string.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Prefix Sum + Hash Table
 
 <!-- tabs:start -->
@@ -128,4 +132,6 @@ function pSqrt(n: number) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

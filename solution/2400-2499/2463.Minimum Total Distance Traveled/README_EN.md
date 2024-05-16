@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2463. Minimum Total Distance Traveled](https://leetcode.com/problems/minimum-total-distance-traveled)
 
 [中文文档](/solution/2400-2499/2463.Minimum%20Total%20Distance%20Traveled/README.md)
@@ -76,6 +78,8 @@ The total distance is |2 - 1| + |(-2) - (-1)| = 2. It can be shown that we canno
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -224,4 +228,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

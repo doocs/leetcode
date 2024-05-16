@@ -6,6 +6,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [172. Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes)
 
 [中文文档](/solution/0100-0199/0172.Factorial%20Trailing%20Zeroes/README.md)
@@ -51,6 +53,8 @@ tags:
 <p><strong>Follow up:</strong> Could you write a solution that works in logarithmic time complexity?</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematics
 
@@ -128,4 +132,6 @@ function trailingZeroes(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

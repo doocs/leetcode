@@ -9,6 +9,8 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [1215. Stepping Numbers 🔒](https://leetcode.com/problems/stepping-numbers)
 
 [中文文档](/solution/1200-1299/1215.Stepping%20Numbers/README.md)
@@ -46,6 +48,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: BFS
 
@@ -204,4 +208,6 @@ function countSteppingNumbers(low: number, high: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

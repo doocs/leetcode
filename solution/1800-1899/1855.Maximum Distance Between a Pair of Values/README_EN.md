@@ -10,6 +10,8 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [1855. Maximum Distance Between a Pair of Values](https://leetcode.com/problems/maximum-distance-between-a-pair-of-values)
 
 [中文文档](/solution/1800-1899/1855.Maximum%20Distance%20Between%20a%20Pair%20of%20Values/README.md)
@@ -62,6 +64,8 @@ The maximum distance is 2 with pair (2,4).
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -217,6 +221,10 @@ var maxDistance = function (nums1, nums2) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -338,4 +346,6 @@ var maxDistance = function (nums1, nums2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

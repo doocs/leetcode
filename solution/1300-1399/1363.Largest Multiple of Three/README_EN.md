@@ -10,6 +10,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1363. Largest Multiple of Three](https://leetcode.com/problems/largest-multiple-of-three)
 
 [中文文档](/solution/1300-1399/1363.Largest%20Multiple%20of%20Three/README.md)
@@ -51,6 +53,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Dynamic Programming + Backtracking
 
@@ -234,4 +238,6 @@ function largestMultipleOfThree(digits: number[]): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

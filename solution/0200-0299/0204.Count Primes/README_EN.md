@@ -9,6 +9,8 @@ tags:
     - Number Theory
 ---
 
+<!-- problem:start -->
+
 # [204. Count Primes](https://leetcode.com/problems/count-primes)
 
 [中文文档](/solution/0200-0299/0204.Count%20Primes/README.md)
@@ -48,6 +50,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -164,4 +168,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

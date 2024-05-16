@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [826. Most Profit Assigning Work](https://leetcode.com/problems/most-profit-assigning-work)
 
 [中文文档](/solution/0800-0899/0826.Most%20Profit%20Assigning%20Work/README.md)
@@ -59,6 +61,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -152,4 +156,6 @@ func maxProfitAssignment(difficulty []int, profit []int, worker []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

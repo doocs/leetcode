@@ -12,6 +12,8 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [2306. Naming a Company](https://leetcode.com/problems/naming-a-company)
 
 [中文文档](/solution/2300-2399/2306.Naming%20a%20Company/README.md)
@@ -69,6 +71,8 @@ The following are some examples of invalid selections:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration Counting
 
@@ -236,4 +240,6 @@ function distinctNames(ideas: string[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

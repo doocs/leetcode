@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [584. Find Customer Referee](https://leetcode.com/problems/find-customer-referee)
 
 [中文文档](/solution/0500-0599/0584.Find%20Customer%20Referee/README.md)
@@ -63,6 +65,8 @@ Customer table:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Conditional Filtering
 
 We can directly filter out the customer names whose `referee_id` is not `2`. Note that the customers whose `referee_id` is `NULL` should also be filtered out.
@@ -78,4 +82,6 @@ WHERE IFNULL(referee_id, 0) != 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

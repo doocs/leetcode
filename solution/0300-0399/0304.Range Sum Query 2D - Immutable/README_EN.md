@@ -9,6 +9,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [304. Range Sum Query 2D - Immutable](https://leetcode.com/problems/range-sum-query-2d-immutable)
 
 [中文文档](/solution/0300-0399/0304.Range%20Sum%20Query%202D%20-%20Immutable/README.md)
@@ -62,6 +64,8 @@ numMatrix.sumRegion(1, 2, 2, 4); // return 12 (i.e sum of the blue rectangle)
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two-dimensional Prefix Sum
 
@@ -225,6 +229,7 @@ class NumMatrix {
 ```
 
 ```rust
+
 /**
  * Your NumMatrix object will be instantiated and called as such:
  * let obj = NumMatrix::new(matrix);
@@ -328,4 +333,6 @@ NumMatrix.prototype.sumRegion = function (row1, col1, row2, col2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

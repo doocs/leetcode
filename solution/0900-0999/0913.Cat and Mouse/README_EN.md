@@ -11,6 +11,8 @@ tags:
     - Game Theory
 ---
 
+<!-- problem:start -->
+
 # [913. Cat and Mouse](https://leetcode.com/problems/cat-and-mouse)
 
 [中文文档](/solution/0900-0999/0913.Cat%20and%20Mouse/README.md)
@@ -71,6 +73,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -378,4 +382,6 @@ func catMouseGame(graph [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -3,11 +3,13 @@ comments: true
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2025.%20%E5%8F%A4%E8%91%A3%E9%94%AE%E7%9B%98/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 25. 古董键盘](https://leetcode.cn/problems/Uh984O)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 小扣在秋日市集购买了一个古董键盘。由于古董键盘年久失修，键盘上只有 26 个字母 **a~z** 可以按下，且每个字母最多仅能被按 `k` 次。
 
@@ -34,6 +36,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2025.%20%E5%8F%A4%
 -   `1 <= k <= 5`
 -   `1 <= n <= 26*k`
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

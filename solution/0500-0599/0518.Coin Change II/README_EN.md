@@ -7,6 +7,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [518. Coin Change II](https://leetcode.com/problems/coin-change-ii)
 
 [中文文档](/solution/0500-0599/0518.Coin%20Change%20II/README.md)
@@ -60,6 +62,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming (Complete Knapsack)
 
@@ -263,4 +267,6 @@ function change(amount: number, coins: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

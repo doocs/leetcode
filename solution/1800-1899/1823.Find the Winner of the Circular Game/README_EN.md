@@ -12,6 +12,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1823. Find the Winner of the Circular Game](https://leetcode.com/problems/find-the-winner-of-the-circular-game)
 
 [中文文档](/solution/1800-1899/1823.Find%20the%20Winner%20of%20the%20Circular%20Game/README.md)
@@ -70,6 +72,8 @@ tags:
 <p>Could you solve this problem in linear time with constant space?</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -160,4 +164,6 @@ function findTheWinner(n: number, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -11,6 +11,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [737. Sentence Similarity II 🔒](https://leetcode.com/problems/sentence-similarity-ii)
 
 [中文文档](/solution/0700-0799/0737.Sentence%20Similarity%20II/README.md)
@@ -71,6 +73,8 @@ Since &quot;leetcode is similar to &quot;onepiece&quot; and the first two words 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -246,4 +250,6 @@ func find(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

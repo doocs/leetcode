@@ -9,6 +9,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1500. Design a File Sharing System 🔒](https://leetcode.com/problems/design-a-file-sharing-system)
 
 [中文文档](/solution/1500-1599/1500.Design%20a%20File%20Sharing%20System/README.md)
@@ -87,6 +89,8 @@ fileSharing.join([]);        // A user who doesn&#39;t have any chunks joined th
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -191,4 +195,6 @@ class FileSharing {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

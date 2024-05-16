@@ -9,6 +9,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1046. Last Stone Weight](https://leetcode.com/problems/last-stone-weight)
 
 [中文文档](/solution/1000-1099/1046.Last%20Stone%20Weight/README.md)
@@ -57,6 +59,8 @@ we combine 1 and 1 to get 0 so the array converts to [1] then that&#39;s the val
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -185,4 +189,6 @@ var lastStoneWeight = function (stones) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,6 +6,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [492. Construct the Rectangle](https://leetcode.com/problems/construct-the-rectangle)
 
 [中文文档](/solution/0400-0499/0492.Construct%20the%20Rectangle/README.md)
@@ -55,6 +57,8 @@ But according to requirement 2, [1,4] is illegal; according to requirement 3,  [
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -103,4 +107,6 @@ func constructRectangle(area int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

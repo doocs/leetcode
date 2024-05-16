@@ -9,13 +9,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [752. 打开转盘锁](https://leetcode.cn/problems/open-the-lock)
 
 [English Version](/solution/0700-0799/0752.Open%20the%20Lock/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你有一个带有四个圆形拨轮的转盘锁。每个拨轮都有10个数字： <code>'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'</code> 。每个拨轮可以自由旋转：例如把 <code>'9'</code> 变为&nbsp;<code>'0'</code>，<code>'0'</code> 变为 <code>'9'</code> 。每次旋转都只能旋转一个拨轮的一位数字。</p>
 
@@ -66,7 +68,11 @@ tags:
 	<li><code>target</code> 和 <code>deadends[i]</code> 仅由若干位数字组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：朴素 BFS
 
@@ -254,6 +260,10 @@ func openLock(deadends []string, target string) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：双向 BFS
 
@@ -549,6 +559,10 @@ func openLock(deadends []string, target string) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三：A\*算法
 
 A\* 算法主要思想如下：
@@ -744,4 +758,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

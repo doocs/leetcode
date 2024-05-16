@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2325. Decode the Message](https://leetcode.com/problems/decode-the-message)
 
 [中文文档](/solution/2300-2399/2325.Decode%20the%20Message/README.md)
@@ -61,6 +63,8 @@ It is obtained by taking the first appearance of each letter in &quot;<u><strong
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -193,4 +197,6 @@ char* decodeMessage(char* key, char* message) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,13 +6,15 @@ tags:
     - 数据库
 ---
 
+<!-- problem:start -->
+
 # [184. 部门工资最高的员工](https://leetcode.cn/problems/department-highest-salary)
 
 [English Version](/solution/0100-0199/0184.Department%20Highest%20Salary/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：&nbsp;<code>Employee</code></p>
 
@@ -84,7 +86,11 @@ Department 表:
 +------------+----------+--------+
 <strong>解释：</strong>Max 和 Jim 在 IT 部门的工资都是最高的，Henry 在销售部的工资最高。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：等值连接 + 子查询
 
@@ -107,6 +113,10 @@ WHERE
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：等值连接 + 窗口函数
 
@@ -137,4 +147,6 @@ WHERE rk = 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

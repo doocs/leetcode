@@ -10,6 +10,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [2746. Decremental String Concatenation](https://leetcode.com/problems/decremental-string-concatenation)
 
 [中文文档](/solution/2700-2799/2746.Decremental%20String%20Concatenation/README.md)
@@ -79,6 +81,8 @@ It can be shown that the minimum possible length of str<sub>2</sub> is 6.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -230,4 +234,6 @@ function minimizeConcatenatedLength(words: string[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -14,6 +14,8 @@ tags:
     - Merge Sort
 ---
 
+<!-- problem:start -->
+
 # [2426. Number of Pairs Satisfying Inequality](https://leetcode.com/problems/number-of-pairs-satisfying-inequality)
 
 [中文文档](/solution/2400-2499/2426.Number%20of%20Pairs%20Satisfying%20Inequality/README.md)
@@ -63,6 +65,8 @@ Since there does not exist any pair that satisfies the conditions, we return 0.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Indexed Tree
 
@@ -244,4 +248,6 @@ func numberOfPairs(nums1 []int, nums2 []int, diff int) int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

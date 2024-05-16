@@ -6,6 +6,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [717. 1-bit and 2-bit Characters](https://leetcode.com/problems/1-bit-and-2-bit-characters)
 
 [中文文档](/solution/0700-0799/0717.1-bit%20and%202-bit%20Characters/README.md)
@@ -49,6 +51,8 @@ So the last character is not one-bit character.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -113,4 +117,6 @@ var isOneBitCharacter = function (bits) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

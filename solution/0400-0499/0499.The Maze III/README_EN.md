@@ -13,6 +13,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [499. The Maze III 🔒](https://leetcode.com/problems/the-maze-iii)
 
 [中文文档](/solution/0400-0499/0499.The%20Maze%20III/README.md)
@@ -73,6 +75,8 @@ Both ways have shortest distance 6, but the first way is lexicographically small
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -250,4 +254,6 @@ func findShortestWay(maze [][]int, ball []int, hole []int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

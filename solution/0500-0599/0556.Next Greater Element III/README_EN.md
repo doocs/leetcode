@@ -8,6 +8,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [556. Next Greater Element III](https://leetcode.com/problems/next-greater-element-iii)
 
 [中文文档](/solution/0500-0599/0556.Next%20Greater%20Element%20III/README.md)
@@ -34,6 +36,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -136,4 +140,6 @@ func nextGreaterElement(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

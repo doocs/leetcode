@@ -8,13 +8,15 @@ tags:
     - 滑动窗口
 ---
 
+<!-- problem:start -->
+
 # [438. 找到字符串中所有字母异位词](https://leetcode.cn/problems/find-all-anagrams-in-a-string)
 
 [English Version](/solution/0400-0499/0438.Find%20All%20Anagrams%20in%20a%20String/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个字符串&nbsp;<code>s</code>&nbsp;和 <code>p</code>，找到&nbsp;<code>s</code><strong>&nbsp;</strong>中所有&nbsp;<code>p</code><strong>&nbsp;</strong>的&nbsp;<strong>异位词&nbsp;</strong>的子串，返回这些子串的起始索引。不考虑答案输出的顺序。</p>
 
@@ -52,7 +54,11 @@ tags:
 	<li><code>s</code>&nbsp;和&nbsp;<code>p</code>&nbsp;仅包含小写字母</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：滑动窗口
 
@@ -253,6 +259,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：双指针（滑动窗口优化）
 
 我们可以对方法一进行优化，与方法一类似，我们用一个固定长度为 $26$ 的数组 $cnt1$ 记录 $p$ 中每个字母的出现次数，用另一个数组 $cnt2$ 记录当前滑动窗口中每个字母的出现次数，用指针 $i$ 和 $j$ 分别指向滑动窗口的左右边界。每一次移动指针 $j$，将 $cnt2[s[j]]$ 的值加 $1$，如果当前 $cnt2[s[j]]$ 的值大于 $cnt1[s[j]]$，则将指针 $i$ 不断右移，直到 $cnt2[s[j]]$ 的值不大于 $cnt1[s[j]]$。此时，如果滑动窗口的长度等于 $p$ 的长度，我们就找到了一个异位词，将起始位置加入答案。继续移动指针 $j$，重复上述操作，直到指针 $j$ 移动到 $s$ 的末尾。
@@ -394,4 +404,6 @@ function findAnagrams(s: string, p: string): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

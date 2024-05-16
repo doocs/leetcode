@@ -4,6 +4,8 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2756.Query%20Batching/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2756. Query Batching 🔒](https://leetcode.com/problems/query-batching)
 
 [中文文档](/solution/2700-2799/2756.Query%20Batching/README.md)
@@ -128,4 +130,18 @@ queryMultiple([&#39;f&#39;]) is called at t=350ms, it is resolved at 450ms
 
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+```ts
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

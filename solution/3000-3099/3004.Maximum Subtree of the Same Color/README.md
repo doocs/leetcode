@@ -9,13 +9,15 @@ tags:
     - 动态规划
 ---
 
+<!-- problem:start -->
+
 # [3004. 相同颜色的最大子树 🔒](https://leetcode.cn/problems/maximum-subtree-of-the-same-color)
 
 [English Version](/solution/3000-3099/3004.Maximum%20Subtree%20of%20the%20Same%20Color/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个二维整数数组 <code>edges</code>，表示一个有 <code>n</code> 个节点的树，节点编号从 <code>0</code> 到 <code>n - 1</code>，以节点 <code>0</code> 为根，其中 <code>edges[i] = [u<sub>i</sub>, v<sub>i</sub>]</code> 表示节点 <code>v<sub>i</sub></code> 和 <code>u<sub>i</sub></code> 之间存在一条边。</p>
 
@@ -69,7 +71,11 @@ tags:
 	<li>输入被生成，使得由 <code>edges</code> 表示的图是一棵树。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -249,4 +255,6 @@ function maximumSubtreeSize(edges: number[][], colors: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

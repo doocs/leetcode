@@ -7,6 +7,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [657. Robot Return to Origin](https://leetcode.com/problems/robot-return-to-origin)
 
 [中文文档](/solution/0600-0699/0657.Robot%20Return%20to%20Origin/README.md)
@@ -47,6 +49,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -109,4 +113,6 @@ function judgeCircle(moves: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

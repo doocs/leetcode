@@ -13,6 +13,8 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [1863. Sum of All Subset XOR Totals](https://leetcode.com/problems/sum-of-all-subset-xor-totals)
 
 [中文文档](/solution/1800-1899/1863.Sum%20of%20All%20Subset%20XOR%20Totals/README.md)
@@ -79,6 +81,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Enumeration
 
@@ -197,6 +201,10 @@ var subsetXORSum = function (nums) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: DFS (Depth-First Search)
 
@@ -328,4 +336,6 @@ var subsetXORSum = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

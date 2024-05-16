@@ -9,6 +9,8 @@ tags:
     - Enumeration
 ---
 
+<!-- problem:start -->
+
 # [2735. Collecting Chocolates](https://leetcode.com/problems/collecting-chocolates)
 
 [中文文档](/solution/2700-2799/2735.Collecting%20Chocolates/README.md)
@@ -55,6 +57,8 @@ Thus, the total cost will become (1 + 5 + 1 + 5 + 1) = 13. We can prove that thi
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -214,4 +218,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

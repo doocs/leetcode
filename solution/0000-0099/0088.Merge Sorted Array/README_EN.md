@@ -8,6 +8,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [88. Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array)
 
 [中文文档](/solution/0000-0099/0088.Merge%20Sorted%20Array/README.md)
@@ -64,6 +66,8 @@ Note that because m = 0, there are no elements in nums1. The 0 is only there to 
 <p><strong>Follow up: </strong>Can you come up with an algorithm that runs in <code>O(m + n)</code> time?</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -215,4 +219,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

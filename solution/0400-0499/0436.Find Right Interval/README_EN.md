@@ -8,6 +8,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [436. Find Right Interval](https://leetcode.com/problems/find-right-interval)
 
 [中文文档](/solution/0400-0499/0436.Find%20Right%20Interval/README.md)
@@ -59,6 +61,8 @@ The right interval for [2,3] is [3,4] since start<sub>2</sub> = 3 is the smalles
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -200,4 +204,6 @@ function findRightInterval(intervals: number[][]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

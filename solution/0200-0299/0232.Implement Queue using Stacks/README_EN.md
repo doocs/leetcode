@@ -8,6 +8,8 @@ tags:
     - Queue
 ---
 
+<!-- problem:start -->
+
 # [232. Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks)
 
 [中文文档](/solution/0200-0299/0232.Implement%20Queue%20using%20Stacks/README.md)
@@ -64,6 +66,8 @@ myQueue.empty(); // return false
 <p><strong>Follow-up:</strong> Can you implement the queue such that each operation is <strong><a href="https://en.wikipedia.org/wiki/Amortized_analysis" target="_blank">amortized</a></strong> <code>O(1)</code> time complexity? In other words, performing <code>n</code> operations will take overall <code>O(n)</code> time even if one of those operations may take longer.</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Double Stack
 
@@ -357,4 +361,6 @@ impl MyQueue {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,13 +4,15 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2665.Counter%20II/README.md
 ---
 
+<!-- problem:start -->
+
 # [2665. 计数器 II](https://leetcode.cn/problems/counter-ii)
 
 [English Version](/solution/2600-2699/2665.Counter%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你写一个函数&nbsp;<code>createCounter</code>。这个函数接收一个初始的整数值 <code>init</code>。并返回一个包含三个函数的对象。</p>
 
@@ -60,7 +62,11 @@ counter.reset(); // 0
 	<li><code>calls[i]</code> 是 “increment”、“decrement” 和 “reset” 中的一个</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -98,4 +104,6 @@ function createCounter(init: number): ReturnObj {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

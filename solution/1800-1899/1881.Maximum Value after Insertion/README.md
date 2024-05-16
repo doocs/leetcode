@@ -9,13 +9,15 @@ tags:
     - 字符串
 ---
 
+<!-- problem:start -->
+
 # [1881. 插入后的最大值](https://leetcode.cn/problems/maximum-value-after-insertion)
 
 [English Version](/solution/1800-1899/1881.Maximum%20Value%20after%20Insertion/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个非常大的整数 <code>n</code> 和一个整数数字 <code>x</code> ，大整数 <code>n</code> 用一个字符串表示。<code>n</code> 中每一位数字和数字 <code>x</code> 都处于闭区间 <code>[1, 9]</code> 中，且 <code>n</code> 可能表示一个 <strong>负数</strong> 。</p>
 
@@ -58,7 +60,11 @@ tags:
 	<li>当 <code>n</code> 表示负数时，将会以字符 <code>'-'</code> 开始。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -150,4 +156,6 @@ var maxValue = function (n, x) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

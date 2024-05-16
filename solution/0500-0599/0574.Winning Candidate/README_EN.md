@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [574. Winning Candidate 🔒](https://leetcode.com/problems/winning-candidate)
 
 [中文文档](/solution/0500-0599/0574.Winning%20Candidate/README.md)
@@ -87,6 +89,8 @@ The winner is candidate B.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -109,6 +113,10 @@ FROM
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -126,4 +134,6 @@ LIMIT 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

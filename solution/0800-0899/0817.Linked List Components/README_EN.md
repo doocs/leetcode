@@ -8,6 +8,8 @@ tags:
     - Linked List
 ---
 
+<!-- problem:start -->
+
 # [817. Linked List Components](https://leetcode.com/problems/linked-list-components)
 
 [中文文档](/solution/0800-0899/0817.Linked%20List%20Components/README.md)
@@ -49,6 +51,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -264,4 +268,6 @@ var numComponents = function (head, nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

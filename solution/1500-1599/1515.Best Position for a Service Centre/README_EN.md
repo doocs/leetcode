@@ -10,6 +10,8 @@ tags:
     - Randomized
 ---
 
+<!-- problem:start -->
+
 # [1515. Best Position for a Service Centre](https://leetcode.com/problems/best-position-for-a-service-centre)
 
 [中文文档](/solution/1500-1599/1515.Best%20Position%20for%20a%20Service%20Centre/README.md)
@@ -51,6 +53,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -234,4 +238,6 @@ function getMinDistSum(positions: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

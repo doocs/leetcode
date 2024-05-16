@@ -8,6 +8,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [899. Orderly Queue](https://leetcode.com/problems/orderly-queue)
 
 [中文文档](/solution/0800-0899/0899.Orderly%20Queue/README.md)
@@ -48,6 +50,8 @@ In the second move, we move the 3<sup>rd</sup> character &#39;c&#39; to the end,
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Case-by-case Judgment
 
@@ -149,4 +153,6 @@ function orderlyQueue(s: string, k: number): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

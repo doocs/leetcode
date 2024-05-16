@@ -10,6 +10,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1861. Rotating the Box](https://leetcode.com/problems/rotating-the-box)
 
 [中文文档](/solution/1800-1899/1861.Rotating%20the%20Box/README.md)
@@ -115,6 +117,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Queue Simulation
 
@@ -240,4 +244,6 @@ func rotateTheBox(box [][]byte) [][]byte {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

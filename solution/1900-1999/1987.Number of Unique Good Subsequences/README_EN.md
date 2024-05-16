@@ -9,6 +9,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [1987. Number of Unique Good Subsequences](https://leetcode.com/problems/number-of-unique-good-subsequences)
 
 [中文文档](/solution/1900-1999/1987.Number%20of%20Unique%20Good%20Subsequences/README.md)
@@ -63,6 +65,8 @@ The unique good subsequences are &quot;0&quot;, &quot;1&quot;, &quot;10&quot;, &
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -162,4 +166,6 @@ function numberOfUniqueGoodSubsequences(binary: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

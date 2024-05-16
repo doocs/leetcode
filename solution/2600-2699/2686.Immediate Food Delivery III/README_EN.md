@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2686. Immediate Food Delivery III 🔒](https://leetcode.com/problems/immediate-food-delivery-iii)
 
 [中文文档](/solution/2600-2699/2686.Immediate%20Food%20Delivery%20III/README.md)
@@ -74,6 +76,8 @@ order_date is sorted in ascending order.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -89,4 +93,6 @@ ORDER BY order_date
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

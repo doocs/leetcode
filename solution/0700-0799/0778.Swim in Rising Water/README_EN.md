@@ -12,6 +12,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [778. Swim in Rising Water](https://leetcode.com/problems/swim-in-rising-water)
 
 [中文文档](/solution/0700-0799/0778.Swim%20in%20Rising%20Water/README.md)
@@ -58,6 +60,8 @@ We need to wait until time 16 so that (0, 0) and (4, 4) are connected.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -316,4 +320,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

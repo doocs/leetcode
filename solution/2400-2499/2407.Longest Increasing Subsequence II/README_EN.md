@@ -14,6 +14,8 @@ tags:
     - Monotonic Queue
 ---
 
+<!-- problem:start -->
+
 # [2407. Longest Increasing Subsequence II](https://leetcode.com/problems/longest-increasing-subsequence-ii)
 
 [中文文档](/solution/2400-2499/2407.Longest%20Increasing%20Subsequence%20II/README.md)
@@ -74,6 +76,8 @@ The subsequence has a length of 1, so we return 1.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Segment Tree
 
@@ -385,4 +389,6 @@ func (t *segmentTree) pushup(u int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

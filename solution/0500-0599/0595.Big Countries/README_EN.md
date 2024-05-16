@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [595. Big Countries](https://leetcode.com/problems/big-countries)
 
 [中文文档](/solution/0500-0599/0595.Big%20Countries/README.md)
@@ -69,6 +71,8 @@ World table:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -81,6 +85,10 @@ WHERE area >= 3000000 OR population >= 25000000;
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -99,4 +107,6 @@ WHERE population >= 25000000;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

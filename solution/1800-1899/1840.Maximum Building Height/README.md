@@ -10,13 +10,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [1840. 最高建筑高度](https://leetcode.cn/problems/maximum-building-height)
 
 [English Version](/solution/1800-1899/1840.Maximum%20Building%20Height/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在一座城市里，你需要建 <code>n</code> 栋新的建筑。这些新的建筑会从 <code>1</code> 到 <code>n</code> 编号排成一列。</p>
 
@@ -74,7 +76,11 @@ tags:
 	<li><code>0 <= maxHeight<sub>i</sub> <= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 数学
 
@@ -192,4 +198,6 @@ func maxBuilding(n int, restrictions [][]int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

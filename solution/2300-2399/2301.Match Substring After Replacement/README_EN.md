@@ -11,6 +11,8 @@ tags:
     - String Matching
 ---
 
+<!-- problem:start -->
+
 # [2301. Match Substring After Replacement](https://leetcode.com/problems/match-substring-after-replacement)
 
 [中文文档](/solution/2300-2399/2301.Match%20Substring%20After%20Replacement/README.md)
@@ -70,6 +72,8 @@ Now sub = &quot;l33tb&quot; is a substring of s, so we return true.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Enumeration
 
@@ -173,6 +177,10 @@ func matchReplacement(s string, sub string, mappings [][]byte) bool {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Array + Enumeration
 
 Since the character set only contains uppercase and lowercase English letters and numbers, we can directly use a $128 \times 128$ array $d$ to record the set of characters that each character can be replaced with.
@@ -270,4 +278,6 @@ func matchReplacement(s string, sub string, mappings [][]byte) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,6 +9,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [1572. Matrix Diagonal Sum](https://leetcode.com/problems/matrix-diagonal-sum)
 
 [中文文档](/solution/1500-1599/1572.Matrix%20Diagonal%20Sum/README.md)
@@ -58,6 +60,8 @@ Notice that element mat[1][1] = 5 is counted only once.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -159,6 +163,10 @@ int diagonalSum(int** mat, int matSize, int* matColSize) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -179,4 +187,6 @@ function diagonalSum(mat: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

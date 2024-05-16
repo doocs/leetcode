@@ -6,6 +6,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [8. String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi)
 
 [中文文档](/solution/0000-0099/0008.String%20to%20Integer%20%28atoi%29/README.md)
@@ -124,6 +126,8 @@ Step 3: &quot;<u>0</u>-1&quot; (&quot;0&quot; is read in; reading stops because 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Traverse the String
 
@@ -334,4 +338,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

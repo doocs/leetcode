@@ -13,13 +13,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [1267. 统计参与通信的服务器](https://leetcode.cn/problems/count-servers-that-communicate)
 
 [English Version](/solution/1200-1299/1267.Count%20Servers%20that%20Communicate/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>这里有一幅服务器分布图，服务器的位置标识在&nbsp;<code>m * n</code>&nbsp;的整数矩阵网格&nbsp;<code>grid</code>&nbsp;中，1 表示单元格上有服务器，0 表示没有。</p>
 
@@ -67,7 +69,11 @@ tags:
 	<li><code>grid[i][j] == 0 or 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数
 
@@ -200,4 +206,6 @@ function countServers(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,6 +9,8 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [2247. Maximum Cost of Trip With K Highways 🔒](https://leetcode.com/problems/maximum-cost-of-trip-with-k-highways)
 
 [中文文档](/solution/2200-2299/2247.Maximum%20Cost%20of%20Trip%20With%20K%20Highways/README.md)
@@ -59,6 +61,8 @@ Note that the trip 4 -&gt; 1 -&gt; 0 -&gt; 1 is not allowed because you visit th
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: State Compression Dynamic Programming
 
@@ -272,4 +276,6 @@ function bitCount(i: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

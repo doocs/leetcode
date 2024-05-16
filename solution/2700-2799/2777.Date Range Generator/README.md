@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2777.Date%20Range%20Generator/README.md
 ---
 
+<!-- problem:start -->
+
 # [2777. 日期范围生成器 🔒](https://leetcode.cn/problems/date-range-generator)
 
 [English Version](/solution/2700-2799/2777.Date%20Range%20Generator/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>现给定起始日期 <code>start</code> 、结束日期 <code>end</code> 和正整数 <code>step</code> ，返回一个生成器对象，该生成器对象按照从 <code>start</code> 到 <code>end</code>（包括 start 和 end ）的范围生成日期。</p>
 
@@ -65,7 +67,11 @@ g.next().value // '2023-04-10'
 	<li><code>1 &lt;= step &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -94,4 +100,6 @@ function* dateRangeGenerator(start: string, end: string, step: number): Generato
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

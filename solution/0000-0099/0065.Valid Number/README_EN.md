@@ -6,6 +6,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [65. Valid Number](https://leetcode.com/problems/valid-number)
 
 [中文文档](/solution/0000-0099/0065.Valid%20Number/README.md)
@@ -71,6 +73,8 @@ For example, all the following are valid numbers: <code>&quot;2&quot;, &quot;008
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Case Discussion
 
@@ -305,4 +309,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -10,6 +10,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [1324. Print Words Vertically](https://leetcode.com/problems/print-words-vertically)
 
 [中文文档](/solution/1300-1399/1324.Print%20Words%20Vertically/README.md)
@@ -85,6 +87,8 @@ Each word would be put on only one column and that in one column there will be o
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -183,4 +187,6 @@ func printVertically(s string) (ans []string) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

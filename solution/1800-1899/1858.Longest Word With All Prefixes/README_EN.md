@@ -7,6 +7,8 @@ tags:
     - Trie
 ---
 
+<!-- problem:start -->
+
 # [1858. Longest Word With All Prefixes 🔒](https://leetcode.com/problems/longest-word-with-all-prefixes)
 
 [中文文档](/solution/1800-1899/1858.Longest%20Word%20With%20All%20Prefixes/README.md)
@@ -76,6 +78,8 @@ However, &quot;apple&quot; is lexicographically smaller, so we return that.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Trie
 
@@ -434,4 +438,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

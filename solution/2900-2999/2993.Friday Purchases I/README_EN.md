@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2993. Friday Purchases I 🔒](https://leetcode.com/problems/friday-purchases-i)
 
 [中文文档](/solution/2900-2999/2993.Friday%20Purchases%20I/README.md)
@@ -67,6 +69,8 @@ Output table is ordered by week_of_month in ascending order.</pre>
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Date Functions
 
 The date functions we use include:
@@ -93,4 +97,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

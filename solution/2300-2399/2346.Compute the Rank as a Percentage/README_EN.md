@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2346. Compute the Rank as a Percentage 🔒](https://leetcode.com/problems/compute-the-rank-as-a-percentage)
 
 [中文文档](/solution/2300-2399/2346.Compute%20the%20Rank%20as%20a%20Percentage/README.md)
@@ -71,6 +73,8 @@ For Department 2:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -97,4 +101,6 @@ FROM Students;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

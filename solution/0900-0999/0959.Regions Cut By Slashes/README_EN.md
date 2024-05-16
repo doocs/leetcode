@@ -11,6 +11,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [959. Regions Cut By Slashes](https://leetcode.com/problems/regions-cut-by-slashes)
 
 [中文文档](/solution/0900-0999/0959.Regions%20Cut%20By%20Slashes/README.md)
@@ -56,6 +58,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -255,4 +259,6 @@ func regionsBySlashes(grid []string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

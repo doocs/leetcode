@@ -11,6 +11,8 @@ tags:
     - Simulation
 ---
 
+<!-- problem:start -->
+
 # [3072. Distribute Elements Into Two Arrays II](https://leetcode.com/problems/distribute-elements-into-two-arrays-ii)
 
 [中文文档](/solution/3000-3099/3072.Distribute%20Elements%20Into%20Two%20Arrays%20II/README.md)
@@ -78,6 +80,8 @@ Hence, the array result formed by concatenation is [3,3,3,3].
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Discretization + Binary Indexed Tree
 
@@ -422,4 +426,6 @@ function resultArray(nums: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

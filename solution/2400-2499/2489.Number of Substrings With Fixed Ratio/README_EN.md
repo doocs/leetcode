@@ -9,6 +9,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2489. Number of Substrings With Fixed Ratio 🔒](https://leetcode.com/problems/number-of-substrings-with-fixed-ratio)
 
 [中文文档](/solution/2400-2499/2489.Number%20of%20Substrings%20With%20Fixed%20Ratio/README.md)
@@ -64,6 +66,8 @@ It can be shown that there are no more ratio substrings.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Counting
 
@@ -164,4 +168,6 @@ func fixedRatio(s string, num1 int, num2 int) int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

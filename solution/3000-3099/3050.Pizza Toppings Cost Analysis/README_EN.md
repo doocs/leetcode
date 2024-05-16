@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [3050. Pizza Toppings Cost Analysis 🔒](https://leetcode.com/problems/pizza-toppings-cost-analysis)
 
 [中文文档](/solution/3000-3099/3050.Pizza%20Toppings%20Cost%20Analysis/README.md)
@@ -71,6 +73,8 @@ Output table is ordered by the total cost in descending order.</pre>
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Window Function + Conditional Join
 
 First, we use a window function to sort the table by the `topping_name` field and add a `rk` field to each row, representing the ranking of the current row.
@@ -98,4 +102,6 @@ ORDER BY 2 DESC, 1 ASC;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

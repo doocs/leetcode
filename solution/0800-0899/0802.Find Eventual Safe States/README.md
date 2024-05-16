@@ -9,13 +9,15 @@ tags:
     - 拓扑排序
 ---
 
+<!-- problem:start -->
+
 # [802. 找到最终的安全状态](https://leetcode.cn/problems/find-eventual-safe-states)
 
 [English Version](/solution/0800-0899/0802.Find%20Eventual%20Safe%20States/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一个有 <code>n</code> 个节点的有向图，节点按 <code>0</code> 到 <code>n - 1</code> 编号。图由一个 <strong>索引从 0 开始</strong> 的 2D 整数数组&nbsp;<code>graph</code>表示，&nbsp;<code>graph[i]</code>是与节点 <code>i</code> 相邻的节点的整数数组，这意味着从节点 <code>i</code> 到&nbsp;<code>graph[i]</code>中的每个节点都有一条边。</p>
 
@@ -60,7 +62,11 @@ tags:
 	<li>图中边的数目在范围 <code>[1, 4 * 10<sup>4</sup>]</code> 内。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：拓扑排序
 
@@ -228,6 +234,10 @@ var eventualSafeNodes = function (graph) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：DFS + 三色标记法
 
 若起始节点位于一个环内，或者能到达一个环，则该节点不是安全的。否则，该节点是安全的。
@@ -376,4 +386,6 @@ var eventualSafeNodes = function (graph) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

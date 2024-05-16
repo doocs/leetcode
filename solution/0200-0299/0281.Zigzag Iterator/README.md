@@ -9,13 +9,15 @@ tags:
     - 迭代器
 ---
 
+<!-- problem:start -->
+
 # [281. 锯齿迭代器 🔒](https://leetcode.cn/problems/zigzag-iterator)
 
 [English Version](/solution/0200-0299/0281.Zigzag%20Iterator/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给出两个整数向量&nbsp;<code>v1</code>&nbsp;和&nbsp;<code>v2</code>，请你实现一个迭代器，交替返回它们中间的元素。</p>
 
@@ -59,7 +61,11 @@ tags:
 <strong>输出：</strong>[1,4,8,2,5,9,3,6,7]
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -197,4 +203,6 @@ impl ZigzagIterator {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

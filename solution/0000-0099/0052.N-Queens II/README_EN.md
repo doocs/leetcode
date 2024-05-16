@@ -6,6 +6,8 @@ tags:
     - Backtracking
 ---
 
+<!-- problem:start -->
+
 # [52. N-Queens II](https://leetcode.com/problems/n-queens-ii)
 
 [中文文档](/solution/0000-0099/0052.N-Queens%20II/README.md)
@@ -40,6 +42,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Backtracking
 
@@ -228,4 +232,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

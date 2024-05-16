@@ -11,6 +11,8 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [1146. Snapshot Array](https://leetcode.com/problems/snapshot-array)
 
 [中文文档](/solution/1100-1199/1146.Snapshot%20Array/README.md)
@@ -52,6 +54,8 @@ snapshotArr.get(0,0);  // Get the value of array[0] with snap_id = 0, return 5</
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Array + Binary Search
 
@@ -247,4 +251,6 @@ class SnapshotArray {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

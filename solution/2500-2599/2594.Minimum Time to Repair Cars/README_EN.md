@@ -9,6 +9,8 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [2594. Minimum Time to Repair Cars](https://leetcode.com/problems/minimum-time-to-repair-cars)
 
 [中文文档](/solution/2500-2599/2594.Minimum%20Time%20to%20Repair%20Cars/README.md)
@@ -59,6 +61,8 @@ It can be proved that the cars cannot be repaired in less than 16 minutes.​​
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -158,4 +162,6 @@ function repairCars(ranks: number[], cars: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,6 +7,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [2214. Minimum Health to Beat Game 🔒](https://leetcode.com/problems/minimum-health-to-beat-game)
 
 [中文文档](/solution/2200-2299/2214.Minimum%20Health%20to%20Beat%20Game/README.md)
@@ -71,6 +73,8 @@ Note that you did not use your armor ability.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy
 
@@ -141,4 +145,6 @@ function minimumHealth(damage: number[], armor: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

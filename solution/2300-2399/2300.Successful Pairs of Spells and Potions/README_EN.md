@@ -11,6 +11,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2300. Successful Pairs of Spells and Potions](https://leetcode.com/problems/successful-pairs-of-spells-and-potions)
 
 [中文文档](/solution/2300-2399/2300.Successful%20Pairs%20of%20Spells%20and%20Potions/README.md)
@@ -60,6 +62,8 @@ Thus, [2,0,2] is returned.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Binary Search
 
@@ -154,4 +158,6 @@ function successfulPairs(spells: number[], potions: number[], success: number): 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

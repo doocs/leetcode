@@ -7,13 +7,15 @@ tags:
     - 回溯
 ---
 
+<!-- problem:start -->
+
 # [93. 复原 IP 地址](https://leetcode.cn/problems/restore-ip-addresses)
 
 [English Version](/solution/0000-0099/0093.Restore%20IP%20Addresses/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><strong>有效 IP 地址</strong> 正好由四个整数（每个整数位于 <code>0</code> 到 <code>255</code> 之间组成，且不能含有前导 <code>0</code>），整数之间用 <code>'.'</code> 分隔。</p>
 
@@ -55,7 +57,11 @@ tags:
 	<li><code>s</code> 仅由数字组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -262,4 +268,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

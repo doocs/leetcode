@@ -9,6 +9,8 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [683. K Empty Slots 🔒](https://leetcode.com/problems/k-empty-slots)
 
 [中文文档](/solution/0600-0699/0683.K%20Empty%20Slots/README.md)
@@ -52,6 +54,8 @@ We return 2 because on the second day, there were two on bulbs with one off bulb
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Indexed Tree
 
@@ -288,4 +292,6 @@ function kEmptySlots(bulbs: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

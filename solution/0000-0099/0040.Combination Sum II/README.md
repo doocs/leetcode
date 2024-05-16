@@ -7,13 +7,15 @@ tags:
     - 回溯
 ---
 
+<!-- problem:start -->
+
 # [40. 组合总和 II](https://leetcode.cn/problems/combination-sum-ii)
 
 [English Version](/solution/0000-0099/0040.Combination%20Sum%20II/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个候选人编号的集合&nbsp;<code>candidates</code>&nbsp;和一个目标数&nbsp;<code>target</code>&nbsp;，找出&nbsp;<code>candidates</code>&nbsp;中所有可以使数字和为&nbsp;<code>target</code>&nbsp;的组合。</p>
 
@@ -55,7 +57,11 @@ tags:
 	<li><code>1 &lt;= target &lt;= 30</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 剪枝 + 回溯
 
@@ -314,6 +320,10 @@ public class Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：排序 + 剪枝 + 回溯（写法二）
 
@@ -608,4 +618,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

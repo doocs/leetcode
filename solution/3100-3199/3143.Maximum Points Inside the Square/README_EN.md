@@ -4,6 +4,8 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3143.Maximum%20Points%20Inside%20the%20Square/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [3143. Maximum Points Inside the Square](https://leetcode.com/problems/maximum-points-inside-the-square)
 
 [中文文档](/solution/3100-3199/3143.Maximum%20Points%20Inside%20the%20Square/README.md)
@@ -77,6 +79,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3143.Ma
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Sorting
 
@@ -219,4 +223,6 @@ function maxPointsInsideSquare(points: number[][], s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,6 +8,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [419. Battleships in a Board](https://leetcode.com/problems/battleships-in-a-board)
 
 [中文文档](/solution/0400-0499/0419.Battleships%20in%20a%20Board/README.md)
@@ -47,6 +49,8 @@ tags:
 <p><strong>Follow up:</strong> Could you do it in one-pass, using only <code>O(1)</code> extra memory and without modifying the values <code>board</code>?</p>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -136,4 +140,6 @@ func countBattleships(board [][]byte) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

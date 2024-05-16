@@ -8,6 +8,8 @@ tags:
     - Concurrency
 ---
 
+<!-- problem:start -->
+
 # [1242. Web Crawler Multithreaded 🔒](https://leetcode.com/problems/web-crawler-multithreaded)
 
 [中文文档](/solution/1200-1299/1242.Web%20Crawler%20Multithreaded/README.md)
@@ -108,4 +110,30 @@ startUrl = &quot;http://news.google.com&quot;
 
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+```python
+
+```
+
+```java
+
+```
+
+```cpp
+
+```
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

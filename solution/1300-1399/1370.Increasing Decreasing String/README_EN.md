@@ -10,6 +10,8 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [1370. Increasing Decreasing String](https://leetcode.com/problems/increasing-decreasing-string)
 
 [中文文档](/solution/1300-1399/1370.Increasing%20Decreasing%20String/README.md)
@@ -62,6 +64,8 @@ After steps 4, 5 and 6 of the second iteration, result = &quot;abccbaabccba&quot
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting + Simulation
 
@@ -225,4 +229,6 @@ var sortString = function (s) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -7,6 +7,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [880. Decoded String at Index](https://leetcode.com/problems/decoded-string-at-index)
 
 [中文文档](/solution/0800-0899/0880.Decoded%20String%20at%20Index/README.md)
@@ -63,6 +65,8 @@ The 1<sup>st</sup> letter is &quot;a&quot;.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Reverse Thinking
 
@@ -196,4 +200,6 @@ function decodeAtIndex(s: string, k: number): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

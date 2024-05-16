@@ -10,6 +10,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1847. Closest Room](https://leetcode.com/problems/closest-room)
 
 [中文文档](/solution/1800-1899/1847.Closest%20Room/README.md)
@@ -63,6 +65,8 @@ Query = [2,5]: Room number 3 is the only room with a size of at least 5. The ans
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Offline Query + Ordered Set + Binary Search
 
@@ -246,4 +250,6 @@ func closestRoom(rooms [][]int, queries [][]int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

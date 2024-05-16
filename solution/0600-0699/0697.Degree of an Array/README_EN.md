@@ -7,6 +7,8 @@ tags:
     - Hash Table
 ---
 
+<!-- problem:start -->
+
 # [697. Degree of an Array](https://leetcode.com/problems/degree-of-an-array)
 
 [中文文档](/solution/0600-0699/0697.Degree%20of%20an%20Array/README.md)
@@ -49,6 +51,8 @@ So [2,2,3,1,4,2] is the shortest subarray, therefore returning 6.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -164,6 +168,10 @@ func findShortestSubArray(nums []int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -226,4 +234,6 @@ func getMaxDegreeElem(maxDegree int, numsMap map[int]int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

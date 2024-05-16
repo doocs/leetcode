@@ -4,13 +4,15 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.26.Calculator/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 16.26. 计算器](https://leetcode.cn/problems/calculator-lcci)
 
 [English Version](/lcci/16.26.Calculator/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个包含正整数、加(+)、减(-)、乘(*)、除(/)的算数表达式(括号除外)，计算其结果。</p>
 <p>表达式仅包含非负整数，<code>+</code>， <code>-</code> ，<code>*</code>，<code>/</code> 四种运算符和空格&nbsp;<code>&nbsp;</code>。 整数除法仅保留整数部分。</p>
@@ -31,7 +33,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.26.Calculator/READ
 	<li>请<strong>不要</strong>使用内置的库函数 <code>eval</code>。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：栈
 
@@ -248,4 +254,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

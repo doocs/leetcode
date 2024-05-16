@@ -11,6 +11,8 @@ tags:
     - Bitmask
 ---
 
+<!-- problem:start -->
+
 # [2172. Maximum AND Sum of Array](https://leetcode.com/problems/maximum-and-sum-of-array)
 
 [中文文档](/solution/2100-2199/2172.Maximum%20AND%20Sum%20of%20Array/README.md)
@@ -58,6 +60,8 @@ Note that slots 2, 5, 6, and 8 are empty which is permitted.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -172,4 +176,6 @@ function maximumANDSum(nums: number[], numSlots: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

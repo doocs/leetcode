@@ -6,6 +6,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [780. Reaching Points](https://leetcode.com/problems/reaching-points)
 
 [中文文档](/solution/0700-0799/0780.Reaching%20Points/README.md)
@@ -51,6 +53,8 @@ One series of moves that transforms the starting point to the target is:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -139,4 +143,6 @@ func reachingPoints(sx int, sy int, tx int, ty int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

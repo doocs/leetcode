@@ -9,6 +9,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [3104. Find Longest Self-Contained Substring 🔒](https://leetcode.com/problems/find-longest-self-contained-substring)
 
 [中文文档](/solution/3100-3199/3104.Find%20Longest%20Self-Contained%20Substring/README.md)
@@ -64,6 +66,8 @@ Let&#39;s check the substring <code>&quot;<span class="example-io">abac</span>&q
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -250,4 +254,6 @@ function maxSubstringLength(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [627. Swap Salary](https://leetcode.com/problems/swap-salary)
 
 [中文文档](/solution/0600-0699/0627.Swap%20Salary/README.md)
@@ -66,6 +68,8 @@ Salary table:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -80,6 +84,10 @@ END;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -92,4 +100,6 @@ SET sex = IF(sex = 'f', 'm', 'f');
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

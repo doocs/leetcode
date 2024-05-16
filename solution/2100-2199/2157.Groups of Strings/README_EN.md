@@ -10,6 +10,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [2157. Groups of Strings](https://leetcode.com/problems/groups-of-strings)
 
 [中文文档](/solution/2100-2199/2157.Groups%20of%20Strings/README.md)
@@ -80,6 +82,8 @@ Thus, the size of the largest group is 3.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -294,4 +298,6 @@ func groupStrings(words []string) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

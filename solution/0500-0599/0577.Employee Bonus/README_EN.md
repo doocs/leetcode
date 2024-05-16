@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [577. Employee Bonus](https://leetcode.com/problems/employee-bonus)
 
 [中文文档](/solution/0500-0599/0577.Employee%20Bonus/README.md)
@@ -84,6 +86,8 @@ Bonus table:
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Left Join
 
 We can use a left join to join the `Employee` table and the `Bonus` table on `empId`, and then filter out the employees whose bonus is less than $1000$. Note that the employees with `NULL` bonus values after the join should also be filtered out, so we need to use the `IFNULL` function to convert `NULL` values to $0$.
@@ -101,4 +105,6 @@ WHERE IFNULL(bonus, 0) < 1000;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

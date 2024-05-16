@@ -14,6 +14,8 @@ tags:
     - Monotonic Stack
 ---
 
+<!-- problem:start -->
+
 # [2736. Maximum Sum Queries](https://leetcode.com/problems/maximum-sum-queries)
 
 [中文文档](/solution/2700-2799/2736.Maximum%20Sum%20Queries/README.md)
@@ -74,6 +76,8 @@ Therefore, we return&nbsp;<code node="[object Object]">[6,10,7]</code>.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Indexed Tree
 
@@ -435,4 +439,6 @@ function maximumSumQueries(nums1: number[], nums2: number[], queries: number[][]
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

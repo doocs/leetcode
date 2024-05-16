@@ -11,6 +11,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1099. Two Sum Less Than K 🔒](https://leetcode.com/problems/two-sum-less-than-k)
 
 [中文文档](/solution/1000-1099/1099.Two%20Sum%20Less%20Than%20K/README.md)
@@ -46,6 +48,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Binary Search
 
@@ -150,6 +154,10 @@ function twoSumLessThanK(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Sorting + Two Pointers
 
 Similar to Solution 1, we can first sort the array $nums$, and initialize the answer as $-1$.
@@ -234,4 +242,6 @@ func twoSumLessThanK(nums []int, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

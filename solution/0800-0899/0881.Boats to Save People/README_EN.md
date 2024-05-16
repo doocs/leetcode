@@ -9,6 +9,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [881. Boats to Save People](https://leetcode.com/problems/boats-to-save-people)
 
 [中文文档](/solution/0800-0899/0881.Boats%20to%20Save%20People/README.md)
@@ -53,6 +55,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Two Pointers
 
@@ -139,4 +143,6 @@ function numRescueBoats(people: number[], limit: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

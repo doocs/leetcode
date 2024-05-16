@@ -4,11 +4,15 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.11.Diving%20Board/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [16.11. Diving Board](https://leetcode.cn/problems/diving-board-lcci)
 
 [中文文档](/lcci/16.11.Diving%20Board/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are building a diving board by placing a bunch of planks of wood end-to-end. There are two types of planks, one of length <code>shorter</code> and one of length <code>longer</code>. You must use exactly <code>K</code> planks of wood. Write a method to generate all possible lengths for the diving board.</p>
 
@@ -37,7 +41,11 @@ k = 3
 	<li>0 &lt;= k &lt;= 100000</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Case Analysis
 
@@ -149,4 +157,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

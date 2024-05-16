@@ -11,6 +11,8 @@ tags:
     - Array
 ---
 
+<!-- problem:start -->
+
 # [2322. Minimum Score After Removals on a Tree](https://leetcode.com/problems/minimum-score-after-removals-on-a-tree)
 
 [中文文档](/solution/2300-2399/2322.Minimum%20Score%20After%20Removals%20on%20a%20Tree/README.md)
@@ -76,6 +78,8 @@ We cannot obtain a smaller score than 0.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -283,4 +287,6 @@ func minimumScore(nums []int, edges [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

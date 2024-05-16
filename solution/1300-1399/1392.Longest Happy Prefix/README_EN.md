@@ -11,6 +11,8 @@ tags:
     - Rolling Hash
 ---
 
+<!-- problem:start -->
+
 # [1392. Longest Happy Prefix](https://leetcode.com/problems/longest-happy-prefix)
 
 [中文文档](/solution/1300-1399/1392.Longest%20Happy%20Prefix/README.md)
@@ -47,6 +49,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: String Hashing
 
@@ -173,4 +177,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

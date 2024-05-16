@@ -8,13 +8,15 @@ tags:
     - 单调栈
 ---
 
+<!-- problem:start -->
+
 # [84. 柱状图中最大的矩形](https://leetcode.cn/problems/largest-rectangle-in-histogram)
 
 [English Version](/solution/0000-0099/0084.Largest%20Rectangle%20in%20Histogram/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定 <em>n</em> 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。</p>
 
@@ -49,7 +51,11 @@ tags:
 	<li><code>0 <= heights[i] <= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：单调栈
 
@@ -239,6 +245,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -269,4 +279,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

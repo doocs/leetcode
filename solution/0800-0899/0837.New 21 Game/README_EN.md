@@ -9,6 +9,8 @@ tags:
     - Probability and Statistics
 ---
 
+<!-- problem:start -->
+
 # [837. New 21 Game](https://leetcode.com/problems/new-21-game)
 
 [中文文档](/solution/0800-0899/0837.New%2021%20Game/README.md)
@@ -59,6 +61,8 @@ In 6 out of 10 possibilities, she is at or below 6 points.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -173,6 +177,10 @@ function new21Game(n: number, k: number, maxPts: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -265,4 +273,6 @@ function new21Game(n: number, k: number, maxPts: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

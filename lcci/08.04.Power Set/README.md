@@ -4,13 +4,16 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.04.Power%20Set/README.md
 ---
 
+<!-- problem:start -->
+
 # [面试题 08.04. 幂集](https://leetcode.cn/problems/power-set-lcci)
 
 [English Version](/lcci/08.04.Power%20Set/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>幂集。编写一种方法，返回某集合的所有子集。集合中<strong>不包含重复的元素</strong>。</p>
 
 <p>说明：解集不能包含重复的子集。</p>
@@ -31,7 +34,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.04.Power%20Set/REA
 ]
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归枚举
 
@@ -203,6 +210,8 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
 ### 方法二：二进制枚举
 
 我们可以将方法一中的递归过程改写成迭代的形式，即使用二进制枚举的方法来枚举所有的子集。
@@ -326,4 +335,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -4,6 +4,8 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2725.Interval%20Cancellation/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2725. Interval Cancellation](https://leetcode.com/problems/interval-cancellation)
 
 [中文文档](/solution/2700-2799/2725.Interval%20Cancellation/README.md)
@@ -116,6 +118,8 @@ Cancelled at 180ms
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -155,4 +159,6 @@ function cancellable(fn: Function, args: any[], t: number): Function {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

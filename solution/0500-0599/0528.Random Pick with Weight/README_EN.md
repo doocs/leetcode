@@ -10,6 +10,8 @@ tags:
     - Randomized
 ---
 
+<!-- problem:start -->
+
 # [528. Random Pick with Weight](https://leetcode.com/problems/random-pick-with-weight)
 
 [中文文档](/solution/0500-0599/0528.Random%20Pick%20with%20Weight/README.md)
@@ -77,6 +79,8 @@ and so on.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -291,4 +295,6 @@ Solution.prototype.pickIndex = function () {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

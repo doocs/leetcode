@@ -12,6 +12,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [1872. Stone Game VIII](https://leetcode.com/problems/stone-game-viii)
 
 [中文文档](/solution/1800-1899/1872.Stone%20Game%20VIII/README.md)
@@ -113,6 +115,8 @@ The difference between their scores is (-22) - 0 = -22.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Memoization Search
 
@@ -246,6 +250,10 @@ function stoneGameVIII(stones: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Prefix Sum + Dynamic Programming
 
 We can also use dynamic programming to solve this problem.
@@ -331,4 +339,6 @@ function stoneGameVIII(stones: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

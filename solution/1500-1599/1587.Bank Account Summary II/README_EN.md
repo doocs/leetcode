@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1587. Bank Account Summary II](https://leetcode.com/problems/bank-account-summary-ii)
 
 [中文文档](/solution/1500-1599/1587.Bank%20Account%20Summary%20II/README.md)
@@ -92,6 +94,8 @@ Charlie&#39;s balance is (6000 + 6000 - 4000) = 8000.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Equi-Join + Group By + Sum
 
 We can use an equi-join to join the `Users` table and the `Transactions` table on the condition of `account`, and then group by `account` to calculate the balance for each account using the `SUM` function. Finally, we can filter out the users whose balance is less than or equal to $10000$.
@@ -112,4 +116,6 @@ HAVING balance > 10000;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

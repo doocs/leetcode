@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1777. Product's Price for Each Store 🔒](https://leetcode.com/problems/products-price-for-each-store)
 
 [中文文档](/solution/1700-1799/1777.Product%27s%20Price%20for%20Each%20Store/README.md)
@@ -64,6 +66,8 @@ Product 1 price&#39;s are 70 for store1, 80 for store3 and, it&#39;s not sold in
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -81,4 +85,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

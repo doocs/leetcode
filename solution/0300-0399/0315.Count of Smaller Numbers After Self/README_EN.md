@@ -12,6 +12,8 @@ tags:
     - Merge Sort
 ---
 
+<!-- problem:start -->
+
 # [315. Count of Smaller Numbers After Self](https://leetcode.com/problems/count-of-smaller-numbers-after-self)
 
 [中文文档](/solution/0300-0399/0315.Count%20of%20Smaller%20Numbers%20After%20Self/README.md)
@@ -56,6 +58,8 @@ To the right of 1 there is <b>0</b> smaller element.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -262,6 +266,10 @@ func countSmaller(nums []int) []int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -552,4 +560,6 @@ func merge(arr []Pair, low, mid, high int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

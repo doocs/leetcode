@@ -8,6 +8,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [568. Maximum Vacation Days 🔒](https://leetcode.com/problems/maximum-vacation-days)
 
 [中文文档](/solution/0500-0599/0568.Maximum%20Vacation%20Days/README.md)
@@ -84,6 +86,8 @@ Ans = 7 + 7 + 7 = 21
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -197,4 +201,6 @@ func maxVacationDays(flights [][]int, days [][]int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

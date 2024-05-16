@@ -6,6 +6,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [38. Count and Say](https://leetcode.com/problems/count-and-say)
 
 [中文文档](/solution/0000-0099/0038.Count%20and%20Say/README.md)
@@ -64,6 +66,8 @@ countAndSay(4) = RLE of &quot;21&quot; = &quot;1211&quot;
 <strong>Follow up:</strong> Could you solve it iteratively?
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -306,4 +310,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

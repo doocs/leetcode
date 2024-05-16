@@ -10,6 +10,8 @@ tags:
     - Rolling Hash
 ---
 
+<!-- problem:start -->
+
 # [3023. Find Pattern in Infinite Stream I 🔒](https://leetcode.com/problems/find-pattern-in-infinite-stream-i)
 
 [中文文档](/solution/3000-3099/3023.Find%20Pattern%20in%20Infinite%20Stream%20I/README.md)
@@ -62,6 +64,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bit Manipulation + Sliding Window
 
@@ -215,4 +219,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

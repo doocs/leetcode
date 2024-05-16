@@ -8,6 +8,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2599. Make the Prefix Sum Non-negative 🔒](https://leetcode.com/problems/make-the-prefix-sum-non-negative)
 
 [中文文档](/solution/2500-2599/2599.Make%20the%20Prefix%20Sum%20Non-negative/README.md)
@@ -52,6 +54,8 @@ The array after the operation is [3,-2,6,-5]. The prefix sum array is [3, 1, 7, 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Priority Queue (Min Heap)
 
@@ -172,4 +176,6 @@ function makePrefSumNonNegative(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

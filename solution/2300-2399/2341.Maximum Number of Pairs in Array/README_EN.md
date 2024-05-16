@@ -10,6 +10,8 @@ tags:
     - Counting
 ---
 
+<!-- problem:start -->
+
 # [2341. Maximum Number of Pairs in Array](https://leetcode.com/problems/maximum-number-of-pairs-in-array)
 
 [中文文档](/solution/2300-2399/2341.Maximum%20Number%20of%20Pairs%20in%20Array/README.md)
@@ -66,6 +68,8 @@ No more pairs can be formed. A total of 1 pair has been formed, and there are 0 
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -209,4 +213,6 @@ int* numberOfPairs(int* nums, int numsSize, int* returnSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

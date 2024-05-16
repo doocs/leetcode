@@ -4,11 +4,13 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2054.%20%E5%A4%BA%E5%9B%9E%E6%8D%AE%E7%82%B9/README.md
 ---
 
+<!-- problem:start -->
+
 # [LCP 54. 夺回据点](https://leetcode.cn/problems/s5kipK)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 欢迎各位勇者来到力扣城，本次试炼主题为「夺回据点」。
 
@@ -65,6 +67,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2054.%20%E5%A4%BA%
 -   `0 <= roads[i][0], roads[i][1] < cost.length`
 -   `1 <= cost[i] <= 10^9`
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

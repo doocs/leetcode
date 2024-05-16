@@ -13,6 +13,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [1268. Search Suggestions System](https://leetcode.com/problems/search-suggestions-system)
 
 [中文文档](/solution/1200-1299/1268.Search%20Suggestions%20System/README.md)
@@ -58,6 +60,8 @@ After typing mou, mous and mouse the system suggests [&quot;mouse&quot;,&quot;mo
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Trie
 
@@ -286,4 +290,6 @@ func suggestedProducts(products []string, searchWord string) (ans [][]string) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

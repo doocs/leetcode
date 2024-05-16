@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1285. Find the Start and End Number of Continuous Ranges 🔒](https://leetcode.com/problems/find-the-start-and-end-number-of-continuous-ranges)
 
 [中文文档](/solution/1200-1299/1285.Find%20the%20Start%20and%20End%20Number%20of%20Continuous%20Ranges/README.md)
@@ -67,6 +69,8 @@ Number 10 is contained in the table.
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Group By + Window Function
 
 We need to find a way to group a continuous sequence of logs into the same group, and then aggregate each group to obtain the start and end logs of each group.
@@ -100,6 +104,10 @@ GROUP BY pid;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -120,4 +128,6 @@ GROUP BY pid;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

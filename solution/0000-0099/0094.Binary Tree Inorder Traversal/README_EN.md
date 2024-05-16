@@ -9,6 +9,8 @@ tags:
     - Binary Tree
 ---
 
+<!-- problem:start -->
+
 # [94. Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal)
 
 [中文文档](/solution/0000-0099/0094.Binary%20Tree%20Inorder%20Traversal/README.md)
@@ -51,6 +53,8 @@ tags:
 <strong>Follow up:</strong> Recursive solution is trivial, could you do it iteratively?
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursive Traversal
 
@@ -269,6 +273,10 @@ var inorderTraversal = function (root) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Stack Implementation for Non-recursive Traversal
 
@@ -503,6 +511,10 @@ var inorderTraversal = function (root) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 3: Morris Implementation for In-order Traversal
 
@@ -744,4 +756,6 @@ var inorderTraversal = function (root) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

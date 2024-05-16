@@ -10,6 +10,8 @@ tags:
     - Prefix Sum
 ---
 
+<!-- problem:start -->
+
 # [2381. Shifting Letters II](https://leetcode.com/problems/shifting-letters-ii)
 
 [中文文档](/solution/2300-2399/2381.Shifting%20Letters%20II/README.md)
@@ -53,6 +55,8 @@ Finally, shift the characters from index 1 to index 1 forward. Now s = &quot;cat
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -178,4 +182,6 @@ function shiftingLetters(s: string, shifts: number[][]): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

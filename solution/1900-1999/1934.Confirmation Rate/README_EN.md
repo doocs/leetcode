@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [1934. Confirmation Rate](https://leetcode.com/problems/confirmation-rate)
 
 [中文文档](/solution/1900-1999/1934.Confirmation%20Rate/README.md)
@@ -97,6 +99,8 @@ User 2 made 2 requests where one was confirmed and the other timed out. The conf
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Left Join + Grouping
 
 We can use a left join to join the `Signups` table and the `Confirmations` table on `user_id`, and then use `GROUP BY` to group by `user_id` for aggregation.
@@ -116,4 +120,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -11,13 +11,15 @@ tags:
     - 矩阵
 ---
 
+<!-- problem:start -->
+
 # [1992. 找到所有的农场组](https://leetcode.cn/problems/find-all-groups-of-farmland)
 
 [English Version](/solution/1900-1999/1992.Find%20All%20Groups%20of%20Farmland/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始，大小为&nbsp;<code>m x n</code>&nbsp;的二进制矩阵&nbsp;<code>land</code>&nbsp;，其中 <code>0</code>&nbsp;表示一单位的森林土地，<code>1</code>&nbsp;表示一单位的农场土地。</p>
 
@@ -70,7 +72,11 @@ tags:
 	<li>农场组都是 <strong>矩形</strong>&nbsp;的形状。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
@@ -171,4 +177,6 @@ func findFarmland(land [][]int) [][]int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

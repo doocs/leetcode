@@ -4,6 +4,8 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2776.Convert%20Callback%20Based%20Function%20to%20Promise%20Based%20Function/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [2776. Convert Callback Based Function to Promise Based Function 🔒](https://leetcode.com/problems/convert-callback-based-function-to-promise-based-function)
 
 [中文文档](/solution/2700-2799/2776.Convert%20Callback%20Based%20Function%20to%20Promise%20Based%20Function/README.md)
@@ -84,6 +86,8 @@ fn is called with a callback as the first argument and args as the rest. As the 
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -114,4 +118,6 @@ function promisify(fn: CallbackFn): Promisified {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

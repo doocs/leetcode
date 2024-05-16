@@ -10,13 +10,15 @@ tags:
     - 排序
 ---
 
+<!-- problem:start -->
+
 # [1710. 卡车上的最大单元数](https://leetcode.cn/problems/maximum-units-on-a-truck)
 
 [English Version](/solution/1700-1799/1710.Maximum%20Units%20on%20a%20Truck/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你将一些箱子装在 <strong>一辆卡车</strong> 上。给你一个二维数组 <code>boxTypes</code> ，其中 <code>boxTypes[i] = [numberOfBoxes<sub>i</sub>, numberOfUnitsPerBox<sub>i</sub>]</code> ：</p>
 
@@ -60,7 +62,11 @@ tags:
 	<li><code>1 <= truckSize <= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 排序
 
@@ -174,6 +180,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：计数排序
 
 我们还可以利用计数排序的思想，开一个长度为 $1001$ 的数组 $cnt$，其中 $cnt[b]$ 表示单元数为 $b$ 的箱子的数量。
@@ -282,4 +292,6 @@ function maximumUnits(boxTypes: number[][], truckSize: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

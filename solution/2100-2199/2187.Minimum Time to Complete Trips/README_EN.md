@@ -9,6 +9,8 @@ tags:
     - Binary Search
 ---
 
+<!-- problem:start -->
+
 # [2187. Minimum Time to Complete Trips](https://leetcode.com/problems/minimum-time-to-complete-trips)
 
 [中文文档](/solution/2100-2199/2187.Minimum%20Time%20to%20Complete%20Trips/README.md)
@@ -56,6 +58,8 @@ So the minimum time needed to complete 1 trip is 2.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -158,4 +162,6 @@ function minimumTime(time: number[], totalTrips: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

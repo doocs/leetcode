@@ -10,6 +10,8 @@ tags:
     - Sliding Window
 ---
 
+<!-- problem:start -->
+
 # [2401. Longest Nice Subarray](https://leetcode.com/problems/longest-nice-subarray)
 
 [中文文档](/solution/2400-2499/2401.Longest%20Nice%20Subarray/README.md)
@@ -55,6 +57,8 @@ It can be proven that no longer nice subarray can be obtained, so we return 3.</
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -191,4 +195,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

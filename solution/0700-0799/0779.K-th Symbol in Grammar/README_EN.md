@@ -8,6 +8,8 @@ tags:
     - Math
 ---
 
+<!-- problem:start -->
+
 # [779. K-th Symbol in Grammar](https://leetcode.com/problems/k-th-symbol-in-grammar)
 
 [中文文档](/solution/0700-0799/0779.K-th%20Symbol%20in%20Grammar/README.md)
@@ -60,6 +62,8 @@ row 2: 0<u>1</u>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -114,6 +118,10 @@ func kthGrammar(n int, k int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -149,4 +157,6 @@ func kthGrammar(n int, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

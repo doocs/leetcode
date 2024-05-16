@@ -8,6 +8,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [916. Word Subsets](https://leetcode.com/problems/word-subsets)
 
 [中文文档](/solution/0900-0999/0916.Word%20Subsets/README.md)
@@ -52,6 +54,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -179,4 +183,6 @@ func wordSubsets(words1 []string, words2 []string) (ans []string) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

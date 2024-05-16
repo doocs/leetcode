@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [2688. Find Active Users 🔒](https://leetcode.com/problems/find-active-users)
 
 [中文文档](/solution/2600-2699/2688.Find%20Active%20Users/README.md)
@@ -66,6 +68,8 @@ Each row includes the user ID, the purchased item, the date of purchase, and the
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1
 
 <!-- tabs:start -->
@@ -96,4 +100,6 @@ WHERE
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

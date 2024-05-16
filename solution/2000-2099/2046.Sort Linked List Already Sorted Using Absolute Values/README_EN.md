@@ -8,6 +8,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [2046. Sort Linked List Already Sorted Using Absolute Values 🔒](https://leetcode.com/problems/sort-linked-list-already-sorted-using-absolute-values)
 
 [中文文档](/solution/2000-2099/2046.Sort%20Linked%20List%20Already%20Sorted%20Using%20Absolute%20Values/README.md)
@@ -61,6 +63,8 @@ The linked list is already sorted in non-decreasing order.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Head Insertion Method
 
@@ -212,4 +216,6 @@ function sortLinkedList(head: ListNode | null): ListNode | null {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

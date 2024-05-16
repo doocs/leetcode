@@ -12,6 +12,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [2402. Meeting Rooms III](https://leetcode.com/problems/meeting-rooms-iii)
 
 [中文文档](/solution/2400-2499/2402.Meeting%20Rooms%20III/README.md)
@@ -78,6 +80,8 @@ Room 0 held 1 meeting while rooms 1 and 2 each held 2 meetings, so we return 1.
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Priority Queue (Min Heap)
 
@@ -262,4 +266,6 @@ func (h *hp2) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; retu
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,6 +9,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [752. Open the Lock](https://leetcode.com/problems/open-the-lock)
 
 [中文文档](/solution/0700-0799/0752.Open%20the%20Lock/README.md)
@@ -63,6 +65,8 @@ because the wheels of the lock become stuck after the display becomes the dead e
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -248,6 +252,10 @@ func openLock(deadends []string, target string) int {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
@@ -509,6 +517,10 @@ func openLock(deadends []string, target string) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
@@ -696,4 +708,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

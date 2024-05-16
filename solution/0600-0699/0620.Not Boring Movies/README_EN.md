@@ -6,6 +6,8 @@ tags:
     - Database
 ---
 
+<!-- problem:start -->
+
 # [620. Not Boring Movies](https://leetcode.com/problems/not-boring-movies)
 
 [中文文档](/solution/0600-0699/0620.Not%20Boring%20Movies/README.md)
@@ -64,6 +66,8 @@ We have three movies with odd-numbered IDs: 1, 3, and 5. The movie with ID = 3 i
 
 ## Solutions
 
+<!-- solution:start -->
+
 ### Solution 1: Conditional Filtering + Sorting
 
 We can use the `WHERE` clause to filter out the records where `description` is not `boring` and `id` is odd, and then use the `ORDER BY` clause to sort the result in descending order by `rating`.
@@ -80,4 +84,6 @@ ORDER BY 4 DESC;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

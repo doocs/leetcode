@@ -11,6 +11,8 @@ tags:
     - Sorting
 ---
 
+<!-- problem:start -->
+
 # [1402. Reducing Dishes](https://leetcode.com/problems/reducing-dishes)
 
 [中文文档](/solution/1400-1499/1402.Reducing%20Dishes/README.md)
@@ -60,6 +62,8 @@ Each dish is prepared in one unit of time.</pre>
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
 
@@ -155,4 +159,6 @@ function maxSatisfaction(satisfaction: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

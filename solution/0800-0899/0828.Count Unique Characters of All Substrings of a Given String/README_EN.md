@@ -8,6 +8,8 @@ tags:
     - Dynamic Programming
 ---
 
+<!-- problem:start -->
+
 # [828. Count Unique Characters of All Substrings of a Given String](https://leetcode.com/problems/count-unique-characters-of-all-substrings-of-a-given-string)
 
 [中文文档](/solution/0800-0899/0828.Count%20Unique%20Characters%20of%20All%20Substrings%20of%20a%20Given%20String/README.md)
@@ -59,6 +61,8 @@ Sum of lengths of all substring is 1 + 1 + 1 + 2 + 2 + 3 = 10
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Calculate the Contribution of Each Character
 
@@ -189,4 +193,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -8,6 +8,8 @@ tags:
     - Matrix
 ---
 
+<!-- problem:start -->
+
 # [803. Bricks Falling When Hit](https://leetcode.com/problems/bricks-falling-when-hit)
 
 [中文文档](/solution/0800-0899/0803.Bricks%20Falling%20When%20Hit/README.md)
@@ -82,6 +84,8 @@ Hence the result is [0,0].
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -364,4 +368,6 @@ func hitBricks(grid [][]int, hits [][]int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

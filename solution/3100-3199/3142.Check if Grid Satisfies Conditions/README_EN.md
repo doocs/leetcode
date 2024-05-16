@@ -4,6 +4,8 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3142.Check%20if%20Grid%20Satisfies%20Conditions/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [3142. Check if Grid Satisfies Conditions](https://leetcode.com/problems/check-if-grid-satisfies-conditions)
 
 [中文文档](/solution/3100-3199/3142.Check%20if%20Grid%20Satisfies%20Conditions/README.md)
@@ -71,6 +73,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3142.Ch
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -168,4 +172,6 @@ function satisfiesConditions(grid: number[][]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

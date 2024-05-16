@@ -11,6 +11,8 @@ tags:
     - Heap (Priority Queue)
 ---
 
+<!-- problem:start -->
+
 # [642. Design Search Autocomplete System 🔒](https://leetcode.com/problems/design-search-autocomplete-system)
 
 [中文文档](/solution/0600-0699/0642.Design%20Search%20Autocomplete%20System/README.md)
@@ -77,6 +79,8 @@ obj.input(&quot;#&quot;); // return []. The user finished the input, the sentenc
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
@@ -235,4 +239,6 @@ class AutocompleteSystem {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

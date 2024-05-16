@@ -4,11 +4,15 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.07.Rotate%20Matrix/README_EN.md
 ---
 
+<!-- problem:start -->
+
 # [01.07. Rotate Matrix](https://leetcode.cn/problems/rotate-matrix-lcci)
 
 [中文文档](/lcci/01.07.Rotate%20Matrix/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an image represented by an N x N matrix, where each pixel in the image is 4 bytes, write a method to rotate the image by 90 degrees. Can you do this in place?</p>
 
@@ -82,7 +86,11 @@ Rotate the matrix <strong>in place. </strong>It becomes:
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: In-place Rotation
 
@@ -264,4 +272,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

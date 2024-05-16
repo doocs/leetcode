@@ -8,6 +8,8 @@ tags:
     - String
 ---
 
+<!-- problem:start -->
+
 # [1844. Replace All Digits with Characters](https://leetcode.com/problems/replace-all-digits-with-characters)
 
 [中文文档](/solution/1800-1899/1844.Replace%20All%20Digits%20with%20Characters/README.md)
@@ -58,6 +60,8 @@ tags:
 </ul>
 
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -151,4 +155,6 @@ char* replaceDigits(char* s) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
