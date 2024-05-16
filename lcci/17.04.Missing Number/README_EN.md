@@ -151,6 +151,8 @@ class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
@@ -244,6 +246,8 @@ class Solution {
 <!-- tabs:end -->
 
 <!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 3
 

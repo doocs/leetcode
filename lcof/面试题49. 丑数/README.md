@@ -227,6 +227,8 @@ public class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二：动态规划
 
 定义数组 $dp$，其中 $dp[i-1]$ 表示第 $i$ 个丑数，那么第 $n$ 个丑数就是 $dp[n - 1]$。最小的丑数是 $1$，所以 $dp[0]=1$。

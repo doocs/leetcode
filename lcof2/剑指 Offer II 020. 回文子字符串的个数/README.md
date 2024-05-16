@@ -141,6 +141,8 @@ func countSubstrings(s string) (ans int) {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二：Manacher 算法
 
 在 Manacher 算法的计算过程中，用 $p[i]-1$ 表示以第 $i$ 位为中心的最大回文长度，以第 $i$ 位为中心的回文串数量为 $\left \lceil \frac{p[i]-1}{2}  \right \rceil$。

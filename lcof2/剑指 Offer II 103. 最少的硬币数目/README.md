@@ -163,6 +163,8 @@ var coinChange = function (coins, amount) {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -194,6 +196,8 @@ class Solution {
 <!-- tabs:end -->
 
 <!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法三
 

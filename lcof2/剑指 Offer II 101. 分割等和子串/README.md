@@ -152,6 +152,8 @@ func canPartition(nums []int) bool {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -178,6 +180,8 @@ class Solution:
 <!-- tabs:end -->
 
 <!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法三
 

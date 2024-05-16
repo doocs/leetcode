@@ -196,6 +196,8 @@ function checkInclusion(s1: string, s2: string): boolean {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二：滑动窗口优化
 
 在方法一中，我们每次加入和移除一个字符时，都需要比较两个哈希表或数组，时间复杂度较高。我们可以维护一个变量 $diff$，表示两个大小为 $m$ 的字符串中，有多少种字符出现的个数不同。当 $diff=0$ 时，说明两个字符串中的字符个数相同。

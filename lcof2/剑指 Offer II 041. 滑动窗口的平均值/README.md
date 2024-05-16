@@ -168,6 +168,8 @@ func (this *MovingAverage) Next(val int) float64 {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二：队列
 
 <!-- tabs:start -->

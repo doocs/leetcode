@@ -282,6 +282,8 @@ public class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二：动态规划
 
 我们可以将方法一中的记忆化搜索转化为动态规划。
@@ -454,6 +456,8 @@ public class Solution {
 <!-- tabs:end -->
 
 <!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法三
 

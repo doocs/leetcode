@@ -180,6 +180,8 @@ func check(need, window map[byte]int) bool {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二
 
 <!-- tabs:start -->

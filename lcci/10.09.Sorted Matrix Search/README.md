@@ -225,6 +225,8 @@ class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二：从左下角或右上角搜索
 
 这里我们以左下角作为起始搜索点，往右上方向开始搜索，比较当前元素 `matrix[i][j]`与 `target` 的大小关系：

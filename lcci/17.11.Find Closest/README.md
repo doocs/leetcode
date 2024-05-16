@@ -176,6 +176,8 @@ class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二：哈希表 + 双指针
 
 我们可以用哈希表 $d$ 记录每个单词出现的位置，然后对于每一对 $\textit{word1}$ 和 $\textit{word2}$，我们可以通过双指针的方法找到它们的最短距离。

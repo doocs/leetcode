@@ -221,6 +221,8 @@ class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
 ### Solution 2: Sorting
 
 We can also sort the two strings in lexicographical order, and then compare whether the two strings are equal.

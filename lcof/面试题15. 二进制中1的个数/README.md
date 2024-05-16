@@ -152,6 +152,8 @@ public class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -207,6 +209,8 @@ func hammingWeight(num uint32) (ans int) {
 <!-- tabs:end -->
 
 <!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法三
 

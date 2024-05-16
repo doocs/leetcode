@@ -200,6 +200,8 @@ class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
 ### Solution 2: Sorting + Two Pointers
 
 We can sort both arrays $a$ and $b$, and use two pointers $i$ and $j$ to maintain the current positions in the two arrays. Initially, $i$ and $j$ point to the beginning of arrays $a$ and $b$, respectively. At each step, we calculate the absolute difference between $a[i]$ and $b[j]$, and update the answer. If one of the elements pointed to by $i$ and $j$ is smaller than the other, we move the pointer pointing to the smaller element forward by one step. The traversal ends when at least one of the pointers goes beyond the array range.

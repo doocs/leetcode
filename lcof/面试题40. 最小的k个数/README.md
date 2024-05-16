@@ -196,6 +196,8 @@ public class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二：优先队列（大根堆）
 
 我们可以用优先队列（大根堆）维护最小的 $k$ 个数。
@@ -289,6 +291,8 @@ func (h *hp) pop() int   { return heap.Pop(h).(int) }
 <!-- tabs:end -->
 
 <!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法三：快排思想
 

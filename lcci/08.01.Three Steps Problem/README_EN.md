@@ -181,6 +181,8 @@ class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
 ### Solution 2: Matrix Quick Power to Accelerate Recursion
 
 We set $F(n)$ to represent a $1 \times 3$ matrix $\begin{bmatrix} F_{n - 1} & F_{n - 2} & F_{n - 3} \end{bmatrix}$, where $F_{n - 1}$, $F_{n - 2}$ and $F_{n - 3}$ respectively represent the number of ways to reach the $n - 1$-th, $n - 2$-th and $n - 3$-th steps.

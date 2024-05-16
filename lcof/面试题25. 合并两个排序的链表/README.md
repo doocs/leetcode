@@ -299,6 +299,8 @@ public class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二：递归
 
 我们先判断 `l1` 和 `l2` 中有没有一个为空，如果有一个为空，那么我们直接返回另一个链表即可。

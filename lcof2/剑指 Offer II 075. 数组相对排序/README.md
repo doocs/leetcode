@@ -132,6 +132,8 @@ func relativeSortArray(arr1 []int, arr2 []int) []int {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二
 
 <!-- tabs:start -->

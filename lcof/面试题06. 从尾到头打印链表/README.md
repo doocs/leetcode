@@ -221,6 +221,8 @@ var reversePrint = function (head) {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二：递归
 
 我们可以使用递归的方式，先递归得到 `head` 之后的节点反过来的值列表，然后将 `head` 的值加到列表的末尾。

@@ -250,6 +250,8 @@ func largestRectangleArea(heights []int) int {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二
 
 <!-- tabs:start -->

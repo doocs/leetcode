@@ -244,6 +244,8 @@ class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
 ### Solution 2: BFS
 
 We can use the method of breadth-first search. Starting from the initial point, fill the color of the initial point with the new color, and then add the initial point to the queue. Each time a point is taken from the queue, the points in the four directions: up, down, left, and right are added to the queue, until the queue is empty.

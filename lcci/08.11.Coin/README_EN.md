@@ -212,6 +212,8 @@ class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
 ### Solution 2: Dynamic Programming (Space Optimization)
 
 We notice that the calculation of $f[i][j]$ is only related to $f[i−1][..]$. Therefore, we can remove the first dimension and optimize the space complexity to $O(n)$.

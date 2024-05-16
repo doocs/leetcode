@@ -178,6 +178,8 @@ class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二：矩阵快速幂加速递推
 
 我们设 $F(n)$ 表示一个 $1 \times 3$ 的矩阵 $\begin{bmatrix} F_{n - 1} & F_{n - 2} & F_{n - 3} \end{bmatrix}$，其中 $F_{n - 1}$, $F_{n - 2}$ 和 $F_{n - 3}$ 分别表示上第 $n - 1$ 阶、第 $n - 2$ 阶和第 $n - 3$ 阶台阶的方法数。

@@ -179,6 +179,8 @@ class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
 ### Solution 2: Hash Table + Two Pointers
 
 We can use a hash table $d$ to record the positions of each word. Then, for each pair of $\textit{word1}$ and $\textit{word2}$, we can find their shortest distance using the two-pointer method.

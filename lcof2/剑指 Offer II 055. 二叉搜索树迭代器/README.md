@@ -421,6 +421,8 @@ BSTIterator.prototype.hasNext = function () {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二：栈迭代
 
 初始化时，从根节点一路遍历所有左子节点，压入栈 `stack` 中。

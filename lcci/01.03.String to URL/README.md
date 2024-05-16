@@ -102,6 +102,8 @@ class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二：模拟
 
 遍历字符串每个字符 $c$，遇到空格则将 `%20` 添加到结果中，否则添加 $c$。

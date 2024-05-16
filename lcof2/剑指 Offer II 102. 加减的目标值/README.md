@@ -159,6 +159,8 @@ func findTargetSumWays(nums []int, target int) int {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -229,6 +231,8 @@ func findTargetSumWays(nums []int, target int) int {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法三
 
 <!-- tabs:start -->
@@ -252,6 +256,8 @@ class Solution:
 <!-- tabs:end -->
 
 <!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法四
 

@@ -153,6 +153,8 @@ class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
 ### Solution 2: Another Implementation of Hash Table
 
 We use a hash table $vis$ to store whether each character has appeared. If it has appeared, we remove the character from the hash table; otherwise, we add the character to the hash table.

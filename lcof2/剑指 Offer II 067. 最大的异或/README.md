@@ -231,6 +231,8 @@ func findMaximumXOR(nums []int) int {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二：前缀树
 
 题目是求两个元素的异或最大值，可以从最高位开始考虑。

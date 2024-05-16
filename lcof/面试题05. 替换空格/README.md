@@ -133,6 +133,8 @@ class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二：遍历替换
 
 我们直接遍历字符串，遇到空格就替换成 `%20` 即可。
@@ -231,6 +233,8 @@ public class Solution {
 <!-- tabs:end -->
 
 <!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法三
 

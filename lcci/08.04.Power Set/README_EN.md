@@ -226,6 +226,8 @@ class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
 ### Solution 2: Binary Enumeration
 
 We can rewrite the recursive process in Method 1 into an iterative form, that is, using binary enumeration to enumerate all subsets.

@@ -152,6 +152,8 @@ function groupAnagrams(strs: string[]): string[][] {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二：计数
 
 我们也可以将方法一中的排序部分改为计数，也就是说，将每个字符串 $s$ 中的字符以及出现的次数作为 `key`，将字符串 $s$ 作为 `value` 存入哈希表当中。

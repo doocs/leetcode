@@ -189,6 +189,8 @@ public class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -229,6 +231,8 @@ impl Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法三
 
 <!-- tabs:start -->
@@ -244,6 +248,8 @@ impl Solution {
 <!-- tabs:end -->
 
 <!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法四
 

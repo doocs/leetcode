@@ -116,6 +116,8 @@ class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
 ### Solution 2: Simulation
 
 Traverse each character $c$ in the string. When encountering a space, add `%20` to the result, otherwise add $c$.

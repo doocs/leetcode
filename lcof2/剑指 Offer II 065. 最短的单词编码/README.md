@@ -214,6 +214,8 @@ func dfs(cur *trie, l int) int {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二
 
 <!-- tabs:start -->

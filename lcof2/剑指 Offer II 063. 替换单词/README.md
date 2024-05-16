@@ -168,6 +168,8 @@ func replaceWords(dictionary []string, sentence string) string {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二：前缀树
 
 <!-- tabs:start -->

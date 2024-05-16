@@ -246,6 +246,8 @@ public class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二：递归
 
 递归反转链表的第二个节点到尾部的所有节点，然后 $head$ 插在反转后的链表的尾部。

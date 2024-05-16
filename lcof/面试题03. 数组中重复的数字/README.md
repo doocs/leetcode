@@ -183,6 +183,8 @@ class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二：哈希表
 
 我们可以使用哈希表来解决这个问题，遍历数组 `nums`，对于遍历到的每个元素，判断哈希表中是否存在该元素，如果哈希表中存在该元素，即找到了一个重复的数字，返回该数字即可；如果哈希表中不存在该元素，将该元素加入哈希表中。继续遍历，直到找到一个重复的数字。
@@ -244,6 +246,8 @@ func findRepeatNumber(nums []int) int {
 <!-- tabs:end -->
 
 <!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法三：原地交换
 

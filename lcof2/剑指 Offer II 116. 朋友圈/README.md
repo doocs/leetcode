@@ -174,6 +174,8 @@ func findCircleNum(isConnected [][]int) int {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二：并查集
 
 模板 1——朴素并查集：

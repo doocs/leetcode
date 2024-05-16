@@ -193,6 +193,8 @@ class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
 ### Solution 2: Enumeration + Hash Table
 
 We can enumerate a point $(x_1, y_1)$, store the slope of the line connecting $(x_1, y_1)$ and all other points $(x_2, y_2)$ in a hash table. Points with the same slope are on the same line, and the key of the hash table is the slope, and the value is the number of points on the line. Find the maximum value in the hash table, which is the answer. To avoid precision issues, we can reduce the slope $\frac{y_2 - y_1}{x_2 - x_1}$, and the reduction method is to find the greatest common divisor, and then divide the numerator and denominator by the greatest common divisor. The resulting numerator and denominator are used as the key of the hash table.

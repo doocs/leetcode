@@ -234,6 +234,8 @@ class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
 ### Solution 2: Search from the Bottom Left or Top Right
 
 Here, we start searching from the bottom left corner and move towards the top right direction, comparing the current element `matrix[i][j]` with `target`:

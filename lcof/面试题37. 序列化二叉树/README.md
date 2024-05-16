@@ -434,6 +434,8 @@ public class Codec {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二：前序遍历
 
 当二叉树的前中后序列不包含叶子节点时需要前中、前后、中后三种组合方式之一才能确定一颗二叉树，但当前序和后序遍历序列中包含叶子节点时，可以仅通过前序或后序遍历序列构建一颗二叉树。
@@ -551,6 +553,8 @@ var deserialize = function (data) {
 <!-- tabs:end -->
 
 <!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法三：后序遍历
 

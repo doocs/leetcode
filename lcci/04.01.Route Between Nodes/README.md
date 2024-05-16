@@ -231,6 +231,8 @@ class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二：BFS
 
 与方法一类似，我们先根据给定的图构建一个邻接表 $g$，其中 $g[i]$ 表示节点 $i$ 的所有邻居节点，用一个哈希表或数组 $vis$ 记录访问过的节点，然后从节点 $start$ 开始广度优先搜索，如果搜索到节点 $target$，则返回 `true`，否则返回 `false`。

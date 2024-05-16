@@ -145,6 +145,8 @@ int game(int* guess, int guessSize, int* answer, int answerSize) {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二
 
 <!-- tabs:start -->

@@ -237,6 +237,8 @@ var uniquePaths = function (m, n) {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二
 
 <!-- tabs:start -->
@@ -337,6 +339,8 @@ var uniquePaths = function (m, n) {
 <!-- tabs:end -->
 
 <!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法三
 

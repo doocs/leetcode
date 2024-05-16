@@ -326,6 +326,8 @@ class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
 ### Solution 2: In-place Marking
 
 In Solution 1, we used additional arrays to mark the rows and columns to be zeroed. In fact, we can directly use the first row and first column of the matrix for marking, without needing to allocate additional array space.

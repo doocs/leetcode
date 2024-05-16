@@ -239,6 +239,8 @@ class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
 ### Solution 2: BFS
 
 Similar to Solution 1, we first construct an adjacency list $g$ based on the given graph, where $g[i]$ represents all the neighboring nodes of node $i$. We use a hash table or array $vis$ to record the visited nodes, and then start a breadth-first search from node $start$. If we search to node $target$, we return `true`, otherwise we return `false`.

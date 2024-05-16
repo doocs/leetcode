@@ -214,6 +214,8 @@ class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二：排序
 
 我们也按照字典序对两个字符串进行排序，然后比较两个字符串是否相等。

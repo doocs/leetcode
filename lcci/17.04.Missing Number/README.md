@@ -150,6 +150,8 @@ class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start-->
+
 ### 方法二：求和
 
 我们可以先求出 $0$ 到 $n$ 的和，然后遍历数组 $nums$，将数组中的元素依次减去，最后剩下的值即为缺失的数字。
@@ -247,6 +249,8 @@ class Solution {
 <!-- tabs:end -->
 
 <!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法三：位运算
 
