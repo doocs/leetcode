@@ -10,3 +10,7 @@
     font-size: min(.8em,.64rem);
     background-color: #00000012;
 }
+
+.md-typeset h1 {
+    margin: 0 0 -0.75em;
+}
