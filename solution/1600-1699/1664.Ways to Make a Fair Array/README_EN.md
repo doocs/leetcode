@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array&nbsp;<code>nums</code>. You can choose <strong>exactly one</strong> index (<strong>0-indexed</strong>) and remove the element. Notice that the index of the elements may change after the removal.</p>
 
 <p>For example, if <code>nums = [6,1,7,4,1]</code>:</p>
@@ -68,6 +70,8 @@ There is 1 index that you can remove to make nums fair.
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

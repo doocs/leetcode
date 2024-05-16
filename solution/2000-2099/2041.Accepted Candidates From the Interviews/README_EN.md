@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Candidates</code></p>
 
 <pre>
@@ -96,6 +98,8 @@ Rounds table:
 - Candidate 6: The total score is 10, and they have ten years of experience. We do not include them in the result table because the score is not good enough.
 - Candidate 8: The total score is 6, and they have zero years of experience. We do not include them in the result table because of their years of experience and the score.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

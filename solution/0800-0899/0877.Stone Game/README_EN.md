@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Alice and Bob play a game with piles of stones. There are an <strong>even</strong> number of piles arranged in a row, and each pile has a <strong>positive</strong> integer number of stones <code>piles[i]</code>.</p>
 
 <p>The objective of the game is to end with the most stones. The <strong>total</strong> number of stones across all the piles is <strong>odd</strong>, so there are no ties.</p>
@@ -55,6 +57,8 @@ This demonstrated that taking the first 5 was a winning move for Alice, so we re
 	<li><code>1 &lt;= piles[i] &lt;= 500</code></li>
 	<li><code>sum(piles[i])</code> is <strong>odd</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

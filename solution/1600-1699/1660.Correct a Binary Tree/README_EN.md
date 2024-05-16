@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You have a binary tree with a small defect. There is <strong>exactly one</strong> invalid node where its right child incorrectly points to another node at the <strong>same depth</strong> but to the <b>invalid node&#39;s right</b>.</p>
 
 <p>Given the root of the binary tree with this defect, <code>root</code>, return <em>the root of the binary tree after <strong>removing</strong> this invalid node <strong>and every node underneath it</strong> (minus the node it incorrectly points to).</em></p>
@@ -89,6 +91,8 @@ tags:
     <li><code>fromNode.right</code> is <code>null</code> in the initial tree from the test data.</li>
 
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

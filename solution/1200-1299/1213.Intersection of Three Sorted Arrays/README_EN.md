@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given three integer arrays <code>arr1</code>, <code>arr2</code> and <code>arr3</code>&nbsp;<strong>sorted</strong> in <strong>strictly increasing</strong> order, return a sorted array of <strong>only</strong>&nbsp;the&nbsp;integers that appeared in <strong>all</strong> three arrays.</p>
 
 <p>&nbsp;</p>
@@ -44,6 +46,8 @@ tags:
 	<li><code>1 &lt;= arr1.length, arr2.length, arr3.length &lt;= 1000</code></li>
 	<li><code>1 &lt;= arr1[i], arr2[i], arr3[i] &lt;= 2000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

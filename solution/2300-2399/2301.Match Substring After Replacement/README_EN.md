@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two strings <code>s</code> and <code>sub</code>. You are also given a 2D character array <code>mappings</code> where <code>mappings[i] = [old<sub>i</sub>, new<sub>i</sub>]</code> indicates that you may perform the following operation <strong>any</strong> number of times:</p>
 
 <ul>
@@ -70,6 +72,8 @@ Now sub = &quot;l33tb&quot; is a substring of s, so we return true.
 	<li><code>s</code> and <code>sub</code> consist of uppercase and lowercase English letters and digits.</li>
 	<li><code>old<sub>i</sub></code> and <code>new<sub>i</sub></code> are either uppercase or lowercase English letters or digits.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

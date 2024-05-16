@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>.</p>
 
 <p>Return <em><strong>the maximum value over all triplets of indices</strong></em> <code>(i, j, k)</code> <em>such that</em> <code>i &lt; j &lt; k</code><em>. </em>If all such triplets have a negative value, return <code>0</code>.</p>
@@ -56,6 +58,8 @@ It can be shown that there are no ordered triplets of indices with a value great
 	<li><code>3 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>We are playing the Guess Game. The game is as follows:</p>
 
 <p>I pick a number from <code>1</code> to <code>n</code>. You have to guess which number I picked.</p>
@@ -60,6 +62,8 @@ tags:
 	<li><code>1 &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
 	<li><code>1 &lt;= pick &lt;= n</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 
@@ -191,7 +195,6 @@ function guessNumber(n: number): number {
 ```
 
 ```rust
-
 /**
  * Forward declaration of guess API.
  * @param  num   your guess

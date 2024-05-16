@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>The <b>Fibonacci numbers</b>, commonly denoted <code>F(n)</code> form a sequence, called the <b>Fibonacci sequence</b>, such that each number is the sum of the two preceding ones, starting from <code>0</code> and <code>1</code>. That is,</p>
 
 <pre>
@@ -57,6 +59,8 @@ F(n) = F(n - 1) + F(n - 2), for n &gt; 1.
 <ul>
 	<li><code>0 &lt;= n &lt;= 30</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

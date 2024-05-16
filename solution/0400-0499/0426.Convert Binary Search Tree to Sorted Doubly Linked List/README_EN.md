@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Convert a <strong>Binary Search Tree</strong> to a sorted <strong>Circular Doubly-Linked List</strong> in place.</p>
 
 <p>You can think of the left and right pointers as synonymous to the predecessor and successor pointers in a doubly-linked list. For a circular doubly linked list, the predecessor of the first element is the last element, and the successor of the last element is the first element.</p>
@@ -56,6 +58,8 @@ tags:
 	<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
 	<li>All the values of the tree are <strong>unique</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

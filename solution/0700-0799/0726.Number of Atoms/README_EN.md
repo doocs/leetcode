@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>formula</code> representing a chemical formula, return <em>the count of each atom</em>.</p>
 
 <p>The atomic element always starts with an uppercase character, then zero or more lowercase letters, representing the name.</p>
@@ -76,6 +78,8 @@ tags:
 	<li><code>formula</code> consists of English letters, digits, <code>&#39;(&#39;</code>, and <code>&#39;)&#39;</code>.</li>
 	<li><code>formula</code> is always valid.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

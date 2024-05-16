@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array of integers&nbsp;<code>nums</code>, there is a sliding window of size <code>k</code> which is moving from the very left of the array to the very right. You can only see the <code>k</code> numbers in the window. Each time the sliding window moves right by one position.</p>
 
 <p>Return <em>the max sliding window</em>.</p>
@@ -54,6 +56,8 @@ Window position                Max
 	<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 	<li><code>1 &lt;= k &lt;= nums.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

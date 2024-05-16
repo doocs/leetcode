@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array <code>nums</code> consisting of positive integers.</p>
 
 <p>Split the array into <strong>one or more</strong> disjoint subarrays such that:</p>
@@ -63,6 +65,8 @@ It can be shown that splitting the array into one subarray will make the GCD = 1
 	<li><code>1 &lt;= nums.length &lt;= 2000</code></li>
 	<li><code>2 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

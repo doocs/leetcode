@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Activities</code></p>
 
 <pre>
@@ -101,6 +103,8 @@ For age group 21-25:
   - Therefore, the sending snap percentage will be (6.24 / 11.49) * 100 = 54.31, and the opening snap percentage will be (5.25 / 11.49) * 100 = 45.69.
 All percentages in output table rounded to the two decimal places.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

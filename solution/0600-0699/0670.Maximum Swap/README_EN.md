@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer <code>num</code>. You can swap two digits at most once to get the maximum valued number.</p>
 
 <p>Return <em>the maximum valued number you can get</em>.</p>
@@ -42,6 +44,8 @@ tags:
 <ul>
 	<li><code>0 &lt;= num &lt;= 10<sup>8</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

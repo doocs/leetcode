@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of meeting time intervals <code>intervals</code> where <code>intervals[i] = [start<sub>i</sub>, end<sub>i</sub>]</code>, return <em>the minimum number of conference rooms required</em>.</p>
 
 <p>&nbsp;</p>
@@ -36,6 +38,8 @@ tags:
 	<li><code>1 &lt;=&nbsp;intervals.length &lt;= 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= start<sub>i</sub> &lt; end<sub>i</sub> &lt;= 10<sup>6</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design a data structure that accepts a stream of integers and checks if it has a pair of integers that sum up to a particular value.</p>
 
 <p>Implement the <code>TwoSum</code> class:</p>
@@ -55,6 +57,8 @@ twoSum.find(7);  // No two integers sum up to 7, return false
 	<li><code>-2<sup>31</sup> &lt;= value &lt;= 2<sup>31</sup> - 1</code></li>
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>add</code> and <code>find</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A car travels from a starting position to a destination which is <code>target</code> miles east of the starting position.</p>
 
 <p>There are gas stations along the way. The gas stations are represented as an array <code>stations</code> where <code>stations[i] = [position<sub>i</sub>, fuel<sub>i</sub>]</code> indicates that the <code>i<sup>th</sup></code> gas station is <code>position<sub>i</sub></code> miles east of the starting position and has <code>fuel<sub>i</sub></code> liters of gas.</p>
@@ -65,6 +67,8 @@ We made 2 refueling stops along the way, so we return 2.
 	<li><code>1 &lt;= position<sub>i</sub> &lt; position<sub>i+1</sub> &lt; target</code></li>
 	<li><code>1 &lt;= fuel<sub>i</sub> &lt; 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

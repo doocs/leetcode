@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code> of size <code>n</code>.</p>
 
 <p>Consider a <strong>non-empty</strong> subarray from <code>nums</code> that has the <strong>maximum</strong> possible <strong>bitwise AND</strong>.</p>
@@ -60,6 +62,8 @@ The longest subarray with that value is [4], so we return 1.
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

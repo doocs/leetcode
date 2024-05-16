@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of positive integers <code>arr</code>, return <em>the sum of all possible <strong>odd-length subarrays</strong> of </em><code>arr</code>.</p>
 
 <p>A <strong>subarray</strong> is a contiguous subsequence of the array.</p>
@@ -66,6 +68,8 @@ If we add all these together we get 1 + 4 + 2 + 5 + 3 + 7 + 11 + 10 + 15 = 58</p
 <p><strong>Follow up:</strong></p>
 
 <p>Could you solve this problem in O(n) time complexity?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

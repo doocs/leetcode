@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an undirected weighted graph of <code>n</code> nodes numbered from 0 to <code>n - 1</code>. The graph consists of <code>m</code> edges represented by a 2D array <code>edges</code>, where <code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>, w<sub>i</sub>]</code> indicates that there is an edge between nodes <code>a<sub>i</sub></code> and <code>b<sub>i</sub></code> with weight <code>w<sub>i</sub></code>.</p>
 
 <p>Consider all the shortest paths from node 0 to node <code>n - 1</code> in the graph. You need to find a <strong>boolean</strong> array <code>answer</code> where <code>answer[i]</code> is <code>true</code> if the edge <code>edges[i]</code> is part of <strong>at least</strong> one shortest path. Otherwise, <code>answer[i]</code> is <code>false</code>.</p>
@@ -71,6 +73,8 @@ tags:
 	<li><code>1 &lt;= w<sub>i</sub> &lt;= 10<sup>5</sup></code></li>
 	<li>There are no repeated edges.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

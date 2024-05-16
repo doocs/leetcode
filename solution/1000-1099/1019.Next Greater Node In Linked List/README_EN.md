@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given the <code>head</code> of a linked list with <code>n</code> nodes.</p>
 
 <p>For each node in the list, find the value of the <strong>next greater node</strong>. That is, for each node, find the value of the first node that is next to it and has a <strong>strictly larger</strong> value than it.</p>
@@ -48,6 +50,8 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10<sup>4</sup></code></li>
 	<li><code>1 &lt;= Node.val &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

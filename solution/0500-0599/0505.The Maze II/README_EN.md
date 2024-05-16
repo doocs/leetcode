@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There is a ball in a <code>maze</code> with empty spaces (represented as <code>0</code>) and walls (represented as <code>1</code>). The ball can go through the empty spaces by rolling <strong>up, down, left or right</strong>, but it won&#39;t stop rolling until hitting a wall. When the ball stops, it could choose the next direction.</p>
 
 <p>Given the <code>m x n</code> <code>maze</code>, the ball&#39;s <code>start</code> position and the <code>destination</code>, where <code>start = [start<sub>row</sub>, start<sub>col</sub>]</code> and <code>destination = [destination<sub>row</sub>, destination<sub>col</sub>]</code>, return <em>the shortest <strong>distance</strong> for the ball to stop at the destination</em>. If the ball cannot stop at <code>destination</code>, return <code>-1</code>.</p>
@@ -68,6 +70,8 @@ The length of the path is 1 + 1 + 3 + 1 + 2 + 2 + 2 = 12.
 	<li>Both the ball and the destination exist in an empty space, and they will not be in the same position initially.</li>
 	<li>The maze contains <strong>at least 2 empty spaces</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of integers <code>nums</code>, half of the integers in <code>nums</code> are <strong>odd</strong>, and the other half are <strong>even</strong>.</p>
 
 <p>Sort the array so that whenever <code>nums[i]</code> is odd, <code>i</code> is <strong>odd</strong>, and whenever <code>nums[i]</code> is even, <code>i</code> is <strong>even</strong>.</p>
@@ -50,6 +52,8 @@ tags:
 
 <p>&nbsp;</p>
 <p><strong>Follow Up:</strong> Could you solve it in-place?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

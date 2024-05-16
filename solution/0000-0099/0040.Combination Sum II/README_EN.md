@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a collection of candidate numbers (<code>candidates</code>) and a target number (<code>target</code>), find all unique combinations in <code>candidates</code>&nbsp;where the candidate numbers sum to <code>target</code>.</p>
 
 <p>Each number in <code>candidates</code>&nbsp;may only be used <strong>once</strong> in the combination.</p>
@@ -54,6 +56,8 @@ tags:
 	<li><code>1 &lt;=&nbsp;candidates[i] &lt;= 50</code></li>
 	<li><code>1 &lt;= target &lt;= 30</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

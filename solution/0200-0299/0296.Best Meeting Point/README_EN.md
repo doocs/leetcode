@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an <code>m x n</code> binary grid <code>grid</code> where each <code>1</code> marks the home of one friend, return <em>the minimal <strong>total travel distance</strong></em>.</p>
 
 <p>The <strong>total travel distance</strong> is the sum of the distances between the houses of the friends and the meeting point.</p>
@@ -51,6 +53,8 @@ So return 6.
 	<li><code>grid[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
 	<li>There will be <strong>at least two</strong> friends in the <code>grid</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

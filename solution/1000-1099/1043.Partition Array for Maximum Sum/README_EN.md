@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>arr</code>, partition the array into (contiguous) subarrays of length <strong>at most</strong> <code>k</code>. After partitioning, each subarray has their values changed to become the maximum value of that subarray.</p>
 
 <p>Return <em>the largest sum of the given array after partitioning. Test cases are generated so that the answer fits in a <strong>32-bit</strong> integer.</em></p>
@@ -52,6 +54,8 @@ tags:
 	<li><code>0 &lt;= arr[i] &lt;= 10<sup>9</sup></code></li>
 	<li><code>1 &lt;= k &lt;= arr.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

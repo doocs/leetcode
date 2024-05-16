@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two strings <code>text1</code> and <code>text2</code>, return <em>the length of their longest <strong>common subsequence</strong>. </em>If there is no <strong>common subsequence</strong>, return <code>0</code>.</p>
 
 <p>A <strong>subsequence</strong> of a string is a new string generated from the original string with some characters (can be none) deleted without changing the relative order of the remaining characters.</p>
@@ -57,6 +59,8 @@ tags:
 	<li><code>1 &lt;= text1.length, text2.length &lt;= 1000</code></li>
 	<li><code>text1</code> and <code>text2</code> consist of only lowercase English characters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

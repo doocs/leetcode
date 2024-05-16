@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> string <code>pattern</code> of length <code>n</code> consisting of the characters <code>&#39;I&#39;</code> meaning <strong>increasing</strong> and <code>&#39;D&#39;</code> meaning <strong>decreasing</strong>.</p>
 
 <p>A <strong>0-indexed</strong> string <code>num</code> of length <code>n + 1</code> is created using the following conditions:</p>
@@ -61,6 +63,8 @@ It can be proven that &quot;4321&quot; is the smallest possible num that meets t
 	<li><code>1 &lt;= pattern.length &lt;= 8</code></li>
 	<li><code>pattern</code> consists of only the letters <code>&#39;I&#39;</code> and <code>&#39;D&#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

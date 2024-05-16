@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given the <code>root</code> of a <strong>binary tree</strong> with <code>n</code> nodes. Each node is assigned a unique value from <code>1</code> to <code>n</code>. You are also given an array <code>queries</code> of size <code>m</code>.</p>
 
 <p>You have to perform <code>m</code> <strong>independent</strong> queries on the tree where in the <code>i<sup>th</sup></code> query you do the following:</p>
@@ -72,6 +74,8 @@ The height of the tree is 2 (The path 1 -&gt; 3 -&gt; 2).
 	<li><code>1 &lt;= queries[i] &lt;= n</code></li>
 	<li><code>queries[i] != root.val</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

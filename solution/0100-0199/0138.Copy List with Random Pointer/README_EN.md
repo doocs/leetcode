@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A linked list of length <code>n</code> is given such that each node contains an additional random pointer, which could point to any node in the list, or <code>null</code>.</p>
 
 <p>Construct a <a href="https://en.wikipedia.org/wiki/Object_copying#Deep_copy" target="_blank"><strong>deep copy</strong></a> of the list. The deep copy should consist of exactly <code>n</code> <strong>brand new</strong> nodes, where each new node has its value set to the value of its corresponding original node. Both the <code>next</code> and <code>random</code> pointer of the new nodes should point to new nodes in the copied list such that the pointers in the original list and copied list represent the same list state. <strong>None of the pointers in the new list should point to nodes in the original list</strong>.</p>
@@ -64,6 +66,8 @@ tags:
 	<li><code>-10<sup>4</sup> &lt;= Node.val &lt;= 10<sup>4</sup></code></li>
 	<li><code>Node.random</code> is <code>null</code> or is pointing to some node in the linked list.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

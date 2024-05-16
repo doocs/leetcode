@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A password is considered strong if the below conditions are all met:</p>
 
 <ul>
@@ -52,6 +54,8 @@ tags:
 	<li><code>1 &lt;= password.length &lt;= 50</code></li>
 	<li><code>password</code> consists of letters, digits, dot&nbsp;<code>&#39;.&#39;</code> or exclamation mark <code>&#39;!&#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

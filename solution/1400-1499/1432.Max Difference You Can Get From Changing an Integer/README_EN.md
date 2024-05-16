@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer <code>num</code>. You will apply the following steps exactly <strong>two</strong> times:</p>
 
 <ul>
@@ -57,6 +59,8 @@ We have now a = 9 and b = 1 and max difference = 8
 <ul>
 	<li><code>1 &lt;= num &lt;= 10</code><sup>8</sup></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

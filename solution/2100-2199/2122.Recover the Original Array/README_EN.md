@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Alice had a <strong>0-indexed</strong> array <code>arr</code> consisting of <code>n</code> <strong>positive</strong> integers. She chose an arbitrary <strong>positive integer</strong> <code>k</code> and created two new <strong>0-indexed</strong> integer arrays <code>lower</code> and <code>higher</code> in the following manner:</p>
 
 <ol>
@@ -74,6 +76,8 @@ The only possible combination is arr = [220] and k = 215. Using them, we get low
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 	<li>The test cases are generated such that there exists <strong>at least one</strong> valid array <code>arr</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

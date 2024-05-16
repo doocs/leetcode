@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an <code>m x n</code> binary matrix <code>mat</code>, return <em>the length of the longest line of consecutive one in the matrix</em>.</p>
 
 <p>The line could be horizontal, vertical, diagonal, or anti-diagonal.</p>
@@ -45,6 +47,8 @@ tags:
 	<li><code>1 &lt;= m * n &lt;= 10<sup>4</sup></code></li>
 	<li><code>mat[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

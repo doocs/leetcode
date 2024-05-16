@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Consider a function that implements an algorithm <strong>similar</strong> to <a href="https://leetcode.com/explore/learn/card/binary-search/" target="_blank">Binary Search</a>. The function has two input parameters: <code>sequence</code> is a sequence of integers, and <code>target</code> is an integer value. The purpose of the function is to find if the <code>target</code> exists in the <code>sequence</code>.</p>
 
 <p>The pseudocode of the function is as follows:</p>
@@ -76,6 +78,8 @@ Because only -1 is guaranteed to be found, you should return 1.
 
 <p>&nbsp;</p>
 <p><strong>Follow-up:</strong> If <code>nums</code> has <strong>duplicates</strong>, would you modify your algorithm? If so, how?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

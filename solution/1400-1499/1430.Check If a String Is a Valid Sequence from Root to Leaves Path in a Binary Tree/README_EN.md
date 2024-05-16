@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a binary tree where each path going from the root to any leaf form a <strong>valid sequence</strong>, check if a given string&nbsp;is a <strong>valid sequence</strong> in such binary tree.&nbsp;</p>
 
 <p>We get the given string from the concatenation of an array of integers <code>arr</code> and the concatenation of all&nbsp;values of the nodes along a path results in a <strong>sequence</strong> in the given binary tree.</p>
@@ -64,6 +66,8 @@ Other valid sequences are:
 	<li><code>0 &lt;= arr[i] &lt;= 9</code></li>
 	<li>Each node&#39;s value is between [0 - 9].</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

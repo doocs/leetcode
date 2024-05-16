@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Scores</code></p>
 
 <pre>
@@ -69,6 +71,8 @@ Scores table:
 | 3.50  | 4    |
 +-------+------+
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2637.Pr
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an&nbsp;asynchronous function&nbsp;<code>fn</code>&nbsp;and a time <code>t</code>&nbsp;in milliseconds, return&nbsp;a new&nbsp;<strong>time limited</strong>&nbsp;version of the input function. <code>fn</code> takes arguments provided to the&nbsp;<strong>time limited&nbsp;</strong>function.</p>
 
 <p>The <strong>time limited</strong> function should follow these rules:</p>
@@ -99,6 +101,8 @@ The function immediately throws an error.</pre>
 	<li><code>0 &lt;= t &lt;= 1000</code></li>
 	<li><code>fn</code> returns a promise</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

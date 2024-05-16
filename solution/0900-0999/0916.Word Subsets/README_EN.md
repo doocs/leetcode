@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two string arrays <code>words1</code> and <code>words2</code>.</p>
 
 <p>A string <code>b</code> is a <strong>subset</strong> of string <code>a</code> if every letter in <code>b</code> occurs in <code>a</code> including multiplicity.</p>
@@ -52,6 +54,8 @@ tags:
 	<li><code>words1[i]</code> and <code>words2[i]</code> consist only of lowercase English letters.</li>
 	<li>All the strings of <code>words1</code> are <strong>unique</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

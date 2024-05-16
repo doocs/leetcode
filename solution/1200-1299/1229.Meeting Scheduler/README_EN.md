@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the availability time slots arrays <code>slots1</code> and <code>slots2</code> of two people and a meeting duration <code>duration</code>, return the <strong>earliest time slot</strong> that works for both of them and is of duration <code>duration</code>.</p>
 
 <p>If there is no common time slot that satisfies the requirements, return an <strong>empty array</strong>.</p>
@@ -52,6 +54,8 @@ tags:
 	<li><code>0 &lt;= slots1[i][j], slots2[i][j] &lt;= 10<sup>9</sup></code></li>
 	<li><code>1 &lt;= duration &lt;= 10<sup>6</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

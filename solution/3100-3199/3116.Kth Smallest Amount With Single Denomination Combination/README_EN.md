@@ -21,6 +21,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>coins</code> representing coins of different denominations and an integer <code>k</code>.</p>
 
 <p>You have an infinite number of coins of each denomination. However, you are <strong>not allowed</strong> to combine coins of different denominations.</p>
@@ -94,6 +96,8 @@ All of the coins combined produce: 2, 4, 5, 6, 8, 10, <u><strong>12</strong></u>
 	<li><code>1 &lt;= k &lt;= 2 * 10<sup>9</sup></code></li>
 	<li><code>coins</code> contains pairwise distinct integers.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

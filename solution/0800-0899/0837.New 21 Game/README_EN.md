@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Alice plays the following game, loosely based on the card game <strong>&quot;21&quot;</strong>.</p>
 
 <p>Alice starts with <code>0</code> points and draws numbers while she has less than <code>k</code> points. During each draw, she gains an integer number of points randomly from the range <code>[1, maxPts]</code>, where <code>maxPts</code> is an integer. Each draw is independent and the outcomes have equal probabilities.</p>
@@ -59,6 +61,8 @@ In 6 out of 10 possibilities, she is at or below 6 points.
 	<li><code>0 &lt;= k &lt;= n &lt;= 10<sup>4</sup></code></li>
 	<li><code>1 &lt;= maxPts &lt;= 10<sup>4</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code node="[object Object]">s</code> consisting of <strong>lowercase English letters</strong>, and you are allowed to perform operations on it. In one operation, you can <strong>replace</strong> a character in <code node="[object Object]">s</code> with another lowercase English letter.</p>
 
 <p>Your task is to make <code node="[object Object]">s</code> a <strong>palindrome</strong> with the <strong>minimum</strong> <strong>number</strong> <strong>of operations</strong> possible. If there are <strong>multiple palindromes</strong> that can be <meta charset="utf-8" />made using the <strong>minimum</strong> number of operations, <meta charset="utf-8" />make the <strong>lexicographically smallest</strong> one.</p>
@@ -58,6 +60,8 @@ tags:
 	<li><code>1 &lt;= s.length &lt;= 1000</code></li>
 	<li><code>s</code>&nbsp;consists of only lowercase English letters<b>.</b></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

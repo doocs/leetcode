@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>arr</code>, return <em>the length of a maximum size turbulent subarray of</em> <code>arr</code>.</p>
 
 <p>A subarray is <strong>turbulent</strong> if the comparison sign flips between each adjacent pair of elements in the subarray.</p>
@@ -69,6 +71,8 @@ tags:
 	<li><code>1 &lt;= arr.length &lt;= 4 * 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= arr[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

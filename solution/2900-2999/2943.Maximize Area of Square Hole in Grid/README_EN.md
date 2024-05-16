@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given the two integers, <code>n</code> and <code>m</code> and two integer arrays, <code>hBars</code> and <code>vBars</code>. The grid has <code>n + 2</code> horizontal and <code>m + 2</code> vertical bars, creating 1 x 1 unit cells. The bars are indexed starting from <code>1</code>.</p>
 
 <p>You can <strong>remove</strong> some of the bars in <code>hBars</code> from horizontal bars and some of the bars in <code>vBars</code> from vertical bars. Note that other bars are fixed and cannot be removed.</p>
@@ -81,6 +83,8 @@ tags:
 	<li>All values in <code>hBars</code> are distinct.</li>
 	<li>All values in <code>vBars</code> are distinct.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

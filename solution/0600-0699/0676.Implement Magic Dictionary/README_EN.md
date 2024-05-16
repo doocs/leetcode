@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design a data structure that is initialized with a list of <strong>different</strong> words. Provided a string, you should determine if you can change exactly one character in this string to match any word in the data structure.</p>
 
 <p>Implement the&nbsp;<code>MagicDictionary</code>&nbsp;class:</p>
@@ -60,6 +62,8 @@ magicDictionary.search(&quot;leetcoded&quot;); // return False
 	<li><code>buildDict</code>&nbsp;will be called only once before <code>search</code>.</li>
 	<li>At most <code>100</code> calls will be made to <code>search</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

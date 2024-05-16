@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>s</code> containing only three types of characters: <code>&#39;(&#39;</code>, <code>&#39;)&#39;</code> and <code>&#39;*&#39;</code>, return <code>true</code> <em>if</em> <code>s</code> <em>is <strong>valid</strong></em>.</p>
 
 <p>The following rules define a <strong>valid</strong> string:</p>
@@ -46,6 +48,8 @@ tags:
 	<li><code>1 &lt;= s.length &lt;= 100</code></li>
 	<li><code>s[i]</code> is <code>&#39;(&#39;</code>, <code>&#39;)&#39;</code> or <code>&#39;*&#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

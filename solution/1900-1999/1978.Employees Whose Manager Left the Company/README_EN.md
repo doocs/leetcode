@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Employees</code></p>
 
 <pre>
@@ -65,6 +67,8 @@ The employees with a salary less than $30000 are 1 (Kalel) and 11 (Joziah).
 Kalel&#39;s manager is employee 11, who is still in the company (Joziah).
 Joziah&#39;s manager is employee 6, who left the company because there is no row for employee 6 as it was deleted.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

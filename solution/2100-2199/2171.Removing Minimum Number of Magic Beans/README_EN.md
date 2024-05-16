@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array of <strong>positive</strong> integers <code>beans</code>, where each integer represents the number of magic beans found in a particular magic bag.</p>
 
 <p><strong>Remove</strong> any number of beans (<strong>possibly none</strong>) from each bag such that the number of beans in each remaining <strong>non-empty</strong> bag (still containing <strong>at least one</strong> bean) is <strong>equal</strong>. Once a bean has been removed from a bag, you are <strong>not</strong> allowed to return it to any of the bags.</p>
@@ -66,6 +68,8 @@ There are no other solutions that removes 7 beans or fewer.
 	<li><code>1 &lt;= beans.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= beans[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

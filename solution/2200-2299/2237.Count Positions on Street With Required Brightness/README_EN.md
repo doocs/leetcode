@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer <code>n</code>. A perfectly straight street is represented by a number line ranging from <code>0</code> to <code>n - 1</code>. You are given a 2D integer array <code>lights</code> representing the street lamp(s) on the street. Each <code>lights[i] = [position<sub>i</sub>, range<sub>i</sub>]</code> indicates that there is a street lamp at position <code>position<sub>i</sub></code> that lights up the area from <code>[max(0, position<sub>i</sub> - range<sub>i</sub>), min(n - 1, position<sub>i</sub> + range<sub>i</sub>)]</code> (<strong>inclusive</strong>).</p>
 
 <p>The <strong>brightness</strong> of a position <code>p</code> is defined as the number of street lamps that light up the position <code>p</code>. You are given a <strong>0-indexed</strong> integer array <code>requirement</code> of size <code>n</code> where <code>requirement[i]</code> is the minimum <strong>brightness</strong> of the <code>i<sup>th</sup></code> position on the street.</p>
@@ -64,6 +66,8 @@ Positions 0, 1, 2, and 4 meet the requirement so we return 4.
 	<li><code>requirement.length == n</code></li>
 	<li><code>0 &lt;= requirement[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

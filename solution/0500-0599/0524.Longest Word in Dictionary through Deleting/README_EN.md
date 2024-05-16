@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>s</code> and a string array <code>dictionary</code>, return <em>the longest string in the dictionary that can be formed by deleting some of the given string characters</em>. If there is more than one possible result, return the longest word with the smallest lexicographical order. If there is no possible result, return the empty string.</p>
 
 <p>&nbsp;</p>
@@ -43,6 +45,8 @@ tags:
 	<li><code>1 &lt;= dictionary[i].length &lt;= 1000</code></li>
 	<li><code>s</code> and <code>dictionary[i]</code> consist of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

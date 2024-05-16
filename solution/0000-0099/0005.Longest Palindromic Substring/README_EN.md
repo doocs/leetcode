@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>s</code>, return <em>the longest</em> <span data-keyword="palindromic-string"><em>palindromic</em></span> <span data-keyword="substring-nonempty"><em>substring</em></span> in <code>s</code>.</p>
 
 <p>&nbsp;</p>
@@ -41,6 +43,8 @@ tags:
 	<li><code>1 &lt;= s.length &lt;= 1000</code></li>
 	<li><code>s</code> consist of only digits and English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

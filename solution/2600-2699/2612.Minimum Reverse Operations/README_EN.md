@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer <code>n</code> and an integer <code>p</code> in the range <code>[<font face="monospace">0</font>, n - 1]</code>. Representing a <strong>0-indexed</strong> array <code>arr</code>&nbsp;of length <code>n</code> where all positions are set to <code>0</code>&#39;s, except position <code>p</code> which is set to <code>1</code>.</p>
 
 <p>You are also given an integer array <code>banned</code> containing some positions from the array. For the <strong>i</strong><sup><strong>th</strong></sup> position in <code>banned</code>, <code>arr[banned[i]] = 0</code>, and <code>banned[i] != p</code>.</p>
@@ -69,6 +71,8 @@ tags:
 	<li><code>banned[i] != p</code></li>
 	<li>all values in <code>banned</code>&nbsp;are <strong>unique</strong>&nbsp;</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a 2D integer array <code>trees</code> where <code>trees[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> represents the location of the <code>i<sup>th</sup></code> tree in the garden.</p>
 
 <p>You are asked to fence the entire garden using the minimum length of rope possible. The garden is well-fenced only if <strong>all the trees are enclosed</strong> and the rope used <strong>forms a perfect circle</strong>. A tree is considered enclosed if it is inside or on the border of the circle.</p>
@@ -53,6 +55,8 @@ tags:
 	<li><code>trees[i].length == 2</code></li>
 	<li><code>0 &lt;= x<sub>i</sub>, y<sub>i</sub> &lt;= 3000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

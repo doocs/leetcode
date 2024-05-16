@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>s</code>, return <em>the number of <strong>distinct</strong> substrings of</em>&nbsp;<code>s</code>.</p>
 
 <p>A <strong>substring</strong> of a string is obtained by deleting any number of characters (possibly zero) from the front of the string and any number (possibly zero) from the back of the string.</p>
@@ -48,6 +50,8 @@ tags:
 
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Can you solve this problem in <code>O(n)</code> time complexity?
+
+<!-- description:end -->
 
 ## Solutions
 

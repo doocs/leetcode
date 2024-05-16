@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>root</code> of a binary tree, return <em><strong>the vertical order traversal</strong> of its nodes&#39; values</em>. (i.e., from top to bottom, column by column).</p>
 
 <p>If two nodes are in the same row and column, the order should be from <strong>left to right</strong>.</p>
@@ -52,6 +54,8 @@ tags:
 	<li>The number of nodes in the tree is in the range <code>[0, 100]</code>.</li>
 	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two integer arrays <code>pushed</code> and <code>popped</code> each with distinct values, return <code>true</code><em> if this could have been the result of a sequence of push and pop operations on an initially empty stack, or </em><code>false</code><em> otherwise.</em></p>
 
 <p>&nbsp;</p>
@@ -49,6 +51,8 @@ pop() -&gt; 5, pop() -&gt; 3, pop() -&gt; 2, pop() -&gt; 1
 	<li><code>popped.length == pushed.length</code></li>
 	<li><code>popped</code> is a permutation of <code>pushed</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Students</code></p>
 
 <pre>
@@ -70,6 +72,8 @@ For Department 2:
  - Student 2: percentage = (1 - 1) * 100 / (2 - 1) = 0.0
  - Student 8: percentage = (1 - 1) * 100 / (2 - 1) = 0.0
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

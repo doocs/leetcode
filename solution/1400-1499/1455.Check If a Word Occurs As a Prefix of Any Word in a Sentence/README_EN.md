@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a <code>sentence</code> that consists of some words separated by a <strong>single space</strong>, and a <code>searchWord</code>, check if <code>searchWord</code> is a prefix of any word in <code>sentence</code>.</p>
 
 <p>Return <em>the index of the word in </em><code>sentence</code><em> (<strong>1-indexed</strong>) where </em><code>searchWord</code><em> is a prefix of this word</em>. If <code>searchWord</code> is a prefix of more than one word, return the index of the first word <strong>(minimum index)</strong>. If there is no such word return <code>-1</code>.</p>
@@ -58,6 +60,8 @@ tags:
 	<li><code>sentence</code> consists of lowercase English letters and spaces.</li>
 	<li><code>searchWord</code> consists of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

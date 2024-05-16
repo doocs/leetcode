@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Trips</code></p>
 
 <pre>
@@ -117,6 +119,8 @@ On 2013-10-03:
   - Hence there are 2 unbanned request in total, 1 of which were canceled.
   - The Cancellation Rate is (1 / 2) = 0.50
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

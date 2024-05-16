@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A string can be <strong>abbreviated</strong> by replacing any number of <strong>non-adjacent</strong> substrings with their lengths. For example, a string such as <code>&quot;substitution&quot;</code> could be abbreviated as (but not limited to):</p>
 
 <ul>
@@ -68,6 +70,8 @@ Since none of them are abbreviations of words in the dictionary, returning any o
 	<li><code>target</code> and <code>dictionary[i]</code> consist of lowercase English letters.</li>
 	<li><code>dictionary</code> does not contain <code>target</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

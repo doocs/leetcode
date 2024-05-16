@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an absolute path for a Unix-style file system, which begins with a slash <code>&#39;/&#39;</code>, transform this path into its <strong>simplified canonical path</strong>.</p>
 
 <p>In Unix-style file system context, a single period <code>&#39;.&#39;</code> signifies the current directory, a double period <code>&quot;..&quot;</code> denotes moving up one directory level, and multiple slashes such as <code>&quot;//&quot;</code> are interpreted as a single slash. In this problem, treat sequences of periods not covered by the previous rules (like <code>&quot;...&quot;</code>) as valid names for files or directories.</p>
@@ -101,6 +103,8 @@ tags:
 	<li><code>path</code> consists of English letters, digits, period <code>&#39;.&#39;</code>, slash <code>&#39;/&#39;</code> or <code>&#39;_&#39;</code>.</li>
 	<li><code>path</code> is a valid absolute Unix path.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

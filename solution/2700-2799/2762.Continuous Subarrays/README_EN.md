@@ -21,6 +21,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. A subarray of <code>nums</code> is called <strong>continuous</strong> if:</p>
 
 <ul>
@@ -67,6 +69,8 @@ Total continuous subarrays = 3 + 2 + 1 = 6.
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

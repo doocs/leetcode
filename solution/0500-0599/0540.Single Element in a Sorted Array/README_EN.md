@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a sorted array consisting of only integers where every element appears exactly twice, except for one element which appears exactly once.</p>
 
 <p>Return <em>the single element that appears only once</em>.</p>
@@ -36,6 +38,8 @@ tags:
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two strings <code>a</code> and <code>b</code>, return <em>the length of the <strong>longest uncommon subsequence</strong> between </em><code>a</code> <em>and</em> <code>b</code>. <em>If no such uncommon subsequence exists, return</em> <code>-1</code><em>.</em></p>
 
 <p>An <strong>uncommon subsequence</strong> between two strings is a string that is a <strong><span data-keyword="subsequence-string">subsequence</span> of exactly one of them</strong>.</p>
@@ -51,6 +53,8 @@ Note that &quot;cdc&quot; is also a longest uncommon subsequence.
 	<li><code>1 &lt;= a.length, b.length &lt;= 100</code></li>
 	<li><code>a</code> and <code>b</code> consist of lower-case English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

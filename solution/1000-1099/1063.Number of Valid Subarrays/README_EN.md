@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code>, return <em>the number of non-empty <strong>subarrays</strong> with the leftmost element of the subarray&nbsp;not larger than other elements in the subarray</em>.</p>
 
 <p>A <strong>subarray</strong> is a <strong>contiguous</strong> part of an array.</p>
@@ -52,6 +54,8 @@ tags:
 	<li><code>1 &lt;= nums.length &lt;= 5 * 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

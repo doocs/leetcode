@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2879.Di
 
 ## Description
 
+<!-- description:start -->
+
 <pre>
 DataFrame: <code>employees</code>
 +-------------+--------+
@@ -52,6 +54,8 @@ DataFrame: <code>employees</code>
 +-------------+---------+-------------+--------+
 <strong>Explanation:</strong> 
 Only the first 3 rows are displayed.</pre>
+
+<!-- description:end -->
 
 ## Solutions
 

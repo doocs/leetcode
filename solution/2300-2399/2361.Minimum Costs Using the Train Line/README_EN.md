@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A train line going through a city has two routes, the regular route and the express route. Both routes go through the <strong>same</strong> <code>n + 1</code> stops labeled from <code>0</code> to <code>n</code>. Initially, you start on the regular route at stop <code>0</code>.</p>
 
 <p>You are given two <strong>1-indexed</strong> integer arrays <code>regular</code> and <code>express</code>, both of length <code>n</code>. <code>regular[i]</code> describes the cost it takes to go from stop <code>i - 1</code> to stop <code>i</code> using the regular route, and <code>express[i]</code> describes the cost it takes to go from stop <code>i - 1</code> to stop <code>i</code> using the express route.</p>
@@ -69,6 +71,8 @@ Note that the expressCost is paid again to transfer back to the express route.
 	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= regular[i], express[i], expressCost &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

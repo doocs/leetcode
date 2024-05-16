@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer <code>n</code>, return <em>a list of all <strong>simplified</strong> fractions between </em><code>0</code><em> and </em><code>1</code><em> (exclusive) such that the denominator is less-than-or-equal-to </em><code>n</code>. You can return the answer in <strong>any order</strong>.</p>
 
 <p>&nbsp;</p>
@@ -50,6 +52,8 @@ tags:
 <ul>
 	<li><code>1 &lt;= n &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

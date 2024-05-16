@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There is a special keyboard with <strong>all keys in a single row</strong>.</p>
 
 <p>Given a string <code>keyboard</code> of length <code>26</code> indicating the layout of the keyboard (indexed from <code>0</code> to <code>25</code>). Initially, your finger is at index <code>0</code>. To type a character, you have to move your finger to the index of the desired character. The time taken to move your finger from index <code>i</code> to index <code>j</code> is <code>|i - j|</code>.</p>
@@ -49,6 +51,8 @@ Total time = 2 + 1 + 1 = 4.
 	<li><code>1 &lt;= word.length &lt;= 10<sup>4</sup></code></li>
 	<li><code>word[i]</code> is an English lowercase letter.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

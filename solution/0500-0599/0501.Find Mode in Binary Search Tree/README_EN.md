@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>root</code> of a binary search tree (BST) with duplicates, return <em>all the <a href="https://en.wikipedia.org/wiki/Mode_(statistics)" target="_blank">mode(s)</a> (i.e., the most frequently occurred element) in it</em>.</p>
 
 <p>If the tree has more than one mode, return them in <strong>any order</strong>.</p>
@@ -54,6 +56,8 @@ tags:
 
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Could you do that without using any extra space? (Assume that the implicit stack space incurred due to recursion does not count).
+
+<!-- description:end -->
 
 ## Solutions
 

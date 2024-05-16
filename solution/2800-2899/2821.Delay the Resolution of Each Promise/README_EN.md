@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2821.De
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array&nbsp;<code>functions</code>&nbsp;and a number <code>ms</code>, return a new&nbsp;array of functions.</p>
 
 <ul>
@@ -69,6 +71,8 @@ ms = 30
 	<li><code>10 &lt;= ms &lt;= 500</code></li>
 	<li><code>1 &lt;= functions.length &lt;= 10</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

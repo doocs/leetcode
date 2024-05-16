@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer <code>num</code>. You know that Bob will sneakily <strong>remap</strong> one of the <code>10</code> possible digits (<code>0</code> to <code>9</code>) to another digit.</p>
 
 <p>Return <em>the difference between the maximum and minimum&nbsp;values Bob can make by remapping&nbsp;<strong>exactly</strong> <strong>one</strong> digit in </em><code>num</code>.</p>
@@ -57,6 +59,8 @@ Thus, we return 99.</pre>
 <ul>
 	<li><code>1 &lt;= num &lt;= 10<sup>8</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

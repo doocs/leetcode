@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design the basic function of <strong>Excel</strong> and implement the function of the sum formula.</p>
 
 <p>Implement the <code>Excel</code> class:</p>
@@ -99,6 +101,8 @@ excel.get(3, &quot;C&quot;); // return 6
 	<li><code>numbers[i]</code> has the format <code>&quot;ColRow&quot;</code> or <code>&quot;ColRow1:ColRow2&quot;</code>.</li>
 	<li>At most <code>100</code> calls will be made to <code>set</code>, <code>get</code>, and <code>sum</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design a data structure that efficiently finds the <strong>majority element</strong> of a given subarray.</p>
 
 <p>The <strong>majority element</strong> of a subarray is an element that occurs <code>threshold</code> times or more in the subarray.</p>
@@ -59,6 +61,8 @@ majorityChecker.query(2, 3, 2); // return 2
 	<li><code>2 * threshold &gt; right - left + 1</code></li>
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>query</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

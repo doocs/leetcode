@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Scores</code></p>
 
 <pre>
@@ -67,6 +69,8 @@ Scores table:
 - student_id 235 has a total score of 31 + 53 + 69 = 153.
 student_id 321 has the highest score of 230, while student_id 896 has the lowest score of 119. Therefore, the difference between them is 111.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

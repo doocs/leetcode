@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of strings <code>words</code> and a string <code>s</code>, determine if <code>s</code> is an <strong>acronym</strong> of words.</p>
 
 <p>The string <code>s</code> is considered an acronym of <code>words</code> if it can be formed by concatenating the <strong>first</strong> character of each string in <code>words</code> <strong>in order</strong>. For example, <code>&quot;ab&quot;</code> can be formed from <code>[&quot;apple&quot;, &quot;banana&quot;]</code>, but it can&#39;t be formed from <code>[&quot;bear&quot;, &quot;aardvark&quot;]</code>.</p>
@@ -60,6 +62,8 @@ Hence, s = &quot;ngguoy&quot; is the acronym.
 	<li><code>1 &lt;= s.length &lt;= 100</code></li>
 	<li><code>words[i]</code> and <code>s</code> consist of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

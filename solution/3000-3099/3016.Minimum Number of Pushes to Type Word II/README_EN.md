@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>word</code> containing lowercase English letters.</p>
 
 <p>Telephone keypads have keys mapped with <strong>distinct</strong> collections of lowercase English letters, which can be used to form words by pushing them. For example, the key <code>2</code> is mapped with <code>[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]</code>, we need to push the key one time to type <code>&quot;a&quot;</code>, two times to type <code>&quot;b&quot;</code>, and three times to type <code>&quot;c&quot;</code> <em>.</em></p>
@@ -86,6 +88,8 @@ It can be shown that no other mapping can provide a lower cost.
 	<li><code>1 &lt;= word.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>word</code> consists of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

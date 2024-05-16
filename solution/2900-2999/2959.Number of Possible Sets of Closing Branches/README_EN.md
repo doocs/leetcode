@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There is a company with <code>n</code> branches across the country, some of which are connected by roads. Initially, all branches are reachable from each other by traveling some roads.</p>
 
 <p>The company has realized that they are spending an excessive amount of time traveling between their branches. As a result, they have decided to close down some of these branches (<strong>possibly none</strong>). However, they want to ensure that the remaining branches have a distance of at most <code>maxDistance</code> from each other.</p>
@@ -89,6 +91,8 @@ It can be proven, that there are only 2 possible sets of closing branches.
 	<li><code>1 &lt;= w<sub>i</sub> &lt;= 1000</code></li>
 	<li>All branches are reachable from each other by traveling some roads.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

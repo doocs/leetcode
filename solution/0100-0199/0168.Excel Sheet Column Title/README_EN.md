@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer <code>columnNumber</code>, return <em>its corresponding column title as it appears in an Excel sheet</em>.</p>
 
 <p>For example:</p>
@@ -58,6 +60,8 @@ AB -&gt; 28
 <ul>
 	<li><code>1 &lt;= columnNumber &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

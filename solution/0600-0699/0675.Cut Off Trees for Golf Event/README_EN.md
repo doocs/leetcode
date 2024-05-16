@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are asked to cut off all the trees in a forest for a golf event. The forest is represented as an <code>m x n</code> matrix. In this matrix:</p>
 
 <ul>
@@ -69,6 +71,8 @@ Note that you can cut off the first tree at (0, 0) before making any steps.
 	<li><code>0 &lt;= forest[i][j] &lt;= 10<sup>9</sup></code></li>
 	<li>Heights of all trees are <strong>distinct</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

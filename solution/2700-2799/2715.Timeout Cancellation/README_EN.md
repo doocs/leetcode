@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2715.Ti
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a function <code>fn</code>, an array of&nbsp;arguments&nbsp;<code>args</code>, and a timeout&nbsp;<code>t</code>&nbsp;in milliseconds, return a cancel function <code>cancelFn</code>.</p>
 
 <p>After a delay of <code>cancelTimeMs</code>, the returned cancel function <code>cancelFn</code> will be invoked.</p>
@@ -74,6 +76,8 @@ The cancellation was scheduled to occur after a delay of cancelTimeMs (100ms), w
 	<li><code><font face="monospace">20 &lt;= t &lt;= 1000</font></code></li>
 	<li><code><font face="monospace">10 &lt;= cancelTimeMs &lt;= 1000</font></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

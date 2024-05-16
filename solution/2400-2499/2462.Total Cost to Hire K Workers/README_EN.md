@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>costs</code> where <code>costs[i]</code> is the cost of hiring the <code>i<sup>th</sup></code> worker.</p>
 
 <p>You are also given two integers <code>k</code> and <code>candidates</code>. We want to hire exactly <code>k</code> workers according to the following rules:</p>
@@ -70,6 +72,8 @@ The total hiring cost is 4.
 	<li><code>1 &lt;= costs[i] &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= k, candidates &lt;= costs.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

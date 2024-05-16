@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Sometimes people repeat letters to represent extra feeling. For example:</p>
 
 <ul>
@@ -59,6 +61,8 @@ We can&#39;t extend &quot;helo&quot; to get &quot;heeellooo&quot; because the gr
 	<li><code>1 &lt;= words[i].length &lt;= 100</code></li>
 	<li><code>s</code> and <code>words[i]</code> consist of lowercase letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

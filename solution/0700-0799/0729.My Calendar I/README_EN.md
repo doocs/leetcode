@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are implementing a program to use as your calendar. We can add a new event if adding the event will not cause a <strong>double booking</strong>.</p>
 
 <p>A <strong>double booking</strong> happens when two events have some non-empty intersection (i.e., some moment is common to both events.).</p>
@@ -53,6 +55,8 @@ myCalendar.book(20, 30); // return True, The event can be booked, as the first e
 	<li><code>0 &lt;= start &lt; end &lt;= 10<sup>9</sup></code></li>
 	<li>At most <code>1000</code> calls will be made to <code>book</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

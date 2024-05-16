@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Salary</code></p>
 
 <pre>
@@ -93,6 +95,8 @@ The average salary of department &#39;2&#39; is (6000 + 10000)/2 = 8000, which i
 
 With he same formula for the average salary comparison in February, the result is &#39;same&#39; since both the department &#39;1&#39; and &#39;2&#39; have the same average salary with the company, which is 7000.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

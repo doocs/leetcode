@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two integer arrays <code>persons</code> and <code>times</code>. In an election, the <code>i<sup>th</sup></code> vote was cast for <code>persons[i]</code> at time <code>times[i]</code>.</p>
 
 <p>For each query at a time <code>t</code>, find the person that was leading the election at time <code>t</code>. Votes cast at time <code>t</code> will count towards our query. In the case of a tie, the most recent vote (among tied candidates) wins.</p>
@@ -61,6 +63,8 @@ topVotedCandidate.q(8); // return 1
 	<li><code>times[0] &lt;= t &lt;= 10<sup>9</sup></code></li>
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>q</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

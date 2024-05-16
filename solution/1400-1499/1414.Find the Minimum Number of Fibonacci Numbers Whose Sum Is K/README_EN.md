@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer&nbsp;<code>k</code>, <em>return the minimum number of Fibonacci numbers whose sum is equal to </em><code>k</code>. The same Fibonacci number can be used multiple times.</p>
 
 <p>The Fibonacci numbers are defined as:</p>
@@ -58,6 +60,8 @@ For k = 7 we can use 2 + 5 = 7.</pre>
 <ul>
 	<li><code>1 &lt;= k &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

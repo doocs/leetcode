@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p><code>RandomizedCollection</code> is a data structure that contains a collection of numbers, possibly duplicates (i.e., a multiset). It should support inserting and removing specific elements and also reporting a random element.</p>
 
 <p>Implement the <code>RandomizedCollection</code> class:</p>
@@ -67,6 +69,8 @@ randomizedCollection.getRandom(); // getRandom should return 1 or 2, both equall
 	<li>At most <code>2 * 10<sup>5</sup></code> calls <strong>in total</strong> will be made to <code>insert</code>, <code>remove</code>, and <code>getRandom</code>.</li>
 	<li>There will be <strong>at least one</strong> element in the data structure when <code>getRandom</code> is called.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

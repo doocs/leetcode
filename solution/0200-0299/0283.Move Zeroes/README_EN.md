@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code>, move all <code>0</code>&#39;s to the end of it while maintaining the relative order of the non-zero elements.</p>
 
 <p><strong>Note</strong> that you must do this in-place without making a copy of the array.</p>
@@ -37,6 +39,8 @@ tags:
 
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Could you minimize the total number of operations done?
+
+<!-- description:end -->
 
 ## Solutions
 

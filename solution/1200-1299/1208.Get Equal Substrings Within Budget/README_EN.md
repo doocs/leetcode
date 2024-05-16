@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two strings <code>s</code> and <code>t</code> of the same length and an integer <code>maxCost</code>.</p>
 
 <p>You want to change <code>s</code> to <code>t</code>. Changing the <code>i<sup>th</sup></code> character of <code>s</code> to <code>i<sup>th</sup></code> character of <code>t</code> costs <code>|s[i] - t[i]|</code> (i.e., the absolute difference between the ASCII values of the characters).</p>
@@ -60,6 +62,8 @@ That costs 3, so the maximum length is 3.
 	<li><code>0 &lt;= maxCost &lt;= 10<sup>6</sup></code></li>
 	<li><code>s</code> and <code>t</code> consist of only lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

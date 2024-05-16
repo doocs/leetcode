@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>stones</code> sorted in <strong>strictly increasing order</strong> representing the positions of stones in a river.</p>
 
 <p>A frog, initially on the first stone, wants to travel to the last stone and then return to the first stone. However, it can jump to any stone <strong>at most once</strong>.</p>
@@ -63,6 +65,8 @@ It can be shown that this is the minimum achievable cost.
 	<li><code>stones[0] == 0</code></li>
 	<li><code>stones</code> is sorted in a strictly increasing order.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

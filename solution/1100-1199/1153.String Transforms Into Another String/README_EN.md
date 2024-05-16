@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two strings <code>str1</code> and <code>str2</code> of the same length, determine whether you can transform <code>str1</code> into <code>str2</code> by doing <strong>zero or more</strong> <em>conversions</em>.</p>
 
 <p>In one conversion you can convert <strong>all</strong> occurrences of one character in <code>str1</code> to <strong>any</strong> other lowercase English character.</p>
@@ -47,6 +49,8 @@ tags:
 	<li><code>1 &lt;= str1.length == str2.length &lt;= 10<sup>4</sup></code></li>
 	<li><code>str1</code> and <code>str2</code> contain only lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

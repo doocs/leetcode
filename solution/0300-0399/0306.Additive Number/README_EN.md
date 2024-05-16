@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>An <strong>additive number</strong> is a string whose digits can form an <strong>additive sequence</strong>.</p>
 
 <p>A valid <strong>additive sequence</strong> should contain <strong>at least</strong> three numbers. Except for the first two numbers, each subsequent number in the sequence must be the sum of the preceding two.</p>
@@ -54,6 +56,8 @@ The additive sequence is: 1, 99, 100, 199.&nbsp;
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> How would you handle overflow for very large input integers?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

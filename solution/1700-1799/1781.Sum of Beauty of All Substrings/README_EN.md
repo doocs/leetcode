@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>The <strong>beauty</strong> of a string is the difference in frequencies between the most frequent and least frequent characters.</p>
 
 <ul>
@@ -48,6 +50,8 @@ tags:
 	<li><code>1 &lt;= s.length &lt;=<sup> </sup>500</code></li>
 	<li><code>s</code> consists of only lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

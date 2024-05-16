@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string of digits <code>num</code>, such as <code>&quot;123456579&quot;</code>. We can split it into a Fibonacci-like sequence <code>[123, 456, 579]</code>.</p>
 
 <p>Formally, a <strong>Fibonacci-like</strong> sequence is a list <code>f</code> of non-negative integers such that:</p>
@@ -61,6 +63,8 @@ tags:
 	<li><code>1 &lt;= num.length &lt;= 200</code></li>
 	<li><code>num</code> contains only digits.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

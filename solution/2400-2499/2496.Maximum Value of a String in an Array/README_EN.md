@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>The <strong>value</strong> of an alphanumeric string can be defined as:</p>
 
 <ul>
@@ -58,6 +60,8 @@ Each string in the array has value 1. Hence, we return 1.
 	<li><code>1 &lt;= strs[i].length &lt;= 9</code></li>
 	<li><code>strs[i]</code> consists of only lowercase English letters and digits.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

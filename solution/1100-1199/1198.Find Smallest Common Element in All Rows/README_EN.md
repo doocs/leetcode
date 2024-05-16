@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an <code>m x n</code> matrix <code>mat</code> where every row is sorted in <strong>strictly</strong> <strong>increasing</strong> order, return <em>the <strong>smallest common element</strong> in all rows</em>.</p>
 
 <p>If there is no common element, return <code>-1</code>.</p>
@@ -49,6 +51,8 @@ tags:
 	<li><code>1 &lt;= mat[i][j] &lt;= 10<sup>4</sup></code></li>
 	<li><code>mat[i]</code> is sorted in strictly increasing order.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of strings <code>words</code>, find the <strong>longest</strong> string in <code>words</code> such that <strong>every prefix</strong> of it is also in <code>words</code>.</p>
 
 <ul>
@@ -76,6 +78,8 @@ However, &quot;apple&quot; is lexicographically smaller, so we return that.
     <li><code>1 &lt;= sum(words[i].length) &lt;= 10<sup>5</sup></code></li>
 
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

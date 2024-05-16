@@ -21,6 +21,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>In a warehouse, there is a row of barcodes, where the <code>i<sup>th</sup></code> barcode is <code>barcodes[i]</code>.</p>
 
 <p>Rearrange the barcodes so that no two adjacent barcodes are equal. You may return any answer, and it is guaranteed an answer exists.</p>
@@ -40,6 +42,8 @@ tags:
 	<li><code>1 &lt;= barcodes.length &lt;= 10000</code></li>
 	<li><code>1 &lt;= barcodes[i] &lt;= 10000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

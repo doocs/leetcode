@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A <strong>Fibonacci</strong> tree is a binary tree created using the order function <code>order(n)</code>:</p>
 
 <ul>
@@ -76,6 +78,8 @@ Return true because Alice wins.
 <ul>
 	<li><code>1 &lt;= n &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

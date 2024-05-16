@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and a positive integer <code>x</code>.</p>
 
 <p>You are <strong>initially</strong> at position <code>0</code> in the array and you can visit other positions according to the following rules:</p>
@@ -58,6 +60,8 @@ The total score is: 2 + 4 + 6 + 8 = 20.
 	<li><code>2 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= nums[i], x &lt;= 10<sup>6</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

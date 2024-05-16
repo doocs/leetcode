@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>data</code> representing the data, return whether it is a valid <strong>UTF-8</strong> encoding (i.e. it translates to a sequence of valid UTF-8 encoded characters).</p>
 
 <p>A character in <strong>UTF8</strong> can be from <strong>1 to 4 bytes</strong> long, subjected to the following rules:</p>
@@ -68,6 +70,8 @@ But the second continuation byte does not start with 10, so it is invalid.
 	<li><code>1 &lt;= data.length &lt;= 2 * 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= data[i] &lt;= 255</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

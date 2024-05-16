@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design a stack-like data structure to push elements to the stack and pop the most frequent element from the stack.</p>
 
 <p>Implement the <code>FreqStack</code> class:</p>
@@ -63,6 +65,8 @@ freqStack.pop();   // return 4, as 4, 5 and 7 is the most frequent, but 4 is clo
 	<li>At most <code>2 * 10<sup>4</sup></code> calls will be made to <code>push</code> and <code>pop</code>.</li>
 	<li>It is guaranteed that there will be at least one element in the stack before calling <code>pop</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

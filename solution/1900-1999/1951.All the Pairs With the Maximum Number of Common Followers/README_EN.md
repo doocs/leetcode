@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Relations</code></p>
 
 <pre>
@@ -69,6 +71,8 @@ Users 2 and 7 have two common followers (3 and 4).
 Since the maximum number of common followers between any two users is 3, we return all pairs of users with three common followers, which is only the pair (1, 7). We return the pair as (1, 7), not as (7, 1).
 Note that we do not have any information about the users that follow users 3, 4, and 5, so we consider them to have 0 followers.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a non-negative integer <code>num</code>, Return its <em>encoding</em> string.</p>
 
 <p>The encoding is done by converting the integer to a string using a secret function that you should deduce from the following table:</p>
@@ -55,6 +57,8 @@ tags:
     <li><code>0 &lt;= num &lt;= 10^9</code></li>
 
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

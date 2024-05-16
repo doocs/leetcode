@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code>, and an integer <code>k</code>. Let&#39;s introduce&nbsp;<strong>K-or</strong> operation by extending the standard bitwise OR. In K-or, a bit position in the result is set to <code>1</code>&nbsp;if at least <code>k</code> numbers in <code>nums</code> have a <code>1</code> in that position.</p>
 
 <p>Return <em>the K-or of</em> <code>nums</code>.</p>
@@ -126,6 +128,8 @@ Only bits 0 and 3 qualify. The result is <code>(1001)<sub>2</sub> = 9</code>.</p
 	<li><code>0 &lt;= nums[i] &lt; 2<sup>31</sup></code></li>
 	<li><code>1 &lt;= k &lt;= nums.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

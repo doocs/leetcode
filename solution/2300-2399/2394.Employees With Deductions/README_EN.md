@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Employees</code></p>
 
 <pre>
@@ -102,6 +104,8 @@ Employee 3:
  - Did not work any session.
  - Employee 3 did not work their hours and will be deducted.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

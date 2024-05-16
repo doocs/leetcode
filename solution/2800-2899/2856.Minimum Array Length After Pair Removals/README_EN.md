@@ -21,6 +21,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> <strong>sorted</strong> array of integers <code>nums</code>.</p>
 
 <p>You can perform the following operation any number of times:</p>
@@ -80,6 +82,8 @@ Hence, the minimum achievable length is 1.
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 	<li><code>nums</code> is sorted in <strong>non-decreasing</strong> order.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

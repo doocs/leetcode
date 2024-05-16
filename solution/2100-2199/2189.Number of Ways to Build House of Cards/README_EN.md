@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer <code>n</code> representing the number of playing cards you have. A <strong>house of cards</strong> meets the following conditions:</p>
 
 <ul>
@@ -62,6 +64,8 @@ The third house of cards uses 2 cards.
 <ul>
 	<li><code>1 &lt;= n &lt;= 500</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

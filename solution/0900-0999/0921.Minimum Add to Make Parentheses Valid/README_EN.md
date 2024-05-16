@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A parentheses string is valid if and only if:</p>
 
 <ul>
@@ -54,6 +56,8 @@ tags:
 	<li><code>1 &lt;= s.length &lt;= 1000</code></li>
 	<li><code>s[i]</code> is either <code>&#39;(&#39;</code> or <code>&#39;)&#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

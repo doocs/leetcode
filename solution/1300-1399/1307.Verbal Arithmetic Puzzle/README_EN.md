@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an equation, represented by <code>words</code> on the left side and the <code>result</code> on the right side.</p>
 
 <p>You need to check if the equation is solvable under the following rules:</p>
@@ -67,6 +69,8 @@ Note that two different characters cannot map to the same digit.
 	<li><code>words[i], result</code> contain only uppercase English letters.</li>
 	<li>The number of different characters used in the expression is at most <code>10</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

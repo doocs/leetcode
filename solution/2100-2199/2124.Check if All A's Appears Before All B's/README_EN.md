@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>s</code> consisting of <strong>only</strong> the characters <code>&#39;a&#39;</code> and <code>&#39;b&#39;</code>, return <code>true</code> <em>if <strong>every</strong> </em><code>&#39;a&#39;</code> <em>appears before <strong>every</strong> </em><code>&#39;b&#39;</code><em> in the string</em>. Otherwise, return <code>false</code>.</p>
 
 <p>&nbsp;</p>
@@ -55,6 +57,8 @@ There are no &#39;a&#39;s, hence, every &#39;a&#39; appears before every &#39;b&
 	<li><code>1 &lt;= s.length &lt;= 100</code></li>
 	<li><code>s[i]</code> is either <code>&#39;a&#39;</code> or <code>&#39;b&#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

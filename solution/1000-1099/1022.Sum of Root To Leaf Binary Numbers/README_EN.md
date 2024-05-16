@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given the <code>root</code> of a binary tree where each node has a value <code>0</code> or <code>1</code>. Each root-to-leaf path represents a binary number starting with the most significant bit.</p>
 
 <ul>
@@ -51,6 +53,8 @@ tags:
 	<li>The number of nodes in the tree is in the range <code>[1, 1000]</code>.</li>
 	<li><code>Node.val</code> is <code>0</code> or <code>1</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

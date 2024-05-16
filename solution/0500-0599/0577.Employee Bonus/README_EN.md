@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Employee</code></p>
 
 <pre>
@@ -83,6 +85,8 @@ Bonus table:
 | Dan  | 500   |
 +------+-------+
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

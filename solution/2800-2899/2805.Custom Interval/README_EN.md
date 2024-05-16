@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2805.Cu
 
 ## Description
 
+<!-- description:start -->
+
 <p><strong>Function&nbsp;</strong><code>customInterval</code></p>
 
 <p>Given a function <code>fn</code>, a number <code>delay</code> and a number <code>period</code>, return&nbsp;a number&nbsp;<code>id</code>.</p>
@@ -80,6 +82,8 @@ setTimeout(() =&gt; {
 	<li><code>20 &lt;= delay, period &lt;= 250</code></li>
 	<li><code>20 &lt;= cancelTime &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two <strong>0-indexed</strong> integer arrays <code>nums1</code> and <code>nums2</code>, return <em>a list</em> <code>answer</code> <em>of size</em> <code>2</code> <em>where:</em></p>
 
 <ul>
@@ -53,6 +55,8 @@ Every integer in nums2 is present in nums1. Therefore, answer[1] = [].
 	<li><code>1 &lt;= nums1.length, nums2.length &lt;= 1000</code></li>
 	<li><code>-1000 &lt;= nums1[i], nums2[i] &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

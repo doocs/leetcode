@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code> sorted in non-decreasing order and an integer <code>k</code>, return <code>true</code><em> if this array can be divided into one or more disjoint increasing subsequences of length at least </em><code>k</code><em>, or </em><code>false</code><em> otherwise</em>.</p>
 
 <p>&nbsp;</p>
@@ -44,6 +46,8 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 	<li><code>nums</code> is sorted in non-decreasing order.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

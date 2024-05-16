@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a binary string <code>s</code> and an integer <code>k</code>, return <code>true</code> <em>if every binary code of length</em> <code>k</code> <em>is a substring of</em> <code>s</code>. Otherwise, return <code>false</code>.</p>
 
 <p>&nbsp;</p>
@@ -55,6 +57,8 @@ tags:
 	<li><code>s[i]</code> is either <code>&#39;0&#39;</code> or <code>&#39;1&#39;</code>.</li>
 	<li><code>1 &lt;= k &lt;= 20</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

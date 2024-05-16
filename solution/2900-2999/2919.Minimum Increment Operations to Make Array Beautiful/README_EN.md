@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> having length <code>n</code>, and an integer <code>k</code>.</p>
 
 <p>You can perform the following <strong>increment</strong> operation <strong>any</strong> number of times (<strong>including zero</strong>):</p>
@@ -79,6 +81,8 @@ Hence, the answer is 0.
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 	<li><code>0 &lt;= k &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

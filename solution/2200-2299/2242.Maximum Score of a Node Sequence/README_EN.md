@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There is an <strong>undirected</strong> graph with <code>n</code> nodes, numbered from <code>0</code> to <code>n - 1</code>.</p>
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>scores</code> of length <code>n</code> where <code>scores[i]</code> denotes the score of node <code>i</code>. You are also given a 2D integer array <code>edges</code> where <code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> denotes that there exists an <strong>undirected</strong> edge connecting nodes <code>a<sub>i</sub></code> and <code>b<sub>i</sub></code>.</p>
@@ -69,6 +71,8 @@ There are no valid node sequences of length 4, so we return -1.
 	<li><code>a<sub>i</sub> != b<sub>i</sub></code></li>
 	<li>There are no duplicate edges.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

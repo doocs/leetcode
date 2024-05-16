@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>piles</code>, where <code>piles[i]</code> represents the number of stones in the <code>i<sup>th</sup></code> pile, and an integer <code>k</code>. You should apply the following operation <strong>exactly</strong> <code>k</code> times:</p>
 
 <ul>
@@ -62,6 +64,8 @@ The total number of stones in [2,3,3,4] is 12.
 	<li><code>1 &lt;= piles[i] &lt;= 10<sup>4</sup></code></li>
 	<li><code>1 &lt;= k &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

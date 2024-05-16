@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>s</code> of lowercase English letters and an integer array <code>shifts</code> of the same length.</p>
 
 <p>Call the <code>shift()</code> of a letter, the next letter in the alphabet, (wrapping around so that <code>&#39;z&#39;</code> becomes <code>&#39;a&#39;</code>).</p>
@@ -56,6 +58,8 @@ After shifting the first 3 letters of s by 9, we have &quot;rpl&quot;, the answe
 	<li><code>shifts.length == s.length</code></li>
 	<li><code>0 &lt;= shifts[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of <strong>distinct</strong> strings <code>words</code>, return <em>the minimal possible <strong>abbreviations</strong> for every word</em>.</p>
 
 <p>The following are the rules for a string abbreviation:</p>
@@ -54,6 +56,8 @@ tags:
 	<li><code>words[i]</code> consists of lowercase English letters.</li>
 	<li>All the strings of <code>words</code> are <strong>unique</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

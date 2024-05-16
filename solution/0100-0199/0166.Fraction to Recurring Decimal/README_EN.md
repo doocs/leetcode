@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two integers representing the <code>numerator</code> and <code>denominator</code> of a fraction, return <em>the fraction in string format</em>.</p>
 
 <p>If the fractional part is repeating, enclose the repeating part in parentheses.</p>
@@ -53,6 +55,8 @@ tags:
 	<li><code>-2<sup>31</sup> &lt;=&nbsp;numerator, denominator &lt;= 2<sup>31</sup> - 1</code></li>
 	<li><code>denominator != 0</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

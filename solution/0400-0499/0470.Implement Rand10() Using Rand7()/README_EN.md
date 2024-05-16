@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <strong>API</strong> <code>rand7()</code> that generates a uniform random integer in the range <code>[1, 7]</code>, write a function <code>rand10()</code> that generates a uniform random integer in the range <code>[1, 10]</code>. You can only call the API <code>rand7()</code>, and you shouldn&#39;t call any other API. Please <strong>do not</strong> use a language&#39;s built-in random API.</p>
 
 <p>Each test case will have one <strong>internal</strong> argument <code>n</code>, the number of times that your implemented function <code>rand10()</code> will be called while testing. Note that this is <strong>not an argument</strong> passed to <code>rand10()</code>.</p>
@@ -46,6 +48,8 @@ tags:
 	<li>What is the <a href="https://en.wikipedia.org/wiki/Expected_value" target="_blank">expected value</a> for the number of calls to <code>rand7()</code> function?</li>
 	<li>Could you minimize the number of calls to <code>rand7()</code>?</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 
@@ -147,7 +151,6 @@ function rand10(): number {
 ```
 
 ```rust
-
 /**
  * The rand7() API is already defined for you.
  * @return a random integer in the range 1 to 7

@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a list of blocks, where <code>blocks[i] = t</code> means that the&nbsp;<code>i</code>-th block needs&nbsp;<code>t</code>&nbsp;units of time to be built. A block can only be built by exactly one worker.</p>
 
 <p>A worker can either split into two workers (number of workers increases by one) or build a block then go home. Both decisions cost some time.</p>
@@ -64,6 +66,8 @@ The cost is 1 + max(3, 1 + max(1, 2)) = 4.
 	<li><code>1 &lt;= blocks[i] &lt;= 10^5</code></li>
 	<li><code>1 &lt;= split &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>s</code>, which is known to be a concatenation of <strong>anagrams</strong> of some string <code>t</code>.</p>
 
 <p>Return the <strong>minimum</strong> possible length of the string <code>t</code>.</p>
@@ -56,6 +58,8 @@ tags:
 	<li><code>1 &lt;= s.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>s</code> consist only of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

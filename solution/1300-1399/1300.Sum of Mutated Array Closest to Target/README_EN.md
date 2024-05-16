@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>arr</code> and a target value <code>target</code>, return the integer <code>value</code> such that when we change all the integers larger than <code>value</code> in the given array to be equal to <code>value</code>, the sum of the array gets as close as possible (in absolute difference) to <code>target</code>.</p>
 
 <p>In case of a tie, return the minimum such integer.</p>
@@ -54,6 +56,8 @@ tags:
 	<li><code>1 &lt;= arr.length &lt;= 10<sup>4</sup></code></li>
 	<li><code>1 &lt;= arr[i], target &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a binary array <code>nums</code>, you should delete one element from it.</p>
 
 <p>Return <em>the size of the longest non-empty subarray containing only </em><code>1</code><em>&#39;s in the resulting array</em>. Return <code>0</code> if there is no such subarray.</p>
@@ -54,6 +56,8 @@ tags:
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>nums[i]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

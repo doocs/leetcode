@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>The hash of a <strong>0-indexed</strong> string <code>s</code> of length <code>k</code>, given integers <code>p</code> and <code>m</code>, is computed using the following function:</p>
 
 <ul>
@@ -64,6 +66,8 @@ Note that &quot;bxz&quot; also has a hash of 32 but it appears later than &quot;
 	<li><code>s</code> consists of lowercase English letters only.</li>
 	<li>The test cases are generated such that an answer always <strong>exists</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

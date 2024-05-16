@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>The <strong>power</strong> of the string is the maximum length of a non-empty substring that contains only one unique character.</p>
 
 <p>Given a string <code>s</code>, return <em>the <strong>power</strong> of</em> <code>s</code>.</p>
@@ -44,6 +46,8 @@ tags:
 	<li><code>1 &lt;= s.length &lt;= 500</code></li>
 	<li><code>s</code> consists of only lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

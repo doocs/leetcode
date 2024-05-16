@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array <code>routes</code> representing bus routes where <code>routes[i]</code> is a bus route that the <code>i<sup>th</sup></code> bus repeats forever.</p>
 
 <ul>
@@ -55,6 +57,8 @@ tags:
 	<li><code>0 &lt;= routes[i][j] &lt; 10<sup>6</sup></code></li>
 	<li><code>0 &lt;= source, target &lt; 10<sup>6</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

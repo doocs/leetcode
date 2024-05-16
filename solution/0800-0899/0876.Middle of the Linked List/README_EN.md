@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>head</code> of a singly linked list, return <em>the middle node of the linked list</em>.</p>
 
 <p>If there are two middle nodes, return <strong>the second middle</strong> node.</p>
@@ -43,6 +45,8 @@ tags:
 	<li>The number of nodes in the list is in the range <code>[1, 100]</code>.</li>
 	<li><code>1 &lt;= Node.val &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Tasks</code></p>
 
 <pre>
@@ -73,6 +75,8 @@ Task 6 was submitted on Sunday.
 3 tasks were submitted during the weekend.
 3 tasks were submitted during the working days.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

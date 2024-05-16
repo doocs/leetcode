@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2627.De
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a function&nbsp;<code>fn</code> and a time in milliseconds&nbsp;<code>t</code>, return&nbsp;a&nbsp;<strong>debounced</strong>&nbsp;version of that function.</p>
 
 <p>A&nbsp;<strong>debounced</strong>&nbsp;function is a function whose execution is delayed by&nbsp;<code>t</code>&nbsp;milliseconds and whose&nbsp;execution is cancelled if it is called again within that window of time. The debounced function should also receive the passed parameters.</p>
@@ -93,6 +95,8 @@ The 3rd call is delayed by 150ms and ran at 450ms. The inputs were (5, 6).
 	<li><code>0 &lt;= calls[i].t &lt;= 1000</code></li>
 	<li><code>0 &lt;= calls[i].inputs.length &lt;= 10</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

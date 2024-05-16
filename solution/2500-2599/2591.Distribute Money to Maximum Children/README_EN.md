@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer <code>money</code> denoting the amount of money (in dollars) that you have and another integer <code>children</code> denoting the number of children that you must distribute the money to.</p>
 
 <p>You have to distribute the money according to the following rules:</p>
@@ -58,6 +60,8 @@ It can be proven that no distribution exists such that number of children gettin
 	<li><code>1 &lt;= money &lt;= 200</code></li>
 	<li><code>2 &lt;= children &lt;= 30</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

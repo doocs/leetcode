@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an initial array <code>arr</code>, every day you produce a new array using the array of the previous day.</p>
 
 <p>On the <code>i</code>-th day, you do the following operations on the array of day&nbsp;<code>i-1</code>&nbsp;to produce the array of day <code>i</code>:</p>
@@ -58,6 +60,8 @@ No more operations can be done to this array.
 	<li><code>3 &lt;= arr.length &lt;= 100</code></li>
 	<li><code>1 &lt;= arr[i] &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

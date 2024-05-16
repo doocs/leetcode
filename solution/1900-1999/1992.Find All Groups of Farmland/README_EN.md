@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> <code>m x n</code> binary matrix <code>land</code> where a <code>0</code> represents a hectare of forested land and a <code>1</code> represents a hectare of farmland.</p>
 
 <p>To keep the land organized, there are designated rectangular areas of hectares that consist <strong>entirely</strong> of farmland. These rectangular areas are called <strong>groups</strong>. No two groups are adjacent, meaning farmland in one group is <strong>not</strong> four-directionally adjacent to another farmland in a different group.</p>
@@ -66,6 +68,8 @@ There are no groups of farmland.
 	<li><code>land</code> consists of only <code>0</code>&#39;s and <code>1</code>&#39;s.</li>
 	<li>Groups of farmland are <strong>rectangular</strong> in shape.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

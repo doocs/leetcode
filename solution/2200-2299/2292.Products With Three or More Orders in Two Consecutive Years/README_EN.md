@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Orders</code></p>
 
 <pre>
@@ -64,6 +66,8 @@ Orders table:
 Product 1 was ordered in 2020 three times and in 2021 three times. Since it was ordered three times in two consecutive years, we include it in the answer.
 Product 2 was ordered one time in 2022. We do not include it in the answer.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

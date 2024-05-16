@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array of <strong>positive</strong> integers <code>nums</code> of length <code>n</code>.</p>
 
 <p>A <strong>polygon</strong> is a closed plane figure that has at least <code>3</code> sides. The <strong>longest side</strong> of a polygon is <strong>smaller</strong> than the sum of its other sides.</p>
@@ -63,6 +65,8 @@ It can be shown that the largest possible perimeter is 12.
 	<li><code>3 &lt;= n &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

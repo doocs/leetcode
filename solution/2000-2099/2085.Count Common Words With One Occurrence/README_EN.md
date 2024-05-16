@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two string arrays <code>words1</code> and <code>words2</code>, return <em>the number of strings that appear <strong>exactly once</strong> in <b>each</b>&nbsp;of the two arrays.</em></p>
 
 <p>&nbsp;</p>
@@ -59,6 +61,8 @@ Thus, there are 2 strings that appear exactly once in each of the two arrays.
 	<li><code>1 &lt;= words1[i].length, words2[j].length &lt;= 30</code></li>
 	<li><code>words1[i]</code> and <code>words2[j]</code> consists only of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

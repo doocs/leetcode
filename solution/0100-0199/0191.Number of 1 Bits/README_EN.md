@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Write a function that takes the binary representation of a positive integer and returns the number of <span data-keyword="set-bit">set bits</span> it has (also known as the <a href="http://en.wikipedia.org/wiki/Hamming_weight" target="_blank">Hamming weight</a>).</p>
 
 <p>&nbsp;</p>
@@ -63,6 +65,8 @@ tags:
 
 <p>&nbsp;</p>
 <strong>Follow up:</strong> If this function is called many times, how would you optimize it?
+
+<!-- description:end -->
 
 ## Solutions
 

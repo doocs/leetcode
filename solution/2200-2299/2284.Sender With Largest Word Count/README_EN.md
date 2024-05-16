@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You have a chat log of <code>n</code> messages. You are given two string arrays <code>messages</code> and <code>senders</code> where <code>messages[i]</code> is a <strong>message</strong> sent by <code>senders[i]</code>.</p>
 
 <p>A <strong>message</strong> is list of <strong>words</strong> that are separated by a single space with no leading or trailing spaces. The <strong>word count</strong> of a sender is the total number of <strong>words</strong> sent by the sender. Note that a sender may send more than one message.</p>
@@ -66,6 +68,8 @@ Since there is a tie for the largest word count, we return the sender with the l
 	<li><code>messages[i]</code> does not have leading or trailing spaces.</li>
 	<li><code>senders[i]</code> consists of uppercase and lowercase English letters only.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

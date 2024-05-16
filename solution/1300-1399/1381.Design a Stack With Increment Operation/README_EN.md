@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design a stack that supports increment operations on its elements.</p>
 
 <p>Implement the <code>CustomStack</code> class:</p>
@@ -62,6 +64,8 @@ stk.pop();                            // return -1 --&gt; Stack is empty return 
 	<li><code>0 &lt;= val &lt;= 100</code></li>
 	<li>At most <code>1000</code> calls will be made to each method of <code>increment</code>, <code>push</code> and <code>pop</code> each separately.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

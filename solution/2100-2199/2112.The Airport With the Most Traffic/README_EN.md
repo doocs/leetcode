@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Flights</code></p>
 
 <pre>
@@ -94,6 +96,8 @@ Airport 5 was engaged with 7 flights (7 departures).
 Airport 6 was engaged with 7 flights (7 arrivals).
 The airports with the most traffic are airports 1, 2, 3, and 4.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

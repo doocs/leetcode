@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>s</code>, <em>find the first non-repeating character in it and return its index</em>. If it does not exist, return <code>-1</code>.</p>
 
 <p>&nbsp;</p>
@@ -37,6 +39,8 @@ tags:
 	<li><code>1 &lt;= s.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>s</code> consists of only lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

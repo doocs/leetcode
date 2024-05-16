@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> <code>m x n</code> binary matrix <code>grid</code>.</p>
 
 <p>A <strong>0-indexed</strong> <code>m x n</code> difference matrix <code>diff</code> is created with the following procedure:</p>
@@ -74,6 +76,8 @@ tags:
 	<li><code>1 &lt;= m * n &lt;= 10<sup>5</sup></code></li>
 	<li><code>grid[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

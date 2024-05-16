@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p><strong>Reversing</strong> an integer means to reverse all its digits.</p>
 
 <ul>
@@ -55,6 +57,8 @@ tags:
 <ul>
 	<li><code>0 &lt;= num &lt;= 10<sup>6</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

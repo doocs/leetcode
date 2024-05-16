@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Employee</code></p>
 
 <pre>
@@ -85,6 +87,8 @@ Department table:
 +------------+----------+--------+
 <strong>Explanation:</strong> Max and Jim both have the highest salary in the IT department and Henry has the highest salary in the Sales department.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

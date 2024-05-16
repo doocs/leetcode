@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>The <strong>n-queens</strong> puzzle is the problem of placing <code>n</code> queens on an <code>n x n</code> chessboard such that no two queens attack each other.</p>
 
 <p>Given an integer <code>n</code>, return <em>all distinct solutions to the <strong>n-queens puzzle</strong></em>. You may return the answer in <strong>any order</strong>.</p>
@@ -43,6 +45,8 @@ tags:
 <ul>
 	<li><code>1 &lt;= n &lt;= 9</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

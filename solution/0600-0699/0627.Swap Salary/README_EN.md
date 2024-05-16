@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Salary</code></p>
 
 <pre>
@@ -65,6 +67,8 @@ Salary table:
 (1, A) and (3, C) were changed from &#39;m&#39; to &#39;f&#39;.
 (2, B) and (4, D) were changed from &#39;f&#39; to &#39;m&#39;.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

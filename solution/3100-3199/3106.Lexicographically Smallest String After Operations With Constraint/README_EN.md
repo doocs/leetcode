@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>s</code> and an integer <code>k</code>.</p>
 
 <p>Define a function <code>distance(s<sub>1</sub>, s<sub>2</sub>)</code> between two strings <code>s<sub>1</sub></code> and <code>s<sub>2</sub></code> of the same length <code>n</code> as:</p>
@@ -76,6 +78,8 @@ tags:
 	<li><code>0 &lt;= k &lt;= 2000</code></li>
 	<li><code>s</code> consists only of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

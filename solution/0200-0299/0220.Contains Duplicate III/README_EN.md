@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code> and two integers <code>indexDiff</code> and <code>valueDiff</code>.</p>
 
 <p>Find a pair of indices <code>(i, j)</code> such that:</p>
@@ -60,6 +62,8 @@ abs(nums[i] - nums[j]) &lt;= valueDiff --&gt; abs(1 - 1) &lt;= 0
 	<li><code>1 &lt;= indexDiff &lt;= nums.length</code></li>
 	<li><code>0 &lt;= valueDiff &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>word</code> and an integer <code>k</code>.</p>
 
 <p>A substring <code>s</code> of <code>word</code> is <strong>complete</strong> if:</p>
@@ -56,6 +58,8 @@ tags:
 	<li><code>word</code> consists only of lowercase English letters.</li>
 	<li><code>1 &lt;= k &lt;= word.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

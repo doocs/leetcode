@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given the <code>root</code> of a binary tree with <strong>unique</strong> values, and an integer <code>start</code>. At minute <code>0</code>, an <strong>infection</strong> starts from the node with value <code>start</code>.</p>
 
 <p>Each minute, a node becomes infected if:</p>
@@ -63,6 +65,8 @@ It takes 4 minutes for the whole tree to be infected so we return 4.
 	<li>Each node has a <strong>unique</strong> value.</li>
 	<li>A node with a value of <code>start</code> exists in the tree.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

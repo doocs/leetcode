@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>root</code> of a binary tree and a node <code>u</code> in the tree, return <em>the <strong>nearest</strong> node on the <strong>same level</strong> that is to the <strong>right</strong> of</em> <code>u</code><em>, or return</em> <code>null</code> <em>if </em><code>u</code> <em>is the rightmost node in its level</em>.</p>
 
 <p>&nbsp;</p>
@@ -44,6 +46,8 @@ tags:
 	<li>All values in the tree are <strong>distinct</strong>.</li>
 	<li><code>u</code> is a node in the binary tree rooted at <code>root</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two integers <code>num1</code> and <code>num2</code>.</p>
 
 <p>In one operation, you can choose integer <code>i</code> in the range <code>[0, 60]</code> and subtract <code>2<sup>i</sup> + num2</code> from <code>num1</code>.</p>
@@ -53,6 +55,8 @@ It can be proven, that 3 is the minimum number of operations that we need to per
 	<li><code>1 &lt;= num1 &lt;= 10<sup>9</sup></code></li>
 	<li><code><font face="monospace">-10<sup>9</sup>&nbsp;&lt;= num2 &lt;= 10<sup>9</sup></font></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

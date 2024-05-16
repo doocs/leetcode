@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given the <code>root</code> of a binary search tree (BST) and an integer <code>val</code>.</p>
 
 <p>Find the node in the BST that the node&#39;s value equals <code>val</code> and return the subtree rooted with that node. If such a node does not exist, return <code>null</code>.</p>
@@ -44,6 +46,8 @@ tags:
 	<li><code>root</code> is a binary search tree.</li>
 	<li><code>1 &lt;= val &lt;= 10<sup>7</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

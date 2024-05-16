@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2700.Di
 
 ## Description
 
+<!-- description:start -->
+
 <p>Write a function that accepts two deeply nested objects or arrays&nbsp;<code>obj1</code> and&nbsp;<code>obj2</code>&nbsp;and returns a new&nbsp;object representing their differences.</p>
 
 <p>The function should compare the properties of the two objects and identify any changes.&nbsp;The returned object should only contains keys where the value is different from&nbsp;<code>obj1</code> to&nbsp;<code>obj2</code>.</p>
@@ -134,6 +136,8 @@ obj2 = { &nbsp;
 	<li><code>2 &lt;= JSON.stringify(obj1).length &lt;= 10<sup>4</sup></code></li>
 	<li><code>2 &lt;= JSON.stringify(obj2).length &lt;= 10<sup>4</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

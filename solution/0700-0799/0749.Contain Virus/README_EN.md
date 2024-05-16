@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A virus is spreading rapidly, and your task is to quarantine the infected area by installing walls.</p>
 
 <p>The world is modeled as an <code>m x n</code> binary grid <code>isInfected</code>, where <code>isInfected[i][j] == 0</code> represents uninfected cells, and <code>isInfected[i][j] == 1</code> represents cells contaminated with the virus. A wall (and only one wall) can be installed between any two <strong>4-directionally</strong> adjacent cells, on the shared boundary.</p>
@@ -66,6 +68,8 @@ Notice that walls are only built on the shared boundary of two different cells.
 	<li><code>isInfected[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
 	<li>There is always a contiguous viral region throughout the described process that will <strong>infect strictly more uncontaminated squares</strong> in the next round.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

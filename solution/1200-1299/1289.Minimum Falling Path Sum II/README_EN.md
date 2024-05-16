@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an <code>n x n</code> integer matrix <code>grid</code>, return <em>the minimum sum of a <strong>falling path with non-zero shifts</strong></em>.</p>
 
 <p>A <strong>falling path with non-zero shifts</strong> is a choice of exactly one element from each row of <code>grid</code> such that no two elements chosen in adjacent rows are in the same column.</p>
@@ -51,6 +53,8 @@ The falling path with the smallest sum is&nbsp;[1,5,7], so the answer is&nbsp;13
 	<li><code>1 &lt;= n &lt;= 200</code></li>
 	<li><code>-99 &lt;= grid[i][j] &lt;= 99</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

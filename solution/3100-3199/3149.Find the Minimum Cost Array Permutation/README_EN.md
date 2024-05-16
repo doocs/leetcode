@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3149.Fi
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array <code>nums</code> which is a <span data-keyword="permutation">permutation</span> of <code>[0, 1, 2, ..., n - 1]</code>. The <strong>score</strong> of any permutation of <code>[0, 1, 2, ..., n - 1]</code> named <code>perm</code> is defined as:</p>
 
 <p><code>score(perm) = |perm[0] - nums[perm[1]]| + |perm[1] - nums[perm[2]]| + ... + |perm[n - 1] - nums[perm[0]]|</code></p>
@@ -54,6 +56,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3149.Fi
 	<li><code>2 &lt;= n == nums.length &lt;= 14</code></li>
 	<li><code>nums</code> is a permutation of <code>[0, 1, 2, ..., n - 1]</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

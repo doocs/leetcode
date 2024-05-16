@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> array of positive integers <code>tasks</code>, representing tasks that need to be completed <strong>in order</strong>, where <code>tasks[i]</code> represents the <strong>type</strong> of the <code>i<sup>th</sup></code> task.</p>
 
 <p>You are also given a positive integer <code>space</code>, which represents the <strong>minimum</strong> number of days that must pass <strong>after</strong> the completion of a task before another task of the <strong>same</strong> type can be performed.</p>
@@ -75,6 +77,8 @@ It can be shown that the tasks cannot be completed in less than 6 days.
 	<li><code>1 &lt;= tasks[i] &lt;= 10<sup>9</sup></code></li>
 	<li><code>1 &lt;= space &lt;= tasks.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

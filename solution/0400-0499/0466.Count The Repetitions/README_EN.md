@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>We define <code>str = [s, n]</code> as the string <code>str</code> which consists of the string <code>s</code> concatenated <code>n</code> times.</p>
 
 <ul>
@@ -47,6 +49,8 @@ tags:
 	<li><code>s1</code> and <code>s2</code> consist of lowercase English letters.</li>
 	<li><code>1 &lt;= n1, n2 &lt;= 10<sup>6</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

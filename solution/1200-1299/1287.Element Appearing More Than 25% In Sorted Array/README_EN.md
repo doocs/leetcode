@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <strong>sorted</strong> in non-decreasing order, there is exactly one integer in the array that occurs more than 25% of the time, return that integer.</p>
 
 <p>&nbsp;</p>
@@ -40,6 +42,8 @@ tags:
 	<li><code>1 &lt;= arr.length &lt;= 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= arr[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

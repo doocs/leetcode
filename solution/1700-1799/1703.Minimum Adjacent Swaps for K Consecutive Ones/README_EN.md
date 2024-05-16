@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array, <code>nums</code>, and an integer <code>k</code>. <code>nums</code> comprises of only <code>0</code>&#39;s and <code>1</code>&#39;s. In one move, you can choose two <strong>adjacent</strong> indices and swap their values.</p>
 
 <p>Return <em>the <strong>minimum</strong> number of moves required so that </em><code>nums</code><em> has </em><code>k</code><em> <strong>consecutive</strong> </em><code>1</code><em>&#39;s</em>.</p>
@@ -56,6 +58,8 @@ tags:
 	<li><code>nums[i]</code> is <code>0</code> or <code>1</code>.</li>
 	<li><code>1 &lt;= k &lt;= sum(nums)</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

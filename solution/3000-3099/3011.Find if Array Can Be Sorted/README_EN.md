@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> array of <strong>positive</strong> integers <code>nums</code>.</p>
 
 <p>In one <strong>operation</strong>, you can swap any two <strong>adjacent</strong> elements if they have the <strong>same</strong> number of <span data-keyword="set-bit">set bits</span>. You are allowed to do this operation <strong>any</strong> number of times (<strong>including zero</strong>).</p>
@@ -63,6 +65,8 @@ Note that there may be other sequences of operations which also sort the array.
 	<li><code>1 &lt;= nums.length &lt;= 100</code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 2<sup>8</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of <strong>even</strong> length.</p>
 
 <p>As long as <code>nums</code> is <strong>not</strong> empty, you must repetitively:</p>
@@ -69,6 +71,8 @@ There is only one average to be calculated after removing 1 and 100, so we retur
 	<li><code>nums.length</code> is even.</li>
 	<li><code>0 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

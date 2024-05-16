@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array of <code>logs</code>. Each log is a space-delimited string of words, where the first word is the <strong>identifier</strong>.</p>
 
 <p>There are two types of logs:</p>
@@ -62,6 +64,8 @@ The digit-logs have a relative order of &quot;dig1 8 1 5 1&quot;, &quot;dig2 3 6
 	<li>All the tokens of <code>logs[i]</code> are separated by a <strong>single</strong> space.</li>
 	<li><code>logs[i]</code> is guaranteed to have an identifier and at least one word after the identifier.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

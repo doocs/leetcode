@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer <code>n</code>, the number of teams in a tournament that has strange rules:</p>
 
 <ul>
@@ -58,6 +60,8 @@ Total number of matches = 7 + 3 + 2 + 1 = 13.
 <ul>
 	<li><code>1 &lt;= n &lt;= 200</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

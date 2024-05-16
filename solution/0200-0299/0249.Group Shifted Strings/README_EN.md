@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>We can shift a string by shifting each of its letters to its successive letter.</p>
 
 <ul>
@@ -46,6 +48,8 @@ tags:
 	<li><code>1 &lt;= strings[i].length &lt;= 50</code></li>
 	<li><code>strings[i]</code> consists of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

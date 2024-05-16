@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2886.Ch
 
 ## Description
 
+<!-- description:start -->
+
 <pre>
 DataFrame <code>students</code>
 +-------------+--------+
@@ -50,6 +52,8 @@ DataFrame <code>students</code>
 +------------+------+-----+-------+
 <strong>Explanation:</strong> 
 The data types of the column grade is converted to int.</pre>
+
+<!-- description:end -->
 
 ## Solutions
 

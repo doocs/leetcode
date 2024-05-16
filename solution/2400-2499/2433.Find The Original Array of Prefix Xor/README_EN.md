@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an <strong>integer</strong> array <code>pref</code> of size <code>n</code>. Find and return <em>the array </em><code>arr</code><em> of size </em><code>n</code><em> that satisfies</em>:</p>
 
 <ul>
@@ -56,6 +58,8 @@ tags:
 	<li><code>1 &lt;= pref.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>0 &lt;= pref[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

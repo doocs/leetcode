@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>s</code> consisting of only lowercase English letters. In one operation, you can:</p>
 
 <ul>
@@ -72,6 +74,8 @@ We used 4 operations so return 4. It can be proven that 4 is the maximum number 
 	<li><code>1 &lt;= s.length &lt;= 4000</code></li>
 	<li><code>s</code> consists only of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

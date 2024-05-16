@@ -21,6 +21,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a list of <code>words</code>, list of&nbsp; single&nbsp;<code>letters</code> (might be repeating)&nbsp;and <code>score</code>&nbsp;of every character.</p>
 
 <p>Return the maximum score of <strong>any</strong> valid set of words formed by using the given letters (<code>words[i]</code> cannot be used two&nbsp;or more times).</p>
@@ -68,6 +70,8 @@ Letter &quot;e&quot; can only be used once.</pre>
 	<li><code>0 &lt;= score[i] &lt;= 10</code></li>
 	<li><code>words[i]</code>, <code>letters[i]</code>&nbsp;contains only lower case English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

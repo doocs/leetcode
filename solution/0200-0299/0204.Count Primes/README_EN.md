@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer <code>n</code>, return <em>the number of prime numbers that are strictly less than</em> <code>n</code>.</p>
 
 <p>&nbsp;</p>
@@ -48,6 +50,8 @@ tags:
 <ul>
 	<li><code>0 &lt;= n &lt;= 5 * 10<sup>6</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

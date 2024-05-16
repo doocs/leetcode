@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of <code>points</code> where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> represents a point on the <strong>X-Y</strong> plane, return <em>the maximum number of points that lie on the same straight line</em>.</p>
 
 <p>&nbsp;</p>
@@ -43,6 +45,8 @@ tags:
 	<li><code>-10<sup>4</sup> &lt;= x<sub>i</sub>, y<sub>i</sub> &lt;= 10<sup>4</sup></code></li>
 	<li>All the <code>points</code> are <strong>unique</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Implement a SnapshotArray that supports the following interface:</p>
 
 <ul>
@@ -52,6 +54,8 @@ snapshotArr.get(0,0);  // Get the value of array[0] with snap_id = 0, return 5</
 	<li><code>0 &lt;= snap_id &lt; </code>(the total number of times we call <code>snap()</code>)</li>
 	<li>At most <code>5 * 10<sup>4</sup></code> calls will be made to <code>set</code>, <code>snap</code>, and <code>get</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a non-negative integer <code>c</code>, decide whether there&#39;re two integers <code>a</code> and <code>b</code> such that <code>a<sup>2</sup> + b<sup>2</sup> = c</code>.</p>
 
 <p>&nbsp;</p>
@@ -40,6 +42,8 @@ tags:
 <ul>
 	<li><code>0 &lt;= c &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array of integers <code>nums</code> and an integer <code>k</code>.</p>
 
 <p>The <strong>gcd-sum</strong> of an array <code>a</code> is calculated as follows:</p>
@@ -55,6 +57,8 @@ It can be shown that we can not select any other subarray with a gcd-sum greater
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 	<li><code>1 &lt;= k &lt;= n</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

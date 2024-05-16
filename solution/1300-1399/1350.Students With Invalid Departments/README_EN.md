@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Departments</code></p>
 
 <pre>
@@ -91,6 +93,8 @@ Students table:
 <strong>Explanation:</strong> 
 John, Daiana, Steve, and Jasmine are enrolled in departments 14, 33, 74, and 77 respectively. department 14, 33, 74, and 77 do not exist in the Departments table.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

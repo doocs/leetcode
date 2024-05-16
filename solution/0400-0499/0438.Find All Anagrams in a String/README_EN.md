@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two strings <code>s</code> and <code>p</code>, return <em>an array of all the start indices of </em><code>p</code><em>&#39;s anagrams in </em><code>s</code>. You may return the answer in <strong>any order</strong>.</p>
 
 <p>An <strong>Anagram</strong> is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.</p>
@@ -49,6 +51,8 @@ The substring with start index = 2 is &quot;ab&quot;, which is an anagram of &qu
 	<li><code>1 &lt;= s.length, p.length &lt;= 3 * 10<sup>4</sup></code></li>
 	<li><code>s</code> and <code>p</code> consist of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

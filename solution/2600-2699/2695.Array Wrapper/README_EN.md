@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2695.Ar
 
 ## Description
 
+<!-- description:start -->
+
 <p>Create a class&nbsp;<code>ArrayWrapper</code> that accepts&nbsp;an array of integers in its constructor. This class should have two features:</p>
 
 <ul>
@@ -60,6 +62,8 @@ obj1 + obj2; // 0
 	<li><code>0 &lt;= nums[i]&nbsp;&lt;= 1000</code></li>
 	<li><code>Note: nums is the array passed to the constructor</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>head</code> of a linked list and a value <code>x</code>, partition it such that all nodes <strong>less than</strong> <code>x</code> come before nodes <strong>greater than or equal</strong> to <code>x</code>.</p>
 
 <p>You should <strong>preserve</strong> the original relative order of the nodes in each of the two partitions.</p>
@@ -42,6 +44,8 @@ tags:
 	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 	<li><code>-200 &lt;= x &lt;= 200</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

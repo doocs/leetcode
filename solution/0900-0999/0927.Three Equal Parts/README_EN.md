@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array <code>arr</code> which consists of only zeros and ones, divide the array into <strong>three non-empty parts</strong> such that all of these parts represent the same binary value.</p>
 
 <p>If it is possible, return any <code>[i, j]</code> with <code>i + 1 &lt; j</code>, such that:</p>
@@ -48,6 +50,8 @@ tags:
 	<li><code>3 &lt;= arr.length &lt;= 3 * 10<sup>4</sup></code></li>
 	<li><code>arr[i]</code> is <code>0</code> or <code>1</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

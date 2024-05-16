@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Transactions</code></p>
 
 <pre>
@@ -67,6 +69,8 @@ Transactions table:
 - customer_id 105 has a total of 3 transactions, and all of them are consecutive.
 In total, the highest number of consecutive transactions is 3, achieved by customer_id 101 and 105. The customer_id are sorted in ascending order.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

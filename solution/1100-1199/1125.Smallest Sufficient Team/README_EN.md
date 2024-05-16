@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>In a project, you have a list of required skills <code>req_skills</code>, and a list of people. The <code>i<sup>th</sup></code> person <code>people[i]</code> contains a list of skills that the person has.</p>
 
 <p>Consider a sufficient team: a set of people such that for every required skill in <code>req_skills</code>, there is at least one person in the team who has that skill. We can represent these teams by the index of each person.</p>
@@ -55,6 +57,8 @@ tags:
 	<li>Every skill in <code>people[i]</code> is a skill in <code>req_skills</code>.</li>
 	<li>It is guaranteed a sufficient team exists.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

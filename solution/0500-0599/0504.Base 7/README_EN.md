@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer <code>num</code>, return <em>a string of its <strong>base 7</strong> representation</em>.</p>
 
 <p>&nbsp;</p>
@@ -30,6 +32,8 @@ tags:
 <ul>
 	<li><code>-10<sup>7</sup> &lt;= num &lt;= 10<sup>7</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

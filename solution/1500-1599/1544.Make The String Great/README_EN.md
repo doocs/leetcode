@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>s</code> of lower and upper case English letters.</p>
 
 <p>A good string is a string which doesn&#39;t have <strong>two adjacent characters</strong> <code>s[i]</code> and <code>s[i + 1]</code> where:</p>
@@ -65,6 +67,8 @@ tags:
 	<li><code>1 &lt;= s.length &lt;= 100</code></li>
 	<li><code>s</code> contains only lower and upper case English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

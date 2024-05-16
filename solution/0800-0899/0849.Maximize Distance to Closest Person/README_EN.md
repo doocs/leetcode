@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array representing a row of <code>seats</code> where <code>seats[i] = 1</code> represents a person sitting in the <code>i<sup>th</sup></code> seat, and <code>seats[i] = 0</code> represents that the <code>i<sup>th</sup></code> seat is empty <strong>(0-indexed)</strong>.</p>
 
 <p>There is at least one empty seat, and at least one person sitting.</p>
@@ -60,6 +62,8 @@ This is the maximum distance possible, so the answer is 3.
 	<li>At least one seat is <strong>empty</strong>.</li>
 	<li>At least one seat is <strong>occupied</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

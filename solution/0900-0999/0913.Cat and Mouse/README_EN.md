@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A game on an <strong>undirected</strong> graph is played by two players, Mouse and Cat, who alternate turns.</p>
 
 <p>The graph is given as follows: <code>graph[a]</code> is a list of all nodes <code>b</code> such that <code>ab</code> is an edge of the graph.</p>
@@ -71,6 +73,8 @@ tags:
 	<li><code>graph[i]</code> is unique.</li>
 	<li>The mouse and the cat can always move.&nbsp;</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

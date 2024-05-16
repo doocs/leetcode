@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There is an <strong>undirected</strong> connected tree with <code>n</code> nodes labeled from <code>1</code> to <code>n</code> and <code>n - 1</code> edges. You are given the integer <code>n</code>. The parent node of a node with a label <code>v</code> is the node with the label <code>floor (v / 2)</code>. The root of the tree is the node with the label <code>1</code>.</p>
 
 <ul>
@@ -61,6 +63,8 @@ After processing the queries, there are one red node (node with value 1): 2.
 	<li><code>1 &lt;= queries.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= queries[i] &lt;= n</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

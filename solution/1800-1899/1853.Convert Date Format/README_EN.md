@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Days</code></p>
 
 <pre>
@@ -56,6 +58,8 @@ Days table:
 +-------------------------+
 <strong>Explanation:</strong> Please note that the output is case-sensitive.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

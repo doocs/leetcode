@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>s</code> and a character <code>c</code> that occurs in <code>s</code>, return <em>an array of integers </em><code>answer</code><em> where </em><code>answer.length == s.length</code><em> and </em><code>answer[i]</code><em> is the <strong>distance</strong> from index </em><code>i</code><em> to the <strong>closest</strong> occurrence of character </em><code>c</code><em> in </em><code>s</code>.</p>
 
 <p>The <strong>distance</strong> between two indices <code>i</code> and <code>j</code> is <code>abs(i - j)</code>, where <code>abs</code> is the absolute value function.</p>
@@ -48,6 +50,8 @@ The closest occurrence of &#39;e&#39; for index 8 is at index 6, so the distance
 	<li><code>s[i]</code> and <code>c</code> are lowercase English letters.</li>
 	<li>It is guaranteed that <code>c</code> occurs at least once in <code>s</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

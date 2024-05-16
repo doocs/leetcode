@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design a queue-like data structure that moves the most recently used element to the end of the queue.</p>
 
 <p>Implement the <code>MRUQueue</code> class:</p>
@@ -57,6 +59,8 @@ mRUQueue.fetch(8); // The 8<sup>th</sup> element (2) is already at the end of th
 
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Finding an <code>O(n)</code> algorithm per <code>fetch</code> is a bit easy. Can you find an algorithm with a better complexity for each <code>fetch</code> call?
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>s</code> and an integer <code>k</code>, return <code>true</code> if <code>s</code> is a <code>k</code><strong>-palindrome</strong>.</p>
 
 <p>A string is <code>k</code><strong>-palindrome</strong> if it can be transformed into a palindrome by removing at most <code>k</code> characters from it.</p>
@@ -45,6 +47,8 @@ tags:
 	<li><code>s</code> consists of only lowercase English letters.</li>
 	<li><code>1 &lt;= k &lt;= s.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

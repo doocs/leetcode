@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2649.Ne
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a&nbsp;<strong>multi-dimensional array</strong> of integers, return&nbsp;a generator object which&nbsp;yields integers in the same order as&nbsp;<strong>inorder traversal</strong>.</p>
 
 <p>A&nbsp;<strong>multi-dimensional array</strong>&nbsp;is a recursive data structure that contains both integers and other&nbsp;<strong>multi-dimensional arrays</strong>.</p>
@@ -51,6 +53,8 @@ generator.next().done; // true
 
 <p>&nbsp;</p>
 <strong>Can you solve this without creating a new flattened version of the array?</strong>
+
+<!-- description:end -->
 
 ## Solutions
 

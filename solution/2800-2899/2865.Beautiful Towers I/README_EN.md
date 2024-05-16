@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array <code>heights</code> of <code>n</code> integers representing the number of bricks in <code>n</code> consecutive towers. Your task is to remove some bricks to form a <strong>mountain-shaped</strong> tower arrangement. In this arrangement, the tower heights are non-decreasing, reaching a maximum peak value with one or multiple consecutive towers and then non-increasing.</p>
 
 <p>Return the <strong>maximum possible sum</strong> of heights of a mountain-shaped tower arrangement.</p>
@@ -66,6 +68,8 @@ tags:
 	<li><code>1 &lt;= n == heights &lt;= 10<sup>3</sup></code></li>
 	<li><code>1 &lt;= heights[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

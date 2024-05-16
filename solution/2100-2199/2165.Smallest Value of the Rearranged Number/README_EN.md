@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer <code>num.</code> <strong>Rearrange</strong> the digits of <code>num</code> such that its value is <strong>minimized</strong> and it does not contain <strong>any</strong> leading zeros.</p>
 
 <p>Return <em>the rearranged number with minimal value</em>.</p>
@@ -48,6 +50,8 @@ The arrangement with the smallest value that does not contain any leading zeros 
 <ul>
 	<li><code>-10<sup>15</sup> &lt;= num &lt;= 10<sup>15</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

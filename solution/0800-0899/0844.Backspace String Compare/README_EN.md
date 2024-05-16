@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two strings <code>s</code> and <code>t</code>, return <code>true</code> <em>if they are equal when both are typed into empty text editors</em>. <code>&#39;#&#39;</code> means a backspace character.</p>
 
 <p>Note that after backspacing an empty text, the text will continue empty.</p>
@@ -56,6 +58,8 @@ tags:
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Can you solve it in <code>O(n)</code> time and <code>O(1)</code> space?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

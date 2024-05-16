@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A <strong>substring</strong> is a contiguous (non-empty) sequence of characters within a string.</p>
 
 <p>A <strong>vowel substring</strong> is a substring that <strong>only</strong> consists of vowels (<code>&#39;a&#39;</code>, <code>&#39;e&#39;</code>, <code>&#39;i&#39;</code>, <code>&#39;o&#39;</code>, and <code>&#39;u&#39;</code>) and has <strong>all five</strong> vowels present in it.</p>
@@ -64,6 +66,8 @@ tags:
 	<li><code>1 &lt;= word.length &lt;= 100</code></li>
 	<li><code>word</code> consists of lowercase English letters only.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

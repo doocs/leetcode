@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> array of positive integers <code>nums</code>. Find the number of triplets <code>(i, j, k)</code> that meet the following conditions:</p>
 
 <ul>
@@ -60,6 +62,8 @@ Note that (2, 0, 4) is not a valid triplet because 2 &gt; 0.
 	<li><code>3 &lt;= nums.length &lt;= 100</code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

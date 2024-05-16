@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of integers <code>nums</code>, find the maximum length of a subarray where the product of all its elements is positive.</p>
 
 <p>A subarray of an array is a consecutive sequence of zero or more values taken out of that array.</p>
@@ -56,6 +58,8 @@ Notice that we cannot include 0 in the subarray since that&#39;ll make the produ
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

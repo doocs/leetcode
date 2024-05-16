@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>root</code> of a binary tree, return <em>the number of nodes where the value of the node is equal to the <strong>average</strong> of the values in its <strong>subtree</strong></em>.</p>
 
 <p><strong>Note:</strong></p>
@@ -56,6 +58,8 @@ For the node with value 6: The average of its subtree is 6 / 1 = 6.
 	<li>The number of nodes in the tree is in the range <code>[1, 1000]</code>.</li>
 	<li><code>0 &lt;= Node.val &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

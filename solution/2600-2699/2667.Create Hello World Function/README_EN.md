@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2667.Cr
 
 ## Description
 
+<!-- description:start -->
+
 Write a function&nbsp;<code>createHelloWorld</code>.&nbsp;It should return a new function that always returns&nbsp;<code>&quot;Hello World&quot;</code>.
 
 <p>&nbsp;</p>
@@ -45,6 +47,8 @@ Any arguments could be passed to the function but it should still always return 
 <ul>
 	<li><code>0 &lt;= args.length &lt;= 10</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

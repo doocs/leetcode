@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Numbers</code></p>
 
 <pre>
@@ -58,6 +60,8 @@ Numbers table:
 <strong>Explanation:</strong> 
 If we decompress the Numbers table, we will get [0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 3], so the median is (0 + 0) / 2 = 0.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2634.Fi
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>arr</code> and a filtering function <code>fn</code>, return a filtered array <code>filteredArr</code>.</p>
 
 <p>The <code>fn</code> function takes one or two arguments:</p>
@@ -61,6 +63,8 @@ Falsey values such as 0 should be filtered out
 	<li><code>0 &lt;= arr.length &lt;= 1000</code></li>
 	<li><code>-10<sup>9</sup>&nbsp;&lt;= arr[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

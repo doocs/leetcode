@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Cinema</code></p>
 
 <pre>
@@ -76,6 +78,8 @@ Each row of this table indicates whether the i<sup>th</sup> seat is free or not.
 	<li>Longest consecutive sequence of available seats starts from seat 3 and ends at seat 5 with a length of 3.</li>
 </ul>
 Output table is ordered by first_seat_id in ascending order.</div>
+
+<!-- description:end -->
 
 ## Solutions
 

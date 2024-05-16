@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2705.Co
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an object or array&nbsp;<code>obj</code>, return a <strong>compact object</strong>.</p>
 
 <p>A <strong>compact object</strong>&nbsp;is the same as the original object, except with keys containing <strong>falsy</strong> values removed. This operation applies to the object and any nested objects. Arrays are considered objects where&nbsp;the indices are&nbsp;keys. A value is&nbsp;considered <strong>falsy</strong>&nbsp;when <code>Boolean(value)</code> returns <code>false</code>.</p>
@@ -49,6 +51,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2705.Co
 	<li><code>obj</code> is a valid JSON object</li>
 	<li><code>2 &lt;= JSON.stringify(obj).length &lt;= 10<sup>6</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

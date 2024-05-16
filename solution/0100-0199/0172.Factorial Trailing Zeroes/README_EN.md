@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer <code>n</code>, return <em>the number of trailing zeroes in </em><code>n!</code>.</p>
 
 <p>Note that <code>n! = n * (n - 1) * (n - 2) * ... * 3 * 2 * 1</code>.</p>
@@ -51,6 +53,8 @@ tags:
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you write a solution that works in logarithmic time complexity?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

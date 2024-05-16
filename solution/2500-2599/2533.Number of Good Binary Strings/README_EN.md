@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given four integers <code>minLength</code>, <code>maxLength</code>, <code>oneGroup</code> and <code>zeroGroup</code>.</p>
 
 <p>A binary string is <strong>good</strong> if it satisfies the following conditions:</p>
@@ -62,6 +64,8 @@ It can be proven that there is only 1 good string satisfying all conditions.
 	<li><code>1 &lt;= minLength &lt;= maxLength &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= oneGroup, zeroGroup &lt;= maxLength</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

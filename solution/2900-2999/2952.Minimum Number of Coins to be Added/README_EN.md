@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>coins</code>, representing the values of the coins available, and an integer <code>target</code>.</p>
 
 <p>An integer <code>x</code> is <strong>obtainable</strong> if there exists a subsequence of <code>coins</code> that sums to <code>x</code>.</p>
@@ -62,6 +64,8 @@ It can be shown that all integers from 1 to 20 are obtainable from the resulting
 	<li><code>1 &lt;= coins.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= coins[i] &lt;= target</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two strings <code>first</code> and <code>second</code>, consider occurrences in some text of the form <code>&quot;first second third&quot;</code>, where <code>second</code> comes immediately after <code>first</code>, and <code>third</code> comes immediately after <code>second</code>.</p>
 
 <p>Return <em>an array of all the words</em> <code>third</code> <em>for each occurrence of</em> <code>&quot;first second third&quot;</code>.</p>
@@ -38,6 +40,8 @@ tags:
 	<li><code>1 &lt;= first.length, second.length &lt;= 10</code></li>
 	<li><code>first</code> and <code>second</code> consist of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

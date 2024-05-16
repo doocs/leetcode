@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a 2D array of characters <code>grid</code> of size <code>m x n</code>, you need to find if there exists any cycle consisting of the <strong>same value</strong> in <code>grid</code>.</p>
 
 <p>A cycle is a path of <strong>length 4 or more</strong> in the grid that starts and ends at the same cell. From a given cell, you can move to one of the cells adjacent to it - in one of the four directions (up, down, left, or right), if it has the <strong>same value</strong> of the current cell.</p>
@@ -69,6 +71,8 @@ tags:
 	<li><code>1 &lt;= m, n &lt;= 500</code></li>
 	<li><code>grid</code> consists only of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code> where the largest integer is <strong>unique</strong>.</p>
 
 <p>Determine whether the largest element in the array is <strong>at least twice</strong> as much as every other number in the array. If it is, return <em>the <strong>index</strong> of the largest element, or return </em><code>-1</code><em> otherwise</em>.</p>
@@ -46,6 +48,8 @@ The index of value 6 is 1, so we return 1.
 	<li><code>0 &lt;= nums[i] &lt;= 100</code></li>
 	<li>The largest element in <code>nums</code> is unique.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

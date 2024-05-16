@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a 2D integer array <code>nums</code>, return <em>all elements of </em><code>nums</code><em> in diagonal order as shown in the below images</em>.</p>
 
 <p>&nbsp;</p>
@@ -44,6 +46,8 @@ tags:
 	<li><code>1 &lt;= sum(nums[i].length) &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= nums[i][j] &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

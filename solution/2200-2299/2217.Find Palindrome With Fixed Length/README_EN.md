@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>queries</code> and a <strong>positive</strong> integer <code>intLength</code>, return <em>an array</em> <code>answer</code> <em>where</em> <code>answer[i]</code> <em>is either the </em><code>queries[i]<sup>th</sup></code> <em>smallest <strong>positive palindrome</strong> of length</em> <code>intLength</code> <em>or</em> <code>-1</code><em> if no such palindrome exists</em>.</p>
 
 <p>A <strong>palindrome</strong> is a number that reads the same backwards and forwards. Palindromes cannot have leading zeros.</p>
@@ -51,6 +53,8 @@ The first six palindromes of length 4 are:
 	<li><code>1 &lt;= queries[i] &lt;= 10<sup>9</sup></code></li>
 	<li><code>1 &lt;= intLength&nbsp;&lt;= 15</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the root of a binary tree and two integers <code>p</code> and <code>q</code>, return <em>the <strong>distance</strong> between the nodes of value </em><code>p</code><em> and value </em><code>q</code><em> in the tree</em>.</p>
 
 <p>The <strong>distance</strong> between two nodes is the number of edges on the path from one to the other.</p>
@@ -53,6 +55,8 @@ tags:
 	<li>All <code>Node.val</code> are <strong>unique</strong>.</li>
 	<li><code>p</code> and <code>q</code> are values in the tree.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

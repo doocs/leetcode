@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A shop is selling candies at a discount. For <strong>every two</strong> candies sold, the shop gives a <strong>third</strong> candy for <strong>free</strong>.</p>
 
 <p>The customer can choose <strong>any</strong> candy to take away for free as long as the cost of the chosen candy is less than or equal to the <strong>minimum</strong> cost of the two candies bought.</p>
@@ -69,6 +71,8 @@ Hence, the minimum cost to buy all candies is 5 + 5 = 10.
 	<li><code>1 &lt;= cost.length &lt;= 100</code></li>
 	<li><code>1 &lt;= cost[i] &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

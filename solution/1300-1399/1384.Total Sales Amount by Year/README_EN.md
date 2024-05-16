@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Product</code></p>
 
 <pre>
@@ -91,6 +93,8 @@ LC Phone was sold for the period of 2019-01-25 to 2019-02-28, and there are 35 d
 LC T-shirt was sold for the period of 2018-12-01 to 2020-01-01, and there are 31, 365, 1 days for years 2018, 2019 and 2020 respectively.
 LC Keychain was sold for the period of 2019-12-01 to 2020-01-31, and there are 31, 31 days for years 2019 and 2020 respectively.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

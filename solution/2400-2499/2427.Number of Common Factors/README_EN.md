@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two positive integers <code>a</code> and <code>b</code>, return <em>the number of <strong>common</strong> factors of </em><code>a</code><em> and </em><code>b</code>.</p>
 
 <p>An integer <code>x</code> is a <strong>common factor</strong> of <code>a</code> and <code>b</code> if <code>x</code> divides both <code>a</code> and <code>b</code>.</p>
@@ -45,6 +47,8 @@ tags:
 <ul>
 	<li><code>1 &lt;= a, b &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Project</code></p>
 
 <pre>
@@ -84,6 +86,8 @@ Employee table:
 +-------------+
 <strong>Explanation:</strong> The first project has 3 employees while the second one has 2.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

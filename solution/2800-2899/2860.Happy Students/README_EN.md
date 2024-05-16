@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of length <code>n</code> where <code>n</code> is the total number of students in the class. The class teacher tries to select a group of students so that all the students remain happy.</p>
 
 <p>The <code>i<sup>th</sup></code> student will become happy if one of these two conditions is met:</p>
@@ -61,6 +63,8 @@ The class teacher selects all the students to form the group.
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>0 &lt;= nums[i] &lt; nums.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer <code>finalSum</code>. Split it into a sum of a <strong>maximum</strong> number of <strong>unique</strong> positive even integers.</p>
 
 <ul>
@@ -62,6 +64,8 @@ Note that [10,2,4,12], [6,2,4,16], etc. are also accepted.
 <ul>
 	<li><code>1 &lt;= finalSum &lt;= 10<sup>10</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

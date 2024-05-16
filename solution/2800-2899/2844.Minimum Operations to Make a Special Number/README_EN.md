@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> string <code>num</code> representing a non-negative integer.</p>
 
 <p>In one operation, you can pick any digit of <code>num</code> and delete it. Note that if you delete all the digits of <code>num</code>, <code>num</code> becomes <code>0</code>.</p>
@@ -62,6 +64,8 @@ It can be shown that 1 is the minimum number of operations required to get a spe
 	<li><code>num</code> only consists of digits <code>&#39;0&#39;</code> through <code>&#39;9&#39;</code>.</li>
 	<li><code>num</code> does not contain any leading zeros.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

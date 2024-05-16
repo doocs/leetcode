@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code>, return <em>the number of <strong>reverse pairs</strong> in the array</em>.</p>
 
 <p>A <strong>reverse pair</strong> is a pair <code>(i, j)</code> where:</p>
@@ -58,6 +60,8 @@ tags:
 	<li><code>1 &lt;= nums.length &lt;= 5 * 10<sup>4</sup></code></li>
 	<li><code>-2<sup>31</sup> &lt;= nums[i] &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

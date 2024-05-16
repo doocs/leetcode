@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Transactions</code></p>
 
 <pre>
@@ -62,6 +64,8 @@ Transactions table:
 | 2019-01  | DE      | 1           | 1              | 2000               | 2000                  |
 +----------+---------+-------------+----------------+--------------------+-----------------------+
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

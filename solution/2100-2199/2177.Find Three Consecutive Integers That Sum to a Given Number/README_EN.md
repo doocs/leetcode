@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer <code>num</code>, return <em>three consecutive integers (as a sorted array)</em><em> that <strong>sum</strong> to </em><code>num</code>. If <code>num</code> cannot be expressed as the sum of three consecutive integers, return<em> an <strong>empty</strong> array.</em></p>
 
 <p>&nbsp;</p>
@@ -43,6 +45,8 @@ tags:
 <ul>
 	<li><code>0 &lt;= num &lt;= 10<sup>15</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

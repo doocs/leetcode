@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You have <code>n</code> processes forming a rooted tree structure. You are given two integer arrays <code>pid</code> and <code>ppid</code>, where <code>pid[i]</code> is the ID of the <code>i<sup>th</sup></code> process and <code>ppid[i]</code> is the ID of the <code>i<sup>th</sup></code> process&#39;s parent process.</p>
 
 <p>Each process has only <strong>one parent process</strong> but may have multiple children processes. Only one process has <code>ppid[i] = 0</code>, which means this process has <strong>no parent process</strong> (the root of the tree).</p>
@@ -55,6 +57,8 @@ tags:
 	<li>All the values of <code>pid</code> are <strong>unique</strong>.</li>
 	<li><code>kill</code> is <strong>guaranteed</strong> to be in <code>pid</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

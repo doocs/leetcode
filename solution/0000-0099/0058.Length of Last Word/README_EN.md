@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>s</code> consisting of words and spaces, return <em>the length of the <strong>last</strong> word in the string.</em></p>
 
 <p>A <strong>word</strong> is a maximal <span data-keyword="substring-nonempty">substring</span> consisting of non-space characters only.</p>
@@ -51,6 +53,8 @@ tags:
 	<li><code>s</code> consists of only English letters and spaces <code>&#39; &#39;</code>.</li>
 	<li>There will be at least one word in <code>s</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

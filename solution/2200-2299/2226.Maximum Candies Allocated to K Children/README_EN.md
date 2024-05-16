@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>candies</code>. Each element in the array denotes a pile of candies of size <code>candies[i]</code>. You can divide each pile into any number of <strong>sub piles</strong>, but you <strong>cannot</strong> merge two piles together.</p>
 
 <p>You are also given an integer <code>k</code>. You should allocate piles of candies to <code>k</code> children such that each child gets the <strong>same</strong> number of candies. Each child can take <strong>at most one</strong> pile of candies and some piles of candies may go unused.</p>
@@ -47,6 +49,8 @@ tags:
 	<li><code>1 &lt;= candies[i] &lt;= 10<sup>7</sup></code></li>
 	<li><code>1 &lt;= k &lt;= 10<sup>12</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array <code>nums</code> of length <code>n</code> and an integer <code>m</code>. You need to determine if it is possible to split the array into <code>n</code> <strong>non-empty</strong> arrays by performing a series of steps.</p>
 
 <p>In each step, you can select an existing array (which may be the result of previous steps) with a length of <strong>at least two</strong> and split it into <strong>two </strong>subarrays, if, <strong>for each </strong>resulting subarray, <strong>at least</strong> one of the following holds:</p>
@@ -62,6 +64,8 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 100</code></li>
 	<li><code>1 &lt;= m &lt;= 200</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

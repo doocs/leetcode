@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two binary trees <code>original</code> and <code>cloned</code> and given a reference to a node <code>target</code> in the original tree.</p>
 
 <p>The <code>cloned</code> tree is a <strong>copy of</strong> the <code>original</code> tree.</p>
@@ -59,6 +61,8 @@ tags:
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you solve the problem if repeated values on the tree are allowed?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Signups</code></p>
 
 <pre>
@@ -93,6 +95,8 @@ User 3 requested two messages within 6 minutes and 59 seconds of each other, so 
 User 6 requested two messages within 23 hours, 59 minutes, and 59 seconds of each other, so we include them.
 User 7 requested two messages within 24 hours and 1 second of each other, so we exclude them from the answer.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

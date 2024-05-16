@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Project</code></p>
 
 <pre>
@@ -86,6 +88,8 @@ Employee table:
 +-------------+---------------+
 <strong>Explanation:</strong> Both employees with id 1 and 3 have the most experience among the employees of the first project. For the second project, the employee with id 1 has the most experience.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

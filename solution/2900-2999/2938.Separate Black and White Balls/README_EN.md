@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There are <code>n</code> balls on a table, each ball has a color black or white.</p>
 
 <p>You are given a <strong>0-indexed</strong> binary string <code>s</code> of length <code>n</code>, where <code>1</code> and <code>0</code> represent black and white balls, respectively.</p>
@@ -62,6 +64,8 @@ It can be proven that the minimum number of steps needed is 2.
 	<li><code>1 &lt;= n == s.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>s[i]</code> is either <code>&#39;0&#39;</code> or <code>&#39;1&#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

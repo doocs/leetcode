@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code>, <em>find three numbers whose product is maximum and return the maximum product</em>.</p>
 
 <p>&nbsp;</p>
@@ -36,6 +38,8 @@ tags:
 	<li><code>3 &lt;= nums.length &lt;=&nbsp;10<sup>4</sup></code></li>
 	<li><code>-1000 &lt;= nums[i] &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

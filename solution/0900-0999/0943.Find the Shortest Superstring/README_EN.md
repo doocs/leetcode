@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of strings <code>words</code>, return <em>the smallest string that contains each string in</em> <code>words</code> <em>as a substring</em>. If there are multiple valid strings of the smallest length, return <strong>any of them</strong>.</p>
 
 <p>You may assume that no string in <code>words</code> is a substring of another string in <code>words</code>.</p>
@@ -47,6 +49,8 @@ tags:
 	<li><code>words[i]</code> consists of lowercase English letters.</li>
 	<li>All the strings of <code>words</code> are <strong>unique</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an <code>m x n</code> integer array <code>grid</code> where <code>grid[i][j]</code> could be:</p>
 
 <ul>
@@ -71,6 +73,8 @@ Note that the starting and ending square can be anywhere in the grid.
 	<li><code>-1 &lt;= grid[i][j] &lt;= 2</code></li>
 	<li>There is exactly one starting cell and one ending cell.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

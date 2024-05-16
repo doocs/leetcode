@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A robot on an infinite XY-plane starts at point <code>(0, 0)</code> facing north. The robot can receive a sequence of these three possible types of <code>commands</code>:</p>
 
 <ul>
@@ -88,6 +90,8 @@ The furthest point the robot ever gets from the origin is (0, 6), which squared 
 	<li><code>-3 * 10<sup>4</sup> &lt;= x<sub>i</sub>, y<sub>i</sub> &lt;= 3 * 10<sup>4</sup></code></li>
 	<li>The answer is guaranteed to be less than <code>2<sup>31</sup></code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

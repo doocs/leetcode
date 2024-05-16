@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Servers</code></p>
 
 <pre>
@@ -111,6 +113,8 @@ Each row of this table contains server_id, status_time, and session_status.
 	Total for server 5: ~1.43 hours</li>
 </ul>
 The accumulated runtime for all servers totals approximately 44.46 hours, equivalent to one full day plus some additional hours. However, since we consider only full days, the final output is rounded to 1 full day.</div>
+
+<!-- description:end -->
 
 ## Solutions
 

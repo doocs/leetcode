@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given the <code>root</code> of a binary tree.</p>
 
 <p>A ZigZag path for a binary tree is defined as follow:</p>
@@ -65,6 +67,8 @@ tags:
 	<li>The number of nodes in the tree is in the range <code>[1, 5 * 10<sup>4</sup>]</code>.</li>
 	<li><code>1 &lt;= Node.val &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

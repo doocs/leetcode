@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed </strong>integer array <code>nums</code>.</p>
 
 <p>The <strong>distinct count</strong> of a subarray of <code>nums</code> is defined as:</p>
@@ -63,6 +65,8 @@ The sum of the squares of the distinct counts in all subarrays is equal to 1<sup
 	<li><code>1 &lt;= nums.length &lt;= 100</code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

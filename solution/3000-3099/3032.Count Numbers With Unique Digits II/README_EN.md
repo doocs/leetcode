@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 Given two <strong>positive</strong> integers <code>a</code> and <code>b</code>, return <em>the count of numbers having&nbsp;<strong>unique</strong> digits in the range</em> <code>[a, b]</code> <em>(<strong>inclusive</strong>).</em>
 
 <p>&nbsp;</p>
@@ -49,6 +51,8 @@ Given two <strong>positive</strong> integers <code>a</code> and <code>b</code>, 
 <ul>
 	<li><code>1 &lt;= a &lt;= b &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

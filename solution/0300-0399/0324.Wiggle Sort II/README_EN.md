@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code>, reorder it such that <code>nums[0] &lt; nums[1] &gt; nums[2] &lt; nums[3]...</code>.</p>
 
 <p>You may assume the input array always has a valid answer.</p>
@@ -48,6 +50,8 @@ tags:
 
 <p>&nbsp;</p>
 <strong>Follow Up:</strong> Can you do it in <code>O(n)</code> time and/or <strong>in-place</strong> with <code>O(1)</code> extra space?
+
+<!-- description:end -->
 
 ## Solutions
 

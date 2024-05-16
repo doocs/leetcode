@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Alice is throwing <code>n</code> darts on a very large wall. You are given an array <code>darts</code> where <code>darts[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> is the position of the <code>i<sup>th</sup></code> dart that Alice threw on the wall.</p>
 
 <p>Bob knows the positions of the <code>n</code> darts on the wall. He wants to place a dartboard of radius <code>r</code> on the wall so that the maximum number of darts that Alice throws lie&nbsp;on the dartboard.</p>
@@ -51,6 +53,8 @@ tags:
 	<li>All the <code>darts</code>&nbsp;are unique</li>
 	<li><code>1 &lt;= r &lt;= 5000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

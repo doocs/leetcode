@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>An integer array is called arithmetic if it consists of <strong>at least three elements</strong> and if the difference between any two consecutive elements is the same.</p>
 
 <ul>
@@ -48,6 +50,8 @@ tags:
 	<li><code>1 &lt;= nums.length &lt;= 5000</code></li>
 	<li><code>-1000 &lt;= nums[i] &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

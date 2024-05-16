@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> string <code>s</code> consisting of only lowercase English letters, and an integer <code>count</code>. A <strong>substring</strong> of <code>s</code> is said to be an <strong>equal count substring</strong> if, for each <strong>unique</strong> letter in the substring, it appears exactly <code>count</code> times in the substring.</p>
 
 <p>Return <em>the number of <strong>equal count substrings</strong> in </em><code>s</code>.</p>
@@ -64,6 +66,8 @@ Therefore, no substrings in s are equal count substrings, so return 0</pre>
 	<li><code>1 &lt;= count &lt;= 3 * 10<sup>4</sup></code></li>
 	<li><code>s</code> consists only of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

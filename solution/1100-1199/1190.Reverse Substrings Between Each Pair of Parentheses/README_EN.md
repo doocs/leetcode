@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>s</code> that consists of lower case English letters and brackets.</p>
 
 <p>Reverse the strings in each pair of matching parentheses, starting from the innermost one.</p>
@@ -55,6 +57,8 @@ tags:
 	<li><code>s</code> only contains lower case English characters and parentheses.</li>
 	<li>It is guaranteed that all parentheses are balanced.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

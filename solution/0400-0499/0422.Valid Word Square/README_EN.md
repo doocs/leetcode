@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of strings <code>words</code>, return <code>true</code> <em>if it forms a valid <strong>word square</strong></em>.</p>
 
 <p>A sequence of strings forms a valid <strong>word square</strong> if the <code>k<sup>th</sup></code> row and column read the same string, where <code>0 &lt;= k &lt; max(numRows, numColumns)</code>.</p>
@@ -64,6 +66,8 @@ Therefore, it is NOT a valid word square.
 	<li><code>1 &lt;= words[i].length &lt;= 500</code></li>
 	<li><code>words[i]</code> consists of only lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> 2D integer array <code>brackets</code> where <code>brackets[i] = [upper<sub>i</sub>, percent<sub>i</sub>]</code> means that the <code>i<sup>th</sup></code> tax bracket has an upper bound of <code>upper<sub>i</sub></code> and is taxed at a rate of <code>percent<sub>i</sub></code>. The brackets are <strong>sorted</strong> by upper bound (i.e. <code>upper<sub>i-1</sub> &lt; upper<sub>i</sub></code> for <code>0 &lt; i &lt; brackets.length</code>).</p>
 
 <p>Tax is calculated as follows:</p>
@@ -74,6 +76,8 @@ You have no income to tax, so you have to pay a total of $0 in taxes.
 	<li>All the values of <code>upper<sub>i</sub></code> are <strong>unique</strong>.</li>
 	<li>The upper bound of the last tax bracket is greater than or equal to <code>income</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A polynomial linked list is a special type of linked list where every node represents a term in a polynomial expression.</p>
 
 <p>Each node has three attributes:</p>
@@ -99,6 +101,8 @@ tags:
     <li><code>PolyNode.power &gt; PolyNode.next.power</code></li>
 
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

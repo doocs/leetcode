@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There is an <code>m x n</code> matrix that is initialized to all <code>0</code>&#39;s. There is also a 2D array <code>indices</code> where each <code>indices[i] = [r<sub>i</sub>, c<sub>i</sub>]</code> represents a <strong>0-indexed location</strong> to perform some increment operations on the matrix.</p>
 
 <p>For each location <code>indices[i]</code>, do <strong>both</strong> of the following:</p>
@@ -60,6 +62,8 @@ The final matrix is [[1,3,1],[1,3,1]], which contains 6 odd numbers.
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you solve this in <code>O(n + m + indices.length)</code> time with only <code>O(n + m)</code> extra space?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <font face="monospace"><code>Coordinates</code></font></p>
 
 <pre>
@@ -64,6 +66,8 @@ Coordinates table:
 - (23, 22) and (22, 23) are symmetric coordinates because, X1 == Y2 and X2 == Y1. However, only (22, 23) will be displayed because X1 &lt;= Y1.
 The output table is sorted by X and Y in ascending order.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

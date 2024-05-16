@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer <code>hoursBefore</code>, the number of hours you have to travel to your meeting. To arrive at your meeting, you have to travel through <code>n</code> roads. The road lengths are given as an integer array <code>dist</code> of length <code>n</code>, where <code>dist[i]</code> describes the length of the <code>i<sup>th</sup></code> road in <strong>kilometers</strong>. In addition, you are given an integer <code>speed</code>, which is the speed (in <strong>km/h</strong>) you will travel at.</p>
 
 <p>After you travel road <code>i</code>, you must rest and wait for the <strong>next integer hour</strong> before you can begin traveling on the next road. Note that you do not have to rest after traveling the last road because you are already at the meeting.</p>
@@ -73,6 +75,8 @@ You can skip the first and third rest to arrive in ((7/2 + <u>0</u>) + (3/2 + 0)
 	<li><code>1 &lt;= speed &lt;= 10<sup>6</sup></code></li>
 	<li><code>1 &lt;= hoursBefore &lt;= 10<sup>7</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

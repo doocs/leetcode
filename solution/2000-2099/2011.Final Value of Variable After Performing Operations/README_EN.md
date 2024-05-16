@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There is a programming language with only <strong>four</strong> operations and <strong>one</strong> variable <code>X</code>:</p>
 
 <ul>
@@ -74,6 +76,8 @@ X--: X is decremented by 1, X = 1 - 1 = 0.
 	<li><code>1 &lt;= operations.length &lt;= 100</code></li>
 	<li><code>operations[i]</code> will be either <code>&quot;++X&quot;</code>, <code>&quot;X++&quot;</code>, <code>&quot;--X&quot;</code>, or <code>&quot;X--&quot;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

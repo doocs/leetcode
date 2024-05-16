@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>If the depth of a tree is smaller than <code>5</code>, then this tree can be represented by an array of three-digit integers. For each integer in this array:</p>
 
 <ul>
@@ -57,6 +59,8 @@ The path sum is (3 + 1) = 4.
 	<li><code>110 &lt;= nums[i] &lt;= 489</code></li>
 	<li><code>nums</code> represents a valid binary tree with depth less than <code>5</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

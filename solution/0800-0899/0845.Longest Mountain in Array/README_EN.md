@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You may recall that an array <code>arr</code> is a <strong>mountain array</strong> if and only if:</p>
 
 <ul>
@@ -63,6 +65,8 @@ tags:
 	<li>Can you solve it using only one pass?</li>
 	<li>Can you solve it in <code>O(1)</code> space?</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

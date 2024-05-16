@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You have a <strong>1-indexed</strong> binary string of length <code>n</code> where all the bits are <code>0</code> initially. We will flip all the bits of this binary string (i.e., change them from <code>0</code> to <code>1</code>) one by one. You are given a <strong>1-indexed</strong> integer array <code>flips</code> where <code>flips[i]</code> indicates that the bit at index <code>i</code> will be flipped in the <code>i<sup>th</sup></code> step.</p>
 
 <p>A binary string is <strong>prefix-aligned</strong> if, after the <code>i<sup>th</sup></code> step, all the bits in the <strong>inclusive</strong> range <code>[1, i]</code> are ones and all the other bits are zeros.</p>
@@ -58,6 +60,8 @@ We can see that the string was prefix-aligned 1 time, so we return 1.
 	<li><code>1 &lt;= n &lt;= 5 * 10<sup>4</sup></code></li>
 	<li><code>flips</code> is a permutation of the integers in the range <code>[1, n]</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

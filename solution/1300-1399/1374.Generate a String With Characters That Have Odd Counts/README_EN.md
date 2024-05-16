@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an&nbsp;integer <code>n</code>, <em>return a string with <code>n</code>&nbsp;characters such that each character in such string occurs <strong>an odd number of times</strong></em>.</p>
 
 <p>The returned string must contain only lowercase English letters. If there are multiples valid strings, return <strong>any</strong> of them. &nbsp;</p>
@@ -50,6 +52,8 @@ tags:
 <ul>
 	<li><code>1 &lt;= n &lt;= 500</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

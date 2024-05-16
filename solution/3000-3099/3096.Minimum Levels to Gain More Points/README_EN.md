@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a binary array <code>possible</code> of length <code>n</code>.</p>
 
 <p>Alice and Bob are playing a game that consists of <code>n</code> levels. Some of the levels in the game are <strong>impossible</strong> to clear while others can <strong>always</strong> be cleared. In particular, if <code>possible[i] == 0</code>, then the <code>i<sup>th</sup></code> level is <strong>impossible</strong> to clear for <strong>both</strong> the players. A player gains <code>1</code> point on clearing a level and loses <code>1</code> point if the player fails to clear it.</p>
@@ -90,6 +92,8 @@ tags:
 	<li><code>2 &lt;= n == possible.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>possible[i]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>FriendRequest</code></p>
 
 <pre>
@@ -100,6 +102,8 @@ There are 4 unique accepted requests, and there are 5 requests in total. So the 
 	<li>Could you find the acceptance rate for every month?</li>
 	<li>Could you find the cumulative acceptance rate for every day?</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

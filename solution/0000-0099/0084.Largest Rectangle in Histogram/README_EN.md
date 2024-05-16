@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of integers <code>heights</code> representing the histogram&#39;s bar height where the width of each bar is <code>1</code>, return <em>the area of the largest rectangle in the histogram</em>.</p>
 
 <p>&nbsp;</p>
@@ -42,6 +44,8 @@ The largest rectangle is shown in the red area, which has an area = 10 units.
 	<li><code>1 &lt;= heights.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>0 &lt;= heights[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

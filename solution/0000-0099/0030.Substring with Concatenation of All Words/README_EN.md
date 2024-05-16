@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>s</code> and an array of strings <code>words</code>. All the strings of <code>words</code> are of <strong>the same length</strong>.</p>
 
 <p>A <strong>concatenated string</strong> is a string that exactly contains all the strings of any permutation of <code>words</code> concatenated.</p>
@@ -75,6 +77,8 @@ The substring starting at 12 is <code>&quot;thefoobar&quot;</code>. It is the co
 	<li><code>1 &lt;= words[i].length &lt;= 30</code></li>
 	<li><code>s</code> and <code>words[i]</code> consist of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

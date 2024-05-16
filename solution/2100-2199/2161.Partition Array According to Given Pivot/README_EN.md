@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and an integer <code>pivot</code>. Rearrange <code>nums</code> such that the following conditions are satisfied:</p>
 
 <ul>
@@ -63,6 +65,8 @@ The relative ordering of the elements less than and greater than pivot is also m
 	<li><code>-10<sup>6</sup> &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 	<li><code>pivot</code> equals to an element of <code>nums</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

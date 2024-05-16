@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3145.Fi
 
 ## Description
 
+<!-- description:start -->
+
 <p>A <strong>powerful array</strong> for an integer <code>x</code> is the shortest sorted array of powers of two that sum up to <code>x</code>. For example, the powerful array for 11 is <code>[1, 2, 8]</code>.</p>
 
 <p>The array <code>big_nums</code> is created by concatenating the <strong>powerful</strong> arrays for every positive integer <code>i</code> in ascending order: 1, 2, 3, and so forth. Thus, <code>big_nums</code> starts as <code>[<u>1</u>, <u>2</u>, <u>1, 2</u>, <u>4</u>, <u>1, 4</u>, <u>2, 4</u>, <u>1, 2, 4</u>, <u>8</u>, ...]</code>.</p>
@@ -60,6 +62,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3145.Fi
 	<li><code>0 &lt;= queries[i][0] &lt;= queries[i][1] &lt;= 10<sup>15</sup></code></li>
 	<li><code>1 &lt;= queries[i][2] &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>An <strong>ugly number</strong> is a positive integer whose prime factors are limited to <code>2</code>, <code>3</code>, and <code>5</code>.</p>
 
 <p>Given an integer <code>n</code>, return <em>the</em> <code>n<sup>th</sup></code> <em><strong>ugly number</strong></em>.</p>
@@ -44,6 +46,8 @@ tags:
 <ul>
 	<li><code>1 &lt;= n &lt;= 1690</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

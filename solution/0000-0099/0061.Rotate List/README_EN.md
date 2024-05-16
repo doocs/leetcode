@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>head</code> of a linked&nbsp;list, rotate the list to the right by <code>k</code> places.</p>
 
 <p>&nbsp;</p>
@@ -40,6 +42,8 @@ tags:
 	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 	<li><code>0 &lt;= k &lt;= 2 * 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

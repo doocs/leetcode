@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2650.De
 
 ## Description
 
+<!-- description:start -->
+
 <p>Sometimes you have a long running task, and you may wish to cancel it before it completes. To help with this goal, write a function&nbsp;<code>cancellable</code> that accepts a generator object and returns an array of two values: a <strong>cancel function</strong> and a <strong>promise</strong>.</p>
 
 <p>You may assume the generator function will only&nbsp;yield promises. It is your function&#39;s responsibility to pass the values resolved by the promise back to the generator. If the promise rejects, your function should throw that&nbsp;error back to the generator.</p>
@@ -147,6 +149,8 @@ The first yielded promise immediately rejects. This error is caught. Because the
 	<li><code>cancelledAt == null or 0 &lt;= cancelledAt &lt;= 1000</code></li>
 	<li><code>generatorFunction</code> returns a generator object</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

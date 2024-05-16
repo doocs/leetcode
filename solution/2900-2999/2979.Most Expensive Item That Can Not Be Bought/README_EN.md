@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two <strong>distinct</strong> <strong>prime</strong> numbers <code>primeOne</code> and <code>primeTwo</code>.</p>
 
 <p>Alice and Bob are visiting a market. The market has an <strong>infinite</strong> number of items, for <strong>any</strong> positive integer <code>x</code> there exists an item whose price is <code>x</code>. Alice wants to buy some items from the market to gift to Bob. She has an <strong>infinite</strong> number of coins in the denomination <code>primeOne</code> and <code>primeTwo</code>. She wants to know the <strong>most expensive</strong> item she can <strong>not</strong> buy to gift to Bob.</p>
@@ -47,6 +49,8 @@ tags:
 	<li><code>primeOne</code>, <code>primeTwo</code> are prime numbers.</li>
 	<li><code>primeOne * primeTwo &lt; 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

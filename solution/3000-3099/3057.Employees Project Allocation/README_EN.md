@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Project</code></p>
 
 <pre>
@@ -86,6 +88,8 @@ Employees table:
 - Employee with ID 4 has a project workload of 68 and belongs to Team A, where the average workload is 56.50. Since his project workload does exceed the team&#39;s average workload, he will be included.
 Result table orderd by employee_id, project_id in ascending order.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Queue</code></p>
 
 <pre>
@@ -74,6 +76,8 @@ Queue table:
 | 6    | 1  | Winston   | 500    | ___          |
 +------+----+-----------+--------+--------------+
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>head</code> of a sorted linked list, <em>delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list</em>. Return <em>the linked list <strong>sorted</strong> as well</em>.</p>
 
 <p>&nbsp;</p>
@@ -40,6 +42,8 @@ tags:
 	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 	<li>The list is guaranteed to be <strong>sorted</strong> in ascending order.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

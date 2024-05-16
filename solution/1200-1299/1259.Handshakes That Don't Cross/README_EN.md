@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an <strong>even</strong> number of people <code>numPeople</code> that stand around a circle and each person shakes hands with someone else so that there are <code>numPeople / 2</code> handshakes total.</p>
 
 <p>Return <em>the number of ways these handshakes could occur such that none of the handshakes cross</em>.</p>
@@ -46,6 +48,8 @@ tags:
 	<li><code>2 &lt;= numPeople &lt;= 1000</code></li>
 	<li><code>numPeople</code> is even.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

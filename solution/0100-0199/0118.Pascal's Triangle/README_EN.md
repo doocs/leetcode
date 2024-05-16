@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer <code>numRows</code>, return the first numRows of <strong>Pascal&#39;s triangle</strong>.</p>
 
 <p>In <strong>Pascal&#39;s triangle</strong>, each number is the sum of the two numbers directly above it as shown:</p>
@@ -33,6 +35,8 @@ tags:
 <ul>
 	<li><code>1 &lt;= numRows &lt;= 30</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

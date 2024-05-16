@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Person</code></p>
 
 <pre>
@@ -66,6 +68,8 @@ Person table:
 +-----------+----------+
 <strong>Explanation:</strong> Note that there should not be any white space between the name and the first letter of the profession.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There are two types of persons:</p>
 
 <ul>
@@ -98,6 +100,8 @@ Note that there is more than one way to arrive at this conclusion.
 	<li><code>statements[i][j]</code> is either <code>0</code>, <code>1</code>, or <code>2</code>.</li>
 	<li><code>statements[i][i] == 2</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

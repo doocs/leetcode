@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Transactions</code></p>
 
 <pre>
@@ -74,6 +76,8 @@ customer_id is sorted in ascending order.
 </pre>
 
 <p>&nbsp;</p>
+
+<!-- description:end -->
 
 ## Solutions
 

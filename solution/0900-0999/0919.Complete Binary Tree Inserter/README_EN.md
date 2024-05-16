@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A <strong>complete binary tree</strong> is a binary tree in which every level, except possibly the last, is completely filled, and all nodes are as far left as possible.</p>
 
 <p>Design an algorithm to insert a new node to a complete binary tree keeping it complete after the insertion.</p>
@@ -57,6 +59,8 @@ cBTInserter.get_root(); // return [1, 2, 3, 4]
 	<li><code>0 &lt;= val &lt;= 5000</code></li>
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>insert</code> and <code>get_root</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

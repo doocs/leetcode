@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>root</code> of a binary tree, calculate the <strong>vertical order traversal</strong> of the binary tree.</p>
 
 <p>For each node at position <code>(row, col)</code>, its left and right children will be at positions <code>(row + 1, col - 1)</code> and <code>(row + 1, col + 1)</code> respectively. The root of the tree is at <code>(0, 0)</code>.</p>
@@ -71,6 +73,8 @@ Note that the solution remains the same since 5 and 6 are in the same location a
 	<li>The number of nodes in the tree is in the range <code>[1, 1000]</code>.</li>
 	<li><code>0 &lt;= Node.val &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

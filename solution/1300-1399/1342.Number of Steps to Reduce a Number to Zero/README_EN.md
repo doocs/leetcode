@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer <code>num</code>, return <em>the number of steps to reduce it to zero</em>.</p>
 
 <p>In one step, if the current number is even, you have to divide it by <code>2</code>, otherwise, you have to subtract <code>1</code> from it.</p>
@@ -61,6 +63,8 @@ Step 4) 1 is odd; subtract 1 and obtain 0.
 <ul>
 	<li><code>0 &lt;= num &lt;= 10<sup>6</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

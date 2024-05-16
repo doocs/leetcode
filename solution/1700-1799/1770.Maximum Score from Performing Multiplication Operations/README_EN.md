@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two <strong>0-indexed</strong> integer arrays <code>nums</code> and <code>multipliers</code><strong> </strong>of size <code>n</code> and <code>m</code> respectively, where <code>n &gt;= m</code>.</p>
 
 <p>You begin with a score of <code>0</code>. You want to perform <strong>exactly</strong> <code>m</code> operations. On the <code>i<sup>th</sup></code> operation (<strong>0-indexed</strong>) you will:</p>
@@ -69,6 +71,8 @@ The total score is 50 + 15 - 9 + 4 + 42 = 102.
 	<li><code>m &lt;= n &lt;= 10<sup>5</sup></code><code> </code></li>
 	<li><code>-1000 &lt;= nums[i], multipliers[i] &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

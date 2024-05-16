@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Product</code></p>
 
 <pre>
@@ -88,6 +90,8 @@ The product with id 2 was sold in the spring of 2019 but was also sold after the
 The product with id 3 was sold after spring 2019.
 We return only product 1 as it is the product that was only sold in the spring of 2019.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

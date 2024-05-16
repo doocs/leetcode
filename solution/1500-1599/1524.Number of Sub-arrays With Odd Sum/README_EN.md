@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of integers <code>arr</code>, return <em>the number of subarrays with an <strong>odd</strong> sum</em>.</p>
 
 <p>Since the answer can be very large, return it modulo <code>10<sup>9</sup> + 7</code>.</p>
@@ -58,6 +60,8 @@ All sub-arrays have even sum and the answer is 0.
 	<li><code>1 &lt;= arr.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= arr[i] &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

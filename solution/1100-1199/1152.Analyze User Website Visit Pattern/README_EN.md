@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two string arrays <code>username</code> and <code>website</code> and an integer array <code>timestamp</code>. All the given arrays are of the same length and the tuple <code>[username[i], website[i], timestamp[i]]</code> indicates that the user <code>username[i]</code> visited the website <code>website[i]</code> at time <code>timestamp[i]</code>.</p>
 
 <p>A <strong>pattern</strong> is a list of three websites (not necessarily distinct).</p>
@@ -73,6 +75,8 @@ The pattern (&quot;home&quot;, &quot;home&quot;, &quot;home&quot;) has score 0 (
 	<li>It is guaranteed that there is at least one user who visited at least three websites.</li>
 	<li>All the tuples <code>[username[i], timestamp[i], website[i]]</code> are <strong>unique</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

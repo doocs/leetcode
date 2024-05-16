@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Patients</code></p>
 
 <pre>
@@ -61,6 +63,8 @@ Patients table:
 +------------+--------------+--------------+
 <strong>Explanation:</strong> Bob and George both have a condition that starts with DIAB1.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

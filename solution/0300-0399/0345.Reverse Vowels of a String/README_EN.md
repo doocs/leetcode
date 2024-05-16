@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>s</code>, reverse only all the vowels in the string and return it.</p>
 
 <p>The vowels are <code>&#39;a&#39;</code>, <code>&#39;e&#39;</code>, <code>&#39;i&#39;</code>, <code>&#39;o&#39;</code>, and <code>&#39;u&#39;</code>, and they can appear in both lower and upper cases, more than once.</p>
@@ -34,6 +36,8 @@ tags:
 	<li><code>1 &lt;= s.length &lt;= 3 * 10<sup>5</sup></code></li>
 	<li><code>s</code> consist of <strong>printable ASCII</strong> characters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>The <b>appeal</b> of a string is the number of <strong>distinct</strong> characters found in the string.</p>
 
 <ul>
@@ -63,6 +65,8 @@ The total sum is 4 + 6 + 6 + 4 = 20.
 	<li><code>1 &lt;= s.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>s</code> consists of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Activity</code></p>
 
 <pre>
@@ -69,6 +71,8 @@ Activity table:
 +---------------------------+
 <strong>Explanation:</strong> User 1 and 2 each had 1 session in the past 30 days while user 3 had 2 sessions so the average is (1 + 1 + 2) / 3 = 1.33.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

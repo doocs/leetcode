@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code>, you need to find one <b>continuous subarray</b> such that if you only sort this subarray in non-decreasing order, then the whole array will be sorted in non-decreasing order.</p>
 
 <p>Return <em>the shortest such subarray and output its length</em>.</p>
@@ -56,6 +58,8 @@ tags:
 
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Can you solve it in <code>O(n)</code> time complexity?
+
+<!-- description:end -->
 
 ## Solutions
 

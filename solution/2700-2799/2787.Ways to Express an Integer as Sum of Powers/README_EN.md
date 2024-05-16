@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two <strong>positive</strong> integers <code>n</code> and <code>x</code>.</p>
 
 <p>Return <em>the number of ways </em><code>n</code><em> can be expressed as the sum of the </em><code>x<sup>th</sup></code><em> power of <strong>unique</strong> positive integers, in other words, the number of sets of unique integers </em><code>[n<sub>1</sub>, n<sub>2</sub>, ..., n<sub>k</sub>]</code><em> where </em><code>n = n<sub>1</sub><sup>x</sup> + n<sub>2</sub><sup>x</sup> + ... + n<sub>k</sub><sup>x</sup></code><em>.</em></p>
@@ -51,6 +53,8 @@ It can be shown that it is the only way to express 10 as the sum of the 2<sup>nd
 	<li><code>1 &lt;= n &lt;= 300</code></li>
 	<li><code>1 &lt;= x &lt;= 5</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Customers</code></p>
 
 <pre>
@@ -68,6 +70,8 @@ Customer 3 has no revenue in the year 2021.
 Customer 4 has revenue equal to 20 in the year 2021.
 Thus only customers 1 and 4 have positive revenue in the year 2021.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

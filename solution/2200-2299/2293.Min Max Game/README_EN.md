@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> whose length is a power of <code>2</code>.</p>
 
 <p>Apply the following algorithm on <code>nums</code>:</p>
@@ -60,6 +62,8 @@ Third: nums = [1]
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 	<li><code>nums.length</code> is a power of <code>2</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array of integers <code>nums</code> of length <code>n</code>.</p>
 
 <p>The <strong>cost</strong> of an array is the value of its <strong>first</strong> element. For example, the cost of <code>[1,2,3]</code> is <code>1</code> while the cost of <code>[3,4,1]</code> is <code>3</code>.</p>
@@ -63,6 +65,8 @@ It can be shown that 12 is the minimum cost achievable.
 	<li><code>3 &lt;= n &lt;= 50</code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 50</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

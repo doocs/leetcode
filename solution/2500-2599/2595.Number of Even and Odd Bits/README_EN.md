@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>positive</strong> integer <code>n</code>.</p>
 
 <p>Let <code>even</code> denote the number of even indices in the binary representation of <code>n</code> (<strong>0-indexed</strong>) with value <code>1</code>.</p>
@@ -51,6 +53,8 @@ There are 0 even and 1 odd indices.
 <ul>
 	<li><code>1 &lt;= n &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array <code>nums</code> of distinct integers, return <em>all the possible permutations</em>. You can return the answer in <strong>any order</strong>.</p>
 
 <p>&nbsp;</p>
@@ -36,6 +38,8 @@ tags:
 	<li><code>-10 &lt;= nums[i] &lt;= 10</code></li>
 	<li>All the integers of <code>nums</code> are <strong>unique</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>An experiment is being conducted in a lab. To ensure accuracy, there are<strong> two </strong>sensors collecting data simultaneously. You are given two arrays <code>sensor1</code> and <code>sensor2</code>, where <code>sensor1[i]</code> and <code>sensor2[i]</code> are the <code>i<sup>th</sup></code> data points collected by the two sensors.</p>
 
 <p>However, this type of sensor has a chance of being defective, which causes <strong>exactly one</strong> data point to be dropped. After the data is dropped, all the data points to the <strong>right</strong> of the dropped data are <strong>shifted</strong> one place to the left, and the last data point is replaced with some <strong>random value</strong>. It is guaranteed that this random value will <strong>not</strong> be equal to the dropped value.</p>
@@ -61,6 +63,8 @@ The fourth data point from sensor 1 is dropped, and the last value of sensor 1 i
 	<li><code>1 &lt;= sensor1.length &lt;= 100</code></li>
 	<li><code>1 &lt;= sensor1[i], sensor2[i] &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

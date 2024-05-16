@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are keeping the scores for a baseball game with strange rules. At the beginning of the game, you start with an empty record.</p>
 
 <p>You are given a list of strings <code>operations</code>, where <code>operations[i]</code> is the <code>i<sup>th</sup></code> operation you must apply to the record and is one of the following:</p>
@@ -101,6 +103,8 @@ Since the record is empty, the total sum is 0.
 	<li>For operation <code>&quot;+&quot;</code>, there will always be at least two previous scores on the record.</li>
 	<li>For operations <code>&quot;C&quot;</code> and <code>&quot;D&quot;</code>, there will always be at least one previous score on the record.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

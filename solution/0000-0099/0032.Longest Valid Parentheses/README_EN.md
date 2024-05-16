@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string containing just the characters <code>&#39;(&#39;</code> and <code>&#39;)&#39;</code>, return <em>the length of the longest valid (well-formed) parentheses </em><span data-keyword="substring-nonempty"><em>substring</em></span>.</p>
 
 <p>&nbsp;</p>
@@ -49,6 +51,8 @@ tags:
 	<li><code>0 &lt;= s.length &lt;= 3 * 10<sup>4</sup></code></li>
 	<li><code>s[i]</code> is <code>&#39;(&#39;</code>, or <code>&#39;)&#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

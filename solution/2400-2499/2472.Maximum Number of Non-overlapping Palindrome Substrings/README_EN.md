@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>s</code> and a <strong>positive</strong> integer <code>k</code>.</p>
 
 <p>Select a set of <strong>non-overlapping</strong> substrings from the string <code>s</code> that satisfy the following conditions:</p>
@@ -55,6 +57,8 @@ It can be shown that we cannot find a selection with more than two valid substri
 	<li><code>1 &lt;= k &lt;= s.length &lt;= 2000</code></li>
 	<li><code>s</code> consists of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

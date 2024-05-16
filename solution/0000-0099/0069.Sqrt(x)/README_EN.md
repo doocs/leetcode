@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a non-negative integer <code>x</code>, return <em>the square root of </em><code>x</code><em> rounded down to the nearest integer</em>. The returned integer should be <strong>non-negative</strong> as well.</p>
 
 <p>You <strong>must not use</strong> any built-in exponent function or operator.</p>
@@ -46,6 +48,8 @@ tags:
 <ul>
 	<li><code>0 &lt;= x &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

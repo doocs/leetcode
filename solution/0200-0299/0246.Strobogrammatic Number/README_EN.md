@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>num</code> which represents an integer, return <code>true</code> <em>if</em> <code>num</code> <em>is a <strong>strobogrammatic number</strong></em>.</p>
 
 <p>A <strong>strobogrammatic number</strong> is a number that looks the same when rotated <code>180</code> degrees (looked at upside down).</p>
@@ -50,6 +52,8 @@ tags:
 	<li><code>num</code> consists of only digits.</li>
 	<li><code>num</code> does not contain any leading zeros except for zero itself.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

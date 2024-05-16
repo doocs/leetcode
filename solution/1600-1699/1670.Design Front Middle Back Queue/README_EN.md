@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design a queue that supports <code>push</code> and <code>pop</code> operations in the front, middle, and back.</p>
 
 <p>Implement the <code>FrontMiddleBack</code> class:</p>
@@ -71,6 +73,8 @@ q.popFront();     // return -1 -&gt; [] (The queue is empty)
 	<li><code>1 &lt;= val &lt;= 10<sup>9</sup></code></li>
 	<li>At most&nbsp;<code>1000</code>&nbsp;calls will be made to&nbsp;<code>pushFront</code>,&nbsp;<code>pushMiddle</code>,&nbsp;<code>pushBack</code>, <code>popFront</code>, <code>popMiddle</code>, and <code>popBack</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

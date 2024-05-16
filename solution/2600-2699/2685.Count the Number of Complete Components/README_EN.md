@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer <code>n</code>. There is an <strong>undirected</strong> graph with <code>n</code> vertices, numbered from <code>0</code> to <code>n - 1</code>. You are given a 2D integer array <code>edges</code> where <code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> denotes that there exists an <strong>undirected</strong> edge connecting vertices <code>a<sub>i</sub></code> and <code>b<sub>i</sub></code>.</p>
 
 <p>Return <em>the number of <strong>complete connected components</strong> of the graph</em>.</p>
@@ -58,6 +60,8 @@ tags:
 	<li><code>a<sub>i</sub> != b<sub>i</sub></code></li>
 	<li>There are no repeated edges.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

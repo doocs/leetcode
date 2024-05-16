@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an elevation map represents as an integer array <code>heights</code> where <code>heights[i]</code> representing the height of the terrain at index <code>i</code>. The width at each index is <code>1</code>. You are also given two integers <code>volume</code> and <code>k</code>. <code>volume</code> units of water will fall at index <code>k</code>.</p>
 
 <p>Water first drops at the index <code>k</code> and rests on top of the highest terrain or water at that index. Then, it flows according to the following rules:</p>
@@ -71,6 +73,8 @@ Finally, the fourth droplet falls at index k = 3. Since moving left would not ev
 	<li><code>0 &lt;= volume &lt;= 2000</code></li>
 	<li><code>0 &lt;= k &lt; heights.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

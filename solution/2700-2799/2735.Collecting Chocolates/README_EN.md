@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of size <code>n</code> representing the cost of collecting different chocolates. The cost of collecting the chocolate at the index <code>i</code>&nbsp;is <code>nums[i]</code>. Each chocolate is of a different type, and initially, the chocolate at the index&nbsp;<code>i</code>&nbsp;is of <code>i<sup>th</sup></code> type.</p>
 
 <p>In one operation, you can do the following with an incurred <strong>cost</strong> of <code>x</code>:</p>
@@ -55,6 +57,8 @@ Thus, the total cost will become (1 + 5 + 1 + 5 + 1) = 13. We can prove that thi
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 	<li><code>1 &lt;= x &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

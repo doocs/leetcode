@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> containing <strong>distinct</strong> numbers, an integer <code>start</code>, and an integer <code>goal</code>. There is an integer <code>x</code> that is initially set to <code>start</code>, and you want to perform operations on <code>x</code> such that it is converted to <code>goal</code>. You can perform the following operation repeatedly on the number <code>x</code>:</p>
 
 <p>If <code>0 &lt;= x &lt;= 1000</code>, then for any index <code>i</code> in the array (<code>0 &lt;= i &lt; nums.length</code>), you can set <code>x</code> to any of the following:</p>
@@ -71,6 +73,8 @@ Note that the last operation sets x out of the range 0 &lt;= x &lt;= 1000, which
 	<li><code>start != goal</code></li>
 	<li>All the integers in <code>nums</code> are distinct.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code> and an integer <code>k</code>.</p>
 
 <p>The <strong>frequency</strong> of an element <code>x</code> is the number of times it occurs in an array.</p>
@@ -64,6 +66,8 @@ It can be shown that there are no good subarrays with length more than 4.
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 	<li><code>1 &lt;= k &lt;= nums.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

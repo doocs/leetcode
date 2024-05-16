@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A <strong>confusing number</strong> is a number that when rotated <code>180</code> degrees becomes a different number with <strong>each digit valid</strong>.</p>
 
 <p>We can rotate digits of a number by <code>180</code> degrees to form new digits.</p>
@@ -62,6 +64,8 @@ tags:
 <ul>
 	<li><code>0 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

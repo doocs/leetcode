@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>root</code> of a binary search tree and a node <code>p</code> in it, return <em>the in-order successor of that node in the BST</em>. If the given node has no in-order successor in the tree, return <code>null</code>.</p>
 
 <p>The successor of a node <code>p</code> is the node with the smallest key greater than <code>p.val</code>.</p>
@@ -46,6 +48,8 @@ tags:
 	<li><code>-10<sup>5</sup> &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
 	<li>All Nodes will have unique values.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

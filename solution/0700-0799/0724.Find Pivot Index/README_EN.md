@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of integers <code>nums</code>, calculate the <strong>pivot index</strong> of this array.</p>
 
 <p>The <strong>pivot index</strong> is the index where the sum of all the numbers <strong>strictly</strong> to the left of the index is equal to the sum of all the numbers <strong>strictly</strong> to the index&#39;s right.</p>
@@ -64,6 +66,8 @@ Right sum = nums[1] + nums[2] = 1 + -1 = 0
 
 <p>&nbsp;</p>
 <p><strong>Note:</strong> This question is the same as&nbsp;1991:&nbsp;<a href="https://leetcode.com/problems/find-the-middle-index-in-array/" target="_blank">https://leetcode.com/problems/find-the-middle-index-in-array/</a></p>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an <code>n x n</code> <code>grid</code> representing a field of cherries, each cell is one of three possible integers.</p>
 
 <ul>
@@ -63,6 +65,8 @@ The total number of cherries picked up is 5, and this is the maximum possible.
 	<li><code>grid[0][0] != -1</code></li>
 	<li><code>grid[n - 1][n - 1] != -1</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

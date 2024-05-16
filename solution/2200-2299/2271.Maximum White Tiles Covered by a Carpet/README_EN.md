@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a 2D integer array <code>tiles</code> where <code>tiles[i] = [l<sub>i</sub>, r<sub>i</sub>]</code> represents that every tile <code>j</code> in the range <code>l<sub>i</sub> &lt;= j &lt;= r<sub>i</sub></code> is colored white.</p>
 
 <p>You are also given an integer <code>carpetLen</code>, the length of a single carpet that can be placed <strong>anywhere</strong>.</p>
@@ -57,6 +59,8 @@ It covers 2 white tiles, so we return 2.
 	<li><code>1 &lt;= carpetLen &lt;= 10<sup>9</sup></code></li>
 	<li>The <code>tiles</code> are <strong>non-overlapping</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

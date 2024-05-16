@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a&nbsp;square&nbsp;matrix&nbsp;<code>mat</code>, return the sum of the matrix diagonals.</p>
 
 <p>Only include the sum of all the elements on the primary diagonal and all the elements on the secondary diagonal that are not part of the primary diagonal.</p>
@@ -58,6 +60,8 @@ Notice that element mat[1][1] = 5 is counted only once.
 	<li><code>1 &lt;= n &lt;= 100</code></li>
 	<li><code>1 &lt;= mat[i][j] &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

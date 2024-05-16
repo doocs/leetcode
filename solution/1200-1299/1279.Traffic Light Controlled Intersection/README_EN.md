@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There is an intersection of two roads. First road is road A where cars travel&nbsp;from North to South in direction 1 and from South to North in direction 2. Second road is road B where cars travel from West to East in direction 3 and from East to West in direction 4.</p>
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1279.Traffic%20Light%20Controlled%20Intersection/images/exp.png" style="width: 600px; height: 417px;" /></p>
@@ -86,6 +88,8 @@ tags:
 	<li><code>1 &lt;= directions[i] &lt;= 4</code></li>
 	<li><code>arrivalTimes</code> is non-decreasing</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

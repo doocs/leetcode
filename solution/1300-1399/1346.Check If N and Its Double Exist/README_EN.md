@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array <code>arr</code> of integers, check if there exist two indices <code>i</code> and <code>j</code> such that :</p>
 
 <ul>
@@ -52,6 +54,8 @@ tags:
 	<li><code>2 &lt;= arr.length &lt;= 500</code></li>
 	<li><code>-10<sup>3</sup> &lt;= arr[i] &lt;= 10<sup>3</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two integers <code>numBottles</code> and <code>numExchange</code>.</p>
 
 <p><code>numBottles</code> represents the number of full water bottles that you initially have. In one operation, you can perform one of the following operations:</p>
@@ -54,6 +56,8 @@ tags:
 	<li><code>1 &lt;= numBottles &lt;= 100 </code></li>
 	<li><code>1 &lt;= numExchange &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

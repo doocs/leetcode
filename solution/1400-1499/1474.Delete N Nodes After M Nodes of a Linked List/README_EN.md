@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given the <code>head</code> of a linked list and two integers <code>m</code> and <code>n</code>.</p>
 
 <p>Traverse the linked list and remove some nodes in the following way:</p>
@@ -58,6 +60,8 @@ Head of the linked list after removing nodes is returned.
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you solve this problem by modifying the list in-place?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

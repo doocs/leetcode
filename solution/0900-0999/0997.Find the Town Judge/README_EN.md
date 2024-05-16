@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>In a town, there are <code>n</code> people labeled from <code>1</code> to <code>n</code>. There is a rumor that one of these people is secretly the town judge.</p>
 
 <p>If the town judge exists, then:</p>
@@ -63,6 +65,8 @@ tags:
 	<li><code>a<sub>i</sub> != b<sub>i</sub></code></li>
 	<li><code>1 &lt;= a<sub>i</sub>, b<sub>i</sub> &lt;= n</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

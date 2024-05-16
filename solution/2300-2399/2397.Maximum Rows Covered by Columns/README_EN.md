@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> <code>m x n</code> binary matrix <code>matrix</code> and an integer <code>numSelect</code>, which denotes the number of <strong>distinct</strong> columns you must select from <code>matrix</code>.</p>
 
 <p>Let us consider <code>s = {c<sub>1</sub>, c<sub>2</sub>, ...., c<sub>numSelect</sub>}</code> as the set of columns selected by you. A row <code>row</code> is <strong>covered</strong> by <code>s</code> if:</p>
@@ -68,6 +70,8 @@ Therefore, we return 2.
 	<li><code>matrix[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
 	<li><code>1 &lt;= numSelect&nbsp;&lt;= n</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

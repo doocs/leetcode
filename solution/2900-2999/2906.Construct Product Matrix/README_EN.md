@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a <strong>0-indexed</strong> 2D integer matrix <code><font face="monospace">grid</font></code><font face="monospace"> </font>of size <code>n * m</code>, we define a <strong>0-indexed</strong> 2D matrix <code>p</code> of size <code>n * m</code> as the <strong>product</strong> matrix of <code>grid</code> if the following condition is met:</p>
 
 <ul>
@@ -57,6 +59,8 @@ So the answer is [[2],[0],[0]].</pre>
 	<li><code>2 &lt;= n * m &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= grid[i][j] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

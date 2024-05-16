@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and two integers <code>key</code> and <code>k</code>. A <strong>k-distant index</strong> is an index <code>i</code> of <code>nums</code> for which there exists at least one index <code>j</code> such that <code>|i - j| &lt;= k</code> and <code>nums[j] == key</code>.</p>
 
 <p>Return <em>a list of all k-distant indices sorted in <strong>increasing order</strong></em>.</p>
@@ -56,6 +58,8 @@ Hence, we return [0,1,2,3,4].
 	<li><code>key</code> is an integer from the array <code>nums</code>.</li>
 	<li><code>1 &lt;= k &lt;= nums.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

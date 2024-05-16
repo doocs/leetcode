@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a 2D integer array <code>edges</code> representing a tree with <code>n</code> nodes, numbered from <code>0</code> to <code>n - 1</code>, rooted at node <code>0</code>, where <code>edges[i] = [u<sub>i</sub>, v<sub>i</sub>]</code> means there is an edge between the nodes <code>v<sub>i</sub></code> and <code>u<sub>i</sub></code>.</p>
 
 <p>You are also given a <strong>0-indexed</strong> integer array <code>colors</code> of size <code>n</code>, where <code>colors[i]</code> is the color assigned to node <code>i</code>.</p>
@@ -66,6 +68,8 @@ tags:
 	<li><code>1 &lt;= colors[i] &lt;= 10<sup>5</sup></code></li>
 	<li>The input is generated such that the graph represented by <code>edges</code> is a tree.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

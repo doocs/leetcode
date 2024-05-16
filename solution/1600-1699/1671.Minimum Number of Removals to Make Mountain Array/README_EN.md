@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You may recall that an array <code>arr</code> is a <strong>mountain array</strong> if and only if:</p>
 
 <ul>
@@ -58,6 +60,8 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 	<li>It is guaranteed that you can make a mountain array out of <code>nums</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

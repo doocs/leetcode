@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>s</code> and two integers <code>x</code> and <code>y</code>. You can perform two types of operations any number of times.</p>
 
 <ul>
@@ -65,6 +67,8 @@ Total score = 5 + 4 + 5 + 5 = 19.</pre>
 	<li><code>1 &lt;= x, y &lt;= 10<sup>4</sup></code></li>
 	<li><code>s</code> consists of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

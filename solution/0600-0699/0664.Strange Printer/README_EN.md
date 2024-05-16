@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There is a strange printer with the following two special properties:</p>
 
 <ul>
@@ -48,6 +50,8 @@ tags:
 	<li><code>1 &lt;= s.length &lt;= 100</code></li>
 	<li><code>s</code> consists of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

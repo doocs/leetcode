@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>UserActivity</code></p>
 
 <pre>
@@ -65,6 +67,8 @@ UserActivity table:
 The most recent activity of Alice is Travel from 2020-02-24 to 2020-02-28, before that she was dancing from 2020-02-21 to 2020-02-23.
 Bob only has one record, we just take that one.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

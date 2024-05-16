@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A password is said to be <strong>strong</strong> if it satisfies all the following criteria:</p>
 
 <ul>
@@ -60,6 +62,8 @@ tags:
 	<li><code>1 &lt;= password.length &lt;= 100</code></li>
 	<li><code>password</code> consists of letters, digits, and special characters: <code>&quot;!@#$%^&amp;*()-+&quot;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

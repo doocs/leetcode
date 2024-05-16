@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a 2D integer array <code>rectangles</code> where <code>rectangles[i] = [l<sub>i</sub>, h<sub>i</sub>]</code> indicates that <code>i<sup>th</sup></code> rectangle has a length of <code>l<sub>i</sub></code> and a height of <code>h<sub>i</sub></code>. You are also given a 2D integer array <code>points</code> where <code>points[j] = [x<sub>j</sub>, y<sub>j</sub>]</code> is a point with coordinates <code>(x<sub>j</sub>, y<sub>j</sub>)</code>.</p>
 
 <p>The <code>i<sup>th</sup></code> rectangle has its <strong>bottom-left corner</strong> point at the coordinates <code>(0, 0)</code> and its <strong>top-right corner</strong> point at <code>(l<sub>i</sub>, h<sub>i</sub>)</code>.</p>
@@ -67,6 +69,8 @@ Therefore, we return [1, 3].
 	<li>All the <code>rectangles</code> are <strong>unique</strong>.</li>
 	<li>All the <code>points</code> are <strong>unique</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

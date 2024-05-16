@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>arr</code>, count how many elements <code>x</code> there are, such that <code>x + 1</code> is also in <code>arr</code>. If there are duplicates in <code>arr</code>, count them separately.</p>
 
 <p>&nbsp;</p>
@@ -41,6 +43,8 @@ tags:
 	<li><code>1 &lt;= arr.length &lt;= 1000</code></li>
 	<li><code>0 &lt;= arr[i] &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

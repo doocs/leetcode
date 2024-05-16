@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>We have <code>n</code> cities and <code>m</code> bi-directional <code>roads</code> where <code>roads[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> connects city <code>a<sub>i</sub></code> with city <code>b<sub>i</sub></code>. Each city has a name consisting of exactly three upper-case English letters given in the string array <code>names</code>. Starting at any city <code>x</code>, you can reach any city <code>y</code> where <code>y != x</code> (i.e., the cities and the roads are forming an undirected connected graph).</p>
 
 <p>You will be given a string array <code>targetPath</code>. You should find a path in the graph of the <strong>same length</strong> and with the <strong>minimum edit distance</strong> to <code>targetPath</code>.</p>
@@ -75,6 +77,8 @@ It&#39;s equivalent to [&quot;ATL&quot;,&quot;DXB&quot;,&quot;HND&quot;,&quot;DX
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> If each node can be visited only once in the path, What should you change in your solution?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

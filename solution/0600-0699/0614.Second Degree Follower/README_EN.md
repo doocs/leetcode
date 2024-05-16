@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Follow</code></p>
 
 <pre>
@@ -69,6 +71,8 @@ User Bob has 2 followers. Bob is a second-degree follower because he follows Ali
 User Donald has 1 follower. Donald is a second-degree follower because he follows Bob, so we include him in the result table.
 User Alice has 1 follower. Alice is not a second-degree follower because she does not follow anyone, so we don not include her in the result table.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

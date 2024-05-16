@@ -21,6 +21,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array of strings <code>nums</code> and an integer <code>k</code>. Each string in <code>nums</code> represents an integer without leading zeros.</p>
 
 <p>Return <em>the string that represents the </em><code>k<sup>th</sup></code><em><strong> largest integer</strong> in </em><code>nums</code>.</p>
@@ -67,6 +69,8 @@ The 2<sup>nd</sup> largest integer in nums is &quot;0&quot;.
 	<li><code>nums[i]</code> consists of only digits.</li>
 	<li><code>nums[i]</code> will not have any leading zeros.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

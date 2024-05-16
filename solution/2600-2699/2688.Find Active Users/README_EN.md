@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table:<font face="monospace">&nbsp;<code>Users</code></font></p>
 
 <pre>
@@ -65,6 +67,8 @@ Each row includes the user ID, the purchased item, the date of purchase, and the
 - User with user_id 8 has only one transaction, so he is not an active user.  
 - User with user_id 4 has two transaction his first transaction was on 2021-09-02 and second transation was on 2021-09-13. The distance between the first and second transactions date is &gt; 7 days. So he is not an active user. 
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

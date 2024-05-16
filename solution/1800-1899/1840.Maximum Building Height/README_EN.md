@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You want to build <code>n</code> new buildings in a city. The new buildings will be built in a line and are labeled from <code>1</code> to <code>n</code>.</p>
 
 <p>However, there are city restrictions on the heights of the new buildings:</p>
@@ -71,6 +73,8 @@ We can build the buildings with heights [0,1,2,3,3,4,4,5,4,3], and the tallest b
 	<li><code>id<sub>i</sub></code>&nbsp;is <strong>unique</strong>.</li>
 	<li><code>0 &lt;= maxHeight<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

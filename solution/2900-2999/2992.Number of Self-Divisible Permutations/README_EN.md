@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer <code>n</code>, return <em>the number of <strong>permutations</strong> of the <strong>1-indexed</strong> array</em> <code>nums = [1, 2, ..., n]</code><em>, such that it&#39;s <strong>self-divisible</strong></em>.</p>
 
 <p>A <strong>1-indexed</strong> array <code>a</code> of length <code>n</code> is <strong>self-divisible</strong> if for every <code>1 &lt;= i &lt;= n</code>, <code><span data-keyword="gcd-function">gcd</span>(a[i], i) == 1</code>.</p>
@@ -67,6 +69,8 @@ It can be shown that the other 3 permutations are not self-divisible. Hence the 
 <ul>
 	<li><code>1 &lt;= n &lt;= 12</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

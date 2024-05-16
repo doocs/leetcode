@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a <code>matrix</code>&nbsp;and a <code>target</code>, return the number of non-empty submatrices that sum to <font face="monospace">target</font>.</p>
 
 <p>A submatrix <code>x1, y1, x2, y2</code> is the set of all cells <code>matrix[x][y]</code> with <code>x1 &lt;= x &lt;= x2</code> and <code>y1 &lt;= y &lt;= y2</code>.</p>
@@ -58,6 +60,8 @@ tags:
 	<li><code>-1000 &lt;= matrix[i][j] &lt;= 1000</code></li>
 	<li><code>-10^8 &lt;= target &lt;= 10^8</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

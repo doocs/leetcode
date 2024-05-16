@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two vectors of integers <code>v1</code> and <code>v2</code>, implement an iterator to return their elements alternately.</p>
 
 <p>Implement the <code>ZigzagIterator</code> class:</p>
@@ -72,6 +74,8 @@ tags:
 <strong>Input:</strong> v1 = [1,2,3], v2 = [4,5,6,7], v3 = [8,9]
 <strong>Output:</strong> [1,4,8,2,5,9,3,6,7]
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

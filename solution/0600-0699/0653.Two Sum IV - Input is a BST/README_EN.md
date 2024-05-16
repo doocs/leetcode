@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>root</code> of a binary search tree and an integer <code>k</code>, return <code>true</code> <em>if there exist two elements in the BST such that their sum is equal to</em> <code>k</code>, <em>or</em> <code>false</code> <em>otherwise</em>.</p>
 
 <p>&nbsp;</p>
@@ -46,6 +48,8 @@ tags:
 	<li><code>root</code> is guaranteed to be a <strong>valid</strong> binary search tree.</li>
 	<li><code>-10<sup>5</sup> &lt;= k &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

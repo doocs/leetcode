@@ -23,6 +23,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A game is played by a cat and a mouse named Cat and Mouse.</p>
 
 <p>The environment is represented by a <code>grid</code> of size <code>rows x cols</code>, where each element is a wall, floor, player (Cat, Mouse), or food.</p>
@@ -90,6 +92,8 @@ tags:
 	<li>There is only one of each character <code>&#39;C&#39;</code>, <code>&#39;M&#39;</code>, and <code>&#39;F&#39;</code> in <code>grid</code>.</li>
 	<li><code>1 &lt;= catJump, mouseJump &lt;= 8</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

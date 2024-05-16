@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a <code>wordlist</code>, we want to implement a spellchecker that converts a query word into a correct word.</p>
 
 <p>For a given <code>query</code> word, the spell checker handles two categories of spelling mistakes:</p>
@@ -66,6 +68,8 @@ tags:
 	<li><code>1 &lt;= wordlist[i].length, queries[i].length &lt;= 7</code></li>
 	<li><code>wordlist[i]</code> and <code>queries[i]</code> consist only of only English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design an iterator to flatten a 2D vector. It should support the <code>next</code> and <code>hasNext</code> operations.</p>
 
 <p>Implement the <code>Vector2D</code> class:</p>
@@ -60,6 +62,8 @@ vector2D.hasNext(); // return False
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> As an added challenge, try to code it using only <a href="http://www.cplusplus.com/reference/iterator/iterator/" target="_blank">iterators in C++</a> or <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Iterator.html" target="_blank">iterators in Java</a>.</p>
+
+<!-- description:end -->
 
 ## Solutions
 

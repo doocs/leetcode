@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer <code>num</code>, return <em>the number of digits in <code>num</code> that divide </em><code>num</code>.</p>
 
 <p>An integer <code>val</code> divides <code>nums</code> if <code>nums % val == 0</code>.</p>
@@ -52,6 +54,8 @@ tags:
 	<li><code>1 &lt;= num &lt;= 10<sup>9</sup></code></li>
 	<li><code>num</code> does not contain <code>0</code> as one of its digits.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

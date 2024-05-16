@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array <code>nums</code>​​​ and an integer <code>k</code>​​​​​. The <font face="monospace">XOR</font> of a segment <code>[left, right]</code> where <code>left &lt;= right</code> is the <code>XOR</code> of all the elements with indices between <code>left</code> and <code>right</code>, inclusive: <code>nums[left] XOR nums[left+1] XOR ... XOR nums[right]</code>.</p>
 
 <p>Return <em>the minimum number of elements to change in the array </em>such that the <code>XOR</code> of all segments of size <code>k</code>​​​​​​ is equal to zero.</p>
@@ -53,6 +55,8 @@ tags:
 	<li><code>1 &lt;= k &lt;= nums.length &lt;= 2000</code></li>
 	<li><code>​​​​​​0 &lt;= nums[i] &lt; 2<sup>10</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given the <code>root</code> of a binary tree. We install cameras on the tree nodes where each camera at a node can monitor its parent, itself, and its immediate children.</p>
 
 <p>Return <em>the minimum number of cameras needed to monitor all nodes of the tree</em>.</p>
@@ -45,6 +47,8 @@ tags:
 	<li>The number of nodes in the tree is in the range <code>[1, 1000]</code>.</li>
 	<li><code>Node.val == 0</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2677.Ch
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array <code>arr</code> and&nbsp;a chunk size&nbsp;<code>size</code>, return a&nbsp;<strong>chunked</strong> array.</p>
 
 <p>A&nbsp;<strong>chunked</strong>&nbsp;array contains the original elements in&nbsp;<code>arr</code>, but&nbsp;consists of subarrays each of length&nbsp;<code>size</code>. The length of the last subarray may be less than&nbsp;<code>size</code>&nbsp;if <code>arr.length</code>&nbsp;is not evenly divisible by <code>size</code>.</p>
@@ -60,6 +62,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2677.Ch
 	<li><code>2 &lt;= JSON.stringify(arr).length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= size &lt;= arr.length + 1</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

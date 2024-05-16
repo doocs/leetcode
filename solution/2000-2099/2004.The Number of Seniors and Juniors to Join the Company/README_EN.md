@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Candidates</code></p>
 
 <pre>
@@ -98,6 +100,8 @@ Candidates table:
 We cannot hire any seniors with the current budget as we need at least $80000 to hire one senior.
 We can hire all three juniors with the remaining budget.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

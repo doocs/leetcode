@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There are <code>n</code> cars traveling at different speeds in the same direction along a one-lane road. You are given an array <code>cars</code> of length <code>n</code>, where <code>cars[i] = [position<sub>i</sub>, speed<sub>i</sub>]</code> represents:</p>
 
 <ul>
@@ -55,6 +57,8 @@ tags:
 	<li><code>1 &lt;= position<sub>i</sub>, speed<sub>i</sub> &lt;= 10<sup>6</sup></code></li>
 	<li><code>position<sub>i</sub> &lt; position<sub>i+1</sub></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

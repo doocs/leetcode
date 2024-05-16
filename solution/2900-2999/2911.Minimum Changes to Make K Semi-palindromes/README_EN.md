@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>s</code> and an integer <code>k</code>, partition <code>s</code> into <code>k</code> <strong><span data-keyword="substring-nonempty">substrings</span></strong> such that the letter changes needed to make each substring a <strong>semi-palindrome</strong>&nbsp;are minimized.</p>
 
 <p>Return the <em><strong>minimum</strong> number of letter changes</em> required<em>.</em></p>
@@ -91,6 +93,8 @@ tags:
 	<li><code>1 &lt;= k &lt;= s.length / 2</code></li>
 	<li><code>s</code> contains only lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

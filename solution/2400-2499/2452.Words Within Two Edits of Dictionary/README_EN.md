@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two string arrays, <code>queries</code> and <code>dictionary</code>. All words in each array comprise of lowercase English letters and have the same length.</p>
 
 <p>In one <strong>edit</strong> you can take a word from <code>queries</code>, and change any letter in it to any other letter. Find all words from <code>queries</code> that, after a <strong>maximum</strong> of two edits, equal some word from <code>dictionary</code>.</p>
@@ -55,6 +57,8 @@ Applying any two edits to &quot;yes&quot; cannot make it equal to &quot;not&quot
 	<li><code>1 &lt;= n &lt;= 100</code></li>
 	<li>All <code>queries[i]</code> and <code>dictionary[j]</code> are composed of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

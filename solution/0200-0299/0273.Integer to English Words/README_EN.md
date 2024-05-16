@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Convert a non-negative integer <code>num</code> to its English words representation.</p>
 
 <p>&nbsp;</p>
@@ -46,6 +48,8 @@ tags:
 <ul>
 	<li><code>0 &lt;= num &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

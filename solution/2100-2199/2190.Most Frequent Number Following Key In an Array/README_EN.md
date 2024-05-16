@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>.<strong> </strong>You are also given an integer <code>key</code>, which is present in <code>nums</code>.</p>
 
 <p>For every unique integer <code>target</code> in <code>nums</code>, <strong>count</strong> the number of times <code>target</code> immediately follows an occurrence of <code>key</code> in <code>nums</code>. In other words, count the number of indices <code>i</code> such that:</p>
@@ -58,6 +60,8 @@ target = 2 has the maximum number of occurrences following an occurrence of key,
 	<li><code>1 &lt;= nums[i] &lt;= 1000</code></li>
 	<li>The test cases will be generated such that the answer is unique.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

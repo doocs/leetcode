@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2727.Is
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an object or an array, return if it is empty.</p>
 
 <ul>
@@ -56,6 +58,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2727.Is
 
 <p>&nbsp;</p>
 <strong>Can you solve it in O(1) time?</strong>
+
+<!-- description:end -->
 
 ## Solutions
 

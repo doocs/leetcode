@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Loans</code></p>
 
 <pre>
@@ -65,6 +67,8 @@ Loans table:
 - User_id 104 has a Mortgage loan type but doesn&#39;t have a Refinance loan type, thus, user_id 104 won&#39;t be considered.
 Output table is ordered by user_id in ascending order.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

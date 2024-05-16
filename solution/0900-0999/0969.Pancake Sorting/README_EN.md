@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of integers <code>arr</code>, sort the array by performing a series of <strong>pancake flips</strong>.</p>
 
 <p>In one pancake flip we do the following steps:</p>
@@ -62,6 +64,8 @@ Note that other answers, such as [3, 3], would also be accepted.
 	<li><code>1 &lt;= arr[i] &lt;= arr.length</code></li>
 	<li>All integers in <code>arr</code> are unique (i.e. <code>arr</code> is a permutation of the integers from <code>1</code> to <code>arr.length</code>).</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

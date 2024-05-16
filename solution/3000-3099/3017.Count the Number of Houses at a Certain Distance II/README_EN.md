@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given three <strong>positive</strong> integers <code>n</code>, <code>x</code>, and <code>y</code>.</p>
 
 <p>In a city, there exist houses numbered <code>1</code> to <code>n</code> connected by <code>n</code> streets. There is a street connecting the house numbered <code>i</code> with the house numbered <code>i + 1</code> for all <code>1 &lt;= i &lt;= n - 1</code> . An additional street connects the house numbered <code>x</code> with the house numbered <code>y</code>.</p>
@@ -73,6 +75,8 @@ tags:
 	<li><code>2 &lt;= n &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= x, y &lt;= n</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>sorted unique</strong> integer array <code>nums</code>.</p>
 
 <p>A <strong>range</strong> <code>[a,b]</code> is the set of all integers from <code>a</code> to <code>b</code> (inclusive).</p>
@@ -60,6 +62,8 @@ tags:
 	<li>All the values of <code>nums</code> are <strong>unique</strong>.</li>
 	<li><code>nums</code> is sorted in ascending order.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are implementing a program to use as your calendar. We can add a new event if adding the event will not cause a <strong>triple booking</strong>.</p>
 
 <p>A <strong>triple booking</strong> happens when three events have some non-empty intersection (i.e., some moment is common to all the three events.).</p>
@@ -57,6 +59,8 @@ myCalendarTwo.book(25, 55); // return True, The event can be booked, as the time
 	<li><code>0 &lt;= start &lt; end &lt;= 10<sup>9</sup></code></li>
 	<li>At most <code>1000</code> calls will be made to <code>book</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

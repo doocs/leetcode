@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Candidate</code></p>
 
 <pre>
@@ -86,6 +88,8 @@ Vote table:
 Candidate B has 2 votes. Candidates C, D, and E have 1 vote each.
 The winner is candidate B.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

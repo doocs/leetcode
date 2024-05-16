@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Purchases</code></p>
 
 <pre>
@@ -64,6 +66,8 @@ User 2 had two purchases on 2022-03-13 and 2022-03-20. Since the second purchase
 User 5 had only 1 purchase.
 User 7 had two purchases on the same day so we add their ID.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

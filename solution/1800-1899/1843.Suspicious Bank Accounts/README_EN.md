@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Accounts</code></p>
 
 <pre>
@@ -102,6 +104,8 @@ For account 4:
 - In 7-2021, the user had an income of 56300.
 We can see that the income exceeded the max income in May and July, but not in June. Since the account did not exceed the max income for two consecutive months, we do not include it in the result table.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

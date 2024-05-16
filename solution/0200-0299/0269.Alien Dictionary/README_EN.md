@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There is a new alien language that uses the English alphabet. However, the order of the letters is unknown to you.</p>
 
 <p>You are given a list of strings <code>words</code> from the alien language&#39;s dictionary. Now it is claimed that the strings in <code>words</code> are <span data-keyword="lexicographically-smaller-string-alien"><strong>sorted lexicographically</strong></span> by the rules of this new language.</p>
@@ -58,6 +60,8 @@ tags:
 	<li><code>1 &lt;= words[i].length &lt;= 100</code></li>
 	<li><code>words[i]</code> consists of only lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two <strong>0-indexed</strong> integer arrays <code>nums1</code> and <code>nums2</code> of equal length <code>n</code> and a positive integer <code>k</code>. You must choose a <strong>subsequence</strong> of indices from <code>nums1</code> of length <code>k</code>.</p>
 
 <p>For chosen indices <code>i<sub>0</sub></code>, <code>i<sub>1</sub></code>, ..., <code>i<sub>k - 1</sub></code>, your <strong>score</strong> is defined as:</p>
@@ -65,6 +67,8 @@ Choosing index 2 is optimal: nums1[2] * nums2[2] = 3 * 10 = 30 is the maximum po
 	<li><code>0 &lt;= nums1[i], nums2[j] &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= k &lt;= n</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

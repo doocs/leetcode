@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array <code>target</code> of n integers. From a starting array <code>arr</code> consisting of <code>n</code> 1&#39;s, you may perform the following procedure :</p>
 
 <ul>
@@ -63,6 +65,8 @@ tags:
 	<li><code>1 &lt;= n &lt;= 5 * 10<sup>4</sup></code></li>
 	<li><code>1 &lt;= target[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

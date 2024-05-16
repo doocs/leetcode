@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You have a function <code>printNumber</code> that can be called with an integer parameter and prints it to the console.</p>
 
 <ul>
@@ -63,6 +65,8 @@ One of them calls zero(), the other calls even(), and the last one calls odd().
 <ul>
 	<li><code>1 &lt;= n &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

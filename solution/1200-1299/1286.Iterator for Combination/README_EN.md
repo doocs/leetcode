@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design the <code>CombinationIterator</code> class:</p>
 
 <ul>
@@ -56,6 +58,8 @@ itr.hasNext(); // return False
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>next</code> and <code>hasNext</code>.</li>
 	<li>It is guaranteed that all calls of the function <code>next</code> are valid.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

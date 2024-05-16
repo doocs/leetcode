@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> 2D array <code>variables</code> where <code>variables[i] = [a<sub>i</sub>, b<sub>i</sub>, c<sub>i,</sub> m<sub>i</sub>]</code>, and an integer <code>target</code>.</p>
 
 <p>An index <code>i</code> is <strong>good</strong> if the following formula holds:</p>
@@ -61,6 +63,8 @@ Therefore we return [] as the answer.
 	<li><code>1 &lt;= a<sub>i</sub>, b<sub>i</sub>, c<sub>i</sub>, m<sub>i</sub> &lt;= 10<sup>3</sup></code></li>
 	<li><code><font face="monospace">0 &lt;= target &lt;= 10<sup>3</sup></font></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

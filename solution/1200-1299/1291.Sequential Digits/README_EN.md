@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>An&nbsp;integer has <em>sequential digits</em> if and only if each digit in the number is one more than the previous digit.</p>
 
 <p>Return a <strong>sorted</strong> list of all the integers&nbsp;in the range <code>[low, high]</code>&nbsp;inclusive that have sequential digits.</p>
@@ -34,6 +36,8 @@ tags:
 <ul>
 	<li><code>10 &lt;= low &lt;= high &lt;= 10^9</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

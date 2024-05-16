@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>positive</strong> integer <code>k</code>. You are also given:</p>
 
 <ul>
@@ -75,6 +77,8 @@ No matrix can satisfy all the conditions, so we return the empty matrix.
 	<li><code>above<sub>i</sub> != below<sub>i</sub></code></li>
 	<li><code>left<sub>i</sub> != right<sub>i</sub></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

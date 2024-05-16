@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer <code>n</code>, return <code>true</code> <em>if it is possible to represent </em><code>n</code><em> as the sum of distinct powers of three.</em> Otherwise, return <code>false</code>.</p>
 
 <p>An integer <code>y</code> is a power of three if there exists an integer <code>x</code> such that <code>y == 3<sup>x</sup></code>.</p>
@@ -50,6 +52,8 @@ tags:
 <ul>
 	<li><code>1 &lt;= n &lt;= 10<sup>7</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

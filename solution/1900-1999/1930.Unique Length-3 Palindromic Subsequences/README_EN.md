@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>s</code>, return <em>the number of <strong>unique palindromes of length three</strong> that are a <strong>subsequence</strong> of </em><code>s</code>.</p>
 
 <p>Note that even if there are multiple ways to obtain the same subsequence, it is still only counted <strong>once</strong>.</p>
@@ -70,6 +72,8 @@ tags:
 	<li><code>3 &lt;= s.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>s</code> consists of only lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

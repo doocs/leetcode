@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> string <code>word</code>.</p>
 
 <p>In one operation, you can pick any index <code>i</code> of <code>word</code> and change <code>word[i]</code> to any lowercase English letter.</p>
@@ -60,6 +62,8 @@ It can be shown that the minimum number of operations needed to remove all adjac
 	<li><code>1 &lt;= word.length &lt;= 100</code></li>
 	<li><code>word</code> consists only of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

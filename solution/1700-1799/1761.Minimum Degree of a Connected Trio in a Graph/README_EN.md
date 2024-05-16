@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an undirected graph. You are given an integer <code>n</code> which is the number of nodes in the graph and an array <code>edges</code>, where each <code>edges[i] = [u<sub>i</sub>, v<sub>i</sub>]</code> indicates that there is an undirected edge between <code>u<sub>i</sub></code> and <code>v<sub>i</sub></code>.</p>
 
 <p>A <strong>connected trio</strong> is a set of <strong>three</strong> nodes where there is an edge between <b>every</b> pair of them.</p>
@@ -55,6 +57,8 @@ tags:
 	<li><code>u<sub>i </sub>!= v<sub>i</sub></code></li>
 	<li>There are no repeated edges.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

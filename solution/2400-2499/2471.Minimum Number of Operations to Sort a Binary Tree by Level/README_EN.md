@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given the <code>root</code> of a binary tree with <strong>unique values</strong>.</p>
 
 <p>In one operation, you can choose any two nodes <strong>at the same level</strong> and swap their values.</p>
@@ -69,6 +71,8 @@ It can be proven that 3 is the minimum number of operations needed.
 	<li><code>1 &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
 	<li>All the values of the tree are <strong>unique</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

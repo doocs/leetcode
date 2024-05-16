@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array <code>pairs</code>, where <code>pairs[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>, and:</p>
 
 <ul>
@@ -78,6 +80,8 @@ tags:
 	<li><code>1 &lt;= x<sub>i </sub>&lt; y<sub>i</sub> &lt;= 500</code></li>
 	<li>The elements in <code>pairs</code> are unique.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

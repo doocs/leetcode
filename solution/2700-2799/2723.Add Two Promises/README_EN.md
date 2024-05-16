@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2723.Ad
 
 ## Description
 
+<!-- description:start -->
+
 Given two promises <code>promise1</code> and <code>promise2</code>, return a new promise. <code>promise1</code> and <code>promise2</code>&nbsp;will both resolve with a number. The returned promise should resolve with the sum of the two numbers.
 
 <p>&nbsp;</p>
@@ -41,6 +43,8 @@ promise2 = new Promise(resolve =&gt; setTimeout(() =&gt; resolve(-12), 30))
 <ul>
 	<li><code>promise1</code> and <code>promise2</code> are&nbsp;promises that resolve&nbsp;with a number</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

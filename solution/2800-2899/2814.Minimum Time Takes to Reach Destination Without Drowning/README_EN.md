@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an <code>n * m</code> <strong>0-indexed</strong> grid of string <code>land</code>. Right now, you are standing at the cell that contains <code>&quot;S&quot;</code>, and you want to get to the cell containing <code>&quot;D&quot;</code>. There are three other types of cells in this land:</p>
 
 <ul>
@@ -78,6 +80,8 @@ So the answer would be -1.
 	<li><strong>Exactly</strong> one of the cells is equal to <code>&quot;S&quot;</code>.</li>
 	<li><strong>Exactly</strong> one of the cells is equal to <code>&quot;D&quot;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

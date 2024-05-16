@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of integer arrays <code>arrays</code> where each <code>arrays[i]</code> is sorted in <strong>strictly increasing</strong> order, return <em>an integer array representing the <strong>longest common subsequence</strong> between <strong>all</strong> the arrays</em>.</p>
 
 <p>A <strong>subsequence</strong> is a sequence that can be derived from another sequence by deleting some elements (possibly none) without changing the order of the remaining elements.</p>
@@ -58,6 +60,8 @@ tags:
 	<li><code>1 &lt;= arrays[i][j] &lt;= 100</code></li>
 	<li><code>arrays[i]</code> is sorted in <strong>strictly increasing</strong> order.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

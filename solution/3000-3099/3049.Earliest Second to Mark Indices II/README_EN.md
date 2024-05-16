@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two <strong>1-indexed</strong> integer arrays, <code>nums</code> and, <code>changeIndices</code>, having lengths <code>n</code> and <code>m</code>, respectively.</p>
 
 <p>Initially, all indices in <code>nums</code> are unmarked. Your task is to mark <strong>all</strong> indices in <code>nums</code>.</p>
@@ -88,6 +90,8 @@ Hence, the answer is -1.
 	<li><code>1 &lt;= m == changeIndices.length &lt;= 5000</code></li>
 	<li><code>1 &lt;= changeIndices[i] &lt;= n</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

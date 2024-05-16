@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You have a 2-D <code>grid</code> of size <code>m x n</code> representing a box, and you have <code>n</code> balls. The box is open on the top and bottom sides.</p>
 
 <p>Each cell in the box has a diagonal board spanning two corners of the cell that can redirect a ball to the right or to the left.</p>
@@ -71,6 +73,8 @@ Ball b4 is dropped at column 4 and will get stuck on the box between column 2 an
 	<li><code>1 &lt;= m, n &lt;= 100</code></li>
 	<li><code>grid[i][j]</code> is <code>1</code> or <code>-1</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

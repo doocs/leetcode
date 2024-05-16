@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of integers&nbsp;<code>arr</code>, replace each element with its rank.</p>
 
 <p>The rank represents how large the element is. The rank has the following rules:</p>
@@ -58,6 +60,8 @@ tags:
 	<li><code>0 &lt;= arr.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>-10<sup>9</sup>&nbsp;&lt;= arr[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

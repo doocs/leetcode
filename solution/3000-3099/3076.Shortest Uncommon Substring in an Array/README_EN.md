@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array <code>arr</code> of size <code>n</code> consisting of <strong>non-empty</strong> strings.</p>
 
 <p>Find a string array <code>answer</code> of size <code>n</code> such that:</p>
@@ -62,6 +64,8 @@ tags:
 	<li><code>1 &lt;= arr[i].length &lt;= 20</code></li>
 	<li><code>arr[i]</code> consists only of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

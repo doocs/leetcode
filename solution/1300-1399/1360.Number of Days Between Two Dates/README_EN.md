@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Write a program to count the number of days between two dates.</p>
 
 <p>The two dates are given as strings, their format is <code>YYYY-MM-DD</code>&nbsp;as shown in the examples.</p>
@@ -35,6 +37,8 @@ tags:
 <ul>
 	<li>The given dates are valid&nbsp;dates between the years <code>1971</code> and <code>2100</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

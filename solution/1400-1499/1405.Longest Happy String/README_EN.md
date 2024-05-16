@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A string <code>s</code> is called <strong>happy</strong> if it satisfies the following conditions:</p>
 
 <ul>
@@ -56,6 +58,8 @@ tags:
 	<li><code>0 &lt;= a, b, c &lt;= 100</code></li>
 	<li><code>a + b + c &gt; 0</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

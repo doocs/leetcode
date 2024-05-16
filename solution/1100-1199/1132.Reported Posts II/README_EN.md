@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Actions</code></p>
 
 <pre>
@@ -94,6 +96,8 @@ The percentage for 2019-07-02 is 100% because one post was reported as spam and 
 The other days had no spam reports so the average is (50 + 100) / 2 = 75%
 Note that the output is only one number and that we do not care about the remove dates.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

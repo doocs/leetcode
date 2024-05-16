@@ -22,6 +22,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code> containing <strong>distinct</strong> numbers, and you can perform the following operations <strong>until the array is empty</strong>:</p>
 
 <ul>
@@ -146,6 +148,8 @@ tags:
 	<li><code>-10<sup>9&nbsp;</sup>&lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 	<li>All values in <code>nums</code> are <strong>distinct</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

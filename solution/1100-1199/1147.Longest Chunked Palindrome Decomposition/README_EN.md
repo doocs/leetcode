@@ -21,6 +21,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>text</code>. You should split it to k substrings <code>(subtext<sub>1</sub>, subtext<sub>2</sub>, ..., subtext<sub>k</sub>)</code> such that:</p>
 
 <ul>
@@ -63,6 +65,8 @@ tags:
 	<li><code>1 &lt;= text.length &lt;= 1000</code></li>
 	<li><code>text</code> consists only of lowercase English characters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

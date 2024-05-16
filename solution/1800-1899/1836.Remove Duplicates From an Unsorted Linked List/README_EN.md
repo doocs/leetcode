@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>head</code> of a linked list, find all the values that appear <strong>more than once</strong> in the list and delete the nodes that have any of those values.</p>
 
 <p>Return <em>the linked list after the deletions.</em></p>
@@ -74,6 +76,8 @@ tags:
     <li><code>1 &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
 
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

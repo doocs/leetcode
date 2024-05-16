@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A string is a <em>valid parentheses string</em>&nbsp;(denoted VPS) if and only if it consists of <code>&quot;(&quot;</code> and <code>&quot;)&quot;</code> characters only, and:</p>
 
 <ul>
@@ -72,6 +74,8 @@ tags:
 <ul>
 	<li><code>1 &lt;= seq.size &lt;= 10000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

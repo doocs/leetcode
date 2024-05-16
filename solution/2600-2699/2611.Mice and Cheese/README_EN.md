@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There are two mice and <code>n</code> different types of cheese, each type of cheese should be eaten by exactly one mouse.</p>
 
 <p>A point of the cheese with index <code>i</code> (<strong>0-indexed</strong>) is:</p>
@@ -61,6 +63,8 @@ It can be proven that 2 is the maximum total points that the mice can achieve.
 	<li><code>1 &lt;= reward1[i],&nbsp;reward2[i] &lt;= 1000</code></li>
 	<li><code>0 &lt;= k &lt;= n</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

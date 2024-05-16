@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design a class to find the <code>k<sup>th</sup></code> largest element in a stream. Note that it is the <code>k<sup>th</sup></code> largest element in the sorted order, not the <code>k<sup>th</sup></code> distinct element.</p>
 
 <p>Implement <code>KthLargest</code> class:</p>
@@ -58,6 +60,8 @@ kthLargest.add(4);   // return 8
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>add</code>.</li>
 	<li>It is guaranteed that there will be at least <code>k</code> elements in the array when you search for the <code>k<sup>th</sup></code> element.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

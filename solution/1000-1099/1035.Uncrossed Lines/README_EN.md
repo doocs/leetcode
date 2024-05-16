@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two integer arrays <code>nums1</code> and <code>nums2</code>. We write the integers of <code>nums1</code> and <code>nums2</code> (in the order they are given) on two separate horizontal lines.</p>
 
 <p>We may draw connecting lines: a straight line connecting two numbers <code>nums1[i]</code> and <code>nums2[j]</code> such that:</p>
@@ -61,6 +63,8 @@ We cannot draw 3 uncrossed lines, because the line from nums1[1] = 4 to nums2[2]
 	<li><code>1 &lt;= nums1.length, nums2.length &lt;= 500</code></li>
 	<li><code>1 &lt;= nums1[i], nums2[j] &lt;= 2000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Accounts</code></p>
 
 <pre>
@@ -70,6 +72,8 @@ Low Salary: Account 2.
 Average Salary: No accounts.
 High Salary: Accounts 3, 6, and 8.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

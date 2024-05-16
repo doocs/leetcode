@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2676.Th
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a function <code>fn</code> and&nbsp;a time in milliseconds <code>t</code>, return&nbsp;a <strong>throttled</strong> version of that function.</p>
 
 <p>A <strong>throttled</strong> function is first called without delay and then, for a time interval of <code>t</code> milliseconds, can&#39;t be executed but should store the latest function arguments provided to call <code>fn</code> with them after the end of the delay.</p>
@@ -83,6 +85,8 @@ The 5th is called at 300ms, but it is after 260ms, so it should be called immedi
 	<li><code>0 &lt;= calls[i].t &lt;= 1000</code></li>
 	<li><code>0 &lt;= calls[i].inputs[j], calls[i].inputs.length &lt;= 10</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

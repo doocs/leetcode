@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an <code>m x n</code> <code>board</code>&nbsp;of characters and a list of strings <code>words</code>, return <em>all words on the board</em>.</p>
 
 <p>Each word must be constructed from letters of sequentially adjacent cells, where <strong>adjacent cells</strong> are horizontally or vertically neighboring. The same letter cell may not be used more than once in a word.</p>
@@ -50,6 +52,8 @@ tags:
 	<li><code>words[i]</code> consists of lowercase English letters.</li>
 	<li>All the strings of <code>words</code> are unique.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

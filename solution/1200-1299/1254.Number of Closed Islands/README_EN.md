@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a 2D&nbsp;<code>grid</code> consists of <code>0s</code> (land)&nbsp;and <code>1s</code> (water).&nbsp; An <em>island</em> is a maximal 4-directionally connected group of <code><font face="monospace">0</font>s</code> and a <em>closed island</em>&nbsp;is an island <strong>totally</strong>&nbsp;(all left, top, right, bottom) surrounded by <code>1s.</code></p>
 
 <p>Return the number of <em>closed islands</em>.</p>
@@ -64,6 +66,8 @@ Islands in gray are closed because they are completely surrounded by water (grou
 	<li><code>1 &lt;= grid.length, grid[0].length &lt;= 100</code></li>
 	<li><code>0 &lt;= grid[i][j] &lt;=1</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

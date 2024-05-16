@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Triangle</code></p>
 
 <pre>
@@ -56,6 +58,8 @@ Triangle table:
 | 10 | 20 | 15 | Yes      |
 +----+----+----+----------+
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

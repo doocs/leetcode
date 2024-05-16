@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Due to a bug, there are many duplicate folders in a file system. You are given a 2D array <code>paths</code>, where <code>paths[i]</code> is an array representing an absolute path to the <code>i<sup>th</sup></code> folder in the file system.</p>
 
 <ul>
@@ -92,6 +94,8 @@ Note that the returned array can be in a different order as the order does not m
 	<li>No two paths lead to the same folder.</li>
 	<li>For any folder not at the root level, its parent folder will also be in the input.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

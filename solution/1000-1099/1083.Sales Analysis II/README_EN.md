@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Product</code></p>
 
 <pre>
@@ -86,6 +88,8 @@ Sales table:
 +-------------+
 <strong>Explanation:</strong> The buyer with id 1 bought an S8 but did not buy an iPhone. The buyer with id 3 bought both.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

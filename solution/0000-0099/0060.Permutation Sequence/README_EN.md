@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>The set <code>[1, 2, 3, ...,&nbsp;n]</code> contains a total of <code>n!</code> unique permutations.</p>
 
 <p>By listing and labeling all of the permutations in order, we get the following sequence for <code>n = 3</code>:</p>
@@ -48,6 +50,8 @@ tags:
 	<li><code>1 &lt;= n &lt;= 9</code></li>
 	<li><code>1 &lt;= k &lt;= n!</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

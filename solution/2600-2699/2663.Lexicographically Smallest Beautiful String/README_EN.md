@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A string is <strong>beautiful</strong> if:</p>
 
 <ul>
@@ -60,6 +62,8 @@ It can be proven that there is no string that is lexicographically larger than t
 	<li><code>4 &lt;= k &lt;= 26</code></li>
 	<li><code>s</code> is a beautiful string.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

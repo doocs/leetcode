@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> array of integers, <code>nums</code>. The following property holds for <code>nums</code>:</p>
 
 <ul>
@@ -72,6 +74,8 @@ So the answer would be 5.</pre>
 	<li>The input is generated such that all equal values are adjacent.</li>
 	<li>The sum of the elements of&nbsp;<code>nums</code>&nbsp;is at most&nbsp;<code>10<sup>15</sup></code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

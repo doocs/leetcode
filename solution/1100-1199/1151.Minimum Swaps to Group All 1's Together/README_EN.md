@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a&nbsp;binary array <code>data</code>, return&nbsp;the minimum number of swaps required to group all <code>1</code>&rsquo;s present in the array together in <strong>any place</strong> in the array.</p>
 
 <p>&nbsp;</p>
@@ -55,6 +57,8 @@ The minimum is 1.
 	<li><code>1 &lt;= data.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>data[i]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

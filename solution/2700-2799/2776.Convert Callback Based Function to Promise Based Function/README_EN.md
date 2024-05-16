@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2776.Co
 
 ## Description
 
+<!-- description:start -->
+
 <p>Write a function that accepts another function <code>fn</code> and converts the callback-based function&nbsp;into a promise-based function.&nbsp;</p>
 
 <p>The function <code>fn</code> takes a callback as its first argument, along with any additional arguments <code>args</code>&nbsp;passed as separate inputs.</p>
@@ -83,6 +85,8 @@ fn is called with a callback as the first argument and args as the rest. As the 
 	<li><code>1 &lt;= args.length &lt;= 100</code></li>
 	<li><code>0 &lt;= args[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

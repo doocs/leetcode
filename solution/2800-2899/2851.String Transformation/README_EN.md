@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two strings <code>s</code> and <code>t</code> of equal length <code>n</code>. You can perform the following operation on the string <code>s</code>:</p>
 
 <ul>
@@ -68,6 +70,8 @@ Choose suffix from index = 4, so resulting s = &quot;ababab&quot;.
 	<li><code>s.length == t.length</code></li>
 	<li><code>s</code> and <code>t</code> consist of only lowercase English alphabets.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

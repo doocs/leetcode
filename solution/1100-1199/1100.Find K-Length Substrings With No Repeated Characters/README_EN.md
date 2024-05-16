@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>s</code> and an integer <code>k</code>, return <em>the number of substrings in </em><code>s</code><em> of length </em><code>k</code><em> with no repeated characters</em>.</p>
 
 <p>&nbsp;</p>
@@ -45,6 +47,8 @@ tags:
 	<li><code>s</code> consists of lowercase English letters.</li>
 	<li><code>1 &lt;= k &lt;= 10<sup>4</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

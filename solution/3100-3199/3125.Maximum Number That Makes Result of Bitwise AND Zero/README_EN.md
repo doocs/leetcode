@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 Given an integer <code>n</code>, return the <strong>maximum</strong> integer <code>x</code> such that <code>x &lt;= n</code>, and the bitwise <code>AND</code> of all the numbers in the range <code>[x, n]</code> is 0.
 
 <p>&nbsp;</p>
@@ -64,6 +66,8 @@ The bitwise <code>AND</code> of <code>[3, 4, 5, 6, 7]</code> is 0.</p>
 <ul>
 	<li><code>1 &lt;= n &lt;= 10<sup>15</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

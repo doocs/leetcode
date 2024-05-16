@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There are two kinds of threads: <code>oxygen</code> and <code>hydrogen</code>. Your goal is to group these threads to form water molecules.</p>
 
 <p>There is a barrier where each thread has to wait until a complete molecule can be formed. Hydrogen and oxygen threads will be given <code>releaseHydrogen</code> and <code>releaseOxygen</code> methods respectively, which will allow them to pass the barrier. These threads should pass the barrier in groups of three, and they must immediately bond with each other to form a water molecule. You must guarantee that all the threads from one molecule bond before any other threads from the next molecule do.</p>
@@ -56,6 +58,8 @@ tags:
 	<li>There will be exactly <code>2 * n</code> <code>&#39;H&#39;</code> in <code>water</code>.</li>
 	<li>There will be exactly <code>n</code> <code>&#39;O&#39;</code> in <code>water</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

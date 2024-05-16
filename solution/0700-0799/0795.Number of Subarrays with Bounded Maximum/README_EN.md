@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code> and two integers <code>left</code> and <code>right</code>, return <em>the number of contiguous non-empty <strong>subarrays</strong> such that the value of the maximum array element in that subarray is in the range </em><code>[left, right]</code>.</p>
 
 <p>The test cases are generated so that the answer will fit in a <strong>32-bit</strong> integer.</p>
@@ -43,6 +45,8 @@ tags:
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 	<li><code>0 &lt;= left &lt;= right &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

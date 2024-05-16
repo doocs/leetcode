@@ -21,6 +21,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array <code>nums</code> of <code>n</code> positive integers and an integer <code>k</code>.</p>
 
 <p>Initially, you start with a score of <code>1</code>. You have to maximize your score by applying the following operation at most <code>k</code> times:</p>
@@ -70,6 +72,8 @@ It can be proven that 4788 is the highest score one can obtain.
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= k &lt;= min(n * (n + 1) / 2, 10<sup>9</sup>)</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

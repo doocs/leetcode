@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string of English letters <code>s</code>, return <em>the <strong>greatest </strong>English letter which occurs as <strong>both</strong> a lowercase and uppercase letter in</em> <code>s</code>. The returned letter should be in <strong>uppercase</strong>. If no such letter exists, return <em>an empty string</em>.</p>
 
 <p>An English letter <code>b</code> is <strong>greater</strong> than another letter <code>a</code> if <code>b</code> appears <strong>after</strong> <code>a</code> in the English alphabet.</p>
@@ -58,6 +60,8 @@ There is no letter that appears in both lower and upper case.
 	<li><code>1 &lt;= s.length &lt;= 1000</code></li>
 	<li><code>s</code> consists of lowercase and uppercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

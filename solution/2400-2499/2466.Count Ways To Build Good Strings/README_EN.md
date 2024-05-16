@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the integers <code>zero</code>, <code>one</code>, <code>low</code>, and <code>high</code>, we can construct a string by starting with an empty string, and then at each step perform either of the following:</p>
 
 <ul>
@@ -56,6 +58,8 @@ All binary strings from &quot;000&quot; to &quot;111&quot; are good strings in t
 	<li><code>1 &lt;= low&nbsp;&lt;= high&nbsp;&lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= zero, one &lt;= low</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

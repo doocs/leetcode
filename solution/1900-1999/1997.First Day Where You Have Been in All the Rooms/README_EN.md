@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There are <code>n</code> rooms you need to visit, labeled from <code>0</code> to <code>n - 1</code>. Each day is labeled, starting from <code>0</code>. You will go in and visit one room a day.</p>
 
 <p>Initially on day <code>0</code>, you visit room <code>0</code>. The <strong>order</strong> you visit the rooms for the coming days is determined by the following <strong>rules</strong> and a given <strong>0-indexed</strong> array <code>nextVisit</code> of length <code>n</code>:</p>
@@ -71,6 +73,8 @@ Day 6 is the first day where you have been in all the rooms.
 	<li><code>2 &lt;= n &lt;= 10<sup>5</sup></code></li>
 	<li><code>0 &lt;= nextVisit[i] &lt;= i</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

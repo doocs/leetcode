@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two <strong>0-indexed</strong> integer arrays,&nbsp;<code>cost</code> and <code>time</code>, of size <code>n</code> representing the costs and the time taken to paint <code>n</code> different walls respectively. There are two painters available:</p>
 
 <ul>
@@ -52,6 +54,8 @@ tags:
 	<li><code>1 &lt;= cost[i] &lt;= 10<sup>6</sup></code></li>
 	<li><code>1 &lt;= time[i] &lt;= 500</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

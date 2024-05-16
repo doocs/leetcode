@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>We will use a file-sharing system to share a very large file which consists of <code>m</code> small <b>chunks</b> with IDs from <code>1</code> to <code>m</code>.</p>
 
 <p>When users join the system, the system should assign <b>a unique</b> ID to them. The unique ID should be used <b>once</b> for each user, but when a user leaves the system, the ID can be <b>reused</b> again.</p>
@@ -87,6 +89,8 @@ fileSharing.join([]);        // A user who doesn&#39;t have any chunks joined th
 	<li>If all users join the system one time, request all files, and then leave, will your solution still be efficient?</li>
 	<li>If the system will be used to share <code>n</code> files where the <code>ith</code> file consists of <code>m[i]</code>, what are the changes you have to make?</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

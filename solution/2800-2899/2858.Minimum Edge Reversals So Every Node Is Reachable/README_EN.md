@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There is a <strong>simple directed graph</strong> with <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code>. The graph would form a <strong>tree</strong> if its edges were bi-directional.</p>
 
 <p>You are given an integer <code>n</code> and a <strong>2D</strong> integer array <code>edges</code>, where <code>edges[i] = [u<sub>i</sub>, v<sub>i</sub>]</code> represents a <strong>directed edge</strong> going from node <code>u<sub>i</sub></code> to node <code>v<sub>i</sub></code>.</p>
@@ -76,6 +78,8 @@ So, answer[2] = 1.
 	<li><code>u<sub>i</sub> != v<sub>i</sub></code></li>
 	<li>The input is generated such&nbsp;that if the edges were bi-directional, the graph would be a tree.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>cost</code> where <code>cost[i]</code> is the cost of <code>i<sup>th</sup></code> step on a staircase. Once you pay the cost, you can either climb one or two steps.</p>
 
 <p>You can either start from the step with index <code>0</code>, or the step with index <code>1</code>.</p>
@@ -54,6 +56,8 @@ The total cost is 6.
 	<li><code>2 &lt;= cost.length &lt;= 1000</code></li>
 	<li><code>0 &lt;= cost[i] &lt;= 999</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

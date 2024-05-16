@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Bob is standing at cell <code>(0, 0)</code>, and he wants to reach <code>destination</code>: <code>(row, column)</code>. He can only travel <strong>right</strong> and <strong>down</strong>. You are going to help Bob by providing <strong>instructions</strong> for him to reach <code>destination</code>.</p>
 
 <p>The <strong>instructions</strong> are represented as a string, where each character is either:</p>
@@ -72,6 +74,8 @@ tags:
 	<li><code>1 &lt;= row, column &lt;= 15</code></li>
 	<li><code>1 &lt;= k &lt;= nCr(row + column, row)</code>, where <code>nCr(a, b)</code> denotes <code>a</code> choose <code>b</code>​​​​​.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

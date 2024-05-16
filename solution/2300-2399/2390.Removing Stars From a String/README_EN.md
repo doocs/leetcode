@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>s</code>, which contains stars <code>*</code>.</p>
 
 <p>In one operation, you can:</p>
@@ -64,6 +66,8 @@ There are no more stars, so we return &quot;lecoe&quot;.</pre>
 	<li><code>s</code> consists of lowercase English letters and stars <code>*</code>.</li>
 	<li>The operation above can be performed on <code>s</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

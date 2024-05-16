@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> 2D matrix <code>grid</code> of size <code>n x n</code>, where <code>(r, c)</code> represents:</p>
 
 <ul>
@@ -76,6 +78,8 @@ It can be shown that there are no other paths with a higher safeness factor.
 	<li><code>grid[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
 	<li>There is at least one thief in the <code>grid</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

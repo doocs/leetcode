@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A valid parentheses string is either empty <code>&quot;&quot;</code>, <code>&quot;(&quot; + A + &quot;)&quot;</code>, or <code>A + B</code>, where <code>A</code> and <code>B</code> are valid parentheses strings, and <code>+</code> represents string concatenation.</p>
 
 <ul>
@@ -68,6 +70,8 @@ After removing outer parentheses of each part, this is &quot;&quot; + &quot;&quo
 	<li><code>s[i]</code> is either <code>&#39;(&#39;</code> or <code>&#39;)&#39;</code>.</li>
 	<li><code>s</code> is a valid parentheses string.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

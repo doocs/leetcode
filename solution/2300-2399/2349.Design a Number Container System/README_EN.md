@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design a number container system that can do the following:</p>
 
 <ul>
@@ -63,6 +65,8 @@ nc.find(10); // Number 10 is at the indices 2, 3, and 5. The smallest index that
 	<li><code>1 &lt;= index, number &lt;= 10<sup>9</sup></code></li>
 	<li>At most <code>10<sup>5</sup></code> calls will be made <strong>in total</strong> to <code>change</code> and <code>find</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code> (<strong>0-indexed</strong>). In one operation, you can choose an element of the array and increment it by <code>1</code>.</p>
 
 <ul>
@@ -80,6 +82,8 @@ tags:
     <li><code>1 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

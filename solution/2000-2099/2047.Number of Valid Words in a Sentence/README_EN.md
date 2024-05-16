@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A sentence consists of lowercase letters (<code>&#39;a&#39;</code> to <code>&#39;z&#39;</code>), digits (<code>&#39;0&#39;</code> to <code>&#39;9&#39;</code>), hyphens (<code>&#39;-&#39;</code>), punctuation marks (<code>&#39;!&#39;</code>, <code>&#39;.&#39;</code>, and <code>&#39;,&#39;</code>), and spaces (<code>&#39; &#39;</code>) only. Each sentence can be broken down into <strong>one or more tokens</strong> separated by one or more spaces <code>&#39; &#39;</code>.</p>
 
 <p>A token is a valid word if <strong>all three</strong> of the following are true:</p>
@@ -66,6 +68,8 @@ tags:
 	<li><code>sentence</code> only contains lowercase English letters, digits, <code>&#39; &#39;</code>, <code>&#39;-&#39;</code>, <code>&#39;!&#39;</code>, <code>&#39;.&#39;</code>, and <code>&#39;,&#39;</code>.</li>
 	<li>There will be at least&nbsp;<code>1</code> token.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You have an infinite number of stacks arranged in a row and numbered (left to right) from <code>0</code>, each of the stacks has the same maximum capacity.</p>
 
 <p>Implement the <code>DinnerPlates</code> class:</p>
@@ -84,6 +86,8 @@ D.pop()            // Returns -1.  There are still no stacks.
 	<li><code>0 &lt;= index &lt;= 10<sup>5</sup></code></li>
 	<li>At most <code>2 * 10<sup>5</sup></code> calls will be made to <code>push</code>, <code>pop</code>, and <code>popAtStack</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

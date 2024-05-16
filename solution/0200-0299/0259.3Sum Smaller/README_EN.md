@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of <code>n</code> integers <code>nums</code> and an integer&nbsp;<code>target</code>, find the number of index triplets <code>i</code>, <code>j</code>, <code>k</code> with <code>0 &lt;= i &lt; j &lt; k &lt; n</code> that satisfy the condition <code>nums[i] + nums[j] + nums[k] &lt; target</code>.</p>
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -52,6 +54,8 @@ tags:
 	<li><code>-100 &lt;= nums[i] &lt;= 100</code></li>
 	<li><code>-100 &lt;= target &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

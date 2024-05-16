@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two positive integers <code>n</code> and <code>target</code>.</p>
 
 <p>An integer is considered <strong>beautiful</strong> if the sum of its digits is less than or equal to <code>target</code>.</p>
@@ -56,6 +58,8 @@ tags:
 	<li><code>1 &lt;= target &lt;= 150</code></li>
 	<li>The input will be generated such that it is always possible to make <code>n</code> beautiful.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

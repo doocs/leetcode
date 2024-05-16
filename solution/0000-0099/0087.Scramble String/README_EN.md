@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>We can scramble a string s to get a string t using the following algorithm:</p>
 
 <ol>
@@ -69,6 +71,8 @@ As one possible scenario led s1 to be scrambled to s2, we return true.
 	<li><code>1 &lt;= s1.length &lt;= 30</code></li>
 	<li><code>s1</code> and <code>s2</code> consist of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

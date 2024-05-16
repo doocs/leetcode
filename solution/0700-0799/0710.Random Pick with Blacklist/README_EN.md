@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer <code>n</code> and an array of <strong>unique</strong> integers <code>blacklist</code>. Design an algorithm to pick a random integer in the range <code>[0, n - 1]</code> that is <strong>not</strong> in <code>blacklist</code>. Any integer that is in the mentioned range and not in <code>blacklist</code> should be <strong>equally likely</strong> to be returned.</p>
 
 <p>Optimize your algorithm such that it minimizes the number of calls to the <strong>built-in</strong> random function of your language.</p>
@@ -62,6 +64,8 @@ solution.pick(); // return 4
 	<li>All the values of <code>blacklist</code> are <strong>unique</strong>.</li>
 	<li>At most <code>2 * 10<sup>4</sup></code> calls will be made to <code>pick</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Implement the <code>BSTIterator</code> class that represents an iterator over the <strong><a href="https://en.wikipedia.org/wiki/Tree_traversal#In-order_(LNR)">in-order traversal</a></strong> of a binary search tree (BST):</p>
 
 <ul>
@@ -73,6 +75,8 @@ bSTIterator.prev(); // state becomes [3, 7, <u>9</u>, 15, 20], return 9
 
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Could you solve the problem without precalculating the values of the tree?
+
+<!-- description:end -->
 
 ## Solutions
 

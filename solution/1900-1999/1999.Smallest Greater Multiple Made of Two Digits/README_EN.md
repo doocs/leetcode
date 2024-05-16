@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given three integers, <code>k</code>, <code>digit1</code>, and <code>digit2</code>, you want to find the <strong>smallest</strong> integer that is:</p>
 
 <ul>
@@ -61,6 +63,8 @@ tags:
 	<li><code>0 &lt;= digit1 &lt;= 9</code></li>
 	<li><code>0 &lt;= digit2 &lt;= 9</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 Given a string <code>s</code>, return the <strong>maximum</strong> length of a <span data-keyword="substring">substring</span>&nbsp;such that it contains <em>at most two occurrences</em> of each character.
 
 <p>&nbsp;</p>
@@ -48,6 +50,8 @@ The following substring has a length of 2 and contains at most two occurrences o
 	<li><code>2 &lt;= s.length &lt;= 100</code></li>
 	<li><code>s</code> consists only of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

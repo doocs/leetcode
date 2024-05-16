@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>s</code> and an integer <code>k</code>, a <code>k</code> <strong>duplicate removal</strong> consists of choosing <code>k</code> adjacent and equal letters from <code>s</code> and removing them, causing the left and the right side of the deleted substring to concatenate together.</p>
 
 <p>We repeatedly make <code>k</code> <strong>duplicate removals</strong> on <code>s</code> until we no longer can.</p>
@@ -56,6 +58,8 @@ Finally delete &quot;ddd&quot;, get &quot;aa&quot;</pre>
 	<li><code>2 &lt;= k &lt;= 10<sup>4</sup></code></li>
 	<li><code>s</code> only contains lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

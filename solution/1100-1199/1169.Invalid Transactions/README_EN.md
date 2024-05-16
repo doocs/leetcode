@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A transaction is possibly invalid if:</p>
 
 <ul>
@@ -62,6 +64,8 @@ tags:
 	<li>Each <code>{time}</code> consist of digits, and represent an integer between <code>0</code> and <code>1000</code>.</li>
 	<li>Each <code>{amount}</code> consist of digits, and represent an integer between <code>0</code> and <code>2000</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

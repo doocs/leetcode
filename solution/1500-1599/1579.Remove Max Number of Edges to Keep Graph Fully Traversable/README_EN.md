@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Alice and Bob have an undirected graph of <code>n</code> nodes and three types of edges:</p>
 
 <ul>
@@ -72,6 +74,8 @@ tags:
 	<li><code>1 &lt;= u<sub>i</sub> &lt; v<sub>i</sub> &lt;= n</code></li>
 	<li>All tuples <code>(type<sub>i</sub>, u<sub>i</sub>, v<sub>i</sub>)</code> are distinct.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

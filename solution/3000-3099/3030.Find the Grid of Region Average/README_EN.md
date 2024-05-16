@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> <code>m x n</code> grid <code>image</code> which represents a grayscale image, where <code>image[i][j]</code> represents a pixel with intensity in the range<code>[0..255]</code>. You are also given a <strong>non-negative</strong> integer <code>threshold</code>.</p>
 
 <p>Two pixels <code>image[a][b]</code> and <code>image[c][d]</code> are said to be <strong>adjacent</strong> if <code>|a - c| + |b - d| == 1</code>.</p>
@@ -63,6 +65,8 @@ Please note that the rounded-down values are used when calculating the average o
 	<li><code>0 &lt;= image[i][j] &lt;= 255</code></li>
 	<li><code>0 &lt;= threshold &lt;= 255</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

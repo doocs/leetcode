@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>As the ruler of a kingdom, you have an army of wizards at your command.</p>
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>strength</code>, where <code>strength[i]</code> denotes the strength of the <code>i<sup>th</sup></code> wizard. For a <strong>contiguous</strong> group of wizards (i.e. the wizards&#39; strengths form a <strong>subarray</strong> of <code>strength</code>), the <strong>total strength</strong> is defined as the <strong>product</strong> of the following two values:</p>
@@ -74,6 +76,8 @@ The sum of all the total strengths is 25 + 16 + 36 + 36 + 40 + 60 = 213.
 	<li><code>1 &lt;= strength.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= strength[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

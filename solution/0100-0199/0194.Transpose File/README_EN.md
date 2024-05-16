@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a text file <code>file.txt</code>, transpose its content.</p>
 
 <p>You may assume that each row has the same number of columns, and each field is separated by the <code>&#39; &#39;</code> character.</p>
@@ -34,6 +36,8 @@ ryan 30
 name alice ryan
 age 21 30
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

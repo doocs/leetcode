@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code><font face="monospace">Users</font></code></p>
 
 <pre>
@@ -91,6 +93,8 @@ Rides table:
 -  User id 16 completed only one journey of 160.
 -  User id 10 did not complete any journeys, thus the total travel distance remains at 0.
 Returning the table orderd by user_id in ascending order.</pre>
+
+<!-- description:end -->
 
 ## Solutions
 

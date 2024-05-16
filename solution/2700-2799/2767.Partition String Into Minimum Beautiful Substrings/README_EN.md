@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a binary string <code>s</code>, partition the string into one or more <strong>substrings</strong> such that each substring is <strong>beautiful</strong>.</p>
 
 <p>A string is <strong>beautiful</strong> if:</p>
@@ -69,6 +71,8 @@ It can be shown that 3 is the minimum number of beautiful substrings that s can 
 	<li><code>1 &lt;= s.length &lt;= 15</code></li>
 	<li><code>s[i]</code> is either <code>&#39;0&#39;</code> or <code>&#39;1&#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

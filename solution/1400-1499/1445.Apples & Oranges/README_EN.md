@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Sales</code></p>
 
 <pre>
@@ -69,6 +71,8 @@ Day 2020-05-02, 15 apples and 15 oranges were sold (Difference 15 - 15 = 0).
 Day 2020-05-03, 20 apples and 0 oranges were sold (Difference 20 - 0 = 20).
 Day 2020-05-04, 15 apples and 16 oranges were sold (Difference 15 - 16 = -1).
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

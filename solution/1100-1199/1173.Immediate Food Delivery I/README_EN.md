@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Delivery</code></p>
 
 <pre>
@@ -61,6 +63,8 @@ Delivery table:
 +----------------------+
 <strong>Explanation:</strong> The orders with delivery id 2 and 3 are immediate while the others are scheduled.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

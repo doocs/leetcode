@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>s</code> of length <code>n</code> where <code>s[i]</code> is either:</p>
 
 <ul>
@@ -61,6 +63,8 @@ tags:
 	<li><code>1 &lt;= n &lt;= 200</code></li>
 	<li><code>s[i]</code> is either <code>&#39;I&#39;</code> or <code>&#39;D&#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

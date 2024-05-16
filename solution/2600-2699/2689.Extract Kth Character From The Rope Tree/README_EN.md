@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given the <code>root</code> of a binary tree and an integer <code>k</code>. Besides the left and right children, every node of this tree has two other properties, a <strong>string</strong> <code>node.val</code> containing only lowercase English letters (possibly empty) and a non-negative integer <code>node.len</code>. There are two types of nodes in this tree:</p>
 
 <ul>
@@ -80,6 +82,8 @@ You can see that S[root] = &quot;ropetree&quot;. So S[root][7], which represents
 	<li>for internal nodes, <code>node.len &gt; 0</code> and <code>node.val</code> is empty</li>
 	<li><code>1 &lt;= k &lt;= S[root].length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

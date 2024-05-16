@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Products</code></p>
 
 <pre>
@@ -60,6 +62,8 @@ Products table:
 | 3          | 10    |
 +------------+-------+
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code><font face="monospace">Spotify</font></code></p>
 
 <pre>
@@ -60,6 +62,8 @@ Each row contains an id, track_name, and artist.
 
 <strong>Explanation: </strong>The count of occurrences is listed in descending order under the column name &quot;occurrences&quot;. If the number of occurrences is the same, the artist&#39;s names are sorted in ascending order.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

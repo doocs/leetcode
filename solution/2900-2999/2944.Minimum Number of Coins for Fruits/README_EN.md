@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are at a fruit market with different types of exotic fruits on display.</p>
 
 <p>You are given a <strong>1-indexed</strong> array <code>prices</code>, where <code>prices[i]</code> denotes the number of coins needed to purchase the <code>i<sup>th</sup></code> fruit.</p>
@@ -68,6 +70,8 @@ It can be proven that 2 is the minimum number of coins needed to acquire all the
 	<li><code>1 &lt;= prices.length &lt;= 1000</code></li>
 	<li><code>1 &lt;= prices[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

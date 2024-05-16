@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>The power of an integer <code>x</code> is defined as the number of steps needed to transform <code>x</code> into <code>1</code> using the following steps:</p>
 
 <ul>
@@ -64,6 +66,8 @@ The fourth number in the sorted array is 7.
 	<li><code>1 &lt;= lo &lt;= hi &lt;= 1000</code></li>
 	<li><code>1 &lt;= k &lt;= hi - lo + 1</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

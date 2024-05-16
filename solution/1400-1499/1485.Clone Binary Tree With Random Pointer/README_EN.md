@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A binary tree is given such that each node contains an additional random pointer which could point to any node in the tree or null.</p>
 
 <p>Return a <a href="https://en.wikipedia.org/wiki/Object_copying#Deep_copy" target="_blank"><strong>deep copy</strong></a> of the tree.</p>
@@ -65,6 +67,8 @@ The random pointer of node 7 is node 1, so it is represented as [7, 0] where 0 i
 	<li>The number of nodes in the <code>tree</code> is in the range <code>[0, 1000].</code></li>
 	<li><code>1 &lt;= Node.val &lt;= 10<sup>6</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

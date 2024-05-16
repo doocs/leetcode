@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design and implement a data structure for a <a href="https://en.wikipedia.org/wiki/Least_frequently_used" target="_blank">Least Frequently Used (LFU)</a> cache.</p>
 
 <p>Implement the <code>LFUCache</code> class:</p>
@@ -77,6 +79,8 @@ lfu.get(4);      // return 4
 
 <p>&nbsp;</p>
 <span style="display: none;">&nbsp;</span>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code><font face="monospace">Bikes</font></code></p>
 
 <pre>
@@ -68,6 +70,8 @@ Returning output in order by the bike that were most recently used.
 </pre>
 
 <p>&nbsp;</p>
+
+<!-- description:end -->
 
 ## Solutions
 

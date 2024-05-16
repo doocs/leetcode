@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2694.Ev
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design an <code>EventEmitter</code> class. This interface&nbsp;is similar (but with some differences) to the one found in Node.js or the Event Target interface of the DOM. The <code>EventEmitter</code> should allow for subscribing to events and emitting them.</p>
 
 <p>Your <code>EventEmitter</code> class should have the following two methods:</p>
@@ -96,6 +98,8 @@ emitter.emit(&quot;firstEvent&quot;, [5]); // [7]</pre>
 	<li>The <code>subscribe</code> action takes 2 arguments, where the first one is the event name and the second is the callback function.</li>
 	<li>The <code>unsubscribe</code>&nbsp;action takes one argument, which is the 0-indexed order of the subscription made before.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

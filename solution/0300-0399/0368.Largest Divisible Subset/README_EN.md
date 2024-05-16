@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a set of <strong>distinct</strong> positive integers <code>nums</code>, return the largest subset <code>answer</code> such that every pair <code>(answer[i], answer[j])</code> of elements in this subset satisfies:</p>
 
 <ul>
@@ -50,6 +52,8 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 2 * 10<sup>9</sup></code></li>
 	<li>All the integers in <code>nums</code> are <strong>unique</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

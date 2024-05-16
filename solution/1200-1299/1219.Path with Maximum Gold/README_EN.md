@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>In a gold mine <code>grid</code> of size <code>m x n</code>, each cell in this mine has an integer representing the amount of gold in that cell, <code>0</code> if it is empty.</p>
 
 <p>Return the maximum amount of gold you can collect under the conditions:</p>
@@ -67,6 +69,8 @@ Path to get the maximum gold, 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; 6 -&gt; 7.
 	<li><code>0 &lt;= grid[i][j] &lt;= 100</code></li>
 	<li>There are at most <strong>25 </strong>cells containing gold.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

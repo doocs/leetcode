@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a binary array <code>nums</code> and an integer <code>k</code>, return <em>the maximum number of consecutive </em><code>1</code><em>&#39;s in the array if you can flip at most</em> <code>k</code> <code>0</code>&#39;s.</p>
 
 <p>&nbsp;</p>
@@ -47,6 +49,8 @@ Bolded numbers were flipped from 0 to 1. The longest subarray is underlined.
 	<li><code>nums[i]</code> is either <code>0</code> or <code>1</code>.</li>
 	<li><code>0 &lt;= k &lt;= nums.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

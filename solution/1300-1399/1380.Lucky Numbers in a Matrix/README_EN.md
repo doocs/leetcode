@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an <code>m x n</code> matrix of <strong>distinct </strong>numbers, return <em>all <strong>lucky numbers</strong> in the matrix in <strong>any </strong>order</em>.</p>
 
 <p>A <strong>lucky number</strong> is an element of the matrix such that it is the minimum element in its row and maximum in its column.</p>
@@ -56,6 +58,8 @@ tags:
 	<li><code>1 &lt;= matrix[i][j] &lt;= 10<sup>5</sup></code>.</li>
 	<li>All elements in the matrix are distinct.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

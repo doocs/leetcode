@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Transactions</code></p>
 
 <pre>
@@ -86,6 +88,8 @@ Chargebacks table:
 | 2019-09 | US      | 0              | 0               | 1                | 5000              |
 +---------+---------+----------------+-----------------+------------------+-------------------+
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

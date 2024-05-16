@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>s</code> and a dictionary of strings <code>wordDict</code>, return <code>true</code> if <code>s</code> can be segmented into a space-separated sequence of one or more dictionary words.</p>
 
 <p><strong>Note</strong> that the same word in the dictionary may be reused multiple times in the segmentation.</p>
@@ -58,6 +60,8 @@ Note that you are allowed to reuse a dictionary word.
 	<li><code>s</code> and <code>wordDict[i]</code> consist of only lowercase English letters.</li>
 	<li>All the strings of <code>wordDict</code> are <strong>unique</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

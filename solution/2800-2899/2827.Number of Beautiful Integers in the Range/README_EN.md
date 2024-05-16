@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given positive integers <code>low</code>, <code>high</code>, and <code>k</code>.</p>
 
 <p>A number is <strong>beautiful</strong> if it meets both of the following conditions:</p>
@@ -69,6 +71,8 @@ It can be shown that there is only 1 beautiful integer in the given range.
 	<li><code>0 &lt; low &lt;= high &lt;= 10<sup>9</sup></code></li>
 	<li><code>0 &lt; k &lt;= 20</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

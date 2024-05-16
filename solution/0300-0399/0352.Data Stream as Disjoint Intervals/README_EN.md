@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a data stream input of non-negative integers <code>a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub></code>, summarize the numbers seen so far as a list of disjoint intervals.</p>
 
 <p>Implement the <code>SummaryRanges</code> class:</p>
@@ -61,6 +63,8 @@ summaryRanges.getIntervals(); // return [[1, 3], [6, 7]]
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> What if there are lots of merges and the number of disjoint intervals is small compared to the size of the data stream?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

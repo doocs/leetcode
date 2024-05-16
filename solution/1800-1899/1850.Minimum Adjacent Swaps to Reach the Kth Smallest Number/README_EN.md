@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>num</code>, representing a large integer, and an integer <code>k</code>.</p>
 
 <p>We call some integer <strong>wonderful</strong> if it is a <strong>permutation</strong> of the digits in <code>num</code> and is <strong>greater in value</strong> than <code>num</code>. There can be many wonderful integers. However, we only care about the <strong>smallest-valued</strong> ones.</p>
@@ -79,6 +81,8 @@ tags:
 	<li><code>1 &lt;= k &lt;= 1000</code></li>
 	<li><code>num</code> only consists of digits.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

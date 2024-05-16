@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Delivery</code></p>
 
 <pre>
@@ -73,6 +75,8 @@ Delivery table:
 - On 2019-08-04 there were two orders, both were scheduled. So, the immediate percentage for that date was 0.00.
 order_date is sorted in ascending order.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

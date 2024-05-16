@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Orders</code></p>
 
 <pre>
@@ -62,6 +64,8 @@ So the result is customer_number 3.
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> What if more than one customer has the largest number of orders, can you find all the <code>customer_number</code> in this case?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

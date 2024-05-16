@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>LeetCode company workers use key-cards to unlock office doors. Each time a worker uses their key-card, the security system saves the worker&#39;s name and the time when it was used. The system emits an <strong>alert</strong> if any worker uses the key-card <strong>three or more times</strong> in a one-hour period.</p>
 
 <p>You are given a list of strings <code>keyName</code> and <code>keyTime</code> where <code>[keyName[i], keyTime[i]]</code> corresponds to a person&#39;s name and the time when their key-card was used <strong>in a</strong> <strong>single day</strong>.</p>
@@ -57,6 +59,8 @@ tags:
 	<li><code>1 &lt;= keyName[i].length &lt;= 10</code></li>
 	<li><code>keyName[i] contains only lowercase English letters.</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

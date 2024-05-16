@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a <code>m x n</code> matrix <code>grid</code> which is sorted in non-increasing order both row-wise and column-wise, return <em>the number of <strong>negative</strong> numbers in</em> <code>grid</code>.</p>
 
 <p>&nbsp;</p>
@@ -48,6 +50,8 @@ tags:
 
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Could you find an <code>O(n + m)</code> solution?
+
+<!-- description:end -->
 
 ## Solutions
 

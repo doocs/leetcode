@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two arrays <code>arr1</code> and <code>arr2</code>, the elements of <code>arr2</code> are distinct, and all elements in <code>arr2</code> are also in <code>arr1</code>.</p>
 
 <p>Sort the elements of <code>arr1</code> such that the relative ordering of items in <code>arr1</code> are the same as in <code>arr2</code>. Elements that do not appear in <code>arr2</code> should be placed at the end of <code>arr1</code> in <strong>ascending</strong> order.</p>
@@ -47,6 +49,8 @@ tags:
 	<li>All the elements of <code>arr2</code> are <strong>distinct</strong>.</li>
 	<li>Each&nbsp;<code>arr2[i]</code> is in <code>arr1</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

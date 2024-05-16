@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Visits</code></p>
 
 <pre>
@@ -112,6 +114,8 @@ Transactions table:
 * For transactions_count = 3, The visit (9, &quot;2020-01-25&quot;) did three transactions so visits_count = 1.
 * For transactions_count &gt;= 4, No customers visited the bank and did more than three transactions so we will stop at transactions_count = 3
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

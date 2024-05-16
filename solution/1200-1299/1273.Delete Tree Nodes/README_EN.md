@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A tree rooted at node 0 is given as follows:</p>
 
 <ul>
@@ -58,6 +60,8 @@ tags:
 	<li><code>-10<sup>5</sup> &lt;= value[i] &lt;= 10<sup>5</sup></code></li>
 	<li>The given input is <strong>guaranteed</strong> to represent a <strong>valid tree</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

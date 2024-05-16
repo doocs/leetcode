@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>arr</code>.</p>
 
 <p>We split <code>arr</code> into some number of <strong>chunks</strong> (i.e., partitions), and individually sort each chunk. After concatenating them, the result should equal the sorted array.</p>
@@ -52,6 +54,8 @@ However, splitting into [2, 1], [3], [4], [4] is the highest number of chunks po
 	<li><code>1 &lt;= arr.length &lt;= 2000</code></li>
 	<li><code>0 &lt;= arr[i] &lt;= 10<sup>8</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

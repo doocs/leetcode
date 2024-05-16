@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There is a row of <code>m</code> houses in a small city, each house must be painted with one of the <code>n</code> colors (labeled from <code>1</code> to <code>n</code>), some houses that have been painted last summer should not be painted again.</p>
 
 <p>A neighborhood is a maximal group of continuous houses that are painted with the same color.</p>
@@ -75,6 +77,8 @@ Cost of paint the first and last house (10 + 1) = 11.
 	<li><code>0 &lt;= houses[i] &lt;= n</code></li>
 	<li><code>1 &lt;= cost[i][j] &lt;= 10<sup>4</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

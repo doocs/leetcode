@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a stream of integers and a window size, calculate the moving average of all integers in the sliding window.</p>
 
 <p>Implement the&nbsp;<code>MovingAverage</code> class:</p>
@@ -52,6 +54,8 @@ movingAverage.next(5); // return 6.0 = (10 + 3 + 5) / 3
 	<li><code>-10<sup>5</sup> &lt;= val &lt;= 10<sup>5</sup></code></li>
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>next</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

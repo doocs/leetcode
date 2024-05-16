@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Orders</code></p>
 
 <pre>
@@ -87,6 +89,8 @@ Customer 3: The first year is 2017, and the last year is 2018
   - 2018: 900
  We do not include customer 3 in the answer because the total purchases are not strictly increasing.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

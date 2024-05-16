@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two integers, <code>m</code> and <code>k</code>, and a stream of integers. You are tasked to implement a data structure that calculates the <strong>MKAverage</strong> for the stream.</p>
 
 <p>The <strong>MKAverage</strong> can be calculated using these steps:</p>
@@ -74,6 +76,8 @@ obj.calculateMKAverage(); // The last 3 elements are [5,5,5].
 	<li><code>1 &lt;= num &lt;= 10<sup>5</sup></code></li>
 	<li>At most <code>10<sup>5</sup></code> calls will be made to <code>addElement</code> and <code>calculateMKAverage</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

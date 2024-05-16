@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given <code>n</code> non-negative integers representing an elevation map where the width of each bar is <code>1</code>, compute how much water it can trap after raining.</p>
 
 <p>&nbsp;</p>
@@ -44,6 +46,8 @@ tags:
 	<li><code>1 &lt;= n &lt;= 2 * 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= height[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

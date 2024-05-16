@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>International Morse Code defines a standard encoding where each letter is mapped to a series of dots and dashes, as follows:</p>
 
 <ul>
@@ -66,6 +68,8 @@ There are 2 different transformations: &quot;--...-.&quot; and &quot;--...--.&qu
 	<li><code>1 &lt;= words[i].length &lt;= 12</code></li>
 	<li><code>words[i]</code> consists of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

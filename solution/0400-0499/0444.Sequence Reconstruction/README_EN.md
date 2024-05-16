@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code> of length <code>n</code> where <code>nums</code> is a permutation of the integers in the range <code>[1, n]</code>. You are also given a 2D integer array <code>sequences</code> where <code>sequences[i]</code> is a subsequence of <code>nums</code>.</p>
 
 <p>Check if <code>nums</code> is the shortest possible and the only <strong>supersequence</strong>. The shortest <strong>supersequence</strong> is a sequence <strong>with the shortest length</strong> and has all <code>sequences[i]</code> as subsequences. There could be multiple valid <strong>supersequences</strong> for the given array <code>sequences</code>.</p>
@@ -77,6 +79,8 @@ Since nums is the only shortest supersequence, we return true.
 	<li>All the arrays of <code>sequences</code> are <strong>unique</strong>.</li>
 	<li><code>sequences[i]</code> is a subsequence of <code>nums</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

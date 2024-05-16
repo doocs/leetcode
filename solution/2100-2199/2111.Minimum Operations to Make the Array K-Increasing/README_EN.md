@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> array <code>arr</code> consisting of <code>n</code> positive integers, and a positive integer <code>k</code>.</p>
 
 <p>The array <code>arr</code> is called <strong>K-increasing</strong> if <code>arr[i-k] &lt;= arr[i]</code> holds for every index <code>i</code>, where <code>k &lt;= i &lt;= n-1</code>.</p>
@@ -81,6 +83,8 @@ Note that there can be other ways to make the array K-increasing, but none of th
 	<li><code>1 &lt;= arr.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= arr[i], k &lt;= arr.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

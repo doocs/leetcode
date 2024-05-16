@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code>, return <em>the most frequent even element</em>.</p>
 
 <p>If there is a tie, return the <strong>smallest</strong> one. If there is no such element, return <code>-1</code>.</p>
@@ -55,6 +57,8 @@ We return the smallest one, which is 2.</pre>
 	<li><code>1 &lt;= nums.length &lt;= 2000</code></li>
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

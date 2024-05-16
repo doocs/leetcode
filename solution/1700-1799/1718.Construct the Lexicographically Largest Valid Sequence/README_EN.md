@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer <code>n</code>, find a sequence that satisfies all of the following:</p>
 
 <ul>
@@ -53,6 +55,8 @@ tags:
 <ul>
 	<li><code>1 &lt;= n &lt;= 20</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

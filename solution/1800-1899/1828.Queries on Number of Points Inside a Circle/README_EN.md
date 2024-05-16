@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array <code>points</code> where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> is the coordinates of the <code>i<sup>th</sup></code> point on a 2D plane. Multiple points can have the <strong>same</strong> coordinates.</p>
 
 <p>You are also given an array <code>queries</code> where <code>queries[j] = [x<sub>j</sub>, y<sub>j</sub>, r<sub>j</sub>]</code> describes a circle centered at <code>(x<sub>j</sub>, y<sub>j</sub>)</code> with a radius of <code>r<sub>j</sub></code>.</p>
@@ -61,6 +63,8 @@ queries[0] is green, queries[1] is red, queries[2] is blue, and queries[3] is pu
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you find the answer for each query in better complexity than <code>O(n)</code>?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

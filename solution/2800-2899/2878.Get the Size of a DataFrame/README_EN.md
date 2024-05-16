@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2878.Ge
 
 ## Description
 
+<!-- description:start -->
+
 <pre>
 DataFrame <code>players:</code>
 +-------------+--------+
@@ -57,6 +59,8 @@ Output:
 <strong>Explanation:</strong>
 This DataFrame contains 10 rows and 5 columns.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

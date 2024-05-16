@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A word is considered <strong>valid</strong> if:</p>
 
 <ul>
@@ -80,6 +82,8 @@ tags:
 	<li><code>1 &lt;= word.length &lt;= 20</code></li>
 	<li><code>word</code> consists of English uppercase and lowercase letters, digits, <code>&#39;@&#39;</code>, <code>&#39;#&#39;</code>, and <code>&#39;$&#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

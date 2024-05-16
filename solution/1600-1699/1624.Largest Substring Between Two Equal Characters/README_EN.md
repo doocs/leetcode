@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>s</code>, return <em>the length of the longest substring between two equal characters, excluding the two characters.</em> If there is no such substring return <code>-1</code>.</p>
 
 <p>A <strong>substring</strong> is a contiguous sequence of characters within a string.</p>
@@ -52,6 +54,8 @@ tags:
 	<li><code>1 &lt;= s.length &lt;= 300</code></li>
 	<li><code>s</code> contains only lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

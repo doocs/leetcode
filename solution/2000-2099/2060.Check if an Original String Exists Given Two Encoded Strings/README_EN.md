@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>An original string, consisting of lowercase English letters, can be encoded by the following steps:</p>
 
 <ul>
@@ -88,6 +90,8 @@ tags:
 	<li><code>s1</code> and <code>s2</code> consist of digits <code>1-9</code> (inclusive), and lowercase English letters only.</li>
 	<li>The number of consecutive digits in <code>s1</code> and <code>s2</code> does not exceed <code>3</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array of unique positive integers <code>nums</code>. Consider the following graph:</p>
 
 <ul>
@@ -57,6 +59,8 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 	<li>All the values of <code>nums</code> are <strong>unique</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Customers</code></p>
 
 <pre>
@@ -119,6 +121,8 @@ Winston spent $300 (300 * 1) in June and $100 ( 10 * 1 + 45 * 2) in July 2020.
 Jonathan spent $600 (300 * 2) in June and $20 ( 2 * 10) in July 2020.
 Moustafa spent $110 (10 * 2 + 45 * 2) in June and $0 in July 2020.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

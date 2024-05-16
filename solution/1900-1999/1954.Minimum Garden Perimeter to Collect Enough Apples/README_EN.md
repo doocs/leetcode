@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>In a garden represented as an infinite 2D grid, there is an apple tree planted at <strong>every</strong> integer coordinate. The apple tree planted at an integer coordinate <code>(i, j)</code> has <code>|i| + |j|</code> apples growing on it.</p>
 
 <p>You will buy an axis-aligned <strong>square plot</strong> of land that is centered at <code>(0, 0)</code>.</p>
@@ -61,6 +63,8 @@ The perimeter is 2 * 4 = 8.
 <ul>
 	<li><code>1 &lt;= neededApples &lt;= 10<sup>15</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

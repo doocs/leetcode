@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a list of strings of the <strong>same length</strong> <code>words</code> and a string <code>target</code>.</p>
 
 <p>Your task is to form <code>target</code> using the given <code>words</code> under the following rules:</p>
@@ -70,6 +72,8 @@ tags:
 	<li><code>1 &lt;= target.length &lt;= 1000</code></li>
 	<li><code>words[i]</code> and <code>target</code> contain only lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

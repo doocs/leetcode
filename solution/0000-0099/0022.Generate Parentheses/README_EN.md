@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given <code>n</code> pairs of parentheses, write a function to <em>generate all combinations of well-formed parentheses</em>.</p>
 
 <p>&nbsp;</p>
@@ -32,6 +34,8 @@ tags:
 <ul>
 	<li><code>1 &lt;= n &lt;= 8</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

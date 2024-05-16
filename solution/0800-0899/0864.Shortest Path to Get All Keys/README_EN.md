@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an <code>m x n</code> grid <code>grid</code> where:</p>
 
 <ul>
@@ -71,6 +73,8 @@ tags:
 	<li>Each key in the grid is <strong>unique</strong>.</li>
 	<li>Each key in the grid has a matching lock.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

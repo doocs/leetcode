@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>CoffeeShop</code></p>
 
 <pre>
@@ -68,6 +70,8 @@ For ID 7, the previous value that is not null is from ID 9. We replace the null 
 For ID 2, the previous value that is not null is from ID 1. We replace the null with &quot;Orange Margarita&quot;.
 Note that the rows in the output are the same as in the input.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

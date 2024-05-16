@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an <code>m x n</code> <code>matrix</code>, return <em>all elements of the</em> <code>matrix</code> <em>in spiral order</em>.</p>
 
 <p>&nbsp;</p>
@@ -42,6 +44,8 @@ tags:
 	<li><code>1 &lt;= m, n &lt;= 10</code></li>
 	<li><code>-100 &lt;= matrix[i][j] &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

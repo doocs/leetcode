@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A dieter consumes&nbsp;<code>calories[i]</code>&nbsp;calories on the <code>i</code>-th day.&nbsp;</p>
 
 <p>Given an integer <code>k</code>, for <strong>every</strong> consecutive sequence of <code>k</code> days (<code>calories[i], calories[i+1], ..., calories[i+k-1]</code>&nbsp;for all <code>0 &lt;= i &lt;= n-k</code>), they look at <em>T</em>, the total calories consumed during that sequence of <code>k</code> days (<code>calories[i] + calories[i+1] + ... + calories[i+k-1]</code>):</p>
@@ -70,6 +72,8 @@ calories[2] + calories[3] &lt; lower so 1 point is lost.
 	<li><code>0 &lt;= calories[i] &lt;= 20000</code></li>
 	<li><code>0 &lt;= lower &lt;= upper</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

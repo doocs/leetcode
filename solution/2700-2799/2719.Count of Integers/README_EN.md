@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two numeric strings <code>num1</code> and <code>num2</code> and two integers <code>max_sum</code> and <code>min_sum</code>. We denote an integer <code>x</code> to be <em>good</em> if:</p>
 
 <ul>
@@ -53,6 +55,8 @@ tags:
 	<li><code>1 &lt;= num1 &lt;= num2 &lt;= 10<sup>22</sup></code></li>
 	<li><code>1 &lt;= min_sum &lt;= max_sum &lt;= 400</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

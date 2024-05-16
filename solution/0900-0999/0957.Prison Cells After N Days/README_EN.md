@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There are <code>8</code> prison cells in a row and each cell is either occupied or vacant.</p>
 
 <p>Each day, whether the cell is occupied or vacant changes according to the following rules:</p>
@@ -64,6 +66,8 @@ Day 7: [0, 0, 1, 1, 0, 0, 0, 0]
 	<li><code>cells[i]</code>&nbsp;is either <code>0</code> or <code>1</code>.</li>
 	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

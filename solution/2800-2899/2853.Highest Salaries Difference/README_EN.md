@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code><font face="monospace">Salaries</font></code></p>
 
 <pre>
@@ -63,6 +65,8 @@ Salaries table:
 <strong>Explanation:</strong> 
 - The Engineering and Marketing departments have the highest salaries of 102,000 and 53,000, respectively. Resulting in an absolute difference of 49,000.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

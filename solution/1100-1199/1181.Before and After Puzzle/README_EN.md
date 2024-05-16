@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a list of <code>phrases</code>, generate a list of&nbsp;Before and After puzzles.</p>
 
 <p>A <em>phrase</em> is a string that consists of lowercase English letters and spaces only. No space appears in the start or the end of a phrase. There are&nbsp;no consecutive spaces&nbsp;in a phrase.</p>
@@ -70,6 +72,8 @@ tags:
 	<li><code>1 &lt;= phrases.length &lt;= 100</code></li>
 	<li><code>1 &lt;= phrases[i].length &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

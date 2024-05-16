@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the head of a linked list <code>head</code>, in which each node contains an integer value.</p>
 
 <p>Between every pair of adjacent nodes, insert a new node with a value equal to the <strong>greatest common divisor</strong> of them.</p>
@@ -55,6 +57,8 @@ There are no pairs of adjacent nodes, so we return the initial linked list.
 	<li>The number of nodes in the list is in the range <code>[1, 5000]</code>.</li>
 	<li><code>1 &lt;= Node.val &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Terms</code></p>
 
 <pre>
@@ -103,6 +105,8 @@ Terms table:
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> What will be changed in your solution if the power is not a primary key but each power should be unique in the answer?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

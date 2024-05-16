@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <font face="monospace"><code>Triangles</code></font></p>
 
 <pre>
@@ -69,6 +71,8 @@ Triangles table:
 - Values in the second row from an Equilateral triangle, because A = B = C.
 - Values in the third row from an Scalene triangle, because A != B != C.
 - Values in the fourth row cannot form a triangle, because the combined value of sides A and B is not larger than that of side C.</pre>
+
+<!-- description:end -->
 
 ## Solutions
 

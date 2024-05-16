@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array <code>nums</code> consisting of <strong>positive</strong> integers.</p>
 
 <p>You can perform the following operation on the array <strong>any</strong> number of times:</p>
@@ -60,6 +62,8 @@ It can be shown that 2 is the minimum number of operations needed.
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

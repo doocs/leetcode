@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two strings <code>s</code> and <code>t</code>, return <code>true</code> if they are both one edit distance apart, otherwise return <code>false</code>.</p>
 
 <p>A string <code>s</code> is said to be one distance apart from a string <code>t</code> if you can:</p>
@@ -49,6 +51,8 @@ tags:
 	<li><code>0 &lt;= s.length, t.length &lt;= 10<sup>4</sup></code></li>
 	<li><code>s</code> and <code>t</code> consist of lowercase letters, uppercase letters, and digits.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

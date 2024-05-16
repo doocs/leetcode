@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>We are given an array <code>asteroids</code> of integers representing asteroids in a row.</p>
 
 <p>For each asteroid, the absolute value represents its size, and the sign represents its direction (positive meaning right, negative meaning left). Each asteroid moves at the same speed.</p>
@@ -55,6 +57,8 @@ tags:
 	<li><code>-1000 &lt;= asteroids[i] &lt;= 1000</code></li>
 	<li><code>asteroids[i] != 0</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

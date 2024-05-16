@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>edges</code> of a directed graph where <code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> indicates there is an edge between nodes <code>a<sub>i</sub></code> and <code>b<sub>i</sub></code>, and two nodes <code>source</code> and <code>destination</code> of this graph, determine whether or not all paths starting from <code>source</code> eventually, end at <code>destination</code>, that is:</p>
 
 <ul>
@@ -61,6 +63,8 @@ tags:
 	<li><code>0 &lt;= destination &lt;= n - 1</code></li>
 	<li>The given graph may have self-loops and parallel edges.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

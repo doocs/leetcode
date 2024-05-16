@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two <strong>0-indexed </strong>integer<strong> </strong>permutations <code>A</code> and <code>B</code> of length <code>n</code>.</p>
 
 <p>A <strong>prefix common array</strong> of <code>A</code> and <code>B</code> is an array <code>C</code> such that <code>C[i]</code> is equal to the count of numbers that are present at or before the index <code>i</code> in both <code>A</code> and <code>B</code>.</p>
@@ -56,6 +58,8 @@ At i = 2: 1, 2, and 3 are common in A and B, so C[2] = 3.
 	<li><code>1 &lt;= A[i], B[i] &lt;= n</code></li>
 	<li><code>It is guaranteed that A and B are both a permutation of n integers.</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two integer arrays, <code>preorder</code> and <code>postorder</code> where <code>preorder</code> is the preorder traversal of a binary tree of <strong>distinct</strong> values and <code>postorder</code> is the postorder traversal of the same tree, reconstruct and return <em>the binary tree</em>.</p>
 
 <p>If there exist multiple answers, you can <strong>return any</strong> of them.</p>
@@ -49,6 +51,8 @@ tags:
 	<li>All the values of <code>postorder</code> are <strong>unique</strong>.</li>
 	<li>It is guaranteed that <code>preorder</code> and <code>postorder</code> are the preorder traversal and postorder traversal of the same binary tree.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

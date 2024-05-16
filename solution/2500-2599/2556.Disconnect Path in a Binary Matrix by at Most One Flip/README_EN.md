@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> <code>m x n</code> <strong>binary</strong> matrix <code>grid</code>. You can move from a cell <code>(row, col)</code> to any of the cells <code>(row + 1, col)</code> or <code>(row, col + 1)</code> that has the value <code>1</code>.&nbsp;The matrix is <strong>disconnected</strong> if there is no path from <code>(0, 0)</code> to <code>(m - 1, n - 1)</code>.</p>
 
 <p>You can flip the value of <strong>at most one</strong> (possibly none) cell. You <strong>cannot flip</strong> the cells <code>(0, 0)</code> and <code>(m - 1, n - 1)</code>.</p>
@@ -56,6 +58,8 @@ tags:
 	<li><code>grid[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
 	<li><code>grid[0][0] == grid[m - 1][n - 1] == 1</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

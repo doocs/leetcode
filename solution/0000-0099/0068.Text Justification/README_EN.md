@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of strings <code>words</code> and a width <code>maxWidth</code>, format the text such that each line has exactly <code>maxWidth</code> characters and is fully (left and right) justified.</p>
 
 <p>You should pack your words in a greedy approach; that is, pack as many words as you can in each line. Pad extra spaces <code>&#39; &#39;</code> when necessary so that each line has exactly <code>maxWidth</code> characters.</p>
@@ -81,6 +83,8 @@ Note that the second line is also left-justified because it contains only one wo
 	<li><code>1 &lt;= maxWidth &lt;= 100</code></li>
 	<li><code>words[i].length &lt;= maxWidth</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

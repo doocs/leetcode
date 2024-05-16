@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>expression</code> representing arbitrarily nested ternary expressions, evaluate the expression, and return <em>the result of it</em>.</p>
 
 <p>You can always assume that the given expression is valid and only contains digits, <code>&#39;?&#39;</code>, <code>&#39;:&#39;</code>, <code>&#39;T&#39;</code>, and <code>&#39;F&#39;</code> where <code>&#39;T&#39;</code> is true and <code>&#39;F&#39;</code> is false. All the numbers in the expression are <strong>one-digit</strong> numbers (i.e., in the range <code>[0, 9]</code>).</p>
@@ -59,6 +61,8 @@ or &quot;(F ? 1 : (T ? 4 : 5))&quot; --&gt; &quot;(T ? 4 : 5)&quot; --&gt; &quot
 	<li><code>expression</code> consists of digits, <code>&#39;T&#39;</code>, <code>&#39;F&#39;</code>, <code>&#39;?&#39;</code>, and <code>&#39;:&#39;</code>.</li>
 	<li>It is <strong>guaranteed</strong> that <code>expression</code> is a valid ternary expression and that each number is a <strong>one-digit number</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

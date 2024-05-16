@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>banned</code> and two integers <code>n</code> and <code>maxSum</code>. You are choosing some number of integers following the below rules:</p>
 
 <ul>
@@ -66,6 +68,8 @@ They are from the range [1, 7], all did not appear in banned, and their sum is 2
 	<li><code>1 &lt;= banned[i], n &lt;= 10<sup>4</sup></code></li>
 	<li><code>1 &lt;= maxSum &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

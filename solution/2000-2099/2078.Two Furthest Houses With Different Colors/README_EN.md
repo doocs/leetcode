@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There are <code>n</code> houses evenly lined up on the street, and each house is beautifully painted. You are given a <strong>0-indexed</strong> integer array <code>colors</code> of length <code>n</code>, where <code>colors[i]</code> represents the color of the <code>i<sup>th</sup></code> house.</p>
 
 <p>Return <em>the <strong>maximum</strong> distance between <strong>two</strong> houses with <strong>different</strong> colors</em>.</p>
@@ -63,6 +65,8 @@ House 0 has color 0, and house 1 has color 1. The distance between them is abs(0
 	<li><code>0 &lt;= colors[i] &lt;= 100</code></li>
 	<li>Test data are generated such that <strong>at least</strong> two houses have different colors.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

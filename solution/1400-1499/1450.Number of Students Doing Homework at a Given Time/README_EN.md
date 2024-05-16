@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two integer arrays <code>startTime</code> and <code>endTime</code> and given an integer <code>queryTime</code>.</p>
 
 <p>The <code>ith</code> student started doing their homework at the time <code>startTime[i]</code> and finished it at time <code>endTime[i]</code>.</p>
@@ -51,6 +53,8 @@ The third student started doing homework at time 3 and finished at time 7 and wa
 	<li><code>1 &lt;= startTime[i] &lt;= endTime[i] &lt;= 1000</code></li>
 	<li><code>1 &lt;= queryTime &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

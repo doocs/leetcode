@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There are <code>n</code> teams numbered from <code>0</code> to <code>n - 1</code> in a tournament; each team is also a node in a <strong>DAG</strong>.</p>
 
 <p>You are given the integer <code>n</code> and a <strong>0-indexed</strong> 2D integer array <code>edges</code> of length <code><font face="monospace">m</font></code> representing the <strong>DAG</strong>, where <code>edges[i] = [u<sub>i</sub>, v<sub>i</sub>]</code> indicates that there is a directed edge from team <code>u<sub>i</sub></code> to team <code>v<sub>i</sub></code> in the graph.</p>
@@ -67,6 +69,8 @@ tags:
 	<li>The input is generated such that if team <code>a</code> is stronger than team <code>b</code>, team <code>b</code> is not stronger than team <code>a</code>.</li>
 	<li>The input is generated such that if team <code>a</code> is stronger than team <code>b</code> and team <code>b</code> is stronger than team <code>c</code>, then team <code>a</code> is stronger than team <code>c</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

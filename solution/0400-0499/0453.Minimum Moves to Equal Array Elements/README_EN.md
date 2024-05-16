@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code> of size <code>n</code>, return <em>the minimum number of moves required to make all array elements equal</em>.</p>
 
 <p>In one move, you can increment <code>n - 1</code> elements of the array by <code>1</code>.</p>
@@ -45,6 +47,8 @@ tags:
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 	<li>The answer is guaranteed to fit in a <strong>32-bit</strong> integer.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

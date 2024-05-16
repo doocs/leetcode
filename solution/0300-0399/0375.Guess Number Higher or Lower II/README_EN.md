@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>We are playing the Guessing Game. The game will work as follows:</p>
 
 <ol>
@@ -79,6 +81,8 @@ The worst case is that you pay $1.
 <ul>
 	<li><code>1 &lt;= n &lt;= 200</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

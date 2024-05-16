@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two strings, <code>word1</code> and <code>word2</code>. You want to construct a string in the following manner:</p>
 
 <ul>
@@ -60,6 +62,8 @@ tags:
 	<li><code>1 &lt;= word1.length, word2.length &lt;= 1000</code></li>
 	<li><code>word1</code> and <code>word2</code> consist of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>head</code> of a linked list, return <em>the list after sorting it in <strong>ascending order</strong></em>.</p>
 
 <p>&nbsp;</p>
@@ -52,6 +54,8 @@ tags:
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Can you sort the linked list in <code>O(n logn)</code> time and <code>O(1)</code> memory (i.e. constant space)?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

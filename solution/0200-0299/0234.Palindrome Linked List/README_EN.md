@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>head</code> of a singly linked list, return <code>true</code><em> if it is a </em><span data-keyword="palindrome-sequence"><em>palindrome</em></span><em> or </em><code>false</code><em> otherwise</em>.</p>
 
 <p>&nbsp;</p>
@@ -44,6 +46,8 @@ tags:
 
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Could you do it in <code>O(n)</code> time and <code>O(1)</code> space?
+
+<!-- description:end -->
 
 ## Solutions
 

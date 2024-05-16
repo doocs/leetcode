@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>matches</code> where <code>matches[i] = [winner<sub>i</sub>, loser<sub>i</sub>]</code> indicates that the player <code>winner<sub>i</sub></code> defeated player <code>loser<sub>i</sub></code> in a match.</p>
 
 <p>Return <em>a list </em><code>answer</code><em> of size </em><code>2</code><em> where:</em></p>
@@ -71,6 +73,8 @@ Thus, answer[0] = [1,2,5,6] and answer[1] = [].
 	<li><code>winner<sub>i</sub> != loser<sub>i</sub></code></li>
 	<li>All <code>matches[i]</code> are <strong>unique</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

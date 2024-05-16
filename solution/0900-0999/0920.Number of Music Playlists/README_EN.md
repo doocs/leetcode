@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Your music player contains <code>n</code> different songs. You want to listen to <code>goal</code> songs (not necessarily different) during your trip. To avoid boredom, you will create a playlist so that:</p>
 
 <ul>
@@ -55,6 +57,8 @@ tags:
 <ul>
 	<li><code>0 &lt;= k &lt; n &lt;= goal &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

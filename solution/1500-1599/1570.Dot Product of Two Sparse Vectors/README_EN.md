@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two sparse vectors, compute their dot product.</p>
 
 <p>Implement class <code>SparseVector</code>:</p>
@@ -64,6 +66,8 @@ v1.dotProduct(v2) = 0*0 + 1*0 + 0*0 + 0*0 + 0*2 = 0
 	<li><code>1 &lt;= n &lt;= 10^5</code></li>
 	<li><code>0 &lt;= nums1[i], nums2[i]&nbsp;&lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

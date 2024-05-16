@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of integers <code>arr</code>.</p>
 
 <p>We want to select three indices <code>i</code>, <code>j</code> and <code>k</code> where <code>(0 &lt;= i &lt; j &lt;= k &lt; arr.length)</code>.</p>
@@ -58,6 +60,8 @@ tags:
 	<li><code>1 &lt;= arr.length &lt;= 300</code></li>
 	<li><code>1 &lt;= arr[i] &lt;= 10<sup>8</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

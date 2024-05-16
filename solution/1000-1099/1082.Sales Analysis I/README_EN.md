@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Product</code></p>
 
 <pre>
@@ -85,6 +87,8 @@ Sales table:
 +-------------+
 <strong>Explanation:</strong> Both sellers with id 1 and 3 sold products with the most total price of 2800.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

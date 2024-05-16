@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There are <code>n</code> oranges in the kitchen and you decided to eat some of these oranges every day as follows:</p>
 
 <ul>
@@ -61,6 +63,8 @@ You need at least 3 days to eat the 6 oranges.
 <ul>
 	<li><code>1 &lt;= n &lt;= 2 * 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

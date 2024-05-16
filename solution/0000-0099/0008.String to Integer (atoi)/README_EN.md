@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Implement the <code>myAtoi(string s)</code> function, which converts a string to a 32-bit signed integer.</p>
 
 <p>The algorithm for <code>myAtoi(string s)</code> is as follows:</p>
@@ -124,6 +126,8 @@ Step 3: &quot;<u>0</u>-1&quot; (&quot;0&quot; is read in; reading stops because 
 	<li><code>0 &lt;= s.length &lt;= 200</code></li>
 	<li><code>s</code> consists of English letters (lower-case and upper-case), digits (<code>0-9</code>), <code>&#39; &#39;</code>, <code>&#39;+&#39;</code>, <code>&#39;-&#39;</code>, and <code>&#39;.&#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

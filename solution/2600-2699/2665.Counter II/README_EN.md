@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2665.Co
 
 ## Description
 
+<!-- description:start -->
+
 <p>Write a function&nbsp;<code>createCounter</code>. It should accept an initial integer&nbsp;<code>init</code>. It should return an object with three functions.</p>
 
 <p>The three functions are:</p>
@@ -57,6 +59,8 @@ counter.reset(); // 0
 	<li><code>0 &lt;= calls.length &lt;= 1000</code></li>
 	<li><code>calls[i]</code> is one of &quot;increment&quot;, &quot;decrement&quot; and&nbsp;&quot;reset&quot;</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

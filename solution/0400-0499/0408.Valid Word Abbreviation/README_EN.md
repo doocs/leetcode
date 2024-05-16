@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A string can be <strong>abbreviated</strong> by replacing any number of <strong>non-adjacent</strong>, <strong>non-empty</strong> substrings with their lengths. The lengths <strong>should not</strong> have leading zeros.</p>
 
 <p>For example, a string such as <code>&quot;substitution&quot;</code> could be abbreviated as (but not limited to):</p>
@@ -66,6 +68,8 @@ tags:
 	<li><code>abbr</code> consists of lowercase English letters and digits.</li>
 	<li>All the integers in <code>abbr</code> will fit in a 32-bit integer.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

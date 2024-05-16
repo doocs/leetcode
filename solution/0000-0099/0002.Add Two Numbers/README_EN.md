@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two <strong>non-empty</strong> linked lists representing two non-negative integers. The digits are stored in <strong>reverse order</strong>, and each of their nodes contains a single digit. Add the two numbers and return the sum&nbsp;as a linked list.</p>
 
 <p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
@@ -51,6 +53,8 @@ tags:
 	<li><code>0 &lt;= Node.val &lt;= 9</code></li>
 	<li>It is guaranteed that the list represents a number that does not have leading zeros.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

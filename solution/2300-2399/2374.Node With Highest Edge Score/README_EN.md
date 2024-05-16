@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a directed graph with <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code>, where each node has <strong>exactly one</strong> outgoing edge.</p>
 
 <p>The graph is represented by a given <strong>0-indexed</strong> integer array <code>edges</code> of length <code>n</code>, where <code>edges[i]</code> indicates that there is a <strong>directed</strong> edge from node <code>i</code> to node <code>edges[i]</code>.</p>
@@ -59,6 +61,8 @@ Nodes 0 and 2 both have an edge score of 3. Since node 0 has a smaller index, we
 	<li><code>0 &lt;= edges[i] &lt; n</code></li>
 	<li><code>edges[i] != i</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

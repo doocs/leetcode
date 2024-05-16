@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array <code>colors</code>, in which there are three colors: <code>1</code>, <code>2</code> and&nbsp;<code>3</code>.</p>
 
 <p>You are also given some queries. Each query consists of two integers <code>i</code>&nbsp;and <code>c</code>, return&nbsp;the shortest distance between the given index&nbsp;<code>i</code> and the target color <code>c</code>. If there is no solution return <code>-1</code>.</p>
@@ -53,6 +55,8 @@ The nearest 1 from index 6 is at index 3 (3 steps away).
 	<li><code>0 &lt;= queries[i][0] &lt;&nbsp;colors.length</code></li>
 	<li><code>1 &lt;= queries[i][1] &lt;= 3</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

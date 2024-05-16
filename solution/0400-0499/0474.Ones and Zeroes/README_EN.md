@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array of binary strings <code>strs</code> and two integers <code>m</code> and <code>n</code>.</p>
 
 <p>Return <em>the size of the largest subset of <code>strs</code> such that there are <strong>at most</strong> </em><code>m</code><em> </em><code>0</code><em>&#39;s and </em><code>n</code><em> </em><code>1</code><em>&#39;s in the subset</em>.</p>
@@ -50,6 +52,8 @@ Other valid but smaller subsets include {&quot;0001&quot;, &quot;1&quot;} and {&
 	<li><code>strs[i]</code> consists only of digits <code>&#39;0&#39;</code> and <code>&#39;1&#39;</code>.</li>
 	<li><code>1 &lt;= m, n &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

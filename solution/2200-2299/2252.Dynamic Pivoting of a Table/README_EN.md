@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Products</code></p>
 
 <pre>
@@ -72,6 +74,8 @@ Now, for product 1, the price in LC_Store is 100 and in Shop is 110. For the oth
 Similarly, product 2 has a price of 200 in Nozama and 190 in Souq. It is not sold in the other two stores.
 For product 3, the price is 1000 in Shop and 1900 in Souq. It is not sold in the other two stores.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

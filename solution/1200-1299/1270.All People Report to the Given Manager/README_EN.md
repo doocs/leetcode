@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Employees</code></p>
 
 <pre>
@@ -73,6 +75,8 @@ The employee with employee_id 4 reports their work indirectly to the head of the
 The employee with employee_id 7 reports their work indirectly to the head of the company 7 --&gt; 4 --&gt; 2 --&gt; 1.
 The employees with employee_id 3, 8, and 9 do not report their work to the head of the company directly or indirectly. 
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

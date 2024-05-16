@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a positive integer <code>n</code>, return the number of the integers in the range <code>[0, n]</code> whose binary representations <strong>do not</strong> contain consecutive ones.</p>
 
 <p>&nbsp;</p>
@@ -53,6 +55,8 @@ Among them, only integer 3 disobeys the rule (two consecutive ones) and the othe
 <ul>
 	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

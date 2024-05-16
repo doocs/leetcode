@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a binary string <code>s</code>, and two integers <code>num1</code> and <code>num2</code>. <code>num1</code> and <code>num2</code> are coprime numbers.</p>
 
 <p>A <strong>ratio substring</strong> is a substring of s where the ratio between the number of <code>0</code>&#39;s and the number of <code>1</code>&#39;s in the substring is exactly <code>num1 : num2</code>.</p>
@@ -64,6 +66,8 @@ It can be shown that there are no more ratio substrings.
 	<li><code>1 &lt;= num1, num2 &lt;= s.length</code></li>
 	<li><code>num1</code> and <code>num2</code> are coprime integers.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two positive integers <code>n</code> and <code>k</code>, the binary string <code>S<sub>n</sub></code> is formed as follows:</p>
 
 <ul>
@@ -64,6 +66,8 @@ The 11<sup>th</sup> bit is &quot;1&quot;.
 	<li><code>1 &lt;= n &lt;= 20</code></li>
 	<li><code>1 &lt;= k &lt;= 2<sup>n</sup> - 1</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

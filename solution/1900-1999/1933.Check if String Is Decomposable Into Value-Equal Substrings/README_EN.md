@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A <strong>value-equal</strong> string is a string where <strong>all</strong> characters are the same.</p>
 
 <ul>
@@ -59,6 +61,8 @@ tags:
 	<li><code>1 &lt;= s.length &lt;= 1000</code></li>
 	<li><code>s</code> consists of only digits <code>&#39;0&#39;</code> through <code>&#39;9&#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

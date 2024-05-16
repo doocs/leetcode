@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> 2D integer array <code>pairs</code> where <code>pairs[i] = [start<sub>i</sub>, end<sub>i</sub>]</code>. An arrangement of <code>pairs</code> is <strong>valid</strong> if for every index <code>i</code> where <code>1 &lt;= i &lt; pairs.length</code>, we have <code>end<sub>i-1</sub> == start<sub>i</sub></code>.</p>
 
 <p>Return <em><strong>any</strong> valid arrangement of </em><code>pairs</code>.</p>
@@ -71,6 +73,8 @@ end<sub>1</sub> = 1 == 1 = start<sub>2</sub>
 	<li>No two pairs are exactly the same.</li>
 	<li>There <strong>exists</strong> a valid arrangement of <code>pairs</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

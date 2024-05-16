@@ -22,6 +22,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given <code>nums</code>, an array of positive integers of size <code>2 * n</code>. You must perform <code>n</code> operations on this array.</p>
 
 <p>In the <code>i<sup>th</sup></code> operation <strong>(1-indexed)</strong>, you will:</p>
@@ -72,6 +74,8 @@ tags:
 	<li><code>nums.length == 2 * n</code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

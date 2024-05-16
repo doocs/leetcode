@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A cell <code>(r, c)</code> of an excel sheet is represented as a string <code>&quot;&lt;col&gt;&lt;row&gt;&quot;</code> where:</p>
 
 <ul>
@@ -63,6 +65,8 @@ The red arrow denotes the order in which the cells should be presented.
 	<li><code>&#39;1&#39; &lt;= s[1] &lt;= s[4] &lt;= &#39;9&#39;</code></li>
 	<li><code>s</code> consists of uppercase English letters, digits and <code>&#39;:&#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

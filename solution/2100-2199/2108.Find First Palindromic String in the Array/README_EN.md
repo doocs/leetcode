@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of strings <code>words</code>, return <em>the first <strong>palindromic</strong> string in the array</em>. If there is no such string, return <em>an <strong>empty string</strong> </em><code>&quot;&quot;</code>.</p>
 
 <p>A string is <strong>palindromic</strong> if it reads the same forward and backward.</p>
@@ -56,6 +58,8 @@ Note that &quot;racecar&quot; is also palindromic, but it is not the first.
 	<li><code>1 &lt;= words[i].length &lt;= 100</code></li>
 	<li><code>words[i]</code> consists only of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

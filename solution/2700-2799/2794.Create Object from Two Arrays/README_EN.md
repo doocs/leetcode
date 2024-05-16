@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2794.Cr
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two arrays <code>keysArr</code> and <code>valuesArr</code>, return a new object <code>obj</code>. Each key-value pair in&nbsp;<code>obj</code>&nbsp;should come from&nbsp;<code>keysArr[i]</code>&nbsp;and&nbsp;<code>valuesArr[i]</code>.</p>
 
 <p>If a duplicate key exists at a previous index, that key-value should be excluded. In other words, only the first key should be added to the object.</p>
@@ -51,6 +53,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2794.Cr
 	<li><code>2 &lt;= JSON.stringify(keysArr).length,&nbsp;JSON.stringify(valuesArr).length &lt;= 5 * 10<sup>5</sup></code></li>
 	<li><code>keysArr.length === valuesArr.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

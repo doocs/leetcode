@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Employees</code></p>
 
 <pre>
@@ -88,6 +90,8 @@ Employees 1, 2, 4, and 5 are working at this company.
 The name of employee 1 is missing.
 The salary of employee 2 is missing.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

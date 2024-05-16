@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>heights</code> representing the heights of buildings, some <code>bricks</code>, and some <code>ladders</code>.</p>
 
 <p>You start your journey from building <code>0</code> and move to the next building by possibly using bricks or ladders.</p>
@@ -68,6 +70,8 @@ It is impossible to go beyond building 4 because you do not have any more bricks
 	<li><code>0 &lt;= bricks &lt;= 10<sup>9</sup></code></li>
 	<li><code>0 &lt;= ladders &lt;= heights.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

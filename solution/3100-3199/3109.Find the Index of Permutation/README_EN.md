@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array <code>perm</code> of length <code>n</code> which is a permutation of <code>[1, 2, ..., n]</code>, return the index of <code>perm</code> in the <span data-keyword="lexicographically-sorted-array">lexicographically sorted</span> array of all of the permutations of <code>[1, 2, ..., n]</code>.</p>
 
 <p>Since the answer may be very large, return it <strong>modulo</strong> <code>10<sup>9</sup>&nbsp;+ 7</code>.</p>
@@ -64,6 +66,8 @@ And <code>[3,1,2]</code> is at index 4.</p>
 	<li><code>1 &lt;= n == perm.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>perm</code> is a permutation of <code>[1, 2, ..., n]</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

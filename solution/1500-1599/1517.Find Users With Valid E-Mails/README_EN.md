@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Users</code></p>
 
 <pre>
@@ -74,6 +76,8 @@ The mail of user 5 has the # sign which is not allowed.
 The mail of user 6 does not have the leetcode domain.
 The mail of user 7 starts with a period.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

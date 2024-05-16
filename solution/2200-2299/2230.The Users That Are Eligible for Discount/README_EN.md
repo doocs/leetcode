@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Purchases</code></p>
 
 <pre>
@@ -68,6 +70,8 @@ Out of the three users, only User 3 is eligible for a discount.
 
 <p>&nbsp;</p>
 <p><strong>Important Note:</strong> This problem is basically the same as <a href="https://leetcode.com/problems/the-number-of-users-that-are-eligible-for-discount/">The Number of Users That Are Eligible for Discount</a>.</p>
+
+<!-- description:end -->
 
 ## Solutions
 

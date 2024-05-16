@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Countries</code></p>
 
 <pre>
@@ -115,6 +117,8 @@ Average weather_state in China in November is (16 + 18 + 21) / 3 = 18.333 so wea
 Average weather_state in Morocco in November is (25 + 27 + 31) / 3 = 27.667 so weather type is Hot.
 We know nothing about the average weather_state in Spain in November so we do not include it in the result table. 
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

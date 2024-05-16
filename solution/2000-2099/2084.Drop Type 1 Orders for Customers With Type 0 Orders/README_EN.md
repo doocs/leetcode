@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Orders</code></p>
 
 <pre>
@@ -78,6 +80,8 @@ Customer 3 has one order of type 0 and one order of type 1. We only return the o
 Customer 4 has two orders of type 1. We return both of them.
 
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

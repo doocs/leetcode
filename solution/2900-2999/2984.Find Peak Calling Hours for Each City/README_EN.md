@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Calls</code></p>
 
 <pre>
@@ -65,6 +67,8 @@ For Houston:
 For New York:
   - Both 13:00 and 14:00 hours have equal call counts of 1, so both times are considered peak hours.
 Output table is ordered by peak_calling_hour and city in descending order.</pre>
+
+<!-- description:end -->
 
 ## Solutions
 

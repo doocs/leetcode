@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>licensePlate</code> and an array of strings <code>words</code>, find the <strong>shortest completing</strong> word in <code>words</code>.</p>
 
 <p>A <strong>completing</strong> word is a word that <strong>contains all the letters</strong> in <code>licensePlate</code>. <strong>Ignore numbers and spaces</strong> in <code>licensePlate</code>, and treat letters as <strong>case insensitive</strong>. If a letter appears more than once in <code>licensePlate</code>, then it must appear in the word the same number of times or more.</p>
@@ -56,6 +58,8 @@ Since &quot;steps&quot; is the only word containing all the letters, that is the
 	<li><code>1 &lt;= words[i].length &lt;= 15</code></li>
 	<li><code>words[i]</code> consists of lower case English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

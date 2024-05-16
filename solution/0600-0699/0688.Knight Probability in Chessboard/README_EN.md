@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>On an <code>n x n</code> chessboard, a knight starts at the cell <code>(row, column)</code> and attempts to make exactly <code>k</code> moves. The rows and columns are <strong>0-indexed</strong>, so the top-left cell is <code>(0, 0)</code>, and the bottom-right cell is <code>(n - 1, n - 1)</code>.</p>
 
 <p>A chess knight has eight possible moves it can make, as illustrated below. Each move is two cells in a cardinal direction, then one cell in an orthogonal direction.</p>
@@ -50,6 +52,8 @@ The total probability the knight stays on the board is 0.0625.
 	<li><code>0 &lt;= k &lt;= 100</code></li>
 	<li><code>0 &lt;= row, column &lt;= n - 1</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

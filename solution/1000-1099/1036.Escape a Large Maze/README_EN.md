@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There is a 1 million by 1 million grid on an XY-plane, and the coordinates of each grid square are <code>(x, y)</code>.</p>
 
 <p>We start at the <code>source = [s<sub>x</sub>, s<sub>y</sub>]</code> square and want to reach the <code>target = [t<sub>x</sub>, t<sub>y</sub>]</code> square. There is also an array of <code>blocked</code> squares, where each <code>blocked[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> represents a blocked square with coordinates <code>(x<sub>i</sub>, y<sub>i</sub>)</code>.</p>
@@ -58,6 +60,8 @@ We cannot move south or west because we cannot go outside of the grid.
 	<li><code>source != target</code></li>
 	<li>It is guaranteed that <code>source</code> and <code>target</code> are not blocked.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

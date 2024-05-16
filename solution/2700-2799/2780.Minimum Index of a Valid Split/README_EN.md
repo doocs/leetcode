@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>An element <code>x</code> of an integer array <code>arr</code> of length <code>m</code> is <strong>dominant</strong> if <code>freq(x) * 2 &gt; m</code>, where <code>freq(x)</code> is the number of occurrences of <code>x</code> in <code>arr</code>. Note that this definition implies that <code>arr</code> can have <strong>at most one</strong> dominant element.</p>
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of length <code>n</code> with one dominant element.</p>
@@ -72,6 +74,8 @@ It can be shown that index 4 is the minimum index of a valid split.</pre>
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 	<li><code>nums</code> has exactly one dominant element.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

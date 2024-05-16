@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of integers called <code>nums</code>, you can perform the following operation while <code>nums</code> contains <strong>at least</strong> <code>2</code> elements:</p>
 
 <ul>
@@ -57,6 +59,8 @@ We are unable to perform any more operations as the score of the next operation 
 	<li><code>2 &lt;= nums.length &lt;= 100</code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

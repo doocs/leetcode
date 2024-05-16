@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Employee</code></p>
 
 <pre>
@@ -101,6 +103,8 @@ In the Sales department:
 - Sam earns the second-highest salary
 - There is no third-highest salary as there are only two employees
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

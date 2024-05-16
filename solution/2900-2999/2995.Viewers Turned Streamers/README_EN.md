@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Sessions</code></p>
 
 <pre>
@@ -67,6 +69,8 @@ Sessions table:
 - User_id 104 commenced their first session as a viewer but didn&#39;t have any subsequent sessions, therefore, they won&#39;t be included in the final count. 
 Output table is ordered by sessions count and user_id in descending order.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

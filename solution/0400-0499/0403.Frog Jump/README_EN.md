@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A frog is crossing a river. The river is divided into some number of units, and at each unit, there may or may not exist a stone. The frog can jump on a stone, but it must not jump into the water.</p>
 
 <p>Given a list of <code>stones</code>&nbsp;positions (in units) in sorted <strong>ascending order</strong>, determine if the frog can cross the river by landing on the last stone. Initially, the frog is on the first stone and assumes the first jump must be <code>1</code> unit.</p>
@@ -47,6 +49,8 @@ tags:
 	<li><code>stones[0] == 0</code></li>
 	<li><code>stones</code>&nbsp;is sorted in a strictly increasing order.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

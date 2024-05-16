@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Employee</code></p>
 
 <pre>
@@ -115,6 +117,8 @@ So the cumulative salary summary for this employee is:
 | 3  | 2     | 40     |  (40 + 0 + 0)
 +----+-------+--------+
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

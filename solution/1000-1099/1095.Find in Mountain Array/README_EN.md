@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p><em>(This problem is an <strong>interactive problem</strong>.)</em></p>
 
 <p>You may recall that an array <code>arr</code> is a <strong>mountain array</strong> if and only if:</p>
@@ -67,6 +69,8 @@ tags:
 	<li><code>0 &lt;= target &lt;= 10<sup>9</sup></code></li>
 	<li><code>0 &lt;= mountain_arr.get(index) &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <code>root</code> to a binary tree and an integer <code>k</code>. A node of this tree is called <strong>great enough</strong> if the followings hold:</p>
 
 <ul>
@@ -77,6 +79,8 @@ See the picture below for a better understanding.</pre>
 	<li><code>1 &lt;= Node.val &lt;= 10<sup>4</sup></code></li>
 	<li><code>1 &lt;= k &lt;= 10</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Friends</code></p>
 
 <pre>
@@ -89,6 +91,8 @@ Eating activity is performed by 3 friends, maximum number of participants, (Jona
 Horse Riding activity is performed by 1 friend, minimum number of participants, (Bob B.)
 Singing is performed by 2 friends (Victor J. and Jade W.)
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

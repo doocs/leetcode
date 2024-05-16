@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code><font face="monospace">Salary</font></code></p>
 
 <pre>
@@ -76,6 +78,8 @@ Each row contains employees details and their yearly salaries, however, some of 
 - emp_id 5&nbsp;has only one salary record so that is already an updated salary.
 - emp_id 6&nbsp;has two records with a salary of 79632, 90000 out&nbsp;of these 90000 is an updated salary.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

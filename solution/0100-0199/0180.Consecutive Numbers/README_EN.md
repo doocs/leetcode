@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Logs</code></p>
 
 <pre>
@@ -60,6 +62,8 @@ Logs table:
 +-----------------+
 <strong>Explanation:</strong> 1 is the only number that appears consecutively for at least three times.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

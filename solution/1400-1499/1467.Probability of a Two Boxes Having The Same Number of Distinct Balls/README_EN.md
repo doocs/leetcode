@@ -21,6 +21,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given <code>2n</code> balls of <code>k</code> distinct colors. You will be given an integer array <code>balls</code> of size <code>k</code> where <code>balls[i]</code> is the number of balls of color <code>i</code>.</p>
 
 <p>All the balls will be <strong>shuffled uniformly at random</strong>, then we will distribute the first <code>n</code> balls to the first box and the remaining <code>n</code> balls to the other box (Please read the explanation of the second example carefully).</p>
@@ -71,6 +73,8 @@ Probability = 108 / 180 = 0.6
 	<li><code>1 &lt;= balls[i] &lt;= 6</code></li>
 	<li><code>sum(balls)</code> is even.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

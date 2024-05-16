@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> matrix <code>grid</code> of order <code>n * n</code>. Each cell in this matrix has a value <code>grid[i][j]</code>, which is either a <strong>positive</strong> integer or <code>-1</code> representing a blocked cell.</p>
 
 <p>You can move from a non-blocked cell to any non-blocked cell that shares an edge.</p>
@@ -71,6 +73,8 @@ Now let&#39;s jump on the bottom-right grid in the above picture and calculate R
 	<li><code>1 &lt;= n &lt;= 300</code></li>
 	<li><code>1 &lt;= grid[i][j] &lt;= 10<sup>6</sup></code> or <code>grid[i][j] == -1</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

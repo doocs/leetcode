@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Reverse bits of a given 32 bits unsigned integer.</p>
 
 <p><strong>Note:</strong></p>
@@ -50,6 +52,8 @@ tags:
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> If this function is called many times, how would you optimize it?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

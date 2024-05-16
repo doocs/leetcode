@@ -21,6 +21,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a binary tree with the following rules:</p>
 
 <ol>
@@ -92,6 +94,8 @@ findElements.find(5); // return True
 	<li>Total calls of <code>find()</code> is between <code>[1, 10<sup>4</sup>]</code></li>
 	<li><code>0 &lt;= target &lt;= 10<sup>6</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

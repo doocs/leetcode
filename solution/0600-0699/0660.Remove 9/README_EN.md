@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Start from integer <code>1</code>, remove any integer that contains <code>9</code> such as <code>9</code>, <code>19</code>, <code>29</code>...</p>
 
 <p>Now, you will have a new integer sequence <code>[1, 2, 3, 4, 5, 6, 7, 8, 10, 11, ...]</code>.</p>
@@ -41,6 +43,8 @@ tags:
 <ul>
 	<li><code>1 &lt;= n &lt;= 8 * 10<sup>8</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

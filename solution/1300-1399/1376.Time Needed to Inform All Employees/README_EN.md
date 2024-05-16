@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A company has <code>n</code> employees with a unique ID for each employee from <code>0</code> to <code>n - 1</code>. The head of the company is the one with <code>headID</code>.</p>
 
 <p>Each employee has one direct manager given in the <code>manager</code> array where <code>manager[i]</code> is the direct manager of the <code>i-th</code> employee, <code>manager[headID] = -1</code>. Also, it is guaranteed that the subordination relationships have a tree structure.</p>
@@ -60,6 +62,8 @@ The tree structure of the employees in the company is shown.
 	<li><code>informTime[i] == 0</code> if employee <code>i</code> has no subordinates.</li>
 	<li>It is <strong>guaranteed</strong> that all the employees can be informed.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> array <code>words</code> consisting of <strong>distinct</strong> strings.</p>
 
 <p>The string <code>words[i]</code> can be paired with the string <code>words[j]</code> if:</p>
@@ -70,6 +72,8 @@ It can be proven that 1 is the maximum number of pairs that can be formed.
 	<li><code>words</code>&nbsp;consists of distinct strings.</li>
 	<li><code>words[i]</code>&nbsp;contains only lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

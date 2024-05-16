@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Sales</code></p>
 
 <pre>
@@ -97,6 +99,8 @@ User 102:
     - Spent 10 * 15 = 150 on product 3.
 User 102 spent the most money on products 1, 2, and 3.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

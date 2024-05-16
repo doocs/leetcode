@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Imagine you have a special keyboard with the following keys:</p>
 
 <ul>
@@ -51,6 +53,8 @@ A, A, A, Ctrl A, Ctrl C, Ctrl V, Ctrl V
 <ul>
 	<li><code>1 &lt;= n &lt;= 50</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

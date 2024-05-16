@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two <strong>0-indexed</strong> arrays <code>nums</code> and <code>cost</code> consisting each of <code>n</code> <strong>positive</strong> integers.</p>
 
 <p>You can do the following operation <strong>any</strong> number of times:</p>
@@ -63,6 +65,8 @@ It can be shown that we cannot make the array equal with a smaller cost.
 	<li><code>1 &lt;= nums[i], cost[i] &lt;= 10<sup>6</sup></code></li>
 	<li>Test cases are generated in a way that the output doesn&#39;t exceed&nbsp;2<sup>53</sup>-1</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

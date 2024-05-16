@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You have a certain number of processors, each having 4 cores. The number of tasks to be executed is four times the number of processors. Each task must be assigned to a unique core, and each core can only be used once.</p>
 
 <p>You are given an array <code>processorTime</code> representing the time each processor becomes available and an array <code>tasks</code> representing how long each task takes to complete. Return the&nbsp;<em>minimum</em> time needed to complete all tasks.</p>
@@ -65,6 +67,8 @@ tags:
 	<li><code>1 &lt;= tasks[i] &lt;= 10<sup>9</sup></code></li>
 	<li><code>tasks.length == 4 * n</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

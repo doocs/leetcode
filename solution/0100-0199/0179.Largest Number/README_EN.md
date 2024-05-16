@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a list of non-negative integers <code>nums</code>, arrange them such that they form the largest number and return it.</p>
 
 <p>Since the result may be very large, so you need to return a string instead of an integer.</p>
@@ -43,6 +45,8 @@ tags:
 	<li><code>1 &lt;= nums.length &lt;= 100</code></li>
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

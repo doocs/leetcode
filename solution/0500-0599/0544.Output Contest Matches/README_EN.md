@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>During the NBA playoffs, we always set the rather strong team to play with the rather weak team, like making&nbsp;the rank <code>1</code> team play with the rank <code>n<sup>th</sup></code> team, which is a good strategy to make the contest more interesting.</p>
 
 <p>Given <code>n</code> teams, return <em>their final contest matches in the form of a string</em>.</p>
@@ -55,6 +57,8 @@ Since the third round will generate the final winner, you need to output the ans
 <ul>
 	<li><code>n == 2<sup>x</sup></code> where <code>x</code> in in the range <code>[1, 12]</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> array of positive integers <code>w</code> where <code>w[i]</code> describes the <strong>weight</strong> of the <code>i<sup>th</sup></code> index.</p>
 
 <p>You need to implement the function <code>pickIndex()</code>, which <strong>randomly</strong> picks an index in the range <code>[0, w.length - 1]</code> (<strong>inclusive</strong>) and returns it. The <strong>probability</strong> of picking an index <code>i</code> is <code>w[i] / sum(w)</code>.</p>
@@ -77,6 +79,8 @@ and so on.
 	<li><code>1 &lt;= w[i] &lt;= 10<sup>5</sup></code></li>
 	<li><code>pickIndex</code> will be called at most <code>10<sup>4</sup></code> times.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

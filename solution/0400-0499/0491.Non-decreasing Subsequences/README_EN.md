@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code>, return <em>all the different possible non-decreasing subsequences of the given array with at least two elements</em>. You may return the answer in <strong>any order</strong>.</p>
 
 <p>&nbsp;</p>
@@ -41,6 +43,8 @@ tags:
 	<li><code>1 &lt;= nums.length &lt;= 15</code></li>
 	<li><code>-100 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

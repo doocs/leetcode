@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a <code>file</code> and assume that you can only read the file using a given method <code>read4</code>, implement a method <code>read</code> to read <code>n</code> characters. Your method <code>read</code> may be <strong>called multiple times</strong>.</p>
 
 <p><strong>Method read4: </strong></p>
@@ -108,6 +110,8 @@ sol.read(buf, 1); // We have reached the end of file, no more characters can be 
 	<li><code>1 &lt;= queries.length &lt;= 10</code></li>
 	<li><code>1 &lt;= queries[i] &lt;= 500</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

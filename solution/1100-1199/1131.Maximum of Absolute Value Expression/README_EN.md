@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two arrays of integers with equal lengths, return the maximum value of:</p>
 
 <p><code>|arr1[i] - arr1[j]| + |arr2[i] - arr2[j]| + |i - j|</code></p>
@@ -45,6 +47,8 @@ tags:
 	<li><code>2 &lt;= arr1.length == arr2.length &lt;= 40000</code></li>
 	<li><code>-10^6 &lt;= arr1[i], arr2[i] &lt;= 10^6</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

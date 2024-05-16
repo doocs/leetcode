@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a <code>node</code> in a binary search tree, return <em>the in-order successor of that node in the BST</em>. If that node has no in-order successor, return <code>null</code>.</p>
 
 <p>The successor of a <code>node</code> is the node with the smallest key greater than <code>node.val</code>.</p>
@@ -59,6 +61,8 @@ class Node {
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you solve it without looking up any of the node&#39;s values?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

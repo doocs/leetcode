@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>target</code> and an integer <code>n</code>.</p>
 
 <p>You have an empty stack with the two following operations:</p>
@@ -84,6 +86,8 @@ The answers that read integer 3 from the stream are not accepted.
 	<li><code>1 &lt;= target[i] &lt;= n</code></li>
 	<li><code>target</code> is strictly increasing.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

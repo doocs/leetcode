@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Alice and Bob are opponents in an archery competition. The competition has set the following rules:</p>
 
 <ol>
@@ -74,6 +76,8 @@ It can be shown that Bob cannot obtain a score higher than 27 points.
 	<li><code>0 &lt;= aliceArrows[i], bobArrows[i] &lt;= numArrows</code></li>
 	<li><code>sum(aliceArrows[i]) == numArrows</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

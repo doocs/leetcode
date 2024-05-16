@@ -23,6 +23,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> <code>m x n</code> integer matrix <code>grid</code>. Your initial position is at the <strong>top-left</strong> cell <code>(0, 0)</code>.</p>
 
 <p>Starting from the cell <code>(i, j)</code>, you can move to one of the following cells:</p>
@@ -70,6 +72,8 @@ tags:
 	<li><code>0 &lt;= grid[i][j] &lt; m * n</code></li>
 	<li><code>grid[m - 1][n - 1] == 0</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

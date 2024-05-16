@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Employee</code></p>
 
 <pre>
@@ -72,6 +74,8 @@ Employee table:
 - The Primary department for employee 3 is 3.
 - The Primary department for employee 4 is 3.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

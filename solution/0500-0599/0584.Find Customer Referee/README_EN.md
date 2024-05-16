@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Customer</code></p>
 
 <pre>
@@ -62,6 +64,8 @@ Customer table:
 | Zack |
 +------+
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

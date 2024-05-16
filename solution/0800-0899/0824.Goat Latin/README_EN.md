@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>sentence</code> that consist of words separated by spaces. Each word consists of lowercase and uppercase letters only.</p>
 
 <p>We would like to convert the sentence to &quot;Goat Latin&quot; (a made-up language similar to Pig Latin.) The rules of Goat Latin are as follows:</p>
@@ -57,6 +59,8 @@ tags:
 	<li><code>sentence</code> has no leading or trailing spaces.</li>
 	<li>All the words in <code>sentence</code> are separated by a single space.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

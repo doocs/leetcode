@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>An image is represented by an <code>m x n</code> integer grid <code>image</code> where <code>image[i][j]</code> represents the pixel value of the image.</p>
 
 <p>You are also given three integers <code>sr</code>, <code>sc</code>, and <code>color</code>. You should perform a <strong>flood fill</strong> on the image starting from the pixel <code>image[sr][sc]</code>.</p>
@@ -54,6 +56,8 @@ Note the bottom corner is not colored 2, because it is not 4-directionally conne
 	<li><code>0 &lt;= sr &lt; m</code></li>
 	<li><code>0 &lt;= sc &lt; n</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

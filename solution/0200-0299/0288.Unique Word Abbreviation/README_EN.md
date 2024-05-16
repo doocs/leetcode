@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>The <strong>abbreviation</strong> of a word is a concatenation of its first letter, the number of characters between the first and last letter, and its last letter. If a word has only two characters, then it is an <strong>abbreviation</strong> of itself.</p>
 
 <p>For example:</p>
@@ -69,6 +71,8 @@ validWordAbbr.isUnique(&quot;cake&quot;); // return true, because &quot;cake&quo
 	<li><code>word</code> consists of lowercase English letters.</li>
 	<li>At most <code>5000</code> calls will be made to <code>isUnique</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

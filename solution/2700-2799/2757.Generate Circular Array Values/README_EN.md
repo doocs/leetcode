@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2757.Ge
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a <strong>circular</strong> array <code>arr</code> and an integer&nbsp;<code>startIndex</code>, return a generator object&nbsp;<code>gen</code> that yields values from <code>arr</code>.</p>
 
 <p>The first time <code>gen.next()</code> is called on the generator, it should should yield&nbsp;<code>arr[startIndex]</code>.</p>
@@ -75,6 +77,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2757.Ge
 	<li><code>-10<sup>4</sup>&nbsp;&lt;= steps[i],&nbsp;arr[i] &lt;= 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= startIndex &lt;&nbsp;arr.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

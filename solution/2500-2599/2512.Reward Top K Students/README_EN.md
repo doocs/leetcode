@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two string arrays <code>positive_feedback</code> and <code>negative_feedback</code>, containing the words denoting positive and negative feedback, respectively. Note that <strong>no</strong> word is both positive and negative.</p>
 
 <p>Initially every student has <code>0</code> points. Each positive word in a feedback report <strong>increases</strong> the points of a student by <code>3</code>, whereas each negative word <strong>decreases</strong> the points by <code>1</code>.</p>
@@ -66,6 +68,8 @@ Since student 2 has more points, [2,1] is returned.
 	<li>All the values of <code>student_id[i]</code> are <strong>unique</strong>.</li>
 	<li><code>1 &lt;= k &lt;= n</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

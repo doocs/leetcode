@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A string <code>s</code> can be partitioned into groups of size <code>k</code> using the following procedure:</p>
 
 <ul>
@@ -62,6 +64,8 @@ Thus, the 4 groups formed are &quot;abc&quot;, &quot;def&quot;, &quot;ghi&quot;,
 	<li><code>1 &lt;= k &lt;= 100</code></li>
 	<li><code>fill</code> is a lowercase English letter.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Salesperson</code></p>
 
 <pre>
@@ -119,6 +121,8 @@ The total for Bob is 988 + 856 = 1844.
 Jerry is not the salesperson of any customer.
 The total for Jerry is 0.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

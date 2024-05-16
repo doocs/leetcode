@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Rides</code></p>
 
 <pre>
@@ -65,6 +67,8 @@ There are two drivers in all the given rides: 7 and 11.
 The driver with ID = 7 was a passenger two times.
 The driver with ID = 11 was never a passenger.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

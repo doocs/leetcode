@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2625.Fl
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a&nbsp;<strong>multi-dimensional</strong> array&nbsp;<code>arr</code>&nbsp;and a depth <code>n</code>, return&nbsp;a&nbsp;<strong>flattened</strong>&nbsp;version of that array.</p>
 
 <p>A <strong>multi-dimensional</strong>&nbsp;array is a recursive data structure that contains integers or other&nbsp;<strong>multi-dimensional</strong>&nbsp;arrays.</p>
@@ -67,6 +69,8 @@ The maximum depth of any subarray is 1. Thus, all of them are flattened.</pre>
 	<li><code>-1000 &lt;= each number &lt;= 1000</code></li>
 	<li><code><font face="monospace">0 &lt;= n &lt;= 1000</font></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

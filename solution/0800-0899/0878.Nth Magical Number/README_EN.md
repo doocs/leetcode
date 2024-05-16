@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A positive integer is <em>magical</em> if it is divisible by either <code>a</code> or <code>b</code>.</p>
 
 <p>Given the three integers <code>n</code>, <code>a</code>, and <code>b</code>, return the <code>n<sup>th</sup></code> magical number. Since the answer may be very large, <strong>return it modulo </strong><code>10<sup>9</sup> + 7</code>.</p>
@@ -41,6 +43,8 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
 	<li><code>2 &lt;= a, b &lt;= 4 * 10<sup>4</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>root</code> of a <strong>perfect</strong> binary tree, reverse the node values at each <strong>odd</strong> level of the tree.</p>
 
 <ul>
@@ -70,6 +72,8 @@ The nodes at level 3 were 1, 1, 1, 1, 2, 2, 2, 2, and are 2, 2, 2, 2, 1, 1, 1, 1
 	<li><code>0 &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
 	<li><code>root</code> is a <strong>perfect</strong> binary tree.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table:<font face="monospace"> <code>Files</code></font></p>
 
 <pre>
@@ -63,6 +65,8 @@ Files table:
 - The word &quot;bear&quot; appears 1 time in &quot;draft2.txt&quot;, and 1 time in &quot;draft3.txt&quot;. Therefore, the total number of occurrences for the word &quot;bear&quot; is 2.
 
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

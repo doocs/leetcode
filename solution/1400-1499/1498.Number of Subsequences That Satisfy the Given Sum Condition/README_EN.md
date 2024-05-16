@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array of integers <code>nums</code> and an integer <code>target</code>.</p>
 
 <p>Return <em>the number of <strong>non-empty</strong> subsequences of </em><code>nums</code><em> such that the sum of the minimum and maximum element on it is less or equal to </em><code>target</code>. Since the answer may be too large, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>
@@ -62,6 +64,8 @@ Number of valid subsequences (63 - 2 = 61).
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 	<li><code>1 &lt;= target &lt;= 10<sup>6</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

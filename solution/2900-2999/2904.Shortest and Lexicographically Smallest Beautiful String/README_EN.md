@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a binary string <code>s</code> and a positive integer <code>k</code>.</p>
 
 <p>A substring of <code>s</code> is <strong>beautiful</strong> if the number of <code>1</code>&#39;s in it is exactly <code>k</code>.</p>
@@ -77,6 +79,8 @@ The lexicographically smallest beautiful substring with length 2 is the substrin
 	<li><code>1 &lt;= s.length &lt;= 100</code></li>
 	<li><code>1 &lt;= k &lt;= s.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

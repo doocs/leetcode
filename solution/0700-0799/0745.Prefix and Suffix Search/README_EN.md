@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design a special dictionary that searches the words in it by a prefix and a suffix.</p>
 
 <p>Implement the <code>WordFilter</code> class:</p>
@@ -51,6 +53,8 @@ wordFilter.f(&quot;a&quot;, &quot;e&quot;); // return 0, because the word at ind
 	<li><code>words[i]</code>, <code>pref</code> and <code>suff</code> consist of lowercase English letters only.</li>
 	<li>At most <code>10<sup>4</sup></code> calls will be made to the function <code>f</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

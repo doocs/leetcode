@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Friendship</code></p>
 
 <pre>
@@ -122,6 +124,8 @@ Another example is user 6:
 
 You can recommend pages for users 2, 3, 4, and 5 using a similar process.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array of <strong>positive</strong> integers <code>nums</code>.</p>
 
 <p>You have to check if it is possible to select <strong>two or more</strong> elements in the array such that the bitwise <code>OR</code> of the selected elements has <strong>at least </strong>one trailing zero in its binary representation.</p>
@@ -58,6 +60,8 @@ Other possible ways to select elements to have trailing zeroes in the binary rep
 	<li><code>2 &lt;= nums.length &lt;= 100</code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

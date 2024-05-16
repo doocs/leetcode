@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There are <code>n</code> children standing in a line. Each child is assigned a rating value given in the integer array <code>ratings</code>.</p>
 
 <p>You are giving candies to these children subjected to the following requirements:</p>
@@ -52,6 +54,8 @@ The third child gets 1 candy because it satisfies the above two conditions.
 	<li><code>1 &lt;= n &lt;= 2 * 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= ratings[i] &lt;= 2 * 10<sup>4</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

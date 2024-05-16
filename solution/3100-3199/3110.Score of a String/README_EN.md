@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>s</code>. The <strong>score</strong> of a string is defined as the sum of the absolute difference between the <strong>ASCII</strong> values of adjacent characters.</p>
 
 <p>Return the <strong>score</strong> of<em> </em><code>s</code>.</p>
@@ -52,6 +54,8 @@ tags:
 	<li><code>2 &lt;= s.length &lt;= 100</code></li>
 	<li><code>s</code> consists only of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

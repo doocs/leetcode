@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> having length <code>n</code>, an integer <code>indexDifference</code>, and an integer <code>valueDifference</code>.</p>
 
 <p>Your task is to find <strong>two</strong> indices <code>i</code> and <code>j</code>, both in the range <code>[0, n - 1]</code>, that satisfy the following conditions:</p>
@@ -70,6 +72,8 @@ Hence, [-1,-1] is returned.</pre>
 	<li><code>0 &lt;= indexDifference &lt;= 100</code></li>
 	<li><code>0 &lt;= valueDifference &lt;= 50</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

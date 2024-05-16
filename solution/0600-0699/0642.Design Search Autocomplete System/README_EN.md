@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design a search autocomplete system for a search engine. Users may input a sentence (at least one word and end with a special character <code>&#39;#&#39;</code>).</p>
 
 <p>You are given a string array <code>sentences</code> and an integer array <code>times</code> both of length <code>n</code> where <code>sentences[i]</code> is a previously typed sentence and <code>times[i]</code> is the corresponding number of times the sentence was typed. For each input character except <code>&#39;#&#39;</code>, return the top <code>3</code> historical hot sentences that have the same prefix as the part of the sentence already typed.</p>
@@ -77,6 +79,8 @@ obj.input(&quot;#&quot;); // return []. The user finished the input, the sentenc
 	<li>The words in each input sentence are separated by single spaces.</li>
 	<li>At most <code>5000</code> calls will be made to <code>input</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

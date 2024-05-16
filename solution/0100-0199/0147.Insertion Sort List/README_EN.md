@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>head</code> of a singly linked list, sort the list using <strong>insertion sort</strong>, and return <em>the sorted list&#39;s head</em>.</p>
 
 <p>The steps of the <strong>insertion sort</strong> algorithm:</p>
@@ -49,6 +51,8 @@ tags:
 	<li>The number of nodes in the list is in the range <code>[1, 5000]</code>.</li>
 	<li><code>-5000 &lt;= Node.val &lt;= 5000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

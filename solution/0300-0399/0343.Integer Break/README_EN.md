@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer <code>n</code>, break it into the sum of <code>k</code> <strong>positive integers</strong>, where <code>k &gt;= 2</code>, and maximize the product of those integers.</p>
 
 <p>Return <em>the maximum product you can get</em>.</p>
@@ -42,6 +44,8 @@ tags:
 <ul>
 	<li><code>2 &lt;= n &lt;= 58</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

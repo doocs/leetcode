@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are installing a billboard and want it to have the largest height. The billboard will have two steel supports, one on each side. Each steel support must be an equal height.</p>
 
 <p>You are given a collection of <code>rods</code> that can be welded together. For example, if you have rods of lengths <code>1</code>, <code>2</code>, and <code>3</code>, you can weld them together to make a support of length <code>6</code>.</p>
@@ -54,6 +56,8 @@ tags:
 	<li><code>1 &lt;= rods[i] &lt;= 1000</code></li>
 	<li><code>sum(rods[i]) &lt;= 5000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of integers <code>arr</code> and an integer <code>k</code>.</p>
 
 <p>A value <code>arr[i]</code> is said to be stronger than a value <code>arr[j]</code> if <code>|arr[i] - m| &gt; |arr[j] - m|</code> where <code>m</code> is the <strong>median</strong> of the array.<br />
@@ -67,6 +69,8 @@ Any permutation of [11,8,6,6,7] is <strong>accepted</strong>.
 	<li><code>-10<sup>5</sup> &lt;= arr[i] &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= k &lt;= arr.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and an integer <code>threshold</code>.</p>
 
 <p>Find the length of the <strong>longest subarray</strong> of <code>nums</code> starting at index <code>l</code> and ending at index <code>r</code> <code>(0 &lt;= l &lt;= r &lt; nums.length)</code> that satisfies the following conditions:</p>
@@ -67,6 +69,8 @@ Hence, the answer is the length of the subarray, 3. We can show that 3 is the ma
 	<li><code>1 &lt;= nums[i] &lt;= 100 </code></li>
 	<li><code>1 &lt;= threshold &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

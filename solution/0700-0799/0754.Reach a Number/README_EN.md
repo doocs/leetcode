@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are standing at position <code>0</code> on an infinite number line. There is a destination at position <code>target</code>.</p>
 
 <p>You can make some number of moves <code>numMoves</code> so that:</p>
@@ -55,6 +57,8 @@ On the 2<sup>nd</sup> move, we step from 1 to 3 (2 steps).
 	<li><code>-10<sup>9</sup> &lt;= target &lt;= 10<sup>9</sup></code></li>
 	<li><code>target != 0</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

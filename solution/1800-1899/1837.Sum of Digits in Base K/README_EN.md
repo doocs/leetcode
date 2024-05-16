@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer <code>n</code> (in base <code>10</code>) and a base <code>k</code>, return <em>the <strong>sum</strong> of the digits of </em><code>n</code><em> <strong>after</strong> converting </em><code>n</code><em> from base </em><code>10</code><em> to base </em><code>k</code>.</p>
 
 <p>After converting, each digit should be interpreted as a base <code>10</code> number, and the sum should be returned in base <code>10</code>.</p>
@@ -44,6 +46,8 @@ tags:
 	<li><code>1 &lt;= n &lt;= 100</code></li>
 	<li><code>2 &lt;= k &lt;= 10</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

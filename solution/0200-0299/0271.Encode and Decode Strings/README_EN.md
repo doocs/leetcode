@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design an algorithm to encode <b>a list of strings</b> to <b>a string</b>. The encoded string is then sent over the network and is decoded back to the original list of strings.</p>
 
 <p>Machine 1 (sender) has the function:</p>
@@ -88,6 +90,8 @@ String[] strs = decoder.decode(msg);
 
 <p>&nbsp;</p>
 <p><strong>Follow up: </strong>Could you write a generalized algorithm to work on any possible set of characters?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

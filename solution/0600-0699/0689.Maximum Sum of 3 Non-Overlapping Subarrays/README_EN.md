@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code> and an integer <code>k</code>, find three non-overlapping subarrays of length <code>k</code> with maximum sum and return them.</p>
 
 <p>Return the result as a list of indices representing the starting position of each interval (<strong>0-indexed</strong>). If there are multiple answers, return the lexicographically smallest one.</p>
@@ -44,6 +46,8 @@ We could have also taken [2, 1], but an answer of [1, 3, 5] would be lexicograph
 	<li><code>1 &lt;= nums[i] &lt;&nbsp;2<sup>16</sup></code></li>
 	<li><code>1 &lt;= k &lt;= floor(nums.length / 3)</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

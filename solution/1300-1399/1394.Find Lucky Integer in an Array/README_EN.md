@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of integers <code>arr</code>, a <strong>lucky integer</strong> is an integer that has a frequency in the array equal to its value.</p>
 
 <p>Return <em>the largest <strong>lucky integer</strong> in the array</em>. If there is no <strong>lucky integer</strong> return <code>-1</code>.</p>
@@ -54,6 +56,8 @@ tags:
 	<li><code>1 &lt;= arr.length &lt;= 500</code></li>
 	<li><code>1 &lt;= arr[i] &lt;= 500</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

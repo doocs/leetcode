@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string&nbsp;<code>s</code><var>,</var>&nbsp;return <em>the maximum&nbsp;number of unique substrings that the given string can be split into</em>.</p>
 
 <p>You can split string&nbsp;<code>s</code> into any list of&nbsp;<strong>non-empty substrings</strong>, where the concatenation of the substrings forms the original string.&nbsp;However, you must split the substrings such that all of them are <strong>unique</strong>.</p>
@@ -60,6 +62,8 @@ tags:
 	<p><code>s</code> contains&nbsp;only lower case English letters.</p>
 	</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

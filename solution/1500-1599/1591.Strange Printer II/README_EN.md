@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There is a strange printer with the following two special requirements:</p>
 
 <ul>
@@ -62,6 +64,8 @@ tags:
 	<li><code>1 &lt;= m, n &lt;= 60</code></li>
 	<li><code>1 &lt;= targetGrid[row][col] &lt;= 60</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array of strings <code>arr</code>. A string <code>s</code> is formed by the <strong>concatenation</strong> of a <strong>subsequence</strong> of <code>arr</code> that has <strong>unique characters</strong>.</p>
 
 <p>Return <em>the <strong>maximum</strong> possible length</em> of <code>s</code>.</p>
@@ -65,6 +67,8 @@ Maximum length is 4.
 	<li><code>1 &lt;= arr[i].length &lt;= 26</code></li>
 	<li><code>arr[i]</code> contains only lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

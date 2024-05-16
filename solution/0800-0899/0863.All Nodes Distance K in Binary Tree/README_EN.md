@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>root</code> of a binary tree, the value of a target node <code>target</code>, and an integer <code>k</code>, return <em>an array of the values of all nodes that have a distance </em><code>k</code><em> from the target node.</em></p>
 
 <p>You can return the answer in <strong>any order</strong>.</p>
@@ -48,6 +50,8 @@ Explanation: The nodes that are a distance 2 from the target node (with value 5)
 	<li><code>target</code> is the value of one of the nodes in the tree.</li>
 	<li><code>0 &lt;= k &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

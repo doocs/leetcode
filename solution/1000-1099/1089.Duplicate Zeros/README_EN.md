@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a fixed-length integer array <code>arr</code>, duplicate each occurrence of zero, shifting the remaining elements to the right.</p>
 
 <p><strong>Note</strong> that elements beyond the length of the original array are not written. Do the above modifications to the input array in place and do not return anything.</p>
@@ -45,6 +47,8 @@ tags:
 	<li><code>1 &lt;= arr.length &lt;= 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= arr[i] &lt;= 9</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

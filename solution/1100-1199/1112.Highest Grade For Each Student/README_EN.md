@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Enrollments</code></p>
 
 <pre>
@@ -62,6 +64,8 @@ Enrollments table:
 | 3          | 3         | 82    |
 +------------+-----------+-------+
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

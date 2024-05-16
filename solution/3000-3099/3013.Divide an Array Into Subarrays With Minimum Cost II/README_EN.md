@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> array of integers <code>nums</code> of length <code>n</code>, and two <strong>positive</strong> integers <code>k</code> and <code>dist</code>.</p>
 
 <p>The <strong>cost</strong> of an array is the value of its <strong>first</strong> element. For example, the cost of <code>[1,2,3]</code> is <code>1</code> while the cost of <code>[3,4,1]</code> is <code>3</code>.</p>
@@ -66,6 +68,8 @@ It can be shown that there is no possible way to divide nums into 3 subarrays at
 	<li><code>3 &lt;= k &lt;= n</code></li>
 	<li><code>k - 2 &lt;= dist &lt;= n - 2</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

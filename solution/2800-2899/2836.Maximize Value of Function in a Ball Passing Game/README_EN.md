@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>receiver</code> of length <code>n</code> and an integer <code>k</code>. <code>n</code> players are playing a ball-passing game.</p>
 
 <p>You choose the starting player, <code>i</code>. The game proceeds as follows: player <code>i</code> passes the ball to player <code>receiver[i]</code>, who then passes it to <code>receiver[receiver[i]]</code>, and so on, for <code>k</code> passes in total. The game&#39;s score is the sum of the indices of the players who touched the ball, including repetitions, i.e. <code>i + receiver[i] + receiver[receiver[i]] + ... + receiver<sup>(k)</sup>[i]</code>.</p>
@@ -128,6 +130,8 @@ tags:
 	<li><code>0 &lt;= receiver[i] &lt;= n - 1</code></li>
 	<li><code>1 &lt;= k &lt;= 10<sup>10</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

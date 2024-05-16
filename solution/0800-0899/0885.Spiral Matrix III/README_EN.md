@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You start at the cell <code>(rStart, cStart)</code> of an <code>rows x cols</code> grid facing east. The northwest corner is at the first row and column in the grid, and the southeast corner is at the last row and column.</p>
 
 <p>You will walk in a clockwise spiral shape to visit every position in this grid. Whenever you move outside the grid&#39;s boundary, we continue our walk outside the grid (but may return to the grid boundary later.). Eventually, we reach all <code>rows * cols</code> spaces of the grid.</p>
@@ -45,6 +47,8 @@ tags:
 	<li><code>0 &lt;= rStart &lt; rows</code></li>
 	<li><code>0 &lt;= cStart &lt; cols</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

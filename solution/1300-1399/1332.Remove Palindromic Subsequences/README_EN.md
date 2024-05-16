@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>s</code> consisting <strong>only</strong> of letters <code>&#39;a&#39;</code> and <code>&#39;b&#39;</code>. In a single step you can remove one <strong>palindromic subsequence</strong> from <code>s</code>.</p>
 
 <p>Return <em>the <strong>minimum</strong> number of steps to make the given string empty</em>.</p>
@@ -59,6 +61,8 @@ Remove palindromic subsequence &quot;baab&quot; then &quot;b&quot;.
 	<li><code>1 &lt;= s.length &lt;= 1000</code></li>
 	<li><code>s[i]</code> is either <code>&#39;a&#39;</code> or <code>&#39;b&#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

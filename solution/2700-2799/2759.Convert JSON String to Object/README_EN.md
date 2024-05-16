@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2759.Co
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>str</code>, return parsed JSON&nbsp;<code>parsedStr</code>.&nbsp;You may assume the <code>str</code>&nbsp;is a valid JSON string hence it only includes strings, numbers, arrays, objects, booleans, and null. <code>str</code>&nbsp;will not include invisible characters and escape characters.&nbsp;</p>
 
 <p>Please solve it without using the built-in&nbsp;<code>JSON.parse</code>&nbsp;method.</p>
@@ -45,6 +47,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2759.Co
 	<li><code>str</code> is a valid JSON string</li>
 	<li><code>1 &lt;= str.length &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

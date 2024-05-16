@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Boxes</code></p>
 
 <pre>
@@ -96,6 +98,8 @@ box 3 has 16 + 20 (from the chest) = 36 apples and 7 + 10 (from the chest) = 17 
 Total number of apples = 6 + 24 + 27 + 27 + 17 + 14 + 36 = 151
 Total number of oranges = 15 + 25 + 8 + 28 + 15 + 15 + 17 = 123
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

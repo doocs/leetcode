@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a list of strings <code>words</code> and a string <code>pattern</code>, return <em>a list of</em> <code>words[i]</code> <em>that match</em> <code>pattern</code>. You may return the answer in <strong>any order</strong>.</p>
 
 <p>A word matches the pattern if there exists a permutation of letters <code>p</code> so that after replacing every letter <code>x</code> in the pattern with <code>p(x)</code>, we get the desired word.</p>
@@ -48,6 +50,8 @@ tags:
 	<li><code>words[i].length == pattern.length</code></li>
 	<li><code>pattern</code> and <code>words[i]</code> are lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

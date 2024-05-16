@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array of integers <code>stones</code> where <code>stones[i]</code> is the weight of the <code>i<sup>th</sup></code> stone.</p>
 
 <p>We are playing a game with the stones. On each turn, we choose any two stones and smash them together. Suppose the stones have weights <code>x</code> and <code>y</code> with <code>x &lt;= y</code>. The result of this smash is:</p>
@@ -57,6 +59,8 @@ we can combine 1 and 1 to get 0, so the array converts to [1], then that&#39;s t
 	<li><code>1 &lt;= stones.length &lt;= 30</code></li>
 	<li><code>1 &lt;= stones[i] &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Activity</code></p>
 
 <pre>
@@ -69,6 +71,8 @@ Activity table:
 +------------+--------------+ 
 <strong>Explanation:</strong> Note that we do not care about days with zero active users.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

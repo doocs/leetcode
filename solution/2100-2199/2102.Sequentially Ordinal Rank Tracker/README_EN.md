@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A scenic location is represented by its <code>name</code> and attractiveness <code>score</code>, where <code>name</code> is a <strong>unique</strong> string among all locations and <code>score</code> is an integer. Locations can be ranked from the best to the worst. The <strong>higher</strong> the score, the better the location. If the scores of two locations are equal, then the location with the <strong>lexicographically smaller</strong> name is better.</p>
 
 <p>You are building a system that tracks the ranking of locations with the system initially starting with no locations. It supports:</p>
@@ -87,6 +89,8 @@ tracker.get();              // Sorted locations: branford, orlando, alpine, alps
 	<li>At any time, the number of calls to <code>get</code> does not exceed the number of calls to <code>add</code>.</li>
 	<li>At most <code>4 * 10<sup>4</sup></code> calls <strong>in total</strong> will be made to <code>add</code> and <code>get</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

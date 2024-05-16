@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code> with no duplicates. A <strong>maximum binary tree</strong> can be built recursively from <code>nums</code> using the following algorithm:</p>
 
 <ol>
@@ -62,6 +64,8 @@ tags:
 	<li><code>0 &lt;= nums[i] &lt;= 1000</code></li>
 	<li>All integers in <code>nums</code> are <strong>unique</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

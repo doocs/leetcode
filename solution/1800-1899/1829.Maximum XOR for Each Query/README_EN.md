@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>sorted</strong> array <code>nums</code> of <code>n</code> non-negative integers and an integer <code>maximumBit</code>. You want to perform the following query <code>n</code> <strong>times</strong>:</p>
 
 <ol>
@@ -69,6 +71,8 @@ tags:
 	<li><code>0 &lt;= nums[i] &lt; 2<sup>maximumBit</sup></code></li>
 	<li><code>nums</code>​​​ is sorted in <strong>ascending</strong> order.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

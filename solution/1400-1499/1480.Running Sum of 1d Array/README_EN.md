@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array <code>nums</code>. We define a running sum of an array as&nbsp;<code>runningSum[i] = sum(nums[0]&hellip;nums[i])</code>.</p>
 
 <p>Return the running sum of <code>nums</code>.</p>
@@ -50,6 +52,8 @@ tags:
 	<li><code>1 &lt;= nums.length &lt;= 1000</code></li>
 	<li><code>-10^6&nbsp;&lt;= nums[i] &lt;=&nbsp;10^6</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

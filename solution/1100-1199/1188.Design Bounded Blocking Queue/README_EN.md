@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Implement a thread-safe bounded blocking queue that has the following methods:</p>
 
 <ul>
@@ -97,6 +99,8 @@ Since the number of threads for producer/consumer is greater than 1, we do not k
 	<li>The number of calls to <code>enqueue</code> is <strong>greater than or equal to</strong> the number of calls to <code>dequeue</code>.</li>
 	<li>At most <code>40</code> calls will be made to <code>enque</code>, <code>deque</code>, and <code>size</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

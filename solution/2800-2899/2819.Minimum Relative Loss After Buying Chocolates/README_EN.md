@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>prices</code>, which shows the chocolate prices and a 2D integer array <code>queries</code>, where <code>queries[i] = [k<sub>i</sub>, m<sub>i</sub>]</code>.</p>
 
 <p>Alice and Bob went to buy some chocolates, and Alice suggested a way to pay for them, and Bob agreed.</p>
@@ -76,6 +78,8 @@ It can be shown that these are the minimum possible relative losses.
 	<li><code>1 &lt;= k<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
 	<li><code>1 &lt;= m<sub>i</sub> &lt;= n</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

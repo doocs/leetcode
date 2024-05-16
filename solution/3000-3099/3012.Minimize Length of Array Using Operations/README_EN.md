@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> containing <strong>positive</strong> integers.</p>
 
 <p>Your task is to <strong>minimize</strong> the length of <code>nums</code> by performing the following operations <strong>any</strong> number of times (including zero):</p>
@@ -82,6 +84,8 @@ It can be shown that 1 is the minimum achievable length.</pre>
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

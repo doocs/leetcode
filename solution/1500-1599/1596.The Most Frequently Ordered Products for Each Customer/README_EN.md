@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Customers</code></p>
 
 <pre>
@@ -127,6 +129,8 @@ Tom (customer 3) only ordered the screen (two times), so that is the most freque
 Jerry (customer 4) only ordered the keyboard (one time), so that is the most frequently ordered product for them.
 John (customer 5) did not order anything, so we do not include them in the result table.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

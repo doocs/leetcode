@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a positive integer <code>n</code> representing the number of nodes in a tree, numbered from <code>0</code> to <code>n - 1</code> (<strong>inclusive</strong>). You are also given a 2D integer array <code>edges</code> of length <code>n - 1</code>, where <code>edges[i] = [node1<sub>i</sub>, node2<sub>i</sub>]</code> denotes that there is a <strong>bidirectional</strong> edge connecting <code>node1<sub>i</sub></code> and <code>node2<sub>i</sub></code> in the tree.</p>
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>query</code> of length <code>m</code> where <code>query[i] = [start<sub>i</sub>, end<sub>i</sub>, node<sub>i</sub>]</code> means that for the <code>i<sup>th</sup></code> query, you are tasked with finding the node on the path from <code>start<sub>i</sub></code> to <code>end<sub>i</sub></code> that is <strong>closest</strong> to <code>node<sub>i</sub></code>.</p>
@@ -71,6 +73,8 @@ Since 0 is the only node on the path, the answer to the first query is 0.</pre>
 	<li><code>0 &lt;= start<sub>i</sub>, end<sub>i</sub>, node<sub>i</sub> &lt;= n - 1</code></li>
 	<li>The graph is a tree.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

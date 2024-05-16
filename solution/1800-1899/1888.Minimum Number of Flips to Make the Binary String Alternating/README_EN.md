@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a binary string <code>s</code>. You are allowed to perform two types of operations on the string in any sequence:</p>
 
 <ul>
@@ -67,6 +69,8 @@ Then, use the second operation on the third and sixth elements to make s = &quot
 	<li><code>1 &lt;= s.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>s[i]</code> is either <code>&#39;0&#39;</code> or <code>&#39;1&#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

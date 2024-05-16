@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an <code>n x n</code> binary matrix <code>grid</code> where <code>1</code> represents land and <code>0</code> represents water.</p>
 
 <p>An <strong>island</strong> is a 4-directionally connected group of <code>1</code>&#39;s not connected to any other <code>1</code>&#39;s. There are <strong>exactly two islands</strong> in <code>grid</code>.</p>
@@ -56,6 +58,8 @@ tags:
 	<li><code>grid[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
 	<li>There are exactly two islands in <code>grid</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

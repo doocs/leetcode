@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2635.Ap
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array&nbsp;<code>arr</code>&nbsp;and a mapping function&nbsp;<code>fn</code>, return&nbsp;a new array with a transformation applied to each element.</p>
 
 <p>The returned array should be created such that&nbsp;<code>returnedArray[i] = fn(arr[i], i)</code>.</p>
@@ -53,6 +55,8 @@ The function increases each value in the array by one.
 	<li><code><font face="monospace">-10<sup>9</sup>&nbsp;&lt;= arr[i] &lt;= 10<sup>9</sup></font></code></li>
 	<li><code>fn</code> returns a number</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

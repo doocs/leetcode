@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two integers <code>n</code> and <code>k</code>, return <em>all possible combinations of</em> <code>k</code> <em>numbers chosen from the range</em> <code>[1, n]</code>.</p>
 
 <p>You may return the answer in <strong>any order</strong>.</p>
@@ -43,6 +45,8 @@ Note that combinations are unordered, i.e., [1,2] and [2,1] are considered to be
 	<li><code>1 &lt;= n &lt;= 20</code></li>
 	<li><code>1 &lt;= k &lt;= n</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

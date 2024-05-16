@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>s</code> and a robot that currently holds an empty string <code>t</code>. Apply one of the following operations until <code>s</code> and <code>t</code> <strong>are both empty</strong>:</p>
 
 <ul>
@@ -70,6 +72,8 @@ Perform second operation four times p=&quot;addb&quot;, s=&quot;&quot;, t=&quot;
 	<li><code>1 &lt;= s.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>s</code> consists of only English lowercase letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

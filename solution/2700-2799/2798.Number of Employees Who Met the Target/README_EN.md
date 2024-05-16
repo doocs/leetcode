@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There are <code>n</code> employees in a company, numbered from <code>0</code> to <code>n - 1</code>. Each employee <code>i</code> has worked for <code>hours[i]</code> hours in the company.</p>
 
 <p>The company requires each employee to work for <strong>at least</strong> <code>target</code> hours.</p>
@@ -55,6 +57,8 @@ There are 0 employees who met the target.
 	<li><code>1 &lt;= n == hours.length &lt;= 50</code></li>
 	<li><code>0 &lt;=&nbsp;hours[i], target &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

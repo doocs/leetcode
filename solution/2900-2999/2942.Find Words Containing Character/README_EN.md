@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> array of strings <code>words</code> and a character <code>x</code>.</p>
 
 <p>Return <em>an <strong>array of indices</strong> representing the words that contain the character </em><code>x</code>.</p>
@@ -57,6 +59,8 @@ tags:
 	<li><code>x</code> is a lowercase English letter.</li>
 	<li><code>words[i]</code> consists only of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

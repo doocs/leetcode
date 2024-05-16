@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given four integer arrays <code>nums1</code>, <code>nums2</code>, <code>nums3</code>, and <code>nums4</code> all of length <code>n</code>, return the number of tuples <code>(i, j, k, l)</code> such that:</p>
 
 <ul>
@@ -52,6 +54,8 @@ The two tuples are:
 	<li><code>1 &lt;= n &lt;= 200</code></li>
 	<li><code>-2<sup>28</sup> &lt;= nums1[i], nums2[i], nums3[i], nums4[i] &lt;= 2<sup>28</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

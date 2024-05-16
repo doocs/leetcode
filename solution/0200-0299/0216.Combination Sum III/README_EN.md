@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Find all valid combinations of <code>k</code> numbers that sum up to <code>n</code> such that the following conditions are true:</p>
 
 <ul>
@@ -62,6 +64,8 @@ Using 4 different numbers in the range [1,9], the smallest sum we can get is 1+2
 	<li><code>2 &lt;= k &lt;= 9</code></li>
 	<li><code>1 &lt;= n &lt;= 60</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

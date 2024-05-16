@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>word</code> and an array of strings <code>forbidden</code>.</p>
 
 <p>A string is called <strong>valid</strong> if none of its substrings are present in <code>forbidden</code>.</p>
@@ -55,6 +57,8 @@ It can be shown that all other substrings contain either &quot;de&quot;, &quot;l
 	<li><code>1 &lt;= forbidden[i].length &lt;= 10</code></li>
 	<li><code>forbidden[i]</code> consists only of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

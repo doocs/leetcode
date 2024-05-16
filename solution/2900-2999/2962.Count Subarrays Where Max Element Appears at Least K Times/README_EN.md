@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code> and a <strong>positive</strong> integer <code>k</code>.</p>
 
 <p>Return <em>the number of subarrays where the <strong>maximum</strong> element of </em><code>nums</code><em> appears <strong>at least</strong> </em><code>k</code><em> times in that subarray.</em></p>
@@ -48,6 +50,8 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 	<li><code>1 &lt;= k &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Logs</code></p>
 
 <pre>
@@ -66,6 +68,8 @@ From 7 to 8 is contained in the table.
 Number 9 is missing from the table.
 Number 10 is contained in the table.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

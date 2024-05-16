@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a list of songs where the <code>i<sup>th</sup></code> song has a duration of <code>time[i]</code> seconds.</p>
 
 <p>Return <em>the number of pairs of songs for which their total duration in seconds is divisible by</em> <code>60</code>. Formally, we want the number of indices <code>i</code>, <code>j</code> such that <code>i &lt; j</code> with <code>(time[i] + time[j]) % 60 == 0</code>.</p>
@@ -49,6 +51,8 @@ tags:
 	<li><code>1 &lt;= time.length &lt;= 6 * 10<sup>4</sup></code></li>
 	<li><code>1 &lt;= time[i] &lt;= 500</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

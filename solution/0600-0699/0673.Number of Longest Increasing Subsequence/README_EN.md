@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array&nbsp;<code>nums</code>, return <em>the number of longest increasing subsequences.</em></p>
 
 <p><strong>Notice</strong> that the sequence has to be <strong>strictly</strong> increasing.</p>
@@ -45,6 +47,8 @@ tags:
 	<li><code>1 &lt;= nums.length &lt;= 2000</code></li>
 	<li><code>-10<sup>6</sup> &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

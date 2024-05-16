@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of characters <code>chars</code>, compress it using the following algorithm:</p>
 
 <p>Begin with an empty string <code>s</code>. For each group of <strong>consecutive repeating characters</strong> in <code>chars</code>:</p>
@@ -61,6 +63,8 @@ tags:
 	<li><code>1 &lt;= chars.length &lt;= 2000</code></li>
 	<li><code>chars[i]</code> is a lowercase English letter, uppercase English letter, digit, or symbol.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

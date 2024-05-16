@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>The red-green-blue color <code>&quot;#AABBCC&quot;</code> can be written as <code>&quot;#ABC&quot;</code> in shorthand.</p>
 
 <ul>
@@ -54,6 +56,8 @@ This is the highest among any shorthand color.
 	<li><code>color[0] == &#39;#&#39;</code></li>
 	<li><code>color[i]</code> is either digit or character in the range <code>[&#39;a&#39;, &#39;f&#39;]</code> for <code>i &gt; 0</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two strings of the same length <code>s1</code> and <code>s2</code> and a string <code>baseStr</code>.</p>
 
 <p>We say <code>s1[i]</code> and <code>s2[i]</code> are equivalent characters.</p>
@@ -71,6 +73,8 @@ So only the second letter &#39;o&#39; in baseStr is changed to &#39;d&#39;, the 
 	<li><code>s1.length == s2.length</code></li>
 	<li><code>s1</code>, <code>s2</code>, and <code>baseStr</code> consist of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

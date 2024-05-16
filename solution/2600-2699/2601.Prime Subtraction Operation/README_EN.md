@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of length <code>n</code>.</p>
 
 <p>You can perform the following operation as many times as you want:</p>
@@ -64,6 +66,8 @@ After the second operation, nums is sorted in strictly increasing order, so the 
 	<li><code>1 &lt;= nums[i] &lt;= 1000</code></li>
 	<li><code><font face="monospace">nums.length == n</font></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

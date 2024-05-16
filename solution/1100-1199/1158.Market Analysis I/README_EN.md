@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Users</code></p>
 
 <pre>
@@ -113,6 +115,8 @@ Items table:
 | 4         | 2018-05-21 | 0              |
 +-----------+------------+----------------+
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

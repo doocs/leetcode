@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a 2D <strong>0-indexed </strong>integer array <code>dimensions</code>.</p>
 
 <p>For all indices <code>i</code>, <code>0 &lt;= i &lt; dimensions.length</code>, <code>dimensions[i][0]</code> represents the length and <code>dimensions[i][1]</code> represents the width of the rectangle<span style="font-size: 13.3333px;"> <code>i</code></span>.</p>
@@ -50,6 +52,8 @@ So, the rectangle at index 1 has a greater diagonal length therefore we return a
 	<li><code><font face="monospace">dimensions[i].length == 2</font></code></li>
 	<li><code><font face="monospace">1 &lt;= dimensions[i][0], dimensions[i][1] &lt;= 100</font></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

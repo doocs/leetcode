@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Warehouse</code></p>
 
 <pre>
@@ -99,6 +101,8 @@ LCHouse2: 2 units of LC-TV + 2 units of LC-KeyChain.
 LCHouse3: 1 unit of LC-T-Shirt.
           Total volume: 1*800 = 800 cubic feet.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

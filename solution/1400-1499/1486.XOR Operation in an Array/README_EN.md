@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer <code>n</code> and an integer <code>start</code>.</p>
 
 <p>Define an array <code>nums</code> where <code>nums[i] = start + 2 * i</code> (<strong>0-indexed</strong>) and <code>n == nums.length</code>.</p>
@@ -49,6 +51,8 @@ Where &quot;^&quot; corresponds to bitwise XOR operator.
 	<li><code>0 &lt;= start &lt;= 1000</code></li>
 	<li><code>n == nums.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

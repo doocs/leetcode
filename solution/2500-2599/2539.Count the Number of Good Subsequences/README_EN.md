@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A <strong>subsequence</strong> of a string is&nbsp;good if it is not empty and the frequency of each one of its characters is the same.</p>
 
 <p>Given a string <code>s</code>, return <em>the number of good subsequences of</em> <code>s</code>. Since the answer may be too large, return it modulo <code>10<sup>9</sup> + 7</code>.</p>
@@ -55,6 +57,8 @@ tags:
 	<li><code>1 &lt;= s.length &lt;= 10<sup>4</sup></code></li>
 	<li><code>s</code> consists of only lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

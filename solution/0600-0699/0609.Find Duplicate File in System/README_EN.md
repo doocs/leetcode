@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a list <code>paths</code> of directory info, including the directory path, and all the files with contents in this directory, return <em>all the duplicate files in the file system in terms of their paths</em>. You may return the answer in <strong>any order</strong>.</p>
 
 <p>A group of duplicate files consists of at least two files that have the same content.</p>
@@ -64,6 +66,8 @@ tags:
 	<li>What is the time complexity of your modified solution? What is the most time-consuming part and memory-consuming part of it? How to optimize?</li>
 	<li>How to make sure the duplicated files you find are not false positive?</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

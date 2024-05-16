@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>s</code> and a dictionary of strings <code>wordDict</code>, add spaces in <code>s</code> to construct a sentence where each word is a valid dictionary word. Return all such possible sentences in <strong>any order</strong>.</p>
 
 <p><strong>Note</strong> that the same word in the dictionary may be reused multiple times in the segmentation.</p>
@@ -58,6 +60,8 @@ tags:
 	<li>All the strings of <code>wordDict</code> are <strong>unique</strong>.</li>
 	<li>Input is generated in a way that the length of the answer doesn&#39;t exceed&nbsp;10<sup>5</sup>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and a target element <code>target</code>.</p>
 
 <p>A <strong>target index</strong> is an index <code>i</code> such that <code>nums[i] == target</code>.</p>
@@ -59,6 +61,8 @@ The index where nums[i] == 5 is 4.
 	<li><code>1 &lt;= nums.length &lt;= 100</code></li>
 	<li><code>1 &lt;= nums[i], target &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> string <code>hamsters</code> where <code>hamsters[i]</code> is either:</p>
 
 <ul>
@@ -62,6 +64,8 @@ It can be shown that if we place only one food bucket, one of the hamsters will 
 	<li><code>1 &lt;= hamsters.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>hamsters[i]</code> is either<code>&#39;H&#39;</code> or <code>&#39;.&#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

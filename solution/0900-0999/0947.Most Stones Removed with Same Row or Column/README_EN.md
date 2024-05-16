@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>On a 2D plane, we place <code>n</code> stones at some integer coordinate points. Each coordinate point may have at most one stone.</p>
 
 <p>A stone can be removed if it shares either <strong>the same row or the same column</strong> as another stone that has not been removed.</p>
@@ -66,6 +68,8 @@ Stones [0,0] and [1,1] cannot be removed since they do not share a row/column wi
 	<li><code>0 &lt;= x<sub>i</sub>, y<sub>i</sub> &lt;= 10<sup>4</sup></code></li>
 	<li>No two stones are at the same coordinate point.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

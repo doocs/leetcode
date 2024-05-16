@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Sales</code></p>
 
 <pre>
@@ -84,6 +86,8 @@ Product table:
 | 200        | 2011       | 15       | 9000  |
 +------------+------------+----------+-------+
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

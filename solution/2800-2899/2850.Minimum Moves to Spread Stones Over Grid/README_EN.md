@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> 2D integer matrix <code>grid</code> of size <code>3 * 3</code>, representing the number of stones in each cell. The grid contains exactly <code>9</code> stones, and there can be <strong>multiple</strong> stones in a single cell.</p>
 
 <p>In one move, you can move a single stone from its current cell to any other cell if the two cells share a side.</p>
@@ -61,6 +63,8 @@ It can be shown that 4 is the minimum number of moves required to place one ston
 	<li><code>0 &lt;= grid[i][j] &lt;= 9</code></li>
 	<li>Sum of <code>grid</code> is equal to <code>9</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

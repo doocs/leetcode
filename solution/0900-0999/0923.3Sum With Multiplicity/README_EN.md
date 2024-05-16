@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>arr</code>, and an integer <code>target</code>, return the number of tuples <code>i, j, k</code> such that <code>i &lt; j &lt; k</code> and <code>arr[i] + arr[j] + arr[k] == target</code>.</p>
 
 <p>As the answer can be very large, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>
@@ -63,6 +65,8 @@ and two 2s from [2,2,2,2] in 6 ways.
 	<li><code>0 &lt;= arr[i] &lt;= 100</code></li>
 	<li><code>0 &lt;= target &lt;= 300</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

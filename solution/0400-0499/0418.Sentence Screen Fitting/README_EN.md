@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a&nbsp;<code>rows x cols</code> screen and a <code>sentence</code> represented as a list of strings, return <em>the number of&nbsp;times the given sentence can be fitted on the screen</em>.</p>
 
 <p>The order of words in the sentence must remain unchanged, and a word cannot be split into two lines. A single space must separate two consecutive words in a line.</p>
@@ -66,6 +68,8 @@ The character &#39;-&#39; signifies an empty space on the screen.
 	<li><code>sentence[i]</code> consists of lowercase English letters.</li>
 	<li><code>1 &lt;= rows, cols &lt;= 2 * 10<sup>4</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an <code>m x n</code> binary matrix <code>image</code> where <code>0</code> represents a white pixel and <code>1</code> represents a black pixel.</p>
 
 <p>The black pixels are connected (i.e., there is only one black region). Pixels are connected horizontally and vertically.</p>
@@ -54,6 +56,8 @@ tags:
 	<li><code>image[x][y] == &#39;1&#39;.</code></li>
 	<li>The black pixels in the <code>image</code> only form <strong>one component</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

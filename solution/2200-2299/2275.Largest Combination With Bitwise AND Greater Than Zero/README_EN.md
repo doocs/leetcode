@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>The <strong>bitwise AND</strong> of an array <code>nums</code> is the bitwise AND of all integers in <code>nums</code>.</p>
 
 <ul>
@@ -59,6 +61,8 @@ The size of the combination is 2, so we return 2.
 	<li><code>1 &lt;= candidates.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= candidates[i] &lt;= 10<sup>7</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

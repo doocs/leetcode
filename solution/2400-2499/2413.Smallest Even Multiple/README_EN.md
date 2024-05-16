@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 Given a <strong>positive</strong> integer <code>n</code>, return <em>the smallest positive integer that is a multiple of <strong>both</strong> </em><code>2</code><em> and </em><code>n</code>.
 
 <p>&nbsp;</p>
@@ -42,6 +44,8 @@ Given a <strong>positive</strong> integer <code>n</code>, return <em>the smalles
 <ul>
 	<li><code>1 &lt;= n &lt;= 150</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

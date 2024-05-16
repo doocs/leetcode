@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an n-ary tree, return the <em>level order</em> traversal of its nodes&#39; values.</p>
 
 <p><em>Nary-Tree input serialization is represented in their level order traversal, each group of children is separated by the null value (See examples).</em></p>
@@ -45,6 +47,8 @@ tags:
 	<li>The height of the n-ary tree is less than or equal to <code>1000</code></li>
 	<li>The total number of nodes is between <code>[0, 10<sup>4</sup>]</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

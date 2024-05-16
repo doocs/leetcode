@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given the <code>root</code> of a binary tree with <code>n</code> nodes where each <code>node</code> in the tree has <code>node.val</code> coins. There are <code>n</code> coins in total throughout the whole tree.</p>
 
 <p>In one move, we may choose two adjacent nodes and move one coin from one node to another. A move may be from parent to child, or from child to parent.</p>
@@ -48,6 +50,8 @@ tags:
 	<li><code>0 &lt;= Node.val &lt;= n</code></li>
 	<li>The sum of all <code>Node.val</code> is <code>n</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

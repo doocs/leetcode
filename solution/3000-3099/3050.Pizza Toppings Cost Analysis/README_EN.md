@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code><font face="monospace">Toppings</font></code></p>
 
 <pre>
@@ -70,6 +72,8 @@ There are only four different combinations possible with the three topings:
 - Extra Cheese, Pepperoni, Sausage: Total cost is $1.60 (Extra Cheese $0.40, Pepperoni $0.50, Sausage $0.70).
 - Chicken, Extra Cheese, Pepperoni: Total cost is $1.45 (Chicken $0.55, Extra Cheese $0.40, Pepperoni $0.50).
 Output table is ordered by the total cost in descending order.</pre>
+
+<!-- description:end -->
 
 ## Solutions
 

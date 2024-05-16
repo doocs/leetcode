@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a balanced parentheses string <code>s</code>, return <em>the <strong>score</strong> of the string</em>.</p>
 
 <p>The <strong>score</strong> of a balanced parentheses string is based on the following rule:</p>
@@ -55,6 +57,8 @@ tags:
 	<li><code>s</code> consists of only <code>&#39;(&#39;</code> and <code>&#39;)&#39;</code>.</li>
 	<li><code>s</code> is a balanced parentheses string.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

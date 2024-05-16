@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>The chess knight has a <strong>unique movement</strong>,&nbsp;it may move two squares vertically and one square horizontally, or two squares horizontally and one square vertically (with both forming the shape of an <strong>L</strong>). The possible movements of chess knight are shown in this diagram:</p>
 
 <p>A chess knight can move as indicated in the chess diagram below:</p>
@@ -57,6 +59,8 @@ tags:
 <ul>
 	<li><code>1 &lt;= n &lt;= 5000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

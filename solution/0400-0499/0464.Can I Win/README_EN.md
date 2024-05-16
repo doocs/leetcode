@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>In the &quot;100 game&quot; two players take turns adding, to a running total, any integer from <code>1</code> to <code>10</code>. The player who first causes the running total to <strong>reach or exceed</strong> 100 wins.</p>
 
 <p>What if we change the game so that players <strong>cannot</strong> re-use integers?</p>
@@ -62,6 +64,8 @@ Same with other integers chosen by the first player, the second player will alwa
 	<li><code>1 &lt;= maxChoosableInteger &lt;= 20</code></li>
 	<li><code>0 &lt;= desiredTotal &lt;= 300</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

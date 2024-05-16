@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string s represents the serialization of a nested list, implement a parser to deserialize it and return <em>the deserialized</em> <code>NestedInteger</code>.</p>
 
 <p>Each element is either an integer or a list whose elements may also be integers or other lists.</p>
@@ -51,6 +53,8 @@ tags:
 	<li><code>s</code> is the serialization of valid <code>NestedInteger</code>.</li>
 	<li>All the values in the input are in the range <code>[-10<sup>6</sup>, 10<sup>6</sup>]</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

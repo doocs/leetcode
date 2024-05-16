@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>2D</strong> integer array <code>coordinates</code> and an integer <code>k</code>, where <code>coordinates[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> are the coordinates of the <code>i<sup>th</sup></code> point in a 2D plane.</p>
 
 <p>We define the <strong>distance</strong> between two points <code>(x<sub>1</sub>, y<sub>1</sub>)</code> and <code>(x<sub>2</sub>, y<sub>2</sub>)</code> as <code>(x1 XOR x2) + (y1 XOR y2)</code> where <code>XOR</code> is the bitwise <code>XOR</code> operation.</p>
@@ -51,6 +53,8 @@ tags:
 	<li><code>0 &lt;= x<sub>i</sub>, y<sub>i</sub> &lt;= 10<sup>6</sup></code></li>
 	<li><code>0 &lt;= k &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

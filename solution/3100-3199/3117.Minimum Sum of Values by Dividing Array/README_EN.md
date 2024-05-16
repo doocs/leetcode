@@ -21,6 +21,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two arrays <code>nums</code> and <code>andValues</code> of length <code>n</code> and <code>m</code> respectively.</p>
 
 <p>The <strong>value</strong> of an array is equal to the <strong>last</strong> element of that array.</p>
@@ -92,6 +94,8 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt; 10<sup>5</sup></code></li>
 	<li><code>0 &lt;= andValues[j] &lt; 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a 2D integer matrix <code>board</code> and a 2D character matrix <code>pattern</code>. Where <code>0 &lt;= board[r][c] &lt;= 9</code> and each element of <code>pattern</code> is either a digit or a lowercase English letter.</p>
 
 <p>Your task is to find a <span data-keyword="submatrix">submatrix</span> of <code>board</code> that <strong>matches</strong> <code>pattern</code>.</p>
@@ -176,6 +178,8 @@ tags:
 	<li><code>1 &lt;= pattern[i].length &lt;= 50</code></li>
 	<li><code>pattern[i][j]</code> is either a digit represented as a string or a lowercase English letter.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

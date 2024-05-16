@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You have the four functions:</p>
 
 <ul>
@@ -65,6 +67,8 @@ tags:
 <ul>
 	<li><code>1 &lt;= n &lt;= 50</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

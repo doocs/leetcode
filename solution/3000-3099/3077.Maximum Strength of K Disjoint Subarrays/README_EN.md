@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> array of integers <code>nums</code> of length <code>n</code>, and a <strong>positive</strong> <strong>odd</strong> integer <code>k</code>.</p>
 
 <p>The strength of <code>x</code> subarrays is defined as <code>strength = sum[1] * x - sum[2] * (x - 1) + sum[3] * (x - 2) - sum[4] * (x - 3) + ... + sum[x] * 1</code> where <code>sum[i]</code> is the sum of the elements in the <code>i<sup>th</sup></code> subarray. Formally, strength is sum of <code>(-1)<sup>i+1</sup> * sum[i] * (x - i + 1)</code> over all <code>i</code>&#39;s such that <code>1 &lt;= i &lt;= x</code>.</p>
@@ -63,6 +65,8 @@ tags:
 	<li><code>1 &lt;= n * k &lt;= 10<sup>6</sup></code></li>
 	<li><code>k</code> is odd.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code> of length <code>n</code> which represents a permutation of all the integers in the range <code>[0, n - 1]</code>.</p>
 
 <p>The number of <strong>global inversions</strong> is the number of the different pairs <code>(i, j)</code> where:</p>
@@ -60,6 +62,8 @@ tags:
 	<li>All the integers of <code>nums</code> are <strong>unique</strong>.</li>
 	<li><code>nums</code> is a permutation of all the numbers in the range <code>[0, n - 1]</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

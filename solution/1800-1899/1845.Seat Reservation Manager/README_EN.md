@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design a system that manages the reservation state of <code>n</code> seats that are numbered from <code>1</code> to <code>n</code>.</p>
 
 <p>Implement the <code>SeatManager</code> class:</p>
@@ -59,6 +61,8 @@ seatManager.unreserve(5); // Unreserve seat 5, so now the available seats are [5
 	<li>For each call to <code>unreserve</code>, it is guaranteed that <code>seatNumber</code> will be reserved.</li>
 	<li>At most <code>10<sup>5</sup></code> calls <strong>in total</strong> will be made to <code>reserve</code> and <code>unreserve</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

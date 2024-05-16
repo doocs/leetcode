@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array of strings of the same length <code>words</code>.</p>
 
 <p>In one <strong>move</strong>, you can swap any two even indexed characters or any two odd indexed characters of a string <code>words[i]</code>.</p>
@@ -64,6 +66,8 @@ Note that in particular, &quot;zzxy&quot; is not special equivalent to &quot;zzy
 	<li><code>words[i]</code> consist of lowercase English letters.</li>
 	<li>All the strings are of the same length.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

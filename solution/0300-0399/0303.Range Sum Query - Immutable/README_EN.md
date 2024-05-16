@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code>, handle multiple queries of the following type:</p>
 
 <ol>
@@ -55,6 +57,8 @@ numArray.sumRange(0, 5); // return (-2) + 0 + 3 + (-5) + 2 + (-1) = -3
 	<li><code>0 &lt;= left &lt;= right &lt; nums.length</code></li>
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>sumRange</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

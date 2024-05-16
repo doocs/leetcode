@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A generic microwave supports cooking times for:</p>
 
 <ul>
@@ -77,6 +79,8 @@ Note other possible ways are 0076, 076, 0116, and 116, but none of them produces
 	<li><code>1 &lt;= moveCost, pushCost &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= targetSeconds &lt;= 6039</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

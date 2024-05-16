@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>This is an <strong><em>interactive problem</em></strong>.</p>
 
 <p>You have a sorted array of <strong>unique</strong> elements and an <strong>unknown size</strong>. You do not have an access to the array but you can use the <code>ArrayReader</code> interface to access it. You can call <code>ArrayReader.get(i)</code> that:</p>
@@ -56,6 +58,8 @@ tags:
 	<li><code>-10<sup>4</sup> &lt;= secret[i], target &lt;= 10<sup>4</sup></code></li>
 	<li><code>secret</code> is sorted in a strictly increasing order.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

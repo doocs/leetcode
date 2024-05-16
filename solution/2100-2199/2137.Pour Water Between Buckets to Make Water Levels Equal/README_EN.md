@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You have <code>n</code> buckets each containing some gallons of water in it, represented by a <strong>0-indexed</strong> integer array <code>buckets</code>, where the <code>i<sup>th</sup></code> bucket contains <code>buckets[i]</code> gallons of water. You are also given an integer <code>loss</code>.</p>
 
 <p>You want to make the amount of water in each bucket equal. You can pour any amount of water from one bucket to another bucket (not necessarily an integer). However, every time you pour <code>k</code> gallons of water, you spill <code>loss</code> <strong>percent</strong> of <code>k</code>.</p>
@@ -61,6 +63,8 @@ All buckets have 3.5 gallons of water in them so return 3.5.
 	<li><code>0 &lt;= buckets[i] &lt;= 10<sup>5</sup></code></li>
 	<li><code>0 &lt;= loss &lt;= 99</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

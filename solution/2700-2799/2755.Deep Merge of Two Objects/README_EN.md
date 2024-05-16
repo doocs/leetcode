@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2755.De
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two values&nbsp;<code>obj1</code> and <code>obj2</code>, return a&nbsp;<strong>deepmerged</strong>&nbsp;value.</p>
 
 <p>Values should be <strong>deepmerged</strong> according to these rules:</p>
@@ -68,6 +70,8 @@ obj2[&quot;b&quot;][&quot;c&quot;] has key &quot;e&quot; that obj1 doesn&#39;t h
 	<li><code>1 &lt;= JSON.stringify(obj1).length &lt;= 5&nbsp;* 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= JSON.stringify(obj2).length &lt;= 5&nbsp;* 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

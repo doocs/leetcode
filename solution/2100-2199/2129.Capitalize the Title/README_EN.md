@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>title</code> consisting of one or more words separated by a single space, where each word consists of English letters. <strong>Capitalize</strong> the string by changing the capitalization of each word such that:</p>
 
 <ul>
@@ -63,6 +65,8 @@ The remaining words have a length of at least 3, so the first letter of each rem
 	<li><code>title</code> consists of words separated by a single space without any leading or trailing spaces.</li>
 	<li>Each word consists of uppercase and lowercase English letters and is <strong>non-empty</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

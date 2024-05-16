@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Assume the following rules are for the tic-tac-toe game on an <code>n x n</code> board between two players:</p>
 
 <ol>
@@ -101,6 +103,8 @@ ticTacToe.move(2, 1, 1); // return 1&nbsp;(player 1 wins)
 
 <p>&nbsp;</p>
 <p><strong>Follow-up:</strong> Could you do better than <code>O(n<sup>2</sup>)</code> per <code>move()</code> operation?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

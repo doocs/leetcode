@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer <code>n</code>, which indicates that there are <code>n</code> courses labeled from <code>1</code> to <code>n</code>. You are also given a 2D integer array <code>relations</code> where <code>relations[j] = [prevCourse<sub>j</sub>, nextCourse<sub>j</sub>]</code> denotes that course <code>prevCourse<sub>j</sub></code> has to be completed <strong>before</strong> course <code>nextCourse<sub>j</sub></code> (prerequisite relationship). Furthermore, you are given a <strong>0-indexed</strong> integer array <code>time</code> where <code>time[i]</code> denotes how many <strong>months</strong> it takes to complete the <code>(i+1)<sup>th</sup></code> course.</p>
 
 <p>You must find the <strong>minimum</strong> number of months needed to complete all the courses following these rules:</p>
@@ -73,6 +75,8 @@ Thus, the minimum time needed to complete all the courses is 7 + 5 = 12 months.
 	<li><code>1 &lt;= time[i] &lt;= 10<sup>4</sup></code></li>
 	<li>The given graph is a directed acyclic graph.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

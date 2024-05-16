@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and an integer <code>value</code>.</p>
 
 <p>In one operation, you can add or subtract <code>value</code> from any element of <code>nums</code>.</p>
@@ -65,6 +67,8 @@ The MEX of nums is 2. It can be shown that 2 is the maximum MEX we can achieve.
 	<li><code>1 &lt;= nums.length, value &lt;= 10<sup>5</sup></code></li>
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

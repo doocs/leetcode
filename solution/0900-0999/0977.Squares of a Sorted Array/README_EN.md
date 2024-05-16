@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code> sorted in <strong>non-decreasing</strong> order, return <em>an array of <strong>the squares of each number</strong> sorted in non-decreasing order</em>.</p>
 
 <p>&nbsp;</p>
@@ -46,6 +48,8 @@ After sorting, it becomes [0,1,9,16,100].
 
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Squaring each element and sorting the new array is very trivial, could you find an <code>O(n)</code> solution using a different approach?
+
+<!-- description:end -->
 
 ## Solutions
 

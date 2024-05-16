@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> <code>8 x 8</code> grid <code>board</code>, where <code>board[r][c]</code> represents the cell <code>(r, c)</code> on a game board. On the board, free cells are represented by <code>&#39;.&#39;</code>, white cells are represented by <code>&#39;W&#39;</code>, and black cells are represented by <code>&#39;B&#39;</code>.</p>
 
 <p>Each move in this game consists of choosing a free cell and changing it to the color you are playing as (either white or black). However, a move is only <strong>legal</strong> if, after changing it, the cell becomes the <strong>endpoint of a good line</strong> (horizontal, vertical, or diagonal).</p>
@@ -53,6 +55,8 @@ The two good lines with the chosen cell as an endpoint are annotated above with 
 	<li><code>board[rMove][cMove] == &#39;.&#39;</code></li>
 	<li><code>color</code> is either <code>&#39;B&#39;</code> or <code>&#39;W&#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

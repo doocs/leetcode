@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array of <code>k</code> linked-lists <code>lists</code>, each linked-list is sorted in ascending order.</p>
 
 <p><em>Merge all the linked-lists into one sorted linked-list and return it.</em></p>
@@ -62,6 +64,8 @@ merging them into one sorted list:
 	<li><code>lists[i]</code> is sorted in <strong>ascending order</strong>.</li>
 	<li>The sum of <code>lists[i].length</code> will not exceed <code>10<sup>4</sup></code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

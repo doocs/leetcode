@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There is a garden of <code>n</code> flowers, and each flower has an integer beauty value. The flowers are arranged in a line. You are given an integer array <code>flowers</code> of size <code>n</code> and each <code>flowers[i]</code> represents the beauty of the <code>i<sup>th</sup></code> flower.</p>
 
 <p>A garden is <strong>valid</strong> if it meets these conditions:</p>
@@ -81,6 +83,8 @@ tags:
     <li>It is possible to create a valid garden by removing some (possibly none) flowers.</li>
 
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

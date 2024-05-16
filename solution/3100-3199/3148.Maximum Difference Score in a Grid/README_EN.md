@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3148.Ma
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an <code>m x n</code> matrix <code>grid</code> consisting of <strong>positive</strong> integers. You can move from a cell in the matrix to <strong>any</strong> other cell that is either to the bottom or to the right (not necessarily adjacent). The score of a move from a cell with the value <code>c1</code> to a cell with the value <code>c2</code> is <code>c2 - c1</code>.<!-- notionvc: 8819ca04-8606-4ecf-815b-fb77bc63b851 --></p>
 
 <p>You can start at <strong>any</strong> cell, and you have to make <strong>at least</strong> one move.</p>
@@ -54,6 +56,8 @@ The total score is <code>2 + 7 = 9</code>.</p>
 	<li><code>4 &lt;= m * n &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= grid[i][j] &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

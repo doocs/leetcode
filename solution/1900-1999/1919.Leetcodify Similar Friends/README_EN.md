@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Listens</code></p>
 
 <pre>
@@ -102,6 +104,8 @@ Users 1 and 3 listened to songs 10, 11, and 12 on the same day, but they are not
 Users 2 and 4 are friends, but they did not listen to the same three different songs.
 Users 2 and 5 are friends and listened to songs 10, 11, and 12, but they did not listen to them on the same day.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Employee</code></p>
 
 <pre>
@@ -110,6 +112,8 @@ For company C, the rows sorted are as follows:
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you solve it without using any built-in or window functions?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

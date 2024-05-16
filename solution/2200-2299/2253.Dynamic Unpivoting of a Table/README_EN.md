@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Products</code></p>
 
 <pre>
@@ -75,6 +77,8 @@ Product 1 is sold in LC_Store and Shop with prices of 100 and 110 respectively.
 Product 2 is sold in Nozama and Souq with prices of 200 and 190.
 Product 3 is sold in Shop and Souq with prices of 1000 and 1900.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

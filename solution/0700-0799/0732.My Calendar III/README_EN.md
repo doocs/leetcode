@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A <code>k</code>-booking happens when <code>k</code> events have some non-empty intersection (i.e., there is some time that is common to all <code>k</code> events.)</p>
 
 <p>You are given some events <code>[startTime, endTime)</code>, after each given event, return an integer <code>k</code> representing the maximum <code>k</code>-booking between all the previous events.</p>
@@ -56,6 +58,8 @@ myCalendarThree.book(25, 55); // return 3
 	<li><code>0 &lt;= startTime &lt; endTime &lt;= 10<sup>9</sup></code></li>
 	<li>At most <code>400</code> calls will be made to <code>book</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

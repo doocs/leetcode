@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer <code>n</code> representing the size of a <strong>0-indexed</strong> memory array. All memory units are initially free.</p>
 
 <p>You have a memory allocator with the following functionalities:</p>
@@ -74,6 +76,8 @@ loc.free(7); // Free all memory units with mID 7. The memory array remains the s
 	<li><code>1 &lt;= n, size, mID &lt;= 1000</code></li>
 	<li>At most <code>1000</code> calls will be made to <code>allocate</code> and <code>free</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

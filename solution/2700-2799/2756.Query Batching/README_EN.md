@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2756.Qu
 
 ## Description
 
+<!-- description:start -->
+
 <p>Batching multiple small queries into a single large query can be a useful optimization. Write a class&nbsp;<code>QueryBatcher</code>&nbsp;that implements this functionality.</p>
 
 <p>The constructor should accept two parameters:</p>
@@ -127,6 +129,8 @@ queryMultiple([&#39;f&#39;]) is called at t=350ms, it is resolved at 450ms
 	<li><code>1 &lt;= key.length&nbsp;&lt;= 100</code></li>
 	<li>All keys are unique</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

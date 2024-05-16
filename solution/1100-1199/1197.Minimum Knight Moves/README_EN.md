@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>In an <strong>infinite</strong> chess board with coordinates from <code>-infinity</code> to <code>+infinity</code>, you have a <strong>knight</strong> at square <code>[0, 0]</code>.</p>
 
 <p>A knight has 8 possible moves it can make, as illustrated below. Each move is two squares in a cardinal direction, then one square in an orthogonal direction.</p>
@@ -46,6 +48,8 @@ tags:
 	<li><code>-300 &lt;= x, y &lt;= 300</code></li>
 	<li><code>0 &lt;= |x| + |y| &lt;= 300</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

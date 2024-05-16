@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2618.Ch
 
 ## Description
 
+<!-- description:start -->
+
 <p>Write a function that checks if a given value&nbsp;is an instance of a given class or superclass. For this problem, an object is considered an instance of a given class if that object has access to that class&#39;s methods.</p>
 
 <p>There are&nbsp;no constraints on the data types that can be passed to the function. For example, the value or the class could be&nbsp;<code>undefined</code>.</p>
@@ -52,6 +54,8 @@ Dog is a subclass of Animal. Therefore, a Dog object is an instance of both Dog 
 <strong>Output:</strong> true
 <strong>Explanation: </strong>5 is a Number. Note that the &quot;instanceof&quot; keyword would return false. However, it is still considered an instance of Number because it accesses the Number methods. For example &quot;toFixed()&quot;.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

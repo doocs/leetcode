@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Alice and Bob each have a <strong>lexicographically sorted</strong> array of strings named <code>a</code> and <code>b</code> respectively.</p>
 
 <p>They are playing a wording game with the following rules:</p>
@@ -80,6 +82,8 @@ So Alice wins, and the game ends.
 	<li>All the words in <code>a</code> and <code>b</code> combined are <strong>distinct</strong>.</li>
 	<li>The sum of the lengths of all the words in <code>a</code> and <code>b</code> combined does not exceed <code>10<sup>6</sup></code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

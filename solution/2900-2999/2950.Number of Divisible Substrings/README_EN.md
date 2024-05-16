@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Each character of the English alphabet has been mapped to a digit as shown below.</p>
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2900-2999/2950.Number%20of%20Divisible%20Substrings/images/old_phone_digits.png" style="padding: 10px; width: 200px; height: 200px;" /></p>
@@ -143,6 +145,8 @@ It can be shown that there are no other substrings of word that are divisible.
 	<li><code>1 &lt;= word.length &lt;= 2000</code></li>
 	<li><code>word</code> consists only of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

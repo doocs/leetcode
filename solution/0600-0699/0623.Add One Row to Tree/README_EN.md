@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>root</code> of a binary tree and two integers <code>val</code> and <code>depth</code>, add a row of nodes with value <code>val</code> at the given depth <code>depth</code>.</p>
 
 <p>Note that the <code>root</code> node is at depth <code>1</code>.</p>
@@ -55,6 +57,8 @@ tags:
 	<li><code>-10<sup>5</sup> &lt;= val &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= depth &lt;= the depth of tree + 1</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

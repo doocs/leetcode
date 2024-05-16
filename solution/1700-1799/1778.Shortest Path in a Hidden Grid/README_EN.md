@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>This is an <strong>interactive problem</strong>.</p>
 
 <p>There is a robot in a hidden grid, and you are trying to get it from its starting cell to the target cell in this grid. The grid is of size <code>m x n</code>, and each cell in the grid is either empty or blocked. It is <strong>guaranteed</strong> that the starting cell and the target cell are different, and neither of them is blocked.</p>
@@ -96,6 +98,8 @@ We now know that the target is the cell (0, 1), and the shortest path to the tar
 	<li>There is <strong>exactly one</strong> <code>-1</code> in <code>grid</code>.</li>
 	<li>There is <strong>exactly one</strong> <code>2</code> in <code>grid</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There is a pizza with <code>3n</code> slices of varying size, you and your friends will take slices of pizza as follows:</p>
 
 <ul>
@@ -55,6 +57,8 @@ tags:
 	<li><code>1 &lt;= slices.length &lt;= 500</code></li>
 	<li><code>1 &lt;= slices[i] &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

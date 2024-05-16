@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given <code>n</code> orders, each order consists of a pickup and a delivery service.</p>
 
 <p>Count all valid pickup/delivery possible sequences such that delivery(i) is always after of&nbsp;pickup(i).&nbsp;</p>
@@ -56,6 +58,8 @@ This is an invalid order (P1,D2,P2,D1) because Pickup 2 is after of Delivery 2.
 <ul>
 	<li><code>1 &lt;= n &lt;= 500</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

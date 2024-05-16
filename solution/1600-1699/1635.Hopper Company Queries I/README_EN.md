@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Drivers</code></p>
 
 <pre>
@@ -159,6 +161,8 @@ By the end of October --&gt; six active drivers (10, 8, 5, 7, 4, 1) and no accep
 By the end of November --&gt; six active drivers (10, 8, 5, 7, 4, 1) and two accepted rides (20, 5).
 By the end of December --&gt; six active drivers (10, 8, 5, 7, 4, 1) and one accepted ride (2).
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

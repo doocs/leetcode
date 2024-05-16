@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two positive integers <code>x</code> and <code>y</code>.</p>
 
 <p>In one operation, you can do one of the four following operations:</p>
@@ -77,6 +79,8 @@ It can be shown that 5 is the minimum number of operations required to make 25 e
 <ul>
 	<li><code>1 &lt;= x, y &lt;= 10<sup>4</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array <code>apple</code> of size <code>n</code> and an array <code>capacity</code> of size <code>m</code>.</p>
 
 <p>There are <code>n</code> packs where the <code>i<sup>th</sup></code> pack contains <code>apple[i]</code> apples. There are <code>m</code> boxes as well, and the <code>i<sup>th</sup></code> box has a capacity of <code>capacity[i]</code> apples.</p>
@@ -53,6 +55,8 @@ It is possible to distribute the apples as the total capacity is greater than or
 	<li><code>1 &lt;= apple[i], capacity[i] &lt;= 50</code></li>
 	<li>The input is generated such that it&#39;s possible to redistribute packs of apples into boxes.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

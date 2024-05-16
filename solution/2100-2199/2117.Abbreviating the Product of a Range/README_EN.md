@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two positive integers <code>left</code> and <code>right</code> with <code>left &lt;= right</code>. Calculate the <strong>product</strong> of all integers in the <strong>inclusive</strong> range <code>[left, right]</code>.</p>
 
 <p>Since the product may be very large, you will <strong>abbreviate</strong> it following these steps:</p>
@@ -79,6 +81,8 @@ Hence, the abbreviated product is &quot;399168e2&quot;.
 <ul>
 	<li><code>1 &lt;= left &lt;= right &lt;= 10<sup>4</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

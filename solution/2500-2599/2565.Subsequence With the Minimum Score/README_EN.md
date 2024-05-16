@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two strings <code>s</code> and <code>t</code>.</p>
 
 <p>You are allowed to remove any number of characters from the string <code>t</code>.</p>
@@ -63,6 +65,8 @@ It can be proven that 3 is the minimum score that we can achieve.
 	<li><code>1 &lt;= s.length, t.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>s</code> and <code>t</code> consist of only lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong>, <strong>strictly increasing</strong> integer array <code>nums</code> and a positive integer <code>diff</code>. A triplet <code>(i, j, k)</code> is an <strong>arithmetic triplet</strong> if the following conditions are met:</p>
 
 <ul>
@@ -59,6 +61,8 @@ tags:
 	<li><code>1 &lt;= diff &lt;= 50</code></li>
 	<li><code>nums</code> is <strong>strictly</strong> increasing.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

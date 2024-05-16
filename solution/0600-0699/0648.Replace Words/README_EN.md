@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>In English, we have a concept called <strong>root</strong>, which can be followed by some other word to form another longer word - let&#39;s call this word <strong>successor</strong>. For example, when the <strong>root</strong> <code>&quot;help&quot;</code> is followed by the <strong>successor</strong> word <code>&quot;ful&quot;</code>, we can form a new word <code>&quot;helpful&quot;</code>.</p>
 
 <p>Given a <code>dictionary</code> consisting of many <strong>roots</strong> and a <code>sentence</code> consisting of words separated by spaces, replace all the <strong>successors</strong> in the sentence with the <strong>root</strong> forming it. If a <strong>successor</strong> can be replaced by more than one <strong>root</strong>, replace it with the <strong>root</strong> that has <strong>the shortest length</strong>.</p>
@@ -52,6 +54,8 @@ tags:
 	<li>Every two consecutive words in <code>sentence</code> will be separated by exactly one space.</li>
 	<li><code>sentence</code> does not have leading or trailing spaces.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

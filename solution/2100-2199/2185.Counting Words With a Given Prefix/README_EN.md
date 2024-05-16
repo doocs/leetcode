@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array of strings <code>words</code> and a string <code>pref</code>.</p>
 
 <p>Return <em>the number of strings in </em><code>words</code><em> that contain </em><code>pref</code><em> as a <strong>prefix</strong></em>.</p>
@@ -49,6 +51,8 @@ tags:
 	<li><code>1 &lt;= words[i].length, pref.length &lt;= 100</code></li>
 	<li><code>words[i]</code> and <code>pref</code> consist of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

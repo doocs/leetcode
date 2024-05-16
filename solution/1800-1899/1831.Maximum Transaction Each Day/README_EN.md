@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Transactions</code></p>
 
 <pre>
@@ -69,6 +71,8 @@ We order the result table by transaction_id after collecting these IDs.
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you solve it without using the <code>MAX()</code> function?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

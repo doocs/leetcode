@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>An <strong>IP address</strong> is a formatted 32-bit unsigned integer where each group of 8 bits is printed as a decimal number and the dot character <code>&#39;.&#39;</code> splits the groups.</p>
 
 <ul>
@@ -71,6 +73,8 @@ Note that while the CIDR block &quot;255.0.0.0/28&quot; does cover all the addre
 	<li><code>1 &lt;= n &lt;= 1000</code></li>
 	<li>Every implied address <code>ip + x</code> (for <code>x &lt; n</code>) will be a valid IPv4 address.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

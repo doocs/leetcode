@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of size <code>n</code> and a positive integer <code>k</code>.</p>
 
 <p>We call an index <code>i</code> in the range <code>k &lt;= i &lt; n - k</code> <strong>good</strong> if the following conditions are satisfied:</p>
@@ -57,6 +59,8 @@ Note that the index 4 is not good because [4,1] is not non-decreasing.</pre>
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 	<li><code>1 &lt;= k &lt;= n / 2</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

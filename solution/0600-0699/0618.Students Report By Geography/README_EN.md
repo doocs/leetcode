@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Student</code></p>
 
 <pre>
@@ -62,6 +64,8 @@ Student table:
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> If it is unknown which continent has the most students, could you write a solution to generate the student report?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

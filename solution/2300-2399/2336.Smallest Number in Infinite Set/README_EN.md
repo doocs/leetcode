@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You have a set which contains all positive integers <code>[1, 2, 3, 4, 5, ...]</code>.</p>
 
 <p>Implement the <code>SmallestInfiniteSet</code> class:</p>
@@ -58,6 +60,8 @@ smallestInfiniteSet.popSmallest(); // return 5, and remove it from the set.
 	<li><code>1 &lt;= num &lt;= 1000</code></li>
 	<li>At most <code>1000</code> calls will be made <strong>in total</strong> to <code>popSmallest</code> and <code>addBack</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

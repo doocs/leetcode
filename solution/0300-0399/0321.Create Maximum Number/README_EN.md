@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two integer arrays <code>nums1</code> and <code>nums2</code> of lengths <code>m</code> and <code>n</code> respectively. <code>nums1</code> and <code>nums2</code> represent the digits of two numbers. You are also given an integer <code>k</code>.</p>
 
 <p>Create the maximum number of length <code>k &lt;= m + n</code> from digits of the two numbers. The relative order of the digits from the same array must be preserved.</p>
@@ -56,6 +58,8 @@ tags:
 	<li><code>0 &lt;= nums1[i], nums2[i] &lt;= 9</code></li>
 	<li><code>1 &lt;= k &lt;= m + n</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

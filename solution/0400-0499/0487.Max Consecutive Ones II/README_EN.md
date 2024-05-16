@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a binary array <code>nums</code>, return <em>the maximum number of consecutive </em><code>1</code><em>&#39;s in the array if you can flip at most one</em> <code>0</code>.</p>
 
 <p>&nbsp;</p>
@@ -51,6 +53,8 @@ The max number of consecutive ones is 4.
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> What if the input numbers come in one by one as an infinite stream? In other words, you can&#39;t store all numbers coming from the stream as it&#39;s too large to hold in memory. Could you solve it efficiently?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

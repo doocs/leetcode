@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>text</code>. You can swap two of the characters in the <code>text</code>.</p>
 
 <p>Return <em>the length of the longest substring with repeated characters</em>.</p>
@@ -54,6 +56,8 @@ tags:
 	<li><code>1 &lt;= text.length &lt;= 2 * 10<sup>4</sup></code></li>
 	<li><code>text</code> consist of lowercase English characters only.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are asked to design a file system&nbsp;that allows you to create new paths and associate them with different values.</p>
 
 <p>The format of a path is&nbsp;one or more concatenated strings of the form:&nbsp;<code>/</code> followed by one or more lowercase English letters. For example, &quot;<code>/leetcode&quot;</code>&nbsp;and &quot;<code>/leetcode/problems&quot;</code>&nbsp;are valid paths while an empty&nbsp;string <code>&quot;&quot;</code> and <code>&quot;/&quot;</code>&nbsp;are not.</p>
@@ -73,6 +75,8 @@ fileSystem.get(&quot;/c&quot;); // return -1 because this path doesn&#39;t exist
 	<li>Each <code>path</code> is <strong>valid</strong> and consists of lowercase English letters and <code>&#39;/&#39;</code>.</li>
 	<li>At most <code>10<sup>4</sup></code> calls <strong>in total</strong> will be made to <code>createPath</code> and <code>get</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

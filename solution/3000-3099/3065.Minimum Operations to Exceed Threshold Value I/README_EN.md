@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>, and an integer <code>k</code>.</p>
 
 <p>In one operation, you can remove one occurrence of the smallest element of <code>nums</code>.</p>
@@ -59,6 +61,8 @@ It can be shown that 3 is the minimum number of operations needed so that all el
 	<li><code>1 &lt;= k &lt;= 10<sup>9</sup></code></li>
 	<li>The input is generated such that there is at least one index <code>i</code> such that <code>nums[i] &gt;= k</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

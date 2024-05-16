@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>weighted</strong> tree consisting of <code>n</code> nodes numbered from <code>0</code> to <code>n - 1</code>.</p>
 
 <p>The tree is <strong>rooted</strong> at node <code>0</code> and represented with a <strong>2D</strong> array <code>edges</code> of size <code>n</code> where <code>edges[i] = [par<sub>i</sub>, weight<sub>i</sub>]</code> indicates that node <code>par<sub>i</sub></code> is the <strong>parent</strong> of node <code>i</code>, and the edge between them has a weight equal to <code>weight<sub>i</sub></code>. Since the root does <strong>not</strong> have a parent, you have <code>edges[0] = [-1, -1]</code>.</p>
@@ -68,6 +70,8 @@ Note that we cannot choose more than one edge because all edges are adjacent to 
 	<li><code>-10<sup>6</sup> &lt;= weight<sub>i</sub> &lt;= 10<sup>6</sup></code> for all <code>i &gt;= 1</code>.</li>
 	<li><code>edges</code> represents a valid tree.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code>.</p>
 
 <p>Return an integer that is the <strong>maximum</strong> distance between the <strong>indices</strong> of two (not necessarily different) prime numbers in <code>nums</code><em>.</em></p>
@@ -51,6 +53,8 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 100</code></li>
 	<li>The input is generated such that the number of prime numbers in the <code>nums</code> is at least one.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

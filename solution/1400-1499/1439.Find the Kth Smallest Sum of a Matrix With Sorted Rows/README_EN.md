@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an <code>m x n</code> matrix <code>mat</code> that has its rows sorted in non-decreasing order and an integer <code>k</code>.</p>
 
 <p>You are allowed to choose <strong>exactly one element</strong> from each row to form an array.</p>
@@ -62,6 +64,8 @@ tags:
 	<li><code>1 &lt;= k &lt;= min(200, n<sup>m</sup>)</code></li>
 	<li><code>mat[i]</code> is a non-decreasing array.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

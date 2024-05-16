@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>word</code> and an integer <code>k</code>.</p>
 
 <p>We consider <code>word</code> to be <strong>k-special</strong> if <code>|freq(word[i]) - freq(word[j])| &lt;= k</code> for all indices <code>i</code> and <code>j</code> in the string.</p>
@@ -67,6 +69,8 @@ tags:
 	<li><code>0 &lt;= k &lt;= 10<sup>5</sup></code></li>
 	<li><code>word</code> consists only of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

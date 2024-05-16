@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a positive integer array <code>nums</code>.</p>
 
 <ul>
@@ -58,6 +60,8 @@ The absolute difference between the element sum and digit sum is |10 - 10| = 0.
 	<li><code>1 &lt;= nums.length &lt;= 2000</code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 2000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

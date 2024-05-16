@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2632.Cu
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a function&nbsp;<code>fn</code>,&nbsp;return&nbsp;a&nbsp;<strong>curried</strong>&nbsp;version of that function.</p>
 
 <p>A&nbsp;<strong>curried</strong>&nbsp;function is a function that accepts fewer or an equal number of&nbsp;parameters as the original function and returns either another&nbsp;<strong>curried</strong>&nbsp;function or the same value the original function would have returned.</p>
@@ -79,6 +81,8 @@ curriedLife() === 42
 	<li>If <code>fn.length &gt; 0</code>&nbsp;then the last array in <code>inputs</code> is not empty</li>
 	<li>If&nbsp;<code>fn.length === 0</code> then <code>inputs.length === 1</code>&nbsp;</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

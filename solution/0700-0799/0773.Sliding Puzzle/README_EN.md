@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>On an <code>2 x 3</code> board, there are five tiles labeled from <code>1</code> to <code>5</code>, and an empty square represented by <code>0</code>. A <strong>move</strong> consists of choosing <code>0</code> and a 4-directionally adjacent number and swapping it.</p>
 
 <p>The state of the board is solved if and only if the board is <code>[[1,2,3],[4,5,0]]</code>.</p>
@@ -63,6 +65,8 @@ After move 5: [[1,2,3],[4,5,0]]
 	<li><code>0 &lt;= board[i][j] &lt;= 5</code></li>
 	<li>Each value <code>board[i][j]</code> is <strong>unique</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

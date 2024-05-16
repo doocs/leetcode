@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>The <a href="https://en.wikipedia.org/wiki/Hamming_distance" target="_blank">Hamming distance</a> between two integers is the number of positions at which the corresponding bits are different.</p>
 
 <p>Given an integer array <code>nums</code>, return <em>the sum of <strong>Hamming distances</strong> between all the pairs of the integers in</em> <code>nums</code>.</p>
@@ -47,6 +49,8 @@ HammingDistance(4, 14) + HammingDistance(4, 2) + HammingDistance(14, 2) = 2 + 2 
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 	<li>The answer for the given input will fit in a <strong>32-bit</strong> integer.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

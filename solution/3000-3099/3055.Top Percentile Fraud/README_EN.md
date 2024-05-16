@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Fraud</code></p>
 
 <pre>
@@ -76,6 +78,8 @@ Fraud table:
 - For the state of Texas, only policy ID 7, with a fraud score of 0.98, falls within the top 5 percentile for this state. 
 Output table is ordered by state in ascending order, fraud score in descending order, and policy ID in ascending order.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

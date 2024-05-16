@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A string <code>originalText</code> is encoded using a <strong>slanted transposition cipher</strong> to a string <code>encodedText</code> with the help of a matrix having a <strong>fixed number of rows</strong> <code>rows</code>.</p>
 
 <p><code>originalText</code> is placed first in a top-left to bottom-right manner.</p>
@@ -71,6 +73,8 @@ The blue arrows show how we can find originalText from encodedText.
 	<li><code>1 &lt;= rows &lt;= 1000</code></li>
 	<li>The testcases are generated such that there is <strong>only one</strong> possible <code>originalText</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

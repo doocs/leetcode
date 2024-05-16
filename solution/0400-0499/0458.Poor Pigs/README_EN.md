@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There are <code>buckets</code> buckets of liquid, where <strong>exactly one</strong> of the buckets is poisonous. To figure out which one is poisonous, you feed some number of (poor) pigs the liquid to see whether they will die or not. Unfortunately, you only have <code>minutesToTest</code> minutes to determine which bucket is poisonous.</p>
 
 <p>You can feed the pigs according to these steps:</p>
@@ -65,6 +67,8 @@ At time 30, one of the two pigs must die, and the poisonous bucket is the one it
 	<li><code>1 &lt;= buckets &lt;= 1000</code></li>
 	<li><code>1 &lt;=&nbsp;minutesToDie &lt;=&nbsp;minutesToTest &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

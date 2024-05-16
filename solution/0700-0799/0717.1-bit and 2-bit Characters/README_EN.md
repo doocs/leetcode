@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>We have two special characters:</p>
 
 <ul>
@@ -49,6 +51,8 @@ So the last character is not one-bit character.
 	<li><code>1 &lt;= bits.length &lt;= 1000</code></li>
 	<li><code>bits[i]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

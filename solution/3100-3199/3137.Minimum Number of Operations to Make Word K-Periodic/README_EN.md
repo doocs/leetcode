@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>word</code> of size <code>n</code>, and an integer <code>k</code> such that <code>k</code> divides <code>n</code>.</p>
 
 <p>In one operation, you can pick any two indices <code>i</code> and <code>j</code>, that are divisible by <code>k</code>, then replace the <span data-keyword="substring">substring</span> of length <code>k</code> starting at <code>i</code> with the substring of length <code>k</code> starting at <code>j</code>. That is, replace the substring <code>word[i..i + k - 1]</code> with the substring <code>word[j..j + k - 1]</code>.<!-- notionvc: 49ac84f7-0724-452a-ab43-0c5e53f1db33 --></p>
@@ -101,6 +103,8 @@ font-size: 0.85rem;
 	<li><code>k</code> divides <code>word.length</code>.</li>
 	<li><code>word</code> consists only of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

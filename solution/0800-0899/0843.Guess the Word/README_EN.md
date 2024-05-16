@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array of unique strings <code>words</code> where <code>words[i]</code> is six letters long. One word of <code>words</code> was chosen as a secret word.</p>
 
 <p>You are also given the helper object <code>Master</code>. You may call <code>Master.guess(word)</code> where <code>word</code> is a six-letter-long string, and it must be from <code>words</code>. <code>Master.guess(word)</code> returns:</p>
@@ -72,6 +74,8 @@ We made 5 calls to master.guess, and one of them was the secret, so we pass the 
 	<li><code>secret</code> exists in <code>words</code>.</li>
 	<li><code>10 &lt;= allowedGuesses &lt;= 30</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

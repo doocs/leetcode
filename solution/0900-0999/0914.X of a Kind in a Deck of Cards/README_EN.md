@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>deck</code> where <code>deck[i]</code> represents the number written on the <code>i<sup>th</sup></code> card.</p>
 
 <p>Partition the cards into <strong>one or more groups</strong> such that:</p>
@@ -53,6 +55,8 @@ tags:
 	<li><code>1 &lt;= deck.length &lt;= 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= deck[i] &lt; 10<sup>4</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

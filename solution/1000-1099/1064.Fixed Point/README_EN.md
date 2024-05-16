@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of distinct integers <code>arr</code>, where <code>arr</code> is sorted in <strong>ascending order</strong>, return the smallest index <code>i</code> that satisfies <code>arr[i] == i</code>. If there is no such index, return <code>-1</code>.</p>
 
 <p>&nbsp;</p>
@@ -51,6 +53,8 @@ tags:
 
 <p>&nbsp;</p>
 <strong>Follow up:</strong> The <code>O(n)</code> solution is very straightforward. Can we do better?
+
+<!-- description:end -->
 
 ## Solutions
 

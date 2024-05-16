@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of <strong>even</strong> length and there is also an empty array <code>arr</code>. Alice and Bob decided to play a game where in every round Alice and Bob will do one move. The rules of the game are as follows:</p>
 
 <ul>
@@ -55,6 +57,8 @@ At the begining of round two, nums = [5,4]. Now, first Alice removes 4 and then 
 	<li><code>1 &lt;= nums[i] &lt;= 100</code></li>
 	<li><code>nums.length % 2 == 0</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

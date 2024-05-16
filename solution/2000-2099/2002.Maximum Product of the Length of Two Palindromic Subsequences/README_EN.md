@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>s</code>, find two <strong>disjoint palindromic subsequences</strong> of <code>s</code> such that the <strong>product</strong> of their lengths is <strong>maximized</strong>. The two subsequences are <strong>disjoint</strong> if they do not both pick a character at the same index.</p>
 
 <p>Return <em>the <strong>maximum</strong> possible <strong>product</strong> of the lengths of the two palindromic subsequences</em>.</p>
@@ -61,6 +63,8 @@ The product of their lengths is: 5 * 5 = 25.
 	<li><code>2 &lt;= s.length &lt;= 12</code></li>
 	<li><code>s</code> consists of lowercase English letters only.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

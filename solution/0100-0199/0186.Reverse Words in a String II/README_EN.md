@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a character array <code>s</code>, reverse the order of the <strong>words</strong>.</p>
 
 <p>A <strong>word</strong> is defined as a sequence of non-space characters. The <strong>words</strong> in <code>s</code> will be separated by a single space.</p>
@@ -39,6 +41,8 @@ tags:
 	<li><code>s</code> does not contain leading or trailing spaces.</li>
 	<li>All the words in <code>s</code> are guaranteed to be separated by a single space.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

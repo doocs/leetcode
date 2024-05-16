@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of integers&nbsp;<code>arr</code>&nbsp;and an integer <code>k</code>.&nbsp;Find the <em>least number of unique integers</em>&nbsp;after removing <strong>exactly</strong> <code>k</code> elements<b>.</b></p>
 
 <ol>
@@ -63,6 +65,8 @@ tags:
     <li><code>0 &lt;= k&nbsp;&lt;= arr.length</code></li>
 
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

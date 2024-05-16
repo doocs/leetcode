@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3150.In
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Tweets</code></p>
 
 <pre>
@@ -74,6 +76,8 @@ This table contains all the tweets in a social media app.
 	<li>tweet_id 4 contains 4 hashtags.</li>
 </ul>
 Output table is ordered by tweet_id in ascending order.</div>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Customers</code></p>
 
 <pre>
@@ -122,6 +124,8 @@ mouse&#39;s most recent order is in 2020-08-03, it was ordered only once this da
 screen&#39;s most recent order is in 2020-08-29, it was ordered only once this day.
 The hard disk was never ordered and we do not include it in the result table.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

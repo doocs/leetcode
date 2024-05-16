@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>World</code></p>
 
 <pre>
@@ -68,6 +70,8 @@ World table:
 | Algeria     | 37100000   | 2381741 |
 +-------------+------------+---------+
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

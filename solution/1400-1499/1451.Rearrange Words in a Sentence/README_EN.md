@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a sentence&nbsp;<code>text</code> (A&nbsp;<em>sentence</em>&nbsp;is a string of space-separated words) in the following format:</p>
 
 <ul>
@@ -65,6 +67,8 @@ Output is ordered by length and the new first word starts with capital letter.
 	<li><code>text</code> begins with a capital letter and then contains lowercase letters and single space between words.</li>
 	<li><code>1 &lt;= text.length &lt;= 10^5</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

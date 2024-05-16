@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Point2D</code></p>
 
 <pre>
@@ -56,6 +58,8 @@ Point2D table:
 +----------+
 <strong>Explanation:</strong> The shortest distance is 1.00 from point (-1, -1) to (-1, 2).
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

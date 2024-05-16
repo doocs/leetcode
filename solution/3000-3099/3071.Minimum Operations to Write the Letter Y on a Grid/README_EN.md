@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> <code>n x n</code> grid where <code>n</code> is odd, and <code>grid[r][c]</code> is <code>0</code>, <code>1</code>, or <code>2</code>.</p>
 
 <p>We say that a cell belongs to the Letter <strong>Y</strong> if it belongs to one of the following:</p>
@@ -66,6 +68,8 @@ It can be shown that 12 is the minimum number of operations needed to write Y on
 	<li><code>0 &lt;= grid[i][j] &lt;= 2</code></li>
 	<li><code>n</code> is odd.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

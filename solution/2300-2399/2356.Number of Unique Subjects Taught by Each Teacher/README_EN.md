@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Teacher</code></p>
 
 <pre>
@@ -70,6 +72,8 @@ Teacher 2:
   - They teach subject 3 in department 1.
   - They teach subject 4 in department 1.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

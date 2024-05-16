@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> array of string <code>words</code> and two integers <code>left</code> and <code>right</code>.</p>
 
 <p>A string is called a <strong>vowel string</strong> if it starts with a vowel character and ends with a vowel character where vowel characters are <code>&#39;a&#39;</code>, <code>&#39;e&#39;</code>, <code>&#39;i&#39;</code>, <code>&#39;o&#39;</code>, and <code>&#39;u&#39;</code>.</p>
@@ -58,6 +60,8 @@ The number of vowel strings in the mentioned range is 3.
 	<li><code>words[i]</code> consists of only lowercase English letters.</li>
 	<li><code>0 &lt;= left &lt;= right &lt; words.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

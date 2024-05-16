@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>s</code> consisting of only lowercase English letters. In one operation, you can do the following:</p>
 
 <ul>
@@ -62,6 +64,8 @@ It can be proven that the resulting string is the lexicographically smallest.
 	<li><code>1 &lt;= s.length &lt;= 3 * 10<sup>5</sup></code></li>
 	<li><code>s</code> consists of lowercase English letters</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

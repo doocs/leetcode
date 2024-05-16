@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Contacts</code></p>
 
 <pre>
@@ -117,6 +119,8 @@ Each row of this table contains information about calls, comprising of contact_i
 
 <p><b>Note:</b> Output table is sorted by type, duration, and first_name in descending order.</p>
 </div>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string array <code>words</code> and a string <code>s</code>, where <code>words[i]</code> and <code>s</code> comprise only of <strong>lowercase English letters</strong>.</p>
 
 <p>Return <em>the <strong>number of strings</strong> in</em> <code>words</code> <em>that are a <strong>prefix</strong> of</em> <code>s</code>.</p>
@@ -51,6 +53,8 @@ Note that the same string can occur multiple times in words, and it should be co
 	<li><code>1 &lt;= words[i].length, s.length &lt;= 10</code></li>
 	<li><code>words[i]</code> and <code>s</code> consist of lowercase English letters <strong>only</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code>, return <em>the <strong>third distinct maximum</strong> number in this array. If the third maximum does not exist, return the <strong>maximum</strong> number</em>.</p>
 
 <p>&nbsp;</p>
@@ -61,6 +63,8 @@ The third distinct maximum is 1.
 
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Can you find an <code>O(n)</code> solution?
+
+<!-- description:end -->
 
 ## Solutions
 

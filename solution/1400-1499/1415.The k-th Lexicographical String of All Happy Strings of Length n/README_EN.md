@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A <strong>happy string</strong> is a string that:</p>
 
 <ul>
@@ -62,6 +64,8 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10</code></li>
 	<li><code>1 &lt;= k &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

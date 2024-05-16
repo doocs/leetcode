@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given <code>m</code> <code>arrays</code>, where each array is sorted in <strong>ascending order</strong>.</p>
 
 <p>You can pick up two integers from two different arrays (each array picks one) and calculate the distance. We define the distance between two integers <code>a</code> and <code>b</code> to be their absolute difference <code>|a - b|</code>.</p>
@@ -48,6 +50,8 @@ tags:
 	<li><code>arrays[i]</code> is sorted in <strong>ascending order</strong>.</li>
 	<li>There will be at most <code>10<sup>5</sup></code> integers in all the arrays.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

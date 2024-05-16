@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Users</code></p>
 
 <pre>
@@ -55,6 +57,8 @@ Users table:
 | 2       | Bob   |
 +---------+-------+
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

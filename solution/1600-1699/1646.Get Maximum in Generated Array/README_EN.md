@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer <code>n</code>. A <strong>0-indexed</strong> integer array <code>nums</code> of length <code>n + 1</code> is generated in the following way:</p>
 
 <ul>
@@ -68,6 +70,8 @@ Hence, nums = [0,1,1,2,1,3,2,3], and the maximum is max(0,1,1,2,1,3,2,3) = 3.
 <ul>
 	<li><code>0 &lt;= n &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

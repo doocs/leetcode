@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a binary array <code>pattern</code> and an object <code>stream</code> of class <code>InfiniteStream</code> representing a <strong>0-indexed</strong> infinite stream of bits.</p>
 
 <p>The class <code>InfiniteStream</code> contains the following function:</p>
@@ -62,6 +64,8 @@ tags:
 	<li><code>stream</code> consists only of <code>0</code> and <code>1</code>.</li>
 	<li>The input is generated such that the pattern&#39;s start index exists in the first <code>10<sup>5</sup></code> bits of the stream.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

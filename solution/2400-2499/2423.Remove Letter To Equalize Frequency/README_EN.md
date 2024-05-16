@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> string <code>word</code>, consisting of lowercase English letters. You need to select <strong>one</strong> index and <strong>remove</strong> the letter at that index from <code>word</code> so that the <strong>frequency</strong> of every letter present in <code>word</code> is equal.</p>
 
 <p>Return<em> </em><code>true</code><em> if it is possible to remove one letter so that the frequency of all letters in </em><code>word</code><em> are equal, and </em><code>false</code><em> otherwise</em>.</p>
@@ -53,6 +55,8 @@ tags:
 	<li><code>2 &lt;= word.length &lt;= 100</code></li>
 	<li><code>word</code> consists of lowercase English letters only.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

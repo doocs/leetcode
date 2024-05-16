@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a <code>file</code> and assume that you can only read the file using a given method <code>read4</code>, implement a method to read <code>n</code> characters.</p>
 
 <p><strong>Method read4: </strong></p>
@@ -104,6 +106,8 @@ Note that &quot;abc&quot; is the file&#39;s content, not buf. buf is the destina
 	<li><code>file</code> consist of English letters and digits.</li>
 	<li><code>1 &lt;= n &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

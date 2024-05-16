@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>The <b>product sum </b>of two equal-length arrays <code>a</code> and <code>b</code> is equal to the sum of <code>a[i] * b[i]</code> for all <code>0 &lt;= i &lt; a.length</code> (<strong>0-indexed</strong>).</p>
 
 <ul>
@@ -65,6 +67,8 @@ tags:
     <li><code>1 &lt;= nums1[i], nums2[i] &lt;= 100</code></li>
 
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

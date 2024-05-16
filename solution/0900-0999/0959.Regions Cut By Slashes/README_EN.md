@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>An <code>n x n</code> grid is composed of <code>1 x 1</code> squares where each <code>1 x 1</code> square consists of a <code>&#39;/&#39;</code>, <code>&#39;\&#39;</code>, or blank space <code>&#39; &#39;</code>. These characters divide the square into contiguous regions.</p>
 
 <p>Given the grid <code>grid</code> represented as a string array, return <em>the number of regions</em>.</p>
@@ -56,6 +58,8 @@ tags:
 	<li><code>1 &lt;= n &lt;= 30</code></li>
 	<li><code>grid[i][j]</code> is either <code>&#39;/&#39;</code>, <code>&#39;\&#39;</code>, or <code>&#39; &#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

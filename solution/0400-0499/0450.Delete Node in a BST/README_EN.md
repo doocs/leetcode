@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a root node reference of a BST and a key, delete the node with the given key in the BST. Return <em>the <strong>root node reference</strong> (possibly updated) of the BST</em>.</p>
 
 <p>Basically, the deletion can be divided into two stages:</p>
@@ -65,6 +67,8 @@ Please notice that another valid answer is [5,2,6,null,4,null,7] and it&#39;s al
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you solve it with time complexity <code>O(height of tree)</code>?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

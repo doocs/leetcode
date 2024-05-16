@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array of strings <code>ideas</code> that represents a list of names to be used in the process of naming a company. The process of naming a company is as follows:</p>
 
 <ol>
@@ -69,6 +71,8 @@ The following are some examples of invalid selections:
 	<li><code>ideas[i]</code> consists of lowercase English letters.</li>
 	<li>All the strings in <code>ideas</code> are <strong>unique</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array <code>nums</code>, return <em>the <strong>maximum value</strong> of a triplet</em> <code>(i, j, k)</code> <em>such that</em> <code>i &lt; j &lt; k</code> <em>and</em> <code>nums[i] &lt; nums[j] &lt; nums[k]</code>.</p>
 
 <p>The <strong>value</strong> of a triplet <code>(i, j, k)</code> is <code>nums[i] - nums[j] + nums[k]</code>.</p>
@@ -58,6 +60,8 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 	<li>The input is generated such that at least one triplet meets the given condition.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

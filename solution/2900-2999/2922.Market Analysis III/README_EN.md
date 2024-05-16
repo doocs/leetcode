@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Users</code></p>
 
 <pre>
@@ -105,6 +107,8 @@ Items table:
 - The user with seller_id 2 has sold three items, but only two of them are not marked as a favorite. We will include a unique count of 1 because both of these items are identical.
 - The user with seller_id 3 has sold two items, but only one of them is not marked as a favorite. We will include just that non-favorite item in our count.
 Since seller_ids 2 and 3 have the same count of one item each, they both will be displayed in the output.</pre>
+
+<!-- description:end -->
 
 ## Solutions
 

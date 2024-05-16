@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>For a stream of integers, implement a data structure that checks if the last <code>k</code> integers parsed in the stream are <strong>equal</strong> to <code>value</code>.</p>
 
 <p>Implement the <strong>DataStream</strong> class:</p>
@@ -57,6 +59,8 @@ dataStream.consec(3); // The last k integers parsed in the stream are [4,4,3].
 	<li><code>1 &lt;= k &lt;= 10<sup>5</sup></code></li>
 	<li>At most <code>10<sup>5</sup></code> calls will be made to <code>consec</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

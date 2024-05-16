@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Consider a matrix <code>M</code> with dimensions <code>width * height</code>, such that every cell has value <code>0</code>&nbsp;or <code>1</code>, and any <strong>square</strong>&nbsp;sub-matrix of <code>M</code> of size <code>sideLength * sideLength</code>&nbsp;has at most <code>maxOnes</code>&nbsp;ones.</p>
 
 <p>Return the maximum possible number of ones that the matrix <code>M</code> can have.</p>
@@ -54,6 +56,8 @@ The best solution that has 4 ones is:
 	<li><code>1 &lt;= sideLength &lt;= width, height</code></li>
 	<li><code>0 &lt;= maxOnes &lt;= sideLength * sideLength</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of strings <code>wordsDict</code> and two different strings that already exist in the array <code>word1</code> and <code>word2</code>, return <em>the shortest distance between these two words in the list</em>.</p>
 
 <p>&nbsp;</p>
@@ -42,6 +44,8 @@ tags:
 	<li><code>word1</code> and <code>word2</code> are in <code>wordsDict</code>.</li>
 	<li><code>word1 != word2</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

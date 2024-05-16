@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>s</code>, return <em>the last substring of</em> <code>s</code> <em>in lexicographical order</em>.</p>
 
 <p>&nbsp;</p>
@@ -42,6 +44,8 @@ tags:
 	<li><code>1 &lt;= s.length &lt;= 4 * 10<sup>5</sup></code></li>
 	<li><code>s</code> contains only lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

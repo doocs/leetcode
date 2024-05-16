@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Person</code></p>
 
 <pre>
@@ -61,6 +63,8 @@ Person table:
 +----+------------------+
 <strong>Explanation:</strong> john@example.com is repeated two times. We keep the row with the smallest Id = 1.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

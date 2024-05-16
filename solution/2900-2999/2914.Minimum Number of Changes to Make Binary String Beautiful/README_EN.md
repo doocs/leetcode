@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> binary string <code>s</code> having an even length.</p>
 
 <p>A string is <strong>beautiful</strong> if it&#39;s possible to partition it into one or more substrings such that:</p>
@@ -66,6 +68,8 @@ It can be proven that 1 is the minimum number of changes needed to make the stri
 	<li><code>s</code> has an even length.</li>
 	<li><code>s[i]</code> is either <code>&#39;0&#39;</code> or <code>&#39;1&#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

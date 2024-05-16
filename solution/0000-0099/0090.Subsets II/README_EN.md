@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code> that may contain duplicates, return <em>all possible</em> <span data-keyword="subset"><em>subsets</em></span><em> (the power set)</em>.</p>
 
 <p>The solution set <strong>must not</strong> contain duplicate subsets. Return the solution in <strong>any order</strong>.</p>
@@ -35,6 +37,8 @@ tags:
 	<li><code>1 &lt;= nums.length &lt;= 10</code></li>
 	<li><code>-10 &lt;= nums[i] &lt;= 10</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

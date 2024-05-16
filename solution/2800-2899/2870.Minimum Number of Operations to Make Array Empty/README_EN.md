@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> consisting of positive integers.</p>
 
 <p>There are two types of operations that you can apply on the array <strong>any</strong> number of times:</p>
@@ -59,6 +61,8 @@ It can be shown that we cannot make the array empty in less than 4 operations.
 	<li><code>2 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

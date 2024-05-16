@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the binary representation of an integer as a string <code>s</code>, return <em>the number of steps to reduce it to </em><code>1</code><em> under the following rules</em>:</p>
 
 <ul>
@@ -69,6 +71,8 @@ Step 1) 2 is even, divide by 2 and obtain 1.&nbsp;
 	<li><code>s</code> consists of characters &#39;0&#39; or &#39;1&#39;</li>
 	<li><code>s[0] == &#39;1&#39;</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an <code>m x n</code> integer matrix <code>grid</code>​​​, where <code>m</code> and <code>n</code> are both <strong>even</strong> integers, and an integer <code>k</code>.</p>
 
 <p>The matrix is composed of several layers, which is shown in the below image, where each color is its own layer:</p>
@@ -79,6 +81,8 @@ tags:
     <li><code>1 &lt;= k &lt;= 10<sup>9</sup></code></li>
 
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

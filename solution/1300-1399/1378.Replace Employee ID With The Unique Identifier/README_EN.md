@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Employees</code></p>
 
 <pre>
@@ -89,6 +91,8 @@ The unique ID of Meir is 2.
 The unique ID of Winston is 3.
 The unique ID of Jonathan is 1.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

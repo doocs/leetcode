@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2890.Re
 
 ## Description
 
+<!-- description:start -->
+
 <pre>
 DataFrame <code>report</code>
 +-------------+--------+
@@ -56,6 +58,8 @@ DataFrame <code>report</code>
 <strong>Explanation:</strong>
 The DataFrame is reshaped from wide to long format. Each row represents the sales of a product in a quarter.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

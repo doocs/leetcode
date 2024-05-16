@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A sequence of numbers is called <strong>arithmetic</strong> if it consists of at least two elements, and the difference between every two consecutive elements is the same. More formally, a sequence <code>s</code> is arithmetic if and only if <code>s[i+1] - s[i] == s[1] - s[0] </code>for all valid <code>i</code>.</p>
 
 <p>For example, these are <strong>arithmetic</strong> sequences:</p>
@@ -66,6 +68,8 @@ In the 2<sup>nd</sup> query, the subarray is <code>[5,9,3,7]. This</code> can be
 	<li><code>0 &lt;= l[i] &lt; r[i] &lt; n</code></li>
 	<li><code>-10<sup>5</sup> &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

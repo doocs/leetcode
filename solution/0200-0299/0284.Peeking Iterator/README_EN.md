@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design an iterator that supports the <code>peek</code> operation on an existing iterator in addition to the <code>hasNext</code> and the <code>next</code> operations.</p>
 
 <p>Implement the <code>PeekingIterator</code> class:</p>
@@ -60,6 +62,8 @@ peekingIterator.hasNext(); // return False
 
 <p>&nbsp;</p>
 <strong>Follow up:</strong> How would you extend your design to be generic and work with all types, not just integer?
+
+<!-- description:end -->
 
 ## Solutions
 

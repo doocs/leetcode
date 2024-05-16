@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Scores</code></p>
 
 <pre>
@@ -86,6 +88,8 @@ The third day is 2019-12-30, Slaman scored 13 points and the total score for the
 The fourth day is 2019-12-31, Joe scored 3 points and the total score for the team is 29.
 The fifth day is 2020-01-07, Bajrang scored 7 points and the total score for the team is 36.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

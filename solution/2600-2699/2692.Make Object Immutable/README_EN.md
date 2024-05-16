@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2692.Ma
 
 ## Description
 
+<!-- description:start -->
+
 <p>Write a function that takes an object&nbsp;<code>obj</code> and returns a new&nbsp;<strong>immutable</strong>&nbsp;version of this object.</p>
 
 <p>An&nbsp;<strong>immutable&nbsp;</strong>object is an object that can&#39;t be altered and will throw an error if any attempt is made to alter it.</p>
@@ -94,6 +96,8 @@ fn = (obj) =&gt; {
 	<li><code>obj</code>&nbsp;is a valid JSON object or array</li>
 	<li><code>2 &lt;= JSON.stringify(obj).length &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

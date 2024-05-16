@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 Given the <code>head</code> of a singly linked list that is sorted in <strong>non-decreasing</strong> order using the <strong>absolute values</strong> of its nodes, return <em>the list sorted in <strong>non-decreasing</strong> order using the <strong>actual values</strong> of its nodes</em>.
 
 <p>&nbsp;</p>
@@ -61,6 +63,8 @@ The linked list is already sorted in non-decreasing order.
 <ul>
 	<li>Can you think of a solution with <code>O(n)</code> time complexity?</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an unrooted weighted tree with <code>n</code> vertices representing servers numbered from <code>0</code> to <code>n - 1</code>, an array <code>edges</code> where <code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>, weight<sub>i</sub>]</code> represents a bidirectional edge between vertices <code>a<sub>i</sub></code> and <code>b<sub>i</sub></code> of weight <code>weight<sub>i</sub></code>. You are also given an integer <code>signalSpeed</code>.</p>
 
 <p>Two servers <code>a</code> and <code>b</code> are <strong>connectable</strong> through a server <code>c</code> if:</p>
@@ -64,6 +66,8 @@ It can be shown that no two servers are connectable through servers other than 0
 	<li><code>1 &lt;= signalSpeed &lt;= 10<sup>6</sup></code></li>
 	<li>The input is generated such that <code>edges</code> represents a valid tree.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two strings <code>s</code> and <code>t</code> consisting of only lowercase English letters.</p>
 
 <p>Return <em>the minimum number of characters that need to be appended to the end of </em><code>s</code><em> so that </em><code>t</code><em> becomes a <strong>subsequence</strong> of </em><code>s</code>.</p>
@@ -60,6 +62,8 @@ It can be shown that appending any 4 characters to the end of s will never make 
 	<li><code>1 &lt;= s.length, t.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>s</code> and <code>t</code> consist only of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

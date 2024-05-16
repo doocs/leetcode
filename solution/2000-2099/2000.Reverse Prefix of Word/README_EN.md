@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a <strong>0-indexed</strong> string <code>word</code> and a character <code>ch</code>, <strong>reverse</strong> the segment of <code>word</code> that starts at index <code>0</code> and ends at the index of the <strong>first occurrence</strong> of <code>ch</code> (<strong>inclusive</strong>). If the character <code>ch</code> does not exist in <code>word</code>, do nothing.</p>
 
 <ul>
@@ -61,6 +63,8 @@ You should not do any reverse operation, the resulting string is &quot;abcd&quot
 	<li><code>word</code> consists of lowercase English letters.</li>
 	<li><code>ch</code> is a lowercase English letter.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Sessions</code></p>
 
 <pre>
@@ -67,6 +69,8 @@ For session_id 4 has a duration greater or equal than 5 minutes and less than 10
 There is no session with a duration greater than or equal to 10 minutes and less than 15 minutes.
 For session_id 5 has a duration greater than or equal to 15 minutes.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

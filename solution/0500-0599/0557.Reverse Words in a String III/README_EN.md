@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>s</code>, reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.</p>
 
 <p>&nbsp;</p>
@@ -42,6 +44,8 @@ tags:
 	<li>There is <strong>at least one</strong> word in <code>s</code>.</li>
 	<li>All the words in <code>s</code> are separated by a single space.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

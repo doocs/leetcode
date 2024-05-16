@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>s</code> containing lowercase English letters, and a matrix <code>shift</code>, where <code>shift[i] = [direction<sub>i</sub>, amount<sub>i</sub>]</code>:</p>
 
 <ul>
@@ -59,6 +61,8 @@ tags:
 	<li><code>direction<sub>i</sub></code><sub> </sub>is either <code>0</code> or <code>1</code>.</li>
 	<li><code>0 &lt;= amount<sub>i</sub> &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

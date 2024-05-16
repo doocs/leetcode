@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>On day <code>1</code>, one person discovers a secret.</p>
 
 <p>You are given an integer <code>delay</code>, which means that each person will <strong>share</strong> the secret with a new person <strong>every day</strong>, starting from <code>delay</code> days after discovering the secret. You are also given an integer <code>forget</code>, which means that each person will <strong>forget</strong> the secret <code>forget</code> days after discovering it. A person <strong>cannot</strong> share the secret on the same day they forgot it, or on any day afterwards.</p>
@@ -58,6 +60,8 @@ Day 4: A forgets the secret. B, C, and D share the secret with 3 new people. (6 
 	<li><code>2 &lt;= n &lt;= 1000</code></li>
 	<li><code>1 &lt;= delay &lt; forget &lt;= n</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

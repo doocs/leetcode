@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an immutable linked list, print out all values of each node in reverse with the help of the following&nbsp;interface:</p>
 
 <ul>
@@ -75,6 +77,8 @@ tags:
 	<li>Constant space complexity?</li>
 	<li>Linear time complexity and less than linear space complexity?</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

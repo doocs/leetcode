@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the array <code>houses</code> where <code>houses[i]</code> is the location of the <code>i<sup>th</sup></code> house along a street and an integer <code>k</code>, allocate <code>k</code> mailboxes in the street.</p>
 
 <p>Return <em>the <strong>minimum</strong> total distance between each house and its nearest mailbox</em>.</p>
@@ -52,6 +54,8 @@ Minimum total distance from each houses to nearest mailboxes is |2-3| + |3-3| + 
 	<li><code>1 &lt;= houses[i] &lt;= 10<sup>4</sup></code></li>
 	<li>All the integers of <code>houses</code> are <strong>unique</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

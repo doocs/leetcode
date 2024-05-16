@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an <code>n x n</code> binary <code>grid</code>, in one step you can choose two <strong>adjacent rows</strong> of the grid and swap them.</p>
 
 <p>A grid is said to be <strong>valid</strong> if all the cells above the main diagonal are <strong>zeros</strong>.</p>
@@ -57,6 +59,8 @@ tags:
 	<li><code>1 &lt;= n &lt;= 200</code></li>
 	<li><code>grid[i][j]</code> is either <code>0</code> or <code>1</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

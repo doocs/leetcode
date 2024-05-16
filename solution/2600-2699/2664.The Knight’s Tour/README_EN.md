@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two positive integers <code>m</code> and <code>n</code> which are the height and width of a <strong>0-indexed</strong> 2D-array <code>board</code>, a pair of positive integers <code>(r, c)</code> which is the starting position of the knight on the board.</p>
 
 <p>Your task is to find an order of movements for the knight, in a manner that every cell of the&nbsp;<code>board</code> gets visited <strong>exactly</strong> once (the starting cell is considered visited and you <strong>shouldn&#39;t</strong> visit it again).</p>
@@ -50,6 +52,8 @@ tags:
 	<li><code>0 &lt;= c &lt;= n - 1</code></li>
 	<li>The inputs will be generated such that there exists at least one&nbsp;possible order of movements with the given condition</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

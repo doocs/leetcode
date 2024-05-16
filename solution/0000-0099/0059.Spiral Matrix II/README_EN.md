@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a positive integer <code>n</code>, generate an <code>n x n</code> <code>matrix</code> filled with elements from <code>1</code> to <code>n<sup>2</sup></code> in spiral order.</p>
 
 <p>&nbsp;</p>
@@ -39,6 +41,8 @@ tags:
 <ul>
 	<li><code>1 &lt;= n &lt;= 20</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

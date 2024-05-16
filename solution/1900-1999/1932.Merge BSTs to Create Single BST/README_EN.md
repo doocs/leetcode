@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given <code>n</code> <strong>BST (binary search tree) root nodes</strong> for <code>n</code> separate BSTs stored in an array <code>trees</code> (<strong>0-indexed</strong>). Each BST in <code>trees</code> has <strong>at most 3 nodes</strong>, and no two roots have the same value. In one operation, you can:</p>
 
 <ul>
@@ -86,6 +88,8 @@ The resulting tree is shown above. This is the only valid operation that can be 
 	<li>All the trees in the input are <strong>valid BSTs</strong>.</li>
 	<li><code>1 &lt;= TreeNode.val &lt;= 5 * 10<sup>4</sup></code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

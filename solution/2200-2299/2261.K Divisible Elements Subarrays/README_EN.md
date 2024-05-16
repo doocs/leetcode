@@ -21,6 +21,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code> and two integers <code>k</code> and <code>p</code>, return <em>the number of <strong>distinct subarrays,</strong> which have <strong>at most</strong></em> <code>k</code> <em>elements </em>that are <em>divisible by</em> <code>p</code>.</p>
 
 <p>Two arrays <code>nums1</code> and <code>nums2</code> are said to be <strong>distinct</strong> if:</p>
@@ -70,6 +72,8 @@ Since all subarrays are distinct, the total number of subarrays satisfying all t
 <p><strong>Follow up:</strong></p>
 
 <p>Can you solve this problem in O(n<sup>2</sup>) time complexity?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

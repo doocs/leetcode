@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code> and an integer <code>k</code>, split <code>nums</code> into <code>k</code> non-empty subarrays such that the largest sum of any subarray is <strong>minimized</strong>.</p>
 
 <p>Return <em>the minimized largest sum of the split</em>.</p>
@@ -51,6 +53,8 @@ The best way is to split it into [1,2,3] and [4,5], where the largest sum among 
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 	<li><code>1 &lt;= k &lt;= min(50, nums.length)</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

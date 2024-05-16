@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code>, your goal is to make all elements in <code>nums</code> equal. To complete one operation, follow these steps:</p>
 
 <ol>
@@ -66,6 +68,8 @@ tags:
 	<li><code>1 &lt;= nums.length &lt;= 5 * 10<sup>4</sup></code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 5 * 10<sup>4</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

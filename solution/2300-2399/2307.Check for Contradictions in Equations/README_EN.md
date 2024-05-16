@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a 2D array of strings <code>equations</code> and an array of real numbers <code>values</code>, where <code>equations[i] = [A<sub>i</sub>, B<sub>i</sub>]</code> and <code>values[i]</code> means that <code>A<sub>i</sub> / B<sub>i</sub> = values[i]</code>.</p>
 
 <p>Determine if there exists a contradiction in the equations. Return <code>true</code><em> if there is a contradiction, or </em><code>false</code><em> otherwise</em>.</p>
@@ -63,6 +65,8 @@ Since the third equation is code / et = 0.5, we get a contradiction.
 	<li><code>0.0 &lt; values[i] &lt;= 10.0</code></li>
 	<li><code>values[i]</code> has a maximum of 2 decimal places.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

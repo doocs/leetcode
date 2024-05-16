@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A <strong>0-indexed</strong> array <code>derived</code> with length <code>n</code> is derived by computing the <strong>bitwise XOR</strong>&nbsp;(&oplus;) of adjacent values in a <strong>binary array</strong> <code>original</code> of length <code>n</code>.</p>
 
 <p>Specifically, for each index <code>i</code> in the range <code>[0, n - 1]</code>:</p>
@@ -72,6 +74,8 @@ derived[1] = original[1] &oplus; original[0] = 1
 	<li><code>1 &lt;= n&nbsp;&lt;= 10<sup>5</sup></code></li>
 	<li>The values in <code>derived</code>&nbsp;are either <strong>0&#39;s</strong> or <strong>1&#39;s</strong></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design your implementation of the circular double-ended queue (deque).</p>
 
 <p>Implement the <code>MyCircularDeque</code> class:</p>
@@ -64,6 +66,8 @@ myCircularDeque.getFront();     // return 4
 	<li><code>0 &lt;= value &lt;= 1000</code></li>
 	<li>At most <code>2000</code> calls will be made to <code>insertFront</code>, <code>insertLast</code>, <code>deleteFront</code>, <code>deleteLast</code>, <code>getFront</code>, <code>getRear</code>, <code>isEmpty</code>, <code>isFull</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

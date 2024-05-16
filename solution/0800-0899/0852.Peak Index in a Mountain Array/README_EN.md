@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>An array <code>arr</code> is a <strong>mountain</strong> if the following properties hold:</p>
 
 <ul>
@@ -61,6 +63,8 @@ tags:
 	<li><code>0 &lt;= arr[i] &lt;= 10<sup>6</sup></code></li>
 	<li><code>arr</code> is <strong>guaranteed</strong> to be a mountain array.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

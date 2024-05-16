@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A <code>width x height</code> grid is on an XY-plane with the <strong>bottom-left</strong> cell at <code>(0, 0)</code> and the <strong>top-right</strong> cell at <code>(width - 1, height - 1)</code>. The grid is aligned with the four cardinal directions (<code>&quot;North&quot;</code>, <code>&quot;East&quot;</code>, <code>&quot;South&quot;</code>, and <code>&quot;West&quot;</code>). A robot is <strong>initially</strong> at cell <code>(0, 0)</code> facing direction <code>&quot;East&quot;</code>.</p>
 
 <p>The robot can be instructed to move for a specific number of <strong>steps</strong>. For each step, it does the following.</p>
@@ -72,6 +74,8 @@ robot.getDir(); // return &quot;West&quot;
 	<li><code>1 &lt;= num &lt;= 10<sup>5</sup></code></li>
 	<li>At most <code>10<sup>4</sup></code> calls <strong>in total</strong> will be made to <code>step</code>, <code>getPos</code>, and <code>getDir</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

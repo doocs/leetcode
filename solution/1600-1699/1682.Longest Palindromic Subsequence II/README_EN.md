@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A subsequence of a string <code>s</code> is considered a <strong>good palindromic subsequence</strong> if:</p>
 
 <ul>
@@ -52,6 +54,8 @@ tags:
 	<li><code>1 &lt;= s.length &lt;= 250</code></li>
 	<li><code>s</code> consists of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

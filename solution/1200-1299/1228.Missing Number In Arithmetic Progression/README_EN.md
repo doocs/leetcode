@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>In some array <code>arr</code>, the values were in arithmetic progression: the values <code>arr[i + 1] - arr[i]</code> are all equal for every <code>0 &lt;= i &lt; arr.length - 1</code>.</p>
 
 <p>A value from <code>arr</code> was removed that <strong>was not the first or last value in the array</strong>.</p>
@@ -47,6 +49,8 @@ tags:
 	<li><code>0 &lt;= arr[i] &lt;= 10<sup>5</sup></code></li>
 	<li>The given array is <strong>guaranteed</strong> to be a valid array.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

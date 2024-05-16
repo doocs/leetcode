@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2691.Im
 
 ## Description
 
+<!-- description:start -->
+
 <p>Creating clones of immutable objects with minor alterations can be a tedious process. Write a class&nbsp;<code>ImmutableHelper</code>&nbsp;that serves as a tool to help with this requirement. The constructor accepts an immutable object&nbsp;<code>obj</code>&nbsp;which will be a JSON object or array.</p>
 
 <p>The class has a single method&nbsp;<code>produce</code>&nbsp;which&nbsp;accepts a&nbsp;function&nbsp;<code>mutator</code>. The function returns a new object which is similar to the original except it has&nbsp;those mutations applied.</p>
@@ -108,6 +110,8 @@ mutators = [
 	<li><code>mutators</code> is an array of functions</li>
 	<li><code><font face="monospace">total calls to produce() &lt; 10<sup>5</sup></font></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

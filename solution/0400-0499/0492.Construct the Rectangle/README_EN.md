@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A web developer needs to know how to design a web page&#39;s size. So, given a specific rectangular web page&rsquo;s area, your job by now is to design a rectangular web page, whose length L and width W satisfy the following requirements:</p>
 
 <ol>
@@ -54,6 +56,8 @@ But according to requirement 2, [1,4] is illegal; according to requirement 3,  [
 <ul>
 	<li><code>1 &lt;= area &lt;= 10<sup>7</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

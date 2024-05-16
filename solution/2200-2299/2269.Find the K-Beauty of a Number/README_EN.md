@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>The <strong>k-beauty</strong> of an integer <code>num</code> is defined as the number of <strong>substrings</strong> of <code>num</code> when it is read as a string that meet the following conditions:</p>
 
 <ul>
@@ -69,6 +71,8 @@ Therefore, the k-beauty is 2.
 	<li><code>1 &lt;= num &lt;= 10<sup>9</sup></code></li>
 	<li><code>1 &lt;= k &lt;= num.length</code> (taking <code>num</code> as a string)</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

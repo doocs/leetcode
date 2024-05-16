@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> binary string <code>s</code> of length <code>n</code> on which you can apply two types of operations:</p>
 
 <ul>
@@ -58,6 +60,8 @@ The total cost to make all characters equal is 9. It can be shown that 9 is the 
 	<li><code>1 &lt;= s.length == n &lt;= 10<sup>5</sup></code></li>
 	<li><code>s[i]</code> is either <code>&#39;0&#39;</code> or <code>&#39;1&#39;</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

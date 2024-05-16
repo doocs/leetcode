@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>We are given <code>hours</code>, a list of the number of hours worked per day for a given employee.</p>
 
 <p>A day is considered to be a <em>tiring day</em> if and only if the number of hours worked is (strictly) greater than <code>8</code>.</p>
@@ -51,6 +53,8 @@ tags:
 	<li><code>1 &lt;= hours.length &lt;= 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= hours[i] &lt;= 16</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

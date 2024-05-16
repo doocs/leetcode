@@ -21,6 +21,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>We define the <code>lcp</code> matrix of any <strong>0-indexed</strong> string <code>word</code> of <code>n</code> lowercase English letters as an <code>n x n</code> grid such that:</p>
 
 <ul>
@@ -63,6 +65,8 @@ tags:
 	<li><code>1 &lt;= n ==&nbsp;</code><code>lcp.length == </code><code>lcp[i].length</code>&nbsp;<code>&lt;= 1000</code></li>
 	<li><code><font face="monospace">0 &lt;= lcp[i][j] &lt;= n</font></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

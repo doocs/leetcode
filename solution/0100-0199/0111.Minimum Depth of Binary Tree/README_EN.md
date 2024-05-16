@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a binary tree, find its minimum depth.</p>
 
 <p>The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.</p>
@@ -45,6 +47,8 @@ tags:
 	<li>The number of nodes in the tree is in the range <code>[0, 10<sup>5</sup>]</code>.</li>
 	<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

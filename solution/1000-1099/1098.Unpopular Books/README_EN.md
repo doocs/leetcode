@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Books</code></p>
 
 <pre>
@@ -88,6 +90,8 @@ Orders table:
 | 5         | &quot;The Hunger Games&quot; |
 +-----------+--------------------+
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

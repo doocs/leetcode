@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two strings <code>a</code> and <code>b</code> that consist of lowercase letters. In one operation, you can change any character in <code>a</code> or <code>b</code> to <strong>any lowercase letter</strong>.</p>
 
 <p>Your goal is to satisfy <strong>one</strong> of the following three conditions:</p>
@@ -59,6 +61,8 @@ The best way was done in 2 operations (either condition 1 or condition 3).
 	<li><code>1 &lt;= a.length, b.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>a</code> and <code>b</code> consist only of lowercase letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

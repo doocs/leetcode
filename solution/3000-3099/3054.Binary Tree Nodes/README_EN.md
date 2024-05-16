@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <font face="monospace"><code>Tree</code></font></p>
 
 <pre>
@@ -73,6 +75,8 @@ Tree table:
 - Nodes 1, 3, 6, and 8 are leaf nodes because they don&#39;t have any child nodes.
 - Nodes 2, 4, and 7 are inner nodes as they serve as parents to some of the nodes in the structure.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

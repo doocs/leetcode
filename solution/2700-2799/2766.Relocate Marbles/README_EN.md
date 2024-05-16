@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> representing the initial positions of some marbles. You are also given two <strong>0-indexed </strong>integer arrays <code>moveFrom</code> and <code>moveTo</code> of <strong>equal</strong> length.</p>
 
 <p>Throughout <code>moveFrom.length</code> steps, you will change the positions of the marbles. On the <code>i<sup>th</sup></code> step, you will move <strong>all</strong> marbles at position <code>moveFrom[i]</code> to position <code>moveTo[i]</code>.</p>
@@ -65,6 +67,8 @@ Since 2 is the only occupied position, we return [2].
 	<li><code>1 &lt;= nums[i], moveFrom[i], moveTo[i] &lt;= 10<sup>9</sup></code></li>
 	<li>The test cases are generated such that there is at least a marble in&nbsp;<code>moveFrom[i]</code>&nbsp;at the moment we want to apply&nbsp;the <code>i<sup>th</sup></code>&nbsp;move.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

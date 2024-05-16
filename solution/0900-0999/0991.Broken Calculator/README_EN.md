@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There is a broken calculator that has the integer <code>startValue</code> on its display initially. In one operation, you can:</p>
 
 <ul>
@@ -55,6 +57,8 @@ tags:
 <ul>
 	<li><code>1 &lt;= startValue, target &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

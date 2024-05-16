@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>positive</strong> integer <code>num</code> consisting of exactly four digits. Split <code>num</code> into two new integers <code>new1</code> and <code>new2</code> by using the <strong>digits</strong> found in <code>num</code>. <strong>Leading zeros</strong> are allowed in <code>new1</code> and <code>new2</code>, and <strong>all</strong> the digits found in <code>num</code> must be used.</p>
 
 <ul>
@@ -51,6 +53,8 @@ The minimum sum can be obtained by the pair [4, 9]: 4 + 9 = 13.
 <ul>
 	<li><code>1000 &lt;= num &lt;= 9999</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

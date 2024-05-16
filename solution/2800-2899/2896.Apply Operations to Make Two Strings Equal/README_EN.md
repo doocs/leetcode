@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two <strong>0-indexed</strong> binary strings <code>s1</code> and <code>s2</code>, both of length <code>n</code>, and a positive integer <code>x</code>.</p>
 
 <p>You can perform any of the following operations on the string <code>s1</code> <strong>any</strong> number of times:</p>
@@ -59,6 +61,8 @@ The total cost is 1 + 1 + 2 = 4. It can be shown that it is the minimum cost pos
 	<li><code>1 &lt;= n, x &lt;= 500</code></li>
 	<li><code>s1</code> and <code>s2</code> consist only of the characters <code>&#39;0&#39;</code> and <code>&#39;1&#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

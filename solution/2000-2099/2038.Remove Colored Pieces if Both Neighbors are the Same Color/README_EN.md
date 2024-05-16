@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There are <code>n</code> pieces arranged in a line, and each piece is colored either by <code>&#39;A&#39;</code> or by <code>&#39;B&#39;</code>. You are given a string <code>colors</code> of length <code>n</code> where <code>colors[i]</code> is the color of the <code>i<sup>th</sup></code> piece.</p>
 
 <p>Alice and Bob are playing a game where they take <strong>alternating turns</strong> removing pieces from the line. In this game, Alice moves<strong> first</strong>.</p>
@@ -84,6 +86,8 @@ Thus, Bob wins, so return false.
 	<li><code>1 &lt;=&nbsp;colors.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>colors</code>&nbsp;consists of only the letters&nbsp;<code>&#39;A&#39;</code>&nbsp;and&nbsp;<code>&#39;B&#39;</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

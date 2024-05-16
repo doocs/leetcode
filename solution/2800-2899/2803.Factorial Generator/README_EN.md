@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2803.Fa
 
 ## Description
 
+<!-- description:start -->
+
 <p>Write a generator function that takes an integer <code>n</code> as an argument and returns a generator object which yields the <strong>factorial sequence</strong>.</p>
 
 <p>The&nbsp;<strong>factorial sequence</strong>&nbsp;is defined by the relation <code>n!&nbsp;= n *&nbsp;<span style="font-size: 13px;">(</span>n-1)&nbsp;* (n-2)&nbsp;*&nbsp;...&nbsp;* 2 * 1​​​.</code></p>
@@ -60,6 +62,8 @@ gen.next().value // 1
 <ul>
 	<li><code>0 &lt;= n &lt;= 18</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

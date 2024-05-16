@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 Given three integer arrays <code>nums1</code>, <code>nums2</code>, and <code>nums3</code>, return <em>a <strong>distinct</strong> array containing all the values that are present in <strong>at least two</strong> out of the three arrays. You may return the values in <strong>any</strong> order</em>.
 
 <p>&nbsp;</p>
@@ -57,6 +59,8 @@ Given three integer arrays <code>nums1</code>, <code>nums2</code>, and <code>num
 	<li><code>1 &lt;= nums1.length, nums2.length, nums3.length &lt;= 100</code></li>
 	<li><code>1 &lt;= nums1[i], nums2[j], nums3[k] &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

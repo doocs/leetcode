@@ -21,6 +21,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> 2D integer array <code>grid</code> of size <code>m x n</code>. Each cell has one of two values:</p>
 
 <ul>
@@ -62,6 +64,8 @@ Note that there may be other ways to remove 2 obstacles to create a path.
 	<li><code>grid[i][j]</code> is either <code>0</code> <strong>or</strong> <code>1</code>.</li>
 	<li><code>grid[0][0] == grid[m - 1][n - 1] == 0</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

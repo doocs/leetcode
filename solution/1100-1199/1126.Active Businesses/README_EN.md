@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Events</code></p>
 
 <pre>
@@ -68,6 +70,8 @@ The average activity for each event can be calculated as follows:
 - &#39;page views&#39;: (3+12)/2 = 7.5
 The business with id=1 has 7 &#39;reviews&#39; events (more than 5) and 11 &#39;ads&#39; events (more than 8), so it is an active business.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

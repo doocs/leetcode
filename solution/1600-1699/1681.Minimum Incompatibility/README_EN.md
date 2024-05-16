@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code>​​​ and an integer <code>k</code>. You are asked to distribute this array into <code>k</code> subsets of <strong>equal size</strong> such that there are no two equal elements in the same subset.</p>
 
 <p>A subset&#39;s <strong>incompatibility</strong> is the difference between the maximum and minimum elements in that array.</p>
@@ -62,6 +64,8 @@ The incompatibility is (2-1) + (3-2) + (8-6) + (3-1) = 6.
 	<li><code>nums.length</code> is divisible by <code>k</code></li>
 	<li><code>1 &lt;= nums[i] &lt;= nums.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

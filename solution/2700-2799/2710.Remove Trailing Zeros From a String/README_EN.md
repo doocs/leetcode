@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a <strong>positive</strong> integer <code>num</code> represented as a string, return <em>the integer </em><code>num</code><em> without trailing zeros as a string</em>.</p>
 
 <p>&nbsp;</p>
@@ -43,6 +45,8 @@ tags:
 	<li><code>num</code> consists&nbsp;of only digits.</li>
 	<li><code>num</code> doesn&#39;t&nbsp;have any leading zeros.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -22,6 +22,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code> and an integer <code>k</code>.</p>
 
 <p>Find the longest subsequence of <code>nums</code> that meets the following requirements:</p>
@@ -74,6 +76,8 @@ The subsequence has a length of 1, so we return 1.
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= nums[i], k &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

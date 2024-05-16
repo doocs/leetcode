@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given four integers <code>row</code>, <code>cols</code>, <code>rCenter</code>, and <code>cCenter</code>. There is a <code>rows x cols</code> matrix and you are on the cell with the coordinates <code>(rCenter, cCenter)</code>.</p>
 
 <p>Return <em>the coordinates of all cells in the matrix, sorted by their <strong>distance</strong> from </em><code>(rCenter, cCenter)</code><em> from the smallest distance to the largest distance</em>. You may return the answer in <strong>any order</strong> that satisfies this condition.</p>
@@ -61,6 +63,8 @@ There are other answers that would also be accepted as correct, such as [[1,2],[
 	<li><code>0 &lt;= rCenter &lt; rows</code></li>
 	<li><code>0 &lt;= cCenter &lt; cols</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

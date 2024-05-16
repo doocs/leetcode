@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given 2 integers <code>n</code> and <code>start</code>. Your task is return <strong>any</strong> permutation <code>p</code>&nbsp;of <code>(0,1,2.....,2^n -1) </code>such that :</p>
 
 <ul>
@@ -69,6 +71,8 @@ All the adjacent element differ by one bit. Another valid permutation is [3,1,0,
     <li><code>0 &lt;= start&nbsp;&lt;&nbsp;2 ^ n</code></li>
 
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

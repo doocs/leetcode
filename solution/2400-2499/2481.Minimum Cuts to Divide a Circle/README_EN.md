@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A <strong>valid cut</strong> in a circle can be:</p>
 
 <ul>
@@ -55,6 +57,8 @@ Also note that the first cut will not divide the circle into distinct parts.
 <ul>
 	<li><code>1 &lt;= n &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

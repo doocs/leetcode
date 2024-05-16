@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>We are given a list <code>nums</code> of integers representing a list compressed with run-length encoding.</p>
 
 <p>Consider each adjacent pair&nbsp;of elements <code>[freq, val] = [nums[2*i], nums[2*i+1]]</code>&nbsp;(with <code>i &gt;= 0</code>).&nbsp; For each such pair, there are <code>freq</code> elements with value <code>val</code> concatenated in a sublist. Concatenate all the sublists from left to right to generate the decompressed list.</p>
@@ -48,6 +50,8 @@ At the end the concatenation [2] + [4,4,4] is [2,4,4,4].
 	<li><code>nums.length % 2 == 0</code></li>
 	<li><code><font face="monospace">1 &lt;= nums[i] &lt;= 100</font></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

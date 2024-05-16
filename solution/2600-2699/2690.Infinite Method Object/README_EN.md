@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2690.In
 
 ## Description
 
+<!-- description:start -->
+
 <p>Write a function that&nbsp;returns an&nbsp;<strong>infinite-method</strong><strong>&nbsp;object</strong>.</p>
 
 <p>An&nbsp;<strong>infinite-method</strong><strong>&nbsp;object</strong>&nbsp;is defined as an object that allows you to call any method and it will always return the name of the method.</p>
@@ -42,6 +44,8 @@ The returned string should always match the method name.</pre>
 <ul>
 	<li><code>0 &lt;= method.length &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

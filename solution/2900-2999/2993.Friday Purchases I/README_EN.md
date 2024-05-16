@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Purchases</code></p>
 
 <pre>
@@ -66,6 +68,8 @@ Purchases table:
 - Similarly, during the third week of November 2023, there were no transactions on Friday, 2023-11-17.
 - In the fourth week of November 2023, two transactions took place on Friday, 2023-11-24, amounting to $12,000 and $9,692 respectively, summing up to a total of $21,692.
 Output table is ordered by week_of_month in ascending order.</pre>
+
+<!-- description:end -->
 
 ## Solutions
 

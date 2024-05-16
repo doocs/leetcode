@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the array <code>restaurants</code> where &nbsp;<code>restaurants[i] = [id<sub>i</sub>, rating<sub>i</sub>, veganFriendly<sub>i</sub>, price<sub>i</sub>, distance<sub>i</sub>]</code>. You have to filter the restaurants using three filters.</p>
 
 <p>The <code>veganFriendly</code> filter will be either <em>true</em> (meaning you should only include restaurants with <code>veganFriendly<sub>i</sub></code> set to true)&nbsp;or <em>false</em>&nbsp;(meaning you can include any restaurant). In addition, you have the filters&nbsp;<code>maxPrice</code> and <code>maxDistance</code>&nbsp;which&nbsp;are the maximum value for price and distance of restaurants you should consider respectively.</p>
@@ -65,6 +67,8 @@ After filter restaurants with veganFriendly = 1, maxPrice = 50 and maxDistance =
 	<li><code>veganFriendly<sub>i</sub></code> and&nbsp;<code>veganFriendly</code>&nbsp;are&nbsp;0 or 1.</li>
 	<li>All <code>id<sub>i</sub></code> are distinct.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

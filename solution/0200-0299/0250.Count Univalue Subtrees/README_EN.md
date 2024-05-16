@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>root</code> of a binary tree, return <em>the number of <strong>uni-value</strong> </em><span data-keyword="subtree"><em>subtrees</em></span>.</p>
 
 <p>A <strong>uni-value subtree</strong> means all nodes of the subtree have the same value.</p>
@@ -49,6 +51,8 @@ tags:
 	<li>The number of the node in the tree will be in the range <code>[0, 1000]</code>.</li>
 	<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

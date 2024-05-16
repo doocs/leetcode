@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a positive integer <code>n</code>,&nbsp;you can apply one of the following&nbsp;operations:</p>
 
 <ol>
@@ -57,6 +59,8 @@ or 7 -&gt; 6 -&gt; 3 -&gt; 2 -&gt; 1
 <ul>
 	<li><code>1 &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a positive integer <strong>0-indexed</strong>&nbsp;array <code>nums</code>.</p>
 
 <p>A subset of the array <code>nums</code> is <strong>square-free</strong> if the product of its elements is a <strong>square-free integer</strong>.</p>
@@ -59,6 +61,8 @@ It can be proven that there is no more than 1 square-free subset in the given ar
 	<li><code>1 &lt;= nums.length&nbsp;&lt;= 1000</code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 30</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

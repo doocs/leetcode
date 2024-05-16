@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>In the world of Dota2, there are two parties: the Radiant and the Dire.</p>
 
 <p>The Dota2 senate consists of senators coming from two parties. Now the Senate wants to decide on a change in the Dota2 game. The voting for this change is a round-based procedure. In each round, each senator can exercise <strong>one</strong> of the two rights:</p>
@@ -63,6 +65,8 @@ And in round 2, the third senator can just announce the victory since he is the 
 	<li><code>1 &lt;= n &lt;= 10<sup>4</sup></code></li>
 	<li><code>senate[i]</code> is either <code>&#39;R&#39;</code> or <code>&#39;D&#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

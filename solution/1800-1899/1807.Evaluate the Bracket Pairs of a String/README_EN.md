@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>s</code> that contains some bracket pairs, with each pair containing a <strong>non-empty</strong> key.</p>
 
 <ul>
@@ -81,6 +83,8 @@ Notice that the &quot;a&quot;s not in a bracket pair are not evaluated.
 	<li><code>key<sub>i</sub></code> and <code>value<sub>i</sub></code> consist of lowercase English letters.</li>
 	<li>Each <code>key<sub>i</sub></code> in <code>knowledge</code> is unique.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

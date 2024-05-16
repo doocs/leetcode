@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2628.JS
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two values&nbsp;<code>o1</code>&nbsp;and <code>o2</code>, return a boolean value indicating whether two values, <code>o1</code> and <code>o2</code>, are <strong>deeply equal</strong>.</p>
 
 <p>For two values to be <strong>deeply equal</strong>, the following conditions must be met:</p>
@@ -72,6 +74,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2628.JS
 	<li><code>1 &lt;= JSON.stringify(o2).length &lt;= 10<sup>5</sup></code></li>
 	<li><code>maxNestingDepth &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

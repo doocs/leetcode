@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given the <code>root</code> of a <strong>binary tree</strong> with the following properties:</p>
 
 <ul>
@@ -72,6 +74,8 @@ The root of the tree already evaluates to false, so 0 nodes have to be flipped.
 	<li>Leaf nodes have a value of <code>0</code> or <code>1</code>.</li>
 	<li>Non-leaf nodes have a value of <code>2</code>, <code>3</code>, <code>4</code>, or <code>5</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

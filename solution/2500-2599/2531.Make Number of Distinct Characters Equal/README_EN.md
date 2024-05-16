@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two <strong>0-indexed</strong> strings <code>word1</code> and <code>word2</code>.</p>
 
 <p>A <strong>move</strong> consists of choosing two indices <code>i</code> and <code>j</code> such that <code>0 &lt;= i &lt; word1.length</code> and <code>0 &lt;= j &lt; word2.length</code> and swapping <code>word1[i]</code> with <code>word2[j]</code>.</p>
@@ -56,6 +58,8 @@ tags:
 	<li><code>1 &lt;= word1.length, word2.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>word1</code> and <code>word2</code> consist of only lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

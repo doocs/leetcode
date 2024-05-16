@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design a data structure to find the <strong>frequency</strong> of a given value in a given subarray.</p>
 
 <p>The <strong>frequency</strong> of a value in a subarray is the number of occurrences of that value in the subarray.</p>
@@ -58,6 +60,8 @@ rangeFreqQuery.query(0, 11, 33); // return 2. The value 33 occurs 2 times in the
 	<li><code>0 &lt;= left &lt;= right &lt; arr.length</code></li>
 	<li>At most <code>10<sup>5</sup></code> calls will be made to <code>query</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

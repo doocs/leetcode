@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>We call a positive integer <strong>special</strong> if all of its digits are <strong>distinct</strong>.</p>
 
 <p>Given a <strong>positive</strong> integer <code>n</code>, return <em>the number of special integers that belong to the interval </em><code>[1, n]</code>.</p>
@@ -52,6 +54,8 @@ Some of the integers that are not special are: 22, 114, and 131.</pre>
 <ul>
 	<li><code>1 &lt;= n &lt;= 2 * 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

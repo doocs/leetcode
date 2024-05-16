@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Alice and Bob take turns playing a game, with <strong>Alice starting first</strong>.</p>
 
 <p>There are <code>n</code> stones arranged in a row. On each player&#39;s turn, while the number of stones is <strong>more than one</strong>, they will do the following:</p>
@@ -113,6 +115,8 @@ The difference between their scores is (-22) - 0 = -22.
     <li><code>-10<sup>4</sup> &lt;= stones[i] &lt;= 10<sup>4</sup></code></li>
 
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are playing the following Nim Game with your friend:</p>
 
 <ul>
@@ -60,6 +62,8 @@ In all outcomes, your friend wins.
 <ul>
 	<li><code>1 &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

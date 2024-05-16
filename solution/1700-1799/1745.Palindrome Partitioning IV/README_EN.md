@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>s</code>, return <code>true</code> <em>if it is possible to split the string</em> <code>s</code> <em>into three <strong>non-empty</strong> palindromic substrings. Otherwise, return </em><code>false</code>.​​​​​</p>
 
 <p>A string is said to be palindrome if it the same string when reversed.</p>
@@ -45,6 +47,8 @@ tags:
 	<li><code>3 &lt;= s.length &lt;= 2000</code></li>
 	<li><code>s</code>​​​​​​ consists only of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

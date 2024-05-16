@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There are <code>n</code> piles of <code>stones</code> arranged in a row. The <code>i<sup>th</sup></code> pile has <code>stones[i]</code> stones.</p>
 
 <p>A move consists of merging exactly <code>k</code> <strong>consecutive</strong> piles into one pile, and the cost of this move is equal to the total number of stones in these <code>k</code> piles.</p>
@@ -65,6 +67,8 @@ The total cost was 25, and this is the minimum possible.
 	<li><code>1 &lt;= stones[i] &lt;= 100</code></li>
 	<li><code>2 &lt;= k &lt;= 30</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a <code>m * n</code> matrix of ones and zeros, return how many <strong>square</strong> submatrices have all ones.</p>
 
 <p>&nbsp;</p>
@@ -62,6 +64,8 @@ Total number of squares = 6 + 1 = <b>7</b>.
 	<li><code>1 &lt;= arr[0].length&nbsp;&lt;= 300</code></li>
 	<li><code>0 &lt;= arr[i][j] &lt;= 1</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

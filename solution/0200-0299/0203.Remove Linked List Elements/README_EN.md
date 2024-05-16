@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>head</code> of a linked list and an integer <code>val</code>, remove all the nodes of the linked list that has <code>Node.val == val</code>, and return <em>the new head</em>.</p>
 
 <p>&nbsp;</p>
@@ -47,6 +49,8 @@ tags:
 	<li><code>1 &lt;= Node.val &lt;= 50</code></li>
 	<li><code>0 &lt;= val &lt;= 50</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

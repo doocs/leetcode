@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer <code>n</code>, return the count of all numbers with unique digits, <code>x</code>, where <code>0 &lt;= x &lt; 10<sup>n</sup></code>.</p>
 
 <p>&nbsp;</p>
@@ -40,6 +42,8 @@ tags:
 <ul>
 	<li><code>0 &lt;= n &lt;= 8</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

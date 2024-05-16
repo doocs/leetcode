@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given the string <code>croakOfFrogs</code>, which represents a combination of the string <code>&quot;croak&quot;</code> from different frogs, that is, multiple frogs can croak at the same time, so multiple <code>&quot;croak&quot;</code> are mixed.</p>
 
 <p><em>Return the minimum number of </em>different<em> frogs to finish all the croaks in the given string.</em></p>
@@ -57,6 +59,8 @@ The second frog could yell later &quot;cr<strong>c</strong>oak<strong>roak</stro
 	<li><code>1 &lt;= croakOfFrogs.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>croakOfFrogs</code> is either <code>&#39;c&#39;</code>, <code>&#39;r&#39;</code>, <code>&#39;o&#39;</code>, <code>&#39;a&#39;</code>, or <code>&#39;k&#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

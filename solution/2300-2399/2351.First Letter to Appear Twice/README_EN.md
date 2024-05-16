@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>s</code> consisting of lowercase English letters, return <em>the first letter to appear <strong>twice</strong></em>.</p>
 
 <p><strong>Note</strong>:</p>
@@ -59,6 +61,8 @@ The only letter that appears twice is &#39;d&#39; so we return &#39;d&#39;.
 	<li><code>s</code> consists of lowercase English letters.</li>
 	<li><code>s</code> has at least one repeated letter.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

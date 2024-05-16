@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2804.Ar
 
 ## Description
 
+<!-- description:start -->
+
 <p>Write your version of method&nbsp;<code>forEach</code>&nbsp;that enhances all arrays such that you can call the&nbsp;<code>array.forEach(callback, context)</code>&nbsp;method on any array and it will execute <code>callback</code> on each element of the array.&nbsp;Method&nbsp;<code>forEach</code> should not return anything.</p>
 
 <p><code>callback</code> accepts the following arguments:</p>
@@ -76,6 +78,8 @@ context = {&quot;context&quot;: 5}
 	<li><code>fn</code> is a function</li>
 	<li><code>0 &lt;= arr.length &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

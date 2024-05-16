@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are playing a Flip Game with your friend.</p>
 
 <p>You are given a string <code>currentState</code> that contains only <code>&#39;+&#39;</code> and <code>&#39;-&#39;</code>. You and your friend take turns to flip <strong>two consecutive</strong> <code>&quot;++&quot;</code> into <code>&quot;--&quot;</code>. The game ends when a person can no longer make a move, and therefore the other person will be the winner.</p>
@@ -50,6 +52,8 @@ tags:
 
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Derive your algorithm&#39;s runtime complexity.
+
+<!-- description:end -->
 
 ## Solutions
 

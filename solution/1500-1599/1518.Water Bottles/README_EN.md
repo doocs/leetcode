@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There are <code>numBottles</code> water bottles that are initially full of water. You can exchange <code>numExchange</code> empty water bottles from the market with one full water bottle.</p>
 
 <p>The operation of drinking a full water bottle turns it into an empty bottle.</p>
@@ -49,6 +51,8 @@ Number of water bottles you can drink: 15 + 3 + 1 = 19.
 	<li><code>1 &lt;= numBottles &lt;= 100</code></li>
 	<li><code>2 &lt;= numExchange &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

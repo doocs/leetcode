@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given the strings <code>key</code> and <code>message</code>, which represent a cipher key and a secret message, respectively. The steps to decode <code>message</code> are as follows:</p>
 
 <ol>
@@ -61,6 +63,8 @@ It is obtained by taking the first appearance of each letter in &quot;<u><strong
 	<li><code>1 &lt;= message.length &lt;= 2000</code></li>
 	<li><code>message</code> consists of lowercase English letters and <code>&#39; &#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

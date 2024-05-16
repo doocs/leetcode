@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2675.Ar
 
 ## Description
 
+<!-- description:start -->
+
 <p>Write a function that converts an array of objects&nbsp;<code>arr</code> into a matrix <code>m</code>.</p>
 
 <p><code>arr</code>&nbsp;is an array of objects or arrays. Each item in the array can be deeply nested with child arrays and child objects. It can also contain numbers, strings, booleans, and&nbsp;null values.</p>
@@ -138,6 +140,8 @@ There are no keys so every row is an empty array.</pre>
 	<li><code>1 &lt;= arr.length &lt;= 1000</code></li>
 	<li><code>unique keys &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two positive integers <code>low</code> and <code>high</code> represented as strings, find the count of <strong>stepping numbers</strong> in the inclusive range <code>[low, high]</code>.</p>
 
 <p>A <strong>stepping number</strong> is an integer such that all of its adjacent digits have an absolute difference of <strong>exactly</strong> <code>1</code>.</p>
@@ -51,6 +53,8 @@ tags:
 	<li><code>low</code> and <code>high</code> consist of only digits.</li>
 	<li><code>low</code> and <code>high</code> don&#39;t have any leading zeros.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

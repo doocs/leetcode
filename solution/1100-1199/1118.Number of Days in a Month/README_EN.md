@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a year <code>year</code> and a month <code>month</code>, return <em>the number of days of that month</em>.</p>
 
 <p>&nbsp;</p>
@@ -36,6 +38,8 @@ tags:
 	<li><code>1583 &lt;= year &lt;= 2100</code></li>
 	<li><code>1 &lt;= month &lt;= 12</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

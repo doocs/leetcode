@@ -21,6 +21,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>s</code> and a positive integer <code>k</code>.</p>
 
 <p>Let <code>vowels</code> and <code>consonants</code> be the number of vowels and consonants in a string.</p>
@@ -82,6 +84,8 @@ It can be shown that there are only 3 beautiful substrings in the given string.
 	<li><code>1 &lt;= k &lt;= 1000</code></li>
 	<li><code>s</code> consists of only English lowercase letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

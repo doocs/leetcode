@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Users</code></p>
 
 <pre>
@@ -91,6 +93,8 @@ Alice&#39;s balance is (7000 + 7000 - 3000) = 11000.
 Bob&#39;s balance is 1000.
 Charlie&#39;s balance is (6000 + 6000 - 4000) = 8000.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code> of size <code>n</code> and a positive integer <code>k</code>.</p>
 
 <p>Divide the array into one or more arrays of size <code>3</code> satisfying the following conditions:</p>
@@ -58,6 +60,8 @@ Note that the order of elements is not important.
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= k &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

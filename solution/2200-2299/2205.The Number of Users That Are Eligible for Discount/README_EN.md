@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Purchases</code></p>
 
 <pre>
@@ -63,6 +65,8 @@ Out of the three users, only User 3 is eligible for a discount.
  - User 2 had one purchase within the time interval, but with less than minAmount amount.
  - User 3 is the only user who had a purchase that satisfies both conditions.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

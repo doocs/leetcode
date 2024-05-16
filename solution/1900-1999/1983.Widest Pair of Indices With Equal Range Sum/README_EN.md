@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two <strong>0-indexed</strong> binary arrays <code>nums1</code> and <code>nums2</code>. Find the <strong>widest</strong> pair of indices <code>(i, j)</code> such that <code>i &lt;= j</code> and <code>nums1[i] + nums1[i+1] + ... + nums1[j] == nums2[i] + nums2[i+1] + ... + nums2[j]</code>.</p>
 
 <p>The <strong>widest</strong> pair of indices is the pair with the <strong>largest</strong> <strong>distance</strong> between <code>i</code> and <code>j</code>. The <strong>distance</strong> between a pair of indices is defined as <code>j - i + 1</code>.</p>
@@ -65,6 +67,8 @@ There are no pairs of indices that meet the requirements.
 	<li><code>nums1[i]</code> is either <code>0</code> or <code>1</code>.</li>
 	<li><code>nums2[i]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

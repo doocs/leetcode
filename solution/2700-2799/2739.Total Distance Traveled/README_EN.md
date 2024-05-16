@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A truck has two fuel tanks. You are given two integers, <code>mainTank</code> representing the fuel present in the main tank in liters and <code>additionalTank</code> representing the fuel present in the additional tank in liters.</p>
 
 <p>The truck has a mileage of <code>10</code> km per liter. Whenever <code>5</code> liters of fuel get&nbsp;used up in the main tank,&nbsp;if the additional tank has at least <code>1</code> liters of fuel, <code>1</code> liters of fuel will be transferred from the additional tank to the main tank.</p>
@@ -54,6 +56,8 @@ Total distance traveled is 10km.
 <ul>
 	<li><code>1 &lt;= mainTank, additionalTank &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

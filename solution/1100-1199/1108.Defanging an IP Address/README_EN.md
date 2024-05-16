@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a valid (IPv4) IP <code>address</code>, return a defanged version of that IP address.</p>
 
 <p>A <em>defanged&nbsp;IP address</em>&nbsp;replaces every period <code>&quot;.&quot;</code> with <code>&quot;[.]&quot;</code>.</p>
@@ -45,6 +47,8 @@ tags:
     <li>The given <code>address</code> is a valid IPv4 address.</li>
 
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

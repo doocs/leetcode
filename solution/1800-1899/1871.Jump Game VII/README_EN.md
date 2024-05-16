@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> binary string <code>s</code> and two integers <code>minJump</code> and <code>maxJump</code>. In the beginning, you are standing at index <code>0</code>, which is equal to <code>&#39;0&#39;</code>. You can move from index <code>i</code> to index <code>j</code> if the following conditions are fulfilled:</p>
 
 <ul>
@@ -55,6 +57,8 @@ In the second step, move from index 3 to index 5.
 	<li><code>s[0] == &#39;0&#39;</code></li>
 	<li><code>1 &lt;= minJump &lt;= maxJump &lt; s.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Traffic</code></p>
 
 <pre>
@@ -72,6 +74,8 @@ Traffic table:
 Note that we only care about dates with non zero user count.
 The user with id 5 first logged in on 2019-03-01 so he&#39;s not counted on 2019-06-21.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

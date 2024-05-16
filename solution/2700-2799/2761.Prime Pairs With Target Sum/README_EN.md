@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer <code>n</code>. We say that two integers <code>x</code> and <code>y</code> form a prime number pair if:</p>
 
 <ul>
@@ -55,6 +57,8 @@ These pairs are [3,7] and [5,5], and we return them in the sorted order as descr
 <ul>
 	<li><code>1 &lt;= n &lt;= 10<sup>6</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

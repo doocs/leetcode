@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Products</code></p>
 
 <pre>
@@ -64,6 +66,8 @@ Products table:
 Product 0 is available in all three stores with prices 95, 100, and 105 respectively.
 Product 1 is available in store1 with price 70 and store3 with price 80. The product is not available in store2.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

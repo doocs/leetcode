@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a positive integer <code>arrivalTime</code> denoting the arrival time of a train in hours, and another positive integer <code>delayedTime</code> denoting the amount of delay in hours.</p>
 
 <p>Return <em>the time when the train will arrive at the station.</em></p>
@@ -46,6 +48,8 @@ tags:
 	<li><code>1 &lt;= arrivaltime &lt;&nbsp;24</code></li>
 	<li><code>1 &lt;= delayedTime &lt;= 24</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

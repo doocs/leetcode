@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You have <code>k</code> servers numbered from <code>0</code> to <code>k-1</code> that are being used to handle multiple requests simultaneously. Each server has infinite computational capacity but <strong>cannot handle more than one request at a time</strong>. The requests are assigned to servers according to a specific algorithm:</p>
 
 <ul>
@@ -75,6 +77,8 @@ Server 0 handled two requests, while servers 1 and 2 handled one request each. H
 	<li><code>1 &lt;= arrival[i], load[i] &lt;= 10<sup>9</sup></code></li>
 	<li><code>arrival</code> is <strong>strictly increasing</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

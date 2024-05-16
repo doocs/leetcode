@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You have observations of <code>n + m</code> <strong>6-sided</strong> dice rolls with each face numbered from <code>1</code> to <code>6</code>. <code>n</code> of the observations went missing, and you only have the observations of <code>m</code> rolls. Fortunately, you have also calculated the <strong>average value</strong> of the <code>n + m</code> rolls.</p>
 
 <p>You are given an integer array <code>rolls</code> of length <code>m</code> where <code>rolls[i]</code> is the value of the <code>i<sup>th</sup></code> observation. You are also given the two integers <code>mean</code> and <code>n</code>.</p>
@@ -61,6 +63,8 @@ tags:
 	<li><code>1 &lt;= n, m &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= rolls[i], mean &lt;= 6</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

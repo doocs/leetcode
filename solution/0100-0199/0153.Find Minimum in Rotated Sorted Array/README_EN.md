@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Suppose an array of length <code>n</code> sorted in ascending order is <strong>rotated</strong> between <code>1</code> and <code>n</code> times. For example, the array <code>nums = [0,1,2,4,5,6,7]</code> might become:</p>
 
 <ul>
@@ -63,6 +65,8 @@ tags:
 	<li>All the integers of <code>nums</code> are <strong>unique</strong>.</li>
 	<li><code>nums</code> is sorted and rotated between <code>1</code> and <code>n</code> times.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

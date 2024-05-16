@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> 2D integer array <code>grid</code> of size <code>m x n</code> that represents a map of the items in a shop. The integers in the grid represent the following:</p>
 
 <ul>
@@ -105,6 +107,8 @@ Note that k = 3 but there are only 2 reachable items within the price range.
 	<li><code>grid[row][col] &gt; 0</code></li>
 	<li><code>1 &lt;= k &lt;= m * n</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

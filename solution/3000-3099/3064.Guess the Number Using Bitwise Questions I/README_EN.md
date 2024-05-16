@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There is a number <code>n</code> that you have to find.</p>
 
 <p>There is also a pre-defined API <code>int commonSetBits(int num)</code>, which returns the number of bits where both <code>n</code> and <code>num</code> are <code>1</code> in that position of their binary representation. In other words, it returns the number of <span data-keyword="set-bit">set bits</span> in <code>n &amp; num</code>, where <code>&amp;</code> is the bitwise <code>AND</code> operator.</p>
@@ -50,6 +52,8 @@ tags:
 	<li><code>0 &lt;= num &lt;= 2<sup>30</sup> - 1</code></li>
 	<li>If you ask for some <code>num</code> out of the given range, the output wouldn&#39;t be reliable.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

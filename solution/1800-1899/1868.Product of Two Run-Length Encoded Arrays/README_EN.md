@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p><strong>Run-length encoding</strong> is a compression algorithm that allows for an integer array <code>nums</code> with many segments of <strong>consecutive repeated</strong> numbers to be represented by a (generally smaller) 2D array <code>encoded</code>. Each <code>encoded[i] = [val<sub>i</sub>, freq<sub>i</sub>]</code> describes the <code>i<sup>th</sup></code> segment of repeated numbers in <code>nums</code> where <code>val<sub>i</sub></code> is the value that is repeated <code>freq<sub>i</sub></code> times.</p>
 
 <ul>
@@ -65,6 +67,8 @@ prodNums = [2,2,2,6,9,9], which is compressed into the run-length encoded array 
 	<li><code>1 &lt;= val<sub>j</sub>, freq<sub>j</sub> &lt;= 10<sup>4</sup></code> for each <code>encoded2[j]</code>.</li>
 	<li>The full arrays that <code>encoded1</code> and <code>encoded2</code> represent are the same length.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> of size <code>n</code> consisting of positive integers.</p>
 
 <p>You are also given a 2D array <code>queries</code> of size <code>m</code> where <code>queries[i] = [index<sub>i</sub>, k<sub>i</sub>]</code>.</p>
@@ -75,6 +77,8 @@ tags:
 	<li><code>queries[i].length == 2</code></li>
 	<li><code>0 &lt;= index<sub>i</sub>, k<sub>i</sub> &lt;= n - 1</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

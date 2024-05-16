@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Players</code></p>
 
 <pre>
@@ -93,6 +95,8 @@ Matches table:
 | 3         | 40         |
 +-----------+------------+
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

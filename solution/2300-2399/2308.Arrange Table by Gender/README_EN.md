@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Genders</code></p>
 
 <pre>
@@ -77,6 +79,8 @@ Male gender: IDs 4, 5, and 8.
 We arrange the table alternating between &#39;female&#39;, &#39;other&#39;, and &#39;male&#39;.
 Note that the IDs of each gender are sorted in ascending order.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

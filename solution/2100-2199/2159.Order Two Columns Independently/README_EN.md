@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Data</code></p>
 
 <pre>
@@ -61,6 +63,8 @@ Data table:
 | 4         | 1          |
 +-----------+------------+
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

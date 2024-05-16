@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>SchoolA</code></p>
 
 <pre>
@@ -119,6 +121,8 @@ Let us see all the possible triplets.
 - (Bob, Tom, Jerry) --&gt; Rejected because member_A and member_C have the same ID.
 - (Bob, Tom, Alice) --&gt; Valid triplet.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

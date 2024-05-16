@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>The <strong>array-form</strong> of an integer <code>num</code> is an array representing its digits in left to right order.</p>
 
 <ul>
@@ -57,6 +59,8 @@ tags:
 	<li><code>num</code> does not contain any leading zeros except for the zero itself.</li>
 	<li><code>1 &lt;= k &lt;= 10<sup>4</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

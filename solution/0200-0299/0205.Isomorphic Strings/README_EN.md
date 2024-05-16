@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two strings <code>s</code> and <code>t</code>, <em>determine if they are isomorphic</em>.</p>
 
 <p>Two strings <code>s</code> and <code>t</code> are isomorphic if the characters in <code>s</code> can be replaced to get <code>t</code>.</p>
@@ -40,6 +42,8 @@ tags:
 	<li><code>t.length == s.length</code></li>
 	<li><code>s</code> and <code>t</code> consist of any valid ascii character.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

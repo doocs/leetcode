@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There are <code>n</code> seats and <code>n</code> students in a room. You are given an array <code>seats</code> of length <code>n</code>, where <code>seats[i]</code> is the position of the <code>i<sup>th</sup></code> seat. You are also given the array <code>students</code> of length <code>n</code>, where <code>students[j]</code> is the position of the <code>j<sup>th</sup></code> student.</p>
 
 <p>You may perform the following move any number of times:</p>
@@ -78,6 +80,8 @@ In total, 1 + 3 + 0 + 0 = 4 moves were used.
 	<li><code>1 &lt;= n &lt;= 100</code></li>
 	<li><code>1 &lt;= seats[i], students[j] &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

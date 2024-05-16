@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2622.Ca
 
 ## Description
 
+<!-- description:start -->
+
 <p>Write a class that allows getting and setting&nbsp;key-value pairs, however a&nbsp;<strong>time until expiration</strong>&nbsp;is associated with each key.</p>
 
 <p>The class has three public methods:</p>
@@ -72,6 +74,8 @@ At t=250, count() returns 0 because the cache is empty.
 	<li><code>actions[i]</code>&nbsp;is one of &quot;TimeLimitedCache&quot;, &quot;set&quot;, &quot;get&quot; and&nbsp;&quot;count&quot;</li>
 	<li>First action is always &quot;TimeLimitedCache&quot; and must be executed immediately, with a 0-millisecond delay</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

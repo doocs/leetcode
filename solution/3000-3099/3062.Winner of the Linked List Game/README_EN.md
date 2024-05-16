@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given the <code>head</code> of a linked list of <strong>even</strong> length containing integers.</p>
 
 <p>Each <strong>odd-indexed</strong> node contains an odd integer and each <strong>even-indexed</strong> node contains an even integer.</p>
@@ -90,6 +92,8 @@ tags:
 	<li>The value of each odd-indexed node is odd.</li>
 	<li>The value of each even-indexed node is even.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an <code>m x n</code> <strong>0-indexed</strong> 2D array of positive integers <code>heights</code> where <code>heights[i][j]</code> is the height of the person standing at position <code>(i, j)</code>.</p>
 
 <p>A person standing at position <code>(row<sub>1</sub>, col<sub>1</sub>)</code> can see a person standing at position <code>(row<sub>2</sub>, col<sub>2</sub>)</code> if:</p>
@@ -65,6 +67,8 @@ tags:
 	<li><code>1 &lt;= heights[i].length &lt;= 400</code></li>
 	<li><code>1 &lt;= heights[i][j] &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two integer arrays <code>nums1</code> and <code>nums2</code>. You are tasked to implement a data structure that supports queries of two types:</p>
 
 <ol>
@@ -67,6 +69,8 @@ findSumPairs.count(7);  // return 11; pairs (2,1), (2,2), (2,4), (3,1), (3,2), (
 	<li><code>1 &lt;= tot &lt;= 10<sup>9</sup></code></li>
 	<li>At most <code>1000</code> calls are made to <code>add</code> and <code>count</code> <strong>each</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

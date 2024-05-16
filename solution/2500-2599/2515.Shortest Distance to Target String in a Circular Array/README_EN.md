@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> <strong>circular</strong> string array <code>words</code> and a string <code>target</code>. A <strong>circular array</strong> means that the array&#39;s end connects to the array&#39;s beginning.</p>
 
 <ul>
@@ -68,6 +70,8 @@ The shortest distance to reach &quot;leetcode&quot; is 1.</pre>
 	<li><code>words[i]</code> and <code>target</code> consist of only lowercase English letters.</li>
 	<li><code>0 &lt;= startIndex &lt; words.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

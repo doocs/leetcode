@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Your country has an infinite number of lakes. Initially, all the lakes are empty, but when it rains over the <code>nth</code> lake, the <code>nth</code> lake becomes full of water. If it rains over a lake that is <strong>full of water</strong>, there will be a <strong>flood</strong>. Your goal is to avoid floods in any lake.</p>
 
 <p>Given an integer array <code>rains</code> where:</p>
@@ -84,6 +86,8 @@ After that, it will rain over lakes [1,2]. It&#39;s easy to prove that no matter
 	<li><code>1 &lt;= rains.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>0 &lt;= rains[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

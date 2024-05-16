@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>In the universe Earth C-137, Rick discovered a special form of magnetic force between two balls if they are put in his new invented basket. Rick has <code>n</code> empty baskets, the <code>i<sup>th</sup></code> basket is at <code>position[i]</code>, Morty has <code>m</code> balls and needs to distribute the balls into the baskets such that the <strong>minimum magnetic force</strong> between any two balls is <strong>maximum</strong>.</p>
 
 <p>Rick stated that magnetic force between two different balls at positions <code>x</code> and <code>y</code> is <code>|x - y|</code>.</p>
@@ -51,6 +53,8 @@ tags:
 	<li>All integers in <code>position</code> are <strong>distinct</strong>.</li>
 	<li><code>2 &lt;= m &lt;= position.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

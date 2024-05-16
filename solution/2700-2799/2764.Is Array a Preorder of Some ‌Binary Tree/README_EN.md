@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a <strong>0-indexed</strong> integer <strong>2D array</strong> <code>nodes</code>, your task is to determine if the given array represents the <strong>preorder</strong> traversal of some <strong>binary</strong> tree.</p>
 
 <p>For each index <code>i</code>, <code>nodes[i] = [id, parentId]</code>, where <code>id</code> is the id of the node at the index <code>i</code> and <code>parentId</code> is the id of its parent in the tree (if the node has no parent, then <code>parentId == -1</code>).</p>
@@ -58,6 +60,8 @@ For the preorder traversal, first we visit node 0, then we do the preorder trave
 	<li><code>-1 &lt;= nodes[i][1] &lt;= 10<sup>5</sup></code></li>
 	<li>The input is generated such that <code>nodes</code> make a binary tree.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

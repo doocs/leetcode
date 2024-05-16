@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a 2D matrix <code>matrix</code>, handle multiple queries of the following type:</p>
 
 <ul>
@@ -62,6 +64,8 @@ numMatrix.sumRegion(1, 2, 2, 4); // return 12 (i.e sum of the blue rectangle)
 	<li><code>0 &lt;= col1 &lt;= col2 &lt; n</code></li>
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>sumRegion</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 
@@ -229,7 +233,6 @@ class NumMatrix {
 ```
 
 ```rust
-
 /**
  * Your NumMatrix object will be instantiated and called as such:
  * let obj = NumMatrix::new(matrix);

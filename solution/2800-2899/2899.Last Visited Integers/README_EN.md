@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code> where <code>nums[i]</code> is either a positive integer or <code>-1</code>. We need to find for each <code>-1</code> the respective positive integer, which we call the last visited integer.</p>
 
 <p>To achieve this goal, let&#39;s define two empty arrays: <code>seen</code> and <code>ans</code>.</p>
@@ -83,6 +85,8 @@ tags:
 	<li><code>1 &lt;= nums.length &lt;= 100</code></li>
 	<li><code>nums[i] == -1</code> or <code>1 &lt;= nums[i]&nbsp;&lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

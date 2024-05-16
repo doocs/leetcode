@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>arr</code> and an integer <code>k</code>. The array <code>arr</code> is circular. In other words, the first element of the array is the next element of the last element, and the last element of the array is the previous element of the first element.</p>
 
 <p>You can do the following operation any number of times:</p>
@@ -65,6 +67,8 @@ The array after the operations is [5,5,5,5]
 	<li><code>1 &lt;= k &lt;= arr.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= arr[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

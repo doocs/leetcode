@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>root</code> of a binary search tree and the lowest and highest boundaries as <code>low</code> and <code>high</code>, trim the tree so that all its elements lies in <code>[low, high]</code>. Trimming the tree should <strong>not</strong> change the relative structure of the elements that will remain in the tree (i.e., any node&#39;s descendant should remain a descendant). It can be proven that there is a <strong>unique answer</strong>.</p>
 
 <p>Return <em>the root of the trimmed binary search tree</em>. Note that the root may change depending on the given bounds.</p>
@@ -46,6 +48,8 @@ tags:
 	<li><code>root</code> is guaranteed to be a valid binary search tree.</li>
 	<li><code>0 &lt;= low &lt;= high &lt;= 10<sup>4</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

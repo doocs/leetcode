@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the following details of a matrix with <code>n</code> columns and <code>2</code> rows :</p>
 
 <ul>
@@ -66,6 +68,8 @@ tags:
 	<li><code>0 &lt;= upper, lower &lt;= colsum.length</code></li>
 	<li><code>0 &lt;= colsum[i] &lt;= 2</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

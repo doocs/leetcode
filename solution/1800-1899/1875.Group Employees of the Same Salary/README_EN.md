@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Employees</code></p>
 
 <pre>
@@ -79,6 +81,8 @@ The team IDs are assigned as follows (based on salary ranking, lowest first):
 - team_id=2: Addilyn and Kannon, a salary of 7400
 Juan&#39;s salary of 6100 is not included in the ranking because they are not on a team.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Implement the class <code>SubrectangleQueries</code>&nbsp;which receives a <code>rows x cols</code> rectangle as a matrix of integers in the constructor and supports two methods:</p>
 
 <p>1.<code>&nbsp;updateSubrectangle(int row1, int col1, int row2, int col2, int newValue)</code></p>
@@ -99,6 +101,8 @@ subrectangleQueries.getValue(2, 2); // return 20
 	<li><code>0 &lt;= row &lt; rows</code></li>
 	<li><code>0 &lt;= col &lt; cols</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

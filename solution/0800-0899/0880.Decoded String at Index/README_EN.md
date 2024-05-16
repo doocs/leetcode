@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an encoded string <code>s</code>. To decode the string to a tape, the encoded string is read one character at a time and the following steps are taken:</p>
 
 <ul>
@@ -63,6 +65,8 @@ The 1<sup>st</sup> letter is &quot;a&quot;.
 	<li>It is guaranteed that <code>k</code> is less than or equal to the length of the decoded string.</li>
 	<li>The decoded string is guaranteed to have less than <code>2<sup>63</sup></code> letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

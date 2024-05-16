@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array <code>nums</code> of positive integers and a <strong>positive</strong> integer <code>k</code>.</p>
 
 <p>A subset of <code>nums</code> is <strong>beautiful</strong> if it does not contain two integers with an absolute difference equal to <code>k</code>.</p>
@@ -53,6 +55,8 @@ It can be proved that there is only 1 beautiful subset in the array [1].
 	<li><code>1 &lt;= nums.length &lt;= 20</code></li>
 	<li><code>1 &lt;= nums[i], k &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

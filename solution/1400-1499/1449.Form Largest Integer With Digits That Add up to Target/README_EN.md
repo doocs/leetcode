@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of integers <code>cost</code> and an integer <code>target</code>, return <em>the <strong>maximum</strong> integer you can paint under the following rules</em>:</p>
 
 <ul>
@@ -69,6 +71,8 @@ tags:
 	<li><code>cost.length == 9</code></li>
 	<li><code>1 &lt;= cost[i], target &lt;= 5000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

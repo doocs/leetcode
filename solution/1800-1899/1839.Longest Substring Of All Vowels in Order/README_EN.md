@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A string is considered <strong>beautiful</strong> if it satisfies the following conditions:</p>
 
 <ul>
@@ -61,6 +63,8 @@ tags:
 	<li><code>1 &lt;= word.length &lt;= 5 * 10<sup>5</sup></code></li>
 	<li><code>word</code> consists of characters <code>&#39;a&#39;</code>, <code>&#39;e&#39;</code>, <code>&#39;i&#39;</code>, <code>&#39;o&#39;</code>, and <code>&#39;u&#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

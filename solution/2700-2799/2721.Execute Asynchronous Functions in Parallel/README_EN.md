@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2721.Ex
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of&nbsp;asynchronous functions&nbsp;<code>functions</code>, return a new promise <code>promise</code>. Each function in the array accepts no arguments&nbsp;and returns a promise. All the promises should be executed in parallel.</p>
 
 <p><code>promise</code> resolves:</p>
@@ -72,6 +74,8 @@ The single function was resolved at 200ms with a value of 5.
 	<li><code>functions</code>&nbsp;is an array of functions that returns promises</li>
 	<li><code>1 &lt;= functions.length &lt;= 10</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

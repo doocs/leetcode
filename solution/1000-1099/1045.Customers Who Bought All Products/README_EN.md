@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Customer</code></p>
 
 <pre>
@@ -81,6 +83,8 @@ Product table:
 <strong>Explanation:</strong> 
 The customers who bought all the products (5 and 6) are customers with IDs 1 and 3.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

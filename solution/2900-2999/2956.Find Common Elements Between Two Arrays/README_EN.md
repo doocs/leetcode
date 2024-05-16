@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two <strong>0-indexed</strong> integer arrays <code>nums1</code> and <code>nums2</code> of sizes <code>n</code> and <code>m</code>, respectively.</p>
 
 <p>Consider calculating the following values:</p>
@@ -56,6 +58,8 @@ tags:
 	<li><code>1 &lt;= n, m &lt;= 100</code></li>
 	<li><code>1 &lt;= nums1[i], nums2[i] &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

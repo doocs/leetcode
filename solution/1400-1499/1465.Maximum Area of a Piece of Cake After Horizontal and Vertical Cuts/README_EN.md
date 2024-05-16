@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a rectangular cake of size <code>h x w</code> and two arrays of integers <code>horizontalCuts</code> and <code>verticalCuts</code> where:</p>
 
 <ul>
@@ -63,6 +65,8 @@ tags:
 	<li>All the elements in <code>horizontalCuts</code> are distinct.</li>
 	<li>All the elements in <code>verticalCuts</code> are distinct.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

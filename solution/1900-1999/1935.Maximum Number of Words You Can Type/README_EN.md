@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There is a malfunctioning keyboard where some letter keys do not work. All other keys on the keyboard work properly.</p>
 
 <p>Given a string <code>text</code> of words separated by a single space (no leading or trailing spaces) and a string <code>brokenLetters</code> of all <strong>distinct</strong> letter keys that are broken, return <em>the <strong>number of words</strong> in</em> <code>text</code> <em>you can fully type using this keyboard</em>.</p>
@@ -56,6 +58,8 @@ tags:
 	<li>Each word only consists of lowercase English letters.</li>
 	<li><code>brokenLetters</code> consists of <strong>distinct</strong> lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

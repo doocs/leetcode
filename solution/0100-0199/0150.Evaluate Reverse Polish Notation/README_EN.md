@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array of strings <code>tokens</code> that represents an arithmetic expression in a <a href="http://en.wikipedia.org/wiki/Reverse_Polish_notation" target="_blank">Reverse Polish Notation</a>.</p>
 
 <p>Evaluate the expression. Return <em>an integer that represents the value of the expression</em>.</p>
@@ -69,6 +71,8 @@ tags:
 	<li><code>1 &lt;= tokens.length &lt;= 10<sup>4</sup></code></li>
 	<li><code>tokens[i]</code> is either an operator: <code>&quot;+&quot;</code>, <code>&quot;-&quot;</code>, <code>&quot;*&quot;</code>, or <code>&quot;/&quot;</code>, or an integer in the range <code>[-200, 200]</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

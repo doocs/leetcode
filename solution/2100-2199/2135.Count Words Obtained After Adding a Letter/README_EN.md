@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two <strong>0-indexed</strong> arrays of strings <code>startWords</code> and <code>targetWords</code>. Each string consists of <strong>lowercase English letters</strong> only.</p>
 
 <p>For each string in <code>targetWords</code>, check if it is possible to choose a string from <code>startWords</code> and perform a <strong>conversion operation</strong> on it to be equal to that from <code>targetWords</code>.</p>
@@ -77,6 +79,8 @@ tags:
 	<li>Each string of <code>startWords</code> and <code>targetWords</code> consists of lowercase English letters only.</li>
 	<li>No letter occurs more than once in any string of <code>startWords</code> or <code>targetWords</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

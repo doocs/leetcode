@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two strings <code>s1</code> and <code>s2</code>, both of length <code>n</code>, consisting of <strong>lowercase</strong> English letters.</p>
 
 <p>You can apply the following operation on <strong>any</strong> of the two strings <strong>any</strong> number of times:</p>
@@ -56,6 +58,8 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
 	<li><code>s1</code> and <code>s2</code> consist only of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Contests</code></p>
 
 <pre>
@@ -109,6 +111,8 @@ Quarz won a medal in 5 consecutive contests (190, 191, 192, 193, and 194), so we
 	<li>What if the first condition changed to be &quot;any medal in <code>n</code><strong> or more</strong> consecutive contests&quot;? How would you change your solution to get the interview candidates? Imagine that <code>n</code> is the parameter of a stored procedure.</li>
 	<li>Some users may not participate in every contest but still perform well in the ones they do. How would you change your solution to only consider contests where the user <strong>was a participant</strong>? Suppose the registered users for each contest are given in another table.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

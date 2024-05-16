@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array of strings <code>words</code> and a string <code>chars</code>.</p>
 
 <p>A string is <strong>good</strong> if it can be formed by characters from <code>chars</code> (each character can only be used once).</p>
@@ -49,6 +51,8 @@ tags:
 	<li><code>1 &lt;= words[i].length, chars.length &lt;= 100</code></li>
 	<li><code>words[i]</code> and <code>chars</code> consist of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

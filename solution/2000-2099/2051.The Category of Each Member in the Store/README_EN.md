@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Members</code></p>
 
 <pre>
@@ -131,6 +133,8 @@ Purchases table:
 - User Alice with id = 9 visited the store two times and purchased one time. The conversion rate = (100 * 1) / 2 = 50. She gets a Gold category.
 - User Bob with id = 11 visited the store three times and purchased one time. The conversion rate = (100 * 1) / 3 = 33.33. He gets a Silver category.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

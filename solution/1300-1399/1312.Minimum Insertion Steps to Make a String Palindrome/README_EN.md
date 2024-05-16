@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>s</code>. In one step you can insert any character at any index of the string.</p>
 
 <p>Return <em>the minimum number of steps</em> to make <code>s</code>&nbsp;palindrome.</p>
@@ -55,6 +57,8 @@ tags:
 	<li><code>1 &lt;= s.length &lt;= 500</code></li>
 	<li><code>s</code> consists of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

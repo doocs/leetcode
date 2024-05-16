@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There is an authentication system that works with authentication tokens. For each session, the user will receive a new authentication token that will expire <code>timeToLive</code> seconds after the <code>currentTime</code>. If the token is renewed, the expiry time will be <b>extended</b> to expire <code>timeToLive</code> seconds after the (potentially different) <code>currentTime</code>.</p>
 
 <p>Implement the <code>AuthenticationManager</code> class:</p>
@@ -64,6 +66,8 @@ authenticationManager.<code>countUnexpiredTokens</code>(15); // The token with t
 	<li>The values of <code>currentTime</code> across all the function calls will be <strong>strictly increasing</strong>.</li>
 	<li>At most <code>2000</code> calls will be made to all functions combined.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

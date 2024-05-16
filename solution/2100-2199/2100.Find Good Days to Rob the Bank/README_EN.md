@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You and a gang of thieves are planning on robbing a bank. You are given a <strong>0-indexed</strong> integer array <code>security</code>, where <code>security[i]</code> is the number of guards on duty on the <code>i<sup>th</sup></code> day. The days are numbered starting from <code>0</code>. You are also given an integer <code>time</code>.</p>
 
 <p>The <code>i<sup>th</sup></code> day is a good day to rob the bank if:</p>
@@ -70,6 +72,8 @@ Thus, no day is a good day to rob the bank, so return an empty list.
 	<li><code>1 &lt;= security.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>0 &lt;= security[i], time &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

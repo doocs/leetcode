@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A <strong>sentence</strong> is a list of words that are separated by a<strong> single</strong> space with no leading or trailing spaces.</p>
 
 <ul>
@@ -75,6 +77,8 @@ The sentence is <strong>not</strong> circular.</pre>
 	<li>The words in <code>sentence</code> are separated by a single space.</li>
 	<li>There are no leading or trailing spaces.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

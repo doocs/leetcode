@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>We build a table of <code>n</code> rows (<strong>1-indexed</strong>). We start by writing <code>0</code> in the <code>1<sup>st</sup></code> row. Now in every subsequent row, we look at the previous row and replace each occurrence of <code>0</code> with <code>01</code>, and each occurrence of <code>1</code> with <code>10</code>.</p>
 
 <ul>
@@ -60,6 +62,8 @@ row 2: 0<u>1</u>
 	<li><code>1 &lt;= n &lt;= 30</code></li>
 	<li><code>1 &lt;= k &lt;= 2<sup>n - 1</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

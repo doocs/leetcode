@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an <code>m x n</code> binary matrix <code>mat</code> of <code>1</code>&#39;s (representing soldiers) and <code>0</code>&#39;s (representing civilians). The soldiers are positioned <strong>in front</strong> of the civilians. That is, all the <code>1</code>&#39;s will appear to the <strong>left</strong> of all the <code>0</code>&#39;s in each row.</p>
 
 <p>A row <code>i</code> is <strong>weaker</strong> than a row <code>j</code> if one of the following is true:</p>
@@ -82,6 +84,8 @@ The rows ordered from weakest to strongest are [0,2,3,1].
 	<li><code>1 &lt;= k &lt;= m</code></li>
 	<li><code>matrix[i][j]</code> is either 0 or 1.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

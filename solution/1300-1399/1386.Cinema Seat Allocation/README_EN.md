@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1386.Cinema%20Seat%20Allocation/images/cinema_seats_1.png" style="width: 400px; height: 149px;" /></p>
 
 <p>A cinema&nbsp;has <code>n</code>&nbsp;rows of seats, numbered from 1 to <code>n</code>&nbsp;and there are ten&nbsp;seats in each row, labelled from 1&nbsp;to 10&nbsp;as shown in the figure above.</p>
@@ -63,6 +65,8 @@ tags:
 	<li><code>1 &lt;=&nbsp;reservedSeats[i][1] &lt;= 10</code></li>
 	<li>All <code>reservedSeats[i]</code> are distinct.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

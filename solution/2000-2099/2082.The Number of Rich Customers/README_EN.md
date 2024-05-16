@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Store</code></p>
 
 <pre>
@@ -60,6 +62,8 @@ Customer 1 has two bills with amounts strictly greater than 500.
 Customer 2 does not have any bills with an amount strictly greater than 500.
 Customer 3 has one bill with an amount strictly greater than 500.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

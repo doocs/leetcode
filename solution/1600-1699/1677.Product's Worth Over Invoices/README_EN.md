@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Product</code></p>
 
 <pre>
@@ -98,6 +100,8 @@ Invoice table:
 - The amount of money canceled for ham is 5 + 0 = 5
 - The amount of money refunded for ham is 0 + 3 = 3
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

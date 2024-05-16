@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>s</code>, you&nbsp;can transform every letter individually to be lowercase or uppercase to create another string.</p>
 
 <p>Return <em>a list of all possible strings we could create</em>. Return the output in <strong>any order</strong>.</p>
@@ -42,6 +44,8 @@ tags:
 	<li><code>1 &lt;= s.length &lt;= 12</code></li>
 	<li><code>s</code> consists of lowercase English letters, uppercase English letters, and digits.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

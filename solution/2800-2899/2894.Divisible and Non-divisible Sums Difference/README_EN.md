@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given positive integers <code>n</code> and <code>m</code>.</p>
 
 <p>Define two integers, <code>num1</code> and <code>num2</code>, as follows:</p>
@@ -67,6 +69,8 @@ We return 0 - 15 = -15 as the answer.
 <ul>
 	<li><code>1 &lt;= n, m &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

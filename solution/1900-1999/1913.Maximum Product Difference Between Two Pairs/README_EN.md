@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>The <strong>product difference</strong> between two pairs <code>(a, b)</code> and <code>(c, d)</code> is defined as <code>(a * b) - (c * d)</code>.</p>
 
 <ul>
@@ -70,6 +72,8 @@ The product difference is (9 * 8) - (2 * 4) = 64.
     <li><code>1 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

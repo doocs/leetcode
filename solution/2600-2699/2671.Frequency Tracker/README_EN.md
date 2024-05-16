@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design a data structure that keeps track of the values in it and answers some queries regarding their frequencies.</p>
 
 <p>Implement the <code>FrequencyTracker</code> class.</p>
@@ -88,6 +90,8 @@ frequencyTracker.hasFrequency(1); // Returns true, because 3 occurs once
 	<li><code>1 &lt;= frequency &lt;= 10<sup>5</sup></code></li>
 	<li>At most, <code>2 *&nbsp;10<sup>5</sup></code>&nbsp;calls will be made to <code>add</code>, <code>deleteOne</code>, and <code>hasFrequency</code>&nbsp;in <strong>total</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

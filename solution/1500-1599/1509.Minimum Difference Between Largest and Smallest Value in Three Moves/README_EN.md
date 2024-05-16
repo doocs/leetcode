@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code>.</p>
 
 <p>In one move, you can choose one element of <code>nums</code> and change it to <strong>any value</strong>.</p>
@@ -68,6 +70,8 @@ After performing 3 moves, the difference between the minimum and maximum is 7 - 
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

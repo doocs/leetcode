@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>s</code> that consists of only digits.</p>
 
 <p>Check if we can split <code>s</code> into <strong>two or more non-empty substrings</strong> such that the <strong>numerical values</strong> of the substrings are in <strong>descending order</strong> and the <strong>difference</strong> between numerical values of every two <strong>adjacent</strong> <strong>substrings</strong> is equal to <code>1</code>.</p>
@@ -63,6 +65,8 @@ The values are in descending order with adjacent values differing by 1.
 	<li><code>1 &lt;= s.length &lt;= 20</code></li>
 	<li><code>s</code> only consists of digits.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p><strong>Tic-tac-toe</strong> is played by two players <code>A</code> and <code>B</code> on a <code>3 x 3</code> grid. The rules of Tic-Tac-Toe are:</p>
 
 <ul>
@@ -69,6 +71,8 @@ tags:
 	<li>There are no repeated elements on <code>moves</code>.</li>
 	<li><code>moves</code> follow the rules of tic tac toe.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Cinema</code></p>
 
 <pre>
@@ -61,6 +63,8 @@ Cinema table:
 | 5       |
 +---------+
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are painting a fence of <code>n</code> posts with <code>k</code> different colors. You must paint the posts following these rules:</p>
 
 <ul>
@@ -55,6 +57,8 @@ Note that painting all the posts red or all the posts green is invalid because t
 	<li><code>1 &lt;= k &lt;= 10<sup>5</sup></code></li>
 	<li>The testcases are generated such that the answer is in the range <code>[0, 2<sup>31</sup> - 1]</code> for the given <code>n</code> and <code>k</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

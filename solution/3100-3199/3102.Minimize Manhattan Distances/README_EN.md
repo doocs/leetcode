@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a array <code>points</code> representing integer coordinates of some points on a 2D plane, where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>.</p>
 
 <p>The distance between two points is defined as their <span data-keyword="manhattan-distance">Manhattan distance</span>.</p>
@@ -68,6 +70,8 @@ tags:
 	<li><code>points[i].length == 2</code></li>
 	<li><code>1 &lt;= points[i][0], points[i][1] &lt;= 10<sup>8</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

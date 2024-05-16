@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> 2D integer array <code>grid</code> of size <code>m x n</code> which represents a field. Each cell has one of three values:</p>
 
 <ul>
@@ -76,6 +78,8 @@ Thus, 10<sup>9</sup> is returned.
 	<li><code>grid[i][j]</code> is either <code>0</code>, <code>1</code>, or <code>2</code>.</li>
 	<li><code>grid[0][0] == grid[m - 1][n - 1] == 0</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

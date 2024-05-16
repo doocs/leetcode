@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given string num representing a non-negative integer <code>num</code>, and an integer <code>k</code>, return <em>the smallest possible integer after removing</em> <code>k</code> <em>digits from</em> <code>num</code>.</p>
 
 <p>&nbsp;</p>
@@ -52,6 +54,8 @@ tags:
 	<li><code>num</code> consists of only digits.</li>
 	<li><code>num</code> does not have any leading zeros except for the zero itself.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

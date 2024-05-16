@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and a positive integer <code>k</code>.</p>
 
 <p>You can apply the following operation on the array <strong>any</strong> number of times:</p>
@@ -58,6 +60,8 @@ It can be shown that we cannot make the XOR equal to k in less than 2 operations
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 	<li><code>0 &lt;= k &lt;= 10<sup>6</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There are several cards <strong>arranged in a row</strong>, and each card has an associated number of points. The points are given in the integer array <code>cardPoints</code>.</p>
 
 <p>In one step, you can take one card from the beginning or from the end of the row. You have to take exactly <code>k</code> cards.</p>
@@ -59,6 +61,8 @@ tags:
 	<li><code>1 &lt;= cardPoints[i] &lt;= 10<sup>4</sup></code></li>
 	<li><code>1 &lt;= k &lt;= cardPoints.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

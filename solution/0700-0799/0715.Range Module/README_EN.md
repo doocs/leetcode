@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A Range Module is a module that tracks ranges of numbers. Design a data structure to track the ranges represented as <strong>half-open intervals</strong> and query about them.</p>
 
 <p>A <strong>half-open interval</strong> <code>[left, right)</code> denotes all the real numbers <code>x</code> where <code>left &lt;= x &lt; right</code>.</p>
@@ -55,6 +57,8 @@ rangeModule.queryRange(16, 17); // return True, (The number 16 in [16, 17) is st
 	<li><code>1 &lt;= left &lt; right &lt;= 10<sup>9</sup></code></li>
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>addRange</code>, <code>queryRange</code>, and <code>removeRange</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

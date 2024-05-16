@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Numbers can be regarded as the product of their factors.</p>
 
 <ul>
@@ -52,6 +54,8 @@ tags:
 <ul>
 	<li><code>1 &lt;= n &lt;= 10<sup>7</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

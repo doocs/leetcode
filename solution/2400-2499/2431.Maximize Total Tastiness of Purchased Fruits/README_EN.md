@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two non-negative integer arrays <code>price</code> and <code>tastiness</code>, both arrays have the same length <code>n</code>. You are also given two non-negative integers <code>maxAmount</code> and <code>maxCoupons</code>.</p>
 
 <p>For every integer <code>i</code> in range <code>[0, n - 1]</code>:</p>
@@ -71,6 +73,8 @@ It can be proven that 28 is the maximum total tastiness that can be obtained.
 	<li><code>0 &lt;= price[i], tastiness[i], maxAmount &lt;= 1000</code></li>
 	<li><code>0 &lt;= maxCoupons &lt;= 5</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

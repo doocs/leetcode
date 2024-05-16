@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a n-ary tree, find its maximum depth.</p>
 
 <p>The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.</p>
@@ -48,6 +50,8 @@ tags:
 	<li>The total number of nodes is in the range <code>[0, 10<sup>4</sup>]</code>.</li>
 	<li>The depth of the n-ary tree is less than or equal to <code>1000</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

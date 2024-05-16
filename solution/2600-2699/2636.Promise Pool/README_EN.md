@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2636.Pr
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array&nbsp;of asynchronous functions&nbsp;<code>functions</code>&nbsp;and a <strong>pool limit</strong>&nbsp;<code>n</code>, return an asynchronous function&nbsp;<code>promisePool</code>. It should return&nbsp;a promise that resolves when all the input&nbsp;functions resolve.</p>
 
 <p><b>Pool limit</b> is defined as the maximum number promises that can be pending at once.&nbsp;<code>promisePool</code>&nbsp;should begin execution of as many functions as possible and continue executing new functions when old promises&nbsp;resolve.&nbsp;<code>promisePool</code>&nbsp;should execute <code>functions[i]</code>&nbsp;then <code>functions[i + 1]</code>&nbsp;then <code>functions[i + 2]</code>, etc. When the last promise resolves,&nbsp;<code>promisePool</code>&nbsp;should also resolve.</p>
@@ -88,6 +90,8 @@ At t=900, the 3rd function resolves. Pool size is 0 so the returned promise reso
 	<li><code>0 &lt;= functions.length &lt;= 10</code></li>
 	<li><code><font face="monospace">1 &lt;= n &lt;= 10</font></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Department</code></p>
 
 <pre>
@@ -63,6 +65,8 @@ Department table:
 <strong>Explanation:</strong> The revenue from Apr to Dec is null.
 Note that the result table has 13 columns (1 for the department id + 12 for the months).
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

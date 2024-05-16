@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a 2D <code>grid</code> of size <code>m x n</code>&nbsp;and an integer <code>k</code>. You need to shift the <code>grid</code>&nbsp;<code>k</code> times.</p>
 
 <p>In one shift operation:</p>
@@ -63,6 +65,8 @@ tags:
 	<li><code>-1000 &lt;= grid[i][j] &lt;= 1000</code></li>
 	<li><code>0 &lt;= k &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

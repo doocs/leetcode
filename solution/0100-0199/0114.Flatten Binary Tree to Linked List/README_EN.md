@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>root</code> of a binary tree, flatten the tree into a &quot;linked list&quot;:</p>
 
 <ul>
@@ -57,6 +59,8 @@ tags:
 
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Can you flatten the tree in-place (with <code>O(1)</code> extra space)?
+
+<!-- description:end -->
 
 ## Solutions
 

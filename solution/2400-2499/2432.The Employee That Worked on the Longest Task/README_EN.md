@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There are <code>n</code> employees, each with a unique id from <code>0</code> to <code>n - 1</code>.</p>
 
 <p>You are given a 2D integer array <code>logs</code> where <code>logs[i] = [id<sub>i</sub>, leaveTime<sub>i</sub>]</code> where:</p>
@@ -79,6 +81,8 @@ The tasks with the longest time are tasks 0 and 1. The employees that worked on 
 	<li><code>id<sub>i</sub> != id<sub>i+1</sub></code></li>
 	<li><code>leaveTime<sub>i</sub></code> are sorted in a strictly increasing order.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

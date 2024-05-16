@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Student</code></p>
 
 <pre>
@@ -83,6 +85,8 @@ Department table:
 | Law         | 0              |
 +-------------+----------------+
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

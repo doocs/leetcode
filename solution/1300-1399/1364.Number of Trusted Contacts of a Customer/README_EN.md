@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Customers</code></p>
 
 <pre>
@@ -129,6 +131,8 @@ Bob has two contacts, none of them is a trusted contact.
 Alex has one contact and it is a trusted contact (Alice).
 John doesn&#39;t have any contacts.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

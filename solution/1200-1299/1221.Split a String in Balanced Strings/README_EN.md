@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p><strong>Balanced</strong> strings are those that have an equal quantity of <code>&#39;L&#39;</code> and <code>&#39;R&#39;</code> characters.</p>
 
 <p>Given a <strong>balanced</strong> string <code>s</code>, split it into some number of substrings such that:</p>
@@ -61,6 +63,8 @@ Note that s cannot be split into &quot;RL&quot;, &quot;RR&quot;, &quot;RL&quot;,
 	<li><code>s[i]</code> is either <code>&#39;L&#39;</code> or <code>&#39;R&#39;</code>.</li>
 	<li><code>s</code> is a <strong>balanced</strong> string.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

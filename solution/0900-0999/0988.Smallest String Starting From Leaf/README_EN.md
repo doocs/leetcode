@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given the <code>root</code> of a binary tree where each node has a value in the range <code>[0, 25]</code> representing the letters <code>&#39;a&#39;</code> to <code>&#39;z&#39;</code>.</p>
 
 <p>Return <em>the <strong>lexicographically smallest</strong> string that starts at a leaf of this tree and ends at the root</em>.</p>
@@ -58,6 +60,8 @@ tags:
 	<li>The number of nodes in the tree is in the range <code>[1, 8500]</code>.</li>
 	<li><code>0 &lt;= Node.val &lt;= 25</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

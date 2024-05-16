@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer <code>n</code> indicating there are <code>n</code> specialty retail stores. There are <code>m</code> product types of varying amounts, which are given as a <strong>0-indexed</strong> integer array <code>quantities</code>, where <code>quantities[i]</code> represents the number of products of the <code>i<sup>th</sup></code> product type.</p>
 
 <p>You need to distribute <strong>all products</strong> to the retail stores following these rules:</p>
@@ -70,6 +72,8 @@ The maximum number of products given to any store is max(100000) = 100000.
 	<li><code>1 &lt;= m &lt;= n &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= quantities[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

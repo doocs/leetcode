@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>s</code> and an integer array <code>indices</code> of the <strong>same length</strong>. The string <code>s</code> will be shuffled such that the character at the <code>i<sup>th</sup></code> position moves to <code>indices[i]</code> in the shuffled string.</p>
 
 <p>Return <em>the shuffled string</em>.</p>
@@ -48,6 +50,8 @@ tags:
 	<li><code>0 &lt;= indices[i] &lt; n</code></li>
 	<li>All values of <code>indices</code> are <strong>unique</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

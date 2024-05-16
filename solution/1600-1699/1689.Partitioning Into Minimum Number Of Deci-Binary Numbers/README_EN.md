@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A decimal number is called <strong>deci-binary</strong> if each of its digits is either <code>0</code> or <code>1</code> without any leading zeros. For example, <code>101</code> and <code>1100</code> are <strong>deci-binary</strong>, while <code>112</code> and <code>3001</code> are not.</p>
 
 <p>Given a string <code>n</code> that represents a positive decimal integer, return <em>the <strong>minimum</strong> number of positive <strong>deci-binary</strong> numbers needed so that they sum up to </em><code>n</code><em>.</em></p>
@@ -52,6 +54,8 @@ tags:
 	<li><code>n</code> consists of only digits.</li>
 	<li><code>n</code> does not contain any leading zeros and represents a positive integer.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of strings <code>queries</code> and a string <code>pattern</code>, return a boolean array <code>answer</code> where <code>answer[i]</code> is <code>true</code> if <code>queries[i]</code> matches <code>pattern</code>, and <code>false</code> otherwise.</p>
 
 <p>A query word <code>queries[i]</code> matches <code>pattern</code> if you can insert lowercase English letters pattern so that it equals the query. You may insert each character at any position and you may not insert any characters.</p>
@@ -60,6 +62,8 @@ tags:
 	<li><code>1 &lt;= queries[i].length &lt;= 100</code></li>
 	<li><code>queries[i]</code> and <code>pattern</code> consist of English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

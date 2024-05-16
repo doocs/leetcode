@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a positive integer <code>n</code>.</p>
 
 <p>Continuously replace <code>n</code> with the sum of its <strong>prime factors</strong>.</p>
@@ -56,6 +58,8 @@ tags:
 <ul>
 	<li><code>2 &lt;= n &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

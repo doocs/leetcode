@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>LeetCode wants to give one of its best employees the option to travel among <code>n</code> cities to collect algorithm problems. But all work and no play makes Jack a dull boy, you could take vacations in some particular cities and weeks. Your job is to schedule the traveling to maximize the number of vacation days you could take, but there are certain rules and restrictions you need to follow.</p>
 
 <p>Rules and restrictions:</p>
@@ -84,6 +86,8 @@ Ans = 7 + 7 + 7 = 21
 	<li><code>flights[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
 	<li><code>0 &lt;= days[i][j] &lt;= 7</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

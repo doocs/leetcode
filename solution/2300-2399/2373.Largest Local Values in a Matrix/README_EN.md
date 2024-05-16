@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an <code>n x n</code> integer matrix <code>grid</code>.</p>
 
 <p>Generate an integer matrix <code>maxLocal</code> of size <code>(n - 2) x (n - 2)</code> such that:</p>
@@ -54,6 +56,8 @@ Notice that each value in the generated matrix corresponds to the largest value 
 	<li><code>3 &lt;= n &lt;= 100</code></li>
 	<li><code>1 &lt;= grid[i][j] &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

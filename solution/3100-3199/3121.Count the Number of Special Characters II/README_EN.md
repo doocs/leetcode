@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>word</code>. A letter&nbsp;<code>c</code> is called <strong>special</strong> if it appears <strong>both</strong> in lowercase and uppercase in <code>word</code>, and <strong>every</strong> lowercase occurrence of <code>c</code> appears before the <strong>first</strong> uppercase occurrence of <code>c</code>.</p>
 
 <p>Return the number of<em> </em><strong>special</strong> letters<em> </em>in<em> </em><code>word</code>.</p>
@@ -65,6 +67,8 @@ tags:
 	<li><code>1 &lt;= word.length &lt;= 2 * 10<sup>5</sup></code></li>
 	<li><code>word</code> consists of only lowercase and uppercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

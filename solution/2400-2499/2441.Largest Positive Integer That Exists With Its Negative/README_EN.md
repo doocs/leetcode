@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code> that <strong>does not contain</strong> any zeros, find <strong>the largest positive</strong> integer <code>k</code> such that <code>-k</code> also exists in the array.</p>
 
 <p>Return <em>the positive integer </em><code>k</code>. If there is no such integer, return <code>-1</code>.</p>
@@ -56,6 +58,8 @@ tags:
 	<li><code>-1000 &lt;= nums[i] &lt;= 1000</code></li>
 	<li><code>nums[i] != 0</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

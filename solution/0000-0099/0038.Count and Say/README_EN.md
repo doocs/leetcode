@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>The <strong>count-and-say</strong> sequence is a sequence of digit strings defined by the recursive formula:</p>
 
 <ul>
@@ -64,6 +66,8 @@ countAndSay(4) = RLE of &quot;21&quot; = &quot;1211&quot;
 
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Could you solve it iteratively?
+
+<!-- description:end -->
 
 ## Solutions
 

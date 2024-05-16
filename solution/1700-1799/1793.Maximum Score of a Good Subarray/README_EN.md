@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array of integers <code>nums</code> <strong>(0-indexed)</strong> and an integer <code>k</code>.</p>
 
 <p>The <strong>score</strong> of a subarray <code>(i, j)</code> is defined as <code>min(nums[i], nums[i+1], ..., nums[j]) * (j - i + 1)</code>. A <strong>good</strong> subarray is a subarray where <code>i &lt;= k &lt;= j</code>.</p>
@@ -51,6 +53,8 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 2 * 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= k &lt; nums.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

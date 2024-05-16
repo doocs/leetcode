@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two positive integer arrays <code>nums</code> and <code>target</code>, of the same length.</p>
 
 <p>In one operation, you can choose any two <strong>distinct</strong> indices <code>i</code> and <code>j</code> where <code>0 &lt;= i, j &lt; nums.length</code> and:</p>
@@ -69,6 +71,8 @@ It can be shown that 2 is the minimum number of operations needed.
 	<li><code>1 &lt;= nums[i], target[i] &lt;= 10<sup>6</sup></code></li>
 	<li>It is possible to make <code>nums</code> similar to <code>target</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

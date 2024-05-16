@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two <strong>0-indexed</strong> arrays <code>nums1</code> and <code>nums2</code> and a 2D array <code>queries</code> of queries. There are three types of queries:</p>
 
 <ol>
@@ -57,6 +59,8 @@ tags:
 	<li><code>0 &lt;= nums1[i] &lt;= 1</code></li>
 	<li><code>0 &lt;= nums2[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

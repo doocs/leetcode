@@ -21,6 +21,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a non-negative integer array <code>nums</code>. In one operation, you must:</p>
 
 <ul>
@@ -57,6 +59,8 @@ In the third operation, choose x = 2. Now, nums = [0,0,0,0,0].
 	<li><code>1 &lt;= nums.length &lt;= 100</code></li>
 	<li><code>0 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

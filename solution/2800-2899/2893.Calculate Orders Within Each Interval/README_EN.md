@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code><font face="monospace">Orders</font></code></p>
 
 <pre>
@@ -70,6 +72,8 @@ Orders table:
 - Interval number 1 comprises minutes from 1 to 6. The total orders in these six minutes are (0 + 2 + 4 + 6 + 1 + 4) = 17.
 - Interval number 2 comprises minutes from 7 to 12. The total orders in these six minutes are (1 + 2 + 4 + 1 + 4 + 6) = 18.
 Returning table orderd by interval_no in ascending order.</pre>
+
+<!-- description:end -->
 
 ## Solutions
 

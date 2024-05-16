@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>This question is about implementing a basic elimination algorithm for Candy Crush.</p>
 
 <p>Given an <code>m x n</code> integer array <code>board</code> representing the grid of candy where <code>board[i][j]</code> represents the type of candy. A value of <code>board[i][j] == 0</code> represents that the cell is empty.</p>
@@ -56,6 +58,8 @@ tags:
 	<li><code>3 &lt;= m, n &lt;= 50</code></li>
 	<li><code>1 &lt;= board[i][j] &lt;= 2000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

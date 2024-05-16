@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer <code>n</code> that consists of exactly <code>3</code> digits.</p>
 
 <p>We call the number <code>n</code> <strong>fascinating</strong> if, after the following modification, the resulting number contains all the digits from <code>1</code> to <code>9</code> <strong>exactly</strong> once and does not contain any <code>0</code>&#39;s:</p>
@@ -52,6 +54,8 @@ tags:
 <ul>
 	<li><code>100 &lt;= n &lt;= 999</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

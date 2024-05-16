@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a series of video clips from a sporting event that lasted <code>time</code> seconds. These video clips can be overlapping with each other and have varying lengths.</p>
 
 <p>Each video clip is described by an array <code>clips</code> where <code>clips[i] = [start<sub>i</sub>, end<sub>i</sub>]</code> indicates that the ith clip started at <code>start<sub>i</sub></code> and ended at <code>end<sub>i</sub></code>.</p>
@@ -66,6 +68,8 @@ Now we have segments [0,2] + [2,8] + [8,10] which cover the sporting event [0, 1
 	<li><code>0 &lt;= start<sub>i</sub> &lt;= end<sub>i</sub> &lt;= 100</code></li>
 	<li><code>1 &lt;= time &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

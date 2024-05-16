@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You have some coins.&nbsp; The <code>i</code>-th&nbsp;coin has a probability&nbsp;<code>prob[i]</code> of facing heads when tossed.</p>
 
 <p>Return the probability that the number of coins facing heads equals <code>target</code> if you toss every coin exactly once.</p>
@@ -40,6 +42,8 @@ tags:
 	<li><code>0 &lt;= target&nbsp;</code><code>&lt;= prob.length</code></li>
 	<li>Answers will be accepted as correct if they are within <code>10^-5</code> of the correct answer.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

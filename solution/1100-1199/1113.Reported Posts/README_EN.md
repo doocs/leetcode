@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Actions</code></p>
 
 <pre>
@@ -72,6 +74,8 @@ Actions table:
 +---------------+--------------+
 <strong>Explanation:</strong> Note that we only care about report reasons with non-zero number of reports.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

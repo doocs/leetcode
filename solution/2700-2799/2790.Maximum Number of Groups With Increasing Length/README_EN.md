@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> array <code>usageLimits</code> of length <code>n</code>.</p>
 
 <p>Your task is to create <strong>groups</strong> using numbers from <code>0</code> to <code>n - 1</code>, ensuring that each number, <code>i</code>, is used no more than <code>usageLimits[i]</code> times in total <strong>across all groups</strong>. You must also satisfy the following conditions:</p>
@@ -77,6 +79,8 @@ So, the output is 1.
 	<li><code>1 &lt;= usageLimits.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= usageLimits[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

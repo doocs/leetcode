@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2722.Jo
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two arrays <code>arr1</code> and <code>arr2</code>, return a new&nbsp;array <code>joinedArray</code>. All the objects in each&nbsp;of the two inputs arrays will contain an&nbsp;<code>id</code>&nbsp;field that has an integer value.&nbsp;</p>
 
 <p><code>joinedArray</code>&nbsp;is an array formed by merging&nbsp;<code>arr1</code> and <code>arr2</code> based on&nbsp;their <code>id</code>&nbsp;key. The length of&nbsp;<code>joinedArray</code> should be the length of unique values of <code>id</code>. The returned array should be sorted in&nbsp;<strong>ascending</strong>&nbsp;order based on the <code>id</code>&nbsp;key.</p>
@@ -91,6 +93,8 @@ arr2 = [
 	<li><code>2 &lt;= JSON.stringify(arr1).length &lt;= 10<sup>6</sup></code></li>
 	<li><code>2 &lt;= JSON.stringify(arr2).length &lt;= 10<sup>6</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Friends</code></p>
 
 <pre>
@@ -65,6 +67,8 @@ Friends table:
 - Users 6 and 7, as well as users 8 and 9, are friends with each other, and they don&#39;t have any mutual friends, hence included.
 - Users 3 and 4 are friends with each other, but their mutual connection with user ID 2 means they are not included, similarly for users 2 and 5 are friends but are excluded due to their mutual connection with user ID 1.
 Output table is ordered by user_id1 in ascending order.</pre>
+
+<!-- description:end -->
 
 ## Solutions
 

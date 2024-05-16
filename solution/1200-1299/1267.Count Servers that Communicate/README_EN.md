@@ -21,6 +21,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a map of a server center, represented as a <code>m * n</code> integer matrix&nbsp;<code>grid</code>, where 1 means that on that cell there is a server and 0 means that it is no server. Two servers are said to communicate if they are on the same row or on the same column.<br />
 <br />
 Return the number of servers&nbsp;that communicate with any other server.</p>
@@ -65,6 +67,8 @@ Return the number of servers&nbsp;that communicate with any other server.</p>
 	<li><code>1 &lt;= n &lt;= 250</code></li>
 	<li><code>grid[i][j] == 0 or 1</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

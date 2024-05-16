@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> string <code>s</code> and a <strong>0-indexed</strong> integer array <code>spaces</code> that describes the indices in the original string where spaces will be added. Each space should be inserted <strong>before</strong> the character at the given index.</p>
 
 <ul>
@@ -67,6 +69,8 @@ We are also able to place spaces before the first character of the string.
 	<li><code>0 &lt;= spaces[i] &lt;= s.length - 1</code></li>
 	<li>All the values of <code>spaces</code> are <strong>strictly increasing</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

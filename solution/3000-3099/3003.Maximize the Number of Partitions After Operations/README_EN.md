@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> string <code>s</code> and an integer <code>k</code>.</p>
 
 <p>You are to perform the following partitioning operations until <code>s</code> is <strong>empty</strong>:</p>
@@ -90,6 +92,8 @@ It can be shown that it is not possible to obtain more than 4 partitions.
 	<li><code>s</code> consists only of lowercase English letters.</li>
 	<li><code>1 &lt;= k &lt;= 26</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

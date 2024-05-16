@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2630.Me
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a function <code>fn</code>,&nbsp;return&nbsp;a&nbsp;<strong>memoized</strong>&nbsp;version of that function.</p>
 
 <p>A&nbsp;<strong>memoized&nbsp;</strong>function is a function that will never be called twice with&nbsp;the same inputs. Instead it will return&nbsp;a cached value.</p>
@@ -68,6 +70,8 @@ Merging two empty objects will always result in an empty object. The 2nd and 3rd
 	<li><code>0 &lt;= inputs.flat().length &lt;= 10<sup>5</sup></code></li>
 	<li><code>inputs[i][j] != NaN</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

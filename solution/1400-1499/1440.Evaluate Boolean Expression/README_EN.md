@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table <code>Variables</code>:</p>
 
 <pre>
@@ -90,6 +92,8 @@ Expressions table:
 <strong>Explanation:</strong> 
 As shown, you need to find the value of each boolean expression in the table using the variables table.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

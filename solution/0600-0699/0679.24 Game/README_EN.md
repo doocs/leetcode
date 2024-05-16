@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>cards</code> of length <code>4</code>. You have four cards, each containing a number in the range <code>[1, 9]</code>. You should arrange the numbers on these cards in a mathematical expression using the operators <code>[&#39;+&#39;, &#39;-&#39;, &#39;*&#39;, &#39;/&#39;]</code> and the parentheses <code>&#39;(&#39;</code> and <code>&#39;)&#39;</code> to get the value 24.</p>
 
 <p>You are restricted with the following rules:</p>
@@ -65,6 +67,8 @@ tags:
 	<li><code>cards.length == 4</code></li>
 	<li><code>1 &lt;= cards[i] &lt;= 9</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

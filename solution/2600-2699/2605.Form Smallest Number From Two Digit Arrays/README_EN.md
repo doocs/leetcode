@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 Given two arrays of <strong>unique</strong> digits <code>nums1</code> and <code>nums2</code>, return <em>the <strong>smallest</strong> number that contains <strong>at least</strong> one digit from each array</em>.
 
 <p>&nbsp;</p>
@@ -45,6 +47,8 @@ Given two arrays of <strong>unique</strong> digits <code>nums1</code> and <code>
 	<li><code>1 &lt;= nums1[i], nums2[i] &lt;= 9</code></li>
 	<li>All digits in each array are <strong>unique</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

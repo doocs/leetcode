@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There are <code>n</code> <strong>piles</strong> of coins on a table. Each pile consists of a <strong>positive number</strong> of coins of assorted denominations.</p>
 
 <p>In one move, you can choose any coin on <strong>top</strong> of any pile, remove it, and add it to your wallet.</p>
@@ -53,6 +55,8 @@ The maximum total we can obtain is 101.
 	<li><code>1 &lt;= piles[i][j] &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= k &lt;= sum(piles[i].length) &lt;= 2000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

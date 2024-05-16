@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> string <code>s</code>. You are also given a <strong>0-indexed</strong> string <code>queryCharacters</code> of length <code>k</code> and a <strong>0-indexed</strong> array of integer <strong>indices</strong> <code>queryIndices</code> of length <code>k</code>, both of which are used to describe <code>k</code> queries.</p>
 
 <p>The <code>i<sup>th</sup></code> query updates the character in <code>s</code> at index <code>queryIndices[i]</code> to the character <code>queryCharacters[i]</code>.</p>
@@ -61,6 +63,8 @@ Thus, we return [2,3].
 	<li><code>queryCharacters</code> consists of lowercase English letters.</li>
 	<li><code>0 &lt;= queryIndices[i] &lt; s.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

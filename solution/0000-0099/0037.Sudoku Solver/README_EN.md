@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Write a program to solve a Sudoku puzzle by filling the empty cells.</p>
 
 <p>A sudoku solution must satisfy <strong>all of the following rules</strong>:</p>
@@ -49,6 +51,8 @@ tags:
 	<li><code>board[i][j]</code> is a digit or <code>&#39;.&#39;</code>.</li>
 	<li>It is <strong>guaranteed</strong> that the input board has only one solution.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

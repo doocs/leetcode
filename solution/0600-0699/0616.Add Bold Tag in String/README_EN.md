@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>s</code> and an array of strings <code>words</code>.</p>
 
 <p>You should add a closed pair of bold tag <code>&lt;b&gt;</code> and <code>&lt;/b&gt;</code> to wrap the substrings in <code>s</code> that exist in <code>words</code>.</p>
@@ -65,6 +67,8 @@ Since now the four &lt;b&gt;&#39;s are consecutive, we merge them: &quot;&lt;b&g
 
 <p>&nbsp;</p>
 <p><strong>Note:</strong> This question is the same as 758: <a href="https://leetcode.com/problems/bold-words-in-string/" target="_blank">https://leetcode.com/problems/bold-words-in-string/</a></p>
+
+<!-- description:end -->
 
 ## Solutions
 

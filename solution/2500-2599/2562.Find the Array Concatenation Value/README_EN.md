@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>.</p>
 
 <p>The <strong>concatenation</strong> of two numbers is the number formed by concatenating their numerals.</p>
@@ -89,6 +91,8 @@ Since the concatenation value is 673 so the answer is 673.
 .spoilerbutton[value="Show Message"] + .spoiler > div {margin-top:-500%;}
 .spoilerbutton[value="Hide Message"] + .spoiler {padding:5px;}
 </style>
+
+<!-- description:end -->
 
 ## Solutions
 

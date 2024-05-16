@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There is an <code>m x n</code> binary grid <code>matrix</code> with all the values set <code>0</code> initially. Design an algorithm to randomly pick an index <code>(i, j)</code> where <code>matrix[i][j] == 0</code> and flips it to <code>1</code>. All the indices <code>(i, j)</code> where <code>matrix[i][j] == 0</code> should be equally likely to be returned.</p>
 
 <p>Optimize your algorithm to minimize the number of calls made to the <strong>built-in</strong> random function of your language and optimize the time and space complexity.</p>
@@ -56,6 +58,8 @@ solution.flip();  // return [2, 0], [0,0], [1,0], and [2,0] should be equally li
 	<li>There will be at least one free cell for each call to <code>flip</code>.</li>
 	<li>At most <code>1000</code> calls will be made to <code>flip</code> and <code>reset</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2704.To
 
 ## Description
 
+<!-- description:start -->
+
 <p>Write a function&nbsp;<code>expect</code> that helps developers test their code. It should take in any value&nbsp;<code>val</code>&nbsp;and return an object with the following two functions.</p>
 
 <ul>
@@ -43,6 +45,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2704.To
 <strong>Output:</strong> {&quot;value&quot;: true}
 <strong>Explanation:</strong> 5 !== null so this expression returns true.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

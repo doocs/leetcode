@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Wineries</code></p>
 
 <pre>
@@ -78,6 +80,8 @@ For the USA
  - PacificCrest accumulates 9 points, ranking as the third-highest winery in the USA
 Output table is ordered by country in ascending order.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>ActorDirector</code></p>
 
 <pre>
@@ -60,6 +62,8 @@ ActorDirector table:
 +-------------+-------------+
 <strong>Explanation:</strong> The only pair is (1, 1) where they cooperated exactly 3 times.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

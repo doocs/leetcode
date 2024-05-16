@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Accounts</code></p>
 
 <pre>
@@ -91,6 +93,8 @@ User Jonathan with id = 7 logged in 7 times in 6 different days, five of them we
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you write a general solution if the active users are those who logged in to their accounts for <code>n</code> or more consecutive days?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

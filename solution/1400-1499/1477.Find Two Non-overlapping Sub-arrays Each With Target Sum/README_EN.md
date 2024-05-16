@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array of integers <code>arr</code> and an integer <code>target</code>.</p>
 
 <p>You have to find <strong>two non-overlapping sub-arrays</strong> of <code>arr</code> each with a sum equal <code>target</code>. There can be multiple answers so you have to find an answer where the sum of the lengths of the two sub-arrays is <strong>minimum</strong>.</p>
@@ -59,6 +61,8 @@ tags:
 	<li><code>1 &lt;= arr[i] &lt;= 1000</code></li>
 	<li><code>1 &lt;= target &lt;= 10<sup>8</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are climbing a staircase. It takes <code>n</code> steps to reach the top.</p>
 
 <p>Each time you can either climb <code>1</code> or <code>2</code> steps. In how many distinct ways can you climb to the top?</p>
@@ -48,6 +50,8 @@ tags:
 <ul>
 	<li><code>1 &lt;= n &lt;= 45</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

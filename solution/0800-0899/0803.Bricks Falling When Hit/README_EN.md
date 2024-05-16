@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an <code>m x n</code> binary <code>grid</code>, where each <code>1</code> represents a brick and <code>0</code> represents an empty space. A brick is <strong>stable</strong> if:</p>
 
 <ul>
@@ -82,6 +84,8 @@ Hence the result is [0,0].
 	<li><code>0 &lt;=&nbsp;y<sub>i</sub> &lt;= n - 1</code></li>
 	<li>All <code>(x<sub>i</sub>, y<sub>i</sub>)</code> are unique.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

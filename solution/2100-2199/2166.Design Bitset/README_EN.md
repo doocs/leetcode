@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A <strong>Bitset</strong> is a data structure that compactly stores bits.</p>
 
 <p>Implement the <code>Bitset</code> class:</p>
@@ -68,6 +70,8 @@ bs.toString(); // return &quot;01010&quot;, which is the composition of bitset.
 	<li>At least one call will be made to <code>all</code>, <code>one</code>, <code>count</code>, or <code>toString</code>.</li>
 	<li>At most <code>5</code> calls will be made to <code>toString</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design a simplified version of Twitter where users can post tweets, follow/unfollow another user, and is able to see the <code>10</code> most recent tweets in the user&#39;s news feed.</p>
 
 <p>Implement the <code>Twitter</code> class:</p>
@@ -59,6 +61,8 @@ twitter.getNewsFeed(1);  // User 1&#39;s news feed should return a list with 1 t
 	<li>All the tweets have <strong>unique</strong> IDs.</li>
 	<li>At most <code>3 * 10<sup>4</sup></code> calls will be made to <code>postTweet</code>, <code>getNewsFeed</code>, <code>follow</code>, and <code>unfollow</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>This is an <strong>interactive problem</strong>.</p>
 
 <p>There is a robot in a hidden grid, and you are trying to get it from its starting cell to the target cell in this grid. The grid is of size <code>m x n</code>, and each cell in the grid is either empty or blocked. It is <strong>guaranteed</strong> that the starting cell and the target cell are different, and neither of them is blocked.</p>
@@ -100,6 +102,8 @@ We now know that the target is the cell (1, 0), and the minimum total cost to re
 	<li><code>n == grid[i].length</code></li>
 	<li><code>0 &lt;= grid[i][j] &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

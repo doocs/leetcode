@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two strings <code>s</code> and <code>t</code>, transform string <code>s</code> into string <code>t</code> using the following operation any number of times:</p>
 
 <ul>
@@ -70,6 +72,8 @@ tags:
 	<li><code>1 &lt;= s.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>s</code> and <code>t</code> consist of only digits.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

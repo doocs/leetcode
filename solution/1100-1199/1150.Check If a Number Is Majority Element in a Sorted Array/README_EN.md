@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code> sorted in non-decreasing order and an integer <code>target</code>, return <code>true</code> <em>if</em> <code>target</code> <em>is a <strong>majority</strong> element, or </em><code>false</code><em> otherwise</em>.</p>
 
 <p>A <strong>majority</strong> element in an array <code>nums</code> is an element that appears more than <code>nums.length / 2</code> times in the array.</p>
@@ -48,6 +50,8 @@ Thus, 101 is not a majority element because 2 &gt; 4/2 is false.
 	<li><code>1 &lt;= nums[i], target &lt;= 10<sup>9</sup></code></li>
 	<li><code>nums</code> is sorted in non-decreasing order.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

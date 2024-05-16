@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer <code>total</code> indicating the amount of money you have. You are also given two integers <code>cost1</code> and <code>cost2</code> indicating the price of a pen and pencil respectively. You can spend <strong>part or all</strong> of your money to buy multiple quantities (or none) of each kind of writing utensil.</p>
 
 <p>Return <em>the <strong>number of distinct ways</strong> you can buy some number of pens and pencils.</em></p>
@@ -48,6 +50,8 @@ The total number of ways to buy pens and pencils is 5 + 3 + 1 = 9.
 <ul>
 	<li><code>1 &lt;= total, cost1, cost2 &lt;= 10<sup>6</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

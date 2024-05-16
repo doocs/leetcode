@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a 2D matrix <code>matrix</code>, handle multiple queries of the following types:</p>
 
 <ol>
@@ -66,6 +68,8 @@ numMatrix.sumRegion(2, 1, 4, 3); // return 10 (i.e. sum of the right red rectang
 	<li><code>0 &lt;= col1 &lt;= col2 &lt; n</code></li>
 	<li>At most <code>5000</code> calls will be made to <code>sumRegion</code> and <code>update</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

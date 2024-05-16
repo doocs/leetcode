@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array <code>arr</code> of positive integers, consider all binary trees such that:</p>
 
 <ul>
@@ -57,6 +59,8 @@ The first has a non-leaf node sum 36, and the second has non-leaf node sum 32.
 	<li><code>1 &lt;= arr[i] &lt;= 15</code></li>
 	<li>It is guaranteed that the answer fits into a <strong>32-bit</strong> signed integer (i.e., it is less than 2<sup>31</sup>).</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

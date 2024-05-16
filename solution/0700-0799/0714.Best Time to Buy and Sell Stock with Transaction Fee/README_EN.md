@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array <code>prices</code> where <code>prices[i]</code> is the price of a given stock on the <code>i<sup>th</sup></code> day, and an integer <code>fee</code> representing a transaction fee.</p>
 
 <p>Find the maximum profit you can achieve. You may complete as many transactions as you like, but you need to pay the transaction fee for each transaction.</p>
@@ -56,6 +58,8 @@ The total profit is ((8 - 1) - 2) + ((9 - 4) - 2) = 8.
 	<li><code>1 &lt;= prices[i] &lt; 5 * 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= fee &lt; 5 * 10<sup>4</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

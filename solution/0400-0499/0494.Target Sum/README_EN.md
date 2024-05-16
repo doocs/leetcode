@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code> and an integer <code>target</code>.</p>
 
 <p>You want to build an <strong>expression</strong> out of nums by adding one of the symbols <code>&#39;+&#39;</code> and <code>&#39;-&#39;</code> before each integer in nums and then concatenate all the integers.</p>
@@ -56,6 +58,8 @@ tags:
 	<li><code>0 &lt;= sum(nums[i]) &lt;= 1000</code></li>
 	<li><code>-1000 &lt;= target &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

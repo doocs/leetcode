@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Teams</code></p>
 
 <pre>
@@ -102,6 +104,8 @@ Dortmund (team_id=4) played 2 matches: 2 wins. Total points = 3 + 3 = 6.
 Arsenal (team_id=6) played 2 matches: 2 draws. Total points = 1 + 1 = 2.
 Dortmund is the first team in the table. Ajax and Arsenal have the same points, but since Arsenal has a higher goal_diff than Ajax, Arsenal comes before Ajax in the table.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

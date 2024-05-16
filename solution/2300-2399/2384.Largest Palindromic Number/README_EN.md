@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>num</code> consisting of digits only.</p>
 
 <p>Return <em>the <strong>largest palindromic</strong> integer (in the form of a string) that can be formed using digits taken from </em><code>num</code>. It should not contain <strong>leading zeroes</strong>.</p>
@@ -57,6 +59,8 @@ Note that the integer returned should not contain leading zeroes.
 	<li><code>1 &lt;= num.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>num</code> consists of digits.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

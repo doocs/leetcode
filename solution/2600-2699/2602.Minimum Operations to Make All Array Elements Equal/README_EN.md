@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array <code>nums</code> consisting of positive integers.</p>
 
 <p>You are also given an integer array <code>queries</code> of size <code>m</code>. For the <code>i<sup>th</sup></code> query, you want to make all of the elements of <code>nums</code> equal to<code> queries[i]</code>. You can perform the following operation on the array <strong>any</strong> number of times:</p>
@@ -67,6 +69,8 @@ So the total number of operations for the second query is 2 + 4 + 1 + 3 = 10.
 	<li><code>1 &lt;= n, m &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= nums[i], queries[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Employee</code></p>
 
 <pre>
@@ -67,6 +69,8 @@ Employees with Id 1,2,3 are part of a team with team_id = 8.
 Employee with Id 4 is part of a team with team_id = 7.
 Employees with Id 5,6 are part of a team with team_id = 9.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

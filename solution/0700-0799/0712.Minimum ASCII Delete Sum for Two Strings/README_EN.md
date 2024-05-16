@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two strings <code>s1</code> and&nbsp;<code>s2</code>, return <em>the lowest <strong>ASCII</strong> sum of deleted characters to make two strings equal</em>.</p>
 
 <p>&nbsp;</p>
@@ -47,6 +49,8 @@ If instead we turned both strings into &quot;lee&quot; or &quot;eet&quot;, we wo
 	<li><code>1 &lt;= s1.length, s2.length &lt;= 1000</code></li>
 	<li><code>s1</code> and <code>s2</code> consist of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

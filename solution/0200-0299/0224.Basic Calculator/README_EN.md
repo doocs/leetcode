@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>s</code> representing a valid expression, implement a basic calculator to evaluate it, and return <em>the result of the evaluation</em>.</p>
 
 <p><strong>Note:</strong> You are <strong>not</strong> allowed to use any built-in function which evaluates strings as mathematical expressions, such as <code>eval()</code>.</p>
@@ -55,6 +57,8 @@ tags:
 	<li>There will be no two consecutive operators in the input.</li>
 	<li>Every number and running calculation will fit in a signed 32-bit integer.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>arr</code>, return <em>the mean of the remaining integers after removing the smallest <code>5%</code> and the largest <code>5%</code> of the elements.</em></p>
 
 <p>Answers within <code>10<sup>-5</sup></code> of the <strong>actual answer</strong> will be considered accepted.</p>
@@ -52,6 +54,8 @@ tags:
 	<li><code>arr.length</code><b> </b><strong>is a multiple</strong> of <code>20</code>.</li>
 	<li><code><font face="monospace">0 &lt;= arr[i] &lt;= 10<sup>5</sup></font></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 Given two integers <code>num1</code> and <code>num2</code>, return <em>the <strong>sum</strong> of the two integers</em>.
 
 <p>&nbsp;</p>
@@ -39,6 +41,8 @@ Given two integers <code>num1</code> and <code>num2</code>, return <em>the <stro
 <ul>
 	<li><code>-100 &lt;= num1, num2 &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

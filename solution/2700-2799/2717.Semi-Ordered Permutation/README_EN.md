@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> permutation of <code>n</code> integers <code>nums</code>.</p>
 
 <p>A permutation is called <strong>semi-ordered</strong> if the first number equals <code>1</code> and the last number equals <code>n</code>. You can perform the below operation as many times as you want until you make <code>nums</code> a <strong>semi-ordered</strong> permutation:</p>
@@ -69,6 +71,8 @@ It can be proved that there is no sequence of less than three operations that ma
 	<li><code>1 &lt;= nums[i]&nbsp;&lt;= 50</code></li>
 	<li><code>nums is a permutation.</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

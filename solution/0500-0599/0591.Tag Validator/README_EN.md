@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string representing a code snippet, implement a tag validator to parse the code and return whether it is valid.</p>
 
 <p>A code snippet is valid if all the following rules hold:</p>
@@ -75,6 +77,8 @@ The reason why cdata is NOT <b>&quot;&lt;![CDATA[&lt;div&gt;]&gt;]]&gt;]]&gt;&qu
 	<li><code>1 &lt;= code.length &lt;= 500</code></li>
 	<li><code>code</code> consists of English letters, digits, <code>&#39;&lt;&#39;</code>, <code>&#39;&gt;&#39;</code>, <code>&#39;/&#39;</code>, <code>&#39;!&#39;</code>, <code>&#39;[&#39;</code>, <code>&#39;]&#39;</code>, <code>&#39;.&#39;</code>, and <code>&#39; &#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

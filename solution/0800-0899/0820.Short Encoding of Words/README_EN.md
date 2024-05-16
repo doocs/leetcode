@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A <strong>valid encoding</strong> of an array of <code>words</code> is any reference string <code>s</code> and array of indices <code>indices</code> such that:</p>
 
 <ul>
@@ -55,6 +57,8 @@ words[2] = &quot;bell&quot;, the substring of s starting from indices[2] = 5 to 
 	<li><code>1 &lt;= words[i].length &lt;= 7</code></li>
 	<li><code>words[i]</code> consists of only lowercase letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

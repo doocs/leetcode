@@ -21,6 +21,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given some lists of <code>regions</code> where the first region of each list includes all other regions in that list.</p>
 
 <p>Naturally, if a region <code>x</code> contains another region <code>y</code> then <code>x</code> is bigger than <code>y</code>. Also, by definition, a region <code>x</code> contains itself.</p>
@@ -63,6 +65,8 @@ region2 = &quot;New York&quot;
 	<li><code>region1 != region2</code></li>
 	<li><code>regions[i][j]</code>, <code>region1</code>, and <code>region2</code> consist of English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

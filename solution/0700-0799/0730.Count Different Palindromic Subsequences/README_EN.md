@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string s, return <em>the number of different non-empty palindromic subsequences in</em> <code>s</code>. Since the answer may be very large, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>
 
 <p>A subsequence of a string is obtained by deleting zero or more characters from the string.</p>
@@ -48,6 +50,8 @@ Note that &#39;bcb&#39; is counted only once, even though it occurs twice.
 	<li><code>1 &lt;= s.length &lt;= 1000</code></li>
 	<li><code>s[i]</code> is either <code>&#39;a&#39;</code>, <code>&#39;b&#39;</code>, <code>&#39;c&#39;</code>, or <code>&#39;d&#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

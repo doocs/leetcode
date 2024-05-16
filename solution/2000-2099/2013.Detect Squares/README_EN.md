@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a stream of points on the X-Y plane. Design an algorithm that:</p>
 
 <ul>
@@ -69,6 +71,8 @@ detectSquares.count([11, 10]); // return 2. You can choose:
 	<li><code>0 &lt;= x, y &lt;= 1000</code></li>
 	<li>At most <code>3000</code> calls <strong>in total</strong> will be made to <code>add</code> and <code>count</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

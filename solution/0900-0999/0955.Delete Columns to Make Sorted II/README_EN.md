@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array of <code>n</code> strings <code>strs</code>, all of the same length.</p>
 
 <p>We may choose any deletion indices, and we delete all the characters in those indices for each string.</p>
@@ -64,6 +66,8 @@ i.e., it is NOT necessarily true that (strs[0][0] &lt;= strs[0][1] &lt;= ...)
 	<li><code>1 &lt;= strs[i].length &lt;= 100</code></li>
 	<li><code>strs[i]</code> consists of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two positive integer arrays <code>spells</code> and <code>potions</code>, of length <code>n</code> and <code>m</code> respectively, where <code>spells[i]</code> represents the strength of the <code>i<sup>th</sup></code> spell and <code>potions[j]</code> represents the strength of the <code>j<sup>th</sup></code> potion.</p>
 
 <p>You are also given an integer <code>success</code>. A spell and potion pair is considered <strong>successful</strong> if the <strong>product</strong> of their strengths is <strong>at least</strong> <code>success</code>.</p>
@@ -60,6 +62,8 @@ Thus, [2,0,2] is returned.
 	<li><code>1 &lt;= spells[i], potions[i] &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= success &lt;= 10<sup>10</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

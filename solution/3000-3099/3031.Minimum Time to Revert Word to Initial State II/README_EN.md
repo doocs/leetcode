@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> string <code>word</code> and an integer <code>k</code>.</p>
 
 <p>At every second, you must perform the following operations:</p>
@@ -70,6 +72,8 @@ It can be shown that 4 seconds is the minimum time greater than zero required fo
 	<li><code>1 &lt;= k &lt;= word.length</code></li>
 	<li><code>word</code> consists only of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

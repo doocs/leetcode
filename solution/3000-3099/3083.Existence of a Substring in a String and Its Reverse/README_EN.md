@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a<strong> </strong>string <code>s</code>, find any <span data-keyword="substring">substring</span> of length <code>2</code> which is also present in the reverse of <code>s</code>.</p>
 
 <p>Return <code>true</code><em> if such a substring exists, and </em><code>false</code><em> otherwise.</em></p>
@@ -59,6 +61,8 @@ tags:
 	<li><code>1 &lt;= s.length &lt;= 100</code></li>
 	<li><code>s</code> consists only of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

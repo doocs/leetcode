@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Employees</code></p>
 
 <pre>
@@ -89,6 +91,8 @@ Employees table:
 +-------------+---------+---------------+-------------+
 
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

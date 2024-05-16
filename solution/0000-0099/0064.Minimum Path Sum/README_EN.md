@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a <code>m x n</code> <code>grid</code> filled with non-negative numbers, find a path from top left to bottom right, which minimizes the sum of all numbers along its path.</p>
 
 <p><strong>Note:</strong> You can only move either down or right at any point in time.</p>
@@ -45,6 +47,8 @@ tags:
 	<li><code>1 &lt;= m, n &lt;= 200</code></li>
 	<li><code>0 &lt;= grid[i][j] &lt;= 200</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>NPV</code></p>
 
 <pre>
@@ -97,6 +99,8 @@ Queries table:
 The npv value of (7, 2018) is not present in the NPV table, we consider it 0.
 The npv values of all other queries can be found in the NPV table.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>deck</code>. There is a deck of cards where every card has a unique integer. The integer on the <code>i<sup>th</sup></code> card is <code>deck[i]</code>.</p>
 
 <p>You can order the deck in any order you want. Initially, all the cards start face down (unrevealed) in one deck.</p>
@@ -67,6 +69,8 @@ Since all the cards revealed are in increasing order, the answer is correct.
 	<li><code>1 &lt;= deck[i] &lt;= 10<sup>6</sup></code></li>
 	<li>All the values of <code>deck</code> are <strong>unique</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

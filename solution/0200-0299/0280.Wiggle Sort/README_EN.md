@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code>, reorder it such that <code>nums[0] &lt;= nums[1] &gt;= nums[2] &lt;= nums[3]...</code>.</p>
 
 <p>You may assume the input array always has a valid answer.</p>
@@ -47,6 +49,8 @@ tags:
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you solve the problem in <code>O(n)</code> time complexity?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

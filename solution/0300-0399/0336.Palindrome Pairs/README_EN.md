@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> array of <strong>unique</strong> strings <code>words</code>.</p>
 
 <p>A <strong>palindrome pair</strong> is a pair of integers <code>(i, j)</code> such that:</p>
@@ -64,6 +66,8 @@ tags:
 	<li><code>0 &lt;= words[i].length &lt;= 300</code></li>
 	<li><code>words[i]</code> consists of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

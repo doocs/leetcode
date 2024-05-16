@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Stadium</code></p>
 
 <pre>
@@ -68,6 +70,8 @@ Stadium table:
 The four rows with ids 5, 6, 7, and 8 have consecutive ids and each of them has &gt;= 100 people attended. Note that row 8 was included even though the visit_date was not the next day after row 7.
 The rows with ids 2 and 3 are not included because we need at least three consecutive ids.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

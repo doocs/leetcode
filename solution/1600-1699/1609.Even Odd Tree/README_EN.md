@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A binary tree is named <strong>Even-Odd</strong> if it meets the following conditions:</p>
 
 <ul>
@@ -69,6 +71,8 @@ Node values in level 2 must be in strictly increasing order, so the tree is not 
 	<li>The number of nodes in the tree is in the range <code>[1, 10<sup>5</sup>]</code>.</li>
 	<li><code>1 &lt;= Node.val &lt;= 10<sup>6</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

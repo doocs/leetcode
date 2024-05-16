@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design a data structure that follows the constraints of a <strong><a href="https://en.wikipedia.org/wiki/Cache_replacement_policies#LRU" target="_blank">Least Recently Used (LRU) cache</a></strong>.</p>
 
 <p>Implement the <code>LRUCache</code> class:</p>
@@ -61,6 +63,8 @@ lRUCache.get(4);    // return 4
 	<li><code>0 &lt;= value &lt;= 10<sup>5</sup></code></li>
 	<li>At most <code>2 * 10<sup>5</sup></code> calls will be made to <code>get</code> and <code>put</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

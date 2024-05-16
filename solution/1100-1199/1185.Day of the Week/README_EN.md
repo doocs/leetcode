@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a date, return the corresponding day of the week for that date.</p>
 
 <p>The input is given as three integers representing the <code>day</code>, <code>month</code> and <code>year</code> respectively.</p>
@@ -50,6 +52,8 @@ tags:
 <ul>
 	<li>The given dates are valid dates between the years <code>1971</code> and <code>2100</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

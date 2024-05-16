@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3142.Ch
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a 2D matrix <code>grid</code> of size <code>m x n</code>. You need to check if each cell <code>grid[i][j]</code> is:</p>
 
 <ul>
@@ -71,6 +73,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3142.Ch
 	<li><code>1 &lt;= n, m &lt;= 10</code></li>
 	<li><code>0 &lt;= grid[i][j] &lt;= 9</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>s</code>, determine if it is <strong>valid</strong>.</p>
 
 <p>A string <code>s</code> is <strong>valid</strong> if, starting with an empty string <code>t = &quot;&quot;</code>, you can <strong>transform </strong><code>t</code><strong> into </strong><code>s</code> after performing the following operation <strong>any number of times</strong>:</p>
@@ -62,6 +64,8 @@ Thus, &quot;abcabcababcc&quot; is valid.
 	<li><code>1 &lt;= s.length &lt;= 2 * 10<sup>4</sup></code></li>
 	<li><code>s</code> consists of letters <code>&#39;a&#39;</code>, <code>&#39;b&#39;</code>, and <code>&#39;c&#39;</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Listings</code></p>
 
 <pre>
@@ -71,6 +73,8 @@ The national average home price is $6,122,059.45. Among the cities listed:
 Only Chicago and Los Angeles have average home prices exceeding the national average. Therefore, these two cities are included in the output table. The output table is sorted in ascending order based on the city names.
 
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

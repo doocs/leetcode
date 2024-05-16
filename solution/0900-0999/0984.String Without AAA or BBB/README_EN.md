@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two integers <code>a</code> and <code>b</code>, return <strong>any</strong> string <code>s</code> such that:</p>
 
 <ul>
@@ -46,6 +48,8 @@ tags:
 	<li><code>0 &lt;= a, b &lt;= 100</code></li>
 	<li>It is guaranteed such an <code>s</code> exists for the given <code>a</code> and <code>b</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

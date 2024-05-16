@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> string <code>word</code> of length <code>n</code>&nbsp;consisting of digits, and a positive integer&nbsp;<code>m</code>.</p>
 
 <p>The <strong>divisibility array</strong> <code>div</code> of <code>word</code> is an integer array of length <code>n</code> such that:</p>
@@ -55,6 +57,8 @@ tags:
 	<li><code><font face="monospace">word</font></code><font face="monospace"> consists of digits from <code>0</code>&nbsp;to <code>9</code></font></li>
 	<li><code><font face="monospace">1 &lt;= m &lt;= 10<sup>9</sup></font></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

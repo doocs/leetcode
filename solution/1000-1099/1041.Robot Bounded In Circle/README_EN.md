@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>On an infinite plane, a robot initially stands at <code>(0, 0)</code> and faces north. Note that:</p>
 
 <ul>
@@ -93,6 +95,8 @@ Based on that, we return true.
 	<li><code>1 &lt;= instructions.length &lt;= 100</code></li>
 	<li><code>instructions[i]</code> is <code>&#39;G&#39;</code>, <code>&#39;L&#39;</code> or, <code>&#39;R&#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

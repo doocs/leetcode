@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There are some robots and factories on the X-axis. You are given an integer array <code>robot</code> where <code>robot[i]</code> is the position of the <code>i<sup>th</sup></code> robot. You are also given a 2D integer array <code>factory</code> where <code>factory[j] = [position<sub>j</sub>, limit<sub>j</sub>]</code> indicates that <code>position<sub>j</sub></code> is the position of the <code>j<sup>th</sup></code> factory and that the <code>j<sup>th</sup></code> factory can repair at most <code>limit<sub>j</sub></code> robots.</p>
 
 <p>The positions of each robot are <strong>unique</strong>. The positions of each factory are also <strong>unique</strong>. Note that a robot can be <strong>in the same position</strong> as a factory initially.</p>
@@ -76,6 +78,8 @@ The total distance is |2 - 1| + |(-2) - (-1)| = 2. It can be shown that we canno
 	<li><code>0 &lt;= limit<sub>j</sub> &lt;= robot.length</code></li>
 	<li>The input will be generated such that it is always possible to repair every robot.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

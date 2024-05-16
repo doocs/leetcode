@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a 2D boolean matrix <code>grid</code>.</p>
 
 <p>Return an integer that is the number of <strong>right triangles</strong> that can be made with the 3 elements of <code>grid</code> such that <strong>all</strong> of them have a value of 1.</p>
@@ -184,6 +186,8 @@ tags:
 	<li><code>1 &lt;= grid[i].length &lt;= 1000</code></li>
 	<li><code>0 &lt;= grid[i][j] &lt;= 1</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

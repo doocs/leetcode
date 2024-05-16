@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design a data structure that will be initialized with a string array, and then it should answer queries of the shortest distance between two different strings from the array.</p>
 
 <p>Implement the <code>WordDistance</code> class:</p>
@@ -54,6 +56,8 @@ wordDistance.shortest(&quot;makes&quot;, &quot;coding&quot;);    // return 1
 	<li><code>word1 != word2</code></li>
 	<li>At most <code>5000</code> calls will be made to <code>shortest</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

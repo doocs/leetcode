@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>HallEvents</code></p>
 
 <pre>
@@ -70,6 +72,8 @@ Hall 2:
 Hall 3:
 - The hall has only one event, so we return it. Note that we only consider the events of each hall separately.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

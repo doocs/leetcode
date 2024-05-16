@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string s, return <em>all the palindromic permutations (without duplicates) of it</em>.</p>
 
 <p>You may return the answer in <strong>any order</strong>. If <code>s</code> has no palindromic permutation, return an empty list.</p>
@@ -35,6 +37,8 @@ tags:
 	<li><code>1 &lt;= s.length &lt;= 16</code></li>
 	<li><code>s</code> consists of only lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a 2D integer array <code>points</code>, where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>. You are also given an integer <code>w</code>. Your task is to <strong>cover</strong> <strong>all</strong> the given points with rectangles.</p>
 
 <p>Each rectangle has its lower end at some point <code>(x<sub>1</sub>, 0)</code> and its upper end at some point <code>(x<sub>2</sub>, y<sub>2</sub>)</code>, where <code>x<sub>1</sub> &lt;= x<sub>2</sub></code>, <code>y<sub>2</sub> &gt;= 0</code>, and the condition <code>x<sub>2</sub> - x<sub>1</sub> &lt;= w</code> <strong>must</strong> be satisfied for each rectangle.</p>
@@ -143,6 +145,8 @@ tags:
 	<li><code>0 &lt;= w &lt;= 10<sup>9</sup></code></li>
 	<li>All pairs <code>(x<sub>i</sub>, y<sub>i</sub>)</code> are distinct.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

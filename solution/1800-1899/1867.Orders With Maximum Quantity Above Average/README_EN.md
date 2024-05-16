@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>OrdersDetails</code></p>
 
 <pre>
@@ -89,6 +91,8 @@ The maximum quantity of each order is:
 
 Orders 1 and 3 are imbalanced because they have a maximum quantity that exceeds the average quantity of every order.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

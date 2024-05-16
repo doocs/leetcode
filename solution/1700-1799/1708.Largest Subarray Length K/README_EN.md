@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>An array <code>A</code> is larger than some array <code>B</code> if for the first index <code>i</code> where <code>A[i] != B[i]</code>, <code>A[i] &gt; B[i]</code>.</p>
 
 <p>For example, consider <code>0</code>-indexing:</p>
@@ -63,6 +65,8 @@ Of these, [4,5,2,3] is the largest.</pre>
 
 <p>&nbsp;</p>
 <strong>Follow up:</strong> What if the integers in <code>nums</code> are not distinct?
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Implement the <code>RandomizedSet</code> class:</p>
 
 <ul>
@@ -58,6 +60,8 @@ randomizedSet.getRandom(); // Since 2 is the only number in the set, getRandom()
 	<li>At most <code>2 *&nbsp;</code><code>10<sup>5</sup></code> calls will be made to <code>insert</code>, <code>remove</code>, and <code>getRandom</code>.</li>
 	<li>There will be <strong>at least one</strong> element in the data structure when <code>getRandom</code> is called.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

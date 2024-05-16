@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2629.Fu
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of functions&nbsp;<code>[f<span style="font-size: 10.8333px;">1</span>, f<sub>2</sub>, f<sub>3</sub>,&nbsp;..., f<sub>n</sub>]</code>, return&nbsp;a new function&nbsp;<code>fn</code>&nbsp;that is the <strong>function&nbsp;composition</strong> of the array of functions.</p>
 
 <p>The&nbsp;<strong>function&nbsp;composition</strong>&nbsp;of&nbsp;<code>[f(x), g(x), h(x)]</code>&nbsp;is&nbsp;<code>fn(x) = f(g(h(x)))</code>.</p>
@@ -62,6 +64,8 @@ The composition of zero functions is the identity function</pre>
 	<li><code><font face="monospace">0 &lt;= functions.length &lt;= 1000</font></code></li>
 	<li>all functions accept and return a single integer</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

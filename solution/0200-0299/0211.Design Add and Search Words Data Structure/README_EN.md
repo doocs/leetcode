@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design a data structure that supports adding new words and finding if a string matches any previously added string.</p>
 
 <p>Implement the <code>WordDictionary</code> class:</p>
@@ -58,6 +60,8 @@ wordDictionary.search(&quot;b..&quot;); // return True
 	<li>There will be at most <code>2</code> dots in <code>word</code> for <code>search</code> queries.</li>
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>addWord</code> and <code>search</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

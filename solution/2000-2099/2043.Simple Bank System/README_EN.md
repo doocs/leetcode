@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You have been tasked with writing a program for a popular bank that will automate all its incoming transactions (transfer, deposit, and withdraw). The bank has <code>n</code> accounts numbered from <code>1</code> to <code>n</code>. The initial balance of each account is stored in a <strong>0-indexed</strong> integer array <code>balance</code>, with the <code>(i + 1)<sup>th</sup></code> account having an initial balance of <code>balance[i]</code>.</p>
 
 <p>Execute all the <strong>valid</strong> transactions. A transaction is <strong>valid</strong> if:</p>
@@ -69,6 +71,8 @@ bank.withdraw(10, 50);   // return false, it is invalid because account 10 does 
 	<li><code>0 &lt;= balance[i], money &lt;= 10<sup>12</sup></code></li>
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <strong>each</strong> function <code>transfer</code>, <code>deposit</code>, <code>withdraw</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

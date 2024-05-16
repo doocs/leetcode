@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <font face="monospace">Heights</font></p>
 
 <pre>
@@ -66,6 +68,8 @@ Heights table:
 
 The elevation map depicted above (in the black section) is graphically represented with the x-axis denoting the id and the y-axis representing the heights [0,1,0,2,1,0,1,3,2,1,2,1]. In this scenario, 6 units of rainwater are trapped within the blue section.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

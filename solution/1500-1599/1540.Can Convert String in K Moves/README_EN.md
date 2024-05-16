@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two strings&nbsp;<code>s</code>&nbsp;and&nbsp;<code>t</code>, your goal is to convert&nbsp;<code>s</code>&nbsp;into&nbsp;<code>t</code>&nbsp;in&nbsp;<code>k</code><strong>&nbsp;</strong>moves or less.</p>
 
 <p>During the&nbsp;<code>i<sup>th</sup></code>&nbsp;(<font face="monospace"><code>1 &lt;= i &lt;= k</code>)&nbsp;</font>move you can:</p>
@@ -65,6 +67,8 @@ tags:
 	<li><code>0 &lt;= k &lt;= 10^9</code></li>
 	<li><code>s</code>, <code>t</code> contain&nbsp;only lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

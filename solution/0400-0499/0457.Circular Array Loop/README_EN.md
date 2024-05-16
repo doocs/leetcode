@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are playing a game involving a <strong>circular</strong> array of non-zero integers <code>nums</code>. Each <code>nums[i]</code> denotes the number of indices forward/backward you must move if you are located at index <code>i</code>:</p>
 
 <ul>
@@ -75,6 +77,8 @@ We can see the cycle 3 --&gt; 4 --&gt; 3 --&gt; ..., and all of its nodes are wh
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you solve it in <code>O(n)</code> time complexity and <code>O(1)</code> extra space complexity?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

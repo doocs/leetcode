@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>SurveyLog</code></p>
 
 <pre>
@@ -66,6 +68,8 @@ SurveyLog table:
 Question 285 was showed 1 time and answered 1 time. The answer rate of question 285 is 1.0
 Question 369 was showed 1 time and was not answered. The answer rate of question 369 is 0.0
 Question 285 has the highest answer rate.</pre>
+
+<!-- description:end -->
 
 ## Solutions
 

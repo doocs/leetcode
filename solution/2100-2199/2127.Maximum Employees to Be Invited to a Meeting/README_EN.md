@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A company is organizing a meeting and has a list of <code>n</code> employees, waiting to be invited. They have arranged for a large <strong>circular</strong> table, capable of seating <strong>any number</strong> of employees.</p>
 
 <p>The employees are numbered from <code>0</code> to <code>n - 1</code>. Each employee has a <strong>favorite</strong> person and they will attend the meeting <strong>only if</strong> they can sit next to their favorite person at the table. The favorite person of an employee is <strong>not</strong> themself.</p>
@@ -72,6 +74,8 @@ The maximum number of employees that can be invited to the meeting is 4.
 	<li><code>0 &lt;= favorite[i] &lt;=&nbsp;n - 1</code></li>
 	<li><code>favorite[i] != i</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

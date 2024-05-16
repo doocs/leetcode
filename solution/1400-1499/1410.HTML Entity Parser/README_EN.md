@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p><strong>HTML entity parser</strong> is the parser that takes HTML code as input and replace all the entities of the special characters by the characters itself.</p>
 
 <p>The special characters and their entities for HTML are:</p>
@@ -57,6 +59,8 @@ tags:
 	<li><code>1 &lt;= text.length &lt;= 10<sup>5</sup></code></li>
 	<li>The string may contain any possible characters out of all the 256 ASCII characters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

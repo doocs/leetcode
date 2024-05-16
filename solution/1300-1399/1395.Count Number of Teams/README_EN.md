@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There are <code>n</code> soldiers standing in a line. Each soldier is assigned a <strong>unique</strong> <code>rating</code> value.</p>
 
 <p>You have to form a team of 3 soldiers amongst them under the following rules:</p>
@@ -62,6 +64,8 @@ tags:
 	<li><code>1 &lt;= rating[i] &lt;= 10<sup>5</sup></code></li>
 	<li>All the integers in <code>rating</code> are <strong>unique</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

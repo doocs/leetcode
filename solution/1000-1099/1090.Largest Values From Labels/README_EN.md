@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There is a set of <code>n</code> items. You are given two integer arrays <code>values</code> and <code>labels</code> where the value and the label of the <code>i<sup>th</sup></code> element are <code>values[i]</code> and <code>labels[i]</code> respectively. You are also given two integers <code>numWanted</code> and <code>useLimit</code>.</p>
 
 <p>Choose a subset <code>s</code> of the <code>n</code> elements such that:</p>
@@ -67,6 +69,8 @@ tags:
 	<li><code>0 &lt;= values[i], labels[i] &lt;= 2 * 10<sup>4</sup></code></li>
 	<li><code>1 &lt;= numWanted, useLimit &lt;= n</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

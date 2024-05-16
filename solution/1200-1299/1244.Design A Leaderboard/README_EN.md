@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design a Leaderboard class, which has 3 functions:</p>
 
 <ol>
@@ -61,6 +63,8 @@ leaderboard.top(3);           // returns 141 = 51 + 51 + 39;
 	<li><code>1 &lt;= score&nbsp;&lt;= 100</code></li>
 	<li>There will be at most <code>1000</code>&nbsp;function calls.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

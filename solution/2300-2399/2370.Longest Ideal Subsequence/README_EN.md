@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>s</code> consisting of lowercase letters and an integer <code>k</code>. We call a string <code>t</code> <strong>ideal</strong> if the following conditions are satisfied:</p>
 
 <ul>
@@ -56,6 +58,8 @@ Note that &quot;acfgbd&quot; is not ideal because &#39;c&#39; and &#39;f&#39; ha
 	<li><code>0 &lt;= k &lt;= 25</code></li>
 	<li><code>s</code> consists of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>s</code>.</p>
 
 <p>Consider performing the following operation until <code>s</code> becomes <strong>empty</strong>:</p>
@@ -63,6 +65,8 @@ The string just before the last operation is &quot;abcd&quot;.
 	<li><code>1 &lt;= s.length &lt;= 5 * 10<sup>5</sup></code></li>
 	<li><code>s</code> consists only of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

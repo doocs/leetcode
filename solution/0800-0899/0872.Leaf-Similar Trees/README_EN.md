@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Consider all the leaves of a binary tree, from&nbsp;left to right order, the values of those&nbsp;leaves form a <strong>leaf value sequence</strong><em>.</em></p>
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0872.Leaf-Similar%20Trees/images/tree.png" style="width: 400px; height: 336px;" /></p>
@@ -48,6 +50,8 @@ tags:
 	<li>The number of nodes in each tree will be in the range <code>[1, 200]</code>.</li>
 	<li>Both of the given trees will have values in the range <code>[0, 200]</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

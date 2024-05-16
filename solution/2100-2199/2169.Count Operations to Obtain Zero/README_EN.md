@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two <strong>non-negative</strong> integers <code>num1</code> and <code>num2</code>.</p>
 
 <p>In one <strong>operation</strong>, if <code>num1 &gt;= num2</code>, you must subtract <code>num2</code> from <code>num1</code>, otherwise subtract <code>num1</code> from <code>num2</code>.</p>
@@ -58,6 +60,8 @@ So the total number of operations required is 1.
 <ul>
 	<li><code>0 &lt;= num1, num2 &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

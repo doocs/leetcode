@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Courses</code></p>
 
 <pre>
@@ -66,6 +68,8 @@ Courses table:
 - Biology has 1 student, so we do not include it.
 - Computer has 1 student, so we do not include it.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

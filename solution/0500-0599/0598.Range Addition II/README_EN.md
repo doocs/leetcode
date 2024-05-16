@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an <code>m x n</code> matrix <code>M</code> initialized with all <code>0</code>&#39;s and an array of operations <code>ops</code>, where <code>ops[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> means <code>M[x][y]</code> should be incremented by one for all <code>0 &lt;= x &lt; a<sub>i</sub></code> and <code>0 &lt;= y &lt; b<sub>i</sub></code>.</p>
 
 <p>Count and return <em>the number of maximum integers in the matrix after performing all the operations</em>.</p>
@@ -52,6 +54,8 @@ tags:
 	<li><code>1 &lt;= a<sub>i</sub> &lt;= m</code></li>
 	<li><code>1 &lt;= b<sub>i</sub> &lt;= n</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

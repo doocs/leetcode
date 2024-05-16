@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Customers</code></p>
 
 <pre>
@@ -80,6 +82,8 @@ Orders table:
 | Max       |
 +-----------+
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

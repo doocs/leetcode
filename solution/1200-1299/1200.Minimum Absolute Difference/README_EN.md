@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of <strong>distinct</strong> integers <code>arr</code>, find all pairs of elements with the minimum absolute difference of any two elements.</p>
 
 <p>Return a list of pairs in ascending order(with respect to pairs), each pair <code>[a, b]</code> follows</p>
@@ -56,6 +58,8 @@ tags:
 	<li><code>2 &lt;= arr.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>-10<sup>6</sup> &lt;= arr[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

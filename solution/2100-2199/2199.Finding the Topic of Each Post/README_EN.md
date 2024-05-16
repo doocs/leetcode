@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Keywords</code></p>
 
 <pre>
@@ -109,6 +111,8 @@ This post is ambiguous.
 
 Note that it is okay to have one word that expresses more than one topic.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

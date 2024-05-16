@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer <code>n</code>, you must transform it into <code>0</code> using the following operations any number of times:</p>
 
 <ul>
@@ -56,6 +58,8 @@ tags:
 <ul>
 	<li><code>0 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

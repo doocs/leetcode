@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 Given an integer array <code>arr</code>, return <code>true</code>&nbsp;if there are three consecutive odd numbers in the array. Otherwise, return&nbsp;<code>false</code>.
 
 <p>&nbsp;</p>
@@ -42,6 +44,8 @@ Given an integer array <code>arr</code>, return <code>true</code>&nbsp;if there 
 	<li><code>1 &lt;= arr.length &lt;= 1000</code></li>
 	<li><code>1 &lt;= arr[i] &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

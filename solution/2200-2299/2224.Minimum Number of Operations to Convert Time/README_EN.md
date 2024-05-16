@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two strings <code>current</code> and <code>correct</code> representing two <strong>24-hour times</strong>.</p>
 
 <p>24-hour times are formatted as <code>&quot;HH:MM&quot;</code>, where <code>HH</code> is between <code>00</code> and <code>23</code>, and <code>MM</code> is between <code>00</code> and <code>59</code>. The earliest 24-hour time is <code>00:00</code>, and the latest is <code>23:59</code>.</p>
@@ -53,6 +55,8 @@ It can be proven that it is not possible to convert current to correct in fewer 
 	<li><code>current</code> and <code>correct</code> are in the format <code>&quot;HH:MM&quot;</code></li>
 	<li><code>current &lt;= correct</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

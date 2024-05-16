@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>, an integer <code>modulo</code>, and an integer <code>k</code>.</p>
 
 <p>Your task is to find the count of subarrays that are <strong>interesting</strong>.</p>
@@ -73,6 +75,8 @@ It can be shown that there are no other interesting subarrays. So, the answer is
 	<li><code>1 &lt;= modulo &lt;= 10<sup>9</sup></code></li>
 	<li><code>0 &lt;= k &lt; modulo</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

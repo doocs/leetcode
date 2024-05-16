@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A <strong>sentence</strong> is a string of single-space separated words where each word can contain digits, lowercase letters, and the dollar sign <code>&#39;$&#39;</code>. A word represents a <strong>price</strong> if it is a sequence of digits preceded by a dollar sign.</p>
 
 <ul>
@@ -63,6 +65,8 @@ Each of them is replaced by &quot;$0.00&quot;.
 	<li>All prices will have <strong>at most</strong> <code>10</code> digits.</li>
 	<li><code>0 &lt;= discount &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

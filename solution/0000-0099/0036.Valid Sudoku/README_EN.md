@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Determine if a&nbsp;<code>9 x 9</code> Sudoku board&nbsp;is valid.&nbsp;Only the filled cells need to be validated&nbsp;<strong>according to the following rules</strong>:</p>
 
 <ol>
@@ -73,6 +75,8 @@ tags:
 	<li><code>board[i].length == 9</code></li>
 	<li><code>board[i][j]</code> is a digit <code>1-9</code> or <code>&#39;.&#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

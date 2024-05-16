@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer <code>n</code>, return <em>the number of strings of length </em><code>n</code><em> that consist only of vowels (</em><code>a</code><em>, </em><code>e</code><em>, </em><code>i</code><em>, </em><code>o</code><em>, </em><code>u</code><em>) and are <strong>lexicographically sorted</strong>.</em></p>
 
 <p>A string <code>s</code> is <strong>lexicographically sorted</strong> if for all valid <code>i</code>, <code>s[i]</code> is the same as or comes before <code>s[i+1]</code> in the alphabet.</p>
@@ -54,6 +56,8 @@ Note that &quot;ea&quot; is not a valid string since &#39;e&#39; comes after &#3
 <ul>
 	<li><code>1 &lt;= n &lt;= 50</code>&nbsp;</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

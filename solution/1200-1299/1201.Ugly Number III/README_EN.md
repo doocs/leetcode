@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>An <strong>ugly number</strong> is a positive integer that is divisible by <code>a</code>, <code>b</code>, or <code>c</code>.</p>
 
 <p>Given four integers <code>n</code>, <code>a</code>, <code>b</code>, and <code>c</code>, return the <code>n<sup>th</sup></code> <strong>ugly number</strong>.</p>
@@ -56,6 +58,8 @@ tags:
 	<li><code>1 &lt;= a * b * c &lt;= 10<sup>18</sup></code></li>
 	<li>It is guaranteed that the result will be in range <code>[1, 2 * 10<sup>9</sup>]</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

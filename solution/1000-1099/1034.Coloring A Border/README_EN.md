@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an <code>m x n</code> integer matrix <code>grid</code>, and three integers <code>row</code>, <code>col</code>, and <code>color</code>. Each value in the grid represents the color of the grid square at that location.</p>
 
 <p>Two squares are called <strong>adjacent</strong> if they are next to each other in any of the 4 directions.</p>
@@ -53,6 +55,8 @@ tags:
 	<li><code>0 &lt;= row &lt; m</code></li>
 	<li><code>0 &lt;= col &lt; n</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

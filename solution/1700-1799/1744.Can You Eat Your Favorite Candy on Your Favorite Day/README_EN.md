@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>(0-indexed)</strong> array of positive integers <code>candiesCount</code> where <code>candiesCount[i]</code> represents the number of candies of the&nbsp;<code>i<sup>th</sup></code>&nbsp;type you have. You are also given a 2D array <code>queries</code> where <code>queries[i] = [favoriteType<sub>i</sub>, favoriteDay<sub>i</sub>, dailyCap<sub>i</sub>]</code>.</p>
 
 <p>You play a game with the following rules:</p>
@@ -64,6 +66,8 @@ tags:
 	<li><code>0 &lt;= favoriteDay<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
 	<li><code>1 &lt;= dailyCap<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2823.De
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an object or an array&nbsp;<code>obj</code> and a function <code>fn</code>, return a filtered object or array&nbsp;<code>filteredObject</code>.&nbsp;</p>
 
 <p>Function <code>deepFilter</code>&nbsp;should perform a deep filter operation on the&nbsp;<code>obj</code>. The deep filter operation should remove properties for which the output of the filter function <code>fn</code> is <code>false</code>, as well as any empty objects or arrays that remain after the keys have been removed.</p>
@@ -65,6 +67,8 @@ fn = (x) =&gt; Array.isArray(x)
 	<li><code>obj</code> is a valid JSON object or array</li>
 	<li><code>2 &lt;= JSON.stringify(obj).length &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

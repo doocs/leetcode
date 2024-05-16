@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>s</code> and a character <code>letter</code>, return<em> the <strong>percentage</strong> of characters in </em><code>s</code><em> that equal </em><code>letter</code><em> <strong>rounded down</strong> to the nearest whole percent.</em></p>
 
 <p>&nbsp;</p>
@@ -44,6 +46,8 @@ The percentage of characters in s that equal the letter &#39;k&#39; is 0%, so we
 	<li><code>s</code> consists of lowercase English letters.</li>
 	<li><code>letter</code> is a lowercase English letter.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>head</code> of a singly linked list and an integer <code>k</code>, split the linked list into <code>k</code> consecutive linked list parts.</p>
 
 <p>The length of each part should be as equal as possible: no two parts should have a size differing by more than one. This may lead to some parts being null.</p>
@@ -50,6 +52,8 @@ The input has been split into consecutive parts with size difference at most 1, 
 	<li><code>0 &lt;= Node.val &lt;= 1000</code></li>
 	<li><code>1 &lt;= k &lt;= 50</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

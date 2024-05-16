@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>In an alien language, surprisingly, they also use English lowercase letters, but possibly in a different <code>order</code>. The <code>order</code> of the alphabet is some permutation of lowercase letters.</p>
 
 <p>Given a sequence of <code>words</code> written in the alien language, and the <code>order</code> of the alphabet, return <code>true</code> if and only if the given <code>words</code> are sorted lexicographically in this alien language.</p>
@@ -54,6 +56,8 @@ tags:
 	<li><code>order.length == 26</code></li>
 	<li>All characters in <code>words[i]</code> and <code>order</code> are English lowercase letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

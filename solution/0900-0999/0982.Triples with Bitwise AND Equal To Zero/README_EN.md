@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array nums, return <em>the number of <strong>AND triples</strong></em>.</p>
 
 <p>An <strong>AND triple</strong> is a triple of indices <code>(i, j, k)</code> such that:</p>
@@ -62,6 +64,8 @@ tags:
 	<li><code>1 &lt;= nums.length &lt;= 1000</code></li>
 	<li><code>0 &lt;= nums[i] &lt; 2<sup>16</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

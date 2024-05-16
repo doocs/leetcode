@@ -22,6 +22,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> representing the score of students in an exam. The teacher would like to form one <strong>non-empty</strong> group of students with maximal <strong>strength</strong>, where the strength of a group of students of indices <code>i<sub>0</sub></code>, <code>i<sub>1</sub></code>, <code>i<sub>2</sub></code>, ... , <code>i<sub>k</sub></code> is defined as <code>nums[i<sub>0</sub>] * nums[i<sub>1</sub>] * nums[i<sub>2</sub>] * ... * nums[i<sub>k</sub>​]</code>.</p>
 
 <p>Return <em>the maximum strength of a group the teacher can create</em>.</p>
@@ -50,6 +52,8 @@ tags:
 	<li><code>1 &lt;= nums.length &lt;= 13</code></li>
 	<li><code>-9 &lt;= nums[i] &lt;= 9</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

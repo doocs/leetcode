@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed </strong>string <code>s</code> typed by a user. Changing a key is defined as using a key different from the last used key. For example, <code>s = &quot;ab&quot;</code> has a change of a key while <code>s = &quot;bBBb&quot;</code> does not have any.</p>
 
 <p>Return <em>the number of times the user had to change the key. </em></p>
@@ -52,6 +54,8 @@ From s[4] = &#39;c&#39; to s[5] = &#39;C&#39;, there is no change of key as caps
 	<li><code>1 &lt;= s.length &lt;= 100</code></li>
 	<li><code>s</code> consists of only upper case and lower case English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

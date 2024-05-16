@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a URL <code>startUrl</code> and an interface <code>HtmlParser</code>, implement <strong>a Multi-threaded web crawler</strong> to crawl all links that are under the <strong>same hostname</strong> as <code>startUrl</code>.</p>
 
 <p>Return all URLs obtained by your web crawler in <strong>any</strong> order.</p>
@@ -107,6 +109,8 @@ startUrl = &quot;http://news.google.com&quot;
 	<li>What if one node fails or does not work?</li>
 	<li>How do you know when the crawler is done?</li>
 </ol>
+
+<!-- description:end -->
 
 ## Solutions
 

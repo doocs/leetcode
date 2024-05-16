@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two <strong>0-indexed</strong> integer arrays, <code>nums1</code> and <code>nums2</code>, both having length <code>n</code>.</p>
 
 <p>You are allowed to perform a series of <strong>operations</strong> (<strong>possibly none</strong>).</p>
@@ -77,6 +79,8 @@ So, the answer is -1.
 	<li><code>1 &lt;= nums1[i] &lt;= 10<sup>9</sup></code></li>
 	<li><code>1 &lt;= nums2[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

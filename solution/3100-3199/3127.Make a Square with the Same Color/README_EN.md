@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a 2D matrix <code>grid</code> of size <code>3 x 3</code> consisting only of characters <code>&#39;B&#39;</code> and <code>&#39;W&#39;</code>. Character <code>&#39;W&#39;</code> represents the white color<!-- notionvc: 06a49cc0-a296-4bd2-9bfe-c8818edeb53a -->, and character <code>&#39;B&#39;</code> represents the black color<!-- notionvc: 06a49cc0-a296-4bd2-9bfe-c8818edeb53a -->.</p>
 
 <p>Your task is to change the color of <strong>at most one</strong> cell<!-- notionvc: c04cb478-8dd5-49b1-80bb-727c6b1e0232 --> so that the matrix has a <code>2 x 2</code> square where all cells are of the same color.<!-- notionvc: adf957e1-fa0f-40e5-9a2e-933b95e276a7 --></p>
@@ -147,6 +149,8 @@ tags:
 	<li><code>grid[i].length == 3</code></li>
 	<li><code>grid[i][j]</code> is either <code>&#39;W&#39;</code> or <code>&#39;B&#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

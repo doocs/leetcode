@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a text file <code>file.txt</code> that contains a list of phone numbers (one per line), write a one-liner bash script to print all valid phone numbers.</p>
 
 <p>You may assume that a valid phone number must appear in one of the following two formats: (xxx) xxx-xxxx or xxx-xxx-xxxx. (x means a digit)</p>
@@ -36,6 +38,8 @@ tags:
 987-123-4567
 (123) 456-7890
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array <code>arr</code> of positive integers sorted in a <strong>strictly increasing order</strong>, and an integer <code>k</code>.</p>
 
 <p>Return <em>the</em> <code>k<sup>th</sup></code> <em><strong>positive</strong> integer that is <strong>missing</strong> from this array.</em></p>
@@ -52,6 +54,8 @@ tags:
 <p><strong>Follow up:</strong></p>
 
 <p>Could you solve this problem in less than O(n) complexity?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

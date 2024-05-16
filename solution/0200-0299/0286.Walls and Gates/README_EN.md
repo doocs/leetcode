@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an <code>m x n</code> grid <code>rooms</code>&nbsp;initialized with these three possible values.</p>
 
 <ul>
@@ -50,6 +52,8 @@ tags:
 	<li><code>1 &lt;= m, n &lt;= 250</code></li>
 	<li><code>rooms[i][j]</code> is <code>-1</code>, <code>0</code>, or <code>2<sup>31</sup> - 1</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2888.Re
 
 ## Description
 
+<!-- description:start -->
+
 <pre>
 DataFrame <code>df1</code>
 +-------------+--------+
@@ -71,6 +73,8 @@ df1</strong>
 +------------+---------+-----+
 <strong>Explanation:
 </strong>The two DataFramess are stacked vertically, and their rows are combined.</pre>
+
+<!-- description:end -->
 
 ## Solutions
 

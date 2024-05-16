@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A Binary Matrix is a matrix in which all the elements are either <strong>0</strong> or <strong>1</strong>.</p>
 
 <p>Given <code>quadTree1</code> and <code>quadTree2</code>. <code>quadTree1</code> represents a <code>n * n</code> binary matrix and <code>quadTree2</code> represents another <code>n * n</code> binary matrix.</p>
@@ -87,6 +89,8 @@ The resulting matrix is of size 1*1 with also zero.
 	<li><code>quadTree1</code> and <code>quadTree2</code> are both <strong>valid</strong> Quad-Trees each representing a <code>n * n</code> grid.</li>
 	<li><code>n == 2<sup>x</sup></code> where <code>0 &lt;= x &lt;= 9</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

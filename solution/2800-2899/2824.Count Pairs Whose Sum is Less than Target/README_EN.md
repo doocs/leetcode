@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 Given a <strong>0-indexed</strong> integer array <code>nums</code> of length <code>n</code> and an integer <code>target</code>, return <em>the number of pairs</em> <code>(i, j)</code> <em>where</em> <code>0 &lt;= i &lt; j &lt; n</code> <em>and</em> <code>nums[i] + nums[j] &lt; target</code>.
 
 <p>&nbsp;</p>
@@ -59,6 +61,8 @@ Note that (0, 3) is not counted since nums[0] + nums[3] is not strictly less tha
 	<li><code>1 &lt;= nums.length == n &lt;= 50</code></li>
 	<li><code>-50 &lt;= nums[i], target &lt;= 50</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an <strong>empty</strong> set of intervals, implement a data structure that can:</p>
 
 <ul>
@@ -68,6 +70,8 @@ countIntervals.count();    // return 8
 	<li>At most <code>10<sup>5</sup></code> calls <strong>in total</strong> will be made to <code>add</code> and <code>count</code>.</li>
 	<li>At least <strong>one</strong> call will be made to <code>count</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

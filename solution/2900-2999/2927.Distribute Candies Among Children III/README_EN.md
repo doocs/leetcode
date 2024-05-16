@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two positive integers <code>n</code> and <code>limit</code>.</p>
 
 <p>Return <em>the <strong>total number</strong> of ways to distribute </em><code>n</code> <em>candies among </em><code>3</code><em> children such that no child gets more than </em><code>limit</code><em> candies.</em></p>
@@ -43,6 +45,8 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10<sup>8</sup></code></li>
 	<li><code>1 &lt;= limit &lt;= 10<sup>8</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

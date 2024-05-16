@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>postfix</code> tokens of an arithmetic expression, build and return <em>the binary expression tree that represents this expression.</em></p>
 
 <p><b>Postfix</b> notation is a notation for writing arithmetic expressions in which the operands (numbers) appear before their operators. For example, the postfix tokens of the expression <code>4*(5-(7+2))</code> are represented in the array <code>postfix = [&quot;4&quot;,&quot;5&quot;,&quot;7&quot;,&quot;2&quot;,&quot;+&quot;,&quot;-&quot;,&quot;*&quot;]</code>.</p>
@@ -59,6 +61,8 @@ tags:
 	<li>The absolute value of the result and intermediate values will not exceed <code>10<sup>9</sup></code>.</li>
 	<li>It is guaranteed that no expression will include division by zero.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

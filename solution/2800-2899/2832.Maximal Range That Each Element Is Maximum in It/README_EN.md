@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> of <b>distinct </b>integers.</p>
 
 <p>Let us define a <strong>0-indexed </strong>array <code>ans</code> of the same length as <code>nums</code> in the following way:</p>
@@ -57,6 +59,8 @@ For nums[4] the longest subarray in which 6 is the maximum is nums[0..4] so ans[
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 	<li>All elements in <code>nums</code> are distinct.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

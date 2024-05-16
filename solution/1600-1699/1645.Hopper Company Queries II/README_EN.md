@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Drivers</code></p>
 
 <pre>
@@ -156,6 +158,8 @@ By the end of October --&gt; six active drivers (10, 8, 5, 7, 4, 1) and no accep
 By the end of November --&gt; six active drivers (10, 8, 5, 7, 4, 1) and two accepted rides by <strong>two different</strong> drivers (1, 7). The percentage is (2 / 6) * 100 = 33.33%.
 By the end of December --&gt; six active drivers (10, 8, 5, 7, 4, 1) and one accepted ride by driver (4). The percentage is (1 / 6) * 100 = 16.67%.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

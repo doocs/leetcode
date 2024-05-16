@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>s</code> and an integer <code>k</code>. You can choose one of the first <code>k</code> letters of <code>s</code> and append it at the end of the string.</p>
 
 <p>Return <em>the lexicographically smallest string you could have after applying the mentioned step any number of moves</em>.</p>
@@ -48,6 +50,8 @@ In the second move, we move the 3<sup>rd</sup> character &#39;c&#39; to the end,
 	<li><code>1 &lt;= k &lt;= s.length &lt;= 1000</code></li>
 	<li><code>s</code> consist of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>NewYork</code></p>
 
 <pre>
@@ -142,6 +144,8 @@ California table:
 <strong>Explanation:</strong>
 Both New York University and California University have 1 excellent student.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

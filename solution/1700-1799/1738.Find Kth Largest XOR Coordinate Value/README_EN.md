@@ -23,6 +23,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a 2D <code>matrix</code> of size <code>m x n</code>, consisting of non-negative integers. You are also given an integer <code>k</code>.</p>
 
 <p>The <strong>value</strong> of coordinate <code>(a, b)</code> of the matrix is the XOR of all <code>matrix[i][j]</code> where <code>0 &lt;= i &lt;= a &lt; m</code> and <code>0 &lt;= j &lt;= b &lt; n</code> <strong>(0-indexed)</strong>.</p>
@@ -63,6 +65,8 @@ tags:
 	<li><code>0 &lt;= matrix[i][j] &lt;= 10<sup>6</sup></code></li>
 	<li><code>1 &lt;= k &lt;= m * n</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

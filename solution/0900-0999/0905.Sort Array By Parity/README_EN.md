@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code>, move all the even integers at the beginning of the array followed by all the odd integers.</p>
 
 <p>Return <em><strong>any array</strong> that satisfies this condition</em>.</p>
@@ -43,6 +45,8 @@ tags:
 	<li><code>1 &lt;= nums.length &lt;= 5000</code></li>
 	<li><code>0 &lt;= nums[i] &lt;= 5000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

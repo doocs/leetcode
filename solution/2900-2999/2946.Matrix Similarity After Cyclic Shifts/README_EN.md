@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> <code>m x n</code> integer matrix <code>mat</code> and an integer <code>k</code>. You have to cyclically <strong>right</strong> shift <strong>odd</strong> indexed rows <code>k</code> times and cyclically <strong>left</strong> shift <strong>even</strong> indexed rows <code>k</code> times.</p>
 
 <p>Return <code>true</code> <em>if the initial and final matrix are exactly the same and </em><code>false</code> <em>otherwise.</em></p>
@@ -63,6 +65,8 @@ Therefore, return true.
 	<li><code>1 &lt;= mat[i][j] &lt;= 25</code></li>
 	<li><code>1 &lt;= k &lt;= 50</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

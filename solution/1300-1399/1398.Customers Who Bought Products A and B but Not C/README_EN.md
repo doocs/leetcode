@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Customers</code></p>
 
 <pre>
@@ -86,6 +88,8 @@ Orders table:
 +-------------+---------------+
 <strong>Explanation:</strong> Only the customer_id with id 3 bought the product A and B but not the product C.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

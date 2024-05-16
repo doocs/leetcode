@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. A pair of integers <code>x</code> and <code>y</code> is called a <strong>strong</strong> pair if it satisfies the condition:</p>
 
 <ul>
@@ -67,6 +69,8 @@ The maximum XOR possible from these pairs is 500 XOR 520 = 1020 since the only o
 	<li><code>1 &lt;= nums.length &lt;= 5 * 10<sup>4</sup></code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 2<sup>20</sup> - 1</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>s</code>. Reorder the string using the following algorithm:</p>
 
 <ol>
@@ -62,6 +64,8 @@ After steps 4, 5 and 6 of the second iteration, result = &quot;abccbaabccba&quot
 	<li><code>1 &lt;= s.length &lt;= 500</code></li>
 	<li><code>s</code> consists of only lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

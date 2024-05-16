@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given positive integers <code>n</code> and <code>target</code>.</p>
 
 <p>An array <code>nums</code> is <strong>beautiful</strong> if it meets the following conditions:</p>
@@ -69,6 +71,8 @@ It can be proven that 8 is the minimum possible sum that a beautiful array could
 	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
 	<li><code>1 &lt;= target &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design a map that allows you to do the following:</p>
 
 <ul>
@@ -59,6 +61,8 @@ mapSum.sum(&quot;ap&quot;);           // return 5 (<u>ap</u>ple + <u>ap</u>p = 3
 	<li><code>1 &lt;= val &lt;= 1000</code></li>
 	<li>At most <code>50</code> calls will be made to <code>insert</code> and <code>sum</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

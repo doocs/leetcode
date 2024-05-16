@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two binary strings <code>a</code> and <code>b</code>, return <em>their sum as a binary string</em>.</p>
 
 <p>&nbsp;</p>
@@ -35,6 +37,8 @@ tags:
 	<li><code>a</code> and <code>b</code> consist&nbsp;only of <code>&#39;0&#39;</code> or <code>&#39;1&#39;</code> characters.</li>
 	<li>Each string does not contain leading zeros except for the zero itself.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

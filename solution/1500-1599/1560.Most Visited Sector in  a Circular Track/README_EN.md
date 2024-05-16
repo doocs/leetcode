@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer <code>n</code> and an integer array <code>rounds</code>. We have a circular track which consists of <code>n</code> sectors labeled from <code>1</code> to <code>n</code>. A marathon will be held on this track, the marathon consists of <code>m</code> rounds. The <code>i<sup>th</sup></code> round starts at sector <code>rounds[i - 1]</code> and ends at sector <code>rounds[i]</code>. For example, round 1 starts at sector <code>rounds[0]</code> and ends at sector <code>rounds[1]</code></p>
 
 <p>Return <em>an array of the most visited sectors</em> sorted in <strong>ascending</strong> order.</p>
@@ -57,6 +59,8 @@ We can see that both sectors 1 and 2 are visited twice and they are the most vis
 	<li><code>1 &lt;= rounds[i] &lt;= n</code></li>
 	<li><code>rounds[i] != rounds[i + 1]</code> for <code>0 &lt;= i &lt; m</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

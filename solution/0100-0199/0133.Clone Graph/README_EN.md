@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a reference of a node in a <strong><a href="https://en.wikipedia.org/wiki/Connectivity_(graph_theory)#Connected_graph" target="_blank">connected</a></strong> undirected graph.</p>
 
 <p>Return a <a href="https://en.wikipedia.org/wiki/Object_copying#Deep_copy" target="_blank"><strong>deep copy</strong></a> (clone) of the graph.</p>
@@ -79,6 +81,8 @@ class Node {
 	<li>There are no repeated edges and no self-loops in the graph.</li>
 	<li>The Graph is connected and all nodes can be visited starting from the given node.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer <code>n</code>, your task is to count how many strings of length <code>n</code> can be formed under the following rules:</p>
 
 <ul>
@@ -58,6 +60,8 @@ tags:
 <ul>
 	<li><code>1 &lt;= n &lt;= 2 * 10^4</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

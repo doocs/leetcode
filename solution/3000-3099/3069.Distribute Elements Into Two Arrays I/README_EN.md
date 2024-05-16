@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>1-indexed</strong> array of <strong>distinct</strong> integers <code>nums</code> of length <code>n</code>.</p>
 
 <p>You need to distribute all the elements of <code>nums</code> between two arrays <code>arr1</code> and <code>arr2</code> using <code>n</code> operations. In the first operation, append <code>nums[1]</code> to <code>arr1</code>. In the second operation, append <code>nums[2]</code> to <code>arr2</code>. Afterwards, in the <code>i<sup>th</sup></code> operation:</p>
@@ -61,6 +63,8 @@ Hence, the array result formed by concatenation is [5,3,4,8].
 	<li><code>1 &lt;= nums[i] &lt;= 100</code></li>
 	<li>All elements in <code>nums</code> are distinct.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

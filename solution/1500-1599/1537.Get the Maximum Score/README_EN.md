@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two <strong>sorted</strong> arrays of distinct integers <code>nums1</code> and <code>nums2</code>.</p>
 
 <p>A <strong>valid<strong><em> </em></strong>path</strong> is defined as follows:</p>
@@ -70,6 +72,8 @@ Maximum sum is obtained with the path [6,7,8,9,10].
 	<li><code>1 &lt;= nums1[i], nums2[i] &lt;= 10<sup>7</sup></code></li>
 	<li><code>nums1</code> and <code>nums2</code> are strictly increasing.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

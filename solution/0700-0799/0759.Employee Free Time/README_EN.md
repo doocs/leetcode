@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>We are given a list <code>schedule</code> of employees, which represents the working time for each employee.</p>
 
 <p>Each employee has a list of non-overlapping <code>Intervals</code>, and these intervals are in sorted order.</p>
@@ -49,6 +51,8 @@ We discard any intervals that contain inf as they aren&#39;t finite.
 	<li><code>1 &lt;= schedule.length , schedule[i].length &lt;= 50</code></li>
 	<li><code>0 &lt;= schedule[i].start &lt; schedule[i].end &lt;= 10^8</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

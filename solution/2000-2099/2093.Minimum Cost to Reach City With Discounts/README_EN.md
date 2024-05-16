@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A series of highways connect <code>n</code> cities numbered from <code>0</code> to <code>n - 1</code>. You are given a 2D integer array <code>highways</code> where <code>highways[i] = [city1<sub>i</sub>, city2<sub>i</sub>, toll<sub>i</sub>]</code> indicates that there is a highway that connects <code>city1<sub>i</sub></code> and <code>city2<sub>i</sub></code>, allowing a car to go from <code>city1<sub>i</sub></code> to <code>city2<sub>i</sub></code> <strong>and vice versa</strong> for a cost of <code>toll<sub>i</sub></code>.</p>
 
 <p>You are also given an integer <code>discounts</code> which represents the number of discounts you have. You can use a discount to travel across the <code>i<sup>th</sup></code> highway for a cost of <code>toll<sub>i</sub> / 2</code> (<strong>integer</strong> <strong>division</strong>). Each discount may only be used <strong>once</strong>, and you can only use at most <strong>one</strong> discount per highway.</p>
@@ -71,6 +73,8 @@ It is impossible to go from 0 to 3 so return -1.
 	<li><code>0 &lt;= discounts &lt;= 500</code></li>
 	<li>There are no duplicate highways.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

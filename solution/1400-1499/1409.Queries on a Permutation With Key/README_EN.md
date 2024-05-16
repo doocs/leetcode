@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the array <code>queries</code> of positive integers between <code>1</code> and <code>m</code>, you have to process all <code>queries[i]</code> (from <code>i=0</code> to <code>i=queries.length-1</code>) according to the following rules:</p>
 
 <ul>
@@ -63,6 +65,8 @@ Therefore, the array containing the result is [2,1,2,1].
 	<li><code>1 &lt;= queries.length &lt;= m</code></li>
 	<li><code>1 &lt;= queries[i] &lt;= m</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

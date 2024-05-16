@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2758.Ne
 
 ## Description
 
+<!-- description:start -->
+
 <p>Write code that enhances all date objects such that you can call the <code>date.nextDay()</code>&nbsp;method on any date object and it will return&nbsp;the next day in the format <em>YYYY-MM-DD</em> as a string.</p>
 
 <p>&nbsp;</p>
@@ -39,6 +41,8 @@ date.nextDay(); // &quot;2014-06-21&quot;
 <ul>
 	<li><code>new Date(date)</code> is a valid date object</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer <code>n</code>.</p>
 
 <p>Each number from <code>1</code> to <code>n</code> is grouped according to the sum of its digits.</p>
@@ -48,6 +50,8 @@ There are 4 groups with largest size.
 <ul>
 	<li><code>1 &lt;= n &lt;= 10<sup>4</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

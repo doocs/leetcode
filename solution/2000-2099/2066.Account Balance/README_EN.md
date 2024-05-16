@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Transactions</code></p>
 
 <pre>
@@ -74,6 +76,8 @@ Account 2:
 - 2021-12-07 --&gt; deposit 7000. Balance is 0 + 7000 = 7000.
 - 2021-12-12 --&gt; withdraw 7000. Balance is 7000 - 7000 = 0.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

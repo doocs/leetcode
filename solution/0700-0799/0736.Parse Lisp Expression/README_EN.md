@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string expression representing a Lisp-like expression to return the integer value of.</p>
 
 <p>The syntax for these expressions is given as follows.</p>
@@ -69,6 +71,8 @@ The second (add x y) evaluates as 3+2 = 5.
 	<li>The answer and all intermediate calculations of that answer are guaranteed to fit in a <strong>32-bit</strong> integer.</li>
 	<li>The expression is guaranteed to be legal and evaluate to an integer.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

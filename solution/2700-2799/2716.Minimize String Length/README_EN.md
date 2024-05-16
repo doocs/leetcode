@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a <strong>0-indexed</strong> string <code>s</code>, repeatedly perform the following operation <strong>any</strong> number of times:</p>
 
 <ul>
@@ -60,6 +62,8 @@ tags:
 	<li><code>1 &lt;= s.length &lt;= 100</code></li>
 	<li><code>s</code> contains only lowercase English letters</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>text</code> of words that are placed among some number of spaces. Each word consists of one or more lowercase English letters and are separated by at least one space. It&#39;s guaranteed that <code>text</code> <strong>contains at least one word</strong>.</p>
 
 <p>Rearrange the spaces so that there is an <strong>equal</strong> number of spaces between every pair of adjacent words and that number is <strong>maximized</strong>. If you cannot redistribute all the spaces equally, place the <strong>extra spaces at the end</strong>, meaning the returned string should be the same length as <code>text</code>.</p>
@@ -47,6 +49,8 @@ tags:
 	<li><code>text</code> consists of lowercase English letters and <code>&#39; &#39;</code>.</li>
 	<li><code>text</code> contains at least one word.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

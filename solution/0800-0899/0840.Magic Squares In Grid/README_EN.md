@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A <code>3 x 3</code> magic square is a <code>3 x 3</code> grid filled with distinct numbers <strong>from </strong><code>1</code><strong> to </strong><code>9</code> such that each row, column, and both diagonals all have the same sum.</p>
 
 <p>Given a <code>row x col</code>&nbsp;<code>grid</code>&nbsp;of integers, how many <code>3 x 3</code> &quot;magic square&quot; subgrids are there?&nbsp; (Each subgrid is contiguous).</p>
@@ -51,6 +53,8 @@ In total, there is only one magic square inside the given grid.
 	<li><code>1 &lt;= row, col &lt;= 10</code></li>
 	<li><code>0 &lt;= grid[i][j] &lt;= 15</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

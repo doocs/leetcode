@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design a time-based key-value data structure that can store multiple values for the same key at different time stamps and retrieve the key&#39;s value at a certain timestamp.</p>
 
 <p>Implement the <code>TimeMap</code> class:</p>
@@ -57,6 +59,8 @@ timeMap.get(&quot;foo&quot;, 5);         // return &quot;bar2&quot;
 	<li>All the timestamps <code>timestamp</code> of <code>set</code> are strictly increasing.</li>
 	<li>At most <code>2 * 10<sup>5</sup></code> calls will be made to <code>set</code> and <code>get</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

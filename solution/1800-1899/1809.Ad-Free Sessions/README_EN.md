@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Playback</code></p>
 
 <pre>
@@ -92,6 +94,8 @@ The ad with ID 2 was shown to user 2 at time 17 while they were in session 4.
 The ad with ID 3 was shown to user 2 at time 20 while they were in session 4.
 We can see that sessions 1 and 4 had at least one ad. Sessions 2, 3, and 5 did not have any ads, so we return them.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

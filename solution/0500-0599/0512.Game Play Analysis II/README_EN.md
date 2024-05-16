@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Activity</code></p>
 
 <pre>
@@ -62,6 +64,8 @@ Activity table:
 | 3         | 1         |
 +-----------+-----------+
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

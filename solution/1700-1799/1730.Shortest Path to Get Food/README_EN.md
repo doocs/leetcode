@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are starving and you want to eat food as quickly as possible. You want to find the shortest path to arrive at any food cell.</p>
 
 <p>You are given an <code>m x n</code> character matrix, <code>grid</code>, of these different types of cells:</p>
@@ -65,6 +67,8 @@ tags:
 	<li><code>grid[row][col]</code> is <code>&#39;*&#39;</code>, <code>&#39;X&#39;</code>, <code>&#39;O&#39;</code>, or <code>&#39;#&#39;</code>.</li>
 	<li>The <code>grid</code> contains <strong>exactly one</strong> <code>&#39;*&#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

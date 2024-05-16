@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> consisting of <strong>non-negative</strong> powers of <code>2</code>, and an integer <code>target</code>.</p>
 
 <p>In one operation, you must apply the following changes to the array:</p>
@@ -70,6 +72,8 @@ It can be shown that there is no shorter sequence of operations that results in 
 	<li><code>nums</code> consists only of non-negative powers of two.</li>
 	<li><code>1 &lt;= target &lt; 2<sup>31</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

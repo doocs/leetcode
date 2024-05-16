@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a binary tree</p>
 
 <pre>
@@ -64,6 +66,8 @@ struct Node {
 	<li>You may only use constant extra space.</li>
 	<li>The recursive approach is fine. You may assume implicit stack space does not count as extra space for this problem.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given four integers <code>length</code>, <code>width</code>, <code>height</code>, and <code>mass</code>, representing the dimensions and mass of a box, respectively, return <em>a string representing the <strong>category</strong> of the box</em>.</p>
 
 <ul>
@@ -66,6 +68,8 @@ Since its neither of the two above categories, we return &quot;Neither&quot;.</p
 	<li><code>1 &lt;= length, width, height &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= mass &lt;= 10<sup>3</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

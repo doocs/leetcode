@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two arrays of integers&nbsp;<code>nums</code> and <code>index</code>. Your task is to create <em>target</em> array under the following rules:</p>
 
 <ul>
@@ -74,6 +76,8 @@ nums       index     target
 	<li><code>0 &lt;= nums[i] &lt;= 100</code></li>
 	<li><code>0 &lt;= index[i] &lt;= i</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

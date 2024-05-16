@@ -21,6 +21,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a tree with <code>n</code> nodes numbered from <code>0</code> to <code>n - 1</code> in the form of a parent array <code>parent</code> where <code>parent[i]</code> is the parent of <code>i<sup>th</sup></code> node. The root of the tree is node <code>0</code>. Find the <code>k<sup>th</sup></code> ancestor of a given node.</p>
 
 <p>The <code>k<sup>th</sup></code> ancestor of a tree node is the <code>k<sup>th</sup></code> node in the path from that node to the root node.</p>
@@ -59,6 +61,8 @@ treeAncestor.getKthAncestor(6, 3); // returns -1 because there is no such ancest
 	<li><code>0 &lt;= node &lt; n</code></li>
 	<li>There will be at most <code>5 * 10<sup>4</sup></code> queries.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

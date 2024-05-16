@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a binary string <code>s</code>. In one second, <strong>all</strong> occurrences of <code>&quot;01&quot;</code> are <strong>simultaneously</strong> replaced with <code>&quot;10&quot;</code>. This process <strong>repeats</strong> until no occurrences of <code>&quot;01&quot;</code> exist.</p>
 
 <p>Return<em> the number of seconds needed to complete this process.</em></p>
@@ -59,6 +61,8 @@ so we return 0.
 <p><strong>Follow up:</strong></p>
 
 <p>Can you solve this problem in O(n) time complexity?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

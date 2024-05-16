@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Experiments</code></p>
 
 <pre>
@@ -73,6 +75,8 @@ On the platform &quot;Android&quot;, we had only one &quot;Reading&quot; experim
 On the platform &quot;IOS&quot;, we had one &quot;Sports&quot; experiment and one &quot;Programming&quot; experiment.
 On the platform &quot;Web&quot;, we had two &quot;Reading&quot; experiments and one &quot;Programming&quot; experiment.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

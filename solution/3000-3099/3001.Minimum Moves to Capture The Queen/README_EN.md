@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There is a <strong>1-indexed</strong> <code>8 x 8</code> chessboard containing <code>3</code> pieces.</p>
 
 <p>You are given <code>6</code> integers <code>a</code>, <code>b</code>, <code>c</code>, <code>d</code>, <code>e</code>, and <code>f</code> where:</p>
@@ -65,6 +67,8 @@ It is impossible to capture the black queen in less than two moves since it is n
 	<li><code>1 &lt;= a, b, c, d, e, f &lt;= 8</code></li>
 	<li>No two pieces are on the same square.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

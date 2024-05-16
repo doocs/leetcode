@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 With respect to a given <code>puzzle</code> string, a <code>word</code> is <em>valid</em> if both the following conditions are satisfied:
 
 <ul>
@@ -65,6 +67,8 @@ There are no valid words for &quot;gaswxyz&quot; cause none of the words in the 
 	<li><code>words[i]</code> and <code>puzzles[i]</code> consist of lowercase English letters.</li>
 	<li>Each <code>puzzles[i] </code>does not contain repeated characters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

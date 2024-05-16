@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>s</code> and an integer <code>k</code>, return <em>the length of the longest </em><span data-keyword="substring-nonempty"><em>substring</em></span><em> of</em> <code>s</code> <em>that contains at most</em> <code>k</code> <em><strong>distinct</strong> characters</em>.</p>
 
 <p>&nbsp;</p>
@@ -41,6 +43,8 @@ tags:
 	<li><code>1 &lt;= s.length &lt;= 5 * 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= k &lt;= 50</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

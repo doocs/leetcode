@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 Given a list of 24-hour clock time points in <strong>&quot;HH:MM&quot;</strong> format, return <em>the minimum <b>minutes</b> difference between any two time-points in the list</em>.
 
 <p>&nbsp;</p>
@@ -34,6 +36,8 @@ Given a list of 24-hour clock time points in <strong>&quot;HH:MM&quot;</strong> 
 	<li><code>2 &lt;= timePoints.length &lt;= 2 * 10<sup>4</sup></code></li>
 	<li><code>timePoints[i]</code> is in the format <strong>&quot;HH:MM&quot;</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

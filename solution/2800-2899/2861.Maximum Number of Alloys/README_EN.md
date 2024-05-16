@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are the owner of a company that creates alloys using various types of metals. There are <code>n</code> different types of metals available, and you have access to <code>k</code> machines that can be used to create alloys. Each machine requires a specific amount of each metal type to create an alloy.</p>
 
 <p>For the <code>i<sup>th</sup></code> machine to create an alloy, it needs <code>composition[i][j]</code> units of metal of type <code>j</code>. Initially, you have <code>stock[i]</code> units of metal type <code>i</code>, and purchasing one unit of metal type <code>i</code> costs <code>cost[i]</code> coins.</p>
@@ -83,6 +85,8 @@ It can be proven that we can create at most 2 alloys.
 	<li><code>0 &lt;= stock[i] &lt;= 10<sup>8</sup></code></li>
 	<li><code>1 &lt;= cost[i] &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

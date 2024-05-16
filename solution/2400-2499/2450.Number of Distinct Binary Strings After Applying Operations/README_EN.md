@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>binary</strong> string <code>s</code> and a positive integer <code>k</code>.</p>
 
 <p>You can apply the following operation on the string <strong>any</strong> number of times:</p>
@@ -63,6 +65,8 @@ It can be shown that we cannot obtain any other string, so the answer is 2.
 	<li><code>1 &lt;= k &lt;= s.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>s[i]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

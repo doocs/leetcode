@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Matches</code></p>
 
 <pre>
@@ -83,6 +85,8 @@ The longest winning streak was 1 match.
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> If we are interested in calculating the longest streak without losing (i.e., win or draw), how will your solution change?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

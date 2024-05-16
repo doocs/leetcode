@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Products</code></p>
 
 <pre>
@@ -99,6 +101,8 @@ Products with product_id = 3 is ordered in February a total of (2 + 3) = 5.
 Products with product_id = 4 was not ordered in February 2020.
 Products with product_id = 5 is ordered in February a total of (50 + 50) = 100.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

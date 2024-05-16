@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>root</code> of a binary tree with unique values and the values of two different nodes of the tree <code>x</code> and <code>y</code>, return <code>true</code> <em>if the nodes corresponding to the values </em><code>x</code><em> and </em><code>y</code><em> in the tree are <strong>cousins</strong>, or </em><code>false</code><em> otherwise.</em></p>
 
 <p>Two nodes of a binary tree are <strong>cousins</strong> if they have the same depth with different parents.</p>
@@ -55,6 +57,8 @@ tags:
 	<li><code>x != y</code></li>
 	<li><code>x</code> and <code>y</code> are exist in the tree.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

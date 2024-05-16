@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two integers <code>m</code> and <code>n</code> representing the dimensions of a&nbsp;<strong>0-indexed</strong>&nbsp;<code>m x n</code> grid.</p>
 
 <p>You are also given a <strong>0-indexed</strong> 2D integer matrix <code>coordinates</code>, where <code>coordinates[i] = [x, y]</code> indicates that the cell with coordinates <code>[x, y]</code> is colored <strong>black</strong>. All cells in the grid that do not appear in <code>coordinates</code> are <strong>white</strong>.</p>
@@ -63,6 +65,8 @@ Therefore, we return [0,2,2,0,0].
 	<li><code>0 &lt;= coordinates[i][1] &lt; n</code></li>
 	<li>It is guaranteed that <code>coordinates</code> contains pairwise distinct coordinates.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

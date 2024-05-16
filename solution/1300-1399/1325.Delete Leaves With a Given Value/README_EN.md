@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a binary tree <code>root</code> and an integer <code>target</code>, delete all the <strong>leaf nodes</strong> with value <code>target</code>.</p>
 
 <p>Note that once you delete a leaf node with value <code>target</code><strong>, </strong>if its parent node becomes a leaf node and has the value <code>target</code>, it should also be deleted (you need to continue doing that until you cannot).</p>
@@ -60,6 +62,8 @@ After removing, new nodes become leaf nodes with value (target = 2) (Picture in 
 	<li>The number of nodes in the tree is in the range <code>[1, 3000]</code>.</li>
 	<li><code>1 &lt;= Node.val, target &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You have some apples and a basket that can carry up to <code>5000</code> units of weight.</p>
 
 <p>Given an integer array <code>weight</code> where <code>weight[i]</code> is the weight of the <code>i<sup>th</sup></code> apple, return <em>the maximum number of apples you can put in the basket</em>.</p>
@@ -46,6 +48,8 @@ tags:
 	<li><code>1 &lt;= weight.length &lt;= 10<sup>3</sup></code></li>
 	<li><code>1 &lt;= weight[i] &lt;= 10<sup>3</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

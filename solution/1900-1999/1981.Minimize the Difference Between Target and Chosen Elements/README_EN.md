@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an <code>m x n</code> integer matrix <code>mat</code> and an integer <code>target</code>.</p>
 
 <p>Choose one integer from <strong>each row</strong> in the matrix such that the <strong>absolute difference</strong> between <code>target</code> and the <strong>sum</strong> of the chosen elements is <strong>minimized</strong>.</p>
@@ -70,6 +72,8 @@ The absolute difference is 1.
 	<li><code>1 &lt;= mat[i][j] &lt;= 70</code></li>
 	<li><code>1 &lt;= target &lt;= 800</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

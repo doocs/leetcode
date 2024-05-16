@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are playing a game that has <code>n</code> levels numbered from <code>0</code> to <code>n - 1</code>. You are given a <strong>0-indexed</strong> integer array <code>damage</code> where <code>damage[i]</code> is the amount of health you will lose to complete the <code>i<sup>th</sup></code> level.</p>
 
 <p>You are also given an integer <code>armor</code>. You may use your armor ability <strong>at most once</strong> during the game on <strong>any</strong> level which will protect you from <strong>at most</strong> <code>armor</code> damage.</p>
@@ -71,6 +73,8 @@ Note that you did not use your armor ability.
 	<li><code>0 &lt;= damage[i] &lt;= 10<sup>5</sup></code></li>
 	<li><code>0 &lt;= armor &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

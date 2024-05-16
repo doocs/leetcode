@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two integers <code>n</code> and <code>maxValue</code>, which are used to describe an <strong>ideal</strong> array.</p>
 
 <p>A <strong>0-indexed</strong> integer array <code>arr</code> of length <code>n</code> is considered <strong>ideal</strong> if the following conditions hold:</p>
@@ -67,6 +69,8 @@ There are a total of 9 + 1 + 1 = 11 distinct ideal arrays.
 	<li><code>2 &lt;= n &lt;= 10<sup>4</sup></code></li>
 	<li><code>1 &lt;= maxValue &lt;= 10<sup>4</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

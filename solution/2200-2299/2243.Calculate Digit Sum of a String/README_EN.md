@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>s</code> consisting of digits and an integer <code>k</code>.</p>
 
 <p>A <strong>round</strong> can be completed if the length of <code>s</code> is greater than <code>k</code>. In one round, do the following:</p>
@@ -64,6 +66,8 @@ s becomes &quot;0&quot; + &quot;0&quot; + &quot;0&quot; = &quot;000&quot;, whose
 	<li><code>2 &lt;= k &lt;= 100</code></li>
 	<li><code>s</code> consists of digits only.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Tree</code></p>
 
 <pre>
@@ -93,6 +95,8 @@ Tree table:
 +----+-------+
 <strong>Explanation:</strong> If there is only one node on the tree, you only need to output its root attributes.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

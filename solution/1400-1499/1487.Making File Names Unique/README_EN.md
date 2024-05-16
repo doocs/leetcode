@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of strings <code>names</code> of size <code>n</code>. You will create <code>n</code> folders in your file system <strong>such that</strong>, at the <code>i<sup>th</sup></code> minute, you will create a folder with the name <code>names[i]</code>.</p>
 
 <p>Since two files <strong>cannot</strong> have the same name, if you enter a folder name that was previously used, the system will have a suffix addition to its name in the form of <code>(k)</code>, where, <code>k</code> is the <strong>smallest positive integer</strong> such that the obtained name remains unique.</p>
@@ -65,6 +67,8 @@ tags:
 	<li><code>1 &lt;= names[i].length &lt;= 20</code></li>
 	<li><code>names[i]</code> consists of lowercase English letters, digits, and/or round brackets.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

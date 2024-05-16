@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A <strong>good meal</strong> is a meal that contains <strong>exactly two different food items</strong> with a sum of deliciousness equal to a power of two.</p>
 
 <p>You can pick <strong>any</strong> two different foods to make a good meal.</p>
@@ -49,6 +51,8 @@ Their respective sums are 4, 8, 8, and 16, all of which are powers of 2.
 	<li><code>1 &lt;= deliciousness.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>0 &lt;= deliciousness[i] &lt;= 2<sup>20</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

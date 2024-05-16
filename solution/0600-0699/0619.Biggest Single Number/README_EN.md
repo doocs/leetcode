@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>MyNumbers</code></p>
 
 <pre>
@@ -86,6 +88,8 @@ MyNumbers table:
 +------+
 <strong>Explanation:</strong> There are no single numbers in the input table so we return null.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

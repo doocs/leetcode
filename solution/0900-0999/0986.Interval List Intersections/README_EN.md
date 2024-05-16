@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two lists of closed intervals, <code>firstList</code> and <code>secondList</code>, where <code>firstList[i] = [start<sub>i</sub>, end<sub>i</sub>]</code> and <code>secondList[j] = [start<sub>j</sub>, end<sub>j</sub>]</code>. Each list of intervals is pairwise <strong>disjoint</strong> and in <strong>sorted order</strong>.</p>
 
 <p>Return <em>the intersection of these two interval lists</em>.</p>
@@ -49,6 +51,8 @@ tags:
 	<li><code>0 &lt;= start<sub>j</sub> &lt; end<sub>j</sub> &lt;= 10<sup>9</sup> </code></li>
 	<li><code>end<sub>j</sub> &lt; start<sub>j+1</sub></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

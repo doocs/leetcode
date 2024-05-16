@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Suppose we have a file system that stores both files and directories. An example of one system is represented in the following picture:</p>
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0388.Longest%20Absolute%20File%20Path/images/mdir.jpg" style="width: 681px; height: 322px;" /></p>
@@ -78,6 +80,8 @@ We return 32 since it is the longest absolute path to a file.
 	<li><code>input</code> may contain lowercase or uppercase English letters, a new line character <code>&#39;\n&#39;</code>, a tab character <code>&#39;\t&#39;</code>, a dot <code>&#39;.&#39;</code>, a space <code>&#39; &#39;</code>, and digits.</li>
 	<li>All file and directory names have <strong>positive</strong> length.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

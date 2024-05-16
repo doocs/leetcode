@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <font face="monospace"><code>Candidates</code></font></p>
 
 <pre>
@@ -68,6 +70,8 @@ Candidates table:
 - Candidate 256 has proficiency in Tableau but is missing skills in Python and PostgreSQL.
 The output table is sorted by candidate_id in ascending order.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p><em>(This problem is an <strong>interactive problem</strong>.)</em></p>
 
 <p>Each ship is located at an integer point on the sea represented by a cartesian plane, and each integer point may contain at most 1 ship.</p>
@@ -54,6 +56,8 @@ ships = [[1,1],[2,2],[3,3],[5,5]], topRight = [4,4], bottomLeft = [0,0]
 	<li><code>0 &lt;= bottomLeft[1] &lt;= topRight[1] &lt;= 1000</code></li>
 	<li><code>topRight != bottomLeft</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

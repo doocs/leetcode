@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two strings <code>word1</code> and <code>word2</code>, return <em>the minimum number of <strong>steps</strong> required to make</em> <code>word1</code> <em>and</em> <code>word2</code> <em>the same</em>.</p>
 
 <p>In one <strong>step</strong>, you can delete exactly one character in either string.</p>
@@ -42,6 +44,8 @@ tags:
 	<li><code>1 &lt;= word1.length, word2.length &lt;= 500</code></li>
 	<li><code>word1</code> and <code>word2</code> consist of only lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

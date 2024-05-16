@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a collection of numbers, <code>nums</code>,&nbsp;that might contain duplicates, return <em>all possible unique permutations <strong>in any order</strong>.</em></p>
 
 <p>&nbsp;</p>
@@ -42,6 +44,8 @@ tags:
 	<li><code>1 &lt;= nums.length &lt;= 8</code></li>
 	<li><code>-10 &lt;= nums[i] &lt;= 10</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

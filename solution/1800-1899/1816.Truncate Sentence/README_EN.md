@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A <strong>sentence</strong> is a list of words that are separated by a single space with no leading or trailing spaces. Each of the words consists of <strong>only</strong> uppercase and lowercase English letters (no punctuation).</p>
 
 <ul>
@@ -64,6 +66,8 @@ Hence, you should return &quot;What is the solution&quot;.</pre>
 	<li>The words in <code>s</code> are separated by a single space.</li>
 	<li>There are no leading or trailing spaces.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

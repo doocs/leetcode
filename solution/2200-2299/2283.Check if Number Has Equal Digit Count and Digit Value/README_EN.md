@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> string <code>num</code> of length <code>n</code> consisting of digits.</p>
 
 <p>Return <code>true</code> <em>if for <strong>every</strong> index </em><code>i</code><em> in the range </em><code>0 &lt;= i &lt; n</code><em>, the digit </em><code>i</code><em> occurs </em><code>num[i]</code><em> times in </em><code>num</code><em>, otherwise return </em><code>false</code>.</p>
@@ -56,6 +58,8 @@ The indices 0 and 1 both violate the condition, so return false.
 	<li><code>1 &lt;= n &lt;= 10</code></li>
 	<li><code>num</code> consists of digits.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

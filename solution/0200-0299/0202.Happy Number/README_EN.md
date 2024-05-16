@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Write an algorithm to determine if a number <code>n</code> is happy.</p>
 
 <p>A <strong>happy number</strong> is a number defined by the following process:</p>
@@ -54,6 +56,8 @@ tags:
 <ul>
 	<li><code>1 &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

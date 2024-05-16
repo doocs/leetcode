@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an encoded string, return its decoded string.</p>
 
 <p>The encoding rule is: <code>k[encoded_string]</code>, where the <code>encoded_string</code> inside the square brackets is being repeated exactly <code>k</code> times. Note that <code>k</code> is guaranteed to be a positive integer.</p>
@@ -55,6 +57,8 @@ tags:
 	<li><code>s</code> is guaranteed to be <strong>a valid</strong> input.</li>
 	<li>All the integers in <code>s</code> are in the range <code>[1, 300]</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

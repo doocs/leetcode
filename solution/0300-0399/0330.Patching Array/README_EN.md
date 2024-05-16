@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a sorted integer array <code>nums</code> and an integer <code>n</code>, add/patch elements to the array such that any number in the range <code>[1, n]</code> inclusive can be formed by the sum of some elements in the array.</p>
 
 <p>Return <em>the minimum number of patches required</em>.</p>
@@ -56,6 +58,8 @@ Explanation: The two patches can be [2, 4].
 	<li><code>nums</code> is sorted in <strong>ascending order</strong>.</li>
 	<li><code>1 &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

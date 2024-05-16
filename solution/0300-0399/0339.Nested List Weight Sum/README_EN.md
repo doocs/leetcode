@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a nested list of integers <code>nestedList</code>. Each element is either an integer or a list whose elements may also be integers or other lists.</p>
 
 <p>The <strong>depth</strong> of an integer is the number of lists that it is inside of. For example, the nested list <code>[1,[2,2],[[3],2],1]</code> has each integer&#39;s value set to its <strong>depth</strong>.</p>
@@ -52,6 +54,8 @@ tags:
 	<li>The values of the integers in the nested list is in the range <code>[-100, 100]</code>.</li>
 	<li>The maximum <strong>depth</strong> of any integer is less than or equal to <code>50</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

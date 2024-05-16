@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array <code>books</code> where <code>books[i] = [thickness<sub>i</sub>, height<sub>i</sub>]</code> indicates the thickness and height of the <code>i<sup>th</sup></code> book. You are also given an integer <code>shelfWidth</code>.</p>
 
 <p>We want to place these books in order onto bookcase shelves that have a total width <code>shelfWidth</code>.</p>
@@ -57,6 +59,8 @@ Notice that book number 2 does not have to be on the first shelf.
 	<li><code>1 &lt;= thickness<sub>i</sub> &lt;= shelfWidth &lt;= 1000</code></li>
 	<li><code>1 &lt;= height<sub>i</sub> &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

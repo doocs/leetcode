@@ -21,6 +21,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You have a <strong>browser</strong> of one tab where you start on the <code>homepage</code> and you can visit another <code>url</code>, get back in the history number of <code>steps</code> or move forward in the history number of <code>steps</code>.</p>
 
 <p>Implement the <code>BrowserHistory</code> class:</p>
@@ -66,6 +68,8 @@ browserHistory.back(7);                   // You are in &quot;google.com&quot;, 
 	<li><code>homepage</code> and <code>url</code> consist of&nbsp; &#39;.&#39; or lower case English letters.</li>
 	<li>At most <code>5000</code>&nbsp;calls will be made to <code>visit</code>, <code>back</code>, and <code>forward</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

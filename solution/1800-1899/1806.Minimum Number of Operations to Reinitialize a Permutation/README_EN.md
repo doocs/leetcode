@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an <strong>even</strong> integer <code>n</code>​​​​​​. You initially have a permutation <code>perm</code> of size <code>n</code>​​ where <code>perm[i] == i</code>​ <strong>(0-indexed)</strong>​​​​.</p>
 
 <p>In one operation, you will create a new array <code>arr</code>, and for each <code>i</code>:</p>
@@ -67,6 +69,8 @@ So it takes only 2 operations.
 	<li><code>2 &lt;= n &lt;= 1000</code></li>
 	<li><code>n</code>​​​​​​ is even.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

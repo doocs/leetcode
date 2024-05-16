@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Schools</code></p>
 
 <pre>
@@ -98,6 +100,8 @@ Exam table:
 - School 11: The school&#39;s capacity is 151. Choosing 744 as the min score requirement, the school will get at most 100 applications, which is within capacity.
 - School 9: The data given is not enough to determine the min score requirement. Choosing 975 as the min score, the school may get 10 requests while its capacity is 9. We do not have information about higher scores, hence we report -1.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

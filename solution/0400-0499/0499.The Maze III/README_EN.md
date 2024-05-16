@@ -21,6 +21,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There is a ball in a <code>maze</code> with empty spaces (represented as <code>0</code>) and walls (represented as <code>1</code>). The ball can go through the empty spaces by rolling <strong>up, down, left or right</strong>, but it won&#39;t stop rolling until hitting a wall. When the ball stops, it could choose the next direction. There is also a hole in this maze. The ball will drop into the hole if it rolls onto the hole.</p>
 
 <p>Given the <code>m x n</code> <code>maze</code>, the ball&#39;s position <code>ball</code> and the hole&#39;s position <code>hole</code>, where <code>ball = [ball<sub>row</sub>, ball<sub>col</sub>]</code> and <code>hole = [hole<sub>row</sub>, hole<sub>col</sub>]</code>, return <em>a string </em><code>instructions</code><em> of all the instructions that the ball should follow to drop in the hole with the <strong>shortest distance</strong> possible</em>. If there are multiple valid instructions, return the <strong>lexicographically minimum</strong> one. If the ball can&#39;t drop in the hole, return <code>&quot;impossible&quot;</code>.</p>
@@ -73,6 +75,8 @@ Both ways have shortest distance 6, but the first way is lexicographically small
 	<li>Both the ball and the hole exist in an empty space, and they will not be in the same position initially.</li>
 	<li>The maze contains <strong>at least 2 empty spaces</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

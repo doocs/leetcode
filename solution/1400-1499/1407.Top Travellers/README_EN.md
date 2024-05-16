@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Users</code></p>
 
 <pre>
@@ -99,6 +101,8 @@ Elvis and Lee traveled 450 miles, Elvis is the top traveler as his name is alpha
 Bob, Jonathan, Alex, and Alice have only one ride and we just order them by the total distances of the ride.
 Donald did not have any rides, the distance traveled by him is 0.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

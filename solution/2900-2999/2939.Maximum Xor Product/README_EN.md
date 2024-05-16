@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given three integers <code>a</code>, <code>b</code>, and <code>n</code>, return <em>the <strong>maximum value</strong> of</em> <code>(a XOR x) * (b XOR x)</code> <em>where</em> <code>0 &lt;= x &lt; 2<sup>n</sup></code>.</p>
 
 <p>Since the answer may be too large, return it <strong>modulo</strong> <code>10<sup>9 </sup>+ 7</code>.</p>
@@ -58,6 +60,8 @@ It can be shown that 12 is the maximum value of (a XOR x) * (b XOR x) for all 0 
 	<li><code>0 &lt;= a, b &lt; 2<sup>50</sup></code></li>
 	<li><code>0 &lt;= n &lt;= 50</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

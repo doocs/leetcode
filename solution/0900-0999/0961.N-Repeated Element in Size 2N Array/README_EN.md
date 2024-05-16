@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code> with the following properties:</p>
 
 <ul>
@@ -45,6 +47,8 @@ tags:
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 	<li><code>nums</code> contains <code>n + 1</code> <strong>unique</strong> elements and one of them is repeated exactly <code>n</code> times.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array <code>nums</code> of size <code>n</code> consisting of <strong>distinct </strong>integers from <code>1</code> to <code>n</code> and a positive integer <code>k</code>.</p>
 
 <p>Return <em>the number of non-empty subarrays in </em><code>nums</code><em> that have a <strong>median</strong> equal to </em><code>k</code>.</p>
@@ -61,6 +63,8 @@ tags:
 	<li><code>1 &lt;= nums[i], k &lt;= n</code></li>
 	<li>The integers in <code>nums</code> are distinct.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

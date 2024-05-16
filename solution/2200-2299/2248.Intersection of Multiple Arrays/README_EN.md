@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 Given a 2D integer array <code>nums</code> where <code>nums[i]</code> is a non-empty array of <strong>distinct</strong> positive integers, return <em>the list of integers that are present in <strong>each array</strong> of</em> <code>nums</code><em> sorted in <strong>ascending order</strong></em>.
 
 <p>&nbsp;</p>
@@ -48,6 +50,8 @@ There does not exist any integer present both in nums[0] and nums[1], so we retu
 	<li><code>1 &lt;= nums[i][j] &lt;= 1000</code></li>
 	<li>All the values of <code>nums[i]</code> are <strong>unique</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

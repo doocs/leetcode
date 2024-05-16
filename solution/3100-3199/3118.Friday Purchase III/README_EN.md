@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Purchases</code></p>
 
 <pre>
@@ -117,6 +119,8 @@ Each row of this table indicates the user_id, membership type.
 
 <p><strong>Note:</strong> The output table is ordered by week_of_month and membership in ascending order.</p>
 </div>
+
+<!-- description:end -->
 
 ## Solutions
 

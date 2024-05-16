@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design a max stack data structure that supports the stack operations and supports finding the stack&#39;s maximum element.</p>
 
 <p>Implement the <code>MaxStack</code> class:</p>
@@ -64,6 +66,8 @@ stk.top();     // return 5, [<strong><u>5</u></strong>] the stack did not change
 	<li>At most <code>10<sup>5</sup></code>&nbsp;calls will be made to <code>push</code>, <code>pop</code>, <code>top</code>, <code>peekMax</code>, and <code>popMax</code>.</li>
 	<li>There will be <strong>at least one element</strong> in the stack when <code>pop</code>, <code>top</code>, <code>peekMax</code>, or <code>popMax</code> is called.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>In the video game Fallout 4, the quest <strong>&quot;Road to Freedom&quot;</strong> requires players to reach a metal dial called the <strong>&quot;Freedom Trail Ring&quot;</strong> and use the dial to spell a specific keyword to open the door.</p>
 
 <p>Given a string <code>ring</code> that represents the code engraved on the outer ring and another string <code>key</code> that represents the keyword that needs to be spelled, return <em>the minimum number of steps to spell all the characters in the keyword</em>.</p>
@@ -58,6 +60,8 @@ So the final output is 4.
 	<li><code>ring</code> and <code>key</code> consist of only lower case English letters.</li>
 	<li>It is guaranteed that <code>key</code> could always be spelled by rotating <code>ring</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

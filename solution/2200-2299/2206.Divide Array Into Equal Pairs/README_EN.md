@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code> consisting of <code>2 * n</code> integers.</p>
 
 <p>You need to divide <code>nums</code> into <code>n</code> pairs such that:</p>
@@ -58,6 +60,8 @@ There is no way to divide nums into 4 / 2 = 2 pairs such that the pairs satisfy 
 	<li><code>1 &lt;= n &lt;= 500</code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 500</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

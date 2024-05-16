@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> of integers.</p>
 
 <p>A triplet of indices <code>(i, j, k)</code> is a <strong>mountain</strong> if:</p>
@@ -65,6 +67,8 @@ And the sum of this triplet is nums[1] + nums[3] + nums[5] = 13. It can be shown
 	<li><code>3 &lt;= nums.length &lt;= 50</code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 50</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

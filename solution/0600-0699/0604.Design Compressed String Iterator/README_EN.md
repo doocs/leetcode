@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design and implement a data structure for a compressed string iterator. The given compressed string will be in the form of each letter followed by a positive integer representing the number of this letter existing in the original uncompressed string.</p>
 
 <p>Implement the&nbsp;StringIterator class:</p>
@@ -58,6 +60,8 @@ stringIterator.hasNext(); // return True
 	<li>The number of a single character repetitions in&nbsp;<code>compressedString</code> is in the range <code>[1, 10^9]</code></li>
 	<li>At most <code>100</code> calls will be made to <code>next</code> and <code>hasNext</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

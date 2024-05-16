@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of integers <code>arr</code>, and three integers&nbsp;<code>a</code>,&nbsp;<code>b</code>&nbsp;and&nbsp;<code>c</code>. You need to find the number of good triplets.</p>
 
 <p>A triplet <code>(arr[i], arr[j], arr[k])</code>&nbsp;is <strong>good</strong> if the following conditions are true:</p>
@@ -76,6 +78,8 @@ tags:
     <li><code>0 &lt;= a, b, c &lt;= 1000</code></li>
 
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

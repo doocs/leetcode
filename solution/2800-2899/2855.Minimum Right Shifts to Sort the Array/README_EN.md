@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> of length <code>n</code> containing <strong>distinct</strong> positive integers. Return <em>the <strong>minimum</strong> number of <strong>right shifts</strong> required to sort </em><code>nums</code><em> and </em><code>-1</code><em> if this is not possible.</em></p>
 
 <p>A <strong>right shift</strong> is defined as shifting the element at index <code>i</code> to index <code>(i + 1) % n</code>, for all indices.</p>
@@ -55,6 +57,8 @@ Now nums is sorted; therefore the answer is 2.
 	<li><code>1 &lt;= nums[i] &lt;= 100</code></li>
 	<li><code>nums</code> contains distinct integers.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

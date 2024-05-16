@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array of <code>n</code> strings <code>strs</code>, all of the same length.</p>
 
 <p>We may choose any deletion indices, and we delete all the characters in those indices for each string.</p>
@@ -63,6 +65,8 @@ Note that strs[0] &gt; strs[1] - the array strs is not necessarily in lexicograp
 <ul>
 	<li>&nbsp;</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

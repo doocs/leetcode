@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two arrays of equal length, <code>nums1</code> and <code>nums2</code>.</p>
 
 <p>Each element in <code>nums1</code> has been increased (or decreased in the case of negative) by an integer, represented by the variable <code>x</code>.</p>
@@ -87,6 +89,8 @@ tags:
 	<li><code>0 &lt;= nums1[i], nums2[i] &lt;= 1000</code></li>
 	<li>The test cases are generated in a way that there is an integer <code>x</code> such that <code>nums1</code> can become equal to <code>nums2</code> by adding <code>x</code> to each element of <code>nums1</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

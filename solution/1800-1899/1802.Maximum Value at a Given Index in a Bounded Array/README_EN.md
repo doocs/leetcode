@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given three positive integers:&nbsp;<code>n</code>, <code>index</code>, and <code>maxSum</code>. You want to construct an array <code>nums</code> (<strong>0-indexed</strong>)<strong> </strong>that satisfies the following conditions:</p>
 
 <ul>
@@ -55,6 +57,8 @@ There are no arrays that satisfy all the conditions and have nums[2] == 3, so 2 
 	<li><code>1 &lt;= n &lt;= maxSum &lt;= 10<sup>9</sup></code></li>
 	<li><code>0 &lt;= index &lt; n</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

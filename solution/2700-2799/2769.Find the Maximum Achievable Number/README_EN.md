@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two integers, <code>num</code> and <code>t</code>.</p>
 
 <p>An integer <code>x</code> is called <b>achievable</b> if it can become equal to <code>num</code> after applying the following operation no more than <code>t</code> times:</p>
@@ -55,6 +57,8 @@ It can be proven that there is no achievable number larger than 7.
 <ul>
 	<li><code>1 &lt;= num, t&nbsp;&lt;= 50</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

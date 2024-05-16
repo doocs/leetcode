@@ -21,6 +21,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design a text editor with a cursor that can do the following:</p>
 
 <ul>
@@ -88,6 +90,8 @@ textEditor.cursorRight(6); // return &quot;practi&quot;
 
 <p>&nbsp;</p>
 <p><strong>Follow-up:</strong> Could you find a solution with time complexity of <code>O(k)</code> per call?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

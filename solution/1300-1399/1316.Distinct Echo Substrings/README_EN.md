@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Return the number of <strong>distinct</strong> non-empty substrings of <code>text</code>&nbsp;that can be written as the concatenation of some string with itself (i.e. it can be written as <code>a + a</code>&nbsp;where <code>a</code> is some string).</p>
 
 <p>&nbsp;</p>
@@ -45,6 +47,8 @@ tags:
 	<li><code>1 &lt;= text.length &lt;= 2000</code></li>
 	<li><code>text</code>&nbsp;has only lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

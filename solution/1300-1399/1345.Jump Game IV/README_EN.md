@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of&nbsp;integers <code>arr</code>, you are initially positioned at the first index of the array.</p>
 
 <p>In one step you can jump from index <code>i</code> to index:</p>
@@ -64,6 +66,8 @@ tags:
 	<li><code>1 &lt;= arr.length &lt;= 5 * 10<sup>4</sup></code></li>
 	<li><code>-10<sup>8</sup> &lt;= arr[i] &lt;= 10<sup>8</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

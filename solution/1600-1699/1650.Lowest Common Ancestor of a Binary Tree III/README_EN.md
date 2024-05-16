@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two nodes of a&nbsp;binary tree <code>p</code> and <code>q</code>, return <em>their&nbsp;lowest common ancestor (LCA)</em>.</p>
 
 <p>Each node will have a reference to its parent node. The definition for <code>Node</code> is below:</p>
@@ -66,6 +68,8 @@ class Node {
 	<li><code>p != q</code></li>
 	<li><code>p</code> and <code>q</code> exist in the tree.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

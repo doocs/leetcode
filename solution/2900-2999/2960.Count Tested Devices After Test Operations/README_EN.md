@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>batteryPercentages</code> having length <code>n</code>, denoting the battery percentages of <code>n</code> <strong>0-indexed</strong> devices.</p>
 
 <p>Your task is to test each device <code>i</code> <strong>in order</strong> from <code>0</code> to <code>n - 1</code>, by performing the following test operations:</p>
@@ -70,6 +72,8 @@ So, the answer is 2.
 	<li><code>1 &lt;= n == batteryPercentages.length &lt;= 100 </code></li>
 	<li><code>0 &lt;= batteryPercentages[i] &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There is a battle and <code>n</code> heroes are trying to defeat <code>m</code> monsters. You are given two <strong>1-indexed</strong> arrays of <strong>positive</strong> integers <code><font face="monospace">heroes</font></code> and <code><font face="monospace">monsters</font></code> of length <code>n</code> and <code>m</code>, respectively. <code><font face="monospace">heroes</font>[i]</code> is the power of <code>i<sup>th</sup></code> hero, and <code><font face="monospace">monsters</font>[i]</code> is the power of <code>i<sup>th</sup></code> monster.</p>
 
 <p>The <code>i<sup>th</sup></code> hero can defeat the <code>j<sup>th</sup></code> monster if <code>monsters[j] &lt;= heroes[i]</code>.</p>
@@ -70,6 +72,8 @@ So the answer would be [5,16,10].</pre>
 	<li><code>coins.length == m</code></li>
 	<li><code>1 &lt;= heroes[i], monsters[i], coins[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

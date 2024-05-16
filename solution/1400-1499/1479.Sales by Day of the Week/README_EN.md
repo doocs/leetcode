@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Orders</code></p>
 
 <pre>
@@ -107,6 +109,8 @@ On Saturday there are no items sold.
 On Sunday (2020-06-14, 2020-06-21) were sold a total of 10 units (5 +5) in the category Phone (ids: 3, 4).
 There are no sales of T-shirts.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

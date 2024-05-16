@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>We are given <code>n</code> different types of <code>stickers</code>. Each sticker has a lowercase English word on it.</p>
 
 <p>You would like to spell out the given string <code>target</code> by cutting individual letters from your collection of stickers and rearranging them. You can use each sticker more than once if you want, and you have infinite quantities of each sticker.</p>
@@ -58,6 +60,8 @@ We cannot form the target &quot;basicbasic&quot; from cutting letters from the g
 	<li><code>1 &lt;= target.length &lt;= 15</code></li>
 	<li><code>stickers[i]</code> and <code>target</code> consist of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

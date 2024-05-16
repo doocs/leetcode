@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given the <code>root</code> of a binary tree and an integer <code>distance</code>. A pair of two different <strong>leaf</strong> nodes of a binary tree is said to be good if the length of <strong>the shortest path</strong> between them is less than or equal to <code>distance</code>.</p>
 
 <p>Return <em>the number of good leaf node pairs</em> in the tree.</p>
@@ -55,6 +57,8 @@ tags:
 	<li><code>1 &lt;= Node.val &lt;= 100</code></li>
 	<li><code>1 &lt;= distance &lt;= 10</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

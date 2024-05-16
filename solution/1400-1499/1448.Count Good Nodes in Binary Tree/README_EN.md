@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a binary tree <code>root</code>, a node <em>X</em> in the tree is named&nbsp;<strong>good</strong> if in the path from root to <em>X</em> there are no nodes with a value <em>greater than</em> X.</p>
 
 <p>Return the number of <strong>good</strong> nodes in the binary tree.</p>
@@ -78,6 +80,8 @@ Node 3 -&gt; (3,1,3) is the maximum value in the path.</pre>
     <li>Each node&#39;s value is between <code>[-10^4, 10^4]</code>.</li>
 
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

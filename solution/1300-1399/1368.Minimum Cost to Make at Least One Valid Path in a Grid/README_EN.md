@@ -21,6 +21,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an <code>m x n</code> grid. Each cell of the grid has a sign pointing to the next cell you should visit if you are currently in this cell. The sign of <code>grid[i][j]</code> can be:</p>
 
 <ul>
@@ -73,6 +75,8 @@ The total cost = 3.
 	<li><code>1 &lt;= m, n &lt;= 100</code></li>
 	<li><code>1 &lt;= grid[i][j] &lt;= 4</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

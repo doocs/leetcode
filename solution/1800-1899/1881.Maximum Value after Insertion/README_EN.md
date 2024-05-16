@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a very large integer <code>n</code>, represented as a string,​​​​​​ and an integer digit <code>x</code>. The digits in <code>n</code> and the digit <code>x</code> are in the <strong>inclusive</strong> range <code>[1, 9]</code>, and <code>n</code> may represent a <b>negative</b> number.</p>
 
 <p>You want to <strong>maximize </strong><code>n</code><strong>&#39;s numerical value</strong> by inserting <code>x</code> anywhere in the decimal representation of <code>n</code>​​​​​​. You <strong>cannot</strong> insert <code>x</code> to the left of the negative sign.</p>
@@ -55,6 +57,8 @@ tags:
 	<li><code>n</code> is a valid representation of an integer.</li>
 	<li>In the case of a negative <code>n</code>,​​​​​​ it will begin with <code>&#39;-&#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

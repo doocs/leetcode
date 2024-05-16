@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Teams</code></p>
 
 <pre>
@@ -97,6 +99,8 @@ Matches table:
 | 40         | Chicago FC   | 0             |
 +------------+--------------+---------------+
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

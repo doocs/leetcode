@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and an integer <code>k</code>.</p>
 
 <p>In one operation, you can pick any index <code>i</code> of <code>nums</code> such that <code>0 &lt;= i &lt; nums.length - 1</code> and replace <code>nums[i]</code> and <code>nums[i + 1]</code> with a single occurrence of <code>nums[i] &amp; nums[i + 1]</code>, where <code>&amp;</code> represents the bitwise <code>AND</code> operator.</p>
@@ -67,6 +69,8 @@ It can be shown that 15 is the minimum possible value of the bitwise OR of the r
 	<li><code>0 &lt;= nums[i] &lt; 2<sup>30</sup></code></li>
 	<li><code>0 &lt;= k &lt; nums.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

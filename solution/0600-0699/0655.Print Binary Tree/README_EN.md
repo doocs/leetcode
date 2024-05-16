@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>root</code> of a binary tree, construct a <strong>0-indexed</strong> <code>m x n</code> string matrix <code>res</code> that represents a <strong>formatted layout</strong> of the tree. The formatted layout matrix should be constructed using the following rules:</p>
 
 <ul>
@@ -58,6 +60,8 @@ tags:
 	<li><code>-99 &lt;= Node.val &lt;= 99</code></li>
 	<li>The depth of the tree will be in the range <code>[1, 10]</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

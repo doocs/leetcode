@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Write an API that generates fancy sequences using the <code>append</code>, <code>addAll</code>, and <code>multAll</code> operations.</p>
 
 <p>Implement the <code>Fancy</code> class:</p>
@@ -63,6 +65,8 @@ fancy.getIndex(2); // return 20
 	<li><code>0 &lt;= idx &lt;= 10<sup>5</sup></code></li>
 	<li>At most <code>10<sup>5</sup></code> calls total will be made to <code>append</code>, <code>addAll</code>, <code>multAll</code>, and <code>getIndex</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

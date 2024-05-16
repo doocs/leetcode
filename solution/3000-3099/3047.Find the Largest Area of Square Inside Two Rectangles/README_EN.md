@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There exist <code>n</code> rectangles in a 2D plane. You are given two <strong>0-indexed</strong> 2D integer arrays <code>bottomLeft</code> and <code>topRight</code>, both of size <code>n x 2</code>, where <code>bottomLeft[i]</code> and <code>topRight[i]</code> represent the <strong>bottom-left</strong> and <strong>top-right</strong> coordinates of the <code>i<sup>th</sup></code> rectangle respectively.</p>
 
 <p>You can select a region formed from the <strong>intersection</strong> of&nbsp;two of the given rectangles. You need to find the <strong>largest </strong>area of a <strong>square</strong> that can fit <strong>inside</strong> this region if you select the region optimally.</p>
@@ -64,6 +66,8 @@ Note that the region can be formed by the intersection of more than 2 rectangles
 	<li><code>bottomLeft[i][0] &lt; topRight[i][0]</code></li>
 	<li><code>bottomLeft[i][1] &lt; topRight[i][1]</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the radius and the position of the center of a circle, implement the function <code>randPoint</code> which generates a uniform random point inside the circle.</p>
 
 <p>Implement the <code>Solution</code> class:</p>
@@ -51,6 +53,8 @@ solution.randPoint(); // return [0.36572, 0.17248]
 	<li><code>-10<sup>7</sup> &lt;= x_center, y_center &lt;= 10<sup>7</sup></code></li>
 	<li>At most <code>3 * 10<sup>4</sup></code> calls will be made to <code>randPoint</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

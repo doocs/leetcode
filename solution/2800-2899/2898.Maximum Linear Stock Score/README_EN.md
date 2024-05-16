@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a <strong>1-indexed</strong> integer array <code>prices</code>, where <code>prices[i]</code> is the price of a particular stock on the <code>i<sup>th</sup></code> day, your task is to select some of the elements of <code>prices</code> such that your selection is <strong>linear</strong>.</p>
 
 <p>A selection <code>indexes</code>, where <code>indexes</code> is a <strong>1-indexed</strong> integer array of length <code>k</code> which is a subsequence of the array <code>[1, 2, ..., n]</code>, is <strong>linear</strong> if:</p>
@@ -61,6 +63,8 @@ The sum of all the elements is 35 which is the maximum possible some out of ever
 	<li><code>1 &lt;= prices.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= prices[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

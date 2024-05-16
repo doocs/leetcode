@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>UserVisits</code></p>
 
 <pre>
@@ -73,6 +75,8 @@ For the second user, the windows in question are between dates:
 Making the biggest window the one with 65 days.
 For the third user, the only window in question is between dates 2020-11-11 and 2021-1-1 with a total of 51 days.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

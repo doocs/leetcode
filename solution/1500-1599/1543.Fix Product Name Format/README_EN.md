@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Sales</code></p>
 
 <pre>
@@ -74,6 +76,8 @@ In January, 2 LcPhones were sold. Please note that the product names are not cas
 In February, 2 LCKeychains and 1 LCPhone were sold.
 In March, one matryoshka was sold.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

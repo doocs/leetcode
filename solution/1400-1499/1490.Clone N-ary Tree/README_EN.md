@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a <code>root</code> of an N-ary tree, return a <a href="https://en.wikipedia.org/wiki/Object_copying#Deep_copy" target="_blank"><strong>deep copy</strong></a> (clone) of the tree.</p>
 
 <p>Each node in the n-ary tree contains a val (<code>int</code>) and a list (<code>List[Node]</code>) of its children.</p>
@@ -59,6 +61,8 @@ class Node {
 
 <p>&nbsp;</p>
 <strong>Follow up: </strong>Can your solution work for the <a href="https://leetcode.com/problems/clone-graph/" target="_blank">graph problem</a>?
+
+<!-- description:end -->
 
 ## Solutions
 

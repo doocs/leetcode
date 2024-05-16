@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You have a data structure of employee information, including the employee&#39;s unique ID, importance value, and direct subordinates&#39; IDs.</p>
 
 <p>You are given an array of employees <code>employees</code> where:</p>
@@ -61,6 +63,8 @@ Thus, the total importance value of employee 5 is -3.
 	<li>One employee has at most one direct leader and may have several subordinates.</li>
 	<li>The IDs in <code>employees[i].subordinates</code> are valid IDs.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

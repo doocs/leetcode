@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a large sample of integers in the range <code>[0, 255]</code>. Since the sample is so large, it is represented by an array <code>count</code>&nbsp;where <code>count[k]</code> is the <strong>number of times</strong> that <code>k</code> appears in the sample.</p>
 
 <p>Calculate the following statistics:</p>
@@ -71,6 +73,8 @@ The mode is 1 as it appears the most in the sample.
 	<li><code>1 &lt;= sum(count) &lt;= 10<sup>9</sup></code></li>
 	<li>The mode of the sample that <code>count</code> represents is <strong>unique</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

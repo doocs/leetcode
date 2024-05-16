@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Customers</code></p>
 
 <pre>
@@ -60,6 +62,8 @@ Customers table:
 <strong>Explanation:</strong> 
 The maximum customer_id present in the table is 5, so in the range [1,5], IDs 2 and 3 are missing from the table.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

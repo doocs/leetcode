@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two integers <code>n</code> and <code>k</code>, construct a list <code>answer</code> that contains <code>n</code> different positive integers ranging from <code>1</code> to <code>n</code> and obeys the following requirement:</p>
 
 <ul>
@@ -46,6 +48,8 @@ Explanation: The [1,3,2] has three different positive integers ranging from 1 to
 <ul>
 	<li><code>1 &lt;= k &lt; n &lt;= 10<sup>4</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

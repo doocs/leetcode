@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an <code>m x n</code> matrix <code>board</code>, representing the<strong> current </strong>state of a crossword puzzle. The crossword contains lowercase English letters (from solved words), <code>&#39; &#39;</code> to represent any <strong>empty </strong>cells, and <code>&#39;#&#39;</code> to represent any <strong>blocked</strong> cells.</p>
 
 <p>A word can be placed<strong> horizontally</strong> (left to right <strong>or</strong> right to left) or <strong>vertically</strong> (top to bottom <strong>or</strong> bottom to top) in the board if:</p>
@@ -66,6 +68,8 @@ tags:
 	<li><code>1 &lt;= word.length &lt;= max(m, n)</code></li>
 	<li><code>word</code> will contain only lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2725.In
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a function <code>fn</code>, an array of arguments&nbsp;<code>args</code>, and&nbsp;an interval time <code>t</code>, return a cancel function <code>cancelFn</code>.</p>
 
 <p>After a delay of&nbsp;<code>cancelTimeMs</code>, the returned cancel function&nbsp;<code>cancelFn</code>&nbsp;will be invoked.</p>
@@ -115,6 +117,8 @@ Cancelled at 180ms
 	<li><code><font face="monospace">30 &lt;= t &lt;= 100</font></code></li>
 	<li><code><font face="monospace">10 &lt;= </font>cancelTimeMs<font face="monospace"> &lt;= 500</font></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

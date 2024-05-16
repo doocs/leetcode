@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a nested list of integers <code>nestedList</code>. Each element is either an integer or a list whose elements may also be integers or other lists. Implement an iterator to flatten it.</p>
 
 <p>Implement the <code>NestedIterator</code> class:</p>
@@ -65,6 +67,8 @@ return res
 	<li><code>1 &lt;= nestedList.length &lt;= 500</code></li>
 	<li>The values of the integers in the nested list is in the range <code>[-10<sup>6</sup>, 10<sup>6</sup>]</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

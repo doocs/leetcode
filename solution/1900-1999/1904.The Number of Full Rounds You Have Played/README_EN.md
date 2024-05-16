@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are participating in an online chess tournament. There is a chess round that starts every <code>15</code> minutes. The first round of the day starts at <code>00:00</code>, and after every <code>15</code> minutes, a new round starts.</p>
 
 <ul>
@@ -65,6 +67,8 @@ You did not play the full round from 10:00 to 10:15 because you logged out at 10
 	<li><code>00 &lt;= mm &lt;= 59</code></li>
 	<li><code>loginTime</code> and <code>logoutTime</code> are not equal.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

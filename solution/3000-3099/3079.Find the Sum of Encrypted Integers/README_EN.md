@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code> containing <strong>positive</strong> integers. We define a function <code>encrypt</code> such that <code>encrypt(x)</code> replaces <strong>every</strong> digit in <code>x</code> with the <strong>largest</strong> digit in <code>x</code>. For example, <code>encrypt(523) = 555</code> and <code>encrypt(213) = 333</code>.</p>
 
 <p>Return <em>the <strong>sum </strong>of encrypted elements</em>.</p>
@@ -49,6 +51,8 @@ tags:
 	<li><code>1 &lt;= nums.length &lt;= 50</code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

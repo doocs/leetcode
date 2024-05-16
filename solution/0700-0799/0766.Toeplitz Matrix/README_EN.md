@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an <code>m x n</code> <code>matrix</code>, return&nbsp;<em><code>true</code>&nbsp;if the matrix is Toeplitz. Otherwise, return <code>false</code>.</em></p>
 
 <p>A matrix is <strong>Toeplitz</strong> if every diagonal from top-left to bottom-right has the same elements.</p>
@@ -57,6 +59,8 @@ The diagonal &quot;[1, 2]&quot; has different elements.
 	<li>What if the <code>matrix</code> is stored on disk, and the memory is limited such that you can only load at most one row of the matrix into the memory at once?</li>
 	<li>What if the <code>matrix</code> is so large that you can only load up a partial row into the memory at once?</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

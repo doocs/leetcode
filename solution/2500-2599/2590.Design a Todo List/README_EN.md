@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design a Todo List Where users can add <strong>tasks</strong>, mark them as <strong>complete</strong>, or get a list of pending tasks. Users can also add <strong>tags</strong> to tasks and can filter the tasks by certain tags.</p>
 
 <p>Implement the <code>TodoList</code> class:</p>
@@ -68,6 +70,8 @@ todoList.getAllTasks(1); // return [&quot;Task3&quot;, &quot;Task1&quot;]. User 
 	<li>All the strings consist of lowercase and uppercase English letters and digits.</li>
 	<li>At most <code>100</code> calls will be made for each method.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

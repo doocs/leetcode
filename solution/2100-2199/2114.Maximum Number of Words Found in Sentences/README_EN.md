@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A <strong>sentence</strong> is a list of <strong>words</strong> that are separated by a single space&nbsp;with no leading or trailing spaces.</p>
 
 <p>You are given an array of strings <code>sentences</code>, where each <code>sentences[i]</code> represents a single <strong>sentence</strong>.</p>
@@ -55,6 +57,8 @@ In this example, the second and third sentences (underlined) have the same numbe
 	<li><code>sentences[i]</code> does not have leading or trailing spaces.</li>
 	<li>All the words in <code>sentences[i]</code> are separated by a single space.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

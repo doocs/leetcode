@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2666.Al
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a function <code>fn</code>, return a new function that is identical to the original function except that it ensures&nbsp;<code>fn</code>&nbsp;is&nbsp;called at most once.</p>
 
 <ul>
@@ -52,6 +54,8 @@ onceFn(4, 6, 8); // undefined, fn was not called
 	<li><code>1 &lt;= calls[i].length &lt;= 100</code></li>
 	<li><code>2 &lt;= JSON.stringify(calls).length &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

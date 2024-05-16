@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You have <code>n</code> gardens, labeled from <code>1</code> to <code>n</code>, and an array <code>paths</code> where <code>paths[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> describes a bidirectional path between garden <code>x<sub>i</sub></code> to garden <code>y<sub>i</sub></code>. In each garden, you want to plant one of 4 types of flowers.</p>
 
 <p>All gardens have <strong>at most 3</strong> paths coming into or leaving it.</p>
@@ -64,6 +66,8 @@ Hence, [1,2,3] is a valid answer. Other valid answers include [1,2,4], [1,4,2], 
 	<li><code>x<sub>i</sub> != y<sub>i</sub></code></li>
 	<li>Every garden has <strong>at most 3</strong> paths coming into or leaving it.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

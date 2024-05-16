@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Employees</code></p>
 
 <pre>
@@ -68,6 +70,8 @@ Employees table:
 Output table is ordered by dep_id in ascending order.
 
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

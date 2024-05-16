@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a non-negative integer represented as a linked list of digits, <em>plus one to the integer</em>.</p>
 
 <p>The digits are stored such that the most significant digit is at the <code>head</code> of the list.</p>
@@ -35,6 +37,8 @@ tags:
 	<li><code>0 &lt;= Node.val &lt;= 9</code></li>
 	<li>The number represented by the linked list does not contain leading zeros except for the zero itself.&nbsp;</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

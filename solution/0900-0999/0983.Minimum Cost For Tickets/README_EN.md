@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You have planned some train traveling one year in advance. The days of the year in which you will travel are given as an integer array <code>days</code>. Each day is an integer from <code>1</code> to <code>365</code>.</p>
 
 <p>Train tickets are sold in <strong>three different ways</strong>:</p>
@@ -67,6 +69,8 @@ In total, you spent $17 and covered all the days of your travel.
 	<li><code>costs.length == 3</code></li>
 	<li><code>1 &lt;= costs[i] &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

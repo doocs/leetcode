@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a positive integer array <code>grades</code> which represents the grades of students in a university. You would like to enter <strong>all</strong> these students into a competition in <strong>ordered</strong> non-empty groups, such that the ordering meets the following conditions:</p>
 
 <ul>
@@ -56,6 +58,8 @@ It can be shown that it is not possible to form more than 3 groups.
 	<li><code>1 &lt;= grades.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= grades[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

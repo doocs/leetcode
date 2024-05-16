@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Project</code></p>
 
 <pre>
@@ -85,6 +87,8 @@ Employee table:
 +-------------+---------------+
 <strong>Explanation:</strong> The average experience years for the first project is (3 + 2 + 1) / 3 = 2.00 and for the second project is (3 + 2) / 2 = 2.50
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

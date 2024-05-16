@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two strings <code>start</code> and <code>target</code>, both of length <code>n</code>. Each string consists <strong>only</strong> of the characters <code>&#39;L&#39;</code>, <code>&#39;R&#39;</code>, and <code>&#39;_&#39;</code> where:</p>
 
 <ul>
@@ -63,6 +65,8 @@ After that, no pieces can move anymore, so it is impossible to obtain the string
 	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
 	<li><code>start</code> and <code>target</code> consist of the characters <code>&#39;L&#39;</code>, <code>&#39;R&#39;</code>, and <code>&#39;_&#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

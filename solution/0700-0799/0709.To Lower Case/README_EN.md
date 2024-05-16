@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>s</code>, return <em>the string after replacing every uppercase letter with the same lowercase letter</em>.</p>
 
 <p>&nbsp;</p>
@@ -45,6 +47,8 @@ tags:
 	<li><code>1 &lt;= s.length &lt;= 100</code></li>
 	<li><code>s</code> consists of printable ASCII characters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

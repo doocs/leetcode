@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Orders</code></p>
 
 <pre>
@@ -59,6 +61,8 @@ The calculation is as follows:
  - Total items: (1 * 500) + (2 * 1000) + (3 * 800) + (4 * 1000) = 8900 
  - Total orders: 500 + 1000 + 800 + 1000 = 3300 
  - Therefore, the average items per order is 8900 / 3300 = 2.70</pre>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2631.Gr
 
 ## Description
 
+<!-- description:start -->
+
 <p>Write code that enhances all arrays such that you can call the&nbsp;<code>array.groupBy(fn)</code>&nbsp;method on any array and it will return a <strong>grouped</strong>&nbsp;version of the array.</p>
 
 <p>A&nbsp;<strong>grouped</strong>&nbsp;array is an object where each&nbsp;key&nbsp;is&nbsp;the output of&nbsp;<code>fn(arr[i])</code>&nbsp;and each&nbsp;value is an array containing all items in the original array with that key.</p>
@@ -95,6 +97,8 @@ The selector function splits the array by whether each number is greater than 5.
 	<li><code>0 &lt;= array.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>fn</code> returns a string</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

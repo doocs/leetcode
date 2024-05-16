@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of size <code>n</code>, and a <strong>0-indexed</strong> integer array <code>pattern</code> of size <code>m</code> consisting of integers <code>-1</code>, <code>0</code>, and <code>1</code>.</p>
 
 <p>A <span data-keyword="subarray">subarray</span> <code>nums[i..j]</code> of size <code>m + 1</code> is said to match the <code>pattern</code> if the following conditions hold for each element <code>pattern[k]</code>:</p>
@@ -59,6 +61,8 @@ Hence, there are 2 subarrays in nums that match the pattern.
 	<li><code>1 &lt;= m == pattern.length &lt; n</code></li>
 	<li><code>-1 &lt;= pattern[i] &lt;= 1</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

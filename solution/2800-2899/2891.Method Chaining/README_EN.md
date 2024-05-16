@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2891.Me
 
 ## Description
 
+<!-- description:start -->
+
 <pre>
 DataFrame <code>animals</code>
 +-------------+--------+
@@ -64,6 +66,8 @@ The results should be sorted in descending order of weight.</pre>
 <p>In Pandas, <strong>method chaining</strong> enables us to&nbsp;perform operations on a DataFrame without breaking up each operation into a separate line or creating multiple temporary variables.&nbsp;</p>
 
 <p>Can you complete this&nbsp;task in just <strong>one line </strong>of code using method chaining?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

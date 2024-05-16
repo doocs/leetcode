@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>TeamPoints</code></p>
 
 <pre>
@@ -117,6 +119,8 @@ Croatia gained 13 points but their rank decreased by one.
 Algeria gained 399 points and their rank increased by one.
 New Zealand did not gain or lose points and their rank did not change.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

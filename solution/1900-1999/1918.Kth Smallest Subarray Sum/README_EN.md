@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code> of length <code>n</code> and an integer <code>k</code>, return <em>the </em><code>k<sup>th</sup></code> <em><strong>smallest subarray sum</strong>.</em></p>
 
 <p>A <strong>subarray</strong> is defined as a <strong>non-empty</strong> contiguous sequence of elements in an array. A <strong>subarray sum</strong> is the sum of all elements in the subarray.</p>
@@ -64,6 +66,8 @@ Ordering the sums from smallest to largest gives 3, 3, 5, 5, 6, 8, <u>10</u>, 11
 	<li><code>1 &lt;= nums[i] &lt;= 5 * 10<sup>4</sup></code></li>
 	<li><code>1 &lt;= k &lt;= n * (n + 1) / 2</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

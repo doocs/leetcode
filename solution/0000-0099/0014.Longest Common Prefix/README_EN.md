@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Write a function to find the longest common prefix string amongst an array of strings.</p>
 
 <p>If there is no common prefix, return an empty string <code>&quot;&quot;</code>.</p>
@@ -43,6 +45,8 @@ tags:
 	<li><code>0 &lt;= strs[i].length &lt;= 200</code></li>
 	<li><code>strs[i]</code> consists of only lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

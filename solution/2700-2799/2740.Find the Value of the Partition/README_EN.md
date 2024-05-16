@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>positive</strong> integer array <code>nums</code>.</p>
 
 <p>Partition <code>nums</code> into two arrays,&nbsp;<code>nums1</code> and <code>nums2</code>, such that:</p>
@@ -65,6 +67,8 @@ It can be proven that 9 is the minimum value out of all partitions.
 	<li><code>2 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

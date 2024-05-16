@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a positive integer <code>num</code>, return <em>the number of positive integers <strong>less than or equal to</strong></em> <code>num</code> <em>whose digit sums are <strong>even</strong></em>.</p>
 
 <p>The <strong>digit sum</strong> of a positive integer is the sum of all its digits.</p>
@@ -47,6 +49,8 @@ The 14 integers less than or equal to 30 whose digit sums are even are
 <ul>
 	<li><code>1 &lt;= num &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

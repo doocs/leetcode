@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You have a queue of integers, you need to retrieve the first unique integer in the queue.</p>
 
 <p>Implement the <code>FirstUnique</code>&nbsp;class:</p>
@@ -91,6 +93,8 @@ firstUnique.showFirstUnique(); // return -1
 	<li><code>1 &lt;= value &lt;= 10^8</code></li>
 	<li>At most <code>50000</code>&nbsp;calls will be made to <code>showFirstUnique</code>&nbsp;and <code>add</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

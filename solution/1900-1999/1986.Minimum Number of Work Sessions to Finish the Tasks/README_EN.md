@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There are <code>n</code> tasks assigned to you. The task times are represented as an integer array <code>tasks</code> of length <code>n</code>, where the <code>i<sup>th</sup></code> task takes <code>tasks[i]</code> hours to finish. A <strong>work session</strong> is when you work for <strong>at most</strong> <code>sessionTime</code> consecutive hours and then take a break.</p>
 
 <p>You should finish the given tasks in a way that satisfies the following conditions:</p>
@@ -72,6 +74,8 @@ tags:
 	<li><code>1 &lt;= tasks[i] &lt;= 10</code></li>
 	<li><code>max(tasks[i]) &lt;= sessionTime &lt;= 15</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

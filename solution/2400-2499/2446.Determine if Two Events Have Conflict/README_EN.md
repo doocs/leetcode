@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two arrays of strings that represent two inclusive events that happened <strong>on the same day</strong>, <code>event1</code> and <code>event2</code>, where:</p>
 
 <ul>
@@ -65,6 +67,8 @@ tags:
 	<li><code>startTime<sub>2</sub> &lt;= endTime<sub>2</sub></code></li>
 	<li>All the event times follow the <code>HH:MM</code> format.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

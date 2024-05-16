@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are playing a game with integers. You start with the integer <code>1</code> and you want to reach the integer <code>target</code>.</p>
 
 <p>In one move, you can either:</p>
@@ -71,6 +73,8 @@ Double again so x = 10
 	<li><code>1 &lt;= target &lt;= 10<sup>9</sup></code></li>
 	<li><code>0 &lt;= maxDoubles &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

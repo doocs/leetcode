@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two strings <code>s</code> and <code>t</code>, find the number of ways you can choose a non-empty substring of <code>s</code> and replace a <strong>single character</strong> by a different character such that the resulting substring is a substring of <code>t</code>. In other words, find the number of substrings in <code>s</code> that differ from some substring in <code>t</code> by <strong>exactly</strong> one character.</p>
 
 <p>For example, the underlined substrings in <code>&quot;<u>compute</u>r&quot;</code> and <code>&quot;<u>computa</u>tion&quot;</code> only differ by the <code>&#39;e&#39;</code>/<code>&#39;a&#39;</code>, so this is a valid way.</p>
@@ -61,6 +63,8 @@ The underlined portions are the substrings that are chosen from s and t.
 	<li><code>1 &lt;= s.length, t.length &lt;= 100</code></li>
 	<li><code>s</code> and <code>t</code> consist of lowercase English letters only.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

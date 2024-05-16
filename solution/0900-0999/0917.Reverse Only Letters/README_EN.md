@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>s</code>, reverse the string according to the following rules:</p>
 
 <ul>
@@ -43,6 +45,8 @@ tags:
 	<li><code>s</code> consists of characters with ASCII values in the range <code>[33, 122]</code>.</li>
 	<li><code>s</code> does not contain <code>&#39;\&quot;&#39;</code> or <code>&#39;\\&#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2882.Dr
 
 ## Description
 
+<!-- description:start -->
+
 <pre>
 DataFrame customers
 +-------------+--------+
@@ -56,6 +58,8 @@ DataFrame customers
 <strong>Explanation:</strong>
 Alic (customer_id = 4) and Finn (customer_id = 5) both use john@example.com, so only the first occurrence of this email is retained.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

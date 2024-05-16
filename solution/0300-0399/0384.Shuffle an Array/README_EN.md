@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code>, design an algorithm to randomly shuffle the array. All permutations of the array should be <strong>equally likely</strong> as a result of the shuffling.</p>
 
 <p>Implement the <code>Solution</code> class:</p>
@@ -55,6 +57,8 @@ solution.shuffle();    // Returns the random shuffling of array [1,2,3]. Example
 	<li>All the elements of <code>nums</code> are <strong>unique</strong>.</li>
 	<li>At most <code>10<sup>4</sup></code> calls <strong>in total</strong> will be made to <code>reset</code> and <code>shuffle</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

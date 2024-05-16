@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> <code>m x n</code> integer matrix <code>grid</code>. The width of a column is the maximum <strong>length </strong>of its integers.</p>
 
 <ul>
@@ -56,6 +58,8 @@ In the 2<sup>nd</sup> column, both 12 and -2 are of length 2.
 	<li><code>1 &lt;= m, n &lt;= 100 </code></li>
 	<li><code>-10<sup>9</sup> &lt;= grid[r][c] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>s</code> formed by digits and <code>&#39;#&#39;</code>. We want to map <code>s</code> to English lowercase characters as follows:</p>
 
 <ul>
@@ -51,6 +53,8 @@ tags:
 	<li><code>s</code> consists of digits and the <code>&#39;#&#39;</code> letter.</li>
 	<li><code>s</code> will be a valid string such that mapping is always possible.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

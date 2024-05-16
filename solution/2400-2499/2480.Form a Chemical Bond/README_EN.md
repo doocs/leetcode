@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Elements</code></p>
 
 <pre>
@@ -78,6 +80,8 @@ Metal elements are La, Ca, and Na.
 Nonmeal elements are Cl, O, and N.
 Each Metal element pairs with a Nonmetal element in the output table.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

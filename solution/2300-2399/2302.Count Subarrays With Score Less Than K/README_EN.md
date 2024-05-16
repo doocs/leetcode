@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>The <strong>score</strong> of an array is defined as the <strong>product</strong> of its sum and its length.</p>
 
 <ul>
@@ -64,6 +66,8 @@ Thus, there are 5 subarrays having scores less than 5.
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= k &lt;= 10<sup>15</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

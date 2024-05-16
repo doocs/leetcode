@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2795.Pa
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array&nbsp;<code>functions</code>, return a promise <code>promise</code>. <code>functions</code>&nbsp;is an array of functions that return promises <code>fnPromise.</code>&nbsp;Each <code>fnPromise</code>&nbsp;can be resolved or rejected.&nbsp;&nbsp;</p>
 
 <p>If&nbsp;<code>fnPromise</code> is resolved:</p>
@@ -88,6 +90,8 @@ The returned promise resolves within 100 milliseconds. Since promise from the ar
 <ul>
 	<li><code>1 &lt;= functions.length &lt;= 10</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

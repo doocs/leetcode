@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Transactions</code></p>
 
 <pre>
@@ -66,6 +68,8 @@ Transactions table:
 Output table is ordered by user_id in ascending order.
 
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

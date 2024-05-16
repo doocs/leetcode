@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>root</code> of a binary tree, turn the tree upside down and return <em>the new root</em>.</p>
 
 <p>You can turn a binary tree upside down with the following steps:</p>
@@ -59,6 +61,8 @@ tags:
 	<li>Every right node in the tree has a sibling (a left node that shares the same parent).</li>
 	<li>Every right node in the tree has no children.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

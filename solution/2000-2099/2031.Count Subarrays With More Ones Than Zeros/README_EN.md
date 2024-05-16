@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a binary array <code>nums</code> containing only the integers <code>0</code> and <code>1</code>. Return<em> the number of <strong>subarrays</strong> in nums that have <strong>more</strong> </em><code>1</code>&#39;<em>s than </em><code>0</code><em>&#39;s. Since the answer may be very large, return it <strong>modulo</strong> </em><code>10<sup>9</sup> + 7</code>.</p>
 
 <p>A <strong>subarray</strong> is a contiguous sequence of elements within an array.</p>
@@ -63,6 +65,8 @@ The subarrays of size 1 that have more ones than zeros are: [1]
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>0 &lt;= nums[i] &lt;= 1</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

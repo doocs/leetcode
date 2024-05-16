@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2648.Ge
 
 ## Description
 
+<!-- description:start -->
+
 <p>Write a generator function that returns a generator object which yields the&nbsp;<strong>fibonacci sequence</strong>.</p>
 
 <p>The&nbsp;<strong>fibonacci sequence</strong>&nbsp;is defined by the relation <code>X<sub>n</sub>&nbsp;= X<sub>n-1</sub>&nbsp;+ X<sub>n-2</sub></code>.</p>
@@ -47,6 +49,8 @@ gen.next().value; // 3
 <ul>
 	<li><code>0 &lt;= callCount &lt;= 50</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

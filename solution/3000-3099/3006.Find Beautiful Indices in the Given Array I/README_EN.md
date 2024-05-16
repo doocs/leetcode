@@ -21,6 +21,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> string <code>s</code>, a string <code>a</code>, a string <code>b</code>, and an integer <code>k</code>.</p>
 
 <p>An index <code>i</code> is <strong>beautiful</strong> if:</p>
@@ -69,6 +71,8 @@ Thus we return [0] as the result.
 	<li><code>1 &lt;= a.length, b.length &lt;= 10</code></li>
 	<li><code>s</code>, <code>a</code>, and <code>b</code> contain only lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

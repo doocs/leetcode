@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>root</code>&nbsp;of a binary tree, return all <strong>duplicate subtrees</strong>.</p>
 
 <p>For each kind of duplicate subtrees, you only need to return the root node of any <b>one</b> of them.</p>
@@ -52,6 +54,8 @@ tags:
 	<li>The number of the nodes in the tree will be in the range <code>[1, 5000]</code></li>
 	<li><code>-200 &lt;= Node.val &lt;= 200</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

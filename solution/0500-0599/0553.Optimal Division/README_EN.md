@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code>. The adjacent integers in <code>nums</code> will perform the float division.</p>
 
 <ul>
@@ -61,6 +63,8 @@ It can be shown that after trying all possibilities, we cannot get an expression
 	<li><code>2 &lt;= nums[i] &lt;= 1000</code></li>
 	<li>There is only one optimal division for the given input.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

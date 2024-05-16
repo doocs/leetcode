@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design a food rating system that can do the following:</p>
 
 <ul>
@@ -83,6 +85,8 @@ foodRatings.highestRated(&quot;japanese&quot;); // return &quot;ramen&quot;
 	<li><code>cuisine</code> will be a type of cuisine of <strong>at least one</strong> food item in the system across all calls to <code>highestRated</code>.</li>
 	<li>At most <code>2 * 10<sup>4</sup></code> calls <strong>in total</strong> will be made to <code>changeRating</code> and <code>highestRated</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

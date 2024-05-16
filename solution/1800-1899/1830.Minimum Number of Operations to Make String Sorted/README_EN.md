@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>s</code> (<strong>0-indexed</strong>)​​​​​​. You are asked to perform the following operation on <code>s</code>​​​​​​ until you get a sorted string:</p>
 
 <ol>
@@ -60,6 +62,8 @@ Operation 2: i=4, j=4. Swap s[3] and s[4] to get s=&quot;aaaab&quot;, then rever
 	<li><code>1 &lt;= s.length &lt;= 3000</code></li>
 	<li><code>s</code>​​​​​​ consists only of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>An ant is on a boundary. It sometimes goes <strong>left</strong> and sometimes <strong>right</strong>.</p>
 
 <p>You are given an array of <strong>non-zero</strong> integers <code>nums</code>. The ant starts reading <code>nums</code> from the first element of it to its end. At each step, it moves according to the value of the current element:</p>
@@ -68,6 +70,8 @@ The ant never returned to the boundary, so the answer is 0.
 	<li><code>-10 &lt;= nums[i] &lt;= 10</code></li>
 	<li><code>nums[i] != 0</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

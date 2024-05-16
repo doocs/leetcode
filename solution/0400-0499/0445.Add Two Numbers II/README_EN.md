@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two <strong>non-empty</strong> linked lists representing two non-negative integers. The most significant digit comes first and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.</p>
 
 <p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
@@ -53,6 +55,8 @@ tags:
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong>&nbsp;Could you solve it without reversing the input lists?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

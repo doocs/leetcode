@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 Given three strings <code>a</code>, <code>b</code>, and <code>c</code>, your task is to find a string that has the<strong> minimum</strong> length and contains all three strings as <strong>substrings</strong>.
 
 <p>If there are multiple such strings, return the<em> </em><strong>lexicographically<em> </em>smallest </strong>one.</p>
@@ -54,6 +56,8 @@ Given three strings <code>a</code>, <code>b</code>, and <code>c</code>, your tas
 	<li><code>1 &lt;= a.length, b.length, c.length &lt;= 100</code></li>
 	<li><code>a</code>, <code>b</code>, <code>c</code> consist only of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

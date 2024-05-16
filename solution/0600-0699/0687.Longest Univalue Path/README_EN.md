@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>root</code> of a binary tree, return <em>the length of the longest path, where each node in the path has the same value</em>. This path may or may not pass through the root.</p>
 
 <p><strong>The length of the path</strong> between two nodes is represented by the number of edges between them.</p>
@@ -45,6 +47,8 @@ tags:
 	<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
 	<li>The depth of the tree will not exceed <code>1000</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

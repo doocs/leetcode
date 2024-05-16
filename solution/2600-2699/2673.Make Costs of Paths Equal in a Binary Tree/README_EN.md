@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer <code>n</code> representing the number of nodes in a <strong>perfect binary tree</strong> consisting of nodes numbered from <code>1</code> to <code>n</code>. The root of the tree is node <code>1</code> and each node <code>i</code> in the tree has two children where the left child is the node <code>2 * i</code> and the right child is <code>2 * i + 1</code>.</p>
 
 <p>Each node in the tree also has a <strong>cost</strong> represented by a given <strong>0-indexed</strong> integer array <code>cost</code> of size <code>n</code> where <code>cost[i]</code> is the cost of node <code>i + 1</code>. You are allowed to <strong>increment</strong> the cost of <strong>any</strong> node by <code>1</code> <strong>any</strong> number of times.</p>
@@ -65,6 +67,8 @@ It can be shown that this is the minimum answer we can achieve.
 	<li><code>cost.length == n</code></li>
 	<li><code>1 &lt;= cost[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

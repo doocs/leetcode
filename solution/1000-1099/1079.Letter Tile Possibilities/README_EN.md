@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You have <code>n</code>&nbsp;&nbsp;<code>tiles</code>, where each tile has one letter <code>tiles[i]</code> printed on it.</p>
 
 <p>Return <em>the number of possible non-empty sequences of letters</em> you can make using the letters printed on those <code>tiles</code>.</p>
@@ -53,6 +55,8 @@ tags:
 	<li><code>1 &lt;= tiles.length &lt;= 7</code></li>
 	<li><code>tiles</code> consists of uppercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

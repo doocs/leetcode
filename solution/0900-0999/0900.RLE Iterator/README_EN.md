@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>We can use run-length encoding (i.e., <strong>RLE</strong>) to encode a sequence of integers. In a run-length encoded array of even length <code>encoding</code> (<strong>0-indexed</strong>), for all even <code>i</code>, <code>encoding[i]</code> tells us the number of times that the non-negative integer value <code>encoding[i + 1]</code> is repeated in the sequence.</p>
 
 <ul>
@@ -61,6 +63,8 @@ but the second term did not exist. Since the last term exhausted does not exist,
 	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
 	<li>At most <code>1000</code> calls will be made to <code>next</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

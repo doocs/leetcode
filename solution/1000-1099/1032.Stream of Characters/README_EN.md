@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design an algorithm that accepts a stream of characters and checks if a suffix of these characters is a string of a given array of strings <code>words</code>.</p>
 
 <p>For example, if <code>words = [&quot;abc&quot;, &quot;xyz&quot;]</code>&nbsp;and the stream added the four characters (one by one) <code>&#39;a&#39;</code>, <code>&#39;x&#39;</code>, <code>&#39;y&#39;</code>, and <code>&#39;z&#39;</code>, your algorithm should detect that the suffix <code>&quot;xyz&quot;</code> of the characters <code>&quot;axyz&quot;</code> matches <code>&quot;xyz&quot;</code> from <code>words</code>.</p>
@@ -67,6 +69,8 @@ streamChecker.query(&quot;l&quot;); // return True, because &#39;kl&#39; is in t
 	<li><code>letter</code> is a lowercase English letter.</li>
 	<li>At most <code>4 * 10<sup>4</sup></code> calls will be made to query.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

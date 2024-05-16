@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Products</code></p>
 
 <pre>
@@ -88,6 +90,8 @@ Invoice 4: price = (10 * 100) = $1000
 
 The highest price is $1000, and the invoices with the highest prices are 2 and 4. We return the details of the one with the smallest ID, which is invoice 2.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code> of size <code>n</code> containing <strong>each</strong> element from <code>0</code> to <code>n - 1</code> (<strong>inclusive</strong>). Each of the elements from <code>1</code> to <code>n - 1</code> represents an item, and the element <code>0</code> represents an empty space.</p>
 
 <p>In one operation, you can move <strong>any</strong> item to the empty space. <code>nums</code> is considered to be sorted if the numbers of all the items are in <strong>ascending</strong> order and the empty space is either at the beginning or at the end of the array.</p>
@@ -72,6 +74,8 @@ It can be proven that 2 is the minimum number of operations needed.
 	<li><code>0 &lt;= nums[i] &lt; n</code></li>
 	<li>All the values of <code>nums</code> are <strong>unique</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

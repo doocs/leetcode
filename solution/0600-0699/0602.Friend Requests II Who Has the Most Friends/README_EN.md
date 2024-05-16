@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>RequestAccepted</code></p>
 
 <pre>
@@ -62,6 +64,8 @@ The person with id 3 is a friend of people 1, 2, and 4, so he has three friends 
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> In the real world, multiple people could have the same most number of friends. Could you find all these people in this case?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

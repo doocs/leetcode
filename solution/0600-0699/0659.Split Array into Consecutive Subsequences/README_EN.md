@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code> that is <strong>sorted in non-decreasing order</strong>.</p>
 
 <p>Determine if it is possible to split <code>nums</code> into <strong>one or more subsequences</strong> such that <strong>both</strong> of the following conditions are true:</p>
@@ -67,6 +69,8 @@ tags:
 	<li><code>-1000 &lt;= nums[i] &lt;= 1000</code></li>
 	<li><code>nums</code> is sorted in <strong>non-decreasing</strong> order.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

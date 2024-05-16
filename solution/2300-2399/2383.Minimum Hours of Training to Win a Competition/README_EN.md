@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are entering a competition, and are given two <strong>positive</strong> integers <code>initialEnergy</code> and <code>initialExperience</code> denoting your initial energy and initial experience respectively.</p>
 
 <p>You are also given two <strong>0-indexed</strong> integer arrays <code>energy</code> and <code>experience</code>, both of length <code>n</code>.</p>
@@ -65,6 +67,8 @@ It can be proven that no smaller answer exists.
 	<li><code>1 &lt;= n &lt;= 100</code></li>
 	<li><code>1 &lt;= initialEnergy, initialExperience, energy[i], experience[i] &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

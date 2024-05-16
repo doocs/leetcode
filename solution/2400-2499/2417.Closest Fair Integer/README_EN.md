@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>positive</strong> integer <code>n</code>.</p>
 
 <p>We call an integer <code>k</code> fair if the number of <strong>even</strong> digits in <code>k</code> is equal to the number of <strong>odd</strong> digits in it.</p>
@@ -45,6 +47,8 @@ tags:
 <ul>
 	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A <strong>peak</strong> element in a 2D grid is an element that is <strong>strictly greater</strong> than all of its <strong>adjacent </strong>neighbors to the left, right, top, and bottom.</p>
 
 <p>Given a <strong>0-indexed</strong> <code>m x n</code> matrix <code>mat</code> where <strong>no two adjacent cells are equal</strong>, find <strong>any</strong> peak element <code>mat[i][j]</code> and return <em>the length 2 array </em><code>[i,j]</code>.</p>
@@ -55,6 +57,8 @@ tags:
 	<li><code>1 &lt;= mat[i][j] &lt;= 10<sup>5</sup></code></li>
 	<li>No two adjacent cells are equal.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

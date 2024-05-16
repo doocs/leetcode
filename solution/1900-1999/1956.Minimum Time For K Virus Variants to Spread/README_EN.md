@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There are <code>n</code> <strong>unique</strong> virus variants in an infinite 2D grid. You are given a 2D array <code>points</code>, where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> represents a virus originating at <code>(x<sub>i</sub>, y<sub>i</sub>)</code> on day <code>0</code>. Note that it is possible for <strong>multiple </strong>virus variants to originate at the <strong>same</strong> point.</p>
 
 <p>Every day, each cell infected with a virus variant will spread the virus to <strong>all </strong>neighboring points in the <strong>four</strong> cardinal directions (i.e. up, down, left, and right). If a cell has multiple variants, all the variants will spread without interfering with each other.</p>
@@ -59,6 +61,8 @@ tags:
 	<li><code>1 &lt;= x<sub>i</sub>, y<sub>i</sub> &lt;= 100</code></li>
 	<li><code>2 &lt;= k &lt;= n</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

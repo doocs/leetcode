@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>root</code> of a binary tree, return <em>the lowest common ancestor of its deepest leaves</em>.</p>
 
 <p>Recall that:</p>
@@ -67,6 +69,8 @@ Note that nodes 6, 0, and 8 are also leaf nodes, but the depth of them is 2, but
 
 <p>&nbsp;</p>
 <p><strong>Note:</strong> This question is the same as 865: <a href="https://leetcode.com/problems/smallest-subtree-with-all-the-deepest-nodes/" target="_blank">https://leetcode.com/problems/smallest-subtree-with-all-the-deepest-nodes/</a></p>
+
+<!-- description:end -->
 
 ## Solutions
 

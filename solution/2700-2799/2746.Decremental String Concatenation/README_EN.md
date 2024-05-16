@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> array <code>words</code> containing <code>n</code> strings.</p>
 
 <p>Let&#39;s define a <strong>join</strong> operation <code>join(x, y)</code> between two strings <code>x</code> and <code>y</code> as concatenating them into <code>xy</code>. However, if the last character of <code>x</code> is equal to the first character of <code>y</code>, one of them is <strong>deleted</strong>.</p>
@@ -79,6 +81,8 @@ It can be shown that the minimum possible length of str<sub>2</sub> is 6.
 	<li><code>1 &lt;= words[i].length &lt;= 50</code></li>
 	<li>Each character in <code>words[i]</code> is an English lowercase letter</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

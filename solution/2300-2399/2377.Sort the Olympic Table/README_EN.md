@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Olympic</code></p>
 
 <pre>
@@ -73,6 +75,8 @@ Olympic table:
 The tie between China and USA is broken by their lexicographical names. Since &quot;China&quot; is lexicographically smaller than &quot;USA&quot;, it comes first.
 Israel comes before Egypt because it has more bronze medals.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

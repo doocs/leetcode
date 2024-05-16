@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array of CPU <code>tasks</code>, each represented by letters&nbsp;A&nbsp;to Z, and a cooling time, <code>n</code>. Each cycle or interval allows the completion of one task. Tasks can be completed in any order, but there&#39;s a constraint: <strong>identical</strong> tasks must be separated by at least <code>n</code> intervals due to cooling time.</p>
 
 <p>​Return the <em>minimum number of intervals</em> required to complete all tasks.</p>
@@ -113,6 +115,8 @@ font-size: 0.85rem;
 	<li><code>tasks[i]</code> is an uppercase English letter.</li>
 	<li><code>0 &lt;= n &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

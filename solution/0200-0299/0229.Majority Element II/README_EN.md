@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array of size <code>n</code>, find all elements that appear more than <code>&lfloor; n/3 &rfloor;</code> times.</p>
 
 <p>&nbsp;</p>
@@ -51,6 +53,8 @@ tags:
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you solve the problem in linear time and in <code>O(1)</code> space?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

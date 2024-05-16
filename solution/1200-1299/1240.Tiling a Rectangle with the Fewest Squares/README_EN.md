@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a rectangle of size <code>n</code> x <code>m</code>, return <em>the minimum number of integer-sided squares that tile the rectangle</em>.</p>
 
 <p>&nbsp;</p>
@@ -54,6 +56,8 @@ tags:
 <ul>
 	<li><code>1 &lt;= n, m &lt;= 13</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

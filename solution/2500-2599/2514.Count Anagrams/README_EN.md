@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>s</code> containing one or more words. Every consecutive pair of words is separated by a single space <code>&#39; &#39;</code>.</p>
 
 <p>A string <code>t</code> is an <strong>anagram</strong> of string <code>s</code> if the <code>i<sup>th</sup></code> word of <code>t</code> is a <strong>permutation</strong> of the <code>i<sup>th</sup></code> word of <code>s</code>.</p>
@@ -54,6 +56,8 @@ tags:
 	<li><code>s</code> consists of lowercase English letters and spaces <code>&#39; &#39;</code>.</li>
 	<li>There is single space between consecutive words.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

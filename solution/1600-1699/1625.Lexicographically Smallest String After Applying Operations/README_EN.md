@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>s</code> of <strong>even length</strong> consisting of digits from <code>0</code> to <code>9</code>, and two integers <code>a</code> and <code>b</code>.</p>
 
 <p>You can apply either of the following two operations any number of times and in any order on <code>s</code>:</p>
@@ -80,6 +82,8 @@ There is no way to obtain a string that is lexicographically smaller than &quot;
 	<li><code>1 &lt;= a &lt;= 9</code></li>
 	<li><code>1 &lt;= b &lt;= s.length - 1</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

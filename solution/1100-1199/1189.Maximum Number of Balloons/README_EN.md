@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a string <code>text</code>, you want to use the characters of <code>text</code> to form as many instances of the word <strong>&quot;balloon&quot;</strong> as possible.</p>
 
 <p>You can use each character in <code>text</code> <strong>at most once</strong>. Return the maximum number of instances that can be formed.</p>
@@ -55,6 +57,8 @@ tags:
 	<li><code>1 &lt;= text.length &lt;= 10<sup>4</sup></code></li>
 	<li><code>text</code> consists of lower case English letters only.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

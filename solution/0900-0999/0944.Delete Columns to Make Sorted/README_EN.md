@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array of <code>n</code> strings <code>strs</code>, all of the same length.</p>
 
 <p>The strings can be arranged such that there is one on each line, making a grid.</p>
@@ -78,6 +80,8 @@ All 3 columns are not sorted, so you will delete all 3.
 	<li><code>1 &lt;= strs[i].length &lt;= 1000</code></li>
 	<li><code>strs[i]</code> consists of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a positive integer <code>n</code>, you can do the following operation <strong>any</strong> number of times:</p>
 
 <ul>
@@ -59,6 +61,8 @@ So the minimum number of operations is 3.
 <ul>
 	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

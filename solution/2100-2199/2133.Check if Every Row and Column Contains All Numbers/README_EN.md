@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>An <code>n x n</code> matrix is <strong>valid</strong> if every row and every column contains <strong>all</strong> the integers from <code>1</code> to <code>n</code> (<strong>inclusive</strong>).</p>
 
 <p>Given an <code>n x n</code> integer matrix <code>matrix</code>, return <code>true</code> <em>if the matrix is <strong>valid</strong>.</em> Otherwise, return <code>false</code>.</p>
@@ -49,6 +51,8 @@ Hence, we return false.
 	<li><code>1 &lt;= n &lt;= 100</code></li>
 	<li><code>1 &lt;= matrix[i][j] &lt;= n</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

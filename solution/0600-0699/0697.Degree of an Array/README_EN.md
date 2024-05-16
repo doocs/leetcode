@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a non-empty array of non-negative integers <code>nums</code>, the <b>degree</b> of this array is defined as the maximum frequency of any one of its elements.</p>
 
 <p>Your task is to find the smallest possible length of a (contiguous) subarray of <code>nums</code>, that has the same degree as <code>nums</code>.</p>
@@ -49,6 +51,8 @@ So [2,2,3,1,4,2] is the shortest subarray, therefore returning 6.
 	<li><code>nums.length</code> will be between 1 and 50,000.</li>
 	<li><code>nums[i]</code> will be an integer between 0 and 49,999.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

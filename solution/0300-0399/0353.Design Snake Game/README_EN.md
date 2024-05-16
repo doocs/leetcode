@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design a <a href="https://en.wikipedia.org/wiki/Snake_(video_game)" target="_blank">Snake game</a> that is played on a device with screen size <code>height x width</code>. <a href="http://patorjk.com/games/snake/" target="_blank">Play the game online</a> if you are not familiar with the game.</p>
 
 <p>The snake is initially positioned at the top left corner <code>(0, 0)</code> with a length of <code>1</code> unit.</p>
@@ -71,6 +73,8 @@ snakeGame.move(&quot;U&quot;); // return -1, game over because snake collides wi
 	<li><code>direction</code> is <code>&#39;U&#39;</code>, <code>&#39;D&#39;</code>, <code>&#39;L&#39;</code>, or <code>&#39;R&#39;</code>.</li>
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>move</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2621.Sl
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given&nbsp;a positive integer <code>millis</code>, write an asynchronous function that sleeps for <code>millis</code>&nbsp;milliseconds. It can resolve any value.</p>
 
 <p>&nbsp;</p>
@@ -41,6 +43,8 @@ sleep(100).then(() =&gt; {
 <ul>
 	<li><code>1 &lt;= millis &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2887.Fi
 
 ## Description
 
+<!-- description:start -->
+
 <pre>
 DataFrame <code>products</code>
 +-------------+--------+
@@ -49,6 +51,8 @@ DataFrame <code>products</code>
 +-----------------+----------+-------+
 <strong>Explanation:</strong> 
 The quantity for Wristwatch and WirelessEarbuds are filled by 0.</pre>
+
+<!-- description:end -->
 
 ## Solutions
 

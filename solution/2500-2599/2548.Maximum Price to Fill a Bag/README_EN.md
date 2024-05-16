@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a 2D integer array <code>items</code> where <code>items[i] = [price<sub>i</sub>, weight<sub>i</sub>]</code> denotes the price and weight of the <code>i<sup>th</sup></code> item, respectively.</p>
 
 <p>You are also given a <strong>positive</strong> integer <code>capacity</code>.</p>
@@ -60,6 +62,8 @@ It can be proved that 55.0 is the maximum total price that we can achieve.
 	<li><code>1 &lt;= price<sub>i</sub>, weight<sub>i</sub> &lt;= 10<sup>4</sup></code></li>
 	<li><code>1 &lt;= capacity &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

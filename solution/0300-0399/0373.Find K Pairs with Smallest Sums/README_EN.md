@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two integer arrays <code>nums1</code> and <code>nums2</code> sorted in <strong>non-decreasing&nbsp;order</strong> and an integer <code>k</code>.</p>
 
 <p>Define a pair <code>(u, v)</code> which consists of one element from the first array and one element from the second array.</p>
@@ -48,6 +50,8 @@ tags:
 	<li><code>1 &lt;= k &lt;= 10<sup>4</sup></code></li>
 	<li><code>k &lt;=&nbsp;nums1.length *&nbsp;nums2.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

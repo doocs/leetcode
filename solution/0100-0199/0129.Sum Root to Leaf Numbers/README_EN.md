@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given the <code>root</code> of a binary tree containing digits from <code>0</code> to <code>9</code> only.</p>
 
 <p>Each root-to-leaf path in the tree represents a number.</p>
@@ -60,6 +62,8 @@ Therefore, sum = 495 + 491 + 40 = <code>1026</code>.
 	<li><code>0 &lt;= Node.val &lt;= 9</code></li>
 	<li>The depth of the tree will not exceed <code>10</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two positive integers <code>n</code> and <code>k</code>. A factor of an integer <code>n</code> is defined as an integer <code>i</code> where <code>n % i == 0</code>.</p>
 
 <p>Consider a list of all factors of <code>n</code> sorted in <strong>ascending order</strong>, return <em>the </em><code>k<sup>th</sup></code><em> factor</em> in this list or return <code>-1</code> if <code>n</code> has less than <code>k</code> factors.</p>
@@ -57,6 +59,8 @@ tags:
 <p><strong>Follow up:</strong></p>
 
 <p>Could you solve this problem in less than O(n) complexity?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

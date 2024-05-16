@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>s</code> that consists of the digits <code>&#39;1&#39;</code> to <code>&#39;9&#39;</code> and two integers <code>k</code> and <code>minLength</code>.</p>
 
 <p>A partition of <code>s</code> is called <strong>beautiful</strong> if:</p>
@@ -66,6 +68,8 @@ tags:
 	<li><code>1 &lt;= k, minLength &lt;= s.length &lt;= 1000</code></li>
 	<li><code>s</code> consists of the digits <code>&#39;1&#39;</code> to <code>&#39;9&#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

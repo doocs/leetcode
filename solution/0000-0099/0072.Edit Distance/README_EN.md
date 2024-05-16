@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two strings <code>word1</code> and <code>word2</code>, return <em>the minimum number of operations required to convert <code>word1</code> to <code>word2</code></em>.</p>
 
 <p>You have the following three operations permitted on a word:</p>
@@ -57,6 +59,8 @@ exection -&gt; execution (insert &#39;u&#39;)
 	<li><code>0 &lt;= word1.length, word2.length &lt;= 500</code></li>
 	<li><code>word1</code> and <code>word2</code> consist of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

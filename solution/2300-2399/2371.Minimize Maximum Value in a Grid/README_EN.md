@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an <code>m x n</code> integer matrix <code>grid</code> containing <strong>distinct</strong> positive integers.</p>
 
 <p>You have to replace each integer in the matrix with a positive integer satisfying the following conditions:</p>
@@ -63,6 +65,8 @@ The maximum number in the matrix is 2. It can be shown that no smaller value can
 	<li><code>1 &lt;= grid[i][j] &lt;= 10<sup>9</sup></code></li>
 	<li><code>grid</code> consists of distinct integers.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

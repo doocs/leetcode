@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2880.Se
 
 ## Description
 
+<!-- description:start -->
+
 <pre>
 DataFrame students
 +-------------+--------+
@@ -48,6 +50,8 @@ Input:</strong>
 +---------+-----+
 <strong>Explanation:
 </strong>Student Ulysses has student_id = 101, we select the name and age.</pre>
+
+<!-- description:end -->
 
 ## Solutions
 

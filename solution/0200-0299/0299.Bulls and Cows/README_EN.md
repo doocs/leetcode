@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are playing the <strong><a href="https://en.wikipedia.org/wiki/Bulls_and_Cows" target="_blank">Bulls and Cows</a></strong> game with your friend.</p>
 
 <p>You write down a secret number and ask your friend to guess what the number is. When your friend makes a guess, you provide a hint with the following info:</p>
@@ -60,6 +62,8 @@ Note that only one of the two unmatched 1s is counted as a cow since the non-bul
 	<li><code>secret.length == guess.length</code></li>
 	<li><code>secret</code> and <code>guess</code> consist of digits only.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

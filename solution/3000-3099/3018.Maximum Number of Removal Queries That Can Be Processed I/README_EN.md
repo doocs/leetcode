@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> and a <strong>0-indexed</strong> array <code>queries</code>.</p>
 
 <p>You can do the following operation at the beginning <strong>at most once</strong>:</p>
@@ -83,6 +85,8 @@ It can be shown that we can&#39;t process more than 2 queries.
 	<li><code>1 &lt;= queries.length &lt;= 1000</code></li>
 	<li><code>1 &lt;= nums[i], queries[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

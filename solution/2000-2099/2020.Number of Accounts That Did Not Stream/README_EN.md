@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Subscriptions</code></p>
 
 <pre>
@@ -88,6 +90,8 @@ Streams table:
 <strong>Explanation:</strong> Users 4 and 9 did not stream in 2021.
 User 11 did not subscribe in 2021.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

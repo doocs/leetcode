@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Buses</code></p>
 
 <pre>
@@ -97,6 +99,8 @@ Passengers table:
 - Passenger 14 arrives at time 7.
 - Bus 3 arrives at time 7 and collects passengers 12 and 13 as it has two empty seats.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

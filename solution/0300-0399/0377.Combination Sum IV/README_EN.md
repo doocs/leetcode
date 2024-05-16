@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of <strong>distinct</strong> integers <code>nums</code> and a target integer <code>target</code>, return <em>the number of possible combinations that add up to</em>&nbsp;<code>target</code>.</p>
 
 <p>The test cases are generated so that the answer can fit in a <strong>32-bit</strong> integer.</p>
@@ -56,6 +58,8 @@ Note that different sequences are counted as different combinations.
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> What if negative numbers are allowed in the given array? How does it change the problem? What limitation we need to add to the question to allow negative numbers?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

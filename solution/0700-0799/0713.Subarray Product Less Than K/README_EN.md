@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of integers <code>nums</code> and an integer <code>k</code>, return <em>the number of contiguous subarrays where the product of all the elements in the subarray is strictly less than </em><code>k</code>.</p>
 
 <p>&nbsp;</p>
@@ -43,6 +45,8 @@ Note that [10, 5, 2] is not included as the product of 100 is not strictly less 
 	<li><code>1 &lt;= nums[i] &lt;= 1000</code></li>
 	<li><code>0 &lt;= k &lt;= 10<sup>6</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

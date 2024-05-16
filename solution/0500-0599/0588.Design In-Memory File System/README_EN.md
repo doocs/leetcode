@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design a data structure that simulates an in-memory file system.</p>
 
 <p>Implement the FileSystem class:</p>
@@ -70,6 +72,8 @@ fileSystem.readContentFromFile(&quot;/a/b/c/d&quot;); // return &quot;hello&quot
 	<li><code>1 &lt;= content.length &lt;= 50</code></li>
 	<li>At most <code>300</code> calls will be made to <code>ls</code>, <code>mkdir</code>,&nbsp;<code>addContentToFile</code>, and&nbsp;<code>readContentFromFile</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

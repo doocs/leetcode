@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A square matrix is said to be an <strong>X-Matrix</strong> if <strong>both</strong> of the following conditions hold:</p>
 
 <ol>
@@ -55,6 +57,8 @@ Thus, grid is not an X-Matrix.
 	<li><code>3 &lt;= n &lt;= 100</code></li>
 	<li><code>0 &lt;= grid[i][j] &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

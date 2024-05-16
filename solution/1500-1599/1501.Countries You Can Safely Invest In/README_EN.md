@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table <code>Person</code>:</p>
 
 <pre>
@@ -124,6 +126,8 @@ The average call duration for Morocco is (33 + 4 + 59 + 59 + 3 + 7) / 6 = 27.500
 Global call duration average = (2 * (33 + 4 + 59 + 102 + 330 + 5 + 13 + 3 + 1 + 7)) / 20 = 55.70000
 Since Peru is the only country where the average call duration is greater than the global average, it is the only recommended country.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

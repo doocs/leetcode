@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>ranks</code> representing the <strong>ranks</strong> of some mechanics. <font face="monospace">ranks<sub>i</sub></font> is the rank of the <font face="monospace">i<sup>th</sup></font> mechanic<font face="monospace">.</font> A mechanic with a rank <code>r</code> can repair <font face="monospace">n</font> cars in <code>r * n<sup>2</sup></code> minutes.</p>
 
 <p>You are also given an integer <code>cars</code> representing the total number of cars waiting in the garage to be repaired.</p>
@@ -59,6 +61,8 @@ It can be proved that the cars cannot be repaired in less than 16 minutes.​​
 	<li><code>1 &lt;= ranks[i] &lt;= 100</code></li>
 	<li><code>1 &lt;= cars &lt;= 10<sup>6</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

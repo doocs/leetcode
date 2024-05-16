@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are the operator of a Centennial Wheel that has <strong>four gondolas</strong>, and each gondola has room for <strong>up</strong> <strong>to</strong> <strong>four people</strong>. You have the ability to rotate the gondolas <strong>counterclockwise</strong>, which costs you <code>runningCost</code> dollars.</p>
 
 <p>You are given an array <code>customers</code> of length <code>n</code> where <code>customers[i]</code> is the number of new customers arriving just before the <code>i<sup>th</sup></code> rotation (0-indexed). This means you <strong>must rotate the wheel </strong><code>i</code><strong> times before the </strong><code>customers[i]</code><strong> customers arrive</strong>. <strong>You cannot make customers wait if there is room in the gondola</strong>. Each customer pays <code>boardingCost</code> dollars when they board on the gondola closest to the ground and will exit once that gondola reaches the ground again.</p>
@@ -77,6 +79,8 @@ The profit was never positive, so return -1.
 	<li><code>0 &lt;= customers[i] &lt;= 50</code></li>
 	<li><code>1 &lt;= boardingCost, runningCost &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array of integers <code>nums</code>. Perform the following steps:</p>
 
 <ol>
@@ -72,6 +74,8 @@ Note that there are other ways to obtain the same resultant array.
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 	<li>The test cases are generated such that the values in the final array are <strong>less than or equal</strong> to <code>10<sup>8</sup></code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

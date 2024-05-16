@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A <strong>super ugly number</strong> is a positive integer whose prime factors are in the array <code>primes</code>.</p>
 
 <p>Given an integer <code>n</code> and an array of integers <code>primes</code>, return <em>the</em> <code>n<sup>th</sup></code> <em><strong>super ugly number</strong></em>.</p>
@@ -49,6 +51,8 @@ tags:
 	<li><code>primes[i]</code> is <strong>guaranteed</strong> to be a prime number.</li>
 	<li>All the values of <code>primes</code> are <strong>unique</strong> and sorted in <strong>ascending order</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

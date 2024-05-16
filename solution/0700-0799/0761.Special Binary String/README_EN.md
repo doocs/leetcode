@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p><strong>Special binary strings</strong> are binary strings with the following two properties:</p>
 
 <ul>
@@ -53,6 +55,8 @@ This is the lexicographically largest string possible after some number of swaps
 	<li><code>s[i]</code> is either <code>&#39;0&#39;</code> or <code>&#39;1&#39;</code>.</li>
 	<li><code>s</code> is a special binary string.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

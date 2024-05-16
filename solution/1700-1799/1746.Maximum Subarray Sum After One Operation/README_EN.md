@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code>. You must perform <strong>exactly one</strong> operation&nbsp;where you can <strong>replace</strong> one&nbsp;element <code>nums[i]</code> with <code>nums[i] * nums[i]</code>.&nbsp;</p>
 
 <p>Return <em>the <strong>maximum</strong> possible subarray sum after <strong>exactly&nbsp;one</strong> operation</em>. The subarray must be non-empty.</p>
@@ -52,6 +54,8 @@ tags:
     <li><code>-10<sup>4</sup>&nbsp;&lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

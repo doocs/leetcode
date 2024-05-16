@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> consisting of <code>n</code> positive integers.</p>
 
 <p>The array <code>nums</code> is called <strong>alternating</strong> if:</p>
@@ -62,6 +64,8 @@ Note that the array cannot be converted to [<u><strong>2</strong></u>,2,2,2,2] b
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

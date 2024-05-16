@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a url <code>startUrl</code> and an interface <code>HtmlParser</code>, implement a web&nbsp;crawler to crawl all links that are under the&nbsp;<strong>same hostname</strong> as&nbsp;<code>startUrl</code>.&nbsp;</p>
 
 <p>Return&nbsp;all urls obtained by your web crawler in <strong>any</strong> order.</p>
@@ -99,6 +101,8 @@ startUrl = &quot;http://news.google.com&quot;
 	<li>See:&nbsp;&nbsp;<a href="https://en.wikipedia.org/wiki/Hostname#Restrictions_on_valid_hostnames">https://en.wikipedia.org/wiki/Hostname#Restrictions_on_valid_hostnames</a></li>
 	<li>You may assume there&#39;re&nbsp;no duplicates in url library.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

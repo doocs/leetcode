@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Seat</code></p>
 
 <pre>
@@ -64,6 +66,8 @@ Seat table:
 <strong>Explanation:</strong> 
 Note that if the number of students is odd, there is no need to change the last one&#39;s seat.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code> with possible <strong>duplicates</strong>, randomly output the index of a given <code>target</code> number. You can assume that the given target number must exist in the array.</p>
 
 <p>Implement the <code>Solution</code> class:</p>
@@ -52,6 +54,8 @@ solution.pick(3); // It should return either index 2, 3, or 4 randomly. Each ind
 	<li><code>target</code> is an integer from <code>nums</code>.</li>
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>pick</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

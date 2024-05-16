@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given the <code>head</code> of a <strong>non-empty</strong> linked list representing a non-negative integer without leading zeroes.</p>
 
 <p>Return <em>the </em><code>head</code><em> of the linked list after <strong>doubling</strong> it</em>.</p>
@@ -47,6 +49,8 @@ tags:
 	<li><font face="monospace"><code>0 &lt;= Node.val &lt;= 9</code></font></li>
 	<li>The input is generated such that the list represents a number that does not have leading zeros, except the number <code>0</code> itself.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

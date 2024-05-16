@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Products</code></p>
 
 <pre>
@@ -63,6 +65,8 @@ Products table:
 Product 0 price&#39;s are 95 for store1, 100 for store2 and, 105 for store3.
 Product 1 price&#39;s are 70 for store1, 80 for store3 and, it&#39;s not sold in store2.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

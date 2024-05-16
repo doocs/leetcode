@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a list of equivalent string pairs <code>synonyms</code> where <code>synonyms[i] = [s<sub>i</sub>, t<sub>i</sub>]</code> indicates that <code>s<sub>i</sub></code> and <code>t<sub>i</sub></code> are equivalent strings. You are also given a sentence <code>text</code>.</p>
 
 <p>Return <em>all possible synonymous sentences <strong>sorted lexicographically</strong></em>.</p>
@@ -51,6 +53,8 @@ tags:
 	<li>All the pairs of&nbsp;<code>synonyms</code> are <strong>unique</strong>.</li>
 	<li>The words of <code>text</code> are separated by single spaces.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

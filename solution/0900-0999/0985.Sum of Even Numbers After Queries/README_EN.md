@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code> and an array <code>queries</code> where <code>queries[i] = [val<sub>i</sub>, index<sub>i</sub>]</code>.</p>
 
 <p>For each query <code>i</code>, first, apply <code>nums[index<sub>i</sub>] = nums[index<sub>i</sub>] + val<sub>i</sub></code>, then print the sum of the even values of <code>nums</code>.</p>
@@ -51,6 +53,8 @@ After adding 2 to nums[3], the array is [-2,-1,3,6], and the sum of even values 
 	<li><code>-10<sup>4</sup> &lt;= val<sub>i</sub> &lt;= 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= index<sub>i</sub> &lt; nums.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You have <code>n</code> boxes labeled from <code>0</code> to <code>n - 1</code>. You are given four arrays: <code>status</code>, <code>candies</code>, <code>keys</code>, and <code>containedBoxes</code> where:</p>
 
 <ul>
@@ -70,6 +72,8 @@ The total number of candies will be 6.
 	<li><code>0 &lt;= initialBoxes.length &lt;= n</code></li>
 	<li><code>0 &lt;= initialBoxes[i] &lt; n</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

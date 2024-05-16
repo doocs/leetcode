@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code> of length <code>n</code> and an integer <code>numSlots</code> such that <code>2 * numSlots &gt;= n</code>. There are <code>numSlots</code> slots numbered from <code>1</code> to <code>numSlots</code>.</p>
 
 <p>You have to place all <code>n</code> integers into the slots such that each slot contains at <strong>most</strong> two numbers. The <strong>AND sum</strong> of a given placement is the sum of the <strong>bitwise</strong> <code>AND</code> of every number with its respective slot number.</p>
@@ -58,6 +60,8 @@ Note that slots 2, 5, 6, and 8 are empty which is permitted.
 	<li><code>1 &lt;= n &lt;= 2 * numSlots</code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 15</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

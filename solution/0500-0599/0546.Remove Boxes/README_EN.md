@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given several <code>boxes</code> with different colors represented by different positive numbers.</p>
 
 <p>You may experience several rounds to remove boxes until there is no box left. Each time you can choose some continuous boxes with the same color (i.e., composed of <code>k</code> boxes, <code>k &gt;= 1</code>), remove them and get <code>k * k</code> points.</p>
@@ -57,6 +59,8 @@ tags:
 	<li><code>1 &lt;= boxes.length &lt;= 100</code></li>
 	<li><code>1 &lt;= boxes[i]&nbsp;&lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

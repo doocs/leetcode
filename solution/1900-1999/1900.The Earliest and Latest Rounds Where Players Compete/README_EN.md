@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There is a tournament where <code>n</code> players are participating. The players are standing in a single row and are numbered from <code>1</code> to <code>n</code> based on their <strong>initial</strong> standing position (player <code>1</code> is the first player in the row, player <code>2</code> is the second player in the row, etc.).</p>
 
 <p>The tournament consists of multiple rounds (starting from round number <code>1</code>). In each round, the <code>i<sup>th</sup></code> player from the front of the row competes against the <code>i<sup>th</sup></code> player from the end of the row, and the winner advances to the next round. When the number of players is odd for the current round, the player in the middle automatically advances to the next round.</p>
@@ -73,6 +75,8 @@ There is no way to make them compete in any other round.
 	<li><code>2 &lt;= n &lt;= 28</code></li>
 	<li><code>1 &lt;= firstPlayer &lt; secondPlayer &lt;= n</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>root</code> of a binary tree and an array of <code>TreeNode</code> objects <code>nodes</code>, return <em>the lowest common ancestor (LCA) of <strong>all the nodes</strong> in </em><code>nodes</code>. All the nodes will exist in the tree, and all values of the tree&#39;s nodes are <strong>unique</strong>.</p>
 
 <p>Extending the <strong><a href="https://en.wikipedia.org/wiki/Lowest_common_ancestor" target="_blank">definition of LCA on Wikipedia</a></strong>: &quot;The lowest common ancestor of <code>n</code> nodes <code>p<sub>1</sub></code>, <code>p<sub>2</sub></code>, ..., <code>p<sub>n</sub></code> in a binary tree <code>T</code> is the lowest node that has every <code>p<sub>i</sub></code> as a <strong>descendant</strong> (where we allow <b>a node to be a descendant of itself</b>) for every valid <code>i</code>&quot;. A <strong>descendant</strong> of a node <code>x</code> is a node <code>y</code> that is on the path from node <code>x</code> to some leaf node.</p>
@@ -57,6 +59,8 @@ tags:
 	<li>All <code>nodes[i]</code> will exist in the tree.</li>
 	<li>All <code>nodes[i]</code> are distinct.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

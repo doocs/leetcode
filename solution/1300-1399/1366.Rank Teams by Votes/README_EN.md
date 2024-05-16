@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>In a special ranking system, each voter gives a rank from highest to lowest to all teams participating in the competition.</p>
 
 <p>The ordering of teams is decided by who received the most position-one votes. If two or more teams tie in the first position, we consider the second position to resolve the conflict, if they tie again, we continue this process until the ties are resolved. If two or more teams are still tied after considering all positions, we rank them alphabetically based on their team letter.</p>
@@ -69,6 +71,8 @@ X is the winner due to the tie-breaking rule. X has the same votes as W for the 
 	<li>All characters of <code>votes[i]</code> are unique.</li>
 	<li>All the characters that occur in <code>votes[0]</code> <strong>also occur</strong> in <code>votes[j]</code> where <code>1 &lt;= j &lt; votes.length</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

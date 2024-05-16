@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer <code>k</code> and an integer <code>x</code>. The price of a number&nbsp;<code>num</code> is calculated by the count of <span data-keyword="set-bit">set bits</span> at positions <code>x</code>, <code>2x</code>, <code>3x</code>, etc., in its binary representation, starting from the least significant bit. The following table contains examples of how price is calculated.</p>
 
 <table border="1">
@@ -240,6 +242,8 @@ tags:
 	<li><code>1 &lt;= k &lt;= 10<sup>15</sup></code></li>
 	<li><code>1 &lt;= x &lt;= 8</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

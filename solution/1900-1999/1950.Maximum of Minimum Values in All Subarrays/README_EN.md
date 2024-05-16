@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code> of size <code>n</code>. You are asked to solve <code>n</code> queries for each integer <code>i</code> in the range <code>0 &lt;= i &lt; n</code>.</p>
 
 <p>To solve the <code>i<sup>th</sup></code> query:</p>
@@ -78,6 +80,8 @@ i=3:
 	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

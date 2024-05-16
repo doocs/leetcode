@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>target</code>. You have an integer array <code>initial</code> of the same size as <code>target</code> with all elements initially zeros.</p>
 
 <p>In one operation you can choose <strong>any</strong> subarray from <code>initial</code> and increment each value by one.</p>
@@ -64,6 +66,8 @@ tags:
 	<li><code>1 &lt;= target.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= target[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

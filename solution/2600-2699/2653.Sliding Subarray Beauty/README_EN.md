@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code> containing <code>n</code> integers, find the <strong>beauty</strong> of each subarray of size <code>k</code>.</p>
 
 <p>The <strong>beauty</strong> of a subarray is the <code>x<sup>th</sup></code><strong> smallest integer </strong>in the subarray if it is <strong>negative</strong>, or <code>0</code> if there are fewer than <code>x</code> negative integers.</p>
@@ -74,6 +76,8 @@ For <code>[0, -3]</code>, the 1<sup>st</sup> smallest negative integer is -3.</p
 	<li><code>1 &lt;= x &lt;= k&nbsp;</code></li>
 	<li><code>-50&nbsp;&lt;= nums[i] &lt;= 50&nbsp;</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

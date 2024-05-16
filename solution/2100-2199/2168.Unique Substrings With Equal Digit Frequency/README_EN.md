@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 Given a digit string <code>s</code>, return <em>the number of <strong>unique substrings </strong>of </em><code>s</code><em> where every digit appears the same number of times.</em>
 
 <p>&nbsp;</p>
@@ -45,6 +47,8 @@ Note that although the substring &quot;12&quot; appears twice, it is only counte
 	<li><code>1 &lt;= s.length &lt;= 1000</code></li>
 	<li><code>s</code> consists of digits.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

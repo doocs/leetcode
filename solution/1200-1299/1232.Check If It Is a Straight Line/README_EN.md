@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array&nbsp;<code>coordinates</code>, <code>coordinates[i] = [x, y]</code>, where <code>[x, y]</code> represents the coordinate of a point. Check if these points&nbsp;make a straight line in the XY plane.</p>
 
 <p>&nbsp;</p>
@@ -50,6 +52,8 @@ tags:
 	<li><code>-10^4 &lt;=&nbsp;coordinates[i][0],&nbsp;coordinates[i][1] &lt;= 10^4</code></li>
 	<li><code>coordinates</code>&nbsp;contains no duplicate point.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

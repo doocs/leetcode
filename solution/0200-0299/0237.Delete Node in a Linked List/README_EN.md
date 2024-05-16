@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There is a singly-linked list <code>head</code> and we want to delete a node <code>node</code> in it.</p>
 
 <p>You are given the node to be deleted <code>node</code>. You will <strong>not be given access</strong> to the first node of <code>head</code>.</p>
@@ -63,6 +65,8 @@ tags:
 	<li>The value of each node in the list is <strong>unique</strong>.</li>
 	<li>The <code>node</code> to be deleted is <strong>in the list</strong> and is <strong>not a tail</strong> node.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

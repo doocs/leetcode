@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>root</code> node of a binary search tree and two integers <code>low</code> and <code>high</code>, return <em>the sum of values of all nodes with a value in the <strong>inclusive</strong> range </em><code>[low, high]</code>.</p>
 
 <p>&nbsp;</p>
@@ -45,6 +47,8 @@ tags:
 	<li><code>1 &lt;= low &lt;= high &lt;= 10<sup>5</sup></code></li>
 	<li>All <code>Node.val</code> are <strong>unique</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design an algorithm that collects daily price quotes for some stock and returns <strong>the span</strong> of that stock&#39;s price for the current day.</p>
 
 <p>The <strong>span</strong> of the stock&#39;s price in one day is the maximum number of consecutive days (starting from that day and going backward) for which the stock price was less than or equal to the price of that day.</p>
@@ -61,6 +63,8 @@ stockSpanner.next(85);  // return 6
 	<li><code>1 &lt;= price &lt;= 10<sup>5</sup></code></li>
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>next</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

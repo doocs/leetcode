@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two strings of the same length <code>s</code> and <code>t</code>. In one step you can choose <strong>any character</strong> of <code>t</code> and replace it with <strong>another character</strong>.</p>
 
 <p>Return <em>the minimum number of steps</em> to make <code>t</code> an anagram of <code>s</code>.</p>
@@ -57,6 +59,8 @@ tags:
 	<li><code>s.length == t.length</code></li>
 	<li><code>s</code> and <code>t</code> consist of lowercase English letters only.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

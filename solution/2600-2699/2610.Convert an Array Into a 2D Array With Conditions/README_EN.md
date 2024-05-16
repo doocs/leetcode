@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code>. You need to create a 2D array from <code>nums</code> satisfying the following conditions:</p>
 
 <ul>
@@ -57,6 +59,8 @@ It can be shown that we cannot have less than 3 rows in a valid array.</pre>
 	<li><code>1 &lt;= nums.length &lt;= 200</code></li>
 	<li><code>1 &lt;= nums[i] &lt;= nums.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

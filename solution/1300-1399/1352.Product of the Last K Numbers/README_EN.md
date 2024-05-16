@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design an algorithm that accepts a stream of integers and retrieves the product of the last <code>k</code> integers of the stream.</p>
 
 <p>Implement the <code>ProductOfNumbers</code> class:</p>
@@ -66,6 +68,8 @@ productOfNumbers.getProduct(2); // return 32. The product of the last 2 numbers 
 	<li>At most <code>4 * 10<sup>4</sup></code> calls will be made to <code>add</code> and <code>getProduct</code>.</li>
 	<li>The product of the stream at any point in time will fit in a <strong>32-bit</strong> integer.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

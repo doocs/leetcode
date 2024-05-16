@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> array of strings <code>words</code>. Each string consists of <strong>lowercase English letters</strong> only. No letter occurs more than once in any string of <code>words</code>.</p>
 
 <p>Two strings <code>s1</code> and <code>s2</code> are said to be <strong>connected</strong> if the set of letters of <code>s2</code> can be obtained from the set of letters of <code>s1</code> by any <strong>one</strong> of the following operations:</p>
@@ -80,6 +82,8 @@ Thus, the size of the largest group is 3.
 	<li><code>words[i]</code> consists of lowercase English letters only.</li>
 	<li>No letter occurs more than once in <code>words[i]</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

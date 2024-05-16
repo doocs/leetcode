@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two strings <code>s1</code> and <code>s2</code>, both of length <code>4</code>, consisting of <strong>lowercase</strong> English letters.</p>
 
 <p>You can apply the following operation on any of the two strings <strong>any</strong> number of times:</p>
@@ -52,6 +54,8 @@ tags:
 	<li><code>s1.length == s2.length == 4</code></li>
 	<li><code>s1</code> and <code>s2</code> consist only of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

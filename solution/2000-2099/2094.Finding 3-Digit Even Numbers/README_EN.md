@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>digits</code>, where each element is a digit. The array may contain duplicates.</p>
 
 <p>You need to find <strong>all</strong> the <strong>unique</strong> integers that follow the given requirements:</p>
@@ -67,6 +69,8 @@ In this example, the digit 8 is used twice each time in 288, 828, and 882.
 	<li><code>3 &lt;= digits.length &lt;= 100</code></li>
 	<li><code>0 &lt;= digits[i] &lt;= 9</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

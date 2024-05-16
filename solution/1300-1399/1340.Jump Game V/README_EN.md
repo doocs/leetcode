@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of&nbsp;integers <code>arr</code> and an integer <code>d</code>. In one step you can jump from index <code>i</code> to index:</p>
 
 <ul>
@@ -66,6 +68,8 @@ Similarly You cannot jump from index 3 to index 2 or index 1.
 	<li><code>1 &lt;= arr[i] &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= d &lt;= arr.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

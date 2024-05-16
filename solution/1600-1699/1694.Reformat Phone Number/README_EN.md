@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a phone number as a string <code>number</code>. <code>number</code> consists of digits, spaces <code>&#39; &#39;</code>, and/or dashes <code>&#39;-&#39;</code>.</p>
 
 <p>You would like to reformat the phone number in a certain manner. Firstly, <strong>remove</strong> all spaces and dashes. Then, <strong>group</strong> the digits from left to right into blocks of length 3 <strong>until</strong> there are 4 or fewer digits. The final digits are then grouped as follows:</p>
@@ -73,6 +75,8 @@ Joining the blocks gives &quot;123-456-78&quot;.
 	<li><code>number</code> consists of digits and the characters <code>&#39;-&#39;</code> and <code>&#39; &#39;</code>.</li>
 	<li>There are at least <strong>two</strong> digits in <code>number</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

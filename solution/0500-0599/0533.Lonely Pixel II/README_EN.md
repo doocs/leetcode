@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an <code>m x n</code> <code>picture</code> consisting of black <code>&#39;B&#39;</code> and white <code>&#39;W&#39;</code> pixels and an integer target, return <em>the number of <b>black</b> lonely pixels</em>.</p>
 
 <p>A black lonely pixel is a character <code>&#39;B&#39;</code> that located at a specific position <code>(r, c)</code> where:</p>
@@ -54,6 +56,8 @@ Take &#39;B&#39; at row r = 0 and column c = 1 as an example:
 	<li><code>picture[i][j]</code> is <code>&#39;W&#39;</code> or <code>&#39;B&#39;</code>.</li>
 	<li><code>1 &lt;= target &lt;= min(m, n)</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> string <code>s</code> that you must perform <code>k</code> replacement operations on. The replacement operations are given as three <strong>0-indexed</strong> parallel arrays, <code>indices</code>, <code>sources</code>, and <code>targets</code>, all of length <code>k</code>.</p>
 
 <p>To complete the <code>i<sup>th</sup></code> replacement operation:</p>
@@ -71,6 +73,8 @@ tags:
 	<li><code>s</code> consists of only lowercase English letters.</li>
 	<li><code>sources[i]</code> and <code>targets[i]</code> consist of only lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

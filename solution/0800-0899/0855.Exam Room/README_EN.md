@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There is an exam room with <code>n</code> seats in a single row labeled from <code>0</code> to <code>n - 1</code>.</p>
 
 <p>When a student enters the room, they must sit in the seat that maximizes the distance to the closest person. If there are multiple such seats, they sit in the seat with the lowest number. If no one is in the room, then the student sits at seat number <code>0</code>.</p>
@@ -59,6 +61,8 @@ examRoom.seat(); // return 5, the student sits at the last seat number 5.
 	<li>It is guaranteed that there is a student sitting at seat <code>p</code>.</li>
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>seat</code> and <code>leave</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

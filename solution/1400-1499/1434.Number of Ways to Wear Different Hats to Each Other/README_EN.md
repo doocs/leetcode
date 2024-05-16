@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There are <code>n</code> people and <code>40</code> types of hats labeled from <code>1</code> to <code>40</code>.</p>
 
 <p>Given a 2D integer array <code>hats</code>, where <code>hats[i]</code> is a list of all hats preferred by the <code>i<sup>th</sup></code> person.</p>
@@ -65,6 +67,8 @@ Number of Permutations of (1,2,3,4) = 24.
 	<li><code>1 &lt;= hats[i][j] &lt;= 40</code></li>
 	<li><code>hats[i]</code> contains a list of <strong>unique</strong> integers.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

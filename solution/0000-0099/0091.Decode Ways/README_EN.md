@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A message containing letters from <code>A-Z</code> can be <strong>encoded</strong> into numbers using the following mapping:</p>
 
 <pre>
@@ -69,6 +71,8 @@ tags:
 	<li><code>1 &lt;= s.length &lt;= 100</code></li>
 	<li><code>s</code> contains only digits and may contain leading zero(s).</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

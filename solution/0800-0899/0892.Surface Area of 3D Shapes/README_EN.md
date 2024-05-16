@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an <code>n x n</code> <code>grid</code> where you have placed some <code>1 x 1 x 1</code> cubes. Each value <code>v = grid[i][j]</code> represents a tower of <code>v</code> cubes placed on top of cell <code>(i, j)</code>.</p>
 
 <p>After placing these cubes, you have decided to glue any directly adjacent cubes to each other, forming several irregular 3D shapes.</p>
@@ -55,6 +57,8 @@ tags:
 	<li><code>1 &lt;= n &lt;= 50</code></li>
 	<li><code>0 &lt;= grid[i][j] &lt;= 50</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

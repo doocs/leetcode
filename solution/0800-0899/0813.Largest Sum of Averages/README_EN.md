@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code> and an integer <code>k</code>. You can partition the array into <strong>at most</strong> <code>k</code> non-empty adjacent subarrays. The <strong>score</strong> of a partition is the sum of the averages of each subarray.</p>
 
 <p>Note that the partition must use every integer in <code>nums</code>, and that the score is not necessarily an integer.</p>
@@ -49,6 +51,8 @@ That partition would lead to a score of 5 + 2 + 6 = 13, which is worse.
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 	<li><code>1 &lt;= k &lt;= nums.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

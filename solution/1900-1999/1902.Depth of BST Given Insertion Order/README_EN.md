@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>order</code> of length <code>n</code>, a <strong>permutation</strong> of integers from <code>1</code> to <code>n</code> representing the <strong>order</strong> of insertion into a <strong>binary search tree</strong>.</p>
 
 <p>A binary search tree is defined as follows:</p>
@@ -71,6 +73,8 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
 	<li><code>order</code> is a permutation of integers between <code>1</code> and <code>n</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

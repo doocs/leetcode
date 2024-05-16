@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Let&#39;s play the minesweeper game (<a href="https://en.wikipedia.org/wiki/Minesweeper_(video_game)" target="_blank">Wikipedia</a>, <a href="http://minesweeperonline.com" target="_blank">online game</a>)!</p>
 
 <p>You are given an <code>m x n</code> char matrix <code>board</code> representing the game board where:</p>
@@ -68,6 +70,8 @@ tags:
 	<li><code>0 &lt;= click<sub>c</sub> &lt; n</code></li>
 	<li><code>board[click<sub>r</sub>][click<sub>c</sub>]</code> is either <code>&#39;M&#39;</code> or <code>&#39;E&#39;</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

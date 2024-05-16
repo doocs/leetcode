@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2703.Re
 
 ## Description
 
+<!-- description:start -->
+
 Write a function&nbsp;<code>argumentsLength</code> that returns the count of arguments passed to it.
 
 <p>&nbsp;</p>
@@ -44,6 +46,8 @@ Three values were passed to the function so it should return 3.
 	<li><code>args</code>&nbsp;is a valid JSON array</li>
 	<li><code>0 &lt;= args.length &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

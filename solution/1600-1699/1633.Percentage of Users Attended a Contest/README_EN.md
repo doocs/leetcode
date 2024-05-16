@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Users</code></p>
 
 <pre>
@@ -95,6 +97,8 @@ All the users registered in contests 208, 209, and 210. The percentage is 100% a
 Alice and Alex registered in contest 215 and the percentage is ((2/3) * 100) = 66.67%
 Bob registered in contest 207 and the percentage is ((1/3) * 100) = 33.33%
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

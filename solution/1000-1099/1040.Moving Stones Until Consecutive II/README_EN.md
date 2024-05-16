@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There are some stones in different positions on the X-axis. You are given an integer array <code>stones</code>, the positions of the stones.</p>
 
 <p>Call a stone an <strong>endpoint stone</strong> if it has the smallest or largest position. In one move, you pick up an <strong>endpoint stone</strong> and move it to an unoccupied position so that it is no longer an <strong>endpoint stone</strong>.</p>
@@ -64,6 +66,8 @@ Notice we cannot move 10 -&gt; 2 to finish the game, because that would be an il
 	<li><code>1 &lt;= stones[i] &lt;= 10<sup>9</sup></code></li>
 	<li>All the values of <code>stones</code> are <strong>unique</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

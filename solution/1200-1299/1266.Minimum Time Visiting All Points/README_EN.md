@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>On a 2D plane, there are <code>n</code> points with integer coordinates <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>. Return <em>the <strong>minimum time</strong> in seconds to visit all the points in the order given by </em><code>points</code>.</p>
 
 <p>You can move according to these rules:</p>
@@ -63,6 +65,8 @@ Total time = 7 seconds</pre>
 	<li><code>points[i].length == 2</code></li>
 	<li><code>-1000&nbsp;&lt;= points[i][0], points[i][1]&nbsp;&lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

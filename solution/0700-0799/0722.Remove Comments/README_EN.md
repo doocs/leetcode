@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a C++ program, remove comments from it. The program source is an array of strings <code>source</code> where <code>source[i]</code> is the <code>i<sup>th</sup></code> line of the source code. This represents the result of splitting the original source code string by the newline character <code>&#39;\n&#39;</code>.</p>
 
 <p>In C++, there are two types of comments, line comments, and block comments.</p>
@@ -93,6 +95,8 @@ a = b + c;
 	<li>Every open block comment is eventually closed.</li>
 	<li>There are no single-quote or&nbsp;double-quote in the input.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

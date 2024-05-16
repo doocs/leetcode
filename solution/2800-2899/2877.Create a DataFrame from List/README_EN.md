@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2877.Cr
 
 ## Description
 
+<!-- description:start -->
+
 <p>Write a solution to <strong>create</strong> a DataFrame from a 2D list called <code>student_data</code>. This 2D list contains the IDs and ages of some students.</p>
 
 <p>The DataFrame should have two columns, <code>student_id</code> and <code>age</code>, and be in the same order as the original 2D list.</p>
@@ -42,6 +44,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2877.Cr
 <strong>Explanation:</strong>
 A DataFrame was created on top of student_data, with two columns named <code>student_id</code> and <code>age</code>.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

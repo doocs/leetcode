@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>An <strong>n-bit gray code sequence</strong> is a sequence of <code>2<sup>n</sup></code> integers where:</p>
 
 <ul>
@@ -60,6 +62,8 @@ The binary representation of [0,1,3,2] is [00,01,11,10].
 <ul>
 	<li><code>1 &lt;= n &lt;= 16</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

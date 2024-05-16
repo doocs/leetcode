@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a <strong>0-indexed</strong> integer array <code>nums</code> of size <code>n</code> containing all numbers from <code>1</code> to <code>n</code>, return <em>the number of increasing quadruplets</em>.</p>
 
 <p>A quadruplet <code>(i, j, k, l)</code> is increasing if:</p>
@@ -57,6 +59,8 @@ There are no other quadruplets, so we return 2.
 	<li><code>1 &lt;= nums[i] &lt;= nums.length</code></li>
 	<li>All the integers of <code>nums</code> are <strong>unique</strong>. <code>nums</code> is a permutation.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

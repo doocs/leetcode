@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two <strong>0-indexed</strong> integer arrays <code><font face="monospace">player1</font></code> and <code>player2</code>, that represent the number of pins that player 1 and player 2 hit in a bowling game, respectively.</p>
 
 <p>The bowling game consists of <code>n</code> turns, and the number of pins in each turn is exactly <code>10</code>.</p>
@@ -78,6 +80,8 @@ The score of player1 equals to the score of player2, so, there is a draw, and th
 	<li><code>1 &lt;= n &lt;= 1000</code></li>
 	<li><code>0 &lt;= player1[i], player2[i] &lt;= 10</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

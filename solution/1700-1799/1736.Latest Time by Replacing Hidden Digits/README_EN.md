@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>time</code> in the form of <code> hh:mm</code>, where some of the digits in the string are hidden (represented by <code>?</code>).</p>
 
 <p>The valid times are those inclusively between <code>00:00</code> and <code>23:59</code>.</p>
@@ -53,6 +55,8 @@ tags:
 	<li><code>time</code> is in the format <code>hh:mm</code>.</li>
 	<li>It is guaranteed that you can produce a valid time from the given string.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>In a row of dominoes, <code>tops[i]</code> and <code>bottoms[i]</code> represent the top and bottom halves of the <code>i<sup>th</sup></code> domino. (A domino is a tile with two numbers from 1 to 6 - one on each half of the tile.)</p>
 
 <p>We may rotate the <code>i<sup>th</sup></code> domino, so that <code>tops[i]</code> and <code>bottoms[i]</code> swap values.</p>
@@ -53,6 +55,8 @@ In this case, it is not possible to rotate the dominoes to make one row of value
 	<li><code>bottoms.length == tops.length</code></li>
 	<li><code>1 &lt;= tops[i], bottoms[i] &lt;= 6</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

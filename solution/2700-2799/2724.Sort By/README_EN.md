@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2724.So
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array <code>arr</code> and a function <code>fn</code>, return a sorted array <code>sortedArr</code>. You can assume&nbsp;<code>fn</code>&nbsp;only returns numbers and those numbers determine the sort order of&nbsp;<code>sortedArr</code>. <code>sortedArray</code> must be sorted in <strong>ascending order</strong> by <code>fn</code> output.</p>
 
 <p>You may assume that <code>fn</code> will never duplicate numbers for a given array.</p>
@@ -49,6 +51,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2724.So
 	<li><code>fn</code> is a function that returns a number</li>
 	<li><code>1 &lt;=&nbsp;arr.length &lt;= 5 * 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

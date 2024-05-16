@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two integers,&nbsp;<code>n</code> and <code>k</code>.</p>
 
 <p>An array of <strong>distinct</strong> positive integers is called a <b>k-avoiding</b> array if there does not exist any pair of distinct elements that sum to <code>k</code>.</p>
@@ -48,6 +50,8 @@ It can be proven that there is no k-avoiding array with a sum less than 3.
 <ul>
 	<li><code>1 &lt;= n, k &lt;= 50</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

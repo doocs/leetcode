@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer <code>num</code>, find the closest two integers in absolute difference whose product equals&nbsp;<code>num + 1</code>&nbsp;or <code>num + 2</code>.</p>
 
 <p>Return the two integers in any order.</p>
@@ -49,6 +51,8 @@ tags:
 <ul>
 	<li><code>1 &lt;= num &lt;= 10^9</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Suppose we have a class:</p>
 
 <pre>
@@ -53,6 +55,8 @@ public class Foo {
 <ul>
 	<li><code>nums</code> is a permutation of <code>[1, 2, 3]</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

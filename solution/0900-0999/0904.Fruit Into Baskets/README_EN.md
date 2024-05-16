@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are visiting a farm that has a single row of fruit trees arranged from left to right. The trees are represented by an integer array <code>fruits</code> where <code>fruits[i]</code> is the <strong>type</strong> of fruit the <code>i<sup>th</sup></code> tree produces.</p>
 
 <p>You want to collect as much fruit as possible. However, the owner has some strict rules that you must follow:</p>
@@ -62,6 +64,8 @@ If we had started at the first tree, we would only pick from trees [1,2].
 	<li><code>1 &lt;= fruits.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>0 &lt;= fruits[i] &lt; fruits.length</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

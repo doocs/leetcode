@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Views</code></p>
 
 <pre>
@@ -63,6 +65,8 @@ Views table:
 | 6    |
 +------+
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

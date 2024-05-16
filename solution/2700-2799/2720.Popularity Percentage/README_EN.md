@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Friends</code></p>
 
 <pre>
@@ -79,6 +81,8 @@ There are total 9 users on the platform.
 - User &quot;9&quot; has friendships with 3. Therefore, the percentage popularity for user 9 would be calculated as (1/9) * 100 = 11.11.
 user1 is sorted in ascending order.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

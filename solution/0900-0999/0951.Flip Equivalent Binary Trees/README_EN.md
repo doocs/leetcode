@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>For a binary tree <strong>T</strong>, we can define a <strong>flip operation</strong> as follows: choose any node, and swap the left and right child subtrees.</p>
 
 <p>A binary tree <strong>X</strong>&nbsp;is <em>flip equivalent</em> to a binary tree <strong>Y</strong> if and only if we can make <strong>X</strong> equal to <strong>Y</strong> after some number of flip operations.</p>
@@ -52,6 +54,8 @@ tags:
 	<li>The number of nodes in each tree is in the range <code>[0, 100]</code>.</li>
 	<li>Each tree will have <strong>unique node values</strong> in the range <code>[0, 99]</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

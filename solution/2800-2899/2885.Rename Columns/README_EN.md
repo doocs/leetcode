@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2885.Re
 
 ## Description
 
+<!-- description:start -->
+
 <pre>
 DataFrame <code>students</code>
 +-------------+--------+
@@ -60,6 +62,8 @@ DataFrame <code>students</code>
 +------------+------------+-----------+--------------+
 <strong>Explanation:</strong> 
 The column names are changed accordingly.</pre>
+
+<!-- description:end -->
 
 ## Solutions
 

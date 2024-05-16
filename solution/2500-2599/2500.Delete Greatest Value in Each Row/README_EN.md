@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an <code>m x n</code> matrix <code>grid</code> consisting of positive integers.</p>
 
 <p>Perform the following operation until <code>grid</code> becomes empty:</p>
@@ -65,6 +67,8 @@ The final answer = 10.
 	<li><code>1 &lt;= m, n &lt;= 50</code></li>
 	<li><code>1 &lt;= grid[i][j] &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

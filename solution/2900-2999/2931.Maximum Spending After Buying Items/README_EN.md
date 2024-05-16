@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> <code>m * n</code> integer matrix <code>values</code>, representing the values of <code>m * n</code> different items in <code>m</code> different shops. Each shop has <code>n</code> items where the <code>j<sup>th</sup></code> item in the <code>i<sup>th</sup></code> shop has a value of <code>values[i][j]</code>. Additionally, the items in the <code>i<sup>th</sup></code> shop are sorted in non-increasing order of value. That is, <code>values[i][j] &gt;= values[i][j + 1]</code> for all <code>0 &lt;= j &lt; n - 1</code>.</p>
 
 <p>On each day, you would like to buy a single item from one of the shops. Specifically, On the <code>d<sup>th</sup></code> day you can:</p>
@@ -80,6 +82,8 @@ It can be shown that 386 is the maximum amount of money that can be spent buying
 	<li><code>1 &lt;= values[i][j] &lt;= 10<sup>6</sup></code></li>
 	<li><code>values[i]</code> are sorted in non-increasing order.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

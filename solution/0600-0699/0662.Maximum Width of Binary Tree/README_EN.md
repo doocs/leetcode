@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given the <code>root</code> of a binary tree, return <em>the <strong>maximum width</strong> of the given tree</em>.</p>
 
 <p>The <strong>maximum width</strong> of a tree is the maximum <strong>width</strong> among all levels.</p>
@@ -57,6 +59,8 @@ tags:
 	<li>The number of nodes in the tree is in the range <code>[1, 3000]</code>.</li>
 	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

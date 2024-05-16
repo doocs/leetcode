@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Point</code></p>
 
 <pre>
@@ -56,6 +58,8 @@ Point table:
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> How could you optimize your solution if the <code>Point</code> table is ordered <strong>in ascending order</strong>?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

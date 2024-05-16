@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a positive integer <code>primeFactors</code>. You are asked to construct a positive integer <code>n</code> that satisfies the following conditions:</p>
 
 <ul>
@@ -68,6 +70,8 @@ There is not other value of n that has at most 5 prime factors and more nice div
     <li><code>1 &lt;= primeFactors &lt;= 10<sup>9</sup></code></li>
 
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

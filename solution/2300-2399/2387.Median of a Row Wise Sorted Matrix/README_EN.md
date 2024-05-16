@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an <code>m x n</code> matrix <code>grid</code> containing an <strong>odd</strong> number of integers where each row is sorted in <strong>non-decreasing</strong> order, return <em>the <strong>median</strong> of the matrix</em>.</p>
 
 <p>You must solve the problem in less than <code>O(m * n)</code> time complexity.</p>
@@ -48,6 +50,8 @@ tags:
 	<li><code>1 &lt;= grid[i][j] &lt;= 10<sup>6</sup></code></li>
 	<li><code>grid[i]</code> is sorted in non-decreasing order.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

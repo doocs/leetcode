@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an <code>m x n</code> grid <code>grid</code> of values <code>0</code>, <code>1</code>, or <code>2</code>, where:</p>
 
 <ul>
@@ -67,6 +69,8 @@ So return 7.
 	<li><code>grid[i][j]</code> is either <code>0</code>, <code>1</code>, or <code>2</code>.</li>
 	<li>There will be <strong>at least one</strong> building in the <code>grid</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>The Leetcode file system keeps a log each time some user performs a <em>change folder</em> operation.</p>
 
 <p>The operations are described below:</p>
@@ -71,6 +73,8 @@ tags:
 	<li><code>logs[i]</code> follows the format described in the statement.</li>
 	<li>Folder names consist of lowercase English letters and digits.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

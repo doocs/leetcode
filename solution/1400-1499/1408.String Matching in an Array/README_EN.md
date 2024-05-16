@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of string <code>words</code>, return <em>all strings in </em><code>words</code><em> that is a <strong>substring</strong> of another word</em>. You can return the answer in <strong>any order</strong>.</p>
 
 <p>A <strong>substring</strong> is a contiguous sequence of characters within a string</p>
@@ -57,6 +59,8 @@ tags:
 	<li><code>words[i]</code> contains only lowercase English letters.</li>
 	<li>All the strings of <code>words</code> are <strong>unique</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

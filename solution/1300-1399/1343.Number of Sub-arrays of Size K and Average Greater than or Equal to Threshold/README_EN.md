@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of integers <code>arr</code> and two integers <code>k</code> and <code>threshold</code>, return <em>the number of sub-arrays of size </em><code>k</code><em> and average greater than or equal to </em><code>threshold</code>.</p>
 
 <p>&nbsp;</p>
@@ -45,6 +47,8 @@ tags:
 	<li><code>1 &lt;= k &lt;= arr.length</code></li>
 	<li><code>0 &lt;= threshold &lt;= 10<sup>4</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

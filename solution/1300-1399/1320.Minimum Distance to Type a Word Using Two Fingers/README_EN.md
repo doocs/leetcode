@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1320.Minimum%20Distance%20to%20Type%20a%20Word%20Using%20Two%20Fingers/images/leetcode_keyboard.png" style="width: 349px; height: 209px;" />
 <p>You have a keyboard layout as shown above in the <strong>X-Y</strong> plane, where each English uppercase letter is located at some coordinate.</p>
 
@@ -65,6 +67,8 @@ Total distance = 6
 	<li><code>2 &lt;= word.length &lt;= 300</code></li>
 	<li><code>word</code> consists of uppercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

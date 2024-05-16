@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a text file&nbsp;<code>file.txt</code>, print&nbsp;just the 10th line of the&nbsp;file.</p>
 
 <p><strong class="example">Example:</strong></p>
@@ -57,6 +59,8 @@ Line 10
 1. If the file contains less than 10 lines, what should you output?<br />
 
 2. There&#39;s at least three different solutions. Try to explore all possibilities.</div>
+
+<!-- description:end -->
 
 ## Solutions
 

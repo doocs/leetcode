@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code> and an integer <code>k</code>, return <code>true</code> if it is possible to divide this array into <code>k</code> non-empty subsets whose sums are all equal.</p>
 
 <p>&nbsp;</p>
@@ -45,6 +47,8 @@ tags:
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 	<li>The frequency of each element is in the range <code>[1, 4]</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

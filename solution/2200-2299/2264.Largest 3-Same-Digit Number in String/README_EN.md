@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>num</code> representing a large integer. An integer is <strong>good</strong> if it meets the following conditions:</p>
 
 <ul>
@@ -65,6 +67,8 @@ tags:
 	<li><code>3 &lt;= num.length &lt;= 1000</code></li>
 	<li><code>num</code> only consists of digits.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

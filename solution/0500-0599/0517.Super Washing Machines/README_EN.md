@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You have <code>n</code> super washing machines on a line. Initially, each washing machine has some dresses or is empty.</p>
 
 <p>For each move, you could choose any <code>m</code> (<code>1 &lt;= m &lt;= n</code>) washing machines, and pass one dress of each washing machine to one of its adjacent washing machines at the same time.</p>
@@ -60,6 +62,8 @@ It&#39;s impossible to make all three washing machines have the same number of d
 	<li><code>1 &lt;= n &lt;= 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= machines[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code>, partition it into two (contiguous) subarrays <code>left</code> and <code>right</code> so that:</p>
 
 <ul>
@@ -51,6 +53,8 @@ tags:
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 	<li>There is at least one valid answer for the given input.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

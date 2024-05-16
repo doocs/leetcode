@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2883.Dr
 
 ## Description
 
+<!-- description:start -->
+
 <pre>
 DataFrame students
 +-------------+--------+
@@ -52,6 +54,8 @@ DataFrame students
 +------------+---------+-----+
 <strong>Explanation:</strong> 
 Student with id 217 havs empty value in the name column, so it will be removed.</pre>
+
+<!-- description:end -->
 
 ## Solutions
 

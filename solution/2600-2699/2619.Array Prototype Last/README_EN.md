@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2619.Ar
 
 ## Description
 
+<!-- description:start -->
+
 <p>Write code that enhances all arrays such that you can call the&nbsp;<code>array.last()</code>&nbsp;method on any array and it will return the last element. If there are no elements in the array, it should return&nbsp;<code>-1</code>.</p>
 
 <p>You may assume the array is the output of&nbsp;<code>JSON.parse</code>.</p>
@@ -40,6 +42,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2619.Ar
 	<li><code>arr</code> is a valid JSON array</li>
 	<li><code>0 &lt;= arr.length &lt;= 1000</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

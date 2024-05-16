@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A binary tree is <strong>uni-valued</strong> if every node in the tree has the same value.</p>
 
 <p>Given the <code>root</code> of a binary tree, return <code>true</code><em> if the given tree is <strong>uni-valued</strong>, or </em><code>false</code><em> otherwise.</em></p>
@@ -43,6 +45,8 @@ tags:
 	<li>The number of nodes in the tree is in the range <code>[1, 100]</code>.</li>
 	<li><code>0 &lt;= Node.val &lt; 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

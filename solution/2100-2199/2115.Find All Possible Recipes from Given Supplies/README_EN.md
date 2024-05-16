@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You have information about <code>n</code> different recipes. You are given a string array <code>recipes</code> and a 2D string array <code>ingredients</code>. The <code>i<sup>th</sup></code> recipe has the name <code>recipes[i]</code>, and you can <strong>create</strong> it if you have <strong>all</strong> the needed ingredients from <code>ingredients[i]</code>. Ingredients to a recipe may need to be created from <strong>other </strong>recipes, i.e., <code>ingredients[i]</code> may contain a string that is in <code>recipes</code>.</p>
 
 <p>You are also given a string array <code>supplies</code> containing all the ingredients that you initially have, and you have an infinite supply of all of them.</p>
@@ -71,6 +73,8 @@ We can create &quot;burger&quot; since we have the ingredient &quot;meat&quot; a
 	<li>All the values of <code>recipes</code> and <code>supplies</code>&nbsp;combined are unique.</li>
 	<li>Each <code>ingredients[i]</code> does not contain any duplicate values.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

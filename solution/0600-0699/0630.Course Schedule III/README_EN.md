@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There are <code>n</code> different online courses numbered from <code>1</code> to <code>n</code>. You are given an array <code>courses</code> where <code>courses[i] = [duration<sub>i</sub>, lastDay<sub>i</sub>]</code> indicate that the <code>i<sup>th</sup></code> course should be taken <b>continuously</b> for <code>duration<sub>i</sub></code> days and must be finished before or on <code>lastDay<sub>i</sub></code>.</p>
 
 <p>You will start on the <code>1<sup>st</sup></code> day and you cannot take two or more courses simultaneously.</p>
@@ -58,6 +60,8 @@ The 4<sup>th</sup> course cannot be taken now, since you will finish it on the 3
 	<li><code>1 &lt;= courses.length &lt;= 10<sup>4</sup></code></li>
 	<li><code>1 &lt;= duration<sub>i</sub>, lastDay<sub>i</sub> &lt;= 10<sup>4</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There is a <strong>directed</strong> graph consisting of <code>n</code> nodes numbered from <code>0</code> to <code>n - 1</code> and <code>n</code> directed edges.</p>
 
 <p>You are given a <strong>0-indexed</strong> array <code>edges</code> where <code>edges[i]</code> indicates that there is an edge from node <code>i</code> to node <code>edges[i]</code>.</p>
@@ -60,6 +62,8 @@ tags:
 	<li><code>0 &lt;= edges[i] &lt;= n - 1</code></li>
 	<li><code>edges[i] != i</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

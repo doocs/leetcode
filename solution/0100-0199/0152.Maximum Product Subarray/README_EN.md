@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code>, find a <span data-keyword="subarray-nonempty">subarray</span> that has the largest product, and return <em>the product</em>.</p>
 
 <p>The test cases are generated so that the answer will fit in a <strong>32-bit</strong> integer.</p>
@@ -44,6 +46,8 @@ tags:
 	<li><code>-10 &lt;= nums[i] &lt;= 10</code></li>
 	<li>The product of any prefix or suffix of <code>nums</code> is <strong>guaranteed</strong> to fit in a <strong>32-bit</strong> integer.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

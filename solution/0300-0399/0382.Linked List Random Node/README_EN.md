@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a singly linked list, return a random node&#39;s value from the linked list. Each node must have the <strong>same probability</strong> of being chosen.</p>
 
 <p>Implement the <code>Solution</code> class:</p>
@@ -63,6 +65,8 @@ solution.getRandom(); // return 3
 	<li>What if the linked list is extremely large and its length is unknown to you?</li>
 	<li>Could you solve this efficiently without using extra space?</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

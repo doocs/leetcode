@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a <code>root</code> of an <code>N-ary tree</code>, you need to compute the length of the diameter of the tree.</p>
 
 <p>The diameter of an N-ary tree is the length of the <strong>longest</strong> path between any two nodes in the tree. This path may or may not pass through the root.</p>
@@ -56,6 +58,8 @@ tags:
 	<li>The depth of the n-ary tree is less than or equal to <code>1000</code>.</li>
 	<li>The total number of nodes is between <code>[1, 10<sup>4</sup>]</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

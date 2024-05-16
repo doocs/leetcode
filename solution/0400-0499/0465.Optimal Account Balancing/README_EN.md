@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array of transactions <code>transactions</code> where <code>transactions[i] = [from<sub>i</sub>, to<sub>i</sub>, amount<sub>i</sub>]</code> indicates that the person with <code>ID = from<sub>i</sub></code> gave <code>amount<sub>i</sub> $</code> to the person with <code>ID = to<sub>i</sub></code>.</p>
 
 <p>Return <em>the minimum number of transactions required to settle the debt</em>.</p>
@@ -57,6 +59,8 @@ Therefore, person #1 only need to give person #0 $4, and all debt is settled.
 	<li><code>from<sub>i</sub> != to<sub>i</sub></code></li>
 	<li><code>1 &lt;= amount<sub>i</sub> &lt;= 100</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

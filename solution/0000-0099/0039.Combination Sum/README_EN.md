@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of <strong>distinct</strong> integers <code>candidates</code> and a target integer <code>target</code>, return <em>a list of all <strong>unique combinations</strong> of </em><code>candidates</code><em> where the chosen numbers sum to </em><code>target</code><em>.</em> You may return the combinations in <strong>any order</strong>.</p>
 
 <p>The <strong>same</strong> number may be chosen from <code>candidates</code> an <strong>unlimited number of times</strong>. Two combinations are unique if the <span data-keyword="frequency-array">frequency</span> of at least one of the chosen numbers is different.</p>
@@ -56,6 +58,8 @@ These are the only two combinations.
 	<li>All elements of <code>candidates</code> are <strong>distinct</strong>.</li>
 	<li><code>1 &lt;= target &lt;= 40</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

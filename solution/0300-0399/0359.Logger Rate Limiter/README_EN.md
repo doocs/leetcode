@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design a logger system that receives a stream of messages along with their timestamps. Each <strong>unique</strong> message should only be printed <strong>at most every 10 seconds</strong> (i.e. a message printed at timestamp <code>t</code> will prevent other identical messages from being printed until timestamp <code>t + 10</code>).</p>
 
 <p>All messages will come in chronological order. Several messages may arrive at the same timestamp.</p>
@@ -56,6 +58,8 @@ logger.shouldPrintMessage(11, &quot;foo&quot;); // 11 &gt;= 11, return true, nex
 	<li><code>1 &lt;= message.length &lt;= 30</code></li>
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>shouldPrintMessage</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

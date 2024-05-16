@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2884.Mo
 
 ## Description
 
+<!-- description:start -->
+
 <pre>
 DataFrame <code>employees</code>
 +-------------+--------+
@@ -53,6 +55,8 @@ DataFrame <code>employees</code>
 +---------+--------+
 <strong>Explanation:
 </strong>Every salary has been doubled.</pre>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Emails</code></p>
 
 <pre>
@@ -60,6 +62,8 @@ Emails table:
 - The valid domains ending with &quot;.com&quot; are only &quot;outlook.com&quot; and &quot;yahoo.com&quot;, with respective counts of 2 and 1.
 Output table is ordered by email_domains in ascending order.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

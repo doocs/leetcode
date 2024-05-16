@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code> and an integer <code>k</code>.</p>
 
 <p>In one operation, you can pick two numbers from the array whose sum equals <code>k</code> and remove them from the array.</p>
@@ -53,6 +55,8 @@ There are no more pairs that sum up to 6, hence a total of 1 operation.</pre>
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 	<li><code>1 &lt;= k &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an object <code>street</code> of class <code>Street</code> that represents a circular street and a positive integer <code>k</code> which represents a maximum bound for the number of houses in that street (in other words, the number of houses is less than or equal to <code>k</code>). Houses&#39; doors could be open or closed initially.</p>
 
 <p>Initially, you are standing in front of a door to a house on this street. Your task is to count the number of houses in the street.</p>
@@ -56,6 +58,8 @@ The number of houses is equal to k, which is 5.
 	<li><code>n == number of houses</code></li>
 	<li><code>1 &lt;= n &lt;= k &lt;= 10<sup>3</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

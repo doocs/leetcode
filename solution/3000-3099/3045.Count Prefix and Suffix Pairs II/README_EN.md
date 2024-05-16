@@ -21,6 +21,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> string array <code>words</code>.</p>
 
 <p>Let&#39;s define a <strong>boolean</strong> function <code>isPrefixAndSuffix</code> that takes two strings, <code>str1</code> and <code>str2</code>:</p>
@@ -73,6 +75,8 @@ Therefore, the answer is 0.</pre>
 	<li><code>words[i]</code> consists only of lowercase English letters.</li>
 	<li>The sum of the lengths of all <code>words[i]</code> does not exceed <code>5 * 10<sup>5</sup></code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

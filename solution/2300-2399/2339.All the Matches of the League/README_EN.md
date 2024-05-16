@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Teams</code></p>
 
 <pre>
@@ -60,6 +62,8 @@ Teams table:
 +-------------+-------------+
 <strong>Explanation:</strong> All the matches of the league are shown in the table.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

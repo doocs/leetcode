@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Tasks</code></p>
 
 <pre>
@@ -88,6 +90,8 @@ Task 1 was divided into 3 subtasks (1, 2, 3). Only subtask 2 was executed succes
 Task 2 was divided into 2 subtasks (1, 2). No subtask was executed successfully, so we include (2, 1) and (2, 2) in the answer.
 Task 3 was divided into 4 subtasks (1, 2, 3, 4). All of the subtasks were executed successfully.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

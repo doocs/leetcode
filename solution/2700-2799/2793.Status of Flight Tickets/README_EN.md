@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2793.St
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code><font face="monospace">Flights</font></code></p>
 
 <pre>
@@ -90,6 +92,8 @@ Passengers table:
 - Flight 2 has a capacity of 2 passengers, Flight 2 has exactly two passengers who booked tickets,  Passenger 104 and Passenger 105. Since the number of passengers who booked tickets matches the available seats, both bookings are confirmed.
 - Flight 3 has a capacity of 1 passenger. Passenger 107 booked earlier and secured the only available seat, confirming their booking. Passenger 106, who booked after Passenger 107, is on the waitlist.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

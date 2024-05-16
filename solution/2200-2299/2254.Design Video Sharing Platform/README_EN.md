@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You have a video sharing platform where users can upload and delete videos. Each <code>video</code> is a <strong>string</strong> of digits, where the <code>i<sup>th</sup></code> digit of the string represents the content of the video at minute <code>i</code>. For example, the first digit represents the content at minute <code>0</code> in the video, the second digit represents the content at minute <code>1</code> in the video, and so on. Viewers of videos can also like and dislike videos. Internally, the platform keeps track of the <strong>number of views, likes, and dislikes</strong> on each video.</p>
 
 <p>When a video is uploaded, it is associated with the smallest available integer <code>videoId</code> starting from <code>0</code>. Once a video is deleted, the <code>videoId</code> associated with that video can be reused for another video.</p>
@@ -95,6 +97,8 @@ videoSharingPlatform.getViews(0);            // There is no video associated wit
 	<li>The sum of <code>endMinute - startMinute</code> over all calls to <code>watch</code> does not exceed <code>10<sup>5</sup></code>.</li>
 	<li>At most <code>10<sup>5</sup></code> calls <strong>in total</strong> will be made to all functions.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

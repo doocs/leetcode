@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer n, return <em>the <strong>largest palindromic integer</strong> that can be represented as the product of two <code>n</code>-digits integers</em>. Since the answer can be very large, return it <strong>modulo</strong> <code>1337</code>.</p>
 
 <p>&nbsp;</p>
@@ -38,6 +40,8 @@ Explanation: 99 x 91 = 9009, 9009 % 1337 = 987
 <ul>
 	<li><code>1 &lt;= n &lt;= 8</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

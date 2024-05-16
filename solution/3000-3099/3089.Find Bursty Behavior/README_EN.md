@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Posts</code></p>
 
 <pre>
@@ -80,6 +82,8 @@ Each row of this table contains post_id, user_id, and post_date.
 
 <p><b>Note:</b> Output table is ordered by user_id in ascending order.</p>
 </div>
+
+<!-- description:end -->
 
 ## Solutions
 

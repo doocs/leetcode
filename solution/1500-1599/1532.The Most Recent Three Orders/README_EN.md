@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Customers</code></p>
 
 <pre>
@@ -107,6 +109,8 @@ We sort the result table by customer_name in ascending order, by customer_id in 
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you write a general solution for the most recent <code>n</code> orders?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

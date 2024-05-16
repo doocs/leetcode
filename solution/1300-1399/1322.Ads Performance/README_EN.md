@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Ads</code></p>
 
 <pre>
@@ -77,6 +79,8 @@ for ad_id = 3, ctr = (1/(1+1)) * 100 = 50.00
 for ad_id = 5, ctr = 0.00, Note that ad_id = 5 has no clicks or views.
 Note that we do not care about Ignored Ads.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

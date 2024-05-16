@@ -21,6 +21,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array <code>points</code> where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> represents a point on an <strong>X-Y </strong>plane.</p>
 
 <p><strong>Straight lines</strong> are going to be added to the <strong>X-Y</strong> plane, such that every point is covered by at <strong>least </strong>one line.</p>
@@ -56,6 +58,8 @@ tags:
 	<li><code>-100 &lt;= x<sub>i</sub>, y<sub>i</sub> &lt;= 100</code></li>
 	<li>All the <code>points</code> are <strong>unique</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

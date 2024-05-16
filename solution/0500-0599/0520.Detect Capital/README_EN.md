@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>We define the usage of capitals in a word to be right when one of the following cases holds:</p>
 
 <ul>
@@ -39,6 +41,8 @@ tags:
 	<li><code>1 &lt;= word.length &lt;= 100</code></li>
 	<li><code>word</code> consists of lowercase and uppercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

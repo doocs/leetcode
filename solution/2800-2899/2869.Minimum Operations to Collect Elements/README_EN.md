@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array <code>nums</code> of positive integers and an integer <code>k</code>.</p>
 
 <p>In one operation, you can remove the last element of the array and add it to your collection.</p>
@@ -58,6 +60,8 @@ tags:
 	<li><code>1 &lt;= k &lt;= nums.length</code></li>
 	<li>The input is generated such that you can collect elements <code>1, 2, ..., k</code>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>A <strong>self-dividing number</strong> is a number that is divisible by every digit it contains.</p>
 
 <ul>
@@ -38,6 +40,8 @@ tags:
 <ul>
 	<li><code>1 &lt;= left &lt;= right &lt;= 10<sup>4</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

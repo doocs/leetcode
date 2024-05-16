@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2693.Ca
 
 ## Description
 
+<!-- description:start -->
+
 <p>Enhance all functions to have the&nbsp;<code>callPolyfill</code>&nbsp;method. The method accepts an object&nbsp;<code>obj</code>&nbsp;as it&#39;s first parameter and any number of additional arguments. The&nbsp;<code>obj</code>&nbsp;becomes the&nbsp;<code>this</code>&nbsp;context for the function. The additional arguments are passed to the function (that the <code>callPolyfill</code>&nbsp;method belongs on).</p>
 
 <p>For example if you had the function:</p>
@@ -64,6 +66,8 @@ args = [{&quot;item&quot;: &quot;burger&quot;}, 10, 1.1]
 	<li><code>1 &lt;= args.length &lt;= 100</code></li>
 	<li><code>2 &lt;= JSON.stringify(args[0]).length &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

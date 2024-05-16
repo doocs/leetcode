@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a string <code>s</code> containing lowercase letters and an integer <code>k</code>. You need to :</p>
 
 <ul>
@@ -56,6 +58,8 @@ tags:
 	<li><code>1 &lt;= k &lt;= s.length &lt;= 100</code>.</li>
 	<li><code>s</code> only contains lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

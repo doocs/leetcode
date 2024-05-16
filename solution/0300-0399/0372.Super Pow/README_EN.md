@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Your task is to calculate <code>a<sup>b</sup></code> mod <code>1337</code> where <code>a</code> is a positive integer and <code>b</code> is an extremely large positive integer given in the form of an array.</p>
 
 <p>&nbsp;</p>
@@ -48,6 +50,8 @@ tags:
 	<li><code>0 &lt;= b[i] &lt;= 9</code></li>
 	<li><code>b</code> does not contain leading zeros.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

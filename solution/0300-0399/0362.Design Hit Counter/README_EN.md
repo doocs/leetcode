@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Design a hit counter which counts the number of hits received in the past <code>5</code> minutes (i.e., the past <code>300</code> seconds).</p>
 
 <p>Your system should accept a <code>timestamp</code> parameter (<strong>in seconds</strong> granularity), and you may assume that calls are being made to the system in chronological order (i.e., <code>timestamp</code> is monotonically increasing). Several hits may arrive roughly at the same time.</p>
@@ -62,6 +64,8 @@ hitCounter.getHits(301); // get hits at timestamp 301, return 3.
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> What if the number of hits per second could be huge? Does your design scale?</p>
+
+<!-- description:end -->
 
 ## Solutions
 

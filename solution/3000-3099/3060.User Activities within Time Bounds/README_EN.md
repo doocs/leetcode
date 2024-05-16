@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Sessions</code></p>
 
 <pre>
@@ -71,6 +73,8 @@ Sessions table:
 - User ID 103 participated in two viewer sessions with a gap of less than 12 hours between them, identified by session IDs 10 and 11. Therefore, user 103 will be included in the final output.
 Output table is ordered by user_id in increasing order.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

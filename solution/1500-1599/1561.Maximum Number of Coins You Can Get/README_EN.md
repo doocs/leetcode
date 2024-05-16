@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There are <code>3n</code> piles of coins of varying size, you and your friends will take piles of coins as follows:</p>
 
 <ul>
@@ -68,6 +70,8 @@ On the other hand if we choose this arrangement (1, <strong>2</strong>, 8), (2, 
 	<li><code>piles.length % 3 == 0</code></li>
 	<li><code>1 &lt;= piles[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

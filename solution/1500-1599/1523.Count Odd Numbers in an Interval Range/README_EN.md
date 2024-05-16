@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two non-negative integers <code>low</code> and <code><font face="monospace">high</font></code>. Return the <em>count of odd numbers between </em><code>low</code><em> and </em><code><font face="monospace">high</font></code><em>&nbsp;(inclusive)</em>.</p>
 
 <p>&nbsp;</p>
@@ -49,6 +51,8 @@ tags:
     <li><code>0 &lt;= low &lt;= high&nbsp;&lt;= 10^9</code></li>
 
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

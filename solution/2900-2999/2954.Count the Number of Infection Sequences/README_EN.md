@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an integer <code>n</code> and a <strong>0-indexed</strong><strong> </strong>integer array <code>sick</code> which is <strong>sorted</strong> in <strong>increasing</strong> order.</p>
 
 <p>There are <code>n</code> children standing in a queue with positions <code>0</code> to <code>n - 1</code> assigned to them. The array <code>sick</code> contains the positions of the children who are infected with an infectious disease. An infected child at position <code>i</code> can spread the disease to either of its immediate neighboring children at positions <code>i - 1</code> and <code>i + 1</code> <strong>if</strong> they exist and are currently not infected. <strong>At most one</strong> child who was previously not infected can get infected with the disease in one second.</p>
@@ -65,6 +67,8 @@ Finally, the child at position 2 gets infected because it is adjacent to childre
 	<li><code>0 &lt;= sick[i] &lt;= n - 1</code></li>
 	<li><code>sick</code> is sorted in increasing order.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

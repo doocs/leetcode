@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an array of <strong>unique</strong> integers <code>salary</code> where <code>salary[i]</code> is the salary of the <code>i<sup>th</sup></code> employee.</p>
 
 <p>Return <em>the average salary of employees excluding the minimum and maximum salary</em>. Answers within <code>10<sup>-5</sup></code> of the actual answer will be accepted.</p>
@@ -48,6 +50,8 @@ Average salary excluding minimum and maximum salary is (2000) / 1 = 2000
 	<li><code>1000 &lt;= salary[i] &lt;= 10<sup>6</sup></code></li>
 	<li>All the integers of <code>salary</code> are <strong>unique</strong>.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

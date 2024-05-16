@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Friendship</code></p>
 
 <pre>
@@ -74,6 +76,8 @@ Users 1 and 2 have 4 common friends (3, 4, 5, and 6).
 Users 1 and 3 have 3 common friends (2, 6, and 7).
 We did not include the friendship of users 2 and 3 because they only have two common friends (1 and 6).
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

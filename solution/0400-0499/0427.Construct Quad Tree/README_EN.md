@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a <code>n * n</code> matrix <code>grid</code> of <code>0&#39;s</code> and <code>1&#39;s</code> only. We want to represent <code>grid</code> with a Quad-Tree.</p>
 
 <p>Return <em>the root of the Quad-Tree representing </em><code>grid</code>.</p>
@@ -88,6 +90,8 @@ Explanation is shown in the photo below:
 	<li><code>n == grid.length == grid[i].length</code></li>
 	<li><code>n == 2<sup>x</sup></code> where <code>0 &lt;= x &lt;= 6</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -15,6 +15,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two strings s and t, return <i>the number of distinct</i> <b><i>subsequences</i></b><i> of </i>s<i> which equals </i>t.</p>
 
 <p>The test cases are generated so that the answer fits on a 32-bit signed integer.</p>
@@ -52,6 +54,8 @@ As shown below, there are 5 ways you can generate &quot;bag&quot; from s.
 	<li><code>1 &lt;= s.length, t.length &lt;= 1000</code></li>
 	<li><code>s</code> and <code>t</code> consist of English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

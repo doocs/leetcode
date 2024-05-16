@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two integers <code>num</code> and <code>k</code>, consider a set of positive integers with the following properties:</p>
 
 <ul>
@@ -70,6 +72,8 @@ It can be shown that 2 is the minimum possible size of a valid set.
 	<li><code>0 &lt;= num &lt;= 3000</code></li>
 	<li><code>0 &lt;= k &lt;= 9</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

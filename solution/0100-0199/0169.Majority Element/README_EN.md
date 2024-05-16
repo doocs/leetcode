@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array <code>nums</code> of size <code>n</code>, return <em>the majority element</em>.</p>
 
 <p>The majority element is the element that appears more than <code>&lfloor;n / 2&rfloor;</code> times. You may assume that the majority element always exists in the array.</p>
@@ -41,6 +43,8 @@ tags:
 
 <p>&nbsp;</p>
 <strong>Follow-up:</strong> Could you solve the problem in linear time and in <code>O(1)</code> space?
+
+<!-- description:end -->
 
 ## Solutions
 

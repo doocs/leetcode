@@ -18,6 +18,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given two strings <code>word1</code> and <code>word2</code>. You want to construct a string <code>merge</code> in the following way: while either <code>word1</code> or <code>word2</code> are non-empty, choose <strong>one</strong> of the following options:</p>
 
 <ul>
@@ -68,6 +70,8 @@ tags:
 	<li><code>1 &lt;= word1.length, word2.length &lt;= 3000</code></li>
 	<li><code>word1</code> and <code>word2</code> consist only of lowercase English letters.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

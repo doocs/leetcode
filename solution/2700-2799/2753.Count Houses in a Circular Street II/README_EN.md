@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2753.Co
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given an object <code>street</code> of class <code>Street</code> that represents a <strong>circular</strong> street and a positive integer <code>k</code> which represents a maximum bound for the number of houses in that street (in other words, the number of houses is less than or equal to <code>k</code>). Houses&#39; doors could be open or closed initially (at least one is open).</p>
 
 <p>Initially, you are standing in front of a door to a house on this street. Your task is to count the number of houses in the street.</p>
@@ -55,6 +57,8 @@ The number of houses is equal to k, which is 5.
 	<li><code>street</code> is circular by definition provided in the statement.</li>
 	<li>The input is generated such that at least one of the doors is open.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

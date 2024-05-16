@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and an integer <code>k</code>.</p>
 
 <p>You can perform the following operation on the array <strong>at most</strong> <code>k</code> times:</p>
@@ -64,6 +66,8 @@ It can be shown that we cannot achieve a better score.
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 	<li><code>0 &lt;= k &lt;= 10<sup>14</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

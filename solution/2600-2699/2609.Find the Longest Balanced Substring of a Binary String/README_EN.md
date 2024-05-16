@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>You are given a binary string <code>s</code> consisting only of zeroes and ones.</p>
 
 <p>A substring of <code>s</code> is considered balanced if<strong> all zeroes are before ones</strong> and the number of zeroes is equal to the number of ones inside the substring. Notice that the empty substring is considered a balanced substring.</p>
@@ -56,6 +58,8 @@ tags:
 	<li><code>1 &lt;= s.length &lt;= 50</code></li>
 	<li><code>&#39;0&#39; &lt;= s[i] &lt;= &#39;1&#39;</code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

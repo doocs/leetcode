@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Sales</code></p>
 
 <pre>
@@ -90,6 +92,8 @@ User 102 spent 3 * 15 + 2 * 15 = 75.
 User 103 spent 3 * 25 = 75.
 Users 102 and 103 spent the same amount and we break the tie by their ID while user 101 is on the top.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

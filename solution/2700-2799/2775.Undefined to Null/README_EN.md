@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2775.Un
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a deeply nested object or array <code>obj</code>, return the object <code>obj</code> with any <code>undefined</code> values replaced by <code>null</code>.</p>
 
 <p><code>undefined</code> values are handled differently than <code>null</code> values when objects are converted to a JSON string using <code>JSON.stringify()</code>. This function helps ensure serialized data is free of unexpected errors.</p>
@@ -40,6 +42,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2775.Un
 	<li><code>obj</code> is a valid JSON object or array</li>
 	<li><code>2 &lt;= JSON.stringify(obj).length &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

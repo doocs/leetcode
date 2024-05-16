@@ -12,6 +12,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2754.Bi
 
 ## Description
 
+<!-- description:start -->
+
 <p>Enhance all functions to have the&nbsp;<code>bindPolyfill</code>&nbsp;method. When&nbsp;<code>bindPolyfill</code>&nbsp;is called with a passed&nbsp;object <code>obj</code>, that object becomes the&nbsp;<code>this</code>&nbsp;context for the function.</p>
 
 <p>For example, if you had the code:</p>
@@ -82,6 +84,8 @@ boundFunc(); // &quot;My name is Kathy&quot;
 
 <p>&nbsp;</p>
 <strong>Can you solve it without using any built-in methods?</strong>
+
+<!-- description:end -->
 
 ## Solutions
 

@@ -19,6 +19,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an array of integers <code>nums</code> and an integer <code>k</code>. A continuous subarray is called <strong>nice</strong> if there are <code>k</code> odd numbers on it.</p>
 
 <p>Return <em>the number of <strong>nice</strong> sub-arrays</em>.</p>
@@ -72,6 +74,8 @@ tags:
     <li><code>1 &lt;= k &lt;= nums.length</code></li>
 
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

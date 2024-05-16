@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given two positive integers <code>num1</code> and <code>num2</code>, find the positive integer <code>x</code> such that:</p>
 
 <ul>
@@ -57,6 +59,8 @@ The integer <strong>3</strong> has the same number of set bits as num2, and the 
 <ul>
 	<li><code>1 &lt;= num1, num2 &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

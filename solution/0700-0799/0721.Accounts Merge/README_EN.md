@@ -20,6 +20,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given a list of <code>accounts</code> where each element <code>accounts[i]</code> is a list of strings, where the first element <code>accounts[i][0]</code> is a name, and the rest of the elements are <strong>emails</strong> representing emails of the account.</p>
 
 <p>Now, we would like to merge these accounts. Two accounts definitely belong to the same person if there is some common email to both accounts. Note that even if two accounts have the same name, they may belong to different people as people could have the same name. A person can have any number of accounts initially, but all of their accounts definitely have the same name.</p>
@@ -56,6 +58,8 @@ We could return these lists in any order, for example the answer [[&#39;Mary&#39
 	<li><code>accounts[i][0]</code> consists of English letters.</li>
 	<li><code>accounts[i][j] (for j &gt; 0)</code> is a valid email.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

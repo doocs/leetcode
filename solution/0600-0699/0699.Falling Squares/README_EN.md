@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There are several squares being dropped onto the X-axis of a 2D plane.</p>
 
 <p>You are given a 2D integer array <code>positions</code> where <code>positions[i] = [left<sub>i</sub>, sideLength<sub>i</sub>]</code> represents the <code>i<sup>th</sup></code> square with a side length of <code>sideLength<sub>i</sub></code> that is dropped with its left edge aligned with X-coordinate <code>left<sub>i</sub></code>.</p>
@@ -59,6 +61,8 @@ Note that square 2 only brushes the right side of square 1, which does not count
 	<li><code>1 &lt;= left<sub>i</sub> &lt;= 10<sup>8</sup></code></li>
 	<li><code>1 &lt;= sideLength<sub>i</sub> &lt;= 10<sup>6</sup></code></li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

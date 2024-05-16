@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Employee</code></p>
 
 <pre>
@@ -59,6 +61,8 @@ Employee table:
 +----------+
 <strong>Explanation:</strong> Joe is the only employee who earns more than his manager.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

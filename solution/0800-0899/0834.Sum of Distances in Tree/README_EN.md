@@ -17,6 +17,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>There is an undirected connected tree with <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code> and <code>n - 1</code> edges.</p>
 
 <p>You are given the integer <code>n</code> and the array <code>edges</code> where <code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> indicates that there is an edge between nodes <code>a<sub>i</sub></code> and <code>b<sub>i</sub></code> in the tree.</p>
@@ -60,6 +62,8 @@ Hence, answer[0] = 8, and so on.
 	<li><code>a<sub>i</sub> != b<sub>i</sub></code></li>
 	<li>The given input represents a valid tree.</li>
 </ul>
+
+<!-- description:end -->
 
 ## Solutions
 

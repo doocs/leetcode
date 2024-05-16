@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>Employee</code></p>
 
 <pre>
@@ -73,6 +75,8 @@ n = 2
 | null                   |
 +------------------------+
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

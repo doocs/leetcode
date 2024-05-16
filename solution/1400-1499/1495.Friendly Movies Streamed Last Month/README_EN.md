@@ -14,6 +14,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Table: <code>TVProgram</code></p>
 
 <pre>
@@ -94,6 +96,8 @@ Content table:
 &quot;Alladin&quot; is a movie, content for kids and was streamed in June 2020.
 &quot;Cinderella&quot; was not streamed in June 2020.
 </pre>
+
+<!-- description:end -->
 
 ## Solutions
 

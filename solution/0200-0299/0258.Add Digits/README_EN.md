@@ -16,6 +16,8 @@ tags:
 
 ## Description
 
+<!-- description:start -->
+
 <p>Given an integer <code>num</code>, repeatedly add all its digits until the result has only one digit, and return it.</p>
 
 <p>&nbsp;</p>
@@ -46,6 +48,8 @@ Since 2 has only one digit, return it.
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you do it without any loop/recursion in <code>O(1)</code> runtime?</p>
+
+<!-- description:end -->
 
 ## Solutions
 
