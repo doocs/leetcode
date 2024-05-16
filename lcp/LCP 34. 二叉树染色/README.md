@@ -18,8 +18,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2034.%20%E4%BA%8C%
 >
 > 输出：`12`
 >
-> 解释：`结点 5、3、4 染成蓝色，获得最大的价值 5+3+4=12`
-> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2034.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E6%9F%93%E8%89%B2/images/1616126267-BqaCRj-image.png)
+> 解释：`结点 5、3、4 染成蓝色，获得最大的价值 5+3+4=12` > ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2034.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E6%9F%93%E8%89%B2/images/1616126267-BqaCRj-image.png)
 
 **示例 2：**
 

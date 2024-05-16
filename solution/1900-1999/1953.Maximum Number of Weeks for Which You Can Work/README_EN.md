@@ -72,7 +72,15 @@ Thus, one milestone in project 0 will remain unfinished.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Greedy
+
+We consider under what circumstances we cannot complete all stage tasks. If there is a project $i$ whose number of stage tasks is greater than the sum of the number of stage tasks of all other projects plus $1$, then we cannot complete all stage tasks. Otherwise, we can definitely complete all stage tasks by interlacing between different projects.
+
+We denote the sum of the number of stage tasks of all projects as $s$, and the maximum number of stage tasks as $mx$, then the sum of the number of stage tasks of all other projects is $rest = s - mx$.
+
+If $mx > rest + 1$, then we cannot complete all stage tasks, and at most we can complete $rest \times 2 + 1$ stage tasks. Otherwise, we can complete all stage tasks, the number is $s$.
+
+The time complexity is $O(n)$, where $n$ is the number of projects. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -123,6 +131,15 @@ func numberOfWeeks(milestones []int) int64 {
 		return int64(rest*2 + 1)
 	}
 	return int64(s)
+}
+```
+
+```ts
+function numberOfWeeks(milestones: number[]): number {
+    const mx = Math.max(...milestones);
+    const s = milestones.reduce((a, b) => a + b, 0);
+    const rest = s - mx;
+    return mx > rest + 1 ? rest * 2 + 1 : s;
 }
 ```
 

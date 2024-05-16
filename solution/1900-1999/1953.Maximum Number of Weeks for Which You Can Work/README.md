@@ -75,7 +75,15 @@ tags:
 
 ## 解法
 
-### 方法一
+### 方法一：贪心
+
+我们考虑什么情况下不能完成所有阶段任务。如果存在一个项目 $i$，它的阶段任务数大于其余所有项目的阶段任务数之和再加 $1$，那么就不能完成所有阶段任务。否则，我们一定可以通过不同项目之间来回穿插的方式完成所有阶段任务。
+
+我们记所有项目的阶段任务数之和为 $s$，最大的阶段任务数为 $mx$，那么其余所有项目的阶段任务数之和为 $rest = s - mx$。
+
+如果 $mx \gt rest + 1$，那么就不能完成所有阶段任务，最多只能完成 $rest \times 2 + 1$ 个阶段任务。否则，我们可以完成所有阶段任务，数量为 $s$。
+
+时间复杂度 $O(n)$，其中 $n$ 为项目数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -126,6 +134,15 @@ func numberOfWeeks(milestones []int) int64 {
 		return int64(rest*2 + 1)
 	}
 	return int64(s)
+}
+```
+
+```ts
+function numberOfWeeks(milestones: number[]): number {
+    const mx = Math.max(...milestones);
+    const s = milestones.reduce((a, b) => a + b, 0);
+    const rest = s - mx;
+    return mx > rest + 1 ? rest * 2 + 1 : s;
 }
 ```
 
