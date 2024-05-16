@@ -1,7 +1,7 @@
 class Trie {
     var children = [Trie?](repeating: nil, count: 26)
     var isEnd = false
-    
+
     func insert(_ word: String) {
         var node = self
         for c in word {
@@ -18,18 +18,18 @@ class Trie {
 class Solution {
     private var maxL = 0
     private var maxS = 0
-    private var ans: [String]?
+    private var ans: [String] = []
     private var trie = Trie()
     private var t = [String]()
 
-    func maxRectangle(_ words: [String]) -> [String]? {
+    func maxRectangle(_ words: [String]) -> [String] {
         var d = [Int: [String]]()
         for word in words {
             maxL = max(maxL, word.count)
             trie.insert(word)
             d[word.count, default: []].append(word)
         }
-        
+
         for ws in d.values {
             t.removeAll()
             dfs(ws)
