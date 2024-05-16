@@ -12,23 +12,22 @@
  * }
  */
 export function rightSideView(root: TreeNode | null): number[] {
-    if (!root) return []
-  
-    let queue = [root]
-    const res: number[] = []
-  
+    if (!root) return [];
+
+    let queue = [root];
+    const res: number[] = [];
+
     while (queue.length) {
-      const nextQueue: TreeNode[] = []
-      res.push(queue.at(-1)!.val)
-  
-      for (const node of queue) {
-        if (node.left) nextQueue.push(node.left)
-        if (node.right) nextQueue.push(node.right)
-      }
-  
-      queue = nextQueue
+        const nextQueue: TreeNode[] = [];
+        res.push(queue.at(-1)!.val);
+
+        for (const node of queue) {
+            if (node.left) nextQueue.push(node.left);
+            if (node.right) nextQueue.push(node.right);
+        }
+
+        queue = nextQueue;
     }
-  
-    return res
-  }
-  
+
+    return res;
+}
