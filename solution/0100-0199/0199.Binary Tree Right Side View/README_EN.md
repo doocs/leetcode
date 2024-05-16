@@ -203,19 +203,23 @@ func rightSideView(root *TreeNode) (ans []int) {
  */
 
 function rightSideView(root: TreeNode | null): number[] {
-    const ans = [];
     if (!root) {
-        return ans;
+        return [];
     }
-    const q = [root];
+    let q = [root];
+    const ans: number[] = [];
     while (q.length) {
-        const n = q.length;
-        ans.push(q[n - 1].val);
-        for (let i = 0; i < n; ++i) {
-            const { left, right } = q.shift();
-            left && q.push(left);
-            right && q.push(right);
+        const nextq: TreeNode[] = [];
+        ans.push(q.at(-1)!.val);
+        for (const { left, right } of q) {
+            if (left) {
+                nextq.push(left);
+            }
+            if (right) {
+                nextq.push(right);
+            }
         }
+        q = nextq;
     }
     return ans;
 }
@@ -423,49 +427,6 @@ function rightSideView(root: TreeNode | null): number[] {
     };
     dfs(root, 0);
     return ans;
-}
-```
-
-<!-- tabs:end -->
-
-### Solution 3
-
-<!-- tabs:start -->
-
-```ts
-/**
- * Definition for a binary tree node.
- * class TreeNode {
- *     val: number
- *     left: TreeNode | null
- *     right: TreeNode | null
- *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.left = (left===undefined ? null : left)
- *         this.right = (right===undefined ? null : right)
- *     }
- * }
- */
-
-export function rightSideView(root: TreeNode | null): number[] {
-    if (!root) return [];
-
-    let queue = [root];
-    const res: number[] = [];
-
-    while (queue.length) {
-        const nextQueue: TreeNode[] = [];
-        res.push(queue.at(-1)!.val);
-
-        for (const node of queue) {
-            if (node.left) nextQueue.push(node.left);
-            if (node.right) nextQueue.push(node.right);
-        }
-
-        queue = nextQueue;
-    }
-
-    return res;
 }
 ```
 
