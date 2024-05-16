@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1262.Greatest%20Sum%20Divisible%20by%20Three/README.md
 rating: 1762
+source: 第 163 场周赛 Q3
 tags:
     - 贪心
     - 数组

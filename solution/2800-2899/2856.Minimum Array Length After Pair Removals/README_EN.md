@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2856.Minimum%20Array%20Length%20After%20Pair%20Removals/README_EN.md
 rating: 1749
+source: Biweekly Contest 113 Q2
 tags:
     - Greedy
     - Array

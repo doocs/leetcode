@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1064.Fixed%20Point/README_EN.md
 rating: 1307
+source: Biweekly Contest 1 Q1
 tags:
     - Array
     - Binary Search

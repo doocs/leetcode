@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2500.Delete%20Greatest%20Value%20in%20Each%20Row/README_EN.md
 rating: 1309
+source: Weekly Contest 323 Q1
 tags:
     - Array
     - Matrix

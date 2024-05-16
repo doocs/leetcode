@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2833.Furthest%20Point%20From%20Origin/README_EN.md
 rating: 1294
+source: Weekly Contest 360 Q1
 tags:
     - String
     - Counting

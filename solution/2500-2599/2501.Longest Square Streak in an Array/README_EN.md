@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2501.Longest%20Square%20Streak%20in%20an%20Array/README_EN.md
 rating: 1479
+source: Weekly Contest 323 Q2
 tags:
     - Array
     - Hash Table

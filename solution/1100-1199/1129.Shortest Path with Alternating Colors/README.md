@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1129.Shortest%20Path%20with%20Alternating%20Colors/README.md
 rating: 1779
+source: 第 146 场周赛 Q2
 tags:
     - 广度优先搜索
     - 图

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1463.Cherry%20Pickup%20II/README_EN.md
 rating: 1956
+source: Biweekly Contest 27 Q4
 tags:
     - Array
     - Dynamic Programming

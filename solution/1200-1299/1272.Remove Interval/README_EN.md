@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1272.Remove%20Interval/README_EN.md
 rating: 1524
+source: Biweekly Contest 14 Q2
 tags:
     - Array
 ---

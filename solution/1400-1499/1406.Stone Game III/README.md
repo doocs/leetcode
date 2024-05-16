@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1406.Stone%20Game%20III/README.md
 rating: 2026
+source: 第 183 场周赛 Q4
 tags:
     - 数组
     - 数学

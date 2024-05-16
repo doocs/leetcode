@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2528.Maximize%20the%20Minimum%20Powered%20City/README_EN.md
 rating: 2235
+source: Biweekly Contest 95 Q4
 tags:
     - Greedy
     - Queue

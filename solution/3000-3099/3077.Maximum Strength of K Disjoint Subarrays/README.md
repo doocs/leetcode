@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3077.Maximum%20Strength%20of%20K%20Disjoint%20Subarrays/README.md
 rating: 2556
+source: 第 388 场周赛 Q4
 tags:
     - 数组
     - 动态规划

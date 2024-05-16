@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1710.Maximum%20Units%20on%20a%20Truck/README_EN.md
 rating: 1309
+source: Weekly Contest 222 Q1
 tags:
     - Greedy
     - Array

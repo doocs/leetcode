@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1018.Binary%20Prefix%20Divisible%20By%205/README.md
 rating: 1376
+source: 第 130 场周赛 Q1
 tags:
     - 位运算
     - 数组

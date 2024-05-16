@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2670.Find%20the%20Distinct%20Difference%20Array/README.md
 rating: 1266
+source: 第 344 场周赛 Q1
 tags:
     - 数组
     - 哈希表

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1358.Number%20of%20Substrings%20Containing%20All%20Three%20Characters/README.md
 rating: 1646
+source: 第 20 场双周赛 Q3
 tags:
     - 哈希表
     - 字符串

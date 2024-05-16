@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1036.Escape%20a%20Large%20Maze/README.md
 rating: 2164
+source: 第 134 场周赛 Q4
 tags:
     - 深度优先搜索
     - 广度优先搜索

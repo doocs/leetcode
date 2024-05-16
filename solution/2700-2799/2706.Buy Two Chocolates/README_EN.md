@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2706.Buy%20Two%20Chocolates/README_EN.md
 rating: 1207
+source: Biweekly Contest 105 Q1
 tags:
     - Array
     - Sorting

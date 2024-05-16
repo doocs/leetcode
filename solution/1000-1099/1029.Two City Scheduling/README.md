@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1029.Two%20City%20Scheduling/README.md
 rating: 1348
+source: 第 133 场周赛 Q1
 tags:
     - 贪心
     - 数组

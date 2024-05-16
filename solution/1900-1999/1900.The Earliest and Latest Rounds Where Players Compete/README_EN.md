@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1900.The%20Earliest%20and%20Latest%20Rounds%20Where%20Players%20Compete/README_EN.md
 rating: 2454
+source: Weekly Contest 245 Q4
 tags:
     - Memoization
     - Dynamic Programming

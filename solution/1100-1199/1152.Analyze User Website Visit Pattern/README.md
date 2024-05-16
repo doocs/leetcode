@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1152.Analyze%20User%20Website%20Visit%20Pattern/README.md
 rating: 1850
+source: 第 6 场双周赛 Q3
 tags:
     - 数组
     - 哈希表

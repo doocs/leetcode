@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1584.Min%20Cost%20to%20Connect%20All%20Points/README_EN.md
 rating: 1857
+source: Weekly Contest 206 Q3
 tags:
     - Union Find
     - Graph

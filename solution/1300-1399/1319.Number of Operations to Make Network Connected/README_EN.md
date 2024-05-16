@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1319.Number%20of%20Operations%20to%20Make%20Network%20Connected/README_EN.md
 rating: 1633
+source: Weekly Contest 171 Q3
 tags:
     - Depth-First Search
     - Breadth-First Search

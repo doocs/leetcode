@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1531.String%20Compression%20II/README_EN.md
 rating: 2575
+source: Weekly Contest 199 Q4
 tags:
     - String
     - Dynamic Programming

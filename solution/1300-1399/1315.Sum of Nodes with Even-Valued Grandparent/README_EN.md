@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1315.Sum%20of%20Nodes%20with%20Even-Valued%20Grandparent/README_EN.md
 rating: 1426
+source: Biweekly Contest 17 Q3
 tags:
     - Tree
     - Depth-First Search

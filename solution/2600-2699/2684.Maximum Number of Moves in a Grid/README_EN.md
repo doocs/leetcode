@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2684.Maximum%20Number%20of%20Moves%20in%20a%20Grid/README_EN.md
 rating: 1625
+source: Weekly Contest 345 Q3
 tags:
     - Array
     - Dynamic Programming

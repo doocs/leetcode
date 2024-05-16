@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2048.Next%20Greater%20Numerically%20Balanced%20Number/README.md
 rating: 1734
+source: 第 264 场周赛 Q2
 tags:
     - 数学
     - 回溯

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2178.Maximum%20Split%20of%20Positive%20Even%20Integers/README_EN.md
 rating: 1538
+source: Biweekly Contest 72 Q3
 tags:
     - Greedy
     - Math

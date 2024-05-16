@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3097.Shortest%20Subarray%20With%20OR%20at%20Least%20K%20II/README.md
 rating: 1891
+source: 第 127 场双周赛 Q3
 tags:
     - 位运算
     - 数组

@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1163.Last%20Substring%20in%20Lexicographical%20Order/README.md
 rating: 1864
+source: 第 150 场周赛 Q4
 tags:
     - 双指针
     - 字符串

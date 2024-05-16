@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1424.Diagonal%20Traverse%20II/README.md
 rating: 1779
+source: 第 186 场周赛 Q3
 tags:
     - 数组
     - 排序

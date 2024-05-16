@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1550.Three%20Consecutive%20Odds/README_EN.md
 rating: 1221
+source: Weekly Contest 202 Q1
 tags:
     - Array
 ---

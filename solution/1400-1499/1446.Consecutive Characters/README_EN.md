@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1446.Consecutive%20Characters/README_EN.md
 rating: 1165
+source: Biweekly Contest 26 Q1
 tags:
     - String
 ---

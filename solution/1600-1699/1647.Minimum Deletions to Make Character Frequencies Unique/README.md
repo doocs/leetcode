@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1647.Minimum%20Deletions%20to%20Make%20Character%20Frequencies%20Unique/README.md
 rating: 1509
+source: 第 214 场周赛 Q2
 tags:
     - 贪心
     - 哈希表

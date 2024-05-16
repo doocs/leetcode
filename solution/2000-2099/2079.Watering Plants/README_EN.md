@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2079.Watering%20Plants/README_EN.md
 rating: 1320
+source: Weekly Contest 268 Q2
 tags:
     - Array
     - Simulation

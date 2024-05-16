@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2872.Maximum%20Number%20of%20K-Divisible%20Components/README.md
 rating: 1967
+source: 第 114 场双周赛 Q4
 tags:
     - 树
     - 深度优先搜索

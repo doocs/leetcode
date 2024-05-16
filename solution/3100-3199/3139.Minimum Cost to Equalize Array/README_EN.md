@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3139.Minimum%20Cost%20to%20Equalize%20Array/README_EN.md
 rating: 2666
+source: Weekly Contest 396 Q4
 tags:
     - Greedy
     - Array

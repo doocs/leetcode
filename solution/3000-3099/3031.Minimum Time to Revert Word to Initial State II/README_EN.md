@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3031.Minimum%20Time%20to%20Revert%20Word%20to%20Initial%20State%20II/README_EN.md
 rating: 2277
+source: Weekly Contest 383 Q4
 tags:
     - String
     - String Matching

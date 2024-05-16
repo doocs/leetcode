@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2523.Closest%20Prime%20Numbers%20in%20Range/README.md
 rating: 1649
+source: 第 326 场周赛 Q4
 tags:
     - 数学
     - 数论

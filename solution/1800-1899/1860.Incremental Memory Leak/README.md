@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1860.Incremental%20Memory%20Leak/README.md
 rating: 1387
+source: 第 52 场双周赛 Q2
 tags:
     - 数学
     - 模拟

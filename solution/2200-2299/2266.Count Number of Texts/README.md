@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2266.Count%20Number%20of%20Texts/README.md
 rating: 1856
+source: 第 292 场周赛 Q3
 tags:
     - 哈希表
     - 数学

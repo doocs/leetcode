@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2468.Split%20Message%20Based%20on%20Limit/README_EN.md
 rating: 2381
+source: Biweekly Contest 91 Q4
 tags:
     - String
     - Binary Search

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2306.Naming%20a%20Company/README_EN.md
 rating: 2305
+source: Weekly Contest 297 Q4
 tags:
     - Bit Manipulation
     - Array

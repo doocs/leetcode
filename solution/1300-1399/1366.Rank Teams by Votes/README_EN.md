@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1366.Rank%20Teams%20by%20Votes/README_EN.md
 rating: 1626
+source: Weekly Contest 178 Q2
 tags:
     - Array
     - Hash Table

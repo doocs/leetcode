@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2343.Query%20Kth%20Smallest%20Trimmed%20Number/README_EN.md
 rating: 1651
+source: Weekly Contest 302 Q3
 tags:
     - Array
     - String

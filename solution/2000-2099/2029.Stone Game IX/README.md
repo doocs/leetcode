@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2029.Stone%20Game%20IX/README.md
 rating: 2277
+source: 第 261 场周赛 Q3
 tags:
     - 贪心
     - 数组

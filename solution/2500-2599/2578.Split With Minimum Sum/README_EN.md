@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2578.Split%20With%20Minimum%20Sum/README_EN.md
 rating: 1350
+source: Biweekly Contest 99 Q1
 tags:
     - Greedy
     - Math

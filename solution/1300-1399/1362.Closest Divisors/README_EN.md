@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1362.Closest%20Divisors/README_EN.md
 rating: 1533
+source: Weekly Contest 177 Q3
 tags:
     - Math
 ---

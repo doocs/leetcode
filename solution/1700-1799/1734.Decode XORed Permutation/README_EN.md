@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1734.Decode%20XORed%20Permutation/README_EN.md
 rating: 2024
+source: Biweekly Contest 44 Q3
 tags:
     - Bit Manipulation
     - Array

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2226.Maximum%20Candies%20Allocated%20to%20K%20Children/README_EN.md
 rating: 1646
+source: Weekly Contest 287 Q3
 tags:
     - Array
     - Binary Search

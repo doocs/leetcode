@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1360.Number%20of%20Days%20Between%20Two%20Dates/README_EN.md
 rating: 1421
+source: Weekly Contest 177 Q1
 tags:
     - Math
     - String

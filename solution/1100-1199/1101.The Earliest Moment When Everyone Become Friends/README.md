@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1101.The%20Earliest%20Moment%20When%20Everyone%20Become%20Friends/README.md
 rating: 1558
+source: 第 3 场双周赛 Q3
 tags:
     - 并查集
     - 数组

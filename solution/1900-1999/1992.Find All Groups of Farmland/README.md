@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1992.Find%20All%20Groups%20of%20Farmland/README.md
 rating: 1539
+source: 第 60 场双周赛 Q2
 tags:
     - 深度优先搜索
     - 广度优先搜索

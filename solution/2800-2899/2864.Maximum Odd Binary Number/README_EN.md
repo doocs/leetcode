@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2864.Maximum%20Odd%20Binary%20Number/README_EN.md
 rating: 1237
+source: Weekly Contest 364 Q1
 tags:
     - Greedy
     - Math

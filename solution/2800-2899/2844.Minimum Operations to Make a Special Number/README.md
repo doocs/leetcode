@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2844.Minimum%20Operations%20to%20Make%20a%20Special%20Number/README.md
 rating: 1588
+source: 第 361 场周赛 Q2
 tags:
     - 贪心
     - 数学

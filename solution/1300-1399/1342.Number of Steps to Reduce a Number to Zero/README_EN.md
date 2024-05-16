@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1342.Number%20of%20Steps%20to%20Reduce%20a%20Number%20to%20Zero/README_EN.md
 rating: 1163
+source: Biweekly Contest 19 Q1
 tags:
     - Bit Manipulation
     - Math

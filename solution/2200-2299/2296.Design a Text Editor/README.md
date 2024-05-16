@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2296.Design%20a%20Text%20Editor/README.md
 rating: 1911
+source: 第 296 场周赛 Q4
 tags:
     - 栈
     - 设计

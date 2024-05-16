@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2769.Find%20the%20Maximum%20Achievable%20Number/README_EN.md
 rating: 1191
+source: Weekly Contest 353 Q1
 tags:
     - Math
 ---

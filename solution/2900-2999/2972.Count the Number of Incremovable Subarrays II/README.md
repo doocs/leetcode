@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2972.Count%20the%20Number%20of%20Incremovable%20Subarrays%20II/README.md
 rating: 2152
+source: 第 120 场双周赛 Q3
 tags:
     - 数组
     - 双指针

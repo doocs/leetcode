@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1080.Insufficient%20Nodes%20in%20Root%20to%20Leaf%20Paths/README_EN.md
 rating: 1804
+source: Weekly Contest 140 Q3
 tags:
     - Tree
     - Depth-First Search

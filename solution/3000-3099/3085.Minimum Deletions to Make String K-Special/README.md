@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3085.Minimum%20Deletions%20to%20Make%20String%20K-Special/README.md
 rating: 1764
+source: 第 389 场周赛 Q3
 tags:
     - 贪心
     - 哈希表

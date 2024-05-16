@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1208.Get%20Equal%20Substrings%20Within%20Budget/README.md
 rating: 1496
+source: 第 156 场周赛 Q2
 tags:
     - 字符串
     - 二分查找

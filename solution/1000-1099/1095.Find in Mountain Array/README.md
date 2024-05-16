@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1095.Find%20in%20Mountain%20Array/README.md
 rating: 1827
+source: 第 142 场周赛 Q3
 tags:
     - 数组
     - 二分查找

@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1553.Minimum%20Number%20of%20Days%20to%20Eat%20N%20Oranges/README.md
 rating: 2048
+source: 第 202 场周赛 Q4
 tags:
     - 记忆化搜索
     - 动态规划

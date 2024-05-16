@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1653.Minimum%20Deletions%20to%20Make%20String%20Balanced/README.md
 rating: 1793
+source: 第 39 场双周赛 Q2
 tags:
     - 栈
     - 字符串

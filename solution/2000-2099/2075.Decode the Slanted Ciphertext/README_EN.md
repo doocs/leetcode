@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2075.Decode%20the%20Slanted%20Ciphertext/README_EN.md
 rating: 1759
+source: Weekly Contest 267 Q3
 tags:
     - String
     - Simulation

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1139.Largest%201-Bordered%20Square/README.md
 rating: 1744
+source: 第 147 场周赛 Q3
 tags:
     - 数组
     - 动态规划

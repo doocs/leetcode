@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2956.Find%20Common%20Elements%20Between%20Two%20Arrays/README.md
 rating: 1214
+source: 第 119 场双周赛 Q1
 tags:
     - 数组
     - 哈希表

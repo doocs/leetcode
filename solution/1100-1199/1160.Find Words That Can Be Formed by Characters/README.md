@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1160.Find%20Words%20That%20Can%20Be%20Formed%20by%20Characters/README.md
 rating: 1205
+source: 第 150 场周赛 Q1
 tags:
     - 数组
     - 哈希表

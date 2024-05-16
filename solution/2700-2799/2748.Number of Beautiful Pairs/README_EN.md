@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2748.Number%20of%20Beautiful%20Pairs/README_EN.md
 rating: 1301
+source: Weekly Contest 351 Q1
 tags:
     - Array
     - Math

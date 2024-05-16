@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2231.Largest%20Number%20After%20Digit%20Swaps%20by%20Parity/README.md
 rating: 1365
+source: 第 288 场周赛 Q1
 tags:
     - 排序
     - 堆（优先队列）

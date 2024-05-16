@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2037.Minimum%20Number%20of%20Moves%20to%20Seat%20Everyone/README.md
 rating: 1356
+source: 第 63 场双周赛 Q1
 tags:
     - 贪心
     - 数组

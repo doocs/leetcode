@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1267.Count%20Servers%20that%20Communicate/README_EN.md
 rating: 1374
+source: Weekly Contest 164 Q2
 tags:
     - Depth-First Search
     - Breadth-First Search

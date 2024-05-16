@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1553.Minimum%20Number%20of%20Days%20to%20Eat%20N%20Oranges/README_EN.md
 rating: 2048
+source: Weekly Contest 202 Q4
 tags:
     - Memoization
     - Dynamic Programming

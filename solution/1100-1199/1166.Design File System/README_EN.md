@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1166.Design%20File%20System/README_EN.md
 rating: 1479
+source: Biweekly Contest 7 Q2
 tags:
     - Design
     - Trie

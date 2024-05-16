@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1673.Find%20the%20Most%20Competitive%20Subsequence/README_EN.md
 rating: 1802
+source: Weekly Contest 217 Q2
 tags:
     - Stack
     - Greedy

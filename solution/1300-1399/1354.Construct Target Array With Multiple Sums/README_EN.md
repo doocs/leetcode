@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1354.Construct%20Target%20Array%20With%20Multiple%20Sums/README_EN.md
 rating: 2014
+source: Weekly Contest 176 Q4
 tags:
     - Array
     - Heap (Priority Queue)

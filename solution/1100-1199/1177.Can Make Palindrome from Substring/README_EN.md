@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1177.Can%20Make%20Palindrome%20from%20Substring/README_EN.md
 rating: 1848
+source: Weekly Contest 152 Q3
 tags:
     - Bit Manipulation
     - Array

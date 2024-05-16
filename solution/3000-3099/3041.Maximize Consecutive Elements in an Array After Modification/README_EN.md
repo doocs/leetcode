@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3041.Maximize%20Consecutive%20Elements%20in%20an%20Array%20After%20Modification/README_EN.md
 rating: 2231
+source: Biweekly Contest 124 Q4
 tags:
     - Array
     - Dynamic Programming

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2370.Longest%20Ideal%20Subsequence/README.md
 rating: 1834
+source: 第 305 场周赛 Q4
 tags:
     - 哈希表
     - 字符串

@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2293.Min%20Max%20Game/README_EN.md
 rating: 1241
+source: Weekly Contest 296 Q1
 tags:
     - Array
     - Simulation

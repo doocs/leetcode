@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2611.Mice%20and%20Cheese/README_EN.md
 rating: 1663
+source: Weekly Contest 339 Q3
 tags:
     - Greedy
     - Array

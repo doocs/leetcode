@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1903.Largest%20Odd%20Number%20in%20String/README_EN.md
 rating: 1248
+source: Weekly Contest 246 Q1
 tags:
     - Greedy
     - Math

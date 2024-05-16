@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2640.Find%20the%20Score%20of%20All%20Prefixes%20of%20an%20Array/README_EN.md
 rating: 1314
+source: Biweekly Contest 102 Q2
 tags:
     - Array
     - Prefix Sum

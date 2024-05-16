@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1389.Create%20Target%20Array%20in%20the%20Given%20Order/README.md
 rating: 1208
+source: 第 181 场周赛 Q1
 tags:
     - 数组
     - 模拟

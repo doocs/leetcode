@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1192.Critical%20Connections%20in%20a%20Network/README_EN.md
 rating: 2084
+source: Weekly Contest 154 Q4
 tags:
     - Depth-First Search
     - Graph

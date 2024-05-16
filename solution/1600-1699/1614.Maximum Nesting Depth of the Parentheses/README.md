@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1614.Maximum%20Nesting%20Depth%20of%20the%20Parentheses/README.md
 rating: 1322
+source: 第 210 场周赛 Q1
 tags:
     - 栈
     - 字符串

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1208.Get%20Equal%20Substrings%20Within%20Budget/README_EN.md
 rating: 1496
+source: Weekly Contest 156 Q2
 tags:
     - String
     - Binary Search

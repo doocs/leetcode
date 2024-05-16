@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3128.Right%20Triangles/README.md
 rating: 1540
+source: 第 129 场双周赛 Q2
 tags:
     - 数组
     - 哈希表

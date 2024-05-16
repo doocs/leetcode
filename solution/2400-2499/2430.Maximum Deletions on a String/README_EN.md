@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2430.Maximum%20Deletions%20on%20a%20String/README_EN.md
 rating: 2101
+source: Weekly Contest 313 Q4
 tags:
     - String
     - Dynamic Programming

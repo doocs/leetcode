@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2931.Maximum%20Spending%20After%20Buying%20Items/README.md
 rating: 1822
+source: 第 117 场双周赛 Q4
 tags:
     - 贪心
     - 数组

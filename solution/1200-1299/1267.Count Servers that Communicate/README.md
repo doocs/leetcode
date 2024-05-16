@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1267.Count%20Servers%20that%20Communicate/README.md
 rating: 1374
+source: 第 164 场周赛 Q2
 tags:
     - 深度优先搜索
     - 广度优先搜索

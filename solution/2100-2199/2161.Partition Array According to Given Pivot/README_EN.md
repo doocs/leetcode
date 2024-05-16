@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2161.Partition%20Array%20According%20to%20Given%20Pivot/README_EN.md
 rating: 1337
+source: Biweekly Contest 71 Q2
 tags:
     - Array
     - Two Pointers

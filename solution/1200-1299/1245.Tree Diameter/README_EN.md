@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1245.Tree%20Diameter/README_EN.md
 rating: 1792
+source: Biweekly Contest 12 Q3
 tags:
     - Tree
     - Depth-First Search

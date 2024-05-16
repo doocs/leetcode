@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2427.Number%20of%20Common%20Factors/README.md
 rating: 1172
+source: 第 313 场周赛 Q1
 tags:
     - 数学
     - 枚举

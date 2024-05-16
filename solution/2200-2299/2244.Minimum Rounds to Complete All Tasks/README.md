@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2244.Minimum%20Rounds%20to%20Complete%20All%20Tasks/README.md
 rating: 1371
+source: 第 289 场周赛 Q2
 tags:
     - 贪心
     - 数组

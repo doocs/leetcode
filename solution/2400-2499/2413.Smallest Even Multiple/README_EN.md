@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2413.Smallest%20Even%20Multiple/README_EN.md
 rating: 1144
+source: Weekly Contest 311 Q1
 tags:
     - Math
     - Number Theory

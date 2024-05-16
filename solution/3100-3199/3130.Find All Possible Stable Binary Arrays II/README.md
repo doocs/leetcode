@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3130.Find%20All%20Possible%20Stable%20Binary%20Arrays%20II/README.md
 rating: 2824
+source: 第 129 场双周赛 Q4
 tags:
     - 动态规划
     - 前缀和

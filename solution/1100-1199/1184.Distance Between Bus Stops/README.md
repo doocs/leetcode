@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1184.Distance%20Between%20Bus%20Stops/README.md
 rating: 1234
+source: 第 153 场周赛 Q1
 tags:
     - 数组
 ---

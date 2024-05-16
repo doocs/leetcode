@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1383.Maximum%20Performance%20of%20a%20Team/README_EN.md
 rating: 2091
+source: Weekly Contest 180 Q4
 tags:
     - Greedy
     - Array

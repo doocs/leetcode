@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1857.Largest%20Color%20Value%20in%20a%20Directed%20Graph/README.md
 rating: 2312
+source: 第 240 场周赛 Q4
 tags:
     - 图
     - 拓扑排序

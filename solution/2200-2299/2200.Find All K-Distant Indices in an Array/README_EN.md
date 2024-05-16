@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2200.Find%20All%20K-Distant%20Indices%20in%20an%20Array/README_EN.md
 rating: 1266
+source: Weekly Contest 284 Q1
 tags:
     - Array
     - Two Pointers

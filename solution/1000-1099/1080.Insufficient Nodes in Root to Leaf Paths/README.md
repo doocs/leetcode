@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1080.Insufficient%20Nodes%20in%20Root%20to%20Leaf%20Paths/README.md
 rating: 1804
+source: 第 140 场周赛 Q3
 tags:
     - 树
     - 深度优先搜索

@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1231.Divide%20Chocolate/README.md
 rating: 2029
+source: 第 11 场双周赛 Q4
 tags:
     - 数组
     - 二分查找

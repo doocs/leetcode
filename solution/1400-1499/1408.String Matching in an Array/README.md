@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1408.String%20Matching%20in%20an%20Array/README.md
 rating: 1223
+source: 第 184 场周赛 Q1
 tags:
     - 数组
     - 字符串

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2443.Sum%20of%20Number%20and%20Its%20Reverse/README_EN.md
 rating: 1376
+source: Weekly Contest 315 Q3
 tags:
     - Math
     - Enumeration

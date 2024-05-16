@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1155.Number%20of%20Dice%20Rolls%20With%20Target%20Sum/README_EN.md
 rating: 1653
+source: Weekly Contest 149 Q2
 tags:
     - Dynamic Programming
 ---

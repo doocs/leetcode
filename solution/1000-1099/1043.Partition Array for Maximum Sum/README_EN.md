@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1043.Partition%20Array%20for%20Maximum%20Sum/README_EN.md
 rating: 1916
+source: Weekly Contest 136 Q3
 tags:
     - Array
     - Dynamic Programming

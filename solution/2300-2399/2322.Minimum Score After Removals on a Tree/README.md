@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2322.Minimum%20Score%20After%20Removals%20on%20a%20Tree/README.md
 rating: 2391
+source: 第 299 场周赛 Q4
 tags:
     - 位运算
     - 树

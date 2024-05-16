@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1443.Minimum%20Time%20to%20Collect%20All%20Apples%20in%20a%20Tree/README.md
 rating: 1682
+source: 第 188 场周赛 Q3
 tags:
     - 树
     - 深度优先搜索

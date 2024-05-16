@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2851.String%20Transformation/README_EN.md
 rating: 2857
+source: Weekly Contest 362 Q4
 tags:
     - Math
     - String

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1540.Can%20Convert%20String%20in%20K%20Moves/README_EN.md
 rating: 1631
+source: Biweekly Contest 32 Q2
 tags:
     - Hash Table
     - String

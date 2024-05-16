@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2500.Delete%20Greatest%20Value%20in%20Each%20Row/README.md
 rating: 1309
+source: 第 323 场周赛 Q1
 tags:
     - 数组
     - 矩阵

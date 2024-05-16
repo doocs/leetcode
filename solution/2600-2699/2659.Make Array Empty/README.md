@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2659.Make%20Array%20Empty/README.md
 rating: 2281
+source: 第 103 场双周赛 Q4
 tags:
     - 贪心
     - 树状数组

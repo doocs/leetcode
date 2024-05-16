@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1257.Smallest%20Common%20Region/README.md
 rating: 1654
+source: 第 13 场双周赛 Q2
 tags:
     - 树
     - 深度优先搜索

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2731.Movement%20of%20Robots/README.md
 rating: 1922
+source: 第 106 场双周赛 Q3
 tags:
     - 脑筋急转弯
     - 数组

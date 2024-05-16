@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3131.Find%20the%20Integer%20Added%20to%20Array%20I/README_EN.md
 rating: 1160
+source: Weekly Contest 395 Q1
 tags:
     - Array
 ---

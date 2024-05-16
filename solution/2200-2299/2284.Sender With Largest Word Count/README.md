@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2284.Sender%20With%20Largest%20Word%20Count/README.md
 rating: 1346
+source: 第 79 场双周赛 Q2
 tags:
     - 数组
     - 哈希表

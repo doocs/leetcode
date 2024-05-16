@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2872.Maximum%20Number%20of%20K-Divisible%20Components/README_EN.md
 rating: 1967
+source: Biweekly Contest 114 Q4
 tags:
     - Tree
     - Depth-First Search

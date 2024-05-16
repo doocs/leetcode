@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1106.Parsing%20A%20Boolean%20Expression/README_EN.md
 rating: 1880
+source: Weekly Contest 143 Q4
 tags:
     - Stack
     - Recursion

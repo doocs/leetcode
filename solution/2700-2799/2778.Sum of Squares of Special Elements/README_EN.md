@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2778.Sum%20of%20Squares%20of%20Special%20Elements/README_EN.md
 rating: 1151
+source: Weekly Contest 354 Q1
 tags:
     - Array
     - Enumeration

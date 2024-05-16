@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2352.Equal%20Row%20and%20Column%20Pairs/README.md
 rating: 1286
+source: 第 303 场周赛 Q2
 tags:
     - 数组
     - 哈希表

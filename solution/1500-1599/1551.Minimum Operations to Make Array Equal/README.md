@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1551.Minimum%20Operations%20to%20Make%20Array%20Equal/README.md
 rating: 1293
+source: 第 202 场周赛 Q2
 tags:
     - 数学
 ---

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1307.Verbal%20Arithmetic%20Puzzle/README_EN.md
 rating: 2250
+source: Weekly Contest 169 Q4
 tags:
     - Array
     - Math

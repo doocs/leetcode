@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2289.Steps%20to%20Make%20Array%20Non-decreasing/README.md
 rating: 2481
+source: 第 295 场周赛 Q3
 tags:
     - 栈
     - 数组

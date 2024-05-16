@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1186.Maximum%20Subarray%20Sum%20with%20One%20Deletion/README_EN.md
 rating: 1799
+source: Weekly Contest 153 Q3
 tags:
     - Array
     - Dynamic Programming

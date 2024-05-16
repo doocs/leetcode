@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2009.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20Continuous/README.md
 rating: 2084
+source: 第 61 场双周赛 Q4
 tags:
     - 数组
     - 哈希表

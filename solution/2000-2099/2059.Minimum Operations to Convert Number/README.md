@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2059.Minimum%20Operations%20to%20Convert%20Number/README.md
 rating: 1849
+source: 第 265 场周赛 Q3
 tags:
     - 广度优先搜索
     - 数组

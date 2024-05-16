@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2333.Minimum%20Sum%20of%20Squared%20Difference/README_EN.md
 rating: 2011
+source: Biweekly Contest 82 Q3
 tags:
     - Array
     - Math

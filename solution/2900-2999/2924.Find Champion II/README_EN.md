@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2924.Find%20Champion%20II/README_EN.md
 rating: 1430
+source: Weekly Contest 370 Q2
 tags:
     - Graph
 ---

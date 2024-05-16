@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2843.Count%20Symmetric%20Integers/README_EN.md
 rating: 1269
+source: Weekly Contest 361 Q1
 tags:
     - Math
     - Enumeration

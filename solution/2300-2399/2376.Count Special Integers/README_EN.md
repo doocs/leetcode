@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2376.Count%20Special%20Integers/README_EN.md
 rating: 2120
+source: Weekly Contest 306 Q4
 tags:
     - Math
     - Dynamic Programming

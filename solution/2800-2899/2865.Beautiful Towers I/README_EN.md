@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2865.Beautiful%20Towers%20I/README_EN.md
 rating: 1519
+source: Weekly Contest 364 Q2
 tags:
     - Stack
     - Array

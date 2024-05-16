@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2144.Minimum%20Cost%20of%20Buying%20Candies%20With%20Discount/README.md
 rating: 1260
+source: 第 70 场双周赛 Q1
 tags:
     - 贪心
     - 数组

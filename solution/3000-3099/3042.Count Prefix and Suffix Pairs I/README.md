@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3042.Count%20Prefix%20and%20Suffix%20Pairs%20I/README.md
 rating: 1214
+source: 第 385 场周赛 Q1
 tags:
     - 字典树
     - 数组

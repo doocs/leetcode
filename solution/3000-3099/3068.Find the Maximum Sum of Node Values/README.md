@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3068.Find%20the%20Maximum%20Sum%20of%20Node%20Values/README.md
 rating: 2267
+source: 第 125 场双周赛 Q4
 tags:
     - 贪心
     - 位运算

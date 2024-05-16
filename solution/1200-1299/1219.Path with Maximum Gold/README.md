@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1219.Path%20with%20Maximum%20Gold/README.md
 rating: 1663
+source: 第 157 场周赛 Q3
 tags:
     - 数组
     - 回溯

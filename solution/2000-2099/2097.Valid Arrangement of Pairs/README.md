@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2097.Valid%20Arrangement%20of%20Pairs/README.md
 rating: 2650
+source: 第 270 场周赛 Q4
 tags:
     - 深度优先搜索
     - 图

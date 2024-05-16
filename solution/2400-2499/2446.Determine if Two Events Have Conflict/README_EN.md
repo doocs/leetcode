@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2446.Determine%20if%20Two%20Events%20Have%20Conflict/README_EN.md
 rating: 1322
+source: Weekly Contest 316 Q1
 tags:
     - Array
     - String

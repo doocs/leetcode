@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2108.Find%20First%20Palindromic%20String%20in%20the%20Array/README_EN.md
 rating: 1215
+source: Weekly Contest 272 Q1
 tags:
     - Array
     - Two Pointers

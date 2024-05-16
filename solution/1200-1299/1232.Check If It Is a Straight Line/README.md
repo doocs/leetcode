@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1232.Check%20If%20It%20Is%20a%20Straight%20Line/README.md
 rating: 1247
+source: 第 159 场周赛 Q1
 tags:
     - 几何
     - 数组

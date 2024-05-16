@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1065.Index%20Pairs%20of%20a%20String/README.md
 rating: 1389
+source: 第 1 场双周赛 Q2
 tags:
     - 字典树
     - 数组

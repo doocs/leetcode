@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1905.Count%20Sub%20Islands/README_EN.md
 rating: 1678
+source: Weekly Contest 246 Q3
 tags:
     - Depth-First Search
     - Breadth-First Search

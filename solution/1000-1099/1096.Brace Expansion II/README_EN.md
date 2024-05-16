@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1096.Brace%20Expansion%20II/README_EN.md
 rating: 2348
+source: Weekly Contest 142 Q4
 tags:
     - Stack
     - Breadth-First Search

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1129.Shortest%20Path%20with%20Alternating%20Colors/README_EN.md
 rating: 1779
+source: Weekly Contest 146 Q2
 tags:
     - Breadth-First Search
     - Graph

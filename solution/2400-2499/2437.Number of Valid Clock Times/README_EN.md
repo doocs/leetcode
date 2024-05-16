@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2437.Number%20of%20Valid%20Clock%20Times/README_EN.md
 rating: 1426
+source: Biweekly Contest 89 Q1
 tags:
     - String
     - Enumeration

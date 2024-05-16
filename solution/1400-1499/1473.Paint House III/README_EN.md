@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1473.Paint%20House%20III/README_EN.md
 rating: 2056
+source: Weekly Contest 192 Q4
 tags:
     - Array
     - Dynamic Programming

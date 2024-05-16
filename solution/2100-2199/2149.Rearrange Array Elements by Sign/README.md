@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2149.Rearrange%20Array%20Elements%20by%20Sign/README.md
 rating: 1235
+source: 第 277 场周赛 Q2
 tags:
     - 数组
     - 双指针

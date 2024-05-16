@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1001.Grid%20Illumination/README_EN.md
 rating: 1873
+source: Weekly Contest 125 Q4
 tags:
     - Array
     - Hash Table

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3072.Distribute%20Elements%20Into%20Two%20Arrays%20II/README_EN.md
 rating: 2052
+source: Weekly Contest 387 Q4
 tags:
     - Binary Indexed Tree
     - Segment Tree

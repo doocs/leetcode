@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2509.Cycle%20Length%20Queries%20in%20a%20Tree/README.md
 rating: 1948
+source: 第 324 场周赛 Q4
 tags:
     - 树
     - 数组

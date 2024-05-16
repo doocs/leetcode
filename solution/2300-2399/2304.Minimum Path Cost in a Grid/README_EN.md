@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2304.Minimum%20Path%20Cost%20in%20a%20Grid/README_EN.md
 rating: 1658
+source: Weekly Contest 297 Q2
 tags:
     - Array
     - Dynamic Programming

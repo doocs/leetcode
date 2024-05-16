@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2227.Encrypt%20and%20Decrypt%20Strings/README_EN.md
 rating: 1944
+source: Weekly Contest 287 Q4
 tags:
     - Design
     - Trie

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2579.Count%20Total%20Number%20of%20Colored%20Cells/README.md
 rating: 1356
+source: 第 99 场双周赛 Q2
 tags:
     - 数学
 ---

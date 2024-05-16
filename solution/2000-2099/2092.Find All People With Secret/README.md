@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2092.Find%20All%20People%20With%20Secret/README.md
 rating: 2003
+source: 第 269 场周赛 Q4
 tags:
     - 深度优先搜索
     - 广度优先搜索

@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2788.Split%20Strings%20by%20Separator/README_EN.md
 rating: 1239
+source: Weekly Contest 355 Q1
 tags:
     - Array
     - String

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2671.Frequency%20Tracker/README_EN.md
 rating: 1509
+source: Weekly Contest 344 Q2
 tags:
     - Design
     - Hash Table

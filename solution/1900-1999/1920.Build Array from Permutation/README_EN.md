@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1920.Build%20Array%20from%20Permutation/README_EN.md
 rating: 1160
+source: Weekly Contest 248 Q1
 tags:
     - Array
     - Simulation

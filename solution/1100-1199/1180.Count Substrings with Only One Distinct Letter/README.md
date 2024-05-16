@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1180.Count%20Substrings%20with%20Only%20One%20Distinct%20Letter/README.md
 rating: 1315
+source: 第 8 场双周赛 Q1
 tags:
     - 数学
     - 字符串

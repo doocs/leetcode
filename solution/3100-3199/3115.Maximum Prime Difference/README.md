@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3115.Maximum%20Prime%20Difference/README.md
 rating: 1294
+source: 第 393 场周赛 Q2
 tags:
     - 数组
     - 数学

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1912.Design%20Movie%20Rental%20System/README_EN.md
 rating: 2181
+source: Biweekly Contest 55 Q4
 tags:
     - Design
     - Array

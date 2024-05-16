@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1108.Defanging%20an%20IP%20Address/README_EN.md
 rating: 1084
+source: Weekly Contest 144 Q1
 tags:
     - String
 ---

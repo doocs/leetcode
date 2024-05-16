@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1927.Sum%20Game/README.md
 rating: 2004
+source: 第 56 场双周赛 Q3
 tags:
     - 贪心
     - 数学

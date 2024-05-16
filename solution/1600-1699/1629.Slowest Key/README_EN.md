@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1629.Slowest%20Key/README_EN.md
 rating: 1315
+source: Weekly Contest 212 Q1
 tags:
     - Array
     - String

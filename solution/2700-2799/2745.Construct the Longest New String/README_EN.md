@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2745.Construct%20the%20Longest%20New%20String/README_EN.md
 rating: 1607
+source: Biweekly Contest 107 Q2
 tags:
     - Greedy
     - Brainteaser

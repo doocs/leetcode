@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1531.String%20Compression%20II/README.md
 rating: 2575
+source: 第 199 场周赛 Q4
 tags:
     - 字符串
     - 动态规划

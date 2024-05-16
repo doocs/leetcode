@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1359.Count%20All%20Valid%20Pickup%20and%20Delivery%20Options/README_EN.md
 rating: 1722
+source: Biweekly Contest 20 Q4
 tags:
     - Math
     - Dynamic Programming

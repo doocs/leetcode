@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1922.Count%20Good%20Numbers/README_EN.md
 rating: 1674
+source: Weekly Contest 248 Q3
 tags:
     - Recursion
     - Math

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2295.Replace%20Elements%20in%20an%20Array/README_EN.md
 rating: 1445
+source: Weekly Contest 296 Q3
 tags:
     - Array
     - Hash Table

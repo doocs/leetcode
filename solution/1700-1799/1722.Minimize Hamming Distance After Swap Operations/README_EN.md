@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1722.Minimize%20Hamming%20Distance%20After%20Swap%20Operations/README_EN.md
 rating: 1892
+source: Weekly Contest 223 Q3
 tags:
     - Depth-First Search
     - Union Find

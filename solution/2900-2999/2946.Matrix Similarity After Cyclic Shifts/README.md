@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2946.Matrix%20Similarity%20After%20Cyclic%20Shifts/README.md
 rating: 1405
+source: 第 373 场周赛 Q1
 tags:
     - 数组
     - 数学

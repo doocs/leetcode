@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1187.Make%20Array%20Strictly%20Increasing/README_EN.md
 rating: 2315
+source: Weekly Contest 153 Q4
 tags:
     - Array
     - Binary Search

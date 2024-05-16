@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2359.Find%20Closest%20Node%20to%20Given%20Two%20Nodes/README.md
 rating: 1714
+source: 第 304 场周赛 Q3
 tags:
     - 深度优先搜索
     - 图

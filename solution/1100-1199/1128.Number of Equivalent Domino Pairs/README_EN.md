@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1128.Number%20of%20Equivalent%20Domino%20Pairs/README_EN.md
 rating: 1332
+source: Weekly Contest 146 Q1
 tags:
     - Array
     - Hash Table

@@ -176,9 +176,12 @@ def generate_question_readme(result):
         category = item["category"]
         readme_template_cn, readme_template_en = select_templates(category)
         paid_only = " 🔒" if item["paid_only"] else ""
-        rating = (
-            int(rating_dict.get(str(item['frontend_question_id']), {}).get("Rating", 0))
-            or ''
+        rating_item = rating_dict.get(str(item["frontend_question_id"]))
+        rating = rating_item.get('Rating', 0) if rating_item else ''
+        source = (
+            rating_item.get('ContestID_zh') + " " + rating_item.get('ProblemIndex')
+            if rating_item
+            else ''
         )
         # 生成 metadata
         """
@@ -198,11 +201,14 @@ def generate_question_readme(result):
             "rating": rating,
             "comments": True,
             "edit_url": f'https://github.com/doocs/leetcode/edit/main{item["relative_path_cn"]}',
+            "source": source,
         }
         if not item['tags_cn']:
             metadata.pop('tags')
         if not rating:
             metadata.pop('rating')
+        if not source:
+            metadata.pop('source')
         yaml_metadata = yaml.dump(
             metadata, default_flow_style=False, allow_unicode=True
         )
@@ -221,17 +227,25 @@ def generate_question_readme(result):
                 )
             )
 
+        source = (
+            rating_item.get('ContestID_en') + " " + rating_item.get('ProblemIndex')
+            if rating_item
+            else ''
+        )
         metadata = {
             "tags": item["tags_en"],
             "difficulty": item["difficulty_en"],
             "rating": rating,
             "comments": True,
             "edit_url": f'https://github.com/doocs/leetcode/edit/main{item["relative_path_en"]}',
+            "source": source,
         }
         if not item['tags_cn']:
             metadata.pop('tags')
         if not rating:
             metadata.pop('rating')
+        if not source:
+            metadata.pop('source')
         yaml_metadata = yaml.dump(
             metadata, default_flow_style=False, allow_unicode=True
         )
@@ -348,18 +362,28 @@ def refresh(result):
         category = question["category"]
 
         readme_template_cn, readme_template_en = select_templates(category)
-        rating = int(rating_dict.get(str(front_question_id), {}).get("Rating", 0)) or ''
+        rating_item = rating_dict.get(str(front_question_id))
+        rating = int(rating_item.get('Rating', 0)) if rating_item else ''
+        source = (
+            rating_item.get('ContestID_zh') + " " + rating_item.get('ProblemIndex')
+            if rating_item
+            else ''
+        )
+
         metadata = {
             "tags": question["tags_cn"],
             "difficulty": question["difficulty_cn"],
             "rating": rating,
             "comments": True,
             "edit_url": f'https://github.com/doocs/leetcode/edit/main{question["relative_path_cn"]}',
+            "source": source,
         }
         if not question['tags_cn']:
             metadata.pop('tags')
         if not rating:
             metadata.pop('rating')
+        if not source:
+            metadata.pop('source')
         yaml_metadata = yaml.dump(
             metadata, default_flow_style=False, allow_unicode=True
         )
@@ -377,17 +401,26 @@ def refresh(result):
             + cn_content[cn_content.index("## 解法") :]
         )
 
+        source = (
+            rating_item.get('ContestID_en') + " " + rating_item.get('ProblemIndex')
+            if rating_item
+            else ''
+        )
+
         metadata = {
             "tags": question["tags_en"],
             "difficulty": question["difficulty_en"],
             "rating": rating,
             "comments": True,
             "edit_url": f'https://github.com/doocs/leetcode/edit/main{question["relative_path_en"]}',
+            "source": source,
         }
         if not question['tags_en']:
             metadata.pop('tags')
         if not rating:
             metadata.pop('rating')
+        if not source:
+            metadata.pop('source')
         yaml_metadata = yaml.dump(
             metadata, default_flow_style=False, allow_unicode=True
         )

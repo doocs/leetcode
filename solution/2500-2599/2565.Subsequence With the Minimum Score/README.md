@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2565.Subsequence%20With%20the%20Minimum%20Score/README.md
 rating: 2432
+source: 第 332 场周赛 Q4
 tags:
     - 双指针
     - 字符串

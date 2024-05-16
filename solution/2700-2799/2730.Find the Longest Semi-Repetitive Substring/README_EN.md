@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2730.Find%20the%20Longest%20Semi-Repetitive%20Substring/README_EN.md
 rating: 1501
+source: Biweekly Contest 106 Q2
 tags:
     - String
     - Sliding Window

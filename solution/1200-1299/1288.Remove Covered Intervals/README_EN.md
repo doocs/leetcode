@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1288.Remove%20Covered%20Intervals/README_EN.md
 rating: 1375
+source: Biweekly Contest 15 Q2
 tags:
     - Array
     - Sorting

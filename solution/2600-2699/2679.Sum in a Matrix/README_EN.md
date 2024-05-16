@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2679.Sum%20in%20a%20Matrix/README_EN.md
 rating: 1333
+source: Biweekly Contest 104 Q2
 tags:
     - Array
     - Matrix

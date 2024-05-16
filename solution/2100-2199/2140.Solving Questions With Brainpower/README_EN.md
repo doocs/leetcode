@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2140.Solving%20Questions%20With%20Brainpower/README_EN.md
 rating: 1709
+source: Weekly Contest 276 Q3
 tags:
     - Array
     - Dynamic Programming

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1300.Sum%20of%20Mutated%20Array%20Closest%20to%20Target/README.md
 rating: 1606
+source: 第 16 场双周赛 Q2
 tags:
     - 数组
     - 二分查找

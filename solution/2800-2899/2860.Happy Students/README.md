@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2860.Happy%20Students/README.md
 rating: 1625
+source: 第 363 场周赛 Q2
 tags:
     - 数组
     - 枚举

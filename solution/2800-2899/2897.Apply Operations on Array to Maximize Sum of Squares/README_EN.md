@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2897.Apply%20Operations%20on%20Array%20to%20Maximize%20Sum%20of%20Squares/README_EN.md
 rating: 2301
+source: Weekly Contest 366 Q4
 tags:
     - Greedy
     - Bit Manipulation

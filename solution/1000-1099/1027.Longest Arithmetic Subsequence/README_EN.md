@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1027.Longest%20Arithmetic%20Subsequence/README_EN.md
 rating: 1758
+source: Weekly Contest 132 Q3
 tags:
     - Array
     - Hash Table

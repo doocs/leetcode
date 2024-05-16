@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1457.Pseudo-Palindromic%20Paths%20in%20a%20Binary%20Tree/README_EN.md
 rating: 1405
+source: Weekly Contest 190 Q3
 tags:
     - Bit Manipulation
     - Tree

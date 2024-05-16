@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3100.Water%20Bottles%20II/README_EN.md
 rating: 1366
+source: Weekly Contest 391 Q2
 tags:
     - Math
     - Simulation

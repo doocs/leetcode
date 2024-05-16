@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1049.Last%20Stone%20Weight%20II/README.md
 rating: 2092
+source: 第 137 场周赛 Q4
 tags:
     - 数组
     - 动态规划

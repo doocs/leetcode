@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2090.K%20Radius%20Subarray%20Averages/README.md
 rating: 1358
+source: 第 269 场周赛 Q2
 tags:
     - 数组
     - 滑动窗口

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2565.Subsequence%20With%20the%20Minimum%20Score/README_EN.md
 rating: 2432
+source: Weekly Contest 332 Q4
 tags:
     - Two Pointers
     - String

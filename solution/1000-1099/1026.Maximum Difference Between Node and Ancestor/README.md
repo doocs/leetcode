@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1026.Maximum%20Difference%20Between%20Node%20and%20Ancestor/README.md
 rating: 1446
+source: 第 132 场周赛 Q2
 tags:
     - 树
     - 深度优先搜索

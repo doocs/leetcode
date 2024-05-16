@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2331.Evaluate%20Boolean%20Binary%20Tree/README.md
 rating: 1303
+source: 第 82 场双周赛 Q1
 tags:
     - 树
     - 深度优先搜索

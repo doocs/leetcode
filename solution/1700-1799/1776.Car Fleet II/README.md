@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1776.Car%20Fleet%20II/README.md
 rating: 2530
+source: 第 230 场周赛 Q4
 tags:
     - 栈
     - 数组

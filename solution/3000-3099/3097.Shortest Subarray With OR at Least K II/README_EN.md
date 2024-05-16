@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3097.Shortest%20Subarray%20With%20OR%20at%20Least%20K%20II/README_EN.md
 rating: 1891
+source: Biweekly Contest 127 Q3
 tags:
     - Bit Manipulation
     - Array

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1361.Validate%20Binary%20Tree%20Nodes/README_EN.md
 rating: 1464
+source: Weekly Contest 177 Q2
 tags:
     - Tree
     - Depth-First Search

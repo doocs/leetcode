@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1410.HTML%20Entity%20Parser/README.md
 rating: 1405
+source: 第 184 场周赛 Q3
 tags:
     - 哈希表
     - 字符串

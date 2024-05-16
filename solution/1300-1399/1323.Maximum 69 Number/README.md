@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1323.Maximum%2069%20Number/README.md
 rating: 1193
+source: 第 172 场周赛 Q1
 tags:
     - 贪心
     - 数学

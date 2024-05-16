@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2188.Minimum%20Time%20to%20Finish%20the%20Race/README_EN.md
 rating: 2315
+source: Weekly Contest 282 Q4
 tags:
     - Array
     - Dynamic Programming

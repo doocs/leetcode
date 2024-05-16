@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2959.Number%20of%20Possible%20Sets%20of%20Closing%20Branches/README_EN.md
 rating: 2077
+source: Biweekly Contest 119 Q4
 tags:
     - Bit Manipulation
     - Graph

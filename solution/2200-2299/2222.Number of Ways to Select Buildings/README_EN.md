@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2222.Number%20of%20Ways%20to%20Select%20Buildings/README_EN.md
 rating: 1656
+source: Biweekly Contest 75 Q3
 tags:
     - String
     - Dynamic Programming

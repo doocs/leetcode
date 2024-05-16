@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1377.Frog%20Position%20After%20T%20Seconds/README.md
 rating: 1823
+source: 第 179 场周赛 Q4
 tags:
     - 树
     - 深度优先搜索

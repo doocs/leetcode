@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2601.Prime%20Subtraction%20Operation/README_EN.md
 rating: 1779
+source: Weekly Contest 338 Q2
 tags:
     - Greedy
     - Array

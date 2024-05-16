@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1518.Water%20Bottles/README_EN.md
 rating: 1245
+source: Weekly Contest 198 Q1
 tags:
     - Math
     - Simulation

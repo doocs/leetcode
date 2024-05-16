@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1199.Minimum%20Time%20to%20Build%20Blocks/README_EN.md
 rating: 2250
+source: Biweekly Contest 9 Q4
 tags:
     - Greedy
     - Array

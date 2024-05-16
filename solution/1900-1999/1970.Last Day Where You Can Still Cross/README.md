@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1970.Last%20Day%20Where%20You%20Can%20Still%20Cross/README.md
 rating: 2123
+source: 第 254 场周赛 Q4
 tags:
     - 深度优先搜索
     - 广度优先搜索

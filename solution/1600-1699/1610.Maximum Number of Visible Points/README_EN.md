@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1610.Maximum%20Number%20of%20Visible%20Points/README_EN.md
 rating: 2147
+source: Weekly Contest 209 Q3
 tags:
     - Geometry
     - Array

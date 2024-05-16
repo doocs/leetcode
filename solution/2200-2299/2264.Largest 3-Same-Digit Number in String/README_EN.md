@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2264.Largest%203-Same-Digit%20Number%20in%20String/README_EN.md
 rating: 1308
+source: Weekly Contest 292 Q1
 tags:
     - String
 ---

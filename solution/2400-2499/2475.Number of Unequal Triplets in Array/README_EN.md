@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2475.Number%20of%20Unequal%20Triplets%20in%20Array/README_EN.md
 rating: 1255
+source: Weekly Contest 320 Q1
 tags:
     - Array
     - Hash Table

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3039.Apply%20Operations%20to%20Make%20String%20Empty/README.md
 rating: 1423
+source: 第 124 场双周赛 Q2
 tags:
     - 数组
     - 哈希表

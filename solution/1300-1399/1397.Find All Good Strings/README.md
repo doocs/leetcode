@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1397.Find%20All%20Good%20Strings/README.md
 rating: 2666
+source: 第 182 场周赛 Q4
 tags:
     - 字符串
     - 动态规划

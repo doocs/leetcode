@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1243.Array%20Transformation/README_EN.md
 rating: 1558
+source: Biweekly Contest 12 Q2
 tags:
     - Array
     - Simulation

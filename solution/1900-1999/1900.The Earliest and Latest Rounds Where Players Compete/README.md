@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1900.The%20Earliest%20and%20Latest%20Rounds%20Where%20Players%20Compete/README.md
 rating: 2454
+source: 第 245 场周赛 Q4
 tags:
     - 记忆化搜索
     - 动态规划

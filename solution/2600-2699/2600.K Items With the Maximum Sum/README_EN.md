@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2600.K%20Items%20With%20the%20Maximum%20Sum/README_EN.md
 rating: 1434
+source: Weekly Contest 338 Q1
 tags:
     - Greedy
     - Math

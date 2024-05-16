@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1018.Binary%20Prefix%20Divisible%20By%205/README_EN.md
 rating: 1376
+source: Weekly Contest 130 Q1
 tags:
     - Bit Manipulation
     - Array

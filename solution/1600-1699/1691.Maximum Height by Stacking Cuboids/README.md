@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1691.Maximum%20Height%20by%20Stacking%20Cuboids/README.md
 rating: 2171
+source: 第 219 场周赛 Q4
 tags:
     - 数组
     - 动态规划

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1958.Check%20if%20Move%20is%20Legal/README_EN.md
 rating: 1658
+source: Biweekly Contest 58 Q2
 tags:
     - Array
     - Enumeration

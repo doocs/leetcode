@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1044.Longest%20Duplicate%20Substring/README.md
 rating: 2428
+source: 第 136 场周赛 Q4
 tags:
     - 字符串
     - 二分查找

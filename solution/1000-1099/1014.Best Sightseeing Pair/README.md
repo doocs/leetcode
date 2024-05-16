@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1014.Best%20Sightseeing%20Pair/README.md
 rating: 1730
+source: 第 129 场周赛 Q3
 tags:
     - 数组
     - 动态规划

@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2127.Maximum%20Employees%20to%20Be%20Invited%20to%20a%20Meeting/README.md
 rating: 2449
+source: 第 274 场周赛 Q4
 tags:
     - 深度优先搜索
     - 图

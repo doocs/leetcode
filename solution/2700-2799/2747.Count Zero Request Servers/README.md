@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2747.Count%20Zero%20Request%20Servers/README.md
 rating: 2405
+source: 第 107 场双周赛 Q4
 tags:
     - 数组
     - 哈希表

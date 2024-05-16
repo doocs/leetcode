@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1425.Constrained%20Subsequence%20Sum/README_EN.md
 rating: 2032
+source: Weekly Contest 186 Q4
 tags:
     - Queue
     - Array

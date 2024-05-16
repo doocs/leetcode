@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2420.Find%20All%20Good%20Indices/README_EN.md
 rating: 1695
+source: Weekly Contest 312 Q3
 tags:
     - Array
     - Dynamic Programming

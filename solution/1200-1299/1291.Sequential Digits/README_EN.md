@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1291.Sequential%20Digits/README_EN.md
 rating: 1373
+source: Weekly Contest 167 Q2
 tags:
     - Enumeration
 ---

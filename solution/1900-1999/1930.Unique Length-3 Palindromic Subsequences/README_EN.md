@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1930.Unique%20Length-3%20Palindromic%20Subsequences/README_EN.md
 rating: 1533
+source: Weekly Contest 249 Q2
 tags:
     - Bit Manipulation
     - Hash Table

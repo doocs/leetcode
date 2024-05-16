@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1297.Maximum%20Number%20of%20Occurrences%20of%20a%20Substring/README.md
 rating: 1748
+source: 第 168 场周赛 Q3
 tags:
     - 哈希表
     - 字符串

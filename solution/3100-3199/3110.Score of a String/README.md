@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3110.Score%20of%20a%20String/README.md
 rating: 1152
+source: 第 128 场双周赛 Q1
 tags:
     - 字符串
 ---

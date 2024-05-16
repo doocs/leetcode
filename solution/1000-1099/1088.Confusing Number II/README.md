@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1088.Confusing%20Number%20II/README.md
 rating: 2076
+source: 第 2 场双周赛 Q4
 tags:
     - 数学
     - 回溯

@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1598.Crawler%20Log%20Folder/README.md
 rating: 1297
+source: 第 208 场周赛 Q1
 tags:
     - 栈
     - 数组

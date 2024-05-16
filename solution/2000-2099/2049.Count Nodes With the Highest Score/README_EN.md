@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2049.Count%20Nodes%20With%20the%20Highest%20Score/README_EN.md
 rating: 1911
+source: Weekly Contest 264 Q3
 tags:
     - Tree
     - Depth-First Search

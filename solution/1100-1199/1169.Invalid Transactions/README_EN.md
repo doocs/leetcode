@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1169.Invalid%20Transactions/README_EN.md
 rating: 1658
+source: Weekly Contest 151 Q1
 tags:
     - Array
     - Hash Table

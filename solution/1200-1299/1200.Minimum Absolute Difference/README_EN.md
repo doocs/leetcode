@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1200.Minimum%20Absolute%20Difference/README_EN.md
 rating: 1198
+source: Weekly Contest 155 Q1
 tags:
     - Array
     - Sorting

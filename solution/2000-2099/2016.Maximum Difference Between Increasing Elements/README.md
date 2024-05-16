@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2016.Maximum%20Difference%20Between%20Increasing%20Elements/README.md
 rating: 1246
+source: 第 260 场周赛 Q1
 tags:
     - 数组
 ---

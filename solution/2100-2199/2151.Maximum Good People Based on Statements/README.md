@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2151.Maximum%20Good%20People%20Based%20on%20Statements/README.md
 rating: 1979
+source: 第 277 场周赛 Q4
 tags:
     - 位运算
     - 数组

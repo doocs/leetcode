@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1048.Longest%20String%20Chain/README.md
 rating: 1599
+source: 第 137 场周赛 Q3
 tags:
     - 数组
     - 哈希表

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2477.Minimum%20Fuel%20Cost%20to%20Report%20to%20the%20Capital/README.md
 rating: 2011
+source: 第 320 场周赛 Q3
 tags:
     - 树
     - 深度优先搜索

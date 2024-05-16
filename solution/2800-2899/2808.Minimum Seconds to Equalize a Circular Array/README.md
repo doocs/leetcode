@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2808.Minimum%20Seconds%20to%20Equalize%20a%20Circular%20Array/README.md
 rating: 1875
+source: 第 110 场双周赛 Q3
 tags:
     - 数组
     - 哈希表

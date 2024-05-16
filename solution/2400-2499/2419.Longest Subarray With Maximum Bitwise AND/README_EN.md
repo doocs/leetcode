@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2419.Longest%20Subarray%20With%20Maximum%20Bitwise%20AND/README_EN.md
 rating: 1495
+source: Weekly Contest 312 Q2
 tags:
     - Bit Manipulation
     - Brainteaser

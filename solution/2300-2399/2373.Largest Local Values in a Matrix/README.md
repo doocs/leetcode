@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2373.Largest%20Local%20Values%20in%20a%20Matrix/README.md
 rating: 1331
+source: 第 306 场周赛 Q1
 tags:
     - 数组
     - 矩阵

@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2867.Count%20Valid%20Paths%20in%20a%20Tree/README.md
 rating: 2428
+source: 第 364 场周赛 Q4
 tags:
     - 树
     - 深度优先搜索

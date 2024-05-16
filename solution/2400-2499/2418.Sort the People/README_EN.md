@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2418.Sort%20the%20People/README_EN.md
 rating: 1193
+source: Weekly Contest 312 Q1
 tags:
     - Array
     - Hash Table

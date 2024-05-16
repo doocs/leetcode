@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2658.Maximum%20Number%20of%20Fish%20in%20a%20Grid/README_EN.md
 rating: 1489
+source: Biweekly Contest 103 Q3
 tags:
     - Depth-First Search
     - Breadth-First Search

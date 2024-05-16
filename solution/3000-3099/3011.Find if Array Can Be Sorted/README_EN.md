@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3011.Find%20if%20Array%20Can%20Be%20Sorted/README_EN.md
 rating: 1496
+source: Biweekly Contest 122 Q2
 tags:
     - Bit Manipulation
     - Array

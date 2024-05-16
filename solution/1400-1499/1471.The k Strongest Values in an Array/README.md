@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1471.The%20k%20Strongest%20Values%20in%20an%20Array/README.md
 rating: 1332
+source: 第 192 场周赛 Q2
 tags:
     - 数组
     - 双指针

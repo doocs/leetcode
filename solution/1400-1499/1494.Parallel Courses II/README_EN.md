@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1494.Parallel%20Courses%20II/README_EN.md
 rating: 2081
+source: Biweekly Contest 29 Q4
 tags:
     - Bit Manipulation
     - Graph

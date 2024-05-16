@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2201.Count%20Artifacts%20That%20Can%20Be%20Extracted/README.md
 rating: 1525
+source: 第 284 场周赛 Q2
 tags:
     - 数组
     - 哈希表

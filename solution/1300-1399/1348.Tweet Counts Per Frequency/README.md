@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1348.Tweet%20Counts%20Per%20Frequency/README.md
 rating: 2036
+source: 第 175 场周赛 Q3
 tags:
     - 设计
     - 哈希表

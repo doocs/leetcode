@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1832.Check%20if%20the%20Sentence%20Is%20Pangram/README_EN.md
 rating: 1166
+source: Weekly Contest 237 Q1
 tags:
     - Hash Table
     - String

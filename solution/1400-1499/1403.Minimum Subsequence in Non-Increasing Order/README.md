@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1403.Minimum%20Subsequence%20in%20Non-Increasing%20Order/README.md
 rating: 1288
+source: 第 183 场周赛 Q1
 tags:
     - 贪心
     - 数组

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1139.Largest%201-Bordered%20Square/README_EN.md
 rating: 1744
+source: Weekly Contest 147 Q3
 tags:
     - Array
     - Dynamic Programming

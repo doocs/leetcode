@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2399.Check%20Distances%20Between%20Same%20Letters/README_EN.md
 rating: 1243
+source: Weekly Contest 309 Q1
 tags:
     - Array
     - Hash Table

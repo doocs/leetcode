@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2151.Maximum%20Good%20People%20Based%20on%20Statements/README_EN.md
 rating: 1979
+source: Weekly Contest 277 Q4
 tags:
     - Bit Manipulation
     - Array

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2484.Count%20Palindromic%20Subsequences/README_EN.md
 rating: 2223
+source: Biweekly Contest 92 Q4
 tags:
     - String
     - Dynamic Programming

@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3090.Maximum%20Length%20Substring%20With%20Two%20Occurrences/README.md
 rating: 1329
+source: 第 390 场周赛 Q1
 tags:
     - 哈希表
     - 字符串

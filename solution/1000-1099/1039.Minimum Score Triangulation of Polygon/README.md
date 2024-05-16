@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1039.Minimum%20Score%20Triangulation%20of%20Polygon/README.md
 rating: 2130
+source: 第 135 场周赛 Q3
 tags:
     - 数组
     - 动态规划

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1373.Maximum%20Sum%20BST%20in%20Binary%20Tree/README_EN.md
 rating: 1913
+source: Biweekly Contest 21 Q4
 tags:
     - Tree
     - Depth-First Search

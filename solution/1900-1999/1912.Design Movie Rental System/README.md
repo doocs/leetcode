@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1912.Design%20Movie%20Rental%20System/README.md
 rating: 2181
+source: 第 55 场双周赛 Q4
 tags:
     - 设计
     - 数组

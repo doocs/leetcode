@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2213.Longest%20Substring%20of%20One%20Repeating%20Character/README.md
 rating: 2628
+source: 第 285 场周赛 Q4
 tags:
     - 线段树
     - 数组

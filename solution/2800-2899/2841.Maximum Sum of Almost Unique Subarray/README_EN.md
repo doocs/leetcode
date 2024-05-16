@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2841.Maximum%20Sum%20of%20Almost%20Unique%20Subarray/README_EN.md
 rating: 1545
+source: Biweekly Contest 112 Q3
 tags:
     - Array
     - Hash Table

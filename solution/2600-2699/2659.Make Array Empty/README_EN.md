@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2659.Make%20Array%20Empty/README_EN.md
 rating: 2281
+source: Biweekly Contest 103 Q4
 tags:
     - Greedy
     - Binary Indexed Tree

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1419.Minimum%20Number%20of%20Frogs%20Croaking/README.md
 rating: 1689
+source: 第 185 场周赛 Q3
 tags:
     - 字符串
     - 计数

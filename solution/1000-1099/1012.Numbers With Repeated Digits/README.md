@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1012.Numbers%20With%20Repeated%20Digits/README.md
 rating: 2230
+source: 第 128 场周赛 Q4
 tags:
     - 数学
     - 动态规划

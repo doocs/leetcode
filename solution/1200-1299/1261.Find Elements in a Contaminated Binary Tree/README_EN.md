@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1261.Find%20Elements%20in%20a%20Contaminated%20Binary%20Tree/README_EN.md
 rating: 1439
+source: Weekly Contest 163 Q2
 tags:
     - Tree
     - Depth-First Search

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2587.Rearrange%20Array%20to%20Maximize%20Prefix%20Score/README.md
 rating: 1336
+source: 第 336 场周赛 Q2
 tags:
     - 贪心
     - 数组

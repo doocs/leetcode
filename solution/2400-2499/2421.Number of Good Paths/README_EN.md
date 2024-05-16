@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2421.Number%20of%20Good%20Paths/README_EN.md
 rating: 2444
+source: Weekly Contest 312 Q4
 tags:
     - Tree
     - Union Find

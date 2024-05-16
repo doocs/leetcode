@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2398.Maximum%20Number%20of%20Robots%20Within%20Budget/README.md
 rating: 1917
+source: 第 86 场双周赛 Q4
 tags:
     - 队列
     - 数组

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2104.Sum%20of%20Subarray%20Ranges/README_EN.md
 rating: 1504
+source: Weekly Contest 271 Q2
 tags:
     - Stack
     - Array

@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2421.Number%20of%20Good%20Paths/README.md
 rating: 2444
+source: 第 312 场周赛 Q4
 tags:
     - 树
     - 并查集

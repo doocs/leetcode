@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1088.Confusing%20Number%20II/README_EN.md
 rating: 2076
+source: Biweekly Contest 2 Q4
 tags:
     - Math
     - Backtracking

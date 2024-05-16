@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1738.Find%20Kth%20Largest%20XOR%20Coordinate%20Value/README_EN.md
 rating: 1671
+source: Weekly Contest 225 Q3
 tags:
     - Bit Manipulation
     - Array

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1980.Find%20Unique%20Binary%20String/README_EN.md
 rating: 1361
+source: Weekly Contest 255 Q2
 tags:
     - Array
     - Hash Table

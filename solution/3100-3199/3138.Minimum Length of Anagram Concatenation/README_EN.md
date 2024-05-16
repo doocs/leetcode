@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3138.Minimum%20Length%20of%20Anagram%20Concatenation/README_EN.md
 rating: 1979
+source: Weekly Contest 396 Q3
 tags:
     - Hash Table
     - String

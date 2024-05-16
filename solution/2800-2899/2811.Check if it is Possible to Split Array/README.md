@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2811.Check%20if%20it%20is%20Possible%20to%20Split%20Array/README.md
 rating: 1543
+source: 第 357 场周赛 Q2
 tags:
     - 贪心
     - 数组

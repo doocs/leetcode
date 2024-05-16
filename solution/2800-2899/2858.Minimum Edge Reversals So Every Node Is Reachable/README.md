@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2858.Minimum%20Edge%20Reversals%20So%20Every%20Node%20Is%20Reachable/README.md
 rating: 2294
+source: 第 113 场双周赛 Q4
 tags:
     - 深度优先搜索
     - 广度优先搜索

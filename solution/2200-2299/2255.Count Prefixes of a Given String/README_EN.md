@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2255.Count%20Prefixes%20of%20a%20Given%20String/README_EN.md
 rating: 1260
+source: Biweekly Contest 77 Q1
 tags:
     - Array
     - String

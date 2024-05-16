@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3039.Apply%20Operations%20to%20Make%20String%20Empty/README_EN.md
 rating: 1423
+source: Biweekly Contest 124 Q2
 tags:
     - Array
     - Hash Table

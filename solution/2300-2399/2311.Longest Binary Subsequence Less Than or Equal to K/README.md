@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2311.Longest%20Binary%20Subsequence%20Less%20Than%20or%20Equal%20to%20K/README.md
 rating: 1839
+source: 第 298 场周赛 Q3
 tags:
     - 贪心
     - 记忆化搜索

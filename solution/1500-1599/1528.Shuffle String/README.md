@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1528.Shuffle%20String/README.md
 rating: 1193
+source: 第 199 场周赛 Q1
 tags:
     - 数组
     - 字符串

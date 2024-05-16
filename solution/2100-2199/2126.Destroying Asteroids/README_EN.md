@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2126.Destroying%20Asteroids/README_EN.md
 rating: 1334
+source: Weekly Contest 274 Q3
 tags:
     - Greedy
     - Array

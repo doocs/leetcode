@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3117.Minimum%20Sum%20of%20Values%20by%20Dividing%20Array/README.md
 rating: 2735
+source: 第 393 场周赛 Q4
 tags:
     - 位运算
     - 线段树

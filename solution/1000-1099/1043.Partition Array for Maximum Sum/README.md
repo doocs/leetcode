@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1043.Partition%20Array%20for%20Maximum%20Sum/README.md
 rating: 1916
+source: 第 136 场周赛 Q3
 tags:
     - 数组
     - 动态规划

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1937.Maximum%20Number%20of%20Points%20with%20Cost/README.md
 rating: 2105
+source: 第 250 场周赛 Q3
 tags:
     - 数组
     - 动态规划

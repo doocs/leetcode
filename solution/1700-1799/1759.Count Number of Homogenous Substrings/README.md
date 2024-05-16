@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1759.Count%20Number%20of%20Homogenous%20Substrings/README.md
 rating: 1490
+source: 第 228 场周赛 Q2
 tags:
     - 数学
     - 字符串

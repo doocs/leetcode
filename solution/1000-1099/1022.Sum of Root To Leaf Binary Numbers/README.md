@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1022.Sum%20of%20Root%20To%20Leaf%20Binary%20Numbers/README.md
 rating: 1462
+source: 第 131 场周赛 Q2
 tags:
     - 树
     - 深度优先搜索

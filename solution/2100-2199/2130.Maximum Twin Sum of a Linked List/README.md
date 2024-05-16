@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2130.Maximum%20Twin%20Sum%20of%20a%20Linked%20List/README.md
 rating: 1317
+source: 第 69 场双周赛 Q2
 tags:
     - 栈
     - 链表

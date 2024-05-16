@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2571.Minimum%20Operations%20to%20Reduce%20an%20Integer%20to%200/README_EN.md
 rating: 1649
+source: Weekly Contest 333 Q2
 tags:
     - Greedy
     - Bit Manipulation

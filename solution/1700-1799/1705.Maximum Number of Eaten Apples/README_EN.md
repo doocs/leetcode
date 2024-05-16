@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1705.Maximum%20Number%20of%20Eaten%20Apples/README_EN.md
 rating: 1929
+source: Weekly Contest 221 Q2
 tags:
     - Greedy
     - Array

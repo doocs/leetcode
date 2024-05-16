@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1286.Iterator%20for%20Combination/README.md
 rating: 1591
+source: 第 15 场双周赛 Q3
 tags:
     - 设计
     - 字符串

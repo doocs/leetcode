@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2926.Maximum%20Balanced%20Subsequence%20Sum/README.md
 rating: 2448
+source: 第 370 场周赛 Q4
 tags:
     - 树状数组
     - 线段树

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2646.Minimize%20the%20Total%20Price%20of%20the%20Trips/README_EN.md
 rating: 2238
+source: Weekly Contest 341 Q4
 tags:
     - Tree
     - Depth-First Search

@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2321.Maximum%20Score%20Of%20Spliced%20Array/README.md
 rating: 1790
+source: 第 299 场周赛 Q3
 tags:
     - 数组
     - 动态规划

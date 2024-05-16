@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2485.Find%20the%20Pivot%20Integer/README_EN.md
 rating: 1207
+source: Weekly Contest 321 Q1
 tags:
     - Math
     - Prefix Sum

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2213.Longest%20Substring%20of%20One%20Repeating%20Character/README_EN.md
 rating: 2628
+source: Weekly Contest 285 Q4
 tags:
     - Segment Tree
     - Array

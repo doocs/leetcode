@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1805.Number%20of%20Different%20Integers%20in%20a%20String/README_EN.md
 rating: 1333
+source: Weekly Contest 234 Q1
 tags:
     - Hash Table
     - String

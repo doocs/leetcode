@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1189.Maximum%20Number%20of%20Balloons/README.md
 rating: 1181
+source: 第 154 场周赛 Q1
 tags:
     - 哈希表
     - 字符串

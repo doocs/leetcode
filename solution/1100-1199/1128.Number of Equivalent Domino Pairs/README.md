@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1128.Number%20of%20Equivalent%20Domino%20Pairs/README.md
 rating: 1332
+source: 第 146 场周赛 Q1
 tags:
     - 数组
     - 哈希表

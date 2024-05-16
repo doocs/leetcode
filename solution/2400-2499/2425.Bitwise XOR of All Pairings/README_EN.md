@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2425.Bitwise%20XOR%20of%20All%20Pairings/README_EN.md
 rating: 1622
+source: Biweekly Contest 88 Q3
 tags:
     - Bit Manipulation
     - Brainteaser

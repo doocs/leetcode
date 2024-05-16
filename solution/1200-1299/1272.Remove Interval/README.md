@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1272.Remove%20Interval/README.md
 rating: 1524
+source: 第 14 场双周赛 Q2
 tags:
     - 数组
 ---

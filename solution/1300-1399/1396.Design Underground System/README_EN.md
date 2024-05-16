@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1396.Design%20Underground%20System/README_EN.md
 rating: 1464
+source: Weekly Contest 182 Q3
 tags:
     - Design
     - Hash Table

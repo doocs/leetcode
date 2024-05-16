@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2596.Check%20Knight%20Tour%20Configuration/README.md
 rating: 1448
+source: 第 337 场周赛 Q2
 tags:
     - 深度优先搜索
     - 广度优先搜索

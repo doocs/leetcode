@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README_EN.md
 rating: 1655
+source: Weekly Contest 126 Q3
 tags:
     - Array
     - Binary Search

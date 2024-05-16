@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2089.Find%20Target%20Indices%20After%20Sorting%20Array/README.md
 rating: 1152
+source: 第 269 场周赛 Q1
 tags:
     - 数组
     - 二分查找

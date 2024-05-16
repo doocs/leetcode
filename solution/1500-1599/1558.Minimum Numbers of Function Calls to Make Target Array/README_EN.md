@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1558.Minimum%20Numbers%20of%20Function%20Calls%20to%20Make%20Target%20Array/README_EN.md
 rating: 1637
+source: Biweekly Contest 33 Q3
 tags:
     - Greedy
     - Bit Manipulation

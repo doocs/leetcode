@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2353.Design%20a%20Food%20Rating%20System/README_EN.md
 rating: 1781
+source: Weekly Contest 303 Q3
 tags:
     - Design
     - Hash Table

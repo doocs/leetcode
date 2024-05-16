@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2234.Maximum%20Total%20Beauty%20of%20the%20Gardens/README.md
 rating: 2561
+source: 第 288 场周赛 Q4
 tags:
     - 贪心
     - 数组

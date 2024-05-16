@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1561.Maximum%20Number%20of%20Coins%20You%20Can%20Get/README.md
 rating: 1405
+source: 第 203 场周赛 Q2
 tags:
     - 贪心
     - 数组

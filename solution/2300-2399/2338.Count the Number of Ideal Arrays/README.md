@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2338.Count%20the%20Number%20of%20Ideal%20Arrays/README.md
 rating: 2615
+source: 第 301 场周赛 Q4
 tags:
     - 数学
     - 动态规划

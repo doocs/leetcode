@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2566.Maximum%20Difference%20by%20Remapping%20a%20Digit/README.md
 rating: 1396
+source: 第 98 场双周赛 Q1
 tags:
     - 贪心
     - 数学

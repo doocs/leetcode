@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2325.Decode%20the%20Message/README_EN.md
 rating: 1268
+source: Weekly Contest 300 Q1
 tags:
     - Hash Table
     - String

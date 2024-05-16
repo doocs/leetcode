@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2210.Count%20Hills%20and%20Valleys%20in%20an%20Array/README.md
 rating: 1354
+source: 第 285 场周赛 Q1
 tags:
     - 数组
 ---

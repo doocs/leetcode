@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1131.Maximum%20of%20Absolute%20Value%20Expression/README.md
 rating: 2059
+source: 第 146 场周赛 Q4
 tags:
     - 数组
     - 数学

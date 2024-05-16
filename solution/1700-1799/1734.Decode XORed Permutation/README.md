@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1734.Decode%20XORed%20Permutation/README.md
 rating: 2024
+source: 第 44 场双周赛 Q3
 tags:
     - 位运算
     - 数组

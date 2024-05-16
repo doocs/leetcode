@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1030.Matrix%20Cells%20in%20Distance%20Order/README_EN.md
 rating: 1585
+source: Weekly Contest 133 Q2
 tags:
     - Geometry
     - Array

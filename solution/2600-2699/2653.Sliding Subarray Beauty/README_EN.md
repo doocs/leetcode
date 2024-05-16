@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2653.Sliding%20Subarray%20Beauty/README_EN.md
 rating: 1785
+source: Weekly Contest 342 Q3
 tags:
     - Array
     - Hash Table

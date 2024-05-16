@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1229.Meeting%20Scheduler/README_EN.md
 rating: 1541
+source: Biweekly Contest 11 Q2
 tags:
     - Array
     - Two Pointers

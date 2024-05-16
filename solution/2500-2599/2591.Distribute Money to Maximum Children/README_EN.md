@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2591.Distribute%20Money%20to%20Maximum%20Children/README_EN.md
 rating: 1530
+source: Biweekly Contest 100 Q1
 tags:
     - Greedy
     - Math

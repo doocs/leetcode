@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1446.Consecutive%20Characters/README.md
 rating: 1165
+source: 第 26 场双周赛 Q1
 tags:
     - 字符串
 ---

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1906.Minimum%20Absolute%20Difference%20Queries/README.md
 rating: 2146
+source: 第 246 场周赛 Q4
 tags:
     - 数组
     - 哈希表

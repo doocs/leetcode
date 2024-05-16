@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1970.Last%20Day%20Where%20You%20Can%20Still%20Cross/README_EN.md
 rating: 2123
+source: Weekly Contest 254 Q4
 tags:
     - Depth-First Search
     - Breadth-First Search

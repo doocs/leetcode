@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1219.Path%20with%20Maximum%20Gold/README_EN.md
 rating: 1663
+source: Weekly Contest 157 Q3
 tags:
     - Array
     - Backtracking

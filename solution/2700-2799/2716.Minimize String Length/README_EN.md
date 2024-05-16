@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2716.Minimize%20String%20Length/README_EN.md
 rating: 1242
+source: Weekly Contest 348 Q1
 tags:
     - Hash Table
     - String

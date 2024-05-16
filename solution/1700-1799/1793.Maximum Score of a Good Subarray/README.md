@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1793.Maximum%20Score%20of%20a%20Good%20Subarray/README.md
 rating: 1945
+source: 第 232 场周赛 Q4
 tags:
     - 栈
     - 数组

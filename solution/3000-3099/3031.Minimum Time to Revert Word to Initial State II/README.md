@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3031.Minimum%20Time%20to%20Revert%20Word%20to%20Initial%20State%20II/README.md
 rating: 2277
+source: 第 383 场周赛 Q4
 tags:
     - 字符串
     - 字符串匹配

@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2651.Calculate%20Delayed%20Arrival%20Time/README.md
 rating: 1168
+source: 第 342 场周赛 Q1
 tags:
     - 数学
 ---

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1268.Search%20Suggestions%20System/README.md
 rating: 1573
+source: 第 164 场周赛 Q3
 tags:
     - 字典树
     - 数组

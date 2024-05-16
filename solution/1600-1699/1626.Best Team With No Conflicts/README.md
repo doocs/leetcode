@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1626.Best%20Team%20With%20No%20Conflicts/README.md
 rating: 2027
+source: 第 211 场周赛 Q3
 tags:
     - 数组
     - 动态规划

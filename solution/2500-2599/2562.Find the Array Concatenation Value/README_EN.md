@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2562.Find%20the%20Array%20Concatenation%20Value/README_EN.md
 rating: 1259
+source: Weekly Contest 332 Q1
 tags:
     - Array
     - Two Pointers

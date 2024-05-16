@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3020.Find%20the%20Maximum%20Number%20of%20Elements%20in%20Subset/README.md
 rating: 1741
+source: 第 382 场周赛 Q2
 tags:
     - 数组
     - 哈希表

@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2129.Capitalize%20the%20Title/README.md
 rating: 1274
+source: 第 69 场双周赛 Q1
 tags:
     - 字符串
 ---

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2982.Find%20Longest%20Special%20Substring%20That%20Occurs%20Thrice%20II/README_EN.md
 rating: 1772
+source: Weekly Contest 378 Q3
 tags:
     - Hash Table
     - String

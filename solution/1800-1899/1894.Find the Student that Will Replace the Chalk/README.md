@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1894.Find%20the%20Student%20that%20Will%20Replace%20the%20Chalk/README.md
 rating: 1355
+source: 第 54 场双周赛 Q2
 tags:
     - 数组
     - 二分查找

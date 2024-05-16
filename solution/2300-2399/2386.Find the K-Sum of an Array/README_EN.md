@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2386.Find%20the%20K-Sum%20of%20an%20Array/README_EN.md
 rating: 2647
+source: Weekly Contest 307 Q4
 tags:
     - Array
     - Sorting

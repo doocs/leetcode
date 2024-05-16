@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1305.All%20Elements%20in%20Two%20Binary%20Search%20Trees/README_EN.md
 rating: 1260
+source: Weekly Contest 169 Q2
 tags:
     - Tree
     - Depth-First Search

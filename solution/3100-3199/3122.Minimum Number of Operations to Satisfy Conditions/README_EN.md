@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3122.Minimum%20Number%20of%20Operations%20to%20Satisfy%20Conditions/README_EN.md
 rating: 1904
+source: Weekly Contest 394 Q3
 tags:
     - Array
     - Dynamic Programming

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2261.K%20Divisible%20Elements%20Subarrays/README.md
 rating: 1724
+source: 第 291 场周赛 Q3
 tags:
     - 字典树
     - 数组

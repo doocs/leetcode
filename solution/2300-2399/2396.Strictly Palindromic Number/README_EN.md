@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2396.Strictly%20Palindromic%20Number/README_EN.md
 rating: 1328
+source: Biweekly Contest 86 Q2
 tags:
     - Brainteaser
     - Math

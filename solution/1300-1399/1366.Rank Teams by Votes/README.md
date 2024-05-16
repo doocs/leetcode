@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1366.Rank%20Teams%20by%20Votes/README.md
 rating: 1626
+source: 第 178 场周赛 Q2
 tags:
     - 数组
     - 哈希表

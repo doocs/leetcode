@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1258.Synonymous%20Sentences/README_EN.md
 rating: 1847
+source: Biweekly Contest 13 Q3
 tags:
     - Union Find
     - Array

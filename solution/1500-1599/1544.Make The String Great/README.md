@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1544.Make%20The%20String%20Great/README.md
 rating: 1344
+source: 第 201 场周赛 Q1
 tags:
     - 栈
     - 字符串

@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1189.Maximum%20Number%20of%20Balloons/README_EN.md
 rating: 1181
+source: Weekly Contest 154 Q1
 tags:
     - Hash Table
     - String

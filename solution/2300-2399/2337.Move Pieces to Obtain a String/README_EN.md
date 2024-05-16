@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2337.Move%20Pieces%20to%20Obtain%20a%20String/README_EN.md
 rating: 1693
+source: Weekly Contest 301 Q3
 tags:
     - Two Pointers
     - String

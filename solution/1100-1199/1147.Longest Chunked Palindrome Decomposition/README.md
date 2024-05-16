@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1147.Longest%20Chunked%20Palindrome%20Decomposition/README.md
 rating: 1912
+source: 第 148 场周赛 Q4
 tags:
     - 贪心
     - 双指针

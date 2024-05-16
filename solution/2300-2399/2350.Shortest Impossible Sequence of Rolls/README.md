@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2350.Shortest%20Impossible%20Sequence%20of%20Rolls/README.md
 rating: 1960
+source: 第 83 场双周赛 Q4
 tags:
     - 贪心
     - 数组

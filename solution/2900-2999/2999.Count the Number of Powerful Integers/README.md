@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2999.Count%20the%20Number%20of%20Powerful%20Integers/README.md
 rating: 2351
+source: 第 121 场双周赛 Q4
 tags:
     - 数学
     - 字符串

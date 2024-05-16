@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2867.Count%20Valid%20Paths%20in%20a%20Tree/README_EN.md
 rating: 2428
+source: Weekly Contest 364 Q4
 tags:
     - Tree
     - Depth-First Search

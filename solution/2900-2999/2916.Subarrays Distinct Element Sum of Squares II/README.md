@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2916.Subarrays%20Distinct%20Element%20Sum%20of%20Squares%20II/README.md
 rating: 2816
+source: 第 116 场双周赛 Q4
 tags:
     - 树状数组
     - 线段树

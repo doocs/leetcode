@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1735.Count%20Ways%20to%20Make%20Array%20With%20Product/README.md
 rating: 2499
+source: 第 44 场双周赛 Q4
 tags:
     - 数组
     - 数学

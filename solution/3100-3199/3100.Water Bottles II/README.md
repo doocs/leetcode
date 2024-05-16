@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3100.Water%20Bottles%20II/README.md
 rating: 1366
+source: 第 391 场周赛 Q2
 tags:
     - 数学
     - 模拟

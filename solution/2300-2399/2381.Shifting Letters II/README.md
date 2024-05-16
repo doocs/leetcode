@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2381.Shifting%20Letters%20II/README.md
 rating: 1793
+source: 第 85 场双周赛 Q3
 tags:
     - 数组
     - 字符串

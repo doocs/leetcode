@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2288.Apply%20Discount%20to%20Prices/README_EN.md
 rating: 1577
+source: Weekly Contest 295 Q2
 tags:
     - String
 ---

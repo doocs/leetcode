@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2465.Number%20of%20Distinct%20Averages/README.md
 rating: 1250
+source: 第 91 场双周赛 Q1
 tags:
     - 数组
     - 哈希表

@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1945.Sum%20of%20Digits%20of%20String%20After%20Convert/README.md
 rating: 1254
+source: 第 251 场周赛 Q1
 tags:
     - 字符串
     - 模拟

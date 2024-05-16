@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2121.Intervals%20Between%20Identical%20Elements/README.md
 rating: 1760
+source: 第 273 场周赛 Q3
 tags:
     - 数组
     - 哈希表

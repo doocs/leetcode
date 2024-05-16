@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3044.Most%20Frequent%20Prime/README_EN.md
 rating: 1737
+source: Weekly Contest 385 Q3
 tags:
     - Array
     - Hash Table

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2573.Find%20the%20String%20with%20LCP/README_EN.md
 rating: 2681
+source: Weekly Contest 333 Q4
 tags:
     - Greedy
     - Union Find

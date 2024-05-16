@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2332.The%20Latest%20Time%20to%20Catch%20a%20Bus/README_EN.md
 rating: 1840
+source: Biweekly Contest 82 Q2
 tags:
     - Array
     - Two Pointers

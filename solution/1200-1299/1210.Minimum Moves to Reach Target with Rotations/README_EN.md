@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1210.Minimum%20Moves%20to%20Reach%20Target%20with%20Rotations/README_EN.md
 rating: 2022
+source: Weekly Contest 156 Q4
 tags:
     - Breadth-First Search
     - Array

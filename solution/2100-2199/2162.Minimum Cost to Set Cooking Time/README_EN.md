@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2162.Minimum%20Cost%20to%20Set%20Cooking%20Time/README_EN.md
 rating: 1851
+source: Biweekly Contest 71 Q3
 tags:
     - Math
     - Enumeration

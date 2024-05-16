@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1822.Sign%20of%20the%20Product%20of%20an%20Array/README.md
 rating: 1209
+source: 第 236 场周赛 Q1
 tags:
     - 数组
     - 数学

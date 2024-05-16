@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3083.Existence%20of%20a%20Substring%20in%20a%20String%20and%20Its%20Reverse/README_EN.md
 rating: 1173
+source: Weekly Contest 389 Q1
 tags:
     - Hash Table
     - String

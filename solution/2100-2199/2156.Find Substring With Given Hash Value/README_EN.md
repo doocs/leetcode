@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2156.Find%20Substring%20With%20Given%20Hash%20Value/README_EN.md
 rating: 2062
+source: Weekly Contest 278 Q3
 tags:
     - String
     - Sliding Window

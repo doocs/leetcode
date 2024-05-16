@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1559.Detect%20Cycles%20in%202D%20Grid/README_EN.md
 rating: 1837
+source: Biweekly Contest 33 Q4
 tags:
     - Depth-First Search
     - Breadth-First Search

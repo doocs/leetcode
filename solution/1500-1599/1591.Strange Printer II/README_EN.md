@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1591.Strange%20Printer%20II/README_EN.md
 rating: 2290
+source: Biweekly Contest 35 Q4
 tags:
     - Graph
     - Topological Sort

@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2073.Time%20Needed%20to%20Buy%20Tickets/README_EN.md
 rating: 1325
+source: Weekly Contest 267 Q1
 tags:
     - Queue
     - Array

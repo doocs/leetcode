@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2761.Prime%20Pairs%20With%20Target%20Sum/README_EN.md
 rating: 1504
+source: Weekly Contest 352 Q2
 tags:
     - Array
     - Math

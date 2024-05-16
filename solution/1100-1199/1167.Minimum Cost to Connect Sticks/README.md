@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1167.Minimum%20Cost%20to%20Connect%20Sticks/README.md
 rating: 1481
+source: 第 7 场双周赛 Q3
 tags:
     - 贪心
     - 数组

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1153.String%20Transforms%20Into%20Another%20String/README_EN.md
 rating: 1949
+source: Biweekly Contest 6 Q4
 tags:
     - Hash Table
     - String

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2359.Find%20Closest%20Node%20to%20Given%20Two%20Nodes/README_EN.md
 rating: 1714
+source: Weekly Contest 304 Q3
 tags:
     - Depth-First Search
     - Graph

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2718.Sum%20of%20Matrix%20After%20Queries/README.md
 rating: 1768
+source: 第 348 场周赛 Q3
 tags:
     - 数组
     - 哈希表

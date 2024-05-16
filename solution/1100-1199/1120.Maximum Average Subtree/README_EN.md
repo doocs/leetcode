@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1120.Maximum%20Average%20Subtree/README_EN.md
 rating: 1361
+source: Biweekly Contest 4 Q3
 tags:
     - Tree
     - Depth-First Search

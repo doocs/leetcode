@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2481.Minimum%20Cuts%20to%20Divide%20a%20Circle/README.md
 rating: 1246
+source: 第 92 场双周赛 Q1
 tags:
     - 几何
     - 数学

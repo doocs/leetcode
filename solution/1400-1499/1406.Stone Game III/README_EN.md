@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1406.Stone%20Game%20III/README_EN.md
 rating: 2026
+source: Weekly Contest 183 Q4
 tags:
     - Array
     - Math

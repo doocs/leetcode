@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1248.Count%20Number%20of%20Nice%20Subarrays/README_EN.md
 rating: 1623
+source: Weekly Contest 161 Q2
 tags:
     - Array
     - Hash Table

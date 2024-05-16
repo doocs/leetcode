@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2736.Maximum%20Sum%20Queries/README.md
 rating: 2533
+source: 第 349 场周赛 Q4
 tags:
     - 栈
     - 树状数组

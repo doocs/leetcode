@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1800.Maximum%20Ascending%20Subarray%20Sum/README_EN.md
 rating: 1229
+source: Weekly Contest 233 Q1
 tags:
     - Array
 ---

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1872.Stone%20Game%20VIII/README_EN.md
 rating: 2439
+source: Weekly Contest 242 Q4
 tags:
     - Array
     - Math

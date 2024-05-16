@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2317.Maximum%20XOR%20After%20Operations/README_EN.md
 rating: 1678
+source: Biweekly Contest 81 Q3
 tags:
     - Bit Manipulation
     - Array

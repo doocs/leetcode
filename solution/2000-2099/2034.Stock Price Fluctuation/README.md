@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2034.Stock%20Price%20Fluctuation/README.md
 rating: 1831
+source: 第 262 场周赛 Q3
 tags:
     - 设计
     - 哈希表

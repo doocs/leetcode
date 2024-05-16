@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1813.Sentence%20Similarity%20III/README.md
 rating: 1588
+source: 第 49 场双周赛 Q2
 tags:
     - 数组
     - 双指针

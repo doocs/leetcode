@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1046.Last%20Stone%20Weight/README.md
 rating: 1172
+source: 第 137 场周赛 Q1
 tags:
     - 数组
     - 堆（优先队列）

@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2141.Maximum%20Running%20Time%20of%20N%20Computers/README.md
 rating: 2265
+source: 第 276 场周赛 Q4
 tags:
     - 贪心
     - 数组

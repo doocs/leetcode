@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1255.Maximum%20Score%20Words%20Formed%20by%20Letters/README.md
 rating: 1881
+source: 第 162 场周赛 Q4
 tags:
     - 位运算
     - 数组

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2424.Longest%20Uploaded%20Prefix/README.md
 rating: 1604
+source: 第 88 场双周赛 Q2
 tags:
     - 并查集
     - 设计

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1889.Minimum%20Space%20Wasted%20From%20Packaging/README_EN.md
 rating: 2214
+source: Weekly Contest 244 Q4
 tags:
     - Array
     - Binary Search

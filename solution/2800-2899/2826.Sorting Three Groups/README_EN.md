@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2826.Sorting%20Three%20Groups/README_EN.md
 rating: 1721
+source: Biweekly Contest 111 Q3
 tags:
     - Array
     - Binary Search

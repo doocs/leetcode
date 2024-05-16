@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2920.Maximum%20Points%20After%20Collecting%20Coins%20From%20All%20Nodes/README_EN.md
 rating: 2350
+source: Weekly Contest 369 Q4
 tags:
     - Bit Manipulation
     - Tree

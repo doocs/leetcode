@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1071.Greatest%20Common%20Divisor%20of%20Strings/README_EN.md
 rating: 1397
+source: Weekly Contest 139 Q1
 tags:
     - Math
     - String

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1273.Delete%20Tree%20Nodes/README.md
 rating: 1732
+source: 第 14 场双周赛 Q3
 tags:
     - 树
     - 深度优先搜索

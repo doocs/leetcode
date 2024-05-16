@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2937.Make%20Three%20Strings%20Equal/README_EN.md
 rating: 1347
+source: Weekly Contest 372 Q1
 tags:
     - String
 ---

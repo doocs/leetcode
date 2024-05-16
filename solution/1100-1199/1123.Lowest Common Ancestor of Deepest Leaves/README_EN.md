@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1123.Lowest%20Common%20Ancestor%20of%20Deepest%20Leaves/README_EN.md
 rating: 1607
+source: Weekly Contest 145 Q2
 tags:
     - Tree
     - Depth-First Search

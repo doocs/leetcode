@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1859.Sorting%20the%20Sentence/README.md
 rating: 1290
+source: 第 52 场双周赛 Q1
 tags:
     - 字符串
     - 排序

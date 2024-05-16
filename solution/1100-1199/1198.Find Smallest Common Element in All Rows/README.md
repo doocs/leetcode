@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1198.Find%20Smallest%20Common%20Element%20in%20All%20Rows/README.md
 rating: 1401
+source: 第 9 场双周赛 Q3
 tags:
     - 数组
     - 哈希表

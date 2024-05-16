@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2542.Maximum%20Subsequence%20Score/README_EN.md
 rating: 2056
+source: Biweekly Contest 96 Q3
 tags:
     - Greedy
     - Array

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2091.Removing%20Minimum%20and%20Maximum%20From%20Array/README.md
 rating: 1384
+source: 第 269 场周赛 Q3
 tags:
     - 贪心
     - 数组

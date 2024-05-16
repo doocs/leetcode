@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1093.Statistics%20from%20a%20Large%20Sample/README_EN.md
 rating: 1471
+source: Weekly Contest 142 Q1
 tags:
     - Array
     - Math

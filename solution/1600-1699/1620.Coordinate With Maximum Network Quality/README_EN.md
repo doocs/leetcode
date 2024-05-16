@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1620.Coordinate%20With%20Maximum%20Network%20Quality/README_EN.md
 rating: 1665
+source: Biweekly Contest 37 Q2
 tags:
     - Array
     - Enumeration

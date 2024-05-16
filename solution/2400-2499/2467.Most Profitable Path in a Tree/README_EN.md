@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2467.Most%20Profitable%20Path%20in%20a%20Tree/README_EN.md
 rating: 2053
+source: Biweekly Contest 91 Q3
 tags:
     - Tree
     - Depth-First Search

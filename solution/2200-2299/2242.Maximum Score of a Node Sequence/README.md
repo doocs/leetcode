@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2242.Maximum%20Score%20of%20a%20Node%20Sequence/README.md
 rating: 2304
+source: 第 76 场双周赛 Q4
 tags:
     - 图
     - 数组

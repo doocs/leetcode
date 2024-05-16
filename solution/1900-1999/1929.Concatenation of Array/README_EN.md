@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1929.Concatenation%20of%20Array/README_EN.md
 rating: 1132
+source: Weekly Contest 249 Q1
 tags:
     - Array
     - Simulation

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1530.Number%20of%20Good%20Leaf%20Nodes%20Pairs/README_EN.md
 rating: 1745
+source: Weekly Contest 199 Q3
 tags:
     - Tree
     - Depth-First Search

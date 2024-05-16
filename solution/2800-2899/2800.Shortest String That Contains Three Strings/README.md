@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2800.Shortest%20String%20That%20Contains%20Three%20Strings/README.md
 rating: 1855
+source: 第 356 场周赛 Q3
 tags:
     - 贪心
     - 字符串

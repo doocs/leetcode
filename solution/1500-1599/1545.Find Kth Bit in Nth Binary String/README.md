@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1545.Find%20Kth%20Bit%20in%20Nth%20Binary%20String/README.md
 rating: 1479
+source: 第 201 场周赛 Q2
 tags:
     - 递归
     - 字符串

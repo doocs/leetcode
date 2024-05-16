@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2762.Continuous%20Subarrays/README_EN.md
 rating: 1940
+source: Weekly Contest 352 Q3
 tags:
     - Queue
     - Array

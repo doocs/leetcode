@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1015.Smallest%20Integer%20Divisible%20by%20K/README_EN.md
 rating: 1874
+source: Weekly Contest 129 Q2
 tags:
     - Hash Table
     - Math

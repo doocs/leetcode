@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2196.Create%20Binary%20Tree%20From%20Descriptions/README_EN.md
 rating: 1643
+source: Weekly Contest 283 Q3
 tags:
     - Tree
     - Array

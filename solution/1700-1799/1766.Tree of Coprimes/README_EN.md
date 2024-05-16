@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1766.Tree%20of%20Coprimes/README_EN.md
 rating: 2231
+source: Biweekly Contest 46 Q4
 tags:
     - Tree
     - Depth-First Search

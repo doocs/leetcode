@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1862.Sum%20of%20Floored%20Pairs/README.md
 rating: 2170
+source: 第 52 场双周赛 Q4
 tags:
     - 数组
     - 数学

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1288.Remove%20Covered%20Intervals/README.md
 rating: 1375
+source: 第 15 场双周赛 Q2
 tags:
     - 数组
     - 排序

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1000.Minimum%20Cost%20to%20Merge%20Stones/README_EN.md
 rating: 2422
+source: Weekly Contest 126 Q4
 tags:
     - Array
     - Dynamic Programming

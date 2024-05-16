@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2193.Minimum%20Number%20of%20Moves%20to%20Make%20Palindrome/README_EN.md
 rating: 2090
+source: Biweekly Contest 73 Q4
 tags:
     - Greedy
     - Binary Indexed Tree

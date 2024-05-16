@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1782.Count%20Pairs%20Of%20Nodes/README_EN.md
 rating: 2457
+source: Biweekly Contest 47 Q4
 tags:
     - Graph
     - Array

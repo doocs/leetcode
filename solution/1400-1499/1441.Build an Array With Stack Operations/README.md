@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1441.Build%20an%20Array%20With%20Stack%20Operations/README.md
 rating: 1180
+source: 第 188 场周赛 Q1
 tags:
     - 栈
     - 数组

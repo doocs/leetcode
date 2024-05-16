@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2595.Number%20of%20Even%20and%20Odd%20Bits/README_EN.md
 rating: 1206
+source: Weekly Contest 337 Q1
 tags:
     - Bit Manipulation
 ---

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2929.Distribute%20Candies%20Among%20Children%20II/README.md
 rating: 1701
+source: 第 117 场双周赛 Q2
 tags:
     - 数学
     - 组合数学

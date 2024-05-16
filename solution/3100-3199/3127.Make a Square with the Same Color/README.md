@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3127.Make%20a%20Square%20with%20the%20Same%20Color/README.md
 rating: 1337
+source: 第 129 场双周赛 Q1
 tags:
     - 数组
     - 枚举

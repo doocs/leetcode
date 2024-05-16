@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2465.Number%20of%20Distinct%20Averages/README_EN.md
 rating: 1250
+source: Biweekly Contest 91 Q1
 tags:
     - Array
     - Hash Table

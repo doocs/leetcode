@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1603.Design%20Parking%20System/README.md
 rating: 1324
+source: 第 36 场双周赛 Q1
 tags:
     - 设计
     - 计数

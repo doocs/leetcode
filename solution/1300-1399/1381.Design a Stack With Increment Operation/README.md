@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1381.Design%20a%20Stack%20With%20Increment%20Operation/README.md
 rating: 1285
+source: 第 180 场周赛 Q2
 tags:
     - 栈
     - 设计

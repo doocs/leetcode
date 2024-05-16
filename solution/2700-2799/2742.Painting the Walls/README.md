@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2742.Painting%20the%20Walls/README.md
 rating: 2424
+source: 第 350 场周赛 Q4
 tags:
     - 数组
     - 动态规划

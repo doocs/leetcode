@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1202.Smallest%20String%20With%20Swaps/README_EN.md
 rating: 1855
+source: Weekly Contest 155 Q3
 tags:
     - Depth-First Search
     - Breadth-First Search

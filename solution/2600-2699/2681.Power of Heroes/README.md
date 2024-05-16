@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2681.Power%20of%20Heroes/README.md
 rating: 2060
+source: 第 104 场双周赛 Q4
 tags:
     - 数组
     - 数学

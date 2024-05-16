@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1230.Toss%20Strange%20Coins/README.md
 rating: 1808
+source: 第 11 场双周赛 Q3
 tags:
     - 数组
     - 数学

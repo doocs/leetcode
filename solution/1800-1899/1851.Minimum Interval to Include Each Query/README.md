@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1851.Minimum%20Interval%20to%20Include%20Each%20Query/README.md
 rating: 2286
+source: 第 239 场周赛 Q4
 tags:
     - 数组
     - 二分查找

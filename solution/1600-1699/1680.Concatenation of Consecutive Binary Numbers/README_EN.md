@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1680.Concatenation%20of%20Consecutive%20Binary%20Numbers/README_EN.md
 rating: 1629
+source: Weekly Contest 218 Q3
 tags:
     - Bit Manipulation
     - Math

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2352.Equal%20Row%20and%20Column%20Pairs/README_EN.md
 rating: 1286
+source: Weekly Contest 303 Q2
 tags:
     - Array
     - Hash Table

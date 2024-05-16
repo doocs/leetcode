@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2003.Smallest%20Missing%20Genetic%20Value%20in%20Each%20Subtree/README_EN.md
 rating: 2415
+source: Weekly Contest 258 Q4
 tags:
     - Tree
     - Depth-First Search

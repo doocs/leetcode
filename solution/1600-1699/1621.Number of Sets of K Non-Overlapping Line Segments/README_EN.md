@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1621.Number%20of%20Sets%20of%20K%20Non-Overlapping%20Line%20Segments/README_EN.md
 rating: 2198
+source: Biweekly Contest 37 Q3
 tags:
     - Math
     - Dynamic Programming

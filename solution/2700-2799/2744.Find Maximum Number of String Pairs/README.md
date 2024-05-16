@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2744.Find%20Maximum%20Number%20of%20String%20Pairs/README.md
 rating: 1405
+source: 第 107 场双周赛 Q1
 tags:
     - 数组
     - 哈希表

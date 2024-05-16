@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2017.Grid%20Game/README.md
 rating: 1718
+source: 第 260 场周赛 Q2
 tags:
     - 数组
     - 矩阵

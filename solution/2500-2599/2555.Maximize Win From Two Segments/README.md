@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2555.Maximize%20Win%20From%20Two%20Segments/README.md
 rating: 2080
+source: 第 97 场双周赛 Q3
 tags:
     - 数组
     - 二分查找

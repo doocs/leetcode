@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1920.Build%20Array%20from%20Permutation/README.md
 rating: 1160
+source: 第 248 场周赛 Q1
 tags:
     - 数组
     - 模拟

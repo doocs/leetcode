@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1387.Sort%20Integers%20by%20The%20Power%20Value/README.md
 rating: 1506
+source: 第 22 场双周赛 Q3
 tags:
     - 记忆化搜索
     - 动态规划

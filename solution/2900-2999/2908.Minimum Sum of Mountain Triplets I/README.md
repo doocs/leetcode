@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2908.Minimum%20Sum%20of%20Mountain%20Triplets%20I/README.md
 rating: 1253
+source: 第 368 场周赛 Q1
 tags:
     - 数组
 ---

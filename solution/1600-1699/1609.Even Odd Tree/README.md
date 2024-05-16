@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1609.Even%20Odd%20Tree/README.md
 rating: 1438
+source: 第 209 场周赛 Q2
 tags:
     - 树
     - 广度优先搜索

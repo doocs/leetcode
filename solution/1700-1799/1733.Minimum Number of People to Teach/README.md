@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1733.Minimum%20Number%20of%20People%20to%20Teach/README.md
 rating: 1983
+source: 第 44 场双周赛 Q2
 tags:
     - 贪心
     - 数组

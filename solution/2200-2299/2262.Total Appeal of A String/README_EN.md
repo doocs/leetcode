@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2262.Total%20Appeal%20of%20A%20String/README_EN.md
 rating: 2033
+source: Weekly Contest 291 Q4
 tags:
     - Hash Table
     - String

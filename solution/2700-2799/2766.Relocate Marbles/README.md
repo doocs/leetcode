@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2766.Relocate%20Marbles/README.md
 rating: 1613
+source: 第 108 场双周赛 Q2
 tags:
     - 数组
     - 哈希表

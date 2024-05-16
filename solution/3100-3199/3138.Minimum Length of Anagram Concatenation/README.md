@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3138.Minimum%20Length%20of%20Anagram%20Concatenation/README.md
 rating: 1979
+source: 第 396 场周赛 Q3
 tags:
     - 哈希表
     - 字符串

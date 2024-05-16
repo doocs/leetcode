@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1325.Delete%20Leaves%20With%20a%20Given%20Value/README.md
 rating: 1407
+source: 第 172 场周赛 Q3
 tags:
     - 树
     - 深度优先搜索

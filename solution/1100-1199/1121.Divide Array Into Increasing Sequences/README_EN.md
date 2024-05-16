@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1121.Divide%20Array%20Into%20Increasing%20Sequences/README_EN.md
 rating: 1664
+source: Biweekly Contest 4 Q4
 tags:
     - Array
     - Counting

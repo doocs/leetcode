@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3035.Maximum%20Palindromes%20After%20Operations/README.md
 rating: 1856
+source: 第 384 场周赛 Q3
 tags:
     - 贪心
     - 数组

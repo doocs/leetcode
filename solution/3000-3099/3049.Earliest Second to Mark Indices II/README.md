@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3049.Earliest%20Second%20to%20Mark%20Indices%20II/README.md
 rating: 3111
+source: 第 386 场周赛 Q4
 tags:
     - 贪心
     - 数组

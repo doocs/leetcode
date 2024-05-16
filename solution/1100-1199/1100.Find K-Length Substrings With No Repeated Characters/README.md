@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1100.Find%20K-Length%20Substrings%20With%20No%20Repeated%20Characters/README.md
 rating: 1348
+source: 第 3 场双周赛 Q2
 tags:
     - 哈希表
     - 字符串

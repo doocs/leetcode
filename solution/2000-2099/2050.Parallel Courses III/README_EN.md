@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2050.Parallel%20Courses%20III/README_EN.md
 rating: 2084
+source: Weekly Contest 264 Q4
 tags:
     - Graph
     - Topological Sort

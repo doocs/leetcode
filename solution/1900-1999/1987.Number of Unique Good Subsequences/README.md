@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1987.Number%20of%20Unique%20Good%20Subsequences/README.md
 rating: 2422
+source: 第 256 场周赛 Q4
 tags:
     - 字符串
     - 动态规划

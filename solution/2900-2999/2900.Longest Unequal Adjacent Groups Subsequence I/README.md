@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2900.Longest%20Unequal%20Adjacent%20Groups%20Subsequence%20I/README.md
 rating: 1468
+source: 第 115 场双周赛 Q2
 tags:
     - 贪心
     - 数组

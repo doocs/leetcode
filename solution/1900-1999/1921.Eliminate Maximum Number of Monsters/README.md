@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1921.Eliminate%20Maximum%20Number%20of%20Monsters/README.md
 rating: 1527
+source: 第 248 场周赛 Q2
 tags:
     - 贪心
     - 数组

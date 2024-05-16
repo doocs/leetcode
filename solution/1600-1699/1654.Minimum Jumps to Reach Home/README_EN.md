@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1654.Minimum%20Jumps%20to%20Reach%20Home/README_EN.md
 rating: 2124
+source: Biweekly Contest 39 Q3
 tags:
     - Breadth-First Search
     - Array

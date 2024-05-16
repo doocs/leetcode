@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3024.Type%20of%20Triangle/README_EN.md
 rating: 1134
+source: Biweekly Contest 123 Q1
 tags:
     - Array
     - Math

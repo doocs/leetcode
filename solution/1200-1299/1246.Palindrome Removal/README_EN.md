@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1246.Palindrome%20Removal/README_EN.md
 rating: 2203
+source: Biweekly Contest 12 Q4
 tags:
     - Array
     - Dynamic Programming

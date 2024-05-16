@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1054.Distant%20Barcodes/README.md
 rating: 1701
+source: 第 138 场周赛 Q4
 tags:
     - 贪心
     - 数组

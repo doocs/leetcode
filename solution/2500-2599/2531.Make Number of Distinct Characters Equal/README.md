@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2531.Make%20Number%20of%20Distinct%20Characters%20Equal/README.md
 rating: 1775
+source: 第 327 场周赛 Q3
 tags:
     - 哈希表
     - 字符串

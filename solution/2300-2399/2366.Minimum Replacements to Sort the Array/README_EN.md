@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2366.Minimum%20Replacements%20to%20Sort%20the%20Array/README_EN.md
 rating: 2060
+source: Biweekly Contest 84 Q4
 tags:
     - Greedy
     - Array

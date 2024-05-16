@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1277.Count%20Square%20Submatrices%20with%20All%20Ones/README_EN.md
 rating: 1613
+source: Weekly Contest 165 Q3
 tags:
     - Array
     - Dynamic Programming

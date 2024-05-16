@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2488.Count%20Subarrays%20With%20Median%20K/README.md
 rating: 1998
+source: 第 321 场周赛 Q4
 tags:
     - 数组
     - 哈希表

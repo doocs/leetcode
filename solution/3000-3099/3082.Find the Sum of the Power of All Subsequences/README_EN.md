@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3082.Find%20the%20Sum%20of%20the%20Power%20of%20All%20Subsequences/README_EN.md
 rating: 2241
+source: Biweekly Contest 126 Q4
 tags:
     - Array
     - Dynamic Programming

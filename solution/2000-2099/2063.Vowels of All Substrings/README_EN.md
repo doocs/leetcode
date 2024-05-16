@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2063.Vowels%20of%20All%20Substrings/README_EN.md
 rating: 1663
+source: Weekly Contest 266 Q2
 tags:
     - Math
     - String

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3035.Maximum%20Palindromes%20After%20Operations/README_EN.md
 rating: 1856
+source: Weekly Contest 384 Q3
 tags:
     - Greedy
     - Array

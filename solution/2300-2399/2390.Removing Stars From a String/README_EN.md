@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2390.Removing%20Stars%20From%20a%20String/README_EN.md
 rating: 1347
+source: Weekly Contest 308 Q2
 tags:
     - Stack
     - String

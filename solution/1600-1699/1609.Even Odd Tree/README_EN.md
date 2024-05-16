@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1609.Even%20Odd%20Tree/README_EN.md
 rating: 1438
+source: Weekly Contest 209 Q2
 tags:
     - Tree
     - Breadth-First Search

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1036.Escape%20a%20Large%20Maze/README_EN.md
 rating: 2164
+source: Weekly Contest 134 Q4
 tags:
     - Depth-First Search
     - Breadth-First Search

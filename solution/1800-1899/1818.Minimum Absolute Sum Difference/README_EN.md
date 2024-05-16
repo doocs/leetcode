@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1818.Minimum%20Absolute%20Sum%20Difference/README_EN.md
 rating: 1934
+source: Weekly Contest 235 Q3
 tags:
     - Array
     - Binary Search

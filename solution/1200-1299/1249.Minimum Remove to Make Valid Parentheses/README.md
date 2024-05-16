@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1249.Minimum%20Remove%20to%20Make%20Valid%20Parentheses/README.md
 rating: 1657
+source: 第 161 场周赛 Q3
 tags:
     - 栈
     - 字符串

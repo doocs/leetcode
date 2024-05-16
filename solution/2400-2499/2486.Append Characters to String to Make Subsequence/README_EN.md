@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2486.Append%20Characters%20to%20String%20to%20Make%20Subsequence/README_EN.md
 rating: 1362
+source: Weekly Contest 321 Q2
 tags:
     - Greedy
     - Two Pointers

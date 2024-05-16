@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2617.Minimum%20Number%20of%20Visited%20Cells%20in%20a%20Grid/README_EN.md
 rating: 2581
+source: Weekly Contest 340 Q4
 tags:
     - Stack
     - Breadth-First Search

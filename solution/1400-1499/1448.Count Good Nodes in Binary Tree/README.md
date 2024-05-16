@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1448.Count%20Good%20Nodes%20in%20Binary%20Tree/README.md
 rating: 1360
+source: 第 26 场双周赛 Q3
 tags:
     - 树
     - 深度优先搜索

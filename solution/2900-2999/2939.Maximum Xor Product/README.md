@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2939.Maximum%20Xor%20Product/README.md
 rating: 2127
+source: 第 372 场周赛 Q3
 tags:
     - 贪心
     - 位运算

@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2612.Minimum%20Reverse%20Operations/README.md
 rating: 2824
+source: 第 339 场周赛 Q4
 tags:
     - 广度优先搜索
     - 数组

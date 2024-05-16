@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1800.Maximum%20Ascending%20Subarray%20Sum/README.md
 rating: 1229
+source: 第 233 场周赛 Q1
 tags:
     - 数组
 ---

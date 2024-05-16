@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2222.Number%20of%20Ways%20to%20Select%20Buildings/README.md
 rating: 1656
+source: 第 75 场双周赛 Q3
 tags:
     - 字符串
     - 动态规划

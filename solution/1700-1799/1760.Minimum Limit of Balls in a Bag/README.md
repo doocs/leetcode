@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1760.Minimum%20Limit%20of%20Balls%20in%20a%20Bag/README.md
 rating: 1939
+source: 第 228 场周赛 Q3
 tags:
     - 数组
     - 二分查找

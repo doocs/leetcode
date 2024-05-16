@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1248.Count%20Number%20of%20Nice%20Subarrays/README.md
 rating: 1623
+source: 第 161 场周赛 Q2
 tags:
     - 数组
     - 哈希表

@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2164.Sort%20Even%20and%20Odd%20Indices%20Independently/README.md
 rating: 1252
+source: 第 279 场周赛 Q1
 tags:
     - 数组
     - 排序

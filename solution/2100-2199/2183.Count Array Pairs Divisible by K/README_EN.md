@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2183.Count%20Array%20Pairs%20Divisible%20by%20K/README_EN.md
 rating: 2246
+source: Weekly Contest 281 Q4
 tags:
     - Array
     - Math

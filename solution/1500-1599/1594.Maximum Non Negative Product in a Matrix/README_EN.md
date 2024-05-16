@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1594.Maximum%20Non%20Negative%20Product%20in%20a%20Matrix/README_EN.md
 rating: 1807
+source: Weekly Contest 207 Q3
 tags:
     - Array
     - Dynamic Programming

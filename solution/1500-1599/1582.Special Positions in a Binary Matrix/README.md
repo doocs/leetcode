@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1582.Special%20Positions%20in%20a%20Binary%20Matrix/README.md
 rating: 1321
+source: 第 206 场周赛 Q1
 tags:
     - 数组
     - 矩阵

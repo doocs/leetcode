@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2440.Create%20Components%20With%20Same%20Value/README_EN.md
 rating: 2460
+source: Biweekly Contest 89 Q4
 tags:
     - Tree
     - Depth-First Search

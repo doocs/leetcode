@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2301.Match%20Substring%20After%20Replacement/README.md
 rating: 1860
+source: 第 80 场双周赛 Q3
 tags:
     - 数组
     - 哈希表

@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2206.Divide%20Array%20Into%20Equal%20Pairs/README.md
 rating: 1223
+source: 第 74 场双周赛 Q1
 tags:
     - 位运算
     - 数组

@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2363.Merge%20Similar%20Items/README_EN.md
 rating: 1270
+source: Biweekly Contest 84 Q1
 tags:
     - Array
     - Hash Table

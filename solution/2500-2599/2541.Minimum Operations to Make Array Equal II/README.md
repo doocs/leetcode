@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2541.Minimum%20Operations%20to%20Make%20Array%20Equal%20II/README.md
 rating: 1619
+source: 第 96 场双周赛 Q2
 tags:
     - 贪心
     - 数组

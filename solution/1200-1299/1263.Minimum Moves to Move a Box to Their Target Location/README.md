@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1263.Minimum%20Moves%20to%20Move%20a%20Box%20to%20Their%20Target%20Location/README.md
 rating: 2297
+source: 第 163 场周赛 Q4
 tags:
     - 广度优先搜索
     - 数组

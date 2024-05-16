@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1394.Find%20Lucky%20Integer%20in%20an%20Array/README_EN.md
 rating: 1118
+source: Weekly Contest 182 Q1
 tags:
     - Array
     - Hash Table

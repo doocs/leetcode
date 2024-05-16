@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3133.Minimum%20Array%20End/README_EN.md
 rating: 1934
+source: Weekly Contest 395 Q3
 tags:
     - Bit Manipulation
 ---

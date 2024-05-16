@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1849.Splitting%20a%20String%20Into%20Descending%20Consecutive%20Values/README.md
 rating: 1746
+source: 第 239 场周赛 Q2
 tags:
     - 字符串
     - 回溯

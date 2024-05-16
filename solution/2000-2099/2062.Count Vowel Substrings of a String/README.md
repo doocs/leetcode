@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2062.Count%20Vowel%20Substrings%20of%20a%20String/README.md
 rating: 1458
+source: 第 266 场周赛 Q1
 tags:
     - 哈希表
     - 字符串

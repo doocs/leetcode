@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1325.Delete%20Leaves%20With%20a%20Given%20Value/README_EN.md
 rating: 1407
+source: Weekly Contest 172 Q3
 tags:
     - Tree
     - Depth-First Search

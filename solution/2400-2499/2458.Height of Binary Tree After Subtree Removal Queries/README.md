@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2458.Height%20of%20Binary%20Tree%20After%20Subtree%20Removal%20Queries/README.md
 rating: 2298
+source: 第 317 场周赛 Q4
 tags:
     - 树
     - 深度优先搜索

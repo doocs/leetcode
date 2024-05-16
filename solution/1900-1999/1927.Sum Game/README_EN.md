@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1927.Sum%20Game/README_EN.md
 rating: 2004
+source: Biweekly Contest 56 Q3
 tags:
     - Greedy
     - Math

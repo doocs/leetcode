@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3132.Find%20the%20Integer%20Added%20to%20Array%20II/README_EN.md
 rating: 1620
+source: Weekly Contest 395 Q2
 tags:
     - Array
     - Two Pointers

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2513.Minimize%20the%20Maximum%20of%20Two%20Arrays/README_EN.md
 rating: 2302
+source: Biweekly Contest 94 Q3
 tags:
     - Math
     - Binary Search

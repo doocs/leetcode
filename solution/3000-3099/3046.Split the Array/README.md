@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3046.Split%20the%20Array/README.md
 rating: 1212
+source: 第 386 场周赛 Q1
 tags:
     - 数组
     - 哈希表

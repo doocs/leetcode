@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2032.Two%20Out%20of%20Three/README.md
 rating: 1269
+source: 第 262 场周赛 Q1
 tags:
     - 位运算
     - 数组

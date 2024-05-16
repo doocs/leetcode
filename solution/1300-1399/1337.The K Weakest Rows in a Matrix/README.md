@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1337.The%20K%20Weakest%20Rows%20in%20a%20Matrix/README.md
 rating: 1224
+source: 第 174 场周赛 Q1
 tags:
     - 数组
     - 二分查找

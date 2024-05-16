@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2744.Find%20Maximum%20Number%20of%20String%20Pairs/README_EN.md
 rating: 1405
+source: Biweekly Contest 107 Q1
 tags:
     - Array
     - Hash Table

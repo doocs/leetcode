@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2740.Find%20the%20Value%20of%20the%20Partition/README_EN.md
 rating: 1301
+source: Weekly Contest 350 Q2
 tags:
     - Array
     - Sorting

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2063.Vowels%20of%20All%20Substrings/README.md
 rating: 1663
+source: 第 266 场周赛 Q2
 tags:
     - 数学
     - 字符串

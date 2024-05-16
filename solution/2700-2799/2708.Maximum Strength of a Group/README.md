@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2708.Maximum%20Strength%20of%20a%20Group/README.md
 rating: 1502
+source: 第 105 场双周赛 Q3
 tags:
     - 贪心
     - 位运算

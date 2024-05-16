@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1301.Number%20of%20Paths%20with%20Max%20Score/README_EN.md
 rating: 1853
+source: Biweekly Contest 16 Q4
 tags:
     - Array
     - Dynamic Programming

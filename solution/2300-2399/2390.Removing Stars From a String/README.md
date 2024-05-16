@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2390.Removing%20Stars%20From%20a%20String/README.md
 rating: 1347
+source: 第 308 场周赛 Q2
 tags:
     - 栈
     - 字符串

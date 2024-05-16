@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2070.Most%20Beautiful%20Item%20for%20Each%20Query/README.md
 rating: 1724
+source: 第 65 场双周赛 Q3
 tags:
     - 数组
     - 二分查找

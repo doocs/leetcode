@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3092.Most%20Frequent%20IDs/README.md
 rating: 1793
+source: 第 390 场周赛 Q3
 tags:
     - 数组
     - 哈希表

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2606.Find%20the%20Substring%20With%20Maximum%20Cost/README.md
 rating: 1422
+source: 第 101 场双周赛 Q2
 tags:
     - 数组
     - 哈希表

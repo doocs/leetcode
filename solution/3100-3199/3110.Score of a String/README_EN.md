@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3110.Score%20of%20a%20String/README_EN.md
 rating: 1152
+source: Biweekly Contest 128 Q1
 tags:
     - String
 ---

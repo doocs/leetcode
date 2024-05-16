@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2943.Maximize%20Area%20of%20Square%20Hole%20in%20Grid/README.md
 rating: 1677
+source: 第 118 场双周赛 Q2
 tags:
     - 数组
     - 排序

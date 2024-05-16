@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2407.Longest%20Increasing%20Subsequence%20II/README.md
 rating: 2280
+source: 第 310 场周赛 Q4
 tags:
     - 树状数组
     - 线段树

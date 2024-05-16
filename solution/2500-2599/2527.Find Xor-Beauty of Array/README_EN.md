@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2527.Find%20Xor-Beauty%20of%20Array/README_EN.md
 rating: 1549
+source: Biweekly Contest 95 Q3
 tags:
     - Bit Manipulation
     - Array

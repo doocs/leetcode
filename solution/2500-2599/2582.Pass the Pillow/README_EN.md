@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2582.Pass%20the%20Pillow/README_EN.md
 rating: 1278
+source: Weekly Contest 335 Q1
 tags:
     - Math
     - Simulation

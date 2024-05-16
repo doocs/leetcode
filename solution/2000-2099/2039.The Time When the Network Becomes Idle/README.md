@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2039.The%20Time%20When%20the%20Network%20Becomes%20Idle/README.md
 rating: 1865
+source: 第 63 场双周赛 Q3
 tags:
     - 广度优先搜索
     - 图

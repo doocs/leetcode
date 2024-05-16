@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1962.Remove%20Stones%20to%20Minimize%20the%20Total/README.md
 rating: 1418
+source: 第 253 场周赛 Q2
 tags:
     - 贪心
     - 数组

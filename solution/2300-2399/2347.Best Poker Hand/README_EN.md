@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2347.Best%20Poker%20Hand/README_EN.md
 rating: 1241
+source: Biweekly Contest 83 Q1
 tags:
     - Array
     - Hash Table

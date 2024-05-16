@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2344.Minimum%20Deletions%20to%20Make%20Array%20Divisible/README.md
 rating: 1640
+source: 第 302 场周赛 Q4
 tags:
     - 数组
     - 数学

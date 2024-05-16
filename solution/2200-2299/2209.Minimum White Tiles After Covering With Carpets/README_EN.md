@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2209.Minimum%20White%20Tiles%20After%20Covering%20With%20Carpets/README_EN.md
 rating: 2105
+source: Biweekly Contest 74 Q4
 tags:
     - String
     - Dynamic Programming

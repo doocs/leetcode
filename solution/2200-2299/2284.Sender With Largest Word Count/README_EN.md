@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2284.Sender%20With%20Largest%20Word%20Count/README_EN.md
 rating: 1346
+source: Biweekly Contest 79 Q2
 tags:
     - Array
     - Hash Table

@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1827.Minimum%20Operations%20to%20Make%20the%20Array%20Increasing/README.md
 rating: 1314
+source: 第 50 场双周赛 Q1
 tags:
     - 贪心
     - 数组

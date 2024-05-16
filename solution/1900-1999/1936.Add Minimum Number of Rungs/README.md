@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1936.Add%20Minimum%20Number%20of%20Rungs/README.md
 rating: 1322
+source: 第 250 场周赛 Q2
 tags:
     - 贪心
     - 数组

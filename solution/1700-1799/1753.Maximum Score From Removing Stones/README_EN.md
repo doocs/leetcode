@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1753.Maximum%20Score%20From%20Removing%20Stones/README_EN.md
 rating: 1487
+source: Weekly Contest 227 Q2
 tags:
     - Greedy
     - Math

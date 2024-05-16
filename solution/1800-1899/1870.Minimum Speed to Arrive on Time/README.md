@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1870.Minimum%20Speed%20to%20Arrive%20on%20Time/README.md
 rating: 1675
+source: 第 242 场周赛 Q2
 tags:
     - 数组
     - 二分查找

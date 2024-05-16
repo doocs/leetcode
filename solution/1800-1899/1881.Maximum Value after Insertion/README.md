@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1881.Maximum%20Value%20after%20Insertion/README.md
 rating: 1381
+source: 第 243 场周赛 Q2
 tags:
     - 贪心
     - 字符串

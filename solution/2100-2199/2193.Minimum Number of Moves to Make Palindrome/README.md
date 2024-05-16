@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2193.Minimum%20Number%20of%20Moves%20to%20Make%20Palindrome/README.md
 rating: 2090
+source: 第 73 场双周赛 Q4
 tags:
     - 贪心
     - 树状数组

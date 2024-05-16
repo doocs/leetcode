@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1649.Create%20Sorted%20Array%20through%20Instructions/README.md
 rating: 2207
+source: 第 214 场周赛 Q4
 tags:
     - 树状数组
     - 线段树

@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2784.Check%20if%20Array%20is%20Good/README_EN.md
 rating: 1376
+source: Biweekly Contest 109 Q1
 tags:
     - Array
     - Hash Table

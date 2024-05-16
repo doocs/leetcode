@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1994.The%20Number%20of%20Good%20Subsets/README_EN.md
 rating: 2464
+source: Biweekly Contest 60 Q4
 tags:
     - Bit Manipulation
     - Array

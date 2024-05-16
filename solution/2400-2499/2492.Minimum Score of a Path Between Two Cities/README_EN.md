@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2492.Minimum%20Score%20of%20a%20Path%20Between%20Two%20Cities/README_EN.md
 rating: 1679
+source: Weekly Contest 322 Q3
 tags:
     - Depth-First Search
     - Breadth-First Search

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1535.Find%20the%20Winner%20of%20an%20Array%20Game/README.md
 rating: 1433
+source: 第 200 场周赛 Q2
 tags:
     - 数组
     - 模拟

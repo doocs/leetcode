@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1854.Maximum%20Population%20Year/README_EN.md
 rating: 1370
+source: Weekly Contest 240 Q1
 tags:
     - Array
     - Counting

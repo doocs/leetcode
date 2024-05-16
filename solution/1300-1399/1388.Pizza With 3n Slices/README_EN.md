@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1388.Pizza%20With%203n%20Slices/README_EN.md
 rating: 2409
+source: Biweekly Contest 22 Q4
 tags:
     - Greedy
     - Array

@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2246.Longest%20Path%20With%20Different%20Adjacent%20Characters/README_EN.md
 rating: 2126
+source: Weekly Contest 289 Q4
 tags:
     - Tree
     - Depth-First Search

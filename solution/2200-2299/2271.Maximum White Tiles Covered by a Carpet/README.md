@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2271.Maximum%20White%20Tiles%20Covered%20by%20a%20Carpet/README.md
 rating: 2021
+source: 第 78 场双周赛 Q3
 tags:
     - 贪心
     - 数组

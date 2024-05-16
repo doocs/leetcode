@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1643.Kth%20Smallest%20Instructions/README.md
 rating: 2079
+source: 第 213 场周赛 Q4
 tags:
     - 数组
     - 数学

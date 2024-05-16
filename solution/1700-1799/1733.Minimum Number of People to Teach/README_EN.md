@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1733.Minimum%20Number%20of%20People%20to%20Teach/README_EN.md
 rating: 1983
+source: Biweekly Contest 44 Q2
 tags:
     - Greedy
     - Array

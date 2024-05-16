@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1191.K-Concatenation%20Maximum%20Sum/README.md
 rating: 1747
+source: 第 154 场周赛 Q3
 tags:
     - 数组
     - 动态规划

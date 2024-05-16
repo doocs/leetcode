@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1600.Throne%20Inheritance/README_EN.md
 rating: 1768
+source: Weekly Contest 208 Q3
 tags:
     - Tree
     - Depth-First Search

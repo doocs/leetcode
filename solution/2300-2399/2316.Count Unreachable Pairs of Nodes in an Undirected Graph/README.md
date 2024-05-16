@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2316.Count%20Unreachable%20Pairs%20of%20Nodes%20in%20an%20Undirected%20Graph/README.md
 rating: 1604
+source: 第 81 场双周赛 Q2
 tags:
     - 深度优先搜索
     - 广度优先搜索

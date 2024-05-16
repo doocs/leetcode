@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1028.Recover%20a%20Tree%20From%20Preorder%20Traversal/README.md
 rating: 1797
+source: 第 132 场周赛 Q4
 tags:
     - 树
     - 深度优先搜索

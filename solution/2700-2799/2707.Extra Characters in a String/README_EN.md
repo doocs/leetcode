@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2707.Extra%20Characters%20in%20a%20String/README_EN.md
 rating: 1735
+source: Biweekly Contest 105 Q2
 tags:
     - Trie
     - Array

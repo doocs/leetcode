@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1497.Check%20If%20Array%20Pairs%20Are%20Divisible%20by%20k/README.md
 rating: 1787
+source: 第 195 场周赛 Q2
 tags:
     - 数组
     - 哈希表

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1514.Path%20with%20Maximum%20Probability/README_EN.md
 rating: 1846
+source: Weekly Contest 197 Q3
 tags:
     - Graph
     - Array

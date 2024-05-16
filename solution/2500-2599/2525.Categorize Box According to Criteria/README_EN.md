@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2525.Categorize%20Box%20According%20to%20Criteria/README_EN.md
 rating: 1301
+source: Biweekly Contest 95 Q1
 tags:
     - Math
 ---

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3128.Right%20Triangles/README_EN.md
 rating: 1540
+source: Biweekly Contest 129 Q2
 tags:
     - Array
     - Hash Table

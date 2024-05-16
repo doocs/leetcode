@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2556.Disconnect%20Path%20in%20a%20Binary%20Matrix%20by%20at%20Most%20One%20Flip/README.md
 rating: 2368
+source: 第 97 场双周赛 Q4
 tags:
     - 深度优先搜索
     - 广度优先搜索

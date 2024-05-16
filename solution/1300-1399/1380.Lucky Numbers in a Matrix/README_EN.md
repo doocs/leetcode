@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1380.Lucky%20Numbers%20in%20a%20Matrix/README_EN.md
 rating: 1207
+source: Weekly Contest 180 Q1
 tags:
     - Array
     - Matrix

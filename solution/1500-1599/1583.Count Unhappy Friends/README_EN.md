@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1583.Count%20Unhappy%20Friends/README_EN.md
 rating: 1658
+source: Weekly Contest 206 Q2
 tags:
     - Array
     - Simulation

@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2942.Find%20Words%20Containing%20Character/README_EN.md
 rating: 1182
+source: Biweekly Contest 118 Q1
 tags:
     - Array
     - String

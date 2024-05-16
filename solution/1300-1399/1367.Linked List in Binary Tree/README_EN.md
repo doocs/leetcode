@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1367.Linked%20List%20in%20Binary%20Tree/README_EN.md
 rating: 1649
+source: Weekly Contest 178 Q3
 tags:
     - Tree
     - Depth-First Search

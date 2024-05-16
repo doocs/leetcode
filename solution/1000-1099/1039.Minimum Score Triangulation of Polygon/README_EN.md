@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1039.Minimum%20Score%20Triangulation%20of%20Polygon/README_EN.md
 rating: 2130
+source: Weekly Contest 135 Q3
 tags:
     - Array
     - Dynamic Programming

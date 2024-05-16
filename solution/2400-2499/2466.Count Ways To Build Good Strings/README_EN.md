@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2466.Count%20Ways%20To%20Build%20Good%20Strings/README_EN.md
 rating: 1694
+source: Biweekly Contest 91 Q2
 tags:
     - Dynamic Programming
 ---

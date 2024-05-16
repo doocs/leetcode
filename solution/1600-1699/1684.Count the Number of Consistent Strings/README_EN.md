@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1684.Count%20the%20Number%20of%20Consistent%20Strings/README_EN.md
 rating: 1288
+source: Biweekly Contest 41 Q1
 tags:
     - Bit Manipulation
     - Array

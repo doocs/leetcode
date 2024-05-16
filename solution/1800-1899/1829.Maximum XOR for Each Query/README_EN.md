@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1829.Maximum%20XOR%20for%20Each%20Query/README_EN.md
 rating: 1523
+source: Biweekly Contest 50 Q3
 tags:
     - Bit Manipulation
     - Array

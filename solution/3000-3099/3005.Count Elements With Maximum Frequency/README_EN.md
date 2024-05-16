@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3005.Count%20Elements%20With%20Maximum%20Frequency/README_EN.md
 rating: 1216
+source: Weekly Contest 380 Q1
 tags:
     - Array
     - Hash Table

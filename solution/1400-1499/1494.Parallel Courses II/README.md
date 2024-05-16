@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1494.Parallel%20Courses%20II/README.md
 rating: 2081
+source: 第 29 场双周赛 Q4
 tags:
     - 位运算
     - 图

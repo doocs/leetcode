@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1323.Maximum%2069%20Number/README_EN.md
 rating: 1193
+source: Weekly Contest 172 Q1
 tags:
     - Greedy
     - Math

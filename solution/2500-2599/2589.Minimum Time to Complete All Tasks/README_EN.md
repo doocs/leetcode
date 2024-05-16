@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2589.Minimum%20Time%20to%20Complete%20All%20Tasks/README_EN.md
 rating: 2380
+source: Weekly Contest 336 Q4
 tags:
     - Stack
     - Greedy

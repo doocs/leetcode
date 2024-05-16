@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1257.Smallest%20Common%20Region/README_EN.md
 rating: 1654
+source: Biweekly Contest 13 Q2
 tags:
     - Tree
     - Depth-First Search

@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1051.Height%20Checker/README_EN.md
 rating: 1303
+source: Weekly Contest 138 Q1
 tags:
     - Array
     - Counting Sort

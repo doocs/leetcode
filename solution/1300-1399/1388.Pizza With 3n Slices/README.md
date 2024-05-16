@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1388.Pizza%20With%203n%20Slices/README.md
 rating: 2409
+source: 第 22 场双周赛 Q4
 tags:
     - 贪心
     - 数组

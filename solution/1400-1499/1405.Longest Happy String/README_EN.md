@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1405.Longest%20Happy%20String/README_EN.md
 rating: 1820
+source: Weekly Contest 183 Q3
 tags:
     - Greedy
     - String

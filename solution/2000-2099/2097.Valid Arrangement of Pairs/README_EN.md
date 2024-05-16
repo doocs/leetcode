@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2097.Valid%20Arrangement%20of%20Pairs/README_EN.md
 rating: 2650
+source: Weekly Contest 270 Q4
 tags:
     - Depth-First Search
     - Graph

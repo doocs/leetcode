@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2309.Greatest%20English%20Letter%20in%20Upper%20and%20Lower%20Case/README.md
 rating: 1242
+source: 第 298 场周赛 Q1
 tags:
     - 哈希表
     - 字符串

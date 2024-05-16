@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3121.Count%20the%20Number%20of%20Special%20Characters%20II/README.md
 rating: 1411
+source: 第 394 场周赛 Q2
 tags:
     - 哈希表
     - 字符串

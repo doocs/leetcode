@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2233.Maximum%20Product%20After%20K%20Increments/README_EN.md
 rating: 1685
+source: Weekly Contest 288 Q3
 tags:
     - Greedy
     - Array

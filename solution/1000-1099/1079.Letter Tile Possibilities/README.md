@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1079.Letter%20Tile%20Possibilities/README.md
 rating: 1740
+source: 第 140 场周赛 Q2
 tags:
     - 哈希表
     - 字符串

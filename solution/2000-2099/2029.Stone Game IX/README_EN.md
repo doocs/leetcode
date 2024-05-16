@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2029.Stone%20Game%20IX/README_EN.md
 rating: 2277
+source: Weekly Contest 261 Q3
 tags:
     - Greedy
     - Array

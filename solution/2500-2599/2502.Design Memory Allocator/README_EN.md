@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2502.Design%20Memory%20Allocator/README_EN.md
 rating: 1745
+source: Weekly Contest 323 Q3
 tags:
     - Design
     - Array

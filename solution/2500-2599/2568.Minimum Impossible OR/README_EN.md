@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2568.Minimum%20Impossible%20OR/README_EN.md
 rating: 1754
+source: Biweekly Contest 98 Q3
 tags:
     - Bit Manipulation
     - Brainteaser

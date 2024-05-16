@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2732.Find%20a%20Good%20Subset%20of%20the%20Matrix/README.md
 rating: 2239
+source: 第 106 场双周赛 Q4
 tags:
     - 贪心
     - 位运算

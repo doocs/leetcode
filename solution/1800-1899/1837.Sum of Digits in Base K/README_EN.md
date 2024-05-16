@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1837.Sum%20of%20Digits%20in%20Base%20K/README_EN.md
 rating: 1282
+source: Weekly Contest 238 Q1
 tags:
     - Math
 ---

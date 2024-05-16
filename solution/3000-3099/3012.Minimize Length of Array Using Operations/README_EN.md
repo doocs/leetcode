@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3012.Minimize%20Length%20of%20Array%20Using%20Operations/README_EN.md
 rating: 1832
+source: Biweekly Contest 122 Q3
 tags:
     - Greedy
     - Array

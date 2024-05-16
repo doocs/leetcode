@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2681.Power%20of%20Heroes/README_EN.md
 rating: 2060
+source: Biweekly Contest 104 Q4
 tags:
     - Array
     - Math

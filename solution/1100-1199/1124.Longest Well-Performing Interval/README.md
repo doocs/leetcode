@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1124.Longest%20Well-Performing%20Interval/README.md
 rating: 1908
+source: 第 145 场周赛 Q3
 tags:
     - 栈
     - 数组

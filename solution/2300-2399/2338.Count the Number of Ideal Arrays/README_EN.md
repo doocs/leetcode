@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2338.Count%20the%20Number%20of%20Ideal%20Arrays/README_EN.md
 rating: 2615
+source: Weekly Contest 301 Q4
 tags:
     - Math
     - Dynamic Programming

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1471.The%20k%20Strongest%20Values%20in%20an%20Array/README_EN.md
 rating: 1332
+source: Weekly Contest 192 Q2
 tags:
     - Array
     - Two Pointers

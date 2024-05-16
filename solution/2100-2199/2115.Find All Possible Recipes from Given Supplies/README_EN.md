@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2115.Find%20All%20Possible%20Recipes%20from%20Given%20Supplies/README_EN.md
 rating: 1678
+source: Biweekly Contest 68 Q2
 tags:
     - Graph
     - Topological Sort

@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1228.Missing%20Number%20In%20Arithmetic%20Progression/README.md
 rating: 1244
+source: 第 11 场双周赛 Q1
 tags:
     - 数组
     - 数学

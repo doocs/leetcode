@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2224.Minimum%20Number%20of%20Operations%20to%20Convert%20Time/README_EN.md
 rating: 1295
+source: Weekly Contest 287 Q1
 tags:
     - Greedy
     - String

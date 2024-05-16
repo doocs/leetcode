@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1797.Design%20Authentication%20Manager/README.md
 rating: 1534
+source: 第 48 场双周赛 Q2
 tags:
     - 设计
     - 哈希表

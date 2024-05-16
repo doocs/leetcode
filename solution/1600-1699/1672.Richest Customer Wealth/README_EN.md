@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1672.Richest%20Customer%20Wealth/README_EN.md
 rating: 1182
+source: Weekly Contest 217 Q1
 tags:
     - Array
     - Matrix

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1488.Avoid%20Flood%20in%20The%20City/README.md
 rating: 1973
+source: 第 194 场周赛 Q3
 tags:
     - 贪心
     - 数组

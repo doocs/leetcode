@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1234.Replace%20the%20Substring%20for%20Balanced%20String/README.md
 rating: 1877
+source: 第 159 场周赛 Q3
 tags:
     - 字符串
     - 滑动窗口

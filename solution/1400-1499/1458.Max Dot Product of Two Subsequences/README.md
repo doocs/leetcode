@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1458.Max%20Dot%20Product%20of%20Two%20Subsequences/README.md
 rating: 1823
+source: 第 190 场周赛 Q4
 tags:
     - 数组
     - 动态规划

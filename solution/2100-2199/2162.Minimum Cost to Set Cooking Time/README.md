@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2162.Minimum%20Cost%20to%20Set%20Cooking%20Time/README.md
 rating: 1851
+source: 第 71 场双周赛 Q3
 tags:
     - 数学
     - 枚举

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2597.The%20Number%20of%20Beautiful%20Subsets/README_EN.md
 rating: 2023
+source: Weekly Contest 337 Q3
 tags:
     - Array
     - Dynamic Programming

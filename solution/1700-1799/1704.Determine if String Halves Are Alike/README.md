@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1704.Determine%20if%20String%20Halves%20Are%20Alike/README.md
 rating: 1207
+source: 第 221 场周赛 Q1
 tags:
     - 字符串
     - 计数

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2871.Split%20Array%20Into%20Maximum%20Number%20of%20Subarrays/README_EN.md
 rating: 1749
+source: Biweekly Contest 114 Q3
 tags:
     - Greedy
     - Bit Manipulation

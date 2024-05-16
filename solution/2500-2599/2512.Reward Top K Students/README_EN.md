@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2512.Reward%20Top%20K%20Students/README_EN.md
 rating: 1636
+source: Biweekly Contest 94 Q2
 tags:
     - Array
     - Hash Table

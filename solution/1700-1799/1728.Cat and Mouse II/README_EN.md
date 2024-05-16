@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1728.Cat%20and%20Mouse%20II/README_EN.md
 rating: 2849
+source: Weekly Contest 224 Q4
 tags:
     - Graph
     - Topological Sort

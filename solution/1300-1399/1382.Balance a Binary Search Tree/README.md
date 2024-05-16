@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1382.Balance%20a%20Binary%20Search%20Tree/README.md
 rating: 1540
+source: 第 180 场周赛 Q3
 tags:
     - 贪心
     - 树

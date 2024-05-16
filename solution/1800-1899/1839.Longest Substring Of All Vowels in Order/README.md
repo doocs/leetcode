@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1839.Longest%20Substring%20Of%20All%20Vowels%20in%20Order/README.md
 rating: 1580
+source: 第 238 场周赛 Q3
 tags:
     - 字符串
     - 滑动窗口

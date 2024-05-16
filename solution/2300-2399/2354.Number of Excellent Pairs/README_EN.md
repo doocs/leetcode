@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2354.Number%20of%20Excellent%20Pairs/README_EN.md
 rating: 2075
+source: Weekly Contest 303 Q4
 tags:
     - Bit Manipulation
     - Array

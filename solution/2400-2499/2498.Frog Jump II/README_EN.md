@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2498.Frog%20Jump%20II/README_EN.md
 rating: 1759
+source: Biweekly Contest 93 Q3
 tags:
     - Greedy
     - Array

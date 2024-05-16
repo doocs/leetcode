@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2360.Longest%20Cycle%20in%20a%20Graph/README.md
 rating: 1897
+source: 第 304 场周赛 Q4
 tags:
     - 深度优先搜索
     - 图

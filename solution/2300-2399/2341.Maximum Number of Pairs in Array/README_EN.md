@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2341.Maximum%20Number%20of%20Pairs%20in%20Array/README_EN.md
 rating: 1184
+source: Weekly Contest 302 Q1
 tags:
     - Array
     - Hash Table

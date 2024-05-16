@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2491.Divide%20Players%20Into%20Teams%20of%20Equal%20Skill/README.md
 rating: 1323
+source: 第 322 场周赛 Q2
 tags:
     - 数组
     - 哈希表

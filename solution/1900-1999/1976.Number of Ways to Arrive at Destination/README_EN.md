@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1976.Number%20of%20Ways%20to%20Arrive%20at%20Destination/README_EN.md
 rating: 2094
+source: Biweekly Contest 59 Q3
 tags:
     - Graph
     - Topological Sort

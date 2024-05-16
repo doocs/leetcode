@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1119.Remove%20Vowels%20from%20a%20String/README_EN.md
 rating: 1232
+source: Biweekly Contest 4 Q2
 tags:
     - String
 ---

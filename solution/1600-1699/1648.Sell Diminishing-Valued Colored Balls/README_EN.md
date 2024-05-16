@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1648.Sell%20Diminishing-Valued%20Colored%20Balls/README_EN.md
 rating: 2050
+source: Weekly Contest 214 Q3
 tags:
     - Greedy
     - Array

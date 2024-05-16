@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2559.Count%20Vowel%20Strings%20in%20Ranges/README_EN.md
 rating: 1435
+source: Weekly Contest 331 Q2
 tags:
     - Array
     - String

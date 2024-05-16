@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2680.Maximum%20OR/README_EN.md
 rating: 1912
+source: Biweekly Contest 104 Q3
 tags:
     - Greedy
     - Bit Manipulation

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1273.Delete%20Tree%20Nodes/README_EN.md
 rating: 1732
+source: Biweekly Contest 14 Q3
 tags:
     - Tree
     - Depth-First Search

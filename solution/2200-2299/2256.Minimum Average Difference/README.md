@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2256.Minimum%20Average%20Difference/README.md
 rating: 1394
+source: 第 77 场双周赛 Q2
 tags:
     - 数组
     - 前缀和

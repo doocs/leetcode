@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2916.Subarrays%20Distinct%20Element%20Sum%20of%20Squares%20II/README_EN.md
 rating: 2816
+source: Biweekly Contest 116 Q4
 tags:
     - Binary Indexed Tree
     - Segment Tree

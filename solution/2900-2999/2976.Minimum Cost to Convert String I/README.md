@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2976.Minimum%20Cost%20to%20Convert%20String%20I/README.md
 rating: 1882
+source: 第 377 场周赛 Q3
 tags:
     - 图
     - 数组

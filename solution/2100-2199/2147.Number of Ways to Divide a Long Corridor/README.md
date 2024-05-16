@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2147.Number%20of%20Ways%20to%20Divide%20a%20Long%20Corridor/README.md
 rating: 1914
+source: 第 70 场双周赛 Q4
 tags:
     - 数学
     - 字符串

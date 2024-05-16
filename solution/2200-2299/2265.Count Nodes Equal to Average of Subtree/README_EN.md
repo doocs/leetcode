@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2265.Count%20Nodes%20Equal%20to%20Average%20of%20Subtree/README_EN.md
 rating: 1472
+source: Weekly Contest 292 Q2
 tags:
     - Tree
     - Depth-First Search

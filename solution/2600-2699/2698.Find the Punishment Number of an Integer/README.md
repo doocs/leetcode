@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2698.Find%20the%20Punishment%20Number%20of%20an%20Integer/README.md
 rating: 1678
+source: 第 346 场周赛 Q3
 tags:
     - 数学
     - 回溯

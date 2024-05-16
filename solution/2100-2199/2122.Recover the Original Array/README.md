@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2122.Recover%20the%20Original%20Array/README.md
 rating: 2158
+source: 第 273 场周赛 Q4
 tags:
     - 数组
     - 哈希表

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2280.Minimum%20Lines%20to%20Represent%20a%20Line%20Chart/README_EN.md
 rating: 1680
+source: Weekly Contest 294 Q3
 tags:
     - Geometry
     - Array

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1283.Find%20the%20Smallest%20Divisor%20Given%20a%20Threshold/README.md
 rating: 1541
+source: 第 166 场周赛 Q3
 tags:
     - 数组
     - 二分查找

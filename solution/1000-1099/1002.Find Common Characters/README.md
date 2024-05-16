@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1002.Find%20Common%20Characters/README.md
 rating: 1279
+source: 第 126 场周赛 Q1
 tags:
     - 数组
     - 哈希表

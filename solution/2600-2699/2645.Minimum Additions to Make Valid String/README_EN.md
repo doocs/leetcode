@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2645.Minimum%20Additions%20to%20Make%20Valid%20String/README_EN.md
 rating: 1477
+source: Weekly Contest 341 Q3
 tags:
     - Stack
     - Greedy

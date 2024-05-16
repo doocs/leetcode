@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1024.Video%20Stitching/README_EN.md
 rating: 1746
+source: Weekly Contest 131 Q4
 tags:
     - Greedy
     - Array

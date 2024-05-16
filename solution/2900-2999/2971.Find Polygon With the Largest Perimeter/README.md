@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2971.Find%20Polygon%20With%20the%20Largest%20Perimeter/README.md
 rating: 1521
+source: 第 120 场双周赛 Q2
 tags:
     - 贪心
     - 数组

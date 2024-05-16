@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1943.Describe%20the%20Painting/README.md
 rating: 1969
+source: 第 57 场双周赛 Q3
 tags:
     - 数组
     - 哈希表

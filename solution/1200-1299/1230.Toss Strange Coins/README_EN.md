@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1230.Toss%20Strange%20Coins/README_EN.md
 rating: 1808
+source: Biweekly Contest 11 Q3
 tags:
     - Array
     - Math

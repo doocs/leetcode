@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1728.Cat%20and%20Mouse%20II/README.md
 rating: 2849
+source: 第 224 场周赛 Q4
 tags:
     - 图
     - 拓扑排序

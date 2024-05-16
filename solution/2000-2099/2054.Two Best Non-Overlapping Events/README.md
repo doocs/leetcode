@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2054.Two%20Best%20Non-Overlapping%20Events/README.md
 rating: 1883
+source: 第 64 场双周赛 Q2
 tags:
     - 数组
     - 二分查找

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2661.First%20Completely%20Painted%20Row%20or%20Column/README_EN.md
 rating: 1502
+source: Weekly Contest 343 Q2
 tags:
     - Array
     - Hash Table

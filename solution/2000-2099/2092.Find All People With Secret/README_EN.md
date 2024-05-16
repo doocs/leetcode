@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2092.Find%20All%20People%20With%20Secret/README_EN.md
 rating: 2003
+source: Weekly Contest 269 Q4
 tags:
     - Depth-First Search
     - Breadth-First Search

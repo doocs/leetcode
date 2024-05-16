@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1099.Two%20Sum%20Less%20Than%20K/README.md
 rating: 1245
+source: 第 3 场双周赛 Q1
 tags:
     - 数组
     - 双指针

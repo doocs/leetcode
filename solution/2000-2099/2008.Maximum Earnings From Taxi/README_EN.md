@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2008.Maximum%20Earnings%20From%20Taxi/README_EN.md
 rating: 1871
+source: Biweekly Contest 61 Q3
 tags:
     - Array
     - Hash Table

@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2980.Check%20if%20Bitwise%20OR%20Has%20Trailing%20Zeros/README_EN.md
 rating: 1233
+source: Weekly Contest 378 Q1
 tags:
     - Bit Manipulation
     - Array

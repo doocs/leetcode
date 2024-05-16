@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1324.Print%20Words%20Vertically/README.md
 rating: 1328
+source: 第 172 场周赛 Q2
 tags:
     - 数组
     - 字符串

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2487.Remove%20Nodes%20From%20Linked%20List/README_EN.md
 rating: 1454
+source: Weekly Contest 321 Q3
 tags:
     - Stack
     - Recursion

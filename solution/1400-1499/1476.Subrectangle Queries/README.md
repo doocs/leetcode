@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1476.Subrectangle%20Queries/README.md
 rating: 1326
+source: 第 28 场双周赛 Q2
 tags:
     - 设计
     - 数组

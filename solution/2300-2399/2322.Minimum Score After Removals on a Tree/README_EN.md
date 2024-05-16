@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2322.Minimum%20Score%20After%20Removals%20on%20a%20Tree/README_EN.md
 rating: 2391
+source: Weekly Contest 299 Q4
 tags:
     - Bit Manipulation
     - Tree

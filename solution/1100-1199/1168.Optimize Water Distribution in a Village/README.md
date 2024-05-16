@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1168.Optimize%20Water%20Distribution%20in%20a%20Village/README.md
 rating: 2069
+source: 第 7 场双周赛 Q4
 tags:
     - 并查集
     - 图

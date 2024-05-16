@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2525.Categorize%20Box%20According%20to%20Criteria/README.md
 rating: 1301
+source: 第 95 场双周赛 Q1
 tags:
     - 数学
 ---

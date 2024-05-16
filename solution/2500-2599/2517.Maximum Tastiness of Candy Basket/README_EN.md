@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2517.Maximum%20Tastiness%20of%20Candy%20Basket/README_EN.md
 rating: 2020
+source: Weekly Contest 325 Q3
 tags:
     - Greedy
     - Array

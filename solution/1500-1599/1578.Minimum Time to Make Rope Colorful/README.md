@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1578.Minimum%20Time%20to%20Make%20Rope%20Colorful/README.md
 rating: 1574
+source: 第 205 场周赛 Q3
 tags:
     - 贪心
     - 数组

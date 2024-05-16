@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1338.Reduce%20Array%20Size%20to%20The%20Half/README.md
 rating: 1303
+source: 第 174 场周赛 Q2
 tags:
     - 贪心
     - 数组

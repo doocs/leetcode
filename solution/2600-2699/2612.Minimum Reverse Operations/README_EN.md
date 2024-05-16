@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2612.Minimum%20Reverse%20Operations/README_EN.md
 rating: 2824
+source: Weekly Contest 339 Q4
 tags:
     - Breadth-First Search
     - Array

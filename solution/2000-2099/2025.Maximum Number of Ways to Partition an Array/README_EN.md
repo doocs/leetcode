@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2025.Maximum%20Number%20of%20Ways%20to%20Partition%20an%20Array/README_EN.md
 rating: 2217
+source: Biweekly Contest 62 Q4
 tags:
     - Array
     - Hash Table

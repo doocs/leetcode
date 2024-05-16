@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2537.Count%20the%20Number%20of%20Good%20Subarrays/README_EN.md
 rating: 1891
+source: Weekly Contest 328 Q3
 tags:
     - Array
     - Hash Table

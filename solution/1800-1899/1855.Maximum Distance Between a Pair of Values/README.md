@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1855.Maximum%20Distance%20Between%20a%20Pair%20of%20Values/README.md
 rating: 1514
+source: 第 240 场周赛 Q2
 tags:
     - 数组
     - 双指针

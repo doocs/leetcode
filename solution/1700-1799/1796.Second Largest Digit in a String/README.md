@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1796.Second%20Largest%20Digit%20in%20a%20String/README.md
 rating: 1341
+source: 第 48 场双周赛 Q1
 tags:
     - 哈希表
     - 字符串

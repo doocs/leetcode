@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1631.Path%20With%20Minimum%20Effort/README.md
 rating: 1947
+source: 第 212 场周赛 Q3
 tags:
     - 深度优先搜索
     - 广度优先搜索

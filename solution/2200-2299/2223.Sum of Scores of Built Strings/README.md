@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2223.Sum%20of%20Scores%20of%20Built%20Strings/README.md
 rating: 2220
+source: 第 75 场双周赛 Q4
 tags:
     - 字符串
     - 二分查找

@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1962.Remove%20Stones%20to%20Minimize%20the%20Total/README_EN.md
 rating: 1418
+source: Weekly Contest 253 Q2
 tags:
     - Greedy
     - Array

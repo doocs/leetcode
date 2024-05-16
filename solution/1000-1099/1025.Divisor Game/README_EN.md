@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1025.Divisor%20Game/README_EN.md
 rating: 1435
+source: Weekly Contest 132 Q1
 tags:
     - Brainteaser
     - Math

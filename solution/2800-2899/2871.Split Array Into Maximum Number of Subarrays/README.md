@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2871.Split%20Array%20Into%20Maximum%20Number%20of%20Subarrays/README.md
 rating: 1749
+source: 第 114 场双周赛 Q3
 tags:
     - 贪心
     - 位运算

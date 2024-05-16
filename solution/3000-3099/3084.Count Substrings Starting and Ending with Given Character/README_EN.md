@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3084.Count%20Substrings%20Starting%20and%20Ending%20with%20Given%20Character/README_EN.md
 rating: 1323
+source: Weekly Contest 389 Q2
 tags:
     - Math
     - String

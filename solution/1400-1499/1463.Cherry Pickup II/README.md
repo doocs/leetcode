@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1463.Cherry%20Pickup%20II/README.md
 rating: 1956
+source: 第 27 场双周赛 Q4
 tags:
     - 数组
     - 动态规划

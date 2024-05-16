@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3069.Distribute%20Elements%20Into%20Two%20Arrays%20I/README.md
 rating: 1203
+source: 第 387 场周赛 Q1
 tags:
     - 数组
     - 模拟

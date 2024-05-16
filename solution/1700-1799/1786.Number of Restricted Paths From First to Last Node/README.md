@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1786.Number%20of%20Restricted%20Paths%20From%20First%20to%20Last%20Node/README.md
 rating: 2078
+source: 第 231 场周赛 Q3
 tags:
     - 图
     - 拓扑排序

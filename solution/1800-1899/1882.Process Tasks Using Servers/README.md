@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1882.Process%20Tasks%20Using%20Servers/README.md
 rating: 1979
+source: 第 243 场周赛 Q3
 tags:
     - 数组
     - 堆（优先队列）

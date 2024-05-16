@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2954.Count%20the%20Number%20of%20Infection%20Sequences/README.md
 rating: 2644
+source: 第 374 场周赛 Q4
 tags:
     - 数组
     - 数学

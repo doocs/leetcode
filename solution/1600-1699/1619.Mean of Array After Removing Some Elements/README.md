@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1619.Mean%20of%20Array%20After%20Removing%20Some%20Elements/README.md
 rating: 1374
+source: 第 37 场双周赛 Q1
 tags:
     - 数组
     - 排序

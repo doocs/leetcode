@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1742.Maximum%20Number%20of%20Balls%20in%20a%20Box/README.md
 rating: 1277
+source: 第 226 场周赛 Q1
 tags:
     - 哈希表
     - 数学

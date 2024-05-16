@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1739.Building%20Boxes/README_EN.md
 rating: 2198
+source: Weekly Contest 225 Q4
 tags:
     - Greedy
     - Math

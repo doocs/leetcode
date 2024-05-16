@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1834.Single-Threaded%20CPU/README_EN.md
 rating: 1797
+source: Weekly Contest 237 Q3
 tags:
     - Array
     - Sorting

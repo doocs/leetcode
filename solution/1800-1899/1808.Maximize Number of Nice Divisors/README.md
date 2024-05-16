@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1808.Maximize%20Number%20of%20Nice%20Divisors/README.md
 rating: 2070
+source: 第 234 场周赛 Q4
 tags:
     - 递归
     - 数学

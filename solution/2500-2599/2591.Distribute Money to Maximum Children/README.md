@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2591.Distribute%20Money%20to%20Maximum%20Children/README.md
 rating: 1530
+source: 第 100 场双周赛 Q1
 tags:
     - 贪心
     - 数学

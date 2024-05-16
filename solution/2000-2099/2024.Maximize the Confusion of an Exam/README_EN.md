@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2024.Maximize%20the%20Confusion%20of%20an%20Exam/README_EN.md
 rating: 1643
+source: Biweekly Contest 62 Q3
 tags:
     - String
     - Binary Search

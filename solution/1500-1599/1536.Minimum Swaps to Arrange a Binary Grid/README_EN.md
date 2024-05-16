@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1536.Minimum%20Swaps%20to%20Arrange%20a%20Binary%20Grid/README_EN.md
 rating: 1880
+source: Weekly Contest 200 Q3
 tags:
     - Greedy
     - Array

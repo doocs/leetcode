@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1583.Count%20Unhappy%20Friends/README.md
 rating: 1658
+source: 第 206 场周赛 Q2
 tags:
     - 数组
     - 模拟

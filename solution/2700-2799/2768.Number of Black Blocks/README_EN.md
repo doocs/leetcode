@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2768.Number%20of%20Black%20Blocks/README_EN.md
 rating: 2175
+source: Biweekly Contest 108 Q4
 tags:
     - Array
     - Hash Table

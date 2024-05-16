@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1349.Maximum%20Students%20Taking%20Exam/README.md
 rating: 2385
+source: 第 175 场周赛 Q4
 tags:
     - 位运算
     - 数组

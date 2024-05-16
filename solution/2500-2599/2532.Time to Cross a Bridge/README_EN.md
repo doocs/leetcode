@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2532.Time%20to%20Cross%20a%20Bridge/README_EN.md
 rating: 2588
+source: Weekly Contest 327 Q4
 tags:
     - Array
     - Simulation

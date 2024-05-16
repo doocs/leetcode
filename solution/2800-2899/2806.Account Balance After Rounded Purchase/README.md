@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2806.Account%20Balance%20After%20Rounded%20Purchase/README.md
 rating: 1214
+source: 第 110 场双周赛 Q1
 tags:
     - 数学
 ---

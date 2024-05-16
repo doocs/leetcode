@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1066.Campus%20Bikes%20II/README_EN.md
 rating: 1885
+source: Biweekly Contest 1 Q3
 tags:
     - Bit Manipulation
     - Array

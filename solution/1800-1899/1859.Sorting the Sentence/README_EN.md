@@ -3,6 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1859.Sorting%20the%20Sentence/README_EN.md
 rating: 1290
+source: Biweekly Contest 52 Q1
 tags:
     - String
     - Sorting

@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1897.Redistribute%20Characters%20to%20Make%20All%20Strings%20Equal/README.md
 rating: 1309
+source: 第 245 场周赛 Q1
 tags:
     - 哈希表
     - 字符串

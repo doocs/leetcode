@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2239.Find%20Closest%20Number%20to%20Zero/README.md
 rating: 1256
+source: 第 76 场双周赛 Q1
 tags:
     - 数组
 ---

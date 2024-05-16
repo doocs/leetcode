@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1770.Maximum%20Score%20from%20Performing%20Multiplication%20Operations/README.md
 rating: 2068
+source: 第 229 场周赛 Q3
 tags:
     - 数组
     - 动态规划

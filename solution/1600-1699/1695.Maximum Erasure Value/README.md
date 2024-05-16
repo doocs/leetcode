@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1695.Maximum%20Erasure%20Value/README.md
 rating: 1528
+source: 第 220 场周赛 Q2
 tags:
     - 数组
     - 哈希表

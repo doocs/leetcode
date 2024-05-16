@@ -3,6 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2729.Check%20if%20The%20Number%20is%20Fascinating/README.md
 rating: 1227
+source: 第 106 场双周赛 Q1
 tags:
     - 哈希表
     - 数学

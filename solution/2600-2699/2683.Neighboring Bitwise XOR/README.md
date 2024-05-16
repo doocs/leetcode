@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2683.Neighboring%20Bitwise%20XOR/README.md
 rating: 1517
+source: 第 345 场周赛 Q2
 tags:
     - 位运算
     - 数组
