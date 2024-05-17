@@ -77,6 +77,8 @@ Other valid solutions are to put the green box in room 2 or to put the orange bo
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxBoxesInWarehouse(self, boxes: List[int], warehouse: List[int]) -> int:
@@ -101,6 +103,8 @@ class Solution:
             ans, i = ans + 1, i + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -138,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -173,6 +179,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxBoxesInWarehouse(boxes []int, warehouse []int) (ans int) {

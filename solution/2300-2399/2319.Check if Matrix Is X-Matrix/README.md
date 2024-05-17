@@ -72,6 +72,8 @@ X 矩阵应该满足：绿色元素（对角线上）都不是 0 ，红色元素
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkXMatrix(self, grid: List[List[int]]) -> bool:
@@ -84,6 +86,8 @@ class Solution:
                     return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -126,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func checkXMatrix(grid [][]int) bool {
 	for i, row := range grid {
@@ -142,6 +150,8 @@ func checkXMatrix(grid [][]int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function checkXMatrix(grid: number[][]): boolean {
@@ -160,6 +170,8 @@ function checkXMatrix(grid: number[][]): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -181,6 +193,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool CheckXMatrix(int[][] grid) {
@@ -200,6 +214,8 @@ public class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 bool checkXMatrix(int** grid, int gridSize, int* gridColSize) {

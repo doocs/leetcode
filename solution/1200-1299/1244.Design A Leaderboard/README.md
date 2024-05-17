@@ -95,6 +95,8 @@ leaderboard.top(3);           // returns 141 = 51 + 51 + 39;
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedList
 
@@ -126,6 +128,8 @@ class Leaderboard:
 # param_2 = obj.top(K)
 # obj.reset(playerId)
 ```
+
+#### Java
 
 ```java
 class Leaderboard {
@@ -175,6 +179,8 @@ class Leaderboard {
  */
 ```
 
+#### C++
+
 ```cpp
 class Leaderboard {
 public:
@@ -220,6 +226,8 @@ private:
  * obj->reset(playerId);
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::BTreeMap;

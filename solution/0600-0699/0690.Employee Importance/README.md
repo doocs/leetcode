@@ -56,6 +56,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 """
 # Definition for Employee.
@@ -80,6 +82,8 @@ class Solution:
 
         return dfs(id)
 ```
+
+#### Java
 
 ```java
 /*
@@ -112,6 +116,8 @@ class Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

@@ -91,6 +91,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countTestedDevices(self, batteryPercentages: List[int]) -> int:
@@ -99,6 +101,8 @@ class Solution:
             ans += x > ans
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -125,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countTestedDevices(batteryPercentages []int) (ans int) {
 	for _, x := range batteryPercentages {
@@ -136,6 +144,8 @@ func countTestedDevices(batteryPercentages []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countTestedDevices(batteryPercentages: number[]): number {
     let ans = 0;
@@ -145,6 +155,8 @@ function countTestedDevices(batteryPercentages: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

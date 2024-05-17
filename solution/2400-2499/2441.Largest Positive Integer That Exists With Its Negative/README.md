@@ -79,12 +79,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMaxK(self, nums: List[int]) -> int:
         s = set(nums)
         return max((x for x in s if -x in s), default=-1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +125,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findMaxK(nums []int) int {
@@ -136,6 +144,8 @@ func findMaxK(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findMaxK(nums: number[]): number {
     let ans = -1;
@@ -148,6 +158,8 @@ function findMaxK(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -174,6 +186,8 @@ impl Solution {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;

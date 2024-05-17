@@ -91,6 +91,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numDecodings(self, s: str) -> int:
@@ -103,6 +105,8 @@ class Solution:
                 f[i] += f[i - 2]
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +126,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -144,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numDecodings(s string) int {
 	n := len(s)
@@ -161,6 +169,8 @@ func numDecodings(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numDecodings(s: string): number {
     const n = s.length;
@@ -177,6 +187,8 @@ function numDecodings(s: string): number {
     return f[n];
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -203,6 +215,8 @@ We notice that the state $f[i]$ is only related to the states $f[i-1]$ and $f[i-
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numDecodings(self, s: str) -> int:
@@ -214,6 +228,8 @@ class Solution:
             f, g = g, h
         return g
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -232,6 +248,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -252,6 +270,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numDecodings(s string) int {
 	n := len(s)
@@ -270,6 +290,8 @@ func numDecodings(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numDecodings(s: string): number {
     const n = s.length;
@@ -284,6 +306,8 @@ function numDecodings(s: string): number {
     return g;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

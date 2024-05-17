@@ -83,6 +83,8 @@ The time complexity is $O(\log m)$, where $m = 2 \times 10^9$. The space complex
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def nthUglyNumber(self, n: int, a: int, b: int, c: int) -> int:
@@ -108,6 +110,8 @@ class Solution:
                 l = mid + 1
         return l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -137,6 +141,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -168,6 +174,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func nthUglyNumber(n int, a int, b int, c int) int {
 	ab, bc, ac := lcm(a, b), lcm(b, c), lcm(a, c)
@@ -195,6 +203,8 @@ func lcm(a, b int) int {
 	return a * b / gcd(a, b)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function nthUglyNumber(n: number, a: number, b: number, c: number): number {

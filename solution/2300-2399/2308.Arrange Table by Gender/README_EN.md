@@ -90,6 +90,8 @@ Note that the IDs of each gender are sorted in ascending order.
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH
@@ -121,6 +123,8 @@ ORDER BY rk1, rk2;
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 SELECT

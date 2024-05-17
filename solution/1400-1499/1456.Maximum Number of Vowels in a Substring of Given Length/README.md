@@ -89,6 +89,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxVowels(self, s: str, k: int) -> int:
@@ -99,6 +101,8 @@ class Solution:
             ans = max(ans, cnt)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +132,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -145,6 +151,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxVowels(s string, k int) int {
@@ -171,6 +179,8 @@ func maxVowels(s string, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxVowels(s: string, k: number): number {
     const isVowel = (c: string) => ['a', 'e', 'i', 'o', 'u'].includes(c);
@@ -193,6 +203,8 @@ function maxVowels(s: string, k: number): number {
     return ans;
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

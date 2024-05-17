@@ -63,6 +63,8 @@ The time complexity is $O(\log M)$, and the space complexity is $O(\log M)$. Her
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumSwap(self, num: int) -> int:
@@ -78,6 +80,8 @@ class Solution:
                 break
         return int(''.join(s))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumSwap(num int) int {
 	s := []byte(strconv.Itoa(num))
@@ -155,6 +163,8 @@ func maximumSwap(num int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumSwap(num: number): number {
@@ -184,6 +194,8 @@ function maximumSwap(num: number): number {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

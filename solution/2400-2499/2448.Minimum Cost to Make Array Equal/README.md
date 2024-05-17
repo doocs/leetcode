@@ -97,6 +97,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCost(self, nums: List[int], cost: List[int]) -> int:
@@ -116,6 +118,8 @@ class Solution:
             ans = min(ans, l + r)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -145,6 +149,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using ll = long long;
 
@@ -173,6 +179,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minCost(nums []int, cost []int) int64 {
 	n := len(nums)
@@ -200,6 +208,8 @@ func minCost(nums []int, cost []int) int64 {
 	return ans
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -268,6 +278,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCost(self, nums: List[int], cost: List[int]) -> int:
@@ -279,6 +291,8 @@ class Solution:
             if s > mid:
                 return sum(abs(v - x) * c for v, c in arr)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -314,6 +328,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using ll = long long;
 
@@ -339,6 +355,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minCost(nums []int, cost []int) int64 {

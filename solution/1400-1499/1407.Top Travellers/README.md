@@ -115,6 +115,8 @@ Donald 没有任何行程, 他的旅行距离为 0。
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT name, IFNULL(SUM(distance), 0) AS travelled_distance

@@ -66,6 +66,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -89,6 +91,8 @@ class Solution:
         dfs(root)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -129,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -161,6 +167,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -196,6 +204,8 @@ func longestUnivaluePath(root *TreeNode) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -237,6 +247,8 @@ function longestUnivaluePath(root: TreeNode | null): number {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -287,6 +299,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -317,6 +331,8 @@ var longestUnivaluePath = function (root) {
     return ans;
 };
 ```
+
+#### C
 
 ```c
 /**

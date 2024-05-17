@@ -73,6 +73,8 @@ Customer 3 has one bill with an amount strictly greater than 500.
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT

@@ -46,6 +46,8 @@ B = [2,5,6],       n = 3
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def merge(self, A: List[int], m: int, B: List[int], n: int) -> None:
@@ -58,6 +60,8 @@ class Solution:
                 A[k] = B[j]
                 j -= 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -73,6 +77,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -90,6 +96,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func merge(A []int, m int, B []int, n int) {
 	i, j := m-1, n-1
@@ -104,6 +112,8 @@ func merge(A []int, m int, B []int, n int) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -121,6 +131,8 @@ function merge(A: number[], m: number, B: number[], n: number): void {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn merge(a: &mut Vec<i32>, m: i32, b: &mut Vec<i32>, n: i32) {
@@ -137,6 +149,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -157,6 +171,8 @@ var merge = function (A, m, B, n) {
     }
 };
 ```
+
+#### Swift
 
 ```swift
 class Solution {

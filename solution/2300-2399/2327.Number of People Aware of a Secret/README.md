@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def peopleAwareOfSecret(self, n: int, delay: int, forget: int) -> int:
@@ -95,6 +97,8 @@ class Solution:
         mod = 10**9 + 7
         return sum(d[: n + 1]) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using ll = long long;
 const int mod = 1e9 + 7;
@@ -153,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func peopleAwareOfSecret(n int, delay int, forget int) int {
 	m := (n << 1) + 10
@@ -179,6 +187,8 @@ func peopleAwareOfSecret(n int, delay int, forget int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function peopleAwareOfSecret(n: number, delay: number, forget: number): number {

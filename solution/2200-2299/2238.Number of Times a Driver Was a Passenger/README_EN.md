@@ -78,6 +78,8 @@ The driver with ID = 11 was never a passenger.
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH T AS (SELECT DISTINCT driver_id FROM Rides)

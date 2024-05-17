@@ -90,6 +90,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumAddedInteger(self, nums1: List[int], nums2: List[int]) -> int:
@@ -111,6 +113,8 @@ class Solution:
             if f(x)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -142,6 +146,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -172,6 +178,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumAddedInteger(nums1 []int, nums2 []int) int {
 	sort.Ints(nums1)
@@ -198,6 +206,8 @@ func minimumAddedInteger(nums1 []int, nums2 []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumAddedInteger(nums1: number[], nums2: number[]): number {

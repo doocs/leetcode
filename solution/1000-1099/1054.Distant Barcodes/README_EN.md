@@ -59,6 +59,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(M)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def rearrangeBarcodes(self, barcodes: List[int]) -> List[int]:
@@ -70,6 +72,8 @@ class Solution:
         ans[1::2] = barcodes[(n + 1) // 2 :]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +101,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func rearrangeBarcodes(barcodes []int) []int {
 	mx := slices.Max(barcodes)
@@ -146,6 +154,8 @@ func rearrangeBarcodes(barcodes []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function rearrangeBarcodes(barcodes: number[]): number[] {

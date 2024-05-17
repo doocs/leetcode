@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMin(self, nums: List[int]) -> int:
@@ -90,6 +92,8 @@ class Solution:
                 right = mid
         return nums[left]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +136,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findMin(nums []int) int {
@@ -150,6 +158,8 @@ func findMin(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findMin(nums: number[]): number {
     let left = 0;
@@ -165,6 +175,8 @@ function findMin(nums: number[]): number {
     return nums[left];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -183,6 +195,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

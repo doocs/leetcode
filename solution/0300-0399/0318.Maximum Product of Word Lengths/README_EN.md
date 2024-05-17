@@ -72,6 +72,8 @@ The time complexity is $O(n^2 + L)$, and the space complexity is $O(n)$. Here, $
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProduct(self, words: List[str]) -> int:
@@ -85,6 +87,8 @@ class Solution:
                     ans = max(ans, len(s) * len(t))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -130,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProduct(words []string) (ans int) {
 	n := len(words)
@@ -147,6 +155,8 @@ func maxProduct(words []string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxProduct(words: string[]): number {
@@ -177,6 +187,8 @@ function maxProduct(words: string[]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProduct(self, words: List[str]) -> int:
@@ -193,6 +205,8 @@ class Solution:
             mask[x] = max(mask[x], a)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -218,6 +232,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -242,6 +258,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProduct(words []string) (ans int) {
 	mask := map[int]int{}
@@ -261,6 +279,8 @@ func maxProduct(words []string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxProduct(words: string[]): number {

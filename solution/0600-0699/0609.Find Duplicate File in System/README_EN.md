@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findDuplicate(self, paths: List[str]) -> List[List[str]]:
@@ -89,6 +91,8 @@ class Solution:
                 d[content].append(ps[0] + '/' + name)
         return [v for v in d.values() if len(v) > 1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +117,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -149,6 +155,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findDuplicate(paths []string) [][]string {
 	d := map[string][]string{}
@@ -170,6 +178,8 @@ func findDuplicate(paths []string) [][]string {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findDuplicate(paths: string[]): string[][] {

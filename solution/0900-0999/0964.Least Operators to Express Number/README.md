@@ -90,6 +90,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def leastOpsExpressTarget(self, x: int, target: int) -> int:
@@ -106,6 +108,8 @@ class Solution:
 
         return dfs(target)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -140,6 +144,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -170,6 +176,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func leastOpsExpressTarget(x int, target int) int {
 	f := map[int]int{}
@@ -197,6 +205,8 @@ func leastOpsExpressTarget(x int, target int) int {
 	return dfs(target)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function leastOpsExpressTarget(x: number, target: number): number {

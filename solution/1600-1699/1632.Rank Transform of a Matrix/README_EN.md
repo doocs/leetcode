@@ -88,6 +88,8 @@ The rank of matrix[1][1] is 3 because matrix[1][1] &gt; matrix[0][1], matrix[1][
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class UnionFind:
     def __init__(self, n):
@@ -138,6 +140,8 @@ class Solution:
                 uf.reset(j + m)
         return ans
 ```
+
+#### Java
 
 ```java
 class UnionFind {
@@ -217,6 +221,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class UnionFind {
 public:
@@ -289,6 +295,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type unionFind struct {

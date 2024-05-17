@@ -68,6 +68,8 @@ randomSet.getRandom(); // 由于 2 是集合中唯一的数字，getRandom 总�
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class RandomizedSet:
     def __init__(self):
@@ -113,6 +115,8 @@ class RandomizedSet:
 # param_2 = obj.remove(val)
 # param_3 = obj.getRandom()
 ```
+
+#### Java
 
 ```java
 class RandomizedSet {
@@ -165,6 +169,8 @@ class RandomizedSet {
  * int param_3 = obj.getRandom();
  */
 ```
+
+#### C++
 
 ```cpp
 class RandomizedSet {

@@ -59,6 +59,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minWindow(self, s1: str, s2: str) -> str:
@@ -79,6 +81,8 @@ class Solution:
                     p = j
         return "" if k > m else s1[p : p + k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -139,6 +145,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minWindow(s1 string, s2 string) string {
@@ -176,6 +184,8 @@ func minWindow(s1 string, s2 string) string {
 	return s1[p : p+k]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minWindow(s1: string, s2: string): string {

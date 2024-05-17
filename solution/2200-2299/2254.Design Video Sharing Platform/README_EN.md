@@ -108,17 +108,25 @@ videoSharingPlatform.getViews(0);            // There is no video associated wit
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 
 ```
+
+#### Java
 
 ```java
 
 ```
 
+#### C++
+
 ```cpp
 
 ```
+
+#### Go
 
 ```go
 

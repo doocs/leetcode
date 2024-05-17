@@ -89,6 +89,8 @@ divisors[1] 的可整除性得分为 0 ，因为 nums 中没有任何数字能�
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxDivScore(self, nums: List[int], divisors: List[int]) -> int:
@@ -101,6 +103,8 @@ class Solution:
                 ans = div
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -149,6 +155,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxDivScore(nums []int, divisors []int) int {
 	ans, mx := divisors[0], 0
@@ -169,6 +177,8 @@ func maxDivScore(nums []int, divisors []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxDivScore(nums: number[], divisors: number[]): number {
     let ans: number = divisors[0];
@@ -185,6 +195,8 @@ function maxDivScore(nums: number[], divisors: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

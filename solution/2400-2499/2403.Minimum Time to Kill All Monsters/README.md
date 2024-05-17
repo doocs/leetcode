@@ -104,6 +104,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumTime(self, power: List[int]) -> int:
@@ -121,6 +123,8 @@ class Solution:
 
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -157,6 +161,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using ll = long long;
 
@@ -188,6 +194,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumTime(power []int) int64 {
 	n := len(power)
@@ -217,6 +225,8 @@ func minimumTime(power []int) int64 {
 	return dfs(0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumTime(power: number[]): number {
@@ -264,6 +274,8 @@ function bitCount(x) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumTime(self, power: List[int]) -> int:
@@ -277,6 +289,8 @@ class Solution:
                     dp[mask] = min(dp[mask], dp[mask ^ (1 << i)] + (v + cnt - 1) // cnt)
         return dp[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -298,6 +312,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -318,6 +334,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumTime(power []int) int64 {
 	n := len(power)
@@ -337,6 +355,8 @@ func minimumTime(power []int) int64 {
 	return dp[len(dp)-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumTime(power: number[]): number {

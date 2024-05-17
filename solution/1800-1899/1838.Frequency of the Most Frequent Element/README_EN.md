@@ -89,6 +89,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxFrequency(self, nums: List[int], k: int) -> int:
@@ -110,6 +112,8 @@ class Solution:
                 r = mid - 1
         return l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -149,6 +153,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -182,6 +188,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxFrequency(nums []int, k int) int {
 	n := len(nums)
@@ -210,6 +218,8 @@ func maxFrequency(nums []int, k int) int {
 	return l
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxFrequency(nums: number[], k: number): number {
@@ -256,6 +266,8 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$. W
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxFrequency(self, nums: List[int], k: int) -> int:
@@ -270,6 +282,8 @@ class Solution:
             ans = max(ans, i - j + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -288,6 +302,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -308,6 +324,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxFrequency(nums []int, k int) int {
 	sort.Ints(nums)
@@ -323,6 +341,8 @@ func maxFrequency(nums []int, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxFrequency(nums: number[], k: number): number {

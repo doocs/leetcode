@@ -109,6 +109,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class UnionFind:
     def __init__(self, n):
@@ -143,6 +145,8 @@ class Solution:
                 uf.union(a, b)
         return [uf.find(a) == uf.find(b) for a, b in queries]
 ```
+
+#### Java
 
 ```java
 class UnionFind {
@@ -198,6 +202,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class UnionFind {
 public:
@@ -251,6 +257,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type unionFind struct {
 	p, size []int
@@ -302,6 +310,8 @@ func areConnected(n int, threshold int, queries [][]int) []bool {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 class UnionFind {

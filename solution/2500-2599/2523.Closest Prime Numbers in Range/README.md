@@ -73,6 +73,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def closestPrimes(self, left: int, right: int) -> List[int]:
@@ -98,6 +100,8 @@ class Solution:
                 ans = [a, b]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -143,6 +147,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -186,6 +192,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func closestPrimes(left int, right int) []int {

@@ -73,6 +73,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def lastSubstring(self, s: str) -> str:
@@ -90,6 +92,8 @@ class Solution:
                 k = 0
         return s[i:]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -141,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func lastSubstring(s string) string {
 	i, n := 0, len(s)
@@ -161,6 +169,8 @@ func lastSubstring(s string) string {
 	return s[i:]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function lastSubstring(s: string): string {

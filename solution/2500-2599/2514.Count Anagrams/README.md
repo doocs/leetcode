@@ -67,6 +67,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 mod = 10**9 + 7
 f = [1]
@@ -86,6 +88,8 @@ class Solution:
                 ans %= mod
         return ans
 ```
+
+#### Java
 
 ```java
 import java.math.BigInteger;
@@ -116,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -148,6 +154,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 const mod int = 1e9 + 7
@@ -187,6 +195,8 @@ func pow(x, n int) int {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

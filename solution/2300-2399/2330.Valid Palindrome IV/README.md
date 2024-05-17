@@ -75,6 +75,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def makePalindrome(self, s: str) -> bool:
@@ -85,6 +87,8 @@ class Solution:
             i, j = i + 1, j - 1
         return cnt <= 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -115,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func makePalindrome(s string) bool {
 	cnt := 0
@@ -127,6 +135,8 @@ func makePalindrome(s string) bool {
 	return cnt <= 2
 }
 ```
+
+#### TypeScript
 
 ```ts
 function makePalindrome(s: string): boolean {

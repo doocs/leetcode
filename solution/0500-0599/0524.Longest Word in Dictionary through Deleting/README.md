@@ -60,6 +60,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findLongestWord(self, s: str, dictionary: List[str]) -> str:
@@ -78,6 +80,8 @@ class Solution:
                 ans = a
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findLongestWord(s string, dictionary []string) string {
 	ans := ""
@@ -152,6 +160,8 @@ func findLongestWord(s string, dictionary []string) string {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findLongestWord(s: string, dictionary: string[]): string {
@@ -182,6 +192,8 @@ function findLongestWord(s: string, dictionary: string[]): string {
     return '';
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

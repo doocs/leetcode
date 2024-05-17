@@ -64,6 +64,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -75,6 +77,8 @@ class Solution:
     def checkTree(self, root: Optional[TreeNode]) -> bool:
         return root.val == root.left.val + root.right.val
 ```
+
+#### Java
 
 ```java
 /**
@@ -99,6 +103,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -119,6 +125,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -132,6 +140,8 @@ func checkTree(root *TreeNode) bool {
 	return root.Val == root.Left.Val+root.Right.Val
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -152,6 +162,8 @@ function checkTree(root: TreeNode | null): boolean {
     return root.val === root.left.val + root.right.val;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -183,6 +195,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**

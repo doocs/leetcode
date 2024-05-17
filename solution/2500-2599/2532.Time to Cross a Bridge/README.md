@@ -128,6 +128,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findCrossingTime(self, n: int, k: int, time: List[List[int]]) -> int:
@@ -172,6 +174,8 @@ class Solution:
                 n -= 1
                 heappush(work_in_right, (cur + time[i][1], i))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -238,6 +242,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -306,6 +312,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findCrossingTime(n int, k int, time [][]int) int {

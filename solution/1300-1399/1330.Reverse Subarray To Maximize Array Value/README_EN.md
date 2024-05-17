@@ -60,6 +60,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxValueAfterReverse(self, nums: List[int]) -> int:
@@ -77,6 +79,8 @@ class Solution:
             ans = max(ans, s + max(mx - mi, 0))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -142,6 +148,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxValueAfterReverse(nums []int) int {
@@ -180,6 +188,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxValueAfterReverse(nums: number[]): number {

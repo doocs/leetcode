@@ -86,6 +86,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def orangesRotting(self, grid: List[List[int]]) -> int:
@@ -112,6 +114,8 @@ class Solution:
                         cnt -= 1
         return -1 if cnt > 0 else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -147,6 +151,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -185,6 +191,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func orangesRotting(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
@@ -221,6 +229,8 @@ func orangesRotting(grid [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function orangesRotting(grid: number[][]): number {
     const m: number = grid.length;
@@ -255,6 +265,8 @@ function orangesRotting(grid: number[][]): number {
     return cnt > 0 ? -1 : ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;

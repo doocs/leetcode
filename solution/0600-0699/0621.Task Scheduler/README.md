@@ -85,6 +85,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def leastInterval(self, tasks: List[str], n: int) -> int:
@@ -93,6 +95,8 @@ class Solution:
         s = sum(v == x for v in cnt.values())
         return max(len(tasks), (x - 1) * (n + 1) + s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -135,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func leastInterval(tasks []byte, n int) int {
 	cnt := make([]int, 26)
@@ -153,6 +161,8 @@ func leastInterval(tasks []byte, n int) int {
 	return max(len(tasks), (x-1)*(n+1)+s)
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

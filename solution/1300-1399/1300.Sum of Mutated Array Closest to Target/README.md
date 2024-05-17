@@ -74,6 +74,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findBestValue(self, arr: List[int], target: int) -> int:
@@ -88,6 +90,8 @@ class Solution:
                 ans = value
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -153,6 +159,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findBestValue(arr []int, target int) (ans int) {

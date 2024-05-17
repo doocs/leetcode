@@ -81,6 +81,8 @@ It can be proven that 2 is the minimum number of coins needed to acquire all the
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumCoins(self, prices: List[int]) -> int:
@@ -92,6 +94,8 @@ class Solution:
 
         return dfs(1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -144,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumCoins(prices []int) int {
 	n := len(prices)
@@ -164,6 +172,8 @@ func minimumCoins(prices []int) int {
 	return dfs(1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumCoins(prices: number[]): number {
@@ -195,6 +205,8 @@ function minimumCoins(prices: number[]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumCoins(self, prices: List[int]) -> int:
@@ -203,6 +215,8 @@ class Solution:
             prices[i - 1] += min(prices[i : i * 2 + 1])
         return prices[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -220,6 +234,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -233,6 +249,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumCoins(prices []int) int {
 	for i := (len(prices) - 1) / 2; i > 0; i-- {
@@ -241,6 +259,8 @@ func minimumCoins(prices []int) int {
 	return prices[0]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumCoins(prices: number[]): number {
@@ -261,6 +281,8 @@ function minimumCoins(prices: number[]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumCoins(self, prices: List[int]) -> int:
@@ -276,6 +298,8 @@ class Solution:
             q.append(i)
         return prices[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -299,6 +323,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -321,6 +347,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumCoins(prices []int) int {
@@ -399,6 +427,8 @@ func (q Deque) Get(i int) int {
 	return q.r[i-len(q.l)]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumCoins(prices: number[]): number {

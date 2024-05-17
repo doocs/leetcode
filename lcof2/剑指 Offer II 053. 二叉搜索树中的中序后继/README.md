@@ -72,6 +72,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -92,6 +94,8 @@ class Solution:
                 root = root.right
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -118,6 +122,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -146,6 +152,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -167,6 +175,8 @@ func inorderSuccessor(root *TreeNode, p *TreeNode) (ans *TreeNode) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

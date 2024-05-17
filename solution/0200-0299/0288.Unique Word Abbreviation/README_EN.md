@@ -90,6 +90,8 @@ In terms of time complexity, the time complexity of initializing the hash table 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class ValidWordAbbr:
     def __init__(self, dictionary: List[str]):
@@ -109,6 +111,8 @@ class ValidWordAbbr:
 # obj = ValidWordAbbr(dictionary)
 # param_1 = obj.isUnique(word)
 ```
+
+#### Java
 
 ```java
 class ValidWordAbbr {
@@ -137,6 +141,8 @@ class ValidWordAbbr {
  * boolean param_1 = obj.isUnique(word);
  */
 ```
+
+#### C++
 
 ```cpp
 class ValidWordAbbr {
@@ -167,6 +173,8 @@ private:
  * bool param_1 = obj->isUnique(word);
  */
 ```
+
+#### Go
 
 ```go
 type ValidWordAbbr struct {
@@ -204,6 +212,8 @@ func abbr(s string) string {
  * param_1 := obj.IsUnique(word);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class ValidWordAbbr {

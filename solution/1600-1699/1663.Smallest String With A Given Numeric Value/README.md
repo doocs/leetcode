@@ -73,6 +73,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getSmallestString(self, n: int, k: int) -> str:
@@ -85,6 +87,8 @@ class Solution:
         ans[i] = chr(ord(ans[i]) + d)
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -115,6 +121,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getSmallestString(n int, k int) string {

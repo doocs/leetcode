@@ -96,6 +96,8 @@ The time complexity is $O(3^{m \times n})$, and the space complexity is $O(m \ti
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def uniquePathsIII(self, grid: List[List[int]]) -> int:
@@ -118,6 +120,8 @@ class Solution:
         vis = {start}
         return dfs(*start, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -166,6 +170,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -208,6 +214,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func uniquePathsIII(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
@@ -248,6 +256,8 @@ func uniquePathsIII(grid [][]int) int {
 	return dfs(x, y, 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function uniquePathsIII(grid: number[][]): number {

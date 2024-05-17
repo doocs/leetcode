@@ -75,6 +75,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumAbsDifference(self, arr: List[int]) -> List[List[int]]:
@@ -82,6 +84,8 @@ class Solution:
         mi = min(b - a for a, b in pairwise(arr))
         return [[a, b] for a, b in pairwise(arr) if b - a == mi]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -124,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumAbsDifference(arr []int) (ans [][]int) {
 	sort.Ints(arr)
@@ -142,6 +150,8 @@ func minimumAbsDifference(arr []int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumAbsDifference(arr: number[]): number[][] {

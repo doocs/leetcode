@@ -65,6 +65,8 @@ The time complexity is $O(10 \times 2^{\log M})$, and the space complexity is $O
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSteppingNumbers(self, low: int, high: int) -> List[int]:
@@ -85,6 +87,8 @@ class Solution:
                 q.append(v * 10 + x + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -152,6 +158,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSteppingNumbers(low int, high int) []int {
 	ans := []int{}
@@ -179,6 +187,8 @@ func countSteppingNumbers(low int, high int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countSteppingNumbers(low: number, high: number): number[] {

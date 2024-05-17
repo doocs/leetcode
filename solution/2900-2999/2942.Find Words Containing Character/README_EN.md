@@ -76,11 +76,15 @@ The time complexity is $O(L)$, where $L$ is the sum of the lengths of all string
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findWordsContaining(self, words: List[str], x: str) -> List[int]:
         return [i for i, w in enumerate(words) if x in w]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +99,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -111,6 +117,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findWordsContaining(words []string, x byte) (ans []int) {
 	for i, w := range words {
@@ -124,6 +132,8 @@ func findWordsContaining(words []string, x byte) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findWordsContaining(words: string[], x: string): number[] {

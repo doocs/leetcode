@@ -75,6 +75,8 @@ gen.next().value // 1
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function* factorial(n: number): Generator<number> {
     if (n === 0) {

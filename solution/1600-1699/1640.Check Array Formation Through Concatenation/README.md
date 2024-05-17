@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canFormArray(self, arr: List[int], pieces: List[List[int]]) -> bool:
@@ -92,6 +94,8 @@ class Solution:
                 i, j = i + 1, j + 1
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -138,6 +144,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canFormArray(arr []int, pieces [][]int) bool {
 	for i := 0; i < len(arr); {
@@ -156,6 +164,8 @@ func canFormArray(arr []int, pieces [][]int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canFormArray(arr: number[], pieces: number[][]): boolean {
@@ -177,6 +187,8 @@ function canFormArray(arr: number[], pieces: number[][]): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -207,6 +219,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -252,6 +266,8 @@ var canFormArray = function (arr, pieces) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canFormArray(self, arr: List[int], pieces: List[List[int]]) -> bool:
@@ -266,6 +282,8 @@ class Solution:
             i += len(p)
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -289,6 +307,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -311,6 +331,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canFormArray(arr []int, pieces [][]int) bool {

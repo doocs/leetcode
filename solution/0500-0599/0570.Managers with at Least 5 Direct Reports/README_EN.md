@@ -77,6 +77,8 @@ We can first count the number of direct subordinates for each manager, and then 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 import pandas as pd
 
@@ -100,6 +102,8 @@ def find_managers(employee: pd.DataFrame) -> pd.DataFrame:
 
     return result
 ```
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

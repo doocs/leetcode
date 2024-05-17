@@ -75,6 +75,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def hasPath(
@@ -97,6 +99,8 @@ class Solution:
         dfs(start[0], start[1])
         return vis[destination[0]][destination[1]]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -138,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -174,6 +180,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func hasPath(maze [][]int, start []int, destination []int) bool {
@@ -217,6 +225,8 @@ func hasPath(maze [][]int, start []int, destination []int) bool {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def hasPath(
@@ -239,6 +249,8 @@ class Solution:
                     q.append((x, y))
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -275,6 +287,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -307,6 +321,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func hasPath(maze [][]int, start []int, destination []int) bool {

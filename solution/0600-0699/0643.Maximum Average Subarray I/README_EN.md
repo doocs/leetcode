@@ -60,6 +60,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMaxAverage(self, nums: List[int], k: int) -> float:
@@ -69,6 +71,8 @@ class Solution:
             ans = max(ans, s)
         return ans / k
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +91,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -101,6 +107,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findMaxAverage(nums []int, k int) float64 {
@@ -117,6 +125,8 @@ func findMaxAverage(nums []int, k int) float64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findMaxAverage(nums: number[], k: number): number {
     let s = 0;
@@ -131,6 +141,8 @@ function findMaxAverage(nums: number[], k: number): number {
     return ans / k;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -147,6 +159,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

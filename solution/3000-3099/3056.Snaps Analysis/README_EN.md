@@ -116,6 +116,8 @@ We can perform an equi-join to connect the `Activities` table and the `Age` tabl
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT
@@ -127,6 +129,8 @@ FROM
     JOIN Age USING (user_id)
 GROUP BY 1;
 ```
+
+#### Python3
 
 ```python
 import pandas as pd

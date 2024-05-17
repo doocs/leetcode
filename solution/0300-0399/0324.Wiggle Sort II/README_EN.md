@@ -61,6 +61,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def wiggleSort(self, nums: List[int]) -> None:
@@ -78,6 +80,8 @@ class Solution:
                 nums[k] = arr[j]
                 j -= 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +101,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -114,6 +120,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func wiggleSort(nums []int) {
@@ -133,6 +141,8 @@ func wiggleSort(nums []int) {
 	}
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -173,6 +183,8 @@ var wiggleSort = function (nums) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def wiggleSort(self, nums: List[int]) -> None:
@@ -195,6 +207,8 @@ class Solution:
             nums[i] = j
             bucket[j] -= 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -223,6 +237,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -244,6 +260,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func wiggleSort(nums []int) {

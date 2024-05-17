@@ -105,6 +105,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedList
 
@@ -129,6 +131,8 @@ class Solution:
                 ans[i] = 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -160,6 +164,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -190,6 +196,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func avoidFlood(rains []int) []int {
 	n := len(rains)
@@ -218,6 +226,8 @@ func avoidFlood(rains []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function avoidFlood(rains: number[]): number[] {

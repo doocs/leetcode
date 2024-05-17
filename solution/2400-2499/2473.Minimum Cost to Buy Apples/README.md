@@ -82,6 +82,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCost(
@@ -108,6 +110,8 @@ class Solution:
             g[b].append((a, c))
         return [dijkstra(i) for i in range(n)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -161,6 +165,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using ll = long long;
 using pii = pair<int, int>;
@@ -205,6 +211,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minCost(n int, roads [][]int, appleCost []int, k int) []int64 {

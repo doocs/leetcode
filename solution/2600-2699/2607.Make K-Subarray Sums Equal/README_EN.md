@@ -78,6 +78,8 @@ The array after the operations is [5,5,5,5]
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def makeSubKSumEqual(self, arr: List[int], k: int) -> int:
@@ -90,6 +92,8 @@ class Solution:
             ans += sum(abs(x - mid) for x in t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -139,6 +145,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func makeSubKSumEqual(arr []int, k int) (ans int64) {
@@ -172,6 +180,8 @@ func gcd(a, b int) int {
 	return gcd(b, a%b)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function makeSubKSumEqual(arr: number[], k: number): number {

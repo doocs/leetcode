@@ -60,6 +60,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -81,6 +83,8 @@ class Solution:
             else:
                 return root
 ```
+
+#### Java
 
 ```java
 /**
@@ -107,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -131,6 +137,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -151,6 +159,8 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -183,6 +193,8 @@ function lowestCommonAncestor(
     return root;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -232,6 +244,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -266,6 +280,8 @@ var lowestCommonAncestor = function (root, p, q) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -285,6 +301,8 @@ class Solution:
             return self.lowestCommonAncestor(root.left, p, q)
         return root
 ```
+
+#### Java
 
 ```java
 /**
@@ -308,6 +326,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -335,6 +355,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -357,6 +379,8 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

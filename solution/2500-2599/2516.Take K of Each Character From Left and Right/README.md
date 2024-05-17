@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def takeCharacters(self, s: str, k: int) -> int:
@@ -91,6 +93,8 @@ class Solution:
             mx = max(mx, i - j + 1)
         return len(s) - mx
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +122,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -147,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func takeCharacters(s string, k int) int {
 	cnt := [3]int{}
@@ -169,6 +177,8 @@ func takeCharacters(s string, k int) int {
 	return len(s) - mx
 }
 ```
+
+#### TypeScript
 
 ```ts
 function takeCharacters(s: string, k: number): number {
@@ -193,6 +203,8 @@ function takeCharacters(s: string, k: number): number {
     return n - mx;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;

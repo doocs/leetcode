@@ -97,6 +97,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -118,6 +120,8 @@ class Solution:
             return "Even"
         return "Tie"
 ```
+
+#### Java
 
 ```java
 /**
@@ -149,6 +153,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -182,6 +188,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -210,6 +218,8 @@ func gameResult(head *ListNode) string {
 	return "Tie"
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

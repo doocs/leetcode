@@ -79,12 +79,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumGroups(self, grades: List[int]) -> int:
         n = len(grades)
         return bisect_right(range(n + 1), n * 2, key=lambda x: x * x + x) - 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -123,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumGroups(grades []int) int {
 	n := len(grades)
@@ -132,6 +140,8 @@ func maximumGroups(grades []int) int {
 	})
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumGroups(grades: number[]): number {

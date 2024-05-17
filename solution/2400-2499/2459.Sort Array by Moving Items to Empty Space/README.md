@@ -94,6 +94,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sortArray(self, nums: List[int]) -> int:
@@ -116,6 +118,8 @@ class Solution:
         b = f([(v - 1 + n) % n for v in nums], n - 1)
         return min(a, b)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -153,6 +157,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -183,6 +189,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func sortArray(nums []int) int {

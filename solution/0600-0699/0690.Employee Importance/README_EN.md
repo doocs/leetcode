@@ -74,6 +74,8 @@ Thus, the total importance value of employee 5 is -3.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 """
 # Definition for Employee.
@@ -98,6 +100,8 @@ class Solution:
 
         return dfs(id)
 ```
+
+#### Java
 
 ```java
 /*
@@ -130,6 +134,8 @@ class Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

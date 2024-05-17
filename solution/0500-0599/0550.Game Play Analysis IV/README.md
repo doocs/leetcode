@@ -76,6 +76,8 @@ Activity table:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 import pandas as pd
 
@@ -90,6 +92,8 @@ def gameplay_analysis(activity: pd.DataFrame) -> pd.DataFrame:
         {"fraction": [round(len(activity_2nd_day) / activity.player_id.nunique(), 2)]}
     )
 ```
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -115,6 +119,8 @@ FROM
 我们也可以使用窗口函数 `LEAD` 获取每个玩家的下一次登录日期，如果下一次登录日期与当前登录日期相差 $1$ 天，则说明该玩家在第二天登录，我们用一个字段 $st$ 记录该信息。然后，我们用窗口函数 `RANK` 对玩家 ID 按照日期升序排列，得到每个玩家的登录排名。最后，我们只需要统计出排名为 $1$ 的玩家中，字段 $st$ 不为空的比率即可。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

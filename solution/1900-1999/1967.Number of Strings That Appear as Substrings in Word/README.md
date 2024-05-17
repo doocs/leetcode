@@ -84,11 +84,15 @@ patterns 中有 2 个字符串作为子字符串出现在 word 中。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numOfStrings(self, patterns: List[str], word: str) -> int:
         return sum(p in word for p in patterns)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -117,6 +123,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numOfStrings(patterns []string, word string) (ans int) {
 	for _, p := range patterns {
@@ -127,6 +135,8 @@ func numOfStrings(patterns []string, word string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numOfStrings(patterns: string[], word: string): number {

@@ -77,6 +77,8 @@ The time complexity is $O(n \times l + q \times l \times |\Sigma|)$, and the spa
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Trie:
     __slots__ = ["children", "is_end"]
@@ -123,6 +125,8 @@ class MagicDictionary:
 # obj.buildDict(dictionary)
 # param_2 = obj.search(searchWord)
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -192,6 +196,8 @@ class MagicDictionary {
  * boolean param_2 = obj.search(searchWord);
  */
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -268,6 +274,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -338,6 +346,8 @@ func (md *MagicDictionary) Search(searchWord string) bool {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class Trie {
     private children: Trie[] = Array(26).fill(null);
@@ -404,6 +414,8 @@ class MagicDictionary {
  * var param_2 = obj.search(searchWord)
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -501,6 +513,8 @@ impl MagicDictionary {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:

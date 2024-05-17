@@ -89,6 +89,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkArithmeticSubarrays(
@@ -103,6 +105,8 @@ class Solution:
 
         return [check(nums, left, right) for left, right in zip(l, r)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -137,6 +141,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -169,6 +175,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func checkArithmeticSubarrays(nums []int, l []int, r []int) (ans []bool) {
@@ -203,6 +211,8 @@ func checkArithmeticSubarrays(nums []int, l []int, r []int) (ans []bool) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function checkArithmeticSubarrays(nums: number[], l: number[], r: number[]): boolean[] {
     const check = (nums: number[], l: number, r: number): boolean => {
@@ -234,6 +244,8 @@ function checkArithmeticSubarrays(nums: number[], l: number[], r: number[]): boo
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn check_arithmetic_subarrays(nums: Vec<i32>, l: Vec<i32>, r: Vec<i32>) -> Vec<bool> {
@@ -253,6 +265,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 class Solution {

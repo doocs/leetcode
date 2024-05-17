@@ -68,11 +68,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def generateTheString(self, n: int) -> str:
         return 'a' * n if n & 1 else 'a' * (n - 1) + 'b'
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +85,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -95,6 +101,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func generateTheString(n int) string {
 	ans := strings.Repeat("a", n-1)
@@ -106,6 +114,8 @@ func generateTheString(n int) string {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function generateTheString(n: number): string {

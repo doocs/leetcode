@@ -85,6 +85,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def goodDaysToRobBank(self, security: List[int], time: int) -> List[int]:
@@ -100,6 +102,8 @@ class Solution:
                 right[i] = right[i + 1] + 1
         return [i for i in range(n) if time <= min(left[i], right[i])]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -153,6 +159,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func goodDaysToRobBank(security []int, time int) []int {
@@ -182,6 +190,8 @@ func goodDaysToRobBank(security []int, time int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function goodDaysToRobBank(security: number[], time: number): number[] {
     const n = security.length;
@@ -207,6 +217,8 @@ function goodDaysToRobBank(security: number[], time: number): number[] {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::cmp::Ordering;

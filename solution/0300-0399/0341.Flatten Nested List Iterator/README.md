@@ -80,6 +80,8 @@ return res</pre>
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # """
 # This is the interface that allows for creating nested lists.
@@ -130,6 +132,8 @@ class NestedIterator:
 # i, v = NestedIterator(nestedList), []
 # while i.hasNext(): v.append(i.next())
 ```
+
+#### Java
 
 ```java
 /**
@@ -189,6 +193,8 @@ public class NestedIterator implements Iterator<Integer> {
  */
 ```
 
+#### C++
+
 ```cpp
 /**
  * // This is the interface that allows for creating nested lists.
@@ -243,6 +249,8 @@ private:
  * while (i.hasNext()) cout << i.next();
  */
 ```
+
+#### Go
 
 ```go
 /**
@@ -302,6 +310,8 @@ func (this *NestedIterator) HasNext() bool {
 	return this.index < this.length
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -380,6 +390,8 @@ class NestedIterator {
  */
 ```
 
+#### Rust
+
 ```rust
 // #[derive(Debug, PartialEq, Eq)]
 // pub enum NestedInteger {
@@ -442,6 +454,8 @@ impl NestedIterator {
 调用 hasNext 时，如果 nestedList 的第一个元素是列表类型，则不断展开这个元素，直到第一个元素是整数类型。 调用 Next 方法时，由于 `hasNext()` 方法已确保 nestedList 第一个元素为整数类型，直接返回即可。
 
 <!-- tabs:start -->
+
+#### Go
 
 ```go
 /**

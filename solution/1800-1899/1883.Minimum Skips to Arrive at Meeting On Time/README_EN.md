@@ -100,6 +100,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minSkips(self, dist: List[int], speed: int, hoursBefore: int) -> int:
@@ -119,6 +121,8 @@ class Solution:
         return -1
 ```
 
+#### Python3
+
 ```python
 class Solution:
     def minSkips(self, dist: List[int], speed: int, hoursBefore: int) -> int:
@@ -136,6 +140,8 @@ class Solution:
                 return j
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -168,6 +174,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -195,6 +203,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minSkips(dist []int, speed int, hoursBefore int) int {
@@ -226,6 +236,8 @@ func minSkips(dist []int, speed int, hoursBefore int) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minSkips(dist: number[], speed: number, hoursBefore: number): number {

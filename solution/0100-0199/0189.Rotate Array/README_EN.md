@@ -85,6 +85,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def rotate(self, nums: List[int], k: int) -> None:
@@ -99,6 +101,8 @@ class Solution:
         reverse(0, k - 1)
         reverse(k, n - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -135,6 +141,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func rotate(nums []int, k int) {
@@ -150,6 +158,8 @@ func rotate(nums []int, k int) {
 	reverse(k, n-1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -171,6 +181,8 @@ function rotate(nums: number[], k: number): void {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn rotate(nums: &mut Vec<i32>, k: i32) {
@@ -182,6 +194,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -202,6 +216,8 @@ var rotate = function (nums, k) {
     reverse(k, n - 1);
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -235,6 +251,8 @@ public class Solution {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

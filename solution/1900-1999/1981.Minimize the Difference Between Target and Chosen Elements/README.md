@@ -105,6 +105,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimizeTheDifference(self, mat: List[List[int]], target: int) -> int:
@@ -113,6 +115,8 @@ class Solution:
             f = set(a + b for a in f for b in row)
         return min(abs(v - target) for v in f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -142,6 +146,8 @@ class Solution {
 }
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int minimizeTheDifference(int[][] mat, int target) {
@@ -164,6 +170,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -190,6 +198,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimizeTheDifference(mat [][]int, target int) int {

@@ -134,6 +134,8 @@ We can use the `JOIN` statement to join the `Orders` table and the `Product` tab
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT customer_id, name

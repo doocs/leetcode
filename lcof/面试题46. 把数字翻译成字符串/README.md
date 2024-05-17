@@ -53,6 +53,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def translateNum(self, num: int) -> int:
@@ -69,6 +71,8 @@ class Solution:
         n = len(s)
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +103,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func translateNum(num int) int {
 	s := strconv.Itoa(num)
@@ -148,6 +156,8 @@ func translateNum(num int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function translateNum(num: number): number {
     const s = num.toString();
@@ -171,6 +181,8 @@ function translateNum(num: number): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn translate_num(num: i32) -> i32 {
@@ -189,6 +201,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -216,6 +230,8 @@ var translateNum = function (num) {
     return dfs(0);
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -256,6 +272,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def translateNum(self, num: int) -> int:
@@ -269,6 +287,8 @@ class Solution:
             a, b = b, c
         return b
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -288,6 +308,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -309,6 +331,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func translateNum(num int) int {
 	s := strconv.Itoa(num)
@@ -324,6 +348,8 @@ func translateNum(num int) int {
 	return b
 }
 ```
+
+#### TypeScript
 
 ```ts
 function translateNum(num: number): number {
@@ -342,6 +368,8 @@ function translateNum(num: number): number {
     return b;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -365,6 +393,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

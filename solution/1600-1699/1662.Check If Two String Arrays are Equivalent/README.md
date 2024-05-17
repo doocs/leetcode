@@ -74,11 +74,15 @@ word2 表示的字符串为 "a" + "bc" -> "abc"
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def arrayStringsAreEqual(self, word1: List[str], word2: List[str]) -> bool:
         return ''.join(word1) == ''.join(word2)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +91,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -97,17 +103,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func arrayStringsAreEqual(word1 []string, word2 []string) bool {
 	return strings.Join(word1, "") == strings.Join(word2, "")
 }
 ```
 
+#### TypeScript
+
 ```ts
 function arrayStringsAreEqual(word1: string[], word2: string[]): boolean {
     return word1.join('') === word2.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -116,6 +128,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 bool arrayStringsAreEqual(char** word1, int word1Size, char** word2, int word2Size) {
@@ -161,6 +175,8 @@ bool arrayStringsAreEqual(char** word1, int word1Size, char** word2, int word2Si
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def arrayStringsAreEqual(self, word1: List[str], word2: List[str]) -> bool:
@@ -175,6 +191,8 @@ class Solution:
                 y, j = 0, j + 1
         return i == len(word1) and j == len(word2)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -199,6 +217,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -213,6 +233,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func arrayStringsAreEqual(word1 []string, word2 []string) bool {
@@ -233,6 +255,8 @@ func arrayStringsAreEqual(word1 []string, word2 []string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function arrayStringsAreEqual(word1: string[], word2: string[]): boolean {
     let [i, j, x, y] = [0, 0, 0, 0];
@@ -252,6 +276,8 @@ function arrayStringsAreEqual(word1: string[], word2: string[]): boolean {
     return i === word1.length && j === word2.length;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

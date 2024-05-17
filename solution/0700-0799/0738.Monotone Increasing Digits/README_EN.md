@@ -60,6 +60,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def monotoneIncreasingDigits(self, n: int) -> int:
@@ -77,6 +79,8 @@ class Solution:
                 i += 1
         return int(''.join(s))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +103,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -120,6 +126,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func monotoneIncreasingDigits(n int) int {

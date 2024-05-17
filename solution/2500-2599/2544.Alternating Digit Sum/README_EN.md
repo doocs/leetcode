@@ -84,11 +84,15 @@ The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$. Her
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def alternateDigitSum(self, n: int) -> int:
         return sum((-1) ** i * int(x) for i, x in enumerate(str(n)))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -119,6 +125,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func alternateDigitSum(n int) (ans int) {
 	sign := 1
@@ -130,6 +138,8 @@ func alternateDigitSum(n int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function alternateDigitSum(n: number): number {
@@ -143,6 +153,8 @@ function alternateDigitSum(n: number): number {
     return ans * -sign;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -158,6 +170,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int alternateDigitSum(int n) {
@@ -182,6 +196,8 @@ int alternateDigitSum(int n) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def alternateDigitSum(self, n: int) -> int:
@@ -192,6 +208,8 @@ class Solution:
             sign *= -1
         return ans
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

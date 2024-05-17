@@ -68,6 +68,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def insert(
@@ -86,6 +88,8 @@ class Solution:
         intervals.append(newInterval)
         return merge(intervals)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -139,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func insert(intervals [][]int, newInterval []int) [][]int {
 	merge := func(intervals [][]int) (ans [][]int) {
@@ -157,6 +165,8 @@ func insert(intervals [][]int, newInterval []int) [][]int {
 	return merge(intervals)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function insert(intervals: number[][], newInterval: number[]): number[][] {
@@ -177,6 +187,8 @@ function insert(intervals: number[][], newInterval: number[]): number[][] {
     return merge(intervals);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -205,6 +217,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -253,6 +267,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def insert(
@@ -276,6 +292,8 @@ class Solution:
             ans.append([st, ed])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -305,6 +323,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -336,6 +356,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func insert(intervals [][]int, newInterval []int) (ans [][]int) {
 	st, ed := newInterval[0], newInterval[1]
@@ -362,6 +384,8 @@ func insert(intervals [][]int, newInterval []int) (ans [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function insert(intervals: number[][], newInterval: number[]): number[][] {
     let [st, ed] = newInterval;
@@ -387,6 +411,8 @@ function insert(intervals: number[][], newInterval: number[]): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -418,6 +444,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

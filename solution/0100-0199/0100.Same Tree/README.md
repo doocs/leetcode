@@ -71,6 +71,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -86,6 +88,8 @@ class Solution:
             return False
         return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
 ```
+
+#### Java
 
 ```java
 /**
@@ -112,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -134,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -153,6 +161,8 @@ func isSameTree(p *TreeNode, q *TreeNode) bool {
 	return isSameTree(p.Left, q.Left) && isSameTree(p.Right, q.Right)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -179,6 +189,8 @@ function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
     return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -223,6 +235,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -245,6 +259,8 @@ var isSameTree = function (p, q) {
     return false;
 };
 ```
+
+#### PHP
 
 ```php
 /**
@@ -297,6 +313,8 @@ class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -329,6 +347,8 @@ class Solution:
                 q2.append(rb)
         return True
 ```
+
+#### Java
 
 ```java
 /**
@@ -386,6 +406,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -428,6 +450,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -473,6 +497,8 @@ func isSameTree(p *TreeNode, q *TreeNode) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -527,6 +553,8 @@ function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.

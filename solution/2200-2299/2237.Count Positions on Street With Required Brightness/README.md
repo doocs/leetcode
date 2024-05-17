@@ -81,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def meetRequirement(
@@ -93,6 +95,8 @@ class Solution:
             d[j + 1] -= 1
         return sum(s >= r for s, r in zip(accumulate(d), requirement))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -136,6 +142,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func meetRequirement(n int, lights [][]int, requirement []int) int {

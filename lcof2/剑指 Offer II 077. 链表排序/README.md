@@ -70,6 +70,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -99,6 +101,8 @@ class Solution:
         cur.next = l1 or l2
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -143,6 +147,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -186,6 +192,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -225,6 +233,8 @@ func sortList(head *ListNode) *ListNode {
 	return dummy.Next
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -270,6 +280,8 @@ function sortList(head: ListNode | null): ListNode | null {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -312,6 +324,8 @@ var sortList = function (head) {
     return dummy.next;
 };
 ```
+
+#### C#
 
 ```cs
 /**

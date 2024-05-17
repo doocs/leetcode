@@ -64,6 +64,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isAlienSorted(self, words: List[str], order: str) -> bool:
@@ -85,6 +87,8 @@ class Solution:
                     break
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -139,6 +145,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isAlienSorted(words []string, order string) bool {
@@ -166,6 +174,8 @@ func isAlienSorted(words []string, order string) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isAlienSorted(words: string[], order: string): boolean {

@@ -106,6 +106,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumDistance(self, nums: List[int], s: str, d: int) -> int:
@@ -119,6 +121,8 @@ class Solution:
             s += x
         return ans % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +143,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -162,6 +168,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumDistance(nums []int, s string, d int) (ans int) {
 	for i, c := range s {
@@ -181,6 +189,8 @@ func sumDistance(nums []int, s string, d int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumDistance(nums: number[], s: string, d: number): number {

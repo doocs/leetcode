@@ -79,6 +79,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reverseParentheses(self, s: str) -> str:
@@ -94,6 +96,8 @@ class Solution:
                 stk.append(c)
         return ''.join(stk)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -149,6 +155,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func reverseParentheses(s string) string {
 	stk := []byte{}
@@ -168,6 +176,8 @@ func reverseParentheses(s string) string {
 	return string(stk)
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -222,6 +232,8 @@ var reverseParentheses = function (s) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reverseParentheses(self, s: str) -> str:
@@ -245,6 +257,8 @@ class Solution:
             i += x
         return ''.join(ans)
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -278,6 +292,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func reverseParentheses(s string) string {

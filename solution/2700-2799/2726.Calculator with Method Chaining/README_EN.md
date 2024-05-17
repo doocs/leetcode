@@ -88,6 +88,8 @@ The error should be thrown because we cannot divide by zero.
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 class Calculator {
     private x: number;

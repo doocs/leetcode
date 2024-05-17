@@ -72,6 +72,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2705.Co
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 type Obj = Record<any, any>;
 
@@ -93,6 +95,8 @@ function compactObject(obj: Obj): Obj {
     return obj;
 }
 ```
+
+#### JavaScript
 
 ```js
 var compactObject = function (obj) {

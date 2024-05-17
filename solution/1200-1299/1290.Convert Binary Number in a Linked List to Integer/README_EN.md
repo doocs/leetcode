@@ -60,6 +60,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -74,6 +76,8 @@ class Solution:
             head = head.next
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -96,6 +100,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -120,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -135,6 +143,8 @@ func getDecimalValue(head *ListNode) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -157,6 +167,8 @@ function getDecimalValue(head: ListNode | null): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -188,6 +200,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -208,6 +222,8 @@ var getDecimalValue = function (head) {
     return ans;
 };
 ```
+
+#### PHP
 
 ```php
 /**
@@ -237,6 +253,8 @@ class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**

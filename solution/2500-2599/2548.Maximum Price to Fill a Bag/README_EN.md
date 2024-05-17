@@ -79,6 +79,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxPrice(self, items: List[List[int]], capacity: int) -> float:
@@ -89,6 +91,8 @@ class Solution:
             capacity -= v
         return -1 if capacity else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -123,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxPrice(items [][]int, capacity int) (ans float64) {
 	sort.Slice(items, func(i, j int) bool { return items[i][1]*items[j][0] < items[i][0]*items[j][1] })
@@ -138,6 +146,8 @@ func maxPrice(items [][]int, capacity int) (ans float64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxPrice(items: number[][], capacity: number): number {

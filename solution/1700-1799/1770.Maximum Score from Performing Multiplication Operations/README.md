@@ -89,6 +89,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumScore(self, nums: List[int], multipliers: List[int]) -> int:
@@ -104,6 +106,8 @@ class Solution:
         m = len(multipliers)
         return f(0, n - 1, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -138,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -157,6 +163,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumScore(nums []int, multipliers []int) int {
@@ -185,6 +193,8 @@ func maximumScore(nums []int, multipliers []int) int {
 	return dfs(0, 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumScore(nums: number[], multipliers: number[]): number {
@@ -232,6 +242,8 @@ function maximumScore(nums: number[], multipliers: number[]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumScore(self, nums: List[int], multipliers: List[int]) -> int:
@@ -250,6 +262,8 @@ class Solution:
                     ans = max(ans, f[i][j])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -281,6 +295,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -308,6 +324,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumScore(nums []int, multipliers []int) int {

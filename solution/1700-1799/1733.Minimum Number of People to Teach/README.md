@@ -83,6 +83,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumTeachings(
@@ -106,6 +108,8 @@ class Solution:
                 cnt[l] += 1
         return len(s) - max(cnt.values(), default=0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -147,6 +151,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -183,6 +189,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumTeachings(n int, languages [][]int, friendships [][]int) int {

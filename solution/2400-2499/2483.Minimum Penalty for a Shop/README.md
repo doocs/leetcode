@@ -93,6 +93,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def bestClosingTime(self, customers: str) -> int:
@@ -107,6 +109,8 @@ class Solution:
                 ans, cost = j, t
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +132,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -151,6 +157,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func bestClosingTime(customers string) (ans int) {
 	n := len(customers)
@@ -171,6 +179,8 @@ func bestClosingTime(customers string) (ans int) {
 	return
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

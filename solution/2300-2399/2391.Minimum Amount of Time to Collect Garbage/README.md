@@ -94,6 +94,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def garbageCollection(self, garbage: List[str], travel: List[int]) -> int:
@@ -109,6 +111,8 @@ class Solution:
             ans += sum(ts for j in last.values() if i == j)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +139,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -163,6 +169,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func garbageCollection(garbage []string, travel []int) (ans int) {
 	last := map[byte]int{}
@@ -184,6 +192,8 @@ func garbageCollection(garbage []string, travel []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function garbageCollection(garbage: string[], travel: number[]): number {
@@ -208,6 +218,8 @@ function garbageCollection(garbage: string[], travel: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -235,6 +247,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

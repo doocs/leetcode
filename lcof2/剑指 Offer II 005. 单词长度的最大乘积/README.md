@@ -67,6 +67,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProduct(self, words: List[str]) -> int:
@@ -81,6 +83,8 @@ class Solution:
                     ans = max(ans, len(a) * len(b))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -130,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProduct(words []string) (ans int) {
 	n := len(words)
@@ -149,6 +157,8 @@ func maxProduct(words []string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxProduct(words: string[]): number {

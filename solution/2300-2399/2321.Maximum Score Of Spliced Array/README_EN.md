@@ -81,6 +81,8 @@ The score is max(sum(nums1), sum(nums2)) = max(31, 3) = 31.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumsSplicedArray(self, nums1: List[int], nums2: List[int]) -> int:
@@ -98,6 +100,8 @@ class Solution:
         s1, s2 = sum(nums1), sum(nums2)
         return max(s2 + f(nums1, nums2), s1 + f(nums2, nums1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -154,6 +160,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumsSplicedArray(nums1 []int, nums2 []int) int {

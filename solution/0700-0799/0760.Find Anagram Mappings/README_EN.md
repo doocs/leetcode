@@ -59,6 +59,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def anagramMappings(self, nums1: List[int], nums2: List[int]) -> List[int]:
@@ -67,6 +69,8 @@ class Solution:
             mapper[num].add(i)
         return [mapper[num].pop() for num in nums1]
 ```
+
+#### Java
 
 ```java
 class Solution {

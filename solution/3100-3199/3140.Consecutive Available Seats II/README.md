@@ -92,6 +92,8 @@ seat_id 是这张表中的自增列。
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

@@ -92,6 +92,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findPeakGrid(self, mat: List[List[int]]) -> List[int]:
@@ -105,6 +107,8 @@ class Solution:
                 l = mid + 1
         return [l, mat[l].index(max(mat[l]))]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +139,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -154,6 +160,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findPeakGrid(mat [][]int) []int {
@@ -180,6 +188,8 @@ func findPeakGrid(mat [][]int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findPeakGrid(mat: number[][]): number[] {
     let [l, r] = [0, mat.length - 1];
@@ -195,6 +205,8 @@ function findPeakGrid(mat: number[][]): number[] {
     return [l, mat[l].indexOf(Math.max(...mat[l]))];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

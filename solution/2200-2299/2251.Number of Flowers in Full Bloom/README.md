@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def fullBloomFlowers(
@@ -85,6 +87,8 @@ class Solution:
         start, end = sorted(a for a, _ in flowers), sorted(b for _, b in flowers)
         return [bisect_right(start, p) - bisect_left(end, p) for p in people]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -145,6 +151,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func fullBloomFlowers(flowers [][]int, people []int) (ans []int) {
 	n := len(flowers)
@@ -164,6 +172,8 @@ func fullBloomFlowers(flowers [][]int, people []int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function fullBloomFlowers(flowers: number[][], people: number[]): number[] {
@@ -199,6 +209,8 @@ function search(nums: number[], x: number): number {
     return l;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::BTreeMap;
@@ -265,6 +277,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def fullBloomFlowers(
@@ -285,6 +299,8 @@ class Solution:
             ans[j] = s
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -313,6 +329,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -343,6 +361,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func fullBloomFlowers(flowers [][]int, people []int) []int {
@@ -375,6 +395,8 @@ func fullBloomFlowers(flowers [][]int, people []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function fullBloomFlowers(flowers: number[][], people: number[]): number[] {

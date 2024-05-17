@@ -87,6 +87,8 @@ The time complexity is $O(n)$, where $n$ is the length of the string. The space 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxConsecutiveAnswers(self, answerKey: str, k: int) -> int:
@@ -103,6 +105,8 @@ class Solution:
 
         return max(f("T"), f("F"))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -149,6 +155,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxConsecutiveAnswers(answerKey string, k int) int {
@@ -172,6 +180,8 @@ func maxConsecutiveAnswers(answerKey string, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxConsecutiveAnswers(answerKey: string, k: number): number {
     const n = answerKey.length;
@@ -189,6 +199,8 @@ function maxConsecutiveAnswers(answerKey: string, k: number): number {
     return Math.max(f('T'), f('F'));
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

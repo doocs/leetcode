@@ -82,6 +82,8 @@ Next, we can use a subquery to find pairs of friends who do not have common frie
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH
@@ -101,6 +103,8 @@ WHERE
     )
 ORDER BY 1, 2;
 ```
+
+#### Python3
 
 ```python
 import pandas as pd

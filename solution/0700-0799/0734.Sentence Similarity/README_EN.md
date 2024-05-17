@@ -82,6 +82,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def areSentencesSimilar(
@@ -94,6 +96,8 @@ class Solution:
             a == b or (a, b) in s or (b, a) in s for a, b in zip(sentence1, sentence2)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -133,6 +139,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func areSentencesSimilar(sentence1 []string, sentence2 []string, similarPairs [][]string) bool {

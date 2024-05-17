@@ -83,6 +83,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def areNumbersAscending(self, s: str) -> bool:
@@ -94,6 +96,8 @@ class Solution:
                 pre = cur
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -134,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func areNumbersAscending(s string) bool {
 	pre := 0
@@ -150,6 +158,8 @@ func areNumbersAscending(s string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function areNumbersAscending(s: string): boolean {
     let pre = -1;
@@ -165,6 +175,8 @@ function areNumbersAscending(s: string): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -183,6 +195,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 bool areNumbersAscending(char* s) {
@@ -217,6 +231,8 @@ bool areNumbersAscending(char* s) {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

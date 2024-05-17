@@ -69,6 +69,8 @@ for i in range(n):
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def largestRectangleArea(self, heights: List[int]) -> int:
@@ -85,6 +87,8 @@ class Solution:
             stk.append(i)
         return max(h * (right[i] - left[i] - 1) for i, h in enumerate(heights))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -131,6 +137,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func largestRectangleArea(heights []int) int {
@@ -158,6 +166,8 @@ func largestRectangleArea(heights []int) int {
 	return res
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -207,6 +217,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 using System;
 using System.Collections.Generic;
@@ -246,6 +258,8 @@ public class Solution {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

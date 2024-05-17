@@ -83,6 +83,8 @@ nums 的和减小了 31 - 14.5 = 16.5 ，减小的部分超过了初始数组和
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def halveArray(self, nums: List[int]) -> int:
@@ -98,6 +100,8 @@ class Solution:
             ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +124,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -144,6 +150,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func halveArray(nums []int) (ans int) {
@@ -175,6 +183,8 @@ func (h *hp) Pop() any {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function halveArray(nums: number[]): number {
     let s: number = nums.reduce((a, b) => a + b) / 2;
@@ -203,6 +213,8 @@ function halveArray(nums: number[]): number {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Go
 
 ```go
 func halveArray(nums []int) (ans int) {

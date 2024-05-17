@@ -82,6 +82,8 @@ browserHistory.back(7);                   // 你原本在浏览 &quot;google.com
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class BrowserHistory:
     def __init__(self, homepage: str):
@@ -112,6 +114,8 @@ class BrowserHistory:
 # param_2 = obj.back(steps)
 # param_3 = obj.forward(steps)
 ```
+
+#### Java
 
 ```java
 class BrowserHistory {
@@ -150,6 +154,8 @@ class BrowserHistory {
  * String param_3 = obj.forward(steps);
  */
 ```
+
+#### C++
 
 ```cpp
 class BrowserHistory {
@@ -191,6 +197,8 @@ public:
  * string param_3 = obj->forward(steps);
  */
 ```
+
+#### Go
 
 ```go
 type BrowserHistory struct {

@@ -78,6 +78,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestDupSubstring(self, s: str) -> str:
@@ -103,6 +105,8 @@ class Solution:
                 right = mid - 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -150,6 +154,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 typedef unsigned long long ULL;
 
@@ -192,6 +198,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestDupSubstring(s string) string {

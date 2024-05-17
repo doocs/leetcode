@@ -91,6 +91,8 @@ words 中有一个回文 "a" 。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxPalindromesAfterOperations(self, words: List[str]) -> int:
@@ -109,6 +111,8 @@ class Solution:
             ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -134,6 +138,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -161,6 +167,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxPalindromesAfterOperations(words []string) (ans int) {
 	var s, mask int
@@ -184,6 +192,8 @@ func maxPalindromesAfterOperations(words []string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxPalindromesAfterOperations(words: string[]): number {

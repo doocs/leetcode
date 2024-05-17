@@ -85,6 +85,8 @@ v1.dotProduct(v2) = 0*0 + 1*0 + 0*0 + 0*0 + 0*2 = 0
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class SparseVector:
     def __init__(self, nums: List[int]):
@@ -103,6 +105,8 @@ class SparseVector:
 # v2 = SparseVector(nums2)
 # ans = v1.dotProduct(v2)
 ```
+
+#### Java
 
 ```java
 class SparseVector {
@@ -140,6 +144,8 @@ class SparseVector {
 // int ans = v1.dotProduct(v2);
 ```
 
+#### C++
+
 ```cpp
 class SparseVector {
 public:
@@ -175,6 +181,8 @@ public:
 // SparseVector v2(nums2);
 // int ans = v1.dotProduct(v2);
 ```
+
+#### Go
 
 ```go
 type SparseVector struct {
@@ -212,6 +220,8 @@ func (this *SparseVector) dotProduct(vec SparseVector) (ans int) {
  * ans := v1.dotProduct(v2);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class SparseVector {

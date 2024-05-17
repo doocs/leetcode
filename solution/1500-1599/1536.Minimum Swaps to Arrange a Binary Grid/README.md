@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minSwaps(self, grid: List[List[int]]) -> int:
@@ -105,6 +107,8 @@ class Solution:
                 k -= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -144,6 +148,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -180,6 +186,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minSwaps(grid [][]int) (ans int) {
 	n := len(grid)
@@ -214,6 +222,8 @@ func minSwaps(grid [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minSwaps(grid: number[][]): number {

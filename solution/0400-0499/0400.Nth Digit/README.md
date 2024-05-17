@@ -64,6 +64,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findNthDigit(self, n: int) -> int:
@@ -76,6 +78,8 @@ class Solution:
         idx = (n - 1) % k
         return int(str(num)[idx])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -110,6 +116,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findNthDigit(n int) int {
 	k, cnt := 1, 9
@@ -123,6 +131,8 @@ func findNthDigit(n int) int {
 	return int(strconv.Itoa(num)[idx] - '0')
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -142,6 +152,8 @@ var findNthDigit = function (n) {
     return num.toString()[idx];
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

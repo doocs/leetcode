@@ -78,6 +78,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minMoves2(self, nums: List[int]) -> int:
@@ -85,6 +87,8 @@ class Solution:
         k = nums[len(nums) >> 1]
         return sum(abs(v - k) for v in nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -112,6 +118,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minMoves2(nums []int) int {
@@ -132,6 +140,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minMoves2(nums: number[]): number {
     nums.sort((a, b) => a - b);
@@ -139,6 +149,8 @@ function minMoves2(nums: number[]): number {
     return nums.reduce((r, v) => r + Math.abs(v - mid), 0);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -167,6 +179,8 @@ impl Solution {
 时间复杂度 $O(n\log n)$，空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 """
 # Definition for a Node.
@@ -106,6 +108,8 @@ class Solution:
             cur = cur.next
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /*
@@ -141,6 +145,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /*
@@ -179,6 +185,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -206,6 +214,8 @@ func copyRandomList(head *Node) *Node {
 	return dummy.Next
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -239,6 +249,8 @@ function copyRandomList(head: Node | null): Node | null {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * // Definition for a Node.
@@ -270,6 +282,8 @@ var copyRandomList = function (head) {
     return dummy.next;
 };
 ```
+
+#### C#
 
 ```cs
 /*
@@ -317,6 +331,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 """
 # Definition for a Node.
@@ -353,6 +369,8 @@ class Solution:
             cur = nxt
         return ans
 ```
+
+#### Java
 
 ```java
 /*
@@ -396,6 +414,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /*
@@ -443,6 +463,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -478,6 +500,8 @@ func copyRandomList(head *Node) *Node {
 	return ans
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -518,6 +542,8 @@ var copyRandomList = function (head) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 /*

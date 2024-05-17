@@ -66,6 +66,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findOcurrences(self, text: str, first: str, second: str) -> List[str]:
@@ -77,6 +79,8 @@ class Solution:
                 ans.append(c)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +97,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -116,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findOcurrences(text string, first string, second string) (ans []string) {
 	words := strings.Split(text, " ")
@@ -128,6 +136,8 @@ func findOcurrences(text string, first string, second string) (ans []string) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findOcurrences(text: string, first: string, second: string): string[] {

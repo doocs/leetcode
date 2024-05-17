@@ -47,6 +47,8 @@ death = {1948, 1951, 2000}
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxAliveYear(self, birth: List[int], death: List[int]) -> int:
@@ -64,6 +66,8 @@ class Solution:
                 ans = base + i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +93,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -116,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxAliveYear(birth []int, death []int) (ans int) {
 	base := 1900
@@ -138,6 +146,8 @@ func maxAliveYear(birth []int, death []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxAliveYear(birth: number[], death: number[]): number {
     const base = 1900;
@@ -159,6 +169,8 @@ function maxAliveYear(birth: number[], death: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -184,6 +196,8 @@ impl Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

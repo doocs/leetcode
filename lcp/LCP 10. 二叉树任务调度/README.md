@@ -68,6 +68,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2010.%20%E4%BA%8C%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimalExecTime(self, root: TreeNode) -> float:
@@ -80,6 +82,8 @@ class Solution:
 
         return dfs(root)[1]
 ```
+
+#### Java
 
 ```java
 /**
@@ -108,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -138,6 +144,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -163,6 +171,8 @@ func minimalExecTime(root *TreeNode) float64 {
 	return t
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

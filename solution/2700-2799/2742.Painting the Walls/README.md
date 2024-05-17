@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def paintWalls(self, cost: List[int], time: List[int]) -> int:
@@ -91,6 +93,8 @@ class Solution:
         n = len(cost)
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +126,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -145,6 +151,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func paintWalls(cost []int, time []int) int {
@@ -172,6 +180,8 @@ func paintWalls(cost []int, time []int) int {
 	return dfs(0, n)
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

@@ -81,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countValidWords(self, sentence: str) -> int:
@@ -103,6 +105,8 @@ class Solution:
 
         return sum(check(token) for token in sentence.split())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +143,8 @@ class Solution {
     }
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countValidWords(sentence: string): number {

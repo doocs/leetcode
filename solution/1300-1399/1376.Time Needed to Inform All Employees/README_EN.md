@@ -81,6 +81,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numOfMinutes(
@@ -97,6 +99,8 @@ class Solution:
             g[x].append(i)
         return dfs(headID)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -147,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numOfMinutes(n int, headID int, manager []int, informTime []int) int {
 	g := make([][]int, n)
@@ -166,6 +174,8 @@ func numOfMinutes(n int, headID int, manager []int, informTime []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numOfMinutes(n: number, headID: number, manager: number[], informTime: number[]): number {
     const g: number[][] = new Array(n).fill(0).map(() => []);
@@ -184,6 +194,8 @@ function numOfMinutes(n: number, headID: number, manager: number[], informTime: 
     return dfs(headID);
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

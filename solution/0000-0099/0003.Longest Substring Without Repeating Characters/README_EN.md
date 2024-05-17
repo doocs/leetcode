@@ -83,6 +83,8 @@ for (int i = 0, j = 0; i < n; ++i) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
@@ -96,6 +98,8 @@ class Solution:
             ans = max(ans, j - i + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -133,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func lengthOfLongestSubstring(s string) (ans int) {
 	ss := [128]bool{}
@@ -148,6 +156,8 @@ func lengthOfLongestSubstring(s string) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function lengthOfLongestSubstring(s: string): number {
     let ans = 0;
@@ -162,6 +172,8 @@ function lengthOfLongestSubstring(s: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -187,6 +199,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} s
@@ -206,6 +220,8 @@ var lengthOfLongestSubstring = function (s) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int LengthOfLongestSubstring(string s) {
@@ -222,6 +238,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -244,6 +262,8 @@ class Solution {
 }
 ```
 
+#### Swift
+
 ```swift
 class Solution {
     func lengthOfLongestSubstring(_ s: String) -> Int {
@@ -265,6 +285,8 @@ class Solution {
     }
 }
 ```
+
+#### Nim
 
 ```nim
 proc lengthOfLongestSubstring(s: string): int =

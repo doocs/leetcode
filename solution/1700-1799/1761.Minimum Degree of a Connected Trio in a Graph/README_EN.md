@@ -68,6 +68,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minTrioDegree(self, n: int, edges: List[List[int]]) -> int:
@@ -87,6 +89,8 @@ class Solution:
                             ans = min(ans, deg[i] + deg[j] + deg[k] - 6)
         return -1 if ans == inf else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -146,6 +152,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minTrioDegree(n int, edges [][]int) int {
@@ -178,6 +186,8 @@ func minTrioDegree(n int, edges [][]int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minTrioDegree(n: number, edges: number[][]): number {

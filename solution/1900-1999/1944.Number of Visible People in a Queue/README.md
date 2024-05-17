@@ -88,6 +88,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canSeePersonsCount(self, heights: List[int]) -> List[int]:
@@ -103,6 +105,8 @@ class Solution:
             stk.append(heights[i])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +128,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -147,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canSeePersonsCount(heights []int) []int {
 	n := len(heights)
@@ -166,6 +174,8 @@ func canSeePersonsCount(heights []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canSeePersonsCount(heights: number[]): number[] {
     const n = heights.length;
@@ -184,6 +194,8 @@ function canSeePersonsCount(heights: number[]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -205,6 +217,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**

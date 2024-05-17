@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestCycle(self, edges: List[int]) -> int:
@@ -102,6 +104,8 @@ class Solution:
             ans = max(ans, m - k)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +137,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -166,6 +172,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestCycle(edges []int) int {
 	vis := make([]bool, len(edges))
@@ -193,6 +201,8 @@ func longestCycle(edges []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestCycle(edges: number[]): number {

@@ -47,6 +47,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.20.T9/README.md
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getValidT9Words(self, num: str, words: List[str]) -> List[str]:
@@ -57,12 +59,16 @@ class Solution:
         return [w for w in words if check(w)]
 ```
 
+#### Python3
+
 ```python
 class Solution:
     def getValidT9Words(self, num: str, words: List[str]) -> List[str]:
         trans = str.maketrans(ascii_lowercase, "22233344455566677778889999")
         return [w for w in words if w.translate(trans) == num]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +97,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -118,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getValidT9Words(num string, words []string) (ans []string) {
 	s := "22233344455566677778889999"
@@ -140,6 +150,8 @@ func getValidT9Words(num string, words []string) (ans []string) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getValidT9Words(num: string, words: string[]): string[] {
@@ -165,6 +177,8 @@ function getValidT9Words(num: string, words: string[]): string[] {
     return ans;
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

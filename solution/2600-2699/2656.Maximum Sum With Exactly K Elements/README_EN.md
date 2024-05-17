@@ -88,12 +88,16 @@ Time complexity is $O(n)$, where $n$ is the length of the array. Space complexit
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximizeSum(self, nums: List[int], k: int) -> int:
         x = max(nums)
         return k * x + k * (k - 1) // 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -117,6 +123,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximizeSum(nums []int, k int) int {
 	x := slices.Max(nums)
@@ -124,12 +132,16 @@ func maximizeSum(nums []int, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximizeSum(nums: number[], k: number): number {
     const x = Math.max(...nums);
     return k * x + (k * (k - 1)) / 2;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -156,6 +168,8 @@ impl Solution {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {

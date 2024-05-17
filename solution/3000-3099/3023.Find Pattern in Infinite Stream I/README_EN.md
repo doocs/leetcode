@@ -81,6 +81,8 @@ The time complexity is $O(n + m)$, where $n$ and $m$ are the number of elements 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for an infinite stream.
 # class InfiniteStream:
@@ -110,6 +112,8 @@ class Solution:
             if i >= m and a == x and b == y:
                 return i - m
 ```
+
+#### Java
 
 ```java
 /**
@@ -147,6 +151,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -186,6 +192,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**

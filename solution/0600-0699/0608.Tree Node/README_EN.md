@@ -112,6 +112,8 @@ We can use the `CASE WHEN` conditional statement to determine the type of each n
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT

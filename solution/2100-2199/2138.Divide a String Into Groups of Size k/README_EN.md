@@ -75,11 +75,15 @@ Thus, the 4 groups formed are &quot;abc&quot;, &quot;def&quot;, &quot;ghi&quot;,
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def divideString(self, s: str, k: int, fill: str) -> List[str]:
         return [s[i : i + k].ljust(k, fill) for i in range(0, len(s), k)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +101,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -110,6 +116,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func divideString(s string, k int, fill byte) []string {

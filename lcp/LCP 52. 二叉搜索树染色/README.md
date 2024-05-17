@@ -79,6 +79,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2052.%20%E4%BA%8C%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -109,6 +111,8 @@ class Solution:
                 ans += t == 1
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -150,6 +154,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -188,6 +194,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -221,6 +229,8 @@ func getNumber(root *TreeNode, ops [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

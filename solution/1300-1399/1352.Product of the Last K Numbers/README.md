@@ -92,6 +92,8 @@ productOfNumbers.getProduct(2); // 返回 32 。最后 2 个数字的乘积是 4
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class ProductOfNumbers:
     def __init__(self):
@@ -112,6 +114,8 @@ class ProductOfNumbers:
 # obj.add(num)
 # param_2 = obj.getProduct(k)
 ```
+
+#### Java
 
 ```java
 class ProductOfNumbers {
@@ -143,6 +147,8 @@ class ProductOfNumbers {
  * int param_2 = obj.getProduct(k);
  */
 ```
+
+#### C++
 
 ```cpp
 class ProductOfNumbers {
@@ -176,6 +182,8 @@ private:
  * int param_2 = obj->getProduct(k);
  */
 ```
+
+#### Go
 
 ```go
 type ProductOfNumbers struct {

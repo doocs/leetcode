@@ -77,6 +77,8 @@ Although we have two 1s in the input, we should only return the number of <stron
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findPairs(self, nums: List[int], k: int) -> int:
@@ -89,6 +91,8 @@ class Solution:
             vis.add(v)
         return len(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +130,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findPairs(nums []int, k int) int {
@@ -141,6 +149,8 @@ func findPairs(nums []int, k int) int {
 	return len(ans)
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

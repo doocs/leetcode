@@ -81,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def rearrangeString(self, s: str, k: int) -> str:
@@ -99,6 +101,8 @@ class Solution:
                     heappush(h, (-w, c))
         return "" if len(ans) != len(s) else "".join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +137,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -160,6 +166,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func rearrangeString(s string, k int) string {

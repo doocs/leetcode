@@ -71,6 +71,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def shortestPath(self, grid: List[List[int]], k: int) -> int:
@@ -97,6 +99,8 @@ class Solution:
                             vis.add((x, y, k - 1))
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -140,6 +144,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -177,6 +183,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func shortestPath(grid [][]int, k int) int {

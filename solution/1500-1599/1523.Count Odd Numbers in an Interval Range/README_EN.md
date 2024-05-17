@@ -62,11 +62,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countOdds(self, low: int, high: int) -> int:
         return ((high + 1) >> 1) - (low >> 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -75,6 +79,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -85,17 +91,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countOdds(low int, high int) int {
 	return ((high + 1) >> 1) - (low >> 1)
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countOdds(low: number, high: number): number {
     return ((high + 1) >> 1) - (low >> 1);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -104,6 +116,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -117,6 +131,8 @@ class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int countOdds(int low, int high) {

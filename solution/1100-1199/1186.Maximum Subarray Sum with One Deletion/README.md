@@ -75,6 +75,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumSum(self, arr: List[int]) -> int:
@@ -94,6 +96,8 @@ class Solution:
             ans = max(ans, left[i - 1] + right[i + 1])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -143,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumSum(arr []int) int {
 	n := len(arr)
@@ -163,6 +171,8 @@ func maximumSum(arr []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumSum(arr: number[]): number {

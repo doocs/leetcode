@@ -56,6 +56,8 @@ The time complexity is $O(2^n)$, and the space complexity is $O(n)$. Here, $n$ i
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def hanota(self, A: List[int], B: List[int], C: List[int]) -> None:
@@ -69,6 +71,8 @@ class Solution:
 
         dfs(len(A), A, B, C)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +91,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -108,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hanota(A []int, B []int, C []int) []int {
 	var dfs func(n int, a, b, c *[]int)
@@ -127,6 +135,8 @@ func hanota(A []int, B []int, C []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  Do not return anything, modify C in-place instead.
@@ -144,6 +154,8 @@ function hanota(A: number[], B: number[], C: number[]): void {
     dfs(A.length, A, B, C);
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -189,6 +201,8 @@ The time complexity is $O(2^n)$, and the space complexity is $O(n)$. Here, $n$ i
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def hanota(self, A: List[int], B: List[int], C: List[int]) -> None:
@@ -202,6 +216,8 @@ class Solution:
                 stk.append((1, a, b, c))
                 stk.append((n - 1, a, c, b))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -240,6 +256,8 @@ class Task {
 }
 ```
 
+#### C++
+
 ```cpp
 struct Task {
     int n;
@@ -269,6 +287,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hanota(A []int, B []int, C []int) []int {
 	stk := []Task{{len(A), &A, &B, &C}}
@@ -292,6 +312,8 @@ type Task struct {
 	a, b, c *[]int
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

@@ -88,6 +88,8 @@ The time complexity is $O(n^2 \times \log n)$, and the space complexity is $O(n^
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumCost(
@@ -109,6 +111,8 @@ class Solution:
                 heappush(q, (d + dist(x, y, x1, y1) + cost, x2, y2))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -142,6 +146,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -172,6 +178,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumCost(start []int, target []int, specialRoads [][]int) int {
@@ -218,6 +226,8 @@ func (h hp) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
 func (h *hp) Push(v any)        { *h = append(*h, v.(tuple)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumCost(start: number[], target: number[], specialRoads: number[][]): number {

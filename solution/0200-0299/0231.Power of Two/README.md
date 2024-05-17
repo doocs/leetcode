@@ -71,11 +71,15 @@ $\texttt{n\&(n-1)}$ 可将最后一个二进制形式的 $n$ 的最后一位 $1$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isPowerOfTwo(self, n: int) -> bool:
         return n > 0 and (n & (n - 1)) == 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -84,6 +88,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -94,17 +100,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isPowerOfTwo(n int) bool {
 	return n > 0 && (n&(n-1)) == 0
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isPowerOfTwo(n: number): boolean {
     return n > 0 && (n & (n - 1)) === 0;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -130,11 +142,15 @@ $\texttt{n\&(-n)}$ 可以得到 $n$ 的最后一位 $1$ 表示的十进制数，
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isPowerOfTwo(self, n: int) -> bool:
         return n > 0 and n == n & (-n)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -143,6 +159,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -153,17 +171,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isPowerOfTwo(n int) bool {
 	return n > 0 && n == (n&(-n))
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isPowerOfTwo(n: number): boolean {
     return n > 0 && (n & (n - 1)) === 0;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

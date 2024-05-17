@@ -72,6 +72,8 @@ No three consecutive characters are equal, so return &quot;aabaa&quot;.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def makeFancyString(self, s: str) -> str:
@@ -82,6 +84,8 @@ class Solution:
             ans.append(c)
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +103,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -114,6 +120,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func makeFancyString(s string) string {
 	ans := []rune{}
@@ -127,6 +135,8 @@ func makeFancyString(s string) string {
 	return string(ans)
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

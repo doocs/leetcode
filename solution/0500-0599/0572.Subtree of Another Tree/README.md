@@ -65,6 +65,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -93,6 +95,8 @@ class Solution:
             or self.isSubtree(root.right, subRoot)
         )
 ```
+
+#### Java
 
 ```java
 /**
@@ -132,6 +136,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -159,6 +165,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -185,6 +193,8 @@ func isSubtree(root *TreeNode, subRoot *TreeNode) bool {
 	return dfs(root, subRoot) || isSubtree(root.Left, subRoot) || isSubtree(root.Right, subRoot)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -218,6 +228,8 @@ function isSubtree(root: TreeNode | null, subRoot: TreeNode | null): boolean {
     return dfs(root, subRoot) || isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -275,6 +287,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

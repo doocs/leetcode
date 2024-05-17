@@ -103,6 +103,8 @@ Then, we join the `Project` table and the `Employees` table again, and also join
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH
@@ -125,6 +127,8 @@ FROM
 WHERE workload > avg_workload
 ORDER BY 1, 2;
 ```
+
+#### Python3
 
 ```python
 import pandas as pd

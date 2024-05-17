@@ -64,6 +64,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isOneBitCharacter(self, bits: List[int]) -> bool:
@@ -72,6 +74,8 @@ class Solution:
             i += bits[i] + 1
         return i == n - 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +89,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -96,6 +102,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isOneBitCharacter(bits []int) bool {
 	i, n := 0, len(bits)
@@ -105,6 +113,8 @@ func isOneBitCharacter(bits []int) bool {
 	return i == n-1
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

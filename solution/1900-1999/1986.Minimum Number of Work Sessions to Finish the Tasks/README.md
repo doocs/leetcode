@@ -94,6 +94,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minSessions(self, tasks: List[int], sessionTime: int) -> int:
@@ -112,6 +114,8 @@ class Solution:
                 j = (j - 1) & i
         return f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -141,6 +145,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -173,6 +179,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minSessions(tasks []int, sessionTime int) int {
 	n := len(tasks)
@@ -198,6 +206,8 @@ func minSessions(tasks []int, sessionTime int) int {
 	return f[1<<n-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minSessions(tasks: number[], sessionTime: number): number {

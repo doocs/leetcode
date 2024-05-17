@@ -72,6 +72,8 @@ The time complexity is $O(n \times \log n)$, where $n$ is the length of `feature
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sortFeatures(self, features: List[str], responses: List[str]) -> List[str]:
@@ -81,6 +83,8 @@ class Solution:
                 cnt[w] += 1
         return sorted(features, key=lambda w: -cnt[w])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -145,6 +151,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sortFeatures(features []string, responses []string) []string {
 	cnt := map[string]int{}
@@ -161,6 +169,8 @@ func sortFeatures(features []string, responses []string) []string {
 	return features
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sortFeatures(features: string[], responses: string[]): string[] {

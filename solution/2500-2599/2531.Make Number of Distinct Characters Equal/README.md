@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isItPossible(self, word1: str, word2: str) -> bool:
@@ -100,6 +102,8 @@ class Solution:
                     cnt1[j], cnt2[i] = cnt1[j] - 1, cnt2[i] - 1
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -143,6 +147,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -185,6 +191,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isItPossible(word1 string, word2 string) bool {

@@ -74,6 +74,8 @@ The time complexity is $O(\log x)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minEnd(self, n: int, x: int) -> int:
@@ -86,6 +88,8 @@ class Solution:
         ans |= n << 31
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minEnd(n int, x int) (ans int64) {
 	n--
@@ -136,6 +144,8 @@ func minEnd(n int, x int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minEnd(n: number, x: number): number {

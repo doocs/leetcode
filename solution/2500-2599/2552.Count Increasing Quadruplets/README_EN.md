@@ -81,6 +81,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Where $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countQuadruplets(self, nums: List[int]) -> int:
@@ -105,6 +107,8 @@ class Solution:
             f[j][k] * g[j][k] for j in range(1, n - 2) for k in range(j + 1, n - 1)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -148,6 +152,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 const int N = 4001;
@@ -196,6 +202,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countQuadruplets(nums []int) int64 {

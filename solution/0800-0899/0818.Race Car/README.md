@@ -86,6 +86,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def racecar(self, target: int) -> int:
@@ -100,6 +102,8 @@ class Solution:
                 dp[i] = min(dp[i], dp[i - (2 ** (k - 1) - 2**j)] + k - 1 + j + 2)
         return dp[target]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -141,6 +147,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func racecar(target int) int {

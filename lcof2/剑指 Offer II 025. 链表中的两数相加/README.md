@@ -68,6 +68,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -92,6 +94,8 @@ class Solution:
             carry //= 10
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -126,6 +130,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -164,6 +170,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**

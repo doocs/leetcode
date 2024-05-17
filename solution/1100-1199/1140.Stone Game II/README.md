@@ -83,6 +83,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def stoneGameII(self, piles: List[int]) -> int:
@@ -98,6 +100,8 @@ class Solution:
         s = list(accumulate(piles, initial=0))
         return dfs(0, 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -161,6 +167,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func stoneGameII(piles []int) int {
 	n := len(piles)
@@ -187,6 +195,8 @@ func stoneGameII(piles []int) int {
 	return dfs(0, 1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function stoneGameII(piles: number[]): number {
@@ -222,6 +232,8 @@ function stoneGameII(piles: number[]): number {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

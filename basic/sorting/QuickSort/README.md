@@ -66,6 +66,8 @@ void quickSort(int[] nums, int left, int right) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 N = int(input())
 nums = list(map(int, input().split()))
@@ -94,6 +96,8 @@ def quick_sort(nums, left, right):
 quick_sort(nums, 0, N - 1)
 print(' '.join(list(map(str, nums))))
 ```
+
+#### Java
 
 ```java
 import java.util.Scanner;
@@ -135,6 +139,8 @@ public class Main {
 }
 ```
 
+#### C++
+
 ```cpp
 #include <iostream>
 
@@ -168,6 +174,8 @@ int main() {
     for (int i = 0; i < n; ++i) printf("%d ", nums[i]);
 }
 ```
+
+#### Go
 
 ```go
 package main
@@ -216,6 +224,8 @@ func main() {
 	}
 }
 ```
+
+#### Rust
 
 ```rust
 use rand::Rng; // 0.7.2
@@ -270,6 +280,8 @@ fn main() -> io::Result<()> {
     Ok(())
 }
 ```
+
+#### JavaScript
 
 ```js
 var buf = '';

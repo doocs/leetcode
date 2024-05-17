@@ -76,6 +76,8 @@ After move 5: [[1,2,3],[4,5,0]]
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def slidingPuzzle(self, board: List[List[int]]) -> int:
@@ -123,6 +125,8 @@ class Solution:
                         q.append(y)
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -213,6 +217,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -298,6 +304,8 @@ public:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def slidingPuzzle(self, board: List[List[int]]) -> int:
@@ -346,6 +354,8 @@ class Solution:
                         heappush(q, (dist[next] + f(next), next))
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -430,6 +440,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {

@@ -114,6 +114,8 @@ We can use a left join to join the `Users` table with the `Rides` table on the c
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT name, IFNULL(SUM(distance), 0) AS travelled_distance

@@ -68,6 +68,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
@@ -84,6 +86,8 @@ class Solution:
                     dp[i][j - nums[i] + 1000] += dp[i - 1][j + 1000]
         return dp[n - 1][target + 1000]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +136,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findTargetSumWays(nums []int, target int) int {
@@ -165,6 +173,8 @@ func findTargetSumWays(nums []int, target int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
@@ -182,6 +192,8 @@ class Solution:
                     dp[i][j] += dp[i - 1][j - nums[i - 1]]
         return dp[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -205,6 +217,8 @@ class Solution {
     }
 }
 ```
+
+#### Go
 
 ```go
 func findTargetSumWays(nums []int, target int) int {
@@ -237,6 +251,8 @@ func findTargetSumWays(nums []int, target int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
@@ -262,6 +278,8 @@ class Solution:
 ### 方法四
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

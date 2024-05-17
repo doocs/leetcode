@@ -66,6 +66,8 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Where
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countComponents(self, n: int, edges: List[List[int]]) -> int:
@@ -84,6 +86,8 @@ class Solution:
         vis = set()
         return sum(dfs(i) for i in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -149,6 +155,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countComponents(n int, edges [][]int) (ans int) {
 	g := make([][]int, n)
@@ -176,6 +184,8 @@ func countComponents(n int, edges [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countComponents(n: number, edges: number[][]): number {
     const g: number[][] = Array.from({ length: n }, () => []);
@@ -197,6 +207,8 @@ function countComponents(n: number, edges: number[][]): number {
     return g.reduce((acc, _, i) => acc + dfs(i), 0);
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -243,6 +255,8 @@ The time complexity is $O(n + m \times \alpha(n))$, and the space complexity is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class UnionFind:
     def __init__(self, n):
@@ -274,6 +288,8 @@ class Solution:
             n -= uf.union(a, b)
         return n
 ```
+
+#### Java
 
 ```java
 class UnionFind {
@@ -323,6 +339,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class UnionFind {
 public:
@@ -369,6 +387,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type unionFind struct {
@@ -417,6 +437,8 @@ func countComponents(n int, edges [][]int) int {
 	return n
 }
 ```
+
+#### TypeScript
 
 ```ts
 class UnionFind {

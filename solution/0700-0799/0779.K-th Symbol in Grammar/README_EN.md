@@ -73,6 +73,8 @@ row 2: 0<u>1</u>
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def kthGrammar(self, n: int, k: int) -> int:
@@ -82,6 +84,8 @@ class Solution:
             return self.kthGrammar(n - 1, k)
         return self.kthGrammar(n - 1, k - (1 << (n - 2))) ^ 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +101,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -107,6 +113,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func kthGrammar(n int, k int) int {
@@ -130,11 +138,15 @@ func kthGrammar(n int, k int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def kthGrammar(self, n: int, k: int) -> int:
         return (k - 1).bit_count() & 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -144,6 +156,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -152,6 +166,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func kthGrammar(n int, k int) int {

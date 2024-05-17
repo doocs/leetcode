@@ -67,6 +67,8 @@ Note that &quot;ea&quot; is not a valid string since &#39;e&#39; comes after &#3
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countVowelStrings(self, n: int) -> int:
@@ -76,6 +78,8 @@ class Solution:
 
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -127,6 +133,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countVowelStrings(n int) int {
@@ -160,6 +168,8 @@ func countVowelStrings(n int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countVowelStrings(self, n: int) -> int:
@@ -171,6 +181,8 @@ class Solution:
                 f[j] = s
         return sum(f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -188,6 +200,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -204,6 +218,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countVowelStrings(n int) (ans int) {

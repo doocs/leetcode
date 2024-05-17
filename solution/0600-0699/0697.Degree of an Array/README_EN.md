@@ -62,6 +62,8 @@ So [2,2,3,1,4,2] is the shortest subarray, therefore returning 6.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findShortestSubArray(self, nums: List[int]) -> int:
@@ -80,6 +82,8 @@ class Solution:
                     ans = t
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -140,6 +146,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findShortestSubArray(nums []int) int {
@@ -179,6 +187,8 @@ func findShortestSubArray(nums []int) int {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Go
 
 ```go
 func findShortestSubArray(nums []int) (ans int) {

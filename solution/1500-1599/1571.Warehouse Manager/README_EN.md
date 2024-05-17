@@ -114,6 +114,8 @@ We can use an inner join to join the `Warehouse` table and the `Products` table 
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT

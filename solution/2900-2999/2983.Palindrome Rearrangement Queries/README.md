@@ -130,6 +130,8 @@ a<sub>0</sub> = 1, b<sub>0</sub> = 2, c<sub>0</sub> = 4, d<sub>0</sub> = 5.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canMakePalindromeQueries(self, s: str, queries: List[List[int]]) -> List[bool]:
@@ -185,6 +187,8 @@ class Solution:
             ans.append(ok)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -252,6 +256,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -324,6 +330,8 @@ private:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canMakePalindromeQueries(s string, queries [][]int) (ans []bool) {
@@ -406,6 +414,8 @@ func reverse(s string) string {
 	return string(runes)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canMakePalindromeQueries(s: string, queries: number[][]): boolean[] {

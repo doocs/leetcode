@@ -108,6 +108,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCost(self, grid: List[List[int]]) -> int:
@@ -131,6 +133,8 @@ class Solution:
                         q.append((x, y, d + 1))
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -166,6 +170,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -196,6 +202,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minCost(grid [][]int) int {
@@ -233,6 +241,8 @@ func minCost(grid [][]int) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minCost(grid: number[][]): number {

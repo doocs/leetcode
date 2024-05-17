@@ -89,6 +89,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, k: int) -> int:
@@ -99,6 +101,8 @@ class Solution:
             ans = min(ans, a + b)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +117,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -129,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minOperations(k int) int {
 	ans := k
@@ -140,6 +148,8 @@ func minOperations(k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minOperations(k: number): number {

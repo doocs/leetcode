@@ -80,6 +80,8 @@ The time complexity is $O((m + n) \times 3^{2m})$, and the space complexity is $
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def colorTheGrid(self, m: int, n: int) -> int:
@@ -116,6 +118,8 @@ class Solution:
             f = g
         return sum(f) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -182,6 +186,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -244,6 +250,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func colorTheGrid(m int, n int) (ans int) {
 	f1 := func(x int) bool {
@@ -300,6 +308,8 @@ func colorTheGrid(m int, n int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function colorTheGrid(m: number, n: number): number {

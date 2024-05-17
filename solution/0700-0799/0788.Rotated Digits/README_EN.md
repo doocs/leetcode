@@ -71,6 +71,8 @@ Note that 1 and 10 are not good numbers, since they remain unchanged after rotat
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def rotatedDigits(self, n: int) -> int:
@@ -89,6 +91,8 @@ class Solution:
         d = [0, 1, 5, -1, -1, 2, 9, -1, 8, 6]
         return sum(check(i) for i in range(1, n + 1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -150,6 +156,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func rotatedDigits(n int) int {
@@ -187,6 +195,8 @@ func rotatedDigits(n int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def rotatedDigits(self, n: int) -> int:
@@ -211,6 +221,8 @@ class Solution:
             l += 1
         return dfs(l, 0, True)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -254,6 +266,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -294,6 +308,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func rotatedDigits(n int) int {

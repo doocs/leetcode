@@ -90,6 +90,8 @@ Hence, there are a total of (6 * 2) + (3 * 1) = 12 + 3 = 15 ways to decode &quot
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numDecodings(self, s: str) -> int:
@@ -131,6 +133,8 @@ class Solution:
 
         return c
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -182,6 +186,8 @@ class Solution {
     }
 }
 ```
+
+#### Go
 
 ```go
 const mod int = 1e9 + 7

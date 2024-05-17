@@ -71,6 +71,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isPossibleDivide(self, nums: List[int], k: int) -> bool:
@@ -85,6 +87,8 @@ class Solution:
                         cnt.pop(x)
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -135,6 +141,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isPossibleDivide(nums []int, k int) bool {
@@ -170,6 +178,8 @@ func isPossibleDivide(nums []int, k int) bool {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedDict
 
@@ -195,6 +205,8 @@ class Solution:
                     sd[i] -= 1
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -224,6 +236,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -245,6 +259,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isPossibleDivide(nums []int, k int) bool {

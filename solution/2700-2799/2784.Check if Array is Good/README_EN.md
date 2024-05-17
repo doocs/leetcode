@@ -86,6 +86,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isGood(self, nums: List[int]) -> bool:
@@ -93,6 +95,8 @@ class Solution:
         n = len(nums) - 1
         return cnt[n] == 2 and all(cnt[i] for i in range(1, n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -137,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isGood(nums []int) bool {
 	n := len(nums) - 1
@@ -156,6 +164,8 @@ func isGood(nums []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isGood(nums: number[]): boolean {
     const n = nums.length - 1;
@@ -174,6 +184,8 @@ function isGood(nums: number[]): boolean {
     return true;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

@@ -78,12 +78,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def flipgame(self, fronts: List[int], backs: List[int]) -> int:
         s = {a for a, b in zip(fronts, backs) if a == b}
         return min((x for x in chain(fronts, backs) if x not in s), default=0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -138,6 +144,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func flipgame(fronts []int, backs []int) int {
 	s := map[int]struct{}{}
@@ -160,6 +168,8 @@ func flipgame(fronts []int, backs []int) int {
 	return ans % 9999
 }
 ```
+
+#### TypeScript
 
 ```ts
 function flipgame(fronts: number[], backs: number[]): number {
@@ -184,6 +194,8 @@ function flipgame(fronts: number[], backs: number[]): number {
     return ans % 9999;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

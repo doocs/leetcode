@@ -74,6 +74,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canCross(self, stones: List[int]) -> bool:
@@ -90,6 +92,8 @@ class Solution:
         pos = {s: i for i, s in enumerate(stones)}
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +132,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -157,6 +163,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canCross(stones []int) bool {
@@ -195,6 +203,8 @@ func canCross(stones []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canCross(stones: number[]): boolean {
     const n = stones.length;
@@ -224,6 +234,8 @@ function canCross(stones: number[]): boolean {
     return dfs(0, 0);
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -294,6 +306,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canCross(self, stones: List[int]) -> bool:
@@ -310,6 +324,8 @@ class Solution:
                     return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -333,6 +349,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -359,6 +377,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canCross(stones []int) bool {
 	n := len(stones)
@@ -383,6 +403,8 @@ func canCross(stones []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canCross(stones: number[]): boolean {
     const n = stones.length;
@@ -403,6 +425,8 @@ function canCross(stones: number[]): boolean {
     return false;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

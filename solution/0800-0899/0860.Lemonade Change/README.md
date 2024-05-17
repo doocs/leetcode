@@ -81,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def lemonadeChange(self, bills: List[int]) -> bool:
@@ -101,6 +103,8 @@ class Solution:
                 return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -159,6 +165,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func lemonadeChange(bills []int) bool {
 	five, ten := 0, 0
@@ -183,6 +191,8 @@ func lemonadeChange(bills []int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function lemonadeChange(bills: number[]): boolean {
@@ -213,6 +223,8 @@ function lemonadeChange(bills: number[]): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

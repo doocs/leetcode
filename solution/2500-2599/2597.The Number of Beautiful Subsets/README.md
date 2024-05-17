@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def beautifulSubsets(self, nums: List[int], k: int) -> int:
@@ -96,6 +98,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +132,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -156,6 +162,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func beautifulSubsets(nums []int, k int) int {
 	ans := -1
@@ -180,6 +188,8 @@ func beautifulSubsets(nums []int, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function beautifulSubsets(nums: number[], k: number): number {

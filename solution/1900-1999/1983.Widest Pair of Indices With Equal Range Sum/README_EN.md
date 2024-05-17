@@ -88,6 +88,8 @@ The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def widestPairOfIndices(self, nums1: List[int], nums2: List[int]) -> int:
@@ -101,6 +103,8 @@ class Solution:
                 d[s] = i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -144,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func widestPairOfIndices(nums1 []int, nums2 []int) (ans int) {
 	d := map[int]int{0: -1}
@@ -159,6 +167,8 @@ func widestPairOfIndices(nums1 []int, nums2 []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function widestPairOfIndices(nums1: number[], nums2: number[]): number {

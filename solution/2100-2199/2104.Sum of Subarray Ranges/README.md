@@ -94,6 +94,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def subArrayRanges(self, nums: List[int]) -> int:
@@ -106,6 +108,8 @@ class Solution:
                 ans += mx - mi
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +128,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -144,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subArrayRanges(nums []int) int64 {
 	var ans int64
@@ -159,6 +167,8 @@ func subArrayRanges(nums []int) int64 {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function subArrayRanges(nums: number[]): number {
@@ -176,6 +186,8 @@ function subArrayRanges(nums: number[]): number {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -218,6 +230,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def subArrayRanges(self, nums: List[int]) -> int:
@@ -245,6 +259,8 @@ class Solution:
         mi = f([-v for v in nums])
         return mx + mi
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -292,6 +308,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -326,6 +344,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func subArrayRanges(nums []int) int64 {

@@ -91,6 +91,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkWays(self, pairs: List[List[int]]) -> int:
@@ -125,6 +127,8 @@ class Solution:
             return 0
         return 2 if equal else 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -176,6 +180,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -218,6 +224,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func checkWays(pairs [][]int) int {

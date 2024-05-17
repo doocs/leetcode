@@ -88,6 +88,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxPotholes(self, road: str, budget: int) -> int:
@@ -113,6 +115,8 @@ class Solution:
             cnt[k - 1] += cnt[k] - t
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -140,6 +144,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -169,6 +175,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxPotholes(road string, budget int) (ans int) {
 	road += "."
@@ -192,6 +200,8 @@ func maxPotholes(road string, budget int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxPotholes(road: string, budget: number): number {
@@ -217,6 +227,8 @@ function maxPotholes(road: string, budget: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -253,6 +265,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

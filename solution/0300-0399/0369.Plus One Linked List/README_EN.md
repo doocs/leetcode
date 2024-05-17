@@ -48,6 +48,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -69,6 +71,8 @@ class Solution:
             target = target.next
         return dummy if dummy.val else dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -102,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -132,6 +138,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**

@@ -97,6 +97,8 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(m \times 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numWays(self, words: List[str], target: str) -> int:
@@ -118,6 +120,8 @@ class Solution:
         mod = 10**9 + 7
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -160,6 +164,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -192,6 +198,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numWays(words []string, target string) int {
@@ -229,6 +237,8 @@ func numWays(words []string, target string) int {
 	return dfs(0, 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numWays(words: string[], target: string): number {
@@ -275,6 +285,8 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(m \times 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numWays(self, words: List[str], target: str) -> int:
@@ -295,6 +307,8 @@ class Solution:
                 f[i][j] %= mod
         return f[m][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -321,6 +335,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -346,6 +362,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numWays(words []string, target string) int {

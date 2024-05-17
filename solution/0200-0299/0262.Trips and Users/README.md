@@ -139,6 +139,8 @@ Users 表：
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 import pandas as pd
 
@@ -184,6 +186,8 @@ def trips_and_users(trips: pd.DataFrame, users: pd.DataFrame) -> pd.DataFrame:
     df["Cancellation Rate"] = (df["total_cancelled"] / df["total"]).round(2)
     return df[["Day", "Cancellation Rate"]]
 ```
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

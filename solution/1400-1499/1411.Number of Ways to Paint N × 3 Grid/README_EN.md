@@ -65,6 +65,8 @@ The time complexity is $O(n)$, where $n$ is the number of rows in the grid. The 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numOfWays(self, n: int) -> int:
@@ -76,6 +78,8 @@ class Solution:
             f0, f1 = g0, g1
         return (f0 + f1) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 using ll = long long;
@@ -112,6 +118,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numOfWays(n int) int {
 	mod := int(1e9) + 7
@@ -125,6 +133,8 @@ func numOfWays(n int) int {
 	return (f0 + f1) % mod
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numOfWays(n: number): number {
@@ -169,6 +179,8 @@ The time complexity is $O((m + n) \times 3^{2m})$, and the space complexity is $
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numOfWays(self, n: int) -> int:
@@ -206,6 +218,8 @@ class Solution:
             f = g
         return sum(f) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -268,6 +282,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -332,6 +348,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numOfWays(n int) (ans int) {
 	f1 := func(x int) bool {
@@ -388,6 +406,8 @@ func numOfWays(n int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numOfWays(n: number): number {

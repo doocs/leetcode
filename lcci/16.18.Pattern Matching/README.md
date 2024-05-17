@@ -59,6 +59,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.18.Pattern%20Match
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def patternMatching(self, pattern: str, value: str) -> bool:
@@ -93,6 +95,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -149,6 +153,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -209,6 +215,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func patternMatching(pattern string, value string) bool {
 	cnt := [2]int{}
@@ -257,6 +265,8 @@ func patternMatching(pattern string, value string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function patternMatching(pattern: string, value: string): boolean {
     const cnt: number[] = [0, 0];
@@ -303,6 +313,8 @@ function patternMatching(pattern: string, value: string): boolean {
     return false;
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

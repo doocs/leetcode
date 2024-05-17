@@ -72,6 +72,8 @@ Time complexity is $O(n \times \log n)$, and space complexity is $O(n)$. Where $
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberGame(self, nums: List[int]) -> List[int]:
@@ -83,6 +85,8 @@ class Solution:
             ans.append(a)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -124,6 +130,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberGame(nums []int) (ans []int) {
@@ -153,6 +161,8 @@ func (h *hp) Push(x interface{}) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numberGame(nums: number[]): number[] {
     const pq = new MinPriorityQueue();
@@ -168,6 +178,8 @@ function numberGame(nums: number[]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::BinaryHeap;
@@ -209,6 +221,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberGame(self, nums: List[int]) -> List[int]:
@@ -217,6 +231,8 @@ class Solution:
             nums[i], nums[i + 1] = nums[i + 1], nums[i]
         return nums
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -232,6 +248,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -246,6 +264,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberGame(nums []int) []int {
 	sort.Ints(nums)
@@ -256,6 +276,8 @@ func numberGame(nums []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numberGame(nums: number[]): number[] {
     nums.sort((a, b) => a - b);
@@ -265,6 +287,8 @@ function numberGame(nums: number[]): number[] {
     return nums;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

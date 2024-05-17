@@ -91,6 +91,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def confusingNumber(self, n: int) -> bool:
@@ -103,6 +105,8 @@ class Solution:
             y = y * 10 + d[v]
         return y != n
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -141,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func confusingNumber(n int) bool {
 	d := []int{0, 1, -1, -1, -1, -1, 9, -1, 8, 6}
@@ -156,6 +164,8 @@ func confusingNumber(n int) bool {
 	return y != n
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

@@ -73,6 +73,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
@@ -83,6 +85,8 @@ class Solution:
             mx = max(mx, i + x)
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -115,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canJump(nums []int) bool {
 	mx := 0
@@ -128,6 +136,8 @@ func canJump(nums []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canJump(nums: number[]): boolean {
     let mx: number = 0;
@@ -140,6 +150,8 @@ function canJump(nums: number[]): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -160,6 +172,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -176,6 +190,8 @@ var canJump = function (nums) {
     return true;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

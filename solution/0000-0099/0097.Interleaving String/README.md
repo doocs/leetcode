@@ -95,6 +95,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isInterleave(self, s1: str, s2: str, s3: str) -> bool:
@@ -114,6 +116,8 @@ class Solution:
             return False
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -158,6 +162,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -189,6 +195,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isInterleave(s1 string, s2 string, s3 string) bool {
 	m, n := len(s1), len(s2)
@@ -212,6 +220,8 @@ func isInterleave(s1 string, s2 string, s3 string) bool {
 	return dfs(0, 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isInterleave(s1: string, s2: string, s3: string): boolean {
@@ -240,6 +250,8 @@ function isInterleave(s1: string, s2: string, s3: string): boolean {
     return dfs(0, 0);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -308,6 +320,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -378,6 +392,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isInterleave(self, s1: str, s2: str, s3: str) -> bool:
@@ -395,6 +411,8 @@ class Solution:
                     f[i][j] |= f[i][j - 1]
         return f[m][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -420,6 +438,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -448,6 +468,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isInterleave(s1 string, s2 string, s3 string) bool {
 	m, n := len(s1), len(s2)
@@ -474,6 +496,8 @@ func isInterleave(s1 string, s2 string, s3 string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isInterleave(s1: string, s2: string, s3: string): boolean {
     const m = s1.length;
@@ -497,6 +521,8 @@ function isInterleave(s1: string, s2: string, s3: string): boolean {
     return f[m][n];
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -529,6 +555,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isInterleave(self, s1: str, s2: str, s3: str) -> bool:
@@ -545,6 +573,8 @@ class Solution:
                     f[j] |= f[j - 1] and s2[j - 1] == s3[k]
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -570,6 +600,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -598,6 +630,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isInterleave(s1 string, s2 string, s3 string) bool {
 	m, n := len(s1), len(s2)
@@ -620,6 +654,8 @@ func isInterleave(s1 string, s2 string, s3 string) bool {
 	return f[n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isInterleave(s1: string, s2: string, s3: string): boolean {
@@ -644,6 +680,8 @@ function isInterleave(s1: string, s2: string, s3: string): boolean {
     return f[n];
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

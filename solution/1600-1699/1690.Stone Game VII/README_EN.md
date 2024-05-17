@@ -82,6 +82,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def stoneGameVII(self, stones: List[int]) -> int:
@@ -98,6 +100,8 @@ class Solution:
         dfs.cache_clear()
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +132,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -156,6 +162,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func stoneGameVII(stones []int) int {
 	n := len(stones)
@@ -181,6 +189,8 @@ func stoneGameVII(stones []int) int {
 	return dfs(0, n-1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function stoneGameVII(stones: number[]): number {
@@ -229,6 +239,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def stoneGameVII(self, stones: List[int]) -> int:
@@ -242,6 +254,8 @@ class Solution:
                 f[i][j] = max(a, b)
         return f[0][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -263,6 +277,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -288,6 +304,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func stoneGameVII(stones []int) int {
 	n := len(stones)
@@ -307,6 +325,8 @@ func stoneGameVII(stones []int) int {
 	return f[0][n-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function stoneGameVII(stones: number[]): number {

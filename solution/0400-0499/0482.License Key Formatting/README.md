@@ -61,6 +61,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def licenseKeyFormatting(self, s: str, k: int) -> str:
@@ -78,6 +80,8 @@ class Solution:
                     res.append('-')
         return ''.join(res)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +138,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func licenseKeyFormatting(s string, k int) string {

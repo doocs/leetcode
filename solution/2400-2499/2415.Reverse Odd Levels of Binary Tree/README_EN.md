@@ -87,6 +87,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -112,6 +114,8 @@ class Solution:
             i += 1
         return root
 ```
+
+#### Java
 
 ```java
 /**
@@ -156,6 +160,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -194,6 +200,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -225,6 +233,8 @@ func reverseOddLevels(root *TreeNode) *TreeNode {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -261,6 +271,8 @@ function reverseOddLevels(root: TreeNode | null): TreeNode | null {
     return root;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.

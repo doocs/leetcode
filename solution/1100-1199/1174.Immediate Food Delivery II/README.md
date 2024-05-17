@@ -85,6 +85,8 @@ Delivery 表：
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT
@@ -109,6 +111,8 @@ WHERE
 我们可以使用 `RANK()` 窗口函数，按照每个用户的订单日期升序排列，获取到每个用户的订单排名，然后我们筛选出排名为 $1$ 的订单，即为首次订单，再计算即时订单的比例。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

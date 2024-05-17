@@ -74,12 +74,16 @@ nums 可取得的最大总分是 -3 。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumSumScore(self, nums: List[int]) -> int:
         s = [0] + list(accumulate(nums))
         return max(max(s[i + 1], s[-1] - s[i]) for i in range(len(nums)))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +102,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -111,6 +117,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumSumScore(nums []int) int64 {
@@ -127,6 +135,8 @@ func maximumSumScore(nums []int) int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumSumScore(nums: number[]): number {
     const n = nums.length;
@@ -141,6 +151,8 @@ function maximumSumScore(nums: number[]): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

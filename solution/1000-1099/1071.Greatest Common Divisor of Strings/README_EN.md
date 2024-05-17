@@ -63,6 +63,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def gcdOfStrings(self, str1: str, str2: str) -> str:
@@ -78,6 +80,8 @@ class Solution:
                 return t
         return ''
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +99,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -105,6 +111,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func gcdOfStrings(str1 string, str2 string) string {
@@ -122,6 +130,8 @@ func gcd(a, b int) int {
 	return gcd(b, a%b)
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -151,6 +161,8 @@ impl Solution {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

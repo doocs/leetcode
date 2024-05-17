@@ -93,6 +93,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def validPartition(self, nums: List[int]) -> bool:
@@ -112,6 +114,8 @@ class Solution:
         n = len(nums)
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -140,6 +144,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -172,6 +178,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 func validPartition(nums []int) bool {
 	n := len(nums)
@@ -199,6 +207,8 @@ func validPartition(nums []int) bool {
 	return dfs(0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function validPartition(nums: number[]): boolean {
@@ -249,6 +259,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def validPartition(self, nums: List[int]) -> bool:
@@ -261,6 +273,8 @@ class Solution:
             f[i] = (a and f[i - 2]) or ((b or c) and f[i - 3])
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -280,6 +294,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -298,6 +314,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func validPartition(nums []int) bool {
 	n := len(nums)
@@ -313,6 +331,8 @@ func validPartition(nums []int) bool {
 	return f[n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function validPartition(nums: number[]): boolean {

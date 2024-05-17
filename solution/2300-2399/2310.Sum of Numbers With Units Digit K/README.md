@@ -90,6 +90,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumNumbers(self, num: int, k: int) -> int:
@@ -100,6 +102,8 @@ class Solution:
                 return i
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -131,6 +137,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumNumbers(num int, k int) int {
@@ -146,6 +154,8 @@ func minimumNumbers(num int, k int) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumNumbers(num: number, k: number): number {
@@ -169,6 +179,8 @@ function minimumNumbers(num: number, k: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumNumbers(self, num: int, k: int) -> int:
@@ -179,6 +191,8 @@ class Solution:
                 return i
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -196,6 +210,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -208,6 +224,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumNumbers(num int, k int) int {
@@ -232,6 +250,8 @@ func minimumNumbers(num int, k int) int {
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

@@ -61,6 +61,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumZero(self, n: int) -> List[int]:
@@ -72,6 +74,8 @@ class Solution:
             ans.append(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +89,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -100,6 +106,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumZero(n int) []int {
 	ans := make([]int, n)
@@ -111,6 +119,8 @@ func sumZero(n int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumZero(n: number): number[] {
@@ -133,6 +143,8 @@ function sumZero(n: number): number[] {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumZero(self, n: int) -> List[int]:
@@ -140,6 +152,8 @@ class Solution:
         ans.append(-sum(ans))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -154,6 +168,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -166,6 +182,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumZero(n int) []int {
 	ans := make([]int, n)
@@ -176,6 +194,8 @@ func sumZero(n int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumZero(n: number): number[] {

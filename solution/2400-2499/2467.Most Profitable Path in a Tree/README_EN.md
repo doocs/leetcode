@@ -114,6 +114,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def mostProfitablePath(
@@ -154,6 +156,8 @@ class Solution:
         dfs2(0, -1, 0, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -213,6 +217,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -258,6 +264,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func mostProfitablePath(edges [][]int, bob int, amount []int) int {

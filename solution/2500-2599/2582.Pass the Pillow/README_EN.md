@@ -67,6 +67,8 @@ The time complexity is $O(time)$ and the space complexity is $O(1)$, where $time
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def passThePillow(self, n: int, time: int) -> int:
@@ -77,6 +79,8 @@ class Solution:
                 k *= -1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -109,6 +115,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func passThePillow(n int, time int) int {
 	ans, k := 1, 1
@@ -121,6 +129,8 @@ func passThePillow(n int, time int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function passThePillow(n: number, time: number): number {
@@ -135,6 +145,8 @@ function passThePillow(n: number, time: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -174,12 +186,16 @@ The time complexity is $O(1)$ and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def passThePillow(self, n: int, time: int) -> int:
         k, mod = divmod(time, n - 1)
         return n - mod if k & 1 else mod + 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -190,6 +206,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -202,6 +220,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func passThePillow(n int, time int) int {
 	k, mod := time/(n-1), time%(n-1)
@@ -212,6 +232,8 @@ func passThePillow(n int, time int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function passThePillow(n: number, time: number): number {
     const k = time / (n - 1);
@@ -219,6 +241,8 @@ function passThePillow(n: number, time: number): number {
     return (k & 1) == 1 ? n - mod : mod + 1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

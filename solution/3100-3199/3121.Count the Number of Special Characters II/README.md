@@ -88,6 +88,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfSpecialChars(self, word: str) -> int:
@@ -101,6 +103,8 @@ class Solution:
             for a, b in zip(ascii_lowercase, ascii_uppercase)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +128,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -149,6 +155,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfSpecialChars(word string) (ans int) {
 	first := make([]int, 'z'+1)
@@ -167,6 +175,8 @@ func numberOfSpecialChars(word string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfSpecialChars(word: string): number {

@@ -70,6 +70,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2007.%20%E4%BC%A0%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numWays(self, n: int, relation: List[List[int]], k: int) -> int:
@@ -80,6 +82,8 @@ class Solution:
                 f[i][b] += f[i - 1][a]
         return f[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +100,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -115,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numWays(n int, relation [][]int, k int) int {
 	f := make([][]int, k+1)
@@ -131,6 +139,8 @@ func numWays(n int, relation [][]int, k int) int {
 	return f[k][n-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numWays(n: number, relation: number[][], k: number): number {
@@ -155,6 +165,8 @@ function numWays(n: number, relation: number[][], k: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numWays(self, n: int, relation: List[List[int]], k: int) -> int:
@@ -166,6 +178,8 @@ class Solution:
             f = g
         return f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -184,6 +198,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -204,6 +220,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numWays(n int, relation [][]int, k int) int {
 	f := make([]int, n)
@@ -219,6 +237,8 @@ func numWays(n int, relation [][]int, k int) int {
 	return f[n-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numWays(n: number, relation: number[][], k: number): number {

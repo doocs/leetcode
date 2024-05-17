@@ -89,6 +89,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minBuildTime(self, blocks: List[int], split: int) -> int:
@@ -98,6 +100,8 @@ class Solution:
             heappush(blocks, heappop(blocks) + split)
         return blocks[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -131,6 +137,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minBuildTime(blocks []int, split int) int {
@@ -156,6 +164,8 @@ func (h *hp) Pop() any {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minBuildTime(blocks: number[], split: number): number {
     const pq = new MinPriorityQueue();
@@ -169,6 +179,8 @@ function minBuildTime(blocks: number[], split: number): number {
     return pq.dequeue()!.element;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::BinaryHeap;

@@ -79,6 +79,8 @@ The time complexity is $O(n \times \log k)$, where $n$ is the length of the arra
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedSet
 
@@ -97,6 +99,8 @@ class Solution:
                 s.remove(nums[i - indexDiff])
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +138,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func containsNearbyAlmostDuplicate(nums []int, k int, t int) bool {
@@ -156,6 +164,8 @@ func containsNearbyAlmostDuplicate(nums []int, k int, t int) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 function containsNearbyAlmostDuplicate(
@@ -817,6 +827,8 @@ class TreeMultiSet<T = number> {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

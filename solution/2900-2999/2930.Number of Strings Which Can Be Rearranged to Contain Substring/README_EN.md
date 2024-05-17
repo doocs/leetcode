@@ -87,6 +87,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def stringCount(self, n: int) -> int:
@@ -103,6 +105,8 @@ class Solution:
         mod = 10**9 + 7
         return dfs(n, 0, 0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -155,6 +161,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func stringCount(n int) int {
@@ -189,6 +197,8 @@ func stringCount(n int) int {
 	return dfs(n, 0, 0, 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function stringCount(n: number): number {
@@ -243,6 +253,8 @@ The time complexity is $O(\log n)$, and the space complexity is $O(1)$. Here, $n
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def stringCount(self, n: int) -> int:
@@ -255,6 +267,8 @@ class Solution:
         tot = pow(26, n, mod)
         return (tot - (a + b + c - ab - ac - bc + abc)) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -285,6 +299,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -314,6 +330,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func stringCount(n int) int {
 	const mod int = 1e9 + 7
@@ -338,6 +356,8 @@ func stringCount(n int) int {
 	return ((tot-(a+b+c-ab-ac-bc+abc))%mod + mod) % mod
 }
 ```
+
+#### TypeScript
 
 ```ts
 function stringCount(n: number): number {

@@ -72,6 +72,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumBoxes(self, apple: List[int], capacity: List[int]) -> int:
@@ -82,6 +84,8 @@ class Solution:
             if s <= 0:
                 return i
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -117,6 +123,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumBoxes(apple []int, capacity []int) int {
 	sort.Ints(capacity)
@@ -132,6 +140,8 @@ func minimumBoxes(apple []int, capacity []int) int {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumBoxes(apple: number[], capacity: number[]): number {

@@ -57,6 +57,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2704.To
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 type ToBeOrNotToBe = {
     toBe: (val: any) => boolean;
@@ -85,6 +87,8 @@ function expect(val: any): ToBeOrNotToBe {
  * expect(5).notToBe(5); // throws "Equal"
  */
 ```
+
+#### JavaScript
 
 ```js
 /**

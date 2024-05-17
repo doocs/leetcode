@@ -75,6 +75,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numTilePossibilities(self, tiles: str) -> int:
@@ -91,6 +93,8 @@ class Solution:
         cnt = Counter(tiles)
         return dfs(cnt)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -142,6 +148,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numTilePossibilities(tiles string) int {
 	cnt := [26]int{}
@@ -163,6 +171,8 @@ func numTilePossibilities(tiles string) int {
 	return dfs(cnt)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numTilePossibilities(tiles: string): number {

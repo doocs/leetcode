@@ -59,6 +59,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findNthDigit(self, n: int) -> int:
@@ -71,6 +73,8 @@ class Solution:
         idx = (n - 1) % k
         return int(str(num)[idx])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +91,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -105,6 +111,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findNthDigit(n int) int {
 	k, cnt := 1, 9
@@ -118,6 +126,8 @@ func findNthDigit(n int) int {
 	return int(strconv.Itoa(num)[idx] - '0')
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -137,6 +147,8 @@ var findNthDigit = function (n) {
     return num.toString()[idx];
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -164,6 +176,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findNthDigit(self, n: int) -> int:
@@ -178,6 +192,8 @@ class Solution:
         x = p + n // k
         return int(str(x)[n % k])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -198,6 +214,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -217,6 +235,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findNthDigit(n int) int {

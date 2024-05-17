@@ -91,6 +91,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxTurbulenceSize(self, arr: List[int]) -> int:
@@ -102,6 +104,8 @@ class Solution:
             ans = max(ans, f, g)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +122,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -136,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxTurbulenceSize(arr []int) int {
 	ans, f, g := 1, 1, 1
@@ -153,6 +161,8 @@ func maxTurbulenceSize(arr []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxTurbulenceSize(arr: number[]): number {

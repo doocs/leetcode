@@ -72,6 +72,8 @@ The time complexity is $O(h \times m)$, where $h = 12$ and $m = 60$. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findLatestTime(self, s: str) -> str:
@@ -81,6 +83,8 @@ class Solution:
                 if all(a == b for a, b in zip(s, t) if a != "?"):
                     return t
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -128,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findLatestTime(s string) string {
 	for h := 11; ; h-- {
@@ -147,6 +155,8 @@ func findLatestTime(s string) string {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findLatestTime(s: string): string {
@@ -187,6 +197,8 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findLatestTime(self, s: str) -> str:
@@ -201,6 +213,8 @@ class Solution:
             s[4] = "9"
         return "".join(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -223,6 +237,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -243,6 +259,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findLatestTime(s string) string {
@@ -270,6 +288,8 @@ func findLatestTime(s string) string {
 	return string(cs)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findLatestTime(s: string): string {

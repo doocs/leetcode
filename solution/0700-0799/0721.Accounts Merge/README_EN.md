@@ -69,6 +69,8 @@ We could return these lists in any order, for example the answer [[&#39;Mary&#39
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def accountsMerge(self, accounts: List[List[str]]) -> List[List[str]]:
@@ -99,6 +101,8 @@ class Solution:
             ans.append(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -150,6 +154,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {

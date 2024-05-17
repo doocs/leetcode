@@ -73,6 +73,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array. Only one tr
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sortColors(self, nums: List[int]) -> None:
@@ -88,6 +90,8 @@ class Solution:
             else:
                 k += 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sortColors(nums []int) {
 	i, j, k := -1, len(nums), 0
@@ -147,6 +155,8 @@ func sortColors(nums []int) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -171,6 +181,8 @@ function sortColors(nums: number[]): void {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn sort_colors(nums: &mut Vec<i32>) {
@@ -192,6 +204,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

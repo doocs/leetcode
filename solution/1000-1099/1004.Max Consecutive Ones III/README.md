@@ -70,6 +70,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestOnes(self, nums: List[int], k: int) -> int:
@@ -85,6 +87,8 @@ class Solution:
             ans = max(ans, i - j + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -129,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestOnes(nums []int, k int) int {
 	ans := 0
@@ -148,6 +156,8 @@ func longestOnes(nums []int, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestOnes(nums: number[], k: number): number {
@@ -186,6 +196,8 @@ function longestOnes(nums: number[], k: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestOnes(self, nums: List[int], k: int) -> int:
@@ -200,6 +212,8 @@ class Solution:
                     k += 1
         return r - l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -218,6 +232,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -231,6 +247,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestOnes(nums []int, k int) int {
@@ -251,6 +269,8 @@ func longestOnes(nums []int, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestOnes(nums: number[], k: number): number {
     const n = nums.length;
@@ -266,6 +286,8 @@ function longestOnes(nums: number[], k: number): number {
     return n - l;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

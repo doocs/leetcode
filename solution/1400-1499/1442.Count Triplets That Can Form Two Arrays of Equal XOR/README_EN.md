@@ -71,6 +71,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countTriplets(self, arr: List[int]) -> int:
@@ -87,6 +89,8 @@ class Solution:
                         ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -133,6 +139,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countTriplets(arr []int) int {

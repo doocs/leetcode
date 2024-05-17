@@ -96,6 +96,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def firstDayBeenInAllRooms(self, nextVisit: List[int]) -> int:
@@ -106,6 +108,8 @@ class Solution:
             f[i] = (f[i - 1] + 1 + f[i - 1] - f[nextVisit[i - 1]] + 1) % mod
         return f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +124,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -136,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func firstDayBeenInAllRooms(nextVisit []int) int {
 	n := len(nextVisit)
@@ -148,6 +156,8 @@ func firstDayBeenInAllRooms(nextVisit []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function firstDayBeenInAllRooms(nextVisit: number[]): number {
     const n = nextVisit.length;
@@ -159,6 +169,8 @@ function firstDayBeenInAllRooms(nextVisit: number[]): number {
     return f[n - 1];
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

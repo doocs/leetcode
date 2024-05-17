@@ -46,11 +46,15 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumNums(self, n: int) -> int:
         return n and (n + self.sumNums(n - 1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -62,6 +66,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -71,6 +77,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func sumNums(n int) int {
@@ -85,11 +93,15 @@ func sumNums(n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 var sumNums = function (n: number): number {
     return n && n + sumNums(n - 1);
 };
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -106,6 +118,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number} n
@@ -115,6 +129,8 @@ var sumNums = function (n) {
     return (n ** 2 + n) >> 1;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

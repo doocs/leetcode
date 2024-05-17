@@ -83,6 +83,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCostClimbingStairs(self, cost: List[int]) -> int:
@@ -92,6 +94,8 @@ class Solution:
             f[i] = min(f[i - 2] + cost[i - 2], f[i - 1] + cost[i - 1])
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -120,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minCostClimbingStairs(cost []int) int {
 	n := len(cost)
@@ -131,6 +139,8 @@ func minCostClimbingStairs(cost []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minCostClimbingStairs(cost: number[]): number {
     const n = cost.length;
@@ -141,6 +151,8 @@ function minCostClimbingStairs(cost: number[]): number {
     return f[n];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -165,6 +177,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCostClimbingStairs(self, cost: List[int]) -> int:
@@ -173,6 +187,8 @@ class Solution:
             f, g = g, min(f + cost[i - 2], g + cost[i - 1])
         return g
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -187,6 +203,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -203,6 +221,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minCostClimbingStairs(cost []int) int {
 	var f, g int
@@ -212,6 +232,8 @@ func minCostClimbingStairs(cost []int) int {
 	return g
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minCostClimbingStairs(cost: number[]): number {
@@ -223,6 +245,8 @@ function minCostClimbingStairs(cost: number[]): number {
     return b;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

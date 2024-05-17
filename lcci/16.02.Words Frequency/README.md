@@ -52,6 +52,8 @@ wordsFrequency.get("pen"); //返回1
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class WordsFrequency:
     def __init__(self, book: List[str]):
@@ -65,6 +67,8 @@ class WordsFrequency:
 # obj = WordsFrequency(book)
 # param_1 = obj.get(word)
 ```
+
+#### Java
 
 ```java
 class WordsFrequency {
@@ -87,6 +91,8 @@ class WordsFrequency {
  * int param_1 = obj.get(word);
  */
 ```
+
+#### C++
 
 ```cpp
 class WordsFrequency {
@@ -112,6 +118,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type WordsFrequency struct {
 	cnt map[string]int
@@ -136,6 +144,8 @@ func (this *WordsFrequency) Get(word string) int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class WordsFrequency {
     private cnt: Map<string, number>;
@@ -159,6 +169,8 @@ class WordsFrequency {
  * var param_1 = obj.get(word)
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -189,6 +201,8 @@ impl WordsFrequency {
  */
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string[]} book
@@ -214,6 +228,8 @@ WordsFrequency.prototype.get = function (word) {
  * var param_1 = obj.get(word)
  */
 ```
+
+#### Swift
 
 ```swift
 class WordsFrequency {

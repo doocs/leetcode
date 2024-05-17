@@ -97,6 +97,8 @@ Product 表：
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT product_id, SUM(quantity) AS total_quantity

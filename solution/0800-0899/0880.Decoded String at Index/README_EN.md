@@ -80,6 +80,8 @@ The time complexity is $O(n)$, where $n$ is the length of the string. The space 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def decodeAtIndex(self, s: str, k: int) -> str:
@@ -98,6 +100,8 @@ class Solution:
             else:
                 m -= 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +128,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -152,6 +158,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func decodeAtIndex(s string, k int) string {
 	m := 0
@@ -175,6 +183,8 @@ func decodeAtIndex(s string, k int) string {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function decodeAtIndex(s: string, k: number): string {

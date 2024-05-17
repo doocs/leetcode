@@ -75,6 +75,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2056.%20%E4%BF%A1%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def conveyorBelt(self, matrix: List[str], start: List[int], end: List[int]) -> int:
@@ -99,6 +101,8 @@ class Solution:
                     else:
                         q.append((x, y))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -140,6 +144,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -178,6 +184,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func conveyorBelt(matrix []string, start []int, end []int) int {
@@ -223,6 +231,8 @@ func conveyorBelt(matrix []string, start []int, end []int) int {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function conveyorBelt(matrix: string[], start: number[], end: number[]): number {

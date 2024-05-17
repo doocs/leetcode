@@ -69,6 +69,8 @@ The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reverseBits(self, n: int) -> int:
@@ -78,6 +80,8 @@ class Solution:
             n >>= 1
         return ans
 ```
+
+#### Java
 
 ```java
 public class Solution {
@@ -93,6 +97,8 @@ public class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -107,6 +113,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func reverseBits(n uint32) (ans uint32) {
 	for i := 0; i < 32; i++ {
@@ -116,6 +124,8 @@ func reverseBits(n uint32) (ans uint32) {
 	return
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -129,6 +139,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

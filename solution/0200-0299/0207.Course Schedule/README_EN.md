@@ -75,6 +75,8 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here,
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
@@ -94,6 +96,8 @@ class Solution:
                     q.append(j)
         return cnt == numCourses
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +130,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -160,6 +166,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canFinish(numCourses int, prerequisites [][]int) bool {
 	g := make([][]int, numCourses)
@@ -191,6 +199,8 @@ func canFinish(numCourses int, prerequisites [][]int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canFinish(numCourses: number, prerequisites: number[][]): boolean {
     const g: number[][] = new Array(numCourses).fill(0).map(() => []);
@@ -218,6 +228,8 @@ function canFinish(numCourses: number, prerequisites: number[][]): boolean {
     return cnt == numCourses;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -268,6 +280,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

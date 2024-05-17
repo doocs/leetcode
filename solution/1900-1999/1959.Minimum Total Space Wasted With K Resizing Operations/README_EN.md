@@ -77,6 +77,8 @@ The total wasted space is (10 - 10) + (20 - 20) + (20 - 15) + (30 - 30) + (30 - 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minSpaceWastedKResizing(self, nums: List[int], k: int) -> int:
@@ -97,6 +99,8 @@ class Solution:
                     f[i][j] = min(f[i][j], f[h][j - 1] + g[h][i - 1])
         return f[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -159,6 +165,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minSpaceWastedKResizing(nums []int, k int) int {

@@ -63,6 +63,8 @@ The time complexity is $O(n \times G(n))$, and the space complexity is $O(n \tim
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -86,6 +88,8 @@ class Solution:
 
         return dfs(1, n)
 ```
+
+#### Java
 
 ```java
 /**
@@ -128,6 +132,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -164,6 +170,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -194,6 +202,8 @@ func generateTrees(n int) []*TreeNode {
 	return dfs(1, n)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -230,6 +240,8 @@ function generateTrees(n: number): Array<TreeNode | null> {
     return dfs(1, n);
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.

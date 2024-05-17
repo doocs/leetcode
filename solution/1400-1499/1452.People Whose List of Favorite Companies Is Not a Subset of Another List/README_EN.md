@@ -73,6 +73,8 @@ Other lists of favorite companies are not a subset of another list, therefore, t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def peopleIndexes(self, favoriteCompanies: List[List[str]]) -> List[int]:
@@ -98,6 +100,8 @@ class Solution:
                 ans.append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -138,6 +142,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -186,6 +192,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func peopleIndexes(favoriteCompanies [][]string) []int {

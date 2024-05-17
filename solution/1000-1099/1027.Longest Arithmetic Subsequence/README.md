@@ -85,6 +85,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestArithSeqLength(self, nums: List[int]) -> int:
@@ -98,6 +100,8 @@ class Solution:
                 ans = max(ans, f[i][j])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -137,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestArithSeqLength(nums []int) int {
 	n := len(nums)
@@ -155,6 +163,8 @@ func longestArithSeqLength(nums []int) int {
 	return ans + 1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestArithSeqLength(nums: number[]): number {

@@ -36,6 +36,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.04.Implement%20Que
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class MyQueue:
     def __init__(self):
@@ -69,6 +71,8 @@ class MyQueue:
 # param_3 = obj.peek()
 # param_4 = obj.empty()
 ```
+
+#### Java
 
 ```java
 class MyQueue {
@@ -114,6 +118,8 @@ class MyQueue {
  * boolean param_4 = obj.empty();
  */
 ```
+
+#### C++
 
 ```cpp
 class MyQueue {
@@ -165,6 +171,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type MyQueue struct {
 	stk1 []int
@@ -214,6 +222,8 @@ func (this *MyQueue) move() {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class MyQueue {
     stk1: number[];
@@ -260,6 +270,8 @@ class MyQueue {
  * var param_4 = obj.empty()
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -311,6 +323,8 @@ impl MyQueue {
  * let ret_4: bool = obj.empty();
  */
 ```
+
+#### Swift
 
 ```swift
 class MyQueue {

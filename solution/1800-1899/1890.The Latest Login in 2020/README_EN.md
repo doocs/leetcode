@@ -83,6 +83,8 @@ We can first filter out the login records in 2020, and then group by `user_id`, 
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT user_id, MAX(time_stamp) AS last_stamp

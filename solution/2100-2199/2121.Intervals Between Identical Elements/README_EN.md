@@ -75,6 +75,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getDistances(self, arr: List[int]) -> List[int]:
@@ -92,6 +94,8 @@ class Solution:
                 ans[p] = val
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -144,6 +150,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getDistances(arr []int) []int64 {

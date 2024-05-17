@@ -101,6 +101,8 @@ We can first group the `MyNumbers` table by `num` and count the number of occurr
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT MAX(num) AS num
@@ -124,6 +126,8 @@ FROM
 Similar to Solution 1, we can first group the `MyNumbers` table by `num` and count the number of occurrences of each number. Then, we can use a `CASE` expression to find the numbers that appear only once, sort them in descending order by number, and take the first one.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

@@ -67,6 +67,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def fairCandySwap(self, aliceSizes: List[int], bobSizes: List[int]) -> List[int]:
@@ -77,6 +79,8 @@ class Solution:
             if target in s:
                 return [a, target]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +128,8 @@ public:
     }
 };
 ```
+
+#### TypeScript
 
 ```ts
 function fairCandySwap(aliceSizes: number[], bobSizes: number[]): number[] {

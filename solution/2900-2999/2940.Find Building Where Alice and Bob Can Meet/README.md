@@ -96,6 +96,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class BinaryIndexedTree:
     __slots__ = ["n", "c"]
@@ -141,6 +143,8 @@ class Solution:
                 ans[i] = tree.query(k)
         return ans
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -208,6 +212,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class BinaryIndexedTree {
@@ -278,6 +284,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 const inf int = 1 << 30
 
@@ -347,6 +355,8 @@ func leftmostBuildingQueries(heights []int, queries [][]int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {

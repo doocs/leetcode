@@ -81,6 +81,8 @@ There is only one node with a twin in the linked list having twin sum of 1 + 100
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -96,6 +98,8 @@ class Solution:
         n = len(s)
         return max(s[i] + s[-(i + 1)] for i in range(n >> 1))
 ```
+
+#### Java
 
 ```java
 /**
@@ -123,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -146,6 +152,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -168,6 +176,8 @@ func pairSum(head *ListNode) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -197,6 +207,8 @@ function pairSum(head: ListNode | null): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -244,6 +256,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -276,6 +290,8 @@ class Solution:
             pb = pb.next
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -322,6 +338,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -370,6 +388,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -407,6 +427,8 @@ func pairSum(head *ListNode) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

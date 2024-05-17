@@ -83,6 +83,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for an infinite stream.
 # class InfiniteStream:
@@ -112,6 +114,8 @@ class Solution:
             if i >= m and a == x and b == y:
                 return i - m
 ```
+
+#### Java
 
 ```java
 /**
@@ -149,6 +153,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -188,6 +194,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**

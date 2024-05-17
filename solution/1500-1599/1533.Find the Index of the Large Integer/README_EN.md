@@ -85,6 +85,8 @@ Notice that we made only 3 calls, so the answer is valid.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # """
 # This is ArrayReader's API interface.
@@ -121,6 +123,8 @@ class Solution:
         return left
 ```
 
+#### Java
+
 ```java
 /**
  * // This is ArrayReader's API interface.
@@ -156,6 +160,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -194,6 +200,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**

@@ -134,6 +134,8 @@ Next, we create a table `P` that includes `week_of_month`, `membership`, and `am
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH RECURSIVE

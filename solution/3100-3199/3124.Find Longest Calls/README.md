@@ -133,6 +133,8 @@ id 是 Calls 表的外键（引用列）。
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 WITH
     T AS (
@@ -156,6 +158,8 @@ FROM T
 WHERE rk <= 3
 ORDER BY 2, 3 DESC, 1 DESC;
 ```
+
+#### Python3
 
 ```python
 import pandas as pd

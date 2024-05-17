@@ -84,6 +84,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 HOLE, MOUSE_START, CAT_START = 0, 1, 2
 MOUSE_TURN, CAT_TURN = 0, 1
@@ -142,6 +144,8 @@ class Solution:
                             q.append(prev_state)
         return res[MOUSE_START][CAT_START][MOUSE_TURN]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -227,6 +231,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 const int HOLE = 0;
 const int MOUSE_START = 1;
@@ -304,6 +310,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 const (

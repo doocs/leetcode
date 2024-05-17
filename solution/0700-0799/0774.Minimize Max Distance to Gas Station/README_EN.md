@@ -53,6 +53,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minmaxGasDist(self, stations: List[int], k: int) -> float:
@@ -68,6 +70,8 @@ class Solution:
                 left = mid
         return left
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +98,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -118,6 +124,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minmaxGasDist(stations []int, k int) float64 {

@@ -76,6 +76,8 @@ In terms of time complexity, the time complexity of each operation is $O(1)$. Th
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class TripleInOne:
 
@@ -110,6 +112,8 @@ class TripleInOne:
 # param_3 = obj.peek(stackNum)
 # param_4 = obj.isEmpty(stackNum)
 ```
+
+#### Java
 
 ```java
 class TripleInOne {
@@ -154,6 +158,8 @@ class TripleInOne {
  * boolean param_4 = obj.isEmpty(stackNum);
  */
 ```
+
+#### C++
 
 ```cpp
 class TripleInOne {
@@ -201,6 +207,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type TripleInOne struct {
 	cap int
@@ -246,6 +254,8 @@ func (this *TripleInOne) IsEmpty(stackNum int) bool {
  * param_4 := obj.IsEmpty(stackNum);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class TripleInOne {
@@ -293,6 +303,8 @@ class TripleInOne {
  * var param_4 = obj.isEmpty(stackNum)
  */
 ```
+
+#### Swift
 
 ```swift
 class TripleInOne {

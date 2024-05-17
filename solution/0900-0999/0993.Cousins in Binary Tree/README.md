@@ -82,6 +82,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -109,6 +111,8 @@ class Solution:
             depth += 1
         return p1 != p2 and d1 == d2
 ```
+
+#### Java
 
 ```java
 /**
@@ -156,6 +160,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -199,6 +205,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -233,6 +241,8 @@ func isCousins(root *TreeNode, x int, y int) bool {
 	return d1 == d2 && p1 != p2
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -292,6 +302,8 @@ function isCousins(root: TreeNode | null, x: number, y: number): boolean {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -315,6 +327,8 @@ class Solution:
         dfs(root, None, 0)
         return st[0][0] != st[1][0] and st[0][1] == st[1][1]
 ```
+
+#### Java
 
 ```java
 /**
@@ -361,6 +375,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -399,6 +415,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -428,6 +446,8 @@ func isCousins(root *TreeNode, x int, y int) bool {
 	return d1 == d2 && p1 != p2
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

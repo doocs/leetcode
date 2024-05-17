@@ -72,6 +72,8 @@ ID = 2 的学生分数为 93、97、77、100 和 76 。前五科的平均分 (10
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def highFive(self, items: List[List[int]]) -> List[List[int]]:
@@ -87,6 +89,8 @@ class Solution:
                 ans.append([i, avg])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +132,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -153,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func highFive(items [][]int) (ans [][]int) {
 	d := make([][]int, 1001)
@@ -173,6 +181,8 @@ func highFive(items [][]int) (ans [][]int) {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function highFive(items: number[][]): number[][] {

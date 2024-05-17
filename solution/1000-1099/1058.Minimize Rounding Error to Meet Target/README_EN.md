@@ -68,6 +68,8 @@ Use Floor, Ceil and Ceil operations to get (0.7 - 0) + (3 - 2.8) + (5 - 4.9) = 0
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimizeError(self, prices: List[str], target: int) -> str:
@@ -85,6 +87,8 @@ class Solution:
         ans = d - sum(arr[:d]) + sum(arr[d:])
         return f'{ans:.3f}'
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -148,6 +154,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimizeError(prices []string, target int) string {

@@ -62,6 +62,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numPairsDivisibleBy60(self, time: List[int]) -> int:
@@ -71,6 +73,8 @@ class Solution:
         ans += cnt[30] * (cnt[30] - 1) // 2
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +93,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -109,6 +115,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numPairsDivisibleBy60(time []int) (ans int) {
 	cnt := [60]int{}
@@ -123,6 +131,8 @@ func numPairsDivisibleBy60(time []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numPairsDivisibleBy60(time: number[]): number {
@@ -150,6 +160,8 @@ function numPairsDivisibleBy60(time: number[]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numPairsDivisibleBy60(self, time: List[int]) -> int:
@@ -162,6 +174,8 @@ class Solution:
             cnt[x] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -178,6 +192,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -196,6 +212,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numPairsDivisibleBy60(time []int) (ans int) {
 	cnt := [60]int{}
@@ -208,6 +226,8 @@ func numPairsDivisibleBy60(time []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numPairsDivisibleBy60(time: number[]): number {

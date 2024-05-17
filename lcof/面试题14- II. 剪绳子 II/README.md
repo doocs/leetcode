@@ -54,6 +54,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def cuttingRope(self, n: int) -> int:
@@ -66,6 +68,8 @@ class Solution:
             return (pow(3, n // 3 - 1, mod) * 4) % mod
         return pow(3, n // 3, mod) * 2 % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +101,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -126,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func cuttingRope(n int) int {
 	if n < 4 {
@@ -152,6 +160,8 @@ func cuttingRope(n int) int {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn cutting_rope(mut n: i32) -> i32 {
@@ -167,6 +177,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -198,6 +210,8 @@ var cuttingRope = function (n) {
     return (2 * qpow(3, k)) % mod;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

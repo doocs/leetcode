@@ -49,6 +49,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.19.Pond%20Sizes/RE
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def pondSizes(self, land: List[List[int]]) -> List[int]:
@@ -64,6 +66,8 @@ class Solution:
         m, n = len(land), len(land[0])
         return sorted(dfs(i, j) for i in range(m) for j in range(n) if land[i][j] == 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func pondSizes(land [][]int) (ans []int) {
 	m, n := len(land), len(land[0])
@@ -159,6 +167,8 @@ func pondSizes(land [][]int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function pondSizes(land: number[][]): number[] {
@@ -188,6 +198,8 @@ function pondSizes(land: number[][]): number[] {
     return ans;
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

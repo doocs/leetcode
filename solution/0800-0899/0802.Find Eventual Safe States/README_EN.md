@@ -67,6 +67,8 @@ Only node 4 is a terminal node, and every path starting at node 4 leads to node 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def eventualSafeNodes(self, graph: List[List[int]]) -> List[int]:
@@ -85,6 +87,8 @@ class Solution:
                     q.append(j)
         return [i for i, v in enumerate(indeg) if v == 0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +126,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -148,6 +154,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func eventualSafeNodes(graph [][]int) []int {
@@ -183,6 +191,8 @@ func eventualSafeNodes(graph [][]int) []int {
 	return ans
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -231,6 +241,8 @@ var eventualSafeNodes = function (graph) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def eventualSafeNodes(self, graph: List[List[int]]) -> List[int]:
@@ -248,6 +260,8 @@ class Solution:
         color = [0] * n
         return [i for i in range(n) if dfs(i)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -283,6 +297,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -307,6 +323,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func eventualSafeNodes(graph [][]int) []int {
@@ -335,6 +353,8 @@ func eventualSafeNodes(graph [][]int) []int {
 	return ans
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

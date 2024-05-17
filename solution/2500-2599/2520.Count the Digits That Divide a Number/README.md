@@ -70,6 +70,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countDigits(self, num: int) -> int:
@@ -79,6 +81,8 @@ class Solution:
             ans += num % val == 0
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +97,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -109,6 +115,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countDigits(num int) (ans int) {
 	for x := num; x > 0; x /= 10 {
@@ -119,6 +127,8 @@ func countDigits(num int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countDigits(num: number): number {
@@ -131,6 +141,8 @@ function countDigits(num: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -147,6 +159,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int countDigits(int num) {
@@ -172,6 +186,8 @@ int countDigits(int num) {
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function countDigits(num: number): number {
     let ans = 0;
@@ -183,6 +199,8 @@ function countDigits(num: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

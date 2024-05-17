@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isReflected(self, points: List[List[int]]) -> bool:
@@ -81,6 +83,8 @@ class Solution:
         s = min_x + max_x
         return all((s - x, y) in point_set for x, y in points)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -126,6 +132,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isReflected(points [][]int) bool {

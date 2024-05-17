@@ -67,6 +67,8 @@ But according to requirement 2, [1,4] is illegal; according to requirement 3,  [
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def constructRectangle(self, area: int) -> List[int]:
@@ -75,6 +77,8 @@ class Solution:
             w -= 1
         return [area // w, w]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +92,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -98,6 +104,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func constructRectangle(area int) []int {

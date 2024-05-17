@@ -78,6 +78,8 @@ rangeFreqQuery.query(0, 11, 33); // 返回 2 。33 在整个子数组中出现 2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class RangeFreqQuery:
 
@@ -97,6 +99,8 @@ class RangeFreqQuery:
 # obj = RangeFreqQuery(arr)
 # param_1 = obj.query(left,right,value)
 ```
+
+#### Java
 
 ```java
 class RangeFreqQuery {
@@ -128,6 +132,8 @@ class RangeFreqQuery {
  */
 ```
 
+#### C++
+
 ```cpp
 class RangeFreqQuery {
 public:
@@ -158,6 +164,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type RangeFreqQuery struct {
 	g map[int][]int
@@ -186,6 +194,8 @@ func (this *RangeFreqQuery) Query(left int, right int, value int) int {
  * param_1 := obj.Query(left,right,value);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class RangeFreqQuery {

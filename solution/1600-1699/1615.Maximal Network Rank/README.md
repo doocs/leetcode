@@ -85,6 +85,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximalNetworkRank(self, n: int, roads: List[List[int]]) -> int:
@@ -99,6 +101,8 @@ class Solution:
                     ans = t
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +126,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -148,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximalNetworkRank(n int, roads [][]int) (ans int) {
 	g := make([][]int, n)
@@ -169,6 +177,8 @@ func maximalNetworkRank(n int, roads [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximalNetworkRank(n: number, roads: number[][]): number {
@@ -199,6 +209,8 @@ function maximalNetworkRank(n: number, roads: number[][]): number {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

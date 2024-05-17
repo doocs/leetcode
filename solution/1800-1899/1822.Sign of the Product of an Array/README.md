@@ -86,6 +86,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def arraySign(self, nums: List[int]) -> int:
@@ -97,6 +99,8 @@ class Solution:
                 ans *= -1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +134,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func arraySign(nums []int) int {
@@ -143,6 +151,8 @@ func arraySign(nums []int) int {
 	return ans
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -160,6 +170,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -179,6 +191,8 @@ var arraySign = function (nums) {
     return ans;
 };
 ```
+
+#### C
 
 ```c
 int arraySign(int* nums, int numsSize) {

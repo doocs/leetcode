@@ -70,6 +70,8 @@ we combine 1 and 1 to get 0 so the array converts to [1] then that&#39;s the val
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def lastStoneWeight(self, stones: List[int]) -> int:
@@ -81,6 +83,8 @@ class Solution:
                 heappush(h, x - y)
         return 0 if not h else -h[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +128,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func lastStoneWeight(stones []int) int {
@@ -153,6 +161,8 @@ func (h *hp) push(v int) { heap.Push(h, v) }
 func (h *hp) pop() int   { return heap.Pop(h).(int) }
 ```
 
+#### TypeScript
+
 ```ts
 function lastStoneWeight(stones: number[]): number {
     const pq = new MaxPriorityQueue();
@@ -169,6 +179,8 @@ function lastStoneWeight(stones: number[]): number {
     return pq.isEmpty() ? 0 : pq.dequeue().element;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

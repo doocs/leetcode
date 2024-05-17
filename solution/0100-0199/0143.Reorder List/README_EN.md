@@ -70,6 +70,8 @@ The time complexity is $O(n)$, where $n$ is the length of the linked list. The s
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -99,6 +101,8 @@ class Solution:
             cur.next = pre
             cur, pre = pre.next, t
 ```
+
+#### Java
 
 ```java
 /**
@@ -141,6 +145,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -186,6 +192,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -219,6 +227,8 @@ func reorderList(head *ListNode) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -262,6 +272,8 @@ function reorderList(head: ListNode | null): void {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for singly-linked list.
 // #[derive(PartialEq, Eq, Clone, Debug)]
@@ -299,6 +311,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -341,6 +355,8 @@ var reorderList = function (head) {
     }
 };
 ```
+
+#### C#
 
 ```cs
 /**

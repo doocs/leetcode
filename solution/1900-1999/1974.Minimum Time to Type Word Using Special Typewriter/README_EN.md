@@ -95,6 +95,8 @@ The characters are printed as follows:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minTimeToType(self, word: str) -> int:
@@ -107,6 +109,8 @@ class Solution:
             prev = curr
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -142,6 +148,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minTimeToType(word string) int {

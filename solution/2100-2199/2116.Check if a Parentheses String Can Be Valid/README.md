@@ -103,6 +103,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canBeValid(self, s: str, locked: str) -> bool:
@@ -127,6 +129,8 @@ class Solution:
                 return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -160,6 +164,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -192,6 +198,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canBeValid(s string, locked string) bool {

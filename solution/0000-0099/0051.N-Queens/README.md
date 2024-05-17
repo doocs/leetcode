@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def solveNQueens(self, n: int) -> List[List[str]]:
@@ -99,6 +101,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -144,6 +148,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -173,6 +179,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func solveNQueens(n int) (ans [][]string) {
@@ -211,6 +219,8 @@ func solveNQueens(n int) (ans [][]string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function solveNQueens(n: number): string[][] {
     const col: number[] = Array(n).fill(0);
@@ -237,6 +247,8 @@ function solveNQueens(n: number): string[][] {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

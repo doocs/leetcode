@@ -63,6 +63,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Trie:
     def __init__(self):
@@ -107,6 +109,8 @@ class Solution:
                 dfs(tree, i, j)
         return ans
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -170,6 +174,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -236,6 +242,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -293,6 +301,8 @@ func findWords(board [][]byte, words []string) (ans []string) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 class Trie {

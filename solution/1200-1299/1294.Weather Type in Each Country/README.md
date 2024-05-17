@@ -129,6 +129,8 @@ Morocco 11 月的平均 weather_state 为 (25 + 27 + 31) / 3 = 27.667 所以天�
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT

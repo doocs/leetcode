@@ -104,6 +104,8 @@ We can use self-join to connect the information of each employee's superior mana
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT

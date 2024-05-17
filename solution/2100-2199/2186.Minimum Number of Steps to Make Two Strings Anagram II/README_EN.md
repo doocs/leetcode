@@ -66,6 +66,8 @@ It can be shown that there is no way to make them anagrams of each other with le
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minSteps(self, s: str, t: str) -> int:
@@ -74,6 +76,8 @@ class Solution:
             cnt[c] -= 1
         return sum(abs(v) for v in cnt.values())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +98,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -107,6 +113,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minSteps(s string, t string) int {
@@ -132,6 +140,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minSteps(s: string, t: string): number {
     let cnt = new Array(128).fill(0);
@@ -148,6 +158,8 @@ function minSteps(s: string, t: string): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

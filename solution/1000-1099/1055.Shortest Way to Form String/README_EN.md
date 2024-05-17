@@ -71,6 +71,8 @@ The time complexity is $O(m \times n)$, where $m$ and $n$ are the lengths of the
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def shortestWay(self, source: str, target: str) -> int:
@@ -91,6 +93,8 @@ class Solution:
             ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -142,6 +148,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func shortestWay(source string, target string) int {

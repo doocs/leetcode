@@ -57,6 +57,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countTriples(self, n: int) -> int:
@@ -69,6 +71,8 @@ class Solution:
                     res += 1
         return res
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +92,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -106,6 +112,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countTriples(n int) int {

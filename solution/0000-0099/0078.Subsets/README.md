@@ -67,6 +67,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
@@ -84,6 +86,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subsets(nums []int) (ans [][]int) {
 	t := []int{}
@@ -151,6 +159,8 @@ func subsets(nums []int) (ans [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function subsets(nums: number[]): number[][] {
     const ans: number[][] = [];
@@ -169,6 +179,8 @@ function subsets(nums: number[]): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -207,6 +219,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
@@ -216,6 +230,8 @@ class Solution:
             ans.append(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -235,6 +251,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -256,6 +274,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subsets(nums []int) (ans [][]int) {
 	n := len(nums)
@@ -271,6 +291,8 @@ func subsets(nums []int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function subsets(nums: number[]): number[][] {

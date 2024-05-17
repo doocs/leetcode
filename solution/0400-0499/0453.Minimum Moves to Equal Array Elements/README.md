@@ -84,11 +84,15 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minMoves(self, nums: List[int]) -> int:
         return sum(nums) - min(nums) * len(nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -113,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minMoves(nums []int) int {
 	mi := 1 << 30
@@ -126,6 +134,8 @@ func minMoves(nums []int) int {
 	return s - mi*len(nums)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minMoves(nums: number[]): number {
@@ -148,6 +158,8 @@ function minMoves(nums: number[]): number {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {

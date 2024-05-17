@@ -87,6 +87,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumTime(self, hens: List[int], grains: List[int]) -> int:
@@ -115,6 +117,8 @@ class Solution:
         r = abs(hens[0] - grains[0]) + grains[-1] - grains[0] + 1
         return bisect_left(range(r), True, key=check)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -170,6 +174,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -217,6 +223,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumTime(hens []int, grains []int) int {
@@ -268,6 +276,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumTime(hens: number[], grains: number[]): number {

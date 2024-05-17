@@ -87,17 +87,25 @@ master.guess("abcczz") 返回 4 ，因为 "abcczz" 共有 4 个字母匹配。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 
 ```
+
+#### Java
 
 ```java
 
 ```
 
+#### C++
+
 ```cpp
 
 ```
+
+#### Go
 
 ```go
 

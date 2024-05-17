@@ -77,6 +77,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ i
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumSubstringsInPartition(self, s: str) -> int:
@@ -101,6 +103,8 @@ class Solution:
         n = len(s)
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -143,6 +147,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -181,6 +187,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumSubstringsInPartition(s string) int {
 	n := len(s)
@@ -218,6 +226,8 @@ func minimumSubstringsInPartition(s string) int {
 	return dfs(0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumSubstringsInPartition(s: string): number {

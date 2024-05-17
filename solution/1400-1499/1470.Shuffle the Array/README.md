@@ -63,6 +63,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def shuffle(self, nums: List[int], n: int) -> List[int]:
@@ -72,6 +74,8 @@ class Solution:
             ans.append(nums[i + n])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +89,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -100,6 +106,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func shuffle(nums []int, n int) []int {
 	var ans []int
@@ -111,6 +119,8 @@ func shuffle(nums []int, n int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function shuffle(nums: number[], n: number): number[] {
     let ans = [];
@@ -120,6 +130,8 @@ function shuffle(nums: number[], n: number): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -134,6 +146,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**
@@ -160,12 +174,16 @@ int* shuffle(int* nums, int numsSize, int n, int* returnSize) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def shuffle(self, nums: List[int], n: int) -> List[int]:
         nums[::2], nums[1::2] = nums[:n], nums[n:]
         return nums
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

@@ -86,6 +86,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def removeOnes(self, grid: List[List[int]]) -> int:
@@ -114,6 +116,8 @@ class Solution:
             ans += 1
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -164,6 +168,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -201,6 +207,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func removeOnes(grid [][]int) int {

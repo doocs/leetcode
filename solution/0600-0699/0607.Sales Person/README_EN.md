@@ -133,6 +133,8 @@ We can use a left join to join the `SalesPerson` table with the `Orders` table o
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT s.name

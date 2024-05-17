@@ -96,6 +96,8 @@ nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0 。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
@@ -123,6 +125,8 @@ class Solution:
                         k -= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -156,6 +160,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -191,6 +197,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func threeSum(nums []int) (ans [][]int) {
 	sort.Ints(nums)
@@ -221,6 +229,8 @@ func threeSum(nums []int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function threeSum(nums: number[]): number[][] {
@@ -253,6 +263,8 @@ function threeSum(nums: number[]): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::cmp::Ordering;
@@ -297,6 +309,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -333,6 +347,8 @@ var threeSum = function (nums) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public IList<IList<int>> ThreeSum(int[] nums) {
@@ -366,6 +382,8 @@ public class Solution {
 }
 ```
 
+#### Ruby
+
 ```rb
 # @param {Integer[]} nums
 # @return {Integer[][]}
@@ -396,6 +414,8 @@ def three_sum(nums)
   res
 end
 ```
+
+#### PHP
 
 ```php
 class Solution {

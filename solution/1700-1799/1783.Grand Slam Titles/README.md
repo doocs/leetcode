@@ -101,6 +101,8 @@ Player 3 (Novak)  没有赢得，因此不包含在结果集中。</pre>
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH
@@ -133,6 +135,8 @@ GROUP BY 1;
 ### 方法二
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

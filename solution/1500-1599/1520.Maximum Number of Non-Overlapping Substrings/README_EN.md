@@ -74,17 +74,25 @@ If we choose the first string, we cannot choose anything else and we&#39;d get o
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 
 ```
+
+#### Java
 
 ```java
 
 ```
 
+#### C++
+
 ```cpp
 
 ```
+
+#### Go
 
 ```go
 

@@ -88,6 +88,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumCost(self, n: int, highways: List[List[int]], discounts: int) -> int:
@@ -110,6 +112,8 @@ class Solution:
                     heappush(q, (cost + v // 2, j, k + 1))
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -149,6 +153,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {

@@ -65,6 +65,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxLengthBetweenEqualCharacters(self, s: str) -> int:
@@ -77,6 +79,8 @@ class Solution:
                 d[c] = i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +101,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -115,6 +121,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxLengthBetweenEqualCharacters(s string) int {
@@ -135,6 +143,8 @@ func maxLengthBetweenEqualCharacters(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxLengthBetweenEqualCharacters(s: string): number {
     const n = s.length;
@@ -151,6 +161,8 @@ function maxLengthBetweenEqualCharacters(s: string): number {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -172,6 +184,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))

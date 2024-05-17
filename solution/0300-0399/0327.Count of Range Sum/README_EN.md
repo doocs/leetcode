@@ -62,6 +62,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class BinaryIndexedTree:
     def __init__(self, n):
@@ -94,6 +96,8 @@ class Solution:
             tree.update(bisect_left(arr, x) + 1, 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -168,6 +172,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -227,6 +233,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -285,6 +293,8 @@ func countRangeSum(nums []int, lower int, upper int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {

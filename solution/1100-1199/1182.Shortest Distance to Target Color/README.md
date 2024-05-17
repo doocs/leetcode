@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def shortestDistanceColor(
@@ -98,6 +100,8 @@ class Solution:
             ans.append(-1 if d > n else d)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +134,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -164,6 +170,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func shortestDistanceColor(colors []int, queries [][]int) (ans []int) {
 	n := len(colors)
@@ -195,6 +203,8 @@ func shortestDistanceColor(colors []int, queries [][]int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function shortestDistanceColor(colors: number[], queries: number[][]): number[] {

@@ -60,6 +60,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def wiggleSort(self, nums: List[int]) -> None:
@@ -72,6 +74,8 @@ class Solution:
             ):
                 nums[i], nums[i - 1] = nums[i - 1], nums[i]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +95,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -103,6 +109,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func wiggleSort(nums []int) {

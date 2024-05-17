@@ -109,6 +109,8 @@ class Node {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 """
 # Definition for a Node.
@@ -131,6 +133,8 @@ class Solution:
             node = node.parent
         return node.parent
 ```
+
+#### Java
 
 ```java
 /*
@@ -159,6 +163,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /*
@@ -190,6 +196,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for Node.
@@ -215,6 +223,8 @@ func inorderSuccessor(node *Node) *Node {
 	return node.Parent
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -247,6 +257,8 @@ function inorderSuccessor(node: Node | null): Node | null {
     return node.parent;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

@@ -62,11 +62,15 @@ The time complexity is $O(n)$, where $n$ is the length of the string. Ignoring t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def defangIPaddr(self, address: str) -> str:
         return address.replace('.', '[.]')
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -75,6 +79,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -90,11 +96,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func defangIPaddr(address string) string {
 	return strings.Replace(address, ".", "[.]", -1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function defangIPaddr(address: string): string {

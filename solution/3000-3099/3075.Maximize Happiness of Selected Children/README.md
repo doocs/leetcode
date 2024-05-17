@@ -86,6 +86,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumHappinessSum(self, happiness: List[int], k: int) -> int:
@@ -96,6 +98,8 @@ class Solution:
             ans += max(x, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -126,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumHappinessSum(happiness []int, k int) (ans int64) {
 	sort.Ints(happiness)
@@ -136,6 +144,8 @@ func maximumHappinessSum(happiness []int, k int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumHappinessSum(happiness: number[], k: number): number {

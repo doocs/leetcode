@@ -106,6 +106,8 @@ User 7 requested two messages within 24 hours and 1 second of each other, so we 
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 SELECT DISTINCT user_id
 FROM

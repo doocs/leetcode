@@ -72,6 +72,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countNegatives(self, grid: List[List[int]]) -> int:
@@ -86,6 +88,8 @@ class Solution:
                 j += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +109,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countNegatives(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
@@ -138,6 +146,8 @@ func countNegatives(grid [][]int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countNegatives(grid: number[][]): number {
@@ -155,6 +165,8 @@ function countNegatives(grid: number[][]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -178,6 +190,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -216,11 +230,15 @@ var countNegatives = function (grid) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countNegatives(self, grid: List[List[int]]) -> int:
         return sum(bisect_left(row[::-1], 0) for row in grid)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -244,6 +262,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -256,6 +276,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countNegatives(grid [][]int) int {
@@ -275,6 +297,8 @@ func countNegatives(grid [][]int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countNegatives(grid: number[][]): number {
@@ -297,6 +321,8 @@ function countNegatives(grid: number[][]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn count_negatives(grid: Vec<Vec<i32>>) -> i32 {
@@ -317,6 +343,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

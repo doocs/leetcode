@@ -73,6 +73,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countHomogenous(self, s: str) -> int:
@@ -89,6 +91,8 @@ class Solution:
             i = j
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -131,6 +137,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countHomogenous(s string) (ans int) {
 	n := len(s)
@@ -148,6 +156,8 @@ func countHomogenous(s string) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countHomogenous(s: string): number {
     const mod = 1e9 + 7;
@@ -162,6 +172,8 @@ function countHomogenous(s: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -182,6 +194,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int CountHomogenous(string s) {
@@ -200,6 +214,8 @@ public class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int countHomogenous(char* s) {
@@ -225,6 +241,8 @@ int countHomogenous(char* s) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countHomogenous(self, s: str) -> int:
@@ -235,6 +253,8 @@ class Solution:
             ans = (ans + cnt) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -252,6 +272,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -268,6 +290,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countHomogenous(s string) int {

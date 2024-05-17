@@ -88,6 +88,8 @@ The time complexity is $O(m \times n \times (m + n) + p)$, and the space complex
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sellingWood(self, m: int, n: int, prices: List[List[int]]) -> int:
@@ -105,6 +107,8 @@ class Solution:
             d[h][w] = p
         return dfs(m, n)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +140,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -165,6 +171,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func sellingWood(m int, n int, prices [][]int) int64 {
@@ -198,6 +206,8 @@ func sellingWood(m int, n int, prices [][]int) int64 {
 	return dfs(m, n)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sellingWood(m: number, n: number, prices: number[][]): number {
@@ -250,6 +260,8 @@ Similar problems:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sellingWood(self, m: int, n: int, prices: List[List[int]]) -> int:
@@ -266,6 +278,8 @@ class Solution:
                     f[i][j] = max(f[i][j], f[i][k] + f[i][j - k])
         return f[m][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -290,6 +304,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -318,6 +334,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sellingWood(m int, n int, prices [][]int) int64 {
 	d := make([][]int, m+1)
@@ -343,6 +361,8 @@ func sellingWood(m int, n int, prices [][]int) int64 {
 	return f[m][n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sellingWood(m: number, n: number, prices: number[][]): number {

@@ -68,11 +68,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isSameAfterReversals(self, num: int) -> bool:
         return num == 0 or num % 10 != 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +86,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -90,6 +96,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isSameAfterReversals(num int) bool {

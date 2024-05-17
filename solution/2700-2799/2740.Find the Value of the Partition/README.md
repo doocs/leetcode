@@ -82,12 +82,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findValueOfPartition(self, nums: List[int]) -> int:
         nums.sort()
         return min(b - a for a, b in pairwise(nums))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -115,6 +121,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findValueOfPartition(nums []int) int {

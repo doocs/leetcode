@@ -84,6 +84,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canReach(self, arr: List[int], start: int) -> bool:
@@ -99,6 +101,8 @@ class Solution:
                     q.append(j)
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +126,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -147,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canReach(arr []int, start int) bool {
 	q := []int{start}
@@ -167,6 +175,8 @@ func canReach(arr []int, start int) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canReach(arr: number[], start: number): boolean {

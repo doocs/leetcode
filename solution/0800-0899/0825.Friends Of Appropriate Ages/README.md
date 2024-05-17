@@ -81,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numFriendRequests(self, ages: List[int]) -> int:
@@ -96,6 +98,8 @@ class Solution:
                         ans -= n2
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +126,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -143,6 +149,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numFriendRequests(ages []int) int {

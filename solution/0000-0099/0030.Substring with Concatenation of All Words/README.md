@@ -90,6 +90,8 @@ s 中没有子串长度为 16 并且等于 words 的任何顺序排列的连接�
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findSubstring(self, s: str, words: List[str]) -> List[int]:
@@ -120,6 +122,8 @@ class Solution:
                     ans.append(l)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -162,6 +166,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -203,6 +209,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findSubstring(s string, words []string) (ans []int) {
 	cnt := map[string]int{}
@@ -236,6 +244,8 @@ func findSubstring(s string, words []string) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findSubstring(s: string, words: string[]): number[] {
@@ -277,6 +287,8 @@ function findSubstring(s: string, words: string[]): number[] {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -321,6 +333,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -387,6 +401,8 @@ class Solution {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### C++
 
 ```cpp
 class Solution {

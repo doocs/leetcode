@@ -115,6 +115,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # """
 # This is GridMaster's API interface.
@@ -177,6 +179,8 @@ class Solution(object):
                     heappush(q, (dist[x][y], x, y))
         return 0
 ```
+
+#### Java
 
 ```java
 /**

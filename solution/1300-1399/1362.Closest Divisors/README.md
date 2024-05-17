@@ -72,6 +72,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def closestDivisors(self, num: int) -> List[int]:
@@ -84,6 +86,8 @@ class Solution:
         b = f(num + 2)
         return a if abs(a[0] - a[1]) < abs(b[0] - b[1]) else b
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -120,6 +126,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func closestDivisors(num int) []int {

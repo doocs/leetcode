@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def successfulPairs(
@@ -86,6 +88,8 @@ class Solution:
         m = len(potions)
         return [m - bisect_left(potions, success / v) for v in spells]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -126,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func successfulPairs(spells []int, potions []int, success int64) (ans []int) {
 	sort.Ints(potions)
@@ -137,6 +145,8 @@ func successfulPairs(spells []int, potions []int, success int64) (ans []int) {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function successfulPairs(spells: number[], potions: number[], success: number): number[] {

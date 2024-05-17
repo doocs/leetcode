@@ -91,12 +91,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def addRungs(self, rungs: List[int], dist: int) -> int:
         rungs = [0] + rungs
         return sum((b - a - 1) // dist for a, b in pairwise(rungs))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -125,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func addRungs(rungs []int, dist int) (ans int) {
 	prev := 0
@@ -135,6 +143,8 @@ func addRungs(rungs []int, dist int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function addRungs(rungs: number[], dist: number): number {
@@ -147,6 +157,8 @@ function addRungs(rungs: number[], dist: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

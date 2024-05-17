@@ -82,6 +82,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
@@ -102,6 +104,8 @@ class Solution:
         b = f(0, 0, (m + n + 2) // 2)
         return (a + b) / 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -138,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -164,6 +170,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
@@ -197,6 +205,8 @@ func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findMedianSortedArrays(nums1: number[], nums2: number[]): number {
     const m = nums1.length;
@@ -221,6 +231,8 @@ function findMedianSortedArrays(nums1: number[], nums2: number[]): number {
     return (a + b) / 2;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -251,6 +263,8 @@ var findMedianSortedArrays = function (nums1, nums2) {
     return (a + b) / 2;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -287,6 +301,8 @@ public class Solution {
 }
 ```
 
+#### PHP
+
 ```php
 class Solution {
     /**
@@ -308,6 +324,8 @@ class Solution {
     }
 }
 ```
+
+#### Nim
 
 ```nim
 import std/[algorithm, sequtils]

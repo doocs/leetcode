@@ -71,6 +71,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def firstUniqChar(self, s: str) -> int:
@@ -80,6 +82,8 @@ class Solution:
                 return i
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -118,6 +124,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func firstUniqChar(s string) int {
 	cnt := [26]int{}
@@ -133,6 +141,8 @@ func firstUniqChar(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function firstUniqChar(s: string): number {
     const cnt = new Array(26).fill(0);
@@ -147,6 +157,8 @@ function firstUniqChar(s: string): number {
     return -1;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -166,6 +178,8 @@ var firstUniqChar = function (s) {
     return -1;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {

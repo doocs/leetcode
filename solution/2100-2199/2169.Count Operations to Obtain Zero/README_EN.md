@@ -71,6 +71,8 @@ So the total number of operations required is 1.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countOperations(self, num1: int, num2: int) -> int:
@@ -82,6 +84,8 @@ class Solution:
             ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -115,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countOperations(num1 int, num2 int) int {
 	ans := 0
@@ -128,6 +136,8 @@ func countOperations(num1 int, num2 int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countOperations(num1: number, num2: number): number {

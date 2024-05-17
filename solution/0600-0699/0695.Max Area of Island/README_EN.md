@@ -62,6 +62,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
@@ -80,6 +82,8 @@ class Solution:
         m, n = len(grid), len(grid[0])
         return max(dfs(i, j) for i in range(m) for j in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -149,6 +155,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxAreaOfIsland(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
@@ -176,6 +184,8 @@ func maxAreaOfIsland(grid [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxAreaOfIsland(grid: number[][]): number {
@@ -205,6 +215,8 @@ function maxAreaOfIsland(grid: number[][]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

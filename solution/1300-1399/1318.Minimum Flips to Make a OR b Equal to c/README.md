@@ -70,6 +70,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minFlips(self, a: int, b: int, c: int) -> int:
@@ -79,6 +81,8 @@ class Solution:
             ans += x + y if z == 0 else int(x == 0 and y == 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -107,6 +113,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minFlips(a int, b int, c int) (ans int) {
 	for i := 0; i < 32; i++ {
@@ -120,6 +128,8 @@ func minFlips(a int, b int, c int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minFlips(a: number, b: number, c: number): number {

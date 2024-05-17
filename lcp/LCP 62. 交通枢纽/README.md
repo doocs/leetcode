@@ -68,6 +68,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2062.%20%E4%BA%A4%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def transportationHub(self, path: List[List[int]]) -> int:
@@ -88,6 +90,8 @@ class Solution:
                 return c
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -144,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func transportationHub(path [][]int) int {
 	ind := [1001]int{}
@@ -169,6 +177,8 @@ func transportationHub(path [][]int) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function transportationHub(path: number[][]): number {

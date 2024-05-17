@@ -70,6 +70,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestPrefix(self, s: str) -> str:
@@ -78,6 +80,8 @@ class Solution:
                 return s[i:]
         return ''
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 typedef unsigned long long ULL;
 
@@ -134,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestPrefix(s string) string {
 	base := 131
@@ -155,6 +163,8 @@ func longestPrefix(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestPrefix(s: string): string {
     const n = s.length;
@@ -166,6 +176,8 @@ function longestPrefix(s: string): string {
     return '';
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

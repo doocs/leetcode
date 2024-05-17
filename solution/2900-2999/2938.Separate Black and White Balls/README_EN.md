@@ -81,6 +81,8 @@ The time complexity is $O(n)$, where $n$ is the length of the string. The space 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumSteps(self, s: str) -> int:
@@ -92,6 +94,8 @@ class Solution:
                 ans += n - i - cnt
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -128,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumSteps(s string) (ans int64) {
 	n := len(s)
@@ -141,6 +149,8 @@ func minimumSteps(s string) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumSteps(s: string): number {

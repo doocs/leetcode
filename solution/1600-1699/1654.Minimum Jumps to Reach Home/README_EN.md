@@ -99,6 +99,8 @@ The time complexity is $O(M)$, and the space complexity is $O(M)$. Here, $M$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumJumps(self, forbidden: List[int], a: int, b: int, x: int) -> int:
@@ -121,6 +123,8 @@ class Solution:
             ans += 1
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -161,6 +165,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -196,6 +202,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumJumps(forbidden []int, a int, b int, x int) (ans int) {
 	s := map[int]bool{}
@@ -230,6 +238,8 @@ func minimumJumps(forbidden []int, a int, b int, x int) (ans int) {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumJumps(forbidden: number[], a: number, b: number, x: number): number {

@@ -67,6 +67,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findClosestNumber(self, nums: List[int]) -> int:
@@ -76,6 +78,8 @@ class Solution:
                 ans, d = x, y
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +97,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -109,6 +115,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findClosestNumber(nums []int) int {
@@ -128,6 +136,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findClosestNumber(nums: number[]): number {

@@ -65,6 +65,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumSum(self, n: int, k: int) -> int:
@@ -78,6 +80,8 @@ class Solution:
             s += i
         return s
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -121,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumSum(n int, k int) int {
 	s, i := 0, 1
@@ -138,6 +146,8 @@ func minimumSum(n int, k int) int {
 	return s
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumSum(n: number, k: number): number {

@@ -67,12 +67,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumOfSquares(self, nums: List[int]) -> int:
         n = len(nums)
         return sum(x * x for i, x in enumerate(nums, 1) if n % i == 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +92,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -105,6 +111,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumOfSquares(nums []int) (ans int) {
 	n := len(nums)
@@ -116,6 +124,8 @@ func sumOfSquares(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumOfSquares(nums: number[]): number {

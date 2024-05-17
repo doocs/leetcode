@@ -62,6 +62,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sortArray(self, nums: List[int]) -> List[int]:
@@ -85,6 +87,8 @@ class Solution:
         quick_sort(0, len(nums) - 1)
         return nums
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -146,6 +152,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func sortArray(nums []int) []int {
@@ -181,6 +189,8 @@ func quickSort(nums []int, l, r int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sortArray(nums: number[]): number[] {
     function quickSort(l: number, r: number) {
@@ -205,6 +215,8 @@ function sortArray(nums: number[]): number[] {
     return nums;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -245,6 +257,8 @@ var sortArray = function (nums) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sortArray(self, nums: List[int]) -> List[int]:
@@ -273,6 +287,8 @@ class Solution:
         merge_sort(0, len(nums) - 1)
         return nums
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -311,6 +327,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -346,6 +364,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func sortArray(nums []int) []int {
@@ -386,6 +406,8 @@ func mergeSort(nums []int, l, r int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sortArray(nums: number[]): number[] {
     function mergetSort(l: number, r: number) {
@@ -419,6 +441,8 @@ function sortArray(nums: number[]): number[] {
     return nums;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -467,6 +491,8 @@ var sortArray = function (nums) {
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {

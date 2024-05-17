@@ -79,6 +79,8 @@ Time complexity $O(n)$, where $n$ is the length of the array. Space complexity $
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def summaryRanges(self, nums: List[int]) -> List[str]:
@@ -96,6 +98,8 @@ class Solution:
             i = j + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -137,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func summaryRanges(nums []int) (ans []string) {
 	f := func(i, j int) string {
@@ -156,6 +164,8 @@ func summaryRanges(nums []int) (ans []string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function summaryRanges(nums: number[]): string[] {
     const f = (i: number, j: number): string => {
@@ -173,6 +183,8 @@ function summaryRanges(nums: number[]): string[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -213,6 +225,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

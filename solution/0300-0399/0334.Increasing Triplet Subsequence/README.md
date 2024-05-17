@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def increasingTriplet(self, nums: List[int]) -> bool:
@@ -82,6 +84,8 @@ class Solution:
                 mid = num
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func increasingTriplet(nums []int) bool {
 	min, mid := math.MaxInt32, math.MaxInt32
@@ -140,6 +148,8 @@ func increasingTriplet(nums []int) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 function increasingTriplet(nums: number[]): boolean {
@@ -159,6 +169,8 @@ function increasingTriplet(nums: number[]): boolean {
     return false;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -192,6 +204,8 @@ impl Solution {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {

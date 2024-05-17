@@ -88,6 +88,8 @@ We can use the window function `LEAD` to obtain the date of the next visit for e
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

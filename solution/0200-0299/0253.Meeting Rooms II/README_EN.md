@@ -49,6 +49,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minMeetingRooms(self, intervals: List[List[int]]) -> int:
@@ -58,6 +60,8 @@ class Solution:
             delta[end] -= 1
         return max(accumulate(delta))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -78,6 +82,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -96,6 +102,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minMeetingRooms(intervals [][]int) int {
 	n := 1000010
@@ -110,6 +118,8 @@ func minMeetingRooms(intervals [][]int) int {
 	return slices.Max(delta)
 }
 ```
+
+#### Rust
 
 ```rust
 use std::{ collections::BinaryHeap, cmp::Reverse };

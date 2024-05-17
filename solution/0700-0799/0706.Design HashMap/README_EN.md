@@ -71,6 +71,8 @@ myHashMap.get(2);    // return -1 (i.e., not found), The map is now [[1,1]]
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class MyHashMap:
     def __init__(self):
@@ -92,6 +94,8 @@ class MyHashMap:
 # param_2 = obj.get(key)
 # obj.remove(key)
 ```
+
+#### Java
 
 ```java
 class MyHashMap {
@@ -123,6 +127,8 @@ class MyHashMap {
  */
 ```
 
+#### C++
+
 ```cpp
 class MyHashMap {
 public:
@@ -153,6 +159,8 @@ public:
  * obj->remove(key);
  */
 ```
+
+#### Go
 
 ```go
 type MyHashMap struct {
@@ -187,6 +195,8 @@ func (this *MyHashMap) Remove(key int) {
  * obj.Remove(key);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class MyHashMap {

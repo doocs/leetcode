@@ -102,6 +102,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getAverages(self, nums: List[int], k: int) -> List[int]:
@@ -119,6 +121,8 @@ class Solution:
             ans[j] = s // k
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -145,6 +149,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -166,6 +172,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getAverages(nums []int, k int) []int {
@@ -192,6 +200,8 @@ func getAverages(nums []int, k int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getAverages(nums: number[], k: number): number[] {
@@ -232,6 +242,8 @@ function getAverages(nums: number[], k: number): number[] {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getAverages(self, nums: List[int], k: int) -> List[int]:
@@ -244,6 +256,8 @@ class Solution:
                 s -= nums[i - k * 2]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -264,6 +278,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -283,6 +299,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getAverages(nums []int, k int) []int {
 	ans := make([]int, len(nums))
@@ -298,6 +316,8 @@ func getAverages(nums []int, k int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getAverages(nums: number[], k: number): number[] {

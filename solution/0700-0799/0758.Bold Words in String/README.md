@@ -71,6 +71,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Trie:
     def __init__(self):
@@ -132,6 +134,8 @@ class Solution:
 
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -210,6 +214,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Trie {
 public:
@@ -278,6 +284,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type Trie struct {

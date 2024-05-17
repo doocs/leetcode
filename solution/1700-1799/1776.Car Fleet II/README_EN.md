@@ -68,6 +68,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getCollisionTimes(self, cars: List[List[int]]) -> List[float]:
@@ -86,6 +88,8 @@ class Solution:
             stk.append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -138,6 +144,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getCollisionTimes(cars [][]int) []float64 {

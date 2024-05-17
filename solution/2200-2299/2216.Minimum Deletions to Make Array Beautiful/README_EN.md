@@ -76,6 +76,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array. We only nee
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minDeletion(self, nums: List[int]) -> int:
@@ -90,6 +92,8 @@ class Solution:
         ans += (n - ans) % 2
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -128,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minDeletion(nums []int) (ans int) {
 	n := len(nums)
@@ -142,6 +150,8 @@ func minDeletion(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minDeletion(nums: number[]): number {
@@ -158,6 +168,8 @@ function minDeletion(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -189,6 +201,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minDeletion(self, nums: List[int]) -> int:
@@ -203,6 +217,8 @@ class Solution:
         ans += (n - ans) % 2
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -222,6 +238,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -243,6 +261,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minDeletion(nums []int) (ans int) {
 	n := len(nums)
@@ -257,6 +277,8 @@ func minDeletion(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minDeletion(nums: number[]): number {
@@ -273,6 +295,8 @@ function minDeletion(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

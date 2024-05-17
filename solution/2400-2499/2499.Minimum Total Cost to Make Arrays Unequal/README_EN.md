@@ -85,6 +85,8 @@ Hence, we return -1.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumTotalCost(self, nums1: List[int], nums2: List[int]) -> int:
@@ -108,6 +110,8 @@ class Solution:
                 m -= 1
         return -1 if m else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -142,6 +146,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -178,6 +184,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumTotalCost(nums1 []int, nums2 []int) (ans int64) {

@@ -50,6 +50,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findSpecialInteger(self, arr: List[int]) -> int:
@@ -59,6 +61,8 @@ class Solution:
                 return val
         return 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -74,6 +78,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -86,6 +92,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findSpecialInteger(arr []int) int {
 	n := len(arr)
@@ -97,6 +105,8 @@ func findSpecialInteger(arr []int) int {
 	return 0
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -113,6 +123,8 @@ var findSpecialInteger = function (arr) {
     return 0;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {

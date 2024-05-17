@@ -98,6 +98,8 @@ The time complexity is $O(L)$, and the space complexity is $O(L)$. Here, $L$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def fullJustify(self, words: List[str], maxWidth: int) -> List[str]:
@@ -127,6 +129,8 @@ class Solution:
             ans.append(''.join(row))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -162,6 +166,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -200,6 +206,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func fullJustify(words []string, maxWidth int) (ans []string) {
 	for i, n := 0, len(words); i < n; {
@@ -235,6 +243,8 @@ func fullJustify(words []string, maxWidth int) (ans []string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function fullJustify(words: string[], maxWidth: number): string[] {
     const ans: string[] = [];
@@ -265,6 +275,8 @@ function fullJustify(words: string[], maxWidth: number): string[] {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

@@ -99,6 +99,8 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def totalFruit(self, fruits: List[int]) -> int:
@@ -115,6 +117,8 @@ class Solution:
             ans = max(ans, i - j + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +140,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -159,6 +165,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func totalFruit(fruits []int) int {
 	cnt := map[int]int{}
@@ -178,6 +186,8 @@ func totalFruit(fruits []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function totalFruit(fruits: number[]): number {
     const n = fruits.length;
@@ -196,6 +206,8 @@ function totalFruit(fruits: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -242,6 +254,8 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def totalFruit(self, fruits: List[int]) -> int:
@@ -257,6 +271,8 @@ class Solution:
                 j += 1
         return len(fruits) - j
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -276,6 +292,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -297,6 +315,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func totalFruit(fruits []int) int {
 	cnt := map[int]int{}
@@ -316,6 +336,8 @@ func totalFruit(fruits []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function totalFruit(fruits: number[]): number {
     const n = fruits.length;
@@ -334,6 +356,8 @@ function totalFruit(fruits: number[]): number {
     return n - j;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;

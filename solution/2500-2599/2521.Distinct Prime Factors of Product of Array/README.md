@@ -72,6 +72,8 @@ nums 中所有元素的乘积是：2 * 4 * 8 * 16 = 1024 = 2<sup>10</sup> 。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def distinctPrimeFactors(self, nums: List[int]) -> int:
@@ -88,6 +90,8 @@ class Solution:
                 s.add(n)
         return len(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -134,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distinctPrimeFactors(nums []int) int {
 	s := map[int]bool{}
@@ -153,6 +161,8 @@ func distinctPrimeFactors(nums []int) int {
 	return len(s)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function distinctPrimeFactors(nums: number[]): number {

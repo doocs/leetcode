@@ -79,6 +79,8 @@ Output table is ordered by user_id in ascending order.
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

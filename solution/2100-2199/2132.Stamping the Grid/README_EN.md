@@ -94,6 +94,8 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(m \times 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def possibleToStamp(
@@ -120,6 +122,8 @@ class Solution:
                     return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -155,6 +159,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -193,6 +199,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func possibleToStamp(grid [][]int, stampHeight int, stampWidth int) bool {
@@ -236,6 +244,8 @@ func possibleToStamp(grid [][]int, stampHeight int, stampWidth int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function possibleToStamp(grid: number[][], stampHeight: number, stampWidth: number): boolean {
     const m = grid.length;
@@ -271,6 +281,8 @@ function possibleToStamp(grid: number[][], stampHeight: number, stampWidth: numb
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -340,6 +352,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

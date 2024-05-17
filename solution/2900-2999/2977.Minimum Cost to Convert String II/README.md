@@ -128,6 +128,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Node:
     __slots__ = ["children", "v"]
@@ -198,6 +200,8 @@ class Solution:
         ans = dfs(0)
         return -1 if ans >= inf else ans
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -287,6 +291,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Node {
@@ -387,6 +393,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 type Node struct {
 	children [26]*Node
@@ -478,6 +486,8 @@ func minimumCost(source string, target string, original []string, changed []stri
 	return int64(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 class Node {

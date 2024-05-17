@@ -91,6 +91,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestDecomposition(self, text: str) -> int:
@@ -102,6 +104,8 @@ class Solution:
                 return 2 + self.longestDecomposition(text[i:-i])
         return 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -136,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestDecomposition(text string) int {
 	n := len(text)
@@ -150,6 +158,8 @@ func longestDecomposition(text string) int {
 	return 1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestDecomposition(text: string): number {
@@ -182,6 +192,8 @@ function longestDecomposition(text: string): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestDecomposition(self, text: str) -> int:
@@ -203,6 +215,8 @@ class Solution:
                 break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -238,6 +252,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -272,6 +288,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestDecomposition(text string) (ans int) {
 	for i, j := 0, len(text)-1; i <= j; {
@@ -293,6 +311,8 @@ func longestDecomposition(text string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestDecomposition(text: string): number {
@@ -326,6 +346,8 @@ function longestDecomposition(text: string): number {
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -361,6 +383,8 @@ class Solution:
                 break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -404,6 +428,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -445,6 +471,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestDecomposition(text string) (ans int) {

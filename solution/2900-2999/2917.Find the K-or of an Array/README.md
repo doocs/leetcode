@@ -140,6 +140,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findKOr(self, nums: List[int], k: int) -> int:
@@ -150,6 +152,8 @@ class Solution:
                 ans |= 1 << i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -168,6 +172,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -188,6 +194,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findKOr(nums []int, k int) (ans int) {
 	for i := 0; i < 32; i++ {
@@ -202,6 +210,8 @@ func findKOr(nums []int, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findKOr(nums: number[], k: number): number {
@@ -218,6 +228,8 @@ function findKOr(nums: number[], k: number): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

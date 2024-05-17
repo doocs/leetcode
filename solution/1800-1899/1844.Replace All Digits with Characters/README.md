@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def replaceDigits(self, s: str) -> str:
@@ -85,6 +87,8 @@ class Solution:
             s[i] = chr(ord(s[i - 1]) + int(s[i]))
         return ''.join(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -111,6 +117,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func replaceDigits(s string) string {
 	cs := []byte(s)
@@ -120,6 +128,8 @@ func replaceDigits(s string) string {
 	return string(cs)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function replaceDigits(s: string): string {
@@ -131,6 +141,8 @@ function replaceDigits(s: string): string {
     return ans.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -146,6 +158,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 char* replaceDigits(char* s) {

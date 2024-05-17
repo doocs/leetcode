@@ -72,6 +72,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def distinctEchoSubstrings(self, text: str) -> int:
@@ -97,6 +99,8 @@ class Solution:
                     vis.add(a)
         return len(vis)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -134,6 +138,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 typedef unsigned long long ull;
 
@@ -168,6 +174,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distinctEchoSubstrings(text string) int {
 	n := len(text)
@@ -196,6 +204,8 @@ func distinctEchoSubstrings(text string) int {
 	return len(vis)
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;

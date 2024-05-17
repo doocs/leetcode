@@ -110,6 +110,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumCosts(
@@ -125,6 +127,8 @@ class Solution:
             cost[i - 1] = min(f[i], g[i])
         return cost
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -145,6 +149,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -168,6 +174,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumCosts(regular []int, express []int, expressCost int) []int64 {
 	n := len(regular)
@@ -184,6 +192,8 @@ func minimumCosts(regular []int, express []int, expressCost int) []int64 {
 	return cost
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumCosts(regular: number[], express: number[], expressCost: number): number[] {
@@ -208,6 +218,8 @@ function minimumCosts(regular: number[], express: number[], expressCost: number)
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumCosts(
@@ -223,6 +235,8 @@ class Solution:
             cost[i - 1] = min(f, g)
         return cost
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -244,6 +258,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -267,6 +283,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumCosts(regular []int, express []int, expressCost int) []int64 {
 	f, g := 0, 1<<30
@@ -281,6 +299,8 @@ func minimumCosts(regular []int, express []int, expressCost int) []int64 {
 	return cost
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumCosts(regular: number[], express: number[], expressCost: number): number[] {

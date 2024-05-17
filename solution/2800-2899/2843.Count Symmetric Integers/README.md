@@ -65,6 +65,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSymmetricIntegers(self, low: int, high: int) -> int:
@@ -77,6 +79,8 @@ class Solution:
 
         return sum(f(x) for x in range(low, high + 1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSymmetricIntegers(low int, high int) (ans int) {
 	f := func(x int) int {
@@ -156,6 +164,8 @@ func countSymmetricIntegers(low int, high int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countSymmetricIntegers(low: number, high: number): number {

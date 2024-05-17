@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def peakIndexInMountainArray(self, arr: List[int]) -> int:
@@ -88,6 +90,8 @@ class Solution:
                 left = mid + 1
         return left
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func peakIndexInMountainArray(arr []int) int {
 	left, right := 1, len(arr)-2
@@ -137,6 +145,8 @@ func peakIndexInMountainArray(arr []int) int {
 	return left
 }
 ```
+
+#### TypeScript
 
 ```ts
 function peakIndexInMountainArray(arr: number[]): number {
@@ -153,6 +163,8 @@ function peakIndexInMountainArray(arr: number[]): number {
     return left;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -171,6 +183,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

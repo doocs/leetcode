@@ -85,6 +85,8 @@ fancy.getIndex(2); // 返回 20
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 MOD = int(1e9 + 7)
 
@@ -199,6 +201,8 @@ class Fancy:
 # obj.multAll(m)
 # param_4 = obj.getIndex(idx)
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -353,6 +357,8 @@ class Fancy {
  * int param_4 = obj.getIndex(idx);
  */
 ```
+
+#### C++
 
 ```cpp
 const int MOD = 1e9 + 7;

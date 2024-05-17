@@ -57,11 +57,15 @@ Similar problems:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
         return list(permutations(nums))
 ```
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +88,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -145,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func permute(nums []int) (ans [][]int) {
 	n := len(nums)
@@ -170,6 +180,8 @@ func permute(nums []int) (ans [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function permute(nums: number[]): number[][] {
     const n = nums.length;
@@ -188,6 +200,8 @@ function permute(nums: number[]): number[][] {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -211,6 +225,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -241,6 +257,8 @@ var permute = function (nums) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

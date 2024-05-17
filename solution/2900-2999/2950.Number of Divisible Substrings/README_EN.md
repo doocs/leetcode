@@ -164,6 +164,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(C)$. Where $n$ i
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countDivisibleSubstrings(self, word: str) -> int:
@@ -181,6 +183,8 @@ class Solution:
                 ans += s % (j - i + 1) == 0
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -205,6 +209,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -231,6 +237,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countDivisibleSubstrings(word string) (ans int) {
 	d := []string{"ab", "cde", "fgh", "ijk", "lmn", "opq", "rst", "uvw", "xyz"}
@@ -253,6 +261,8 @@ func countDivisibleSubstrings(word string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countDivisibleSubstrings(word: string): number {
@@ -277,6 +287,8 @@ function countDivisibleSubstrings(word: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -325,6 +337,8 @@ The time complexity is $O(10 \times n)$, and the space complexity is $O(n)$. Her
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countDivisibleSubstrings(self, word: str) -> int:
@@ -344,6 +358,8 @@ class Solution:
                 cnt[s] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -372,6 +388,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -397,6 +415,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countDivisibleSubstrings(word string) (ans int) {
 	d := []string{"ab", "cde", "fgh", "ijk", "lmn", "opq", "rst", "uvw", "xyz"}
@@ -418,6 +438,8 @@ func countDivisibleSubstrings(word string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countDivisibleSubstrings(word: string): number {
@@ -443,6 +465,8 @@ function countDivisibleSubstrings(word: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;

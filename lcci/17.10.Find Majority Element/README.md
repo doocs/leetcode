@@ -62,6 +62,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.10.Find%20Majority
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
@@ -73,6 +75,8 @@ class Solution:
                 cnt += 1 if m == v else -1
         return m if nums.count(m) > len(nums) // 2 else -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +101,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -114,6 +120,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func majorityElement(nums []int) int {
@@ -142,6 +150,8 @@ func majorityElement(nums []int) int {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -167,6 +177,8 @@ var majorityElement = function (nums) {
     return cnt > nums.length / 2 ? m : -1;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -196,6 +208,8 @@ public class Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

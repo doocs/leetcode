@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def openLock(self, deadends: List[str], target: str) -> int:
@@ -115,6 +117,8 @@ class Solution:
                         s.add(t)
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -164,6 +168,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -205,6 +211,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func openLock(deadends []string, target string) int {
@@ -303,6 +311,8 @@ def extend(m1, m2, q):
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def openLock(self, deadends: List[str], target: str) -> int:
@@ -347,6 +357,8 @@ class Solution:
             return -1
         return bfs()
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -421,6 +433,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -480,6 +494,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func openLock(deadends []string, target string) int {
@@ -575,6 +591,8 @@ A\* 算法主要思想如下：
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def openLock(self, deadends: List[str], target: str) -> int:
@@ -620,6 +638,8 @@ class Solution:
                     heappush(q, (dist[t] + f(t), t))
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -692,6 +712,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {

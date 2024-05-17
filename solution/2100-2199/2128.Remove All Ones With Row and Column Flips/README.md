@@ -91,6 +91,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def removeOnes(self, grid: List[List[int]]) -> bool:
@@ -100,6 +102,8 @@ class Solution:
             s.add(t)
         return len(s) == 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -135,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func removeOnes(grid [][]int) bool {
 	s := map[string]bool{}
@@ -151,6 +159,8 @@ func removeOnes(grid [][]int) bool {
 	return len(s) == 1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function removeOnes(grid: number[][]): boolean {

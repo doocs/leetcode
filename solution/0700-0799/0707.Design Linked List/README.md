@@ -89,6 +89,8 @@ myLinkedList.get(1);              // 返回 3
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class MyLinkedList:
     def __init__(self):
@@ -138,6 +140,8 @@ class MyLinkedList:
 # obj.addAtIndex(index,val)
 # obj.deleteAtIndex(index)
 ```
+
+#### Java
 
 ```java
 class MyLinkedList {
@@ -203,6 +207,8 @@ class MyLinkedList {
  * obj.deleteAtIndex(index);
  */
 ```
+
+#### C++
 
 ```cpp
 class MyLinkedList {
@@ -271,6 +277,8 @@ public:
  */
 ```
 
+#### Go
+
 ```go
 type MyLinkedList struct {
 	dummy *ListNode
@@ -336,6 +344,8 @@ func (this *MyLinkedList) DeleteAtIndex(index int) {
  * obj.DeleteAtIndex(index);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class LinkNode {
@@ -434,6 +444,8 @@ class MyLinkedList {
  * obj.deleteAtIndex(index)
  */
 ```
+
+#### Rust
 
 ```rust
 #[derive(Default)]
@@ -563,6 +575,8 @@ impl MyLinkedList {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class MyLinkedList:
     def __init__(self):
@@ -626,6 +640,8 @@ class MyLinkedList:
 # obj.addAtIndex(index,val)
 # obj.deleteAtIndex(index)
 ```
+
+#### Java
 
 ```java
 class MyLinkedList {
@@ -706,6 +722,8 @@ class MyLinkedList {
  */
 ```
 
+#### C++
+
 ```cpp
 class MyLinkedList {
 private:
@@ -783,6 +801,8 @@ public:
  * obj->deleteAtIndex(index);
  */
 ```
+
+#### Go
 
 ```go
 type MyLinkedList struct {
@@ -867,6 +887,8 @@ func (this *MyLinkedList) DeleteAtIndex(index int) {
  * obj.DeleteAtIndex(index);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class MyLinkedList {

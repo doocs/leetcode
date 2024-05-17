@@ -73,6 +73,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canThreePartsEqualSum(self, arr: List[int]) -> bool:
@@ -93,6 +95,8 @@ class Solution:
             j -= 1
         return i < j - 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -152,6 +158,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canThreePartsEqualSum(arr []int) bool {

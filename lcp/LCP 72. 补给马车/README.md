@@ -57,6 +57,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2072.%20%E8%A1%A5%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def supplyWagon(self, supplies: List[int]) -> List[int]:
@@ -81,6 +83,8 @@ class Solution:
             supplies = t
         return supplies
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -143,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func supplyWagon(supplies []int) []int {
 	for h := (len(supplies) + 1) >> 1; h > 0; h-- {
@@ -170,6 +178,8 @@ func supplyWagon(supplies []int) []int {
 	return supplies
 }
 ```
+
+#### TypeScript
 
 ```ts
 function supplyWagon(supplies: number[]): number[] {

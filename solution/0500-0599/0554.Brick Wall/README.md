@@ -60,6 +60,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def leastBricks(self, wall: List[List[int]]) -> int:
@@ -73,6 +75,8 @@ class Solution:
             return len(wall)
         return len(wall) - cnt[max(cnt, key=cnt.get)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +94,8 @@ class Solution {
     }
 }
 ```
+
+#### Go
 
 ```go
 func leastBricks(wall [][]int) int {
@@ -110,6 +116,8 @@ func leastBricks(wall [][]int) int {
 	return len(wall) - max
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

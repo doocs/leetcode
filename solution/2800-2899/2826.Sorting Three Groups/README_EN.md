@@ -86,6 +86,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumOperations(self, nums: List[int]) -> int:
@@ -107,6 +109,8 @@ class Solution:
             f, g, h = ff, gg, hh
         return min(f, g, h)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +137,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -161,6 +167,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumOperations(nums []int) int {
 	f := make([]int, 3)
@@ -184,6 +192,8 @@ func minimumOperations(nums []int) int {
 	return min(f[0], min(f[1], f[2]))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumOperations(nums: number[]): number {
@@ -218,6 +228,8 @@ function minimumOperations(nums: number[]): number {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

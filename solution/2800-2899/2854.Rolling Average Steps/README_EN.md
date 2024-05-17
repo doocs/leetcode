@@ -101,6 +101,8 @@ We can use the window function `LAG() OVER()` to calculate the difference in day
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

@@ -67,6 +67,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def smallestRepunitDivByK(self, k: int) -> int:
@@ -77,6 +79,8 @@ class Solution:
             n = (n * 10 + 1) % k
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -109,6 +115,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallestRepunitDivByK(k int) int {
 	n := 1 % k
@@ -121,6 +129,8 @@ func smallestRepunitDivByK(k int) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function smallestRepunitDivByK(k: number): number {

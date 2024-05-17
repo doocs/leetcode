@@ -70,12 +70,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumOddBinaryNumber(self, s: str) -> str:
         cnt = s.count("1")
         return "1" * (cnt - 1) + (len(s) - cnt) * "0" + "1"
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +89,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -96,6 +102,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumOddBinaryNumber(s string) string {
 	cnt := strings.Count(s, "1")
@@ -103,12 +111,16 @@ func maximumOddBinaryNumber(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumOddBinaryNumber(s: string): string {
     const cnt = s.length - s.replace(/1/g, '').length;
     return '1'.repeat(cnt - 1) + '0'.repeat(s.length - cnt) + '1';
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

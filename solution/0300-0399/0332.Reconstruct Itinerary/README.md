@@ -68,6 +68,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findItinerary(self, tickets: List[List[str]]) -> List[str]:
@@ -87,6 +89,8 @@ class Solution:
 
         return itinerary[::-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {

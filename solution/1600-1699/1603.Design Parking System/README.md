@@ -72,6 +72,8 @@ parkingSystem.addCar(1); // 返回 false ，因为没有空的大车位，唯一
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class ParkingSystem:
     def __init__(self, big: int, medium: int, small: int):
@@ -88,6 +90,8 @@ class ParkingSystem:
 # obj = ParkingSystem(big, medium, small)
 # param_1 = obj.addCar(carType)
 ```
+
+#### Java
 
 ```java
 class ParkingSystem {
@@ -112,6 +116,8 @@ class ParkingSystem {
  * boolean param_1 = obj.addCar(carType);
  */
 ```
+
+#### C++
 
 ```cpp
 class ParkingSystem {
@@ -139,6 +145,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type ParkingSystem struct {
 	cnt []int
@@ -163,6 +171,8 @@ func (this *ParkingSystem) AddCar(carType int) bool {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class ParkingSystem {
     private count: [number, number, number];
@@ -186,6 +196,8 @@ class ParkingSystem {
  * var param_1 = obj.addCar(carType)
  */
 ```
+
+#### Rust
 
 ```rust
 struct ParkingSystem {
@@ -218,6 +230,8 @@ impl ParkingSystem {
  */
 ```
 
+#### C#
+
 ```cs
 public class ParkingSystem {
 
@@ -242,6 +256,8 @@ public class ParkingSystem {
  * bool param_1 = obj.AddCar(carType);
  */
 ```
+
+#### C
 
 ```c
 typedef struct {

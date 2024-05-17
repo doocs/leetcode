@@ -57,11 +57,15 @@ The percentage of characters in s that equal the letter &#39;k&#39; is 0%, so we
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def percentageLetter(self, s: str, letter: str) -> int:
         return s.count(letter) * 100 // len(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -77,6 +81,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -87,6 +93,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func percentageLetter(s string, letter byte) int {
@@ -100,6 +108,8 @@ func percentageLetter(s string, letter byte) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function percentageLetter(s: string, letter: string): number {
     let count = 0;
@@ -110,6 +120,8 @@ function percentageLetter(s: string, letter: string): number {
     return Math.floor((count / total) * 100);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

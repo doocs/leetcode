@@ -70,6 +70,8 @@ The time complexity is $O(m \times \log m + n \times (\log n + \log M))$, and th
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Trie:
     __slots__ = ["children"]
@@ -113,6 +115,8 @@ class Solution:
             ans[i] = trie.search(x)
         return ans
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -170,6 +174,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -232,6 +238,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Trie struct {
 	children [2]*Trie
@@ -293,6 +301,8 @@ func maximizeXor(nums []int, queries [][]int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 class Trie {

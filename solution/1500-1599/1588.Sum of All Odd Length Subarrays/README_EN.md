@@ -79,6 +79,8 @@ If we add all these together we get 1 + 4 + 2 + 5 + 3 + 7 + 11 + 10 + 15 = 58</p
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumOddLengthSubarrays(self, arr: List[int]) -> int:
@@ -91,6 +93,8 @@ class Solution:
                     ans += s
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -131,6 +137,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumOddLengthSubarrays(arr []int) (ans int) {
 	n := len(arr)
@@ -146,6 +154,8 @@ func sumOddLengthSubarrays(arr []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumOddLengthSubarrays(arr: number[]): number {
@@ -163,6 +173,8 @@ function sumOddLengthSubarrays(arr: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -182,6 +194,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int sumOddLengthSubarrays(int* arr, int arrSize) {

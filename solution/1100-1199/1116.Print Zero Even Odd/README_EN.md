@@ -84,6 +84,8 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from threading import Semaphore
 
@@ -117,6 +119,8 @@ class ZeroEvenOdd:
             printNumber(i)
             self.z.release()
 ```
+
+#### Java
 
 ```java
 class ZeroEvenOdd {
@@ -159,6 +163,8 @@ class ZeroEvenOdd {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 #include <semaphore.h>

@@ -104,6 +104,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxNumberOfAlloys(
@@ -128,6 +130,8 @@ class Solution:
             ans = max(ans, l)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -173,6 +177,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -205,6 +211,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxNumberOfAlloys(n int, k int, budget int, composition [][]int, stock []int, cost []int) int {
 	isValid := func(target int) bool {
@@ -233,6 +241,8 @@ func maxNumberOfAlloys(n int, k int, budget int, composition [][]int, stock []in
 	return l
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxNumberOfAlloys(

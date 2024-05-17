@@ -50,6 +50,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -65,6 +67,8 @@ class Solution:
             return 0
         return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
 ```
+
+#### Java
 
 ```java
 /**
@@ -85,6 +89,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -107,6 +113,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -127,6 +135,8 @@ func maxDepth(root *TreeNode) int {
 	return 1 + r
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -164,6 +174,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -183,6 +195,8 @@ var maxDepth = function (root) {
     return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -213,6 +227,8 @@ public class Solution {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.

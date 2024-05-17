@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestMountain(self, arr: List[int]) -> int:
@@ -93,6 +95,8 @@ class Solution:
                     ans = max(ans, f[i] + g[i] - 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -148,6 +154,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestMountain(arr []int) (ans int) {
@@ -185,6 +193,8 @@ func longestMountain(arr []int) (ans int) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestMountain(self, arr: List[int]) -> int:
@@ -204,6 +214,8 @@ class Solution:
             l = r
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -231,6 +243,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -257,6 +271,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestMountain(arr []int) (ans int) {

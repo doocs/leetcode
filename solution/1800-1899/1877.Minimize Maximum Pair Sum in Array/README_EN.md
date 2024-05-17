@@ -97,6 +97,8 @@ The maximum pair sum is max(3+5, 4+4, 6+2) = max(8, 8, 8) = 8.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minPairSum(self, nums: List[int]) -> int:
@@ -104,6 +106,8 @@ class Solution:
         n = len(nums)
         return max(x + nums[n - i - 1] for i, x in enumerate(nums[: n >> 1]))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minPairSum(nums []int) (ans int) {
 	sort.Ints(nums)
@@ -142,6 +150,8 @@ func minPairSum(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minPairSum(nums: number[]): number {
@@ -154,6 +164,8 @@ function minPairSum(nums: number[]): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

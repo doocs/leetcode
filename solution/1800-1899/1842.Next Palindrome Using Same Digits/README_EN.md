@@ -70,6 +70,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def nextPalindrome(self, num: str) -> str:
@@ -95,6 +97,8 @@ class Solution:
             nums[n - i - 1] = nums[i]
         return "".join(nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -138,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -155,6 +161,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func nextPalindrome(num string) string {
@@ -189,6 +197,8 @@ func nextPermutation(nums []byte) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function nextPalindrome(num: string): string {

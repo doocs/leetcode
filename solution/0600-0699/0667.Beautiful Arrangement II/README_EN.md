@@ -59,6 +59,8 @@ Explanation: The [1,3,2] has three different positive integers ranging from 1 to
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def constructArray(self, n: int, k: int) -> List[int]:
@@ -81,6 +83,8 @@ class Solution:
         return ans
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int[] constructArray(int n, int k) {
@@ -96,6 +100,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -113,6 +119,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func constructArray(n int, k int) []int {
@@ -139,6 +147,8 @@ func constructArray(n int, k int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function constructArray(n: number, k: number): number[] {

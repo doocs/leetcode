@@ -71,6 +71,8 @@ The time complexity is $O(C \times \log \max(m, n))$, and the space complexity i
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # """
 # This is Sea's API interface.
@@ -107,6 +109,8 @@ class Solution:
         return dfs(topRight, bottomLeft)
 ```
 
+#### Java
+
 ```java
 /**
  * // This is Sea's API interface.
@@ -139,6 +143,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -175,6 +181,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * // This is Sea's API interface.
@@ -205,6 +213,8 @@ func countShips(sea Sea, topRight, bottomLeft []int) int {
 	return a + b + c + d
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

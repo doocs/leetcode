@@ -75,11 +75,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getMinDistance(self, nums: List[int], target: int, start: int) -> int:
         return min(abs(i - start) for i, x in enumerate(nums) if x == target)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +100,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -111,6 +117,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getMinDistance(nums []int, target int, start int) int {
@@ -131,6 +139,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function getMinDistance(nums: number[], target: number, start: number): number {
     let ans = Infinity;
@@ -142,6 +152,8 @@ function getMinDistance(nums: number[], target: number, start: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

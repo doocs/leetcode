@@ -80,6 +80,8 @@ Then, use the second operation on the third and sixth elements to make s = &quot
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minFlips(self, s: str) -> int:
@@ -93,6 +95,8 @@ class Solution:
             ans = min(ans, cnt, n - cnt)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +123,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -147,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minFlips(s string) int {
 	n := len(s)
@@ -170,6 +178,8 @@ func minFlips(s string) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minFlips(s: string): number {

@@ -93,6 +93,8 @@ In terms of time complexity, the time complexity of the initialization method is
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Node:
     __slots__ = ("l", "r", "x", "cnt")
@@ -167,6 +169,8 @@ class MajorityChecker:
 # obj = MajorityChecker(arr)
 # param_1 = obj.query(left,right,threshold)
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -279,6 +283,8 @@ class MajorityChecker {
  */
 ```
 
+#### C++
+
 ```cpp
 class Node {
 public:
@@ -383,6 +389,8 @@ private:
  * int param_1 = obj->query(left,right,threshold);
  */
 ```
+
+#### Go
 
 ```go
 type node struct {

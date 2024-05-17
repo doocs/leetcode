@@ -88,6 +88,8 @@ The time complexity is $O(m + \log n)$, where $m$ is the length of the array $nu
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minPatches(self, nums: List[int], n: int) -> int:
@@ -102,6 +104,8 @@ class Solution:
                 x <<= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +124,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -140,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minPatches(nums []int, n int) (ans int) {
 	x := 1
@@ -155,6 +163,8 @@ func minPatches(nums []int, n int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minPatches(nums: number[], n: number): number {

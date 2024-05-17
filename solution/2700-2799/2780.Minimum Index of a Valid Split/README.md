@@ -90,6 +90,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumIndex(self, nums: List[int]) -> int:
@@ -102,6 +104,8 @@ class Solution:
                     return i - 1
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +132,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -156,6 +162,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumIndex(nums []int) int {
 	x, cnt := 0, 0
@@ -179,6 +187,8 @@ func minimumIndex(nums []int) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumIndex(nums: number[]): number {

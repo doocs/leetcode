@@ -60,6 +60,8 @@ The answer provided is the shortest such string that satisfies these properties.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def shortestCommonSupersequence(self, str1: str, str2: str) -> str:
@@ -92,6 +94,8 @@ class Solution:
                     ans.append(str1[i])
         return ''.join(ans[::-1])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -165,6 +171,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func shortestCommonSupersequence(str1 string, str2 string) string {
@@ -210,6 +218,8 @@ func shortestCommonSupersequence(str1 string, str2 string) string {
 	return string(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function shortestCommonSupersequence(str1: string, str2: string): string {

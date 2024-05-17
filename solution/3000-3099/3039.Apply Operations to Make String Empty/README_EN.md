@@ -84,6 +84,8 @@ The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def lastNonEmptyString(self, s: str) -> str:
@@ -92,6 +94,8 @@ class Solution:
         last = {c: i for i, c in enumerate(s)}
         return "".join(c for i, c in enumerate(s) if cnt[c] == mx and last[c] == i)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -142,6 +148,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func lastNonEmptyString(s string) string {
 	cnt := [26]int{}
@@ -162,6 +170,8 @@ func lastNonEmptyString(s string) string {
 	return string(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function lastNonEmptyString(s: string): string {

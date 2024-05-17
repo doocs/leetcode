@@ -91,6 +91,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxLength(self, ribbons: List[int], k: int) -> int:
@@ -104,6 +106,8 @@ class Solution:
                 right = mid - 1
         return left
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -151,6 +157,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxLength(ribbons []int, k int) int {
 	left, right := 0, slices.Max(ribbons)
@@ -169,6 +177,8 @@ func maxLength(ribbons []int, k int) int {
 	return left
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxLength(ribbons: number[], k: number): number {
@@ -189,6 +199,8 @@ function maxLength(ribbons: number[], k: number): number {
     return left;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -214,6 +226,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

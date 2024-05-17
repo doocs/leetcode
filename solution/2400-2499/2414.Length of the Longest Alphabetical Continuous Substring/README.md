@@ -66,6 +66,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestContinuousSubstring(self, s: str) -> int:
@@ -79,6 +81,8 @@ class Solution:
         ans = max(ans, j - i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +100,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -115,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestContinuousSubstring(s string) int {
 	ans := 0
@@ -130,6 +138,8 @@ func longestContinuousSubstring(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestContinuousSubstring(s: string): number {
     const n = s.length;
@@ -144,6 +154,8 @@ function longestContinuousSubstring(s: string): number {
     return Math.max(res, n - i);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -162,6 +174,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))

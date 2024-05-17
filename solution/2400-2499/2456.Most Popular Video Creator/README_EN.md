@@ -85,6 +85,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def mostPopularCreator(
@@ -99,6 +101,8 @@ class Solution:
         mx = max(cnt.values())
         return [[c, ids[d[c]]] for c, x in cnt.items() if x == mx]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -161,6 +167,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func mostPopularCreator(creators []string, ids []string, views []int) (ans [][]string) {
 	cnt := map[string]int{}
@@ -186,6 +194,8 @@ func mostPopularCreator(creators []string, ids []string, views []int) (ans [][]s
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function mostPopularCreator(creators: string[], ids: string[], views: number[]): string[][] {

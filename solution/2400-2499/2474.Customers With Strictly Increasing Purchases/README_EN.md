@@ -100,6 +100,8 @@ Customer 3: The first year is 2017, and the last year is 2018
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT

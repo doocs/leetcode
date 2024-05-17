@@ -74,6 +74,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def makeConnected(self, n: int, connections: List[List[int]]) -> int:
@@ -92,6 +94,8 @@ class Solution:
                 size -= 1
         return -1 if size - 1 > cnt else size - 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -152,6 +158,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func makeConnected(n int, connections [][]int) int {

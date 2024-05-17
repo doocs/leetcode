@@ -113,6 +113,8 @@ lockingTree.lock(0, 1);    // 返回 false ，因为节点 0 已经被上锁了�
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class LockingTree:
     def __init__(self, parent: List[int]):
@@ -164,6 +166,8 @@ class LockingTree:
 # param_2 = obj.unlock(num,user)
 # param_3 = obj.upgrade(num,user)
 ```
+
+#### Java
 
 ```java
 class LockingTree {
@@ -236,6 +240,8 @@ class LockingTree {
  */
 ```
 
+#### C++
+
 ```cpp
 class LockingTree {
 public:
@@ -305,6 +311,8 @@ private:
  * bool param_3 = obj->upgrade(num,user);
  */
 ```
+
+#### Go
 
 ```go
 type LockingTree struct {
@@ -376,6 +384,8 @@ func (this *LockingTree) Upgrade(num int, user int) bool {
  * param_3 := obj.Upgrade(num,user);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class LockingTree {

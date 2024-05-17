@@ -81,6 +81,8 @@ The answers of other cells are similarly calculated.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def differenceOfDistinctValues(self, grid: List[List[int]]) -> List[List[int]]:
@@ -103,6 +105,8 @@ class Solution:
                 ans[i][j] = abs(tl - br)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +136,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -160,6 +166,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func differenceOfDistinctValues(grid [][]int) [][]int {
@@ -195,6 +203,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function differenceOfDistinctValues(grid: number[][]): number[][] {

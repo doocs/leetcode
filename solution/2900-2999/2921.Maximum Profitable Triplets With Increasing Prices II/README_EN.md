@@ -80,6 +80,8 @@ The time complexity is $O(n \times \log M)$, and the space complexity is $O(M)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class BinaryIndexedTree:
     def __init__(self, n: int):
@@ -121,6 +123,8 @@ class Solution:
             (l + x + r for l, x, r in zip(left, profits, right) if l and r), default=-1
         )
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -181,6 +185,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 private:
@@ -239,6 +245,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {
@@ -299,6 +307,8 @@ func maxProfit(prices []int, profits []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 class BinaryIndexedTree {
     private n: number;
@@ -358,6 +368,8 @@ function maxProfit(prices: number[], profits: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 struct BinaryIndexedTree {

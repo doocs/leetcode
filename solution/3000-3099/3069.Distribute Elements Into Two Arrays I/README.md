@@ -84,6 +84,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def resultArray(self, nums: List[int]) -> List[int]:
@@ -96,6 +98,8 @@ class Solution:
                 arr2.append(x)
         return arr1 + arr2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -141,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func resultArray(nums []int) []int {
 	arr1 := []int{nums[0]}
@@ -155,6 +163,8 @@ func resultArray(nums []int) []int {
 	return append(arr1, arr2...)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function resultArray(nums: number[]): number[] {

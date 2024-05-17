@@ -60,6 +60,8 @@ F(N) = F(N - 1) + F(N - 2), 其中 N > 1.</pre>
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def fib(self, n: int) -> int:
@@ -68,6 +70,8 @@ class Solution:
             a, b = b, (a + b) % 1000000007
         return a
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +86,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -98,6 +104,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func fib(n int) int {
 	a, b := 0, 1
@@ -107,6 +115,8 @@ func fib(n int) int {
 	return a
 }
 ```
+
+#### TypeScript
 
 ```ts
 function fib(n: number): number {
@@ -120,6 +130,8 @@ function fib(n: number): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn fib(n: i32) -> i32 {
@@ -131,6 +143,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -146,6 +160,8 @@ var fib = function (n) {
     return a;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

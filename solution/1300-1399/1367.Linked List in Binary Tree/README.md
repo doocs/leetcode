@@ -85,6 +85,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -114,6 +116,8 @@ class Solution:
             or self.isSubPath(head, root.right)
         )
 ```
+
+#### Java
 
 ```java
 /**
@@ -161,6 +165,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -204,6 +210,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -237,6 +245,8 @@ func dfs(head *ListNode, root *TreeNode) bool {
 	return dfs(head.Next, root.Left) || dfs(head.Next, root.Right)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -282,6 +292,8 @@ function isSubPath(head: ListNode | null, root: TreeNode | null): boolean {
     return dfs(head, root) || isSubPath(head, root.left) || isSubPath(head, root.right);
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.

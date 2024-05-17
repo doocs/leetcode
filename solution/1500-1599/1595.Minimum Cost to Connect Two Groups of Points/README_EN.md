@@ -82,6 +82,8 @@ Note that there are multiple points connected to point 2 in the first group and 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def connectTwoGroups(self, cost: List[List[int]]) -> int:
@@ -98,6 +100,8 @@ class Solution:
                     f[i][j] = min(f[i][j], x)
         return f[m][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -149,6 +155,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func connectTwoGroups(cost [][]int) int {
@@ -177,6 +185,8 @@ func connectTwoGroups(cost [][]int) int {
 	return f[m][(1<<n)-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function connectTwoGroups(cost: number[][]): number {
@@ -213,6 +223,8 @@ function connectTwoGroups(cost: number[][]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def connectTwoGroups(self, cost: List[List[int]]) -> int:
@@ -232,6 +244,8 @@ class Solution:
             f = g[:]
         return f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -261,6 +275,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -287,6 +303,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func connectTwoGroups(cost [][]int) int {
@@ -315,6 +333,8 @@ func connectTwoGroups(cost [][]int) int {
 	return f[1<<n-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function connectTwoGroups(cost: number[][]): number {

@@ -66,6 +66,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countEven(self, num: int) -> int:
@@ -78,6 +80,8 @@ class Solution:
             ans += s % 2 == 0
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +101,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -114,6 +120,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countEven(num int) (ans int) {
 	for i := 1; i <= num; i++ {
@@ -128,6 +136,8 @@ func countEven(num int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countEven(num: number): number {
@@ -167,6 +177,8 @@ function countEven(num: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countEven(self, num: int) -> int:
@@ -178,6 +190,8 @@ class Solution:
         ans += (num % 10 + 2 - (s & 1)) >> 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -192,6 +206,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -208,6 +224,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countEven(num int) (ans int) {
 	ans = num/10*5 - 1
@@ -219,6 +237,8 @@ func countEven(num int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countEven(num: number): number {

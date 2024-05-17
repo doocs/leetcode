@@ -89,6 +89,8 @@ The time complexity is $O(n \times k)$, and the space complexity is $O(k)$. Here
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def rearrangeSticks(self, n: int, k: int) -> int:
@@ -100,6 +102,8 @@ class Solution:
                 f[i][j] = (f[i - 1][j - 1] + f[i - 1][j] * (i - 1)) % mod
         return f[n][k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -135,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func rearrangeSticks(n int, k int) int {
 	const mod = 1e9 + 7
@@ -151,6 +159,8 @@ func rearrangeSticks(n int, k int) int {
 	return f[n][k]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function rearrangeSticks(n: number, k: number): number {
@@ -178,6 +188,8 @@ function rearrangeSticks(n: number, k: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def rearrangeSticks(self, n: int, k: int) -> int:
@@ -189,6 +201,8 @@ class Solution:
             f[0] = 0
         return f[k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -206,6 +220,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -226,6 +242,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func rearrangeSticks(n int, k int) int {
 	const mod = 1e9 + 7
@@ -240,6 +258,8 @@ func rearrangeSticks(n int, k int) int {
 	return f[k]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function rearrangeSticks(n: number, k: number): number {

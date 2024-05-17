@@ -81,6 +81,8 @@ Total points earned: 2 + 5 = 7. There is no other way to earn 7 or more points.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def mostPoints(self, questions: List[List[int]]) -> int:
@@ -93,6 +95,8 @@ class Solution:
 
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -142,6 +148,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func mostPoints(questions [][]int) int64 {
 	n := len(questions)
@@ -161,6 +169,8 @@ func mostPoints(questions [][]int) int64 {
 	return dfs(0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function mostPoints(questions: number[][]): number {
@@ -190,6 +200,8 @@ function mostPoints(questions: number[][]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def mostPoints(self, questions: List[List[int]]) -> int:
@@ -201,6 +213,8 @@ class Solution:
             f[i] = max(f[i + 1], p + (0 if j > n else f[j]))
         return f[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -216,6 +230,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -234,6 +250,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func mostPoints(questions [][]int) int64 {
 	n := len(questions)
@@ -248,6 +266,8 @@ func mostPoints(questions [][]int) int64 {
 	return f[0]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function mostPoints(questions: number[][]): number {

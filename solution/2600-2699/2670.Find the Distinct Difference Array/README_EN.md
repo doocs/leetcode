@@ -76,6 +76,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def distinctDifferenceArray(self, nums: List[int]) -> List[int]:
@@ -92,6 +94,8 @@ class Solution:
             ans[i] = len(s) - suf[i + 1]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +117,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -136,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distinctDifferenceArray(nums []int) []int {
 	n := len(nums)
@@ -155,6 +163,8 @@ func distinctDifferenceArray(nums []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function distinctDifferenceArray(nums: number[]): number[] {
     const n = nums.length;
@@ -173,6 +183,8 @@ function distinctDifferenceArray(nums: number[]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;

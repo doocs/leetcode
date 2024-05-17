@@ -74,12 +74,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def hasAllCodes(self, s: str, k: int) -> bool:
         ss = {s[i : i + k] for i in range(len(s) - k + 1)}
         return len(ss) == 1 << k
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +97,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -105,6 +111,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func hasAllCodes(s string, k int) bool {
@@ -130,6 +138,8 @@ func hasAllCodes(s string, k int) bool {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def hasAllCodes(self, s: str, k: int) -> bool:
@@ -145,6 +155,8 @@ class Solution:
             vis[num] = True
         return all(v for v in vis)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -172,6 +184,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -193,6 +207,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func hasAllCodes(s string, k int) bool {

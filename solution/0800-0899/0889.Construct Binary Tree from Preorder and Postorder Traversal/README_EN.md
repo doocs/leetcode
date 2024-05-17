@@ -84,6 +84,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -110,6 +112,8 @@ class Solution:
         pos = {x: i for i, x in enumerate(postorder)}
         return dfs(0, len(preorder) - 1, 0, len(postorder) - 1)
 ```
+
+#### Java
 
 ```java
 /**
@@ -156,6 +160,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -195,6 +201,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -227,6 +235,8 @@ func constructFromPrePost(preorder []int, postorder []int) *TreeNode {
 	return dfs(0, len(preorder)-1, 0, len(postorder)-1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -288,6 +298,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -314,6 +326,8 @@ class Solution:
         pos = {x: i for i, x in enumerate(postorder)}
         return dfs(0, 0, len(preorder))
 ```
+
+#### Java
 
 ```java
 /**
@@ -360,6 +374,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -399,6 +415,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -431,6 +449,8 @@ func constructFromPrePost(preorder []int, postorder []int) *TreeNode {
 	return dfs(0, 0, len(preorder))
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

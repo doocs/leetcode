@@ -110,6 +110,8 @@ The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countVowelPermutation(self, n: int) -> int:
@@ -125,6 +127,8 @@ class Solution:
             f = g
         return sum(f) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -150,6 +154,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -170,6 +176,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countVowelPermutation(n int) (ans int) {
@@ -194,6 +202,8 @@ func countVowelPermutation(n int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countVowelPermutation(n: number): number {
     const f: number[] = Array(5).fill(1);
@@ -210,6 +220,8 @@ function countVowelPermutation(n: number): number {
     return f.reduce((a, b) => (a + b) % mod);
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -244,6 +256,8 @@ The time complexity is $O(C^3 \times \log n)$, and the space complexity is $O(C^
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countVowelPermutation(self, n: int) -> int:
@@ -277,6 +291,8 @@ class Solution:
         res = pow(a, n - 1)
         return sum(map(sum, res)) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -320,6 +336,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -367,6 +385,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 const mod = 1e9 + 7
 
@@ -413,6 +433,8 @@ func pow(a [][]int, n int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 const mod = 1e9 + 7;
 
@@ -454,6 +476,8 @@ function pow(a: number[][], n: number): number[][] {
     return res;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -512,6 +536,8 @@ function pow(a, n) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 import numpy as np
 
@@ -538,6 +564,8 @@ class Solution:
             n >>= 1
         return res.sum() % mod
 ```
+
+#### Java
 
 ```java
 class Solution {

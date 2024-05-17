@@ -62,6 +62,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numDistinctIslands2(self, grid: List[List[int]]) -> int:
@@ -102,6 +104,8 @@ class Solution:
                     s.add(normalize(shape))
         return len(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -198,6 +202,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 typedef pair<int, int> PII;

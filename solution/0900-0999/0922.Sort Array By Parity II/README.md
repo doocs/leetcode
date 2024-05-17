@@ -72,6 +72,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sortArrayByParityII(self, nums: List[int]) -> List[int]:
@@ -83,6 +85,8 @@ class Solution:
                 nums[i], nums[j] = nums[j], nums[i]
         return nums
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +125,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sortArrayByParityII(nums []int) []int {
 	for i, j := 0, 1; i < len(nums); i += 2 {
@@ -133,6 +141,8 @@ func sortArrayByParityII(nums []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sortArrayByParityII(nums: number[]): number[] {
     for (let i = 0, j = 1; i < nums.length; i += 2) {
@@ -146,6 +156,8 @@ function sortArrayByParityII(nums: number[]): number[] {
     return nums;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

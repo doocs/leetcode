@@ -93,6 +93,8 @@ The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canSplitArray(self, nums: List[int], m: int) -> bool:
@@ -110,6 +112,8 @@ class Solution:
         s = list(accumulate(nums, initial=0))
         return dfs(0, len(nums) - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -147,6 +151,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -180,6 +186,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canSplitArray(nums []int, m int) bool {
@@ -215,6 +223,8 @@ func canSplitArray(nums []int, m int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canSplitArray(nums: number[], m: number): boolean {
     const n = nums.length;
@@ -246,6 +256,8 @@ function canSplitArray(nums: number[], m: number): boolean {
     return dfs(0, n - 1);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -279,6 +291,8 @@ No matter how you operate, there will always be a `length == 2` subarray left in
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function canSplitArray(nums: number[], m: number): boolean {

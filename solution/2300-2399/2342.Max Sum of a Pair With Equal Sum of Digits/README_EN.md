@@ -73,6 +73,8 @@ The time complexity is $O(n \times \log M)$, and the space complexity is $O(D)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumSum(self, nums: List[int]) -> int:
@@ -88,6 +90,8 @@ class Solution:
             d[x] = max(d[x], v)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -130,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumSum(nums []int) int {
 	d := [100]int{}
@@ -148,6 +156,8 @@ func maximumSum(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumSum(nums: number[]): number {
     const d: number[] = Array(100).fill(0);
@@ -165,6 +175,8 @@ function maximumSum(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

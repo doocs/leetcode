@@ -67,6 +67,8 @@ The time complexity is $O(\log n)$, and the space complexity is $O(1)$. Here, $n
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
@@ -79,6 +81,8 @@ class Solution:
                 left = mid + 1
         return left
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +101,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -114,6 +120,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func searchInsert(nums []int, target int) int {
 	left, right := 0, len(nums)
@@ -128,6 +136,8 @@ func searchInsert(nums []int, target int) int {
 	return left
 }
 ```
+
+#### Rust
 
 ```rust
 use std::cmp::Ordering;
@@ -153,6 +163,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -189,11 +201,15 @@ The time complexity is $O(\log n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
         return bisect_left(nums, target)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -204,6 +220,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -213,11 +231,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func searchInsert(nums []int, target int) int {
 	return sort.SearchInts(nums, target)
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

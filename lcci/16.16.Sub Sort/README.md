@@ -42,6 +42,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.16.Sub%20Sort/READ
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def subSort(self, array: List[int]) -> List[int]:
@@ -60,6 +62,8 @@ class Solution:
                 mi = array[i]
         return [left, right]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +89,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -112,6 +118,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subSort(array []int) []int {
 	n := len(array)
@@ -135,6 +143,8 @@ func subSort(array []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function subSort(array: number[]): number[] {
     const n = array.length;
@@ -157,6 +167,8 @@ function subSort(array: number[]): number[] {
     return [left, right];
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

@@ -91,6 +91,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestMonotonicSubarray(self, nums: List[int]) -> int:
@@ -110,6 +112,8 @@ class Solution:
                 t = 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +137,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -158,6 +164,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestMonotonicSubarray(nums []int) int {
 	ans := 1
@@ -182,6 +190,8 @@ func longestMonotonicSubarray(nums []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestMonotonicSubarray(nums: number[]): number {

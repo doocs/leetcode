@@ -90,6 +90,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class MedianFinder:
     def __init__(self, k: int):
@@ -157,6 +159,8 @@ class Solution:
             ans.append(finder.find_median())
         return ans
 ```
+
+#### Java
 
 ```java
 class MedianFinder {
@@ -244,6 +248,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class MedianFinder {
@@ -335,6 +341,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type MedianFinder struct {

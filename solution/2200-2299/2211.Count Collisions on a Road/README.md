@@ -78,12 +78,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countCollisions(self, directions: str) -> int:
         d = directions.lstrip('L').rstrip('R')
         return len(d) - d.count('S')
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countCollisions(directions string) int {
 	d := strings.TrimLeft(directions, "L")
@@ -135,6 +143,8 @@ func countCollisions(directions string) int {
 	return len(d) - strings.Count(d, "S")
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countCollisions(directions: string): number {

@@ -89,6 +89,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, nums: List[int]) -> int:
@@ -99,6 +101,8 @@ class Solution:
             ans = min(ans, n - (j - i))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +137,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -149,6 +155,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minOperations(nums []int) int {
@@ -169,6 +177,8 @@ func minOperations(nums []int) int {
 	return ans
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::BTreeSet;
@@ -215,6 +225,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, nums: List[int]) -> int:
@@ -227,6 +239,8 @@ class Solution:
             ans = min(ans, n - (j - i))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -251,6 +265,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -269,6 +285,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minOperations(nums []int) int {

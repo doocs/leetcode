@@ -83,6 +83,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getWordsInLongestSubsequence(
@@ -90,6 +92,8 @@ class Solution:
     ) -> List[str]:
         return [words[i] for i, x in enumerate(groups) if i == 0 or x != groups[i - 1]]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -120,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getWordsInLongestSubsequence(n int, words []string, groups []int) (ans []string) {
 	for i, x := range groups {
@@ -130,6 +138,8 @@ func getWordsInLongestSubsequence(n int, words []string, groups []int) (ans []st
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getWordsInLongestSubsequence(n: number, words: string[], groups: number[]): string[] {
@@ -142,6 +152,8 @@ function getWordsInLongestSubsequence(n: number, words: string[], groups: number
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

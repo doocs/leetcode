@@ -69,6 +69,8 @@ The time complexity is $O(n \times \log M)$, where $n$ is the length of the arra
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def smallestDivisor(self, nums: List[int], threshold: int) -> int:
@@ -82,6 +84,8 @@ class Solution:
         return l
 ```
 
+#### Python3
+
 ```python
 class Solution:
     def smallestDivisor(self, nums: List[int], threshold: int) -> int:
@@ -91,6 +95,8 @@ class Solution:
 
         return bisect_left(range(max(nums)), True, key=f) + 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -136,6 +144,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallestDivisor(nums []int, threshold int) int {
 	return sort.Search(1000000, func(v int) bool {
@@ -148,6 +158,8 @@ func smallestDivisor(nums []int, threshold int) int {
 	}) + 1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function smallestDivisor(nums: number[], threshold: number): number {
@@ -168,6 +180,8 @@ function smallestDivisor(nums: number[], threshold: number): number {
     return l;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -193,6 +207,8 @@ var smallestDivisor = function (nums, threshold) {
     return l;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

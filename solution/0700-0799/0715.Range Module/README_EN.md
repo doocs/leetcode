@@ -81,6 +81,8 @@ In terms of time complexity, the time complexity of each operation is $O(\log n)
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Node:
     __slots__ = ['left', 'right', 'add', 'v']
@@ -166,6 +168,8 @@ class RangeModule:
 # param_2 = obj.queryRange(left,right)
 # obj.removeRange(left,right)
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -270,6 +274,8 @@ class RangeModule {
  * obj.removeRange(left,right);
  */
 ```
+
+#### C++
 
 ```cpp
 template <class T>
@@ -398,6 +404,8 @@ public:
  */
 ```
 
+#### Go
+
 ```go
 const N int = 1e9
 
@@ -501,6 +509,8 @@ func (this *RangeModule) RemoveRange(left int, right int) {
  * obj.RemoveRange(left,right);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class Node {

@@ -63,6 +63,8 @@ Other valid but smaller subsets include {&quot;0001&quot;, &quot;1&quot;} and {&
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMaxForm(self, strs: List[str], m: int, n: int) -> int:
@@ -77,6 +79,8 @@ class Solution:
                         f[i][j][k] = max(f[i][j][k], f[i - 1][j - a][k - b] + 1)
         return f[sz][m][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -134,6 +140,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findMaxForm(strs []string, m int, n int) int {
@@ -164,6 +172,8 @@ func count(s string) (int, int) {
 	return a, len(s) - a
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findMaxForm(strs: string[], m: number, n: number): number {
@@ -203,6 +213,8 @@ function findMaxForm(strs: string[], m: number, n: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMaxForm(self, strs: List[str], m: int, n: int) -> int:
@@ -214,6 +226,8 @@ class Solution:
                     f[i][j] = max(f[i][j], f[i - a][j - b] + 1)
         return f[m][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -240,6 +254,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -264,6 +280,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMaxForm(strs []string, m int, n int) int {
 	f := make([][]int, m+1)
@@ -286,6 +304,8 @@ func count(s string) (int, int) {
 	return a, len(s) - a
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findMaxForm(strs: string[], m: number, n: number): number {

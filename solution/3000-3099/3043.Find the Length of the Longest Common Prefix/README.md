@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestCommonPrefix(self, arr1: List[int], arr2: List[int]) -> int:
@@ -94,6 +96,8 @@ class Solution:
                 x //= 10
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -142,6 +148,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestCommonPrefix(arr1 []int, arr2 []int) (ans int) {
 	s := map[int]bool{}
@@ -161,6 +169,8 @@ func longestCommonPrefix(arr1 []int, arr2 []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestCommonPrefix(arr1: number[], arr2: number[]): number {

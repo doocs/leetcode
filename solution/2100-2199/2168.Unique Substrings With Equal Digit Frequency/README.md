@@ -60,6 +60,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def equalDigitFrequency(self, s: str) -> int:
@@ -82,6 +84,8 @@ class Solution:
         vis = set(s[i : j + 1] for i in range(n) for j in range(i, n) if check(i, j))
         return len(vis)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +124,8 @@ class Solution {
     }
 }
 ```
+
+#### Go
 
 ```go
 func equalDigitFrequency(s string) int {

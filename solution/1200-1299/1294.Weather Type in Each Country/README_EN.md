@@ -128,6 +128,8 @@ We know nothing about the average weather_state in Spain in November so we do no
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT

@@ -80,6 +80,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def strToInt(self, str: str) -> int:
@@ -111,6 +113,8 @@ class Solution:
         return sign * res
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int strToInt(String str) {
@@ -138,6 +142,8 @@ class Solution {
     }
 }
 ```
+
+#### Go
 
 ```go
 func strToInt(str string) int {
@@ -186,6 +192,8 @@ func strToInt(str string) int {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} str
@@ -212,6 +220,8 @@ var strToInt = function (str) {
     return res;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

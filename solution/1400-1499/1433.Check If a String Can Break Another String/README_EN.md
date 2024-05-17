@@ -68,6 +68,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkIfCanBreak(self, s1: str, s2: str) -> bool:
@@ -77,6 +79,8 @@ class Solution:
             a <= b for a, b in zip(cs1, cs2)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +103,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +125,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func checkIfCanBreak(s1 string, s2 string) bool {
 	cs1 := []byte(s1)
@@ -136,6 +144,8 @@ func checkIfCanBreak(s1 string, s2 string) bool {
 	return check(cs1, cs2) || check(cs2, cs1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function checkIfCanBreak(s1: string, s2: string): boolean {

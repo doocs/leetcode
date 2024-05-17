@@ -111,6 +111,8 @@ textEditor.cursorRight(6); // 返回 "practi"
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class TextEditor:
     def __init__(self):
@@ -146,6 +148,8 @@ class TextEditor:
 # param_3 = obj.cursorLeft(k)
 # param_4 = obj.cursorRight(k)
 ```
+
+#### Java
 
 ```java
 class TextEditor {
@@ -194,6 +198,8 @@ class TextEditor {
  */
 ```
 
+#### C++
+
 ```cpp
 class TextEditor {
 public:
@@ -241,6 +247,8 @@ private:
  * string param_4 = obj->cursorRight(k);
  */
 ```
+
+#### Go
 
 ```go
 type TextEditor struct {

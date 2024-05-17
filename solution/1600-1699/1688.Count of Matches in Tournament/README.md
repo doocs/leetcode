@@ -75,11 +75,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfMatches(self, n: int) -> int:
         return n - 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +92,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -98,17 +104,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfMatches(n int) int {
 	return n - 1
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numberOfMatches(n: number): number {
     return n - 1;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

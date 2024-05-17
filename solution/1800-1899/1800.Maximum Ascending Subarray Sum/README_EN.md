@@ -77,6 +77,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxAscendingSum(self, nums: List[int]) -> int:
@@ -89,6 +91,8 @@ class Solution:
                 t = v
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -125,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxAscendingSum(nums []int) int {
 	ans, t := 0, 0
@@ -142,6 +150,8 @@ func maxAscendingSum(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxAscendingSum(nums: number[]): number {
     const n = nums.length;
@@ -157,6 +167,8 @@ function maxAscendingSum(nums: number[]): number {
     return Math.max(res, sum);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -175,6 +187,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))

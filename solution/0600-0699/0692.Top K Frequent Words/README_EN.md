@@ -67,12 +67,16 @@ Note that &quot;i&quot; comes before &quot;love&quot; due to a lower alphabetica
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def topKFrequent(self, words: List[str], k: int) -> List[str]:
         cnt = Counter(words)
         return sorted(cnt, key=lambda x: (-cnt[x], x))[:k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -116,6 +122,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func topKFrequent(words []string, k int) []string {

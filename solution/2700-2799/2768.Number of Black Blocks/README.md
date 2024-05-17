@@ -88,6 +88,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countBlackBlocks(
@@ -105,6 +107,8 @@ class Solution:
         ans[0] = (m - 1) * (n - 1) - len(cnt.values())
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +134,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -157,6 +163,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countBlackBlocks(m int, n int, coordinates [][]int) []int64 {
 	cnt := map[int64]int{}
@@ -179,6 +187,8 @@ func countBlackBlocks(m int, n int, coordinates [][]int) []int64 {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countBlackBlocks(m: number, n: number, coordinates: number[][]): number[] {

@@ -79,6 +79,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestCommonSubpath(self, n: int, paths: List[List[int]]) -> int:
@@ -118,6 +120,8 @@ class Solution:
                 r = mid - 1
         return l
 ```
+
+#### Java
 
 ```java
 class Solution {

@@ -37,6 +37,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.04.Check%20Balance
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -58,6 +60,8 @@ class Solution:
 
         return dfs(root) >= 0
 ```
+
+#### Java
 
 ```java
 /**
@@ -88,6 +92,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -116,6 +122,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -149,6 +157,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for a binary tree node.
@@ -179,6 +189,8 @@ function isBalanced(root: TreeNode | null): boolean {
     return dfs(root) >= 0;
 }
 ```
+
+#### Swift
 
 ```swift
 /* class TreeNode {

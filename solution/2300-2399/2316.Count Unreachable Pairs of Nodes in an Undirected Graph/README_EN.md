@@ -72,6 +72,8 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here,
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countPairs(self, n: int, edges: List[List[int]]) -> int:
@@ -93,6 +95,8 @@ class Solution:
             s += t
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -165,6 +171,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countPairs(n int, edges [][]int) (ans int64) {
 	g := make([][]int, n)
@@ -196,6 +204,8 @@ func countPairs(n int, edges [][]int) (ans int64) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countPairs(n: number, edges: number[][]): number {
     const g: number[][] = Array.from({ length: n }, () => []);
@@ -224,6 +234,8 @@ function countPairs(n: number, edges: number[][]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

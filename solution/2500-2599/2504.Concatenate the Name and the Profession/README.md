@@ -79,6 +79,8 @@ Person 表:
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT person_id, CONCAT(name, "(", SUBSTRING(profession, 1, 1), ")") AS name

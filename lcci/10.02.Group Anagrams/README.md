@@ -61,6 +61,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.02.Group%20Anagram
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
@@ -70,6 +72,8 @@ class Solution:
             d[k].append(s)
         return list(d.values())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +89,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -103,6 +109,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func groupAnagrams(strs []string) (ans [][]string) {
 	d := map[string][]string{}
@@ -119,6 +127,8 @@ func groupAnagrams(strs []string) (ans [][]string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function groupAnagrams(strs: string[]): string[][] {
     const d: Map<string, string[]> = new Map();
@@ -132,6 +142,8 @@ function groupAnagrams(strs: string[]): string[][] {
     return Array.from(d.values());
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -160,6 +172,8 @@ class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
@@ -171,6 +185,8 @@ class Solution:
             d[tuple(cnt)].append(s)
         return list(d.values())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -195,6 +211,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -218,6 +236,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func groupAnagrams(strs []string) (ans [][]string) {

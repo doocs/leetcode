@@ -87,6 +87,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumOperations(self, nums: List[int]) -> int:
@@ -107,6 +109,8 @@ class Solution:
                 a, b = nums[i], nums[j]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -154,6 +160,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumOperations(nums []int) int {

@@ -76,6 +76,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def eatenApples(self, apples: List[int], days: List[int]) -> int:
@@ -96,6 +98,8 @@ class Solution:
             i += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +128,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using pii = pair<int, int>;
 
@@ -149,6 +155,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func eatenApples(apples []int, days []int) int {

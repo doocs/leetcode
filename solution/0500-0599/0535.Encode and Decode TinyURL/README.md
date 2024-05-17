@@ -68,6 +68,8 @@ string ans = obj.decode(tiny); // 返回解密后得到的原本的 URL 。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Codec:
     def __init__(self):
@@ -91,6 +93,8 @@ class Codec:
 # codec = Codec()
 # codec.decode(codec.encode(url))
 ```
+
+#### Java
 
 ```java
 public class Codec {
@@ -116,6 +120,8 @@ public class Codec {
 // Codec codec = new Codec();
 // codec.decode(codec.encode(url));
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -143,6 +149,8 @@ private:
 // Solution solution;
 // solution.decode(solution.encode(url));
 ```
+
+#### Go
 
 ```go
 type Codec struct {

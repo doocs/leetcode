@@ -103,6 +103,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Node:
     def __init__(self):
@@ -161,6 +163,8 @@ class Solution:
             tree.modify(1, v, t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -243,6 +247,8 @@ class SegmentTree {
 }
 ```
 
+#### C++
+
 ```cpp
 class Node {
 public:
@@ -311,6 +317,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func lengthOfLIS(nums []int, k int) int {

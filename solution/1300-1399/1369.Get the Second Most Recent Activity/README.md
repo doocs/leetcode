@@ -78,6 +78,8 @@ Bob 只有一条记录，我们就取这条记录</pre>
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 SELECT
     username,

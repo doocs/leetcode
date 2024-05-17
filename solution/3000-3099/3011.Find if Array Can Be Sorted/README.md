@@ -82,6 +82,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canSortArray(self, nums: List[int]) -> bool:
@@ -101,6 +103,8 @@ class Solution:
             i = j
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +130,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -153,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canSortArray(nums []int) bool {
 	preMx := -300
@@ -175,6 +183,8 @@ func canSortArray(nums []int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canSortArray(nums: number[]): boolean {

@@ -128,6 +128,8 @@ So the cumulative salary summary for this employee is:
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT
@@ -159,6 +161,8 @@ ORDER BY id, month DESC;
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

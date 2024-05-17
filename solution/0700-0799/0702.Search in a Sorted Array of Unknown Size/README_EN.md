@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # """
 # This is ArrayReader's API interface.
@@ -95,6 +97,8 @@ class Solution:
         return left if reader.get(left) == target else -1
 ```
 
+#### Java
+
 ```java
 /**
  * // This is ArrayReader's API interface.
@@ -119,6 +123,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -146,6 +152,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**

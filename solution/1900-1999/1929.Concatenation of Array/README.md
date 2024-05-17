@@ -71,11 +71,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getConcatenation(self, nums: List[int]) -> List[int]:
         return nums + nums
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +94,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -102,17 +108,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getConcatenation(nums []int) []int {
 	return append(nums, nums...)
 }
 ```
 
+#### TypeScript
+
 ```ts
 function getConcatenation(nums: number[]): number[] {
     return [...nums, ...nums];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -121,6 +133,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -133,6 +147,8 @@ var getConcatenation = function (nums) {
     return ans;
 };
 ```
+
+#### C
 
 ```c
 /**

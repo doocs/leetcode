@@ -90,6 +90,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canConvertString(self, s: str, t: str, k: int) -> bool:
@@ -104,6 +106,8 @@ class Solution:
                 return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -147,6 +153,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canConvertString(s string, t string, k int) bool {

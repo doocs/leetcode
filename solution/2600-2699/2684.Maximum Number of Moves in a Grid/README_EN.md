@@ -80,6 +80,8 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(m)$. Wher
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxMoves(self, grid: List[List[int]]) -> int:
@@ -96,6 +98,8 @@ class Solution:
             q = t
         return n - 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +124,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -149,6 +155,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxMoves(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
@@ -173,6 +181,8 @@ func maxMoves(grid [][]int) (ans int) {
 	return n - 1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxMoves(grid: number[][]): number {

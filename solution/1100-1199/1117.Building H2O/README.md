@@ -75,6 +75,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from threading import Semaphore
 
@@ -97,6 +99,8 @@ class H2O:
         releaseOxygen()
         self.h.release(2)
 ```
+
+#### Java
 
 ```java
 class H2O {
@@ -121,6 +125,8 @@ class H2O {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 #include <semaphore.h>

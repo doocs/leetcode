@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def palindromePartition(self, s: str, k: int) -> int:
@@ -98,6 +100,8 @@ class Solution:
                         f[i][j] = min(f[i][j], f[h][j - 1] + g[h][i - 1])
         return f[n][k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -159,6 +165,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func palindromePartition(s string, k int) int {

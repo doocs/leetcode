@@ -75,6 +75,8 @@ Same with other integers chosen by the first player, the second player will alwa
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canIWin(self, maxChoosableInteger: int, desiredTotal: int) -> bool:
@@ -92,6 +94,8 @@ class Solution:
             return False
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -150,6 +156,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canIWin(maxChoosableInteger int, desiredTotal int) bool {

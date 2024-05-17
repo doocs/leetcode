@@ -73,6 +73,8 @@ This is the maximum distance possible, so the answer is 3.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxDistToClosest(self, seats: List[int]) -> int:
@@ -87,6 +89,8 @@ class Solution:
                 last = i
         return max(first, len(seats) - last - 1, d // 2)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -131,6 +137,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxDistToClosest(seats []int) int {
 	first, last := -1, -1
@@ -149,6 +157,8 @@ func maxDistToClosest(seats []int) int {
 	return max(d/2, max(first, len(seats)-last-1))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxDistToClosest(seats: number[]): number {

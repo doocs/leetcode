@@ -90,6 +90,8 @@ In terms of time complexity, the time complexity of calling the $add(x, y)$ meth
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class DetectSquares:
     def __init__(self):
@@ -117,6 +119,8 @@ class DetectSquares:
 # obj.add(point)
 # param_2 = obj.count(point)
 ```
+
+#### Java
 
 ```java
 class DetectSquares {
@@ -160,6 +164,8 @@ class DetectSquares {
  */
 ```
 
+#### C++
+
 ```cpp
 class DetectSquares {
 public:
@@ -199,6 +205,8 @@ private:
  * int param_2 = obj->count(point);
  */
 ```
+
+#### Go
 
 ```go
 type DetectSquares struct {

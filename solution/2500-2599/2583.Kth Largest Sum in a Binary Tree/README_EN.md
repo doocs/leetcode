@@ -75,6 +75,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -98,6 +100,8 @@ class Solution:
             arr.append(t)
         return -1 if len(arr) < k else nlargest(k, arr)[-1]
 ```
+
+#### Java
 
 ```java
 /**
@@ -143,6 +147,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -184,6 +190,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -218,6 +226,8 @@ func kthLargestLevelSum(root *TreeNode, k int) int64 {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -273,6 +283,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -295,6 +307,8 @@ class Solution:
         dfs(root, 0)
         return -1 if len(arr) < k else nlargest(k, arr)[-1]
 ```
+
+#### Java
 
 ```java
 /**
@@ -338,6 +352,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -375,6 +391,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -407,6 +425,8 @@ func kthLargestLevelSum(root *TreeNode, k int) int64 {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

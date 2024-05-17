@@ -92,6 +92,8 @@ user1 is sorted in ascending order.
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

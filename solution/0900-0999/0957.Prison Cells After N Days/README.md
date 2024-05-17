@@ -79,17 +79,25 @@ Day 7: [0, 0, 1, 1, 0, 0, 0, 0]
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 
 ```
+
+#### Java
 
 ```java
 
 ```
 
+#### C++
+
 ```cpp
 
 ```
+
+#### Go
 
 ```go
 

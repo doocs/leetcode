@@ -61,6 +61,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
@@ -77,6 +79,8 @@ class Solution:
                 q.append(path + [v])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -131,6 +137,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func allPathsSourceTarget(graph [][]int) [][]int {
 	var path []int
@@ -155,6 +163,8 @@ func allPathsSourceTarget(graph [][]int) [][]int {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     fn dfs(i: usize, path: &mut Vec<i32>, res: &mut Vec<Vec<i32>>, graph: &Vec<Vec<i32>>) {
@@ -175,6 +185,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -213,6 +225,8 @@ var allPathsSourceTarget = function (graph) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
@@ -229,6 +243,8 @@ class Solution:
         dfs([0])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {

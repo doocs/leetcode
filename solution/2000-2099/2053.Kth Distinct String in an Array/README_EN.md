@@ -77,6 +77,8 @@ The only distinct string is &quot;b&quot;. Since there are fewer than 3 distinct
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def kthDistinct(self, arr: List[str], k: int) -> str:
@@ -88,6 +90,8 @@ class Solution:
                     return v
         return ''
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -125,6 +131,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func kthDistinct(arr []string, k int) string {

@@ -72,6 +72,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -96,6 +98,8 @@ class Solution:
         return root
 ```
 
+#### Java
+
 ```java
 /**
  * Definition for a binary tree node.
@@ -117,6 +121,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -153,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 	if root == nil || root == p || root == q {
@@ -169,6 +177,8 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -206,6 +216,8 @@ function lowestCommonAncestor(
     return root;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -256,6 +268,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

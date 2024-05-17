@@ -82,6 +82,8 @@ We can use the `MAX` and `MIN` functions to get the maximum and minimum sums of 
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT

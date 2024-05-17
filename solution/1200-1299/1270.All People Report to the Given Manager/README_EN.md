@@ -90,6 +90,8 @@ Specifically, we first use a join to find the `manager_id` of the superior manag
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT e1.employee_id

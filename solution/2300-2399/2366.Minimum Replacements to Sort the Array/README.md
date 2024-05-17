@@ -79,6 +79,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumReplacement(self, nums: List[int]) -> int:
@@ -94,6 +96,8 @@ class Solution:
             mx = nums[i] // k
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -136,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumReplacement(nums []int) (ans int64) {
 	n := len(nums)
@@ -152,6 +160,8 @@ func minimumReplacement(nums []int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumReplacement(nums: number[]): number {
@@ -170,6 +180,8 @@ function minimumReplacement(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

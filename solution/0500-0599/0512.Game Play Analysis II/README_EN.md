@@ -77,6 +77,8 @@ We can use `GROUP BY` and `MIN` functions to find the first login date for each 
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT
@@ -104,6 +106,8 @@ WHERE
 We can use the window function `rank()`, which assigns a rank to each login date for each player, and then select the rows with a rank of $1$.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

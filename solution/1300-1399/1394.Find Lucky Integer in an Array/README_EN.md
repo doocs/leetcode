@@ -71,6 +71,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findLucky(self, arr: List[int]) -> int:
@@ -81,6 +83,8 @@ class Solution:
                 ans = x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +103,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -120,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findLucky(arr []int) int {
 	cnt := [510]int{}
@@ -136,6 +144,8 @@ func findLucky(arr []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findLucky(arr: number[]): number {
     const cnt = new Array(510).fill(0);
@@ -151,6 +161,8 @@ function findLucky(arr: number[]): number {
     return ans;
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

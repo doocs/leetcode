@@ -85,6 +85,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def kthSmallestPath(self, destination: List[int], k: int) -> str:
@@ -104,6 +106,8 @@ class Solution:
                     h -= 1
         return "".join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -138,6 +142,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -174,6 +180,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func kthSmallestPath(destination []int, k int) string {

@@ -83,6 +83,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countUnguarded(
@@ -102,6 +104,8 @@ class Solution:
                     g[x][y] = 1
         return sum(v == 0 for row in g for v in row)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -138,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -170,6 +176,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countUnguarded(m int, n int, guards [][]int, walls [][]int) (ans int) {
@@ -204,6 +212,8 @@ func countUnguarded(m int, n int, guards [][]int, walls [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countUnguarded(m: number, n: number, guards: number[][], walls: number[][]): number {

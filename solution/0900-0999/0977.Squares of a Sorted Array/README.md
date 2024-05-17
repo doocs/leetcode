@@ -72,6 +72,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sortedSquares(self, nums: List[int]) -> List[int]:
@@ -88,6 +90,8 @@ class Solution:
                 j -= 1
         return ans[::-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sortedSquares(nums []int) []int {
 	n := len(nums)
@@ -150,6 +158,8 @@ func sortedSquares(nums []int) []int {
 	return ans
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -173,6 +183,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -194,6 +206,8 @@ var sortedSquares = function (nums) {
     return ans;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {

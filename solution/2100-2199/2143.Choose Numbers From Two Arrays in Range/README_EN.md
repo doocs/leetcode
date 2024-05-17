@@ -88,6 +88,8 @@ In the second balanced range, we choose nums2[1] and in the third balanced range
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSubranges(self, nums1: List[int], nums2: List[int]) -> int:
@@ -108,6 +110,8 @@ class Solution:
             ans = (ans + f[i][s2]) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -138,6 +142,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -170,6 +176,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countSubranges(nums1 []int, nums2 []int) (ans int) {
@@ -206,6 +214,8 @@ func sum(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countSubranges(nums1: number[], nums2: number[]): number {

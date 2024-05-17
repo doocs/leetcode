@@ -140,6 +140,8 @@ Calls 表:
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT country
@@ -164,6 +166,8 @@ WHERE duration > (SELECT AVG(duration) FROM Calls);
 ### 方法二
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

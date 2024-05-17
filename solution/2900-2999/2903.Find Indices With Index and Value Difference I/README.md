@@ -96,6 +96,8 @@ abs(0 - 0) &gt;= 0 且 abs(nums[0] - nums[0]) &gt;= 0 。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findIndices(
@@ -114,6 +116,8 @@ class Solution:
                 return [mx, i]
         return [-1, -1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -140,6 +144,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -165,6 +171,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findIndices(nums []int, indexDifference int, valueDifference int) []int {
 	mi, mx := 0, 0
@@ -187,6 +195,8 @@ func findIndices(nums []int, indexDifference int, valueDifference int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findIndices(nums: number[], indexDifference: number, valueDifference: number): number[] {
     let [mi, mx] = [0, 0];
@@ -208,6 +218,8 @@ function findIndices(nums: number[], indexDifference: number, valueDifference: n
     return [-1, -1];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

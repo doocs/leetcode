@@ -78,6 +78,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def seePeople(self, heights: List[List[int]]) -> List[List[int]]:
@@ -104,6 +106,8 @@ class Solution:
                 ans[i][j] += add[i]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -148,6 +152,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -191,6 +197,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func seePeople(heights [][]int) (ans [][]int) {
 	f := func(nums []int) []int {
@@ -228,6 +236,8 @@ func seePeople(heights [][]int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function seePeople(heights: number[][]): number[][] {

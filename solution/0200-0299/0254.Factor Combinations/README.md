@@ -83,6 +83,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getFactors(self, n: int) -> List[List[int]]:
@@ -102,6 +104,8 @@ class Solution:
         dfs(n, 2)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -155,6 +161,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getFactors(n int) [][]int {

@@ -109,6 +109,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sampleStats(self, count: List[int]) -> List[float]:
@@ -136,6 +138,8 @@ class Solution:
         )
         return [mi, mx, s / cnt, median, mode]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -174,6 +178,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -205,6 +211,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func sampleStats(count []int) []float64 {
@@ -238,6 +246,8 @@ func sampleStats(count []int) []float64 {
 	return []float64{float64(mi), float64(mx), float64(s) / float64(cnt), median, float64(mode)}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sampleStats(count: number[]): number[] {

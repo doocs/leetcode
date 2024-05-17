@@ -86,12 +86,16 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def distinctAverages(self, nums: List[int]) -> int:
         nums.sort()
         return len(set(nums[i] + nums[-i - 1] for i in range(len(nums) >> 1)))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distinctAverages(nums []int) (ans int) {
 	sort.Ints(nums)
@@ -134,6 +142,8 @@ func distinctAverages(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function distinctAverages(nums: number[]): number {
     nums.sort((a, b) => a - b);
@@ -145,6 +155,8 @@ function distinctAverages(nums: number[]): number {
     return s.size;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -179,6 +191,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def distinctAverages(self, nums: List[int]) -> int:
@@ -192,6 +206,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -209,6 +225,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -228,6 +246,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distinctAverages(nums []int) (ans int) {
 	sort.Ints(nums)
@@ -244,6 +264,8 @@ func distinctAverages(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function distinctAverages(nums: number[]): number {
     nums.sort((a, b) => a - b);
@@ -258,6 +280,8 @@ function distinctAverages(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -293,6 +317,8 @@ impl Solution {
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;

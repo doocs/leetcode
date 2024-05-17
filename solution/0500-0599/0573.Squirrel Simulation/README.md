@@ -78,6 +78,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minDistance(
@@ -97,6 +99,8 @@ class Solution:
             ans = min(ans, s + d - c * 2)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -144,6 +150,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minDistance(height int, width int, tree []int, squirrel []int, nuts [][]int) int {

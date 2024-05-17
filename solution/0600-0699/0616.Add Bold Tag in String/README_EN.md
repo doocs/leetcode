@@ -78,6 +78,8 @@ Since now the four &lt;b&gt;&#39;s are consecutive, we merge them: &quot;&lt;b&g
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Trie:
     def __init__(self):
@@ -139,6 +141,8 @@ class Solution:
 
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -217,6 +221,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Trie {
 public:
@@ -285,6 +291,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type Trie struct {

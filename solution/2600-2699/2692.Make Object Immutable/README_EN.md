@@ -107,6 +107,8 @@ fn = (obj) =&gt; {
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 type Obj = Array<any> | Record<any, any>;
 

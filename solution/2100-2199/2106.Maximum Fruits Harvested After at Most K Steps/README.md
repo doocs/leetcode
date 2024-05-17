@@ -108,6 +108,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxTotalFruits(self, fruits: List[List[int]], startPos: int, k: int) -> int:
@@ -126,6 +128,8 @@ class Solution:
             ans = max(ans, s)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -147,6 +151,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -164,6 +170,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxTotalFruits(fruits [][]int, startPos int, k int) (ans int) {
@@ -186,6 +194,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxTotalFruits(fruits: number[][], startPos: number, k: number): number {

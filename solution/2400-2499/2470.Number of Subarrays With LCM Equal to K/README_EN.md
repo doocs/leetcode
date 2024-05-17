@@ -69,6 +69,8 @@ The time complexity is $O(n^2)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def subarrayLCM(self, nums: List[int], k: int) -> int:
@@ -82,6 +84,8 @@ class Solution:
                 a = x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -131,6 +137,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func subarrayLCM(nums []int, k int) (ans int) {

@@ -91,6 +91,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 def primeFactors(n):
     i = 2
@@ -142,6 +144,8 @@ class Solution:
                 break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -225,6 +229,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -304,6 +310,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumScore(nums []int, k int) int {
 	n := len(nums)
@@ -381,6 +389,8 @@ func primeFactors(n int) int {
 	return len(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumScore(nums: number[], k: number): number {

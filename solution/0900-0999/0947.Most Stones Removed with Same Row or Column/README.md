@@ -78,6 +78,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def removeStones(self, stones: List[List[int]]) -> int:
@@ -94,6 +96,8 @@ class Solution:
         s = {find(x) for x, _ in stones}
         return len(stones) - len(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +128,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -145,6 +151,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func removeStones(stones [][]int) int {

@@ -91,6 +91,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findTheDistanceValue(self, arr1: List[int], arr2: List[int], d: int) -> int:
@@ -101,6 +103,8 @@ class Solution:
         arr2.sort()
         return sum(check(a) for a in arr1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -148,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findTheDistanceValue(arr1 []int, arr2 []int, d int) (ans int) {
 	sort.Ints(arr2)
@@ -160,6 +168,8 @@ func findTheDistanceValue(arr1 []int, arr2 []int, d int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findTheDistanceValue(arr1: number[], arr2: number[], d: number): number {
@@ -186,6 +196,8 @@ function findTheDistanceValue(arr1: number[], arr2: number[], d: number): number
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

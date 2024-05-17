@@ -60,6 +60,8 @@ f({}, null, 42); // "Hello World"
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function createHelloWorld() {
     return function (...args): string {

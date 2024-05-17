@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement
 SELECT DISTINCT

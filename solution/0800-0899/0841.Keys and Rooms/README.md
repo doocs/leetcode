@@ -79,6 +79,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
@@ -93,6 +95,8 @@ class Solution:
         dfs(0)
         return len(vis) == len(rooms)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -144,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canVisitAllRooms(rooms [][]int) bool {
 	n := len(rooms)
@@ -165,6 +173,8 @@ func canVisitAllRooms(rooms [][]int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canVisitAllRooms(rooms: number[][]): boolean {
     const n = rooms.length;
@@ -182,6 +192,8 @@ function canVisitAllRooms(rooms: number[][]): boolean {
     return vis.every(v => v);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

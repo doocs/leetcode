@@ -79,6 +79,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestStrChain(self, words: List[str]) -> int:
@@ -106,6 +108,8 @@ class Solution:
         return res
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int longestStrChain(String[] words) {
@@ -125,6 +129,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -147,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestStrChain(words []string) int {
 	sort.Slice(words, func(i, j int) bool { return len(words[i]) < len(words[j]) })
@@ -165,6 +173,8 @@ func longestStrChain(words []string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestStrChain(words: string[]): number {
     words.sort((a, b) => a.length - b.length);
@@ -182,6 +192,8 @@ function longestStrChain(words: string[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -226,6 +238,8 @@ impl Solution {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

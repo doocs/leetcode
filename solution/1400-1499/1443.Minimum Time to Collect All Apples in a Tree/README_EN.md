@@ -70,6 +70,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minTime(self, n: int, edges: List[List[int]], hasApple: List[bool]) -> int:
@@ -91,6 +93,8 @@ class Solution:
         vis = [False] * n
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -147,6 +153,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minTime(n int, edges [][]int, hasApple []bool) int {

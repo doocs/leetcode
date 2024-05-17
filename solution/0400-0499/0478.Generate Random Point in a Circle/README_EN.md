@@ -64,6 +64,8 @@ solution.randPoint(); // return [0.36572, 0.17248]
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def __init__(self, radius: float, x_center: float, y_center: float):

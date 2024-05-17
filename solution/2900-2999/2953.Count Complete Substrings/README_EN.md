@@ -77,6 +77,8 @@ The time complexity is $O(n \times |\Sigma|)$, and the space complexity is $O(|\
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countCompleteSubstrings(self, word: str, k: int) -> int:
@@ -112,6 +114,8 @@ class Solution:
             i = j
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -167,6 +171,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -221,6 +227,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countCompleteSubstrings(word string, k int) (ans int) {
@@ -278,6 +286,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countCompleteSubstrings(word: string, k: number): number {

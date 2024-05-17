@@ -65,12 +65,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findSmallestSetOfVertices(self, n: int, edges: List[List[int]]) -> List[int]:
         cnt = Counter(t for _, t in edges)
         return [i for i in range(n) if cnt[i] == 0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +93,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -109,6 +115,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findSmallestSetOfVertices(n int, edges [][]int) (ans []int) {
 	cnt := make([]int, n)
@@ -123,6 +131,8 @@ func findSmallestSetOfVertices(n int, edges [][]int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findSmallestSetOfVertices(n: number, edges: number[][]): number[] {
@@ -139,6 +149,8 @@ function findSmallestSetOfVertices(n: number, edges: number[][]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

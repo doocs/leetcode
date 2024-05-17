@@ -83,6 +83,8 @@ We can first group by `emp_id` and `event_day`, and then calculate the total tim
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT event_day AS day, emp_id, SUM(out_time - in_time) AS total_time

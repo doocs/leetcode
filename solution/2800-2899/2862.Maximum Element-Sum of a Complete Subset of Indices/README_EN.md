@@ -75,6 +75,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumSum(self, nums: List[int]) -> int:
@@ -89,6 +91,8 @@ class Solution:
             ans = max(ans, t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +120,8 @@ class Solution {
 }
 ```
 
+#### Java
+
 ```java
 class Solution {
     public long maximumSum(List<Integer> nums) {
@@ -132,6 +138,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -151,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumSum(nums []int) (ans int64) {
 	n := len(nums)
@@ -164,6 +174,8 @@ func maximumSum(nums []int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumSum(nums: number[]): number {

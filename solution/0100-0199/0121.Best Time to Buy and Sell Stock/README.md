@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
@@ -78,6 +80,8 @@ class Solution:
             mi = min(mi, v)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +95,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -106,6 +112,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProfit(prices []int) (ans int) {
 	mi := prices[0]
@@ -116,6 +124,8 @@ func maxProfit(prices []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxProfit(prices: number[]): number {
@@ -128,6 +138,8 @@ function maxProfit(prices: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -142,6 +154,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -159,6 +173,8 @@ var maxProfit = function (prices) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int MaxProfit(int[] prices) {
@@ -171,6 +187,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

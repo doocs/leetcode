@@ -83,6 +83,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def makeArrayIncreasing(self, arr1: List[int], arr2: List[int]) -> int:
@@ -106,6 +108,8 @@ class Solution:
                     f[i] = min(f[i], f[i - k - 1] + k)
         return -1 if f[n - 1] >= inf else f[n - 1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -154,6 +158,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -181,6 +187,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func makeArrayIncreasing(arr1 []int, arr2 []int) int {
@@ -219,6 +227,8 @@ func makeArrayIncreasing(arr1 []int, arr2 []int) int {
 	return f[n-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function makeArrayIncreasing(arr1: number[], arr2: number[]): number {
@@ -262,6 +272,8 @@ function makeArrayIncreasing(arr1: number[], arr2: number[]): number {
     return f[n - 1] >= inf ? -1 : f[n - 1];
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

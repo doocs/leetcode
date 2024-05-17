@@ -99,6 +99,8 @@ Note that each machine has $2$ process tasks, so we need to multiply the calcula
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT
@@ -125,6 +127,8 @@ GROUP BY 1;
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

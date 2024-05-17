@@ -75,6 +75,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findFinalValue(self, nums: List[int], original: int) -> int:
@@ -83,6 +85,8 @@ class Solution:
             original <<= 1
         return original
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -111,6 +117,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findFinalValue(nums []int, original int) int {
@@ -124,6 +132,8 @@ func findFinalValue(nums []int, original int) int {
 	return original
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findFinalValue(nums: number[], original: number): number {

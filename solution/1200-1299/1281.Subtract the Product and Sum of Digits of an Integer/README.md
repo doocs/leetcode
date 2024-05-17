@@ -68,6 +68,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def subtractProductAndSum(self, n: int) -> int:
@@ -78,6 +80,8 @@ class Solution:
             y += v
         return x - y
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -108,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subtractProductAndSum(n int) int {
 	x, y := 1, 0
@@ -120,6 +128,8 @@ func subtractProductAndSum(n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function subtractProductAndSum(n: number): number {
     let [x, y] = [1, 0];
@@ -131,6 +141,8 @@ function subtractProductAndSum(n: number): number {
     return x - y;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -148,6 +160,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int SubtractProductAndSum(int n) {
@@ -162,6 +176,8 @@ public class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int subtractProductAndSum(int n) {
@@ -185,6 +201,8 @@ int subtractProductAndSum(int n) {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

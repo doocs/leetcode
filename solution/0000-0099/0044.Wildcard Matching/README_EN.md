@@ -85,6 +85,8 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(m \times 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isMatch(self, s: str, p: str) -> bool:
@@ -100,6 +102,8 @@ class Solution:
 
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -138,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -166,6 +172,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isMatch(s string, p string) bool {
@@ -201,6 +209,8 @@ func isMatch(s string, p string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isMatch(s: string, p: string): boolean {
     const m = s.length;
@@ -228,6 +238,8 @@ function isMatch(s: string, p: string): boolean {
     return dfs(0, 0);
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -289,6 +301,8 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(m \times 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isMatch(self, s: str, p: str) -> bool:
@@ -308,6 +322,8 @@ class Solution:
                     )
         return f[m][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -334,6 +350,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -362,6 +380,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isMatch(s string, p string) bool {
 	m, n := len(s), len(p)
@@ -388,6 +408,8 @@ func isMatch(s string, p string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isMatch(s: string, p: string): boolean {
     const m: number = s.length;
@@ -413,6 +435,8 @@ function isMatch(s: string, p: string): boolean {
     return f[m][n];
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

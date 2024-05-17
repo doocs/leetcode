@@ -85,6 +85,8 @@ The time complexity is $O(K)$, and the space complexity is $O(K)$. Where $K$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def printKMoves(self, K: int) -> List[str]:
@@ -114,6 +116,8 @@ class Solution:
         g[x - x1][y - y1] = d[p]
         return ["".join(row) for row in g]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -159,6 +163,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -194,6 +200,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func printKMoves(K int) []string {
@@ -239,6 +247,8 @@ func printKMoves(K int) []string {
 	return ans
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

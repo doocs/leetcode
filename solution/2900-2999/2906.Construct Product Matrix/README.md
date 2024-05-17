@@ -82,6 +82,8 @@ p[0][2] = grid[0][0] * grid[0][1] = 12345 * 2 = 24690. 24690 % 12345 = 0 ，所�
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def constructProductMatrix(self, grid: List[List[int]]) -> List[List[int]]:
@@ -100,6 +102,8 @@ class Solution:
                 pre = pre * grid[i][j] % mod
         return p
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +129,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -152,6 +158,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func constructProductMatrix(grid [][]int) [][]int {
 	const mod int = 12345
@@ -178,6 +186,8 @@ func constructProductMatrix(grid [][]int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function constructProductMatrix(grid: number[][]): number[][] {
     const mod = 12345;
@@ -200,6 +210,8 @@ function constructProductMatrix(grid: number[][]): number[][] {
     return p;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

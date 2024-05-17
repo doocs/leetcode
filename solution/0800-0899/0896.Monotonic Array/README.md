@@ -73,6 +73,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isMonotonic(self, nums: List[int]) -> bool:
@@ -80,6 +82,8 @@ class Solution:
         desc = all(a >= b for a, b in pairwise(nums))
         return asc or desc
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +103,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -120,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isMonotonic(nums []int) bool {
 	asc, desc := false, false
@@ -137,6 +145,8 @@ func isMonotonic(nums []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isMonotonic(nums: number[]): boolean {
     let [asc, desc] = [false, false];
@@ -153,6 +163,8 @@ function isMonotonic(nums: number[]): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -173,6 +185,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

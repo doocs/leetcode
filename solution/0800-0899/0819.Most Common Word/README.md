@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
@@ -76,6 +78,8 @@ class Solution:
         p = Counter(re.findall('[a-z]+', paragraph.lower()))
         return next(word for word, _ in p.most_common() if word not in s)
 ```
+
+#### Java
 
 ```java
 import java.util.regex.Matcher;
@@ -111,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -138,6 +144,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func mostCommonWord(paragraph string, banned []string) string {
@@ -173,6 +181,8 @@ func mostCommonWord(paragraph string, banned []string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function mostCommonWord(paragraph: string, banned: string[]): string {
     const s = paragraph.toLocaleLowerCase();
@@ -187,6 +197,8 @@ function mostCommonWord(paragraph: string, banned: string[]): string {
     return [...map.entries()].reduce((r, v) => (v[1] > r[1] ? v : r), ['', 0])[0];
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::{ HashMap, HashSet };

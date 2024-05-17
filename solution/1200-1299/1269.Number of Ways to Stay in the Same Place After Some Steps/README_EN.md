@@ -84,6 +84,8 @@ The time complexity is $O(steps \times steps)$, and the space complexity is $O(s
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numWays(self, steps: int, arrLen: int) -> int:
@@ -102,6 +104,8 @@ class Solution:
         mod = 10**9 + 7
         return dfs(0, steps)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -134,6 +138,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -161,6 +167,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numWays(steps int, arrLen int) int {
@@ -193,6 +201,8 @@ func numWays(steps int, arrLen int) int {
 	return dfs(0, steps)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numWays(steps: number, arrLen: number): number {

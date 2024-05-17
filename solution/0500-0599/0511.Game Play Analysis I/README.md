@@ -72,6 +72,8 @@ Result 表：
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 import pandas as pd
 
@@ -83,6 +85,8 @@ def game_analysis(activity: pd.DataFrame) -> pd.DataFrame:
         .reset_index()
     )
 ```
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

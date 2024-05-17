@@ -68,6 +68,8 @@ solution.shuffle();    // Returns the random shuffling of array [1,2,3]. Example
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def __init__(self, nums: List[int]):
@@ -90,6 +92,8 @@ class Solution:
 # param_1 = obj.reset()
 # param_2 = obj.shuffle()
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +134,8 @@ class Solution {
  */
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -164,6 +170,8 @@ public:
  */
 ```
 
+#### Go
+
 ```go
 type Solution struct {
 	nums, original []int
@@ -195,6 +203,8 @@ func (this *Solution) Shuffle() []int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class Solution {
     private nums: number[];
@@ -225,6 +235,8 @@ class Solution {
  * var param_2 = obj.shuffle()
  */
 ```
+
+#### Rust
 
 ```rust
 use rand::Rng;
@@ -261,6 +273,8 @@ impl Solution {
  * let ret_2: Vec<i32> = obj.shuffle();
  */
 ```
+
+#### JavaScript
 
 ```js
 /**

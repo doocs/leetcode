@@ -109,6 +109,8 @@ We can use a subquery to first find all `visit_id`s that have not made any trans
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT customer_id, COUNT(1) AS count_no_trans
@@ -128,6 +130,8 @@ GROUP BY 1;
 We can also use a left join to join the `Visits` table and the `Transactions` table on `visit_id`, and then filter out the records where `amount` is `NULL`. After that, we can group by `customer_id` to count the number of times each customer has not made any transactions.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

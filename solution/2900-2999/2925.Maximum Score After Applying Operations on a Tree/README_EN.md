@@ -97,6 +97,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumScoreAfterOperations(
@@ -121,6 +123,8 @@ class Solution:
             g[b].append(a)
         return dfs(0)[1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -159,6 +163,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -193,6 +199,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumScoreAfterOperations(edges [][]int, values []int) int64 {
 	g := make([][]int, len(values))
@@ -222,6 +230,8 @@ func maximumScoreAfterOperations(edges [][]int, values []int) int64 {
 	return b
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumScoreAfterOperations(edges: number[][], values: number[]): number {

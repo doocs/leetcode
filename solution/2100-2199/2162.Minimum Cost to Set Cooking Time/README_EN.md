@@ -90,6 +90,8 @@ Note other possible ways are 0076, 076, 0116, and 116, but none of them produces
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCostSetTime(
@@ -115,6 +117,8 @@ class Solution:
         ans = min(f(m, s), f(m - 1, s + 60))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -146,6 +150,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -170,6 +176,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minCostSetTime(startAt int, moveCost int, pushCost int, targetSeconds int) int {

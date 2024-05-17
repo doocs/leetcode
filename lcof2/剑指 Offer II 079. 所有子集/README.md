@@ -55,6 +55,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
@@ -72,6 +74,8 @@ class Solution:
         dfs(0, len(nums), [])
         return res
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +99,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -117,6 +123,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subsets(nums []int) [][]int {
 	var res [][]int
@@ -138,6 +146,8 @@ func dfs(i int, nums, t []int, res *[][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function subsets(nums: number[]): number[][] {
     const n = nums.length;
@@ -154,6 +164,8 @@ function subsets(nums: number[]): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

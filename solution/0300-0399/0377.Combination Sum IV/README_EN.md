@@ -77,6 +77,8 @@ The time complexity is $O(n \times target)$, and the space complexity is $O(targ
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def combinationSum4(self, nums: List[int], target: int) -> int:
@@ -87,6 +89,8 @@ class Solution:
                     f[i] += f[i - x]
         return f[target]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -124,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func combinationSum4(nums []int, target int) int {
 	f := make([]int, target+1)
@@ -139,6 +147,8 @@ func combinationSum4(nums []int, target int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function combinationSum4(nums: number[], target: number): number {
     const f: number[] = Array(target + 1).fill(0);
@@ -153,6 +163,8 @@ function combinationSum4(nums: number[], target: number): number {
     return f[target];
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -173,6 +185,8 @@ var combinationSum4 = function (nums, target) {
     return f[target];
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

@@ -81,6 +81,8 @@ Thus, &quot;<u>021</u>&quot; becomes &quot;<u>934</u>&quot;.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumNumber(self, num: str, change: List[int]) -> str:
@@ -93,6 +95,8 @@ class Solution:
                 break
         return ''.join(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +134,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumNumber(num string, change []int) string {

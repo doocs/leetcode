@@ -64,6 +64,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfWays(self, n: int, x: int) -> int:
@@ -78,6 +80,8 @@ class Solution:
                     f[i][j] = (f[i][j] + f[i - 1][j - k]) % mod
         return f[n][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -121,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfWays(n int, x int) int {
 	const mod int = 1e9 + 7
@@ -141,6 +149,8 @@ func numberOfWays(n int, x int) int {
 	return f[n][n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfWays(n: number, x: number): number {

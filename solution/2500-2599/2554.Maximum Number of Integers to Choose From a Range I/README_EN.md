@@ -87,6 +87,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxCount(self, banned: List[int], n: int, maxSum: int) -> int:
@@ -100,6 +102,8 @@ class Solution:
                 s += i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -137,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxCount(banned []int, n int, maxSum int) (ans int) {
 	ban := map[int]bool{}
@@ -153,6 +161,8 @@ func maxCount(banned []int, n int, maxSum int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxCount(banned: number[], n: number, maxSum: number): number {
@@ -172,6 +182,8 @@ function maxCount(banned: number[], n: number, maxSum: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -194,6 +206,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int cmp(const void* a, const void* b) {
@@ -243,6 +257,8 @@ Similar problems:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxCount(self, banned: List[int], n: int, maxSum: int) -> int:
@@ -263,6 +279,8 @@ class Solution:
                 break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -300,6 +318,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -331,6 +351,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxCount(banned []int, n int, maxSum int) (ans int) {

@@ -73,6 +73,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2019.%20%E7%A7%8B%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumOperations(self, leaves: str) -> int:
@@ -90,6 +92,8 @@ class Solution:
                 f[i][2] = min(f[i - 1][2], f[i - 1][1]) + 1
         return f[n - 1][2]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -140,6 +146,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumOperations(leaves string) int {
@@ -168,6 +176,8 @@ func minimumOperations(leaves string) int {
 	return f[n-1][2]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumOperations(leaves: string): number {

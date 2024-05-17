@@ -85,6 +85,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def singleDivisorTriplet(self, nums: List[int]) -> int:
@@ -105,6 +107,8 @@ class Solution:
                             ans += x * y * z
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -142,6 +146,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -175,6 +181,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func singleDivisorTriplet(nums []int) (ans int64) {
@@ -210,6 +218,8 @@ func singleDivisorTriplet(nums []int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function singleDivisorTriplet(nums: number[]): number {

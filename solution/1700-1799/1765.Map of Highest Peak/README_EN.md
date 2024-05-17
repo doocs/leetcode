@@ -83,6 +83,8 @@ Any height assignment that has a maximum height of 2 while still meeting the rul
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def highestPeak(self, isWater: List[List[int]]) -> List[List[int]]:
@@ -103,6 +105,8 @@ class Solution:
                     q.append((x, y))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -134,6 +138,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -168,6 +174,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func highestPeak(isWater [][]int) [][]int {
 	m, n := len(isWater), len(isWater[0])
@@ -199,6 +207,8 @@ func highestPeak(isWater [][]int) [][]int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function highestPeak(isWater: number[][]): number[][] {
@@ -232,6 +242,8 @@ function highestPeak(isWater: number[][]): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -295,6 +307,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def highestPeak(self, isWater: List[List[int]]) -> List[List[int]]:
@@ -316,6 +330,8 @@ class Solution:
                         q.append((x, y))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -349,6 +365,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -384,6 +402,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func highestPeak(isWater [][]int) [][]int {

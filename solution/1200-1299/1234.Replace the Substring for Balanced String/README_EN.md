@@ -80,6 +80,8 @@ The time complexity is $O(n)$, and the space complexity is $O(C)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def balancedString(self, s: str) -> int:
@@ -96,6 +98,8 @@ class Solution:
                 j += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -149,6 +155,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func balancedString(s string) int {

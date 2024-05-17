@@ -82,6 +82,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestNiceSubarray(self, nums: List[int]) -> int:
@@ -94,6 +96,8 @@ class Solution:
             mask |= x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -128,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestNiceSubarray(nums []int) (ans int) {
 	mask, j := 0, 0
@@ -144,6 +152,8 @@ func longestNiceSubarray(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestNiceSubarray(nums: number[]): number {
     let mask = 0;
@@ -158,6 +168,8 @@ function longestNiceSubarray(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -180,6 +192,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

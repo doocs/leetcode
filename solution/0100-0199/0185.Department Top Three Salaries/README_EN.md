@@ -114,6 +114,8 @@ In the Sales department:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 import pandas as pd
 
@@ -136,6 +138,8 @@ def top_three_salaries(
         columns={"name": "Employee", "salary": "Salary"}
     )[["Department", "Employee", "Salary"]]
 ```
+
+#### MySQL
 
 ```sql
 SELECT
@@ -164,6 +168,8 @@ WHERE
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

@@ -76,6 +76,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestWPI(self, hours: List[int]) -> int:
@@ -91,6 +93,8 @@ class Solution:
                 pos[s] = i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +138,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestWPI(hours []int) (ans int) {

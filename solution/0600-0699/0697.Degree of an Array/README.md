@@ -68,6 +68,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findShortestSubArray(self, nums: List[int]) -> int:
@@ -86,6 +88,8 @@ class Solution:
                     ans = t
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -146,6 +152,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findShortestSubArray(nums []int) int {
@@ -185,6 +193,8 @@ func findShortestSubArray(nums []int) int {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Go
 
 ```go
 func findShortestSubArray(nums []int) (ans int) {

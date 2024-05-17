@@ -82,6 +82,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def largestNumber(self, cost: List[int], target: int) -> str:
@@ -108,6 +110,8 @@ class Solution:
                 j = g[i][j]
         return "".join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -148,6 +152,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -184,6 +190,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func largestNumber(cost []int, target int) string {
@@ -225,6 +233,8 @@ func largestNumber(cost []int, target int) string {
 	return string(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function largestNumber(cost: number[], target: number): string {

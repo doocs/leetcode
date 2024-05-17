@@ -94,6 +94,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def largestSquareArea(
@@ -110,6 +112,8 @@ class Solution:
                 ans = max(ans, e * e)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +137,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -158,6 +164,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func largestSquareArea(bottomLeft [][]int, topRight [][]int) (ans int64) {
 	for i, b1 := range bottomLeft {
@@ -178,6 +186,8 @@ func largestSquareArea(bottomLeft [][]int, topRight [][]int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function largestSquareArea(bottomLeft: number[][], topRight: number[][]): number {

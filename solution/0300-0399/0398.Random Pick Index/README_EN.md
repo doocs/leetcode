@@ -65,6 +65,8 @@ solution.pick(3); // It should return either index 2, 3, or 4 randomly. Each ind
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def __init__(self, nums: List[int]):
@@ -85,6 +87,8 @@ class Solution:
 # obj = Solution(nums)
 # param_1 = obj.pick(target)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
  */
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -145,6 +151,8 @@ public:
  * int param_1 = obj->pick(target);
  */
 ```
+
+#### Go
 
 ```go
 type Solution struct {

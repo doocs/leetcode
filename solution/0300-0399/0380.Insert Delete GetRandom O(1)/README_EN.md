@@ -81,6 +81,8 @@ Time complexity $O(1)$, space complexity $O(n)$, where $n$ is the number of elem
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class RandomizedSet:
     def __init__(self):
@@ -114,6 +116,8 @@ class RandomizedSet:
 # param_2 = obj.remove(val)
 # param_3 = obj.getRandom()
 ```
+
+#### Java
 
 ```java
 class RandomizedSet {
@@ -158,6 +162,8 @@ class RandomizedSet {
  * int param_3 = obj.getRandom();
  */
 ```
+
+#### C++
 
 ```cpp
 class RandomizedSet {
@@ -204,6 +210,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type RandomizedSet struct {
 	d map[int]int
@@ -248,6 +256,8 @@ func (this *RandomizedSet) GetRandom() int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class RandomizedSet {
     private d: Map<number, number> = new Map();
@@ -290,6 +300,8 @@ class RandomizedSet {
  */
 ```
 
+#### Rust
+
 ```rust
 use std::collections::HashSet;
 use rand::Rng;
@@ -329,6 +341,8 @@ impl RandomizedSet {
  * let ret_3: i32 = obj.get_random();
  */
 ```
+
+#### C#
 
 ```cs
 public class RandomizedSet {

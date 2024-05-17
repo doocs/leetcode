@@ -81,6 +81,8 @@ The time complexity is $O(n^2)$, where $n$ is the side length of the grid `grid`
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def projectionArea(self, grid: List[List[int]]) -> int:
@@ -89,6 +91,8 @@ class Solution:
         zx = sum(max(col) for col in zip(*grid))
         return xy + yz + zx
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func projectionArea(grid [][]int) int {
 	xy, yz, zx := 0, 0, 0
@@ -151,6 +159,8 @@ func projectionArea(grid [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function projectionArea(grid: number[][]): number {
     const xy: number = grid.flat().filter(v => v > 0).length;
@@ -161,6 +171,8 @@ function projectionArea(grid: number[][]): number {
     return xy + yz + zx;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

@@ -63,6 +63,8 @@ mapSum.sum(&quot;ap&quot;);           // return 5 (<u>ap</u>ple + <u>ap</u>p = 3
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class MapSum:
     def __init__(self):
@@ -87,6 +89,8 @@ class MapSum:
 # obj.insert(key,val)
 # param_2 = obj.sum(prefix)
 ```
+
+#### Java
 
 ```java
 class MapSum {
@@ -121,6 +125,8 @@ class MapSum {
  */
 ```
 
+#### C++
+
 ```cpp
 class MapSum {
 public:
@@ -152,6 +158,8 @@ public:
  * int param_2 = obj->sum(prefix);
  */
 ```
+
+#### Go
 
 ```go
 type MapSum struct {

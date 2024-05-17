@@ -74,6 +74,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxChunksToSorted(self, arr: List[int]) -> int:
@@ -84,6 +86,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -114,6 +120,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxChunksToSorted(arr []int) int {
 	ans, mx := 0, 0
@@ -126,6 +134,8 @@ func maxChunksToSorted(arr []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxChunksToSorted(arr: number[]): number {
@@ -142,6 +152,8 @@ function maxChunksToSorted(arr: number[]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn max_chunks_to_sorted(arr: Vec<i32>) -> i32 {
@@ -157,6 +169,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))
@@ -192,6 +206,8 @@ int maxChunksToSorted(int* arr, int arrSize) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxChunksToSorted(self, arr: List[int]) -> int:
@@ -206,6 +222,8 @@ class Solution:
                 stk.append(mx)
         return len(stk)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -226,6 +244,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -248,6 +268,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxChunksToSorted(arr []int) int {

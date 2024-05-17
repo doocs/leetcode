@@ -125,6 +125,8 @@ interface FontInfo {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # """
 # This is FontInfo's API interface.
@@ -164,6 +166,8 @@ class Solution:
         return fonts[left] if check(fonts[left]) else -1
 ```
 
+#### Java
+
 ```java
 /**
  * // This is the FontInfo's API interface.
@@ -202,6 +206,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * // This is the FontInfo's API interface.
@@ -239,6 +245,8 @@ public:
     }
 };
 ```
+
+#### JavaScript
 
 ```js
 /**

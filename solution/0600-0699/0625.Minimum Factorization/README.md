@@ -65,6 +65,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def smallestFactorization(self, num: int) -> int:
@@ -78,6 +80,8 @@ class Solution:
                 mul *= 10
         return ans if num < 2 and ans <= 2**31 - 1 else 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -121,6 +127,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func smallestFactorization(num int) int {

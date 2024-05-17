@@ -62,6 +62,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def lengthOfLongestSubstringKDistinct(self, s: str, k: int) -> int:
@@ -78,6 +80,8 @@ class Solution:
             ans = max(ans, i - j + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +130,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func lengthOfLongestSubstringKDistinct(s string, k int) (ans int) {

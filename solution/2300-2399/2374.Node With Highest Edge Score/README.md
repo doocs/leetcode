@@ -78,6 +78,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def edgeScore(self, edges: List[int]) -> int:
@@ -90,6 +92,8 @@ class Solution:
                 ans = i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -130,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func edgeScore(edges []int) int {
 	n := len(edges)
@@ -146,6 +154,8 @@ func edgeScore(edges []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function edgeScore(edges: number[]): number {

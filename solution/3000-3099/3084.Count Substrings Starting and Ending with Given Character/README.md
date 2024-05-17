@@ -71,12 +71,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSubstrings(self, s: str, c: str) -> int:
         cnt = s.count(c)
         return cnt + cnt * (cnt - 1) // 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +90,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -97,12 +103,16 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSubstrings(s string, c byte) int64 {
 	cnt := int64(strings.Count(s, string(c)))
 	return cnt + cnt*(cnt-1)/2
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countSubstrings(s: string, c: string): number {

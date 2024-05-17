@@ -78,6 +78,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def distinctNumbers(self, nums: List[int], k: int) -> List[int]:
@@ -91,6 +93,8 @@ class Solution:
             ans.append(len(cnt))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +117,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -137,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distinctNumbers(nums []int, k int) []int {
 	cnt := map[int]int{}
@@ -155,6 +163,8 @@ func distinctNumbers(nums []int, k int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function distinctNumbers(nums: number[], k: number): number[] {
@@ -189,6 +199,8 @@ function distinctNumbers(nums: number[], k: number): number[] {
 
 <!-- tabs:start -->
 
+#### Java
+
 ```java
 class Solution {
     public int[] distinctNumbers(int[] nums, int k) {
@@ -220,6 +232,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -250,6 +264,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distinctNumbers(nums []int, k int) (ans []int) {
 	m := slices.Max(nums)
@@ -276,6 +292,8 @@ func distinctNumbers(nums []int, k int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function distinctNumbers(nums: number[], k: number): number[] {

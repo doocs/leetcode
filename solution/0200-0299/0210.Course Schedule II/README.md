@@ -85,6 +85,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
@@ -104,6 +106,8 @@ class Solution:
                     q.append(j)
         return ans if len(ans) == numCourses else []
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -138,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -170,6 +176,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findOrder(numCourses int, prerequisites [][]int) []int {
@@ -205,6 +213,8 @@ func findOrder(numCourses int, prerequisites [][]int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findOrder(numCourses: number, prerequisites: number[][]): number[] {
     const g: number[][] = Array.from({ length: numCourses }, () => []);
@@ -232,6 +242,8 @@ function findOrder(numCourses: number, prerequisites: number[][]): number[] {
     return ans.length === numCourses ? ans : [];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -273,6 +285,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

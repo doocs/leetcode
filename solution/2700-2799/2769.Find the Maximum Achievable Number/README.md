@@ -71,11 +71,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def theMaximumAchievableX(self, num: int, t: int) -> int:
         return num + t * 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -84,6 +88,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -94,11 +100,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func theMaximumAchievableX(num int, t int) int {
 	return num + t*2
 }
 ```
+
+#### TypeScript
 
 ```ts
 function theMaximumAchievableX(num: number, t: number): number {

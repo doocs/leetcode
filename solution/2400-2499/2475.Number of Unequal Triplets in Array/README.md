@@ -79,6 +79,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def unequalTriplets(self, nums: List[int]) -> int:
@@ -92,6 +94,8 @@ class Solution:
                     )
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func unequalTriplets(nums []int) (ans int) {
 	n := len(nums)
@@ -147,6 +155,8 @@ func unequalTriplets(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function unequalTriplets(nums: number[]): number {
@@ -164,6 +174,8 @@ function unequalTriplets(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -200,6 +212,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def unequalTriplets(self, nums: List[int]) -> int:
@@ -211,6 +225,8 @@ class Solution:
             ans += (i >= 0 and k < n) * (i + 1) * (n - k)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -241,6 +257,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -259,6 +277,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func unequalTriplets(nums []int) (ans int) {
 	sort.Ints(nums)
@@ -273,6 +293,8 @@ func unequalTriplets(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function unequalTriplets(nums: number[]): number {
@@ -291,6 +313,8 @@ function unequalTriplets(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -329,6 +353,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def unequalTriplets(self, nums: List[int]) -> int:
@@ -341,6 +367,8 @@ class Solution:
             a += b
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -360,6 +388,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -381,6 +411,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func unequalTriplets(nums []int) (ans int) {
 	cnt := map[int]int{}
@@ -396,6 +428,8 @@ func unequalTriplets(nums []int) (ans int) {
 	return
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -430,6 +464,8 @@ impl Solution {
 ### 方法四
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {

@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def smallestNumber(self, n: int) -> str:
@@ -82,6 +84,8 @@ class Solution:
         ans = "".join(str(i) * cnt[i] for i in range(2, 10))
         return ans if ans else "1"
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -131,6 +137,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func smallestNumber(n int64) string {

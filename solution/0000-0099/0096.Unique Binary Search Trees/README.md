@@ -64,6 +64,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numTrees(self, n: int) -> int:
@@ -73,6 +75,8 @@ class Solution:
                 f[i] += f[j] * f[i - j - 1]
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +92,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -105,6 +111,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numTrees(n int) int {
 	f := make([]int, n+1)
@@ -118,6 +126,8 @@ func numTrees(n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numTrees(n: number): number {
     const f: number[] = Array(n + 1).fill(0);
@@ -130,6 +140,8 @@ function numTrees(n: number): number {
     return f[n];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -146,6 +158,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

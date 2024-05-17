@@ -68,12 +68,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         cnt = Counter(nums)
         return [v[0] for v in cnt.most_common(k)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +95,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 using pii = pair<int, int>;
@@ -116,6 +122,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func topKFrequent(nums []int, k int) []int {
@@ -147,6 +155,8 @@ func (h *hp) Push(v any)        { *h = append(*h, v.(pair)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
+#### TypeScript
+
 ```ts
 function topKFrequent(nums: number[], k: number): number[] {
     let hashMap = new Map();
@@ -162,6 +172,8 @@ function topKFrequent(nums: number[], k: number): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -204,6 +216,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
@@ -215,6 +229,8 @@ class Solution:
                 heappop(hp)
         return [v[1] for v in hp]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -238,6 +254,8 @@ class Solution {
     }
 }
 ```
+
+#### TypeScript
 
 ```ts
 function topKFrequent(nums: number[], k: number): number[] {

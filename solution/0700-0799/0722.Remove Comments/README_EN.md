@@ -106,6 +106,8 @@ a = b + c;
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def removeComments(self, source: List[str]) -> List[str]:
@@ -133,6 +135,8 @@ class Solution:
                 t.clear()
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -168,6 +172,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -205,6 +211,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func removeComments(source []string) (ans []string) {
 	t := []byte{}
@@ -236,6 +244,8 @@ func removeComments(source []string) (ans []string) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function removeComments(source: string[]): string[] {
@@ -269,6 +279,8 @@ function removeComments(source: string[]): string[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

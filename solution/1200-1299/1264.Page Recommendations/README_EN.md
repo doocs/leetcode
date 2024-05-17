@@ -112,6 +112,8 @@ First, we query all users who are friends with `user_id = 1` and record them in 
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH
@@ -136,6 +138,8 @@ WHERE page_id NOT IN (SELECT page_id FROM Likes WHERE user_id = 1);
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

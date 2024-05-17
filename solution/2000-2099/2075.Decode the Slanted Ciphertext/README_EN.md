@@ -90,6 +90,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def decodeCiphertext(self, encodedText: str, rows: int) -> str:
@@ -102,6 +104,8 @@ class Solution:
                 x, y = x + 1, y + 1
         return ''.join(ans).rstrip()
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +124,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -140,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func decodeCiphertext(encodedText string, rows int) string {
 	ans := []byte{}
@@ -155,6 +163,8 @@ func decodeCiphertext(encodedText string, rows int) string {
 	return string(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function decodeCiphertext(encodedText: string, rows: number): string {

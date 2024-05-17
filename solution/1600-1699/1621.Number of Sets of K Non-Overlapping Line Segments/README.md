@@ -107,6 +107,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfSets(self, n: int, k: int) -> int:
@@ -125,6 +127,8 @@ class Solution:
                     g[i][j] %= mod
         return (f[-1][-1] + g[-1][-1]) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -150,6 +154,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -179,6 +185,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfSets(n int, k int) int {
 	f := make([][]int, n+1)
@@ -204,6 +212,8 @@ func numberOfSets(n int, k int) int {
 	return (f[n][k] + g[n][k]) % mod
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfSets(n: number, k: number): number {

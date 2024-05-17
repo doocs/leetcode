@@ -70,6 +70,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestSubsequence(self, arr: List[int], difference: int) -> int:
@@ -78,6 +80,8 @@ class Solution:
             f[x] = f[x - difference] + 1
         return max(f.values())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -108,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestSubsequence(arr []int, difference int) (ans int) {
 	f := map[int]int{}
@@ -119,6 +127,8 @@ func longestSubsequence(arr []int, difference int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestSubsequence(arr: number[], difference: number): number {
     const f: Map<number, number> = new Map();
@@ -128,6 +138,8 @@ function longestSubsequence(arr: number[], difference: number): number {
     return Math.max(...f.values());
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

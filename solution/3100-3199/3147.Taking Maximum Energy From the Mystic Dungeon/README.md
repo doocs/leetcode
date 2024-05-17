@@ -100,6 +100,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3147.Ta
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumEnergy(self, energy: List[int], k: int) -> int:
@@ -113,6 +115,8 @@ class Solution:
                 j -= k
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +133,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -147,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumEnergy(energy []int, k int) int {
 	ans := -(1 << 30)
@@ -160,6 +168,8 @@ func maximumEnergy(energy []int, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumEnergy(energy: number[], k: number): number {

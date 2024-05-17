@@ -110,6 +110,8 @@ t.getInheritanceOrder(); // 返回 ["king", "andy", "matthew", "alex", "asha", "
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class ThroneInheritance:
 
@@ -141,6 +143,8 @@ class ThroneInheritance:
 # obj.death(name)
 # param_3 = obj.getInheritanceOrder()
 ```
+
+#### Java
 
 ```java
 class ThroneInheritance {
@@ -185,6 +189,8 @@ class ThroneInheritance {
  * List<String> param_3 = obj.getInheritanceOrder();
  */
 ```
+
+#### C++
 
 ```cpp
 class ThroneInheritance {
@@ -231,6 +237,8 @@ private:
  * vector<string> param_3 = obj->getInheritanceOrder();
  */
 ```
+
+#### Go
 
 ```go
 type ThroneInheritance struct {
@@ -279,6 +287,8 @@ func (this *ThroneInheritance) GetInheritanceOrder() (ans []string) {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class ThroneInheritance {
     private king: string;
@@ -321,6 +331,8 @@ class ThroneInheritance {
  * var param_3 = obj.getInheritanceOrder()
  */
 ```
+
+#### C#
 
 ```cs
 public class ThroneInheritance {

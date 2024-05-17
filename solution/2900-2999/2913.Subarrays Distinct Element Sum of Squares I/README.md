@@ -87,6 +87,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumCounts(self, nums: List[int]) -> int:
@@ -98,6 +100,8 @@ class Solution:
                 ans += len(s) * len(s)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +122,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -140,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumCounts(nums []int) (ans int) {
 	for i := range nums {
@@ -156,6 +164,8 @@ func sumCounts(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumCounts(nums: number[]): number {

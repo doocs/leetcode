@@ -104,6 +104,8 @@ arr2 = [
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function join(arr1: any[], arr2: any[]): any[] {
     const d = new Map(arr1.map(x => [x.id, x]));

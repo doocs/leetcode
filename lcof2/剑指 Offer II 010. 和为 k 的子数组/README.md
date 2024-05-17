@@ -60,6 +60,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
@@ -71,6 +73,8 @@ class Solution:
             cnt[s] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +91,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -105,6 +111,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subarraySum(nums []int, k int) (ans int) {
 	cnt := map[int]int{0: 1}
@@ -117,6 +125,8 @@ func subarraySum(nums []int, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function subarraySum(nums: number[], k: number): number {

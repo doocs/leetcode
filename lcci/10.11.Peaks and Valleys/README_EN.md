@@ -42,6 +42,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def wiggleSort(self, nums: List[int]) -> None:
@@ -49,6 +51,8 @@ class Solution:
         for i in range(0, len(nums), 2):
             nums[i : i + 2] = nums[i : i + 2][::-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -64,6 +68,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -77,6 +83,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func wiggleSort(nums []int) {
 	sort.Ints(nums)
@@ -85,6 +93,8 @@ func wiggleSort(nums []int) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -98,6 +108,8 @@ function wiggleSort(nums: number[]): void {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

@@ -118,6 +118,8 @@ Alice 按照路径 0-&gt;1 移动，同时 Bob 按照路径 1-&gt;0 移动。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def mostProfitablePath(
@@ -158,6 +160,8 @@ class Solution:
         dfs2(0, -1, 0, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -217,6 +221,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -262,6 +268,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func mostProfitablePath(edges [][]int, bob int, amount []int) int {

@@ -56,6 +56,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
@@ -74,6 +76,8 @@ class Solution:
             ans.extend(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +128,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findDiagonalOrder(mat [][]int) []int {
@@ -153,6 +161,8 @@ func findDiagonalOrder(mat [][]int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findDiagonalOrder(mat: number[][]): number[] {
@@ -191,6 +201,8 @@ function findDiagonalOrder(mat: number[][]): number[] {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

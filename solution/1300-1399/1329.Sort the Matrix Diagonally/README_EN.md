@@ -67,6 +67,8 @@ The time complexity is $O(m \times n \times \log \min(m, n))$, and the space com
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def diagonalSort(self, mat: List[List[int]]) -> List[List[int]]:
@@ -82,6 +84,8 @@ class Solution:
                 mat[i][j] = g[m - i + j].pop()
         return mat
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func diagonalSort(mat [][]int) [][]int {
 	m, n := len(mat), len(mat[0])
@@ -155,6 +163,8 @@ func diagonalSort(mat [][]int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function diagonalSort(mat: number[][]): number[][] {
     const [m, n] = [mat.length, mat[0].length];
@@ -175,6 +185,8 @@ function diagonalSort(mat: number[][]): number[][] {
     return mat;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -199,6 +211,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

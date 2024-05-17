@@ -64,6 +64,8 @@ A, A, A, Ctrl A, Ctrl C, Ctrl V, Ctrl V
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxA(self, n: int) -> int:
@@ -73,6 +75,8 @@ class Solution:
                 dp[i] = max(dp[i], dp[j - 1] * (i - j))
         return dp[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +95,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -106,6 +112,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxA(n int) int {

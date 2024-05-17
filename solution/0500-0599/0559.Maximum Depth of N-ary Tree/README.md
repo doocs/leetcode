@@ -63,6 +63,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 """
 # Definition for a Node.
@@ -79,6 +81,8 @@ class Solution:
             return 0
         return 1 + max([self.maxDepth(child) for child in root.children], default=0)
 ```
+
+#### Java
 
 ```java
 /*
@@ -114,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /*
 // Definition for a Node.
@@ -145,6 +151,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**

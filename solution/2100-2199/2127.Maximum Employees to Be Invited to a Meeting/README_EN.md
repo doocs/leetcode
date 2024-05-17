@@ -99,6 +99,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumInvitations(self, favorite: List[int]) -> int:
@@ -138,6 +140,8 @@ class Solution:
 
         return max(max_cycle(favorite), topological_sort(favorite))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -201,6 +205,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -252,6 +258,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumInvitations(favorite []int) int {
@@ -318,6 +326,8 @@ func topologicalSort(fa []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumInvitations(favorite: number[]): number {

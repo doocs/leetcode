@@ -75,6 +75,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -93,6 +95,8 @@ class Solution:
             head = head.next
         return False
 ```
+
+#### Java
 
 ```java
 /**
@@ -119,6 +123,8 @@ public class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -143,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -162,6 +170,8 @@ func hasCycle(head *ListNode) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -204,6 +214,8 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -221,6 +233,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 /**
@@ -250,6 +264,8 @@ public class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -276,6 +292,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -295,6 +313,8 @@ func hasCycle(head *ListNode) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -323,6 +343,8 @@ function hasCycle(head: ListNode | null): boolean {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -349,6 +371,8 @@ var hasCycle = function (head) {
     return false;
 };
 ```
+
+#### C#
 
 ```cs
 /**

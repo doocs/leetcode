@@ -86,6 +86,8 @@ n = 2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 import pandas as pd
 
@@ -98,6 +100,8 @@ def nth_highest_salary(employee: pd.DataFrame, N: int) -> pd.DataFrame:
         salary = sorted(unique_salaries, reverse=True)[N - 1]
         return pd.DataFrame([salary], columns=[f"getNthHighestSalary({N})"])
 ```
+
+#### MySQL
 
 ```sql
 CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT

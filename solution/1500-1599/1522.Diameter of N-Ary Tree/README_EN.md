@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 """
 # Definition for a Node.
@@ -104,6 +106,8 @@ class Solution:
         dfs(root)
         return ans
 ```
+
+#### Java
 
 ```java
 /*
@@ -158,6 +162,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /*
 // Definition for a Node.
@@ -206,6 +212,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -248,6 +256,8 @@ func diameter(root *Node) int {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 """
@@ -296,6 +306,8 @@ class Solution:
         dfs(next, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 /*
@@ -368,6 +380,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /*
 // Definition for a Node.
@@ -428,6 +442,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**

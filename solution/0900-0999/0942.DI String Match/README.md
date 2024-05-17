@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def diStringMatch(self, s: str) -> List[int]:
@@ -85,6 +87,8 @@ class Solution:
         ans.append(low)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -125,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func diStringMatch(s string) []int {
 	n := len(s)
@@ -144,6 +152,8 @@ func diStringMatch(s string) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function diStringMatch(s: string): number[] {
     const n = s.length;
@@ -161,6 +171,8 @@ function diStringMatch(s: string): number[] {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

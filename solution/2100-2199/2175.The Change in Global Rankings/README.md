@@ -133,6 +133,8 @@ New Zealand 没有获得或丢失分数，他们的排名也没有发生变化�
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

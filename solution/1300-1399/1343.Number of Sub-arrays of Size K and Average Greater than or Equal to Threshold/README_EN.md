@@ -64,6 +64,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array `arr`. The s
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numOfSubarrays(self, arr: List[int], k: int, threshold: int) -> int:
@@ -75,6 +77,8 @@ class Solution:
             ans += int(s >= threshold)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +98,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -109,6 +115,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numOfSubarrays(arr []int, k int, threshold int) (ans int) {
@@ -129,6 +137,8 @@ func numOfSubarrays(arr []int, k int, threshold int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numOfSubarrays(arr: number[], k: number, threshold: number): number {

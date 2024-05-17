@@ -97,6 +97,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findLatestStep(self, arr: List[int], m: int) -> int:
@@ -132,6 +134,8 @@ class Solution:
             vis[v] = True
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -188,6 +192,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -230,6 +236,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findLatestStep(arr []int, m int) int {
@@ -295,6 +303,8 @@ func findLatestStep(arr []int, m int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findLatestStep(self, arr: List[int], m: int) -> int:
@@ -311,6 +321,8 @@ class Solution:
             cnt[v - l] = cnt[v + r] = l + r + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -335,6 +347,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -353,6 +367,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findLatestStep(arr []int, m int) int {

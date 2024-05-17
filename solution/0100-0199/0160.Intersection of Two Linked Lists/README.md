@@ -120,6 +120,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -136,6 +138,8 @@ class Solution:
             b = b.next if b else headA
         return a
 ```
+
+#### Java
 
 ```java
 /**
@@ -161,6 +165,8 @@ public class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -182,6 +188,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -209,6 +217,8 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for singly-linked list.
@@ -232,6 +242,8 @@ function getIntersectionNode(headA: ListNode | null, headB: ListNode | null): Li
     return a;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -257,6 +269,8 @@ var getIntersectionNode = function (headA, headB) {
     return a;
 };
 ```
+
+#### Swift
 
 ```swift
 /**

@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumLengthSubstring(self, s: str) -> int:
@@ -89,6 +91,8 @@ class Solution:
             ans = max(ans, j - i + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -127,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumLengthSubstring(s string) (ans int) {
 	cnt := [26]int{}
@@ -143,6 +151,8 @@ func maximumLengthSubstring(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumLengthSubstring(s: string): number {

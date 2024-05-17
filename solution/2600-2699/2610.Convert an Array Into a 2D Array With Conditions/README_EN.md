@@ -78,6 +78,8 @@ The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMatrix(self, nums: List[int]) -> List[List[int]]:
@@ -90,6 +92,8 @@ class Solution:
                 ans[i].append(x)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +117,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -138,6 +144,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMatrix(nums []int) (ans [][]int) {
 	n := len(nums)
@@ -156,6 +164,8 @@ func findMatrix(nums []int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findMatrix(nums: number[]): number[][] {

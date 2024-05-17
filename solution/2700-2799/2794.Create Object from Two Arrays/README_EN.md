@@ -64,6 +64,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2794.Cr
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function createObject(keysArr: any[], valuesArr: any[]): Record<string, any> {
     const ans: Record<string, any> = {};
@@ -76,6 +78,8 @@ function createObject(keysArr: any[], valuesArr: any[]): Record<string, any> {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

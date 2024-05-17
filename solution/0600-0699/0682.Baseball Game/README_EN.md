@@ -114,6 +114,8 @@ Since the record is empty, the total sum is 0.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def calPoints(self, ops: List[str]) -> int:
@@ -129,6 +131,8 @@ class Solution:
                 stk.append(int(op))
         return sum(stk)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -153,6 +157,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -175,6 +181,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func calPoints(ops []string) int {
@@ -201,6 +209,8 @@ func calPoints(ops []string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function calPoints(ops: string[]): number {
     const stack = [];
@@ -219,6 +229,8 @@ function calPoints(ops: string[]): number {
     return stack.reduce((p, v) => p + v);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

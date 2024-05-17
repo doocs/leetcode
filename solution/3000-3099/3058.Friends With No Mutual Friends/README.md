@@ -83,6 +83,8 @@ Friends 表：
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH
@@ -102,6 +104,8 @@ WHERE
     )
 ORDER BY 1, 2;
 ```
+
+#### Python3
 
 ```python
 import pandas as pd

@@ -74,6 +74,8 @@ There are no longer two consecutive balloons of the same color. Total time = 1 +
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCost(self, colors: str, neededTime: List[int]) -> int:
@@ -92,6 +94,8 @@ class Solution:
             i = j
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -137,6 +143,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minCost(colors string, neededTime []int) (ans int) {

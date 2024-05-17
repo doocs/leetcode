@@ -67,6 +67,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -85,6 +87,8 @@ class Solution:
             p = q
         return pre
 ```
+
+#### Java
 
 ```java
 /**
@@ -108,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -136,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -155,6 +163,8 @@ func reverseList(head *ListNode) *ListNode {
 	return pre
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -179,6 +189,8 @@ var reverseList = function (head) {
     return pre;
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -216,6 +228,8 @@ public class Solution {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 /**

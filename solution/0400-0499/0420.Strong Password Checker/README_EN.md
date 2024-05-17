@@ -65,6 +65,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def strongPasswordChecker(self, password: str) -> int:
@@ -127,6 +129,8 @@ class Solution:
         remove -= use3 * 3
         return n - 20 + max(replace, 3 - types)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -209,6 +213,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {

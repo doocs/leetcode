@@ -57,6 +57,8 @@ minStack.min();   --&gt; 返回 -2.
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
+#### Python3
+
 ```python
 class MinStack:
     def __init__(self):
@@ -89,6 +91,8 @@ class MinStack:
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+#### Java
 
 ```java
 class MinStack {
@@ -130,6 +134,8 @@ class MinStack {
 ```
 
 ### **C++**
+
+#### C++
 
 ```cpp
 class MinStack {
@@ -174,6 +180,8 @@ private:
 
 ### **Go**
 
+#### Go
+
 ```go
 type MinStack struct {
 	stk1 []int
@@ -215,6 +223,8 @@ func (this *MinStack) GetMin() int {
 
 ### **TypeScript**
 
+#### TypeScript
+
 ```ts
 class MinStack {
     stack: number[];
@@ -254,6 +264,8 @@ class MinStack {
 ```
 
 ### **Rust**
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -304,6 +316,8 @@ impl MinStack {
 ```
 
 ### **C#**
+
+#### C#
 
 ```cs
 public class MinStack {
@@ -364,6 +378,8 @@ public class MinStack {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class MinStack:
     def __init__(self):
@@ -392,6 +408,8 @@ class MinStack:
 # param_3 = obj.top()
 # param_4 = obj.getMin()
 ```
+
+#### Java
 
 ```java
 class MinStack {
@@ -431,6 +449,8 @@ class MinStack {
  * int param_4 = obj.getMin();
  */
 ```
+
+#### C++
 
 ```cpp
 class MinStack {
@@ -473,6 +493,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type MinStack struct {
 	stk1 []int
@@ -512,6 +534,8 @@ func (this *MinStack) GetMin() int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class MinStack {
     stack: number[];
@@ -549,6 +573,8 @@ class MinStack {
  * var param_4 = obj.getMin()
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -597,6 +623,8 @@ impl MinStack {
  * let ret_4: i32 = obj.get_min();
  */
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -650,6 +678,8 @@ MinStack.prototype.min = function () {
  * var param_4 = obj.min()
  */
 ```
+
+#### C#
 
 ```cs
 public class MinStack {

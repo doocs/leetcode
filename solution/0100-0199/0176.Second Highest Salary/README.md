@@ -91,6 +91,8 @@ Employee 表：
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 import pandas as pd
 
@@ -113,6 +115,8 @@ def second_highest_salary(employee: pd.DataFrame) -> pd.DataFrame:
 
     return result_df
 ```
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -137,6 +141,8 @@ SELECT
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT MAX(salary) AS SecondHighestSalary
@@ -155,6 +161,8 @@ WHERE salary < (SELECT MAX(salary) FROM Employee);
 我们还可以先通过 `DENSE_RANK()` 函数计算出每个员工的薪水排名，然后再筛选出排名为 $2$ 的员工薪水即可。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

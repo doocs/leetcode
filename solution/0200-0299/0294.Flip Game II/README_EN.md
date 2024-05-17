@@ -63,6 +63,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canWin(self, currentState: str) -> bool:
@@ -82,6 +84,8 @@ class Solution:
                 mask |= 1 << i
         return dfs(mask)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using ll = long long;
 
@@ -148,6 +154,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canWin(currentState string) bool {
@@ -191,6 +199,8 @@ func canWin(currentState string) bool {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canWin(self, currentState: str) -> bool:
@@ -218,6 +228,8 @@ class Solution:
             i = j + 1
         return ans > 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -260,6 +272,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -288,6 +302,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canWin(currentState string) bool {

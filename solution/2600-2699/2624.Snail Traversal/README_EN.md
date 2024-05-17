@@ -83,6 +83,8 @@ colsCount = 2
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 declare global {
     interface Array<T> {

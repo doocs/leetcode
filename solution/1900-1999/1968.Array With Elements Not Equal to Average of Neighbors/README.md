@@ -67,6 +67,8 @@ i=3, nums[i] = 2, 两相邻元素平均值为 (6+0) / 2 = 3
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def rearrangeArray(self, nums: List[int]) -> List[int]:
@@ -80,6 +82,8 @@ class Solution:
                 ans.append(nums[i + m])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +103,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -115,6 +121,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func rearrangeArray(nums []int) []int {
@@ -141,6 +149,8 @@ func rearrangeArray(nums []int) []int {
 ### 方法二：随机打乱
 
 <!-- tabs:start -->
+
+#### Go
 
 ```go
 func rearrangeArray(nums []int) []int {

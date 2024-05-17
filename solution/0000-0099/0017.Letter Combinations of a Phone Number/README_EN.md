@@ -66,6 +66,8 @@ The time complexity is $O(4^n)$, and the space complexity is $O(4^n)$. Here, $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def letterCombinations(self, digits: str) -> List[str]:
@@ -78,6 +80,8 @@ class Solution:
             ans = [a + b for a in ans for b in s]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -127,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func letterCombinations(digits string) []string {
 	ans := []string{}
@@ -149,6 +157,8 @@ func letterCombinations(digits string) []string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function letterCombinations(digits: string): string[] {
     if (digits.length == 0) {
@@ -169,6 +179,8 @@ function letterCombinations(digits: string): string[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -194,6 +206,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} digits
@@ -218,6 +232,8 @@ var letterCombinations = function (digits) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -257,6 +273,8 @@ The time complexity is $O(4^n)$, and the space complexity is $O(n)$. Here, $n$ i
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def letterCombinations(self, digits: str) -> List[str]:
@@ -277,6 +295,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -309,6 +329,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -336,6 +358,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func letterCombinations(digits string) (ans []string) {
 	d := []string{"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"}
@@ -359,6 +383,8 @@ func letterCombinations(digits string) (ans []string) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function letterCombinations(digits: string): string[] {
@@ -384,6 +410,8 @@ function letterCombinations(digits: string): string[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -413,6 +441,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} digits
@@ -441,6 +471,8 @@ var letterCombinations = function (digits) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -472,6 +504,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

@@ -86,6 +86,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getHint(self, secret: str, guess: str) -> str:
@@ -100,6 +102,8 @@ class Solution:
         y = sum(min(cnt1[c], cnt2[c]) for c in cnt1)
         return f"{x}A{y}B"
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +127,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -148,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getHint(secret string, guess string) string {
 	x, y := 0, 0
@@ -170,6 +178,8 @@ func getHint(secret string, guess string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function getHint(secret: string, guess: string): string {
     const cnt1: number[] = Array(10).fill(0);
@@ -190,6 +200,8 @@ function getHint(secret: string, guess: string): string {
     return `${x}A${y}B`;
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

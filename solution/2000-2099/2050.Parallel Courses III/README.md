@@ -103,6 +103,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumTime(self, n: int, relations: List[List[int]], time: List[int]) -> int:
@@ -129,6 +131,8 @@ class Solution:
                     q.append(j)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -166,6 +170,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -205,6 +211,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumTime(n int, relations [][]int, time []int) int {
 	g := make([][]int, n)
@@ -239,6 +247,8 @@ func minimumTime(n int, relations [][]int, time []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumTime(n: number, relations: number[][], time: number[]): number {

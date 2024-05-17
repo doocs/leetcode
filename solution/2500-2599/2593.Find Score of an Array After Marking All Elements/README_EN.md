@@ -85,6 +85,8 @@ The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findScore(self, nums: List[int]) -> int:
@@ -104,6 +106,8 @@ class Solution:
                 heappop(q)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +137,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -165,6 +171,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findScore(nums []int) (ans int64) {
@@ -200,6 +208,8 @@ func (h hp) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
 func (h *hp) Push(v any)        { *h = append(*h, v.(pair)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
+
+#### TypeScript
 
 ```ts
 interface pair {
@@ -258,6 +268,8 @@ The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findScore(self, nums: List[int]) -> int:
@@ -271,6 +283,8 @@ class Solution:
                 vis[i] = vis[i + 2] = True
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -295,6 +309,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -318,6 +334,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findScore(nums []int) (ans int64) {
 	n := len(nums)
@@ -339,6 +357,8 @@ func findScore(nums []int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findScore(nums: number[]): number {

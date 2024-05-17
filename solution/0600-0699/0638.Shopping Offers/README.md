@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def shoppingOffers(
@@ -97,6 +99,8 @@ class Solution:
                 ans = min(ans, offer[-1] + self.shoppingOffers(price, special, t))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -158,6 +164,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func shoppingOffers(price []int, special [][]int, needs []int) int {

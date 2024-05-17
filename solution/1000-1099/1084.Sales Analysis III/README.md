@@ -103,6 +103,8 @@ id 为 3 的产品在 2019 年春季之后销售。
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT product_id, product_name

@@ -74,6 +74,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def poorPigs(self, buckets: int, minutesToDie: int, minutesToTest: int) -> int:
@@ -84,6 +86,8 @@ class Solution:
             res += 1
         return res
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +102,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -109,6 +115,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func poorPigs(buckets int, minutesToDie int, minutesToTest int) int {

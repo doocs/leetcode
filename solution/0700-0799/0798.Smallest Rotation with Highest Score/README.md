@@ -72,6 +72,8 @@ nums 无论怎么变化总是有 3 分。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def bestRotation(self, nums: List[int]) -> int:
@@ -90,6 +92,8 @@ class Solution:
                 ans = k
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -142,6 +148,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func bestRotation(nums []int) int {

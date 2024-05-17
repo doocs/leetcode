@@ -79,6 +79,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxNumber(self, nums1: List[int], nums2: List[int], k: int) -> List[int]:
@@ -133,6 +135,8 @@ class Solution:
                 ans = arr
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -202,6 +206,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -269,6 +275,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxNumber(nums1 []int, nums2 []int, k int) []int {
@@ -339,6 +347,8 @@ func maxNumber(nums1 []int, nums2 []int, k int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxNumber(nums1: number[], nums2: number[], k: number): number[] {

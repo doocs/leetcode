@@ -64,6 +64,8 @@ The time complexity is $O(n^2 \times \log M)$, where $n$ is the length of the ar
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxSum(self, nums: List[int]) -> int:
@@ -75,6 +77,8 @@ class Solution:
                     ans = v
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSum(nums []int) int {
 	ans := -1
@@ -148,6 +156,8 @@ func maxSum(nums []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxSum(nums: number[]): number {

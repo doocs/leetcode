@@ -75,6 +75,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minSteps(self, n: int) -> int:
@@ -91,6 +93,8 @@ class Solution:
 
         return dfs(n)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -145,6 +151,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minSteps(n int) int {
@@ -190,6 +198,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minSteps(self, n: int) -> int:
@@ -203,6 +213,8 @@ class Solution:
                 j += 1
         return dp[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -224,6 +236,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -242,6 +256,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minSteps(n int) int {
@@ -270,6 +286,8 @@ func minSteps(n int) int {
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {

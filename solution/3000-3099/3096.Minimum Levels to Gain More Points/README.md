@@ -113,6 +113,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumLevels(self, possible: List[int]) -> int:
@@ -124,6 +126,8 @@ class Solution:
                 return i
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -144,6 +148,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -163,6 +169,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumLevels(possible []int) int {
@@ -186,6 +194,8 @@ func minimumLevels(possible []int) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumLevels(possible: number[]): number {

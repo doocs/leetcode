@@ -97,6 +97,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumTotalPrice(
@@ -130,6 +132,8 @@ class Solution:
             dfs(start, -1, end)
         return min(dfs2(0, -1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -190,6 +194,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -242,6 +248,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumTotalPrice(n int, edges [][]int, price []int, trips [][]int) int {
 	g := make([][]int, n)
@@ -292,6 +300,8 @@ func minimumTotalPrice(n int, edges [][]int, price []int, trips [][]int) int {
 	return min(a, b)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumTotalPrice(

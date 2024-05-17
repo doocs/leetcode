@@ -79,6 +79,8 @@ Notice that walls are only built on the shared boundary of two different cells.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def containVirus(self, isInfected: List[List[int]]) -> int:
@@ -124,6 +126,8 @@ class Solution:
                                 isInfected[x][y] = 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -218,6 +222,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -305,6 +311,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func containVirus(isInfected [][]int) int {

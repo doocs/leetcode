@@ -68,6 +68,8 @@ Their dot product is -1.</pre>
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxDotProduct(self, nums1: List[int], nums2: List[int]) -> int:
@@ -79,6 +81,8 @@ class Solution:
                 dp[i][j] = max(dp[i - 1][j], dp[i][j - 1], max(dp[i - 1][j - 1], 0) + v)
         return dp[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -117,6 +123,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxDotProduct(nums1 []int, nums2 []int) int {
@@ -138,6 +146,8 @@ func maxDotProduct(nums1 []int, nums2 []int) int {
 	return dp[m][n]
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

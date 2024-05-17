@@ -66,6 +66,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
@@ -77,6 +79,8 @@ class Solution:
             ans = max(ans, f)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -109,6 +115,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProduct(nums []int) int {
 	f, g, ans := nums[0], nums[0], nums[0]
@@ -122,6 +130,8 @@ func maxProduct(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxProduct(nums: number[]): number {
     let [f, g, ans] = [nums[0], nums[0], nums[0]];
@@ -134,6 +144,8 @@ function maxProduct(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -152,6 +164,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -168,6 +182,8 @@ var maxProduct = function (nums) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

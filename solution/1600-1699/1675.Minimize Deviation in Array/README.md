@@ -99,6 +99,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumDeviation(self, nums: List[int]) -> int:
@@ -118,6 +120,8 @@ class Solution:
             ans = min(ans, -h[0] - mi)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -143,6 +147,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -166,6 +172,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumDeviation(nums []int) int {

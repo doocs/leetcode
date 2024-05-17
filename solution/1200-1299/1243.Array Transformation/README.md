@@ -75,6 +75,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def transformArray(self, arr: List[int]) -> List[int]:
@@ -91,6 +93,8 @@ class Solution:
                     f = True
         return arr
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -142,6 +148,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func transformArray(arr []int) []int {

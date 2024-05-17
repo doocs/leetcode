@@ -76,11 +76,15 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def hammingWeight(self, n: int) -> int:
         return n.bit_count()
 ```
+
+#### Java
 
 ```java
 public class Solution {
@@ -96,6 +100,8 @@ public class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -110,6 +116,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hammingWeight(num uint32) (ans int) {
 	for num != 0 {
@@ -119,6 +127,8 @@ func hammingWeight(num uint32) (ans int) {
 	return
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -134,6 +144,8 @@ var hammingWeight = function (n) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -158,6 +170,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def hammingWeight(self, n: int) -> int:
@@ -167,6 +181,8 @@ class Solution:
             ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 public class Solution {
@@ -182,6 +198,8 @@ public class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -195,6 +213,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func hammingWeight(num uint32) (ans int) {
@@ -215,6 +235,8 @@ func hammingWeight(num uint32) (ans int) {
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

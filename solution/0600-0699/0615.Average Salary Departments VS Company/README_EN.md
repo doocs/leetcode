@@ -106,6 +106,8 @@ With he same formula for the average salary comparison in February, the result i
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH
@@ -139,6 +141,8 @@ FROM t;
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

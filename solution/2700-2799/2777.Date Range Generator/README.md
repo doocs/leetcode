@@ -77,6 +77,8 @@ g.next().value // '2023-04-10'
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function* dateRangeGenerator(start: string, end: string, step: number): Generator<string> {
     const startDate = new Date(start);

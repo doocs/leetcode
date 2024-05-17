@@ -69,6 +69,8 @@ The time complexity is $O(n^3)$, where $n$ is the number of rows or columns in t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def equalPairs(self, grid: List[List[int]]) -> int:
@@ -79,6 +81,8 @@ class Solution:
                 ans += all(grid[i][k] == grid[k][j] for k in range(n))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -125,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func equalPairs(grid [][]int) (ans int) {
 	for i := range grid {
@@ -142,6 +150,8 @@ func equalPairs(grid [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function equalPairs(grid: number[][]): number {

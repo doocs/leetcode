@@ -104,6 +104,8 @@ calls = [
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 type F = (...p: any[]) => any;
 

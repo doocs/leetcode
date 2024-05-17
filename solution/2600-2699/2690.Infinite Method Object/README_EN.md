@@ -55,6 +55,8 @@ The returned string should always match the method name.</pre>
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function createInfiniteObject(): Record<string, () => string> {
     return new Proxy(

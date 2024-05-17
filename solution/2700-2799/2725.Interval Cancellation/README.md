@@ -128,6 +128,8 @@ setTimeout(cancelFn, cancelTimeMs)
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function cancellable(fn: Function, args: any[], t: number): Function {
     fn(...args);

@@ -65,6 +65,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findKthPositive(self, arr: List[int], k: int) -> int:
@@ -79,6 +81,8 @@ class Solution:
                 left = mid + 1
         return arr[left - 1] + k - (arr[left - 1] - (left - 1) - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -117,6 +123,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findKthPositive(arr []int, k int) int {

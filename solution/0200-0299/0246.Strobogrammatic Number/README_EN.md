@@ -69,6 +69,8 @@ The time complexity is $O(n)$, where $n$ is the length of the string. The space 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isStrobogrammatic(self, num: str) -> bool:
@@ -81,6 +83,8 @@ class Solution:
             i, j = i + 1, j - 1
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +101,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -112,6 +118,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isStrobogrammatic(num string) bool {

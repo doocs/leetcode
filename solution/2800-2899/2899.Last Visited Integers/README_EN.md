@@ -100,6 +100,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array $words$. The
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def lastVisitedIntegers(self, words: List[str]) -> List[int]:
@@ -116,6 +118,8 @@ class Solution:
                 nums.append(int(w))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -138,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -159,6 +165,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func lastVisitedIntegers(words []string) (ans []int) {
@@ -183,6 +191,8 @@ func lastVisitedIntegers(words []string) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function lastVisitedIntegers(words: string[]): number[] {
     const nums: number[] = [];
@@ -201,6 +211,8 @@ function lastVisitedIntegers(words: string[]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

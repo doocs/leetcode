@@ -63,6 +63,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def decode(self, encoded: List[int], first: int) -> List[int]:
@@ -71,6 +73,8 @@ class Solution:
             ans.append(ans[-1] ^ e)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +90,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -97,6 +103,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func decode(encoded []int, first int) []int {

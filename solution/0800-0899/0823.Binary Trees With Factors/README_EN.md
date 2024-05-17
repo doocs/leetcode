@@ -59,6 +59,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numFactoredBinaryTrees(self, arr: List[int]) -> int:
@@ -74,6 +76,8 @@ class Solution:
                     f[i] = (f[i] + f[j] * f[idx[c]]) % mod
         return sum(f) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -143,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numFactoredBinaryTrees(arr []int) int {
 	const mod int = 1e9 + 7
@@ -170,6 +178,8 @@ func numFactoredBinaryTrees(arr []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numFactoredBinaryTrees(arr: number[]): number {

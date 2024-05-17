@@ -102,6 +102,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def mergeTriplets(self, triplets: List[List[int]], target: List[int]) -> bool:
@@ -114,6 +116,8 @@ class Solution:
                 f = max(f, c)
         return [d, e, f] == target
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +136,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -152,6 +158,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func mergeTriplets(triplets [][]int, target []int) bool {
 	x, y, z := target[0], target[1], target[2]
@@ -167,6 +175,8 @@ func mergeTriplets(triplets [][]int, target []int) bool {
 	return d == x && e == y && f == z
 }
 ```
+
+#### TypeScript
 
 ```ts
 function mergeTriplets(triplets: number[][], target: number[]): boolean {

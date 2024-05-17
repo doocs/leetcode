@@ -64,6 +64,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -81,6 +83,8 @@ class Solution:
             return 1 + self.minDepth(root.left)
         return 1 + min(self.minDepth(root.left), self.minDepth(root.right))
 ```
+
+#### Java
 
 ```java
 /**
@@ -114,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -143,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -165,6 +173,8 @@ func minDepth(root *TreeNode) int {
 	return 1 + min(minDepth(root.Left), minDepth(root.Right))
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -195,6 +205,8 @@ function minDepth(root: TreeNode | null): number {
     return 1 + Math.min(minDepth(left), minDepth(right));
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -238,6 +250,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -264,6 +278,8 @@ var minDepth = function (root) {
     return 1 + Math.min(minDepth(root.left), minDepth(root.right));
 };
 ```
+
+#### C
 
 ```c
 /**
@@ -307,6 +323,8 @@ int minDepth(struct TreeNode* root) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -331,6 +349,8 @@ class Solution:
                 if node.right:
                     q.append(node.right)
 ```
+
+#### Java
 
 ```java
 /**
@@ -375,6 +395,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -415,6 +437,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -447,6 +471,8 @@ func minDepth(root *TreeNode) (ans int) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -486,6 +512,8 @@ function minDepth(root: TreeNode | null): number {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

@@ -84,6 +84,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxScore(self, nums1: List[int], nums2: List[int], k: int) -> int:
@@ -98,6 +100,8 @@ class Solution:
                 s -= heappop(q)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +126,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -148,6 +154,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxScore(nums1 []int, nums2 []int, k int) int64 {

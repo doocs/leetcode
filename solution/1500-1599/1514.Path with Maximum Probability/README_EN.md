@@ -81,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProbability(
@@ -109,6 +111,8 @@ class Solution:
                     heappush(q, (-d[v], v))
         return d[end]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -145,6 +149,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -179,6 +185,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxProbability(n int, edges [][]int, succProb []float64, start int, end int) float64 {
@@ -227,6 +235,8 @@ type pair struct {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProbability(
@@ -257,6 +267,8 @@ class Solution:
                         vis[j] = True
         return d[end]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -294,6 +306,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {

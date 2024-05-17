@@ -63,6 +63,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumBase(self, n: int, k: int) -> int:
@@ -72,6 +74,8 @@ class Solution:
             n //= k
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +89,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -100,6 +106,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumBase(n int, k int) (ans int) {
 	for n > 0 {
@@ -109,6 +117,8 @@ func sumBase(n int, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumBase(n: number, k: number): number {
@@ -120,6 +130,8 @@ function sumBase(n: number, k: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -133,6 +145,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -149,6 +163,8 @@ var sumBase = function (n, k) {
     return ans;
 };
 ```
+
+#### C
 
 ```c
 int sumBase(int n, int k) {

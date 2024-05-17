@@ -41,6 +41,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -57,6 +59,8 @@ class Solution:
             head = head.next
         return ans[::-1]
 ```
+
+#### Java
 
 ```java
 /**
@@ -82,6 +86,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -102,6 +108,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -120,6 +128,8 @@ func reversePrint(head *ListNode) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -142,6 +152,8 @@ function reversePrint(head: ListNode | null): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -174,6 +186,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -194,6 +208,8 @@ var reversePrint = function (head) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -231,6 +247,8 @@ var reversePrint = function (head) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -247,6 +265,8 @@ class Solution:
         ans.append(head.val)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -274,6 +294,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -296,6 +318,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -313,6 +337,8 @@ func reversePrint(head *ListNode) (ans []int) {
 	return
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -351,6 +377,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

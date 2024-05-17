@@ -75,6 +75,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findTheLongestBalancedSubstring(self, s: str) -> int:
@@ -95,6 +97,8 @@ class Solution:
                     ans = max(ans, j - i + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -154,6 +160,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findTheLongestBalancedSubstring(s string) (ans int) {
 	n := len(s)
@@ -178,6 +186,8 @@ func findTheLongestBalancedSubstring(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findTheLongestBalancedSubstring(s: string): number {
@@ -204,6 +214,8 @@ function findTheLongestBalancedSubstring(s: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -263,6 +275,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findTheLongestBalancedSubstring(self, s: str) -> int:
@@ -277,6 +291,8 @@ class Solution:
                 ans = max(ans, 2 * min(one, zero))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -298,6 +314,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -321,6 +339,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findTheLongestBalancedSubstring(s string) (ans int) {
 	zero, one := 0, 0
@@ -338,6 +358,8 @@ func findTheLongestBalancedSubstring(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findTheLongestBalancedSubstring(s: string): number {
@@ -358,6 +380,8 @@ function findTheLongestBalancedSubstring(s: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

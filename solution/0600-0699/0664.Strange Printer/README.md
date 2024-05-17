@@ -79,6 +79,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def strangePrinter(self, s: str) -> int:
@@ -94,6 +96,8 @@ class Solution:
                         f[i][j] = min(f[i][j], f[i][k] + f[k + 1][j])
         return f[0][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -144,6 +150,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func strangePrinter(s string) int {
@@ -170,6 +178,8 @@ func strangePrinter(s string) int {
 	return f[0][n-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function strangePrinter(s: string): number {

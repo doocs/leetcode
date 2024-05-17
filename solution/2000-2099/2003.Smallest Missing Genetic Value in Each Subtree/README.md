@@ -104,6 +104,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def smallestMissingValueSubtree(
@@ -140,6 +142,8 @@ class Solution:
             idx = parents[idx]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -194,6 +198,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -241,6 +247,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallestMissingValueSubtree(parents []int, nums []int) []int {
 	n := len(nums)
@@ -285,6 +293,8 @@ func smallestMissingValueSubtree(parents []int, nums []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function smallestMissingValueSubtree(parents: number[], nums: number[]): number[] {
     const n = nums.length;
@@ -326,6 +336,8 @@ function smallestMissingValueSubtree(parents: number[], nums: number[]): number[
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

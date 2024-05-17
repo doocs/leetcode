@@ -100,6 +100,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countInterestingSubarrays(self, nums: List[int], modulo: int, k: int) -> int:
@@ -113,6 +115,8 @@ class Solution:
             cnt[s % modulo] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +139,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -159,6 +165,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countInterestingSubarrays(nums []int, modulo int, k int) (ans int64) {
 	arr := make([]int, len(nums))
@@ -178,6 +186,8 @@ func countInterestingSubarrays(nums []int, modulo int, k int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countInterestingSubarrays(nums: number[], modulo: number, k: number): number {

@@ -110,6 +110,8 @@ tracker.get();              // 从好到坏的景点为：branford, orlando, alp
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedList
 
@@ -133,6 +135,8 @@ class SORTracker:
 # obj.add(name,score)
 # param_2 = obj.get()
 ```
+
+#### C++
 
 ```cpp
 #include <ext/pb_ds/assoc_container.hpp>
@@ -186,6 +190,8 @@ private:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Node:
     def __init__(self, s: str):
@@ -216,6 +222,8 @@ class SORTracker:
 # obj.add(name,score)
 # param_2 = obj.get()
 ```
+
+#### Java
 
 ```java
 class SORTracker {
@@ -249,6 +257,8 @@ class SORTracker {
  * String param_2 = obj.get();
  */
 ```
+
+#### C++
 
 ```cpp
 using pis = pair<int, string>;

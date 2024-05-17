@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def makesquare(self, matchsticks: List[int]) -> bool:
@@ -91,6 +93,8 @@ class Solution:
         matchsticks.sort(reverse=True)
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +132,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -156,6 +162,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func makesquare(matchsticks []int) bool {
@@ -188,6 +196,8 @@ func makesquare(matchsticks []int) bool {
 	return dfs(0, s/4)
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -241,6 +251,8 @@ impl Solution {
 注：若 $t+matchsticks[i]==s$，说明恰好可以得到一个和为 $s$ 的子集，下一步将 $t$ 归零（可以通过 $(t+matchsticks[i]) \%s$ 实现），并继续划分下一个子集。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

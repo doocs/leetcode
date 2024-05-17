@@ -98,6 +98,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumSeconds(self, land: List[List[str]]) -> int:
@@ -153,6 +155,8 @@ class Solution:
             t += 1
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -220,6 +224,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -289,6 +295,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumSeconds(land [][]string) int {
@@ -361,6 +369,8 @@ func minimumSeconds(land [][]string) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumSeconds(land: string[][]): number {

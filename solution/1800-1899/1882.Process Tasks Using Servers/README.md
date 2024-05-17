@@ -93,6 +93,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def assignTasks(self, servers: List[int], tasks: List[int]) -> List[int]:
@@ -113,6 +115,8 @@ class Solution:
             res.append(i)
         return res
 ```
+
+#### Java
 
 ```java
 class Solution {

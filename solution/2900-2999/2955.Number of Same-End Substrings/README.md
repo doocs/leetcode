@@ -75,6 +75,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sameEndSubstringCount(self, s: str, queries: List[List[int]]) -> List[int]:
@@ -94,6 +96,8 @@ class Solution:
             ans.append(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -147,6 +153,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func sameEndSubstringCount(s string, queries [][]int) []int {
@@ -177,6 +185,8 @@ func sameEndSubstringCount(s string, queries [][]int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sameEndSubstringCount(s: string, queries: number[][]): number[] {
     const n: number = s.length;
@@ -198,6 +208,8 @@ function sameEndSubstringCount(s: string, queries: number[][]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

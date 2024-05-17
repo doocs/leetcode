@@ -101,6 +101,8 @@ At t=900, the 3rd function resolves. Pool size is 0 so the returned promise reso
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 type F = () => Promise<any>;
 

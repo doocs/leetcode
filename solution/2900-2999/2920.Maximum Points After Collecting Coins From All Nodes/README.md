@@ -99,6 +99,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumPoints(self, edges: List[List[int]], coins: List[int], k: int) -> int:
@@ -122,6 +124,8 @@ class Solution:
         dfs.cache_clear()
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -164,6 +168,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -197,6 +203,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumPoints(edges [][]int, coins []int, k int) int {
@@ -235,6 +243,8 @@ func maximumPoints(edges [][]int, coins []int, k int) int {
 	return dfs(0, -1, 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumPoints(edges: number[][], coins: number[], k: number): number {

@@ -55,6 +55,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numTilings(self, n: int) -> int:
@@ -82,6 +84,8 @@ class Solution:
         return dfs(0, 0)
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int numTilings(int n) {
@@ -99,6 +103,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -119,6 +125,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numTilings(n int) int {
@@ -146,6 +154,8 @@ func numTilings(n int) int {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

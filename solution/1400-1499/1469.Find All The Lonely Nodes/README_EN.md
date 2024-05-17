@@ -71,6 +71,8 @@ All other nodes are lonely.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -94,6 +96,8 @@ class Solution:
         dfs(root)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -135,6 +139,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -164,6 +170,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**

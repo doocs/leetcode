@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sortSentence(self, s: str) -> str:
@@ -83,6 +85,8 @@ class Solution:
         ws.sort(key=lambda x: x[1])
         return ' '.join(w for w, _ in ws)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -123,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sortSentence(s string) string {
 	ws := strings.Split(s, " ")
@@ -134,6 +142,8 @@ func sortSentence(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sortSentence(s: string): string {
     const ws = s.split(' ');
@@ -144,6 +154,8 @@ function sortSentence(s: string): string {
     return ans.join(' ');
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -169,6 +181,8 @@ var sortSentence = function (s) {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

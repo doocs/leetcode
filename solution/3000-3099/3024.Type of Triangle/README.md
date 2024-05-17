@@ -78,6 +78,8 @@ nums[1] + nums[2] = 4 + 5 = 9 ，大于 nums[0] = 3 。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def triangleType(self, nums: List[int]) -> str:
@@ -90,6 +92,8 @@ class Solution:
             return "isosceles"
         return "scalene"
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -128,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func triangleType(nums []int) string {
 	sort.Ints(nums)
@@ -144,6 +152,8 @@ func triangleType(nums []int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function triangleType(nums: number[]): string {
     nums.sort((a, b) => a - b);
@@ -159,6 +169,8 @@ function triangleType(nums: number[]): string {
     return 'scalene';
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

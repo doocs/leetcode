@@ -102,6 +102,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumMinutes(self, grid: List[List[int]]) -> int:
@@ -167,6 +169,8 @@ class Solution:
                 r = mid - 1
         return int(1e9) if l == m * n else l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -257,6 +261,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -335,6 +341,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumMinutes(grid [][]int) int {
@@ -418,6 +426,8 @@ func maximumMinutes(grid [][]int) int {
 	return l
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumMinutes(grid: number[][]): number {

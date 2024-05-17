@@ -77,6 +77,8 @@ Right sum = nums[1] + nums[2] = 1 + -1 = 0
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def pivotIndex(self, nums: List[int]) -> int:
@@ -88,6 +90,8 @@ class Solution:
             left += x
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func pivotIndex(nums []int) int {
 	var left, right int
@@ -139,6 +147,8 @@ func pivotIndex(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function pivotIndex(nums: number[]): number {
     let left = 0,
@@ -153,6 +163,8 @@ function pivotIndex(nums: number[]): number {
     return -1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -169,6 +181,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

@@ -48,6 +48,8 @@ The time complexity is $O(\log M)$, and the space complexity is $O(1)$. Here, $M
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reverseBits(self, num: int) -> int:
@@ -60,6 +62,8 @@ class Solution:
             ans = max(ans, i - j + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -77,6 +81,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -96,6 +102,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func reverseBits(num int) (ans int) {
 	var cnt, j int
@@ -111,6 +119,8 @@ func reverseBits(num int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function reverseBits(num: number): number {
     let ans = 0;
@@ -125,6 +135,8 @@ function reverseBits(num: number): number {
     return ans;
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

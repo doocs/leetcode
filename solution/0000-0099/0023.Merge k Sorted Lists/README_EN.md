@@ -79,6 +79,8 @@ The time complexity is $O(n \times \log k)$, and the space complexity is $O(k)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -99,6 +101,8 @@ class Solution:
             cur = cur.next
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -133,6 +137,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -171,6 +177,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -208,6 +216,8 @@ func (h *hp) Push(v any)        { *h = append(*h, v.(*ListNode)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for singly-linked list.
@@ -241,6 +251,8 @@ function mergeKLists(lists: Array<ListNode | null>): ListNode | null {
     return dummy.next;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -291,6 +303,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -323,6 +337,8 @@ var mergeKLists = function (lists) {
     return dummy.next;
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -358,6 +374,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 # Definition for singly-linked list.

@@ -71,6 +71,8 @@ Alice (customer_id = 4) 和 Finn (customer_id = 5) 都使用 john@example.com，
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 import pandas as pd
 

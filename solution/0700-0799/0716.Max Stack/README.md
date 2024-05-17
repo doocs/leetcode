@@ -95,6 +95,8 @@ stk.top();     // 返回 5，[<strong>5</strong>] - 栈没有改变
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedList
 
@@ -168,6 +170,8 @@ class MaxStack:
 # param_4 = obj.peekMax()
 # param_5 = obj.popMax()
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -267,6 +271,8 @@ class MaxStack {
  * int param_5 = obj.popMax();
  */
 ```
+
+#### C++
 
 ```cpp
 class MaxStack {

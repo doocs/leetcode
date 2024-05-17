@@ -81,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def diagonalSum(self, mat: List[List[int]]) -> int:
@@ -91,6 +93,8 @@ class Solution:
             ans += row[i] + (0 if j == i else row[j])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -121,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func diagonalSum(mat [][]int) (ans int) {
 	n := len(mat)
@@ -134,6 +142,8 @@ func diagonalSum(mat [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function diagonalSum(mat: number[][]): number {
     let ans = 0;
@@ -145,6 +155,8 @@ function diagonalSum(mat: number[][]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -161,6 +173,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int diagonalSum(int** mat, int matSize, int* matColSize) {
@@ -184,6 +198,8 @@ int diagonalSum(int** mat, int matSize, int* matColSize) {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function diagonalSum(mat: number[][]): number {

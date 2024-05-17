@@ -89,6 +89,8 @@ init = 25
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 type Fn = (accum: number, curr: number) => number;
 

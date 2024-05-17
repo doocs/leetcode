@@ -59,6 +59,8 @@ There may exists other ways to achieve this answer too.</pre>
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
@@ -73,6 +75,8 @@ class Solution:
             i += 1
         return i - j
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +98,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -113,6 +119,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func characterReplacement(s string, k int) int {

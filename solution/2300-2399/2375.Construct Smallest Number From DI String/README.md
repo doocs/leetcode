@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def smallestNumber(self, pattern: str) -> str:
@@ -108,6 +110,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -149,6 +153,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -185,6 +191,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallestNumber(pattern string) string {
 	vis := make([]bool, 10)
@@ -219,6 +227,8 @@ func smallestNumber(pattern string) string {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function smallestNumber(pattern: string): string {

@@ -56,6 +56,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkPossibility(self, nums: List[int]) -> bool:
@@ -73,6 +75,8 @@ class Solution:
                 return is_sorted(nums)
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +130,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func checkPossibility(nums []int) bool {
@@ -150,6 +158,8 @@ func checkPossibility(nums []int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function checkPossibility(nums: number[]): boolean {

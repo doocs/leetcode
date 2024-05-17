@@ -79,6 +79,8 @@ There are no groups of farmland.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findFarmland(self, land: List[List[int]]) -> List[List[int]]:
@@ -100,6 +102,8 @@ class Solution:
                 ans.append([i, j, x, y])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -150,6 +156,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findFarmland(land [][]int) [][]int {

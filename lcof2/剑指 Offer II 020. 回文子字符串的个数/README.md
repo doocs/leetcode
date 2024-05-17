@@ -59,6 +59,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSubstrings(self, s: str) -> int:
@@ -74,6 +76,8 @@ class Solution:
         n = len(s)
         return sum(f(i, i) + f(i, i + 1) for i in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +103,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +125,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countSubstrings(s string) (ans int) {
@@ -151,6 +159,8 @@ func countSubstrings(s string) (ans int) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSubstrings(self, s: str) -> int:
@@ -169,6 +179,8 @@ class Solution:
             ans += p[i] // 2
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {

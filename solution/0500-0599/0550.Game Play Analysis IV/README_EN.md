@@ -75,6 +75,8 @@ We can first find the first login date of each player, and then perform a left j
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 import pandas as pd
 
@@ -89,6 +91,8 @@ def gameplay_analysis(activity: pd.DataFrame) -> pd.DataFrame:
         {"fraction": [round(len(activity_2nd_day) / activity.player_id.nunique(), 2)]}
     )
 ```
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -114,6 +118,8 @@ FROM
 We can use the `LEAD` window function to get the next login date of each player. If the next login date is one day after the current login date, it means that the player logged in on the second day, and we use a field $st$ to record this information. Then, we use the `RANK` window function to rank the player IDs in ascending order by date, and get the login ranking of each player. Finally, we only need to calculate the ratio of non-null $st$ values among the players with a ranking of $1$.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

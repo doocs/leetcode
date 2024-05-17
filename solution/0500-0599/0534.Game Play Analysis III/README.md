@@ -84,6 +84,8 @@ Activity table:
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT
@@ -108,6 +110,8 @@ FROM Activity;
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT
@@ -130,6 +134,8 @@ GROUP BY 1, 2;
 ### 方法三
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

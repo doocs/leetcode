@@ -69,6 +69,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
@@ -82,6 +84,8 @@ class Solution:
                 left = mid + 1
         return left
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -127,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minEatingSpeed(piles []int, h int) int {
 	left, right := 1, slices.Max(piles)
@@ -145,6 +153,8 @@ func minEatingSpeed(piles []int, h int) int {
 	return left
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

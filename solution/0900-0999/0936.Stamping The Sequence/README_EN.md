@@ -100,6 +100,8 @@ The time complexity is $O(n \times (n - m + 1))$, and the space complexity is $O
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def movesToStamp(self, stamp: str, target: str) -> List[int]:
@@ -129,6 +131,8 @@ class Solution:
                             q.append(k)
         return ans[::-1] if all(vis) else []
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -177,6 +181,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -223,6 +229,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func movesToStamp(stamp string, target string) (ans []int) {
@@ -274,6 +282,8 @@ func movesToStamp(stamp string, target string) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function movesToStamp(stamp: string, target: string): number[] {
     const m: number = stamp.length;
@@ -316,6 +326,8 @@ function movesToStamp(stamp: string, target: string): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;

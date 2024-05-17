@@ -61,6 +61,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # The isBadVersion API is already defined for you.
 # @param version, an integer
@@ -84,6 +86,8 @@ class Solution:
         return left
 ```
 
+#### Java
+
 ```java
 /* The isBadVersion API is defined in the parent class VersionControl.
       boolean isBadVersion(int version); */
@@ -103,6 +107,8 @@ public class Solution extends VersionControl {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 // The API isBadVersion is defined for you.
@@ -124,6 +130,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -148,6 +156,8 @@ func firstBadVersion(n int) int {
 }
 ```
 
+#### Rust
+
 ```rust
 // The API isBadVersion is defined for you.
 // isBadVersion(version:i32)-> bool;
@@ -169,6 +179,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

@@ -57,6 +57,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2034.%20%E4%BA%8C%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -81,6 +83,8 @@ class Solution:
 
         return max(dfs(root))
 ```
+
+#### Java
 
 ```java
 /**
@@ -118,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -152,6 +158,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -181,6 +189,8 @@ func maxValue(root *TreeNode, k int) int {
 	return slices.Max(dfs(root))
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

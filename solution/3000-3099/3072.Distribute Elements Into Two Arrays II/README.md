@@ -99,6 +99,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class BinaryIndexedTree:
     __slots__ = "n", "c"
@@ -149,6 +151,8 @@ class Solution:
         return arr1 + arr2
 ```
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedList
 
@@ -176,6 +180,8 @@ class Solution:
                 sl2.add(x)
         return arr1 + arr2
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -242,6 +248,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 private:
@@ -304,6 +312,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -361,6 +371,8 @@ func resultArray(nums []int) []int {
 	return arr1
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {
@@ -429,6 +441,8 @@ function resultArray(nums: number[]): number[] {
     return arr1.concat(arr2);
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

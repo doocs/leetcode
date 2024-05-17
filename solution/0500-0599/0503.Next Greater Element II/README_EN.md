@@ -58,6 +58,8 @@ The second 1&#39;s next greater number needs to search circularly, which is also
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def nextGreaterElements(self, nums: List[int]) -> List[int]:
@@ -70,6 +72,8 @@ class Solution:
             stk.append(i % n)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +92,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -108,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func nextGreaterElements(nums []int) []int {
 	n := len(nums)
@@ -127,6 +135,8 @@ func nextGreaterElements(nums []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function nextGreaterElements(nums: number[]): number[] {
     const stack: number[] = [],
@@ -143,6 +153,8 @@ function nextGreaterElements(nums: number[]): number[] {
     return res;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -174,6 +186,8 @@ var nextGreaterElements = function (nums) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def nextGreaterElements(self, nums: List[int]) -> List[int]:
@@ -189,6 +203,8 @@ class Solution:
             stk.append(nums[i])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -212,6 +228,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -229,6 +247,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func nextGreaterElements(nums []int) []int {
@@ -251,6 +271,8 @@ func nextGreaterElements(nums []int) []int {
 	return ans
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

@@ -58,6 +58,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isConvex(self, points: List[List[int]]) -> bool:
@@ -75,6 +77,8 @@ class Solution:
                 pre = cur
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -125,6 +131,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isConvex(points [][]int) bool {

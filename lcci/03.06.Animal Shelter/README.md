@@ -66,6 +66,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.06.Animal%20Shelte
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class AnimalShelf:
 
@@ -95,6 +97,8 @@ class AnimalShelf:
 # param_3 = obj.dequeueDog()
 # param_4 = obj.dequeueCat()
 ```
+
+#### Java
 
 ```java
 class AnimalShelf {
@@ -133,6 +137,8 @@ class AnimalShelf {
  * int[] param_4 = obj.dequeueCat();
  */
 ```
+
+#### C++
 
 ```cpp
 class AnimalShelf {
@@ -183,6 +189,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type AnimalShelf struct {
 	q [2][]int
@@ -231,6 +239,8 @@ func (this *AnimalShelf) DequeueCat() []int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class AnimalShelf {
     private q: number[][] = [[], []];
@@ -272,6 +282,8 @@ class AnimalShelf {
  * var param_4 = obj.dequeueCat()
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -328,6 +340,8 @@ impl AnimalShelf {
  * let ret_4: Vec<i32> = obj.dequeue_cat();
  */
 ```
+
+#### Swift
 
 ```swift
 class AnimalShelf {

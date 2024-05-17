@@ -62,6 +62,8 @@ pop() -&gt; 5, pop() -&gt; 3, pop() -&gt; 2, pop() -&gt; 1
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def validateStackSequences(self, pushed: List[int], popped: List[int]) -> bool:
@@ -73,6 +75,8 @@ class Solution:
                 j += 1
         return j == len(pushed)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +94,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -109,6 +115,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func validateStackSequences(pushed []int, popped []int) bool {
 	stk := []int{}
@@ -124,6 +132,8 @@ func validateStackSequences(pushed []int, popped []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function validateStackSequences(pushed: number[], popped: number[]): boolean {
     const stk = [];
@@ -138,6 +148,8 @@ function validateStackSequences(pushed: number[], popped: number[]): boolean {
     return j == pushed.length;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -155,6 +167,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -175,6 +189,8 @@ var validateStackSequences = function (pushed, popped) {
     return j == pushed.length;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

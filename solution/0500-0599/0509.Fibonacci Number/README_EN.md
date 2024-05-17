@@ -70,6 +70,8 @@ F(n) = F(n - 1) + F(n - 2), for n &gt; 1.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def fib(self, n: int) -> int:
@@ -78,6 +80,8 @@ class Solution:
             a, b = b, a + b
         return a
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -108,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func fib(n int) int {
 	a, b := 0, 1
@@ -117,6 +125,8 @@ func fib(n int) int {
 	return a
 }
 ```
+
+#### TypeScript
 
 ```ts
 function fib(n: number): number {
@@ -128,6 +138,8 @@ function fib(n: number): number {
     return a;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -143,6 +155,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -160,6 +174,8 @@ var fib = function (n) {
     return a;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -190,6 +206,8 @@ class Solution {
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function fib(n: number): number {
     if (n < 2) {
@@ -198,6 +216,8 @@ function fib(n: number): number {
     return fib(n - 1) + fib(n - 2);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

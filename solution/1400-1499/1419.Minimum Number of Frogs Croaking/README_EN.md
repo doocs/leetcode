@@ -70,6 +70,8 @@ The second frog could yell later &quot;cr<strong>c</strong>oak<strong>roak</stro
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minNumberOfFrogs(self, croakOfFrogs: str) -> int:
@@ -91,6 +93,8 @@ class Solution:
                     x -= 1
         return -1 if x else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +128,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -159,6 +165,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minNumberOfFrogs(croakOfFrogs string) int {
 	n := len(croakOfFrogs)
@@ -193,6 +201,8 @@ func minNumberOfFrogs(croakOfFrogs string) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minNumberOfFrogs(croakOfFrogs: string): number {

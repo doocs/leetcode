@@ -72,6 +72,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
@@ -95,6 +97,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -160,6 +166,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func permuteUnique(nums []int) (ans [][]int) {
 	sort.Ints(nums)
@@ -187,6 +195,8 @@ func permuteUnique(nums []int) (ans [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function permuteUnique(nums: number[]): number[][] {
     nums.sort((a, b) => a - b);
@@ -213,6 +223,8 @@ function permuteUnique(nums: number[]): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -242,6 +254,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

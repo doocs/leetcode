@@ -70,6 +70,8 @@ prefix = [2,5,6,5,2,2,-1] ，分数为 6 。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxScore(self, nums: List[int]) -> int:
@@ -81,6 +83,8 @@ class Solution:
                 return i
         return len(nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -117,6 +123,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxScore(nums []int) int {
 	sort.Ints(nums)
@@ -132,6 +140,8 @@ func maxScore(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxScore(nums: number[]): number {
     nums.sort((a, b) => a - b);
@@ -146,6 +156,8 @@ function maxScore(nums: number[]): number {
     return n;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

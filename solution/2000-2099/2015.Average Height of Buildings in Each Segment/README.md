@@ -104,6 +104,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def averageHeightOfBuildings(self, buildings: List[List[int]]) -> List[List[int]]:
@@ -128,6 +130,8 @@ class Solution:
             n += cnt[j]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -166,6 +170,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -195,6 +201,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func averageHeightOfBuildings(buildings [][]int) [][]int {

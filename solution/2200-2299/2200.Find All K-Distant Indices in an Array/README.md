@@ -75,6 +75,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findKDistantIndices(self, nums: List[int], key: int, k: int) -> List[int]:
@@ -85,6 +87,8 @@ class Solution:
                 ans.append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +128,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findKDistantIndices(nums []int, key int, k int) (ans []int) {
@@ -143,6 +151,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findKDistantIndices(nums: number[], key: number, k: number): number[] {
@@ -176,6 +186,8 @@ function findKDistantIndices(nums: number[], key: number, k: number): number[] {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findKDistantIndices(self, nums: List[int], key: int, k: int) -> List[int]:
@@ -188,6 +200,8 @@ class Solution:
                 ans.append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -213,6 +227,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -237,6 +253,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findKDistantIndices(nums []int, key int, k int) (ans []int) {
 	idx := []int{}
@@ -255,6 +273,8 @@ func findKDistantIndices(nums []int, key int, k int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findKDistantIndices(nums: number[], key: number, k: number): number[] {
@@ -303,6 +323,8 @@ function findKDistantIndices(nums: number[], key: number, k: number): number[] {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findKDistantIndices(self, nums: List[int], key: int, k: int) -> List[int]:
@@ -315,6 +337,8 @@ class Solution:
                 ans.append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -333,6 +357,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -353,6 +379,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findKDistantIndices(nums []int, key int, k int) (ans []int) {
 	n := len(nums)
@@ -367,6 +395,8 @@ func findKDistantIndices(nums []int, key int, k int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findKDistantIndices(nums: number[], key: number, k: number): number[] {

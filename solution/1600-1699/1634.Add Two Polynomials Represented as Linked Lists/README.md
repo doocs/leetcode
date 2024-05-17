@@ -96,6 +96,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for polynomial singly-linked list.
 # class PolyNode:
@@ -126,6 +128,8 @@ class Solution:
         curr.next = poly1 or poly2
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -175,6 +179,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for polynomial singly-linked list->
@@ -222,6 +228,8 @@ public:
 };
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for polynomial singly-linked list.
@@ -263,6 +271,8 @@ var addPoly = function (poly1, poly2) {
     return dummy.next;
 };
 ```
+
+#### C#
 
 ```cs
 /**

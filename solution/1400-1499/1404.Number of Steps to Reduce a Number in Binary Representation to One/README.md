@@ -85,6 +85,8 @@ Step 1) 2 是偶数，除 2 得到 1
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numSteps(self, s: str) -> int:
@@ -105,6 +107,8 @@ class Solution:
             ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +139,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -161,6 +167,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numSteps(s string) int {

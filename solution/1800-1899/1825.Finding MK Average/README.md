@@ -109,6 +109,8 @@ obj.calculateMKAverage(); // 最后 3 个元素为 [5,5,5]
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedList
 
@@ -167,6 +169,8 @@ class MKAverage:
 # obj.addElement(num)
 # param_2 = obj.calculateMKAverage()
 ```
+
+#### Java
 
 ```java
 class MKAverage {
@@ -262,6 +266,8 @@ class MKAverage {
  */
 ```
 
+#### C++
+
 ```cpp
 class MKAverage {
 public:
@@ -337,6 +343,8 @@ private:
  * int param_2 = obj->calculateMKAverage();
  */
 ```
+
+#### Go
 
 ```go
 type MKAverage struct {
@@ -442,6 +450,8 @@ func (this *MKAverage) CalculateMKAverage() int {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedList

@@ -85,6 +85,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countServers(self, grid: List[List[int]]) -> int:
@@ -102,6 +104,8 @@ class Solution:
             for j in range(n)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -155,6 +161,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countServers(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
@@ -177,6 +185,8 @@ func countServers(grid [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countServers(grid: number[][]): number {

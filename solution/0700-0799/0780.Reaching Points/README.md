@@ -75,6 +75,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reachingPoints(self, sx: int, sy: int, tx: int, ty: int) -> bool:
@@ -91,6 +93,8 @@ class Solution:
             return tx > sx and (tx - sx) % ty == 0
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -133,6 +139,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func reachingPoints(sx int, sy int, tx int, ty int) bool {

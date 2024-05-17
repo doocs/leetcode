@@ -88,6 +88,8 @@ Queue 表
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT a.person_name
@@ -110,6 +112,8 @@ LIMIT 1;
 ### 方法二
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

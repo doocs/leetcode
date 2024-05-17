@@ -90,6 +90,8 @@ bSTIterator.prev(); // 状态变为 [3, 7, &lt;u&gt;9&lt;/u&gt;, 15, 20], 返回
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -133,6 +135,8 @@ class BSTIterator:
 # param_3 = obj.hasPrev()
 # param_4 = obj.prev()
 ```
+
+#### Java
 
 ```java
 /**
@@ -194,6 +198,8 @@ class BSTIterator {
  */
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -254,6 +260,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -310,6 +318,8 @@ func (this *BSTIterator) Prev() int {
  * param_4 := obj.Prev();
  */
 ```
+
+#### TypeScript
 
 ```ts
 /**

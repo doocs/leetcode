@@ -65,6 +65,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findDuplicates(self, nums: List[int]) -> List[int]:
@@ -73,6 +75,8 @@ class Solution:
                 nums[nums[i] - 1], nums[i] = nums[i], nums[nums[i] - 1]
         return [v for i, v in enumerate(nums) if v != i + 1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -120,6 +126,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findDuplicates(nums []int) []int {

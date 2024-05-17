@@ -58,6 +58,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2759.Co
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function jsonParse(str: string): any {
     const n = str.length;

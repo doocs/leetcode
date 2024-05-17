@@ -49,6 +49,8 @@ age 21 30
 
 <!-- tabs:start -->
 
+#### Shell
+
 ```bash
 # Read from the file file.txt and print its transposed content to stdout.
 awk '

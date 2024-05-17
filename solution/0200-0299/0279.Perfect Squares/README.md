@@ -88,6 +88,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numSquares(self, n: int) -> int:
@@ -101,6 +103,8 @@ class Solution:
                     f[i][j] = min(f[i][j], f[i][j - i * i] + 1)
         return f[m][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +128,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -144,6 +150,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numSquares(n int) int {
@@ -169,6 +177,8 @@ func numSquares(n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numSquares(n: number): number {
     const m = Math.floor(Math.sqrt(n));
@@ -187,6 +197,8 @@ function numSquares(n: number): number {
     return f[m][n];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -217,6 +229,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numSquares(self, n: int) -> int:
@@ -227,6 +241,8 @@ class Solution:
                 f[j] = min(f[j], f[j - i * i] + 1)
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -244,6 +260,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -263,6 +281,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numSquares(n int) int {
 	m := int(math.Sqrt(float64(n)))
@@ -280,6 +300,8 @@ func numSquares(n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numSquares(n: number): number {
     const m = Math.floor(Math.sqrt(n));
@@ -293,6 +315,8 @@ function numSquares(n: number): number {
     return f[n];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

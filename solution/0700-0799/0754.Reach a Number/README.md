@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reachNumber(self, target: int) -> int:
@@ -91,6 +93,8 @@ class Solution:
             k += 1
             s += k
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +128,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func reachNumber(target int) int {
@@ -138,6 +146,8 @@ func reachNumber(target int) int {
 	}
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

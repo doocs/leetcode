@@ -79,6 +79,8 @@ Similar problems:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkStrings(self, s1: str, s2: str) -> bool:
@@ -86,6 +88,8 @@ class Solution:
             s2[1::2]
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -124,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func checkStrings(s1 string, s2 string) bool {
 	cnt := [2][26]int{}
@@ -139,6 +147,8 @@ func checkStrings(s1 string, s2 string) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function checkStrings(s1: string, s2: string): boolean {

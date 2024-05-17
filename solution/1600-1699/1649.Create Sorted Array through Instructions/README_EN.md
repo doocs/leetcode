@@ -140,6 +140,8 @@ The total cost is 0 + 0 + 0 + 0 + 1 + 0 + 1 + 0 + 2 = 4.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class BinaryIndexedTree:
     def __init__(self, n):
@@ -171,6 +173,8 @@ class Solution:
             tree.update(x, 1)
         return ans % mod
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -219,6 +223,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -265,6 +271,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -304,6 +312,8 @@ func createSortedArray(instructions []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {
@@ -356,6 +366,8 @@ function createSortedArray(instructions: number[]): number {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -417,6 +429,8 @@ class Solution:
             tree.modify(1, num, 1)
         return ans % int((1e9 + 7))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -498,6 +512,8 @@ class SegmentTree {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Node {

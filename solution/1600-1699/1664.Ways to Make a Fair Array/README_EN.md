@@ -95,6 +95,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def waysToMakeFair(self, nums: List[int]) -> int:
@@ -107,6 +109,8 @@ class Solution:
             t2 += v if i % 2 == 1 else 0
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -154,6 +160,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func waysToMakeFair(nums []int) (ans int) {
@@ -181,6 +189,8 @@ func waysToMakeFair(nums []int) (ans int) {
 	return
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

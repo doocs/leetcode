@@ -83,6 +83,8 @@ targetWord 的数值为 "aaaa" -&gt; "0000" -&gt; 0
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isSumEqual(self, firstWord: str, secondWord: str, targetWord: str) -> bool:
@@ -94,6 +96,8 @@ class Solution:
 
         return f(firstWord) + f(secondWord) == f(targetWord)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -126,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isSumEqual(firstWord string, secondWord string, targetWord string) bool {
 	f := func(s string) int {
@@ -139,6 +147,8 @@ func isSumEqual(firstWord string, secondWord string, targetWord string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isSumEqual(firstWord: string, secondWord: string, targetWord: string): boolean {
     const calc = (s: string) => {
@@ -151,6 +161,8 @@ function isSumEqual(firstWord: string, secondWord: string, targetWord: string): 
     return calc(firstWord) + calc(secondWord) === calc(targetWord);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -167,6 +179,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -186,6 +200,8 @@ var isSumEqual = function (firstWord, secondWord, targetWord) {
     return f(firstWord) + f(secondWord) == f(targetWord);
 };
 ```
+
+#### C
 
 ```c
 int calc(char* s) {

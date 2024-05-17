@@ -85,6 +85,8 @@ Space complexity: $O(n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def beautifulPair(self, nums1: List[int], nums2: List[int]) -> List[int]:
@@ -124,6 +126,8 @@ class Solution:
         _, pi, pj = dfs(0, len(points) - 1)
         return [pi, pj]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -192,6 +196,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -262,6 +268,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func beautifulPair(nums1 []int, nums2 []int) []int {
 	n := len(nums1)
@@ -329,6 +337,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function beautifulPair(nums1: number[], nums2: number[]): number[] {

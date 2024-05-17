@@ -55,6 +55,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def integerBreak(self, n: int) -> int:
@@ -64,6 +66,8 @@ class Solution:
                 dp[i] = max(dp[i], dp[i - j] * j, (i - j) * j)
         return dp[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -79,6 +83,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -96,6 +102,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func integerBreak(n int) int {
 	dp := make([]int, n+1)
@@ -109,6 +117,8 @@ func integerBreak(n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function integerBreak(n: number): number {
     let dp = new Array(n + 1).fill(1);
@@ -121,6 +131,8 @@ function integerBreak(n: number): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn integer_break(n: i32) -> i32 {
@@ -132,6 +144,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int integerBreak(int n) {
@@ -153,6 +167,8 @@ int integerBreak(int n) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def integerBreak(self, n: int) -> int:
@@ -164,6 +180,8 @@ class Solution:
             return pow(3, n // 3 - 1) * 4
         return pow(3, n // 3) * 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -181,6 +199,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -200,6 +220,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func integerBreak(n int) int {
 	if n < 4 {
@@ -214,6 +236,8 @@ func integerBreak(n int) int {
 	return int(math.Pow(3, float64(n/3))) * 2
 }
 ```
+
+#### TypeScript
 
 ```ts
 function integerBreak(n: number): number {

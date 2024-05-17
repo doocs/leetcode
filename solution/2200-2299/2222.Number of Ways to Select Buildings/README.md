@@ -82,6 +82,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfWays(self, s: str) -> int:
@@ -99,6 +101,8 @@ class Solution:
                 c1 += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -150,6 +156,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfWays(s string) int64 {

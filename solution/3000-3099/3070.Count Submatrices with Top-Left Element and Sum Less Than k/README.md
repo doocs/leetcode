@@ -73,6 +73,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSubmatrices(self, grid: List[List[int]], k: int) -> int:
@@ -84,6 +86,8 @@ class Solution:
                 ans += s[i][j] <= k
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -125,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSubmatrices(grid [][]int, k int) (ans int) {
 	s := make([][]int, len(grid)+1)
@@ -142,6 +150,8 @@ func countSubmatrices(grid [][]int, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countSubmatrices(grid: number[][], k: number): number {

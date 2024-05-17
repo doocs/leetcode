@@ -72,6 +72,8 @@ The time complexity for initializing the prefix sum array $s$ is $O(n)$, and the
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class NumArray:
     def __init__(self, nums: List[int]):
@@ -85,6 +87,8 @@ class NumArray:
 # obj = NumArray(nums)
 # param_1 = obj.sumRange(left,right)
 ```
+
+#### Java
 
 ```java
 class NumArray {
@@ -109,6 +113,8 @@ class NumArray {
  * int param_1 = obj.sumRange(left,right);
  */
 ```
+
+#### C++
 
 ```cpp
 class NumArray {
@@ -136,6 +142,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type NumArray struct {
 	s []int
@@ -161,6 +169,8 @@ func (this *NumArray) SumRange(left int, right int) int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class NumArray {
     private s: number[];
@@ -184,6 +194,8 @@ class NumArray {
  * var param_1 = obj.sumRange(left,right)
  */
 ```
+
+#### Rust
 
 ```rust
 struct NumArray {
@@ -214,6 +226,8 @@ impl NumArray {
  */
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -241,6 +255,8 @@ NumArray.prototype.sumRange = function (left, right) {
  * var param_1 = obj.sumRange(left,right)
  */
 ```
+
+#### PHP
 
 ```php
 class NumArray {
@@ -270,6 +286,8 @@ class NumArray {
  * $ret_1 = $obj->sumRange($left, $right);
  */
 ```
+
+#### C
 
 ```c
 typedef struct {

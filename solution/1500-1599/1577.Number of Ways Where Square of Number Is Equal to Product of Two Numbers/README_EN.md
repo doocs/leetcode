@@ -75,6 +75,8 @@ Type 2: (3,0,1).  nums2[3]<sup>2</sup> = nums1[0] * nums1[1].
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numTriplets(self, nums1: List[int], nums2: List[int]) -> int:
@@ -97,6 +99,8 @@ class Solution:
                         ans += x * y * cnt1[c]
         return ans >> 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +140,8 @@ class Solution {
     }
 }
 ```
+
+#### Go
 
 ```go
 func numTriplets(nums1 []int, nums2 []int) (ans int) {

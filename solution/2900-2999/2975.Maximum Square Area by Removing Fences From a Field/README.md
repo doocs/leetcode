@@ -78,6 +78,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximizeSquareArea(
@@ -94,6 +96,8 @@ class Solution:
         ans = max(hs & vs, default=0)
         return ans**2 % mod if ans else -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -156,6 +162,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximizeSquareArea(m int, n int, hFences []int, vFences []int) int {
 	f := func(nums []int, k int) map[int]bool {
@@ -183,6 +191,8 @@ func maximizeSquareArea(m int, n int, hFences []int, vFences []int) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximizeSquareArea(m: number, n: number, hFences: number[], vFences: number[]): number {

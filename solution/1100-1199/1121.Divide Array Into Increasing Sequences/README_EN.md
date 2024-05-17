@@ -61,12 +61,16 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canDivideIntoSubsequences(self, nums: List[int], k: int) -> bool:
         mx = max(len(list(x)) for _, x in groupby(nums))
         return mx * k <= len(nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -80,6 +84,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -98,6 +104,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canDivideIntoSubsequences(nums []int, k int) bool {
@@ -125,6 +133,8 @@ func canDivideIntoSubsequences(nums []int, k int) bool {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {

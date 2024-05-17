@@ -94,6 +94,8 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(m + n)$. 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def setZeroes(self, matrix: List[List[int]]) -> None:
@@ -109,6 +111,8 @@ class Solution:
                 if rows[i] or cols[j]:
                     matrix[i][j] = 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -134,6 +138,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -161,6 +167,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func setZeroes(matrix [][]int) {
 	m, n := len(matrix), len(matrix[0])
@@ -183,6 +191,8 @@ func setZeroes(matrix [][]int) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -211,6 +221,8 @@ function setZeroes(matrix: number[][]): void {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn set_zeroes(matrix: &mut Vec<Vec<i32>>) {
@@ -236,6 +248,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -265,6 +279,8 @@ var setZeroes = function (matrix) {
 };
 ```
 
+#### C
+
 ```c
 void setZeroes(int** matrix, int matrixSize, int* matrixColSize) {
     int m = matrixSize;
@@ -292,6 +308,8 @@ void setZeroes(int** matrix, int matrixSize, int* matrixColSize) {
     free(cols);
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -338,6 +356,8 @@ The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def setZeroes(self, matrix: List[List[int]]) -> None:
@@ -359,6 +379,8 @@ class Solution:
             for i in range(m):
                 matrix[i][0] = 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -405,6 +427,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -453,6 +477,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func setZeroes(matrix [][]int) {
 	m, n := len(matrix), len(matrix[0])
@@ -495,6 +521,8 @@ func setZeroes(matrix [][]int) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -544,6 +572,8 @@ function setZeroes(matrix: number[][]): void {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -599,6 +629,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[][]} matrix
@@ -642,6 +674,8 @@ var setZeroes = function (matrix) {
     }
 };
 ```
+
+#### C
 
 ```c
 void setZeroes(int** matrix, int matrixSize, int* matrixColSize) {

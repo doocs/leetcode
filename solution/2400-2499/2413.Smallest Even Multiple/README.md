@@ -59,11 +59,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def smallestEvenMultiple(self, n: int) -> int:
         return n if n % 2 == 0 else n * 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -72,6 +76,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -82,6 +88,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallestEvenMultiple(n int) int {
 	if n%2 == 0 {
@@ -91,11 +99,15 @@ func smallestEvenMultiple(n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function smallestEvenMultiple(n: number): number {
     return n % 2 === 0 ? n : n * 2;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -107,6 +119,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int smallestEvenMultiple(int n) {

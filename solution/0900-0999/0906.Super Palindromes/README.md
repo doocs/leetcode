@@ -66,6 +66,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 ps = []
 for i in range(1, 10**5 + 1):
@@ -88,6 +90,8 @@ class Solution:
         l, r = int(left), int(right)
         return sum(l <= x <= r and is_palindrome(x) for x in map(lambda x: x * x, ps))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +130,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 using ll = unsigned long long;
@@ -169,6 +175,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 var ps [2 * 100000]int64
 
@@ -209,6 +217,8 @@ func superpalindromesInRange(left string, right string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 const ps = Array(2e5).fill(0);

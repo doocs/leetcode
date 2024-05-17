@@ -55,6 +55,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minNumber(self, nums: List[int]) -> str:
@@ -67,6 +69,8 @@ class Solution:
         return "".join(ans)
 ```
 
+#### Java
+
 ```java
 class Solution {
     public String minNumber(int[] nums) {
@@ -78,6 +82,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -99,6 +105,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minNumber(nums []int) string {
 	arr := []string{}
@@ -110,11 +118,15 @@ func minNumber(nums []int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minNumber(nums: number[]): string {
     return nums.sort((a, b) => Number(`${a}${b}`) - Number(`${b}${a}`)).join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -126,6 +138,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -141,6 +155,8 @@ var minNumber = function (nums) {
     return nums.join('');
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

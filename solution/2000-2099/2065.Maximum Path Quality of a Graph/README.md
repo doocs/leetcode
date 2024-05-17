@@ -104,6 +104,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function maximalPathQuality(values: number[], edges: number[][], maxTime: number): number {
     const n = values.length;

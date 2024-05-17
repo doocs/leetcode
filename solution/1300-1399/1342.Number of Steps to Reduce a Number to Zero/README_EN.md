@@ -74,6 +74,8 @@ Step 4) 1 is odd; subtract 1 and obtain 0.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfSteps(self, num: int) -> int:
@@ -86,6 +88,8 @@ class Solution:
             ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -114,6 +120,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfSteps(num int) int {
@@ -130,6 +138,8 @@ func numberOfSteps(num int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numberOfSteps(num: number): number {
     let ans = 0;
@@ -140,6 +150,8 @@ function numberOfSteps(num: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -168,6 +180,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfSteps(self, num: int) -> int:
@@ -179,6 +193,8 @@ class Solution:
             else self.numberOfSteps(num - 1)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -192,6 +208,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -201,6 +219,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfSteps(num int) int {
@@ -213,6 +233,8 @@ func numberOfSteps(num int) int {
 	return 1 + numberOfSteps(num-1)
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

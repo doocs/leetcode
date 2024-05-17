@@ -80,12 +80,16 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def capitalizeTitle(self, title: str) -> str:
         words = [w.lower() if len(w) < 3 else w.capitalize() for w in title.split()]
         return " ".join(words)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -123,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func capitalizeTitle(title string) string {
 	title = strings.ToLower(title)
@@ -136,6 +144,8 @@ func capitalizeTitle(title string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function capitalizeTitle(title: string): string {
     return title
@@ -146,6 +156,8 @@ function capitalizeTitle(title: string): string {
         .join(' ');
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

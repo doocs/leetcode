@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSubarrays(self, nums: List[int]) -> int:
@@ -82,6 +84,8 @@ class Solution:
             i = j
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSubarrays(nums []int) int64 {
 	ans := 0
@@ -138,6 +146,8 @@ func countSubarrays(nums []int) int64 {
 	return int64(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countSubarrays(nums: number[]): number {
@@ -171,6 +181,8 @@ function countSubarrays(nums: number[]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSubarrays(self, nums: List[int]) -> int:
@@ -184,6 +196,8 @@ class Solution:
             ans += cnt
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -203,6 +217,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -224,6 +240,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSubarrays(nums []int) (ans int64) {
 	pre, cnt := 0, 0
@@ -239,6 +257,8 @@ func countSubarrays(nums []int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countSubarrays(nums: number[]): number {

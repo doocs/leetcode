@@ -76,6 +76,8 @@ output[i] = [a, b, c] (3个整数)
 
 <!-- tabs:start -->
 
+#### C++
+
 ```cpp
 class DiningPhilosophers {
 public:

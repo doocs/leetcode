@@ -103,6 +103,8 @@ stockPrice.minimum();     // 返回 2 ，最低价格时间戳为 4 ，价格为
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedList
 
@@ -137,6 +139,8 @@ class StockPrice:
 # param_3 = obj.maximum()
 # param_4 = obj.minimum()
 ```
+
+#### Java
 
 ```java
 class StockPrice {
@@ -182,6 +186,8 @@ class StockPrice {
  */
 ```
 
+#### C++
+
 ```cpp
 class StockPrice {
 public:
@@ -224,6 +230,8 @@ private:
  * int param_4 = obj->minimum();
  */
 ```
+
+#### Go
 
 ```go
 type StockPrice struct {

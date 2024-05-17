@@ -79,6 +79,8 @@ No more pairs can be formed. A total of 1 pair has been formed, and there are 0 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfPairs(self, nums: List[int]) -> List[int]:
@@ -86,6 +88,8 @@ class Solution:
         s = sum(v // 2 for v in cnt.values())
         return [s, len(nums) - s * 2]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -120,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfPairs(nums []int) []int {
 	cnt := [101]int{}
@@ -134,6 +142,8 @@ func numberOfPairs(nums []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numberOfPairs(nums: number[]): number[] {
     const n = nums.length;
@@ -145,6 +155,8 @@ function numberOfPairs(nums: number[]): number[] {
     return [sum, n - sum * 2];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -163,6 +175,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -177,6 +191,8 @@ var numberOfPairs = function (nums) {
     return [s, nums.length - s * 2];
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -193,6 +209,8 @@ public class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**

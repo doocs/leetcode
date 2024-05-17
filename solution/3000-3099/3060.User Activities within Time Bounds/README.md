@@ -87,6 +87,8 @@ Sessions 表:
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH
@@ -105,6 +107,8 @@ SELECT DISTINCT
 FROM T
 WHERE TIMESTAMPDIFF(HOUR, prev_session_end, session_start) <= 12;
 ```
+
+#### Python3
 
 ```python
 import pandas as pd

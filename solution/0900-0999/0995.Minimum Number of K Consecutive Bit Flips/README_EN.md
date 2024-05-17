@@ -84,6 +84,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minKBitFlips(self, nums: List[int], k: int) -> int:
@@ -101,6 +103,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +128,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -150,6 +156,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minKBitFlips(nums []int, k int) int {
 	n := len(nums)
@@ -171,6 +179,8 @@ func minKBitFlips(nums []int, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minKBitFlips(nums: number[], k: number): number {
     const n = nums.length;
@@ -191,6 +201,8 @@ function minKBitFlips(nums: number[], k: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

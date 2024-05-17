@@ -93,6 +93,8 @@ The time complexity is $O(n^2 \times \log n)$, and the space complexity $O(n^2)$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class UnionFind:
     def __init__(self, n):
@@ -150,6 +152,8 @@ class Solution:
                 return int(d)
         return 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -240,6 +244,8 @@ class UnionFind {
 }
 ```
 
+#### C++
+
 ```cpp
 class UnionFind {
 public:
@@ -320,6 +326,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type unionFind struct {
@@ -412,6 +420,8 @@ func maximumSafenessFactor(grid [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 class UnionFind {
     private p: number[];
@@ -495,6 +505,8 @@ function maximumSafenessFactor(grid: number[][]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 use std::collections::VecDeque;
 impl Solution {
@@ -570,6 +582,8 @@ impl Solution {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function maximumSafenessFactor(grid: number[][]): number {

@@ -54,6 +54,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkPerfectNumber(self, num: int) -> bool:
@@ -68,6 +70,8 @@ class Solution:
             i += 1
         return s == num
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +94,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -106,6 +112,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func checkPerfectNumber(num int) bool {

@@ -96,6 +96,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function beautifulSubstrings(s: string, k: number): number {
     const l = pSqrt(k * 4);

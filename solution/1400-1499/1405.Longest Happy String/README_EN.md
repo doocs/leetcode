@@ -71,6 +71,8 @@ The greedy strategy is to prioritize the selection of characters with the most r
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestDiverseString(self, a: int, b: int, c: int) -> str:
@@ -102,6 +104,8 @@ class Solution:
 
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -146,6 +150,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -184,6 +190,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type pair struct {
@@ -237,6 +245,8 @@ func longestDiverseString(a int, b int, c int) string {
 	return string(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestDiverseString(a: number, b: number, c: number): string {

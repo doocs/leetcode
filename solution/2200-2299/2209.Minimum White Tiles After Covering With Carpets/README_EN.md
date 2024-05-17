@@ -84,6 +84,8 @@ The time complexity is $O(n\times m)$, and the space complexity is $O(n\times m)
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumWhiteTiles(self, floor: str, numCarpets: int, carpetLen: int) -> int:
@@ -105,6 +107,8 @@ class Solution:
         dfs.cache_clear()
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -147,6 +151,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -171,6 +177,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumWhiteTiles(floor string, numCarpets int, carpetLen int) int {

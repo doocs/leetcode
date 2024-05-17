@@ -79,6 +79,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfWays(self, startPos: int, endPos: int, k: int) -> int:
@@ -93,6 +95,8 @@ class Solution:
         mod = 10**9 + 7
         return dfs(abs(startPos - endPos), k)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -145,6 +151,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfWays(startPos int, endPos int, k int) int {
@@ -183,6 +191,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfWays(startPos: number, endPos: number, k: number): number {

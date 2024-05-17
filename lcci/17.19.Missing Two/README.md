@@ -56,6 +56,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.19.Missing%20Two/R
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def missingTwo(self, nums: List[int]) -> List[int]:
@@ -77,6 +79,8 @@ class Solution:
         b = xor ^ a
         return [a, b]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -127,6 +133,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func missingTwo(nums []int) []int {
@@ -154,6 +162,8 @@ func missingTwo(nums []int) []int {
 	return []int{a, b}
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

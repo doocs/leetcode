@@ -101,6 +101,8 @@ Salaries table:
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT employee_id

@@ -81,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxFreq(self, s: str, maxLetters: int, minSize: int, maxSize: int) -> int:
@@ -94,6 +96,8 @@ class Solution:
                 ans = max(ans, cnt[t])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -133,6 +139,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxFreq(s string, maxLetters int, minSize int, maxSize int) (ans int) {

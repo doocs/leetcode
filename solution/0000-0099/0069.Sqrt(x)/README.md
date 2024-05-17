@@ -66,6 +66,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def mySqrt(self, x: int) -> int:
@@ -78,6 +80,8 @@ class Solution:
                 l = mid
         return l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +99,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,11 +120,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func mySqrt(x int) int {
 	return sort.Search(x+1, func(i int) bool { return i*i > x }) - 1
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -141,6 +151,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number} x
@@ -159,6 +171,8 @@ var mySqrt = function (x) {
     return l;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

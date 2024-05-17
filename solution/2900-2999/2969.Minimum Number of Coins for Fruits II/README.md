@@ -95,6 +95,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumCoins(self, prices: List[int]) -> int:
@@ -110,6 +112,8 @@ class Solution:
             q.append(i)
         return prices[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +137,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -155,6 +161,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumCoins(prices []int) int {
@@ -233,6 +241,8 @@ func (q Deque) Get(i int) int {
 	return q.r[i-len(q.l)]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumCoins(prices: number[]): number {

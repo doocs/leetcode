@@ -102,6 +102,8 @@ The time complexity is $O(n^2)$, where $n$ is the side length of the matrix. The
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def rotate(self, matrix: List[List[int]]) -> None:
@@ -113,6 +115,8 @@ class Solution:
             for j in range(i):
                 matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +140,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -155,6 +161,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func rotate(matrix [][]int) {
 	n := len(matrix)
@@ -171,6 +179,8 @@ func rotate(matrix [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  Do not return anything, modify matrix in-place instead.
@@ -186,6 +196,8 @@ function rotate(matrix: number[][]): void {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -209,6 +221,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[][]} matrix
@@ -223,6 +237,8 @@ var rotate = function (matrix) {
     }
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -245,6 +261,8 @@ public class Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

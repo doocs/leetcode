@@ -65,6 +65,8 @@ The time complexity is $O(\sqrt{n} \times \log_{10} n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def closestFair(self, n: int) -> int:
@@ -85,6 +87,8 @@ class Solution:
             return n
         return self.closestFair(n + 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -146,6 +152,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func closestFair(n int) int {

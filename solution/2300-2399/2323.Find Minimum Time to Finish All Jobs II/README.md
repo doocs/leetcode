@@ -73,6 +73,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumTime(self, jobs: List[int], workers: List[int]) -> int:
@@ -80,6 +82,8 @@ class Solution:
         workers.sort()
         return max((a + b - 1) // b for a, b in zip(jobs, workers))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +99,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -107,6 +113,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumTime(jobs []int, workers []int) int {

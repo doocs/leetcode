@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reorderLogFiles(self, logs: List[str]) -> List[str]:
@@ -86,6 +88,8 @@ class Solution:
 
         return sorted(logs, key=cmp)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function reorderLogFiles(logs: string[]): string[] {
     const isDigit = (c: string) => c >= '0' && c <= '9';
@@ -135,6 +141,8 @@ function reorderLogFiles(logs: string[]): string[] {
     });
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

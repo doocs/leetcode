@@ -52,6 +52,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2040.%20%E5%BF%83%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxmiumScore(self, cards: List[int], cnt: int) -> int:
@@ -66,6 +68,8 @@ class Solution:
         d = max([v for v in cards[cnt:] if v & 1], default=-inf)
         return max(ans - a + c, ans - b + d, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +138,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxmiumScore(cards []int, cnt int) int {

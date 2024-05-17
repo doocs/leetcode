@@ -95,6 +95,8 @@ Hence the result is [0,0].
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def hitBricks(self, grid: List[List[int]], hits: List[List[int]]) -> List[int]:
@@ -143,6 +145,8 @@ class Solution:
             ans.append(max(0, curr - prev - 1))
         return ans[::-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -229,6 +233,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -291,6 +297,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func hitBricks(grid [][]int, hits [][]int) []int {

@@ -50,6 +50,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
@@ -62,6 +64,8 @@ class Solution:
                 l = mid + 1
         return l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -79,6 +83,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -98,6 +104,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func missingNumber(nums []int) int {
 	l, r := 0, len(nums)
@@ -112,6 +120,8 @@ func missingNumber(nums []int) int {
 	return l
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -129,6 +139,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -149,6 +161,8 @@ var missingNumber = function (nums) {
     return l;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -176,6 +190,8 @@ public class Solution {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {

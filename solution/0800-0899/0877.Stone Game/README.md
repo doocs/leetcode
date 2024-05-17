@@ -83,6 +83,8 @@ Alice 先开始，只能拿前 5 颗或后 5 颗石子 。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def stoneGame(self, piles: List[int]) -> bool:
@@ -94,6 +96,8 @@ class Solution:
 
         return dfs(0, len(piles) - 1) > 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -140,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func stoneGame(piles []int) bool {
 	n := len(piles)
@@ -160,6 +168,8 @@ func stoneGame(piles []int) bool {
 	return dfs(0, n-1) > 0
 }
 ```
+
+#### TypeScript
 
 ```ts
 function stoneGame(piles: number[]): boolean {
@@ -207,6 +217,8 @@ function stoneGame(piles: number[]): boolean {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def stoneGame(self, piles: List[int]) -> bool:
@@ -219,6 +231,8 @@ class Solution:
                 f[i][j] = max(piles[i] - f[i + 1][j], piles[j] - f[i][j - 1])
         return f[0][n - 1] > 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -237,6 +251,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -258,6 +274,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func stoneGame(piles []int) bool {
 	n := len(piles)
@@ -274,6 +292,8 @@ func stoneGame(piles []int) bool {
 	return f[0][n-1] > 0
 }
 ```
+
+#### TypeScript
 
 ```ts
 function stoneGame(piles: number[]): boolean {

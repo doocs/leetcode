@@ -66,12 +66,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def hasGroupsSizeX(self, deck: List[int]) -> bool:
         vals = Counter(deck).values()
         return reduce(gcd, vals) >= 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +99,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -111,6 +117,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func hasGroupsSizeX(deck []int) bool {

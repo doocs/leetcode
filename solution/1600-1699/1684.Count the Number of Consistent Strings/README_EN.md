@@ -75,12 +75,16 @@ The time complexity is $O(m)$, and the space complexity is $O(C)$. Here, $m$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countConsistentStrings(self, allowed: str, words: List[str]) -> int:
         s = set(allowed)
         return sum(all(c in s for c in w) for w in words)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -126,6 +132,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countConsistentStrings(allowed string, words []string) (ans int) {
@@ -150,6 +158,8 @@ func countConsistentStrings(allowed string, words []string) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countConsistentStrings(allowed: string, words: string[]): number {
     const set = new Set([...allowed]);
@@ -166,6 +176,8 @@ function countConsistentStrings(allowed: string, words: string[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -188,6 +200,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int countConsistentStrings(char* allowed, char** words, int wordsSize) {
@@ -228,6 +242,8 @@ The time complexity is $O(m)$, where $m$ is the total length of all strings. The
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countConsistentStrings(self, allowed: str, words: List[str]) -> int:
@@ -237,6 +253,8 @@ class Solution:
         mask = f(allowed)
         return sum((mask | f(w)) == mask for w in words)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -261,6 +279,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -277,6 +297,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countConsistentStrings(allowed string, words []string) (ans int) {
@@ -297,6 +319,8 @@ func countConsistentStrings(allowed string, words []string) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countConsistentStrings(allowed: string, words: string[]): number {
     const helper = (s: string) => {
@@ -316,6 +340,8 @@ function countConsistentStrings(allowed: string, words: string[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -339,6 +365,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int helper(char* s) {

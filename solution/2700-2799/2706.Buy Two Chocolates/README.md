@@ -65,6 +65,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def buyChoco(self, prices: List[int], money: int) -> int:
@@ -72,6 +74,8 @@ class Solution:
         cost = prices[0] + prices[1]
         return money if money < cost else money - cost
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +86,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -94,6 +100,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func buyChoco(prices []int, money int) int {
 	sort.Ints(prices)
@@ -105,6 +113,8 @@ func buyChoco(prices []int, money int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function buyChoco(prices: number[], money: number): number {
     prices.sort((a, b) => a - b);
@@ -112,6 +122,8 @@ function buyChoco(prices: number[], money: number): number {
     return money < cost ? money : money - cost;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -140,6 +152,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def buyChoco(self, prices: List[int], money: int) -> int:
@@ -152,6 +166,8 @@ class Solution:
         cost = a + b
         return money if money < cost else money - cost
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -170,6 +186,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -190,6 +208,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func buyChoco(prices []int, money int) int {
 	a, b := 1001, 1001
@@ -208,6 +228,8 @@ func buyChoco(prices []int, money int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function buyChoco(prices: number[], money: number): number {
     let [a, b] = [1000, 1000];
@@ -223,6 +245,8 @@ function buyChoco(prices: number[], money: number): number {
     return money < cost ? money : money - cost;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

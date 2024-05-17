@@ -71,12 +71,16 @@ Note that &#39;A&#39; and &#39;a&#39; are treated as two different characters.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def frequencySort(self, s: str) -> str:
         cnt = Counter(s)
         return ''.join(c * v for c, v in sorted(cnt.items(), key=lambda x: -x[1]))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func frequencySort(s string) string {
 	cnt := map[byte]int{}
@@ -141,6 +149,8 @@ func frequencySort(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function frequencySort(s: string): string {
     const cnt: Map<string, number> = new Map();
@@ -155,6 +165,8 @@ function frequencySort(s: string): string {
     return ans.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -172,6 +184,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

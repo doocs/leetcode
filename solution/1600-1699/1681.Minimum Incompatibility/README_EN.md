@@ -89,6 +89,8 @@ The time complexity is $O(3^n)$, and the space complexity is $O(2^n)$. Here, $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumIncompatibility(self, nums: List[int], k: int) -> int:
@@ -129,6 +131,8 @@ class Solution:
                 j = (j - 1) & mask
         return f[-1] if f[-1] != inf else -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -186,6 +190,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -242,6 +248,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumIncompatibility(nums []int, k int) int {
@@ -302,6 +310,8 @@ func minimumIncompatibility(nums []int, k int) int {
 	return f[1<<n-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumIncompatibility(nums: number[], k: number): number {
@@ -364,6 +374,8 @@ function bitCount(i: number): number {
     return i & 0x3f;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -440,6 +452,8 @@ public class Solution {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

@@ -77,6 +77,8 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, nums1: List[int], nums2: List[int], k: int) -> int:
@@ -93,6 +95,8 @@ class Solution:
             x += y
         return -1 if x else ans // 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -142,6 +148,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minOperations(nums1 []int, nums2 []int, k int) int64 {
@@ -175,6 +183,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minOperations(nums1: number[], nums2: number[], k: number): number {
     const n = nums1.length;
@@ -197,6 +207,8 @@ function minOperations(nums1: number[], nums2: number[], k: number): number {
     return sum2 / (k * 2);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -232,6 +244,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 long long minOperations(int* nums1, int nums1Size, int* nums2, int nums2Size, int k) {

@@ -119,6 +119,8 @@ s 的 k 子序列为：
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countKSubsequencesWithMaxBeauty(self, s: str, k: int) -> int:
@@ -138,6 +140,8 @@ class Solution:
         ans = ans * comb(x, k) * pow(val, k, mod) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -201,6 +205,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -259,6 +265,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countKSubsequencesWithMaxBeauty(s string, k int) int {
@@ -320,6 +328,8 @@ func countKSubsequencesWithMaxBeauty(s string, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countKSubsequencesWithMaxBeauty(s: string, k: number): number {

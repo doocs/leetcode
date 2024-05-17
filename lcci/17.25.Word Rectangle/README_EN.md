@@ -57,6 +57,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.25.Word%20Rectangl
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Trie:
     def __init__(self):
@@ -121,6 +123,8 @@ class Solution:
             dfs(ws)
         return ans
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -201,6 +205,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -286,6 +292,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -361,6 +369,8 @@ func maxRectangle(words []string) (ans []string) {
 	return
 }
 ```
+
+#### Swift
 
 ```swift
 class Trie {

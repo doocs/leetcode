@@ -65,6 +65,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -94,6 +96,8 @@ class Solution:
         dfs(root)
         first.val, second.val = second.val, first.val
 ```
+
+#### Java
 
 ```java
 /**
@@ -140,6 +144,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -174,6 +180,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -204,6 +212,8 @@ func recoverTree(root *TreeNode) {
 	first.Val, second.Val = second.Val, first.Val
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -242,6 +252,8 @@ var recoverTree = function (root) {
     second.val = t;
 };
 ```
+
+#### C#
 
 ```cs
 /**

@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumTime(self, time: str) -> str:
@@ -91,6 +93,8 @@ class Solution:
             t[4] = '9'
         return ''.join(t)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -133,6 +139,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumTime(time string) string {
@@ -160,6 +168,8 @@ func maximumTime(time string) string {
 	return string(t)
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

@@ -97,6 +97,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findLexSmallestString(self, s: str, a: int, b: int) -> str:
@@ -117,6 +119,8 @@ class Solution:
                     q.append(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -149,6 +153,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -177,6 +183,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findLexSmallestString(s string, a int, b int) string {
@@ -224,6 +232,8 @@ func findLexSmallestString(s string, a int, b int) string {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findLexSmallestString(self, s: str, a: int, b: int) -> str:
@@ -248,6 +258,8 @@ class Solution:
                         ans = t
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -284,6 +296,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -312,6 +326,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findLexSmallestString(s string, a int, b int) string {

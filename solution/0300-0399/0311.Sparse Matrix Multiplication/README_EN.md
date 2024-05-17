@@ -60,6 +60,8 @@ The time complexity is $O(m \times n \times k)$, and the space complexity is $O(
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def multiply(self, mat1: List[List[int]], mat2: List[List[int]]) -> List[List[int]]:
@@ -71,6 +73,8 @@ class Solution:
                     ans[i][j] += mat1[i][k] * mat2[k][j]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +92,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -107,6 +113,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func multiply(mat1 [][]int, mat2 [][]int) [][]int {
 	m, n := len(mat1), len(mat2[0])
@@ -124,6 +132,8 @@ func multiply(mat1 [][]int, mat2 [][]int) [][]int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function multiply(mat1: number[][], mat2: number[][]): number[][] {
@@ -156,6 +166,8 @@ The time complexity is $O(m \times n \times k)$, and the space complexity is $O(
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def multiply(self, mat1: List[List[int]], mat2: List[List[int]]) -> List[List[int]]:
@@ -177,6 +189,8 @@ class Solution:
                     ans[i][j] += x * y
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -213,6 +227,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -244,6 +260,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func multiply(mat1 [][]int, mat2 [][]int) [][]int {
@@ -278,6 +296,8 @@ func multiply(mat1 [][]int, mat2 [][]int) [][]int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function multiply(mat1: number[][], mat2: number[][]): number[][] {

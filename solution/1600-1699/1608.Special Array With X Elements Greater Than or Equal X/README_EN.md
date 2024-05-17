@@ -77,6 +77,8 @@ The time complexity is $O(n^2)$, where $n$ is the length of the array. The space
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def specialArray(self, nums: List[int]) -> int:
@@ -86,6 +88,8 @@ class Solution:
                 return x
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +125,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func specialArray(nums []int) int {
@@ -137,6 +145,8 @@ func specialArray(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function specialArray(nums: number[]): number {
     const n = nums.length;
@@ -148,6 +158,8 @@ function specialArray(nums: number[]): number {
     return -1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -185,6 +197,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def specialArray(self, nums: List[int]) -> int:
@@ -196,6 +210,8 @@ class Solution:
                 return x
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -222,6 +238,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -236,6 +254,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func specialArray(nums []int) int {
@@ -260,6 +280,8 @@ func specialArray(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function specialArray(nums: number[]): number {
     const n = nums.length;
@@ -282,6 +304,8 @@ function specialArray(nums: number[]): number {
     return -1;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::cmp::Ordering;

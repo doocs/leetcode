@@ -71,6 +71,8 @@ result[2] = |5-2| + |5-3| + |5-5| = 3 + 2 + 0 = 5。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getSumAbsoluteDifferences(self, nums: List[int]) -> List[int]:
@@ -82,6 +84,8 @@ class Solution:
             t += x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -120,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getSumAbsoluteDifferences(nums []int) (ans []int) {
 	var s, t int
@@ -135,6 +143,8 @@ func getSumAbsoluteDifferences(nums []int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function getSumAbsoluteDifferences(nums: number[]): number[] {
     const s = nums.reduce((a, b) => a + b);
@@ -149,6 +159,8 @@ function getSumAbsoluteDifferences(nums: number[]): number[] {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -168,6 +180,8 @@ var getSumAbsoluteDifferences = function (nums) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

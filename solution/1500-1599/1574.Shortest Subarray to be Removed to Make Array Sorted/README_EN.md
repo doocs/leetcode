@@ -72,6 +72,8 @@ Another correct solution is to remove the subarray [3,10,4].
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findLengthOfShortestSubarray(self, arr: List[int]) -> int:
@@ -89,6 +91,8 @@ class Solution:
             ans = min(ans, r - l - 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -151,6 +157,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findLengthOfShortestSubarray(arr []int) int {
@@ -184,6 +192,8 @@ func findLengthOfShortestSubarray(arr []int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findLengthOfShortestSubarray(self, arr: List[int]) -> int:
@@ -203,6 +213,8 @@ class Solution:
             ans = min(ans, r - l - 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -230,6 +242,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -256,6 +270,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findLengthOfShortestSubarray(arr []int) int {

@@ -80,6 +80,8 @@ Hence, the maximum k is 2.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumRemovals(self, s: str, p: str, removable: List[int]) -> int:
@@ -102,6 +104,8 @@ class Solution:
                 right = mid - 1
         return left
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -134,6 +138,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -168,6 +174,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumRemovals(s string, p string, removable []int) int {
 	check := func(k int) bool {
@@ -198,6 +206,8 @@ func maximumRemovals(s string, p string, removable []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumRemovals(s: string, p: string, removable: number[]): number {
     let left = 0,
@@ -227,6 +237,8 @@ function isSub(str: string, sub: string, idxes: Set<number>): boolean {
     return j == n;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;

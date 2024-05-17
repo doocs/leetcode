@@ -66,6 +66,8 @@ The time complexity is $O(\log x)$, where $x$ is the input integer. The space co
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumOfTheDigitsOfHarshadNumber(self, x: int) -> int:
@@ -75,6 +77,8 @@ class Solution:
             y //= 10
         return s if x % s == 0 else -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +91,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -101,6 +107,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumOfTheDigitsOfHarshadNumber(x int) int {
 	s := 0
@@ -113,6 +121,8 @@ func sumOfTheDigitsOfHarshadNumber(x int) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumOfTheDigitsOfHarshadNumber(x: number): number {

@@ -70,6 +70,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumScore(self, nums: List[int], k: int) -> int:
@@ -97,6 +99,8 @@ class Solution:
                 ans = max(ans, v * (right[i] - left[i] - 1))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -179,6 +185,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumScore(nums []int, k int) (ans int) {
 	n := len(nums)
@@ -217,6 +225,8 @@ func maximumScore(nums []int, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumScore(nums: number[], k: number): number {

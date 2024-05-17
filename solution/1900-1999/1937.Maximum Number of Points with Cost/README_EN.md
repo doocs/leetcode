@@ -80,6 +80,8 @@ Your final score is 12 - 1 = 11.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxPoints(self, points: List[List[int]]) -> int:
@@ -98,6 +100,8 @@ class Solution:
             f = g
         return max(f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -153,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxPoints(points [][]int) int64 {
 	n := len(points[0])
@@ -174,6 +182,8 @@ func maxPoints(points [][]int) int64 {
 	return slices.Max(f)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxPoints(points: number[][]): number {

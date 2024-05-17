@@ -96,6 +96,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSubstrings(self, s: str, t: str) -> int:
@@ -114,6 +116,8 @@ class Solution:
                     ans += (l + 1) * (r + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -140,6 +144,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -164,6 +170,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countSubstrings(s string, t string) (ans int) {
@@ -202,6 +210,8 @@ func countSubstrings(s string, t string) (ans int) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSubstrings(self, s: str, t: str) -> int:
@@ -221,6 +231,8 @@ class Solution:
                     ans += (f[i][j] + 1) * (g[i + 1][j + 1] + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -249,6 +261,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -280,6 +294,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countSubstrings(s string, t string) (ans int) {

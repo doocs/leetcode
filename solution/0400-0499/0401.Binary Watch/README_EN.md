@@ -64,6 +64,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def readBinaryWatch(self, turnedOn: int) -> List[str]:
@@ -74,6 +76,8 @@ class Solution:
             if (bin(i) + bin(j)).count('1') == turnedOn
         ]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +94,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -108,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func readBinaryWatch(turnedOn int) []string {
 	var ans []string
@@ -121,6 +129,8 @@ func readBinaryWatch(turnedOn int) []string {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function readBinaryWatch(turnedOn: number): string[] {
@@ -155,6 +165,8 @@ function readBinaryWatch(turnedOn: number): string[] {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -215,6 +227,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def readBinaryWatch(self, turnedOn: int) -> List[str]:
@@ -225,6 +239,8 @@ class Solution:
                 ans.append('{:d}:{:02d}'.format(h, m))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -241,6 +257,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -256,6 +274,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func readBinaryWatch(turnedOn int) []string {

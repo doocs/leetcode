@@ -98,6 +98,8 @@ Department 表:
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT d.name AS department, e.name AS employee, salary
@@ -123,6 +125,8 @@ WHERE
 我们可以使用等值连接，将 `Employee` 表和 `Department` 表连接起来，连接条件为 `Employee.departmentId = Department.id`，然后使用窗口函数 `rank()`，它可以为每个部门的每个员工分配一个排名，然后我们可以选择排名为 $1$ 的行即可。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

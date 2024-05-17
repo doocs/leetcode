@@ -83,6 +83,8 @@ The time complexity is $O(n)$ and the space complexity is $O(n)$. Where $n$ is t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isValid(self, s: str) -> bool:
@@ -95,6 +97,8 @@ class Solution:
                 t[-3:] = []
         return not t
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +117,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -133,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isValid(s string) bool {
 	if len(s)%3 > 0 {
@@ -148,6 +156,8 @@ func isValid(s string) bool {
 	return len(t) == 0
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isValid(s: string): boolean {

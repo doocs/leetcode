@@ -76,12 +76,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canBeTypedWords(self, text: str, brokenLetters: str) -> int:
         s = set(brokenLetters)
         return sum(all(c not in s for c in w) for w in text.split())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -143,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canBeTypedWords(text string, brokenLetters string) (ans int) {
 	s := [26]bool{}
@@ -161,6 +169,8 @@ func canBeTypedWords(text string, brokenLetters string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canBeTypedWords(text: string, brokenLetters: string): number {
@@ -181,6 +191,8 @@ function canBeTypedWords(text: string, brokenLetters: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

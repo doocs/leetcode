@@ -73,6 +73,8 @@ Every node in the resulting graph is connected to an even number of edges.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isPossible(self, n: int, edges: List[List[int]]) -> bool:
@@ -99,6 +101,8 @@ class Solution:
             return False
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -149,6 +153,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -189,6 +195,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isPossible(n int, edges [][]int) bool {

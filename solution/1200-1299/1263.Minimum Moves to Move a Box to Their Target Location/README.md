@@ -126,6 +126,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minPushBox(self, grid: List[List[str]]) -> int:
@@ -167,6 +169,8 @@ class Solution:
                     q.appendleft((f(sx, sy), f(bi, bj), d))
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -236,6 +240,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -294,6 +300,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minPushBox(grid [][]byte) int {
 	m, n := len(grid), len(grid[0])
@@ -349,6 +357,8 @@ func minPushBox(grid [][]byte) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minPushBox(grid: string[][]): number {

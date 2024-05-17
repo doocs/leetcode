@@ -57,6 +57,8 @@ findMedian() -&gt; 2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class MedianFinder:
     def __init__(self):
@@ -83,6 +85,8 @@ class MedianFinder:
 # obj.addNum(num)
 # param_2 = obj.findMedian()
 ```
+
+#### Java
 
 ```java
 class MedianFinder {
@@ -116,6 +120,8 @@ class MedianFinder {
  * double param_2 = obj.findMedian();
  */
 ```
+
+#### C++
 
 ```cpp
 class MedianFinder {
@@ -153,6 +159,8 @@ private:
  * double param_2 = obj->findMedian();
  */
 ```
+
+#### Go
 
 ```go
 type MedianFinder struct {
@@ -198,6 +206,8 @@ func (h *hp) Pop() any {
 	return v
 }
 ```
+
+#### Swift
 
 ```swift
 class MedianFinder {

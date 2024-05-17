@@ -82,6 +82,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCost(self, nums: List[int], costs: List[int]) -> int:
@@ -110,6 +112,8 @@ class Solution:
                 f[j] = min(f[j], f[i] + costs[j])
         return f[n - 1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -150,6 +154,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -188,6 +194,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minCost(nums []int, costs []int) int64 {
 	n := len(nums)
@@ -224,6 +232,8 @@ func minCost(nums []int, costs []int) int64 {
 	return f[n-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minCost(nums: number[], costs: number[]): number {

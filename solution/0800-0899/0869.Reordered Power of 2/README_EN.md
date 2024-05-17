@@ -56,6 +56,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reorderedPowerOf2(self, n: int) -> bool:
@@ -73,6 +75,8 @@ class Solution:
             i <<= 1
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +100,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -114,6 +120,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func reorderedPowerOf2(n int) bool {

@@ -58,6 +58,8 @@ Any arguments could be passed to the function but it should still always return 
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function createHelloWorld() {
     return function (...args): string {

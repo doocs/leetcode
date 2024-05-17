@@ -76,6 +76,8 @@ Each of them is replaced by &quot;$0.00&quot;.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def discountPrices(self, sentence: str, discount: int) -> str:
@@ -86,6 +88,8 @@ class Solution:
             ans.append(w)
         return ' '.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +117,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -149,6 +155,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func discountPrices(sentence string, discount int) string {
 	words := strings.Split(sentence, " ")
@@ -162,6 +170,8 @@ func discountPrices(sentence string, discount int) string {
 	return strings.Join(words, " ")
 }
 ```
+
+#### TypeScript
 
 ```ts
 function discountPrices(sentence: string, discount: number): string {

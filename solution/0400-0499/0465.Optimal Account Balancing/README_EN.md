@@ -70,6 +70,8 @@ Therefore, person #1 only need to give person #0 $4, and all debt is settled.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minTransfers(self, transactions: List[List[int]]) -> int:
@@ -94,6 +96,8 @@ class Solution:
                     j = (j - 1) & i
         return f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +135,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -170,6 +176,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minTransfers(transactions [][]int) int {
 	g := [12]int{}
@@ -203,6 +211,8 @@ func minTransfers(transactions [][]int) int {
 	return f[1<<m-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minTransfers(transactions: number[][]): number {

@@ -75,6 +75,8 @@ The person with id 3 is a friend of people 1, 2, and 4, so he has three friends 
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

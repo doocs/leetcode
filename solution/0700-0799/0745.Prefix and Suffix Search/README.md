@@ -68,6 +68,8 @@ wordFilter.f("a", "e"); // 返回 0 ，因为下标为 0 的单词：前缀 pref
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class WordFilter:
     def __init__(self, words: List[str]):
@@ -88,6 +90,8 @@ class WordFilter:
 # obj = WordFilter(words)
 # param_1 = obj.f(pref,suff)
 ```
+
+#### Java
 
 ```java
 class WordFilter {
@@ -118,6 +122,8 @@ class WordFilter {
  * int param_1 = obj.f(pref,suff);
  */
 ```
+
+#### C++
 
 ```cpp
 class WordFilter {
@@ -151,6 +157,8 @@ public:
  * int param_1 = obj->f(pref,suff);
  */
 ```
+
+#### Go
 
 ```go
 type WordFilter struct {
@@ -195,6 +203,8 @@ func (this *WordFilter) F(pref string, suff string) int {
 ### 方法二：双前缀树
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -249,6 +259,8 @@ class WordFilter:
 # obj = WordFilter(words)
 # param_1 = obj.f(pref,suff)
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -321,6 +333,8 @@ class WordFilter {
  * int param_1 = obj.f(pref,suff);
  */
 ```
+
+#### Go
 
 ```go
 type Trie struct {

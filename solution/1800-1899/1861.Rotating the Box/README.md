@@ -98,6 +98,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def rotateTheBox(self, box: List[List[str]]) -> List[List[str]]:
@@ -119,6 +121,8 @@ class Solution:
                     q.append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -148,6 +152,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -180,6 +186,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func rotateTheBox(box [][]byte) [][]byte {

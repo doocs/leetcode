@@ -97,6 +97,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def beautifulSubstrings(self, s: str, k: int) -> int:
@@ -112,6 +114,8 @@ class Solution:
                     ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +140,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -163,6 +169,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func beautifulSubstrings(s string, k int) (ans int) {
 	n := len(s)
@@ -183,6 +191,8 @@ func beautifulSubstrings(s string, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function beautifulSubstrings(s: string, k: number): number {

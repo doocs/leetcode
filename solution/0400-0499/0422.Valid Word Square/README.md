@@ -85,6 +85,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def validWordSquare(self, words: List[str]) -> bool:
@@ -97,6 +99,8 @@ class Solution:
                 return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -136,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func validWordSquare(words []string) bool {
 	m := len(words)
@@ -149,6 +157,8 @@ func validWordSquare(words []string) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function validWordSquare(words: string[]): boolean {
@@ -174,6 +184,8 @@ function validWordSquare(words: string[]): boolean {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

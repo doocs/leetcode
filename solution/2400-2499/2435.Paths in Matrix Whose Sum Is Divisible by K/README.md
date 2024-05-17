@@ -86,6 +86,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfPaths(self, grid: List[List[int]], k: int) -> int:
@@ -105,6 +107,8 @@ class Solution:
         dfs.cache_clear()
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -148,6 +152,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -170,6 +176,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfPaths(grid [][]int, k int) int {
@@ -208,6 +216,8 @@ func numberOfPaths(grid [][]int, k int) int {
 	return dfs(0, 0, 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfPaths(grid: number[][], k: number): number {
@@ -255,6 +265,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfPaths(self, grid: List[List[int]], k: int) -> int:
@@ -273,6 +285,8 @@ class Solution:
                     dp[i][j][s] %= mod
         return dp[-1][-1][0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -301,6 +315,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -324,6 +340,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfPaths(grid [][]int, k int) int {

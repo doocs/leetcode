@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkDistances(self, s: str, distance: List[int]) -> bool:
@@ -87,6 +89,8 @@ class Solution:
             d[c] = i
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -121,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func checkDistances(s string, distance []int) bool {
 	d := [26]int{}
@@ -134,6 +142,8 @@ func checkDistances(s string, distance []int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function checkDistances(s: string, distance: number[]): boolean {
@@ -149,6 +159,8 @@ function checkDistances(s: string, distance: number[]): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -168,6 +180,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 bool checkDistances(char* s, int* distance, int distanceSize) {

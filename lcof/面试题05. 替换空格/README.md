@@ -41,11 +41,15 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def replaceSpace(self, s: str) -> str:
         return s.replace(' ', '%20')
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -54,6 +58,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -71,17 +77,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func replaceSpace(s string) string {
 	return strings.Replace(s, " ", "%20", -1)
 }
 ```
 
+#### TypeScript
+
 ```ts
 function replaceSpace(s: string): string {
     return s.replace(/\s/g, '%20');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -90,6 +102,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -101,6 +115,8 @@ var replaceSpace = function (s) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public string ReplaceSpace(string s) {
@@ -108,6 +124,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -143,6 +161,8 @@ class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def replaceSpace(self, s: str) -> str:
@@ -151,6 +171,8 @@ class Solution:
             ans.append('%20' if c == ' ' else c)
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -163,6 +185,8 @@ class Solution {
     }
 }
 ```
+
+#### Go
 
 ```go
 func replaceSpace(s string) string {
@@ -178,6 +202,8 @@ func replaceSpace(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function replaceSpace(s: string): string {
     const strArr = [];
@@ -187,6 +213,8 @@ function replaceSpace(s: string): string {
     return strArr.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -204,6 +232,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} s
@@ -213,6 +243,8 @@ var replaceSpace = function (s) {
     return s.replace(/\s/g, '%20');
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -239,6 +271,8 @@ public class Solution {
 ### 方法三
 
 <!-- tabs:start -->
+
+#### JavaScript
 
 ```js
 /**

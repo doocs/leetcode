@@ -98,6 +98,8 @@ addressId = 1 包含了 personId = 2 的地址信息。</pre>
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 import pandas as pd
 
@@ -107,6 +109,8 @@ def combine_two_tables(person: pd.DataFrame, address: pd.DataFrame) -> pd.DataFr
         ["firstName", "lastName", "city", "state"]
     ]
 ```
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

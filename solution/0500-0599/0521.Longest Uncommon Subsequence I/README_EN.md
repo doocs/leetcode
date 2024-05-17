@@ -64,11 +64,15 @@ Note that &quot;cdc&quot; is also a longest uncommon subsequence.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findLUSlength(self, a: str, b: str) -> int:
         return -1 if a == b else max(len(a), len(b))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -78,6 +82,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -86,6 +92,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findLUSlength(a string, b string) int {
@@ -99,11 +107,15 @@ func findLUSlength(a string, b string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findLUSlength(a: string, b: string): number {
     return a != b ? Math.max(a.length, b.length) : -1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

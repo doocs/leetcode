@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfCombinations(self, num: str) -> int:
@@ -97,6 +99,8 @@ class Solution:
                 dp[i][j] = (dp[i][j - 1] + v) % mod
         return dp[n][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +140,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -174,6 +180,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfCombinations(num string) int {

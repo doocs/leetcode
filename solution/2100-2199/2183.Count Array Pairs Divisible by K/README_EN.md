@@ -66,17 +66,25 @@ Other pairs such as (0, 2) and (2, 4) have products 3 and 15 respectively, which
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 
 ```
+
+#### Java
 
 ```java
 
 ```
 
+#### C++
+
 ```cpp
 
 ```
+
+#### Go
 
 ```go
 

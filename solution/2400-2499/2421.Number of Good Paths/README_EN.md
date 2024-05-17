@@ -97,6 +97,8 @@ The time complexity is $O(n \times \log n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfGoodPaths(self, vals: List[int], edges: List[List[int]]) -> int:
@@ -128,6 +130,8 @@ class Solution:
                     size[pb][v] += size[pa][v]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -179,6 +183,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -224,6 +230,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfGoodPaths(vals []int, edges [][]int) int {

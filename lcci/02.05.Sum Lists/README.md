@@ -54,6 +54,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.05.Sum%20Lists/REA
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -75,6 +77,8 @@ class Solution:
             l2 = l2.next if l2 else None
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -102,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -131,6 +137,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -159,6 +167,8 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	return dummy.Next
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -204,6 +214,8 @@ function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | nul
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn add_two_numbers(
@@ -242,6 +254,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -270,6 +284,8 @@ var addTwoNumbers = function (l1, l2) {
     return dummy.next;
 };
 ```
+
+#### Swift
 
 ```swift
 /**

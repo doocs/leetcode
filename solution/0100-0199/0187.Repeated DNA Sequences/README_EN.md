@@ -65,6 +65,8 @@ The time complexity is $O(n \times 10)$, and the space complexity is $O(n \times
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findRepeatedDnaSequences(self, s: str) -> List[str]:
@@ -77,6 +79,8 @@ class Solution:
                 ans.append(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +97,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -111,6 +117,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findRepeatedDnaSequences(s string) (ans []string) {
 	cnt := map[string]int{}
@@ -124,6 +132,8 @@ func findRepeatedDnaSequences(s string) (ans []string) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findRepeatedDnaSequences(s: string): string[] {
@@ -140,6 +150,8 @@ function findRepeatedDnaSequences(s: string): string[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -164,6 +176,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} s
@@ -182,6 +196,8 @@ var findRepeatedDnaSequences = function (s) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -215,6 +231,8 @@ This method essentially combines sliding window and hash. Similar to 0028. Find 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
+
+#### Go
 
 ```go
 func findRepeatedDnaSequences(s string) []string {

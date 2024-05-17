@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -85,6 +87,8 @@ class Solution:
         head.next = t
         return p
 ```
+
+#### Java
 
 ```java
 /**
@@ -110,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -137,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -156,6 +164,8 @@ func swapPairs(head *ListNode) *ListNode {
 	return p
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -181,6 +191,8 @@ function swapPairs(head: ListNode | null): ListNode | null {
     return p;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -218,6 +230,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -241,6 +255,8 @@ var swapPairs = function (head) {
     return p;
 };
 ```
+
+#### Ruby
 
 ```rb
 # Definition for singly-linked list.
@@ -285,6 +301,8 @@ end
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -303,6 +321,8 @@ class Solution:
             pre, cur = cur, cur.next
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -332,6 +352,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -363,6 +385,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -384,6 +408,8 @@ func swapPairs(head *ListNode) *ListNode {
 	return dummy.Next
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -412,6 +438,8 @@ function swapPairs(head: ListNode | null): ListNode | null {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -437,6 +465,8 @@ var swapPairs = function (head) {
     return dummy.next;
 };
 ```
+
+#### PHP
 
 ```php
 # Definition for singly-linked list.

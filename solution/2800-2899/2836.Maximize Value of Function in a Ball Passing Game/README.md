@@ -176,6 +176,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getMaxFunctionValue(self, receiver: List[int], k: int) -> int:
@@ -199,6 +201,8 @@ class Solution:
             ans = max(ans, t + p)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -233,6 +237,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -266,6 +272,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getMaxFunctionValue(receiver []int, k int64) (ans int64) {

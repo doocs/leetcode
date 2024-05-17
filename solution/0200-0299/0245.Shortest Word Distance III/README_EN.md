@@ -49,6 +49,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def shortestWordDistance(self, wordsDict: List[str], word1: str, word2: str) -> int:
@@ -71,6 +73,8 @@ class Solution:
                     ans = min(ans, abs(i - j))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -135,6 +141,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func shortestWordDistance(wordsDict []string, word1 string, word2 string) int {

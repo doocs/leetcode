@@ -67,6 +67,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -95,6 +97,8 @@ class Solution:
         fast.next = head
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -137,6 +141,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -182,6 +188,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -218,6 +226,8 @@ func rotateRight(head *ListNode, k int) *ListNode {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -261,6 +271,8 @@ function rotateRight(head: ListNode | null, k: number): ListNode | null {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -312,6 +324,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 /**

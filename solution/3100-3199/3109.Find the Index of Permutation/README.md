@@ -89,6 +89,8 @@ And <code>[3,1,2]</code> is at index 4.</p>
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class BinaryIndexedTree:
     __slots__ = "n", "c"
@@ -124,6 +126,8 @@ class Solution:
             tree.update(x, 1)
         return ans % mod
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -170,6 +174,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class BinaryIndexedTree {
@@ -220,6 +226,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -261,6 +269,8 @@ func getPermutationIndex(perm []int) (ans int) {
 	return ans % mod
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {

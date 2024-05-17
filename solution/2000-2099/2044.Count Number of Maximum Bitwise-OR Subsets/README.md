@@ -83,6 +83,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countMaxOrSubsets(self, nums: List[int]) -> int:
@@ -102,6 +104,8 @@ class Solution:
         dfs(0, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +136,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -159,6 +165,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countMaxOrSubsets(nums []int) int {
 	mx, ans := 0, 0
@@ -183,6 +191,8 @@ func countMaxOrSubsets(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countMaxOrSubsets(nums: number[]): number {
     let n = nums.length;
@@ -203,6 +213,8 @@ function countMaxOrSubsets(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -249,6 +261,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countMaxOrSubsets(self, nums: List[int]) -> int:
@@ -267,6 +281,8 @@ class Solution:
         dfs(0, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -296,6 +312,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -322,6 +340,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countMaxOrSubsets(nums []int) int {
 	n := len(nums)
@@ -344,6 +364,8 @@ func countMaxOrSubsets(nums []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countMaxOrSubsets(nums: number[]): number {
@@ -379,6 +401,8 @@ function countMaxOrSubsets(nums: number[]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countMaxOrSubsets(self, nums: List[int]) -> int:
@@ -397,6 +421,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -423,6 +449,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -447,6 +475,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countMaxOrSubsets(nums []int) int {

@@ -100,6 +100,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def nimGame(self, piles: List[int]) -> bool:
@@ -116,6 +118,8 @@ class Solution:
 
         return dfs(tuple(piles))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -163,6 +167,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -200,6 +206,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func nimGame(piles []int) bool {
@@ -239,6 +247,8 @@ func nimGame(piles []int) bool {
 	return dfs(piles)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function nimGame(piles: number[]): boolean {

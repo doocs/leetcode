@@ -94,6 +94,8 @@ nums3 = [nums1[0], nums1[1]] =&gt; [1,1]
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxNonDecreasingLength(self, nums1: List[int], nums2: List[int]) -> int:
@@ -114,6 +116,8 @@ class Solution:
             ans = max(ans, f, g)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -143,6 +147,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -174,6 +180,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxNonDecreasingLength(nums1 []int, nums2 []int) int {
 	n := len(nums1)
@@ -198,6 +206,8 @@ func maxNonDecreasingLength(nums1 []int, nums2 []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxNonDecreasingLength(nums1: number[], nums2: number[]): number {

@@ -93,11 +93,15 @@ int gray(x) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def grayCode(self, n: int) -> List[int]:
         return [i ^ (i >> 1) for i in range(1 << n)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -124,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func grayCode(n int) (ans []int) {
 	for i := 0; i < 1<<n; i++ {
@@ -132,6 +140,8 @@ func grayCode(n int) (ans []int) {
 	return
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

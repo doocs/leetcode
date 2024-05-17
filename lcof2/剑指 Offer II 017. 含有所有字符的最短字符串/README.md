@@ -69,6 +69,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
@@ -97,6 +99,8 @@ class Solution:
                 return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +139,8 @@ class Solution {
     }
 }
 ```
+
+#### Go
 
 ```go
 func minWindow(s string, t string) string {
@@ -186,6 +192,8 @@ func check(need, window map[byte]int) bool {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
@@ -219,6 +227,8 @@ class Solution:
                     window[ch] -= 1
         return "" if minLen == inf else s[start : start + minLen]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -266,6 +276,8 @@ class Solution {
     }
 }
 ```
+
+#### Go
 
 ```go
 func minWindow(s string, t string) string {

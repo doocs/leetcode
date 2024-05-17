@@ -111,6 +111,8 @@ Note that there is more than one way to arrive at this conclusion.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumGood(self, statements: List[List[int]]) -> int:
@@ -126,6 +128,8 @@ class Solution:
 
         return max(check(mask) for mask in range(1, 1 << len(statements)))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -156,6 +160,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -182,6 +188,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumGood(statements [][]int) int {
 	n := len(statements)
@@ -206,6 +214,8 @@ func maximumGood(statements [][]int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumGood(statements: number[][]): number {

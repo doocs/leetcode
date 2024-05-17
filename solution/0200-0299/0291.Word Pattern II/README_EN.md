@@ -66,6 +66,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def wordPatternMatch(self, pattern: str, s: str) -> bool:
@@ -93,6 +95,8 @@ class Solution:
         vis = set()
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -143,6 +147,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -174,6 +180,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func wordPatternMatch(pattern string, s string) bool {

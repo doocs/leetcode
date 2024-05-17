@@ -99,6 +99,8 @@ The time complexity is $O(m \times n \times \log m)$, and the space complexity i
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxSpending(self, values: List[List[int]]) -> int:
@@ -114,6 +116,8 @@ class Solution:
                 heappush(pq, (values[i][j - 1], i, j - 1))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -137,6 +141,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -159,6 +165,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxSpending(values [][]int) (ans int64) {
@@ -186,6 +194,8 @@ func (h hp) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
 func (h *hp) Push(v any)        { *h = append(*h, v.(tuple)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
+
+#### TypeScript
 
 ```ts
 function maxSpending(values: number[][]): number {

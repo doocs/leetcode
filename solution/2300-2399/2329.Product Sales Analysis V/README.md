@@ -102,6 +102,8 @@ Product 表：
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT user_id, SUM(quantity * price) AS spending

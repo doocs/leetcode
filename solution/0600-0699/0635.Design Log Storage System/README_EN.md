@@ -81,6 +81,8 @@ In terms of time complexity, the time complexity of the `put()` method is $O(1)$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class LogSystem:
     def __init__(self):
@@ -107,6 +109,8 @@ class LogSystem:
 # obj.put(id,timestamp)
 # param_2 = obj.retrieve(start,end,granularity)
 ```
+
+#### Java
 
 ```java
 class LogSystem {
@@ -159,6 +163,8 @@ class Log {
  */
 ```
 
+#### C++
+
 ```cpp
 class LogSystem {
 public:
@@ -201,6 +207,8 @@ private:
  * vector<int> param_2 = obj->retrieve(start,end,granularity);
  */
 ```
+
+#### Go
 
 ```go
 type LogSystem struct {

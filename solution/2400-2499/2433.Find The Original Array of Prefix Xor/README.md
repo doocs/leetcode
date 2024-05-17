@@ -91,11 +91,15 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findArray(self, pref: List[int]) -> List[int]:
         return [a ^ b for a, b in pairwise([0] + pref)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -125,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findArray(pref []int) []int {
 	n := len(pref)
@@ -136,6 +144,8 @@ func findArray(pref []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findArray(pref: number[]): number[] {
     let ans = pref.slice();
@@ -145,6 +155,8 @@ function findArray(pref: number[]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -159,6 +171,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**

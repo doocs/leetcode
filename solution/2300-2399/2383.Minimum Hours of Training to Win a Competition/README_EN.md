@@ -78,6 +78,8 @@ It can be proven that no smaller answer exists.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minNumberOfHours(
@@ -99,6 +101,8 @@ class Solution:
             initialExperience += b
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -146,6 +152,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minNumberOfHours(initialEnergy int, initialExperience int, energy []int, experience []int) int {
 	ans := 0
@@ -165,6 +173,8 @@ func minNumberOfHours(initialEnergy int, initialExperience int, energy []int, ex
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minNumberOfHours(
@@ -195,6 +205,8 @@ function minNumberOfHours(
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn min_number_of_hours(
@@ -221,6 +233,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int minNumberOfHours(int initialEnergy, int initialExperience, int* energy, int energySize, int* experience, int experienceSize) {
@@ -251,6 +265,8 @@ int minNumberOfHours(int initialEnergy, int initialExperience, int* energy, int 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minNumberOfHours(
@@ -268,6 +284,8 @@ class Solution:
             initialExperience += x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -290,6 +308,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -307,6 +327,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minNumberOfHours(initialEnergy int, initialExperience int, energy []int, experience []int) (ans int) {
@@ -327,6 +349,8 @@ func minNumberOfHours(initialEnergy int, initialExperience int, energy []int, ex
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minNumberOfHours(
@@ -363,6 +387,8 @@ function minNumberOfHours(
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function minNumberOfHours(

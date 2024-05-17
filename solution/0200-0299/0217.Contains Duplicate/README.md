@@ -67,11 +67,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
         return any(a == b for a, b in pairwise(sorted(nums)))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +90,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -102,6 +108,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func containsDuplicate(nums []int) bool {
 	sort.Ints(nums)
@@ -113,6 +121,8 @@ func containsDuplicate(nums []int) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 function containsDuplicate(nums: number[]): boolean {
@@ -126,6 +136,8 @@ function containsDuplicate(nums: number[]): boolean {
     return false;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -142,6 +154,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -152,6 +166,8 @@ var containsDuplicate = function (nums) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool ContainsDuplicate(int[] nums) {
@@ -159,6 +175,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -172,6 +190,8 @@ class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int cmp(const void* a, const void* b) {
@@ -203,11 +223,15 @@ bool containsDuplicate(int* nums, int numsSize) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
         return len(set(nums)) < len(nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -223,6 +247,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -232,6 +258,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func containsDuplicate(nums []int) bool {
@@ -246,11 +274,15 @@ func containsDuplicate(nums []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function containsDuplicate(nums: number[]): boolean {
     return new Set<number>(nums).size !== nums.length;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;

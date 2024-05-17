@@ -85,6 +85,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countOrders(self, n: int) -> int:
@@ -94,6 +96,8 @@ class Solution:
             f = (f * i * (2 * i - 1)) % mod
         return f
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countOrders(n int) int {
 	const mod = 1e9 + 7
@@ -132,6 +140,8 @@ func countOrders(n int) int {
 	return f
 }
 ```
+
+#### Rust
 
 ```rust
 const MOD: i64 = (1e9 as i64) + 7;

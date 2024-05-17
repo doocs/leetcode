@@ -83,6 +83,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def knightProbability(self, n: int, k: int, row: int, column: int) -> float:
@@ -99,6 +101,8 @@ class Solution:
                             f[h][i][j] += f[h - 1][x][y] / 8
         return f[k][row][column]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +130,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -156,6 +162,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func knightProbability(n int, k int, row int, column int) float64 {
 	f := make([][][]float64, k+1)
@@ -185,6 +193,8 @@ func knightProbability(n int, k int, row int, column int) float64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function knightProbability(n: number, k: number, row: number, column: number): number {
     const f = new Array(k + 1)
@@ -212,6 +222,8 @@ function knightProbability(n: number, k: number, row: number, column: number): n
     return f[k][row][column];
 }
 ```
+
+#### Rust
 
 ```rust
 const DIR: [(i32, i32); 8] = [

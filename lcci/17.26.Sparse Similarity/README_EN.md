@@ -62,6 +62,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.26.Sparse%20Simila
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def computeSimilarities(self, docs: List[List[int]]) -> List[str]:
@@ -83,6 +85,8 @@ class Solution:
             ans.append(f'{i},{j}: {x:.4f}')
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 using pii = pair<int, int>;
@@ -153,6 +159,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func computeSimilarities(docs [][]int) []string {

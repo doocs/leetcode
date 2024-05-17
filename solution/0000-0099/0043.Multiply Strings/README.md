@@ -71,6 +71,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def multiply(self, num1: str, num2: str) -> str:
@@ -89,6 +91,8 @@ class Solution:
         i = 0 if arr[0] else 1
         return "".join(str(x) for x in arr[i:])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +122,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -149,6 +155,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func multiply(num1 string, num2 string) string {
 	if num1 == "0" || num2 == "0" {
@@ -179,6 +187,8 @@ func multiply(num1 string, num2 string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function multiply(num1: string, num2: string): string {
     if (num1 === '0' || num2 === '0') {
@@ -205,6 +215,8 @@ function multiply(num1: string, num2: string): string {
     return arr.slice(i).join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -237,6 +249,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -276,6 +290,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

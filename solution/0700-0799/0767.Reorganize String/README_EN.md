@@ -51,6 +51,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reorganizeString(self, s: str) -> str:
@@ -70,6 +72,8 @@ class Solution:
                     i = 1
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -145,6 +151,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func reorganizeString(s string) string {
@@ -183,6 +191,8 @@ func reorganizeString(s string) string {
 	return string(ans)
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::{ HashMap, BinaryHeap, VecDeque };
@@ -245,6 +255,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reorganizeString(self, s: str) -> str:
@@ -266,6 +278,8 @@ class Solution:
                     heappush(h, (-w, c))
         return "" if len(ans) != len(s) else "".join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -304,6 +318,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -335,6 +351,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func reorganizeString(s string) string {

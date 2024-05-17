@@ -69,6 +69,8 @@ myHashSet.contains(2); // return False, (already removed)</pre>
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class MyHashSet:
     def __init__(self):
@@ -90,6 +92,8 @@ class MyHashSet:
 # obj.remove(key)
 # param_3 = obj.contains(key)
 ```
+
+#### Java
 
 ```java
 class MyHashSet {
@@ -119,6 +123,8 @@ class MyHashSet {
  * boolean param_3 = obj.contains(key);
  */
 ```
+
+#### C++
 
 ```cpp
 class MyHashSet {
@@ -151,6 +157,8 @@ public:
  */
 ```
 
+#### Go
+
 ```go
 type MyHashSet struct {
 	data []bool
@@ -181,6 +189,8 @@ func (this *MyHashSet) Contains(key int) bool {
  * param_3 := obj.Contains(key);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class MyHashSet {
@@ -221,6 +231,8 @@ class MyHashSet {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class MyHashSet:
     def __init__(self):
@@ -253,6 +265,8 @@ class MyHashSet:
 # obj.remove(key)
 # param_3 = obj.contains(key)
 ```
+
+#### Java
 
 ```java
 class MyHashSet {
@@ -308,6 +322,8 @@ class MyHashSet {
  */
 ```
 
+#### C++
+
 ```cpp
 class MyHashSet {
 private:
@@ -358,6 +374,8 @@ public:
  * bool param_3 = obj->contains(key);
  */
 ```
+
+#### Go
 
 ```go
 type MyHashSet struct {

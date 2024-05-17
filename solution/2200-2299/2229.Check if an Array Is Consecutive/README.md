@@ -75,6 +75,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isConsecutive(self, nums: List[int]) -> bool:
@@ -82,6 +84,8 @@ class Solution:
         n = len(nums)
         return len(set(nums)) == n and mx == mi + n - 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -112,6 +118,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isConsecutive(nums []int) bool {

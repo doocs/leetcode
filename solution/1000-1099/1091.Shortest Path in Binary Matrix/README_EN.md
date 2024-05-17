@@ -73,6 +73,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def shortestPathBinaryMatrix(self, grid: List[List[int]]) -> int:
@@ -95,6 +97,8 @@ class Solution:
             ans += 1
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +131,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -161,6 +167,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func shortestPathBinaryMatrix(grid [][]int) int {
 	if grid[0][0] == 1 {
@@ -191,6 +199,8 @@ func shortestPathBinaryMatrix(grid [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function shortestPathBinaryMatrix(grid: number[][]): number {
     if (grid[0][0]) {
@@ -219,6 +229,8 @@ function shortestPathBinaryMatrix(grid: number[][]): number {
     return -1;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;

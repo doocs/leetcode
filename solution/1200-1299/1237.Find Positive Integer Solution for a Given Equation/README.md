@@ -98,6 +98,8 @@ x=5, y=1 -> f(5, 1) = 5 * 1 = 5</pre>
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 """
    This is the custom function interface.
@@ -122,6 +124,8 @@ class Solution:
                 ans.append([x, y])
         return ans
 ```
+
+#### Java
 
 ```java
 /*
@@ -156,6 +160,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /*
@@ -193,6 +199,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * This is the declaration of customFunction API.
@@ -213,6 +221,8 @@ func findSolution(customFunction func(int, int) int, z int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -264,6 +274,8 @@ function findSolution(customfunction: CustomFunction, z: number): number[][] {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 """
    This is the custom function interface.
@@ -292,6 +304,8 @@ class Solution:
                 x, y = x + 1, y - 1
         return ans
 ```
+
+#### Java
 
 ```java
 /*
@@ -323,6 +337,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /*
@@ -357,6 +373,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * This is the declaration of customFunction API.
@@ -383,6 +401,8 @@ func findSolution(customFunction func(int, int) int, z int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

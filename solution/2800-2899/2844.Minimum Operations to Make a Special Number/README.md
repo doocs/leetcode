@@ -89,6 +89,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumOperations(self, num: str) -> int:
@@ -103,6 +105,8 @@ class Solution:
         n = len(num)
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -153,6 +159,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumOperations(num string) int {
@@ -181,6 +189,8 @@ func minimumOperations(num string) int {
 	return dfs(0, 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumOperations(num: string): number {

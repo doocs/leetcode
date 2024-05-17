@@ -65,6 +65,8 @@ Both mountains are not visible since their peaks lie within each other.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def visibleMountains(self, peaks: List[List[int]]) -> int:
@@ -80,6 +82,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -134,6 +140,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func visibleMountains(peaks [][]int) (ans int) {
@@ -169,6 +177,8 @@ func visibleMountains(peaks [][]int) (ans int) {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {

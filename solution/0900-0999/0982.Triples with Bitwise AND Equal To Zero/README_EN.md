@@ -75,12 +75,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countTriplets(self, nums: List[int]) -> int:
         cnt = Counter(x & y for x in nums for y in nums)
         return sum(v for xy, v in cnt.items() for z in nums if xy & z == 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -133,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countTriplets(nums []int) (ans int) {
 	mx := slices.Max(nums)
@@ -152,6 +160,8 @@ func countTriplets(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countTriplets(nums: number[]): number {

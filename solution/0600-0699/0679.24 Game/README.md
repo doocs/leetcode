@@ -88,6 +88,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def judgePoint24(self, cards: List[int]) -> bool:
@@ -122,6 +124,8 @@ class Solution:
         nums = [float(x) for x in cards]
         return dfs(nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -181,6 +185,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -243,6 +249,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 func judgePoint24(cards []int) bool {
 	ops := [4]rune{'+', '-', '*', '/'}
@@ -295,6 +303,8 @@ func judgePoint24(cards []int) bool {
 	return dfs(nums)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function judgePoint24(cards: number[]): boolean {

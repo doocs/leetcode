@@ -76,11 +76,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumWealth(self, accounts: List[List[int]]) -> int:
         return max(sum(v) for v in accounts)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +103,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -111,6 +117,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumWealth(accounts [][]int) int {
@@ -128,6 +136,8 @@ func maximumWealth(accounts [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumWealth(accounts: number[][]): number {
     return accounts.reduce(
@@ -141,6 +151,8 @@ function maximumWealth(accounts: number[][]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn maximum_wealth(accounts: Vec<Vec<i32>>) -> i32 {
@@ -152,6 +164,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -175,6 +189,8 @@ class Solution {
 }
 ```
 
+#### C
+
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 
@@ -190,6 +206,8 @@ int maximumWealth(int** accounts, int accountsSize, int* accountsColSize) {
     return ans;
 }
 ```
+
+#### Kotlin
 
 ```kotlin
 class Solution {

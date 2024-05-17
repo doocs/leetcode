@@ -75,6 +75,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countTime(self, time: str) -> int:
@@ -85,6 +87,8 @@ class Solution:
             check(f'{h:02d}:{m:02d}', time) for h in range(24) for m in range(60)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countTime(time string) int {
 	ans := 0
@@ -152,6 +160,8 @@ func countTime(time string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countTime(time: string): number {
     let ans = 0;
@@ -171,6 +181,8 @@ function countTime(time: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -213,6 +225,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countTime(self, time: str) -> int:
@@ -226,6 +240,8 @@ class Solution:
 
         return f(time[:2], 24) * f(time[3:], 60)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -245,6 +261,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -263,6 +281,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countTime(time string) int {
 	f := func(s string, m int) (cnt int) {
@@ -278,6 +298,8 @@ func countTime(time string) int {
 	return f(time[:2], 24) * f(time[3:], 60)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countTime(time: string): number {
@@ -295,6 +317,8 @@ function countTime(time: string): number {
     return f(time.slice(0, 2), 24) * f(time.slice(3), 60);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

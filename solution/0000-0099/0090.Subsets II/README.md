@@ -73,6 +73,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
@@ -93,6 +95,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -150,6 +156,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subsetsWithDup(nums []int) (ans [][]int) {
 	sort.Ints(nums)
@@ -174,6 +182,8 @@ func subsetsWithDup(nums []int) (ans [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function subsetsWithDup(nums: number[]): number[][] {
     nums.sort((a, b) => a - b);
@@ -197,6 +207,8 @@ function subsetsWithDup(nums: number[]): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -245,6 +257,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
@@ -264,6 +278,8 @@ class Solution:
                 ans.append(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -291,6 +307,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -320,6 +338,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subsetsWithDup(nums []int) (ans [][]int) {
 	sort.Ints(nums)
@@ -343,6 +363,8 @@ func subsetsWithDup(nums []int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function subsetsWithDup(nums: number[]): number[][] {
@@ -368,6 +390,8 @@ function subsetsWithDup(nums: number[]): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

@@ -90,6 +90,8 @@ numMatrix.sumRegion(2, 1, 4, 3); // 返回 10 (即，右侧红色矩形的和)
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class BinaryIndexedTree:
     def __init__(self, n):
@@ -140,6 +142,8 @@ class NumMatrix:
 # obj.update(row,col,val)
 # param_2 = obj.sumRegion(row1,col1,row2,col2)
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -212,6 +216,8 @@ class NumMatrix {
  */
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -281,6 +287,8 @@ public:
  * int param_2 = obj->sumRegion(row1,col1,row2,col2);
  */
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {
@@ -370,6 +378,8 @@ func (this *NumMatrix) SumRegion(row1 int, col1 int, row2 int, col2 int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Node:
     def __init__(self):
@@ -442,6 +452,8 @@ class NumMatrix:
 # obj.update(row,col,val)
 # param_2 = obj.sumRegion(row1,col1,row2,col2)
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -544,6 +556,8 @@ class NumMatrix {
  * int param_2 = obj.sumRegion(row1,col1,row2,col2);
  */
 ```
+
+#### C++
 
 ```cpp
 class Node {

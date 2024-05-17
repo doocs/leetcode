@@ -65,6 +65,8 @@ HammingDistance(4, 14) + HammingDistance(4, 2) + HammingDistance(14, 2) = 2 + 2 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def totalHammingDistance(self, nums: List[int]) -> int:
@@ -75,6 +77,8 @@ class Solution:
             ans += a * b
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -111,6 +117,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func totalHammingDistance(nums []int) (ans int) {
 	for i := 0; i < 32; i++ {
@@ -125,6 +133,8 @@ func totalHammingDistance(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function totalHammingDistance(nums: number[]): number {
     let ans = 0;
@@ -136,6 +146,8 @@ function totalHammingDistance(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

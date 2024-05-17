@@ -78,6 +78,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countLargestGroup(self, n: int) -> int:
@@ -96,6 +98,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +123,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -144,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countLargestGroup(n int) (ans int) {
 	cnt := [40]int{}
@@ -164,6 +172,8 @@ func countLargestGroup(n int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countLargestGroup(n: number): number {

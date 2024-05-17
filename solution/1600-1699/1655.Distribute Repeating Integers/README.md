@@ -96,6 +96,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canDistribute(self, nums: List[int], quantity: List[int]) -> bool:
@@ -127,6 +129,8 @@ class Solution:
                     k = (k - 1) & j
         return f[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -175,6 +179,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -226,6 +232,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canDistribute(nums []int, quantity []int) bool {
 	m := len(quantity)
@@ -271,6 +279,8 @@ func canDistribute(nums []int, quantity []int) bool {
 	return f[n-1][(1<<m)-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canDistribute(nums: number[], quantity: number[]): boolean {

@@ -60,6 +60,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reverseOnlyLetters(self, s: str) -> str:
@@ -75,6 +77,8 @@ class Solution:
                 i, j = i + 1, j - 1
         return "".join(cs)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -121,6 +127,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func reverseOnlyLetters(s string) string {
@@ -143,6 +151,8 @@ func reverseOnlyLetters(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function reverseOnlyLetters(s: string): string {
     const cs = [...s];
@@ -161,6 +171,8 @@ function reverseOnlyLetters(s: string): string {
     return cs.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

@@ -78,6 +78,8 @@ We can sort [10,5,9,3,15] by performing the following operations:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def gcdSort(self, nums: List[int]) -> bool:
@@ -106,6 +108,8 @@ class Solution:
                 return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -155,6 +159,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -188,6 +194,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 var p []int

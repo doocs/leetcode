@@ -77,6 +77,8 @@ We can use the `RANK() OVER()` window function to sort the grades of each studen
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH
@@ -106,6 +108,8 @@ ORDER BY student_id;
 We can first query the highest grade of each student, and then query the minimum course number corresponding to the highest grade of each student.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

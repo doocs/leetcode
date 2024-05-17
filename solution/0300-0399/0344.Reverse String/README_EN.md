@@ -47,6 +47,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reverseString(self, s: List[str]) -> None:
@@ -55,6 +57,8 @@ class Solution:
             s[i], s[j] = s[j], s[i]
             i, j = i + 1, j - 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -68,6 +72,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -79,6 +85,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func reverseString(s []byte) {
 	for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
@@ -86,6 +94,8 @@ func reverseString(s []byte) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -97,6 +107,8 @@ function reverseString(s: string[]): void {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -111,6 +123,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -134,11 +148,15 @@ var reverseString = function (s) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reverseString(self, s: List[str]) -> None:
         s[:] = s[::-1]
 ```
+
+#### TypeScript
 
 ```ts
 /**

@@ -60,6 +60,8 @@ The time complexity is $O(n)$, where $n$ is the number of nodes in the binary tr
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -74,6 +76,8 @@ class Solution:
         l, r = self.maxDepth(root.left), self.maxDepth(root.right)
         return 1 + max(l, r)
 ```
+
+#### Java
 
 ```java
 /**
@@ -103,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -125,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -142,6 +150,8 @@ func maxDepth(root *TreeNode) int {
 	return 1 + max(l, r)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -165,6 +175,8 @@ function maxDepth(root: TreeNode | null): number {
     return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -202,6 +214,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -222,6 +236,8 @@ var maxDepth = function (root) {
     return 1 + Math.max(l, r);
 };
 ```
+
+#### C
 
 ```c
 /**

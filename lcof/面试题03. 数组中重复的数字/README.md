@@ -44,6 +44,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findRepeatNumber(self, nums: List[int]) -> int:
@@ -51,6 +53,8 @@ class Solution:
             if a == b:
                 return a
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -64,6 +68,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -79,6 +85,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findRepeatNumber(nums []int) int {
 	sort.Ints(nums)
@@ -89,6 +97,8 @@ func findRepeatNumber(nums []int) int {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findRepeatNumber(nums: number[]): number {
@@ -103,6 +113,8 @@ function findRepeatNumber(nums: number[]): number {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -120,6 +132,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -139,6 +153,8 @@ var findRepeatNumber = function (nums) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int FindRepeatNumber(int[] nums) {
@@ -156,6 +172,8 @@ public class Solution {
     }
 }
 ```
+
+#### Kotlin
 
 ```kotlin
 class Solution {
@@ -193,6 +211,8 @@ class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findRepeatNumber(self, nums: List[int]) -> int:
@@ -202,6 +222,8 @@ class Solution:
                 return v
             vis.add(v)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -215,6 +237,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -230,6 +254,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findRepeatNumber(nums []int) int {
@@ -257,6 +283,8 @@ func findRepeatNumber(nums []int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findRepeatNumber(self, nums: List[int]) -> int:
@@ -267,6 +295,8 @@ class Solution:
                 nums[i], nums[v] = nums[v], nums[i]
                 v = nums[i]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -286,6 +316,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -302,6 +334,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findRepeatNumber(nums []int) int {

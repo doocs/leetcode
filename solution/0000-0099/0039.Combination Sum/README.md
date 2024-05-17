@@ -85,6 +85,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
@@ -105,6 +107,8 @@ class Solution:
         dfs(0, target)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +140,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -163,6 +169,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func combinationSum(candidates []int, target int) (ans [][]int) {
 	sort.Ints(candidates)
@@ -187,6 +195,8 @@ func combinationSum(candidates []int, target int) (ans [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function combinationSum(candidates: number[], target: number): number[][] {
     candidates.sort((a, b) => a - b);
@@ -210,6 +220,8 @@ function combinationSum(candidates: number[], target: number): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -236,6 +248,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -281,6 +295,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
@@ -301,6 +317,8 @@ class Solution:
         dfs(0, target)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -331,6 +349,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -357,6 +377,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func combinationSum(candidates []int, target int) (ans [][]int) {
 	sort.Ints(candidates)
@@ -380,6 +402,8 @@ func combinationSum(candidates []int, target int) (ans [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function combinationSum(candidates: number[], target: number): number[][] {
     candidates.sort((a, b) => a - b);
@@ -402,6 +426,8 @@ function combinationSum(candidates: number[], target: number): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -427,6 +453,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -456,6 +484,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

@@ -83,6 +83,8 @@ s 中没有字母出现超过 1 次，所以 s 中每个子字符串的波动值
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def largestVariance(self, s: str) -> int:
@@ -101,6 +103,8 @@ class Solution:
                     ans = f[1]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -156,6 +162,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func largestVariance(s string) int {

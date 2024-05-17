@@ -98,6 +98,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def unmarkedSumArray(self, nums: List[int], queries: List[List[int]]) -> List[int]:
@@ -120,6 +122,8 @@ class Solution:
             ans.append(s)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -154,6 +158,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -187,6 +193,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func unmarkedSumArray(nums []int, queries [][]int) []int64 {
@@ -226,6 +234,8 @@ func unmarkedSumArray(nums []int, queries [][]int) []int64 {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function unmarkedSumArray(nums: number[], queries: number[][]): number[] {

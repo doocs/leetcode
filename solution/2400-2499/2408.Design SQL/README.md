@@ -90,6 +90,8 @@ sql.selectCell("two", 2, 2); // 返回 "fifth"，查找表 "two" 中 id 为 2 �
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class SQL:
     def __init__(self, names: List[str], columns: List[int]):
@@ -111,6 +113,8 @@ class SQL:
 # obj.deleteRow(name,rowId)
 # param_3 = obj.selectCell(name,rowId,columnId)
 ```
+
+#### Java
 
 ```java
 class SQL {
@@ -141,6 +145,8 @@ class SQL {
  */
 ```
 
+#### C++
+
 ```cpp
 class SQL {
 public:
@@ -168,6 +174,8 @@ public:
  * string param_3 = obj->selectCell(name,rowId,columnId);
  */
 ```
+
+#### Go
 
 ```go
 type SQL struct {

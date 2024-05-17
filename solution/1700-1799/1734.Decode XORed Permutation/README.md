@@ -64,6 +64,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def decode(self, encoded: List[int]) -> List[int]:
@@ -79,6 +81,8 @@ class Solution:
             perm[i] = encoded[i] ^ perm[i + 1]
         return perm
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +128,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func decode(encoded []int) []int {

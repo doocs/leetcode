@@ -110,6 +110,8 @@ The npv values of all other queries can be found in the NPV table.
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT q.*, IFNULL(npv, 0) AS npv

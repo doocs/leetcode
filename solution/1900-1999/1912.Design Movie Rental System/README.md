@@ -91,6 +91,8 @@ movieRentingSystem.search(2);  // 返回 [0, 1] 。商店 0 和 1 有未借出�
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedList
 

@@ -86,6 +86,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -113,6 +115,8 @@ class Solution:
             even ^= 1
         return True
 ```
+
+#### Java
 
 ```java
 /**
@@ -160,6 +164,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -202,6 +208,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -257,6 +265,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -281,6 +291,8 @@ class Solution:
         d = {}
         return dfs(root, 0)
 ```
+
+#### Java
 
 ```java
 /**
@@ -323,6 +335,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -360,6 +374,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**

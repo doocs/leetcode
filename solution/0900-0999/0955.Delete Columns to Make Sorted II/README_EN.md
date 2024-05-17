@@ -77,6 +77,8 @@ i.e., it is NOT necessarily true that (strs[0][0] &lt;= strs[0][1] &lt;= ...)
 
 <!-- tabs:start -->
 
+#### Java
+
 ```java
 class Solution {
     public int minDeletionSize(String[] A) {

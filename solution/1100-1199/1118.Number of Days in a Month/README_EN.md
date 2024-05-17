@@ -57,6 +57,8 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfDays(self, year: int, month: int) -> int:
@@ -64,6 +66,8 @@ class Solution:
         days = [0, 31, 29 if leap else 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
         return days[month]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -74,6 +78,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -86,6 +92,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfDays(year int, month int) int {
 	leap := (year%4 == 0 && year%100 != 0) || (year%400 == 0)
@@ -97,6 +105,8 @@ func numberOfDays(year int, month int) int {
 	return days[month]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfDays(year: number, month: number): number {

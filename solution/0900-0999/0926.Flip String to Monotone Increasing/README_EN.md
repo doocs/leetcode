@@ -74,6 +74,8 @@ The time complexity is $O(n)$, where $n$ is the length of the string $s$. The sp
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minFlipsMonoIncr(self, s: str) -> int:
@@ -84,6 +86,8 @@ class Solution:
             ans = min(ans, i - cur + tot - cur)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minFlipsMonoIncr(s string) int {
 	tot := strings.Count(s, "0")
@@ -135,6 +143,8 @@ func minFlipsMonoIncr(s string) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minFlipsMonoIncr(s: string): number {
@@ -150,6 +160,8 @@ function minFlipsMonoIncr(s: string): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

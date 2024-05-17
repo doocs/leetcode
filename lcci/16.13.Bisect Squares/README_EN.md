@@ -58,6 +58,8 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def cutSquares(self, square1: List[int], square2: List[int]) -> List[float]:
@@ -83,6 +85,8 @@ class Solution:
             y4 = k * x4 + b
         return [x3, y3, x4, y4]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -153,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func cutSquares(square1 []int, square2 []int) []float64 {
 	x1, y1 := float64(square1[0])+float64(square1[2])/2, float64(square1[1])+float64(square1[2])/2
@@ -182,6 +190,8 @@ func cutSquares(square1 []int, square2 []int) []float64 {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function cutSquares(square1: number[], square2: number[]): number[] {
@@ -214,6 +224,8 @@ function cutSquares(square1: number[], square2: number[]): number[] {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

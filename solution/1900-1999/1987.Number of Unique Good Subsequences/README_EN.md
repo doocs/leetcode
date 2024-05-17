@@ -76,6 +76,8 @@ The unique good subsequences are &quot;0&quot;, &quot;1&quot;, &quot;10&quot;, &
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfUniqueGoodSubsequences(self, binary: str) -> int:
@@ -91,6 +93,8 @@ class Solution:
         ans = (ans + f + g) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -133,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfUniqueGoodSubsequences(binary string) (ans int) {
 	const mod int = 1e9 + 7
@@ -149,6 +157,8 @@ func numberOfUniqueGoodSubsequences(binary string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfUniqueGoodSubsequences(binary: string): number {

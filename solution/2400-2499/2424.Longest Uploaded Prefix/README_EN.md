@@ -84,6 +84,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class LUPrefix:
     def __init__(self, n: int):
@@ -104,6 +106,8 @@ class LUPrefix:
 # obj.upload(video)
 # param_2 = obj.longest()
 ```
+
+#### Java
 
 ```java
 class LUPrefix {
@@ -132,6 +136,8 @@ class LUPrefix {
  * int param_2 = obj.longest();
  */
 ```
+
+#### C++
 
 ```cpp
 class LUPrefix {
@@ -162,6 +168,8 @@ private:
  * int param_2 = obj->longest();
  */
 ```
+
+#### Go
 
 ```go
 type LUPrefix struct {

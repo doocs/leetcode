@@ -85,11 +85,15 @@ The time complexity is $O(n)$, where $n$ is the length of `nums`. The space comp
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def returnToBoundaryCount(self, nums: List[int]) -> int:
         return sum(s == 0 for s in accumulate(nums))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -120,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func returnToBoundaryCount(nums []int) (ans int) {
 	s := 0
@@ -132,6 +140,8 @@ func returnToBoundaryCount(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function returnToBoundaryCount(nums: number[]): number {

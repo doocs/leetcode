@@ -102,6 +102,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def evaluate(self, s: str, knowledge: List[List[str]]) -> str:
@@ -118,6 +120,8 @@ class Solution:
             i += 1
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -140,6 +144,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -164,6 +170,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func evaluate(s string, knowledge [][]string) string {
@@ -192,6 +200,8 @@ func evaluate(s string, knowledge [][]string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function evaluate(s: string, knowledge: string[][]): string {
     const n = s.length;
@@ -214,6 +224,8 @@ function evaluate(s: string, knowledge: string[][]): string {
     return ans.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;

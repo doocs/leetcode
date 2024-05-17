@@ -75,6 +75,8 @@ The time complexity is $O(m)$, where $m$ is the length of string $s$. The space 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isOneEditDistance(self, s: str, t: str) -> bool:
@@ -88,6 +90,8 @@ class Solution:
                 return s[i + 1 :] == t[i + 1 :] if m == n else s[i + 1 :] == t[i:]
         return m == n + 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -129,6 +135,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isOneEditDistance(s string, t string) bool {
@@ -150,6 +158,8 @@ func isOneEditDistance(s string, t string) bool {
 	return m == n+1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isOneEditDistance(s: string, t: string): boolean {

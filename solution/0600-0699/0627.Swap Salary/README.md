@@ -82,6 +82,8 @@ Salary 表：
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 UPDATE salary
 SET sex = CASE sex
@@ -99,6 +101,8 @@ END;
 ### 方法二
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

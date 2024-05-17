@@ -82,6 +82,8 @@ ms = 30
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function delayAll(functions: Function[], ms: number): Function[] {
     return functions.map(fn => {

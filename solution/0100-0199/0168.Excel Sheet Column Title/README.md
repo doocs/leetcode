@@ -80,6 +80,8 @@ AB -> 28
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def convertToTitle(self, columnNumber: int) -> str:
@@ -90,6 +92,8 @@ class Solution:
             columnNumber //= 26
         return ''.join(res[::-1])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +109,8 @@ class Solution {
 }
 ```
 
+#### Go
+
 ```go
 func convertToTitle(columnNumber int) string {
 	res := []rune{}
@@ -116,6 +122,8 @@ func convertToTitle(columnNumber int) string {
 	return string(res)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function convertToTitle(columnNumber: number): string {
@@ -129,6 +137,8 @@ function convertToTitle(columnNumber: number): string {
     return res.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -153,6 +163,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

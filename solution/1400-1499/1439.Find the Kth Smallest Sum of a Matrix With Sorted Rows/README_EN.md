@@ -75,6 +75,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def kthSmallest(self, mat: List[List[int]], k: int) -> int:
@@ -83,6 +85,8 @@ class Solution:
             pre = sorted(a + b for a in pre for b in cur[:k])[:k]
         return pre[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -135,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func kthSmallest(mat [][]int, k int) int {
 	pre := []int{0}
@@ -151,6 +159,8 @@ func kthSmallest(mat [][]int, k int) int {
 	return pre[k-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function kthSmallest(mat: number[][], k: number): number {

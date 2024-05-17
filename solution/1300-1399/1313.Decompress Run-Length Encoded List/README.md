@@ -62,6 +62,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def decompressRLElist(self, nums: List[int]) -> List[int]:
@@ -70,6 +72,8 @@ class Solution:
             res.extend([nums[i]] * nums[i - 1])
         return res
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +93,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -104,6 +110,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func decompressRLElist(nums []int) []int {
 	var res []int
@@ -115,6 +123,8 @@ func decompressRLElist(nums []int) []int {
 	return res
 }
 ```
+
+#### TypeScript
 
 ```ts
 function decompressRLElist(nums: number[]): number[] {
@@ -128,6 +138,8 @@ function decompressRLElist(nums: number[]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -143,6 +155,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**

@@ -71,6 +71,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -94,6 +96,8 @@ class Solution:
             stk.append(nums[i])
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -128,6 +132,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -164,6 +170,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -192,6 +200,8 @@ func nextLargerNodes(head *ListNode) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -225,6 +235,8 @@ function nextLargerNodes(head: ListNode | null): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -269,6 +281,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

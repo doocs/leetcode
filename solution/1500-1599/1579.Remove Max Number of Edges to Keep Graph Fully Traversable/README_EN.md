@@ -85,6 +85,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class UnionFind:
     def __init__(self, n):
@@ -129,6 +131,8 @@ class Solution:
                 ans += not ufb.union(u, v)
         return ans if ufa.cnt == 1 and ufb.cnt == 1 else -1
 ```
+
+#### Java
 
 ```java
 class UnionFind {
@@ -199,6 +203,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class UnionFind {
 public:
@@ -263,6 +269,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type unionFind struct {

@@ -74,6 +74,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getMinDistSum(self, positions: List[List[int]]) -> float:
@@ -104,6 +106,8 @@ class Solution:
             if abs(dx) <= eps and abs(dy) <= eps:
                 return dist
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -140,6 +144,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -178,6 +184,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getMinDistSum(positions [][]int) float64 {
 	n := len(positions)
@@ -213,6 +221,8 @@ func getMinDistSum(positions [][]int) float64 {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getMinDistSum(positions: number[][]): number {

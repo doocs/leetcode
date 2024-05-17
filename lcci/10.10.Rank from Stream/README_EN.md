@@ -57,6 +57,8 @@ In terms of time complexity, both the update and query operations of the Binary 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class BinaryIndexedTree:
     __slots__ = "n", "c"
@@ -95,6 +97,8 @@ class StreamRank:
 # obj.track(x)
 # param_2 = obj.getRankOfNumber(x)
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -144,6 +148,8 @@ class StreamRank {
  * int param_2 = obj.getRankOfNumber(x);
  */
 ```
+
+#### C++
 
 ```cpp
 class BinaryIndexedTree {
@@ -196,6 +202,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -244,6 +252,8 @@ func (this *StreamRank) GetRankOfNumber(x int) int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class BinaryIndexedTree {
     private n: number;
@@ -290,6 +300,8 @@ class StreamRank {
  * var param_2 = obj.getRankOfNumber(x)
  */
 ```
+
+#### Swift
 
 ```swift
 class BinaryIndexedTree {

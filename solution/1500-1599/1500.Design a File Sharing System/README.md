@@ -103,6 +103,8 @@ fileSharing.join([]);        // 一个不拥有任何文件块的用户加入系
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class FileSharing:
     def __init__(self, m: int):
@@ -142,6 +144,8 @@ class FileSharing:
 # obj.leave(userID)
 # param_3 = obj.request(userID,chunkID)
 ```
+
+#### Java
 
 ```java
 class FileSharing {

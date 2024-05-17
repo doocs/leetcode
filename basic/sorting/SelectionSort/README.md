@@ -6,6 +6,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 def selection_sort(arr):
     n = len(arr)
@@ -21,6 +23,8 @@ arr = [26, 11, 99, 33, 69, 77, 55, 56, 67]
 selection_sort(arr)
 print(arr)
 ```
+
+#### Java
 
 ```java
 import java.util.Arrays;
@@ -52,6 +56,8 @@ public class SelectionSort {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 #include <iostream>
@@ -91,6 +97,8 @@ int main(void) {
 }
 ```
 
+#### Go
+
 ```go
 package main
 
@@ -115,6 +123,8 @@ func main() {
 }
 ```
 
+#### Rust
+
 ```rust
 fn selection_sort(nums: &mut Vec<i32>) {
     let n = nums.len();
@@ -138,6 +148,8 @@ fn main() {
 }
 ```
 
+#### JavaScript
+
 ```js
 function selectionSort(inputArr) {
     let len = inputArr.length;
@@ -158,6 +170,8 @@ function selectionSort(inputArr) {
 let arr = [6, 3, 2, 1, 5];
 console.log(selectionSort(arr));
 ```
+
+#### C#
 
 ```cs
 using static System.Console;

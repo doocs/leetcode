@@ -84,6 +84,8 @@ Thus, answer[0] = [1,2,5,6] and answer[1] = [].
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findWinners(self, matches: List[List[int]]) -> List[List[int]]:
@@ -100,6 +102,8 @@ class Solution:
         ans[1].sort()
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -147,6 +153,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findWinners(matches [][]int) [][]int {
@@ -170,6 +178,8 @@ func findWinners(matches [][]int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findWinners(matches: number[][]): number[][] {
     const cnt: Map<number, number> = new Map();
@@ -188,6 +198,8 @@ function findWinners(matches: number[][]): number[][] {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -221,6 +233,8 @@ var findWinners = function (matches) {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### JavaScript
 
 ```js
 /**

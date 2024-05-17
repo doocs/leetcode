@@ -102,6 +102,8 @@ Singing 活动有两个人参加 (Victor J. and Jade W.)</pre>
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

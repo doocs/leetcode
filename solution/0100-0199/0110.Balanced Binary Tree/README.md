@@ -71,6 +71,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -90,6 +92,8 @@ class Solution:
 
         return height(root) >= 0
 ```
+
+#### Java
 
 ```java
 /**
@@ -126,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -156,6 +162,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -192,6 +200,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for a binary tree node.
@@ -222,6 +232,8 @@ function isBalanced(root: TreeNode | null): boolean {
     return dfs(root) > -1;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -263,6 +275,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

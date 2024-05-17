@@ -56,6 +56,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minArray(self, numbers: List[int]) -> int:
@@ -70,6 +72,8 @@ class Solution:
                 r -= 1
         return numbers[l]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +93,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -110,6 +116,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minArray(numbers []int) int {
 	l, r := 0, len(numbers)-1
@@ -126,6 +134,8 @@ func minArray(numbers []int) int {
 	return numbers[l]
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -151,6 +161,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} numbers
@@ -172,6 +184,8 @@ var minArray = function (numbers) {
     return numbers[l];
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -202,6 +216,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minArray(self, numbers: List[int]) -> int:
@@ -218,6 +234,8 @@ class Solution:
                 l += 1
         return numbers[l]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -240,6 +258,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -264,6 +284,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minArray(numbers []int) int {
 	l, r := 0, len(numbers)-1
@@ -283,6 +305,8 @@ func minArray(numbers []int) int {
 	return numbers[l]
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -311,6 +335,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} numbers
@@ -335,6 +361,8 @@ var minArray = function (numbers) {
     return numbers[l];
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

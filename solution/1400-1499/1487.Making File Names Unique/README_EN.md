@@ -78,6 +78,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getFolderNames(self, names: List[str]) -> List[str]:
@@ -92,6 +94,8 @@ class Solution:
             d[names[i]] = 1
         return names
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -134,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getFolderNames(names []string) []string {
 	d := map[string]int{}
@@ -154,6 +162,8 @@ func getFolderNames(names []string) []string {
 	return names
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getFolderNames(names: string[]): string[] {

@@ -64,6 +64,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canMakeArithmeticProgression(self, arr: List[int]) -> bool:
@@ -71,6 +73,8 @@ class Solution:
         d = arr[1] - arr[0]
         return all(b - a == d for a, b in pairwise(arr))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +90,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -103,6 +109,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canMakeArithmeticProgression(arr []int) bool {
 	sort.Ints(arr)
@@ -116,6 +124,8 @@ func canMakeArithmeticProgression(arr []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canMakeArithmeticProgression(arr: number[]): boolean {
     arr.sort((a, b) => a - b);
@@ -128,6 +138,8 @@ function canMakeArithmeticProgression(arr: number[]): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -144,6 +156,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} arr
@@ -159,6 +173,8 @@ var canMakeArithmeticProgression = function (arr) {
     return true;
 };
 ```
+
+#### C
 
 ```c
 int cmp(const void* a, const void* b) {
@@ -192,6 +208,8 @@ bool canMakeArithmeticProgression(int* arr, int arrSize) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canMakeArithmeticProgression(self, arr: List[int]) -> bool:
@@ -204,6 +222,8 @@ class Solution:
         s = set(arr)
         return all(a + d * i in s for i in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -230,6 +250,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -251,6 +273,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canMakeArithmeticProgression(arr []int) bool {
 	a, b := slices.Min(arr), slices.Max(arr)
@@ -271,6 +295,8 @@ func canMakeArithmeticProgression(arr []int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canMakeArithmeticProgression(arr: number[]): boolean {
@@ -298,6 +324,8 @@ function canMakeArithmeticProgression(arr: number[]): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;

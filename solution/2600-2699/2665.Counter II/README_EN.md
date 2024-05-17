@@ -70,6 +70,8 @@ counter.reset(); // 0
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 type ReturnObj = {
     increment: () => number;

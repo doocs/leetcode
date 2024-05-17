@@ -74,6 +74,8 @@ We cannot draw 3 uncrossed lines, because the line from nums1[1] = 4 to nums2[2]
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxUncrossedLines(self, nums1: List[int], nums2: List[int]) -> int:
@@ -87,6 +89,8 @@ class Solution:
                     dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
         return dp[m][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxUncrossedLines(nums1 []int, nums2 []int) int {
 	m, n := len(nums1), len(nums2)
@@ -147,6 +155,8 @@ func maxUncrossedLines(nums1 []int, nums2 []int) int {
 	return dp[m][n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxUncrossedLines(nums1: number[], nums2: number[]): number {

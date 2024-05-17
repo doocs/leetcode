@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -98,6 +100,8 @@ class Solution:
         d = {v: i for i, v in enumerate(inorder)}
         return dfs(0, 0, len(preorder))
 ```
+
+#### Java
 
 ```java
 /**
@@ -141,6 +145,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -176,6 +182,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -204,6 +212,8 @@ func buildTree(preorder []int, inorder []int) *TreeNode {
 	return dfs(0, 0, len(preorder))
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -239,6 +249,8 @@ function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
     return dfs(0, 0, n);
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -291,6 +303,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -331,6 +345,8 @@ var buildTree = function (preorder, inorder) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getBinaryTrees(self, preOrder: List[int], inOrder: List[int]) -> List[TreeNode]:
@@ -351,6 +367,8 @@ class Solution:
             d[x].append(i)
         return dfs(0, 0, len(preOrder))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -386,6 +404,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -431,6 +451,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getBinaryTrees(preOrder []int, inOrder []int) []*TreeNode {

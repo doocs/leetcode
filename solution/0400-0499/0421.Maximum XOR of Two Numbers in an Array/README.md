@@ -68,6 +68,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Trie:
     __slots__ = ("children",)
@@ -103,6 +105,8 @@ class Solution:
             trie.insert(x)
         return max(trie.search(x) for x in nums)
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -150,6 +154,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -200,6 +206,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Trie struct {
 	children [2]*Trie
@@ -244,6 +252,8 @@ func findMaximumXOR(nums []int) (ans int) {
 	return ans
 }
 ```
+
+#### Rust
 
 ```rust
 struct Trie {

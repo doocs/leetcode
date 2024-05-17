@@ -96,6 +96,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def executeInstructions(self, n: int, startPos: List[int], s: str) -> List[int]:
@@ -114,6 +116,8 @@ class Solution:
             ans.append(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -146,6 +150,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -176,6 +182,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func executeInstructions(n int, startPos []int, s string) []int {
 	m := len(s)
@@ -204,6 +212,8 @@ func executeInstructions(n int, startPos []int, s string) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function executeInstructions(n: number, startPos: number[], s: string): number[] {
     const m = s.length;
@@ -231,6 +241,8 @@ function executeInstructions(n: number, startPos: number[], s: string): number[]
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -268,6 +280,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**

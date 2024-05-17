@@ -95,6 +95,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumDistance(
@@ -117,6 +119,8 @@ class Solution:
         ans = min(dist[i] for i in marked)
         return -1 if ans >= inf else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -155,6 +159,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -188,6 +194,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumDistance(n int, edges [][]int, s int, marked []int) int {
@@ -229,6 +237,8 @@ func minimumDistance(n int, edges [][]int, s int, marked []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumDistance(n: number, edges: number[][], s: number, marked: number[]): number {

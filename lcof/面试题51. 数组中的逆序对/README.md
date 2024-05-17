@@ -41,6 +41,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reversePairs(self, nums: List[int]) -> int:
@@ -66,6 +68,8 @@ class Solution:
 
         return merge_sort(0, len(nums) - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -148,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func reversePairs(nums []int) int {
 	n := len(nums)
@@ -185,6 +193,8 @@ func reversePairs(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function reversePairs(nums: number[]): number {
     const mergeSort = (l: number, r: number): number => {
@@ -218,6 +228,8 @@ function reversePairs(nums: number[]): number {
     return mergeSort(0, nums.length - 1);
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -256,6 +268,8 @@ var reversePairs = function (nums) {
     return mergeSort(0, nums.length - 1);
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -321,6 +335,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class BinaryIndexedTree:
     def __init__(self, n):
@@ -352,6 +368,8 @@ class Solution:
             tree.update(x, 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -403,6 +421,8 @@ class BinaryIndexedTree {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -447,6 +467,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func reversePairs(nums []int) (ans int) {

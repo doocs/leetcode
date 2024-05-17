@@ -62,17 +62,23 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def replaceSpaces(self, S: str, length: int) -> str:
         return S[:length].replace(' ', '%20')
 ```
 
+#### TypeScript
+
 ```ts
 function replaceSpaces(S: string, length: number): string {
     return S.slice(0, length).replace(/\s/g, '%20');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -81,6 +87,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -92,6 +100,8 @@ var replaceSpaces = function (S, length) {
     return encodeURI(S.substring(0, length));
 };
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -126,11 +136,15 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def replaceSpaces(self, S: str, length: int) -> str:
         return ''.join(['%20' if c == ' ' else c for c in S[:length]])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -151,6 +165,8 @@ class Solution {
 }
 ```
 
+#### Go
+
 ```go
 func replaceSpaces(S string, length int) string {
 	// return url.PathEscape(S[:length])
@@ -170,6 +186,8 @@ func replaceSpaces(S string, length int) string {
 	return string(b[j:])
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

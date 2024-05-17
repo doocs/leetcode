@@ -95,6 +95,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def processQueries(self, queries: List[int], m: int) -> List[int]:
@@ -107,6 +109,8 @@ class Solution:
             p.insert(0, v)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +131,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -151,6 +157,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func processQueries(queries []int, m int) []int {
@@ -184,6 +192,8 @@ func processQueries(queries []int, m int) []int {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -226,6 +236,8 @@ class Solution:
             tree.update(n - i, 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -282,6 +294,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -336,6 +350,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {

@@ -58,6 +58,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMaxLength(self, nums: List[int]) -> int:
@@ -71,6 +73,8 @@ class Solution:
                 d[s] = i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +94,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -112,6 +118,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMaxLength(nums []int) (ans int) {
 	d := map[int]int{0: -1}
@@ -131,6 +139,8 @@ func findMaxLength(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findMaxLength(nums: number[]): number {

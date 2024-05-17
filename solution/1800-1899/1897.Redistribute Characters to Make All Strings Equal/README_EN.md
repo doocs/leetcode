@@ -64,6 +64,8 @@ All the strings are now equal to &quot;abc&quot;, so return <code>true</code>.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def makeEqual(self, words: List[str]) -> bool:
@@ -74,6 +76,8 @@ class Solution:
         n = len(words)
         return all(count % n == 0 for count in counter.values())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +99,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -114,6 +120,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func makeEqual(words []string) bool {
 	counter := [26]int{}
@@ -131,6 +139,8 @@ func makeEqual(words []string) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function makeEqual(words: string[]): boolean {

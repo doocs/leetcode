@@ -55,6 +55,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.01.Three%20Steps%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def waysToStep(self, n: int) -> int:
@@ -64,6 +66,8 @@ class Solution:
             a, b, c = b, c, (a + b + c) % mod
         return a
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -80,6 +84,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -98,6 +104,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func waysToStep(n int) int {
 	const mod int = 1e9 + 7
@@ -108,6 +116,8 @@ func waysToStep(n int) int {
 	return a
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -125,6 +135,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number} n
@@ -140,6 +152,8 @@ var waysToStep = function (n) {
 };
 ```
 
+#### C
+
 ```c
 int waysToStep(int n) {
     const int mod = 1e9 + 7;
@@ -153,6 +167,8 @@ int waysToStep(int n) {
     return a;
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -208,6 +224,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def waysToStep(self, n: int) -> int:
@@ -237,6 +255,8 @@ class Solution:
         return sum(pow(a, n - 4)[0]) % mod
 ```
 
+#### Python3
+
 ```python
 import numpy as np
 
@@ -256,6 +276,8 @@ class Solution:
             n >>= 1
         return res.sum() % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -300,6 +322,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -347,6 +371,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 const mod = 1e9 + 7
 
@@ -390,6 +416,8 @@ func pow(a [][]int, n int) [][]int {
 	return res
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

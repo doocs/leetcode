@@ -85,12 +85,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumCost(self, cost: List[int]) -> int:
         cost.sort(reverse=True)
         return sum(cost) - sum(cost[2::3])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -125,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumCost(cost []int) (ans int) {
 	sort.Ints(cost)
@@ -137,6 +145,8 @@ func minimumCost(cost []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumCost(cost: number[]): number {

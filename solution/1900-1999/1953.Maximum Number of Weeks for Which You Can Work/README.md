@@ -94,6 +94,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfWeeks(self, milestones: List[int]) -> int:
@@ -101,6 +103,8 @@ class Solution:
         rest = s - mx
         return rest * 2 + 1 if mx > rest + 1 else s
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +134,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfWeeks(milestones []int) int64 {
@@ -143,6 +151,8 @@ func numberOfWeeks(milestones []int) int64 {
 	return int64(s)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfWeeks(milestones: number[]): number {

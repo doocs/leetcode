@@ -62,6 +62,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCost(self, costs: List[List[int]]) -> int:
@@ -73,6 +75,8 @@ class Solution:
             b = min(_r, _g) + cost[2]
         return min(r, g, b)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +92,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -105,6 +111,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minCost(costs [][]int) int {
 	r, g, b := 0, 0, 0
@@ -118,6 +126,8 @@ func minCost(costs [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minCost(costs: number[][]): number {
     let [r, g, b] = [0, 0, 0];
@@ -127,6 +137,8 @@ function minCost(costs: number[][]): number {
     return Math.min(r, g, b);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

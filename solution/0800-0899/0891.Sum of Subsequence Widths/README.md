@@ -110,6 +110,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumSubseqWidths(self, nums: List[int]) -> int:
@@ -121,6 +123,8 @@ class Solution:
             p = (p << 1) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -156,6 +162,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func sumSubseqWidths(nums []int) (ans int) {

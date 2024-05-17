@@ -95,6 +95,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sequenceReconstruction(
@@ -117,6 +119,8 @@ class Solution:
                     q.append(j)
         return len(q) == 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -150,6 +154,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -185,6 +191,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sequenceReconstruction(nums []int, sequences [][]int) bool {
 	n := len(nums)
@@ -217,6 +225,8 @@ func sequenceReconstruction(nums []int, sequences [][]int) bool {
 	return len(q) == 0
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sequenceReconstruction(nums: number[], sequences: number[][]): boolean {

@@ -93,6 +93,8 @@ The space complexity is $O(n)$. Where $n$ is the number of all tasks.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedList
 
@@ -130,6 +132,8 @@ class TodoList:
 # param_3 = obj.getTasksForTag(userId,tag)
 # obj.completeTask(userId,taskId)
 ```
+
+#### Java
 
 ```java
 class Task {
@@ -206,6 +210,8 @@ class TodoList {
  * obj.completeTask(userId,taskId);
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::{ HashMap, HashSet };

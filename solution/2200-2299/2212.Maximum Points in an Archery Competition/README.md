@@ -95,6 +95,8 @@ Bob 获得总分 8 + 9 + 10 = 27 。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumBobPoints(self, numArrows: int, aliceArrows: List[int]) -> List[int]:
@@ -118,6 +120,8 @@ class Solution:
         ans[0] = numArrows
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -151,6 +155,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -183,6 +189,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumBobPoints(numArrows int, aliceArrows []int) []int {
 	n := len(aliceArrows)
@@ -212,6 +220,8 @@ func maximumBobPoints(numArrows int, aliceArrows []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumBobPoints(numArrows: number, aliceArrows: number[]): number[] {
     const dfs = (arr: number[], i: number, c: number): number[] => {
@@ -235,6 +245,8 @@ function maximumBobPoints(numArrows: number, aliceArrows: number[]): number[] {
     return dfs(new Array(12).fill(0), 11, numArrows);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

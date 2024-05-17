@@ -73,6 +73,8 @@ Person 表:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 import pandas as pd
 
@@ -84,6 +86,8 @@ def duplicate_emails(person: pd.DataFrame) -> pd.DataFrame:
 
     return results.drop_duplicates()
 ```
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -104,6 +108,8 @@ HAVING COUNT(1) > 1;
 我们可以使用自连接的方法，将 `Person` 表自身连接一次，然后筛选出 `id` 不同，但 `email` 相同的记录。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 SELECT DISTINCT p1.email

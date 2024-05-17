@@ -83,6 +83,8 @@ fileSystem.readContentFromFile(&quot;/a/b/c/d&quot;); // return &quot;hello&quot
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Trie:
     def __init__(self):
@@ -146,6 +148,8 @@ class FileSystem:
 # obj.addContentToFile(filePath,content)
 # param_4 = obj.readContentFromFile(filePath)
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -232,6 +236,8 @@ class FileSystem {
  * String param_4 = obj.readContentFromFile(filePath);
  */
 ```
+
+#### Go
 
 ```go
 type Trie struct {

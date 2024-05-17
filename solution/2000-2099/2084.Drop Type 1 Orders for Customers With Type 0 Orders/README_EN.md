@@ -91,6 +91,8 @@ Customer 4 has two orders of type 1. We return both of them.
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH
@@ -113,6 +115,8 @@ WHERE order_type = 0 OR NOT EXISTS (SELECT 1 FROM T AS t WHERE t.customer_id = o
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 SELECT DISTINCT

@@ -78,6 +78,8 @@ Please notice that another valid answer is [5,2,6,null,4,null,7] and it&#39;s al
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -106,6 +108,8 @@ class Solution:
         root = root.right
         return root
 ```
+
+#### Java
 
 ```java
 /**
@@ -153,6 +157,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -187,6 +193,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -224,6 +232,8 @@ func deleteNode(root *TreeNode, key int) *TreeNode {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -272,6 +282,8 @@ function deleteNode(root: TreeNode | null, key: number): TreeNode | null {
     return root;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.

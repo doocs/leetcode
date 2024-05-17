@@ -78,6 +78,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def fixedPoint(self, arr: List[int]) -> int:
@@ -90,6 +92,8 @@ class Solution:
                 left = mid + 1
         return left if arr[left] == left else -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -126,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func fixedPoint(arr []int) int {
 	left, right := 0, len(arr)-1
@@ -143,6 +151,8 @@ func fixedPoint(arr []int) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function fixedPoint(arr: number[]): number {

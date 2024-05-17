@@ -89,11 +89,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def xorBeauty(self, nums: List[int]) -> int:
         return reduce(xor, nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -120,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func xorBeauty(nums []int) (ans int) {
 	for _, x := range nums {
@@ -128,6 +136,8 @@ func xorBeauty(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function xorBeauty(nums: number[]): number {

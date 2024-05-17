@@ -67,6 +67,8 @@ The output consists of two word squares. The order of output does not matter (ju
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Trie:
     def __init__(self):
@@ -114,6 +116,8 @@ class Solution:
             dfs([w])
         return ans
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -184,6 +188,8 @@ class Solution {
     }
 }
 ```
+
+#### Go
 
 ```go
 type Trie struct {

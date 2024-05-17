@@ -77,6 +77,8 @@ It is not required to do the modifications in-place.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def rearrangeArray(self, nums: List[int]) -> List[int]:
@@ -91,6 +93,8 @@ class Solution:
                 j += 2
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func rearrangeArray(nums []int) []int {
 	ans := make([]int, len(nums))
@@ -148,6 +156,8 @@ func rearrangeArray(nums []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function rearrangeArray(nums: number[]): number[] {

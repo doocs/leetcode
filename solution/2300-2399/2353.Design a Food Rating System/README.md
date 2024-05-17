@@ -97,6 +97,8 @@ foodRatings.highestRated("japanese"); // 返回 "ramen"
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedSet
 
@@ -125,6 +127,8 @@ class FoodRatings:
 # obj.changeRating(food,newRating)
 # param_2 = obj.highestRated(cuisine)
 ```
+
+#### C++
 
 ```cpp
 using pis = pair<int, string>;

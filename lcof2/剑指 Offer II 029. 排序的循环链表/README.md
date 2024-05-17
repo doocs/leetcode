@@ -73,6 +73,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 """
 # Definition for a Node.
@@ -105,6 +107,8 @@ class Solution:
             p = p.next
         return head
 ```
+
+#### Java
 
 ```java
 /*
@@ -149,6 +153,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /*
 // Definition for a Node.
@@ -192,6 +198,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -219,6 +227,8 @@ func insert(head *Node, x int) *Node {
 	return head
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

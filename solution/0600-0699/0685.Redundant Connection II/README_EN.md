@@ -63,6 +63,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class UnionFind:
     def __init__(self, n):
@@ -102,6 +104,8 @@ class Solution:
             return [p[v], v]
         return edges[conflict]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -167,6 +171,8 @@ class UnionFind {
 }
 ```
 
+#### C++
+
 ```cpp
 class UnionFind {
 public:
@@ -217,6 +223,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type unionFind struct {

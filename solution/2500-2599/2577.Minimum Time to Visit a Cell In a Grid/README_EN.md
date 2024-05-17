@@ -100,6 +100,8 @@ The time complexity is $O(m \times n \times \log (m \times n))$, and the space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumTime(self, grid: List[List[int]]) -> int:
@@ -124,6 +126,8 @@ class Solution:
                         dist[x][y] = nt
                         heappush(q, (nt, x, y))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -164,6 +168,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -202,6 +208,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumTime(grid [][]int) int {

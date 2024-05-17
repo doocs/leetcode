@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def modifiedMatrix(self, matrix: List[List[int]]) -> List[List[int]]:
@@ -80,6 +82,8 @@ class Solution:
                     matrix[i][j] = mx
         return matrix
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func modifiedMatrix(matrix [][]int) [][]int {
 	m, n := len(matrix), len(matrix[0])
@@ -140,6 +148,8 @@ func modifiedMatrix(matrix [][]int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function modifiedMatrix(matrix: number[][]): number[][] {
     const [m, n] = [matrix.length, matrix[0].length];
@@ -157,6 +167,8 @@ function modifiedMatrix(matrix: number[][]): number[][] {
     return matrix;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

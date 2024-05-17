@@ -59,6 +59,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumCardPickup(self, cards: List[int]) -> int:
@@ -70,6 +72,8 @@ class Solution:
             last[x] = i
         return -1 if ans == inf else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +91,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -106,6 +112,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumCardPickup(cards []int) int {
 	last := map[int]int{}
@@ -123,6 +131,8 @@ func minimumCardPickup(cards []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumCardPickup(cards: number[]): number {

@@ -88,6 +88,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Node:
     def __init__(self, l, r):
@@ -164,6 +166,8 @@ class Solution:
             tree.modify(l, r, h)
         return ans
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -271,6 +275,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Node {
 public:
@@ -367,6 +373,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type node struct {

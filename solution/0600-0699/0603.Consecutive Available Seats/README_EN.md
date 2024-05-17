@@ -76,6 +76,8 @@ We can use a self-join to join the `Seat` table with itself, and then filter out
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT DISTINCT a.seat_id
@@ -96,6 +98,8 @@ ORDER BY 1;
 We can use the `LAG` and `LEAD` functions (or `SUM() OVER(ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING)`) to obtain the information of adjacent seats, and then filter out the consecutive empty seats and sort them in a unique way.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -121,6 +125,8 @@ WHERE a = 2 OR b = 2;
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

@@ -75,6 +75,8 @@ The sum of the numbers after index 2 is: 0
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMiddleIndex(self, nums: List[int]) -> int:
@@ -86,6 +88,8 @@ class Solution:
             left += x
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -120,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMiddleIndex(nums []int) int {
 	s := 0
@@ -137,6 +145,8 @@ func findMiddleIndex(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findMiddleIndex(nums: number[]): number {
     let left = 0,
@@ -151,6 +161,8 @@ function findMiddleIndex(nums: number[]): number {
     return -1;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

@@ -60,6 +60,8 @@ As we cannot use any three side lengths to form a triangle of non-zero area, we 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def largestPerimeter(self, nums: List[int]) -> int:
@@ -69,6 +71,8 @@ class Solution:
                 return c + nums[i]
         return 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +89,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -99,6 +105,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func largestPerimeter(nums []int) int {
 	sort.Ints(nums)
@@ -111,6 +119,8 @@ func largestPerimeter(nums []int) int {
 	return 0
 }
 ```
+
+#### TypeScript
 
 ```ts
 function largestPerimeter(nums: number[]): number {
@@ -125,6 +135,8 @@ function largestPerimeter(nums: number[]): number {
     return 0;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -141,6 +153,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int cmp(const void* a, const void* b) {

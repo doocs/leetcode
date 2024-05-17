@@ -69,6 +69,8 @@ Note that [5, 1] may also be returned.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findLonely(self, nums: List[int]) -> List[int]:
@@ -79,6 +81,8 @@ class Solution:
                 ans.append(num)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +103,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -115,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findLonely(nums []int) []int {
 	counter := make(map[int]int)
@@ -130,6 +138,8 @@ func findLonely(nums []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findLonely(nums: number[]): number[] {

@@ -102,6 +102,8 @@ The time complexity is $O(n)$, where $n$ is the number of plants. The space comp
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def wateringPlants(self, plants: List[int], capacity: int) -> int:
@@ -115,6 +117,8 @@ class Solution:
                 ans += i * 2 + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +137,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -153,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func wateringPlants(plants []int, capacity int) (ans int) {
 	water := capacity
@@ -169,6 +177,8 @@ func wateringPlants(plants []int, capacity int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function wateringPlants(plants: number[], capacity: number): number {
     let [ans, water] = [0, capacity];
@@ -184,6 +194,8 @@ function wateringPlants(plants: number[], capacity: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -203,6 +215,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int wateringPlants(int* plants, int plantsSize, int capacity) {

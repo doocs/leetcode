@@ -72,6 +72,8 @@ In 6 out of 10 possibilities, she is at or below 6 points.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def new21Game(self, n: int, k: int, maxPts: int) -> float:
@@ -85,6 +87,8 @@ class Solution:
 
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -135,6 +141,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func new21Game(n int, k int, maxPts int) float64 {
@@ -159,6 +167,8 @@ func new21Game(n int, k int, maxPts int) float64 {
 	return dfs(0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function new21Game(n: number, k: number, maxPts: number): number {
@@ -189,6 +199,8 @@ function new21Game(n: number, k: number, maxPts: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def new21Game(self, n: int, k: int, maxPts: int) -> float:
@@ -200,6 +212,8 @@ class Solution:
             f[i] = f[i + 1] + (f[i + 1] - f[i + maxPts + 1]) / maxPts
         return f[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -219,6 +233,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -241,6 +257,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func new21Game(n int, k int, maxPts int) float64 {
 	if k == 0 {
@@ -257,6 +275,8 @@ func new21Game(n int, k int, maxPts int) float64 {
 	return f[0]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function new21Game(n: number, k: number, maxPts: number): number {

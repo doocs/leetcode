@@ -71,6 +71,8 @@ stringIterator.hasNext(); // return True
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class StringIterator:
     def __init__(self, compressedString: str):
@@ -105,6 +107,8 @@ class StringIterator:
 # param_1 = obj.next()
 # param_2 = obj.hasNext()
 ```
+
+#### Java
 
 ```java
 class StringIterator {
@@ -158,6 +162,8 @@ class Node {
  */
 ```
 
+#### C++
+
 ```cpp
 class StringIterator {
 public:
@@ -199,6 +205,8 @@ private:
  * bool param_2 = obj->hasNext();
  */
 ```
+
+#### Go
 
 ```go
 type pair struct {

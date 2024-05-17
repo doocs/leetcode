@@ -92,6 +92,8 @@ The worst case is that you pay $1.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getMoneyAmount(self, n: int) -> int:
@@ -105,6 +107,8 @@ class Solution:
                     dp[i][j] = min(dp[i][j], t)
         return dp[1][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -144,6 +150,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getMoneyAmount(n int) int {

@@ -74,6 +74,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isEscapePossible(
@@ -99,6 +101,8 @@ class Solution:
         blocked = set((x, y) for x, y in blocked)
         return dfs(source, target, set()) and dfs(target, source, set())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +139,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 typedef unsigned long long ULL;
 
@@ -167,6 +173,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isEscapePossible(blocked [][]int, source []int, target []int) bool {
 	const N = 1e6
@@ -198,6 +206,8 @@ func isEscapePossible(blocked [][]int, source []int, target []int) bool {
 	return dfs(source, target, s1) && dfs(target, source, s2)
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::{ HashSet, VecDeque };

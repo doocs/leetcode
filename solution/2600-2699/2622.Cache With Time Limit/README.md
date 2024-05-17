@@ -93,6 +93,8 @@ timeDelays = [0, 0, 40, 50, 120, 200, 250]
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 class TimeLimitedCache {
     private cache: Map<number, [value: number, expire: number]> = new Map();

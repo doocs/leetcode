@@ -203,6 +203,8 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(m + n)$. 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfRightTriangles(self, grid: List[List[int]]) -> int:
@@ -219,6 +221,8 @@ class Solution:
                     ans += (rows[i] - 1) * (cols[j] - 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -244,6 +248,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -271,6 +277,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfRightTriangles(grid [][]int) (ans int64) {
 	m, n := len(grid), len(grid[0])
@@ -292,6 +300,8 @@ func numberOfRightTriangles(grid [][]int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfRightTriangles(grid: number[][]): number {

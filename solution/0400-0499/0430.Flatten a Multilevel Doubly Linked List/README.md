@@ -115,6 +115,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 """
 # Definition for a Node.
@@ -147,6 +149,8 @@ class Solution:
         dummy.next.prev = None
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /*
@@ -185,6 +189,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /*

@@ -107,6 +107,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class BinaryIndexedTree:
     def __init__(self, n: int):
@@ -137,6 +139,8 @@ class Solution:
             tree.update(j, v)
         return tree.query(len(s))
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -205,6 +209,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 private:
@@ -256,6 +262,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 const inf int = 1e18
@@ -313,6 +321,8 @@ func maxBalancedSubsequenceSum(nums []int) int64 {
 	return int64(tree.query(m))
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {

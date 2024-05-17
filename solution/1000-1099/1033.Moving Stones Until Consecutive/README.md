@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numMovesStones(self, a: int, b: int, c: int) -> List[int]:
@@ -87,6 +89,8 @@ class Solution:
             mx = z - x - 2
         return [mi, mx]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -121,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numMovesStones(a int, b int, c int) []int {
 	x := min(a, min(b, c))
@@ -137,6 +145,8 @@ func numMovesStones(a int, b int, c int) []int {
 	return []int{mi, mx}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numMovesStones(a: number, b: number, c: number): number[] {

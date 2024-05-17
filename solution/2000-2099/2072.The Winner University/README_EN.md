@@ -155,6 +155,8 @@ Both New York University and California University have 1 excellent student.
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT

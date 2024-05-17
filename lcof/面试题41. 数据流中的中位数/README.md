@@ -70,6 +70,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class MedianFinder:
     def __init__(self):
@@ -96,6 +98,8 @@ class MedianFinder:
 # obj.addNum(num)
 # param_2 = obj.findMedian()
 ```
+
+#### Java
 
 ```java
 class MedianFinder {
@@ -131,6 +135,8 @@ class MedianFinder {
  * double param_2 = obj.findMedian();
  */
 ```
+
+#### C++
 
 ```cpp
 class MedianFinder {
@@ -170,6 +176,8 @@ private:
  * double param_2 = obj->findMedian();
  */
 ```
+
+#### Go
 
 ```go
 type MedianFinder struct {
@@ -217,6 +225,8 @@ func (h *hp) Pop() any {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class MedianFinder {
     private nums: number[];
@@ -257,6 +267,8 @@ class MedianFinder {
  * var param_2 = obj.findMedian()
  */
 ```
+
+#### Rust
 
 ```rust
 struct MedianFinder {
@@ -302,6 +314,8 @@ impl MedianFinder {
  */
 ```
 
+#### JavaScript
+
 ```js
 /**
  * initialize your data structure here.
@@ -336,6 +350,8 @@ MedianFinder.prototype.findMedian = function () {
     return this.val.length % 2 ? this.val[mid] : (this.val[mid - 1] + this.val[mid]) / 2;
 };
 ```
+
+#### C#
 
 ```cs
 public class MedianFinder {
@@ -405,6 +421,8 @@ public class MedianFinder {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedList

@@ -67,6 +67,8 @@ The additive sequence is: 1, 99, 100, 199.&nbsp;
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isAdditiveNumber(self, num: str) -> bool:
@@ -92,6 +94,8 @@ class Solution:
                     return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -134,6 +138,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -162,6 +168,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isAdditiveNumber(num string) bool {

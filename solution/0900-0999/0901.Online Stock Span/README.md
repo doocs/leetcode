@@ -89,6 +89,8 @@ stockSpanner.next(85);  // 返回 6
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class StockSpanner:
     def __init__(self):
@@ -106,6 +108,8 @@ class StockSpanner:
 # obj = StockSpanner()
 # param_1 = obj.next(price)
 ```
+
+#### Java
 
 ```java
 class StockSpanner {
@@ -130,6 +134,8 @@ class StockSpanner {
  * int param_1 = obj.next(price);
  */
 ```
+
+#### C++
 
 ```cpp
 class StockSpanner {
@@ -157,6 +163,8 @@ private:
  * int param_1 = obj->next(price);
  */
 ```
+
+#### Go
 
 ```go
 type StockSpanner struct {
@@ -186,6 +194,8 @@ type pair struct{ price, cnt int }
  */
 ```
 
+#### TypeScript
+
 ```ts
 class StockSpanner {
     private stk: number[][];
@@ -210,6 +220,8 @@ class StockSpanner {
  * var param_1 = obj.next(price)
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;

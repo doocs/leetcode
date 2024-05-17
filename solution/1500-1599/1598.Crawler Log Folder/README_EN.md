@@ -84,6 +84,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, logs: List[str]) -> int:
@@ -95,6 +97,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -129,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minOperations(logs []string) int {
 	ans := 0
@@ -145,6 +153,8 @@ func minOperations(logs []string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minOperations(logs: string[]): number {
     let depth = 0;
@@ -158,6 +168,8 @@ function minOperations(logs: string[]): number {
     return depth;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -174,6 +186,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))

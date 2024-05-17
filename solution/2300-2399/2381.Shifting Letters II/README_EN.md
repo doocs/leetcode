@@ -66,6 +66,8 @@ Finally, shift the characters from index 1 to index 1 forward. Now s = &quot;cat
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def shiftingLetters(self, s: str, shifts: List[List[int]]) -> str:
@@ -82,6 +84,8 @@ class Solution:
             chr(ord('a') + (ord(s[i]) - ord('a') + d[i] + 26) % 26) for i in range(n)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -134,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func shiftingLetters(s string, shifts [][]int) string {
 	n := len(s)
@@ -156,6 +164,8 @@ func shiftingLetters(s string, shifts [][]int) string {
 	return string(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function shiftingLetters(s: string, shifts: number[][]): string {

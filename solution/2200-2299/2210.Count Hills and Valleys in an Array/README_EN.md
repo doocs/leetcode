@@ -83,6 +83,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countHillValley(self, nums: List[int]) -> int:
@@ -97,6 +99,8 @@ class Solution:
             j = i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +122,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -141,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countHillValley(nums []int) int {
 	ans := 0
@@ -160,6 +168,8 @@ func countHillValley(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countHillValley(nums: number[]): number {
     let ans = 0;
@@ -178,6 +188,8 @@ function countHillValley(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

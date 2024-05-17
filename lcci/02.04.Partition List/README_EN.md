@@ -48,6 +48,8 @@ The time complexity is $O(n)$, where $n$ is the length of the list. The space co
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -72,6 +74,8 @@ class Solution:
         p2.next = None
         return left.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -103,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -136,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -161,6 +169,8 @@ func partition(head *ListNode, x int) *ListNode {
 	return left.Next
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -192,6 +202,8 @@ function partition(head: ListNode | null, x: number): ListNode | null {
     return left.next;
 }
 ```
+
+#### Swift
 
 ```swift
 /** public class ListNode {

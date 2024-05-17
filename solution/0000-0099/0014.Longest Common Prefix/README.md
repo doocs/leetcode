@@ -63,6 +63,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
@@ -72,6 +74,8 @@ class Solution:
                     return s[:i]
         return strs[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +92,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -106,6 +112,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestCommonPrefix(strs []string) string {
 	n := len(strs)
@@ -120,6 +128,8 @@ func longestCommonPrefix(strs []string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestCommonPrefix(strs: string[]): string {
     const len = strs.reduce((r, s) => Math.min(r, s.length), Infinity);
@@ -132,6 +142,8 @@ function longestCommonPrefix(strs: string[]): string {
     return '';
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -153,6 +165,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string[]} strs
@@ -170,6 +184,8 @@ var longestCommonPrefix = function (strs) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public string LongestCommonPrefix(string[] strs) {
@@ -185,6 +201,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -206,6 +224,8 @@ class Solution {
     }
 }
 ```
+
+#### Ruby
 
 ```rb
 # @param {String[]} strs

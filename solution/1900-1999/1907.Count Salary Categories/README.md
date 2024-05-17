@@ -87,6 +87,8 @@ Accounts 表:
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH
@@ -125,6 +127,8 @@ FROM
 我们可以分别筛选出每个工资类别的银行账户数量，然后再将结果合并起来。这里我们使用 `UNION` 来合并结果。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

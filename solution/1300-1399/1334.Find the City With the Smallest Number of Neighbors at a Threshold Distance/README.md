@@ -88,6 +88,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findTheCity(
@@ -118,6 +120,8 @@ class Solution:
                 cnt, ans = t, i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -180,6 +184,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -222,6 +228,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findTheCity(n int, edges [][]int, distanceThreshold int) int {
@@ -276,6 +284,8 @@ func findTheCity(n int, edges [][]int, distanceThreshold int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findTheCity(n: number, edges: number[][], distanceThreshold: number): number {
@@ -337,6 +347,8 @@ function findTheCity(n: number, edges: number[][], distanceThreshold: number): n
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findTheCity(
@@ -361,6 +373,8 @@ class Solution:
                 cnt, ans = t, i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -401,6 +415,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -431,6 +447,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findTheCity(n int, edges [][]int, distanceThreshold int) int {
@@ -473,6 +491,8 @@ func findTheCity(n int, edges [][]int, distanceThreshold int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findTheCity(n: number, edges: number[][], distanceThreshold: number): number {

@@ -96,6 +96,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def bestCoordinate(self, towers: List[List[int]], radius: int) -> List[int]:
@@ -113,6 +115,8 @@ class Solution:
                     ans = [i, j]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -164,6 +170,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func bestCoordinate(towers [][]int, radius int) []int {

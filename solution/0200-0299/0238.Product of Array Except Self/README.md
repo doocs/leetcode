@@ -73,6 +73,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
@@ -87,6 +89,8 @@ class Solution:
             right *= nums[i]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -125,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func productExceptSelf(nums []int) []int {
 	n := len(nums)
@@ -142,6 +150,8 @@ func productExceptSelf(nums []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function productExceptSelf(nums: number[]): number[] {
     const n = nums.length;
@@ -157,6 +167,8 @@ function productExceptSelf(nums: number[]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -175,6 +187,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -196,6 +210,8 @@ var productExceptSelf = function (nums) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int[] ProductExceptSelf(int[] nums) {
@@ -213,6 +229,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -245,6 +263,8 @@ class Solution {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function productExceptSelf(nums: number[]): number[] {

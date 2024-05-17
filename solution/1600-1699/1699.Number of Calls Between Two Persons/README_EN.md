@@ -82,6 +82,8 @@ We can use the `if` function or the `least` and `greatest` functions to convert 
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT
@@ -92,6 +94,8 @@ SELECT
 FROM Calls
 GROUP BY 1, 2;
 ```
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

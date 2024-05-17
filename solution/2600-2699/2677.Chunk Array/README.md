@@ -75,6 +75,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2677.Ch
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function chunk(arr: any[], size: number): any[][] {
     const ans: any[][] = [];
@@ -84,6 +86,8 @@ function chunk(arr: any[], size: number): any[][] {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

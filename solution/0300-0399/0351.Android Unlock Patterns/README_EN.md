@@ -78,6 +78,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfPatterns(self, m: int, n: int) -> int:
@@ -105,6 +107,8 @@ class Solution:
         vis = [False] * 10
         return dfs(1) * 4 + dfs(2) * 4 + dfs(5)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -145,6 +149,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -182,6 +188,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfPatterns(m int, n int) int {
@@ -225,6 +233,8 @@ func numberOfPatterns(m int, n int) int {
 	return dfs(1, 1)*4 + dfs(2, 1)*4 + dfs(5, 1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfPatterns(m: number, n: number): number {

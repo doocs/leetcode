@@ -80,6 +80,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ i
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def splitString(self, s: str) -> bool:
@@ -95,6 +97,8 @@ class Solution:
 
         return dfs(0, -1, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -145,6 +151,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func splitString(s string) bool {

@@ -80,6 +80,8 @@ The time complexity is $O(m \times \log m + q \times \log q)$, where $m$ and $q$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def distanceLimitedPathsExist(
@@ -102,6 +104,8 @@ class Solution:
             ans[i] = find(a) == find(b)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -142,6 +146,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -172,6 +178,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func distanceLimitedPathsExist(n int, edgeList [][]int, queries [][]int) []bool {
@@ -207,6 +215,8 @@ func distanceLimitedPathsExist(n int, edgeList [][]int, queries [][]int) []bool 
 	return ans
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -302,6 +312,8 @@ Below is a common template for Union-Find, which needs to be mastered proficient
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 p = list(range(n))
 size = [1] * n
@@ -319,6 +331,8 @@ def union(a, b):
     p[pa] = pb
     size[pb] += size[pa]
 ```
+
+#### Java
 
 ```java
 int[] p = new int[n];
@@ -345,6 +359,8 @@ void union(int a, int b) {
 }
 ```
 
+#### C++
+
 ```cpp
 vector<int> p(n);
 iota(p.begin(), p.end(), 0);
@@ -364,6 +380,8 @@ void unite(int a, int b) {
     size[pb] += size[pa];
 }
 ```
+
+#### Go
 
 ```go
 p := make([]int, n)

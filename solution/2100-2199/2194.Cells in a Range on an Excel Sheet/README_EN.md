@@ -80,6 +80,8 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(m \times 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def cellsInRange(self, s: str) -> List[str]:
@@ -89,6 +91,8 @@ class Solution:
             for j in range(int(s[1]), int(s[-1]) + 1)
         ]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -119,6 +125,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func cellsInRange(s string) (ans []string) {
 	for i := s[0]; i <= s[3]; i++ {
@@ -129,6 +137,8 @@ func cellsInRange(s string) (ans []string) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function cellsInRange(s: string): string[] {

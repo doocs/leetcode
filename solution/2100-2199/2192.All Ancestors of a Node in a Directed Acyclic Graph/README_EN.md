@@ -88,6 +88,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Where $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getAncestors(self, n: int, edges: List[List[int]]) -> List[List[int]]:
@@ -110,6 +112,8 @@ class Solution:
             bfs(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -153,6 +157,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -188,6 +194,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getAncestors(n int, edges [][]int) [][]int {
 	g := make([][]int, n)
@@ -218,6 +226,8 @@ func getAncestors(n int, edges [][]int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function getAncestors(n: number, edges: number[][]): number[][] {
     const g: number[][] = Array.from({ length: n }, () => []);
@@ -246,6 +256,8 @@ function getAncestors(n: number, edges: number[][]): number[][] {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

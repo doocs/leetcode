@@ -68,6 +68,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
@@ -86,6 +88,8 @@ class Solution:
                 t = 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -136,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestConsecutive(nums []int) int {
 	n := len(nums)
@@ -159,6 +167,8 @@ func longestConsecutive(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestConsecutive(nums: number[]): number {
     const n = nums.length;
@@ -181,6 +191,8 @@ function longestConsecutive(nums: number[]): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -223,6 +235,8 @@ var longestConsecutive = function (nums) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
@@ -236,6 +250,8 @@ class Solution:
                 ans = max(ans, y - x)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -259,6 +275,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -279,6 +297,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestConsecutive(nums []int) (ans int) {
 	s := map[int]bool{}
@@ -298,6 +318,8 @@ func longestConsecutive(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestConsecutive(nums: number[]): number {
     const s: Set<number> = new Set(nums);
@@ -314,6 +336,8 @@ function longestConsecutive(nums: number[]): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

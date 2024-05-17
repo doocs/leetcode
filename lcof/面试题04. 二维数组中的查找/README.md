@@ -62,6 +62,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findNumberIn2DArray(self, matrix: List[List[int]], target: int) -> bool:
@@ -71,6 +73,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +89,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -101,6 +107,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findNumberIn2DArray(matrix [][]int, target int) bool {
 	for _, row := range matrix {
@@ -112,6 +120,8 @@ func findNumberIn2DArray(matrix [][]int, target int) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findNumberIn2DArray(matrix: number[][], target: number): boolean {
@@ -133,6 +143,8 @@ function findNumberIn2DArray(matrix: number[][], target: number): boolean {
     return false;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::cmp::Ordering;
@@ -161,6 +173,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[][]} matrix
@@ -186,6 +200,8 @@ var findNumberIn2DArray = function (matrix, target) {
     return false;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -228,6 +244,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findNumberIn2DArray(self, matrix: List[List[int]], target: int) -> bool:
@@ -244,6 +262,8 @@ class Solution:
                 j += 1
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -267,6 +287,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -289,6 +311,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findNumberIn2DArray(matrix [][]int, target int) bool {

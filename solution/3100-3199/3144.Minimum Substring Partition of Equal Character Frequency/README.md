@@ -79,6 +79,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3144.Mi
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumSubstringsInPartition(self, s: str) -> int:
@@ -103,6 +105,8 @@ class Solution:
         n = len(s)
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -145,6 +149,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -183,6 +189,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumSubstringsInPartition(s string) int {
 	n := len(s)
@@ -220,6 +228,8 @@ func minimumSubstringsInPartition(s string) int {
 	return dfs(0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumSubstringsInPartition(s: string): number {

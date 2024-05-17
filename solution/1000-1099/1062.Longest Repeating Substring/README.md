@@ -90,6 +90,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestRepeatingSubstring(self, s: str) -> int:
@@ -103,6 +105,8 @@ class Solution:
                     ans = max(ans, dp[i][j])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -142,6 +148,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestRepeatingSubstring(s string) int {

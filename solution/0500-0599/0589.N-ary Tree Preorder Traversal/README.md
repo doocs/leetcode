@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 """
 # Definition for a Node.
@@ -92,6 +94,8 @@ class Solution:
         dfs(root)
         return ans
 ```
+
+#### Java
 
 ```java
 /*
@@ -133,6 +137,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /*
 // Definition for a Node.
@@ -173,6 +179,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -197,6 +205,8 @@ func preorder(root *Node) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -226,6 +236,8 @@ function preorder(root: Node | null): number[] {
     return ans;
 }
 ```
+
+#### C
 
 ```c
 /**
@@ -275,6 +287,8 @@ int* preorder(struct Node* root, int* returnSize) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 """
 # Definition for a Node.
@@ -298,6 +312,8 @@ class Solution:
                 stk.append(child)
         return ans
 ```
+
+#### Java
 
 ```java
 /*
@@ -340,6 +356,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /*
 // Definition for a Node.
@@ -380,6 +398,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -406,6 +426,8 @@ func preorder(root *Node) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

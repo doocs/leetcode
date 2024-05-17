@@ -91,6 +91,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def buildArray(self, target: List[int], n: int) -> List[str]:
@@ -103,6 +105,8 @@ class Solution:
             ans.append('Push')
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +124,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -139,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func buildArray(target []int, n int) []string {
 	cur := 0
@@ -153,6 +161,8 @@ func buildArray(target []int, n int) []string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function buildArray(target: number[], n: number): string[] {
     const res = [];
@@ -166,6 +176,8 @@ function buildArray(target: number[], n: number): string[] {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -185,6 +197,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**

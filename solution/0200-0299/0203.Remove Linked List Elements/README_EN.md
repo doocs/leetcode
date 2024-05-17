@@ -60,6 +60,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -77,6 +79,8 @@ class Solution:
                 pre.next = pre.next.next
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -104,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func removeElements(head *ListNode, val int) *ListNode {
 	dummy := new(ListNode)
@@ -138,6 +146,8 @@ func removeElements(head *ListNode, val int) *ListNode {
 	return dummy.Next
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -165,6 +175,8 @@ function removeElements(head: ListNode | null, val: number): ListNode | null {
     return dummy.next;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -199,6 +211,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

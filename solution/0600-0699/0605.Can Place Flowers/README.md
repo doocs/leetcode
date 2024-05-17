@@ -62,6 +62,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canPlaceFlowers(self, flowerbed: List[int], n: int) -> bool:
@@ -72,6 +74,8 @@ class Solution:
                 n -= 1
         return n <= 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +94,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -107,6 +113,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canPlaceFlowers(flowerbed []int, n int) bool {
@@ -128,6 +136,8 @@ func canPlaceFlowers(flowerbed []int, n int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canPlaceFlowers(flowerbed: number[], n: number): boolean {
     const m = flowerbed.length;
@@ -142,6 +152,8 @@ function canPlaceFlowers(flowerbed: number[], n: number): boolean {
     return n <= 0;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -161,6 +173,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

@@ -74,6 +74,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def validIPAddress(self, IP: str) -> str:
@@ -103,6 +105,8 @@ class Solution:
             return "IPv6"
         return "Neither"
 ```
+
+#### TypeScript
 
 ```ts
 function validIPAddress(queryIP: string): string {
@@ -146,6 +150,8 @@ function validIPAddress(queryIP: string): string {
     return 'Neither';
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

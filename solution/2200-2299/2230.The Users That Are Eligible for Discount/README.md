@@ -75,6 +75,8 @@ startDate = 2022-03-08, endDate = 2022-03-20, minAmount = 1000
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 CREATE PROCEDURE getUserIDs(startDate DATE, endDate DATE, minAmount INT)
 BEGIN

@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def missingElement(self, nums: List[int], k: int) -> int:
@@ -94,6 +96,8 @@ class Solution:
                 l = mid + 1
         return nums[l - 1] + k - missing(l - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -144,6 +150,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func missingElement(nums []int, k int) int {

@@ -85,6 +85,8 @@ We can first create a temporary table containing all salary categories, and then
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH
@@ -123,6 +125,8 @@ FROM
 We can filter out the number of bank accounts for each salary category separately, and then merge the results. Here, we use `UNION` to merge the results.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

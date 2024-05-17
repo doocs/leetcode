@@ -80,6 +80,8 @@ The time complexity is $O(l)$, and the space complexity is $O(l)$, where $l$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def fractionToDecimal(self, numerator: int, denominator: int) -> str:
@@ -107,6 +109,8 @@ class Solution:
                 break
         return "".join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -140,6 +144,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -176,6 +182,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func fractionToDecimal(numerator int, denominator int) string {
@@ -218,6 +226,8 @@ func abs(x int64) int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function fractionToDecimal(numerator: number, denominator: number): string {
     if (numerator === 0) {
@@ -249,6 +259,8 @@ function fractionToDecimal(numerator: number, denominator: number): string {
     return sb.join('');
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

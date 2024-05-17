@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxNonOverlapping(self, nums: List[int], target: int) -> int:
@@ -95,6 +97,8 @@ class Solution:
             i += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -142,6 +148,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxNonOverlapping(nums []int, target int) (ans int) {
 	n := len(nums)
@@ -160,6 +168,8 @@ func maxNonOverlapping(nums []int, target int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxNonOverlapping(nums: number[], target: number): number {

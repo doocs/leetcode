@@ -96,6 +96,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxScore(self, edges: List[List[int]]) -> int:
@@ -114,6 +116,8 @@ class Solution:
             g[p].append((i, w))
         return dfs(0)[1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -145,6 +149,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -172,6 +178,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxScore(edges [][]int) int64 {

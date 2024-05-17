@@ -81,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumMountainRemovals(self, nums: List[int]) -> int:
@@ -97,6 +99,8 @@ class Solution:
                     right[i] = max(right[i], right[j] + 1)
         return n - max(a + b - 1 for a, b in zip(left, right) if a > 1 and b > 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -161,6 +167,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumMountainRemovals(nums []int) int {
@@ -193,6 +201,8 @@ func minimumMountainRemovals(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumMountainRemovals(nums: number[]): number {
     const n = nums.length;
@@ -221,6 +231,8 @@ function minimumMountainRemovals(nums: number[]): number {
     return n - ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

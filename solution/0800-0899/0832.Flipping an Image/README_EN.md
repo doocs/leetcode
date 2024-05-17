@@ -73,6 +73,8 @@ Then invert the image: [[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def flipAndInvertImage(self, image: List[List[int]]) -> List[List[int]]:
@@ -88,6 +90,8 @@ class Solution:
                 row[i] ^= 1
         return image
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -130,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func flipAndInvertImage(image [][]int) [][]int {
 	for _, row := range image {
@@ -147,6 +155,8 @@ func flipAndInvertImage(image [][]int) [][]int {
 	return image
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

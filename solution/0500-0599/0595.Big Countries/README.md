@@ -90,6 +90,8 @@ World 表：
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT name, population, area
@@ -108,6 +110,8 @@ WHERE area >= 3000000 OR population >= 25000000;
 我们可以查询出所有面积大于等于 300 万平方公里的国家，然后再查询出所有人口大于等于 2500 万的国家，最后使用 `UNION` 将两个结果集合并起来。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

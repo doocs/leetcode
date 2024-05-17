@@ -88,6 +88,8 @@ The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedList
 
@@ -104,6 +106,8 @@ class Solution:
             ans += len(sl)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -145,6 +151,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func continuousSubarrays(nums []int) (ans int64) {

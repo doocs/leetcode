@@ -60,6 +60,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
@@ -82,6 +84,8 @@ class Solution:
         dfs(0)
         return res
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -142,6 +148,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func permute(nums []int) [][]int {
 	n := len(nums)
@@ -169,6 +177,8 @@ func dfs(u, n int, nums []int, used []bool, path []int, res *[][]int) {
 	}
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -200,6 +210,8 @@ function dfs(u, n, nums, used, path, res) {
     }
 }
 ```
+
+#### C#
 
 ```cs
 using System.Collections.Generic;

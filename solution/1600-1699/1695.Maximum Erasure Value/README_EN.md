@@ -67,6 +67,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumUniqueSubarray(self, nums: List[int]) -> int:
@@ -79,6 +81,8 @@ class Solution:
             d[v] = i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -124,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumUniqueSubarray(nums []int) (ans int) {
 	d := [10001]int{}
@@ -141,6 +149,8 @@ func maximumUniqueSubarray(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumUniqueSubarray(nums: number[]): number {
@@ -179,6 +189,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumUniqueSubarray(self, nums: List[int]) -> int:
@@ -195,6 +207,8 @@ class Solution:
             ans = max(ans, s)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -214,6 +228,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -235,6 +251,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumUniqueSubarray(nums []int) (ans int) {
 	vis := map[int]bool{}
@@ -252,6 +270,8 @@ func maximumUniqueSubarray(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumUniqueSubarray(nums: number[]): number {

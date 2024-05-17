@@ -70,11 +70,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countKeyChanges(self, s: str) -> int:
         return sum(a.lower() != b.lower() for a, b in pairwise(s))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +94,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -104,6 +110,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countKeyChanges(s string) (ans int) {
 	s = strings.ToLower(s)
@@ -115,6 +123,8 @@ func countKeyChanges(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countKeyChanges(s: string): number {

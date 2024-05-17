@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countNumbersWithUniqueDigits(self, n: int) -> int:
@@ -82,6 +84,8 @@ class Solution:
             ans += cur
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -117,6 +123,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countNumbersWithUniqueDigits(n int) int {
@@ -178,6 +186,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countNumbersWithUniqueDigits(self, n: int) -> int:
@@ -197,6 +207,8 @@ class Solution:
 
         return dfs(n, 0, True)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -235,6 +247,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -268,6 +282,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countNumbersWithUniqueDigits(n int) int {

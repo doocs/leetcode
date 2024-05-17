@@ -92,6 +92,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumStrength(self, nums: List[int], k: int) -> int:
@@ -109,6 +111,8 @@ class Solution:
                     )
         return max(f[n][k])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -164,6 +170,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumStrength(nums []int, k int) int64 {
@@ -196,6 +204,8 @@ func maximumStrength(nums []int, k int) int64 {
 	return max(f[n][k][0], f[n][k][1])
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumStrength(nums: number[], k: number): number {

@@ -82,6 +82,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestBeautifulSubstring(self, word: str) -> int:
@@ -101,6 +103,8 @@ class Solution:
                 ans = max(ans, a[1] + b[1] + c[1] + d[1] + e[1])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -138,6 +142,8 @@ class Node {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -165,6 +171,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestBeautifulSubstring(word string) (ans int) {

@@ -90,6 +90,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def groupStrings(self, words: List[str]) -> List[int]:
@@ -132,6 +134,8 @@ class Solution:
                             union(x, x ^ (1 << i) | (1 << j))
         return [n, mx]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -195,6 +199,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -242,6 +248,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func groupStrings(words []string) []int {

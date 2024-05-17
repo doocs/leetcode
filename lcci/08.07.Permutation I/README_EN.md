@@ -57,6 +57,8 @@ The time complexity is $O(n \times n!)$, where $n$ is the length of the string. 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def permutation(self, S: str) -> List[str]:
@@ -80,6 +82,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -143,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func permutation(S string) (ans []string) {
 	t := []byte{}
@@ -168,6 +176,8 @@ func permutation(S string) (ans []string) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function permutation(S: string): string[] {
@@ -195,6 +205,8 @@ function permutation(S: string): string[] {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -226,6 +238,8 @@ var permutation = function (S) {
     return ans;
 };
 ```
+
+#### Swift
 
 ```swift
 class Solution {

@@ -68,11 +68,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def distributeCandies(self, candyType: List[int]) -> int:
         return min(len(candyType) >> 1, len(set(candyType)))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +90,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -96,6 +102,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func distributeCandies(candyType []int) int {

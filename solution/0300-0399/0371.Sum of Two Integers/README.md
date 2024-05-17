@@ -71,6 +71,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getSum(self, a: int, b: int) -> int:
@@ -81,6 +83,8 @@ class Solution:
         return a if a < 0x80000000 else ~(a ^ 0xFFFFFFFF)
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int getSum(int a, int b) {
@@ -88,6 +92,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -102,6 +108,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getSum(a int, b int) int {

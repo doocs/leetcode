@@ -97,6 +97,8 @@ dir
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def lengthLongestPath(self, input: str) -> int:
@@ -133,6 +135,8 @@ class Solution:
 
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -179,6 +183,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -223,6 +229,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func lengthLongestPath(input string) int {

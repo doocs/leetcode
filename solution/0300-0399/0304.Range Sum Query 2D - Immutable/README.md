@@ -92,6 +92,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class NumMatrix:
     def __init__(self, matrix: List[List[int]]):
@@ -116,6 +118,8 @@ class NumMatrix:
 # obj = NumMatrix(matrix)
 # param_1 = obj.sumRegion(row1,col1,row2,col2)
 ```
+
+#### Java
 
 ```java
 class NumMatrix {
@@ -143,6 +147,8 @@ class NumMatrix {
  */
 ```
 
+#### C++
+
 ```cpp
 class NumMatrix {
 public:
@@ -169,6 +175,8 @@ public:
  * int param_1 = obj->sumRegion(row1,col1,row2,col2);
  */
 ```
+
+#### Go
 
 ```go
 type NumMatrix struct {
@@ -199,6 +207,8 @@ func (this *NumMatrix) SumRegion(row1 int, col1 int, row2 int, col2 int) int {
  * param_1 := obj.SumRegion(row1,col1,row2,col2);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class NumMatrix {
@@ -232,6 +242,8 @@ class NumMatrix {
  * var param_1 = obj.sumRegion(row1,col1,row2,col2)
  */
 ```
+
+#### Rust
 
 ```rust
 
@@ -296,6 +308,8 @@ impl NumMatrix {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

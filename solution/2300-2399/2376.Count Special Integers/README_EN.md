@@ -65,6 +65,8 @@ Some of the integers that are not special are: 22, 114, and 131.</pre>
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSpecialNumbers(self, n: int) -> int:
@@ -91,6 +93,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -169,6 +175,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countSpecialNumbers(n int) int {
@@ -223,6 +231,8 @@ func A(m, n int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSpecialNumbers(self, n: int) -> int:
@@ -252,6 +262,8 @@ class Solution:
             n //= 10
         return dfs(l, 0, True, True)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -301,6 +313,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -345,6 +359,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countSpecialNumbers(n int) int {

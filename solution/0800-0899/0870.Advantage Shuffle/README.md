@@ -63,6 +63,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def advantageCount(self, nums1: List[int], nums2: List[int]) -> List[int]:
@@ -80,6 +82,8 @@ class Solution:
                 i += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +109,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -126,6 +132,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func advantageCount(nums1 []int, nums2 []int) []int {
@@ -153,6 +161,8 @@ func advantageCount(nums1 []int, nums2 []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function advantageCount(nums1: number[], nums2: number[]): number[] {
     const n = nums1.length;
@@ -175,6 +185,8 @@ function advantageCount(nums1: number[], nums2: number[]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

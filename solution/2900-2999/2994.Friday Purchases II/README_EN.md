@@ -83,6 +83,8 @@ We can generate a table `T` that contains all dates in November 2023 using recur
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 WITH RECURSIVE
     T AS (

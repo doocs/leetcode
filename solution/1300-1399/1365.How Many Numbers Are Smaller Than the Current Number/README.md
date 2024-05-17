@@ -78,12 +78,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
         arr = sorted(nums)
         return [bisect_left(arr, x) for x in nums]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -125,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallerNumbersThanCurrent(nums []int) (ans []int) {
 	arr := make([]int, len(nums))
@@ -136,6 +144,8 @@ func smallerNumbersThanCurrent(nums []int) (ans []int) {
 	return nums
 }
 ```
+
+#### TypeScript
 
 ```ts
 function smallerNumbersThanCurrent(nums: number[]): number[] {
@@ -174,6 +184,8 @@ function smallerNumbersThanCurrent(nums: number[]): number[] {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
@@ -183,6 +195,8 @@ class Solution:
         s = list(accumulate(cnt))
         return [s[x] for x in nums]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -204,6 +218,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -224,6 +240,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallerNumbersThanCurrent(nums []int) (ans []int) {
 	cnt := [102]int{}
@@ -239,6 +257,8 @@ func smallerNumbersThanCurrent(nums []int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function smallerNumbersThanCurrent(nums: number[]): number[] {

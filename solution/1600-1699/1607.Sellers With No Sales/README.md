@@ -126,6 +126,8 @@ Frank 在 2019 年卖出 1 次, 在 2020 年没有卖出。</pre>
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT seller_name

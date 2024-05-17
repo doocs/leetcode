@@ -68,6 +68,8 @@ Users table:
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 SELECT
     user_id,
@@ -87,6 +89,8 @@ ORDER BY
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 SELECT

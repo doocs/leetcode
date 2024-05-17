@@ -74,6 +74,8 @@ The perimeter is 2 * 4 = 8.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumPerimeter(self, neededApples: int) -> int:
@@ -82,6 +84,8 @@ class Solution:
             x += 1
         return x * 8
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +98,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -108,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumPerimeter(neededApples int64) int64 {
 	var x int64 = 1
@@ -117,6 +125,8 @@ func minimumPerimeter(neededApples int64) int64 {
 	return 8 * x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumPerimeter(neededApples: number): number {
@@ -138,6 +148,8 @@ function minimumPerimeter(neededApples: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumPerimeter(self, neededApples: int) -> int:
@@ -150,6 +162,8 @@ class Solution:
                 l = mid + 1
         return l * 8
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -167,6 +181,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -186,6 +202,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumPerimeter(neededApples int64) int64 {
 	var l, r int64 = 1, 100000
@@ -200,6 +218,8 @@ func minimumPerimeter(neededApples int64) int64 {
 	return l * 8
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumPerimeter(neededApples: number): number {

@@ -66,11 +66,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canPermutePalindrome(self, s: str) -> bool:
         return sum(v & 1 for v in Counter(s).values()) < 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +91,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -105,6 +111,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canPermutePalindrome(s string) bool {
 	cnt := [26]int{}
@@ -119,6 +127,8 @@ func canPermutePalindrome(s string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canPermutePalindrome(s: string): boolean {
     const cnt: number[] = new Array(26).fill(0);
@@ -128,6 +138,8 @@ function canPermutePalindrome(s: string): boolean {
     return cnt.filter(c => c % 2 === 1).length < 2;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

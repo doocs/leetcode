@@ -90,6 +90,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minInterval(self, intervals: List[List[int]], queries: List[int]) -> List[int]:
@@ -110,6 +112,8 @@ class Solution:
                 ans[j] = pq[0][0]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -143,6 +147,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -175,6 +181,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minInterval(intervals [][]int, queries []int) []int {

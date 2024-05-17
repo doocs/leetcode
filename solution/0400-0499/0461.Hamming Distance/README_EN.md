@@ -57,11 +57,15 @@ The above arrows point to positions where the corresponding bits are different.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def hammingDistance(self, x: int, y: int) -> int:
         return (x ^ y).bit_count()
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -70,6 +74,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -80,11 +86,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hammingDistance(x int, y int) int {
 	return bits.OnesCount(uint(x ^ y))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function hammingDistance(x: number, y: number): number {
@@ -97,6 +107,8 @@ function hammingDistance(x: number, y: number): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

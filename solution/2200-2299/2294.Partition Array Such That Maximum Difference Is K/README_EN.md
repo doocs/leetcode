@@ -83,6 +83,8 @@ Since three subsequences were created, we return 3. It can be shown that 3 is th
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def partitionArray(self, nums: List[int], k: int) -> int:
@@ -94,6 +96,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -128,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func partitionArray(nums []int, k int) int {
 	sort.Ints(nums)
@@ -141,6 +149,8 @@ func partitionArray(nums []int, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function partitionArray(nums: number[], k: number): number {

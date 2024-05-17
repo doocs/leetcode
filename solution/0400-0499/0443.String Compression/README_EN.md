@@ -74,6 +74,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def compress(self, chars: List[str]) -> int:
@@ -92,6 +94,8 @@ class Solution:
             i = j
         return k
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -135,6 +141,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func compress(chars []byte) int {
@@ -158,6 +166,8 @@ func compress(chars []byte) int {
 	return k
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

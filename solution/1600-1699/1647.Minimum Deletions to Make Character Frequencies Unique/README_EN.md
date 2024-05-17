@@ -71,6 +71,8 @@ Note that we only care about characters that are still in the string at the end 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minDeletions(self, s: str) -> int:
@@ -86,6 +88,8 @@ class Solution:
                 pre = v
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -126,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minDeletions(s string) (ans int) {
 	cnt := make([]int, 26)
@@ -142,6 +150,8 @@ func minDeletions(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minDeletions(s: string): number {
@@ -161,6 +171,8 @@ function minDeletions(s: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -197,6 +209,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minDeletions(self, s: str) -> int:
@@ -209,6 +223,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -235,6 +251,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -257,6 +275,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minDeletions(s string) (ans int) {

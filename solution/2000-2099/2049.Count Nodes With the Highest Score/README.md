@@ -99,6 +99,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countHighestScoreNodes(self, parents: List[int]) -> int:
@@ -127,6 +129,8 @@ class Solution:
         dfs(0, -1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -170,6 +174,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -208,6 +214,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countHighestScoreNodes(parents []int) (ans int) {
 	n := len(parents)
@@ -242,6 +250,8 @@ func countHighestScoreNodes(parents []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countHighestScoreNodes(parents: number[]): number {
     const n = parents.length;
@@ -274,6 +284,8 @@ function countHighestScoreNodes(parents: number[]): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

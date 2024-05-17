@@ -90,6 +90,8 @@ The time complexity is $O(n^2 \times \log n)$, and the space complexity is $O(n 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def shortestPathWithHops(
@@ -113,6 +115,8 @@ class Solution:
                     heappush(pq, (dis + w, v, t))
         return int(min(dist[d]))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -156,6 +160,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -189,6 +195,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func shortestPathWithHops(n int, edges [][]int, s int, d int, k int) int {

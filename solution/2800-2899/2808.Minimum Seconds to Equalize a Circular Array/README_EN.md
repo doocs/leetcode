@@ -87,6 +87,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumSeconds(self, nums: List[int]) -> int:
@@ -102,6 +104,8 @@ class Solution:
             ans = min(ans, t // 2)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +128,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -148,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumSeconds(nums []int) int {
 	d := map[int][]int{}
@@ -167,6 +175,8 @@ func minimumSeconds(nums []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumSeconds(nums: number[]): number {

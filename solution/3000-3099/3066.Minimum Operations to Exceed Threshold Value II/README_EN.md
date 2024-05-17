@@ -84,6 +84,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$,
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, nums: List[int], k: int) -> int:
@@ -95,6 +97,8 @@ class Solution:
             ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -134,6 +140,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minOperations(nums []int, k int) (ans int) {
@@ -160,6 +168,8 @@ func (h *hp) Push(x interface{}) {
 	h.IntSlice = append(h.IntSlice, x.(int))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minOperations(nums: number[], k: number): number {

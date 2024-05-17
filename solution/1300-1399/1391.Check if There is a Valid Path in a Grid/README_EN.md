@@ -84,6 +84,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def hasValidPath(self, grid: List[List[int]]) -> bool:
@@ -134,6 +136,8 @@ class Solution:
                     up(i, j)
         return find(0) == find(m * n - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -210,6 +214,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -273,6 +279,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func hasValidPath(grid [][]int) bool {

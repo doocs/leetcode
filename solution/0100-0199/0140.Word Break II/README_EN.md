@@ -71,6 +71,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Trie:
     def __init__(self):
@@ -114,6 +116,8 @@ class Solution:
         ans = dfs(s)
         return [' '.join(v) for v in ans]
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -174,6 +178,8 @@ class Solution {
     }
 }
 ```
+
+#### Go
 
 ```go
 type Trie struct {
@@ -237,6 +243,8 @@ func wordBreak(s string, wordDict []string) []string {
 	return ans
 }
 ```
+
+#### C#
 
 ```cs
 using System;

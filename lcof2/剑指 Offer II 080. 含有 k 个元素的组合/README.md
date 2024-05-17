@@ -58,6 +58,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
@@ -75,6 +77,8 @@ class Solution:
         dfs(1, n, k, [])
         return res
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -121,6 +127,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func combine(n int, k int) [][]int {

@@ -72,11 +72,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isPossibleToSplit(self, nums: List[int]) -> bool:
         return max(Counter(nums).values()) < 3
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +95,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -107,6 +113,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isPossibleToSplit(nums []int) bool {
 	cnt := [101]int{}
@@ -119,6 +127,8 @@ func isPossibleToSplit(nums []int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isPossibleToSplit(nums: number[]): boolean {

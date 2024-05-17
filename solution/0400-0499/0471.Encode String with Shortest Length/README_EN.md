@@ -66,6 +66,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def encode(self, s: str) -> str:
@@ -91,6 +93,8 @@ class Solution:
                             f[i][j] = t
         return f[0][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +136,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -170,6 +176,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func encode(s string) string {
 	n := len(s)
@@ -205,6 +213,8 @@ func encode(s string) string {
 	return f[0][n-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function encode(s: string): string {

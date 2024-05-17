@@ -80,6 +80,8 @@ Bob 可以移除下标 2 的蓝色气球。这将花费 3 秒。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCost(self, colors: str, neededTime: List[int]) -> int:
@@ -98,6 +100,8 @@ class Solution:
             i = j
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -143,6 +149,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minCost(colors string, neededTime []int) (ans int) {

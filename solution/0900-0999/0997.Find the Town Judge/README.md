@@ -86,6 +86,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findJudge(self, n: int, trust: List[List[int]]) -> int:
@@ -99,6 +101,8 @@ class Solution:
                 return i
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +123,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -141,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findJudge(n int, trust [][]int) int {
 	cnt1 := make([]int, n+1)
@@ -159,6 +167,8 @@ func findJudge(n int, trust [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findJudge(n: number, trust: number[][]): number {
     const cnt1: number[] = new Array(n + 1).fill(0);
@@ -175,6 +185,8 @@ function findJudge(n: number, trust: number[][]): number {
     return -1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

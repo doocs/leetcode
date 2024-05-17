@@ -96,6 +96,8 @@ The time complexity is $O(n \times |k|)$, ignoring the space consumption of the 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def decrypt(self, code: List[int], k: int) -> List[int]:
@@ -112,6 +114,8 @@ class Solution:
                     ans[i] += code[(j + n) % n]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +140,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -162,6 +168,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func decrypt(code []int, k int) []int {
 	n := len(code)
@@ -183,6 +191,8 @@ func decrypt(code []int, k int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function decrypt(code: number[], k: number): number[] {
@@ -229,6 +239,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def decrypt(self, code: List[int], k: int) -> List[int]:
@@ -244,6 +256,8 @@ class Solution:
                 ans[i] = s[i + n] - s[i + k + n]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -268,6 +282,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -294,6 +310,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func decrypt(code []int, k int) []int {
 	n := len(code)
@@ -315,6 +333,8 @@ func decrypt(code []int, k int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function decrypt(code: number[], k: number): number[] {

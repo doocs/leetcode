@@ -106,6 +106,8 @@ John, Daiana, Steve 和 Jasmine 所在的院系分别是 14, 33, 74 和 77， �
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT id, name
@@ -124,6 +126,8 @@ WHERE department_id NOT IN (SELECT id FROM Departments);
 我们也可以使用左连接，将 `Students` 表和 `Departments` 连接，连接条件为 `Students.department_id = Departments.id`，然后筛选出 `Departments.id` 为空的学生即可。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

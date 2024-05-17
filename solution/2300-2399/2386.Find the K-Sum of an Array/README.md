@@ -83,6 +83,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def kSum(self, nums: List[int], k: int) -> int:
@@ -102,6 +104,8 @@ class Solution:
                     heappush(h, (s + nums[i] - nums[i - 1], i + 1))
         return mx - h[0][0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -134,6 +138,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -168,6 +174,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func kSum(nums []int, k int) int64 {

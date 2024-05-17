@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def trapRainWater(self, heightMap: List[List[int]]) -> int:
@@ -92,6 +94,8 @@ class Solution:
                     heappush(pq, (max(h, heightMap[x][y]), x, y))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +128,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -160,6 +166,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func trapRainWater(heightMap [][]int) (ans int) {

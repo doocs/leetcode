@@ -65,6 +65,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minSubsequence(self, nums: List[int]) -> List[int]:
@@ -77,6 +79,8 @@ class Solution:
                 break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +100,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -117,6 +123,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minSubsequence(nums []int) (ans []int) {
 	sort.Ints(nums)
@@ -134,6 +142,8 @@ func minSubsequence(nums []int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minSubsequence(nums: number[]): number[] {
     nums.sort((a, b) => b - a);
@@ -147,6 +157,8 @@ function minSubsequence(nums: number[]): number[] {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

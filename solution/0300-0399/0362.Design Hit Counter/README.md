@@ -78,6 +78,8 @@ counter.getHits(301); // 在时刻 301 统计过去 5 分钟内的敲击次数�
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class HitCounter:
     def __init__(self):
@@ -106,6 +108,8 @@ class HitCounter:
 # obj.hit(timestamp)
 # param_2 = obj.getHits(timestamp)
 ```
+
+#### Java
 
 ```java
 class HitCounter {
@@ -147,6 +151,8 @@ class HitCounter {
  * int param_2 = obj.getHits(timestamp);
  */
 ```
+
+#### Rust
 
 ```rust
 use std::{ collections::BinaryHeap, cmp::Reverse };

@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, nums: List[int]) -> int:
@@ -85,6 +87,8 @@ class Solution:
                     mi = min(mi, j - i + 1)
         return -1 if mi > n else n - 1 + mi - 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -146,6 +152,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minOperations(nums []int) int {
@@ -182,6 +190,8 @@ func gcd(a, b int) int {
 	return gcd(b, a%b)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minOperations(nums: number[]): number {

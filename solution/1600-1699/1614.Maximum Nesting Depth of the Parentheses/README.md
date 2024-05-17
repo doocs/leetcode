@@ -83,6 +83,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxDepth(self, s: str) -> int:
@@ -95,6 +97,8 @@ class Solution:
                 d -= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxDepth(s string) (ans int) {
 	d := 0
@@ -145,6 +153,8 @@ func maxDepth(s string) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxDepth(s: string): number {
     let ans = 0;
@@ -159,6 +169,8 @@ function maxDepth(s: string): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -178,6 +190,8 @@ var maxDepth = function (s) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

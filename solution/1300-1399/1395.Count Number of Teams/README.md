@@ -81,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numTeams(self, rating: List[int]) -> int:
@@ -92,6 +94,8 @@ class Solution:
             ans += (i - l) * (n - i - 1 - r)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -144,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numTeams(rating []int) (ans int) {
 	n := len(rating)
@@ -165,6 +173,8 @@ func numTeams(rating []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numTeams(rating: number[]): number {
@@ -203,6 +213,8 @@ function numTeams(rating: number[]): number {
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $rating$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -244,6 +256,8 @@ class Solution:
             ans += (i - l) * (n - i - 1 - r)
         return ans
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -318,6 +332,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -374,6 +390,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {
@@ -432,6 +450,8 @@ func numTeams(rating []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {

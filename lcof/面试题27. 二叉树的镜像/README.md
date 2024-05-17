@@ -59,6 +59,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -77,6 +79,8 @@ class Solution:
         self.mirrorTree(root.right)
         return root
 ```
+
+#### Java
 
 ```java
 /**
@@ -103,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -127,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -146,6 +154,8 @@ func mirrorTree(root *TreeNode) *TreeNode {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -174,6 +184,8 @@ function mirrorTree(root: TreeNode | null): TreeNode | null {
     return root;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -215,6 +227,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -239,6 +253,8 @@ var mirrorTree = function (root) {
     return root;
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -274,6 +290,8 @@ public class Solution {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.

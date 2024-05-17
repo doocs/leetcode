@@ -107,6 +107,8 @@ Rides table:
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT user_id, name, IFNULL(SUM(distance), 0) AS 'traveled distance'

@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def platesBetweenCandles(self, s: str, queries: List[List[int]]) -> List[int]:
@@ -103,6 +105,8 @@ class Solution:
                 ans[k] = presum[j] - presum[i + 1]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -166,6 +172,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func platesBetweenCandles(s string, queries [][]int) []int {

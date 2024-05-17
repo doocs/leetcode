@@ -73,11 +73,15 @@ The time complexity is $O(n)$, where $n$ is the length of the string. The space 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def makeStringsEqual(self, s: str, target: str) -> bool:
         return ("1" in s) == ("1" in target)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +90,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -98,17 +104,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func makeStringsEqual(s string, target string) bool {
 	return strings.Contains(s, "1") == strings.Contains(target, "1")
 }
 ```
 
+#### TypeScript
+
 ```ts
 function makeStringsEqual(s: string, target: string): boolean {
     return s.includes('1') === target.includes('1');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -117,6 +129,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 bool makeStringsEqual(char* s, char* target) {

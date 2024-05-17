@@ -74,6 +74,8 @@ There are other answers that would also be accepted as correct, such as [[1,2],[
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def allCellsDistOrder(
@@ -94,6 +96,8 @@ class Solution:
                         q.append([x, y])
         return ans
 ```
+
+#### Java
 
 ```java
 import java.util.Deque;
@@ -125,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -155,6 +161,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func allCellsDistOrder(rows int, cols int, rCenter int, cCenter int) (ans [][]int) {

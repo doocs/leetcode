@@ -91,6 +91,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumPushes(self, word: str) -> int:
@@ -102,6 +104,8 @@ class Solution:
         ans += k * (n % 8)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -134,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumPushes(word string) (ans int) {
 	n := len(word)
@@ -146,6 +154,8 @@ func minimumPushes(word string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumPushes(word: string): number {

@@ -84,6 +84,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def shortestPathAllKeys(self, grid: List[str]) -> int:
@@ -129,6 +131,8 @@ class Solution:
             ans += 1
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -197,6 +201,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -252,6 +258,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func shortestPathAllKeys(grid []string) int {

@@ -67,6 +67,8 @@ The time complexity is $O(n)$, where $n$ is the length of the string $s$. The sp
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def validPalindrome(self, s: str) -> bool:
@@ -84,6 +86,8 @@ class Solution:
             i, j = i + 1, j - 1
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -130,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func validPalindrome(s string) bool {
 	check := func(i, j int) bool {
@@ -148,6 +156,8 @@ func validPalindrome(s string) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function validPalindrome(s: string): boolean {
@@ -168,6 +178,8 @@ function isPalinddrome(s: string): boolean {
     return true;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -191,6 +203,8 @@ var validPalindrome = function (s) {
     return true;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

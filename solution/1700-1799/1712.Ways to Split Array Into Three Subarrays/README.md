@@ -88,6 +88,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def waysToSplit(self, nums: List[int]) -> int:
@@ -100,6 +102,8 @@ class Solution:
             ans += k - j
         return ans % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +139,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -155,6 +161,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func waysToSplit(nums []int) (ans int) {
 	const mod int = 1e9 + 7
@@ -172,6 +180,8 @@ func waysToSplit(nums []int) (ans int) {
 	return
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

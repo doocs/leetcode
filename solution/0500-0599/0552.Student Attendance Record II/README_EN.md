@@ -75,6 +75,8 @@ Only &quot;AA&quot; is not eligible because there are 2 absences (there need to 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkRecord(self, n: int) -> int:
@@ -95,6 +97,8 @@ class Solution:
         dfs.cache_clear()
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +130,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 int f[100010][2][3];
@@ -160,6 +166,8 @@ private:
     int n;
 };
 ```
+
+#### Go
 
 ```go
 func checkRecord(n int) int {
@@ -206,6 +214,8 @@ func checkRecord(n int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkRecord(self, n: int) -> int:
@@ -235,6 +245,8 @@ class Solution:
                 ans = (ans + dp[n - 1][j][k]) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -272,6 +284,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 constexpr int MOD = 1e9 + 7;
 
@@ -307,6 +321,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 const _mod int = 1e9 + 7

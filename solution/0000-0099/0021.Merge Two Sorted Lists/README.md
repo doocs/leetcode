@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -88,6 +90,8 @@ class Solution:
             list2.next = self.mergeTwoLists(list1, list2.next)
             return list2
 ```
+
+#### Java
 
 ```java
 /**
@@ -119,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -146,6 +152,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -170,6 +178,8 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -197,6 +207,8 @@ function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode
     }
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -238,6 +250,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -264,6 +278,8 @@ var mergeTwoLists = function (list1, list2) {
     }
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -300,6 +316,8 @@ public class Solution {
     }
 }
 ```
+
+#### Ruby
 
 ```rb
 # Definition for singly-linked list.
@@ -349,6 +367,8 @@ end
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -372,6 +392,8 @@ class Solution:
         curr.next = list1 or list2
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -403,6 +425,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -436,6 +460,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -465,6 +491,8 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 	return dummy.Next
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -496,6 +524,8 @@ function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode
     return dummy.next;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -540,6 +570,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -570,6 +602,8 @@ var mergeTwoLists = function (list1, list2) {
     return dummy.next;
 };
 ```
+
+#### PHP
 
 ```php
 # Definition for singly-linked list.

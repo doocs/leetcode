@@ -84,6 +84,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minInsertions(self, s: str) -> int:
@@ -97,6 +99,8 @@ class Solution:
 
         return dfs(0, len(s) - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +132,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -154,6 +160,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minInsertions(s string) int {
@@ -217,6 +225,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minInsertions(self, s: str) -> int:
@@ -230,6 +240,8 @@ class Solution:
                     f[i][j] = min(f[i + 1][j], f[i][j - 1]) + 1
         return f[0][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -249,6 +261,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -270,6 +284,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minInsertions(s string) int {
@@ -301,6 +317,8 @@ func minInsertions(s string) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minInsertions(self, s: str) -> int:
@@ -315,6 +333,8 @@ class Solution:
                     f[i][j] = min(f[i + 1][j], f[i][j - 1]) + 1
         return f[0][n - 1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -335,6 +355,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -357,6 +379,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minInsertions(s string) int {

@@ -92,6 +92,8 @@ The time complexity is $O(m + n + |\Sigma|^3)$, and the space complexity is $O(|
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumCost(
@@ -122,6 +124,8 @@ class Solution:
                 ans += g[x][y]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -162,6 +166,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -206,6 +212,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumCost(source string, target string, original []byte, changed []byte, cost []int) (ans int64) {
 	const inf = 1 << 29
@@ -249,6 +257,8 @@ func minimumCost(source string, target string, original []byte, changed []byte, 
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumCost(

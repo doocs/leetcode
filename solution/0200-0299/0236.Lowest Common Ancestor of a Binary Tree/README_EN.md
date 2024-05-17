@@ -75,6 +75,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -94,6 +96,8 @@ class Solution:
         right = self.lowestCommonAncestor(root.right, p, q)
         return root if left and right else (left or right)
 ```
+
+#### Java
 
 ```java
 /**
@@ -119,6 +123,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -146,6 +152,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -170,6 +178,8 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 	return right
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -199,6 +209,8 @@ function lowestCommonAncestor(
     return left && right ? root : left || right;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -250,6 +262,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

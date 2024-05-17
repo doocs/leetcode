@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minInsertions(self, s: str) -> int:
@@ -108,6 +110,8 @@ class Solution:
         return ans
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int minInsertions(String s) {
@@ -134,6 +138,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -162,6 +168,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minInsertions(s string) int {

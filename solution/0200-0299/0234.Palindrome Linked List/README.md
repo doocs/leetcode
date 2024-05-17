@@ -64,6 +64,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -86,6 +88,8 @@ class Solution:
             pre, head = pre.next, head.next
         return True
 ```
+
+#### Java
 
 ```java
 /**
@@ -127,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -165,6 +171,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -195,6 +203,8 @@ func isPalindrome(head *ListNode) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -234,6 +244,8 @@ function isPalindrome(head: ListNode | null): boolean {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -272,6 +284,8 @@ var isPalindrome = function (head) {
     return true;
 };
 ```
+
+#### C#
 
 ```cs
 /**

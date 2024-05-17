@@ -58,6 +58,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def duplicateZeros(self, arr: List[int]) -> None:
@@ -81,6 +83,8 @@ class Solution:
                 arr[j] = arr[i]
             i, j = i - 1, j - 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +138,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func duplicateZeros(arr []int) {
@@ -158,6 +166,8 @@ func duplicateZeros(arr []int) {
 	}
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -186,6 +196,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 void duplicateZeros(int* arr, int arrSize) {

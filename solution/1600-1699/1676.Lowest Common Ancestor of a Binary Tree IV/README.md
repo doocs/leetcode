@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -100,6 +102,8 @@ class Solution:
         s = {node.val for node in nodes}
         return dfs(root)
 ```
+
+#### Java
 
 ```java
 /**
@@ -138,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -167,6 +173,8 @@ public:
     }
 };
 ```
+
+#### JavaScript
 
 ```js
 /**

@@ -66,6 +66,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findLengthOfLCIS(self, nums: List[int]) -> int:
@@ -78,6 +80,8 @@ class Solution:
                 cnt = 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +98,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -112,6 +118,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findLengthOfLCIS(nums []int) int {
 	ans, cnt := 1, 1
@@ -127,6 +135,8 @@ func findLengthOfLCIS(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findLengthOfLCIS(nums: number[]): number {
     let [ans, cnt] = [1, 1];
@@ -140,6 +150,8 @@ function findLengthOfLCIS(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -158,6 +170,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -194,6 +208,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findLengthOfLCIS(self, nums: List[int]) -> int:
@@ -207,6 +223,8 @@ class Solution:
             i = j
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -225,6 +243,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -245,6 +265,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findLengthOfLCIS(nums []int) int {
 	ans := 1
@@ -261,6 +283,8 @@ func findLengthOfLCIS(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findLengthOfLCIS(nums: number[]): number {
     let ans = 1;
@@ -276,6 +300,8 @@ function findLengthOfLCIS(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -295,6 +321,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

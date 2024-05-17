@@ -92,6 +92,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumCoins(
@@ -106,6 +108,8 @@ class Solution:
             ans.append(s[i])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -145,6 +149,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -181,6 +187,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumCoins(heroes []int, monsters []int, coins []int) (ans []int64) {
 	m := len(monsters)
@@ -200,6 +208,8 @@ func maximumCoins(heroes []int, monsters []int, coins []int) (ans []int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumCoins(heroes: number[], monsters: number[], coins: number[]): number[] {

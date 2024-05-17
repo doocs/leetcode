@@ -64,6 +64,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def verifyPreorder(self, preorder: List[int]) -> bool:
@@ -77,6 +79,8 @@ class Solution:
             stk.append(x)
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +101,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -115,6 +121,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func verifyPreorder(preorder []int) bool {

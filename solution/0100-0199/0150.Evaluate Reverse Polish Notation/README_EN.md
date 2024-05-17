@@ -82,6 +82,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 import operator
 
@@ -102,6 +104,8 @@ class Solution:
                 s.append(int(token))
         return s[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -134,6 +138,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -161,6 +167,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func evalRPN(tokens []string) int {
@@ -194,6 +202,8 @@ func popInt(stack *arraystack.Stack) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function evalRPN(tokens: string[]): number {
     const stack = [];
@@ -223,6 +233,8 @@ function evalRPN(tokens: string[]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn eval_rpn(tokens: Vec<String>) -> i32 {
@@ -247,6 +259,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 using System.Collections.Generic;
@@ -290,6 +304,8 @@ public class Solution {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

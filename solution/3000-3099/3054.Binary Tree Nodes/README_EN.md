@@ -90,6 +90,8 @@ Therefore, we use left join to join the `Tree` table twice, with the join condit
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT DISTINCT

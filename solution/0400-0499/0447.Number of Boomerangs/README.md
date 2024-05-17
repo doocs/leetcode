@@ -73,6 +73,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfBoomerangs(self, points: List[List[int]]) -> int:
@@ -85,6 +87,8 @@ class Solution:
                 cnt[d] += 1
         return ans << 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -121,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfBoomerangs(points [][]int) (ans int) {
 	for _, p1 := range points {
@@ -135,6 +143,8 @@ func numberOfBoomerangs(points [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfBoomerangs(points: number[][]): number {
@@ -161,6 +171,8 @@ function numberOfBoomerangs(points: number[][]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfBoomerangs(self, points: List[List[int]]) -> int:
@@ -173,6 +185,8 @@ class Solution:
             ans += sum(x * (x - 1) for x in cnt.values())
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -192,6 +206,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -213,6 +229,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfBoomerangs(points [][]int) (ans int) {
 	for _, p1 := range points {
@@ -228,6 +246,8 @@ func numberOfBoomerangs(points [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfBoomerangs(points: number[][]): number {

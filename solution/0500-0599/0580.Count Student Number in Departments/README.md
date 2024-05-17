@@ -97,6 +97,8 @@ Department 表:
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT dept_name, COUNT(student_id) AS student_number

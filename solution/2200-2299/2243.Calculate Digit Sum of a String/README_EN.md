@@ -77,6 +77,8 @@ s becomes &quot;0&quot; + &quot;0&quot; + &quot;0&quot; = &quot;000&quot;, whose
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def digitSum(self, s: str, k: int) -> str:
@@ -91,6 +93,8 @@ class Solution:
             s = "".join(t)
         return s
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -133,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func digitSum(s string, k int) string {
 	for len(s) > k {
@@ -150,6 +158,8 @@ func digitSum(s string, k int) string {
 	return s
 }
 ```
+
+#### TypeScript
 
 ```ts
 function digitSum(s: string, k: number): string {
@@ -175,6 +185,8 @@ function digitSum(s: string, k: number): string {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

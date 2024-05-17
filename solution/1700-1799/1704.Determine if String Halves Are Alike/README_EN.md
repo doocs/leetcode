@@ -66,6 +66,8 @@ The time complexity is $O(n)$, where $n$ is the length of the string. The space 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def halvesAreAlike(self, s: str) -> bool:
@@ -76,6 +78,8 @@ class Solution:
             cnt -= s[i + n] in vowels
         return cnt == 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +97,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -107,6 +113,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func halvesAreAlike(s string) bool {
@@ -127,6 +135,8 @@ func halvesAreAlike(s string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function halvesAreAlike(s: string): boolean {
     const set = new Set(['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']);
@@ -139,6 +149,8 @@ function halvesAreAlike(s: string): boolean {
     return count === 0;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -163,6 +175,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} s
@@ -178,6 +192,8 @@ var halvesAreAlike = function (s) {
     return cnt === 0;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -209,6 +225,8 @@ class Solution {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

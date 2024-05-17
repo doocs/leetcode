@@ -78,6 +78,8 @@ Similar problems:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def count(self, num1: str, num2: str, min_sum: int, max_sum: int) -> int:
@@ -98,6 +100,8 @@ class Solution:
         b = dfs(0, 0, True)
         return (a - b) % mod
 ```
+
+#### Java
 
 ```java
 import java.math.BigInteger;
@@ -140,6 +144,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -185,6 +191,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func count(num1 string, num2 string, min_sum int, max_sum int) int {
@@ -240,6 +248,8 @@ func count(num1 string, num2 string, min_sum int, max_sum int) int {
 	return (a - b + mod) % mod
 }
 ```
+
+#### TypeScript
 
 ```ts
 function count(num1: string, num2: string, min_sum: number, max_sum: number): number {

@@ -65,6 +65,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # """
 # This is the interface that allows for creating nested lists.
@@ -122,6 +124,8 @@ class Solution:
         return dfs(nestedList, 1)
 ```
 
+#### Java
+
 ```java
 /**
  * // This is the interface that allows for creating nested lists.
@@ -169,6 +173,8 @@ class Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

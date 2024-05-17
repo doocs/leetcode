@@ -56,6 +56,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -76,6 +78,8 @@ class Solution:
         nodes = set()
         return find(root)
 ```
+
+#### Java
 
 ```java
 /**
@@ -114,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -143,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -169,6 +177,8 @@ func findTarget(root *TreeNode, k int) bool {
 	return find(root, k)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

@@ -57,6 +57,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isStraight(self, nums: List[int]) -> bool:
@@ -72,6 +74,8 @@ class Solution:
             mx = max(mx, x)
         return mx - mi <= 4
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +97,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -116,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isStraight(nums []int) bool {
 	vis := map[int]bool{}
@@ -135,6 +143,8 @@ func isStraight(nums []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isStraight(nums: number[]): boolean {
     nums.sort((a, b) => a - b);
@@ -149,6 +159,8 @@ function isStraight(nums: number[]): boolean {
     return nums[4] - nums[j] <= 4;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -166,6 +178,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -190,6 +204,8 @@ var isStraight = function (nums) {
     return mx - mi <= 4;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

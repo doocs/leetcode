@@ -77,6 +77,8 @@ There are no more stars, so we return &quot;lecoe&quot;.</pre>
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def removeStars(self, s: str) -> str:
@@ -88,6 +90,8 @@ class Solution:
                 ans.append(c)
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func removeStars(s string) string {
 	ans := []rune{}
@@ -136,6 +144,8 @@ func removeStars(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function removeStars(s: string): string {
     const ans: string[] = [];
@@ -149,6 +159,8 @@ function removeStars(s: string): string {
     return ans.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -165,6 +177,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

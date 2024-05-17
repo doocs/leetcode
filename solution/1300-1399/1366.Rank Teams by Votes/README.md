@@ -106,6 +106,8 @@ C 队获得两票「排位第一」，两票「排位第二」，两票「排位
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def rankTeams(self, votes: List[str]) -> str:
@@ -116,6 +118,8 @@ class Solution:
                 cnt[c][i] += 1
         return "".join(sorted(votes[0], key=lambda x: (cnt[x], -ord(x)), reverse=True))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -150,6 +154,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -176,6 +182,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func rankTeams(votes []string) string {

@@ -66,6 +66,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numSub(self, s: str) -> int:
@@ -78,6 +80,8 @@ class Solution:
             ans += cnt
         return ans % (10**9 + 7)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -108,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numSub(s string) (ans int) {
 	const mod = 1e9 + 7
@@ -123,6 +131,8 @@ func numSub(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numSub(s: string): number {

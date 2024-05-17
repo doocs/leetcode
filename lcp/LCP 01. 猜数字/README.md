@@ -56,11 +56,15 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2001.%20%E7%8C%9C%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def game(self, guess: List[int], answer: List[int]) -> int:
         return sum(a == b for a, b in zip(guess, answer))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -76,6 +80,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -89,6 +95,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func game(guess []int, answer []int) (ans int) {
 	for i, a := range guess {
@@ -99,6 +107,8 @@ func game(guess []int, answer []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function game(guess: number[], answer: number[]): number {
@@ -111,6 +121,8 @@ function game(guess: number[], answer: number[]): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -128,6 +140,8 @@ var game = function (guess, answer) {
     return ans;
 };
 ```
+
+#### C
 
 ```c
 int game(int* guess, int guessSize, int* answer, int answerSize) {
@@ -150,6 +164,8 @@ int game(int* guess, int guessSize, int* answer, int answerSize) {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function game(guess: number[], answer: number[]): number {

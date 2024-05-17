@@ -78,6 +78,8 @@ The time complexity is $O(n + |\Sigma|)$, and the space complexity is $O(|\Sigma
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def repeatLimitedString(self, s: str, repeatLimit: int) -> str:
@@ -102,6 +104,8 @@ class Solution:
                 ans.append(ascii_lowercase[j])
         return "".join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +139,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -170,6 +176,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func repeatLimitedString(s string, repeatLimit int) string {
 	cnt := [26]int{}
@@ -200,6 +208,8 @@ func repeatLimitedString(s string, repeatLimit int) string {
 	return string(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function repeatLimitedString(s: string, repeatLimit: number): string {

@@ -66,6 +66,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def moveZeroes(self, nums: List[int]) -> None:
@@ -75,6 +77,8 @@ class Solution:
                 i += 1
                 nums[i], nums[j] = nums[j], nums[i]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +95,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -105,6 +111,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func moveZeroes(nums []int) {
 	i := -1
@@ -116,6 +124,8 @@ func moveZeroes(nums []int) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -135,6 +145,8 @@ function moveZeroes(nums: number[]): void {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn move_zeroes(nums: &mut Vec<i32>) {
@@ -152,6 +164,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -168,6 +182,8 @@ var moveZeroes = function (nums) {
     }
 };
 ```
+
+#### C
 
 ```c
 void moveZeroes(int* nums, int numsSize) {

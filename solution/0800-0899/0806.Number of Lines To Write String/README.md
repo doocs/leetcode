@@ -73,6 +73,8 @@ S = &quot;bbbcccdddaaa&quot;
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfLines(self, widths: List[int], s: str) -> List[int]:
@@ -85,6 +87,8 @@ class Solution:
                 last = w
         return [lines, last]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -123,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfLines(widths []int, s string) []int {
 	lines, last := 1, 0
@@ -139,6 +147,8 @@ func numberOfLines(widths []int, s string) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numberOfLines(widths: number[], s: string): number[] {
     let [lines, last] = [1, 0];
@@ -154,6 +164,8 @@ function numberOfLines(widths: number[], s: string): number[] {
     return [lines, last];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

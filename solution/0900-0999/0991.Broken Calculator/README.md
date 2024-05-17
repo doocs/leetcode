@@ -74,6 +74,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def brokenCalc(self, startValue: int, target: int) -> int:
@@ -87,6 +89,8 @@ class Solution:
         ans += startValue - target
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +130,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func brokenCalc(startValue int, target int) (ans int) {

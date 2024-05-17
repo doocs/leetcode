@@ -73,6 +73,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.08.First%20Common%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -92,6 +94,8 @@ class Solution:
         right = self.lowestCommonAncestor(root.right, p, q)
         return right if left is None else (left if right is None else root)
 ```
+
+#### Java
 
 ```java
 /**
@@ -114,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 /* class TreeNode {

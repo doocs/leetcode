@@ -70,6 +70,8 @@ So we can see that 4 rounds will be played and 5 is the winner because it wins 2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getWinner(self, arr: List[int], k: int) -> int:
@@ -85,6 +87,8 @@ class Solution:
                 break
         return mx
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -127,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getWinner(arr []int, k int) int {
 	mx, cnt := arr[0], 0
@@ -144,6 +152,8 @@ func getWinner(arr []int, k int) int {
 	return mx
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getWinner(arr: number[], k: number): number {
@@ -163,6 +173,8 @@ function getWinner(arr: number[], k: number): number {
     return mx;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

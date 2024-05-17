@@ -87,6 +87,8 @@ id 为 "b" 和 "c" 的视频都满足播放量最高的条件。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def mostPopularCreator(
@@ -101,6 +103,8 @@ class Solution:
         mx = max(cnt.values())
         return [[c, ids[d[c]]] for c, x in cnt.items() if x == mx]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +137,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -163,6 +169,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func mostPopularCreator(creators []string, ids []string, views []int) (ans [][]string) {
 	cnt := map[string]int{}
@@ -188,6 +196,8 @@ func mostPopularCreator(creators []string, ids []string, views []int) (ans [][]s
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function mostPopularCreator(creators: string[], ids: string[], views: number[]): string[][] {

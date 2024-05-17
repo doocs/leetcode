@@ -83,6 +83,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minReorder(self, n: int, connections: List[List[int]]) -> int:
@@ -95,6 +97,8 @@ class Solution:
             g[b].append((a, 0))
         return dfs(0, -1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +128,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -148,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minReorder(n int, connections [][]int) int {
 	g := make([][][2]int, n)
@@ -169,6 +177,8 @@ func minReorder(n int, connections [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minReorder(n: number, connections: number[][]): number {
     const g: [number, number][][] = Array.from({ length: n }, () => []);
@@ -188,6 +198,8 @@ function minReorder(n: number, connections: number[][]): number {
     return dfs(0, -1);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

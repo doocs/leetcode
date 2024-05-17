@@ -69,6 +69,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array `height`. Th
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxArea(self, height: List[int]) -> int:
@@ -83,6 +85,8 @@ class Solution:
                 j -= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -123,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxArea(height []int) (ans int) {
 	i, j := 0, len(height)-1
@@ -138,6 +146,8 @@ func maxArea(height []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxArea(height: number[]): number {
@@ -157,6 +167,8 @@ function maxArea(height: number[]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn max_area(height: Vec<i32>) -> i32 {
@@ -175,6 +187,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -198,6 +212,8 @@ var maxArea = function (height) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int MaxArea(int[] height) {
@@ -216,6 +232,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

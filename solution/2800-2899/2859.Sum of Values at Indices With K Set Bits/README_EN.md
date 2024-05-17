@@ -83,11 +83,15 @@ The time complexity is $O(n \times \log n)$, where $n$ is the length of the arra
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumIndicesWithKSetBits(self, nums: List[int], k: int) -> int:
         return sum(x for i, x in enumerate(nums) if i.bit_count() == k)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -118,6 +124,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumIndicesWithKSetBits(nums []int, k int) (ans int) {
 	for i, x := range nums {
@@ -128,6 +136,8 @@ func sumIndicesWithKSetBits(nums []int, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumIndicesWithKSetBits(nums: number[], k: number): number {

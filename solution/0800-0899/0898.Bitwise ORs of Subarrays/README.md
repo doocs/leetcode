@@ -84,6 +84,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def subarrayBitwiseORs(self, arr: List[int]) -> int:
@@ -94,6 +96,8 @@ class Solution:
             ans |= s
         return len(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -134,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subarrayBitwiseORs(arr []int) int {
 	ans := map[int]bool{}
@@ -151,6 +159,8 @@ func subarrayBitwiseORs(arr []int) int {
 	return len(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function subarrayBitwiseORs(arr: number[]): number {

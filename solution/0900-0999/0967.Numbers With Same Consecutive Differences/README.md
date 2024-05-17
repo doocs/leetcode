@@ -72,6 +72,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numsSameConsecDiff(self, n: int, k: int) -> List[int]:
@@ -91,6 +93,8 @@ class Solution:
             dfs(n - 1, k, i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +126,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -144,6 +150,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numsSameConsecDiff(n int, k int) []int {

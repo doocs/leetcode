@@ -68,11 +68,15 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$. Where 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sortByBits(self, arr: List[int]) -> List[int]:
         return sorted(arr, key=lambda x: (x.bit_count(), x))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +94,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -106,6 +112,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sortByBits(arr []int) []int {
 	for i, v := range arr {
@@ -118,6 +126,8 @@ func sortByBits(arr []int) []int {
 	return arr
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sortByBits(arr: number[]): number[] {
@@ -133,6 +143,8 @@ function sortByBits(arr: number[]): number[] {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn sort_by_bits(mut arr: Vec<i32>) -> Vec<i32> {
@@ -147,6 +159,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**
@@ -188,6 +202,8 @@ int* sortByBits(int* arr, int arrSize, int* returnSize) {
 
 <!-- tabs:start -->
 
+#### Java
+
 ```java
 class Solution {
     public int[] sortByBits(int[] arr) {
@@ -208,6 +224,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -220,6 +238,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func sortByBits(arr []int) []int {

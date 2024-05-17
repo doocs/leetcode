@@ -84,6 +84,8 @@ requests[1] -&gt; nums[0] + nums[1] = 3 + 5  = 8
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxSumRangeQuery(self, nums: List[int], requests: List[List[int]]) -> int:
@@ -100,6 +102,8 @@ class Solution:
         mod = 10**9 + 7
         return sum(a * b for a, b in zip(nums, d)) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +131,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -157,6 +163,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSumRangeQuery(nums []int, requests [][]int) (ans int) {
 	n := len(nums)
@@ -180,6 +188,8 @@ func maxSumRangeQuery(nums []int, requests [][]int) (ans int) {
 	}
 	return
 ```
+
+#### TypeScript
 
 ```ts
 function maxSumRangeQuery(nums: number[], requests: number[][]): number {

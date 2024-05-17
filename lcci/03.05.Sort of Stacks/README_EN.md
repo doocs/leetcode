@@ -76,6 +76,8 @@ The space complexity is $O(n)$, where $n$ is the number of elements in the stack
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class SortedStack:
 
@@ -108,6 +110,8 @@ class SortedStack:
 # param_3 = obj.peek()
 # param_4 = obj.isEmpty()
 ```
+
+#### Java
 
 ```java
 class SortedStack {
@@ -151,6 +155,8 @@ class SortedStack {
  * boolean param_4 = obj.isEmpty();
  */
 ```
+
+#### C++
 
 ```cpp
 class SortedStack {
@@ -198,6 +204,8 @@ private:
  * bool param_4 = obj->isEmpty();
  */
 ```
+
+#### Go
 
 ```go
 type SortedStack struct {
@@ -247,6 +255,8 @@ func (this *SortedStack) IsEmpty() bool {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class SortedStack {
     private stk: number[] = [];
@@ -287,6 +297,8 @@ class SortedStack {
  * var param_4 = obj.isEmpty()
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -340,6 +352,8 @@ impl SortedStack {
  * let ret_4: bool = obj.is_empty();
  */
 ```
+
+#### Swift
 
 ```swift
 class SortedStack {

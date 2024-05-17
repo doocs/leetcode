@@ -58,11 +58,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isThree(self, n: int) -> bool:
         return sum(n % i == 0 for i in range(2, n)) == 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -78,6 +82,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -91,6 +97,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isThree(n int) bool {
 	cnt := 0
@@ -102,6 +110,8 @@ func isThree(n int) bool {
 	return cnt == 1
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -129,6 +139,8 @@ var isThree = function (n) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isThree(self, n: int) -> bool:
@@ -140,6 +152,8 @@ class Solution:
             i += 1
         return cnt == 3
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -154,6 +168,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -170,6 +186,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isThree(n int) bool {
 	cnt := 0
@@ -185,6 +203,8 @@ func isThree(n int) bool {
 	return cnt == 3
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

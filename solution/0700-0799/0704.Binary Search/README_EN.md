@@ -69,6 +69,8 @@ The time complexity is $O(\log n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
@@ -81,6 +83,8 @@ class Solution:
                 left = mid + 1
         return left if nums[left] == target else -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +103,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -115,6 +121,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func search(nums []int, target int) int {
@@ -133,6 +141,8 @@ func search(nums []int, target int) int {
 	return -1
 }
 ```
+
+#### Rust
 
 ```rust
 use std::cmp::Ordering;
@@ -160,6 +170,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -180,6 +192,8 @@ var search = function (nums, target) {
     return nums[left] == target ? left : -1;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

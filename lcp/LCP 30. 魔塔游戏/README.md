@@ -60,6 +60,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2030.%20%E9%AD%94%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def magicTower(self, nums: List[int]) -> int:
@@ -77,6 +79,8 @@ class Solution:
         blood += v
         return -1 if blood <= 0 else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -125,6 +131,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func magicTower(nums []int) (ans int) {
@@ -159,6 +167,8 @@ func (h *hp) Pop() any {
 	return v
 }
 ```
+
+#### TypeScript
 
 ```ts
 function magicTower(nums: number[]): number {

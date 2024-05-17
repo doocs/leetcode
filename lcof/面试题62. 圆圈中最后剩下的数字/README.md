@@ -63,6 +63,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def lastRemaining(self, n: int, m: int) -> int:
@@ -74,6 +76,8 @@ class Solution:
 
         return f(n, m)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +94,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -108,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func lastRemaining(n int, m int) int {
 	var f func(n, m int) int
@@ -121,6 +129,8 @@ func lastRemaining(n int, m int) int {
 	return f(n, m)
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -136,6 +146,8 @@ var lastRemaining = function (n, m) {
     return f;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -159,6 +171,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def lastRemaining(self, n: int, m: int) -> int:
@@ -167,6 +181,8 @@ class Solution:
             f = (f + m) % i
         return f
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -180,6 +196,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -192,6 +210,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func lastRemaining(n int, m int) int {

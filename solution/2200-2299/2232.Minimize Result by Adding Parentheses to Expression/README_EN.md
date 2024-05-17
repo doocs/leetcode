@@ -75,6 +75,8 @@ It can be shown that 170 is the smallest possible value.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimizeResult(self, expression: str) -> str:
@@ -92,6 +94,8 @@ class Solution:
                     ans = f"{l[:i]}({l[i:]}+{r[: j + 1]}){r[j + 1:]}"
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +123,8 @@ class Solution {
     }
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimizeResult(expression: string): string {

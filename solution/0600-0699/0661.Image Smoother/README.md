@@ -74,6 +74,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def imageSmoother(self, img: List[List[int]]) -> List[List[int]]:
@@ -90,6 +92,8 @@ class Solution:
                 ans[i][j] = s // cnt
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -141,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func imageSmoother(img [][]int) [][]int {
 	m, n := len(img), len(img[0])
@@ -163,6 +171,8 @@ func imageSmoother(img [][]int) [][]int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function imageSmoother(img: number[][]): number[][] {
@@ -198,6 +208,8 @@ function imageSmoother(img: number[][]): number[][] {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

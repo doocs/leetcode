@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -100,6 +102,8 @@ class Solution:
         cnt = Counter({0: 1})
         return dfs(root, 0)
 ```
+
+#### Java
 
 ```java
 /**
@@ -142,6 +146,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -173,6 +179,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -199,6 +207,8 @@ func pathSum(root *TreeNode, targetSum int) int {
 	return dfs(root, 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

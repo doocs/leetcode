@@ -57,6 +57,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxKilledEnemies(self, grid: List[List[str]]) -> int:
@@ -97,6 +99,8 @@ class Solution:
             default=0,
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -157,6 +161,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -209,6 +215,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxKilledEnemies(grid [][]byte) int {

@@ -111,6 +111,8 @@ In terms of time complexity, since we use hash tables, the time complexity of ea
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class FrequencyTracker:
     def __init__(self):
@@ -138,6 +140,8 @@ class FrequencyTracker:
 # obj.deleteOne(number)
 # param_3 = obj.hasFrequency(frequency)
 ```
+
+#### Java
 
 ```java
 class FrequencyTracker {
@@ -174,6 +178,8 @@ class FrequencyTracker {
  * boolean param_3 = obj.hasFrequency(frequency);
  */
 ```
+
+#### C++
 
 ```cpp
 class FrequencyTracker {
@@ -213,6 +219,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type FrequencyTracker struct {
 	cnt  map[int]int
@@ -249,6 +257,8 @@ func (this *FrequencyTracker) HasFrequency(frequency int) bool {
  * param_3 := obj.HasFrequency(frequency);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class FrequencyTracker {
@@ -289,6 +299,8 @@ class FrequencyTracker {
  * var param_3 = obj.hasFrequency(frequency)
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;

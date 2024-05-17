@@ -62,6 +62,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def matrixReshape(self, mat: List[List[int]], r: int, c: int) -> List[List[int]]:
@@ -73,6 +75,8 @@ class Solution:
             ans[i // c][i % c] = mat[i // n][i % n]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +93,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -107,6 +113,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func matrixReshape(mat [][]int, r int, c int) [][]int {
 	m, n := len(mat), len(mat[0])
@@ -124,6 +132,8 @@ func matrixReshape(mat [][]int, r int, c int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function matrixReshape(mat: number[][], r: number, c: number): number[][] {
     let m = mat.length,
@@ -140,6 +150,8 @@ function matrixReshape(mat: number[][], r: number, c: number): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -173,6 +185,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**
@@ -209,6 +223,8 @@ int** matrixReshape(int** mat, int matSize, int* matColSize, int r, int c, int* 
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function matrixReshape(mat: number[][], r: number, c: number): number[][] {

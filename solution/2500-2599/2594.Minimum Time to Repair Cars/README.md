@@ -82,6 +82,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def repairCars(self, ranks: List[int], cars: int) -> int:
@@ -90,6 +92,8 @@ class Solution:
 
         return bisect_left(range(ranks[0] * cars * cars), True, key=check)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -134,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func repairCars(ranks []int, cars int) int64 {
 	return int64(sort.Search(ranks[0]*cars*cars, func(t int) bool {
@@ -145,6 +153,8 @@ func repairCars(ranks []int, cars int) int64 {
 	}))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function repairCars(ranks: number[], cars: number): number {

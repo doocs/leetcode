@@ -68,6 +68,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestPalindrome(self, s: str) -> str:
@@ -83,6 +85,8 @@ class Solution:
                         k, mx = i, j - i + 1
         return s[k : k + mx]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -133,6 +139,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestPalindrome(s string) string {
@@ -161,6 +169,8 @@ func longestPalindrome(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestPalindrome(s: string): string {
     const n = s.length;
@@ -185,6 +195,8 @@ function longestPalindrome(s: string): string {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn longest_palindrome(s: String) -> String {
@@ -206,6 +218,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -235,6 +249,8 @@ var longestPalindrome = function (s) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public string LongestPalindrome(string s) {
@@ -262,6 +278,8 @@ public class Solution {
     }
 }
 ```
+
+#### Nim
 
 ```nim
 import std/sequtils
@@ -301,6 +319,8 @@ proc longestPalindrome(s: string): string =
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestPalindrome(self, s: str) -> str:
@@ -320,6 +340,8 @@ class Solution:
                 start = i - ((t - 1) >> 1)
         return s[start : start + mx]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -352,6 +374,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -378,6 +402,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestPalindrome(s string) string {
 	n := len(s)
@@ -399,6 +425,8 @@ func longestPalindrome(s string) string {
 	return s[start : start+mx]
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -429,6 +457,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

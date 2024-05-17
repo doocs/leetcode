@@ -69,6 +69,8 @@ The time complexity is $O(\log_3 n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkPowersOfThree(self, n: int) -> bool:
@@ -78,6 +80,8 @@ class Solution:
             n //= 3
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +97,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -106,6 +112,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func checkPowersOfThree(n int) bool {
 	for n > 0 {
@@ -117,6 +125,8 @@ func checkPowersOfThree(n int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function checkPowersOfThree(n: number): boolean {

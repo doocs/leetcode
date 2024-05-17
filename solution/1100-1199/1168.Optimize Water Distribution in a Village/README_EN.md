@@ -88,6 +88,8 @@ The time complexity is $O((m + n) \times \log (m + n))$, and the space complexit
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCostToSupplyWater(
@@ -112,6 +114,8 @@ class Solution:
                 if n == 0:
                     return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -151,6 +155,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -186,6 +192,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minCostToSupplyWater(n int, wells []int, pipes [][]int) (ans int) {
 	for i, w := range wells {
@@ -220,6 +228,8 @@ func minCostToSupplyWater(n int, wells []int, pipes [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minCostToSupplyWater(n: number, wells: number[], pipes: number[][]): number {
     for (let i = 0; i < n; ++i) {
@@ -251,6 +261,8 @@ function minCostToSupplyWater(n: number, wells: number[], pipes: number[][]): nu
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 struct UnionFind {
@@ -325,6 +337,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class UnionFind:
     __slots__ = ("p", "size")
@@ -367,6 +381,8 @@ class Solution:
                 if n == 0:
                     return ans
 ```
+
+#### Java
 
 ```java
 class UnionFind {
@@ -428,6 +444,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class UnionFind {
 public:
@@ -487,6 +505,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type unionFind struct {
 	p, size []int
@@ -542,6 +562,8 @@ func minCostToSupplyWater(n int, wells []int, pipes [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 class UnionFind {

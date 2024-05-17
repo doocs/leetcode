@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getMaxRepetitions(self, s1: str, n1: int, s2: str, n2: int) -> int:
@@ -100,6 +102,8 @@ class Solution:
             ans += cnt
         return ans // n2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +132,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -158,6 +164,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getMaxRepetitions(s1 string, n1 int, s2 string, n2 int) (ans int) {
 	n := len(s2)
@@ -184,6 +192,8 @@ func getMaxRepetitions(s1 string, n1 int, s2 string, n2 int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getMaxRepetitions(s1: string, n1: number, s2: string, n2: number): number {

@@ -79,11 +79,15 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canBeEqual(self, target: List[int], arr: List[int]) -> bool:
         return sorted(target) == sorted(arr)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +98,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -106,6 +112,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canBeEqual(target []int, arr []int) bool {
 	sort.Ints(target)
@@ -114,6 +122,8 @@ func canBeEqual(target []int, arr []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canBeEqual(target: number[], arr: number[]): boolean {
     target.sort((a, b) => a - b);
@@ -121,6 +131,8 @@ function canBeEqual(target: number[], arr: number[]): boolean {
     return target.join() === arr.join();
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -131,6 +143,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -146,6 +160,8 @@ class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int compare(const void* a, const void* b) {
@@ -180,11 +196,15 @@ The time complexity is $O(n + M)$, and the space complexity is $O(M)$. Here, $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canBeEqual(self, target: List[int], arr: List[int]) -> bool:
         return Counter(target) == Counter(arr)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -201,6 +221,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -219,6 +241,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canBeEqual(target []int, arr []int) bool {
 	cnt1 := make([]int, 1001)
@@ -233,6 +257,8 @@ func canBeEqual(target []int, arr []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canBeEqual(target: number[], arr: number[]): boolean {
     const n = target.length;
@@ -244,6 +270,8 @@ function canBeEqual(target: number[], arr: number[]): boolean {
     return cnt.every(v => !v);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

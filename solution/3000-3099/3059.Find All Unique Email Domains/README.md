@@ -76,6 +76,8 @@ Emails 表：
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT SUBSTRING_INDEX(email, '@', -1) AS email_domain, COUNT(1) AS count
@@ -84,6 +86,8 @@ WHERE email LIKE '%.com'
 GROUP BY 1
 ORDER BY 1;
 ```
+
+#### Python3
 
 ```python
 import pandas as pd

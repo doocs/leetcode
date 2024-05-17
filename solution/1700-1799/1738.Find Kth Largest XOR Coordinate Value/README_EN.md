@@ -92,6 +92,8 @@ The time complexity is $O(m \times n \times \log (m \times n))$ or $O(m \times n
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def kthLargestValue(self, matrix: List[List[int]], k: int) -> int:
@@ -104,6 +106,8 @@ class Solution:
                 ans.append(s[i + 1][j + 1])
         return nlargest(k, ans)[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +126,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -142,6 +148,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func kthLargestValue(matrix [][]int, k int) int {
 	m, n := len(matrix), len(matrix[0])
@@ -160,6 +168,8 @@ func kthLargestValue(matrix [][]int, k int) int {
 	return ans[len(ans)-k]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function kthLargestValue(matrix: number[][], k: number): number {

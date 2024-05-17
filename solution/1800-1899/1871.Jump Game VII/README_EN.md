@@ -76,6 +76,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canReach(self, s: str, minJump: int, maxJump: int) -> bool:
@@ -90,6 +92,8 @@ class Solution:
             pre[i + 1] = pre[i] + f[i]
         return f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -136,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canReach(s string, minJump int, maxJump int) bool {
 	n := len(s)
@@ -157,6 +165,8 @@ func canReach(s string, minJump int, maxJump int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canReach(s: string, minJump: number, maxJump: number): boolean {
     const n = s.length;
@@ -174,6 +184,8 @@ function canReach(s: string, minJump: number, maxJump: number): boolean {
     return f[n - 1];
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

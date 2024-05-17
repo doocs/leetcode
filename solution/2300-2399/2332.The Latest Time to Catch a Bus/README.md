@@ -84,6 +84,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def latestTimeCatchTheBus(
@@ -102,6 +104,8 @@ class Solution:
             ans, j = ans - 1, j - 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -145,6 +151,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func latestTimeCatchTheBus(buses []int, passengers []int, capacity int) int {
@@ -171,6 +179,8 @@ func latestTimeCatchTheBus(buses []int, passengers []int, capacity int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function latestTimeCatchTheBus(buses: number[], passengers: number[], capacity: number): number {
     buses.sort((a, b) => a - b);
@@ -192,6 +202,8 @@ function latestTimeCatchTheBus(buses: number[], passengers: number[], capacity: 
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

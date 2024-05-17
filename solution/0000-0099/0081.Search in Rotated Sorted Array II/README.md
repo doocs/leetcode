@@ -84,6 +84,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def search(self, nums: List[int], target: int) -> bool:
@@ -105,6 +107,8 @@ class Solution:
                 r -= 1
         return nums[l] == target
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +136,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -161,6 +167,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func search(nums []int, target int) bool {
 	l, r := 0, len(nums)-1
@@ -185,6 +193,8 @@ func search(nums []int, target int) bool {
 	return nums[l] == target
 }
 ```
+
+#### TypeScript
 
 ```ts
 function search(nums: number[], target: number): boolean {

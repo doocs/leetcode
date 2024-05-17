@@ -75,6 +75,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2041.%20%E9%BB%91%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def flipChess(self, chessboard: List[str]) -> int:
@@ -104,6 +106,8 @@ class Solution:
             bfs(i, j) for i in range(m) for j in range(n) if chessboard[i][j] == "."
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -168,6 +172,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -224,6 +230,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func flipChess(chessboard []string) (ans int) {

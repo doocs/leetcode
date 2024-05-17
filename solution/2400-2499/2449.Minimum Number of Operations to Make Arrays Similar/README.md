@@ -94,6 +94,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def makeSimilar(self, nums: List[int], target: List[int]) -> int:
@@ -101,6 +103,8 @@ class Solution:
         target.sort(key=lambda x: (x & 1, x))
         return sum(abs(a - b) for a, b in zip(nums, target)) // 4
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -137,6 +141,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -166,6 +172,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func makeSimilar(nums []int, target []int) int64 {
@@ -203,6 +211,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function makeSimilar(nums: number[], target: number[]): number {

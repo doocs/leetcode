@@ -50,11 +50,15 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reverseLeftWords(self, s: str, n: int) -> str:
         return s[n:] + s[:n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -63,6 +67,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -73,11 +79,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func reverseLeftWords(s string, n int) string {
 	return s[n:] + s[:n]
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -87,6 +97,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -98,6 +110,8 @@ var reverseLeftWords = function (s, n) {
     return s.substring(n) + s.substring(0, n);
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -116,6 +130,8 @@ public class Solution {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### C++
 
 ```cpp
 class Solution {

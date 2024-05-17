@@ -98,6 +98,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def deleteString(self, s: str) -> int:
@@ -114,6 +116,8 @@ class Solution:
         n = len(s)
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -153,6 +157,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -189,6 +195,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func deleteString(s string) int {
 	n := len(s)
@@ -223,6 +231,8 @@ func deleteString(s string) int {
 	return dfs(0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function deleteString(s: string): number {
@@ -263,6 +273,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ i
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def deleteString(self, s: str) -> int:
@@ -280,6 +292,8 @@ class Solution:
                     f[i] = max(f[i], f[i + j] + 1)
         return f[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -306,6 +320,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -335,6 +351,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func deleteString(s string) int {
 	n := len(s)
@@ -361,6 +379,8 @@ func deleteString(s string) int {
 	return f[0]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function deleteString(s: string): number {

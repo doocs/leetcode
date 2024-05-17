@@ -91,6 +91,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def validSubarraySplit(self, nums: List[int]) -> int:
@@ -109,6 +111,8 @@ class Solution:
         dfs.cache_clear()
         return ans if ans < inf else -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -148,6 +152,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -172,6 +178,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func validSubarraySplit(nums []int) int {

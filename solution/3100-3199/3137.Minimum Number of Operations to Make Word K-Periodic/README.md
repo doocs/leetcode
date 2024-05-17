@@ -127,12 +127,16 @@ font-size: 0.85rem;
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumOperationsToMakeKPeriodic(self, word: str, k: int) -> int:
         n = len(word)
         return n // k - max(Counter(word[i : i + k] for i in range(0, n, k)).values())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -147,6 +151,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -163,6 +169,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumOperationsToMakeKPeriodic(word string, k int) int {
 	cnt := map[string]int{}
@@ -176,6 +184,8 @@ func minimumOperationsToMakeKPeriodic(word string, k int) int {
 	return n/k - mx
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumOperationsToMakeKPeriodic(word: string, k: number): number {

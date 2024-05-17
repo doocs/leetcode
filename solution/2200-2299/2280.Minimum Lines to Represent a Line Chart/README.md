@@ -79,6 +79,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumLines(self, stockPrices: List[List[int]]) -> int:
@@ -92,6 +94,8 @@ class Solution:
             dx, dy = dx1, dy1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -134,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumLines(stockPrices [][]int) int {
 	ans := 0
@@ -150,6 +158,8 @@ func minimumLines(stockPrices [][]int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumLines(stockPrices: number[][]): number {

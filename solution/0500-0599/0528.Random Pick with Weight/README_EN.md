@@ -90,6 +90,8 @@ and so on.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def __init__(self, w: List[int]):
@@ -113,6 +115,8 @@ class Solution:
 # obj = Solution(w)
 # param_1 = obj.pickIndex()
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -149,6 +153,8 @@ class Solution {
  */
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -181,6 +187,8 @@ public:
  * int param_1 = obj->pickIndex();
  */
 ```
+
+#### Go
 
 ```go
 type Solution struct {
@@ -217,6 +225,8 @@ func (this *Solution) PickIndex() int {
  * param_1 := obj.PickIndex();
  */
 ```
+
+#### Rust
 
 ```rust
 use rand::{ thread_rng, Rng };
@@ -258,6 +268,8 @@ impl Solution {
  * let ret_1: i32 = obj.pick_index();
  */
 ```
+
+#### JavaScript
 
 ```js
 /**

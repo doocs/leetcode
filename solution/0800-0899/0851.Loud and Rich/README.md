@@ -82,6 +82,8 @@ answer[7] = 7，
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def loudAndRich(self, richer: List[List[int]], quiet: List[int]) -> List[int]:
@@ -103,6 +105,8 @@ class Solution:
             dfs(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -142,6 +146,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -171,6 +177,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func loudAndRich(richer [][]int, quiet []int) []int {
@@ -203,6 +211,8 @@ func loudAndRich(richer [][]int, quiet []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function loudAndRich(richer: number[][], quiet: number[]): number[] {

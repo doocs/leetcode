@@ -84,6 +84,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedList
 
@@ -100,6 +102,8 @@ class Solution:
             ans = max(ans, i - j + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -137,6 +143,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestSubarray(nums []int, limit int) (ans int) {
@@ -160,6 +168,8 @@ func longestSubarray(nums []int, limit int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestSubarray(nums: number[], limit: number): number {
@@ -811,6 +821,8 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestSubarray(self, nums: List[int], limit: int) -> int:
@@ -841,6 +853,8 @@ class Solution:
                 r = mid - 1
         return l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -889,6 +903,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -930,6 +946,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestSubarray(nums []int, limit int) int {
@@ -1027,6 +1045,8 @@ func (q Deque) Get(i int) int {
 	return q.r[i-len(q.l)]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestSubarray(nums: number[], limit: number): number {

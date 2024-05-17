@@ -111,6 +111,8 @@ Exam table:
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT school_id, MIN(IFNULL(score, -1)) AS score

@@ -82,6 +82,8 @@ The time complexity is $O(m + n + C^2)$, where $m$ and $n$ are the lengths of st
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCharacters(self, a: str, b: str) -> int:
@@ -105,6 +107,8 @@ class Solution:
         f(cnt2, cnt1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -144,6 +148,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -169,6 +175,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minCharacters(a string, b string) int {
@@ -202,6 +210,8 @@ func minCharacters(a string, b string) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minCharacters(a: string, b: string): number {

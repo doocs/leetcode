@@ -96,6 +96,8 @@ The 5th is called at 300ms, but it is after 260ms, so it should be called immedi
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 type F = (...args: any[]) => void;
 

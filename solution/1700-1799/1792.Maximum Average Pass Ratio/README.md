@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxAverageRatio(self, classes: List[List[int]], extraStudents: int) -> float:
@@ -87,6 +89,8 @@ class Solution:
             heappush(h, (a / b - (a + 1) / (b + 1), a, b))
         return sum(v[1] / v[2] for v in h) / len(classes)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +117,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -142,6 +148,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxAverageRatio(classes [][]int, extraStudents int) float64 {

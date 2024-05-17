@@ -76,6 +76,8 @@ For queries[1]: Only server with id 3 gets no request in the duration [2,4].
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countServers(
@@ -98,6 +100,8 @@ class Solution:
             ans[i] = n - len(cnt)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +134,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -165,6 +171,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countServers(n int, logs [][]int, x int, queries []int) []int {
 	sort.Slice(logs, func(i, j int) bool { return logs[i][1] < logs[j][1] })
@@ -196,6 +204,8 @@ func countServers(n int, logs [][]int, x int, queries []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countServers(n: number, logs: number[][], x: number, queries: number[]): number[] {

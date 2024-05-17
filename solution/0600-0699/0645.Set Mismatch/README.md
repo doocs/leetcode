@@ -66,6 +66,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findErrorNums(self, nums: List[int]) -> List[int]:
@@ -75,6 +77,8 @@ class Solution:
         s = sum(nums)
         return [s - s2, s1 - s2]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +99,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -111,6 +117,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findErrorNums(nums []int) []int {
@@ -129,6 +137,8 @@ func findErrorNums(nums []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findErrorNums(nums: number[]): number[] {
     const n = nums.length;
@@ -138,6 +148,8 @@ function findErrorNums(nums: number[]): number[] {
     return [s - s2, s1 - s2];
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -168,6 +180,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findErrorNums(self, nums: List[int]) -> List[int]:
@@ -181,6 +195,8 @@ class Solution:
                 ans[1] = x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -204,6 +220,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -226,6 +244,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findErrorNums(nums []int) []int {
 	n := len(nums)
@@ -244,6 +264,8 @@ func findErrorNums(nums []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findErrorNums(nums: number[]): number[] {
@@ -264,6 +286,8 @@ function findErrorNums(nums: number[]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -311,6 +335,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findErrorNums(self, nums: List[int]) -> List[int]:
@@ -330,6 +356,8 @@ class Solution:
                 return [a, b]
         return [b, a]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -359,6 +387,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -390,6 +420,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findErrorNums(nums []int) []int {
 	xs := 0
@@ -415,6 +447,8 @@ func findErrorNums(nums []int) []int {
 	return []int{b, a}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findErrorNums(nums: number[]): number[] {

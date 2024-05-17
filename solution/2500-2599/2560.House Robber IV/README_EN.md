@@ -74,6 +74,8 @@ The time complexity is $O(n \times \log m)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCapability(self, nums: List[int], k: int) -> int:
@@ -88,6 +90,8 @@ class Solution:
 
         return bisect_left(range(max(nums) + 1), True, key=f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -147,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minCapability(nums []int, k int) int {
 	return sort.Search(1e9+1, func(x int) bool {
@@ -162,6 +170,8 @@ func minCapability(nums []int, k int) int {
 	})
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minCapability(nums: number[], k: number): number {

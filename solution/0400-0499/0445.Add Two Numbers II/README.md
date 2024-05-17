@@ -73,6 +73,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -100,6 +102,8 @@ class Solution:
             dummy.next = ListNode(val, dummy.next)
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -135,6 +139,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -176,6 +182,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -214,6 +222,8 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for singly-linked list.
@@ -248,6 +258,8 @@ function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | nul
     return dummy.next;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -322,6 +334,8 @@ impl Solution {
 时间复杂度 $O(\max(m, n))$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别为两个链表的长度。
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.

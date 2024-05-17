@@ -84,6 +84,8 @@ Similar problems:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestIncreasingPath(self, matrix: List[List[int]]) -> int:
@@ -99,6 +101,8 @@ class Solution:
         m, n = len(matrix), len(matrix[0])
         return max(dfs(i, j) for i in range(m) for j in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -138,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -171,6 +177,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestIncreasingPath(matrix [][]int) (ans int) {
 	m, n := len(matrix), len(matrix[0])
@@ -201,6 +209,8 @@ func longestIncreasingPath(matrix [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestIncreasingPath(matrix: number[][]): number {

@@ -82,6 +82,8 @@ There are no valid node sequences of length 4, so we return -1.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumScore(self, scores: List[int], edges: List[List[int]]) -> int:
@@ -100,6 +102,8 @@ class Solution:
                         ans = max(ans, t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {

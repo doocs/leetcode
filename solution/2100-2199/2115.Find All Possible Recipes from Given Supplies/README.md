@@ -93,6 +93,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findAllRecipes(
@@ -116,6 +118,8 @@ class Solution:
                         q.append(j)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -151,6 +155,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -184,6 +190,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findAllRecipes(recipes []string, ingredients [][]string, supplies []string) []string {

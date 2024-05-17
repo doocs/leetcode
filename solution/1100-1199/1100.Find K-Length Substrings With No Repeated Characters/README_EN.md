@@ -68,6 +68,8 @@ The time complexity is $O(n)$, and the space complexity is $O(\min(k, |\Sigma|))
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numKLenSubstrNoRepeats(self, s: str, k: int) -> int:
@@ -81,6 +83,8 @@ class Solution:
             ans += int(len(cnt) == k)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +136,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numKLenSubstrNoRepeats(s string, k int) (ans int) {
@@ -158,6 +166,8 @@ func numKLenSubstrNoRepeats(s string, k int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numKLenSubstrNoRepeats(s: string, k: number): number {
     const n = s.length;
@@ -180,6 +190,8 @@ function numKLenSubstrNoRepeats(s: string, k: number): number {
     return ans;
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

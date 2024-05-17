@@ -74,6 +74,8 @@ It can be shown that 6 is the maximum possible size of the set s after the remov
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumSetSize(self, nums1: List[int], nums2: List[int]) -> int:
@@ -84,6 +86,8 @@ class Solution:
         b = min(len(s2 - s1), n // 2)
         return min(a + b + len(s1 & s2), n)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -143,6 +149,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumSetSize(nums1 []int, nums2 []int) int {
@@ -173,6 +181,8 @@ func maximumSetSize(nums1 []int, nums2 []int) int {
 	return min(a+b+c, n)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumSetSize(nums1: number[], nums2: number[]): number {

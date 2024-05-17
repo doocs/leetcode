@@ -59,6 +59,8 @@ argumentsLength({}, null, "3"); // 3
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function argumentsLength(...args: any[]): number {
     return args.length;

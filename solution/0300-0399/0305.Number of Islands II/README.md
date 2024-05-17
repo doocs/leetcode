@@ -79,6 +79,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class UnionFind:
     def __init__(self, n: int):
@@ -128,6 +130,8 @@ class Solution:
             ans.append(cnt)
         return ans
 ```
+
+#### Java
 
 ```java
 class UnionFind {
@@ -195,6 +199,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class UnionFind {
 public:
@@ -260,6 +266,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type unionFind struct {
 	p, size []int
@@ -324,6 +332,8 @@ func numIslands2(m int, n int, positions [][]int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 class UnionFind {

@@ -98,6 +98,8 @@ Time complexity $O(n^2)$, space complexity $O(n)$. Where $n$ is the length of st
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumBeautifulSubstrings(self, s: str) -> int:
@@ -124,6 +126,8 @@ class Solution:
         ans = dfs(0)
         return -1 if ans == inf else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -168,6 +172,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -206,6 +212,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumBeautifulSubstrings(s string) int {
@@ -246,6 +254,8 @@ func minimumBeautifulSubstrings(s string) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumBeautifulSubstrings(s: string): number {

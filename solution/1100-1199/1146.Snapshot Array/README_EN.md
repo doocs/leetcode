@@ -75,6 +75,8 @@ The space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class SnapshotArray:
 
@@ -100,6 +102,8 @@ class SnapshotArray:
 # param_2 = obj.snap()
 # param_3 = obj.get(index,snap_id)
 ```
+
+#### Java
 
 ```java
 class SnapshotArray {
@@ -143,6 +147,8 @@ class SnapshotArray {
  */
 ```
 
+#### C++
+
 ```cpp
 class SnapshotArray {
 public:
@@ -176,6 +182,8 @@ private:
  * int param_3 = obj->get(index,snap_id);
  */
 ```
+
+#### Go
 
 ```go
 type SnapshotArray struct {
@@ -212,6 +220,8 @@ func (this *SnapshotArray) Get(index int, snap_id int) int {
  * param_3 := obj.Get(index,snap_id);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class SnapshotArray {

@@ -67,6 +67,8 @@ nums[0] = [<em><strong>3</strong></em>,1,2,<em><strong>4</strong></em>,5]，nums
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def intersection(self, nums: List[List[int]]) -> List[int]:
@@ -76,6 +78,8 @@ class Solution:
                 cnt[x] += 1
         return [x for x, v in enumerate(cnt) if v == len(nums)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +100,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -118,6 +124,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func intersection(nums [][]int) (ans []int) {
 	cnt := [1001]int{}
@@ -134,6 +142,8 @@ func intersection(nums [][]int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function intersection(nums: number[][]): number[] {
@@ -152,6 +162,8 @@ function intersection(nums: number[][]): number[] {
     return ans;
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -185,6 +197,8 @@ class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def intersection(self, nums: List[List[int]]) -> List[int]:
@@ -198,6 +212,8 @@ class Solution:
         ans.sort()
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -216,6 +232,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -236,6 +254,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func intersection(nums [][]int) (ans []int) {
 	cnt := map[int]int{}
@@ -251,6 +271,8 @@ func intersection(nums [][]int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function intersection(nums: number[][]): number[] {

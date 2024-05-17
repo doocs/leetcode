@@ -64,6 +64,8 @@ In total, there is only one magic square inside the given grid.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numMagicSquaresInside(self, grid: List[List[int]]) -> int:
@@ -95,6 +97,8 @@ class Solution:
         m, n = len(grid), len(grid[0])
         return sum(check(i, j) for i in range(m) for j in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -152,6 +156,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -203,6 +209,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numMagicSquaresInside(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
@@ -249,6 +257,8 @@ func numMagicSquaresInside(grid [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numMagicSquaresInside(grid: number[][]): number {

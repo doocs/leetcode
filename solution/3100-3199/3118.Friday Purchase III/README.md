@@ -134,6 +134,8 @@ Each row of this table indicates the user_id, membership type.
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH RECURSIVE

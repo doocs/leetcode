@@ -72,12 +72,16 @@ The XOR values for queries are:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def xorQueries(self, arr: List[int], queries: List[List[int]]) -> List[int]:
         s = list(accumulate(arr, xor, initial=0))
         return [s[r + 1] ^ s[l] for l, r in queries]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -118,6 +124,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func xorQueries(arr []int, queries [][]int) (ans []int) {
 	n := len(arr)
@@ -133,6 +141,8 @@ func xorQueries(arr []int, queries [][]int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function xorQueries(arr: number[], queries: number[][]): number[] {
     const n = arr.length;
@@ -147,6 +157,8 @@ function xorQueries(arr: number[], queries: number[][]): number[] {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

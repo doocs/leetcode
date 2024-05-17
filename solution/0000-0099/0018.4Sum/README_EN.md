@@ -72,6 +72,8 @@ The time complexity is $O(n^3)$, and the space complexity is $O(\log n)$. Here, 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
@@ -102,6 +104,8 @@ class Solution:
                             l -= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -143,6 +147,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -186,6 +192,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func fourSum(nums []int, target int) (ans [][]int) {
 	n := len(nums)
@@ -226,6 +234,8 @@ func fourSum(nums []int, target int) (ans [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function fourSum(nums: number[], target: number): number[][] {
     const n = nums.length;
@@ -264,6 +274,8 @@ function fourSum(nums: number[], target: number): number[][] {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -309,6 +321,8 @@ var fourSum = function (nums, target) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public IList<IList<int>> FourSum(int[] nums, int target) {
@@ -349,6 +363,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

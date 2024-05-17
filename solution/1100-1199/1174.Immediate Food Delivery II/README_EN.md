@@ -84,6 +84,8 @@ We can use a subquery to first find the first order of each user, and then calcu
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT
@@ -108,6 +110,8 @@ WHERE
 We can use the `RANK()` window function to rank the orders of each user in ascending order by order date, and then filter out the orders with a rank of $1$, which are the first orders of each user. After that, we can calculate the proportion of instant orders.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

@@ -103,6 +103,8 @@ We can first find all `employee_id` that are not in the `Salaries` table from th
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT employee_id

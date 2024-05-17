@@ -63,6 +63,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def wallsAndGates(self, rooms: List[List[int]]) -> None:
@@ -83,6 +85,8 @@ class Solution:
                         rooms[x][y] = d
                         q.append((x, y))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -148,6 +154,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func wallsAndGates(rooms [][]int) {

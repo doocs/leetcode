@@ -74,6 +74,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array `customers`.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxSatisfied(
@@ -86,6 +88,8 @@ class Solution:
             mx = max(mx, cnt)
         return sum(c * (g ^ 1) for c, g in zip(customers, grumpy)) + mx
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSatisfied(customers []int, grumpy []int, minutes int) int {
 	var cnt, tot int
@@ -150,6 +158,8 @@ func maxSatisfied(customers []int, grumpy []int, minutes int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxSatisfied(customers: number[], grumpy: number[], minutes: number): number {
     let [cnt, tot] = [0, 0];
@@ -167,6 +177,8 @@ function maxSatisfied(customers: number[], grumpy: number[], minutes: number): n
     return tot + mx;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

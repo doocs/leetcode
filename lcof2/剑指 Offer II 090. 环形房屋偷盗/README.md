@@ -67,6 +67,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def rob(self, nums: List[int]) -> int:
@@ -80,6 +82,8 @@ class Solution:
             return nums[0]
         return max(_rob(nums[1:]), _rob(nums[:-1]))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -126,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func rob(nums []int) int {
 	n := len(nums)
@@ -144,6 +152,8 @@ func robRange(nums []int, l, r int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function rob(nums: number[]): number {
     const n = nums.length;
@@ -160,6 +170,8 @@ function rob(nums: number[]): number {
     return Math.max(robRange(0, n - 2), robRange(1, n - 1));
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

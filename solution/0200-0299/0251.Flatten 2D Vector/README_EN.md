@@ -73,6 +73,8 @@ vector2D.hasNext(); // return False
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Vector2D:
     def __init__(self, vec: List[List[int]]):
@@ -101,6 +103,8 @@ class Vector2D:
 # param_1 = obj.next()
 # param_2 = obj.hasNext()
 ```
+
+#### Java
 
 ```java
 class Vector2D {
@@ -137,6 +141,8 @@ class Vector2D {
  * boolean param_2 = obj.hasNext();
  */
 ```
+
+#### C++
 
 ```cpp
 class Vector2D {
@@ -176,6 +182,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type Vector2D struct {
 	i, j int
@@ -212,6 +220,8 @@ func (this *Vector2D) forward() {
  * param_2 := obj.HasNext();
  */
 ```
+
+#### TypeScript
 
 ```ts
 class Vector2D {

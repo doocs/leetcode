@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def brightestPosition(self, lights: List[List[int]]) -> int:
@@ -96,6 +98,8 @@ class Solution:
                 ans = k
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -142,6 +148,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func brightestPosition(lights [][]int) (ans int) {
@@ -167,6 +175,8 @@ func brightestPosition(lights [][]int) (ans int) {
 	return
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

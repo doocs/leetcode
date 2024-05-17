@@ -63,6 +63,8 @@ The input has been split into consecutive parts with size difference at most 1, 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -90,6 +92,8 @@ class Solution:
             res[i] = head
         return res
 ```
+
+#### Java
 
 ```java
 /**

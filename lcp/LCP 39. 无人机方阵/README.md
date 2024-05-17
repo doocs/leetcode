@@ -64,6 +64,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2039.%20%E6%97%A0%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumSwitchingTimes(
@@ -78,6 +80,8 @@ class Solution:
                 cnt[x] -= 1
         return sum(abs(x) for x in cnt.values()) // 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -126,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumSwitchingTimes(source [][]int, target [][]int) (ans int) {
 	cnt := map[int]int{}
@@ -147,6 +155,8 @@ func minimumSwitchingTimes(source [][]int, target [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumSwitchingTimes(source: number[][], target: number[][]): number {

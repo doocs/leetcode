@@ -82,6 +82,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def beautifulIndices(self, s: str, a: str, b: str, k: int) -> List[int]:
@@ -133,6 +135,8 @@ class Solution:
             i += 1
         return res
 ```
+
+#### Java
 
 ```java
 public class Solution {
@@ -236,6 +240,8 @@ public class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -303,6 +309,8 @@ private:
     }
 };
 ```
+
+#### Go
 
 ```go
 func beautifulIndices(s string, a string, b string, k int) []int {

@@ -91,6 +91,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def braceExpansionII(self, expression: str) -> List[str]:
@@ -108,6 +110,8 @@ class Solution:
         dfs(expression)
         return sorted(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +137,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -163,6 +169,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 func braceExpansionII(expression string) []string {
 	s := map[string]struct{}{}
@@ -188,6 +196,8 @@ func braceExpansionII(expression string) []string {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function braceExpansionII(expression: string): string[] {

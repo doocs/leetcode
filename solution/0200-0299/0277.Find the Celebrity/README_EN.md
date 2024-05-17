@@ -66,6 +66,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # The knows API is already defined for you.
 # return a bool, whether a knows b
@@ -84,6 +86,8 @@ class Solution:
                     return -1
         return ans
 ```
+
+#### Java
 
 ```java
 /* The knows API is defined in the parent class Relation.
@@ -109,6 +113,8 @@ public class Solution extends Relation {
 }
 ```
 
+#### C++
+
 ```cpp
 /* The knows API is defined for you.
       bool knows(int a, int b); */
@@ -133,6 +139,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**

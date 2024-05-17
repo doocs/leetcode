@@ -73,6 +73,8 @@ Activity table:
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT
@@ -100,6 +102,8 @@ WHERE
 我们可以使用窗口函数 `rank()`，它可以为每个玩家的每个登录日期分配一个排名，然后我们可以选择排名为 $1$ 的行。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

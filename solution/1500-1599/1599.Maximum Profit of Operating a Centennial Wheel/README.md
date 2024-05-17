@@ -97,6 +97,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperationsMaxProfit(
@@ -117,6 +119,8 @@ class Solution:
                 ans = i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +143,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -163,6 +169,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minOperationsMaxProfit(customers []int, boardingCost int, runningCost int) int {
 	ans := -1
@@ -184,6 +192,8 @@ func minOperationsMaxProfit(customers []int, boardingCost int, runningCost int) 
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minOperationsMaxProfit(
@@ -209,6 +219,8 @@ function minOperationsMaxProfit(
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

@@ -72,6 +72,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findAnagrams(self, s: str, p: str) -> List[int]:
@@ -88,6 +90,8 @@ class Solution:
             cnt2[s[i - n + 1]] -= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -146,6 +152,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findAnagrams(s string, p string) (ans []int) {
 	m, n := len(s), len(p)
@@ -170,6 +178,8 @@ func findAnagrams(s string, p string) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findAnagrams(s: string, p: string): number[] {
@@ -198,6 +208,8 @@ function findAnagrams(s: string, p: string): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -228,6 +240,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -271,6 +285,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findAnagrams(self, s: str, p: str) -> List[int]:
@@ -290,6 +306,8 @@ class Solution:
                 ans.append(j)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -318,6 +336,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -348,6 +368,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findAnagrams(s string, p string) (ans []int) {
 	m, n := len(s), len(p)
@@ -373,6 +395,8 @@ func findAnagrams(s string, p string) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findAnagrams(s: string, p: string): number[] {

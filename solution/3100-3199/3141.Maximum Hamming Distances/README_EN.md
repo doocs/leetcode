@@ -95,6 +95,8 @@ The time complexity is $O(2^m)$, and the space complexity is $O(2^m)$, where $m$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxHammingDistances(self, nums: List[int], m: int) -> List[int]:
@@ -115,6 +117,8 @@ class Solution:
             k += 1
         return [m - dist[x ^ ((1 << m) - 1)] for x in nums]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -145,6 +149,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -178,6 +184,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxHammingDistances(nums []int, m int) []int {
 	dist := make([]int, 1<<m)
@@ -208,6 +216,8 @@ func maxHammingDistances(nums []int, m int) []int {
 	return nums
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxHammingDistances(nums: number[], m: number): number[] {

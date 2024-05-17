@@ -88,6 +88,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numSubmatrixSumTarget(self, matrix: List[List[int]], target: int) -> int:
@@ -111,6 +113,8 @@ class Solution:
                 ans += f(col)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -142,6 +146,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -176,6 +182,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numSubmatrixSumTarget(matrix [][]int, target int) (ans int) {
 	m, n := len(matrix), len(matrix[0])
@@ -204,6 +212,8 @@ func f(nums []int, target int) (cnt int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numSubmatrixSumTarget(matrix: number[][], target: number): number {

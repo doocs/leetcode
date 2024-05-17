@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def largestValsFromLabels(
@@ -96,6 +98,8 @@ class Solution:
                     break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +124,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -146,6 +152,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func largestValsFromLabels(values []int, labels []int, numWanted int, useLimit int) (ans int) {
 	n := len(values)
@@ -166,6 +174,8 @@ func largestValsFromLabels(values []int, labels []int, numWanted int, useLimit i
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function largestValsFromLabels(

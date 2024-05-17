@@ -76,6 +76,8 @@ The time complexity is $O(n)$, where $n$ is the number of nodes in the tree. The
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -98,6 +100,8 @@ class Solution:
                 root.left = None
             root = root.right
 ```
+
+#### Java
 
 ```java
 /**
@@ -138,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -169,6 +175,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -193,6 +201,8 @@ func flatten(root *TreeNode) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -227,6 +237,8 @@ function flatten(root: TreeNode | null): void {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -283,6 +295,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -321,6 +335,8 @@ var flatten = function (root) {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Go
 
 ```go
 /**

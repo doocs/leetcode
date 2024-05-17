@@ -75,6 +75,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def solve(self, nums: List[int], queries: List[List[int]]) -> List[int]:
@@ -93,6 +95,8 @@ class Solution:
                 ans.append(sum(nums[x::y]) % mod)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -158,6 +164,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func solve(nums []int, queries [][]int) (ans []int) {
 	n := len(nums)
@@ -185,6 +193,8 @@ func solve(nums []int, queries [][]int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function solve(nums: number[], queries: number[][]): number[] {

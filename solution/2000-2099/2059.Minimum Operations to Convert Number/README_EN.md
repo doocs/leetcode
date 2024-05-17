@@ -84,6 +84,8 @@ Note that the last operation sets x out of the range 0 &lt;= x &lt;= 1000, which
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumOperations(self, nums: List[int], start: int, goal: int) -> int:
@@ -105,6 +107,8 @@ class Solution:
                         vis[nx] = True
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +140,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -171,6 +177,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumOperations(nums []int, start int, goal int) int {
 	type pair struct {
@@ -205,6 +213,8 @@ func minimumOperations(nums []int, start int, goal int) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumOperations(nums: number[], start: number, goal: number): number {
@@ -251,6 +261,8 @@ function minimumOperations(nums: number[], start: number, goal: number): number 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumOperations(self, nums: List[int], start: int, goal: int) -> int:
@@ -277,6 +289,8 @@ class Solution:
                         q.append(y)
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -315,6 +329,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -350,6 +366,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumOperations(nums []int, start int, goal int) int {
@@ -393,6 +411,8 @@ func minimumOperations(nums []int, start int, goal int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumOperations(self, nums: List[int], start: int, goal: int) -> int:
@@ -426,6 +446,8 @@ class Solution:
                 return t
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -482,6 +504,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -527,6 +551,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumOperations(nums []int, start int, goal int) int {

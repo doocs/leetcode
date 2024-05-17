@@ -91,6 +91,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def applyOperations(self, nums: List[int]) -> List[int]:
@@ -107,6 +109,8 @@ class Solution:
                 i += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +133,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -153,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func applyOperations(nums []int) []int {
 	n := len(nums)
@@ -174,6 +182,8 @@ func applyOperations(nums []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function applyOperations(nums: number[]): number[] {
     const n = nums.length;
@@ -193,6 +203,8 @@ function applyOperations(nums: number[]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

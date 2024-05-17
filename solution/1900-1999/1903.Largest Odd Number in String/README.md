@@ -73,6 +73,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def largestOddNumber(self, num: str) -> str:
@@ -81,6 +83,8 @@ class Solution:
                 return num[: i + 1]
         return ''
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +99,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -111,6 +117,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func largestOddNumber(num string) string {
 	for i := len(num) - 1; i >= 0; i-- {
@@ -123,6 +131,8 @@ func largestOddNumber(num string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function largestOddNumber(num: string): string {
     for (let i = num.length - 1; ~i; --i) {
@@ -133,6 +143,8 @@ function largestOddNumber(num: string): string {
     return '';
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

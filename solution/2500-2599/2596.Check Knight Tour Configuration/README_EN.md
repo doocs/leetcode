@@ -73,6 +73,8 @@ The time complexity is $O(n^2)$ and the space complexity is $O(n^2)$, where $n$ 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkValidGrid(self, grid: List[List[int]]) -> bool:
@@ -90,6 +92,8 @@ class Solution:
                 return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -147,6 +153,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func checkValidGrid(grid [][]int) bool {
@@ -180,6 +188,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function checkValidGrid(grid: number[][]): boolean {

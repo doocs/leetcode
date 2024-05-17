@@ -76,6 +76,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -98,6 +100,8 @@ class Solution:
             cur = cur.next
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -132,6 +136,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -168,6 +174,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -196,6 +204,8 @@ func removeZeroSumSublists(head *ListNode) *ListNode {
 	return dummy.Next
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -226,6 +236,8 @@ function removeZeroSumSublists(head: ListNode | null): ListNode | null {
     return dummy.next;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.

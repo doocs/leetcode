@@ -58,6 +58,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2079.%20%E6%8F%90%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def extractMantra(self, matrix: List[str], mantra: str) -> int:
@@ -87,6 +89,8 @@ class Solution:
             ans += 1
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +128,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -163,6 +169,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func extractMantra(matrix []string, mantra string) (ans int) {
 	m, n, l := len(matrix), len(matrix[0]), len(mantra)
@@ -201,6 +209,8 @@ func extractMantra(matrix []string, mantra string) (ans int) {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function extractMantra(matrix: string[], mantra: string): number {

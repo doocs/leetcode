@@ -75,6 +75,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countRestrictedPaths(self, n: int, edges: List[List[int]]) -> int:
@@ -104,6 +106,8 @@ class Solution:
                     heappush(q, (dist[v], v))
         return dfs(1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -166,6 +170,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using pii = pair<int, int>;
 
@@ -218,6 +224,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 const inf = math.MaxInt32
@@ -298,6 +306,8 @@ func countRestrictedPaths(n int, edges [][]int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countRestrictedPaths(self, n: int, edges: List[List[int]]) -> int:
@@ -325,6 +335,8 @@ class Solution:
                     f[i] = (f[i] + f[j]) % mod
         return f[1]
 ```
+
+#### Java
 
 ```java
 class Solution {

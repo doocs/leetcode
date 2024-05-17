@@ -79,6 +79,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def largestTimeFromDigits(self, arr: List[int]) -> str:
@@ -96,6 +98,8 @@ class Solution:
                     return f'{h:02}:{m:02}'
         return ''
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +122,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -143,6 +149,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func largestTimeFromDigits(arr []int) string {
@@ -176,6 +184,8 @@ func largestTimeFromDigits(arr []int) string {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

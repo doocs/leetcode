@@ -55,6 +55,8 @@ second = &quot;pal&quot;
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def oneEditAway(self, first: str, second: str) -> bool:
@@ -74,6 +76,8 @@ class Solution:
             i += 1
         return cnt < 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -142,6 +148,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func oneEditAway(first string, second string) bool {
 	m, n := len(first), len(second)
@@ -172,6 +180,8 @@ func oneEditAway(first string, second string) bool {
 	return cnt < 2
 }
 ```
+
+#### TypeScript
 
 ```ts
 function oneEditAway(first: string, second: string): boolean {
@@ -207,6 +217,8 @@ function oneEditAway(first: string, second: string): boolean {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn one_edit_away(first: String, second: String) -> bool {
@@ -235,6 +247,8 @@ impl Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

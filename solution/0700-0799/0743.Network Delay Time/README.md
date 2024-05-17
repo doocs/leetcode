@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
@@ -98,6 +100,8 @@ class Solution:
         ans = max(dist)
         return -1 if ans == INF else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +140,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -164,6 +170,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func networkDelayTime(times [][]int, n int, k int) int {
@@ -214,6 +222,8 @@ func networkDelayTime(times [][]int, n int, k int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
@@ -233,6 +243,8 @@ class Solution:
         ans = max(dist)
         return -1 if ans == INF else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -271,6 +283,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -300,6 +314,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 const Inf = 0x3f3f3f3f
@@ -371,6 +387,8 @@ func networkDelayTime(times [][]int, n int, k int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
@@ -384,6 +402,8 @@ class Solution:
         ans = max(dist)
         return -1 if ans == INF else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -410,6 +430,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -430,6 +452,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func networkDelayTime(times [][]int, n int, k int) int {
@@ -465,6 +489,8 @@ func networkDelayTime(times [][]int, n int, k int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
@@ -490,6 +516,8 @@ class Solution:
         ans = max(dist)
         return -1 if ans == INF else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -535,6 +563,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -572,6 +602,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func networkDelayTime(times [][]int, n int, k int) int {

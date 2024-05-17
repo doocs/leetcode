@@ -59,6 +59,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def judgeSquareSum(self, c: int) -> bool:
@@ -73,6 +75,8 @@ class Solution:
                 b -= 1
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +97,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -115,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func judgeSquareSum(c int) bool {
 	a, b := 0, int(math.Sqrt(float64(c)))
@@ -133,6 +141,8 @@ func judgeSquareSum(c int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function judgeSquareSum(c: number): boolean {
     let [a, b] = [0, Math.floor(Math.sqrt(c))];
@@ -150,6 +160,8 @@ function judgeSquareSum(c: number): boolean {
     return false;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::cmp::Ordering;

@@ -73,6 +73,8 @@ const newArray = map(arr, plusone); // [2,3,4]
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function map(arr: number[], fn: (n: number, i: number) => number): number[] {
     for (let i = 0; i < arr.length; ++i) {

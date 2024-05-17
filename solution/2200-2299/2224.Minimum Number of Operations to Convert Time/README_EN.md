@@ -66,6 +66,8 @@ It can be proven that it is not possible to convert current to correct in fewer 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def convertTime(self, current: str, correct: str) -> int:
@@ -77,6 +79,8 @@ class Solution:
             d %= i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +99,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -111,6 +117,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func convertTime(current string, correct string) int {

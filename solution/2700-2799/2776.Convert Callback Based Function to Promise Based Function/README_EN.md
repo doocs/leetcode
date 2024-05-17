@@ -96,6 +96,8 @@ fn is called with a callback as the first argument and args as the rest. As the 
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 type CallbackFn = (next: (data: number, error: string) => void, ...args: number[]) => void;
 type Promisified = (...args: number[]) => Promise<number>;

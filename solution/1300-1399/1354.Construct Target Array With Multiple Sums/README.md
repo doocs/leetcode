@@ -81,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isPossible(self, target: List[int]) -> bool:
@@ -97,6 +99,8 @@ class Solution:
             s = s - mx + x
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +128,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -153,6 +159,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isPossible(target []int) bool {
@@ -185,6 +193,8 @@ func (h hp) Less(i, j int) bool { return h.IntSlice[i] > h.IntSlice[j] }
 func (hp) Pop() (_ any)         { return }
 func (hp) Push(any)             {}
 ```
+
+#### TypeScript
 
 ```ts
 function isPossible(target: number[]): boolean {

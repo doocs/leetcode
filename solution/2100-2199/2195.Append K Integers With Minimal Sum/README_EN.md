@@ -72,6 +72,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimalKSum(self, nums: List[int], k: int) -> int:
@@ -84,6 +86,8 @@ class Solution:
             k -= m
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimalKSum(nums []int, k int) (ans int64) {
 	nums = append(nums, []int{0, 2e9}...)
@@ -135,6 +143,8 @@ func minimalKSum(nums []int, k int) (ans int64) {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimalKSum(nums: number[], k: number): number {

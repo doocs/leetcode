@@ -81,6 +81,8 @@ Space complexity is $O(n)$, where $n$ is the size of the hash table `cnt`.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class TwoSum:
 
@@ -103,6 +105,8 @@ class TwoSum:
 # obj.add(number)
 # param_2 = obj.find(value)
 ```
+
+#### Java
 
 ```java
 class TwoSum {
@@ -134,6 +138,8 @@ class TwoSum {
  * boolean param_2 = obj.find(value);
  */
 ```
+
+#### C++
 
 ```cpp
 class TwoSum {
@@ -167,6 +173,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type TwoSum struct {
 	cnt map[int]int
@@ -197,6 +205,8 @@ func (this *TwoSum) Find(value int) bool {
  * param_2 := obj.Find(value);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class TwoSum {

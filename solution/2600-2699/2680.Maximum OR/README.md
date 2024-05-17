@@ -73,6 +73,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumOr(self, nums: List[int], k: int) -> int:
@@ -86,6 +88,8 @@ class Solution:
             pre |= x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -125,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumOr(nums []int, k int) int64 {
 	n := len(nums)
@@ -141,6 +149,8 @@ func maximumOr(nums []int, k int) int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumOr(nums: number[], k: number): number {
     const n = nums.length;
@@ -156,6 +166,8 @@ function maximumOr(nums: number[], k: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

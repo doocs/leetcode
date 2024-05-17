@@ -73,6 +73,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class Node(object):
@@ -95,6 +97,8 @@ class Solution:
         dfs(root2, -1)
         return all(x == 0 for x in cnt.values())
 ```
+
+#### Java
 
 ```java
 /**
@@ -139,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -176,6 +182,8 @@ public:
     }
 };
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -224,6 +232,8 @@ var checkEquivalence = function (root1, root2) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class Node(object):
@@ -248,6 +258,8 @@ class Solution:
 
         return dfs(root1) == dfs(root2)
 ```
+
+#### Java
 
 ```java
 /**
@@ -297,6 +309,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -333,6 +347,8 @@ public:
     }
 };
 ```
+
+#### JavaScript
 
 ```js
 /**

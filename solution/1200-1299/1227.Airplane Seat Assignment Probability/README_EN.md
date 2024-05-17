@@ -138,11 +138,15 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def nthPersonGetsNthSeat(self, n: int) -> float:
         return 1 if n == 1 else 0.5
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -152,6 +156,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -160,6 +166,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func nthPersonGetsNthSeat(n int) float64 {

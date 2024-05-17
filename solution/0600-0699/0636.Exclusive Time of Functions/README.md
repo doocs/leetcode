@@ -93,6 +93,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def exclusiveTime(self, n: int, logs: List[str]) -> List[int]:
@@ -114,6 +116,8 @@ class Solution:
                 curr = ts + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -142,6 +146,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -169,6 +175,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func exclusiveTime(n int, logs []string) []int {
 	ans := make([]int, n)
@@ -194,6 +202,8 @@ func exclusiveTime(n int, logs []string) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function exclusiveTime(n: number, logs: string[]): number[] {

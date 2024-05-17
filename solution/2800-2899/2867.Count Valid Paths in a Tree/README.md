@@ -101,6 +101,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class UnionFind:
     def __init__(self, n):
@@ -156,6 +158,8 @@ class Solution:
                         t += cnt
         return ans
 ```
+
+#### Java
 
 ```java
 class PrimeTable {
@@ -254,6 +258,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 const int mx = 1e5 + 10;
 bool prime[mx + 1];
@@ -339,6 +345,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 const mx int = 1e5 + 10
 
@@ -423,6 +431,8 @@ func countPaths(n int, edges [][]int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 const mx = 100010;
@@ -512,6 +522,8 @@ function countPaths(n: number, edges: number[][]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countPaths(self, n: int, edges: List[List[int]]) -> int:
@@ -556,6 +568,8 @@ class Solution:
         dfs(1, 0, con, prime, r)
         return r[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -628,6 +642,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {

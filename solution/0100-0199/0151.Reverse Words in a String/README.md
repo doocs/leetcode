@@ -81,11 +81,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reverseWords(self, s: str) -> str:
         return ' '.join(reversed(s.split()))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +100,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -127,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func reverseWords(s string) string {
 	words := strings.Split(s, " ")
@@ -140,11 +148,15 @@ func reverseWords(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function reverseWords(s: string): string {
     return s.trim().split(/\s+/).reverse().join(' ');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -153,6 +165,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -176,6 +190,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reverseWords(self, s: str) -> str:
@@ -192,6 +208,8 @@ class Solution:
                 i = j
         return ' '.join(ans[::-1])
 ```
+
+#### Java
 
 ```java
 class Solution {

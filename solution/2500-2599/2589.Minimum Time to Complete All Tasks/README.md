@@ -83,6 +83,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMinimumTime(self, tasks: List[List[int]]) -> int:
@@ -100,6 +102,8 @@ class Solution:
                 i -= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +127,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -148,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMinimumTime(tasks [][]int) (ans int) {
 	sort.Slice(tasks, func(i, j int) bool { return tasks[i][1] < tasks[j][1] })
@@ -169,6 +177,8 @@ func findMinimumTime(tasks [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findMinimumTime(tasks: number[][]): number {
     tasks.sort((a, b) => a[1] - b[1]);
@@ -188,6 +198,8 @@ function findMinimumTime(tasks: number[][]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

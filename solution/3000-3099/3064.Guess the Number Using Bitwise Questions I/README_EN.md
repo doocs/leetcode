@@ -67,6 +67,8 @@ The time complexity is $O(\log n)$, where $n \le 2^{30}$ in this problem. The sp
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition of commonSetBits API.
 # def commonSetBits(num: int) -> int:
@@ -76,6 +78,8 @@ class Solution:
     def findNumber(self) -> int:
         return sum(1 << i for i in range(32) if commonSetBits(1 << i))
 ```
+
+#### Java
 
 ```java
 /**
@@ -95,6 +99,8 @@ public class Solution extends Problem {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -116,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition of commonSetBits API.
@@ -131,6 +139,8 @@ func findNumber() (n int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

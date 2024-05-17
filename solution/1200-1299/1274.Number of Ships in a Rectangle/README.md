@@ -77,6 +77,8 @@ ships = [[1,1],[2,2],[3,3],[5,5]], topRight = [4,4], bottomLeft = [0,0]
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # """
 # This is Sea's API interface.
@@ -113,6 +115,8 @@ class Solution:
         return dfs(topRight, bottomLeft)
 ```
 
+#### Java
+
 ```java
 /**
  * // This is Sea's API interface.
@@ -145,6 +149,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -181,6 +187,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * // This is Sea's API interface.
@@ -211,6 +219,8 @@ func countShips(sea Sea, topRight, bottomLeft []int) int {
 	return a + b + c + d
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

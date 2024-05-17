@@ -98,6 +98,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class TreeAncestor:
     def __init__(self, n: int, parent: List[int]):
@@ -123,6 +125,8 @@ class TreeAncestor:
 # obj = TreeAncestor(n, parent)
 # param_1 = obj.getKthAncestor(node,k)
 ```
+
+#### Java
 
 ```java
 class TreeAncestor {
@@ -166,6 +170,8 @@ class TreeAncestor {
  */
 ```
 
+#### C++
+
 ```cpp
 class TreeAncestor {
 public:
@@ -206,6 +212,8 @@ private:
  * int param_1 = obj->getKthAncestor(node,k);
  */
 ```
+
+#### Go
 
 ```go
 type TreeAncestor struct {
@@ -250,6 +258,8 @@ func (this *TreeAncestor) GetKthAncestor(node int, k int) int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class TreeAncestor {
     private p: number[][];
@@ -289,6 +299,8 @@ class TreeAncestor {
  * var param_1 = obj.getKthAncestor(node,k)
  */
 ```
+
+#### C#
 
 ```cs
 public class TreeAncestor {

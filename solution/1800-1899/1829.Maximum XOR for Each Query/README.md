@@ -92,6 +92,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getMaximumXor(self, nums: List[int], maximumBit: int) -> List[int]:
@@ -106,6 +108,8 @@ class Solution:
             xs ^= x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +135,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -158,6 +164,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getMaximumXor(nums []int, maximumBit int) (ans []int) {
 	xs := 0
@@ -178,6 +186,8 @@ func getMaximumXor(nums []int, maximumBit int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getMaximumXor(nums: number[], maximumBit: number): number[] {
@@ -201,6 +211,8 @@ function getMaximumXor(nums: number[], maximumBit: number): number[] {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -229,6 +241,8 @@ var getMaximumXor = function (nums, maximumBit) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -271,6 +285,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getMaximumXor(self, nums: List[int], maximumBit: int) -> List[int]:
@@ -283,6 +299,8 @@ class Solution:
             xs ^= x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -304,6 +322,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -327,6 +347,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getMaximumXor(nums []int, maximumBit int) (ans []int) {
 	xs := 0
@@ -343,6 +365,8 @@ func getMaximumXor(nums []int, maximumBit int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getMaximumXor(nums: number[], maximumBit: number): number[] {
@@ -362,6 +386,8 @@ function getMaximumXor(nums: number[], maximumBit: number): number[] {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -386,6 +412,8 @@ var getMaximumXor = function (nums, maximumBit) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

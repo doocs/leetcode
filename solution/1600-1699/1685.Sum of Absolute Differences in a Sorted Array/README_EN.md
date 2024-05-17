@@ -69,6 +69,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getSumAbsoluteDifferences(self, nums: List[int]) -> List[int]:
@@ -80,6 +82,8 @@ class Solution:
             t += x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -118,6 +124,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getSumAbsoluteDifferences(nums []int) (ans []int) {
 	var s, t int
@@ -133,6 +141,8 @@ func getSumAbsoluteDifferences(nums []int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function getSumAbsoluteDifferences(nums: number[]): number[] {
     const s = nums.reduce((a, b) => a + b);
@@ -147,6 +157,8 @@ function getSumAbsoluteDifferences(nums: number[]): number[] {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -166,6 +178,8 @@ var getSumAbsoluteDifferences = function (nums) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def makeTheIntegerZero(self, num1: int, num2: int) -> int:
@@ -91,6 +93,8 @@ class Solution:
                 return k
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -127,6 +133,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func makeTheIntegerZero(num1 int, num2 int) int {

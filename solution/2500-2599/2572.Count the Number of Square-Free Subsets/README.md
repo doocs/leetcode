@@ -89,6 +89,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def squareFreeSubsets(self, nums: List[int]) -> int:
@@ -110,6 +112,8 @@ class Solution:
                     f[state] = (f[state] + cnt[x] * f[state ^ mask]) % mod
         return sum(v for v in f) % mod - 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -152,6 +156,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -193,6 +199,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func squareFreeSubsets(nums []int) (ans int) {
 	primes := []int{2, 3, 5, 7, 11, 13, 17, 19, 23, 29}
@@ -230,6 +238,8 @@ func squareFreeSubsets(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function squareFreeSubsets(nums: number[]): number {

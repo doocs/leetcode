@@ -98,6 +98,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class BinaryIndexedTree:
     __slots__ = ["n", "c"]
@@ -131,6 +133,8 @@ class Solution:
             tree.update(i, ans[-1])
         return ans
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -176,6 +180,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class BinaryIndexedTree {
@@ -226,6 +232,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -264,6 +272,8 @@ func longestObstacleCourseAtEachPosition(obstacles []int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {

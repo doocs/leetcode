@@ -79,6 +79,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxArrayValue(self, nums: List[int]) -> int:
@@ -87,6 +89,8 @@ class Solution:
                 nums[i] += nums[i + 1]
         return max(nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -125,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxArrayValue(nums []int) int64 {
 	n := len(nums)
@@ -140,6 +148,8 @@ func maxArrayValue(nums []int) int64 {
 	return int64(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxArrayValue(nums: number[]): number {

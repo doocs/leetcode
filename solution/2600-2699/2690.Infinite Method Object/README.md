@@ -57,6 +57,8 @@ obj['abc123'](); // "abc123"
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function createInfiniteObject(): Record<string, () => string> {
     return new Proxy(

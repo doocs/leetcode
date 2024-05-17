@@ -78,6 +78,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumGain(self, s: str, x: int, y: int) -> int:
@@ -106,6 +108,8 @@ class Solution:
                     stk2.append(c)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -146,6 +150,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -185,6 +191,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumGain(s string, x int, y int) int {

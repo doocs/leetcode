@@ -121,6 +121,8 @@ D.pop()            // 返回 -1。仍然没有栈。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedSet
 
@@ -164,6 +166,8 @@ class DinnerPlates:
 # param_2 = obj.pop()
 # param_3 = obj.popAtStack(index)
 ```
+
+#### Java
 
 ```java
 class DinnerPlates {
@@ -220,6 +224,8 @@ class DinnerPlates {
  * int param_3 = obj.popAtStack(index);
  */
 ```
+
+#### C++
 
 ```cpp
 class DinnerPlates {
@@ -280,6 +286,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type DinnerPlates struct {
 	capacity int
@@ -335,6 +343,8 @@ func (this *DinnerPlates) PopAtStack(index int) int {
  * param_3 := obj.PopAtStack(index);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class DinnerPlates {

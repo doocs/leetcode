@@ -84,6 +84,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numRollsToTarget(self, n: int, k: int, target: int) -> int:
@@ -96,6 +98,8 @@ class Solution:
                     f[i][j] = (f[i][j] + f[i - 1][j - h]) % mod
         return f[n][target]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -135,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numRollsToTarget(n int, k int, target int) int {
 	const mod int = 1e9 + 7
@@ -154,6 +162,8 @@ func numRollsToTarget(n int, k int, target int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numRollsToTarget(n: number, k: number, target: number): number {
     const f = Array.from({ length: n + 1 }, () => Array(target + 1).fill(0));
@@ -169,6 +179,8 @@ function numRollsToTarget(n: number, k: number, target: number): number {
     return f[n][target];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -203,6 +215,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numRollsToTarget(self, n: int, k: int, target: int) -> int:
@@ -216,6 +230,8 @@ class Solution:
             f = g
         return f[target]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -236,6 +252,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -258,6 +276,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numRollsToTarget(n int, k int, target int) int {
 	const mod int = 1e9 + 7
@@ -276,6 +296,8 @@ func numRollsToTarget(n int, k int, target int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numRollsToTarget(n: number, k: number, target: number): number {
     const f = Array(target + 1).fill(0);
@@ -293,6 +315,8 @@ function numRollsToTarget(n: number, k: number, target: number): number {
     return f[target];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

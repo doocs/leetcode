@@ -91,6 +91,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for BigArray.
 # class BigArray:
@@ -111,6 +113,8 @@ class Solution(object):
                 i += bisect_left(range(i, n), True, key=lambda j: nums.at(j) != x)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -145,6 +149,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -182,6 +188,8 @@ public:
     }
 };
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -230,6 +238,8 @@ function countBlocks(nums: BigArray | null): number {
 
 <!-- tabs:start -->
 
+#### Java
+
 ```java
 /**
  * Definition for BigArray.
@@ -255,6 +265,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -283,6 +295,8 @@ public:
     }
 };
 ```
+
+#### TypeScript
 
 ```ts
 /**

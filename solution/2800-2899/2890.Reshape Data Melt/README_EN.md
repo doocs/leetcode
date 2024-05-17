@@ -69,6 +69,8 @@ The DataFrame is reshaped from wide to long format. Each row represents the sale
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 import pandas as pd
 

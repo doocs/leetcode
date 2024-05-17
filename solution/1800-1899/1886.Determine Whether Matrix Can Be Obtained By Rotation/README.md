@@ -70,6 +70,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findRotation(self, mat: List[List[int]], target: List[List[int]]) -> bool:
@@ -89,6 +91,8 @@ class Solution:
             rotate(mat)
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -147,6 +153,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findRotation(mat [][]int, target [][]int) bool {
@@ -180,6 +188,8 @@ func equals(a, b [][]int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findRotation(mat: number[][], target: number[][]): boolean {
@@ -223,6 +233,8 @@ function rotate(matrix: number[][]): void {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -271,6 +283,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findRotation(self, mat: List[List[int]], target: List[List[int]]) -> bool:
@@ -280,6 +294,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {

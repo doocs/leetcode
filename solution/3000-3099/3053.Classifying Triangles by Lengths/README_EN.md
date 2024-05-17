@@ -92,6 +92,8 @@ Otherwise, it means that the lengths of the three sides are all different, so we
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT

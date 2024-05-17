@@ -96,6 +96,8 @@ HAMMING-WEIGHT(n)
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def hammingWeight(self, n: int) -> int:
@@ -105,6 +107,8 @@ class Solution:
             ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 public class Solution {
@@ -120,6 +124,8 @@ public class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -134,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hammingWeight(num uint32) int {
 	ans := 0
@@ -144,6 +152,8 @@ func hammingWeight(num uint32) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function hammingWeight(n: number): number {
@@ -156,6 +166,8 @@ function hammingWeight(n: number): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn hammingWeight(n: u32) -> i32 {
@@ -163,6 +175,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -178,6 +192,8 @@ var hammingWeight = function (n) {
     return ans;
 };
 ```
+
+#### C
 
 ```c
 int hammingWeight(uint32_t n) {
@@ -204,6 +220,8 @@ int hammingWeight(uint32_t n) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def hammingWeight(self, n: int) -> int:
@@ -213,6 +231,8 @@ class Solution:
             ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 public class Solution {
@@ -228,6 +248,8 @@ public class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -242,6 +264,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hammingWeight(num uint32) int {
 	ans := 0
@@ -252,6 +276,8 @@ func hammingWeight(num uint32) int {
 	return ans
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

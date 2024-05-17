@@ -59,6 +59,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numWays(self, n: int) -> int:
@@ -67,6 +69,8 @@ class Solution:
             a, b = b, (a + b) % 1000000007
         return a
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +85,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -97,6 +103,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numWays(n int) int {
 	a, b := 1, 1
@@ -106,6 +114,8 @@ func numWays(n int) int {
 	return a
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numWays(n: number): number {
@@ -118,6 +128,8 @@ function numWays(n: number): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn num_ways(n: i32) -> i32 {
@@ -129,6 +141,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -143,6 +157,8 @@ var numWays = function (n) {
     return a;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

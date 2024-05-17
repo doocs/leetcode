@@ -62,6 +62,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def generateMatrix(self, n: int) -> List[List[int]]:
@@ -77,6 +79,8 @@ class Solution:
             i, j = x, y
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func generateMatrix(n int) [][]int {
 	ans := make([][]int, n)
@@ -142,6 +150,8 @@ func generateMatrix(n int) [][]int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function generateMatrix(n: number): number[][] {
@@ -167,6 +177,8 @@ function generateMatrix(n: number): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -199,6 +211,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -236,6 +250,8 @@ var generateMatrix = function (n) {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function generateMatrix(n: number): number[][] {

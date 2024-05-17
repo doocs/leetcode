@@ -88,6 +88,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findKthBit(self, n: int, k: int) -> str:
@@ -103,6 +105,8 @@ class Solution:
 
         return str(dfs(n, k))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -148,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findKthBit(n int, k int) byte {
 	var dfs func(n, k int) int
@@ -167,6 +175,8 @@ func findKthBit(n int, k int) byte {
 	return byte('0' + dfs(n, k))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findKthBit(n: number, k: number): string {

@@ -80,6 +80,8 @@ streamChecker.query(&quot;l&quot;); // return True, because &#39;kl&#39; is in t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Trie:
     def __init__(self):
@@ -124,6 +126,8 @@ class StreamChecker:
 # obj = StreamChecker(words)
 # param_1 = obj.query(letter)
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -180,6 +184,8 @@ class StreamChecker {
  * boolean param_1 = obj.query(letter);
  */
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -243,6 +249,8 @@ public:
  * bool param_1 = obj->query(letter);
  */
 ```
+
+#### Go
 
 ```go
 type Trie struct {

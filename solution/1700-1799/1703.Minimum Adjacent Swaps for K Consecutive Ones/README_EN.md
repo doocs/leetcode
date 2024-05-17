@@ -77,6 +77,8 @@ The time complexity is $O(n)$, and the space complexity is $O(m)$. Here, $n$ and
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minMoves(self, nums: List[int], k: int) -> int:
@@ -94,6 +96,8 @@ class Solution:
             ans = min(ans, a + b)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -157,6 +163,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minMoves(nums []int, k int) int {

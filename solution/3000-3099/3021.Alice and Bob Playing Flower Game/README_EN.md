@@ -88,6 +88,8 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def flowerGame(self, n: int, m: int) -> int:
@@ -97,6 +99,8 @@ class Solution:
         b2 = m // 2
         return a1 * b2 + a2 * b1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -123,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func flowerGame(n int, m int) int64 {
 	a1, b1 := (n+1)/2, (m+1)/2
@@ -130,6 +138,8 @@ func flowerGame(n int, m int) int64 {
 	return int64(a1*b2 + a2*b1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function flowerGame(n: number, m: number): number {
@@ -163,11 +173,15 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def flowerGame(self, n: int, m: int) -> int:
         return (n * m) // 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -176,6 +190,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -186,11 +202,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func flowerGame(n int, m int) int64 {
 	return int64((n * m) / 2)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function flowerGame(n: number, m: number): number {

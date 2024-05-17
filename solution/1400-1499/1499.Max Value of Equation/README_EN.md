@@ -68,6 +68,8 @@ No other pairs satisfy the condition, so we return the max of 4 and 1.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMaxValueOfEquation(self, points: List[List[int]], k: int) -> int:
@@ -81,6 +83,8 @@ class Solution:
             heappush(pq, (x - y, x))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +128,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findMaxValueOfEquation(points [][]int, k int) int {
@@ -153,6 +161,8 @@ func (h hp) Swap(i, j int) { h[i], h[j] = h[j], h[i] }
 func (h *hp) Push(v any)   { *h = append(*h, v.(pair)) }
 func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
+
+#### TypeScript
 
 ```ts
 function findMaxValueOfEquation(points: number[][], k: number): number {
@@ -247,6 +257,8 @@ class Heap<T = number> {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMaxValueOfEquation(self, points: List[List[int]], k: int) -> int:
@@ -262,6 +274,8 @@ class Solution:
             q.append((x, y))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -285,6 +299,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -310,6 +326,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMaxValueOfEquation(points [][]int, k int) int {
 	ans := -(1 << 30)
@@ -330,6 +348,8 @@ func findMaxValueOfEquation(points [][]int, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findMaxValueOfEquation(points: number[][], k: number): number {

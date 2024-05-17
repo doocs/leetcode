@@ -75,6 +75,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numOfArrays(self, n: int, m: int, k: int) -> int:
@@ -97,6 +99,8 @@ class Solution:
             ans %= mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -154,6 +160,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numOfArrays(n int, m int, k int) int {

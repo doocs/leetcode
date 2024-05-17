@@ -51,6 +51,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0193.Va
 
 <!-- tabs:start -->
 
+#### Shell
+
 ```bash
 # Read from the file file.txt and output all valid phone numbers to stdout.
 awk '/^([0-9]{3}-|\([0-9]{3}\) )[0-9]{3}-[0-9]{4}$/' file.txt

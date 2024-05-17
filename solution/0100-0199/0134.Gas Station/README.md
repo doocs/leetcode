@@ -81,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canCompleteCircuit(self, gas: List[int], cost: List[int]) -> int:
@@ -97,6 +99,8 @@ class Solution:
                 cnt += 1
         return -1 if s < 0 else i
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +122,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -141,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canCompleteCircuit(gas []int, cost []int) int {
 	n := len(gas)
@@ -163,6 +171,8 @@ func canCompleteCircuit(gas []int, cost []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canCompleteCircuit(gas: number[], cost: number[]): number {
     const n = gas.length;
@@ -183,6 +193,8 @@ function canCompleteCircuit(gas: number[], cost: number[]): number {
     return s < 0 ? -1 : i;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

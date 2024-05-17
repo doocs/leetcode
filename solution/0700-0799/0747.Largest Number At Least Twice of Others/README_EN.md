@@ -65,12 +65,16 @@ The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def dominantIndex(self, nums: List[int]) -> int:
         x, y = nlargest(2, nums)
         return nums.index(x) if x >= 2 * y else -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +95,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -113,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func dominantIndex(nums []int) int {
 	k := 0
@@ -130,6 +138,8 @@ func dominantIndex(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function dominantIndex(nums: number[]): number {
     let k = 0;
@@ -146,6 +156,8 @@ function dominantIndex(nums: number[]): number {
     return k;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

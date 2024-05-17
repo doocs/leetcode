@@ -112,6 +112,8 @@ subrectangleQueries.getValue(2, 2); // return 20
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class SubrectangleQueries:
     def __init__(self, rectangle: List[List[int]]):
@@ -135,6 +137,8 @@ class SubrectangleQueries:
 # obj.updateSubrectangle(row1,col1,row2,col2,newValue)
 # param_2 = obj.getValue(row,col)
 ```
+
+#### Java
 
 ```java
 class SubrectangleQueries {
@@ -166,6 +170,8 @@ class SubrectangleQueries {
  * int param_2 = obj.getValue(row,col);
  */
 ```
+
+#### C++
 
 ```cpp
 class SubrectangleQueries {
@@ -200,6 +206,8 @@ public:
  */
 ```
 
+#### Go
+
 ```go
 type SubrectangleQueries struct {
 	g   [][]int
@@ -231,6 +239,8 @@ func (this *SubrectangleQueries) GetValue(row int, col int) int {
  * param_2 := obj.GetValue(row,col);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class SubrectangleQueries {

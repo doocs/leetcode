@@ -71,6 +71,8 @@ Hence, we need at minimum 2 moves to determine with certainty what the value of 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def superEggDrop(self, k: int, n: int) -> int:
@@ -93,6 +95,8 @@ class Solution:
 
         return dfs(n, k)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -163,6 +169,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func superEggDrop(k int, n int) int {
 	f := make([][]int, n+1)
@@ -196,6 +204,8 @@ func superEggDrop(k int, n int) int {
 	return dfs(n, k)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function superEggDrop(k: number, n: number): number {
@@ -238,6 +248,8 @@ function superEggDrop(k: number, n: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def superEggDrop(self, k: int, n: int) -> int:
@@ -257,6 +269,8 @@ class Solution:
                 f[i][j] = max(f[l - 1][j - 1], f[i - l][j]) + 1
         return f[n][k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -285,6 +299,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -316,6 +332,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func superEggDrop(k int, n int) int {
 	f := make([][]int, n+1)
@@ -343,6 +361,8 @@ func superEggDrop(k int, n int) int {
 	return f[n][k]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function superEggDrop(k: number, n: number): number {

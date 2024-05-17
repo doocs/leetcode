@@ -89,6 +89,8 @@ The time complexity is $O(n + m)$, where $n$ and $m$ are the lengths of arrays $
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getXORSum(self, arr1: List[int], arr2: List[int]) -> int:
@@ -96,6 +98,8 @@ class Solution:
         b = reduce(xor, arr2)
         return a & b
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +128,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getXORSum(arr1 []int, arr2 []int) int {
@@ -135,6 +143,8 @@ func getXORSum(arr1 []int, arr2 []int) int {
 	return a & b
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getXORSum(arr1: number[], arr2: number[]): number {

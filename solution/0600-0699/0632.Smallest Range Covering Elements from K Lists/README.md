@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def smallestRange(self, nums: List[List[int]]) -> List[int]:
@@ -99,6 +101,8 @@ class Solution:
                 j += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -142,6 +146,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -182,6 +188,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallestRange(nums [][]int) []int {
 	t := [][]int{}
@@ -213,6 +221,8 @@ func smallestRange(nums [][]int) []int {
 	return ans
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

@@ -56,6 +56,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def groupStrings(self, strings: List[str]) -> List[List[str]]:
@@ -71,6 +73,8 @@ class Solution:
             g["".join(t)].append(s)
         return list(g.values())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +95,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -117,6 +123,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func groupStrings(strings []string) [][]string {

@@ -72,6 +72,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def calculateTime(self, keyboard: str, word: str) -> int:
@@ -82,6 +84,8 @@ class Solution:
             i = pos[c]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +125,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func calculateTime(keyboard string, word string) (ans int) {
@@ -142,6 +150,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function calculateTime(keyboard: string, word: string): number {

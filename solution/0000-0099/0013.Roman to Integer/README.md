@@ -106,12 +106,16 @@ M             1000</pre>
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def romanToInt(self, s: str) -> int:
         d = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
         return sum((-1 if d[a] < d[b] else 1) * d[a] for a, b in pairwise(s)) + d[s[-1]]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +136,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -156,6 +162,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func romanToInt(s string) (ans int) {
 	d := map[byte]int{'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
@@ -170,6 +178,8 @@ func romanToInt(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function romanToInt(s: string): number {
@@ -191,6 +201,8 @@ function romanToInt(s: string): number {
 }
 ```
 
+#### JavaScript
+
 ```js
 const romanToInt = function (s) {
     const d = {
@@ -210,6 +222,8 @@ const romanToInt = function (s) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -231,6 +245,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -262,6 +278,8 @@ class Solution {
     }
 }
 ```
+
+#### Ruby
 
 ```rb
 # @param {String} s

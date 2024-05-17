@@ -48,6 +48,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reverseStr(self, s: str, k: int) -> str:
@@ -56,6 +58,8 @@ class Solution:
             t[i : i + k] = reversed(t[i : i + k])
         return ''.join(t)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -73,6 +77,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -84,6 +90,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func reverseStr(s string, k int) string {

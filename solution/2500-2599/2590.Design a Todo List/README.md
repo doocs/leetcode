@@ -95,6 +95,8 @@ todoList.getAllTasks(1); // 返回["Task3", "Task1"]。用户1现在有两个未
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedList
 
@@ -132,6 +134,8 @@ class TodoList:
 # param_3 = obj.getTasksForTag(userId,tag)
 # obj.completeTask(userId,taskId)
 ```
+
+#### Java
 
 ```java
 class Task {
@@ -208,6 +212,8 @@ class TodoList {
  * obj.completeTask(userId,taskId);
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::{ HashMap, HashSet };

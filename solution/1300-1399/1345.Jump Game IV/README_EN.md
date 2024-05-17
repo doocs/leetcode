@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minJumps(self, arr: List[int]) -> int:
@@ -103,6 +105,8 @@ class Solution:
                 vis.add(i - 1)
                 q.append((i - 1, step))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -145,6 +149,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -185,6 +191,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minJumps(arr []int) int {

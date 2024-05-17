@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def largestCombination(self, candidates: List[int]) -> int:
@@ -87,6 +89,8 @@ class Solution:
             ans = max(ans, t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### TypeScript
 
 ```ts
 function largestCombination(candidates: number[]): number {

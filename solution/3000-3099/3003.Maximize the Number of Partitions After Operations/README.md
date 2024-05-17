@@ -104,6 +104,8 @@ s 变为 "xayz"。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxPartitionsAfterOperations(self, s: str, k: int) -> int:
@@ -129,6 +131,8 @@ class Solution:
         n = len(s)
         return dfs(0, 0, 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -169,6 +173,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -202,6 +208,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxPartitionsAfterOperations(s string, k int) int {
@@ -241,6 +249,8 @@ func maxPartitionsAfterOperations(s string, k int) int {
 	return dfs(0, 0, 1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxPartitionsAfterOperations(s: string, k: number): number {

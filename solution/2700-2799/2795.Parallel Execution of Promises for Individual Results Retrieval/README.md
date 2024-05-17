@@ -103,6 +103,8 @@ promise.then(res =&gt; {
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 type FulfilledObj = {
     status: 'fulfilled';
@@ -146,6 +148,8 @@ function promiseAllSettled(functions: Function[]): Promise<Obj[]> {
  * })
  */
 ```
+
+#### JavaScript
 
 ```js
 /**

@@ -72,6 +72,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxDistance(self, grid: List[List[int]]) -> int:
@@ -92,6 +94,8 @@ class Solution:
             ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +131,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -165,6 +171,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxDistance(grid [][]int) int {
 	n := len(grid)
@@ -198,6 +206,8 @@ func maxDistance(grid [][]int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxDistance(grid: number[][]): number {

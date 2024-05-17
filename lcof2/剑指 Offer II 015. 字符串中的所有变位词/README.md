@@ -71,6 +71,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findAnagrams(self, s: str, p: str) -> List[int]:
@@ -89,6 +91,8 @@ class Solution:
                 ans.append(i - n + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -150,6 +156,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findAnagrams(s string, p string) (ans []int) {
 	m, n := len(s), len(p)
@@ -174,6 +182,8 @@ func findAnagrams(s string, p string) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findAnagrams(s: string, p: string): number[] {
@@ -217,6 +227,8 @@ function findAnagrams(s: string, p: string): number[] {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findAnagrams(self, s: str, p: str) -> List[int]:
@@ -247,6 +259,8 @@ class Solution:
                 ans.append(i - n + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -297,6 +311,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -346,6 +362,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findAnagrams(s string, p string) (ans []int) {
 	m, n := len(s), len(p)
@@ -389,6 +407,8 @@ func findAnagrams(s string, p string) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findAnagrams(s: string, p: string): number[] {

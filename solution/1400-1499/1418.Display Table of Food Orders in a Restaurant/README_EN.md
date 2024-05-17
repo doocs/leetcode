@@ -110,6 +110,8 @@ For the table 12: James, Ratesh and Amadeus order &quot;Fried Chicken&quot;.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def displayTable(self, orders: List[List[str]]) -> List[List[str]]:
@@ -130,6 +132,8 @@ class Solution:
             res.append(t)
         return res
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -166,6 +170,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -204,6 +210,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func displayTable(orders [][]string) [][]string {

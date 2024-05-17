@@ -104,6 +104,8 @@ The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$. 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedSet
 
@@ -137,6 +139,8 @@ class Solution:
         return ans
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int[] minReverseOperations(int n, int p, int[] banned, int k) {
@@ -169,6 +173,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -206,6 +212,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minReverseOperations(n int, p int, banned []int, k int) []int {
 	ans := make([]int, n)
@@ -238,6 +246,8 @@ func minReverseOperations(n int, p int, banned []int, k int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minReverseOperations(n: number, p: number, banned: number[], k: number): number[] {
@@ -921,6 +931,8 @@ class TreeMultiSet<T = number> {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function minReverseOperations(n: number, p: number, banned: number[], k: number): number[] {

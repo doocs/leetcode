@@ -68,6 +68,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -94,6 +96,8 @@ class Solution:
         dfs(root, 1)
         return root
 ```
+
+#### Java
 
 ```java
 /**
@@ -142,6 +146,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -182,6 +188,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -212,6 +220,8 @@ func addOneRow(root *TreeNode, val int, depth int) *TreeNode {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -259,6 +269,8 @@ function addOneRow(root: TreeNode | null, val: number, depth: number): TreeNode 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -287,6 +299,8 @@ class Solution:
                     node.right = TreeNode(val, None, node.right)
         return root
 ```
+
+#### Java
 
 ```java
 /**
@@ -333,6 +347,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -369,6 +385,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -404,6 +422,8 @@ func addOneRow(root *TreeNode, val int, depth int) *TreeNode {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

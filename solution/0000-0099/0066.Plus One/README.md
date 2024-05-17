@@ -71,6 +71,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def plusOne(self, digits: List[int]) -> List[int]:
@@ -82,6 +84,8 @@ class Solution:
                 return digits
         return [1] + digits
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -116,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func plusOne(digits []int) []int {
 	n := len(digits)
@@ -130,6 +138,8 @@ func plusOne(digits []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function plusOne(digits: number[]): number[] {
     const n = digits.length;
@@ -142,6 +152,8 @@ function plusOne(digits: number[]): number[] {
     return [1, ...digits];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -159,6 +171,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

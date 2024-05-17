@@ -64,6 +64,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def baseNeg2(self, n: int) -> str:
@@ -79,6 +81,8 @@ class Solution:
             k *= -1
         return ''.join(ans[::-1]) or '0'
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -128,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func baseNeg2(n int) string {
 	if n == 0 {
@@ -152,6 +160,8 @@ func baseNeg2(n int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function baseNeg2(n: number): string {
     if (n === 0) {
@@ -172,6 +182,8 @@ function baseNeg2(n: number): string {
     return ans.reverse().join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -196,6 +208,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

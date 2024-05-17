@@ -83,6 +83,8 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def categorizeBox(self, length: int, width: int, height: int, mass: int) -> str:
@@ -93,6 +95,8 @@ class Solution:
         d = ['Neither', 'Bulky', 'Heavy', 'Both']
         return d[i]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -120,6 +126,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func categorizeBox(length int, width int, height int, mass int) string {
@@ -136,6 +144,8 @@ func categorizeBox(length int, width int, height int, mass int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function categorizeBox(length: number, width: number, height: number, mass: number): string {
     const v = length * width * height;
@@ -149,6 +159,8 @@ function categorizeBox(length: number, width: number, height: number, mass: numb
     return ['Neither', 'Bulky', 'Heavy', 'Both'][i];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -180,6 +192,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def categorizeBox(self, length: int, width: int, height: int, mass: int) -> str:
@@ -196,6 +210,8 @@ class Solution:
 
         return "Neither"
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -218,6 +234,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -242,6 +260,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func categorizeBox(length int, width int, height int, mass int) string {
 	v := length * width * height
@@ -260,6 +280,8 @@ func categorizeBox(length int, width int, height int, mass int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function categorizeBox(length: number, width: number, height: number, mass: number): string {
     const v = length * width * height;
@@ -277,6 +299,8 @@ function categorizeBox(length: number, width: number, height: number, mass: numb
     return 'Neither';
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

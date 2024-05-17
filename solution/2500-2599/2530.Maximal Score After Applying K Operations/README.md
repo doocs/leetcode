@@ -81,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxKelements(self, nums: List[int], k: int) -> int:
@@ -93,6 +95,8 @@ class Solution:
             heappush(h, -(ceil(v / 3)))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +134,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxKelements(nums []int, k int) (ans int64) {
@@ -155,6 +163,8 @@ func (h *hp) push(v int) { heap.Push(h, v) }
 func (h *hp) pop() int   { return heap.Pop(h).(int) }
 ```
 
+#### TypeScript
+
 ```ts
 function maxKelements(nums: number[], k: number): number {
     const pq = new MaxPriorityQueue();
@@ -169,6 +179,8 @@ function maxKelements(nums: number[], k: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::BinaryHeap;
@@ -200,6 +212,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxKelements(self, nums: List[int], k: int) -> int:
@@ -211,6 +225,8 @@ class Solution:
             ans -= heapreplace(nums, -ceil(-nums[0] / 3))
         return ans
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -229,6 +245,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxKelements(nums []int, k int) (ans int64) {

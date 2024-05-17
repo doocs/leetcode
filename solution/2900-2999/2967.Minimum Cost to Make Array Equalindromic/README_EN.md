@@ -93,6 +93,8 @@ Similar problems:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 ps = []
 for i in range(1, 10**5 + 1):
@@ -113,6 +115,8 @@ class Solution:
         i = bisect_left(ps, nums[len(nums) // 2])
         return min(f(ps[j]) for j in range(i - 1, i + 2) if 0 <= j < len(ps))
 ```
+
+#### Java
 
 ```java
 public class Solution {
@@ -155,6 +159,8 @@ public class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using ll = long long;
 
@@ -196,6 +202,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 var ps [2 * 100000]int64
@@ -251,6 +259,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 const ps = Array(2e5).fill(0);

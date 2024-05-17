@@ -98,6 +98,8 @@ Streams table:
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT COUNT(sub.account_id) AS accounts_count

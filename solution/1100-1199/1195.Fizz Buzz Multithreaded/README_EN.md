@@ -78,6 +78,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Java
+
 ```java
 class FizzBuzz {
     private int n;
@@ -140,6 +142,8 @@ class FizzBuzz {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class FizzBuzz {

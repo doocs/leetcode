@@ -56,6 +56,8 @@ Hence return [3, 14.5, 11].
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -79,6 +81,8 @@ class Solution:
             ans.append(s / n)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -121,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -155,6 +161,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -186,6 +194,8 @@ func averageOfLevels(root *TreeNode) []float64 {
 	return ans
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -238,6 +248,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -283,6 +295,8 @@ var averageOfLevels = function (root) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -307,6 +321,8 @@ class Solution:
         dfs(root, 0)
         return [a / b for a, b in s]
 ```
+
+#### Java
 
 ```java
 /**
@@ -354,6 +370,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -398,6 +416,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -433,6 +453,8 @@ func averageOfLevels(root *TreeNode) []float64 {
 	return ans
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

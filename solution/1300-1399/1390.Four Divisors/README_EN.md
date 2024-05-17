@@ -70,6 +70,8 @@ The time complexity is $O(n \times \sqrt{n})$, where $n$ is the length of the ar
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumFourDivisors(self, nums: List[int]) -> int:
@@ -88,6 +90,8 @@ class Solution:
 
         return sum(f(x) for x in nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +119,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -144,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumFourDivisors(nums []int) (ans int) {
 	f := func(x int) int {
@@ -169,6 +177,8 @@ func sumFourDivisors(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumFourDivisors(nums: number[]): number {

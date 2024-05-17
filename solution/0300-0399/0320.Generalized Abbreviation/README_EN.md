@@ -81,6 +81,8 @@ The time complexity is $O(n \times 2^n)$, and the space complexity is $O(n)$. Wh
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def generateAbbreviations(self, word: str) -> List[str]:
@@ -96,6 +98,8 @@ class Solution:
         n = len(word)
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -153,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func generateAbbreviations(word string) []string {
 	n := len(word)
@@ -179,6 +187,8 @@ func generateAbbreviations(word string) []string {
 	return dfs(0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function generateAbbreviations(word: string): string[] {
@@ -216,6 +226,8 @@ The time complexity is $O(n \times 2^n)$, and the space complexity is $O(n)$. Wh
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def generateAbbreviations(self, word: str) -> List[str]:
@@ -237,6 +249,8 @@ class Solution:
             ans.append("".join(s))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -267,6 +281,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -296,6 +312,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func generateAbbreviations(word string) (ans []string) {

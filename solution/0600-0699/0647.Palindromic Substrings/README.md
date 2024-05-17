@@ -64,6 +64,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSubstrings(self, s: str) -> int:
@@ -75,6 +77,8 @@ class Solution:
                 i, j = i - 1, j + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +97,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -113,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSubstrings(s string) int {
 	ans, n := 0, len(s)
@@ -126,6 +134,8 @@ func countSubstrings(s string) int {
 	return ans
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -162,6 +172,8 @@ var countSubstrings = function (s) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSubstrings(self, s: str) -> int:
@@ -180,6 +192,8 @@ class Solution:
             ans += p[i] // 2
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {

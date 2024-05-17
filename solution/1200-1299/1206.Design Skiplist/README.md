@@ -84,6 +84,8 @@ skiplist.search(1);   // 返回 false，1 已被擦除
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Node:
     __slots__ = ['val', 'next']
@@ -150,6 +152,8 @@ class Skiplist:
 # obj.add(num)
 # param_3 = obj.erase(num)
 ```
+
+#### Java
 
 ```java
 class Skiplist {
@@ -238,6 +242,8 @@ class Skiplist {
  */
 ```
 
+#### C++
+
 ```cpp
 struct Node {
     int val;
@@ -316,6 +322,8 @@ public:
  * bool param_3 = obj->erase(num);
  */
 ```
+
+#### Go
 
 ```go
 func init() { rand.Seed(time.Now().UnixNano()) }

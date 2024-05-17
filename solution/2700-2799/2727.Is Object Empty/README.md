@@ -75,6 +75,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2727.Is
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function isEmpty(obj: Record<string, any> | any[]): boolean {
     for (const x in obj) {
@@ -83,6 +85,8 @@ function isEmpty(obj: Record<string, any> | any[]): boolean {
     return true;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -106,6 +110,8 @@ var isEmpty = function (obj) {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function isEmpty(obj: Record<string, any> | any[]): boolean {

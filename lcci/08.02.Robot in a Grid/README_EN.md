@@ -56,6 +56,8 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(m \times 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def pathWithObstacles(self, obstacleGrid: List[List[int]]) -> List[List[int]]:
@@ -73,6 +75,8 @@ class Solution:
         ans = []
         return ans if dfs(0, 0) else []
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -126,6 +132,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func pathWithObstacles(obstacleGrid [][]int) [][]int {
@@ -151,6 +159,8 @@ func pathWithObstacles(obstacleGrid [][]int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function pathWithObstacles(obstacleGrid: number[][]): number[][] {
     const m = obstacleGrid.length;
@@ -174,6 +184,8 @@ function pathWithObstacles(obstacleGrid: number[][]): number[][] {
     return [];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -203,6 +215,8 @@ impl Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

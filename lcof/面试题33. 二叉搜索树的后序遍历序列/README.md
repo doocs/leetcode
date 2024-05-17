@@ -56,6 +56,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def verifyPostorder(self, postorder: List[int]) -> bool:
@@ -72,6 +74,8 @@ class Solution:
 
         return dfs(0, len(postorder) - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -126,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func verifyPostorder(postorder []int) bool {
 	var dfs func(l, r int) bool
@@ -149,6 +157,8 @@ func verifyPostorder(postorder []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function verifyPostorder(postorder: number[]): boolean {
     const dfs = (l: number, r: number): boolean => {
@@ -170,6 +180,8 @@ function verifyPostorder(postorder: number[]): boolean {
     return dfs(0, postorder.length - 1);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -199,6 +211,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} postorder
@@ -224,6 +238,8 @@ var verifyPostorder = function (postorder) {
     return dfs(0, postorder.length - 1);
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -280,6 +296,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def verifyPostorder(self, postorder: List[int]) -> bool:
@@ -293,6 +311,8 @@ class Solution:
             stk.append(x)
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -313,6 +333,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -336,6 +358,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func verifyPostorder(postorder []int) bool {
 	mx := 1 << 30
@@ -355,6 +379,8 @@ func verifyPostorder(postorder []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function verifyPostorder(postorder: number[]): boolean {
     let mx = 1 << 30;
@@ -372,6 +398,8 @@ function verifyPostorder(postorder: number[]): boolean {
     return true;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

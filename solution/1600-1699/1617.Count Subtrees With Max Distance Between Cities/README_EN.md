@@ -102,6 +102,8 @@ No subtree has two nodes where the max distance between them is 3.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSubgraphsForEachDiameter(
@@ -135,6 +137,8 @@ class Solution:
                 ans[mx - 1] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -185,6 +189,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -229,6 +235,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSubgraphsForEachDiameter(n int, edges [][]int) []int {
 	g := make([][]int, n)
@@ -267,6 +275,8 @@ func countSubgraphsForEachDiameter(n int, edges [][]int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countSubgraphsForEachDiameter(n: number, edges: number[][]): number[] {
@@ -341,6 +351,8 @@ function numberOfLeadingZeros(i: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSubgraphsForEachDiameter(
@@ -380,6 +392,8 @@ class Solution:
                 ans[mx - 1] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -435,6 +449,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -485,6 +501,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSubgraphsForEachDiameter(n int, edges [][]int) []int {
 	g := make([][]int, n)
@@ -531,6 +549,8 @@ func countSubgraphsForEachDiameter(n int, edges [][]int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countSubgraphsForEachDiameter(n: number, edges: number[][]): number[] {

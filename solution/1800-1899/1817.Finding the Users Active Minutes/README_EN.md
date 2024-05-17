@@ -77,6 +77,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findingUsersActiveMinutes(self, logs: List[List[int]], k: int) -> List[int]:
@@ -88,6 +90,8 @@ class Solution:
             ans[len(ts) - 1] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -124,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findingUsersActiveMinutes(logs [][]int, k int) []int {
 	d := map[int]map[int]bool{}
@@ -141,6 +149,8 @@ func findingUsersActiveMinutes(logs [][]int, k int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findingUsersActiveMinutes(logs: number[][], k: number): number[] {

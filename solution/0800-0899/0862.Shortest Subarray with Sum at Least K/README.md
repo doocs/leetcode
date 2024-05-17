@@ -90,6 +90,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def shortestSubarray(self, nums: List[int], k: int) -> int:
@@ -104,6 +106,8 @@ class Solution:
             q.append(i)
         return -1 if ans == inf else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -150,6 +156,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func shortestSubarray(nums []int, k int) int {

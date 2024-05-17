@@ -79,6 +79,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findBlackPixel(self, picture: List[List[str]], target: int) -> int:
@@ -98,6 +100,8 @@ class Solution:
                 ans += target
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -137,6 +141,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -178,6 +184,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findBlackPixel(picture [][]byte, target int) (ans int) {
 	m := len(picture)
@@ -212,6 +220,8 @@ func findBlackPixel(picture [][]byte, target int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findBlackPixel(picture: string[][], target: number): number {

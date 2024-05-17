@@ -167,6 +167,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedList
 
@@ -185,6 +187,8 @@ class Solution:
             sl.add(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -233,6 +237,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class BinaryIndexedTree {
@@ -284,6 +290,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -332,6 +340,8 @@ func countOperationsToEmptyArray(nums []int) int64 {
 	return int64(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {
@@ -392,6 +402,8 @@ function countOperationsToEmptyArray(nums: number[]): number {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:

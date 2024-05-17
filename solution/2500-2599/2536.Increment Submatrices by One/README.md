@@ -95,6 +95,8 @@ for i in range(1, n + 1):
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def rangeAddQueries(self, n: int, queries: List[List[int]]) -> List[List[int]]:
@@ -118,6 +120,8 @@ class Solution:
                     mat[i][j] -= mat[i - 1][j - 1]
         return mat
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -154,6 +158,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -189,6 +195,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func rangeAddQueries(n int, queries [][]int) [][]int {

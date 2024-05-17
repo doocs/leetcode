@@ -66,6 +66,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestAwesome(self, s: str) -> int:
@@ -84,6 +86,8 @@ class Solution:
                     ans = max(ans, i - d[st ^ (1 << v)])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -136,6 +142,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestAwesome(s string) int {

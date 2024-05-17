@@ -114,6 +114,8 @@ firstUnique.showFirstUnique(); // 返回 -1
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class FirstUnique:
     def __init__(self, nums: List[int]):
@@ -136,6 +138,8 @@ class FirstUnique:
 # param_1 = obj.showFirstUnique()
 # obj.add(value)
 ```
+
+#### Java
 
 ```java
 class FirstUnique {
@@ -175,6 +179,8 @@ class FirstUnique {
  */
 ```
 
+#### C++
+
 ```cpp
 class FirstUnique {
 public:
@@ -207,6 +213,8 @@ private:
  * obj->add(value);
  */
 ```
+
+#### Go
 
 ```go
 type FirstUnique struct {
@@ -255,6 +263,8 @@ func (this *FirstUnique) Add(value int) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class FirstUnique:
     def __init__(self, nums: List[int]):
@@ -276,6 +286,8 @@ class FirstUnique:
 # param_1 = obj.showFirstUnique()
 # obj.add(value)
 ```
+
+#### Java
 
 ```java
 class FirstUnique {

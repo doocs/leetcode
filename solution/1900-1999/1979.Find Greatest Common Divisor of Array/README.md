@@ -79,11 +79,15 @@ nums 中最大的数是 3
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findGCD(self, nums: List[int]) -> int:
         return gcd(max(nums), min(nums))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -112,6 +118,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findGCD(nums []int) int {
@@ -126,6 +134,8 @@ func gcd(a, b int) int {
 	return gcd(b, a%b)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findGCD(nums: number[]): number {

@@ -109,6 +109,8 @@ DFS 递归遍历 grid，先判断 grid 是否为叶子节点，是则返回叶�
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 """
 # Definition for a QuadTree node.
@@ -145,6 +147,8 @@ class Solution:
 
         return dfs(0, 0, len(grid) - 1, len(grid[0]) - 1)
 ```
+
+#### Java
 
 ```java
 /*
@@ -213,6 +217,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /*
@@ -283,6 +289,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**

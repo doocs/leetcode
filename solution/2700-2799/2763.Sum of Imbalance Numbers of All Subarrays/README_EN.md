@@ -91,6 +91,8 @@ The time complexity is $O(n^2 \times \log n)$ and the space complexity is $O(n)$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedList
 
@@ -115,6 +117,8 @@ class Solution:
                 ans += cnt
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -144,6 +148,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {

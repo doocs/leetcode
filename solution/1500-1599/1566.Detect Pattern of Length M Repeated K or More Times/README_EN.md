@@ -70,6 +70,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def containsPattern(self, arr: List[int], m: int, k: int) -> bool:
@@ -84,6 +86,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -126,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func containsPattern(arr []int, m int, k int) bool {
 	n := len(arr)
@@ -143,6 +151,8 @@ func containsPattern(arr []int, m int, k int) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 function containsPattern(arr: number[], m: number, k: number): boolean {

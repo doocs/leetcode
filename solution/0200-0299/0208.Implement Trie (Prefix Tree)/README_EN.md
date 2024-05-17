@@ -69,6 +69,8 @@ trie.search(&quot;app&quot;);     // return True
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Trie:
     def __init__(self):
@@ -108,6 +110,8 @@ class Trie:
 # param_2 = obj.search(word)
 # param_3 = obj.startsWith(prefix)
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -162,6 +166,8 @@ class Trie {
  */
 ```
 
+#### C++
+
 ```cpp
 class Trie {
 private:
@@ -212,6 +218,8 @@ public:
  * bool param_3 = obj->startsWith(prefix);
  */
 ```
+
+#### Go
 
 ```go
 type Trie struct {
@@ -266,6 +274,8 @@ func (this *Trie) SearchPrefix(s string) *Trie {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class TrieNode {
     children;
@@ -314,6 +324,8 @@ class Trie {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 use std::{ rc::Rc, cell::RefCell, collections::HashMap };
@@ -409,6 +421,8 @@ impl Trie {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Initialize your data structure here.
@@ -469,6 +483,8 @@ Trie.prototype.startsWith = function (prefix) {
  * var param_3 = obj.startsWith(prefix)
  */
 ```
+
+#### C#
 
 ```cs
 public class Trie {

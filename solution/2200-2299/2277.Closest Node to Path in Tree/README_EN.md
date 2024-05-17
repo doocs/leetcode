@@ -84,17 +84,25 @@ Since 0 is the only node on the path, the answer to the first query is 0.</pre>
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 
 ```
+
+#### Java
 
 ```java
 
 ```
 
+#### C++
+
 ```cpp
 
 ```
+
+#### Go
 
 ```go
 

@@ -71,6 +71,8 @@ Thus, we return 2.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countBeautifulPairs(self, nums: List[int]) -> int:
@@ -83,6 +85,8 @@ class Solution:
             cnt[int(str(x)[0])] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +136,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countBeautifulPairs(nums []int) (ans int) {
@@ -155,6 +163,8 @@ func gcd(a, b int) int {
 	return gcd(b, a%b)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countBeautifulPairs(nums: number[]): number {

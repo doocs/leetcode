@@ -78,6 +78,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, nums: List[int], x: int, y: int) -> int:
@@ -97,6 +99,8 @@ class Solution:
                 l = mid + 1
         return l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +139,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -162,6 +168,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minOperations(nums []int, x int, y int) int {
 	check := func(t int) bool {
@@ -186,6 +194,8 @@ func minOperations(nums []int, x int, y int) int {
 	return l
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minOperations(nums: number[], x: number, y: number): number {

@@ -76,6 +76,8 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Foo:
     def __init__(self):
@@ -97,6 +99,8 @@ class Foo:
         self.l3.acquire()
         printThird()
 ```
+
+#### Java
 
 ```java
 class Foo {
@@ -129,6 +133,8 @@ class Foo {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Foo {
@@ -169,6 +175,8 @@ public:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from threading import Semaphore
 
@@ -197,6 +205,8 @@ class Foo:
         printThird()
         self.a.release()
 ```
+
+#### C++
 
 ```cpp
 #include <semaphore.h>

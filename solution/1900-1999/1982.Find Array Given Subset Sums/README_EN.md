@@ -80,6 +80,8 @@ Note that any permutation of [1,2,-3] and also any permutation of [-1,-2,3] will
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedList
 
@@ -105,6 +107,8 @@ class Solution:
                 break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -160,6 +164,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -207,6 +213,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func recoverArray(n int, sums []int) []int {
@@ -275,6 +283,8 @@ func recoverArray(n int, sums []int) []int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def recoverArray(self, n: int, sums: List[int]) -> List[int]:
@@ -299,6 +309,8 @@ class Solution:
             sums = sums1 if sign == 1 else sums2
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -335,6 +347,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -373,6 +387,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func recoverArray(n int, sums []int) (ans []int) {

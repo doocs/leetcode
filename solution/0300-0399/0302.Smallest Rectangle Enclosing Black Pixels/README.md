@@ -71,6 +71,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minArea(self, image: List[List[str]], x: int, y: int) -> int:
@@ -121,6 +123,8 @@ class Solution:
         r = left
         return (d - u + 1) * (r - l + 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -191,6 +195,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -247,6 +253,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minArea(image [][]byte, x int, y int) int {

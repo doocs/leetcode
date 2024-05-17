@@ -65,6 +65,8 @@ onceFn(4, 6, 8); // undefined, fn was not called
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function once<T extends (...args: any[]) => any>(
     fn: T,

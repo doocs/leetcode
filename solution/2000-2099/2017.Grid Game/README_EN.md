@@ -89,6 +89,8 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def gridGame(self, grid: List[List[int]]) -> int:
@@ -100,6 +102,8 @@ class Solution:
             s2 += grid[1][j]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +123,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 using ll = long long;
@@ -140,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func gridGame(grid [][]int) int64 {
 	ans := math.MaxInt64
@@ -155,6 +163,8 @@ func gridGame(grid [][]int) int64 {
 	return int64(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function gridGame(grid: number[][]): number {

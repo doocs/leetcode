@@ -114,6 +114,8 @@ findElements.find(5); // return True
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -145,6 +147,8 @@ class FindElements:
 # obj = FindElements(root)
 # param_1 = obj.find(target)
 ```
+
+#### Java
 
 ```java
 /**
@@ -194,6 +198,8 @@ class FindElements {
  */
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -240,6 +246,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -282,6 +290,8 @@ func (this *FindElements) Find(target int) bool {
  * param_1 := obj.Find(target);
  */
 ```
+
+#### TypeScript
 
 ```ts
 /**

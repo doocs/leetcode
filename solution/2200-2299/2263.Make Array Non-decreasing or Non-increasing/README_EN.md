@@ -79,6 +79,8 @@ It can be proven that 4 is the minimum number of operations needed.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def convertArray(self, nums: List[int]) -> int:
@@ -95,6 +97,8 @@ class Solution:
 
         return min(solve(nums), solve(nums[::-1]))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -155,6 +161,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func convertArray(nums []int) int {

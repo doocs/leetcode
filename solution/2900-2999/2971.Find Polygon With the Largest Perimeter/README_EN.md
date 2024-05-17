@@ -76,6 +76,8 @@ It can be shown that the largest possible perimeter is 12.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def largestPerimeter(self, nums: List[int]) -> int:
@@ -87,6 +89,8 @@ class Solution:
                 ans = max(ans, s[k])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -129,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func largestPerimeter(nums []int) int64 {
 	sort.Ints(nums)
@@ -146,6 +154,8 @@ func largestPerimeter(nums []int) int64 {
 	return int64(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function largestPerimeter(nums: number[]): number {

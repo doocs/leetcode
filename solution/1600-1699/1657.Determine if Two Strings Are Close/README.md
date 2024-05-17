@@ -102,6 +102,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def closeStrings(self, word1: str, word2: str) -> bool:
@@ -110,6 +112,8 @@ class Solution:
             cnt1.keys()
         ) == set(cnt2.keys())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +137,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -158,6 +164,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func closeStrings(word1 string, word2 string) bool {
 	cnt1 := make([]int, 26)
@@ -176,6 +184,8 @@ func closeStrings(word1 string, word2 string) bool {
 	return slices.Equal(cnt1, cnt2)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function closeStrings(word1: string, word2: string): boolean {
@@ -197,6 +207,8 @@ function closeStrings(word1: string, word2: string): boolean {
     return cnt1.join('.') === cnt2.join('.');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

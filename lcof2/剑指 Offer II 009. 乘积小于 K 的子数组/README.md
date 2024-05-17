@@ -58,6 +58,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numSubarrayProductLessThanK(self, nums: List[int], k: int) -> int:
@@ -71,6 +73,8 @@ class Solution:
             ans += j - i + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +92,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -107,6 +113,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numSubarrayProductLessThanK(nums []int, k int) int {
 	s := 1
@@ -122,6 +130,8 @@ func numSubarrayProductLessThanK(nums []int, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numSubarrayProductLessThanK(nums: number[], k: number): number {

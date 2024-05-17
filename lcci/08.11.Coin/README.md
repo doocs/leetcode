@@ -78,6 +78,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def waysToChange(self, n: int) -> int:
@@ -92,6 +94,8 @@ class Solution:
                     f[i][j] = (f[i][j] + f[i][j - c]) % mod
         return f[-1][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -135,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func waysToChange(n int) int {
 	const mod int = 1e9 + 7
@@ -156,6 +164,8 @@ func waysToChange(n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function waysToChange(n: number): number {
     const mod = 10 ** 9 + 7;
@@ -173,6 +183,8 @@ function waysToChange(n: number): number {
     return f[4][n];
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -207,6 +219,8 @@ class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def waysToChange(self, n: int) -> int:
@@ -218,6 +232,8 @@ class Solution:
                 f[j] = (f[j] + f[j - c]) % mod
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -235,6 +251,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -255,6 +273,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func waysToChange(n int) int {
 	const mod int = 1e9 + 7
@@ -269,6 +289,8 @@ func waysToChange(n int) int {
 	return f[n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function waysToChange(n: number): number {

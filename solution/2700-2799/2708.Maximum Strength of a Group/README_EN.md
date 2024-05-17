@@ -69,6 +69,8 @@ The time complexity is $O(2^n \times n)$, where $n$ is the length of the array. 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxStrength(self, nums: List[int]) -> int:
@@ -81,6 +83,8 @@ class Solution:
             ans = max(ans, t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -121,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxStrength(nums []int) int64 {
 	ans := int64(-1e14)
@@ -136,6 +144,8 @@ func maxStrength(nums []int) int64 {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxStrength(nums: number[]): number {
@@ -172,6 +182,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxStrength(self, nums: List[int]) -> int:
@@ -193,6 +205,8 @@ class Solution:
                 i += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -222,6 +236,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -253,6 +269,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxStrength(nums []int) int64 {
 	sort.Ints(nums)
@@ -275,6 +293,8 @@ func maxStrength(nums []int) int64 {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxStrength(nums: number[]): number {

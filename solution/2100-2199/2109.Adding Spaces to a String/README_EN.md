@@ -80,6 +80,8 @@ We are also able to place spaces before the first character of the string.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def addSpaces(self, s: str, spaces: List[int]) -> str:
@@ -92,6 +94,8 @@ class Solution:
             ans.append(c)
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -126,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func addSpaces(s string, spaces []int) string {
 	var ans []byte
@@ -139,6 +147,8 @@ func addSpaces(s string, spaces []int) string {
 	return string(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function addSpaces(s: string, spaces: number[]): string {
@@ -163,6 +173,8 @@ function addSpaces(s: string, spaces: number[]): string {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

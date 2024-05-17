@@ -81,6 +81,8 @@ Concatenating everything results in [1] + [2] + [4,7,8,9,10] + [6,3] = [1,2,4,7,
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -132,6 +134,8 @@ class Solution:
     def is_leaf(self, node) -> bool:
         return node and node.left is None and node.right is None
 ```
+
+#### Java
 
 ```java
 /**
@@ -210,6 +214,8 @@ class Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

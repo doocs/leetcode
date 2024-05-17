@@ -78,6 +78,8 @@ The time complexity is $O(n \times \log n + m \times \log m)$, and the space com
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProfitAssignment(
@@ -93,6 +95,8 @@ class Solution:
             ans += mx
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +119,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -139,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProfitAssignment(difficulty []int, profit []int, worker []int) (ans int) {
 	sort.Ints(worker)
@@ -158,6 +166,8 @@ func maxProfitAssignment(difficulty []int, profit []int, worker []int) (ans int)
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxProfitAssignment(difficulty: number[], profit: number[], worker: number[]): number {

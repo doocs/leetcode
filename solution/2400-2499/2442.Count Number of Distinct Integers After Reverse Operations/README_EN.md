@@ -67,6 +67,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countDistinctIntegers(self, nums: List[int]) -> int:
@@ -76,6 +78,8 @@ class Solution:
             s.add(y)
         return len(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +101,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -114,6 +120,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countDistinctIntegers(nums []int) int {
@@ -133,6 +141,8 @@ func countDistinctIntegers(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countDistinctIntegers(nums: number[]): number {
     const n = nums.length;
@@ -142,6 +152,8 @@ function countDistinctIntegers(nums: number[]): number {
     return new Set(nums).size;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;

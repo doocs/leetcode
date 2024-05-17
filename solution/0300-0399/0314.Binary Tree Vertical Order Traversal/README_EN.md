@@ -69,6 +69,8 @@ The time complexity is $O(n\log \log n)$, and the space complexity is $O(n)$. Wh
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -93,6 +95,8 @@ class Solution:
             ans.append([x[1] for x in v])
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -138,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -180,6 +186,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -235,6 +243,8 @@ The time complexity is $O(n\log n)$, and the space complexity is $O(n)$. Where $
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -258,6 +268,8 @@ class Solution:
                     q.append((root.right, offset + 1))
         return [v for _, v in sorted(d.items())]
 ```
+
+#### Java
 
 ```java
 /**
@@ -303,6 +315,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -340,6 +354,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**

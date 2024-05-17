@@ -90,6 +90,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfWays(self, corridor: str) -> int:
@@ -112,6 +114,8 @@ class Solution:
         dfs.cache_clear()
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -152,6 +156,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -178,6 +184,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfWays(corridor string) int {
@@ -218,6 +226,8 @@ func numberOfWays(corridor string) int {
 	return dfs(0, 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfWays(corridor: string): number {

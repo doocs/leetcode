@@ -70,6 +70,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findLeastNumOfUniqueInts(self, arr: List[int], k: int) -> int:
@@ -80,6 +82,8 @@ class Solution:
                 return len(cnt) - i
         return 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -125,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findLeastNumOfUniqueInts(arr []int, k int) int {
 	cnt := map[int]int{}
@@ -145,6 +153,8 @@ func findLeastNumOfUniqueInts(arr []int, k int) int {
 	return 0
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findLeastNumOfUniqueInts(arr: number[], k: number): number {

@@ -79,6 +79,8 @@ The time complexity is $O(n)$, where $n$ is the length of the string `columnTitl
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def titleToNumber(self, columnTitle: str) -> int:
@@ -87,6 +89,8 @@ class Solution:
             ans = ans * 26 + c - ord("A") + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +103,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -113,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func titleToNumber(columnTitle string) (ans int) {
 	for _, c := range columnTitle {
@@ -121,6 +129,8 @@ func titleToNumber(columnTitle string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function titleToNumber(columnTitle: string): number {
@@ -131,6 +141,8 @@ function titleToNumber(columnTitle: string): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

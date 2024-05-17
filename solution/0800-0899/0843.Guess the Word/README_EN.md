@@ -85,17 +85,25 @@ We made 5 calls to master.guess, and one of them was the secret, so we pass the 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 
 ```
+
+#### Java
 
 ```java
 
 ```
 
+#### C++
+
 ```cpp
 
 ```
+
+#### Go
 
 ```go
 

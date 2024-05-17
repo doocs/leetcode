@@ -84,6 +84,8 @@ Course 0 is not a prerequisite of course 1, but the opposite is true.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkIfPrerequisite(
@@ -99,6 +101,8 @@ class Solution:
                         f[i][j] = True
         return [f[a][b] for a, b in queries]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +126,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -148,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func checkIfPrerequisite(n int, prerequisites [][]int, queries [][]int) (ans []bool) {
 	f := make([][]bool, n)
@@ -170,6 +178,8 @@ func checkIfPrerequisite(n int, prerequisites [][]int, queries [][]int) (ans []b
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function checkIfPrerequisite(n: number, prerequisites: number[][], queries: number[][]): boolean[] {
@@ -196,6 +206,8 @@ function checkIfPrerequisite(n: number, prerequisites: number[][], queries: numb
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkIfPrerequisite(
@@ -219,6 +231,8 @@ class Solution:
                     q.append(j)
         return [f[a][b] for a, b in queries]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -257,6 +271,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -298,6 +314,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func checkIfPrerequisite(n int, prerequisites [][]int, queries [][]int) (ans []bool) {
 	f := make([][]bool, n)
@@ -337,6 +355,8 @@ func checkIfPrerequisite(n int, prerequisites [][]int, queries [][]int) (ans []b
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function checkIfPrerequisite(n: number, prerequisites: number[][], queries: number[][]): boolean[] {

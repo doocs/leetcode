@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minGroupsForValidAssignment(self, nums: List[int]) -> int:
@@ -94,6 +96,8 @@ class Solution:
             if ans:
                 return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +126,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -152,6 +158,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minGroupsForValidAssignment(nums []int) int {
 	cnt := map[int]int{}
@@ -178,6 +186,8 @@ func minGroupsForValidAssignment(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minGroupsForValidAssignment(nums: number[]): number {
     const cnt: Map<number, number> = new Map();
@@ -199,6 +209,8 @@ function minGroupsForValidAssignment(nums: number[]): number {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;

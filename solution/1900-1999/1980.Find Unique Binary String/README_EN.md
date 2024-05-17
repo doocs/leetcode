@@ -77,6 +77,8 @@ The time complexity is $O(L)$, where $L$ is the total length of the strings in `
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findDifferentBinaryString(self, nums: List[str]) -> str:
@@ -88,6 +90,8 @@ class Solution:
             if mask >> i & 1 ^ 1:
                 return "1" * i + "0" * (n - i)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -129,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findDifferentBinaryString(nums []string) string {
 	mask := 0
@@ -142,6 +150,8 @@ func findDifferentBinaryString(nums []string) string {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findDifferentBinaryString(nums: string[]): string {
@@ -157,6 +167,8 @@ function findDifferentBinaryString(nums: string[]): string {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

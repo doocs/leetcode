@@ -78,6 +78,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def makeSmallestPalindrome(self, s: str) -> str:
@@ -88,6 +90,8 @@ class Solution:
             i, j = i + 1, j - 1
         return "".join(cs)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -113,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func makeSmallestPalindrome(s string) string {
 	cs := []byte(s)
@@ -124,6 +132,8 @@ func makeSmallestPalindrome(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function makeSmallestPalindrome(s: string): string {
     const cs = s.split('');
@@ -133,6 +143,8 @@ function makeSmallestPalindrome(s: string): string {
     return cs.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

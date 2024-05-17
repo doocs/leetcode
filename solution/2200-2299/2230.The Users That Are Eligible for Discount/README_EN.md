@@ -81,6 +81,8 @@ Out of the three users, only User 3 is eligible for a discount.
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 CREATE PROCEDURE getUserIDs(startDate DATE, endDate DATE, minAmount INT)
 BEGIN

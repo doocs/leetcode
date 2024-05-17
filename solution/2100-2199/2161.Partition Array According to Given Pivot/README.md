@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def pivotArray(self, nums: List[int], pivot: int) -> List[int]:
@@ -89,6 +91,8 @@ class Solution:
                 c.append(x)
         return a + b + c
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -131,6 +137,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func pivotArray(nums []int, pivot int) []int {

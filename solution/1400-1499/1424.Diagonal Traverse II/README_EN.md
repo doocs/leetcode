@@ -57,6 +57,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findDiagonalOrder(self, nums: List[List[int]]) -> List[int]:
@@ -67,6 +69,8 @@ class Solution:
         arr.sort()
         return [v[2] for v in arr]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +91,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -106,6 +112,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findDiagonalOrder(nums [][]int) []int {
@@ -128,6 +136,8 @@ func findDiagonalOrder(nums [][]int) []int {
 	return ans
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

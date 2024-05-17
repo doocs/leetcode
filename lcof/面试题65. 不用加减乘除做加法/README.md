@@ -60,6 +60,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def add(self, a: int, b: int) -> int:
@@ -69,6 +71,8 @@ class Solution:
             a, b = a ^ b, c
         return a if a < 0x80000000 else ~(a ^ 0xFFFFFFFF)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +86,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -97,6 +103,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func add(a int, b int) int {
 	if b == 0 {
@@ -105,6 +113,8 @@ func add(a int, b int) int {
 	return add(a^b, (a&b)<<1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function add(a: number, b: number): number {
@@ -116,6 +126,8 @@ function add(a: number, b: number): number {
     return a;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -130,6 +142,8 @@ var add = function (a, b) {
     return add(a ^ b, (a & b) << 1);
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -154,6 +168,8 @@ public class Solution {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {

@@ -50,12 +50,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getLeastNumbers(self, arr: List[int], k: int) -> List[int]:
         arr.sort()
         return arr[:k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -70,6 +74,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -80,12 +86,16 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getLeastNumbers(arr []int, k int) []int {
 	sort.Ints(arr)
 	return arr[:k]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getLeastNumbers(arr: number[], k: number): number[] {
@@ -114,6 +124,8 @@ function getLeastNumbers(arr: number[], k: number): number[] {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn get_least_numbers(mut arr: Vec<i32>, k: i32) -> Vec<i32> {
@@ -141,6 +153,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -183,6 +197,8 @@ var getLeastNumbers = function (arr, k) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int[] GetLeastNumbers(int[] arr, int k) {
@@ -208,6 +224,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getLeastNumbers(self, arr: List[int], k: int) -> List[int]:
@@ -218,6 +236,8 @@ class Solution:
                 heappop(h)
         return [-x for x in h]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -237,6 +257,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -258,6 +280,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getLeastNumbers(arr []int, k int) (ans []int) {
@@ -302,6 +326,8 @@ func (h *hp) pop() int   { return heap.Pop(h).(int) }
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getLeastNumbers(self, arr: List[int], k: int) -> List[int]:
@@ -323,6 +349,8 @@ class Solution:
         n = len(arr)
         return arr if k == n else quick_sort(0, n - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -365,6 +393,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -394,6 +424,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getLeastNumbers(arr []int, k int) []int {

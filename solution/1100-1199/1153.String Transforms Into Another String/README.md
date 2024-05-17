@@ -72,6 +72,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canConvert(self, str1: str, str2: str) -> bool:
@@ -87,6 +89,8 @@ class Solution:
                 return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -152,6 +158,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canConvert(str1 string, str2 string) bool {
 	if str1 == str2 {
@@ -176,6 +184,8 @@ func canConvert(str1 string, str2 string) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canConvert(str1: string, str2: string): boolean {

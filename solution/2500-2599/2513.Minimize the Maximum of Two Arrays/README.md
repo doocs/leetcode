@@ -83,6 +83,8 @@ arr1 = [1,2] 和 arr2 = [3] 满足所有条件。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimizeSet(
@@ -101,6 +103,8 @@ class Solution:
         divisor = lcm(divisor1, divisor2)
         return bisect_left(range(10**10), True, key=f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -152,6 +158,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimizeSet(divisor1 int, divisor2 int, uniqueCnt1 int, uniqueCnt2 int) int {

@@ -117,6 +117,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getMaxGridHappiness(
@@ -160,6 +162,8 @@ class Solution:
                     g[i][j] += h[bits[i][k]][bits[j][k]]
         return dfs(0, 0, introvertsCount, extrovertsCount)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -229,6 +233,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -291,6 +297,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getMaxGridHappiness(m int, n int, introvertsCount int, extrovertsCount int) int {
@@ -363,6 +371,8 @@ func getMaxGridHappiness(m int, n int, introvertsCount int, extrovertsCount int)
 	return dfs(0, 0, introvertsCount, extrovertsCount)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getMaxGridHappiness(
@@ -471,6 +481,8 @@ function getMaxGridHappiness(
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getMaxGridHappiness(
@@ -501,6 +513,8 @@ class Solution:
         h = [[0, 0, 0], [0, -60, -10], [0, -10, 40]]
         return dfs(0, 0, introvertsCount, extrovertsCount)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -543,6 +557,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -577,6 +593,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getMaxGridHappiness(m int, n int, introvertsCount int, extrovertsCount int) int {
@@ -633,6 +651,8 @@ func getMaxGridHappiness(m int, n int, introvertsCount int, extrovertsCount int)
 	return dfs(0, 0, introvertsCount, extrovertsCount)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getMaxGridHappiness(

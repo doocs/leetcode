@@ -87,6 +87,8 @@ fn = (x) =&gt; Array.isArray(x)
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function deepFilter(obj: Record<string, any>, fn: Function): Record<string, any> | undefined {
     const dfs = (data: any): any => {

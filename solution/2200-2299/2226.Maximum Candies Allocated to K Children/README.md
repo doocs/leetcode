@@ -65,6 +65,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumCandies(self, candies: List[int], k: int) -> int:
@@ -78,6 +80,8 @@ class Solution:
                 right = mid - 1
         return left
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -118,6 +124,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumCandies(candies []int, k int64) int {

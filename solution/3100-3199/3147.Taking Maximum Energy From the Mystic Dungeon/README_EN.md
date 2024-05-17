@@ -99,6 +99,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array `energy`. Th
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumEnergy(self, energy: List[int], k: int) -> int:
@@ -112,6 +114,8 @@ class Solution:
                 j -= k
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +132,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -146,6 +152,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumEnergy(energy []int, k int) int {
 	ans := -(1 << 30)
@@ -159,6 +167,8 @@ func maximumEnergy(energy []int, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumEnergy(energy: number[], k: number): number {

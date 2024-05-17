@@ -84,6 +84,8 @@ Probability = 108 / 180 = 0.6
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getProbability(self, balls: List[int]) -> float:
@@ -103,6 +105,8 @@ class Solution:
         k = len(balls)
         return dfs(0, n, 0) / comb(n << 1, n)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -152,6 +156,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -191,6 +197,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getProbability(balls []int) float64 {
@@ -254,6 +262,8 @@ func getProbability(balls []int) float64 {
 	return float64(dfs(0, n, k)) / float64(c[n<<1][n])
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getProbability(balls: number[]): number {

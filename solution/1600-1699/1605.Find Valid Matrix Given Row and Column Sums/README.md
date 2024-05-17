@@ -108,6 +108,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def restoreMatrix(self, rowSum: List[int], colSum: List[int]) -> List[List[int]]:
@@ -121,6 +123,8 @@ class Solution:
                 colSum[j] -= x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -141,6 +145,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -159,6 +165,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func restoreMatrix(rowSum []int, colSum []int) [][]int {
@@ -179,6 +187,8 @@ func restoreMatrix(rowSum []int, colSum []int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function restoreMatrix(rowSum: number[], colSum: number[]): number[][] {
     const m = rowSum.length;
@@ -195,6 +205,8 @@ function restoreMatrix(rowSum: number[], colSum: number[]): number[][] {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

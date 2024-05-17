@@ -89,6 +89,8 @@ The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def appealSum(self, s: str) -> int:
@@ -101,6 +103,8 @@ class Solution:
             pos[c] = i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -137,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func appealSum(s string) int64 {
 	var ans, t int64
@@ -153,6 +161,8 @@ func appealSum(s string) int64 {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function appealSum(s: string): number {

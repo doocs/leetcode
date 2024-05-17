@@ -90,6 +90,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumScore(self, scores: List[int], edges: List[List[int]]) -> int:
@@ -108,6 +110,8 @@ class Solution:
                         ans = max(ans, t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {

@@ -94,6 +94,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumSubtreeSize(self, edges: List[List[int]], colors: List[int]) -> int:
@@ -119,6 +121,8 @@ class Solution:
         dfs(0, -1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -160,6 +164,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -193,6 +199,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumSubtreeSize(edges [][]int, colors []int) (ans int) {
 	n := len(edges) + 1
@@ -223,6 +231,8 @@ func maximumSubtreeSize(edges [][]int, colors []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumSubtreeSize(edges: number[][], colors: number[]): number {

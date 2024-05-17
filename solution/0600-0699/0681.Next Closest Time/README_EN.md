@@ -62,6 +62,8 @@ It may be assumed that the returned time is next day&#39;s time since it is smal
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def nextClosestTime(self, time: str) -> str:
@@ -92,6 +94,8 @@ class Solution:
             ans = f'{mi}{mi}:{mi}{mi}'
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {

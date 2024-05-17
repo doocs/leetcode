@@ -88,6 +88,8 @@ Alice 输掉游戏，因为已移除石子值总和（15）可以被 3 整除，
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def stoneGameIX(self, stones: List[int]) -> bool:
@@ -107,6 +109,8 @@ class Solution:
         c1 = [c[0], c[2], c[1]]
         return check(c) or check(c1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -134,6 +138,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -156,6 +162,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func stoneGameIX(stones []int) bool {

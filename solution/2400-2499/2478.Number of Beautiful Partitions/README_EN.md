@@ -102,6 +102,8 @@ The time complexity is $O(n \times k)$, and the space complexity is $O(n \times 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def beautifulPartitions(self, s: str, k: int, minLength: int) -> int:
@@ -121,6 +123,8 @@ class Solution:
                 g[i][j] = (g[i - 1][j] + f[i][j]) % mod
         return f[n][k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -153,6 +157,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -180,6 +186,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func beautifulPartitions(s string, k int, minLength int) int {
@@ -211,6 +219,8 @@ func beautifulPartitions(s string, k int, minLength int) int {
 	return f[n][k]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function beautifulPartitions(s: string, k: number, minLength: number): number {

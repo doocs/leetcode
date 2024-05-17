@@ -82,6 +82,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCut(self, s: str) -> int:
@@ -97,6 +99,8 @@ class Solution:
                     f[i] = min(f[i], 1 + f[j - 1] if j else 0)
         return f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -152,6 +158,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minCut(s string) int {
@@ -185,6 +193,8 @@ func minCut(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minCut(s: string): number {
     const n = s.length;
@@ -209,6 +219,8 @@ function minCut(s: string): number {
     return f[n - 1];
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

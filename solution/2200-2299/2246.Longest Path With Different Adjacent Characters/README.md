@@ -83,6 +83,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestPath(self, parent: List[int], s: str) -> int:
@@ -103,6 +105,8 @@ class Solution:
         dfs(0)
         return ans + 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +140,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -163,6 +169,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestPath(parent []int, s string) int {
 	n := len(parent)
@@ -187,6 +195,8 @@ func longestPath(parent []int, s string) int {
 	return ans + 1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestPath(parent: number[], s: string): number {

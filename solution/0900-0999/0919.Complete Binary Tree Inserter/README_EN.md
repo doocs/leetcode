@@ -78,6 +78,8 @@ In terms of time complexity, it takes $O(n)$ time for initialization, and the ti
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -118,6 +120,8 @@ class CBTInserter:
 # param_1 = obj.insert(val)
 # param_2 = obj.get_root()
 ```
+
+#### Java
 
 ```java
 /**
@@ -180,6 +184,8 @@ class CBTInserter {
  */
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -239,6 +245,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -294,6 +302,8 @@ func (this *CBTInserter) Get_root() *TreeNode {
  * param_2 := obj.Get_root();
  */
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -353,6 +363,8 @@ class CBTInserter {
  * var param_2 = obj.get_root()
  */
 ```
+
+#### JavaScript
 
 ```js
 /**

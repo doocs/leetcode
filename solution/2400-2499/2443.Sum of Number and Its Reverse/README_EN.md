@@ -67,11 +67,15 @@ The time complexity is $O(n \times \log n)$, where $n$ is the size of $num$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumOfNumberAndReverse(self, num: int) -> bool:
         return any(k + int(str(k)[::-1]) == num for k in range(num + 1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +95,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -112,6 +118,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumOfNumberAndReverse(num int) bool {
 	for x := 0; x <= num; x++ {
@@ -128,6 +136,8 @@ func sumOfNumberAndReverse(num int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sumOfNumberAndReverse(num: number): boolean {
     for (let i = 0; i <= num; i++) {
@@ -138,6 +148,8 @@ function sumOfNumberAndReverse(num: number): boolean {
     return false;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -162,6 +174,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 bool sumOfNumberAndReverse(int num) {

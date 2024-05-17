@@ -83,6 +83,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def visiblePoints(
@@ -103,6 +105,8 @@ class Solution:
         mx = max((bisect_right(v, v[i] + t) - i for i in range(n)), default=0)
         return mx + same
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +140,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -164,6 +170,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func visiblePoints(points [][]int, angle int, location []int) int {

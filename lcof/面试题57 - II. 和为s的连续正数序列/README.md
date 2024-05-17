@@ -58,6 +58,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findContinuousSequence(self, target: int) -> List[List[int]]:
@@ -74,6 +76,8 @@ class Solution:
                 l += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findContinuousSequence(target int) (ans [][]int) {
 	l, r := 1, 2
@@ -145,6 +153,8 @@ func findContinuousSequence(target int) (ans [][]int) {
 	return
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -173,6 +183,8 @@ var findContinuousSequence = function (target) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

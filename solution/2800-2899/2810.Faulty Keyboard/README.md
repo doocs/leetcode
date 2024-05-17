@@ -84,6 +84,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def finalString(self, s: str) -> str:
@@ -95,6 +97,8 @@ class Solution:
                 t.append(c)
         return "".join(t)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -129,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func finalString(s string) string {
 	t := []rune{}
@@ -145,6 +153,8 @@ func finalString(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function finalString(s: string): string {
     const t: string[] = [];
@@ -158,6 +168,8 @@ function finalString(s: string): string {
     return t.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

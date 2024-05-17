@@ -108,6 +108,8 @@ Bob 获胜，因为 9 + 3 + 2 + 9 = 5 + 9 + 2 + 7 。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumGame(self, num: str) -> bool:
@@ -118,6 +120,8 @@ class Solution:
         s2 = sum(int(x) for x in num[n // 2 :] if x != "?")
         return (cnt1 + cnt2) % 2 == 1 or s1 - s2 != 9 * (cnt2 - cnt1) // 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -143,6 +147,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -170,6 +176,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumGame(num string) bool {
 	n := len(num)
@@ -191,6 +199,8 @@ func sumGame(num string) bool {
 	return (cnt1+cnt2)%2 == 1 || s1-s2 != (cnt2-cnt1)*9/2
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumGame(num: string): boolean {

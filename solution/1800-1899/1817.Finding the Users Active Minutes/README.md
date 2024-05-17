@@ -79,6 +79,8 @@ ID=2 的用户执行操作的分钟分别是：2 和 3 。因此，该用户的�
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findingUsersActiveMinutes(self, logs: List[List[int]], k: int) -> List[int]:
@@ -90,6 +92,8 @@ class Solution:
             ans[len(ts) - 1] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -126,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findingUsersActiveMinutes(logs [][]int, k int) []int {
 	d := map[int]map[int]bool{}
@@ -143,6 +151,8 @@ func findingUsersActiveMinutes(logs [][]int, k int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findingUsersActiveMinutes(logs: number[][], k: number): number[] {

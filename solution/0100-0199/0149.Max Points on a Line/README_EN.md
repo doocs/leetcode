@@ -56,6 +56,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxPoints(self, points: List[List[int]]) -> int:
@@ -74,6 +76,8 @@ class Solution:
                 ans = max(ans, cnt)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -125,6 +131,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxPoints(points [][]int) int {
@@ -151,6 +159,8 @@ func maxPoints(points [][]int) int {
 	return ans
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -190,6 +200,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxPoints(self, points: List[List[int]]) -> int:
@@ -210,6 +222,8 @@ class Solution:
                 ans = max(ans, cnt[k] + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -237,6 +251,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -262,6 +278,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxPoints(points [][]int) int {

@@ -51,6 +51,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.09.Bracket/README.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
@@ -67,6 +69,8 @@ class Solution:
         dfs(0, 0, '')
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +97,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -114,6 +120,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func generateParenthesis(n int) []string {
 	ans := []string{}
@@ -134,6 +142,8 @@ func generateParenthesis(n int) []string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function generateParenthesis(n: number): string[] {
     function dfs(l, r, t) {
@@ -152,6 +162,8 @@ function generateParenthesis(n: number): string[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -180,6 +192,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number} n
@@ -202,6 +216,8 @@ var generateParenthesis = function (n) {
     return ans;
 };
 ```
+
+#### Swift
 
 ```swift
 class Solution {

@@ -118,6 +118,8 @@ The time complexity is $O(m \times \log m)$, and the space complexity is $O(m)$,
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumTime(
@@ -140,6 +142,8 @@ class Solution:
                     heappush(q, (dist[v], v))
         return [a if a < b else -1 for a, b in zip(dist, disappear)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -178,6 +182,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -222,6 +228,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumTime(n int, edges [][]int, disappear []int) []int {

@@ -87,6 +87,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reductionOperations(self, nums: List[int]) -> int:
@@ -98,6 +100,8 @@ class Solution:
             ans += cnt
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func reductionOperations(nums []int) int {
 	sort.Ints(nums)
@@ -143,6 +151,8 @@ func reductionOperations(nums []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function reductionOperations(nums: number[]): number {
@@ -158,6 +168,8 @@ function reductionOperations(nums: number[]): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -185,6 +197,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reductionOperations(self, nums: List[int]) -> int:
@@ -194,6 +208,8 @@ class Solution:
             cnt += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -211,6 +227,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {

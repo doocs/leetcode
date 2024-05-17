@@ -81,6 +81,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 """
 # Definition for a Node.
@@ -111,6 +113,8 @@ class Solution:
                     q.append(node.right)
         return root
 ```
+
+#### Java
 
 ```java
 /*
@@ -164,6 +168,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /*
 // Definition for a Node.
@@ -212,6 +218,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -248,6 +256,8 @@ func connect(root *Node) *Node {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -288,6 +298,8 @@ function connect(root: Node | null): Node | null {
     return root;
 }
 ```
+
+#### C#
 
 ```cs
 /*
@@ -357,6 +369,8 @@ The time complexity is $O(n)$, where $n$ is the number of nodes in the binary tr
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 """
 # Definition for a Node.
@@ -390,6 +404,8 @@ class Solution:
             node = next
         return root
 ```
+
+#### Java
 
 ```java
 /*
@@ -448,6 +464,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /*
 // Definition for a Node.
@@ -499,6 +517,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -537,6 +557,8 @@ func connect(root *Node) *Node {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -580,6 +602,8 @@ function connect(root: Node | null): Node | null {
     return root;
 }
 ```
+
+#### C#
 
 ```cs
 /*

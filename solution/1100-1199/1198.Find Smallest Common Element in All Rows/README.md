@@ -70,6 +70,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def smallestCommonElement(self, mat: List[List[int]]) -> int:
@@ -81,6 +83,8 @@ class Solution:
                     return x
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -115,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallestCommonElement(mat [][]int) int {
 	cnt := [10001]int{}
@@ -129,6 +137,8 @@ func smallestCommonElement(mat [][]int) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function smallestCommonElement(mat: number[][]): number {

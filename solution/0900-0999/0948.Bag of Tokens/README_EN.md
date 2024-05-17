@@ -135,6 +135,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def bagOfTokensScore(self, tokens: List[int], power: int) -> int:
@@ -153,6 +155,8 @@ class Solution:
                 break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -177,6 +181,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -199,6 +205,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func bagOfTokensScore(tokens []int, power int) int {

@@ -68,6 +68,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def firstMissingPositive(self, nums: List[int]) -> int:
@@ -83,6 +85,8 @@ class Solution:
                 return i + 1
         return n + 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -129,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func firstMissingPositive(nums []int) int {
 	n := len(nums)
@@ -145,6 +153,8 @@ func firstMissingPositive(nums []int) int {
 	return n + 1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function firstMissingPositive(nums: number[]): number {
@@ -163,6 +173,8 @@ function firstMissingPositive(nums: number[]): number {
     return (res === -1 ? n : res) + 1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -187,6 +199,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -213,6 +227,8 @@ public class Solution {
 }
 ```
 
+#### C
+
 ```c
 int firstMissingPositive(int* nums, int numsSize) {
     for (int i = 0; i < numsSize; ++i) {
@@ -234,6 +250,8 @@ void swap(int* a, int* b) {
     *b = t;
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

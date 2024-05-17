@@ -59,6 +59,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def printBin(self, num: float) -> str:
@@ -70,6 +72,8 @@ class Solution:
             num -= x
         return 'ERROR' if num else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +89,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -102,6 +108,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func printBin(num float64) string {
 	ans := &strings.Builder{}
@@ -118,6 +126,8 @@ func printBin(num float64) string {
 	return ans.String()
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

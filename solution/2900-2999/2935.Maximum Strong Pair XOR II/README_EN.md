@@ -86,6 +86,8 @@ The time complexity is $O(n \times \log M)$, and the space complexity is $O(n \t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Trie:
     __slots__ = ("children", "cnt")
@@ -136,6 +138,8 @@ class Solution:
             ans = max(ans, tree.search(y))
         return ans
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -198,6 +202,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -266,6 +272,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Trie struct {
 	children [2]*Trie
@@ -326,6 +334,8 @@ func maximumStrongPairXor(nums []int) (ans int) {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 class Trie {

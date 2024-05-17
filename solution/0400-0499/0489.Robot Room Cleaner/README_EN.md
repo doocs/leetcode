@@ -95,6 +95,8 @@ From the top left corner, its position is one row below and three columns right.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # """
 # This is the robot's control interface.
@@ -156,6 +158,8 @@ class Solution:
         dfs(0, 0, 0)
 ```
 
+#### Java
+
 ```java
 /**
  * // This is the robot's control interface.
@@ -205,6 +209,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * // This is the robot's control interface.
@@ -252,6 +258,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * // This is the robot's control interface.
@@ -296,6 +304,8 @@ func cleanRoom(robot *Robot) {
 	dfs(0, 0, 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

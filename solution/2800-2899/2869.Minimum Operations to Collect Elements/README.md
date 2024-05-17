@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, nums: List[int], k: int) -> int:
@@ -91,6 +93,8 @@ class Solution:
             if count == k:
                 return n - i
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minOperations(nums []int, k int) int {
 	isAdded := make([]bool, k)
@@ -149,6 +157,8 @@ func minOperations(nums []int, k int) int {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minOperations(nums: number[], k: number): number {

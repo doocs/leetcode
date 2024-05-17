@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reverseWords(self, s: List[str]) -> None:
@@ -86,6 +88,8 @@ class Solution:
                 reverse(i, j)
         reverse(0, n - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -135,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func reverseWords(s []byte) {
 	reverse := func(i, j int) {
@@ -154,6 +162,8 @@ func reverseWords(s []byte) {
 	reverse(0, n-1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

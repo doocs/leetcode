@@ -79,6 +79,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCost(self, basket1: List[int], basket2: List[int]) -> int:
@@ -96,6 +98,8 @@ class Solution:
         m = len(nums) // 2
         return sum(min(x, mi * 2) for x in nums[:m])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -160,6 +166,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minCost(basket1 []int, basket2 []int) (ans int64) {

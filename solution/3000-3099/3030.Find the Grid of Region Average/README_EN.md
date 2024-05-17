@@ -76,6 +76,8 @@ Please note that the rounded-down values are used when calculating the average o
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def resultGrid(self, image: List[List[int]], threshold: int) -> List[List[int]]:
@@ -117,6 +119,8 @@ class Solution:
 
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -170,6 +174,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -219,6 +225,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func resultGrid(image [][]int, threshold int) [][]int {
@@ -277,6 +285,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function resultGrid(image: number[][], threshold: number): number[][] {

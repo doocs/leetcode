@@ -99,6 +99,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array `nums`. The 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, nums: List[int]) -> int:
@@ -108,6 +110,8 @@ class Solution:
             mx = max(mx + 1, v)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -136,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minOperations(nums []int) (ans int) {
 	mx := 0
@@ -146,6 +154,8 @@ func minOperations(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minOperations(nums: number[]): number {
@@ -158,6 +168,8 @@ function minOperations(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -173,6 +185,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int MinOperations(int[] nums) {
@@ -185,6 +199,8 @@ public class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))

@@ -91,6 +91,8 @@ All 3 columns are not sorted, so you will delete all 3.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minDeletionSize(self, strs: List[str]) -> int:
@@ -103,6 +105,8 @@ class Solution:
                     break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -142,6 +148,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minDeletionSize(strs []string) int {
 	m, n := len(strs[0]), len(strs)
@@ -157,6 +165,8 @@ func minDeletionSize(strs []string) int {
 	return ans
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

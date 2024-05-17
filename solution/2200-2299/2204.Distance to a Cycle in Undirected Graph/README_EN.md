@@ -102,6 +102,8 @@ Similar problems:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def distanceToCycle(self, n: int, edges: List[List[int]]) -> List[int]:
@@ -126,6 +128,8 @@ class Solution:
             ans[i] = ans[f[i]] + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -165,6 +169,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -208,6 +214,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distanceToCycle(n int, edges [][]int) []int {
 	g := make([]map[int]bool, n)
@@ -248,6 +256,8 @@ func distanceToCycle(n int, edges [][]int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function distanceToCycle(n: number, edges: number[][]): number[] {

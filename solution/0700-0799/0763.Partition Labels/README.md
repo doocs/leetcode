@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def partitionLabels(self, s: str) -> List[int]:
@@ -89,6 +91,8 @@ class Solution:
                 j = i + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -135,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func partitionLabels(s string) (ans []int) {
 	last := [26]int{}
@@ -152,6 +160,8 @@ func partitionLabels(s string) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function partitionLabels(s: string): number[] {
@@ -172,6 +182,8 @@ function partitionLabels(s: string): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -197,6 +209,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} s
@@ -220,6 +234,8 @@ var partitionLabels = function (s) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

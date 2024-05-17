@@ -78,6 +78,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def memLeak(self, memory1: int, memory2: int) -> List[int]:
@@ -90,6 +92,8 @@ class Solution:
             i += 1
         return [i, memory1, memory2]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -124,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func memLeak(memory1 int, memory2 int) []int {
 	i := 1
@@ -138,6 +146,8 @@ func memLeak(memory1 int, memory2 int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function memLeak(memory1: number, memory2: number): number[] {
     let i = 1;
@@ -151,6 +161,8 @@ function memLeak(memory1: number, memory2: number): number[] {
     return [i, memory1, memory2];
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

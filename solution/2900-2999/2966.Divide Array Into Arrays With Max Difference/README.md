@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def divideArray(self, nums: List[int], k: int) -> List[List[int]]:
@@ -90,6 +92,8 @@ class Solution:
             ans.append(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -128,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func divideArray(nums []int, k int) [][]int {
 	sort.Ints(nums)
@@ -142,6 +150,8 @@ func divideArray(nums []int, k int) [][]int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function divideArray(nums: number[], k: number): number[][] {

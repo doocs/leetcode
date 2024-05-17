@@ -67,6 +67,8 @@ You earn a total of 9 points.</pre>
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def deleteAndEarn(self, nums: List[int]) -> int:
@@ -84,6 +86,8 @@ class Solution:
             second = cur
         return second
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -133,6 +139,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func deleteAndEarn(nums []int) int {

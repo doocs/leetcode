@@ -87,12 +87,16 @@ Similar problems:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimizeSum(self, nums: List[int]) -> int:
         nums.sort()
         return min(nums[-1] - nums[2], nums[-2] - nums[1], nums[-3] - nums[0])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -118,6 +124,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimizeSum(nums []int) int {
 	sort.Ints(nums)
@@ -126,6 +134,8 @@ func minimizeSum(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimizeSum(nums: number[]): number {
     nums.sort((a, b) => a - b);
@@ -133,6 +143,8 @@ function minimizeSum(nums: number[]): number {
     return Math.min(nums[n - 3] - nums[0], nums[n - 2] - nums[1], nums[n - 1] - nums[2]);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -143,6 +155,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define min(a, b) (((a) < (b)) ? (a) : (b))

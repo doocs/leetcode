@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -97,6 +99,8 @@ class Solution:
             l2 = l2.next if l2 else None
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -127,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -156,6 +162,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -191,6 +199,8 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for singly-linked list.
@@ -224,6 +234,8 @@ function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | nul
     return dummy.next;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -268,6 +280,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -296,6 +310,8 @@ var addTwoNumbers = function (l1, l2) {
     return dummy.next;
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -326,6 +342,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 /**
@@ -377,6 +395,8 @@ class Solution {
 }
 ```
 
+#### Swift
+
 ```swift
 /**
  * Definition for singly-linked list.
@@ -408,6 +428,8 @@ class Solution {
 }
 ```
 
+#### Ruby
+
 ```rb
 # Definition for singly-linked list.
 # class ListNode
@@ -435,6 +457,8 @@ def add_two_numbers(l1, l2)
     dummy.next
 end
 ```
+
+#### Nim
 
 ```nim
 #[

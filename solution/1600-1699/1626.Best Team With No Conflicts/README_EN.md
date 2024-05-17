@@ -71,6 +71,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def bestTeamScore(self, scores: List[int], ages: List[int]) -> int:
@@ -84,6 +86,8 @@ class Solution:
             f[i] += score
         return max(f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -133,6 +139,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func bestTeamScore(scores []int, ages []int) int {
@@ -158,6 +166,8 @@ func bestTeamScore(scores []int, ages []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function bestTeamScore(scores: number[], ages: number[]): number {
     const arr = ages.map((age, i) => [age, scores[i]]);
@@ -175,6 +185,8 @@ function bestTeamScore(scores: number[], ages: number[]): number {
     return Math.max(...f);
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -209,6 +221,8 @@ var bestTeamScore = function (scores, ages) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class BinaryIndexedTree:
     def __init__(self, n):
@@ -236,6 +250,8 @@ class Solution:
             tree.update(age, score + tree.query(age))
         return tree.query(m)
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -285,6 +301,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -331,6 +349,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {

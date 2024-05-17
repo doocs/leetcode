@@ -81,6 +81,8 @@ Sessions 表：
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 SELECT '[0-5>' AS bin, COUNT(1) AS total FROM Sessions WHERE duration < 300
 UNION

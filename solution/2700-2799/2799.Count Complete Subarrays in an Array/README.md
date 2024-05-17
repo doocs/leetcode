@@ -75,6 +75,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countCompleteSubarrays(self, nums: List[int]) -> int:
@@ -88,6 +90,8 @@ class Solution:
                     ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -133,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countCompleteSubarrays(nums []int) (ans int) {
 	s := map[int]bool{}
@@ -153,6 +161,8 @@ func countCompleteSubarrays(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countCompleteSubarrays(nums: number[]): number {
     const s: Set<number> = new Set(nums);
@@ -171,6 +181,8 @@ function countCompleteSubarrays(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -213,6 +225,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countCompleteSubarrays(self, nums: List[int]) -> int:
@@ -230,6 +244,8 @@ class Solution:
                 i += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -255,6 +271,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -282,6 +300,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countCompleteSubarrays(nums []int) (ans int) {
 	d := map[int]int{}
@@ -305,6 +325,8 @@ func countCompleteSubarrays(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countCompleteSubarrays(nums: number[]): number {
@@ -331,6 +353,8 @@ function countCompleteSubarrays(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;

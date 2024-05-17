@@ -58,6 +58,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
@@ -70,6 +72,8 @@ class Solution:
                 cnt = 0
         return max(ans, cnt)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +91,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -106,6 +112,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMaxConsecutiveOnes(nums []int) int {
 	ans, cnt := 0, 0
@@ -120,6 +128,8 @@ func findMaxConsecutiveOnes(nums []int) int {
 	return max(ans, cnt)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findMaxConsecutiveOnes(nums: number[]): number {
@@ -136,6 +146,8 @@ function findMaxConsecutiveOnes(nums: number[]): number {
     return Math.max(res, count);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -154,6 +166,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -174,6 +188,8 @@ var findMaxConsecutiveOnes = function (nums) {
     return Math.max(res, t);
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {

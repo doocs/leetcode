@@ -102,6 +102,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumDistance(self, word: str) -> int:
@@ -130,6 +132,8 @@ class Solution:
         b = min(f[n - 1][j][ord(word[-1]) - ord('A')] for j in range(26))
         return int(min(a, b))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -178,6 +182,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -220,6 +226,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumDistance(word string) int {

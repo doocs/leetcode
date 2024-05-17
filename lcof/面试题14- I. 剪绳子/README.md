@@ -54,6 +54,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def cuttingRope(self, n: int) -> int:
@@ -63,6 +65,8 @@ class Solution:
                 dp[i] = max(dp[i], dp[i - j] * j, (i - j) * j)
         return dp[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -78,6 +82,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -95,6 +101,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func cuttingRope(n int) int {
 	dp := make([]int, n+1)
@@ -107,6 +115,8 @@ func cuttingRope(n int) int {
 	return dp[n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function cuttingRope(n: number): number {
@@ -124,6 +134,8 @@ function cuttingRope(n: number): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn cutting_rope(n: i32) -> i32 {
@@ -135,6 +147,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -155,6 +169,8 @@ var cuttingRope = function (n) {
     return 3 ** m * 2;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -187,6 +203,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def cuttingRope(self, n: int) -> int:
@@ -198,6 +216,8 @@ class Solution:
             return pow(3, n // 3 - 1) * 4
         return pow(3, n // 3) * 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -216,6 +236,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -233,6 +255,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func cuttingRope(n int) int {

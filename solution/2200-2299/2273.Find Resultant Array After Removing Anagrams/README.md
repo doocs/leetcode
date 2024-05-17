@@ -79,6 +79,8 @@ words 中不存在互为字母异位词的两个相邻字符串，所以无需�
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def removeAnagrams(self, words: List[str]) -> List[str]:
@@ -88,6 +90,8 @@ class Solution:
             if i == 0 or sorted(w) != sorted(words[i - 1])
         ]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### TypeScript
 
 ```ts
 function removeAnagrams(words: string[]): string[] {

@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minAddToMakeValid(self, s: str) -> int:
@@ -91,6 +93,8 @@ class Solution:
                 stk.append(c)
         return len(stk)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minAddToMakeValid(s string) int {
 	stk := []rune{}
@@ -137,6 +145,8 @@ func minAddToMakeValid(s string) int {
 	return len(stk)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minAddToMakeValid(s: string): number {
@@ -175,6 +185,8 @@ function minAddToMakeValid(s: string): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minAddToMakeValid(self, s: str) -> int:
@@ -189,6 +201,8 @@ class Solution:
         ans += cnt
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -209,6 +223,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -228,6 +244,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minAddToMakeValid(s string) int {
 	ans, cnt := 0, 0
@@ -244,6 +262,8 @@ func minAddToMakeValid(s string) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minAddToMakeValid(s: string): number {

@@ -72,12 +72,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def escapeGhosts(self, ghosts: List[List[int]], target: List[int]) -> bool:
         tx, ty = target
         return all(abs(tx - x) + abs(ty - y) > abs(tx) + abs(ty) for x, y in ghosts)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +98,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -109,6 +115,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func escapeGhosts(ghosts [][]int, target []int) bool {
@@ -129,6 +137,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function escapeGhosts(ghosts: number[][], target: number[]): boolean {

@@ -62,6 +62,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2774.Ar
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 declare global {
     interface Array<T> {
@@ -97,6 +99,8 @@ Array.prototype.upperBound = function (target: number) {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 declare global {

@@ -66,6 +66,8 @@ The time complexity is $O(\log n)$, where $n$ is the label of the node. Ignoring
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def pathInZigZagTree(self, label: int) -> List[int]:
@@ -80,6 +82,8 @@ class Solution:
             i -= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +125,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func pathInZigZagTree(label int) (ans []int) {

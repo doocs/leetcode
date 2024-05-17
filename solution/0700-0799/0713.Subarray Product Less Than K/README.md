@@ -75,6 +75,8 @@ for (int i = 0, j = 0; i < n; ++i) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numSubarrayProductLessThanK(self, nums: List[int], k: int) -> int:
@@ -87,6 +89,8 @@ class Solution:
             ans += i - j + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +125,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numSubarrayProductLessThanK(nums []int, k int) int {
 	ans := 0
@@ -133,6 +141,8 @@ func numSubarrayProductLessThanK(nums []int, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numSubarrayProductLessThanK(nums: number[], k: number): number {
     let ans = 0;
@@ -146,6 +156,8 @@ function numSubarrayProductLessThanK(nums: number[], k: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -171,6 +183,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

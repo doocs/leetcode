@@ -64,6 +64,8 @@ Similar problems:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def search(self, arr: List[int], target: int) -> int:
@@ -86,6 +88,8 @@ class Solution:
                 r -= 1
         return l if arr[l] == target else -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -148,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func search(arr []int, target int) int {
 	l, r := 0, len(arr)-1
@@ -179,6 +187,8 @@ func search(arr []int, target int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function search(arr: number[], target: number): number {
     let [l, r] = [0, arr.length - 1];
@@ -206,6 +216,8 @@ function search(arr: number[], target: number): number {
     return arr[l] === target ? l : -1;
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

@@ -63,6 +63,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findLongestChain(self, pairs: List[List[int]]) -> int:
@@ -74,6 +76,8 @@ class Solution:
                     dp[i] = max(dp[i], dp[j] + 1)
         return max(dp)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +102,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -116,6 +122,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findLongestChain(pairs [][]int) int {
@@ -140,6 +148,8 @@ func findLongestChain(pairs [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findLongestChain(pairs: number[][]): number {
     pairs.sort((a, b) => a[0] - b[0]);
@@ -155,6 +165,8 @@ function findLongestChain(pairs: number[][]): number {
     return dp[n - 1];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -184,6 +196,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findLongestChain(self, pairs: List[List[int]]) -> int:
@@ -194,6 +208,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -211,6 +227,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -231,6 +249,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findLongestChain(pairs [][]int) int {
 	sort.Slice(pairs, func(i, j int) bool {
@@ -247,6 +267,8 @@ func findLongestChain(pairs [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findLongestChain(pairs: number[][]): number {
     pairs.sort((a, b) => a[1] - b[1]);
@@ -261,6 +283,8 @@ function findLongestChain(pairs: number[][]): number {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

@@ -87,6 +87,8 @@ The time complexity is $O(n \times k)$, and the space complexity is $O(n)$. Wher
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 n = 3010
 mod = 10**9 + 7
@@ -113,6 +115,8 @@ class Solution:
                 cnt.pop(c)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -166,6 +170,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 const int N = 3010;
 const int MOD = 1e9 + 7;
@@ -218,6 +224,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 const n = 3010

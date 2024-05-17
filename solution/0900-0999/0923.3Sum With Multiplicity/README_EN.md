@@ -84,6 +84,8 @@ The time complexity is $O(n^2)$, where $n$ is the length of the array $arr$. The
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def threeSumMulti(self, arr: List[int], target: int) -> int:
@@ -97,6 +99,8 @@ class Solution:
                 ans = (ans + cnt[c]) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -147,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func threeSumMulti(arr []int, target int) (ans int) {
 	const mod int = 1e9 + 7
@@ -165,6 +173,8 @@ func threeSumMulti(arr []int, target int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function threeSumMulti(arr: number[], target: number): number {

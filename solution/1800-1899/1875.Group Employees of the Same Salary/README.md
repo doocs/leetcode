@@ -92,6 +92,8 @@ Juan的工资(6100)没有被计算在排名中，因为他不属于任何一个�
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

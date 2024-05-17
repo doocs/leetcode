@@ -93,6 +93,8 @@ The time complexity is $O(n+C)$, and the space complexity is $O(n)$. Here, $n$ i
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def robotWithString(self, s: str) -> str:
@@ -109,6 +111,8 @@ class Solution:
                 ans.append(stk.pop())
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +139,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -157,6 +163,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func robotWithString(s string) string {
@@ -181,6 +189,8 @@ func robotWithString(s string) string {
 	return string(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function robotWithString(s: string): string {
@@ -213,6 +223,8 @@ function robotWithString(s: string): string {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def robotWithString(self, s: str) -> str:
@@ -228,6 +240,8 @@ class Solution:
                 ans.append(stk.pop())
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -251,6 +265,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {

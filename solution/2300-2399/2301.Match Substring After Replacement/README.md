@@ -86,6 +86,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def matchReplacement(self, s: str, sub: str, mappings: List[List[str]]) -> bool:
@@ -97,6 +99,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -148,6 +154,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func matchReplacement(s string, sub string, mappings [][]byte) bool {
@@ -188,6 +196,8 @@ func matchReplacement(s string, sub string, mappings [][]byte) bool {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def matchReplacement(self, s: str, sub: str, mappings: List[List[str]]) -> bool:
@@ -201,6 +211,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -227,6 +239,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -252,6 +266,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func matchReplacement(s string, sub string, mappings [][]byte) bool {

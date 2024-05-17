@@ -47,6 +47,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reverseVowels(self, s: str) -> str:
@@ -63,6 +65,8 @@ class Solution:
                 i, j = i + 1, j - 1
         return "".join(cs)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +97,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +125,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func reverseVowels(s string) string {
 	vowels := [128]bool{}
@@ -143,6 +151,8 @@ func reverseVowels(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function reverseVowels(s: string): string {
     const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
@@ -159,6 +169,8 @@ function reverseVowels(s: string): string {
     return cs.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

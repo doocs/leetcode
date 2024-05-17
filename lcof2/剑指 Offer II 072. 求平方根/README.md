@@ -43,6 +43,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def mySqrt(self, x: int) -> int:
@@ -56,6 +58,8 @@ class Solution:
                 right = mid - 1
         return left
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -75,6 +79,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -92,6 +98,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func mySqrt(x int) int {
 	left, right := 0, x
@@ -106,6 +114,8 @@ func mySqrt(x int) int {
 	return left
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -126,6 +136,8 @@ var mySqrt = function (x) {
     return left;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

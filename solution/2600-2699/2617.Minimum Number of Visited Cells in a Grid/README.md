@@ -100,6 +100,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumVisitedCells(self, grid: List[List[int]]) -> int:
@@ -123,6 +125,8 @@ class Solution:
                     heappush(col[j], (dist[i][j], i))
         return dist[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -164,6 +168,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -198,6 +204,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumVisitedCells(grid [][]int) int {

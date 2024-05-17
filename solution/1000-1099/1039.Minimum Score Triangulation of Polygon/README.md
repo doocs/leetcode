@@ -93,6 +93,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minScoreTriangulation(self, values: List[int]) -> int:
@@ -107,6 +109,8 @@ class Solution:
 
         return dfs(0, len(values) - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -137,6 +141,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -162,6 +168,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minScoreTriangulation(values []int) int {
 	n := len(values)
@@ -183,6 +191,8 @@ func minScoreTriangulation(values []int) int {
 	return dfs(0, n-1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minScoreTriangulation(values: number[]): number {
@@ -247,6 +257,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minScoreTriangulation(self, values: List[int]) -> int:
@@ -260,6 +272,8 @@ class Solution:
                 )
         return f[0][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -279,6 +293,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -300,6 +316,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minScoreTriangulation(values []int) int {
 	n := len(values)
@@ -315,6 +333,8 @@ func minScoreTriangulation(values []int) int {
 	return f[0][n-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minScoreTriangulation(values: number[]): number {
@@ -342,6 +362,8 @@ function minScoreTriangulation(values: number[]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minScoreTriangulation(self, values: List[int]) -> int:
@@ -356,6 +378,8 @@ class Solution:
                 )
         return f[0][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -376,6 +400,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -398,6 +424,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minScoreTriangulation(values []int) int {
 	n := len(values)
@@ -414,6 +442,8 @@ func minScoreTriangulation(values []int) int {
 	return f[0][n-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minScoreTriangulation(values: number[]): number {

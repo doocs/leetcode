@@ -97,6 +97,8 @@ The time complexity is $O(2^m \times m^2)$, and the space complexity is $O(2^m)$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxScore(self, nums: List[int]) -> int:
@@ -118,6 +120,8 @@ class Solution:
                                 )
         return f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -154,6 +158,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -185,6 +191,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxScore(nums []int) int {
@@ -220,6 +228,8 @@ func gcd(a, b int) int {
 	return gcd(b, a%b)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxScore(nums: number[]): number {

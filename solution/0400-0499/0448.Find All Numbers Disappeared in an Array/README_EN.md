@@ -49,12 +49,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
         s = set(nums)
         return [x for x in range(1, len(nums) + 1) if x not in s]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -74,6 +78,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -96,6 +102,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findDisappearedNumbers(nums []int) (ans []int) {
 	n := len(nums)
@@ -111,6 +119,8 @@ func findDisappearedNumbers(nums []int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findDisappearedNumbers(nums: number[]): number[] {
@@ -139,6 +149,8 @@ function findDisappearedNumbers(nums: number[]): number[] {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
@@ -148,6 +160,8 @@ class Solution:
                 nums[i] *= -1
         return [i + 1 for i in range(len(nums)) if nums[i] > 0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -170,6 +184,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -191,6 +207,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findDisappearedNumbers(nums []int) (ans []int) {
@@ -216,6 +234,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findDisappearedNumbers(nums: number[]): number[] {

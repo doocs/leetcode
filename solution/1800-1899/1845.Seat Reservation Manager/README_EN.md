@@ -82,6 +82,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class SeatManager:
     def __init__(self, n: int):
@@ -100,6 +102,8 @@ class SeatManager:
 # param_1 = obj.reserve()
 # obj.unreserve(seatNumber)
 ```
+
+#### Java
 
 ```java
 class SeatManager {
@@ -127,6 +131,8 @@ class SeatManager {
  * obj.unreserve(seatNumber);
  */
 ```
+
+#### C++
 
 ```cpp
 class SeatManager {
@@ -158,6 +164,8 @@ private:
  * obj->unreserve(seatNumber);
  */
 ```
+
+#### Go
 
 ```go
 type SeatManager struct {
@@ -198,6 +206,8 @@ func (h *hp) Pop() any {
  * obj.Unreserve(seatNumber);
  */
 ```
+
+#### C#
 
 ```cs
 public class SeatManager {

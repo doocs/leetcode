@@ -58,6 +58,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def toHex(self, num: int) -> str:
@@ -71,6 +73,8 @@ class Solution:
                 s.append(chars[x])
         return ''.join(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +97,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -110,6 +116,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func toHex(num int) string {
@@ -142,6 +150,8 @@ func toHex(num int) string {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {

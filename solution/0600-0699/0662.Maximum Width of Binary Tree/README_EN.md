@@ -70,6 +70,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -91,6 +93,8 @@ class Solution:
                     q.append((root.right, i << 1 | 1))
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -132,6 +136,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -166,6 +172,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -212,6 +220,8 @@ type pair struct {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -237,6 +247,8 @@ class Solution:
         dfs(root, 0, 1)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -278,6 +290,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -313,6 +327,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**

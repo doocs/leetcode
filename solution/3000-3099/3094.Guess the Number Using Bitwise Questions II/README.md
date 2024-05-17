@@ -84,6 +84,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition of commonBits API.
 # def commonBits(num: int) -> int:
@@ -99,6 +101,8 @@ class Solution:
                 n |= 1 << i
         return n
 ```
+
+#### Java
 
 ```java
 /**
@@ -121,6 +125,8 @@ public class Solution extends Problem {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition of commonBits API.
@@ -142,6 +148,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**

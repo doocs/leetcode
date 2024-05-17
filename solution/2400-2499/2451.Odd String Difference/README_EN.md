@@ -77,6 +77,8 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(m + n)$. 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def oddString(self, words: List[str]) -> str:
@@ -86,6 +88,8 @@ class Solution:
             d[t].append(s)
         return next(ss[0] for ss in d.values() if len(ss) == 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -134,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func oddString(words []string) string {
 	d := map[string][]string{}
@@ -154,6 +162,8 @@ func oddString(words []string) string {
 	return ""
 }
 ```
+
+#### TypeScript
 
 ```ts
 function oddString(words: string[]): string {
@@ -177,6 +187,8 @@ function oddString(words: string[]): string {
     return '';
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -212,6 +224,8 @@ impl Solution {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;

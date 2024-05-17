@@ -110,6 +110,8 @@ fn = function (n) {
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 declare global {
     interface Array<T> {

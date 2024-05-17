@@ -80,6 +80,8 @@ In this example, the digit 8 is used twice each time in 288, 828, and 882.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findEvenNumbers(self, digits: List[int]) -> List[int]:
@@ -96,6 +98,8 @@ class Solution:
                 ans.append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +139,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -167,6 +173,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findEvenNumbers(digits []int) []int {
@@ -204,6 +212,8 @@ func check(cnt1, cnt2 []int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findEvenNumbers(digits: number[]): number[] {

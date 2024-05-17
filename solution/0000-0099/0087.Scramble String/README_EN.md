@@ -95,6 +95,8 @@ The time complexity is $O(n^4)$, and the space complexity is $O(n^3)$. Where $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isScramble(self, s1: str, s2: str) -> bool:
@@ -111,6 +113,8 @@ class Solution:
 
         return dfs(0, 0, len(s1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -146,6 +150,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -174,6 +180,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isScramble(s1 string, s2 string) bool {
@@ -206,6 +214,8 @@ func isScramble(s1 string, s2 string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isScramble(s1: string, s2: string): boolean {
     const n = s1.length;
@@ -232,6 +242,8 @@ function isScramble(s1: string, s2: string): boolean {
     return dfs(0, 0, n);
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -290,6 +302,8 @@ The time complexity is $O(n^4)$, and the space complexity is $O(n^3)$. Where $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isScramble(self, s1: str, s2: str) -> bool:
@@ -310,6 +324,8 @@ class Solution:
                             break
         return f[0][0][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -341,6 +357,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -375,6 +393,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isScramble(s1 string, s2 string) bool {
 	n := len(s1)
@@ -401,6 +421,8 @@ func isScramble(s1 string, s2 string) bool {
 	return f[0][0][n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isScramble(s1: string, s2: string): boolean {
@@ -432,6 +454,8 @@ function isScramble(s1: string, s2: string): boolean {
     return f[0][0][n];
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

@@ -67,6 +67,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def removeDuplicateLetters(self, s: str) -> str:
@@ -82,6 +84,8 @@ class Solution:
             vis.add(c)
         return ''.join(stk)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -140,6 +146,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func removeDuplicateLetters(s string) string {
@@ -174,6 +182,8 @@ func removeDuplicateLetters(s string) string {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def removeDuplicateLetters(self, s: str) -> str:
@@ -195,6 +205,8 @@ class Solution:
             in_stack[ord(c)] = True
         return ''.join(stack)
 ```
+
+#### Go
 
 ```go
 func removeDuplicateLetters(s string) string {

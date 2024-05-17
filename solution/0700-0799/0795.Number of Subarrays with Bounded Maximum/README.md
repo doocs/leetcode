@@ -74,6 +74,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numSubarrayBoundedMax(self, nums: List[int], left: int, right: int) -> int:
@@ -86,6 +88,8 @@ class Solution:
 
         return f(right) - f(left - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -120,6 +126,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numSubarrayBoundedMax(nums []int, left int, right int) int {
@@ -158,6 +166,8 @@ func numSubarrayBoundedMax(nums []int, left int, right int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numSubarrayBoundedMax(self, nums: List[int], left: int, right: int) -> int:
@@ -181,6 +191,8 @@ class Solution:
             (i - l[i]) * (r[i] - i) for i, v in enumerate(nums) if left <= v <= right
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -223,6 +235,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -254,6 +268,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numSubarrayBoundedMax(nums []int, left int, right int) (ans int) {

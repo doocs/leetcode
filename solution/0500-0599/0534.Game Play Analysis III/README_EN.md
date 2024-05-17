@@ -83,6 +83,8 @@ We can use the window function `SUM() OVER()` to group by `player_id`, sort by `
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT
@@ -107,6 +109,8 @@ We can also use a self-join to join the `Activity` table with itself on the cond
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT
@@ -129,6 +133,8 @@ GROUP BY 1, 2;
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

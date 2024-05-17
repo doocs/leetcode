@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minLength(self, s: str) -> int:
@@ -88,6 +90,8 @@ class Solution:
                 stk.append(c)
         return len(stk) - 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minLength(s string) int {
 	stk := []byte{' '}
@@ -136,6 +144,8 @@ func minLength(s string) int {
 	return len(stk) - 1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minLength(s: string): number {
@@ -152,6 +162,8 @@ function minLength(s: string): number {
     return stk.length - 1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

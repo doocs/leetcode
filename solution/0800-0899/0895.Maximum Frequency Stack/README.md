@@ -83,6 +83,8 @@ freqStack.pop ();//返回 4 ，因为 4, 5 和 7 出现频率最高，但 4 是�
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class FreqStack:
     def __init__(self):
@@ -106,6 +108,8 @@ class FreqStack:
 # obj.push(val)
 # param_2 = obj.pop()
 ```
+
+#### Java
 
 ```java
 class FreqStack {
@@ -136,6 +140,8 @@ class FreqStack {
  * int param_2 = obj.pop();
  */
 ```
+
+#### C++
 
 ```cpp
 class FreqStack {
@@ -168,6 +174,8 @@ private:
  * int param_2 = obj->pop();
  */
 ```
+
+#### Go
 
 ```go
 type FreqStack struct {
@@ -229,6 +237,8 @@ func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; retur
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class FreqStack:
     def __init__(self):
@@ -254,6 +264,8 @@ class FreqStack:
 # obj.push(val)
 # param_2 = obj.pop()
 ```
+
+#### Java
 
 ```java
 class FreqStack {
@@ -289,6 +301,8 @@ class FreqStack {
  */
 ```
 
+#### C++
+
 ```cpp
 class FreqStack {
 public:
@@ -322,6 +336,8 @@ private:
  * int param_2 = obj->pop();
  */
 ```
+
+#### Go
 
 ```go
 type FreqStack struct {

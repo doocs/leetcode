@@ -61,6 +61,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -83,6 +85,8 @@ class Solution:
         t2.next = None
         return d1.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -116,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -152,6 +158,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -178,6 +186,8 @@ func partition(head *ListNode, x int) *ListNode {
 	return d1.Next
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -217,6 +227,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

@@ -104,6 +104,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximizeSquareHoleArea(
@@ -122,6 +124,8 @@ class Solution:
 
         return min(f(hBars), f(vBars)) ** 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -145,6 +149,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -167,6 +173,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximizeSquareHoleArea(n int, m int, hBars []int, vBars []int) int {
 	f := func(nums []int) int {
@@ -187,6 +195,8 @@ func maximizeSquareHoleArea(n int, m int, hBars []int, vBars []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximizeSquareHoleArea(n: number, m: number, hBars: number[], vBars: number[]): number {
     const f = (nums: number[]): number => {
@@ -204,6 +214,8 @@ function maximizeSquareHoleArea(n: number, m: number, hBars: number[], vBars: nu
     return Math.min(f(hBars), f(vBars)) ** 2;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

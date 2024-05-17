@@ -79,6 +79,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
@@ -89,6 +91,8 @@ class Solution:
             f[i] = any(f[j] and s[j:i] in words for j in range(i))
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func wordBreak(s string, wordDict []string) bool {
 	words := map[string]bool{}
@@ -153,6 +161,8 @@ func wordBreak(s string, wordDict []string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function wordBreak(s: string, wordDict: string[]): boolean {
     const words = new Set(wordDict);
@@ -171,6 +181,8 @@ function wordBreak(s: string, wordDict: string[]): boolean {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn word_break(s: String, word_dict: Vec<String>) -> bool {
@@ -186,6 +198,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -225,6 +239,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Trie:
     def __init__(self):
@@ -261,6 +277,8 @@ class Solution:
                     break
         return f[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -307,6 +325,8 @@ class Trie {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -357,6 +377,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type trie struct {
 	children [26]*trie
@@ -404,6 +426,8 @@ func wordBreak(s string, wordDict []string) bool {
 	return f[0]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function wordBreak(s: string, wordDict: string[]): boolean {
@@ -453,6 +477,8 @@ class Trie {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

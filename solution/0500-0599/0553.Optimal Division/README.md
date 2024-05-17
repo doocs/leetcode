@@ -79,6 +79,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def optimalDivision(self, nums: List[int]) -> str:
@@ -89,6 +91,8 @@ class Solution:
             return f'{nums[0]}/{nums[1]}'
         return f'{nums[0]}/({"/".join(map(str, nums[1:]))})'
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +130,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func optimalDivision(nums []int) string {
@@ -145,6 +153,8 @@ func optimalDivision(nums []int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function optimalDivision(nums: number[]): string {
     const n = nums.length;
@@ -156,6 +166,8 @@ function optimalDivision(nums: number[]): string {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

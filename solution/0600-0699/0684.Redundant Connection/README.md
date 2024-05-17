@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findRedundantConnection(self, edges: List[List[int]]) -> List[int]:
@@ -84,6 +86,8 @@ class Solution:
             p[find(a)] = find(b)
         return []
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -135,6 +141,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findRedundantConnection(edges [][]int) []int {
@@ -159,6 +167,8 @@ func findRedundantConnection(edges [][]int) []int {
 	return []int{}
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

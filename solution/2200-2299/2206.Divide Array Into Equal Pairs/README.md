@@ -73,12 +73,16 @@ nums 可以划分成 (2, 2) ，(3, 3) 和 (2, 2) ，满足所有要求。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def divideArray(self, nums: List[int]) -> bool:
         cnt = Counter(nums)
         return all(v % 2 == 0 for v in cnt.values())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +101,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -110,6 +116,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func divideArray(nums []int) bool {

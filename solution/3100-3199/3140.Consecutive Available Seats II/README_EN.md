@@ -91,6 +91,8 @@ First, we find all the vacant seats, and then group the seats. The grouping is b
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

@@ -132,6 +132,8 @@ Let us see all the possible triplets.
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT

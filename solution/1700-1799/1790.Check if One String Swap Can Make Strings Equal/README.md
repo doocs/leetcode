@@ -81,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def areAlmostEqual(self, s1: str, s2: str) -> bool:
@@ -94,6 +96,8 @@ class Solution:
                 c1, c2 = a, b
         return cnt != 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -135,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func areAlmostEqual(s1 string, s2 string) bool {
 	cnt := 0
@@ -152,6 +160,8 @@ func areAlmostEqual(s1 string, s2 string) bool {
 	return cnt != 1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function areAlmostEqual(s1: string, s2: string): boolean {
@@ -171,6 +181,8 @@ function areAlmostEqual(s1: string, s2: string): boolean {
     return cnt != 1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -192,6 +204,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 bool areAlmostEqual(char* s1, char* s2) {

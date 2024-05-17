@@ -48,6 +48,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def exchange(self, nums: List[int]) -> List[int]:
@@ -58,6 +60,8 @@ class Solution:
                 j += 1
         return nums
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -75,6 +79,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -90,6 +96,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func exchange(nums []int) []int {
 	j := 0
@@ -102,6 +110,8 @@ func exchange(nums []int) []int {
 	return nums
 }
 ```
+
+#### TypeScript
 
 ```ts
 function exchange(nums: number[]): number[] {
@@ -117,6 +127,8 @@ function exchange(nums: number[]): number[] {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn exchange(mut nums: Vec<i32>) -> Vec<i32> {
@@ -131,6 +143,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -149,6 +163,8 @@ var exchange = function (nums) {
     return nums;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def shortestCompletingWord(self, licensePlate: str, words: List[str]) -> str:
@@ -89,6 +91,8 @@ class Solution:
                 ans = w
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -160,6 +166,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func shortestCompletingWord(licensePlate string, words []string) (ans string) {
 	cnt := [26]int{}
@@ -190,6 +198,8 @@ func shortestCompletingWord(licensePlate string, words []string) (ans string) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function shortestCompletingWord(licensePlate: string, words: string[]): string {
@@ -223,6 +233,8 @@ function shortestCompletingWord(licensePlate: string, words: string[]): string {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

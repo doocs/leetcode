@@ -62,6 +62,8 @@ for i in range(n):
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
@@ -77,6 +79,8 @@ class Solution:
                 ans.append(nums[q[0]])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -125,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSlidingWindow(nums []int, k int) (ans []int) {
 	q := []int{}
@@ -143,6 +151,8 @@ func maxSlidingWindow(nums []int, k int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxSlidingWindow(nums: number[], k: number): number[] {
@@ -164,6 +174,8 @@ function maxSlidingWindow(nums: number[], k: number): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -190,6 +202,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -215,6 +229,8 @@ var maxSlidingWindow = function (nums, k) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

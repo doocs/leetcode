@@ -69,6 +69,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSubarrays(self, nums: List[int], k: int) -> int:
@@ -85,6 +87,8 @@ class Solution:
             cnt -= x == mx
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -131,6 +137,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSubarrays(nums []int, k int) (ans int64) {
 	mx := slices.Max(nums)
@@ -153,6 +161,8 @@ func countSubarrays(nums []int, k int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countSubarrays(nums: number[], k: number): number {

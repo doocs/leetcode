@@ -87,6 +87,8 @@ The sum of all the total strengths is 25 + 16 + 36 + 36 + 40 + 60 = 213.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def totalStrength(self, strength: List[int]) -> int:
@@ -118,6 +120,8 @@ class Solution:
             ans = (ans + (a - b) * v) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -169,6 +173,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -205,6 +211,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func totalStrength(strength []int) int {

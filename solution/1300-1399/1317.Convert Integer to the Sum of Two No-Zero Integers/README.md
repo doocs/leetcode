@@ -86,6 +86,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getNoZeroIntegers(self, n: int) -> List[int]:
@@ -94,6 +96,8 @@ class Solution:
             if "0" not in str(a) + str(b):
                 return [a, b]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -121,6 +127,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getNoZeroIntegers(n int) []int {
@@ -143,6 +151,8 @@ func getNoZeroIntegers(n int) []int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getNoZeroIntegers(self, n: int) -> List[int]:
@@ -158,6 +168,8 @@ class Solution:
             if f(a) and f(b):
                 return [a, b]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -181,6 +193,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -202,6 +216,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getNoZeroIntegers(n int) []int {

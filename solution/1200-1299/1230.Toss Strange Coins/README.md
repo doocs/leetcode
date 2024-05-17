@@ -77,6 +77,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def probabilityOfHeads(self, prob: List[float], target: int) -> float:
@@ -90,6 +92,8 @@ class Solution:
                     f[i][j] += p * f[i - 1][j - 1]
         return f[n][target]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -131,6 +137,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func probabilityOfHeads(prob []float64, target int) float64 {
 	n := len(prob)
@@ -150,6 +158,8 @@ func probabilityOfHeads(prob []float64, target int) float64 {
 	return f[n][target]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function probabilityOfHeads(prob: number[], target: number): number {
@@ -178,6 +188,8 @@ function probabilityOfHeads(prob: number[], target: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def probabilityOfHeads(self, prob: List[float], target: int) -> float:
@@ -190,6 +202,8 @@ class Solution:
                     f[j] += p * f[j - 1]
         return f[target]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -208,6 +222,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -229,6 +245,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func probabilityOfHeads(prob []float64, target int) float64 {
 	f := make([]float64, target+1)
@@ -244,6 +262,8 @@ func probabilityOfHeads(prob []float64, target int) float64 {
 	return f[target]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function probabilityOfHeads(prob: number[], target: number): number {

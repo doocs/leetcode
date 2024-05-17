@@ -74,11 +74,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkRecord(self, s: str) -> bool:
         return s.count('A') < 2 and 'LLL' not in s
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +91,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -97,11 +103,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func checkRecord(s string) bool {
 	return strings.Count(s, "A") < 2 && !strings.Contains(s, "LLL")
 }
 ```
+
+#### TypeScript
 
 ```ts
 function checkRecord(s: string): boolean {

@@ -74,6 +74,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minStartValue(self, nums: List[int]) -> int:
@@ -83,6 +85,8 @@ class Solution:
             t = min(t, s)
         return max(1, 1 - t)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +102,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -111,6 +117,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minStartValue(nums []int) int {
@@ -128,6 +136,8 @@ func minStartValue(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minStartValue(nums: number[]): number {
     let sum = 0;
@@ -139,6 +149,8 @@ function minStartValue(nums: number[]): number {
     return Math.max(1, 1 - min);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -163,6 +175,8 @@ impl Solution {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

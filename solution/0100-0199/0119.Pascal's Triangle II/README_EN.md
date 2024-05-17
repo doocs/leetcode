@@ -60,6 +60,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ i
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getRow(self, rowIndex: int) -> List[int]:
@@ -69,6 +71,8 @@ class Solution:
                 f[j] += f[j - 1]
         return f
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +91,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -101,6 +107,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getRow(rowIndex int) []int {
@@ -117,6 +125,8 @@ func getRow(rowIndex int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function getRow(rowIndex: number): number[] {
     const f: number[] = Array(rowIndex + 1).fill(1);
@@ -128,6 +138,8 @@ function getRow(rowIndex: number): number[] {
     return f;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

@@ -52,11 +52,15 @@ Given two integers <code>num1</code> and <code>num2</code>, return <em>the <stro
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sum(self, num1: int, num2: int) -> int:
         return num1 + num2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -65,6 +69,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -75,17 +81,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sum(num1 int, num2 int) int {
 	return num1 + num2
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sum(num1: number, num2: number): number {
     return num1 + num2;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -94,6 +106,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int sum(int num1, int num2) {
@@ -111,6 +125,8 @@ int sum(int num1, int num2) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sum(self, num1: int, num2: int) -> int:
@@ -120,6 +136,8 @@ class Solution:
             num1, num2 = num1 ^ num2, carry
         return num1 if num1 < 0x80000000 else ~(num1 ^ 0xFFFFFFFF)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +151,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -148,6 +168,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sum(num1 int, num2 int) int {
 	for num2 != 0 {
@@ -159,6 +181,8 @@ func sum(num1 int, num2 int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sum(num1: number, num2: number): number {
     while (num2) {
@@ -169,6 +193,8 @@ function sum(num1: number, num2: number): number {
     return num1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

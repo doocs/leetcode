@@ -103,11 +103,15 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def doesValidArrayExist(self, derived: List[int]) -> bool:
         return reduce(xor, derived) == 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +124,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -134,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func doesValidArrayExist(derived []int) bool {
 	s := 0
@@ -143,6 +151,8 @@ func doesValidArrayExist(derived []int) bool {
 	return s == 0
 }
 ```
+
+#### TypeScript
 
 ```ts
 function doesValidArrayExist(derived: number[]): boolean {
@@ -163,6 +173,8 @@ function doesValidArrayExist(derived: number[]): boolean {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function doesValidArrayExist(derived: number[]): boolean {

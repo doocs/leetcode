@@ -69,6 +69,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
@@ -76,6 +78,8 @@ class Solution:
             return False
         return Counter(s) == Counter(t)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +103,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -124,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isAnagram(s string, t string) bool {
 	m, n := len(s), len(t)
@@ -143,6 +151,8 @@ func isAnagram(s string, t string) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isAnagram(s: string, t: string): boolean {

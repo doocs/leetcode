@@ -78,6 +78,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, nums: List[int], numsDivide: List[int]) -> int:
@@ -90,6 +92,8 @@ class Solution:
                 return i
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -131,6 +137,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minOperations(nums []int, numsDivide []int) int {
@@ -165,6 +173,8 @@ func gcd(a, b int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, nums: List[int], numsDivide: List[int]) -> int:
@@ -172,6 +182,8 @@ class Solution:
         nums.sort()
         return next((i for i, v in enumerate(nums) if x % v == 0), -1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -204,6 +216,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -229,6 +243,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minOperations(nums []int, numsDivide []int) int {
@@ -271,6 +287,8 @@ func gcd(a, b int) int {
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

@@ -103,6 +103,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minDays(self, n: int) -> int:
@@ -114,6 +116,8 @@ class Solution:
 
         return dfs(n)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +140,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -160,6 +166,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minDays(n int) int {
 	f := map[int]int{0: 0, 1: 1}
@@ -175,6 +183,8 @@ func minDays(n int) int {
 	return dfs(n)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minDays(n: number): number {

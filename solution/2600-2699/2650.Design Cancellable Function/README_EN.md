@@ -160,6 +160,8 @@ The first yielded promise immediately rejects. This error is caught. Because the
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function cancellable<T>(generator: Generator<Promise<any>, T, unknown>): [() => void, Promise<T>] {
     let cancel: () => void = () => {};

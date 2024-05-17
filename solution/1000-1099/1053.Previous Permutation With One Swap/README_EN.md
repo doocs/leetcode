@@ -72,6 +72,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def prevPermOpt1(self, arr: List[int]) -> List[int]:
@@ -84,6 +86,8 @@ class Solution:
                         return arr
         return arr
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -126,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func prevPermOpt1(arr []int) []int {
 	n := len(arr)
@@ -142,6 +150,8 @@ func prevPermOpt1(arr []int) []int {
 	return arr
 }
 ```
+
+#### TypeScript
 
 ```ts
 function prevPermOpt1(arr: number[]): number[] {

@@ -78,6 +78,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def pancakeSort(self, arr: List[int]) -> List[int]:
@@ -101,6 +103,8 @@ class Solution:
                 reverse(arr, i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +137,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -155,6 +161,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func pancakeSort(arr []int) []int {
@@ -182,6 +190,8 @@ func pancakeSort(arr []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function pancakeSort(arr: number[]): number[] {
     let ans = [];
@@ -207,6 +217,8 @@ function reverse(nums: Array<number>, end: number): void {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

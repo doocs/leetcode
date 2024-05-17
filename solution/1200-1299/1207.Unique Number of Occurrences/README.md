@@ -66,12 +66,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def uniqueOccurrences(self, arr: List[int]) -> bool:
         cnt = Counter(arr)
         return len(set(cnt.values())) == len(cnt)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -84,6 +88,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -105,6 +111,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func uniqueOccurrences(arr []int) bool {
 	cnt := map[int]int{}
@@ -121,6 +129,8 @@ func uniqueOccurrences(arr []int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function uniqueOccurrences(arr: number[]): boolean {

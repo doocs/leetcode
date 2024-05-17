@@ -81,6 +81,8 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSubarrays(self, nums: List[int], minK: int, maxK: int) -> int:
@@ -96,6 +98,8 @@ class Solution:
             ans += max(0, min(j1, j2) - k)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -135,6 +141,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countSubarrays(nums []int, minK int, maxK int) int64 {
@@ -155,6 +163,8 @@ func countSubarrays(nums []int, minK int, maxK int) int64 {
 	return int64(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countSubarrays(nums: number[], minK: number, maxK: number): number {
@@ -177,6 +187,8 @@ function countSubarrays(nums: number[], minK: number, maxK: number): number {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -203,6 +215,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))

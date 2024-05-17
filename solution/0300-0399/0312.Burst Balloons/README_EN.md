@@ -59,6 +59,8 @@ coins =  3*1*5    +   3*5*8   +  1*3*8  + 1*8*1 = 167</pre>
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxCoins(self, nums: List[int]) -> int:
@@ -74,6 +76,8 @@ class Solution:
                     )
         return dp[0][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +102,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -118,6 +124,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxCoins(nums []int) int {
@@ -142,6 +150,8 @@ func maxCoins(nums []int) int {
 	return dp[0][n-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxCoins(nums: number[]): number {

@@ -80,6 +80,8 @@ Any permutation of [11,8,6,6,7] is <strong>accepted</strong>.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getStrongest(self, arr: List[int], k: int) -> List[int]:
@@ -88,6 +90,8 @@ class Solution:
         arr.sort(key=lambda x: (-abs(x - m), -x))
         return arr[:k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -127,6 +133,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getStrongest(arr []int, k int) []int {

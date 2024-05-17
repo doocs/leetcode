@@ -99,6 +99,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumTime(self, nums1: List[int], nums2: List[int], x: int) -> int:
@@ -116,6 +118,8 @@ class Solution:
                 return j
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -154,6 +158,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -186,6 +192,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumTime(nums1 []int, nums2 []int, x int) int {
@@ -220,6 +228,8 @@ func minimumTime(nums1 []int, nums2 []int, x int) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumTime(nums1: number[], nums2: number[], x: number): number {
@@ -258,6 +268,8 @@ function minimumTime(nums1: number[], nums2: number[], x: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumTime(self, nums1: List[int], nums2: List[int], x: int) -> int:
@@ -273,6 +285,8 @@ class Solution:
                 return j
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -308,6 +322,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -337,6 +353,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumTime(nums1 []int, nums2 []int, x int) int {
 	n := len(nums1)
@@ -364,6 +382,8 @@ func minimumTime(nums1 []int, nums2 []int, x int) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumTime(nums1: number[], nums2: number[], x: number): number {

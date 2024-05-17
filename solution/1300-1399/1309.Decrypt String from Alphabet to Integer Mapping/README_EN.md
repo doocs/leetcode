@@ -64,6 +64,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def freqAlphabets(self, s: str) -> str:
@@ -81,6 +83,8 @@ class Solution:
                 i += 1
         return ''.join(res)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +109,8 @@ class Solution {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function freqAlphabets(s: string): string {
     const n = s.length;
@@ -122,6 +128,8 @@ function freqAlphabets(s: string): string {
     return ans.map(c => String.fromCharCode('a'.charCodeAt(0) + Number(c) - 1)).join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -145,6 +153,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 char* freqAlphabets(char* s) {
