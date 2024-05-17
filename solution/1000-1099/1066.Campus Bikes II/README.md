@@ -97,6 +97,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def assignBikes(self, workers: List[List[int]], bikes: List[List[int]]) -> int:
@@ -113,6 +115,8 @@ class Solution:
                         )
         return min(f[n])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -140,6 +144,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -162,6 +168,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func assignBikes(workers [][]int, bikes [][]int) int {
@@ -195,6 +203,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function assignBikes(workers: number[][], bikes: number[][]): number {

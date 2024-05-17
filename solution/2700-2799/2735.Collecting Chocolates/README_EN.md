@@ -90,6 +90,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Where $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCost(self, nums: List[int], x: int) -> int:
@@ -101,6 +103,8 @@ class Solution:
                 f[i][j] = min(f[i][j - 1], nums[(i - j) % n])
         return min(sum(f[i][j] for i in range(n)) + x * j for j in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +129,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -151,6 +157,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minCost(nums []int, x int) int64 {
 	n := len(nums)
@@ -174,6 +182,8 @@ func minCost(nums []int, x int) int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minCost(nums: number[], x: number): number {
     const n = nums.length;
@@ -195,6 +205,8 @@ function minCost(nums: number[], x: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

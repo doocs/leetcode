@@ -67,12 +67,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxWidthOfVerticalArea(self, points: List[List[int]]) -> int:
         points.sort()
         return max(b[0] - a[0] for a, b in pairwise(points))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +90,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -101,6 +107,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxWidthOfVerticalArea(points [][]int) (ans int) {
 	sort.Slice(points, func(i, j int) bool { return points[i][0] < points[j][0] })
@@ -110,6 +118,8 @@ func maxWidthOfVerticalArea(points [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxWidthOfVerticalArea(points: number[][]): number {
@@ -121,6 +131,8 @@ function maxWidthOfVerticalArea(points: number[][]): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -169,6 +181,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxWidthOfVerticalArea(self, points: List[List[int]]) -> int:
@@ -191,6 +205,8 @@ class Solution:
             prev = curmax
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -232,6 +248,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -266,6 +284,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxWidthOfVerticalArea(points [][]int) (ans int) {
@@ -303,6 +323,8 @@ func maxWidthOfVerticalArea(points [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxWidthOfVerticalArea(points: number[][]): number {
     const nums: number[] = points.map(point => point[0]);
@@ -334,6 +356,8 @@ function maxWidthOfVerticalArea(points: number[][]): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

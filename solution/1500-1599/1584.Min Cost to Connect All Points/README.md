@@ -96,6 +96,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCostConnectPoints(self, points: List[List[int]]) -> int:
@@ -122,6 +124,8 @@ class Solution:
                     dist[j] = min(dist[j], g[i][j])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -163,6 +167,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -203,6 +209,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minCostConnectPoints(points [][]int) (ans int) {
@@ -249,6 +257,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minCostConnectPoints(points: number[][]): number {
@@ -302,6 +312,8 @@ function minCostConnectPoints(points: number[][]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCostConnectPoints(self, points: List[List[int]]) -> int:
@@ -330,6 +342,8 @@ class Solution:
                 break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -374,6 +388,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -409,6 +425,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minCostConnectPoints(points [][]int) int {

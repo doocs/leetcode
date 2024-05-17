@@ -71,6 +71,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countPrimes(self, n: int) -> int:
@@ -83,6 +85,8 @@ class Solution:
                     primes[j] = False
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +125,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countPrimes(n int) int {
@@ -139,6 +147,8 @@ func countPrimes(n int) int {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number} n
@@ -158,6 +168,8 @@ var countPrimes = function (n) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

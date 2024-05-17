@@ -99,6 +99,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countRoutes(
@@ -117,6 +119,8 @@ class Solution:
         mod = 10**9 + 7
         return dfs(start, fuel)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -152,6 +156,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -179,6 +185,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countRoutes(locations []int, start int, finish int, fuel int) int {
@@ -220,6 +228,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countRoutes(locations: number[], start: number, finish: number, fuel: number): number {
@@ -266,6 +276,8 @@ function countRoutes(locations: number[], start: number, finish: number, fuel: n
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countRoutes(
@@ -285,6 +297,8 @@ class Solution:
                         ) % mod
         return f[start][fuel]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -308,6 +322,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -333,6 +349,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countRoutes(locations []int, start int, finish int, fuel int) int {
@@ -364,6 +382,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countRoutes(locations: number[], start: number, finish: number, fuel: number): number {

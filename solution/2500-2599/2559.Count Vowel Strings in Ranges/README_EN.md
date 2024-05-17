@@ -76,6 +76,8 @@ The time complexity is $O(n + m \times \log n)$, and the space complexity is $O(
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def vowelStrings(self, words: List[str], queries: List[List[int]]) -> List[int]:
@@ -83,6 +85,8 @@ class Solution:
         nums = [i for i, w in enumerate(words) if w[0] in vowels and w[-1] in vowels]
         return [bisect_right(nums, r) - bisect_left(nums, l) for l, r in queries]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -143,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func vowelStrings(words []string, queries [][]int) []int {
 	vowels := map[byte]bool{'a': true, 'e': true, 'i': true, 'o': true, 'u': true}
@@ -160,6 +168,8 @@ func vowelStrings(words []string, queries [][]int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function vowelStrings(words: string[], queries: number[][]): number[] {
@@ -205,6 +215,8 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n)$. Where $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def vowelStrings(self, words: List[str], queries: List[List[int]]) -> List[int]:
@@ -216,6 +228,8 @@ class Solution:
         )
         return [s[r + 1] - s[l] for l, r in queries]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -237,6 +251,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -260,6 +276,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func vowelStrings(words []string, queries [][]int) []int {
 	vowels := map[byte]bool{'a': true, 'e': true, 'i': true, 'o': true, 'u': true}
@@ -280,6 +298,8 @@ func vowelStrings(words []string, queries [][]int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function vowelStrings(words: string[], queries: number[][]): number[] {

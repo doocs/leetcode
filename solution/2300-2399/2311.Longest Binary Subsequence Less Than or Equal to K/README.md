@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestSubsequence(self, s: str, k: int) -> int:
@@ -88,6 +90,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -124,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestSubsequence(s string, k int) (ans int) {
 	for i, v := len(s)-1, 0; i >= 0; i-- {
@@ -137,6 +145,8 @@ func longestSubsequence(s string, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestSubsequence(s: string, k: number): number {
@@ -152,6 +162,8 @@ function longestSubsequence(s: string, k: number): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -172,6 +184,8 @@ var longestSubsequence = function (s, k) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

@@ -81,6 +81,8 @@ Note that the last node is not considered a local maxima because it does not hav
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -107,6 +109,8 @@ class Solution:
             prev, curr = curr, curr.next
         return ans if first != last else [-1, -1]
 ```
+
+#### Java
 
 ```java
 /**
@@ -148,6 +152,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -187,6 +193,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -219,6 +227,8 @@ func nodesBetweenCriticalPoints(head *ListNode) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

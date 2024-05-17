@@ -101,6 +101,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isValid(self, word: str) -> bool:
@@ -118,6 +120,8 @@ class Solution:
                     has_consonant = True
         return has_vowel and has_consonant
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -145,6 +149,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -175,6 +181,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isValid(word string) bool {
 	if len(word) < 3 {
@@ -200,6 +208,8 @@ func isValid(word string) bool {
 	return hasVowel && hasConsonant
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isValid(word: string): boolean {

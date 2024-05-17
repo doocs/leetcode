@@ -72,6 +72,8 @@ It can be shown that every subsequence of length 4 is not a square streak.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestSquareStreak(self, nums: List[int]) -> int:
@@ -86,6 +88,8 @@ class Solution:
                 ans = max(ans, t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -129,6 +135,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestSquareStreak(nums []int) int {
@@ -161,6 +169,8 @@ func longestSquareStreak(nums []int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestSquareStreak(self, nums: List[int]) -> int:
@@ -174,6 +184,8 @@ class Solution:
         ans = max(dfs(x) for x in nums)
         return -1 if ans < 2 else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -205,6 +217,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -225,6 +239,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestSquareStreak(nums []int) (ans int) {

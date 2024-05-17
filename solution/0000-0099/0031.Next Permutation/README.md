@@ -83,6 +83,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def nextPermutation(self, nums: List[int]) -> None:
@@ -93,6 +95,8 @@ class Solution:
             nums[i], nums[j] = nums[j], nums[i]
         nums[i + 1 :] = nums[i + 1 :][::-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -148,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func nextPermutation(nums []int) {
 	n := len(nums)
@@ -167,6 +175,8 @@ func nextPermutation(nums []int) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function nextPermutation(nums: number[]): void {
@@ -188,6 +198,8 @@ function nextPermutation(nums: number[]): void {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -212,6 +224,8 @@ var nextPermutation = function (nums) {
     }
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -241,6 +255,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

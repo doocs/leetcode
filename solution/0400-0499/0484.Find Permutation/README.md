@@ -73,6 +73,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findPermutation(self, s: str) -> List[int]:
@@ -87,6 +89,8 @@ class Solution:
             i = max(i + 1, j)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -138,6 +144,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findPermutation(s string) []int {

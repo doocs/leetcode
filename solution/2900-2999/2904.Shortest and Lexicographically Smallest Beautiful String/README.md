@@ -96,6 +96,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def shortestBeautifulSubstring(self, s: str, k: int) -> str:
@@ -110,6 +112,8 @@ class Solution:
                     ans = t
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +139,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -154,6 +160,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func shortestBeautifulSubstring(s string, k int) (ans string) {
@@ -176,6 +184,8 @@ func shortestBeautifulSubstring(s string, k int) (ans string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function shortestBeautifulSubstring(s: string, k: number): string {
     const n = s.length;
@@ -195,6 +205,8 @@ function shortestBeautifulSubstring(s: string, k: number): string {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -236,6 +248,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def shortestBeautifulSubstring(self, s: str, k: int) -> str:
@@ -254,6 +268,8 @@ class Solution:
                 ans = s[i:j]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -280,6 +296,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -303,6 +321,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func shortestBeautifulSubstring(s string, k int) (ans string) {
 	i, j, cnt := 0, 0, 0
@@ -323,6 +343,8 @@ func shortestBeautifulSubstring(s string, k int) (ans string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function shortestBeautifulSubstring(s: string, k: number): string {
     let [i, j, cnt] = [0, 0, 0];
@@ -342,6 +364,8 @@ function shortestBeautifulSubstring(s: string, k: number): string {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

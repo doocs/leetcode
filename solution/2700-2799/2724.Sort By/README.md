@@ -64,6 +64,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2724.So
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function sortBy(arr: any[], fn: Function): any[] {
     return arr.sort((a, b) => fn(a) - fn(b));

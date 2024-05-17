@@ -65,6 +65,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
@@ -76,6 +78,8 @@ class Solution:
                 counter[num] -= 1
         return res
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -118,6 +124,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func intersect(nums1 []int, nums2 []int) []int {
 	counter := make(map[int]int)
@@ -134,6 +142,8 @@ func intersect(nums1 []int, nums2 []int) []int {
 	return res
 }
 ```
+
+#### TypeScript
 
 ```ts
 function intersect(nums1: number[], nums2: number[]): number[] {
@@ -152,6 +162,8 @@ function intersect(nums1: number[], nums2: number[]): number[] {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -174,6 +186,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums1
@@ -195,6 +209,8 @@ var intersect = function (nums1, nums2) {
     return res;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -226,6 +242,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

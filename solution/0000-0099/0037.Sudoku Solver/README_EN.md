@@ -68,6 +68,8 @@ The time complexity is $O(9^{81})$, and the space complexity is $O(9^2)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def solveSudoku(self, board: List[List[str]]) -> None:
@@ -100,6 +102,8 @@ class Solution:
                     row[i][v] = col[j][v] = block[i // 3][j // 3][v] = True
         dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -146,6 +150,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using pii = pair<int, int>;
 
@@ -190,6 +196,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func solveSudoku(board [][]byte) {
 	var row, col [9][9]bool
@@ -228,6 +236,8 @@ func solveSudoku(board [][]byte) {
 	dfs(0)
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -362,6 +372,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

@@ -79,6 +79,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumChanges(self, s: str, k: int) -> int:
@@ -106,6 +108,8 @@ class Solution:
                     f[i][j] = min(f[i][j], f[h][j - 1] + g[h + 1][i])
         return f[n][k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -151,6 +155,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -192,6 +198,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumChanges(s string, k int) int {
@@ -241,6 +249,8 @@ func minimumChanges(s string, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumChanges(s: string, k: number): number {
     const n = s.length;
@@ -287,6 +297,8 @@ function minimumChanges(s: string, k: number): number {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {

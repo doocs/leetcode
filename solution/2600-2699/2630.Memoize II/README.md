@@ -92,6 +92,8 @@ fn = function (a, b) { return ({...a, ...b}); }
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 type Fn = (...params: any) => any;
 

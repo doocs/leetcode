@@ -70,6 +70,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def pathsWithMaxScore(self, board: List[str]) -> List[int]:
@@ -96,6 +98,8 @@ class Solution:
         mod = 10**9 + 7
         return [0, 0] if f[0][0] == -1 else [f[0][0], g[0][0] % mod]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -151,6 +155,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -197,6 +203,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func pathsWithMaxScore(board []string) []int {

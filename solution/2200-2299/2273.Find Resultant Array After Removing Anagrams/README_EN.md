@@ -72,6 +72,8 @@ No two adjacent strings in words are anagrams of each other, so no operations ar
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def removeAnagrams(self, words: List[str]) -> List[str]:
@@ -81,6 +83,8 @@ class Solution:
             if i == 0 or sorted(w) != sorted(words[i - 1])
         ]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### TypeScript
 
 ```ts
 function removeAnagrams(words: string[]): string[] {

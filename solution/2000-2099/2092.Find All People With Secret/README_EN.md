@@ -92,6 +92,8 @@ Thus, people 0, 1, 2, 3, and 4 know the secret after all the meetings.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findAllPeople(
@@ -121,6 +123,8 @@ class Solution:
             i = j + 1
         return [i for i, v in enumerate(vis) if v]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -171,6 +175,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -218,6 +224,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findAllPeople(n int, meetings [][]int, firstPerson int) []int {
 	vis := make([]bool, n)
@@ -264,6 +272,8 @@ func findAllPeople(n int, meetings [][]int, firstPerson int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findAllPeople(n: number, meetings: number[][], firstPerson: number): number[] {

@@ -66,6 +66,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
@@ -79,6 +81,8 @@ class Solution:
             ans = max(ans, i - j + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +100,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -115,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func lengthOfLongestSubstring(s string) (ans int) {
 	vis := map[byte]bool{}
@@ -131,6 +139,8 @@ func lengthOfLongestSubstring(s string) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function lengthOfLongestSubstring(s: string): number {
     let ans = 0;
@@ -145,6 +155,8 @@ function lengthOfLongestSubstring(s: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -168,6 +180,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} s
@@ -186,6 +200,8 @@ var lengthOfLongestSubstring = function (s) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -214,6 +230,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
@@ -227,6 +245,8 @@ class Solution:
             ans = max(ans, i - j + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -247,6 +267,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -266,6 +288,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func lengthOfLongestSubstring(s string) (ans int) {
 	ss := make([]bool, 128)
@@ -282,6 +306,8 @@ func lengthOfLongestSubstring(s string) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function lengthOfLongestSubstring(s: string): number {
     let ans = 0;
@@ -297,6 +323,8 @@ function lengthOfLongestSubstring(s: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;

@@ -82,6 +82,8 @@ The time complexity is $O(n^2 \times q)$, and the space complexity is $O(n^2)$. 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Graph:
     def __init__(self, n: int, edges: List[List[int]]):
@@ -114,6 +116,8 @@ class Graph:
 # obj.addEdge(edge)
 # param_2 = obj.shortestPath(node1,node2)
 ```
+
+#### Java
 
 ```java
 class Graph {
@@ -167,6 +171,8 @@ class Graph {
  */
 ```
 
+#### C++
+
 ```cpp
 class Graph {
 public:
@@ -216,6 +222,8 @@ private:
  * int param_2 = obj->shortestPath(node1,node2);
  */
 ```
+
+#### Go
 
 ```go
 const inf = 1 << 29
@@ -278,6 +286,8 @@ func (this *Graph) ShortestPath(node1 int, node2 int) int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class Graph {
     private g: number[][] = [];
@@ -323,6 +333,8 @@ class Graph {
  * var param_2 = obj.shortestPath(node1,node2)
  */
 ```
+
+#### C#
 
 ```cs
 public class Graph {

@@ -62,6 +62,8 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def computeArea(
@@ -82,6 +84,8 @@ class Solution:
         return a + b - max(height, 0) * max(width, 0)
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int computeArea(int ax1, int ay1, int ax2, int ay2, int bx1, int by1, int bx2, int by2) {
@@ -93,6 +97,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -107,6 +113,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func computeArea(ax1 int, ay1 int, ax2 int, ay2 int, bx1 int, by1 int, bx2 int, by2 int) int {
 	a := (ax2 - ax1) * (ay2 - ay1)
@@ -116,6 +124,8 @@ func computeArea(ax1 int, ay1 int, ax2 int, ay2 int, bx1 int, by1 int, bx2 int, 
 	return a + b - max(height, 0)*max(width, 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function computeArea(
@@ -135,6 +145,8 @@ function computeArea(
     return a + b - Math.max(width, 0) * Math.max(height, 0);
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

@@ -71,11 +71,15 @@ left = &quot;01110&quot; and right = &quot;1&quot;, score = 2 + 1 = 3
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxScore(self, s: str) -> int:
         return max(s[:i].count('0') + s[i:].count('1') for i in range(1, len(s)))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +125,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxScore(s string) int {
@@ -140,6 +148,8 @@ func maxScore(s string) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxScore(s: string): number {
@@ -166,6 +176,8 @@ function maxScore(s: string): number {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -206,6 +218,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxScore(self, s: str) -> int:
@@ -215,6 +229,8 @@ class Solution:
             ans = max(ans, t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -238,6 +254,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -254,6 +272,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxScore(s string) int {

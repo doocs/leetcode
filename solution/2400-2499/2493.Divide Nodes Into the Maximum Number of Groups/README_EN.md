@@ -89,6 +89,8 @@ The time complexity is $O(n \times (n + m))$, and the space complexity is $O(n +
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def magnificentSets(self, n: int, edges: List[List[int]]) -> int:
@@ -115,6 +117,8 @@ class Solution:
             d[root] = max(d[root], mx)
         return sum(d.values())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -155,6 +159,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -192,6 +198,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func magnificentSets(n int, edges [][]int) (ans int) {
@@ -237,6 +245,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

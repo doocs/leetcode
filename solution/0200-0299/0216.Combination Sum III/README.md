@@ -86,6 +86,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def combinationSum3(self, k: int, n: int) -> List[List[int]]:
@@ -106,6 +108,8 @@ class Solution:
         dfs(1, n)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -137,6 +141,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -164,6 +170,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func combinationSum3(k int, n int) (ans [][]int) {
 	t := []int{}
@@ -188,6 +196,8 @@ func combinationSum3(k int, n int) (ans [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function combinationSum3(k: number, n: number): number[][] {
     const ans: number[][] = [];
@@ -211,6 +221,8 @@ function combinationSum3(k: number, n: number): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -250,6 +262,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -295,6 +309,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def combinationSum3(self, k: int, n: int) -> List[List[int]]:
@@ -315,6 +331,8 @@ class Solution:
         dfs(1, n)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -347,6 +365,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -375,6 +395,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func combinationSum3(k int, n int) (ans [][]int) {
 	t := []int{}
@@ -400,6 +422,8 @@ func combinationSum3(k int, n int) (ans [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function combinationSum3(k: number, n: number): number[][] {
     const ans: number[][] = [];
@@ -424,6 +448,8 @@ function combinationSum3(k: number, n: number): number[][] {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -478,6 +504,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def combinationSum3(self, k: int, n: int) -> List[List[int]]:
@@ -489,6 +517,8 @@ class Solution:
                     ans.append(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -513,6 +543,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -539,6 +571,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func combinationSum3(k int, n int) (ans [][]int) {
 	for mask := 0; mask < 1<<9; mask++ {
@@ -559,6 +593,8 @@ func combinationSum3(k int, n int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function combinationSum3(k: number, n: number): number[][] {
@@ -590,6 +626,8 @@ function bitCount(i: number): number {
     return i & 0x3f;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

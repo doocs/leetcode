@@ -108,6 +108,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def splitArraySameAverage(self, nums: List[int]) -> bool:
@@ -130,6 +132,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -172,6 +176,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -199,6 +205,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func splitArraySameAverage(nums []int) bool {

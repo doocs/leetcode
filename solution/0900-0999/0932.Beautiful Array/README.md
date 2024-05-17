@@ -75,6 +75,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def beautifulArray(self, n: int) -> List[int]:
@@ -86,6 +88,8 @@ class Solution:
         right = [x * 2 for x in right]
         return left + right
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +129,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func beautifulArray(n int) []int {

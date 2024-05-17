@@ -75,11 +75,15 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def hasTrailingZeros(self, nums: List[int]) -> bool:
         return sum(x & 1 ^ 1 for x in nums) >= 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -106,6 +112,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hasTrailingZeros(nums []int) bool {
 	cnt := 0
@@ -115,6 +123,8 @@ func hasTrailingZeros(nums []int) bool {
 	return cnt >= 2
 }
 ```
+
+#### TypeScript
 
 ```ts
 function hasTrailingZeros(nums: number[]): boolean {

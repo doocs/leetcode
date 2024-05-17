@@ -94,6 +94,8 @@ tweet_id 是这张表的主键 (值互不相同的列)。
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT
@@ -105,6 +107,8 @@ GROUP BY 1
 ORDER BY 2 DESC, 1 DESC
 LIMIT 3;
 ```
+
+#### Python3
 
 ```python
 import pandas as pd

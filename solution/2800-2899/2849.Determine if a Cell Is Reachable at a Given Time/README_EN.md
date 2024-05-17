@@ -61,6 +61,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isReachableAtTime(self, sx: int, sy: int, fx: int, fy: int, t: int) -> bool:
@@ -70,6 +72,8 @@ class Solution:
         dy = abs(sy - fy)
         return max(dx, dy) <= t
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -84,6 +88,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -96,6 +102,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isReachableAtTime(sx int, sy int, fx int, fy int, t int) bool {
@@ -115,6 +123,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isReachableAtTime(sx: number, sy: number, fx: number, fy: number, t: number): boolean {
     if (sx === fx && sy === fy) {
@@ -125,6 +135,8 @@ function isReachableAtTime(sx: number, sy: number, fx: number, fy: number, t: nu
     return Math.max(dx, dy) <= t;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

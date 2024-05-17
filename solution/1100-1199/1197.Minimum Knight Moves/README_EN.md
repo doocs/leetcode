@@ -68,6 +68,8 @@ Bidirectional BFS is a common optimization method for BFS. The main implementati
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minKnightMoves(self, x: int, y: int) -> int:
@@ -88,6 +90,8 @@ class Solution:
             ans += 1
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +126,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -154,6 +160,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minKnightMoves(x int, y int) int {
 	x, y = x+310, y+310
@@ -184,6 +192,8 @@ func minKnightMoves(x int, y int) int {
 	return -1
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -267,6 +277,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minKnightMoves(self, x: int, y: int) -> int:
@@ -303,6 +315,8 @@ class Solution:
                 return t
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -354,6 +368,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 typedef pair<int, int> PII;
 
@@ -400,6 +416,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minKnightMoves(x int, y int) int {
 	if x == 0 && y == 0 {
@@ -444,6 +462,8 @@ func minKnightMoves(x int, y int) int {
 	return -1
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;

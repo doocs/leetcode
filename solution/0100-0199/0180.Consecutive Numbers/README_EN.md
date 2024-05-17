@@ -77,6 +77,8 @@ First, we perform a self-join with the condition `l1.num = l2.num` and `l1.id = 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 import pandas as pd
 
@@ -92,6 +94,8 @@ def consecutive_numbers(logs: pd.DataFrame) -> pd.DataFrame:
         .rename(columns={"num": "ConsecutiveNums"})
     )
 ```
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -115,6 +119,8 @@ We can use the window functions `LAG` and `LEAD` to obtain the `num` of the prev
 We can also group the numbers by using the `IF` function to determine whether the `num` of the current row is equal to the `num` of the previous row. If they are equal, we set it to $0$, otherwise we set it to $1$. Then, we use the window function `SUM` to calculate the prefix sum, which is the grouping identifier. Finally, we only need to group by the grouping identifier and filter out the numbers with a row count greater than or equal to $3$ in each group. Similarly, we need to use the `DISTINCT` keyword to remove duplicates from the results.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -140,6 +146,8 @@ WHERE a = num AND b = num;
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

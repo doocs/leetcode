@@ -95,6 +95,8 @@ The time complexity is $O(q \times m \times \log(n))$, and the space complexity 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def friendRequests(
@@ -123,6 +125,8 @@ class Solution:
                     p[pu] = pv
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -167,6 +171,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -205,6 +211,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func friendRequests(n int, restrictions [][]int, requests [][]int) (ans []bool) {
 	p := make([]int, n)
@@ -240,6 +248,8 @@ func friendRequests(n int, restrictions [][]int, requests [][]int) (ans []bool) 
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function friendRequests(n: number, restrictions: number[][], requests: number[][]): boolean[] {

@@ -84,12 +84,16 @@ The time complexity is $O(n + |\Sigma|)$, and the space complexity is $O(|\Sigma
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfSpecialChars(self, word: str) -> int:
         s = set(word)
         return sum(a in s and b in s for a, b in zip(ascii_lowercase, ascii_uppercase))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -126,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfSpecialChars(word string) (ans int) {
 	s := make([]bool, 'z'+1)
@@ -140,6 +148,8 @@ func numberOfSpecialChars(word string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfSpecialChars(word: string): number {

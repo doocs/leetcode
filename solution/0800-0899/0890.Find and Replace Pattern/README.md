@@ -58,6 +58,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findAndReplacePattern(self, words: List[str], pattern: str) -> List[str]:
@@ -71,6 +73,8 @@ class Solution:
 
         return [word for word in words if match(word, pattern)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +128,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findAndReplacePattern(words []string, pattern string) []string {
@@ -146,6 +154,8 @@ func findAndReplacePattern(words []string, pattern string) []string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findAndReplacePattern(words: string[], pattern: string): string[] {
     return words.filter(word => {
@@ -162,6 +172,8 @@ function findAndReplacePattern(words: string[], pattern: string): string[] {
     });
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;

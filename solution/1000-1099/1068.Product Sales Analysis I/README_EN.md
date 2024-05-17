@@ -102,6 +102,8 @@ From sale_id = 7, we can conclude that Apple was sold for 9000 in the year 2011.
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT product_name, year, price

@@ -95,6 +95,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def kthSmallestSubarraySum(self, nums: List[int], k: int) -> int:
@@ -112,6 +114,8 @@ class Solution:
         l, r = min(nums), sum(nums)
         return l + bisect_left(range(l, r + 1), True, key=f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -147,6 +151,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -179,6 +185,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func kthSmallestSubarraySum(nums []int, k int) int {

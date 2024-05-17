@@ -72,6 +72,8 @@ s 可以由 "i"、"love" 和 "leetcode" 相连得到。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isPrefixString(self, s: str, words: List[str]) -> bool:
@@ -82,6 +84,8 @@ class Solution:
                 return "".join(words[: i + 1]) == s
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -120,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isPrefixString(s string, words []string) bool {
 	t := strings.Builder{}
@@ -135,6 +143,8 @@ func isPrefixString(s string, words []string) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isPrefixString(s: string, words: string[]): boolean {

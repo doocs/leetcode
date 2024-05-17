@@ -82,6 +82,8 @@ The time complexity is $O(n \times \log n \times m)$, and the space complexity i
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def removeSubfolders(self, folder: List[str]) -> List[str]:
@@ -93,6 +95,8 @@ class Solution:
                 ans.append(f)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -131,6 +137,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func removeSubfolders(folder []string) []string {
@@ -161,6 +169,8 @@ For each folder $f$ in the array `folder`, we first split $f$ into several subst
 The time complexity is $O(n \times m)$, and the space complexity is $O(n \times m)$. Where $n$ and $m$ are the length of the array `folder` and the maximum length of the strings in the array `folder`, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -197,6 +207,8 @@ class Solution:
             trie.insert(i, f)
         return [folder[i] for i in trie.search()]
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -247,6 +259,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -310,6 +324,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Trie struct {
 	children map[string]*Trie
@@ -371,6 +387,8 @@ func removeSubfolders(folder []string) []string {
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Go
 
 ```go
 type Trie struct {

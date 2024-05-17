@@ -65,6 +65,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isSelfCrossing(self, distance: List[int]) -> bool:
@@ -84,6 +86,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -120,6 +126,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isSelfCrossing(distance []int) bool {
@@ -138,6 +146,8 @@ func isSelfCrossing(distance []int) bool {
 	return false
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

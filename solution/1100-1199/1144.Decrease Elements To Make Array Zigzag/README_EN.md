@@ -68,6 +68,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def movesToMakeZigzag(self, nums: List[int]) -> int:
@@ -83,6 +85,8 @@ class Solution:
                 ans[i] += d
         return min(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +130,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func movesToMakeZigzag(nums []int) int {
@@ -145,6 +153,8 @@ func movesToMakeZigzag(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function movesToMakeZigzag(nums: number[]): number {
     const ans: number[] = Array(2).fill(0);
@@ -164,6 +174,8 @@ function movesToMakeZigzag(nums: number[]): number {
     return Math.min(...ans);
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

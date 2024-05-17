@@ -77,6 +77,8 @@ We can first group by month and country, and then use the `COUNT` and `SUM` func
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT

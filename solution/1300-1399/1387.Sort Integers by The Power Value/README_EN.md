@@ -85,6 +85,8 @@ The time complexity is $O(n \times \log n \times M)$, and the space complexity i
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 @cache
 def f(x: int) -> int:
@@ -102,6 +104,8 @@ class Solution:
     def getKth(self, lo: int, hi: int, k: int) -> int:
         return sorted(range(lo, hi + 1), key=f)[k - 1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +134,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -163,6 +169,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getKth(lo int, hi int, k int) int {
 	f := func(x int) (ans int) {
@@ -189,6 +197,8 @@ func getKth(lo int, hi int, k int) int {
 	return nums[k-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getKth(lo: number, hi: number, k: number): number {

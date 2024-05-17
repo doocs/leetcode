@@ -60,12 +60,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def areOccurrencesEqual(self, s: str) -> bool:
         cnt = Counter(s)
         return len(set(cnt.values())) == 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +92,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -112,6 +118,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func areOccurrencesEqual(s string) bool {
 	cnt := [26]int{}
@@ -132,6 +140,8 @@ func areOccurrencesEqual(s string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function areOccurrencesEqual(s: string): boolean {
     const cnt: number[] = new Array(26).fill(0);
@@ -151,6 +161,8 @@ function areOccurrencesEqual(s: string): boolean {
     return true;
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -177,6 +189,8 @@ class Solution {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function areOccurrencesEqual(s: string): boolean {

@@ -64,6 +64,8 @@ The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numEquivDominoPairs(self, dominoes: List[List[int]]) -> int:
@@ -75,6 +77,8 @@ class Solution:
             cnt[x] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +94,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -104,6 +110,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numEquivDominoPairs(dominoes [][]int) (ans int) {

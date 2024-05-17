@@ -77,6 +77,8 @@ User 7 had two purchases on the same day so we add their ID.
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

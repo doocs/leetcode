@@ -108,6 +108,8 @@ The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumCosts(
@@ -123,6 +125,8 @@ class Solution:
             cost[i - 1] = min(f[i], g[i])
         return cost
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -143,6 +147,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -166,6 +172,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumCosts(regular []int, express []int, expressCost int) []int64 {
 	n := len(regular)
@@ -182,6 +190,8 @@ func minimumCosts(regular []int, express []int, expressCost int) []int64 {
 	return cost
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumCosts(regular: number[], express: number[], expressCost: number): number[] {
@@ -206,6 +216,8 @@ We notice that in the state transition equations of $f[i]$ and $g[i]$, we only n
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumCosts(
@@ -221,6 +233,8 @@ class Solution:
             cost[i - 1] = min(f, g)
         return cost
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -242,6 +256,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -265,6 +281,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumCosts(regular []int, express []int, expressCost int) []int64 {
 	f, g := 0, 1<<30
@@ -279,6 +297,8 @@ func minimumCosts(regular []int, express []int, expressCost int) []int64 {
 	return cost
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumCosts(regular: number[], express: number[], expressCost: number): number[] {

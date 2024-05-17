@@ -86,6 +86,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minRemoveToMakeValid(self, s: str) -> str:
@@ -111,6 +113,8 @@ class Solution:
             ans.append(c)
         return ''.join(ans[::-1])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -148,6 +152,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -179,6 +185,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minRemoveToMakeValid(s string) string {
@@ -217,6 +225,8 @@ func minRemoveToMakeValid(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minRemoveToMakeValid(s: string): string {
     let left = 0;
@@ -252,6 +262,8 @@ function minRemoveToMakeValid(s: string): string {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

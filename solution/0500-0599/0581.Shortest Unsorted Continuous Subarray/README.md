@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findUnsortedSubarray(self, nums: List[int]) -> int:
@@ -91,6 +93,8 @@ class Solution:
             r -= 1
         return r - l + 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -127,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findUnsortedSubarray(nums []int) int {
 	arr := make([]int, len(nums))
@@ -143,6 +151,8 @@ func findUnsortedSubarray(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findUnsortedSubarray(nums: number[]): number {
     const arr = [...nums];
@@ -157,6 +167,8 @@ function findUnsortedSubarray(nums: number[]): number {
     return r - l + 1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -205,6 +217,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findUnsortedSubarray(self, nums: List[int]) -> int:
@@ -222,6 +236,8 @@ class Solution:
                 mi = nums[n - i - 1]
         return 0 if r == -1 else r - l + 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -246,6 +262,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -272,6 +290,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findUnsortedSubarray(nums []int) int {
 	const inf = 1 << 30
@@ -296,6 +316,8 @@ func findUnsortedSubarray(nums []int) int {
 	return r - l + 1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findUnsortedSubarray(nums: number[]): number {

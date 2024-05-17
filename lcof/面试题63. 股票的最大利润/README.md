@@ -54,6 +54,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
@@ -63,6 +65,8 @@ class Solution:
             mi = min(mi, x)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -76,6 +80,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -91,6 +97,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProfit(prices []int) (ans int) {
 	mi := 1 << 30
@@ -101,6 +109,8 @@ func maxProfit(prices []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxProfit(prices: number[]): number {
@@ -113,6 +123,8 @@ function maxProfit(prices: number[]): number {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -127,6 +139,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -143,6 +157,8 @@ var maxProfit = function (prices) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

@@ -90,6 +90,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countVowelSubstrings(self, word: str) -> int:
@@ -97,6 +99,8 @@ class Solution:
         s = set('aeiou')
         return sum(set(word[i:j]) == s for i in range(n) for j in range(i + 1, n + 1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -149,6 +155,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countVowelSubstrings(word string) int {
 	ans, n := 0, len(word)
@@ -168,6 +176,8 @@ func countVowelSubstrings(word string) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countVowelSubstrings(word: string): number {
@@ -199,6 +209,8 @@ function countVowelSubstrings(word: string): number {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

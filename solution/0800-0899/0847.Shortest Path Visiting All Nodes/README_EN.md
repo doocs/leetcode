@@ -63,6 +63,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def shortestPathLength(self, graph: List[List[int]]) -> int:
@@ -85,6 +87,8 @@ class Solution:
                         q.append((j, nst))
             ans += 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +119,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -148,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func shortestPathLength(graph [][]int) int {
 	n := len(graph)
@@ -178,6 +186,8 @@ func shortestPathLength(graph [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function shortestPathLength(graph: number[][]): number {
     const n = graph.length;
@@ -204,6 +214,8 @@ function shortestPathLength(graph: number[][]): number {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -252,6 +264,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def shortestPathLength(self, graph: List[List[int]]) -> int:
@@ -276,6 +290,8 @@ class Solution:
                     heappush(q, (dist[v][nxt] + f(nxt), v, nxt))
         return 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -320,6 +336,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {

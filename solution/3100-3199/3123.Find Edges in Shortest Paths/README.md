@@ -105,6 +105,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findAnswer(self, n: int, edges: List[List[int]]) -> List[bool]:
@@ -136,6 +138,8 @@ class Solution:
                     q.append(b)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -188,6 +192,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -242,6 +248,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findAnswer(n int, edges [][]int) []bool {

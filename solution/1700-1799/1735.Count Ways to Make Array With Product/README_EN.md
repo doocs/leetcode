@@ -77,6 +77,8 @@ The time complexity is $O(K \times \log \log K + N + m \times \log K)$, and the 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 N = 10020
 MOD = 10**9 + 7
@@ -114,6 +116,8 @@ class Solution:
             ans.append(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -179,6 +183,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 int N = 10020;
 int MOD = 1e9 + 7;
@@ -242,6 +248,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 const n = 1e4 + 20

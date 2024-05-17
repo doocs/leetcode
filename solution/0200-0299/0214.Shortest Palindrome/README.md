@@ -68,6 +68,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def shortestPalindrome(self, s: str) -> str:
@@ -85,6 +87,8 @@ class Solution:
                 idx = i + 1
         return s if idx == n else s[idx:][::-1] + s
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 typedef unsigned long long ull;
 
@@ -137,6 +143,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func shortestPalindrome(s string) string {
@@ -164,6 +172,8 @@ func shortestPalindrome(s string) string {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn shortest_palindrome(s: String) -> String {
@@ -187,6 +197,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 ﻿// https://leetcode.com/problems/shortest-palindrome/

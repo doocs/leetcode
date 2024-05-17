@@ -73,6 +73,8 @@ numArray.sumRange(0, 2); // return 1 + 2 + 5 = 8
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class BinaryIndexedTree:
     __slots__ = ["n", "c"]
@@ -115,6 +117,8 @@ class NumArray:
 # obj.update(index,val)
 # param_2 = obj.sumRange(left,right)
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -172,6 +176,8 @@ class NumArray {
  */
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -227,6 +233,8 @@ public:
  */
 ```
 
+#### Go
+
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -279,6 +287,8 @@ func (t *NumArray) SumRange(left int, right int) int {
  * param_2 := obj.SumRange(left,right);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {
@@ -335,6 +345,8 @@ class NumArray {
  * var param_2 = obj.sumRange(left,right)
  */
 ```
+
+#### C#
 
 ```cs
 class BinaryIndexedTree {
@@ -401,6 +413,8 @@ public class NumArray {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -473,6 +487,8 @@ class NumArray:
 # obj.update(index,val)
 # param_2 = obj.sumRange(left,right)
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -566,6 +582,8 @@ class NumArray {
  */
 ```
 
+#### C++
+
 ```cpp
 class Node {
 public:
@@ -651,6 +669,8 @@ public:
  * int param_2 = obj->sumRange(left,right);
  */
 ```
+
+#### Go
 
 ```go
 type Node struct {
@@ -746,6 +766,8 @@ func (this *NumArray) SumRange(left int, right int) int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class Node {
     l: number;
@@ -837,6 +859,8 @@ class NumArray {
  * var param_2 = obj.sumRange(left,right)
  */
 ```
+
+#### C#
 
 ```cs
 public class Node {

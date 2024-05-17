@@ -67,6 +67,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def restoreString(self, s: str, indices: List[int]) -> str:
@@ -75,6 +77,8 @@ class Solution:
             ans[indices[i]] = c
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +92,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -103,6 +109,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func restoreString(s string, indices []int) string {
 	ans := make([]rune, len(s))
@@ -112,6 +120,8 @@ func restoreString(s string, indices []int) string {
 	return string(ans)
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

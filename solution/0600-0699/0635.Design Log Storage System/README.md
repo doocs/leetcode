@@ -82,6 +82,8 @@ logSystem.retrieve("2016:01:01:01:01:01", "2017:01:01:23:00:00", "Hour");
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class LogSystem:
     def __init__(self):
@@ -108,6 +110,8 @@ class LogSystem:
 # obj.put(id,timestamp)
 # param_2 = obj.retrieve(start,end,granularity)
 ```
+
+#### Java
 
 ```java
 class LogSystem {
@@ -160,6 +164,8 @@ class Log {
  */
 ```
 
+#### C++
+
 ```cpp
 class LogSystem {
 public:
@@ -202,6 +208,8 @@ private:
  * vector<int> param_2 = obj->retrieve(start,end,granularity);
  */
 ```
+
+#### Go
 
 ```go
 type LogSystem struct {

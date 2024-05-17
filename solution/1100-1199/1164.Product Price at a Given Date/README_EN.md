@@ -75,6 +75,8 @@ We can use a subquery to find the price of the last price change for each produc
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH
@@ -105,6 +107,8 @@ FROM
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

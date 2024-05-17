@@ -86,6 +86,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def compareVersion(self, version1: str, version2: str) -> int:
@@ -104,6 +106,8 @@ class Solution:
             i, j = i + 1, j + 1
         return 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -147,6 +153,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func compareVersion(version1 string, version2 string) int {
@@ -172,6 +180,8 @@ func compareVersion(version1 string, version2 string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function compareVersion(version1: string, version2: string): number {
     const v1 = version1.split('.');
@@ -188,6 +198,8 @@ function compareVersion(version1: string, version2: string): number {
     return 0;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

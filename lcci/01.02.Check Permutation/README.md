@@ -57,11 +57,15 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.02.Check%20Permuta
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def CheckPermutation(self, s1: str, s2: str) -> bool:
         return Counter(s1) == Counter(s2)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +87,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -96,6 +102,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func CheckPermutation(s1 string, s2 string) bool {
@@ -115,6 +123,8 @@ func CheckPermutation(s1 string, s2 string) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function CheckPermutation(s1: string, s2: string): boolean {
@@ -137,6 +147,8 @@ function CheckPermutation(s1: string, s2: string): boolean {
 }
 ```
 
+#### Rust
+
 ```rust
 use std::collections::HashMap;
 impl Solution {
@@ -157,6 +169,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -182,6 +196,8 @@ var CheckPermutation = function (s1, s2) {
     return true;
 };
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -224,11 +240,15 @@ class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def CheckPermutation(self, s1: str, s2: str) -> bool:
         return sorted(s1) == sorted(s2)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -242,6 +262,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -253,6 +275,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func CheckPermutation(s1 string, s2 string) bool {
 	cs1, cs2 := []byte(s1), []byte(s2)
@@ -262,11 +286,15 @@ func CheckPermutation(s1 string, s2 string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function CheckPermutation(s1: string, s2: string): boolean {
     return [...s1].sort().join('') === [...s2].sort().join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

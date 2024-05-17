@@ -87,6 +87,8 @@ First, we use the `DATE_FORMAT` function to format the date in the form of `YYYY
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT

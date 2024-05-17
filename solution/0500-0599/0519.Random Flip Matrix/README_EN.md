@@ -69,6 +69,8 @@ solution.flip();  // return [2, 0], [0,0], [1,0], and [2,0] should be equally li
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def __init__(self, m: int, n: int):
@@ -94,6 +96,8 @@ class Solution:
 # param_1 = obj.flip()
 # obj.reset()
 ```
+
+#### Java
 
 ```java
 class Solution {

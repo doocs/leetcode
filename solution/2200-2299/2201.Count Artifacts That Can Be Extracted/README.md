@@ -90,6 +90,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def digArtifacts(
@@ -104,6 +106,8 @@ class Solution:
         s = {(i, j) for i, j in dig}
         return sum(check(a) for a in artifacts)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +140,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -164,6 +170,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func digArtifacts(n int, artifacts [][]int, dig [][]int) (ans int) {
 	s := map[int]bool{}
@@ -187,6 +195,8 @@ func digArtifacts(n int, artifacts [][]int, dig [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function digArtifacts(n: number, artifacts: number[][], dig: number[][]): number {
@@ -212,6 +222,8 @@ function digArtifacts(n: number, artifacts: number[][], dig: number[][]): number
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;

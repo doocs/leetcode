@@ -111,6 +111,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def placedCoins(self, edges: List[List[int]], cost: List[int]) -> List[int]:
@@ -135,6 +137,8 @@ class Solution:
         dfs(0, -1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -181,6 +185,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -219,6 +225,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func placedCoins(edges [][]int, cost []int) []int64 {
 	n := len(cost)
@@ -256,6 +264,8 @@ func placedCoins(edges [][]int, cost []int) []int64 {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function placedCoins(edges: number[][], cost: number[]): number[] {

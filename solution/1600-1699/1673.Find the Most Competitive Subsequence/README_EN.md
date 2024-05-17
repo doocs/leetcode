@@ -62,6 +62,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def mostCompetitive(self, nums: List[int], k: int) -> List[int]:
@@ -74,6 +76,8 @@ class Solution:
                 stk.append(v)
         return stk
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +101,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -116,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func mostCompetitive(nums []int, k int) []int {
 	stk := []int{}
@@ -131,6 +139,8 @@ func mostCompetitive(nums []int, k int) []int {
 	return stk
 }
 ```
+
+#### TypeScript
 
 ```ts
 function mostCompetitive(nums: number[], k: number): number[] {

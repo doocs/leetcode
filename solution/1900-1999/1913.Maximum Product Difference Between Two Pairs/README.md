@@ -66,12 +66,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProductDifference(self, nums: List[int]) -> int:
         nums.sort()
         return nums[-1] * nums[-2] - nums[0] * nums[1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +86,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -94,6 +100,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProductDifference(nums []int) int {
 	sort.Ints(nums)
@@ -101,6 +109,8 @@ func maxProductDifference(nums []int) int {
 	return nums[n-1]*nums[n-2] - nums[0]*nums[1]
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

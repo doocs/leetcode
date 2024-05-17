@@ -72,6 +72,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numSquarefulPerms(self, nums: List[int]) -> int:
@@ -94,6 +96,8 @@ class Solution:
             ans //= factorial(v)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -183,6 +189,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numSquarefulPerms(nums []int) (ans int) {

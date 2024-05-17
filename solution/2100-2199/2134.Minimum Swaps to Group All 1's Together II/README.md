@@ -82,6 +82,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minSwaps(self, nums: List[int]) -> int:
@@ -94,6 +96,8 @@ class Solution:
             mx = max(mx, cnt)
         return k - mx
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +136,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minSwaps(nums []int) int {
@@ -151,6 +159,8 @@ func minSwaps(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minSwaps(nums: number[]): number {
     const k = nums.reduce((a, b) => a + b, 0);
@@ -164,6 +174,8 @@ function minSwaps(nums: number[]): number {
     return k - mx;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -185,6 +197,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

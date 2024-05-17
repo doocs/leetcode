@@ -100,6 +100,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # """
 # This is MountainArray's API interface.
@@ -132,6 +134,8 @@ class Solution:
         ans = search(0, l, 1)
         return search(l + 1, n - 1, -1) if ans == -1 else ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -178,6 +182,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * // This is the MountainArray's API interface.
@@ -218,6 +224,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -263,6 +271,8 @@ func findInMountainArray(target int, mountainArr *MountainArray) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * // This is the MountainArray's API interface.
@@ -301,6 +311,8 @@ function findInMountainArray(target: number, mountainArr: MountainArray) {
     return ans === -1 ? search(l + 1, n - 1, -1) : ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

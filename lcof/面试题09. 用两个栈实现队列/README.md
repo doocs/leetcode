@@ -57,6 +57,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class CQueue:
     def __init__(self):
@@ -78,6 +80,8 @@ class CQueue:
 # obj.appendTail(value)
 # param_2 = obj.deleteHead()
 ```
+
+#### Java
 
 ```java
 class CQueue {
@@ -108,6 +112,8 @@ class CQueue {
  * int param_2 = obj.deleteHead();
  */
 ```
+
+#### C++
 
 ```cpp
 class CQueue {
@@ -146,6 +152,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type CQueue struct {
 	stk1, stk2 []int
@@ -182,6 +190,8 @@ func (this *CQueue) DeleteHead() int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class CQueue {
     private stk1: number[];
@@ -213,6 +223,8 @@ class CQueue {
  * var param_2 = obj.deleteHead()
  */
 ```
+
+#### Rust
 
 ```rust
 struct CQueue {
@@ -255,6 +267,8 @@ impl CQueue {
  */
 ```
 
+#### JavaScript
+
 ```js
 var CQueue = function () {
     this.stk1 = [];
@@ -288,6 +302,8 @@ CQueue.prototype.deleteHead = function () {
  * var param_2 = obj.deleteHead()
  */
 ```
+
+#### C#
 
 ```cs
 public class CQueue {

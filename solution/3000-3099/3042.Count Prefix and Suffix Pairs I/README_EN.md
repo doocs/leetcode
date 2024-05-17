@@ -89,6 +89,8 @@ The time complexity is $O(n^2 \times m)$, where $n$ and $m$ are the length of `w
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countPrefixSuffixPairs(self, words: List[str]) -> int:
@@ -98,6 +100,8 @@ class Solution:
                 ans += t.endswith(s) and t.startswith(s)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -138,6 +144,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countPrefixSuffixPairs(words []string) (ans int) {
 	for i, s := range words {
@@ -150,6 +158,8 @@ func countPrefixSuffixPairs(words []string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countPrefixSuffixPairs(words: string[]): number {
@@ -182,6 +192,8 @@ The time complexity is $O(n \times m)$, and the space complexity is $O(n \times 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Node:
     __slots__ = ["children", "cnt"]
@@ -205,6 +217,8 @@ class Solution:
             node.cnt += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -231,6 +245,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Node {
@@ -264,6 +280,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type Node struct {

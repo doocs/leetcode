@@ -73,6 +73,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findRightInterval(self, intervals: List[List[int]]) -> List[int]:
@@ -87,6 +89,8 @@ class Solution:
                 ans[i] = intervals[j][2]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -144,6 +150,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findRightInterval(intervals [][]int) []int {
@@ -177,6 +185,8 @@ func findRightInterval(intervals [][]int) []int {
 	return res
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findRightInterval(intervals: number[][]): number[] {

@@ -65,6 +65,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getCommon(self, nums1: List[int], nums2: List[int]) -> int:
@@ -79,6 +81,8 @@ class Solution:
                 j += 1
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -119,6 +125,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getCommon(nums1 []int, nums2 []int) int {
 	m, n := len(nums1), len(nums2)
@@ -135,6 +143,8 @@ func getCommon(nums1 []int, nums2 []int) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getCommon(nums1: number[], nums2: number[]): number {
@@ -155,6 +165,8 @@ function getCommon(nums1: number[], nums2: number[]): number {
     return -1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -177,6 +189,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int getCommon(int* nums1, int nums1Size, int* nums2, int nums2Size) {
@@ -205,6 +219,8 @@ int getCommon(int* nums1, int nums1Size, int* nums2, int nums2Size) {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {

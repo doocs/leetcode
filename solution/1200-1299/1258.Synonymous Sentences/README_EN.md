@@ -76,6 +76,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ i
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class UnionFind:
     def __init__(self, n):
@@ -131,6 +133,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class UnionFind {
@@ -223,6 +227,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class UnionFind {
@@ -321,6 +327,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type unionFind struct {

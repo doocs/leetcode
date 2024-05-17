@@ -91,6 +91,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def totalStrength(self, strength: List[int]) -> int:
@@ -122,6 +124,8 @@ class Solution:
             ans = (ans + (a - b) * v) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -173,6 +177,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -209,6 +215,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func totalStrength(strength []int) int {

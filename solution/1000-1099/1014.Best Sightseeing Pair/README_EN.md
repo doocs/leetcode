@@ -59,6 +59,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxScoreSightseeingPair(self, values: List[int]) -> int:
@@ -68,6 +70,8 @@ class Solution:
             mx = max(mx, values[j] + j)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +85,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -96,6 +102,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxScoreSightseeingPair(values []int) (ans int) {
 	for j, mx := 1, values[0]; j < len(values); j++ {
@@ -105,6 +113,8 @@ func maxScoreSightseeingPair(values []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxScoreSightseeingPair(values: number[]): number {

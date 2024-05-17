@@ -79,6 +79,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def kthFactor(self, n: int, k: int) -> int:
@@ -89,6 +91,8 @@ class Solution:
                     return i
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -117,6 +123,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func kthFactor(n int, k int) int {
 	for i := 1; i <= n; i++ {
@@ -130,6 +138,8 @@ func kthFactor(n int, k int) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function kthFactor(n: number, k: number): number {
@@ -158,6 +168,8 @@ function kthFactor(n: number, k: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def kthFactor(self, n: int, k: int) -> int:
@@ -178,6 +190,8 @@ class Solution:
             i -= 1
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -201,6 +215,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -223,6 +239,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func kthFactor(n int, k int) int {
@@ -249,6 +267,8 @@ func kthFactor(n int, k int) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function kthFactor(n: number, k: number): number {

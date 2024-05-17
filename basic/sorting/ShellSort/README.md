@@ -11,6 +11,8 @@
 
 <!-- tabs:start -->
 
+#### Java
+
 ```java
 import java.util.Arrays;
 
@@ -39,6 +41,8 @@ public class ShellSort {
 }
 ```
 
+#### Go
+
 ```go
 package main
 
@@ -64,6 +68,8 @@ func main() {
 }
 ```
 
+#### Rust
+
 ```rust
 fn shell_sort(nums: &mut Vec<i32>) {
     let n = nums.len();
@@ -88,6 +94,8 @@ fn main() {
     println!("{:?}", nums);
 }
 ```
+
+#### JavaScript
 
 ```js
 function shellSort(arr) {

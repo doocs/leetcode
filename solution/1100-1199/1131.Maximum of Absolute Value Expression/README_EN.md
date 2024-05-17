@@ -73,6 +73,8 @@ Similar problems:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxAbsValExpr(self, arr1: List[int], arr2: List[int]) -> int:
@@ -86,6 +88,8 @@ class Solution:
                 ans = max(ans, mx - mi)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -130,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxAbsValExpr(arr1 []int, arr2 []int) int {
 	dirs := [5]int{1, -1, -1, 1, 1}
@@ -148,6 +156,8 @@ func maxAbsValExpr(arr1 []int, arr2 []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxAbsValExpr(arr1: number[], arr2: number[]): number {

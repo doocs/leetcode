@@ -65,6 +65,8 @@ Dog 是 Animal 的子类。因此，Dog 对象同时是 Dog 和 Animal 的实例
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function checkIfInstanceOf(obj: any, classFunction: any): boolean {
     if (classFunction === null || classFunction === undefined) {

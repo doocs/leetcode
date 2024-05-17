@@ -75,6 +75,8 @@ The time complexity is $O(m \times n \times minProfit)$, and th e space complexi
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def profitableSchemes(
@@ -91,6 +93,8 @@ class Solution:
 
         return dfs(0, 0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -155,6 +161,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func profitableSchemes(n int, minProfit int, group []int, profit []int) int {
@@ -211,6 +219,8 @@ The time complexity is $O(m \times n \times minProfit)$, and the space complexit
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def profitableSchemes(
@@ -229,6 +239,8 @@ class Solution:
                         f[i][j][k] = (f[i][j][k] + f[i - 1][j - x][max(0, k - p)]) % mod
         return f[m][n][minProfit]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -257,6 +269,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -282,6 +296,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func profitableSchemes(n int, minProfit int, group []int, profit []int) int {

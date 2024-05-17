@@ -54,6 +54,8 @@ sentence = &quot;jesslookedjustliketimherbrother&quot;
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def respace(self, dictionary: List[str], sentence: str) -> int:
@@ -67,6 +69,8 @@ class Solution:
                     dp[i] = min(dp[i], dp[j])
         return dp[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +90,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -107,6 +113,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func respace(dictionary []string, sentence string) int {
 	s := map[string]bool{}
@@ -126,6 +134,8 @@ func respace(dictionary []string, sentence string) int {
 	return dp[n]
 }
 ```
+
+#### Swift
 
 ```swift
 class TrieNode {

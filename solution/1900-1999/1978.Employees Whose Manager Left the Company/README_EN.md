@@ -80,6 +80,8 @@ We can use a left join to connect the employee table with itself, and then filte
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT e1.employee_id
@@ -101,6 +103,8 @@ ORDER BY 1;
 We can also use a subquery to first find all the managers who have left the company, and then find the employees whose salary is less than $30000$ and whose superior manager is not in the list of managers who have left the company.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

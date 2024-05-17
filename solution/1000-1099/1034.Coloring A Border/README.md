@@ -85,6 +85,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def colorBorder(
@@ -108,6 +110,8 @@ class Solution:
         dfs(row, col, grid[row][col])
         return grid
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -148,6 +152,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -181,6 +187,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func colorBorder(grid [][]int, row int, col int, color int) [][]int {
 	m, n := len(grid), len(grid[0])
@@ -211,6 +219,8 @@ func colorBorder(grid [][]int, row int, col int, color int) [][]int {
 	return grid
 }
 ```
+
+#### TypeScript
 
 ```ts
 function colorBorder(grid: number[][], row: number, col: number, color: number): number[][] {

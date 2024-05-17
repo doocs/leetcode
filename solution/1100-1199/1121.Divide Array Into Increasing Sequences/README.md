@@ -63,12 +63,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canDivideIntoSubsequences(self, nums: List[int], k: int) -> bool:
         mx = max(len(list(x)) for _, x in groupby(nums))
         return mx * k <= len(nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +86,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -100,6 +106,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canDivideIntoSubsequences(nums []int, k int) bool {
@@ -127,6 +135,8 @@ func canDivideIntoSubsequences(nums []int, k int) bool {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {

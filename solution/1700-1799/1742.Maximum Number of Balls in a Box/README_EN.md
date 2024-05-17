@@ -82,6 +82,8 @@ The time complexity is $O(n \times \log_{10}m)$. Here, $n = highLimit - lowLimit
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countBalls(self, lowLimit: int, highLimit: int) -> int:
@@ -94,6 +96,8 @@ class Solution:
             cnt[y] += 1
         return max(cnt)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -129,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countBalls(lowLimit int, highLimit int) (ans int) {
 	cnt := [50]int{}
@@ -145,6 +153,8 @@ func countBalls(lowLimit int, highLimit int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countBalls(lowLimit: number, highLimit: number): number {

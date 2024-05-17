@@ -95,6 +95,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def stoneGameIII(self, stoneValue: List[int]) -> str:
@@ -116,6 +118,8 @@ class Solution:
             return 'Tie'
         return 'Alice' if ans > 0 else 'Bob'
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -152,6 +156,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -181,6 +187,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func stoneGameIII(stoneValue []int) string {
@@ -216,6 +224,8 @@ func stoneGameIII(stoneValue []int) string {
 	return "Bob"
 }
 ```
+
+#### TypeScript
 
 ```ts
 function stoneGameIII(stoneValue: number[]): string {

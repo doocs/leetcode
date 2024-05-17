@@ -96,6 +96,8 @@ The longest winning streak was 1 match.
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

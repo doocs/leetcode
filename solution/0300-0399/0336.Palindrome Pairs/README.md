@@ -85,6 +85,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def palindromePairs(self, words: List[str]) -> List[List[int]]:
@@ -100,6 +102,8 @@ class Solution:
                     ans.append([d[rb], i])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -148,6 +152,8 @@ class Solution {
 }
 ```
 
+#### Go
+
 ```go
 func palindromePairs(words []string) [][]int {
 	base := 131
@@ -188,6 +194,8 @@ func palindromePairs(words []string) [][]int {
 	return ans
 }
 ```
+
+#### C#
 
 ```cs
 using System.Collections.Generic;
@@ -251,6 +259,8 @@ public class Solution {
 ### 方法二：前缀树
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Trie {

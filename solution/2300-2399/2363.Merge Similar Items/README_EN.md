@@ -93,6 +93,8 @@ The time complexity is $O(n + m)$ and the space complexity is $O(n + m)$, where 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def mergeSimilarItems(
@@ -103,6 +105,8 @@ class Solution:
             cnt[v] += w
         return sorted(cnt.items())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +128,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -147,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func mergeSimilarItems(items1 [][]int, items2 [][]int) (ans [][]int) {
 	cnt := [1010]int{}
@@ -165,6 +173,8 @@ func mergeSimilarItems(items1 [][]int, items2 [][]int) (ans [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function mergeSimilarItems(items1: number[][], items2: number[][]): number[][] {
     const count = new Array(1001).fill(0);
@@ -177,6 +187,8 @@ function mergeSimilarItems(items1: number[][], items2: number[][]): number[][] {
     return [...count.entries()].filter(v => v[1] !== 0);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -201,6 +213,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**

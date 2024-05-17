@@ -65,6 +65,8 @@ The time complexity is $O(n^2 \times C)$, and the space complexity is $O(C)$. He
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def beautySum(self, s: str) -> int:
@@ -76,6 +78,8 @@ class Solution:
                 ans += max(cnt.values()) - min(cnt.values())
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -127,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func beautySum(s string) (ans int) {
 	for i := range s {
@@ -150,6 +158,8 @@ func beautySum(s string) (ans int) {
 	return
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -180,6 +190,8 @@ var beautySum = function (s) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def beautySum(self, s: str) -> int:
@@ -203,6 +215,8 @@ class Solution:
                 ans += mx - mi
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -235,6 +249,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -269,6 +285,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func beautySum(s string) (ans int) {
 	n := len(s)
@@ -297,6 +315,8 @@ func beautySum(s string) (ans int) {
 	return
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

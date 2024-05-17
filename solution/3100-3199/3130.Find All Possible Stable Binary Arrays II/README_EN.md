@@ -96,6 +96,8 @@ The calculation process of the function $dfs(i, j, k)$ is as follows:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfStableArrays(self, zero: int, one: int, limit: int) -> int:
@@ -122,6 +124,8 @@ class Solution:
         dfs.cache_clear()
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -159,6 +163,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 using ll = long long;
@@ -199,6 +205,8 @@ private:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfStableArrays(zero int, one int, limit int) int {
@@ -265,6 +273,8 @@ The time complexity is $O(zero \times one)$, and the space complexity is $O(zero
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfStableArrays(self, zero: int, one: int, limit: int) -> int:
@@ -288,6 +298,8 @@ class Solution:
                 ) % mod
         return sum(f[zero][one]) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -314,6 +326,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -343,6 +357,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfStableArrays(zero int, one int, limit int) int {

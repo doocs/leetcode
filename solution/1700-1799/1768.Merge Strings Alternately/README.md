@@ -81,11 +81,15 @@ word2：    p   q
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def mergeAlternately(self, word1: str, word2: str) -> str:
         return ''.join(a + b for a, b in zip_longest(word1, word2, fillvalue=''))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +109,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +125,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func mergeAlternately(word1 string, word2 string) string {
@@ -136,6 +144,8 @@ func mergeAlternately(word1 string, word2 string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function mergeAlternately(word1: string, word2: string): string {
     const ans: string[] = [];
@@ -151,6 +161,8 @@ function mergeAlternately(word1: string, word2: string): string {
     return ans.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -171,6 +183,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 char* mergeAlternately(char* word1, char* word2) {

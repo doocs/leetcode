@@ -62,6 +62,8 @@ Number of water bottles you can drink: 15 + 3 + 1 = 19.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numWaterBottles(self, numBottles: int, numExchange: int) -> int:
@@ -71,6 +73,8 @@ class Solution:
             ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +87,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -97,6 +103,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numWaterBottles(numBottles int, numExchange int) int {
 	ans := numBottles
@@ -107,6 +115,8 @@ func numWaterBottles(numBottles int, numExchange int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numWaterBottles(numBottles: number, numExchange: number): number {
     let ans = numBottles;
@@ -116,6 +126,8 @@ function numWaterBottles(numBottles: number, numExchange: number): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -131,6 +143,8 @@ var numWaterBottles = function (numBottles, numExchange) {
     return ans;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {

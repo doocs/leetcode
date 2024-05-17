@@ -53,6 +53,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.04.Closed%20Number
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findClosedNumbers(self, num: int) -> List[int]:
@@ -78,6 +80,8 @@ class Solution:
                     break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +117,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -150,6 +156,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findClosedNumbers(num int) []int {
 	ans := []int{-1, -1}
@@ -183,6 +191,8 @@ func findClosedNumbers(num int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findClosedNumbers(num: number): number[] {
     const ans: number[] = [-1, -1];
@@ -215,6 +225,8 @@ function findClosedNumbers(num: number): number[] {
     return ans;
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

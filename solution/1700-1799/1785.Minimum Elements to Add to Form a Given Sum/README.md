@@ -71,12 +71,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minElements(self, nums: List[int], limit: int, goal: int) -> int:
         d = abs(sum(nums) - goal)
         return (d + limit - 1) // limit
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +96,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -102,6 +108,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minElements(nums []int, limit int, goal int) int {
@@ -121,6 +129,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minElements(nums: number[], limit: number, goal: number): number {
     const sum = nums.reduce((r, v) => r + v, 0);
@@ -128,6 +138,8 @@ function minElements(nums: number[], limit: number, goal: number): number {
     return Math.floor((diff + limit - 1) / limit);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -143,6 +155,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int minElements(int* nums, int numsSize, int limit, int goal) {

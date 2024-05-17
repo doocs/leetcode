@@ -86,6 +86,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxSumDivThree(self, nums: List[int]) -> int:
@@ -97,6 +99,8 @@ class Solution:
                 f[i][j] = max(f[i - 1][j], f[i - 1][(j - x) % 3] + x)
         return f[n][0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +119,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -136,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSumDivThree(nums []int) int {
 	n := len(nums)
@@ -151,6 +159,8 @@ func maxSumDivThree(nums []int) int {
 	return f[n][0]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxSumDivThree(nums: number[]): number {
@@ -180,6 +190,8 @@ function maxSumDivThree(nums: number[]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxSumDivThree(self, nums: List[int]) -> int:
@@ -191,6 +203,8 @@ class Solution:
             f = g
         return f[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -208,6 +222,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -227,6 +243,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSumDivThree(nums []int) int {
 	const inf = 1 << 30
@@ -241,6 +259,8 @@ func maxSumDivThree(nums []int) int {
 	return f[0]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxSumDivThree(nums: number[]): number {

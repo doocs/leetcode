@@ -102,6 +102,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getWordsInLongestSubsequence(
@@ -129,6 +131,8 @@ class Solution:
                 break
         return ans[::-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -175,6 +179,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -215,6 +221,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getWordsInLongestSubsequence(n int, words []string, groups []int) []string {
@@ -264,6 +272,8 @@ func getWordsInLongestSubsequence(n int, words []string, groups []int) []string 
 }
 ```
 
+#### TypeScript
+
 ```ts
 function getWordsInLongestSubsequence(n: number, words: string[], groups: number[]): string[] {
     const f: number[] = Array(n).fill(1);
@@ -302,6 +312,8 @@ function getWordsInLongestSubsequence(n: number, words: string[], groups: number
     return ans.reverse();
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -366,6 +378,8 @@ impl Solution {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {

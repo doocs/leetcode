@@ -74,6 +74,8 @@ words[2] = "bell" ，s 开始于 indices[2] = 5 到下一个 '#' 结束的子字
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Trie:
     def __init__(self) -> None:
@@ -102,6 +104,8 @@ class Solution:
             ans += l
         return ans
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -141,6 +145,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 struct Trie {
     Trie* children[26] = {nullptr};
@@ -179,6 +185,8 @@ private:
     }
 };
 ```
+
+#### Go
 
 ```go
 type trie struct {
@@ -224,6 +232,8 @@ func dfs(cur *trie, l int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Trie:
     def __init__(self):
@@ -247,6 +257,8 @@ class Solution:
         trie = Trie()
         return sum(trie.insert(w[::-1]) for w in words)
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -279,6 +291,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -316,6 +330,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type Trie struct {

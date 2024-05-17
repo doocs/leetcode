@@ -74,6 +74,8 @@ The third distinct maximum is 1.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def thirdMax(self, nums: List[int]) -> int:
@@ -89,6 +91,8 @@ class Solution:
                 m3 = num
         return m3 if m3 != -inf else m1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -138,6 +144,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func thirdMax(nums []int) int {

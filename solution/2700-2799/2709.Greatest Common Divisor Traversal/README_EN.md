@@ -72,6 +72,8 @@ To go from index 0 to index 2, we can just go directly because gcd(nums[0], nums
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class UnionFind:
     def __init__(self, n):
@@ -121,6 +123,8 @@ class Solution:
                 uf.union(i, j + n)
         return len(set(uf.find(i) for i in range(n))) == 1
 ```
+
+#### Java
 
 ```java
 class UnionFind {
@@ -201,6 +205,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 int MX = 100010;
 vector<int> P[100010];
@@ -278,6 +284,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 const mx = 100010

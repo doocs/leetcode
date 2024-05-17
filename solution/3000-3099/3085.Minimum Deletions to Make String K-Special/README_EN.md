@@ -90,6 +90,8 @@ The time complexity is $O(n \times |\Sigma|)$, and the space complexity is $O(|\
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumDeletions(self, word: str, k: int) -> int:
@@ -105,6 +107,8 @@ class Solution:
         nums = Counter(word).values()
         return min(f(v) for v in range(len(word) + 1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -142,6 +146,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -177,6 +183,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumDeletions(word string, k int) int {
 	freq := [26]int{}
@@ -207,6 +215,8 @@ func minimumDeletions(word string, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumDeletions(word: string, k: number): number {

@@ -75,6 +75,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def answerQueries(self, nums: List[int], queries: List[int]) -> List[int]:
@@ -82,6 +84,8 @@ class Solution:
         s = list(accumulate(nums))
         return [bisect_right(s, q) for q in queries]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func answerQueries(nums []int, queries []int) (ans []int) {
 	sort.Ints(nums)
@@ -142,6 +150,8 @@ func answerQueries(nums []int, queries []int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function answerQueries(nums: number[], queries: number[]): number[] {
@@ -170,6 +180,8 @@ function answerQueries(nums: number[], queries: number[]): number[] {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn answer_queries(mut nums: Vec<i32>, queries: Vec<i32>) -> Vec<i32> {
@@ -191,6 +203,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -239,6 +253,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def answerQueries(self, nums: List[int], queries: List[int]) -> List[int]:
@@ -254,6 +270,8 @@ class Solution:
             ans[i] = j
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -277,6 +295,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -302,6 +322,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func answerQueries(nums []int, queries []int) (ans []int) {
 	sort.Ints(nums)
@@ -323,6 +345,8 @@ func answerQueries(nums []int, queries []int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function answerQueries(nums: number[], queries: number[]): number[] {

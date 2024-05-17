@@ -80,6 +80,8 @@ Therefore, we return [1, 3].
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countRectangles(
@@ -99,6 +101,8 @@ class Solution:
             ans.append(cnt)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -137,6 +141,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -159,6 +165,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countRectangles(rectangles [][]int, points [][]int) []int {
@@ -192,6 +200,8 @@ func countRectangles(rectangles [][]int, points [][]int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countRectangles(rectangles: number[][], points: number[][]): number[] {

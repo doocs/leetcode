@@ -64,11 +64,15 @@ It can be shown that 11 is the maximum possible bitwise XOR.</pre>
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumXOR(self, nums: List[int]) -> int:
         return reduce(or_, nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +85,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -95,6 +101,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumXOR(nums []int) (ans int) {
 	for _, x := range nums {
@@ -103,6 +111,8 @@ func maximumXOR(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumXOR(nums: number[]): number {

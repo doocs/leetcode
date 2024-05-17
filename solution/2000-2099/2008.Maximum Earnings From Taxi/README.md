@@ -89,6 +89,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxTaxiEarnings(self, n: int, rides: List[List[int]]) -> int:
@@ -103,6 +105,8 @@ class Solution:
         rides.sort()
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -146,6 +150,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -171,6 +177,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxTaxiEarnings(n int, rides [][]int) int64 {
 	sort.Slice(rides, func(i, j int) bool { return rides[i][0] < rides[j][0] })
@@ -191,6 +199,8 @@ func maxTaxiEarnings(n int, rides [][]int) int64 {
 	return dfs(0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxTaxiEarnings(n: number, rides: number[][]): number {
@@ -253,6 +263,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxTaxiEarnings(self, n: int, rides: List[List[int]]) -> int:
@@ -263,6 +275,8 @@ class Solution:
             f[i] = max(f[i - 1], f[j] + ed - st + tip)
         return f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -294,6 +308,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -313,6 +329,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxTaxiEarnings(n int, rides [][]int) int64 {
 	sort.Slice(rides, func(i, j int) bool { return rides[i][1] < rides[j][1] })
@@ -327,6 +345,8 @@ func maxTaxiEarnings(n int, rides [][]int) int64 {
 	return f[m]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxTaxiEarnings(n: number, rides: number[][]): number {

@@ -69,6 +69,8 @@ For the subdomains, we will visit &quot;mail.com&quot; 900 + 1 = 901 times, &quo
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def subdomainVisits(self, cpdomains: List[str]) -> List[str]:
@@ -80,6 +82,8 @@ class Solution:
                     cnt[s[i + 1 :]] += v
         return [f'{v} {s}' for s, v in cnt.items()]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -126,6 +132,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func subdomainVisits(cpdomains []string) []string {

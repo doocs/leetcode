@@ -54,6 +54,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def nthMagicalNumber(self, n: int, a: int, b: int) -> int:
@@ -62,6 +64,8 @@ class Solution:
         r = (a + b) * n
         return bisect_left(range(r), x=n, key=lambda x: x // a + x // b - x // c) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +91,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using ll = long long;
 
@@ -108,6 +114,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func nthMagicalNumber(n int, a int, b int) int {

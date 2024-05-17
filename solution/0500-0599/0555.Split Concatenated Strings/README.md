@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def splitLoopedString(self, strs: List[str]) -> str:
@@ -90,6 +92,8 @@ class Solution:
                 ans = max(ans, b[::-1] + t + a[::-1])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +139,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -173,6 +179,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func splitLoopedString(strs []string) (ans string) {

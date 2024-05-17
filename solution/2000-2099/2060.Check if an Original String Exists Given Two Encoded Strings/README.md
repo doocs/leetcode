@@ -124,6 +124,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function possiblyEquals(s1: string, s2: string): boolean {
     const n = s1.length,

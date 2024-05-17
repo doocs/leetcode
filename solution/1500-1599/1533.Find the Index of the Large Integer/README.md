@@ -91,6 +91,8 @@ reader.compareSub(4, 4, 5, 5) // 返回 1。因此，可以确定 arr[4] 是数�
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # """
 # This is ArrayReader's API interface.
@@ -127,6 +129,8 @@ class Solution:
         return left
 ```
 
+#### Java
+
 ```java
 /**
  * // This is ArrayReader's API interface.
@@ -162,6 +166,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -200,6 +206,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**

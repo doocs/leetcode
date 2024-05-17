@@ -108,6 +108,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numOfWays(self, nums: List[int]) -> int:
@@ -130,6 +132,8 @@ class Solution:
                 c[i][j] = (c[i - 1][j] + c[i - 1][j - 1]) % mod
         return (dfs(nums) - 1 + mod) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -173,6 +177,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -209,6 +215,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numOfWays(nums []int) int {
 	n := len(nums)
@@ -244,6 +252,8 @@ func numOfWays(nums []int) int {
 	return (dfs(nums) - 1 + mod) % mod
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numOfWays(nums: number[]): number {

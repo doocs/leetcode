@@ -91,11 +91,15 @@ The time complexity is $O(n)$, where $n$ is the length of the array `operations`
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def finalValueAfterOperations(self, operations: List[str]) -> int:
         return sum(1 if s[1] == '+' else -1 for s in operations)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +125,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func finalValueAfterOperations(operations []string) (ans int) {
@@ -133,6 +141,8 @@ func finalValueAfterOperations(operations []string) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function finalValueAfterOperations(operations: string[]): number {
     let ans = 0;
@@ -142,6 +152,8 @@ function finalValueAfterOperations(operations: string[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -154,6 +166,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -168,6 +182,8 @@ var finalValueAfterOperations = function (operations) {
     return ans;
 };
 ```
+
+#### C
 
 ```c
 int finalValueAfterOperations(char** operations, int operationsSize) {
@@ -188,6 +204,8 @@ int finalValueAfterOperations(char** operations, int operationsSize) {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function finalValueAfterOperations(operations: string[]): number {

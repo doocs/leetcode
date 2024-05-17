@@ -100,6 +100,8 @@ The resulting matrix is of size 1*1 with also zero.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 """
 # Definition for a QuadTree node.
@@ -146,6 +148,8 @@ class Solution:
 
         return dfs(quadTree1, quadTree2)
 ```
+
+#### Java
 
 ```java
 /*
@@ -198,6 +202,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /*
@@ -262,6 +268,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**

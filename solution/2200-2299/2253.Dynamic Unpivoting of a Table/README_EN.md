@@ -88,6 +88,8 @@ Product 3 is sold in Shop and Souq with prices of 1000 and 1900.
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 CREATE PROCEDURE UnpivotProducts()
 BEGIN

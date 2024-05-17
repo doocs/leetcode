@@ -75,6 +75,8 @@ Similar problems:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canBeEqual(self, s1: str, s2: str) -> bool:
@@ -82,6 +84,8 @@ class Solution:
             s2[1::2]
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -120,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canBeEqual(s1 string, s2 string) bool {
 	cnt := [2][26]int{}
@@ -135,6 +143,8 @@ func canBeEqual(s1 string, s2 string) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canBeEqual(s1: string, s2: string): boolean {

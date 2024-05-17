@@ -95,6 +95,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def collectTheCoins(self, coins: List[int], edges: List[List[int]]) -> int:
@@ -119,6 +121,8 @@ class Solution:
                 g[i].clear()
         return sum(len(g[a]) > 0 and len(g[b]) > 0 for a, b in edges) * 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -172,6 +176,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -227,6 +233,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func collectTheCoins(coins []int, edges [][]int) int {
 	n := len(coins)
@@ -280,6 +288,8 @@ func collectTheCoins(coins []int, edges [][]int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function collectTheCoins(coins: number[], edges: number[][]): number {

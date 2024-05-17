@@ -67,12 +67,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countMatches(self, items: List[List[str]], ruleKey: str, ruleValue: str) -> int:
         i = 0 if ruleKey[0] == 't' else (1 if ruleKey[0] == 'c' else 2)
         return sum(v[i] == ruleValue for v in items)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +93,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -98,6 +104,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countMatches(items [][]string, ruleKey string, ruleValue string) (ans int) {
@@ -111,12 +119,16 @@ func countMatches(items [][]string, ruleKey string, ruleValue string) (ans int) 
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countMatches(items: string[][], ruleKey: string, ruleValue: string): number {
     const key = ruleKey === 'type' ? 0 : ruleKey === 'color' ? 1 : 2;
     return items.reduce((r, v) => r + (v[key] === ruleValue ? 1 : 0), 0);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -129,6 +141,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int countMatches(char*** items, int itemsSize, int* itemsColSize, char* ruleKey, char* ruleValue) {

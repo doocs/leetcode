@@ -58,11 +58,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def toLowerCase(self, s: str) -> str:
         return "".join([chr(ord(c) | 32) if c.isupper() else c for c in s])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -78,6 +82,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -92,6 +98,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func toLowerCase(s string) string {
 	cs := []byte(s)
@@ -104,11 +112,15 @@ func toLowerCase(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function toLowerCase(s: string): string {
     return s.toLowerCase();
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -117,6 +129,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 char* toLowerCase(char* s) {
@@ -140,11 +154,15 @@ char* toLowerCase(char* s) {
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function toLowerCase(s: string): string {
     return [...s].map(c => String.fromCharCode(c.charCodeAt(0) | 32)).join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

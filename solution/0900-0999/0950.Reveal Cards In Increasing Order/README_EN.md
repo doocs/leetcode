@@ -80,6 +80,8 @@ Since all the cards revealed are in increasing order, the answer is correct.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def deckRevealedIncreasing(self, deck: List[int]) -> List[int]:
@@ -90,6 +92,8 @@ class Solution:
             q.appendleft(v)
         return list(q)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -129,6 +135,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func deckRevealedIncreasing(deck []int) []int {

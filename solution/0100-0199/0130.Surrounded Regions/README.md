@@ -73,6 +73,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def solve(self, board: List[List[str]]) -> None:
@@ -97,6 +99,8 @@ class Solution:
                 elif board[i][j] == "O":
                     board[i][j] = "X"
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -140,6 +144,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -176,6 +182,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func solve(board [][]byte) {
 	m, n := len(board), len(board[0])
@@ -210,6 +218,8 @@ func solve(board [][]byte) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function solve(board: string[][]): void {
     const m = board.length;
@@ -243,6 +253,8 @@ function solve(board: string[][]): void {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -295,6 +307,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -356,6 +370,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def solve(self, board: List[List[str]]) -> None:
@@ -381,6 +397,8 @@ class Solution:
                 if board[i][j] == "O" and find(i * n + j) != find(m * n):
                     board[i][j] = "X"
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -429,6 +447,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -467,6 +487,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func solve(board [][]byte) {
@@ -508,6 +530,8 @@ func solve(board [][]byte) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function solve(board: string[][]): void {

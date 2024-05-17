@@ -51,6 +51,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def constructArr(self, a: List[int]) -> List[int]:
@@ -65,6 +67,8 @@ class Solution:
             right *= a[i]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +87,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -103,6 +109,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func constructArr(a []int) []int {
 	n := len(a)
@@ -119,6 +127,8 @@ func constructArr(a []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function constructArr(a: number[]): number[] {
     const n = a.length;
@@ -134,6 +144,8 @@ function constructArr(a: number[]): number[] {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -154,6 +166,8 @@ var constructArr = function (a) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

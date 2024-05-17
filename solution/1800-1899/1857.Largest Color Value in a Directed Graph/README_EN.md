@@ -91,6 +91,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def largestPathValue(self, colors: str, edges: List[List[int]]) -> int:
@@ -122,6 +124,8 @@ class Solution:
                     ans = max(ans, dp[j][k])
         return -1 if cnt < n else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -165,6 +169,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -205,6 +211,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func largestPathValue(colors string, edges [][]int) int {

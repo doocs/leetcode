@@ -132,6 +132,8 @@ We can use equi-join to connect the two tables, and then use the window function
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 WITH
     T AS (
@@ -155,6 +157,8 @@ FROM T
 WHERE rk <= 3
 ORDER BY 2, 3 DESC, 1 DESC;
 ```
+
+#### Python3
 
 ```python
 import pandas as pd

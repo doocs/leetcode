@@ -77,6 +77,8 @@ grid[1][2] == 1 表示 1 队比 2 队强。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findChampion(self, grid: List[List[int]]) -> int:
@@ -84,6 +86,8 @@ class Solution:
             if all(x == 1 for j, x in enumerate(row) if i != j):
                 return i
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -124,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findChampion(grid [][]int) int {
 	n := len(grid)
@@ -140,6 +148,8 @@ func findChampion(grid [][]int) int {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findChampion(grid: number[][]): number {

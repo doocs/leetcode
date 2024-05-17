@@ -82,6 +82,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def connectSticks(self, sticks: List[int]) -> int:
@@ -93,6 +95,8 @@ class Solution:
             heappush(sticks, z)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -135,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func connectSticks(sticks []int) (ans int) {
 	hp := &hp{sticks}
@@ -158,6 +166,8 @@ func (h *hp) Pop() any {
 	return v
 }
 ```
+
+#### TypeScript
 
 ```ts
 function connectSticks(sticks: number[]): number {

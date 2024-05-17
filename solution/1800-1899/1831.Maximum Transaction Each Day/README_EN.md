@@ -84,6 +84,8 @@ We can use the window function `RANK()`, which assigns a rank to each transactio
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

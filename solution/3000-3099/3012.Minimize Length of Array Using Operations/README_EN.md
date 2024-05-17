@@ -103,6 +103,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumArrayLength(self, nums: List[int]) -> int:
@@ -111,6 +113,8 @@ class Solution:
             return 1
         return (nums.count(mi) + 1) // 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -147,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumArrayLength(nums []int) int {
 	mi := slices.Min(nums)
@@ -162,6 +170,8 @@ func minimumArrayLength(nums []int) int {
 	return (cnt + 1) / 2
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumArrayLength(nums: number[]): number {

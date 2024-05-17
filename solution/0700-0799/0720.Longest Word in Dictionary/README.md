@@ -64,6 +64,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestWord(self, words: List[str]) -> str:
@@ -78,6 +80,8 @@ class Solution:
                     ans = w
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -140,6 +146,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestWord(words []string) string {
@@ -171,6 +179,8 @@ func longestWord(words []string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestWord(words: string[]): string {
     words.sort((a, b) => {
@@ -196,6 +206,8 @@ function longestWord(words: string[]): string {
     return '';
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

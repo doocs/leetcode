@@ -101,6 +101,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from threading import Lock
 
@@ -128,6 +130,8 @@ class TrafficLight:
         crossCar()
         self.lock.release()
 ```
+
+#### Java
 
 ```java
 class TrafficLight {

@@ -55,6 +55,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def kInversePairs(self, n: int, k: int) -> int:
@@ -68,6 +70,8 @@ class Solution:
                 s[j] = (s[j - 1] + f[j - 1]) % mod
         return f[k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +94,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -115,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func kInversePairs(n int, k int) int {
 	f := make([]int, k+1)
@@ -135,6 +143,8 @@ func kInversePairs(n int, k int) int {
 	return f[k]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function kInversePairs(n: number, k: number): number {

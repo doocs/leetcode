@@ -55,6 +55,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def singleNumbers(self, nums: List[int]) -> List[int]:
@@ -67,6 +69,8 @@ class Solution:
         b = xs ^ a
         return [a, b]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +91,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -109,6 +115,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func singleNumbers(nums []int) []int {
 	xs := 0
@@ -127,6 +135,8 @@ func singleNumbers(nums []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function singleNumbers(nums: number[]): number[] {
     let xs = 0;
@@ -144,6 +154,8 @@ function singleNumbers(nums: number[]): number[] {
     return [a, b];
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -166,6 +178,8 @@ var singleNumbers = function (nums) {
     return [a, b];
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

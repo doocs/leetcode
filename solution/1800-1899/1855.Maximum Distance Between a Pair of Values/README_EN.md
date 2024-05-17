@@ -81,6 +81,8 @@ The time complexity is $O(m \times \log n)$, where $m$ and $n$ are the lengths o
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxDistance(self, nums1: List[int], nums2: List[int]) -> int:
@@ -91,6 +93,8 @@ class Solution:
             ans = max(ans, j - i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +134,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxDistance(nums1 []int, nums2 []int) int {
@@ -150,6 +158,8 @@ func maxDistance(nums1 []int, nums2 []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxDistance(nums1: number[], nums2: number[]): number {
     let ans = 0;
@@ -171,6 +181,8 @@ function maxDistance(nums1: number[], nums2: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -195,6 +207,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -233,6 +247,8 @@ var maxDistance = function (nums1, nums2) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxDistance(self, nums1: List[int], nums2: List[int]) -> int:
@@ -245,6 +261,8 @@ class Solution:
             i += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -261,6 +279,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -279,6 +299,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxDistance(nums1 []int, nums2 []int) int {
 	m, n := len(nums1), len(nums2)
@@ -295,6 +317,8 @@ func maxDistance(nums1 []int, nums2 []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxDistance(nums1: number[], nums2: number[]): number {
     let ans = 0;
@@ -309,6 +333,8 @@ function maxDistance(nums1: number[], nums2: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -327,6 +353,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

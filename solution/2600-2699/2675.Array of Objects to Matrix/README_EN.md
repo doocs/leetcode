@@ -151,6 +151,8 @@ There are no keys so every row is an empty array.</pre>
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function jsonToMatrix(arr: any[]): (string | number | boolean | null)[] {
     const dfs = (key: string, obj: any) => {

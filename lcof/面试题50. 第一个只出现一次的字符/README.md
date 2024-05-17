@@ -48,6 +48,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def firstUniqChar(self, s: str) -> str:
@@ -57,6 +59,8 @@ class Solution:
                 return c
         return " "
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -76,6 +80,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -94,6 +100,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func firstUniqChar(s string) byte {
 	cnt := [26]int{}
@@ -109,6 +117,8 @@ func firstUniqChar(s string) byte {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function firstUniqChar(s: string): string {
     const map = new Map();
@@ -123,6 +133,8 @@ function firstUniqChar(s: string): string {
     return ' ';
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -142,6 +154,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} s
@@ -160,6 +174,8 @@ var firstUniqChar = function (s) {
     return ' ';
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

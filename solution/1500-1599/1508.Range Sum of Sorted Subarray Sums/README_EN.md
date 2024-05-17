@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def rangeSum(self, nums: List[int], n: int, left: int, right: int) -> int:
@@ -82,6 +84,8 @@ class Solution:
         mod = 10**9 + 7
         return sum(arr[left - 1 : right]) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +109,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -127,6 +133,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func rangeSum(nums []int, n int, left int, right int) (ans int) {

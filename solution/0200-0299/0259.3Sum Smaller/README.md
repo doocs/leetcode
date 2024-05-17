@@ -66,6 +66,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def threeSumSmaller(self, nums: List[int], target: int) -> int:
@@ -82,6 +84,8 @@ class Solution:
                     j += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -129,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func threeSumSmaller(nums []int, target int) int {
 	sort.Ints(nums)
@@ -148,6 +156,8 @@ func threeSumSmaller(nums []int, target int) int {
 	return ans
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

@@ -87,11 +87,15 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def divisorGame(self, n: int) -> bool:
         return n % 2 == 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -110,11 +116,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func divisorGame(n int) bool {
 	return n%2 == 0
 }
 ```
+
+#### JavaScript
 
 ```js
 var divisorGame = function (n) {

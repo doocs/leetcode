@@ -72,6 +72,8 @@ or &quot;(F ? 1 : (T ? 4 : 5))&quot; --&gt; &quot;(T ? 4 : 5)&quot; --&gt; &quot
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def parseTernary(self, expression: str) -> str:
@@ -95,6 +97,8 @@ class Solution:
                     stk.append(c)
         return stk[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +131,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -161,6 +167,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func parseTernary(expression string) string {

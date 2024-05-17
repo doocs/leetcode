@@ -116,6 +116,8 @@ The time complexity is $O(n \times (k + n))$, and the space complexity is $O(n)$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getMinSwaps(self, num: str, k: int) -> int:
@@ -149,6 +151,8 @@ class Solution:
             idx[j] += 1
         return sum(arr[j] > arr[i] for i in range(n) for j in range(i))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -207,6 +211,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -237,6 +243,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getMinSwaps(num string, k int) (ans int) {
@@ -287,6 +295,8 @@ func nextPermutation(nums []byte) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getMinSwaps(num: string, k: number): number {

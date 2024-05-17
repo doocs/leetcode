@@ -55,6 +55,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canPartition(self, nums: List[int]) -> bool:
@@ -76,6 +78,8 @@ class Solution:
                     dp[i][j] = dp[i - 1][j - nums[i]]
         return dp[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +129,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canPartition(nums []int) bool {
@@ -158,6 +166,8 @@ func canPartition(nums []int) bool {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canPartition(self, nums: List[int]) -> bool:
@@ -186,6 +196,8 @@ class Solution:
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

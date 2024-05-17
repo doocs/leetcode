@@ -103,6 +103,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, nums1: List[int], nums2: List[int]) -> int:
@@ -119,6 +121,8 @@ class Solution:
         a, b = f(nums1[-1], nums2[-1]), f(nums2[-1], nums1[-1])
         return -1 if a + b == -2 else min(a, b + 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -147,6 +151,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -172,6 +178,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minOperations(nums1 []int, nums2 []int) int {
 	n := len(nums1)
@@ -195,6 +203,8 @@ func minOperations(nums1 []int, nums2 []int) int {
 	return min(a, b+1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minOperations(nums1: number[], nums2: number[]): number {

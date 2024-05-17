@@ -72,6 +72,8 @@ wordDistance.shortest("makes", "coding");    // 返回 1</pre>
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class WordDistance:
     def __init__(self, wordsDict: List[str]):
@@ -96,6 +98,8 @@ class WordDistance:
 # obj = WordDistance(wordsDict)
 # param_1 = obj.shortest(word1,word2)
 ```
+
+#### Java
 
 ```java
 class WordDistance {
@@ -129,6 +133,8 @@ class WordDistance {
  * int param_1 = obj.shortest(word1,word2);
  */
 ```
+
+#### C++
 
 ```cpp
 class WordDistance {
@@ -164,6 +170,8 @@ private:
  * int param_1 = obj->shortest(word1,word2);
  */
 ```
+
+#### Go
 
 ```go
 type WordDistance struct {

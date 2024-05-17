@@ -107,6 +107,8 @@ The time complexity is $O(m \times n \times \max(m, n) \times {10}^{\frac{\max(m
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def mostFrequentPrime(self, mat: List[List[int]]) -> int:
@@ -136,6 +138,8 @@ class Solution:
                 ans = max(ans, v)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -183,6 +187,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -232,6 +238,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 func mostFrequentPrime(mat [][]int) int {
 	m, n := len(mat), len(mat[0])
@@ -275,6 +283,8 @@ func isPrime(n int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function mostFrequentPrime(mat: number[][]): number {

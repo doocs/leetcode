@@ -102,6 +102,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def modifiedGraphEdges(
@@ -144,6 +146,8 @@ class Solution:
                 e[2] += target - d
         return edges if ok else []
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -207,6 +211,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 using ll = long long;
@@ -273,6 +279,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func modifiedGraphEdges(n int, edges [][]int, source int, destination int, target int) [][]int {
 	const inf int = 2e9
@@ -335,6 +343,8 @@ func modifiedGraphEdges(n int, edges [][]int, source int, destination int, targe
 	return [][]int{}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function modifiedGraphEdges(

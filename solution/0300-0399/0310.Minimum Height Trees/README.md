@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMinHeightTrees(self, n: int, edges: List[List[int]]) -> List[int]:
@@ -101,6 +103,8 @@ class Solution:
                         q.append(b)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -141,6 +145,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -183,6 +189,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMinHeightTrees(n int, edges [][]int) (ans []int) {
 	if n == 1 {
@@ -220,6 +228,8 @@ func findMinHeightTrees(n int, edges [][]int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findMinHeightTrees(n: number, edges: number[][]): number[] {

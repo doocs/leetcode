@@ -85,6 +85,8 @@ Thus all 5 bombs are detonated.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumDetonation(self, bombs: List[List[int]]) -> int:
@@ -117,6 +119,8 @@ class Solution:
             ans = max(ans, cnt)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -165,6 +169,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -205,6 +211,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumDetonation(bombs [][]int) int {

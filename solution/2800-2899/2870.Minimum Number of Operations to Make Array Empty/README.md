@@ -78,6 +78,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, nums: List[int]) -> int:
@@ -89,6 +91,8 @@ class Solution:
             ans += (c + 2) // 3
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -139,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minOperations(nums []int) (ans int) {
 	count := map[int]int{}
@@ -154,6 +162,8 @@ func minOperations(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minOperations(nums: number[]): number {

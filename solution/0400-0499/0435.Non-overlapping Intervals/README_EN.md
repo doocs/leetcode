@@ -65,6 +65,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
@@ -77,6 +79,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +99,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -112,6 +118,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func eraseOverlapIntervals(intervals [][]int) int {
 	sort.Slice(intervals, func(i, j int) bool {
@@ -128,6 +136,8 @@ func eraseOverlapIntervals(intervals [][]int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function eraseOverlapIntervals(intervals: number[][]): number {
@@ -156,6 +166,8 @@ function eraseOverlapIntervals(intervals: number[][]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
@@ -169,6 +181,8 @@ class Solution:
                 d[idx] = min(d[idx], e)
         return len(intervals) - len(d)
 ```
+
+#### Java
 
 ```java
 class Solution {

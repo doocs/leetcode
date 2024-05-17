@@ -84,6 +84,8 @@ We can group the data by date, and then use the `sum` function to calculate the 
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT

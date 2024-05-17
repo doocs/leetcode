@@ -89,6 +89,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reverse(self, x: int) -> int:
@@ -105,6 +107,8 @@ class Solution:
         return ans
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int reverse(int x) {
@@ -119,6 +123,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -136,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func reverse(x int) (ans int) {
 	for ; x != 0; x /= 10 {
@@ -148,6 +156,8 @@ func reverse(x int) (ans int) {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn reverse(mut x: i32) -> i32 {
@@ -159,6 +169,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -179,6 +191,8 @@ var reverse = function (x) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int Reverse(int x) {
@@ -194,6 +208,8 @@ public class Solution {
 }
 ```
 
+#### C
+
 ```c
 int reverse(int x) {
     int ans = 0;
@@ -206,6 +222,8 @@ int reverse(int x) {
     return ans;
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

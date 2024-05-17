@@ -123,6 +123,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isNumber(self, s: str) -> bool:
@@ -153,6 +155,8 @@ class Solution:
             i += 1
         return digit
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -198,6 +202,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -240,6 +246,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isNumber(s string) bool {
 	i, j := 0, len(s)-1
@@ -277,6 +285,8 @@ func isNumber(s string) bool {
 	return digit
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

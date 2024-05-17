@@ -74,6 +74,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def kthLuckyNumber(self, k: int) -> str:
@@ -91,6 +93,8 @@ class Solution:
                 k -= 1 << n
         return "".join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +117,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -137,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func kthLuckyNumber(k int) string {
 	n := 1
@@ -157,6 +165,8 @@ func kthLuckyNumber(k int) string {
 	return string(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function kthLuckyNumber(k: number): string {

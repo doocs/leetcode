@@ -97,6 +97,8 @@ arr 中最大元素为 3 。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumElementAfterDecrementingAndRearranging(self, arr: List[int]) -> int:
@@ -107,6 +109,8 @@ class Solution:
             arr[i] -= d
         return max(arr)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +127,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -141,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumElementAfterDecrementingAndRearranging(arr []int) int {
 	sort.Ints(arr)
@@ -155,6 +163,8 @@ func maximumElementAfterDecrementingAndRearranging(arr []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumElementAfterDecrementingAndRearranging(arr: number[]): number {
     arr.sort((a, b) => a - b);
@@ -168,6 +178,8 @@ function maximumElementAfterDecrementingAndRearranging(arr: number[]): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

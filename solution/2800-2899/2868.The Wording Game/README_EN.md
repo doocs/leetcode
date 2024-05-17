@@ -103,6 +103,8 @@ The time complexity is $O(m+n)$, where $m$ and $n$ are the lengths of arrays $a$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canAliceWin(self, a: List[str], b: List[str]) -> bool:
@@ -124,6 +126,8 @@ class Solution:
                     k ^= 1
                 i += 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -158,6 +162,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -189,6 +195,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canAliceWin(a []string, b []string) bool {
 	i, j, k := 1, 0, 1
@@ -216,6 +224,8 @@ func canAliceWin(a []string, b []string) bool {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canAliceWin(a: string[], b: string[]): boolean {

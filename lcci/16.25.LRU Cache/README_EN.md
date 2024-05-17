@@ -71,6 +71,8 @@ The time complexity is $O(1)$, and the space complexity is $O(\text{capacity})$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Node:
     def __init__(self, key=0, val=0):
@@ -137,6 +139,8 @@ class LRUCache:
 # param_1 = obj.get(key)
 # obj.put(key,value)
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -225,6 +229,8 @@ class LRUCache {
  * obj.put(key,value);
  */
 ```
+
+#### C++
 
 ```cpp
 struct Node {
@@ -320,6 +326,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type node struct {
 	key, val   int
@@ -391,6 +399,8 @@ func (this *LRUCache) pushFront(n *node) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 class LRUCache {
     capacity: number;
@@ -426,6 +436,8 @@ class LRUCache {
  * obj.put(key,value)
  */
 ```
+
+#### Rust
 
 ```rust
 use std::cell::RefCell;
@@ -558,6 +570,8 @@ impl LRUCache {
  */
 ```
 
+#### C#
+
 ```cs
 public class LRUCache {
     class Node {
@@ -636,6 +650,8 @@ public class LRUCache {
  * obj.Put(key,Val);
  */
 ```
+
+#### Swift
 
 ```swift
 class Node {

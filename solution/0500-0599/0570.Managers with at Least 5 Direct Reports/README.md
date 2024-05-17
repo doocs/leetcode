@@ -77,6 +77,8 @@ Employee 表:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 import pandas as pd
 
@@ -100,6 +102,8 @@ def find_managers(employee: pd.DataFrame) -> pd.DataFrame:
 
     return result
 ```
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

@@ -70,6 +70,8 @@ The diagonal &quot;[1, 2]&quot; has different elements.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isToeplitzMatrix(self, matrix: List[List[int]]) -> bool:
@@ -80,6 +82,8 @@ class Solution:
             for j in range(1, n)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +100,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,6 +120,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isToeplitzMatrix(matrix [][]int) bool {
 	m, n := len(matrix), len(matrix[0])
@@ -127,6 +135,8 @@ func isToeplitzMatrix(matrix [][]int) bool {
 	return true
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

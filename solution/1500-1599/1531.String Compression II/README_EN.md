@@ -70,6 +70,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Java
+
 ```java
 class Solution {
     public int getLengthOfOptimalCompression(String s, int k) {

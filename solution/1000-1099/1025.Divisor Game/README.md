@@ -92,11 +92,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def divisorGame(self, n: int) -> bool:
         return n % 2 == 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -115,11 +121,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func divisorGame(n int) bool {
 	return n%2 == 0
 }
 ```
+
+#### JavaScript
 
 ```js
 var divisorGame = function (n) {

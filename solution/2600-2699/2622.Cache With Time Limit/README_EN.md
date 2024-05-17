@@ -85,6 +85,8 @@ At t=250, count() returns 0 because the cache is empty.
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 class TimeLimitedCache {
     private cache: Map<number, [value: number, expire: number]> = new Map();

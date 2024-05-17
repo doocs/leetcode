@@ -75,6 +75,8 @@ obj1 + obj2; // 0
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 class ArrayWrapper {
     private nums: number[];

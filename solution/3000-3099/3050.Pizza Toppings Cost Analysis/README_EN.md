@@ -87,6 +87,8 @@ Then we use conditional join to join the table `T` three times, named as `t1`, `
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

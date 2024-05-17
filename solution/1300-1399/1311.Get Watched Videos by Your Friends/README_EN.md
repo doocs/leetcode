@@ -79,6 +79,8 @@ You have id = 0 (green color in the figure) and the only friend of your friends 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def watchedVideosByFriends(
@@ -109,6 +111,8 @@ class Solution:
         videos.sort(key=lambda x: (x[1], x[0]))
         return [v[0] for v in videos]
 ```
+
+#### Java
 
 ```java
 class Solution {

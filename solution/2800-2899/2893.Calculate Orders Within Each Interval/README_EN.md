@@ -83,6 +83,8 @@ Returning table orderd by interval_no in ascending order.</pre>
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH
@@ -109,6 +111,8 @@ WHERE minute % 6 = 0;
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 SELECT

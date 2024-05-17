@@ -100,6 +100,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumFinishTime(
@@ -121,6 +123,8 @@ class Solution:
             f[i] += changeTime
         return f[numLaps]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -150,6 +154,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -181,6 +187,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumFinishTime(tires [][]int, changeTime int, numLaps int) int {
 	const inf = 1 << 30
@@ -211,6 +219,8 @@ func minimumFinishTime(tires [][]int, changeTime int, numLaps int) int {
 	return f[numLaps]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumFinishTime(tires: number[][], changeTime: number, numLaps: number): number {

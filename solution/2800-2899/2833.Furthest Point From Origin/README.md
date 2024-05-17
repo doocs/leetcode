@@ -81,11 +81,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def furthestDistanceFromOrigin(self, moves: str) -> int:
         return abs(moves.count("L") - moves.count("R")) + moves.count("_")
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +109,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -116,6 +122,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func furthestDistanceFromOrigin(moves string) int {
@@ -130,6 +138,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function furthestDistanceFromOrigin(moves: string): number {

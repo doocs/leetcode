@@ -60,6 +60,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def shortestSuperstring(self, words: List[str]) -> str:
@@ -99,6 +101,8 @@ class Solution:
         ans = [words[arr[0]]] + [words[j][g[i][j] :] for i, j in pairwise(arr)]
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -169,6 +173,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -236,6 +242,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func shortestSuperstring(words []string) string {

@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumOperations(self, grid: List[List[int]]) -> int:
@@ -111,6 +113,8 @@ class Solution:
             ans += find(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -163,6 +167,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -212,6 +218,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumOperations(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
@@ -260,6 +268,8 @@ func minimumOperations(grid [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumOperations(grid: number[][]): number {

@@ -61,6 +61,8 @@ The time complexity is $O(n)$, where $n$ is the length of the linked list. The s
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -79,6 +81,8 @@ class Solution:
         p.val, q.val = q.val, p.val
         return head
 ```
+
+#### Java
 
 ```java
 /**
@@ -112,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -143,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -166,6 +174,8 @@ func swapNodes(head *ListNode, k int) *ListNode {
 	return head
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -195,6 +205,8 @@ function swapNodes(head: ListNode | null, k: number): ListNode | null {
     return head;
 }
 ```
+
+#### C#
 
 ```cs
 /**

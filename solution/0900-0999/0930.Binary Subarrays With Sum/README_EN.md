@@ -79,6 +79,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numSubarraysWithSum(self, nums: List[int], goal: int) -> int:
@@ -90,6 +92,8 @@ class Solution:
             cnt[s] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -129,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numSubarraysWithSum(nums []int, goal int) (ans int) {
 	cnt := map[int]int{0: 1}
@@ -141,6 +149,8 @@ func numSubarraysWithSum(nums []int, goal int) (ans int) {
 	return
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -174,6 +184,8 @@ var numSubarraysWithSum = function (nums, goal) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numSubarraysWithSum(self, nums: List[int], goal: int) -> int:
@@ -192,6 +204,8 @@ class Solution:
             j += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -215,6 +229,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -233,6 +249,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numSubarraysWithSum(nums []int, goal int) int {
@@ -254,6 +272,8 @@ func numSubarraysWithSum(nums []int, goal int) int {
 	return ans
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

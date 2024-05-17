@@ -90,6 +90,8 @@ Corona Masks 股票在第1天以10美元的价格买入，在第3天以1010美�
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT

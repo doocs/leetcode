@@ -78,6 +78,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numDifferentIntegers(self, word: str) -> int:
@@ -95,6 +97,8 @@ class Solution:
             i += 1
         return len(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -138,6 +144,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numDifferentIntegers(word string) int {
@@ -160,6 +168,8 @@ func numDifferentIntegers(word string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numDifferentIntegers(word: string): number {
     return new Set(
@@ -172,6 +182,8 @@ function numDifferentIntegers(word: string): number {
     ).size;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;

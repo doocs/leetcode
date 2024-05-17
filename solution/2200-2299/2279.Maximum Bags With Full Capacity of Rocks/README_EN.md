@@ -74,6 +74,8 @@ Note that we did not use all of the additional rocks.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumBags(
@@ -88,6 +90,8 @@ class Solution:
                 additionalRocks -= v
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +136,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumBags(capacity []int, rocks []int, additionalRocks int) int {
@@ -151,6 +159,8 @@ func maximumBags(capacity []int, rocks []int, additionalRocks int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumBags(capacity: number[], rocks: number[], additionalRocks: number): number {
     const n = capacity.length;
@@ -164,6 +174,8 @@ function maximumBags(capacity: number[], rocks: number[], additionalRocks: numbe
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

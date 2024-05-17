@@ -96,6 +96,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumRefill(self, plants: List[int], capacityA: int, capacityB: int) -> int:
@@ -115,6 +117,8 @@ class Solution:
         ans += i == j and max(a, b) < plants[i]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +143,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -165,6 +171,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumRefill(plants []int, capacityA int, capacityB int) (ans int) {
 	a, b := capacityA, capacityB
@@ -188,6 +196,8 @@ func minimumRefill(plants []int, capacityA int, capacityB int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumRefill(plants: number[], capacityA: number, capacityB: number): number {
     let [a, b] = [capacityA, capacityB];
@@ -209,6 +219,8 @@ function minimumRefill(plants: number[], capacityA: number, capacityB: number): 
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

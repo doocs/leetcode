@@ -71,6 +71,8 @@ nums 最终元素和为 5 + 6 + 1 + 2 + 3 + 4 + 7 + 8 = 36 ，这是所有情况
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimalKSum(self, nums: List[int], k: int) -> int:
@@ -83,6 +85,8 @@ class Solution:
             k -= m
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -121,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimalKSum(nums []int, k int) (ans int64) {
 	nums = append(nums, []int{0, 2e9}...)
@@ -134,6 +142,8 @@ func minimalKSum(nums []int, k int) (ans int64) {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimalKSum(nums: number[], k: number): number {

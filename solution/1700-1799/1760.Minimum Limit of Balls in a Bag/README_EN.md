@@ -80,6 +80,8 @@ The bag with the most number of balls has 2 balls, so your penalty is 2, and you
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumSize(self, nums: List[int], maxOperations: int) -> int:
@@ -88,6 +90,8 @@ class Solution:
 
         return bisect_left(range(1, max(nums)), True, key=check) + 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -135,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumSize(nums []int, maxOperations int) int {
 	r := slices.Max(nums)
@@ -148,6 +156,8 @@ func minimumSize(nums []int, maxOperations int) int {
 	})
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumSize(nums: number[], maxOperations: number): number {
@@ -168,6 +178,8 @@ function minimumSize(nums: number[], maxOperations: number): number {
     return left;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

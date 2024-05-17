@@ -82,6 +82,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def smallestRangeII(self, nums: List[int], k: int) -> int:
@@ -93,6 +95,8 @@ class Solution:
             ans = min(ans, mx - mi)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -127,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallestRangeII(nums []int, k int) int {
 	sort.Ints(nums)
@@ -140,6 +148,8 @@ func smallestRangeII(nums []int, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function smallestRangeII(nums: number[], k: number): number {

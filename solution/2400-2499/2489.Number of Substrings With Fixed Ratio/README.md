@@ -97,6 +97,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def fixedRatio(self, s: str, num1: int, num2: int) -> int:
@@ -111,6 +113,8 @@ class Solution:
             cnt[x] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +134,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 using ll = long long;
@@ -152,6 +158,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func fixedRatio(s string, num1 int, num2 int) int64 {

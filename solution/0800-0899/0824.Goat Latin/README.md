@@ -79,6 +79,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def toGoatLatin(self, sentence: str) -> str:
@@ -91,6 +93,8 @@ class Solution:
             ans.append(word)
         return ' '.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +123,8 @@ class Solution {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function toGoatLatin(sentence: string): string {
     return sentence
@@ -135,6 +141,8 @@ function toGoatLatin(sentence: string): string {
         .join(' ');
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;

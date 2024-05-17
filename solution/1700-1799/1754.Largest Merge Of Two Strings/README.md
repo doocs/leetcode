@@ -89,6 +89,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def largestMerge(self, word1: str, word2: str) -> str:
@@ -105,6 +107,8 @@ class Solution:
         ans.append(word2[j:])
         return "".join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -140,6 +146,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func largestMerge(word1 string, word2 string) string {
@@ -161,6 +169,8 @@ func largestMerge(word1 string, word2 string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function largestMerge(word1: string, word2: string): string {
     const m = word1.length;
@@ -176,6 +186,8 @@ function largestMerge(word1: string, word2: string): string {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -202,6 +214,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 char* largestMerge(char* word1, char* word2) {

@@ -71,6 +71,8 @@ The time complexity is $O(n \times (\log n + \log m))$, where $n$ is the length 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimizeMax(self, nums: List[int], p: int) -> int:
@@ -87,6 +89,8 @@ class Solution:
         nums.sort()
         return bisect_left(range(nums[-1] - nums[0] + 1), True, key=check)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -147,6 +153,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimizeMax(nums []int, p int) int {

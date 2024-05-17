@@ -69,6 +69,8 @@ The time complexity is $O(n\times k\times \log k)$, where $n$ and $k$ are the le
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
@@ -78,6 +80,8 @@ class Solution:
             d[k].append(s)
         return list(d.values())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +97,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -111,6 +117,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func groupAnagrams(strs []string) (ans [][]string) {
 	d := map[string][]string{}
@@ -127,6 +135,8 @@ func groupAnagrams(strs []string) (ans [][]string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function groupAnagrams(strs: string[]): string[][] {
     const d: Map<string, string[]> = new Map();
@@ -140,6 +150,8 @@ function groupAnagrams(strs: string[]): string[][] {
     return Array.from(d.values());
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -168,6 +180,8 @@ The time complexity is $O(n\times (k + C))$. Where $n$ and $k$ are the length of
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
@@ -179,6 +193,8 @@ class Solution:
             d[tuple(cnt)].append(s)
         return list(d.values())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -203,6 +219,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -226,6 +244,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func groupAnagrams(strs []string) (ans [][]string) {

@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numTimesAllBlue(self, flips: List[int]) -> int:
@@ -89,6 +91,8 @@ class Solution:
             ans += mx == i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +109,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +125,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numTimesAllBlue(flips []int) (ans int) {
 	mx := 0
@@ -131,6 +139,8 @@ func numTimesAllBlue(flips []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numTimesAllBlue(flips: number[]): number {

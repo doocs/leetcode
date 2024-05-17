@@ -71,6 +71,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findRadius(self, houses: List[int], heaters: List[int]) -> int:
@@ -103,6 +105,8 @@ class Solution:
         return left
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int findRadius(int[] houses, int[] heaters) {
@@ -121,6 +125,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -156,6 +162,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findRadius(houses []int, heaters []int) int {
@@ -193,6 +201,8 @@ func findRadius(houses []int, heaters []int) int {
 	return left
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findRadius(houses: number[], heaters: number[]): number {

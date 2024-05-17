@@ -101,6 +101,8 @@ We can use `UNION ALL` to merge all player IDs who won Grand Slam titles into a 
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH
@@ -133,6 +135,8 @@ GROUP BY 1;
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

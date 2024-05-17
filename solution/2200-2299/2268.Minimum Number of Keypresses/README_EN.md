@@ -80,6 +80,8 @@ A total of 15 button presses are needed, so return 15.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumKeypresses(self, s: str) -> int:
@@ -93,6 +95,8 @@ class Solution:
                 j += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +136,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumKeypresses(s string) int {

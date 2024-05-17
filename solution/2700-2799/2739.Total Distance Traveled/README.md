@@ -70,6 +70,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def distanceTraveled(self, mainTank: int, additionalTank: int) -> int:
@@ -83,6 +85,8 @@ class Solution:
                 mainTank += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -121,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distanceTraveled(mainTank int, additionalTank int) (ans int) {
 	cur := 0
@@ -136,6 +144,8 @@ func distanceTraveled(mainTank int, additionalTank int) (ans int) {
 	return
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -158,6 +168,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 var distanceTraveled = function (mainTank, additionalTank) {

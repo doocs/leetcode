@@ -96,6 +96,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getSmallestString(self, s: str, k: int) -> str:
@@ -111,6 +113,8 @@ class Solution:
                     break
         return "".join(cs)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +136,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -152,6 +158,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getSmallestString(s string, k int) string {
 	cs := []byte(s)
@@ -168,6 +176,8 @@ func getSmallestString(s string, k int) string {
 	return string(cs)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getSmallestString(s: string, k: number): string {

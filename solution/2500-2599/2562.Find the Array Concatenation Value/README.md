@@ -99,6 +99,8 @@ nums 只有一个元素，所以我们选中 13 并将其加到串联值上，�
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findTheArrayConcVal(self, nums: List[int]) -> int:
@@ -111,6 +113,8 @@ class Solution:
             ans += nums[i]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +131,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -145,6 +151,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findTheArrayConcVal(nums []int) (ans int64) {
 	i, j := 0, len(nums)-1
@@ -158,6 +166,8 @@ func findTheArrayConcVal(nums []int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findTheArrayConcVal(nums: number[]): number {
@@ -176,6 +186,8 @@ function findTheArrayConcVal(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -196,6 +208,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int getLen(int num) {
@@ -232,6 +246,8 @@ long long findTheArrayConcVal(int* nums, int numsSize) {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {

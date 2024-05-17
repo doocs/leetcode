@@ -81,6 +81,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def halveArray(self, nums: List[int]) -> int:
@@ -96,6 +98,8 @@ class Solution:
             ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +122,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -142,6 +148,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func halveArray(nums []int) (ans int) {
@@ -173,6 +181,8 @@ func (h *hp) Pop() any {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function halveArray(nums: number[]): number {
     let s: number = nums.reduce((a, b) => a + b) / 2;
@@ -201,6 +211,8 @@ function halveArray(nums: number[]): number {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Go
 
 ```go
 func halveArray(nums []int) (ans int) {

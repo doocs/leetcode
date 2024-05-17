@@ -111,6 +111,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 """
 # Definition for a Node.
@@ -147,6 +149,8 @@ class Solution:
         dummy.next.prev = None
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /*
@@ -187,6 +191,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /*

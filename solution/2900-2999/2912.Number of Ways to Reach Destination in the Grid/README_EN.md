@@ -104,6 +104,8 @@ The time complexity is $O(k)$, where $k$ is the number of moves. The space compl
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfWays(
@@ -121,6 +123,8 @@ class Solution:
             return a if source[1] == dest[1] else c
         return b if source[1] == dest[1] else d
 ```
+
+#### Python3
 
 ```python
 class Solution:
@@ -140,6 +144,8 @@ class Solution:
             return f[0] if source[1] == dest[1] else f[2]
         return f[1] if source[1] == dest[1] else f[3]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -163,6 +169,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -185,6 +193,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfWays(n int, m int, k int, source []int, dest []int) int {

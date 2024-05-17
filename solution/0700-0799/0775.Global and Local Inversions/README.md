@@ -83,6 +83,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isIdealPermutation(self, nums: List[int]) -> bool:
@@ -92,6 +94,8 @@ class Solution:
                 return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -121,6 +127,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isIdealPermutation(nums []int) bool {
@@ -158,6 +166,8 @@ func isIdealPermutation(nums []int) bool {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class BinaryIndexedTree:
     def __init__(self, n):
@@ -190,6 +200,8 @@ class Solution:
             tree.update(v + 1, 1)
         return True
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -232,6 +244,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class BinaryIndexedTree {
@@ -276,6 +290,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isIdealPermutation(nums []int) bool {

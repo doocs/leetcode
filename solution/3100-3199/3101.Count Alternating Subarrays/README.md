@@ -85,6 +85,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countAlternatingSubarrays(self, nums: List[int]) -> int:
@@ -94,6 +96,8 @@ class Solution:
             ans += s
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countAlternatingSubarrays(nums []int) int64 {
 	ans, s := int64(1), int64(1)
@@ -136,6 +144,8 @@ func countAlternatingSubarrays(nums []int) int64 {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countAlternatingSubarrays(nums: number[]): number {

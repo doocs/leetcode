@@ -82,6 +82,8 @@ The time complexity is $O(n \times \log M)$, and the space complexity is $O(\log
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxSum(self, nums: List[int], k: int) -> int:
@@ -101,6 +103,8 @@ class Solution:
             ans = (ans + x * x) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +133,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -159,6 +165,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSum(nums []int, k int) (ans int) {
 	cnt := [31]int{}
@@ -183,6 +191,8 @@ func maxSum(nums []int, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxSum(nums: number[], k: number): number {

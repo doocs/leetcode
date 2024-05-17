@@ -92,6 +92,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -115,6 +117,8 @@ class Solution:
             pre = pre.next
         return head
 ```
+
+#### Java
 
 ```java
 /**
@@ -149,6 +153,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -182,6 +188,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**

@@ -83,6 +83,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxIceCream(self, costs: List[int], coins: int) -> int:
@@ -93,6 +95,8 @@ class Solution:
             coins -= c
         return len(costs)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -125,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxIceCream(costs []int, coins int) int {
 	sort.Ints(costs)
@@ -137,6 +145,8 @@ func maxIceCream(costs []int, coins int) int {
 	return len(costs)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxIceCream(costs: number[], coins: number): number {
@@ -151,6 +161,8 @@ function maxIceCream(costs: number[], coins: number): number {
     return n;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

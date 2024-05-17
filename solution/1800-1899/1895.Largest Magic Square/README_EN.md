@@ -64,6 +64,8 @@ Every row sum, column sum, and diagonal sum of this magic square is equal to 12.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def largestMagicSquare(self, grid: List[List[int]]) -> int:
@@ -111,6 +113,8 @@ class Solution:
                 i += 1
         return 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -171,6 +175,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -218,6 +224,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func largestMagicSquare(grid [][]int) int {
@@ -276,6 +284,8 @@ func check(grid, rowsum, colsum [][]int, x1, y1, x2, y2 int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function largestMagicSquare(grid: number[][]): number {

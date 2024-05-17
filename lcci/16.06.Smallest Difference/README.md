@@ -40,6 +40,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.06.Smallest%20Diff
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def smallestDifference(self, a: List[int], b: List[int]) -> int:
@@ -54,6 +56,8 @@ class Solution:
                 ans = min(ans, x - b[j - 1])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +91,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -107,6 +113,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallestDifference(a []int, b []int) int {
 	sort.Ints(b)
@@ -123,6 +131,8 @@ func smallestDifference(a []int, b []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function smallestDifference(a: number[], b: number[]): number {
@@ -152,6 +162,8 @@ function smallestDifference(a: number[], b: number[]): number {
     return ans;
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -202,6 +214,8 @@ class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def smallestDifference(self, a: List[int], b: List[int]) -> int:
@@ -217,6 +231,8 @@ class Solution:
                 j += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -238,6 +254,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -258,6 +276,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func smallestDifference(a []int, b []int) int {
@@ -283,6 +303,8 @@ func abs(a int) int {
 	return a
 }
 ```
+
+#### TypeScript
 
 ```ts
 function smallestDifference(a: number[], b: number[]): number {

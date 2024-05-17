@@ -62,6 +62,8 @@ Time complexity $O(n \times \log n)$, space complexity $O(\log n)$. Here $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def hIndex(self, citations: List[int]) -> int:
@@ -71,6 +73,8 @@ class Solution:
                 return h
         return 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +91,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -102,6 +108,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hIndex(citations []int) int {
 	sort.Ints(citations)
@@ -115,6 +123,8 @@ func hIndex(citations []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function hIndex(citations: number[]): number {
     citations.sort((a, b) => b - a);
@@ -126,6 +136,8 @@ function hIndex(citations: number[]): number {
     return 0;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -163,6 +175,8 @@ Time complexity $O(n)$, space complexity $O(n)$. Here $n$ is the length of the a
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def hIndex(self, citations: List[int]) -> int:
@@ -176,6 +190,8 @@ class Solution:
             if s >= h:
                 return h
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -194,6 +210,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -215,6 +233,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hIndex(citations []int) int {
 	n := len(citations)
@@ -230,6 +250,8 @@ func hIndex(citations []int) int {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function hIndex(citations: number[]): number {
@@ -263,6 +285,8 @@ Time complexity $O(n \times \log n)$, where $n$ is the length of array `citation
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def hIndex(self, citations: List[int]) -> int:
@@ -275,6 +299,8 @@ class Solution:
                 r = mid - 1
         return l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -298,6 +324,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -323,6 +351,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hIndex(citations []int) int {
 	l, r := 0, len(citations)
@@ -343,6 +373,8 @@ func hIndex(citations []int) int {
 	return l
 }
 ```
+
+#### TypeScript
 
 ```ts
 function hIndex(citations: number[]): number {

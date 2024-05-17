@@ -71,6 +71,8 @@ DFS 遍历二叉树，记录每个节点的值、深度，以及横向的偏移�
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -95,6 +97,8 @@ class Solution:
             ans.append([x[1] for x in v])
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -140,6 +144,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -182,6 +188,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -237,6 +245,8 @@ func verticalOrder(root *TreeNode) [][]int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -260,6 +270,8 @@ class Solution:
                     q.append((root.right, offset + 1))
         return [v for _, v in sorted(d.items())]
 ```
+
+#### Java
 
 ```java
 /**
@@ -305,6 +317,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -342,6 +356,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**

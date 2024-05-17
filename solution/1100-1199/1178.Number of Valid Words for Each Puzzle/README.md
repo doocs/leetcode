@@ -85,6 +85,8 @@ puzzles = ["aboveyz","abrodyz","abslute","absoryz","actresz","gaswxyz"]
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findNumOfValidWords(self, words: List[str], puzzles: List[str]) -> List[int]:
@@ -108,6 +110,8 @@ class Solution:
             ans.append(x)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +143,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -172,6 +178,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findNumOfValidWords(words []string, puzzles []string) (ans []int) {
 	cnt := map[int]int{}
@@ -198,6 +206,8 @@ func findNumOfValidWords(words []string, puzzles []string) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findNumOfValidWords(words: string[], puzzles: string[]): number[] {

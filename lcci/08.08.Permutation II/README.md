@@ -50,6 +50,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.08.Permutation%20I
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def permutation(self, S: str) -> List[str]:
@@ -73,6 +75,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -142,6 +148,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func permutation(S string) (ans []string) {
 	cs := []byte(S)
@@ -171,6 +179,8 @@ func permutation(S string) (ans []string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function permutation(S: string): string[] {
     const cs: string[] = S.split('').sort();
@@ -198,6 +208,8 @@ function permutation(S: string): string[] {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -230,6 +242,8 @@ var permutation = function (S) {
     return ans;
 };
 ```
+
+#### Swift
 
 ```swift
 class Solution {

@@ -85,6 +85,8 @@ The time complexity is $O(n)$, where $n$ is the length of the string $s$. The sp
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumDeletions(self, s: str) -> int:
@@ -99,6 +101,8 @@ class Solution:
                 f[i] = min(f[i - 1] + 1, b)
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +122,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -140,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumDeletions(s string) int {
 	n := len(s)
@@ -157,6 +165,8 @@ func minimumDeletions(s string) int {
 	return f[n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumDeletions(s: string): number {
@@ -191,6 +201,8 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumDeletions(self, s: str) -> int:
@@ -202,6 +214,8 @@ class Solution:
                 ans = min(ans + 1, b)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -220,6 +234,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -237,6 +253,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumDeletions(s string) int {
 	ans, b := 0, 0
@@ -250,6 +268,8 @@ func minimumDeletions(s string) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumDeletions(s: string): number {
@@ -277,6 +297,8 @@ function minimumDeletions(s: string): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumDeletions(self, s: str) -> int:
@@ -288,6 +310,8 @@ class Solution:
             lb += c == 'b'
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -310,6 +334,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -325,6 +351,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumDeletions(s string) int {
@@ -344,6 +372,8 @@ func minimumDeletions(s string) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumDeletions(s: string): number {

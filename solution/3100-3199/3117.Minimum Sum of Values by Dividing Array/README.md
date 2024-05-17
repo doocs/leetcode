@@ -122,6 +122,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumValueSum(self, nums: List[int], andValues: List[int]) -> int:
@@ -143,6 +145,8 @@ class Solution:
         ans = dfs(0, 0, -1)
         return ans if ans < inf else -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -183,6 +187,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -228,6 +234,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 func minimumValueSum(nums []int, andValues []int) int {
 	n, m := len(nums), len(andValues)
@@ -265,6 +273,8 @@ func minimumValueSum(nums []int, andValues []int) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumValueSum(nums: number[], andValues: number[]): number {

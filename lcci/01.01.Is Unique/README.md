@@ -50,6 +50,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.01.Is%20Unique/REA
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isUnique(self, astr: str) -> bool:
@@ -61,6 +63,8 @@ class Solution:
             mask |= 1 << i
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -77,6 +81,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -95,6 +101,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isUnique(astr string) bool {
 	mask := 0
@@ -109,6 +117,8 @@ func isUnique(astr string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isUnique(astr: string): boolean {
     let mask = 0;
@@ -122,6 +132,8 @@ function isUnique(astr: string): boolean {
     return true;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -140,6 +152,8 @@ var isUnique = function (astr) {
     return true;
 };
 ```
+
+#### Swift
 
 ```swift
 class Solution {

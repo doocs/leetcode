@@ -81,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def updateBoard(self, board: List[List[str]], click: List[int]) -> List[List[str]]:
@@ -107,6 +109,8 @@ class Solution:
             dfs(i, j)
         return board
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -152,6 +156,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -192,6 +198,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func updateBoard(board [][]byte, click []int) [][]byte {
 	m, n := len(board), len(board[0])
@@ -229,6 +237,8 @@ func updateBoard(board [][]byte, click []int) [][]byte {
 	return board
 }
 ```
+
+#### TypeScript
 
 ```ts
 function updateBoard(board: string[][], click: number[]): string[][] {

@@ -123,6 +123,8 @@ The time complexity is $O(n \times \log M)$, and the space complexity is $O(n \t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Trie:
     def __init__(self):
@@ -163,6 +165,8 @@ class Solution:
             tree.insert(x)
         return ans
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -211,6 +215,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -266,6 +272,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type Trie struct {

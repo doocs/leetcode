@@ -71,6 +71,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def orderlyQueue(self, s: str, k: int) -> str:
@@ -82,6 +84,8 @@ class Solution:
             return ans
         return "".join(sorted(s))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func orderlyQueue(s string, k int) string {
 	if k == 1 {
@@ -139,6 +147,8 @@ func orderlyQueue(s string, k int) string {
 	return string(t)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function orderlyQueue(s: string, k: number): string {

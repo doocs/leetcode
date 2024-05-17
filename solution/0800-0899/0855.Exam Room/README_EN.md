@@ -72,6 +72,8 @@ examRoom.seat(); // return 5, the student sits at the last seat number 5.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedList
 
@@ -122,6 +124,8 @@ class ExamRoom:
 # param_1 = obj.seat()
 # obj.leave(p)
 ```
+
+#### Java
 
 ```java
 class ExamRoom {
@@ -184,6 +188,8 @@ class ExamRoom {
  * obj.leave(p);
  */
 ```
+
+#### C++
 
 ```cpp
 int N;
@@ -256,6 +262,8 @@ private:
  * obj->leave(p);
  */
 ```
+
+#### Go
 
 ```go
 type ExamRoom struct {

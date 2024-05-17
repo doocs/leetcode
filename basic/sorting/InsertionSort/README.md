@@ -17,6 +17,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 def insertion_sort(array):
     for i in range(len(array)):
@@ -33,6 +35,8 @@ def insertion_sort(array):
 array = [10, 17, 50, 7, 30, 24, 27, 45, 15, 5, 36, 21]
 print(insertion_sort(array))
 ```
+
+#### Java
 
 ```java
 import java.util.Arrays;
@@ -56,6 +60,8 @@ public class InsertionSort {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 #include <iostream>
@@ -96,6 +102,8 @@ int main() {
 }
 ```
 
+#### Go
+
 ```go
 package main
 
@@ -118,6 +126,8 @@ func main() {
 }
 ```
 
+#### Rust
+
 ```rust
 fn insertion_sort(nums: &mut Vec<i32>) {
     let n = nums.len();
@@ -139,6 +149,8 @@ fn main() {
 }
 ```
 
+#### JavaScript
+
 ```js
 function insertionSort(inputArr) {
     let len = inputArr.length;
@@ -157,6 +169,8 @@ function insertionSort(inputArr) {
 let arr = [6, 3, 2, 1, 5];
 console.log(insertionSort(arr));
 ```
+
+#### C#
 
 ```cs
 using System.Diagnostics;

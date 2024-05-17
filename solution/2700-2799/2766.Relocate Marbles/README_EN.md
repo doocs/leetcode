@@ -82,6 +82,8 @@ The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$. 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def relocateMarbles(
@@ -93,6 +95,8 @@ class Solution:
             pos.add(t)
         return sorted(pos)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -127,6 +133,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func relocateMarbles(nums []int, moveFrom []int, moveTo []int) (ans []int) {
@@ -148,6 +156,8 @@ func relocateMarbles(nums []int, moveFrom []int, moveTo []int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function relocateMarbles(nums: number[], moveFrom: number[], moveTo: number[]): number[] {

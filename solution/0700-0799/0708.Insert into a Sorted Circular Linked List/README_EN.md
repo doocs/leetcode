@@ -68,6 +68,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 """
 # Definition for a Node.
@@ -95,6 +97,8 @@ class Solution:
         node.next = curr
         return head
 ```
+
+#### Java
 
 ```java
 /*
@@ -139,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /*
 // Definition for a Node.
@@ -181,6 +187,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**

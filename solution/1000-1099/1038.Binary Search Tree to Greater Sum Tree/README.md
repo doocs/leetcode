@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -99,6 +101,8 @@ class Solution:
         dfs(root)
         return root
 ```
+
+#### Java
 
 ```java
 /**
@@ -136,6 +140,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -167,6 +173,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -192,6 +200,8 @@ func bstToGst(root *TreeNode) *TreeNode {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -223,6 +233,8 @@ function bstToGst(root: TreeNode | null): TreeNode | null {
     return root;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -263,6 +275,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -291,6 +305,8 @@ var bstToGst = function (root) {
     return root;
 };
 ```
+
+#### C
 
 ```c
 /**
@@ -340,6 +356,8 @@ Morris 遍历无需使用栈，时间复杂度 $O(n)$，空间复杂度为 $O(1)
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -370,6 +388,8 @@ class Solution:
                     root = root.left
         return node
 ```
+
+#### Java
 
 ```java
 /**
@@ -417,6 +437,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -460,6 +482,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -496,6 +520,8 @@ func bstToGst(root *TreeNode) *TreeNode {
 	return node
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -540,6 +566,8 @@ function bstToGst(root: TreeNode | null): TreeNode | null {
     return root;
 }
 ```
+
+#### C
 
 ```c
 /**

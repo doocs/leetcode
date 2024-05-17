@@ -44,12 +44,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.04.Palindrome%20Pe
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canPermutePalindrome(self, s: str) -> bool:
         cnt = Counter(s)
         return sum(v & 1 for v in cnt.values()) < 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -66,6 +70,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -84,6 +90,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canPermutePalindrome(s string) bool {
 	vis := map[rune]bool{}
@@ -101,6 +109,8 @@ func canPermutePalindrome(s string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canPermutePalindrome(s: string): boolean {
     const set = new Set<string>();
@@ -114,6 +124,8 @@ function canPermutePalindrome(s: string): boolean {
     return set.size <= 1;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -132,6 +144,8 @@ impl Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -167,6 +181,8 @@ class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canPermutePalindrome(self, s: str) -> bool:
@@ -178,6 +194,8 @@ class Solution:
                 vis.add(c)
         return len(vis) < 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -193,6 +211,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {

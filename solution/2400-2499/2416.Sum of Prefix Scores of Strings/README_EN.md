@@ -89,6 +89,8 @@ The time complexity is $O(n \times m)$. Here, $n$ and $m$ are the length of the 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Trie:
     def __init__(self):
@@ -123,6 +125,8 @@ class Solution:
             trie.insert(w)
         return [trie.search(w) for w in words]
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -170,6 +174,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -221,6 +227,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -269,6 +277,8 @@ func sumPrefixScores(words []string) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sumPrefixScores(words: string[]): number[] {
     const map = new Map();
@@ -302,6 +312,8 @@ function sumPrefixScores(words: string[]): number[] {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 class Trie {

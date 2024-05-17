@@ -80,6 +80,8 @@ The root node evaluates to True, so we return true.</pre>
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -97,6 +99,8 @@ class Solution:
 
         return dfs(root)
 ```
+
+#### Java
 
 ```java
 /**
@@ -132,6 +136,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -159,6 +165,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -183,6 +191,8 @@ func evaluateTree(root *TreeNode) bool {
 	return dfs(root)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -210,6 +220,8 @@ function evaluateTree(root: TreeNode | null): boolean {
     return evaluateTree(left) && evaluateTree(right);
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -250,6 +262,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 /**
  * Definition for a binary tree node.
@@ -280,6 +294,8 @@ bool evaluateTree(struct TreeNode* root) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -295,6 +311,8 @@ class Solution:
         r = self.evaluateTree(root.right)
         return l or r if root.val == 2 else l and r
 ```
+
+#### Java
 
 ```java
 /**
@@ -324,6 +342,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -348,6 +368,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**

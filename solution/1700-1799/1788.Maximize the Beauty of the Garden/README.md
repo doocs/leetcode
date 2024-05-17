@@ -79,6 +79,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumBeauty(self, flowers: List[int]) -> int:
@@ -93,6 +95,8 @@ class Solution:
             s[i + 1] = s[i] + max(v, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -137,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumBeauty(flowers []int) int {
 	n := len(flowers)
@@ -154,6 +162,8 @@ func maximumBeauty(flowers []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumBeauty(flowers: number[]): number {
@@ -173,6 +183,8 @@ function maximumBeauty(flowers: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;

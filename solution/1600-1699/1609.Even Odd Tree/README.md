@@ -108,6 +108,8 @@ BFS 逐层遍历，每层按照奇偶性判断，每层的节点值都是偶数�
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -135,6 +137,8 @@ class Solution:
             even ^= 1
         return True
 ```
+
+#### Java
 
 ```java
 /**
@@ -182,6 +186,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -224,6 +230,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -279,6 +287,8 @@ DFS 先序遍历二叉树，同样根据节点所在层的奇偶性判断是否�
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -303,6 +313,8 @@ class Solution:
         d = {}
         return dfs(root, 0)
 ```
+
+#### Java
 
 ```java
 /**
@@ -345,6 +357,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -382,6 +396,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**

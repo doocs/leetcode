@@ -78,6 +78,8 @@ mountain[2] 也不可能是峰值，因为它不严格大于 mountain[3] 和 mou
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findPeaks(self, mountain: List[int]) -> List[int]:
@@ -87,6 +89,8 @@ class Solution:
             if mountain[i - 1] < mountain[i] > mountain[i + 1]
         ]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -117,6 +123,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findPeaks(mountain []int) (ans []int) {
 	for i := 1; i < len(mountain)-1; i++ {
@@ -127,6 +135,8 @@ func findPeaks(mountain []int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findPeaks(mountain: number[]): number[] {

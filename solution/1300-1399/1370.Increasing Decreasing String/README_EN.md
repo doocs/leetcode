@@ -81,6 +81,8 @@ The time complexity is $O(n \times |\Sigma|)$, and the space complexity is $O(|\
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sortString(self, s: str) -> str:
@@ -94,6 +96,8 @@ class Solution:
                     cnt[c] -= 1
         return "".join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -151,6 +157,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sortString(s string) string {
 	cnt := [26]int{}
@@ -177,6 +185,8 @@ func sortString(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sortString(s: string): string {
     const cnt: number[] = Array(26).fill(0);
@@ -201,6 +211,8 @@ function sortString(s: string): string {
     return ans.join('');
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

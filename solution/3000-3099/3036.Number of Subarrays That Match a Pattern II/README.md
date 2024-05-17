@@ -74,6 +74,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 def partial(s):
     g, pi = 0, [0] * len(s)
@@ -122,6 +124,8 @@ class Solution:
         return len(match(s, pattern))
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int countMatchingSubarrays(int[] nums, int[] pattern) {
@@ -164,6 +168,8 @@ class Solution {
 
 ```
 
+#### C++
+
 ```cpp
 int ps[1000001];
 class Solution {
@@ -195,6 +201,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countMatchingSubarrays(nums []int, pattern []int) int {
@@ -230,6 +238,8 @@ func countMatchingSubarrays(nums []int, pattern []int) int {
 	return res
 }
 ```
+
+#### TypeScript
 
 ```ts
 class Solution {

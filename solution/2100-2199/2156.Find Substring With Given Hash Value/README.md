@@ -85,6 +85,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def subStrHash(
@@ -106,6 +108,8 @@ class Solution:
                 j = i
         return s[j : j + k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +136,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -160,6 +166,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subStrHash(s string, power int, modulo int, k int, hashValue int) string {
 	h, p := 0, 1
@@ -183,6 +191,8 @@ func subStrHash(s string, power int, modulo int, k int, hashValue int) string {
 	return s[j : j+k]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function subStrHash(
@@ -215,6 +225,8 @@ function subStrHash(
     return s.substring(j, j + k);
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

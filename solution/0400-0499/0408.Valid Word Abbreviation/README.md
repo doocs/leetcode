@@ -95,6 +95,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def validWordAbbreviation(self, word: str, abbr: str) -> bool:
@@ -114,6 +116,8 @@ class Solution:
             j += 1
         return i + x == m and j == n
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -141,6 +145,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -167,6 +173,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func validWordAbbreviation(word string, abbr string) bool {
 	m, n := len(word), len(abbr)
@@ -189,6 +197,8 @@ func validWordAbbreviation(word string, abbr string) bool {
 	return i+x == m && j == n
 }
 ```
+
+#### TypeScript
 
 ```ts
 function validWordAbbreviation(word: string, abbr: string): boolean {

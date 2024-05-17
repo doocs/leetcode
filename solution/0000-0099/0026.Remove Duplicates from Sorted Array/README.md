@@ -100,6 +100,8 @@ for (int i = 0; i &lt; k; i++) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
@@ -110,6 +112,8 @@ class Solution:
                 k += 1
         return k
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +128,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -140,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func removeDuplicates(nums []int) int {
 	k := 0
@@ -153,6 +161,8 @@ func removeDuplicates(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function removeDuplicates(nums: number[]): number {
     let k: number = 0;
@@ -164,6 +174,8 @@ function removeDuplicates(nums: number[]): number {
     return k;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -179,6 +191,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -196,6 +210,8 @@ var removeDuplicates = function (nums) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int RemoveDuplicates(int[] nums) {
@@ -209,6 +225,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -237,6 +255,8 @@ class Solution {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### C++
 
 ```cpp
 class Solution {

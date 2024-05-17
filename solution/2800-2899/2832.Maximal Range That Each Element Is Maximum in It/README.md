@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumLengthOfRanges(self, nums: List[int]) -> List[int]:
@@ -98,6 +100,8 @@ class Solution:
             stk.append(i)
         return [r - l - 1 for l, r in zip(left, right)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +140,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -171,6 +177,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumLengthOfRanges(nums []int) []int {
@@ -209,6 +217,8 @@ func maximumLengthOfRanges(nums []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumLengthOfRanges(nums: number[]): number[] {

@@ -82,6 +82,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def componentValue(self, nums: List[int], edges: List[List[int]]) -> int:
@@ -111,6 +113,8 @@ class Solution:
                     return k - 1
         return 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -175,6 +179,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -213,6 +219,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func componentValue(nums []int, edges [][]int) int {

@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reformatDate(self, date: str) -> str:
@@ -86,6 +88,8 @@ class Solution:
         s[2] = s[2][:-2].zfill(2)
         return "-".join(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,6 +120,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func reformatDate(date string) string {
 	s := strings.Split(date, " ")
@@ -125,6 +133,8 @@ func reformatDate(date string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function reformatDate(date: string): string {
     const s = date.split(' ');
@@ -134,6 +144,8 @@ function reformatDate(date: string): string {
     return `${s[2]}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

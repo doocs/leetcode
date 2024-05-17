@@ -175,6 +175,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def smallestGoodBase(self, n: str) -> str:
@@ -198,6 +200,8 @@ class Solution:
                 return str(l)
         return str(num - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -242,6 +246,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {

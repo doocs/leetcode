@@ -89,6 +89,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumCostSubstring(self, s: str, chars: str, vals: List[int]) -> int:
@@ -101,6 +103,8 @@ class Solution:
             mi = min(mi, tot)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -148,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumCostSubstring(s string, chars string, vals []int) (ans int) {
 	d := [26]int{}
@@ -167,6 +175,8 @@ func maximumCostSubstring(s string, chars string, vals []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumCostSubstring(s: string, chars: string, vals: number[]): number {
@@ -202,6 +212,8 @@ function maximumCostSubstring(s: string, chars: string, vals: number[]): number 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumCostSubstring(self, s: str, chars: str, vals: List[int]) -> int:
@@ -213,6 +225,8 @@ class Solution:
             ans = max(ans, f)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -237,6 +251,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -258,6 +274,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumCostSubstring(s string, chars string, vals []int) (ans int) {
 	d := [26]int{}
@@ -276,6 +294,8 @@ func maximumCostSubstring(s string, chars string, vals []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumCostSubstring(s: string, chars: string, vals: number[]): number {

@@ -83,6 +83,8 @@ rLEIterator.next(2); // 耗去序列的 2 个项，返回 -1。 这是由于第�
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class RLEIterator:
     def __init__(self, encoding: List[int]):
@@ -106,6 +108,8 @@ class RLEIterator:
 # obj = RLEIterator(encoding)
 # param_1 = obj.next(n)
 ```
+
+#### Java
 
 ```java
 class RLEIterator {
@@ -138,6 +142,8 @@ class RLEIterator {
  * int param_1 = obj.next(n);
  */
 ```
+
+#### C++
 
 ```cpp
 class RLEIterator {
@@ -173,6 +179,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type RLEIterator struct {
 	encoding []int
@@ -203,6 +211,8 @@ func (this *RLEIterator) Next(n int) int {
  * param_1 := obj.Next(n);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class RLEIterator {

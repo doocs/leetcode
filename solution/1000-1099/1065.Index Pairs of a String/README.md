@@ -62,6 +62,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def indexPairs(self, text: str, words: List[str]) -> List[List[int]]:
@@ -71,6 +73,8 @@ class Solution:
             [i, j] for i in range(n) for j in range(i, n) if text[i : j + 1] in words
         ]
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -116,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Trie {
 public:
@@ -157,6 +163,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type Trie struct {
@@ -218,6 +226,8 @@ func indexPairs(text string, words []string) [][]int {
 -   [758. 字符串中的加粗单词](https://github.com/doocs/leetcode/blob/main/solution/0700-0799/0758.Bold%20Words%20in%20String/README.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:

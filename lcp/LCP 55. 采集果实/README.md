@@ -72,6 +72,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2055.%20%E9%87%87%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getMinimumTime(
@@ -79,6 +81,8 @@ class Solution:
     ) -> int:
         return sum((num + limit - 1) // limit * time[i] for i, num in fruits)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -107,6 +113,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getMinimumTime(time []int, fruits [][]int, limit int) (ans int) {
 	for _, f := range fruits {
@@ -116,6 +124,8 @@ func getMinimumTime(time []int, fruits [][]int, limit int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getMinimumTime(time: number[], fruits: number[][], limit: number): number {

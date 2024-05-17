@@ -100,6 +100,8 @@ nums[3] + nums[0] = 3 + 1 = 4.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minMoves(self, nums: List[int], limit: int) -> int:
@@ -125,6 +127,8 @@ class Solution:
                 ans = s
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -155,6 +159,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -187,6 +193,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minMoves(nums []int, limit int) int {
 	d := make([]int, limit*2+2)
@@ -212,6 +220,8 @@ func minMoves(nums []int, limit int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minMoves(nums: number[], limit: number): number {

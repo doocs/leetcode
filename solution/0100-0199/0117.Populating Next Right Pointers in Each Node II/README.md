@@ -83,6 +83,8 @@ struct Node {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 """
 # Definition for a Node.
@@ -113,6 +115,8 @@ class Solution:
                     q.append(node.right)
         return root
 ```
+
+#### Java
 
 ```java
 /*
@@ -166,6 +170,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /*
 // Definition for a Node.
@@ -214,6 +220,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -250,6 +258,8 @@ func connect(root *Node) *Node {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -290,6 +300,8 @@ function connect(root: Node | null): Node | null {
     return root;
 }
 ```
+
+#### C#
 
 ```cs
 /*
@@ -359,6 +371,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 """
 # Definition for a Node.
@@ -392,6 +406,8 @@ class Solution:
             node = next
         return root
 ```
+
+#### Java
 
 ```java
 /*
@@ -450,6 +466,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /*
 // Definition for a Node.
@@ -501,6 +519,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -539,6 +559,8 @@ func connect(root *Node) *Node {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -582,6 +604,8 @@ function connect(root: Node | null): Node | null {
     return root;
 }
 ```
+
+#### C#
 
 ```cs
 /*

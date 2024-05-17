@@ -47,6 +47,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def originalDigits(self, s: str) -> str:
@@ -68,6 +70,8 @@ class Solution:
 
         return ''.join(cnt[i] * str(i) for i in range(10))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -129,6 +135,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func originalDigits(s string) string {

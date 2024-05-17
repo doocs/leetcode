@@ -87,6 +87,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getCoprimes(self, nums: List[int], edges: List[List[int]]) -> List[int]:
@@ -117,6 +119,8 @@ class Solution:
         dfs(0, -1, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -177,6 +181,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -221,6 +227,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getCoprimes(nums []int, edges [][]int) []int {

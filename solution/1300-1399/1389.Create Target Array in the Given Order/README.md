@@ -90,6 +90,8 @@ nums       index     target
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def createTargetArray(self, nums: List[int], index: List[int]) -> List[int]:
@@ -98,6 +100,8 @@ class Solution:
             target.insert(i, x)
         return target
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func createTargetArray(nums []int, index []int) []int {
 	target := make([]int, len(nums))
@@ -140,6 +148,8 @@ func createTargetArray(nums []int, index []int) []int {
 	return target
 }
 ```
+
+#### TypeScript
 
 ```ts
 function createTargetArray(nums: number[], index: number[]): number[] {

@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def captureForts(self, forts: List[int]) -> int:
@@ -95,6 +97,8 @@ class Solution:
             i = j
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -141,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func captureForts(forts []int) (ans int) {
 	n := len(forts)
@@ -160,6 +168,8 @@ func captureForts(forts []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function captureForts(forts: number[]): number {
@@ -181,6 +191,8 @@ function captureForts(forts: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -214,6 +226,8 @@ impl Solution {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {

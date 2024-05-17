@@ -68,6 +68,8 @@ Since the third round will generate the final winner, you need to output the ans
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findContestMatch(self, n: int) -> str:
@@ -78,6 +80,8 @@ class Solution:
             n >>= 1
         return team[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +100,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -111,6 +117,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findContestMatch(n int) string {

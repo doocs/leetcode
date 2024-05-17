@@ -71,6 +71,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumRounds(self, tasks: List[int]) -> int:
@@ -82,6 +84,8 @@ class Solution:
             ans += v // 3 + (v % 3 != 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumRounds(tasks []int) int {
 	cnt := map[int]int{}
@@ -142,6 +150,8 @@ func minimumRounds(tasks []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumRounds(tasks: number[]): number {
     const cnt = new Map();
@@ -158,6 +168,8 @@ function minimumRounds(tasks: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;

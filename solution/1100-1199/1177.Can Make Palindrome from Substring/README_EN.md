@@ -77,6 +77,8 @@ The time complexity is $O((n + m) \times C)$, and the space complexity is $O(n \
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canMakePaliQueries(self, s: str, queries: List[List[int]]) -> List[bool]:
@@ -91,6 +93,8 @@ class Solution:
             ans.append(cnt // 2 <= k)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -144,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canMakePaliQueries(s string, queries [][]int) (ans []bool) {
 	n := len(s)
@@ -165,6 +173,8 @@ func canMakePaliQueries(s string, queries [][]int) (ans []bool) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canMakePaliQueries(s: string, queries: number[][]): boolean[] {

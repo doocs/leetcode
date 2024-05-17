@@ -88,11 +88,15 @@ The time complexity is $O(n)$, where $n$ is the length of the `damage` array. Th
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumHealth(self, damage: List[int], armor: int) -> int:
         return sum(damage) - min(max(damage), armor) + 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -123,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumHealth(damage []int, armor int) int64 {
 	var s int64
@@ -134,6 +142,8 @@ func minimumHealth(damage []int, armor int) int64 {
 	return s - int64(min(mx, armor)) + 1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumHealth(damage: number[], armor: number): number {

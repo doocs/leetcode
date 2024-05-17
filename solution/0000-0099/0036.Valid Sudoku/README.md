@@ -100,6 +100,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
@@ -120,6 +122,8 @@ class Solution:
                 sub[k][num] = True
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -148,6 +152,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -174,6 +180,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isValidSudoku(board [][]byte) bool {
 	row, col, sub := [9][9]bool{}, [9][9]bool{}, [9][9]bool{}
@@ -195,6 +203,8 @@ func isValidSudoku(board [][]byte) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isValidSudoku(board: string[][]): boolean {
@@ -226,6 +236,8 @@ function isValidSudoku(board: string[][]): boolean {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {character[][]} board
@@ -253,6 +265,8 @@ var isValidSudoku = function (board) {
     return true;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {

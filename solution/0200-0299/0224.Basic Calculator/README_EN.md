@@ -82,6 +82,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def calculate(self, s: str) -> int:
@@ -110,6 +112,8 @@ class Solution:
             i += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -146,6 +150,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -185,6 +191,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func calculate(s string) (ans int) {
 	stk := []int{}
@@ -219,6 +227,8 @@ func calculate(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function calculate(s: string): number {
@@ -255,6 +265,8 @@ function calculate(s: string): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

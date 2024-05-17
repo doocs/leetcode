@@ -71,6 +71,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestCommomSubsequence(self, arrays: List[List[int]]) -> List[int]:
@@ -81,6 +83,8 @@ class Solution:
                 counter[e] += 1
         return [e for e, count in counter.items() if count == n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestCommomSubsequence(arrays [][]int) []int {
 	counter := make(map[int]int)
@@ -139,6 +147,8 @@ func longestCommomSubsequence(arrays [][]int) []int {
 	return res
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -168,6 +178,8 @@ var longestCommonSubsequence = function (arrays) {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

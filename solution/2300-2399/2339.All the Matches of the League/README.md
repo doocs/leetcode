@@ -72,6 +72,8 @@ Teams 表:
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT t1.team_name AS home_team, t2.team_name AS away_team

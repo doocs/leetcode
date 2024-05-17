@@ -47,6 +47,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.13.Pile%20Box/READ
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def pileBox(self, box: List[List[int]]) -> int:
@@ -60,6 +62,8 @@ class Solution:
             f[i] += box[i][2]
         return max(f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +85,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -105,6 +111,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func pileBox(box [][]int) int {
 	sort.Slice(box, func(i, j int) bool {
@@ -125,6 +133,8 @@ func pileBox(box [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function pileBox(box: number[][]): number {
     box.sort((a, b) => (a[0] === b[0] ? b[1] - a[1] : a[0] - b[0]));
@@ -143,6 +153,8 @@ function pileBox(box: number[][]): number {
     return ans;
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

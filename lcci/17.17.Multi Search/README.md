@@ -44,6 +44,8 @@ smalls = [&quot;is&quot;,&quot;ppi&quot;,&quot;hi&quot;,&quot;sis&quot;,&quot;i&
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Trie:
     def __init__(self):
@@ -85,6 +87,8 @@ class Solution:
                 ans[idx].append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -152,6 +156,8 @@ class Trie {
 }
 ```
 
+#### C++
+
 ```cpp
 class Trie {
 private:
@@ -202,6 +208,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type Trie struct {
@@ -258,6 +266,8 @@ func multiSearch(big string, smalls []string) [][]int {
 	return ans
 }
 ```
+
+#### Swift
 
 ```swift
 class TrieNode {

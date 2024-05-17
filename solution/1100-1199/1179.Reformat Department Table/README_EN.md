@@ -76,6 +76,8 @@ Note that the result table has 13 columns (1 for the department id + 12 for the 
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT

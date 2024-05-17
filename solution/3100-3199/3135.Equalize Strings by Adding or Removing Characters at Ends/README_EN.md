@@ -129,6 +129,8 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(m \times 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, initial: str, target: str) -> int:
@@ -142,6 +144,8 @@ class Solution:
                     mx = max(mx, f[i][j])
         return m + n - mx * 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -161,6 +165,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -183,6 +189,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minOperations(initial string, target string) int {
 	m, n := len(initial), len(target)
@@ -202,6 +210,8 @@ func minOperations(initial string, target string) int {
 	return m + n - 2*mx
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minOperations(initial: string, target: string): number {

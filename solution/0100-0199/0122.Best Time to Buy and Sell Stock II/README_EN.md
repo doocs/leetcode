@@ -74,11 +74,15 @@ The time complexity is $O(n)$, where $n$ is the length of the `prices` array. Th
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         return sum(max(0, b - a) for a, b in pairwise(prices))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +96,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -102,6 +108,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxProfit(prices []int) (ans int) {
@@ -115,6 +123,8 @@ func maxProfit(prices []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxProfit(prices: number[]): number {
     let ans = 0;
@@ -124,6 +134,8 @@ function maxProfit(prices: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -136,6 +148,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -150,6 +164,8 @@ var maxProfit = function (prices) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -192,6 +208,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
@@ -203,6 +221,8 @@ class Solution:
             f[i][1] = max(f[i - 1][1], f[i - 1][0] + prices[i])
         return f[n - 1][1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -218,6 +238,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -236,6 +258,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProfit(prices []int) int {
 	n := len(prices)
@@ -248,6 +272,8 @@ func maxProfit(prices []int) int {
 	return f[n-1][1]
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -277,6 +303,8 @@ The time complexity is $O(n)$, where $n$ is the length of the `prices` array. Th
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
@@ -289,6 +317,8 @@ class Solution:
             f = g
         return f[1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -306,6 +336,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -322,6 +354,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxProfit(prices []int) int {

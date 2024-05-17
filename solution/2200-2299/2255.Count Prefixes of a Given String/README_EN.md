@@ -70,11 +70,15 @@ The time complexity is $O(m \times n)$, where $m$ and $n$ are the lengths of the
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countPrefixes(self, words: List[str], s: str) -> int:
         return sum(s.startswith(w) for w in words)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +94,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -103,6 +109,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countPrefixes(words []string, s string) (ans int) {
 	for _, w := range words {
@@ -113,6 +121,8 @@ func countPrefixes(words []string, s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countPrefixes(words: string[], s: string): number {

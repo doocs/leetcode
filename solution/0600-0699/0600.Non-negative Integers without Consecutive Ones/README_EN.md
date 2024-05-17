@@ -66,6 +66,8 @@ Among them, only integer 3 disobeys the rule (two consecutive ones) and the othe
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findIntegers(self, n: int) -> int:
@@ -89,6 +91,8 @@ class Solution:
             n >>= 1
         return dfs(l, 0, True)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -166,6 +172,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findIntegers(n int) int {

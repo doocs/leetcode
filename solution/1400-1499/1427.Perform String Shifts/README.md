@@ -78,6 +78,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def stringShift(self, s: str, shift: List[List[int]]) -> str:
@@ -85,6 +87,8 @@ class Solution:
         x %= len(s)
         return s[-x:] + s[:-x]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -121,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func stringShift(s string, shift [][]int) string {
 	x := 0
@@ -135,6 +143,8 @@ func stringShift(s string, shift [][]int) string {
 	return s[n-x:] + s[:n-x]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function stringShift(s: string, shift: number[][]): string {

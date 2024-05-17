@@ -66,6 +66,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMissingRanges(
@@ -84,6 +86,8 @@ class Solution:
             ans.append([nums[-1] + 1, upper])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -134,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMissingRanges(nums []int, lower int, upper int) (ans [][]int) {
 	n := len(nums)
@@ -154,6 +162,8 @@ func findMissingRanges(nums []int, lower int, upper int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findMissingRanges(nums: number[], lower: number, upper: number): number[][] {

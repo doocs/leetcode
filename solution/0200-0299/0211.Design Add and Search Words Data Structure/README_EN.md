@@ -71,6 +71,8 @@ wordDictionary.search(&quot;b..&quot;); // return True
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Trie:
     def __init__(self):
@@ -114,6 +116,8 @@ class WordDictionary:
 # obj.addWord(word)
 # param_2 = obj.search(word)
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -173,6 +177,8 @@ class WordDictionary {
  * boolean param_2 = obj.search(word);
  */
 ```
+
+#### C++
 
 ```cpp
 class trie {
@@ -244,6 +250,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type WordDictionary struct {
 	root *trie
@@ -308,6 +316,8 @@ func (t *trie) insert(word string) {
  * param_2 := obj.Search(word);
  */
 ```
+
+#### C#
 
 ```cs
 using System.Collections.Generic;

@@ -89,6 +89,8 @@ Orders table:
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH
@@ -111,6 +113,8 @@ WHERE order_type = 0 OR NOT EXISTS (SELECT 1 FROM T AS t WHERE t.customer_id = o
 ### 方法二
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 SELECT DISTINCT

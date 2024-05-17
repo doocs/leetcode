@@ -86,6 +86,8 @@ The time complexity is $O(n \times \log n)$. Here, $n$ is the number of nodes in
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -124,6 +126,8 @@ class Solution:
             ans += f(t)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -193,6 +197,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -241,6 +247,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -295,6 +303,8 @@ func minimumOperations(root *TreeNode) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for a binary tree node.
@@ -338,6 +348,8 @@ function minimumOperations(root: TreeNode | null): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.

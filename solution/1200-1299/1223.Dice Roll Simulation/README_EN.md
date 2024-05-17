@@ -78,6 +78,8 @@ The time complexity is $O(n \times k^2 \times M)$, and the space complexity is $
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def dieSimulator(self, n: int, rollMax: List[int]) -> int:
@@ -95,6 +97,8 @@ class Solution:
 
         return dfs(0, 0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +132,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -157,6 +163,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func dieSimulator(n int, rollMax []int) int {
@@ -212,6 +220,8 @@ The time complexity is $O(n \times k^2 \times M)$, and the space complexity is $
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def dieSimulator(self, n: int, rollMax: List[int]) -> int:
@@ -233,6 +243,8 @@ class Solution:
                 ans = (ans + f[n][j][x]) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -265,6 +277,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -299,6 +313,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func dieSimulator(n int, rollMax []int) (ans int) {

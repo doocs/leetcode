@@ -66,6 +66,8 @@ recentCounter.ping(3002);  // requests = [1, <u>100</u>, <u>3001</u>, <u>3002</u
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class RecentCounter:
     def __init__(self):
@@ -82,6 +84,8 @@ class RecentCounter:
 # obj = RecentCounter()
 # param_1 = obj.ping(t)
 ```
+
+#### Java
 
 ```java
 class RecentCounter {
@@ -117,6 +121,8 @@ class RecentCounter {
  */
 ```
 
+#### C++
+
 ```cpp
 class RecentCounter {
 public:
@@ -138,6 +144,8 @@ public:
  * int param_1 = obj->ping(t);
  */
 ```
+
+#### Go
 
 ```go
 type RecentCounter struct {
@@ -163,6 +171,8 @@ func (this *RecentCounter) Ping(t int) int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class RecentCounter {
     private queue: number[];
@@ -186,6 +196,8 @@ class RecentCounter {
  * var param_1 = obj.ping(t)
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -221,6 +233,8 @@ impl RecentCounter {
  */
 ```
 
+#### JavaScript
+
 ```js
 var RecentCounter = function () {
     this.q = [];
@@ -244,6 +258,8 @@ RecentCounter.prototype.ping = function (t) {
  * var param_1 = obj.ping(t)
  */
 ```
+
+#### C#
 
 ```cs
 public class RecentCounter {
@@ -280,6 +296,8 @@ public class RecentCounter {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class RecentCounter:
     def __init__(self):
@@ -294,6 +312,8 @@ class RecentCounter:
 # obj = RecentCounter()
 # param_1 = obj.ping(t)
 ```
+
+#### C++
 
 ```cpp
 class RecentCounter {
@@ -315,6 +335,8 @@ public:
  * int param_1 = obj->ping(t);
  */
 ```
+
+#### Go
 
 ```go
 type RecentCounter struct {

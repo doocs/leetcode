@@ -64,6 +64,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2796.Re
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 declare global {
     interface String {
@@ -75,6 +77,8 @@ String.prototype.replicate = function (times: number) {
     return new Array(times).fill(this).join('');
 };
 ```
+
+#### JavaScript
 
 ```js
 String.prototype.replicate = function (times) {

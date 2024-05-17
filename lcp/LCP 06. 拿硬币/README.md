@@ -54,11 +54,15 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2006.%20%E6%8B%BF%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCount(self, coins: List[int]) -> int:
         return sum((x + 1) >> 1 for x in coins)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -71,6 +75,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -85,6 +91,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minCount(coins []int) (ans int) {
 	for _, x := range coins {
@@ -93,6 +101,8 @@ func minCount(coins []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minCount(coins: number[]): number {
@@ -104,6 +114,8 @@ function minCount(coins: number[]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn min_count(coins: Vec<i32>) -> i32 {
@@ -114,6 +126,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -130,6 +144,8 @@ class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int minCount(int* coins, int coinsSize) {

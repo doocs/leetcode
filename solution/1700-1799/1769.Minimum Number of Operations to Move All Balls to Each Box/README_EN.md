@@ -64,6 +64,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, boxes: str) -> List[int]:
@@ -82,6 +84,8 @@ class Solution:
             right[i] = right[i + 1] + cnt
         return [a + b for a, b in zip(left, right)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -133,6 +139,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minOperations(boxes string) []int {
@@ -159,6 +167,8 @@ func minOperations(boxes string) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minOperations(boxes: string): number[] {
     const n = boxes.length;
@@ -179,6 +189,8 @@ function minOperations(boxes: string): number[] {
     return left.map((v, i) => v + right[i]);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -208,6 +220,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**
@@ -252,6 +266,8 @@ int* minOperations(char* boxes, int* returnSize) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, boxes: str) -> List[int]:
@@ -270,6 +286,8 @@ class Solution:
             ans[i] += s
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -294,6 +312,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -313,6 +333,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minOperations(boxes string) []int {
@@ -335,6 +357,8 @@ func minOperations(boxes string) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minOperations(boxes: string): number[] {
     const n = boxes.length;
@@ -355,6 +379,8 @@ function minOperations(boxes: string): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -382,6 +408,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**

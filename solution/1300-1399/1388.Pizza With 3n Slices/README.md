@@ -103,6 +103,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxSizeSlices(self, slices: List[int]) -> int:
@@ -120,6 +122,8 @@ class Solution:
         a, b = g(slices[:-1]), g(slices[1:])
         return max(a, b)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -148,6 +152,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -173,6 +179,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSizeSlices(slices []int) int {
 	n := len(slices) / 3
@@ -196,6 +204,8 @@ func maxSizeSlices(slices []int) int {
 	return max(a, b)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxSizeSlices(slices: number[]): number {

@@ -77,6 +77,8 @@ The time complexity is $O(m + n)$, and the space complexity is $O(1)$. Where $m$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def appendCharacters(self, s: str, t: str) -> int:
@@ -89,6 +91,8 @@ class Solution:
             i += 1
         return 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -125,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func appendCharacters(s string, t string) int {
 	m, n := len(s), len(t)
@@ -139,6 +147,8 @@ func appendCharacters(s string, t string) int {
 	return 0
 }
 ```
+
+#### TypeScript
 
 ```ts
 function appendCharacters(s: string, t: string): number {

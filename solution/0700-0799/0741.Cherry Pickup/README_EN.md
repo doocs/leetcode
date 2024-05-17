@@ -90,6 +90,8 @@ The time complexity is $O(n^3)$, and the space complexity is $O(n^3)$. Where $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def cherryPickup(self, grid: List[List[int]]) -> int:
@@ -116,6 +118,8 @@ class Solution:
                                 f[k][i1][i2] = max(f[k][i1][i2], f[k - 1][x1][x2] + t)
         return max(0, f[-1][-1][-1])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -151,6 +155,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -183,6 +189,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func cherryPickup(grid [][]int) int {
@@ -221,6 +229,8 @@ func cherryPickup(grid [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function cherryPickup(grid: number[][]): number {
     const n: number = grid.length;
@@ -256,6 +266,8 @@ function cherryPickup(grid: number[][]): number {
     return Math.max(0, f[n * 2 - 2][n - 1][n - 1]);
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

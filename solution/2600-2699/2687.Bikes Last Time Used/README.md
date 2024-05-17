@@ -79,6 +79,8 @@ ride_id 是该表的主键。
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT

@@ -56,6 +56,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -82,6 +84,8 @@ class Solution:
             cur = cur.right
         return head
 ```
+
+#### Java
 
 ```java
 /**
@@ -124,6 +128,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -163,6 +169,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -196,6 +204,8 @@ func increasingBST(root *TreeNode) *TreeNode {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for a binary tree node.
@@ -227,6 +237,8 @@ function increasingBST(root: TreeNode | null): TreeNode | null {
     return dummy.right;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -282,6 +294,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 /**
  * Definition for a binary tree node.
@@ -322,6 +336,8 @@ struct TreeNode* increasingBST(struct TreeNode* root) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -348,6 +364,8 @@ class Solution:
         dfs(root)
         return dummy.right
 ```
+
+#### Java
 
 ```java
 /**
@@ -388,6 +406,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -420,6 +440,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**

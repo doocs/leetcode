@@ -80,6 +80,8 @@ Thus &quot;01100&quot; will unlock the safe. &quot;10011&quot;, and &quot;11001&
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def crackSafe(self, n: int, k: int) -> str:
@@ -99,6 +101,8 @@ class Solution:
         ans.append("0" * (n - 1))
         return "".join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -149,6 +155,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func crackSafe(n int, k int) string {

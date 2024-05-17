@@ -101,6 +101,8 @@ The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Here, $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def mctFromLeafValues(self, arr: List[int]) -> int:
@@ -120,6 +122,8 @@ class Solution:
 
         return dfs(0, len(arr) - 1)[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -155,6 +159,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -187,6 +193,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func mctFromLeafValues(arr []int) int {
 	n := len(arr)
@@ -217,6 +225,8 @@ func mctFromLeafValues(arr []int) int {
 	return dfs(0, n-1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function mctFromLeafValues(arr: number[]): number {
@@ -271,6 +281,8 @@ The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Here, $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def mctFromLeafValues(self, arr: List[int]) -> int:
@@ -290,6 +302,8 @@ class Solution:
                 g[i][j] = max(g[i][j - 1], arr[j])
         return dfs(0, n - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -311,6 +325,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -335,6 +351,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func mctFromLeafValues(arr []int) int {
 	n := len(arr)
@@ -357,6 +375,8 @@ func mctFromLeafValues(arr []int) int {
 	return f[0][n-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function mctFromLeafValues(arr: number[]): number {
@@ -386,6 +406,8 @@ function mctFromLeafValues(arr: number[]): number {
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

@@ -75,6 +75,8 @@ The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def trailingZeroes(self, n: int) -> int:
@@ -84,6 +86,8 @@ class Solution:
             ans += n
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -112,6 +118,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func trailingZeroes(n int) int {
 	ans := 0
@@ -122,6 +130,8 @@ func trailingZeroes(n int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function trailingZeroes(n: number): number {

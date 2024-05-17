@@ -62,6 +62,8 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(m + n)$, 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findLonelyPixel(self, picture: List[List[str]]) -> int:
@@ -79,6 +81,8 @@ class Solution:
                     ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -135,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findLonelyPixel(picture [][]byte) (ans int) {
 	rows := make([]int, len(picture))
@@ -157,6 +165,8 @@ func findLonelyPixel(picture [][]byte) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findLonelyPixel(picture: string[][]): number {

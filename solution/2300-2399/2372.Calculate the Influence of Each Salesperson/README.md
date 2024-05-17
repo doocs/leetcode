@@ -130,6 +130,8 @@ Jerry 的总数是 0。</pre>
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT sp.salesperson_id, name, IFNULL(SUM(price), 0) AS total

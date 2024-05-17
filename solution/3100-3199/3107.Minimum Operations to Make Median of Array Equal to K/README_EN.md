@@ -91,6 +91,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperationsToMakeMedianK(self, nums: List[int], k: int) -> int:
@@ -110,6 +112,8 @@ class Solution:
                 ans += k - nums[i]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +136,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -153,6 +159,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minOperationsToMakeMedianK(nums []int, k int) (ans int64) {
@@ -179,6 +187,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minOperationsToMakeMedianK(nums: number[], k: number): number {

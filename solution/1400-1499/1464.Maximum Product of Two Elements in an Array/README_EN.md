@@ -64,6 +64,8 @@ Given the array of integers <code>nums</code>, you will choose two different ind
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
@@ -73,6 +75,8 @@ class Solution:
                 ans = max(ans, (a - 1) * (b - 1))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +92,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -105,6 +111,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProduct(nums []int) int {
 	ans := 0
@@ -119,6 +127,8 @@ func maxProduct(nums []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxProduct(nums: number[]): number {
@@ -135,6 +145,8 @@ function maxProduct(nums: number[]): number {
     return (nums[0] - 1) * (nums[1] - 1);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -153,6 +165,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -175,6 +189,8 @@ class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int maxProduct(int* nums, int numsSize) {
@@ -203,12 +219,16 @@ int maxProduct(int* nums, int numsSize) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
         nums.sort()
         return (nums[-1] - 1) * (nums[-2] - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -220,6 +240,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -230,6 +252,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProduct(nums []int) int {
 	sort.Ints(nums)
@@ -237,6 +261,8 @@ func maxProduct(nums []int) int {
 	return (nums[n-1] - 1) * (nums[n-2] - 1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxProduct(nums: number[]): number {
@@ -264,6 +290,8 @@ function maxProduct(nums: number[]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
@@ -275,6 +303,8 @@ class Solution:
                 b = v
         return (a - 1) * (b - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -293,6 +323,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -310,6 +342,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxProduct(nums []int) int {

@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximizeWin(self, prizePositions: List[int], k: int) -> int:
@@ -89,6 +91,8 @@ class Solution:
             f[i] = max(f[i - 1], i - j)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -138,6 +144,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximizeWin(prizePositions []int, k int) (ans int) {
 	n := len(prizePositions)
@@ -150,6 +158,8 @@ func maximizeWin(prizePositions []int, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximizeWin(prizePositions: number[], k: number): number {

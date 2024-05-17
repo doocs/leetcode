@@ -76,6 +76,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def singleNumber(self, nums: List[int]) -> List[int]:
@@ -88,6 +90,8 @@ class Solution:
         b = xs ^ a
         return [a, b]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -130,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func singleNumber(nums []int) []int {
 	xs := 0
@@ -148,6 +156,8 @@ func singleNumber(nums []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function singleNumber(nums: number[]): number[] {
     const xs = nums.reduce((a, b) => a ^ b);
@@ -162,6 +172,8 @@ function singleNumber(nums: number[]): number[] {
     return [a, b];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -179,6 +191,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -198,6 +212,8 @@ var singleNumber = function (nums) {
     return [a, b];
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

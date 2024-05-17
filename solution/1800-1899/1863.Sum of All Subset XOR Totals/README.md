@@ -97,6 +97,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def subsetXORSum(self, nums: List[int]) -> int:
@@ -109,6 +111,8 @@ class Solution:
             ans += s
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +132,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -149,6 +155,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subsetXORSum(nums []int) (ans int) {
 	n := len(nums)
@@ -164,6 +172,8 @@ func subsetXORSum(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function subsetXORSum(nums: number[]): number {
@@ -181,6 +191,8 @@ function subsetXORSum(nums: number[]): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -224,6 +236,8 @@ var subsetXORSum = function (nums) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def subsetXORSum(self, nums: List[int]) -> int:
@@ -239,6 +253,8 @@ class Solution:
         dfs(0, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -262,6 +278,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -282,6 +300,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subsetXORSum(nums []int) (ans int) {
 	n := len(nums)
@@ -299,6 +319,8 @@ func subsetXORSum(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function subsetXORSum(nums: number[]): number {
     let ans = 0;
@@ -315,6 +337,8 @@ function subsetXORSum(nums: number[]): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

@@ -109,6 +109,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSpecialSubsequences(self, nums: List[int]) -> int:
@@ -131,6 +133,8 @@ class Solution:
                 f[i][2] = (f[i - 1][1] + 2 * f[i - 1][2]) % mod
         return f[n - 1][2]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -158,6 +162,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -188,6 +194,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSpecialSubsequences(nums []int) int {
 	const mod = 1e9 + 7
@@ -214,6 +222,8 @@ func countSpecialSubsequences(nums []int) int {
 	return f[n-1][2]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countSpecialSubsequences(nums: number[]): number {
@@ -252,6 +262,8 @@ function countSpecialSubsequences(nums: number[]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSpecialSubsequences(self, nums: List[int]) -> int:
@@ -268,6 +280,8 @@ class Solution:
                 f[2] = (f[1] + 2 * f[2]) % mod
         return f[2]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -289,6 +303,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -312,6 +328,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSpecialSubsequences(nums []int) int {
 	const mod = 1e9 + 7
@@ -332,6 +350,8 @@ func countSpecialSubsequences(nums []int) int {
 	return f[2]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countSpecialSubsequences(nums: number[]): number {

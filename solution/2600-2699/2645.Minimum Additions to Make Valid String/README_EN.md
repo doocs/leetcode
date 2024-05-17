@@ -78,6 +78,8 @@ The time complexity is $O(n)$, where $n$ is the length of the string $word$. The
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def addMinimum(self, word: str) -> int:
@@ -94,6 +96,8 @@ class Solution:
             ans += 1 if word[-1] == 'b' else 2
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -136,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func addMinimum(word string) (ans int) {
 	s := "abc"
@@ -155,6 +163,8 @@ func addMinimum(word string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function addMinimum(word: string): number {

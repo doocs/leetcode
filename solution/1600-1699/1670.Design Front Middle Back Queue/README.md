@@ -98,6 +98,8 @@ q.popFront();     // 返回 -1 -> [] （队列为空）
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class FrontMiddleBackQueue:
     def __init__(self):
@@ -159,6 +161,8 @@ class FrontMiddleBackQueue:
 # param_5 = obj.popMiddle()
 # param_6 = obj.popBack()
 ```
+
+#### Java
 
 ```java
 class FrontMiddleBackQueue {
@@ -231,6 +235,8 @@ class FrontMiddleBackQueue {
  * int param_6 = obj.popBack();
  */
 ```
+
+#### C++
 
 ```cpp
 class FrontMiddleBackQueue {
@@ -316,6 +322,8 @@ private:
  * int param_6 = obj->popBack();
  */
 ```
+
+#### Go
 
 ```go
 type FrontMiddleBackQueue struct {
@@ -456,6 +464,8 @@ func (q Deque) Get(i int) int {
  * param_6 := obj.PopBack();
  */
 ```
+
+#### TypeScript
 
 ```ts
 class FrontMiddleBackQueue {
@@ -627,6 +637,8 @@ class Deque<T> {
  * var param_6 = obj.popBack()
  */
 ```
+
+#### JavaScript
 
 ```js
 class FrontMiddleBackQueue {

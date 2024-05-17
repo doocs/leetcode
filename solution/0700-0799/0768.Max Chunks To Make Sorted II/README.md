@@ -70,6 +70,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxChunksToSorted(self, arr: List[int]) -> int:
@@ -84,6 +86,8 @@ class Solution:
                 stk.append(mx)
         return len(stk)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +109,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -125,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxChunksToSorted(arr []int) int {
 	var stk []int
@@ -144,6 +152,8 @@ func maxChunksToSorted(arr []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxChunksToSorted(arr: number[]): number {
     const stack = [];
@@ -161,6 +171,8 @@ function maxChunksToSorted(arr: number[]): number {
     return stack.length;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

@@ -87,6 +87,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxSum(self, nums1: List[int], nums2: List[int]) -> int:
@@ -113,6 +115,8 @@ class Solution:
                 j += 1
         return max(f, g) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -141,6 +145,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -168,6 +174,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxSum(nums1 []int, nums2 []int) int {
@@ -198,6 +206,8 @@ func maxSum(nums1 []int, nums2 []int) int {
 	return max(f, g) % mod
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxSum(nums1: number[], nums2: number[]): number {

@@ -60,6 +60,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getModifiedArray(self, length: int, updates: List[List[int]]) -> List[int]:
@@ -70,6 +72,8 @@ class Solution:
                 d[r + 1] -= c
         return list(accumulate(d))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +94,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -105,6 +111,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getModifiedArray(length int, updates [][]int) []int {
@@ -122,6 +130,8 @@ func getModifiedArray(length int, updates [][]int) []int {
 	return d
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -163,6 +173,8 @@ var getModifiedArray = function (length, updates) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class BinaryIndexedTree:
     def __init__(self, n):
@@ -194,6 +206,8 @@ class Solution:
             tree.update(end + 2, -inc)
         return [tree.query(i + 1) for i in range(length)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -243,6 +257,8 @@ class BinaryIndexedTree {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -289,6 +305,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {

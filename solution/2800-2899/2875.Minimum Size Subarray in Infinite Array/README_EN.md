@@ -86,6 +86,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where n is th
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minSizeSubarray(self, nums: List[int], target: int) -> int:
@@ -109,6 +111,8 @@ class Solution:
             pos[pre] = i
         return -1 if b == inf else a + b
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -142,6 +146,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -173,6 +179,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minSizeSubarray(nums []int, target int) int {
@@ -208,6 +216,8 @@ func minSizeSubarray(nums []int, target int) int {
 	return a + b
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minSizeSubarray(nums: number[], target: number): number {
@@ -248,6 +258,8 @@ function minSizeSubarray(nums: number[], target: number): number {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {

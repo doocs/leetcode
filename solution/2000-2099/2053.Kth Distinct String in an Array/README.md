@@ -76,6 +76,8 @@ arr 中所有字符串都是独一无二的，所以返回第 1 个字符串 "aa
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def kthDistinct(self, arr: List[str], k: int) -> str:
@@ -87,6 +89,8 @@ class Solution:
                     return v
         return ''
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +130,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func kthDistinct(arr []string, k int) string {

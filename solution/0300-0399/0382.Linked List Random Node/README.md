@@ -77,6 +77,8 @@ solution.getRandom(); // 返回 3
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -103,6 +105,8 @@ class Solution:
 # obj = Solution(head)
 # param_1 = obj.getRandom()
 ```
+
+#### Java
 
 ```java
 /**
@@ -143,6 +147,8 @@ class Solution {
  */
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -179,6 +185,8 @@ public:
  * int param_1 = obj->getRandom();
  */
 ```
+
+#### Go
 
 ```go
 /**

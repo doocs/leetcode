@@ -76,6 +76,8 @@ After that, no pieces can move anymore, so it is impossible to obtain the string
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canChange(self, start: str, target: str) -> bool:
@@ -92,6 +94,8 @@ class Solution:
                 return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using pii = pair<int, int>;
 
@@ -161,6 +167,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canChange(start string, target string) bool {
@@ -195,6 +203,8 @@ func canChange(start string, target string) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canChange(start: string, target: string): boolean {
@@ -240,6 +250,8 @@ function canChange(start: string, target: string): boolean {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canChange(self, start: str, target: str) -> bool:
@@ -260,6 +272,8 @@ class Solution:
                 return False
             i, j = i + 1, j + 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -289,6 +303,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -308,6 +324,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canChange(start string, target string) bool {
@@ -336,6 +354,8 @@ func canChange(start string, target string) bool {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canChange(start: string, target: string): boolean {

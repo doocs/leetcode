@@ -65,6 +65,8 @@ When i = 4, arr[4] = 0 because there is no other index with value 2.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def distance(self, nums: List[int]) -> List[int]:
@@ -81,6 +83,8 @@ class Solution:
                     right -= (idx[i + 1] - idx[i]) * (len(idx) - i - 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -140,6 +146,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func distance(nums []int) []int64 {

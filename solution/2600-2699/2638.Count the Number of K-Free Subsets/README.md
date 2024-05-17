@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countTheNumOfKFreeSubsets(self, nums: List[int], k: int) -> int:
@@ -101,6 +103,8 @@ class Solution:
             ans *= f[m]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +133,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -159,6 +165,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countTheNumOfKFreeSubsets(nums []int, k int) int64 {
 	sort.Ints(nums)
@@ -184,6 +192,8 @@ func countTheNumOfKFreeSubsets(nums []int, k int) int64 {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countTheNumOfKFreeSubsets(nums: number[], k: number): number {

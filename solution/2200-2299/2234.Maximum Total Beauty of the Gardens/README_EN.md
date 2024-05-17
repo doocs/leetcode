@@ -91,6 +91,8 @@ Note that Alice could make all the gardens complete but in this case, she would 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumBeauty(
@@ -118,6 +120,8 @@ class Solution:
             ans = max(ans, x * full + y * partial)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -161,6 +165,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -202,6 +208,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumBeauty(flowers []int, newFlowers int64, target int, full int, partial int) int64 {
 	sort.Ints(flowers)
@@ -238,6 +246,8 @@ func maximumBeauty(flowers []int, newFlowers int64, target int, full int, partia
 	return int64(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumBeauty(

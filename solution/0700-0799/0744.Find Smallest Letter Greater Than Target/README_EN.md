@@ -75,12 +75,16 @@ The time complexity is $O(\log n)$, where $n$ is the length of `letters`. The sp
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def nextGreatestLetter(self, letters: List[str], target: str) -> str:
         i = bisect_right(letters, ord(target), key=lambda c: ord(c))
         return letters[i % len(letters)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +96,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -102,12 +108,16 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func nextGreatestLetter(letters []byte, target byte) byte {
 	i := sort.Search(len(letters), func(i int) bool { return letters[i] > target })
 	return letters[i%len(letters)]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function nextGreatestLetter(letters: string[], target: string): string {
@@ -123,6 +133,8 @@ function nextGreatestLetter(letters: string[], target: string): string {
     return letters[l % letters.length];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -141,6 +153,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

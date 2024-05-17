@@ -105,6 +105,8 @@ Similar problems:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfBeautifulIntegers(self, low: int, high: int, k: int) -> int:
@@ -129,6 +131,8 @@ class Solution:
         b = dfs(0, 0, 10, 1, 1)
         return a - b
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -171,6 +175,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -210,6 +216,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfBeautifulIntegers(low int, high int, k int) int {
@@ -270,6 +278,8 @@ func g(m, n, k int) [][][]int {
 	return f
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfBeautifulIntegers(low: number, high: number, k: number): number {

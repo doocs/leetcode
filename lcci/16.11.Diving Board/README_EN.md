@@ -59,6 +59,8 @@ The time complexity is $O(k)$, where $k$ is the number of boards. Ignoring the s
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def divingBoard(self, shorter: int, longer: int, k: int) -> List[int]:
@@ -71,6 +73,8 @@ class Solution:
             ans.append(longer * i + shorter * (k - i))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +94,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -103,6 +109,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func divingBoard(shorter int, longer int, k int) []int {
@@ -120,6 +128,8 @@ func divingBoard(shorter int, longer int, k int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function divingBoard(shorter: number, longer: number, k: number): number[] {
     if (k === 0) {
@@ -135,6 +145,8 @@ function divingBoard(shorter: number, longer: number, k: number): number[] {
     return ans;
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

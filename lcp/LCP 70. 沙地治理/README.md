@@ -73,6 +73,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2070.%20%E6%B2%99%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sandyLandManagement(self, size: int) -> List[List[int]]:
@@ -92,6 +94,8 @@ class Solution:
             k = (k + 1) % 4
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -143,6 +149,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func sandyLandManagement(size int) (ans [][]int) {

@@ -126,6 +126,8 @@ The accumulated runtime for all servers totals approximately 44.46 hours, equiva
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

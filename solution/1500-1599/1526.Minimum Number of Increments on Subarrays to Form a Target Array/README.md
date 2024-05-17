@@ -95,11 +95,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minNumberOperations(self, target: List[int]) -> int:
         return target[0] + sum(max(0, b - a) for a, b in pairwise(target))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -130,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minNumberOperations(target []int) int {
 	f := target[0]
@@ -141,6 +149,8 @@ func minNumberOperations(target []int) int {
 	return f
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minNumberOperations(target: number[]): number {

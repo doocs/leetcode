@@ -110,17 +110,25 @@ videoSharingPlatform.getViews(0);            // 没有视频与 videoId 0 相关
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 
 ```
+
+#### Java
 
 ```java
 
 ```
 
+#### C++
+
 ```cpp
 
 ```
+
+#### Go
 
 ```go
 

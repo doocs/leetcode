@@ -74,6 +74,8 @@ Primitive types are valid inputs.</pre>
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function jsonStringify(object: any): string {
     if (object === null) {

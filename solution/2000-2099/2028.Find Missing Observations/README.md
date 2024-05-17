@@ -92,6 +92,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def missingRolls(self, rolls: List[int], mean: int, n: int) -> List[int]:
@@ -104,6 +106,8 @@ class Solution:
             ans[i] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -140,6 +146,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func missingRolls(rolls []int, mean int, n int) []int {
@@ -161,6 +169,8 @@ func missingRolls(rolls []int, mean int, n int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function missingRolls(rolls: number[], mean: number, n: number): number[] {
@@ -193,6 +203,8 @@ function missingRolls(rolls: number[], mean: number, n: number): number[] {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

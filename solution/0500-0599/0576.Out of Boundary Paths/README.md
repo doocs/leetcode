@@ -61,6 +61,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findPaths(
@@ -82,6 +84,8 @@ class Solution:
         mod = 10**9 + 7
         return dfs(startRow, startColumn, maxMove)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -157,6 +163,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findPaths(m int, n int, maxMove int, startRow int, startColumn int) int {
@@ -205,6 +213,8 @@ func findPaths(m int, n int, maxMove int, startRow int, startColumn int) int {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {

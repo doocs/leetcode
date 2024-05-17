@@ -77,6 +77,8 @@ timeMap.get("foo", 5);         // 返回 "bar2"
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class TimeMap:
     def __init__(self):
@@ -98,6 +100,8 @@ class TimeMap:
 # obj.set(key,value,timestamp)
 # param_2 = obj.get(key,timestamp)
 ```
+
+#### Java
 
 ```java
 class TimeMap {
@@ -128,6 +132,8 @@ class TimeMap {
  */
 ```
 
+#### C++
+
 ```cpp
 class TimeMap {
 public:
@@ -156,6 +162,8 @@ private:
  * string param_2 = obj->get(key,timestamp);
  */
 ```
+
+#### Go
 
 ```go
 type TimeMap struct {

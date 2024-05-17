@@ -77,6 +77,8 @@ nums 的数字和是 1 + 2 + 3 + 4 = 10 。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def differenceOfSum(self, nums: List[int]) -> int:
@@ -87,6 +89,8 @@ class Solution:
                 x //= 10
         return abs(a - b)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -118,6 +124,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func differenceOfSum(nums []int) int {
@@ -139,6 +147,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function differenceOfSum(nums: number[]): number {
     return nums.reduce((r, v) => {
@@ -151,6 +161,8 @@ function differenceOfSum(nums: number[]): number {
     }, 0);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -168,6 +180,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int differenceOfSum(int* nums, int numsSize) {
@@ -192,6 +206,8 @@ int differenceOfSum(int* nums, int numsSize) {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {

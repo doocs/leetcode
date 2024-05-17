@@ -32,6 +32,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.05.Legal%20Binary%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -55,6 +57,8 @@ class Solution:
         prev = -inf
         return dfs(root)
 ```
+
+#### Java
 
 ```java
 /**
@@ -95,6 +99,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -129,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -157,6 +165,8 @@ func isValidBST(root *TreeNode) bool {
 	return dfs(root)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -191,6 +201,8 @@ function isValidBST(root: TreeNode | null): boolean {
     return dfs(root);
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -235,6 +247,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -266,6 +280,8 @@ var isValidBST = function (root) {
     return dfs(root);
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -303,6 +319,8 @@ public class Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 /* class TreeNode {

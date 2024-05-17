@@ -114,6 +114,8 @@ t = 1000
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 type Fn = (...params: any[]) => Promise<any>;
 

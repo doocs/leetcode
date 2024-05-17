@@ -95,6 +95,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumTime(self, s: str) -> int:
@@ -107,6 +109,8 @@ class Solution:
             suf[i] = suf[i + 1] if s[i] == '0' else min(suf[i + 1] + 2, n - i)
         return min(a + b for a, b in zip(pre[1:], suf[1:]))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -144,6 +150,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumTime(s string) int {

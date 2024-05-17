@@ -88,6 +88,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def makeAntiPalindrome(self, s: str) -> str:
@@ -106,6 +108,8 @@ class Solution:
                 i, j = i + 1, j + 1
         return "".join(cs)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +137,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -157,6 +163,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func makeAntiPalindrome(s string) string {
 	cs := []byte(s)
@@ -178,6 +186,8 @@ func makeAntiPalindrome(s string) string {
 	return string(cs)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function makeAntiPalindrome(s: string): string {

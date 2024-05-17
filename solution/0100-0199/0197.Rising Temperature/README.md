@@ -80,6 +80,8 @@ Weather 表：
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 import pandas as pd
 
@@ -90,6 +92,8 @@ def rising_temperature(weather: pd.DataFrame) -> pd.DataFrame:
         (weather.temperature.diff() > 0) & (weather.recordDate.diff().dt.days == 1)
     ][["id"]]
 ```
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -109,6 +113,8 @@ FROM
 ### 方法二
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

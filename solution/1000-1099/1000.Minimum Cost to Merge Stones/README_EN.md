@@ -78,6 +78,8 @@ The total cost was 25, and this is the minimum possible.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def mergeStones(self, stones: List[int], K: int) -> int:
@@ -97,6 +99,8 @@ class Solution:
                 f[i][j][1] = f[i][j][K] + s[j] - s[i - 1]
         return f[1][n][1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +139,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -168,6 +174,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func mergeStones(stones []int, K int) int {

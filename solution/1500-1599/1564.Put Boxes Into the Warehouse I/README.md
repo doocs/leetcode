@@ -95,6 +95,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxBoxesInWarehouse(self, boxes: List[int], warehouse: List[int]) -> int:
@@ -112,6 +114,8 @@ class Solution:
             i, j = i + 1, j - 1
         return i
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -138,6 +142,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -166,6 +172,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxBoxesInWarehouse(boxes []int, warehouse []int) int {
 	n := len(warehouse)
@@ -188,6 +196,8 @@ func maxBoxesInWarehouse(boxes []int, warehouse []int) int {
 	return i
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxBoxesInWarehouse(boxes: number[], warehouse: number[]): number {

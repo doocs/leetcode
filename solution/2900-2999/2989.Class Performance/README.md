@@ -83,6 +83,8 @@ student_id 321 拥有最高分为 230，而 student_id 896 拥有最低分为 11
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT

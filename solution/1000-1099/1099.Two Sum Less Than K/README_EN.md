@@ -67,6 +67,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def twoSumLessThanK(self, nums: List[int], k: int) -> int:
@@ -78,6 +80,8 @@ class Solution:
                 ans = max(ans, x + nums[j])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -125,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func twoSumLessThanK(nums []int, k int) int {
 	sort.Ints(nums)
@@ -138,6 +146,8 @@ func twoSumLessThanK(nums []int, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function twoSumLessThanK(nums: number[], k: number): number {
@@ -174,6 +184,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def twoSumLessThanK(self, nums: List[int], k: int) -> int:
@@ -188,6 +200,8 @@ class Solution:
                 j -= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -208,6 +222,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -227,6 +243,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func twoSumLessThanK(nums []int, k int) int {

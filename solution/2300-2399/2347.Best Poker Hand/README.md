@@ -91,6 +91,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def bestHand(self, ranks: List[int], suits: List[str]) -> str:
@@ -104,6 +106,8 @@ class Solution:
             return 'Pair'
         return 'High Card'
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +132,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -151,6 +157,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func bestHand(ranks []int, suits []byte) string {
@@ -177,6 +185,8 @@ func bestHand(ranks []int, suits []byte) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function bestHand(ranks: number[], suits: string[]): string {
     if (suits.every(v => v === suits[0])) {
@@ -196,6 +206,8 @@ function bestHand(ranks: number[], suits: string[]): string {
     return 'High Card';
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -217,6 +229,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 char* bestHand(int* ranks, int ranksSize, char* suits, int suitsSize) {

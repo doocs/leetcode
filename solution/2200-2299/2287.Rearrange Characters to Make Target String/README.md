@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def rearrangeCharacters(self, s: str, target: str) -> int:
@@ -87,6 +89,8 @@ class Solution:
         cnt2 = Counter(target)
         return min(cnt1[c] // v for c, v in cnt2.items())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -133,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func rearrangeCharacters(s string, target string) int {
 	var cnt1, cnt2 [26]int
@@ -151,6 +159,8 @@ func rearrangeCharacters(s string, target string) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function rearrangeCharacters(s: string, target: string): number {
@@ -173,6 +183,8 @@ function rearrangeCharacters(s: string, target: string): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn rearrange_characters(s: String, target: String) -> i32 {
@@ -194,6 +206,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define min(a, b) (((a) < (b)) ? (a) : (b))

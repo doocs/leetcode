@@ -72,6 +72,8 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here,
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumSemesters(self, n: int, relations: List[List[int]]) -> int:
@@ -94,6 +96,8 @@ class Solution:
                         q.append(j)
         return -1 if n else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +133,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -166,6 +172,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumSemesters(n int, relations [][]int) (ans int) {
 	g := make([][]int, n)
@@ -201,6 +209,8 @@ func minimumSemesters(n int, relations [][]int) (ans int) {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumSemesters(n: number, relations: number[][]): number {

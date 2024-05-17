@@ -101,6 +101,8 @@ The time complexity is $O(x + y)$, and the space complexity is $O(x + y)$. Here,
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canMeasureWater(self, x: int, y: int, z: int) -> bool:
@@ -119,6 +121,8 @@ class Solution:
         vis = set()
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -154,6 +158,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -187,6 +193,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canMeasureWater(x int, y int, z int) bool {

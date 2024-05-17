@@ -67,6 +67,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def addNegabinary(self, arr1: List[int], arr2: List[int]) -> List[int]:
@@ -90,6 +92,8 @@ class Solution:
             ans.pop()
         return ans[::-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -147,6 +153,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func addNegabinary(arr1 []int, arr2 []int) (ans []int) {
@@ -179,6 +187,8 @@ func addNegabinary(arr1 []int, arr2 []int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function addNegabinary(arr1: number[], arr2: number[]): number[] {
     let i = arr1.length - 1,
@@ -204,6 +214,8 @@ function addNegabinary(arr1: number[], arr2: number[]): number[] {
     return ans.reverse();
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

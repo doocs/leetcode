@@ -58,6 +58,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -79,6 +81,8 @@ class Solution:
                     return root.val
                 root = root.right
 ```
+
+#### Java
 
 ```java
 /**
@@ -116,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -148,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -176,6 +184,8 @@ func kthSmallest(root *TreeNode, k int) int {
 	return 0
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -211,6 +221,8 @@ function kthSmallest(root: TreeNode | null, k: number): number {
     return dfs(root);
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -264,6 +276,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -304,6 +318,8 @@ class Solution:
         bst = BST(root)
         return bst.kthSmallest(k)
 ```
+
+#### Java
 
 ```java
 /**
@@ -365,6 +381,8 @@ class BST {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -418,6 +436,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**

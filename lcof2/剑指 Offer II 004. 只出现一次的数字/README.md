@@ -61,6 +61,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
@@ -74,6 +76,8 @@ class Solution:
                     ans |= 1 << i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +95,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -110,6 +116,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func singleNumber(nums []int) int {
 	var ans int32
@@ -124,6 +132,8 @@ func singleNumber(nums []int) int {
 	return int(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function singleNumber(nums: number[]): number {

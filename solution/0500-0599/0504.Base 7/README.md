@@ -56,6 +56,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def convertToBase7(self, num: int) -> str:
@@ -69,6 +71,8 @@ class Solution:
             num //= 7
         return ''.join(ans[::-1])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +93,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -104,6 +110,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func convertToBase7(num int) string {
@@ -121,6 +129,8 @@ func convertToBase7(num int) string {
 	return string(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function convertToBase7(num: number): string {
@@ -140,6 +150,8 @@ function convertToBase7(num: number): string {
     return isMinus ? '-' + res : res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

@@ -49,6 +49,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
@@ -60,6 +62,8 @@ class Solution:
             counter[s] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -76,6 +80,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -94,6 +100,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subarraySum(nums []int, k int) int {
 	counter := map[int]int{0: 1}
@@ -106,6 +114,8 @@ func subarraySum(nums []int, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function subarraySum(nums: number[], k: number): number {
@@ -121,6 +131,8 @@ function subarraySum(nums: number[], k: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -153,6 +165,8 @@ impl Solution {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;

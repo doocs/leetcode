@@ -59,6 +59,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def makesquare(self, matchsticks: List[int]) -> bool:
@@ -81,6 +83,8 @@ class Solution:
         matchsticks.sort(reverse=True)
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -146,6 +152,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func makesquare(matchsticks []int) bool {
@@ -178,6 +186,8 @@ func makesquare(matchsticks []int) bool {
 	return dfs(0, s/4)
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -222,6 +232,8 @@ impl Solution {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

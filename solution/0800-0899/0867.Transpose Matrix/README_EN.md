@@ -60,11 +60,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def transpose(self, matrix: List[List[int]]) -> List[List[int]]:
         return list(zip(*matrix))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +85,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -95,6 +101,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func transpose(matrix [][]int) [][]int {
 	m, n := len(matrix), len(matrix[0])
@@ -108,6 +116,8 @@ func transpose(matrix [][]int) [][]int {
 	return ans
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

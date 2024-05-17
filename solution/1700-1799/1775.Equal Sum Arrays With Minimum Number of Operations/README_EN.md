@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, nums1: List[int], nums2: List[int]) -> int:
@@ -92,6 +94,8 @@ class Solution:
                 return i
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -147,6 +153,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minOperations(nums1 []int, nums2 []int) int {
@@ -193,6 +201,8 @@ func sum(nums []int) (s int) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, nums1: List[int], nums2: List[int]) -> int:
@@ -211,6 +221,8 @@ class Solution:
                 ans += 1
         return ans if d <= 0 else -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -244,6 +256,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -268,6 +282,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minOperations(nums1 []int, nums2 []int) (ans int) {

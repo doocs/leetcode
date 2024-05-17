@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxHappyGroups(self, batchSize: int, groups: List[int]) -> int:
@@ -102,6 +104,8 @@ class Solution:
         ans += dfs(state, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -141,6 +145,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -175,6 +181,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxHappyGroups(batchSize int, groups []int) (ans int) {
@@ -221,6 +229,8 @@ func maxHappyGroups(batchSize int, groups []int) (ans int) {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

@@ -72,6 +72,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isNStraightHand(self, hand: List[int], groupSize: int) -> bool:
@@ -86,6 +88,8 @@ class Solution:
                         cnt.pop(x)
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -136,6 +142,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isNStraightHand(hand []int, groupSize int) bool {
@@ -177,6 +185,8 @@ func isNStraightHand(hand []int, groupSize int) bool {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedDict
 
@@ -202,6 +212,8 @@ class Solution:
                     sd[i] -= 1
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -231,6 +243,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -252,6 +266,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isNStraightHand(hand []int, groupSize int) bool {

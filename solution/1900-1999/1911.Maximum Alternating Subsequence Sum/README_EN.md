@@ -95,6 +95,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxAlternatingSum(self, nums: List[int]) -> int:
@@ -106,6 +108,8 @@ class Solution:
             g[i] = max(f[i - 1] + x, g[i - 1])
         return max(f[n], g[n])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +126,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -137,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxAlternatingSum(nums []int) int64 {
 	n := len(nums)
@@ -150,6 +158,8 @@ func maxAlternatingSum(nums []int) int64 {
 	return int64(max(f[n], g[n]))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxAlternatingSum(nums: number[]): number {
@@ -174,6 +184,8 @@ function maxAlternatingSum(nums: number[]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxAlternatingSum(self, nums: List[int]) -> int:
@@ -182,6 +194,8 @@ class Solution:
             f, g = max(g - x, f), max(f + x, g)
         return max(f, g)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -198,6 +212,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -212,6 +228,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxAlternatingSum(nums []int) int64 {
 	var f, g int
@@ -221,6 +239,8 @@ func maxAlternatingSum(nums []int) int64 {
 	return int64(max(f, g))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxAlternatingSum(nums: number[]): number {

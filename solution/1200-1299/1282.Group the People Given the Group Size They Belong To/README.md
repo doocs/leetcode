@@ -74,6 +74,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def groupThePeople(self, groupSizes: List[int]) -> List[List[int]]:
@@ -82,6 +84,8 @@ class Solution:
             g[v].append(i)
         return [v[j : j + i] for i, v in g.items() for j in range(0, len(v), i)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -125,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func groupThePeople(groupSizes []int) [][]int {
 	n := len(groupSizes)
@@ -141,6 +149,8 @@ func groupThePeople(groupSizes []int) [][]int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function groupThePeople(groupSizes: number[]): number[][] {
@@ -163,6 +173,8 @@ function groupThePeople(groupSizes: number[]): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

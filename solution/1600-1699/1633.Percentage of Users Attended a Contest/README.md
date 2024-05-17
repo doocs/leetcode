@@ -109,6 +109,8 @@ Bob 注册了 207 赛事，注册率为 ((1/3) * 100) = 33.33%</pre>
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT

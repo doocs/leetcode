@@ -82,6 +82,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countVisitedNodes(self, edges: List[int]) -> List[int]:
@@ -106,6 +108,8 @@ class Solution:
                     j = edges[j]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +140,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -165,6 +171,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countVisitedNodes(edges []int) []int {
 	n := len(edges)
@@ -193,6 +201,8 @@ func countVisitedNodes(edges []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countVisitedNodes(edges: number[]): number[] {
@@ -230,6 +240,8 @@ function countVisitedNodes(edges: number[]): number[] {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {

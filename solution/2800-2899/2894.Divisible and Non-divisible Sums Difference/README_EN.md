@@ -86,11 +86,15 @@ The time complexity is $O(n)$, where $n$ is the given integer. The space complex
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def differenceOfSums(self, n: int, m: int) -> int:
         return sum(i if i % m else -i for i in range(1, n + 1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -117,6 +123,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func differenceOfSums(n int, m int) (ans int) {
 	for i := 1; i <= n; i++ {
@@ -129,6 +137,8 @@ func differenceOfSums(n int, m int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function differenceOfSums(n: number, m: number): number {
@@ -149,6 +159,8 @@ function differenceOfSums(n: number, m: number): number {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {

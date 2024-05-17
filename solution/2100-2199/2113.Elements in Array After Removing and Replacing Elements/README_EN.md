@@ -90,6 +90,8 @@ At minute 3, nums[0] does not exist.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def elementInNums(self, nums: List[int], queries: List[List[int]]) -> List[int]:
@@ -103,6 +105,8 @@ class Solution:
                 ans[j] = nums[i]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +128,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -143,6 +149,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func elementInNums(nums []int, queries [][]int) []int {

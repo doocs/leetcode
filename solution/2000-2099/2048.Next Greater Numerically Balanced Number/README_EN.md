@@ -82,6 +82,8 @@ The time complexity is $O(M - n)$, where $M = 1224444$. The space complexity is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def nextBeautifulNumber(self, n: int) -> int:
@@ -94,6 +96,8 @@ class Solution:
             if all(v == 0 or i == v for i, v in enumerate(cnt)):
                 return x
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -142,6 +148,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func nextBeautifulNumber(n int) int {
 	for x := n + 1; ; x++ {
@@ -162,6 +170,8 @@ func nextBeautifulNumber(n int) int {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function nextBeautifulNumber(n: number): number {

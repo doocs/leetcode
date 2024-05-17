@@ -98,6 +98,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def flipLights(self, n: int, presses: int) -> int:
@@ -116,6 +118,8 @@ class Solution:
                 vis.add(t)
         return len(vis)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -142,6 +146,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -166,6 +172,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func flipLights(n int, presses int) int {

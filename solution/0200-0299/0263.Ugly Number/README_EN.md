@@ -62,6 +62,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isUgly(self, n: int) -> bool:
@@ -72,6 +74,8 @@ class Solution:
                 n //= x
         return n == 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +94,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -110,6 +116,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isUgly(n int) bool {
 	if n < 1 {
@@ -123,6 +131,8 @@ func isUgly(n int) bool {
 	return n == 1
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -143,6 +153,8 @@ var isUgly = function (n) {
     return n === 1;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {

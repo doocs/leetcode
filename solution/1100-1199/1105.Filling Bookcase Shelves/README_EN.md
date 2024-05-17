@@ -81,6 +81,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ i
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minHeightShelves(self, books: List[List[int]], shelfWidth: int) -> int:
@@ -96,6 +98,8 @@ class Solution:
                 f[i] = min(f[i], f[j - 1] + h)
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +122,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -143,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minHeightShelves(books [][]int, shelfWidth int) int {
 	n := len(books)
@@ -163,6 +171,8 @@ func minHeightShelves(books [][]int, shelfWidth int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minHeightShelves(books: number[][], shelfWidth: number): number {
     const n = books.length;
@@ -182,6 +192,8 @@ function minHeightShelves(books: number[][], shelfWidth: number): number {
     return f[n];
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

@@ -88,6 +88,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def miceAndCheese(self, reward1: List[int], reward2: List[int], k: int) -> int:
@@ -95,6 +97,8 @@ class Solution:
         idx = sorted(range(n), key=lambda i: reward1[i] - reward2[i], reverse=True)
         return sum(reward1[i] for i in idx[:k]) + sum(reward2[i] for i in idx[k:])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -136,6 +142,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func miceAndCheese(reward1 []int, reward2 []int, k int) (ans int) {
@@ -157,6 +165,8 @@ func miceAndCheese(reward1 []int, reward2 []int, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function miceAndCheese(reward1: number[], reward2: number[], k: number): number {
@@ -184,6 +194,8 @@ function miceAndCheese(reward1: number[], reward2: number[], k: number): number 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def miceAndCheese(self, reward1: List[int], reward2: List[int], k: int) -> int:
@@ -192,6 +204,8 @@ class Solution:
         reward1.sort(reverse=True)
         return sum(reward2) + sum(reward1[:k])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -211,6 +225,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -228,6 +244,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func miceAndCheese(reward1 []int, reward2 []int, k int) (ans int) {
 	for i, x := range reward2 {
@@ -242,6 +260,8 @@ func miceAndCheese(reward1 []int, reward2 []int, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function miceAndCheese(reward1: number[], reward2: number[], k: number): number {

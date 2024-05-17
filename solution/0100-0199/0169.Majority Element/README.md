@@ -73,6 +73,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
@@ -84,6 +86,8 @@ class Solution:
                 cnt += 1 if m == x else -1
         return m
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -120,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func majorityElement(nums []int) int {
 	var cnt, m int
@@ -138,6 +146,8 @@ func majorityElement(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function majorityElement(nums: number[]): number {
     let cnt: number = 0;
@@ -153,6 +163,8 @@ function majorityElement(nums: number[]): number {
     return m;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -171,6 +183,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -192,6 +206,8 @@ var majorityElement = function (nums) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int MajorityElement(int[] nums) {
@@ -208,6 +224,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

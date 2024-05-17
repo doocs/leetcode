@@ -81,11 +81,15 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def dayOfTheWeek(self, day: int, month: int, year: int) -> str:
         return datetime.date(year, month, day).strftime('%A')
 ```
+
+#### Java
 
 ```java
 import java.util.Calendar;
@@ -101,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -119,6 +125,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func dayOfTheWeek(d int, m int, y int) string {
 	if m < 3 {
@@ -132,6 +140,8 @@ func dayOfTheWeek(d int, m int, y int) string {
 	return weeks[(w+7)%7]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function dayOfTheWeek(d: number, m: number, y: number): string {
@@ -165,6 +175,8 @@ function dayOfTheWeek(d: number, m: number, y: number): string {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def dayOfTheWeek(self, d: int, m: int, y: int) -> str:
@@ -184,6 +196,8 @@ class Solution:
             "Saturday",
         ][w]
 ```
+
+#### Java
 
 ```java
 class Solution {

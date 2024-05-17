@@ -61,6 +61,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def possibleBipartition(self, n: int, dislikes: List[List[int]]) -> bool:
@@ -81,6 +83,8 @@ class Solution:
             g[b].append(a)
         return all(c or dfs(i, 1) for i, c in enumerate(color))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -147,6 +153,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func possibleBipartition(n int, dislikes [][]int) bool {
@@ -179,6 +187,8 @@ func possibleBipartition(n int, dislikes [][]int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function possibleBipartition(n: number, dislikes: number[][]): boolean {
     const color = new Array(n + 1).fill(0);
@@ -204,6 +214,8 @@ function possibleBipartition(n: number, dislikes: number[][]): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -246,6 +258,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def possibleBipartition(self, n: int, dislikes: List[List[int]]) -> bool:
@@ -267,6 +281,8 @@ class Solution:
                 p[find(j)] = find(g[i][0])
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -304,6 +320,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -330,6 +348,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func possibleBipartition(n int, dislikes [][]int) bool {

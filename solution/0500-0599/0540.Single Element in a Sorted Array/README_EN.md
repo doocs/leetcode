@@ -49,6 +49,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def singleNonDuplicate(self, nums: List[int]) -> int:
@@ -62,6 +64,8 @@ class Solution:
                 left = mid + 1
         return nums[left]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +86,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -99,6 +105,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func singleNonDuplicate(nums []int) int {
 	left, right := 0, len(nums)-1
@@ -113,6 +121,8 @@ func singleNonDuplicate(nums []int) int {
 	return nums[left]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function singleNonDuplicate(nums: number[]): number {
@@ -129,6 +139,8 @@ function singleNonDuplicate(nums: number[]): number {
     return nums[left];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -147,6 +159,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int singleNonDuplicate(int* nums, int numsSize) {

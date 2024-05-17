@@ -96,6 +96,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def soupServings(self, n: int) -> float:
@@ -116,6 +118,8 @@ class Solution:
 
         return 1 if n > 4800 else dfs((n + 24) // 25, (n + 24) // 25)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -146,6 +150,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -164,6 +170,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func soupServings(n int) float64 {
@@ -192,6 +200,8 @@ func soupServings(n int) float64 {
 	return dfs((n+24)/25, (n+24)/25)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function soupServings(n: number): number {

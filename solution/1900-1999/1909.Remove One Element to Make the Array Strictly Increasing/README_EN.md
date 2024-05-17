@@ -71,6 +71,8 @@ No resulting array is strictly increasing, so return false.</pre>
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canBeIncreasing(self, nums: List[int]) -> bool:
@@ -89,6 +91,8 @@ class Solution:
             i += 1
         return check(nums, i - 1) or check(nums, i)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -136,6 +142,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canBeIncreasing(nums []int) bool {
@@ -161,6 +169,8 @@ func check(nums []int, i int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canBeIncreasing(nums: number[]): boolean {
     const check = (p: number) => {
@@ -183,6 +193,8 @@ function canBeIncreasing(nums: number[]): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

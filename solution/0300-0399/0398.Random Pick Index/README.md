@@ -75,6 +75,8 @@ solution.pick(3); // 随机返回索引 2, 3 或者 4 之一。每个索引的�
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def __init__(self, nums: List[int]):
@@ -95,6 +97,8 @@ class Solution:
 # obj = Solution(nums)
 # param_1 = obj.pick(target)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +131,8 @@ class Solution {
  */
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -155,6 +161,8 @@ public:
  * int param_1 = obj->pick(target);
  */
 ```
+
+#### Go
 
 ```go
 type Solution struct {

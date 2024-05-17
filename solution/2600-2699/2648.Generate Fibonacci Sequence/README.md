@@ -62,6 +62,8 @@ gen.next().value; // 3
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function* fibGenerator(): Generator<number, any, number> {
     let a = 0;

@@ -66,6 +66,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def constructDistancedSequence(self, n: int) -> List[int]:
@@ -95,6 +97,8 @@ class Solution:
         dfs(1)
         return path[1:]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -150,6 +154,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -190,6 +196,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func constructDistancedSequence(n int) []int {

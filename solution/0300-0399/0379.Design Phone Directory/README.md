@@ -77,6 +77,8 @@ directory.check(2);
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class PhoneDirectory:
     def __init__(self, maxNumbers: int):
@@ -116,6 +118,8 @@ class PhoneDirectory:
 # param_2 = obj.check(number)
 # obj.release(number)
 ```
+
+#### Java
 
 ```java
 class PhoneDirectory {

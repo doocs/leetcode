@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minBitFlips(self, start: int, goal: int) -> int:
@@ -79,6 +81,8 @@ class Solution:
             t >>= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +97,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -109,6 +115,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minBitFlips(start int, goal int) int {
 	t := start ^ goal
@@ -121,6 +129,8 @@ func minBitFlips(start int, goal int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minBitFlips(start: number, goal: number): number {
     let tmp = start ^ goal;
@@ -132,6 +142,8 @@ function minBitFlips(start: number, goal: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -146,6 +158,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int minBitFlips(int start, int goal) {

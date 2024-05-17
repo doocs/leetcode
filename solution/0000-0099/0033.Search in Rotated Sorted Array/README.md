@@ -84,6 +84,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
@@ -103,6 +105,8 @@ class Solution:
                     right = mid
         return left if nums[left] == target else -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -154,6 +160,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func search(nums []int, target int) int {
@@ -182,6 +190,8 @@ func search(nums []int, target int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function search(nums: number[], target: number): number {
     const n = nums.length;
@@ -206,6 +216,8 @@ function search(nums: number[], target: number): number {
     return nums[left] == target ? left : -1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -237,6 +249,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -266,6 +280,8 @@ var search = function (nums, target) {
     return nums[left] == target ? left : -1;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {

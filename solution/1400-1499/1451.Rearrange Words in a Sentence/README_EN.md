@@ -78,6 +78,8 @@ Output is ordered by length and the new first word starts with capital letter.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def arrangeWords(self, text: str) -> str:
@@ -87,6 +89,8 @@ class Solution:
         words[0] = words[0].title()
         return " ".join(words)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +103,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -125,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func arrangeWords(text string) string {
 	words := strings.Split(text, " ")
@@ -135,6 +143,8 @@ func arrangeWords(text string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function arrangeWords(text: string): string {
     let words: string[] = text.split(' ');
@@ -144,6 +154,8 @@ function arrangeWords(text: string): string {
     return words.join(' ');
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -158,6 +170,8 @@ var arrangeWords = function (text) {
     return arr.join(' ');
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {

@@ -82,6 +82,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumOfBeauties(self, nums: List[int]) -> int:
@@ -100,6 +102,8 @@ class Solution:
             l = max(l, nums[i])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -150,6 +156,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumOfBeauties(nums []int) (ans int) {
 	n := len(nums)
@@ -170,6 +178,8 @@ func sumOfBeauties(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumOfBeauties(nums: number[]): number {

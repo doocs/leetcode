@@ -84,11 +84,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def distinctIntegers(self, n: int) -> int:
         return max(1, n - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -107,17 +113,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distinctIntegers(n int) int {
 	return max(1, n-1)
 }
 ```
 
+#### TypeScript
+
 ```ts
 function distinctIntegers(n: number): number {
     return Math.max(1, n - 1);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

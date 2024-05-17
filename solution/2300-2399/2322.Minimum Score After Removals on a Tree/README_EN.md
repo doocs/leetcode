@@ -89,6 +89,8 @@ We cannot obtain a smaller score than 0.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumScore(self, nums: List[int], edges: List[List[int]]) -> int:
@@ -128,6 +130,8 @@ class Solution:
                 dfs2(i, -1, j)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -187,6 +191,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -238,6 +244,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumScore(nums []int, edges [][]int) int {

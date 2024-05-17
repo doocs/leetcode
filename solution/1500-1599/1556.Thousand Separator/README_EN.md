@@ -52,6 +52,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def thousandSeparator(self, n: int) -> str:
@@ -68,6 +70,8 @@ class Solution:
                 cnt = 0
         return ''.join(ans[::-1])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +96,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -113,6 +119,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func thousandSeparator(n int) string {

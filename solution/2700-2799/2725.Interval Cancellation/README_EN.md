@@ -128,6 +128,8 @@ Cancelled at 180ms
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function cancellable(fn: Function, args: any[], t: number): Function {
     fn(...args);

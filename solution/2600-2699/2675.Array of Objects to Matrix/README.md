@@ -153,6 +153,8 @@ arr = [
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function jsonToMatrix(arr: any[]): (string | number | boolean | null)[] {
     const dfs = (key: string, obj: any) => {

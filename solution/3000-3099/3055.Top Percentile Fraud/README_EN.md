@@ -91,6 +91,8 @@ We can use the `RANK()` window function to calculate the ranking of fraud scores
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

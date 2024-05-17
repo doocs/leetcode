@@ -73,6 +73,8 @@ twitter.getNewsFeed(1);  // 用户 1 获取推文应当返回一个列表，其�
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Twitter:
     def __init__(self):
@@ -125,6 +127,8 @@ class Twitter:
 # obj.follow(followerId,followeeId)
 # obj.unfollow(followerId,followeeId)
 ```
+
+#### Java
 
 ```java
 class Twitter {

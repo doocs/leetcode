@@ -71,6 +71,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumEvenAfterQueries(
@@ -87,6 +89,8 @@ class Solution:
             ans.append(s)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -143,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumEvenAfterQueries(nums []int, queries [][]int) (ans []int) {
 	s := 0
@@ -166,6 +174,8 @@ func sumEvenAfterQueries(nums []int, queries [][]int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sumEvenAfterQueries(nums: number[], queries: number[][]): number[] {
     let s = 0;
@@ -188,6 +198,8 @@ function sumEvenAfterQueries(nums: number[], queries: number[][]): number[] {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

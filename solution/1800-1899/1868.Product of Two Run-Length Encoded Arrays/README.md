@@ -86,6 +86,8 @@ prodNums = [2,2,2,6,9,9]，压缩成行程编码数组 [[2,3],[6,1],[9,2]]。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findRLEArray(
@@ -107,6 +109,8 @@ class Solution:
                     j += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +140,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -163,6 +169,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findRLEArray(encoded1 [][]int, encoded2 [][]int) (ans [][]int) {

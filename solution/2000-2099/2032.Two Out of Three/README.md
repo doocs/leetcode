@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def twoOutOfThree(
@@ -84,6 +86,8 @@ class Solution:
         s1, s2, s3 = set(nums1), set(nums2), set(nums3)
         return [i for i in range(1, 101) if (i in s1) + (i in s2) + (i in s3) > 1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -129,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func twoOutOfThree(nums1 []int, nums2 []int, nums3 []int) (ans []int) {
 	get := func(nums []int) (s [101]int) {
@@ -147,6 +155,8 @@ func twoOutOfThree(nums1 []int, nums2 []int, nums3 []int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function twoOutOfThree(nums1: number[], nums2: number[], nums3: number[]): number[] {
     const count = new Array(101).fill(0);
@@ -162,6 +172,8 @@ function twoOutOfThree(nums1: number[], nums2: number[], nums3: number[]): numbe
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;

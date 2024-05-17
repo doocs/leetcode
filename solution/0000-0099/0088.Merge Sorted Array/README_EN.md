@@ -83,6 +83,8 @@ The time complexity is $O(m + n)$, where $m$ and $n$ are the lengths of two arra
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
@@ -98,6 +100,8 @@ class Solution:
             k -= 1
 ```
 
+#### Java
+
 ```java
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
@@ -107,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -118,6 +124,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func merge(nums1 []int, m int, nums2 []int, n int) {
@@ -133,6 +141,8 @@ func merge(nums1 []int, m int, nums2 []int, n int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  Do not return anything, modify nums1 in-place instead.
@@ -143,6 +153,8 @@ function merge(nums1: number[], m: number, nums2: number[], n: number): void {
     }
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -155,6 +167,8 @@ function merge(nums1: number[], m: number, nums2: number[], n: number): void {
     nums1.sort((a, b) => a - b);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -185,6 +199,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums1
@@ -199,6 +215,8 @@ var merge = function (nums1, m, nums2, n) {
     }
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {

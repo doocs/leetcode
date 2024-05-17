@@ -108,6 +108,8 @@ emitter.emit("firstEvent", [5]); // [7]</pre>
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 type Callback = (...args: any[]) => any;
 type Subscription = {

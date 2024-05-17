@@ -61,6 +61,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numDistinctIslands(self, grid: List[List[int]]) -> int:
@@ -85,6 +87,8 @@ class Solution:
                     path.clear()
         return len(paths)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -161,6 +167,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numDistinctIslands(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
@@ -191,6 +199,8 @@ func numDistinctIslands(grid [][]int) int {
 	return len(paths)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numDistinctIslands(grid: number[][]): number {

@@ -78,6 +78,8 @@ The time complexity is $O(n)$, where $n$ is the length of the string $s$. The sp
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isDecomposable(self, s: str) -> bool:
@@ -95,6 +97,8 @@ class Solution:
             i = j
         return cnt2 == 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +122,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -143,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isDecomposable(s string) bool {
 	i, n := 0, len(s)
@@ -166,6 +174,8 @@ func isDecomposable(s string) bool {
 	return cnt2 == 1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isDecomposable(s: string): boolean {
@@ -197,6 +207,8 @@ function isDecomposable(s: string): boolean {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

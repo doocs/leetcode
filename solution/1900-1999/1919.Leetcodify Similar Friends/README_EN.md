@@ -115,6 +115,8 @@ Users 2 and 5 are friends and listened to songs 10, 11, and 12, but they did not
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT DISTINCT user1_id, user2_id

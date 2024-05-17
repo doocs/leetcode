@@ -80,6 +80,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -101,6 +103,8 @@ class Solution:
 
         return dfs(root) != -1
 ```
+
+#### Java
 
 ```java
 /**
@@ -131,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -159,6 +165,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -191,6 +199,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -238,6 +248,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -265,6 +277,8 @@ var isBalanced = function (root) {
     return dfs(root) !== -1;
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -304,6 +318,8 @@ public class Solution {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.

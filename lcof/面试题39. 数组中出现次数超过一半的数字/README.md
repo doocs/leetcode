@@ -59,6 +59,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
@@ -70,6 +72,8 @@ class Solution:
                 cnt += 1 if m == v else -1
         return m
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +92,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -104,6 +110,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func majorityElement(nums []int) int {
@@ -123,6 +131,8 @@ func majorityElement(nums []int) int {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn majority_element(nums: Vec<i32>) -> i32 {
@@ -140,6 +150,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -160,6 +172,8 @@ var majorityElement = function (nums) {
     return m;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

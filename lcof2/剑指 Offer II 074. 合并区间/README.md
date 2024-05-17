@@ -73,6 +73,8 @@ def merge(intervals):
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
@@ -88,6 +90,8 @@ class Solution:
         ans.append([st, ed])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func merge(intervals [][]int) [][]int {
 	sort.Slice(intervals, func(i, j int) bool {
@@ -151,6 +159,8 @@ func merge(intervals [][]int) [][]int {
 	return ans
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

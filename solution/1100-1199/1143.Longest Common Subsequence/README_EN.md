@@ -84,6 +84,8 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(m \times 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestCommonSubsequence(self, text1: str, text2: str) -> int:
@@ -97,6 +99,8 @@ class Solution:
                     f[i][j] = max(f[i - 1][j], f[i][j - 1])
         return f[m][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -138,6 +144,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestCommonSubsequence(text1 string, text2 string) int {
 	m, n := len(text1), len(text2)
@@ -158,6 +166,8 @@ func longestCommonSubsequence(text1 string, text2 string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestCommonSubsequence(text1: string, text2: string): number {
     const m = text1.length;
@@ -175,6 +185,8 @@ function longestCommonSubsequence(text1: string, text2: string): number {
     return f[m][n];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -195,6 +207,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -219,6 +233,8 @@ var longestCommonSubsequence = function (text1, text2) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int LongestCommonSubsequence(string text1, string text2) {
@@ -237,6 +253,8 @@ public class Solution {
     }
 }
 ```
+
+#### Kotlin
 
 ```kotlin
 class Solution {

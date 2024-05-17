@@ -84,6 +84,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def smallestChair(self, times: List[List[int]], targetFriend: int) -> int:
@@ -103,6 +105,8 @@ class Solution:
             heappush(busy, (b, c))
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +135,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 using pii = pair<int, int>;

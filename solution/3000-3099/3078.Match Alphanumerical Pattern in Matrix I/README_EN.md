@@ -195,6 +195,8 @@ The time complexity is $O(m \times n \times r \times c)$, where $m$ and $n$ are 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findPattern(self, board: List[List[int]], pattern: List[str]) -> List[int]:
@@ -224,6 +226,8 @@ class Solution:
                     return [i, j]
         return [-1, -1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -271,6 +275,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -315,6 +321,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findPattern(board [][]int, pattern []string) []int {
 	m, n := len(board), len(board[0])
@@ -355,6 +363,8 @@ func findPattern(board [][]int, pattern []string) []int {
 	return []int{-1, -1}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findPattern(board: number[][], pattern: string[]): number[] {

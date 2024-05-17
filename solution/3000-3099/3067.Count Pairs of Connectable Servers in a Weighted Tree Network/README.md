@@ -91,6 +91,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countPairsOfConnectableServers(
@@ -117,6 +119,8 @@ class Solution:
                 s += t
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -159,6 +163,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -192,6 +198,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countPairsOfConnectableServers(edges [][]int, signalSpeed int) []int {
@@ -230,6 +238,8 @@ func countPairsOfConnectableServers(edges [][]int, signalSpeed int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countPairsOfConnectableServers(edges: number[][], signalSpeed: number): number[] {

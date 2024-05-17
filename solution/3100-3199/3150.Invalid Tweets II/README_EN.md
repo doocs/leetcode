@@ -89,6 +89,8 @@ We can use the `LENGTH()` function to calculate the length of the string, calcul
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT tweet_id
@@ -98,6 +100,8 @@ WHERE LENGTH(content) > 140
     OR (LENGTH(content) - LENGTH(REPLACE(content, '#', ''))) > 3
 ORDER BY 1;
 ```
+
+#### Python3
 
 ```python
 import pandas as pd

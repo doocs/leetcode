@@ -63,6 +63,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def tourOfKnight(self, m: int, n: int, r: int, c: int) -> List[List[int]]:
@@ -86,6 +88,8 @@ class Solution:
         dfs(r, c)
         return g
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -157,6 +163,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func tourOfKnight(m int, n int, r int, c int) [][]int {
@@ -193,6 +201,8 @@ func tourOfKnight(m int, n int, r int, c int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function tourOfKnight(m: number, n: number, r: number, c: number): number[][] {
     const g: number[][] = Array.from({ length: m }, () => Array(n).fill(-1));
@@ -220,6 +230,8 @@ function tourOfKnight(m: number, n: number, r: number, c: number): number[][] {
     return g;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

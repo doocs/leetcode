@@ -60,6 +60,8 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(m \times 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def floodFill(
@@ -83,6 +85,8 @@ class Solution:
         dfs(sr, sc)
         return image
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -134,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func floodFill(image [][]int, sr int, sc int, newColor int) [][]int {
 	oc := image[sr][sc]
@@ -153,6 +161,8 @@ func floodFill(image [][]int, sr int, sc int, newColor int) [][]int {
 	return image
 }
 ```
+
+#### TypeScript
 
 ```ts
 function floodFill(image: number[][], sr: number, sc: number, newColor: number): number[][] {
@@ -179,6 +189,8 @@ function floodFill(image: number[][], sr: number, sc: number, newColor: number):
     return image;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -212,6 +224,8 @@ impl Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -254,6 +268,8 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(m \times 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def floodFill(
@@ -274,6 +290,8 @@ class Solution:
                     image[x][y] = newColor
         return image
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -303,6 +321,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -330,6 +350,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func floodFill(image [][]int, sr int, sc int, newColor int) [][]int {
 	if image[sr][sc] == newColor {
@@ -353,6 +375,8 @@ func floodFill(image [][]int, sr int, sc int, newColor int) [][]int {
 	return image
 }
 ```
+
+#### TypeScript
 
 ```ts
 function floodFill(image: number[][], sr: number, sc: number, newColor: number): number[][] {

@@ -64,6 +64,8 @@ The time complexity is $O(n)$, and the space complexity is $O(M)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfPoints(self, nums: List[List[int]]) -> int:
@@ -73,6 +75,8 @@ class Solution:
             d[b + 1] -= 1
         return sum(s > 0 for s in accumulate(d))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +98,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -113,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfPoints(nums [][]int) (ans int) {
 	d := [110]int{}
@@ -130,6 +138,8 @@ func numberOfPoints(nums [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfPoints(nums: number[][]): number {

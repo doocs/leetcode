@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -102,6 +104,8 @@ class Solution:
             cur = pre
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -149,6 +153,8 @@ class Solution {
 }
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -184,6 +190,8 @@ func reverse(start, end *ListNode) *ListNode {
 	return pre
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -235,6 +243,8 @@ function reverse(head: ListNode, tail: ListNode) {
     return [tail, head];
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -294,6 +304,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 /**
  * Definition for singly-linked list.
@@ -344,6 +356,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 # Definition for singly-linked list.
@@ -411,6 +425,8 @@ class Solution {
 
 <!-- tabs:start -->
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -442,6 +458,8 @@ func reverse(start, end *ListNode) *ListNode {
 	return pre
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

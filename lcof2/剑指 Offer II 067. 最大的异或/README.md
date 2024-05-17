@@ -81,6 +81,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMaximumXOR(self, nums: List[int]) -> int:
@@ -102,6 +104,8 @@ class Solution:
                     break
         return max
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +135,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -179,6 +185,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type Trie struct {
@@ -243,6 +251,8 @@ func findMaximumXOR(nums []int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Trie:
     def __init__(self):
@@ -277,6 +287,8 @@ class Solution:
             trie.insert(v)
         return max(trie.search(v) for v in nums)
 ```
+
+#### Java
 
 ```java
 class Trie {

@@ -77,11 +77,15 @@ The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimizedStringLength(self, s: str) -> int:
         return len(set(s))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +99,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -104,6 +110,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimizedStringLength(s string) int {
@@ -115,11 +123,15 @@ func minimizedStringLength(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimizedStringLength(s: string): number {
     return new Set(s.split('')).size;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -146,6 +158,8 @@ impl Solution {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;

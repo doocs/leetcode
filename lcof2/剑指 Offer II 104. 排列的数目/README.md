@@ -70,6 +70,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def combinationSum4(self, nums: List[int], target: int) -> int:
@@ -81,6 +83,8 @@ class Solution:
                     dp[i] += dp[i - num]
         return dp[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -117,6 +123,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func combinationSum4(nums []int, target int) int {

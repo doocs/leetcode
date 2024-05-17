@@ -86,6 +86,8 @@ We group the `Listings` table by `city`, then calculate the average house price 
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT city

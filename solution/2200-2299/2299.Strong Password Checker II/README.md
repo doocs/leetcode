@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def strongPasswordCheckerII(self, password: str) -> bool:
@@ -99,6 +101,8 @@ class Solution:
                 mask |= 8
         return mask == 15
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +130,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -155,6 +161,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func strongPasswordCheckerII(password string) bool {
 	if len(password) < 8 {
@@ -178,6 +186,8 @@ func strongPasswordCheckerII(password string) bool {
 	return mask == 15
 }
 ```
+
+#### TypeScript
 
 ```ts
 function strongPasswordCheckerII(password: string): boolean {
@@ -203,6 +213,8 @@ function strongPasswordCheckerII(password: string): boolean {
     return mask == 15;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -233,6 +245,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 bool strongPasswordCheckerII(char* password) {

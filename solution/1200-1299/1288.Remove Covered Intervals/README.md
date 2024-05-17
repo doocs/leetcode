@@ -55,6 +55,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def removeCoveredIntervals(self, intervals: List[List[int]]) -> int:
@@ -66,6 +68,8 @@ class Solution:
                 pre = e
         return cnt
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -84,6 +88,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -101,6 +107,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func removeCoveredIntervals(intervals [][]int) int {

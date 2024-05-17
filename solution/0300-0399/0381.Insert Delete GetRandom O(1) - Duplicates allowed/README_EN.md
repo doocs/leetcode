@@ -80,6 +80,8 @@ randomizedCollection.getRandom(); // getRandom should return 1 or 2, both equall
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class RandomizedCollection:
     def __init__(self):
@@ -134,6 +136,8 @@ class RandomizedCollection:
 # param_2 = obj.remove(val)
 # param_3 = obj.getRandom()
 ```
+
+#### Java
 
 ```java
 class RandomizedCollection {

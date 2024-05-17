@@ -55,6 +55,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def permutation(self, s: str) -> List[str]:
@@ -75,6 +77,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -136,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func permutation(s string) (ans []string) {
 	cs := []byte(s)
@@ -160,6 +168,8 @@ func permutation(s string) (ans []string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function permutation(s: string): string[] {
     const n = s.length;
@@ -181,6 +191,8 @@ function permutation(s: string): string[] {
     return [...set];
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -210,6 +222,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} s
@@ -238,6 +252,8 @@ var permutation = function (s) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

@@ -70,6 +70,8 @@ The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isValidSerialization(self, preorder: str) -> bool:
@@ -81,6 +83,8 @@ class Solution:
                 stk.append("#")
         return len(stk) == 1 and stk[0] == "#"
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isValidSerialization(preorder string) bool {
 	stk := []string{}
@@ -135,6 +143,8 @@ func isValidSerialization(preorder string) bool {
 	return len(stk) == 1 && stk[0] == "#"
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isValidSerialization(preorder: string): boolean {

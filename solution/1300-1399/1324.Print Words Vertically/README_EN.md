@@ -98,6 +98,8 @@ Each word would be put on only one column and that in one column there will be o
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def printVertically(self, s: str) -> List[str]:
@@ -111,6 +113,8 @@ class Solution:
             ans.append(''.join(t))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +139,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -163,6 +169,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func printVertically(s string) (ans []string) {

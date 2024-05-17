@@ -86,6 +86,8 @@ Task 6 was submitted on Sunday.
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT

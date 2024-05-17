@@ -86,6 +86,8 @@ P     I
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def convert(self, s: str, numRows: int) -> str:
@@ -100,6 +102,8 @@ class Solution:
             i += k
         return ''.join(chain(*g))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -147,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func convert(s string, numRows int) string {
 	if numRows == 1 {
@@ -164,6 +172,8 @@ func convert(s string, numRows int) string {
 	return string(bytes.Join(g, nil))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function convert(s: string, numRows: number): string {
@@ -183,6 +193,8 @@ function convert(s: string, numRows: number): string {
     return g.flat().join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -214,6 +226,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} s
@@ -237,6 +251,8 @@ var convert = function (s, numRows) {
     return g.flat().join('');
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -276,6 +292,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def convert(self, s: str, numRows: int) -> str:
@@ -294,6 +312,8 @@ class Solution:
                     interval = group
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -320,6 +340,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -341,6 +363,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func convert(s string, numRows int) string {
@@ -365,6 +389,8 @@ func convert(s string, numRows int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function convert(s: string, numRows: number): string {
     if (numRows === 1) {
@@ -388,6 +414,8 @@ function convert(s: string, numRows: number): string {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn convert(s: String, num_rows: i32) -> String {
@@ -399,6 +427,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -428,6 +458,8 @@ var convert = function (s, numRows) {
     return ans.join('');
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {

@@ -81,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minGroups(self, intervals: List[List[int]]) -> int:
@@ -91,6 +93,8 @@ class Solution:
             heappush(q, right)
         return len(q)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +130,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minGroups(intervals [][]int) int {
@@ -148,6 +156,8 @@ func (h *hp) Pop() any {
 	return v
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minGroups(intervals: number[][]): number {

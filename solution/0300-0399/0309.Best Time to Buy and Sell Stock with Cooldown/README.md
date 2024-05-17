@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
@@ -92,6 +94,8 @@ class Solution:
 
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +126,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -148,6 +154,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxProfit(prices []int) int {
@@ -176,6 +184,8 @@ func maxProfit(prices []int) int {
 	return dfs(0, 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxProfit(prices: number[]): number {
@@ -220,6 +230,8 @@ function maxProfit(prices: number[]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
@@ -231,6 +243,8 @@ class Solution:
             f[i][1] = max(f[i - 1][1], f[i - 2][0] - prices[i])
         return f[n - 1][0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -246,6 +260,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -264,6 +280,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProfit(prices []int) int {
 	n := len(prices)
@@ -280,6 +298,8 @@ func maxProfit(prices []int) int {
 	return f[n-1][0]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxProfit(prices: number[]): number {
@@ -304,6 +324,8 @@ function maxProfit(prices: number[]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
@@ -312,6 +334,8 @@ class Solution:
             f, f0, f1 = f0, max(f0, f1 + x), max(f1, f - x)
         return f0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -327,6 +351,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -344,6 +370,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProfit(prices []int) int {
 	f, f0, f1 := 0, 0, -prices[0]
@@ -353,6 +381,8 @@ func maxProfit(prices []int) int {
 	return f0
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxProfit(prices: number[]): number {

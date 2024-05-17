@@ -86,11 +86,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def haveConflict(self, event1: List[str], event2: List[str]) -> bool:
         return not (event1[0] > event2[1] or event1[1] < event2[0])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +103,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -109,17 +115,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func haveConflict(event1 []string, event2 []string) bool {
 	return !(event1[0] > event2[1] || event1[1] < event2[0])
 }
 ```
 
+#### TypeScript
+
 ```ts
 function haveConflict(event1: string[], event2: string[]): boolean {
     return !(event1[0] > event2[1] || event1[1] < event2[0]);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

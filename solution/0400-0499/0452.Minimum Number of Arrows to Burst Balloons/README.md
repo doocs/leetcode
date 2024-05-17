@@ -82,6 +82,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMinArrowShots(self, points: List[List[int]]) -> int:
@@ -92,6 +94,8 @@ class Solution:
                 last = b
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -133,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMinArrowShots(points [][]int) (ans int) {
 	sort.Slice(points, func(i, j int) bool { return points[i][1] < points[j][1] })
@@ -148,6 +156,8 @@ func findMinArrowShots(points [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findMinArrowShots(points: number[][]): number {
     points.sort((a, b) => a[1] - b[1]);
@@ -162,6 +172,8 @@ function findMinArrowShots(points: number[][]): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

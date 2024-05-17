@@ -60,6 +60,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -92,6 +94,8 @@ class Solution:
             ans.append(dummy.next)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -136,6 +140,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -182,6 +188,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -220,6 +228,8 @@ func listOfDepth(tree *TreeNode) (ans []*ListNode) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -266,6 +276,8 @@ function listOfDepth(tree: TreeNode | null): Array<ListNode | null> {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -336,6 +348,8 @@ impl Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 /* class TreeNode {

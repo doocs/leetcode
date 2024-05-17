@@ -71,6 +71,8 @@ The following code also implements string subtraction, refer to the `subStrings(
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def addStrings(self, num1: str, num2: str) -> str:
@@ -104,6 +106,8 @@ class Solution:
             ans.append('-')
         return ''.join(ans[::-1])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -146,6 +150,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -187,6 +193,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func addStrings(num1 string, num2 string) string {
@@ -241,6 +249,8 @@ func subStrings(num1 string, num2 string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function addStrings(num1: string, num2: string): string {
     let i = num1.length - 1;
@@ -282,6 +292,8 @@ function subStrings(num1: string, num2: string): string {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn add_strings(num1: String, num2: String) -> String {
@@ -307,6 +319,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

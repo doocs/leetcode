@@ -70,6 +70,8 @@ It can be proven that 3 is the maximum possible sum.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def kItemsWithMaximumSum(
@@ -81,6 +83,8 @@ class Solution:
             return numOnes
         return numOnes - (k - numOnes - numZeros)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +99,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -111,6 +117,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func kItemsWithMaximumSum(numOnes int, numZeros int, numNegOnes int, k int) int {
 	if numOnes >= k {
@@ -122,6 +130,8 @@ func kItemsWithMaximumSum(numOnes int, numZeros int, numNegOnes int, k int) int 
 	return numOnes - (k - numOnes - numZeros)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function kItemsWithMaximumSum(
@@ -139,6 +149,8 @@ function kItemsWithMaximumSum(
     return numOnes - (k - numOnes - numZeros);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -160,6 +172,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

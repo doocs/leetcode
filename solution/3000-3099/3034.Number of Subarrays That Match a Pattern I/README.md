@@ -78,6 +78,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countMatchingSubarrays(self, nums: List[int], pattern: List[int]) -> int:
@@ -91,6 +93,8 @@ class Solution:
             )
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -137,6 +143,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countMatchingSubarrays(nums []int, pattern []int) (ans int) {
@@ -163,6 +171,8 @@ func countMatchingSubarrays(nums []int, pattern []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countMatchingSubarrays(nums: number[], pattern: number[]): number {
     const f = (a: number, b: number) => (a === b ? 0 : a < b ? 1 : -1);
@@ -181,6 +191,8 @@ function countMatchingSubarrays(nums: number[], pattern: number[]): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

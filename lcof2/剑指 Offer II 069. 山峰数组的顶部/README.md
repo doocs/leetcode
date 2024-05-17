@@ -90,6 +90,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def peakIndexInMountainArray(self, arr: List[int]) -> int:
@@ -102,6 +104,8 @@ class Solution:
                 left = mid + 1
         return left
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -137,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func peakIndexInMountainArray(arr []int) int {
 	left, right := 1, len(arr)-2
@@ -151,6 +159,8 @@ func peakIndexInMountainArray(arr []int) int {
 	return left
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

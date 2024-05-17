@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def smallestSubsequence(self, s: str) -> str:
@@ -84,6 +86,8 @@ class Solution:
             vis.add(c)
         return "".join(stk)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -138,6 +144,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallestSubsequence(s string) string {
 	last := make([]int, 26)
@@ -160,6 +168,8 @@ func smallestSubsequence(s string) string {
 	return string(stk)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function smallestSubsequence(s: string): string {
@@ -194,6 +204,8 @@ function smallestSubsequence(s: string): string {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {

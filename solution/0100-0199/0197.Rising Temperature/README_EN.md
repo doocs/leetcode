@@ -77,6 +77,8 @@ We can use self-join to compare each row in the `Weather` table with its previou
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 import pandas as pd
 
@@ -87,6 +89,8 @@ def rising_temperature(weather: pd.DataFrame) -> pd.DataFrame:
         (weather.temperature.diff() > 0) & (weather.recordDate.diff().dt.days == 1)
     ][["id"]]
 ```
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -106,6 +110,8 @@ FROM
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

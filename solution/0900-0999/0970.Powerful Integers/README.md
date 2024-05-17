@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def powerfulIntegers(self, x: int, y: int, bound: int) -> List[int]:
@@ -93,6 +95,8 @@ class Solution:
             a *= x
         return list(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +117,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -135,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func powerfulIntegers(x int, y int, bound int) (ans []int) {
 	s := map[int]struct{}{}
@@ -156,6 +164,8 @@ func powerfulIntegers(x int, y int, bound int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function powerfulIntegers(x: number, y: number, bound: number): number[] {
     const ans = new Set<number>();
@@ -173,6 +183,8 @@ function powerfulIntegers(x: number, y: number, bound: number): number[] {
     return Array.from(ans);
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

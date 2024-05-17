@@ -82,6 +82,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumMoves(self, grid: List[List[int]]) -> int:
@@ -109,6 +111,8 @@ class Solution:
                                         q.append(nxt)
             ans += 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -176,6 +180,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -212,6 +218,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumMoves(grid [][]int) int {
@@ -253,6 +261,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumMoves(grid: number[][]): number {
@@ -310,6 +320,8 @@ function minimumMoves(grid: number[][]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumMoves(self, grid: List[List[int]]) -> int:
@@ -335,6 +347,8 @@ class Solution:
                     f[i] = min(f[i], f[i ^ (1 << j)] + cal(left[k - 1], right[j]))
         return f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {

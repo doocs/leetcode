@@ -51,6 +51,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def movingCount(self, m: int, n: int, k: int) -> int:
@@ -76,6 +78,8 @@ class Solution:
         dfs(0, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -147,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func movingCount(m int, n int, k int) int {
 	vis := make([][]bool, m)
@@ -164,6 +172,8 @@ func movingCount(m int, n int, k int) int {
 	return dfs(0, 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function movingCount(m: number, n: number, k: number): number {
@@ -186,6 +196,8 @@ function movingCount(m: number, n: number, k: number): number {
     return set.size;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::{ HashSet, VecDeque };
@@ -217,6 +229,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number} m
@@ -241,6 +255,8 @@ var movingCount = function (m, n, k) {
     return dfs(0, 0);
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -269,6 +285,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def movingCount(self, m: int, n: int, k: int) -> int:
@@ -288,6 +306,8 @@ class Solution:
         vis = set()
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -314,6 +334,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -338,6 +360,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func movingCount(m int, n int, k int) (ans int) {
@@ -368,6 +392,8 @@ func movingCount(m int, n int, k int) (ans int) {
 	return
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

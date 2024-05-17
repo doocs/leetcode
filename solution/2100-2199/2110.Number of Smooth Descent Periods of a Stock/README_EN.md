@@ -72,6 +72,8 @@ Note that [8,6] is not a smooth descent period as 8 - 6 &ne; 1.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getDescentPeriods(self, prices: List[int]) -> int:
@@ -86,6 +88,8 @@ class Solution:
             i = j
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -124,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getDescentPeriods(prices []int) (ans int64) {
 	n := len(prices)
@@ -138,6 +146,8 @@ func getDescentPeriods(prices []int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getDescentPeriods(prices: number[]): number {

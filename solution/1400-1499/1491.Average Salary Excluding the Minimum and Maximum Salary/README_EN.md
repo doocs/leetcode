@@ -67,12 +67,16 @@ The time complexity is $O(n)$, where $n$ is the length of the array `salary`. Th
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def average(self, salary: List[int]) -> float:
         s = sum(salary) - min(salary) - max(salary)
         return s / (len(salary) - 2)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +93,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -107,6 +113,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func average(salary []int) float64 {
 	s := 0
@@ -121,6 +129,8 @@ func average(salary []int) float64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function average(salary: number[]): number {
     let max = -Infinity;
@@ -134,6 +144,8 @@ function average(salary: number[]): number {
     return (sum - max - min) / (salary.length - 2);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -151,6 +163,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -170,6 +184,8 @@ class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))

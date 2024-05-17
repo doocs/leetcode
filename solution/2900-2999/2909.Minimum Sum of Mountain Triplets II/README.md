@@ -88,6 +88,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumSum(self, nums: List[int]) -> int:
@@ -102,6 +104,8 @@ class Solution:
             left = min(left, x)
         return -1 if ans == inf else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +128,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -148,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumSum(nums []int) int {
 	n := len(nums)
@@ -170,6 +178,8 @@ func minimumSum(nums []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumSum(nums: number[]): number {

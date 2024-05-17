@@ -59,6 +59,8 @@ for i in range(n):
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def largestRectangleArea(self, heights: List[int]) -> int:
@@ -81,6 +83,8 @@ class Solution:
             stk.append(i)
         return max(x * (r - l - 1) for x, l, r in zip(heights, left, right))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -155,6 +161,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func largestRectangleArea(heights []int) (ans int) {
@@ -191,6 +199,8 @@ func largestRectangleArea(heights []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function largestRectangleArea(heights: number[]): number {

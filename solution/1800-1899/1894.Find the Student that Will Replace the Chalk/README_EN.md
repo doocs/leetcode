@@ -86,6 +86,8 @@ The time complexity is $O(n)$, where $n$ is the number of students. The space co
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def chalkReplacer(self, chalk: List[int], k: int) -> int:
@@ -96,6 +98,8 @@ class Solution:
                 return i
             k -= x
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +136,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func chalkReplacer(chalk []int, k int) int {
@@ -147,6 +155,8 @@ func chalkReplacer(chalk []int, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function chalkReplacer(chalk: number[], k: number): number {
     let s = 0;
@@ -162,6 +172,8 @@ function chalkReplacer(chalk: number[], k: number): number {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

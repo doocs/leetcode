@@ -97,6 +97,8 @@ Time complexity $O(n^2)$, space complexity $O(n)$. where $n$ is the length of ar
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumJumps(self, nums: List[int], target: int) -> int:
@@ -114,6 +116,8 @@ class Solution:
         ans = dfs(0)
         return -1 if ans < 0 else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -149,6 +153,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -176,6 +182,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumJumps(nums []int, target int) int {
@@ -214,6 +222,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumJumps(nums: number[], target: number): number {

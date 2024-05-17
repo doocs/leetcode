@@ -63,6 +63,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -102,6 +104,8 @@ class Solution:
         dfs(root2, t2)
         return merge(t1, t2)
 ```
+
+#### Java
 
 ```java
 /**
@@ -158,6 +162,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -202,6 +208,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -251,6 +259,8 @@ func getAllElements(root1 *TreeNode, root2 *TreeNode) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for a binary tree node.
@@ -294,6 +304,8 @@ function getAllElements(root1: TreeNode | null, root2: TreeNode | null): number[
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.

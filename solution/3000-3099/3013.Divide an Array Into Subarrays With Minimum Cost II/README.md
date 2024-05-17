@@ -81,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedList
 
@@ -121,6 +123,8 @@ class Solution:
         return ans + y
 ```
 
+#### Java
+
 ```java
 class Solution {
     public long minimumCost(int[] nums, int k, int dist) {
@@ -158,6 +162,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -210,6 +216,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumCost(nums []int, k int, dist int) int64 {

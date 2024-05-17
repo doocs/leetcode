@@ -68,6 +68,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ i
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def divisibleTripletCount(self, nums: List[int], d: int) -> int:
@@ -80,6 +82,8 @@ class Solution:
             cnt[nums[j] % d] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -116,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func divisibleTripletCount(nums []int, d int) (ans int) {
 	n := len(nums)
@@ -130,6 +138,8 @@ func divisibleTripletCount(nums []int, d int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function divisibleTripletCount(nums: number[], d: number): number {

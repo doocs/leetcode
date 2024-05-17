@@ -91,6 +91,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countPalindromicSubsequence(self, s: str) -> int:
@@ -101,6 +103,8 @@ class Solution:
                 ans += len(set(s[l + 1 : r]))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -135,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countPalindromicSubsequence(s string) (ans int) {
 	for c := 'a'; c <= 'z'; c++ {
@@ -148,6 +156,8 @@ func countPalindromicSubsequence(s string) (ans int) {
 	return
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

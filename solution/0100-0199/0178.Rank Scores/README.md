@@ -98,6 +98,8 @@ DENSE_RANK() OVER (
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 import pandas as pd
 
@@ -111,6 +113,8 @@ def order_scores(scores: pd.DataFrame) -> pd.DataFrame:
 
     return result_df
 ```
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -131,6 +135,8 @@ FROM Scores;
 MySQL 8 开始才提供了 `ROW_NUMBER()`，`RANK()`，`DENSE_RANK()` 等[窗口函数](https://dev.mysql.com/doc/refman/8.0/en/window-function-descriptions.html)，在之前的版本，可以使用变量实现类似的功能。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 SELECT

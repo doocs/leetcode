@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def regionsBySlashes(self, grid: List[str]) -> int:
@@ -106,6 +108,8 @@ class Solution:
                     union(4 * k + 2, 4 * k + 3)
         return size
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -164,6 +168,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -211,6 +217,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func regionsBySlashes(grid []string) int {

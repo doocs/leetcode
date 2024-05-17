@@ -79,6 +79,8 @@ Flood fill 算法是从一个区域中提取若干个连通的点与其他相邻
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
@@ -99,6 +101,8 @@ class Solution:
                     ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +140,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -166,6 +172,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numIslands(grid [][]byte) int {
 	m, n := len(grid), len(grid[0])
@@ -192,6 +200,8 @@ func numIslands(grid [][]byte) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numIslands(grid: string[][]): number {
@@ -220,6 +230,8 @@ function numIslands(grid: string[][]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 const DIRS: [i32; 5] = [-1, 0, 1, 0, -1];
@@ -257,6 +269,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 using System;
@@ -348,6 +362,8 @@ def union(a, b):
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
@@ -372,6 +388,8 @@ class Solution:
                     ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -415,6 +433,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -454,6 +474,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numIslands(grid [][]byte) int {
 	m, n := len(grid), len(grid[0])
@@ -485,6 +507,8 @@ func numIslands(grid [][]byte) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numIslands(grid: string[][]): number {
@@ -518,6 +542,8 @@ function numIslands(grid: string[][]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -573,6 +599,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
@@ -597,6 +625,8 @@ class Solution:
             for j in range(n)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -643,6 +673,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -681,6 +713,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numIslands(grid [][]byte) int {
@@ -721,6 +755,8 @@ func numIslands(grid [][]byte) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numIslands(grid: string[][]): number {
     const m = grid.length;
@@ -760,6 +796,8 @@ function numIslands(grid: string[][]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 const DIRS: [usize; 3] = [1, 0, 1];

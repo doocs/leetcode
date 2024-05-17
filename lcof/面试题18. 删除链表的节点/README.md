@@ -59,6 +59,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -75,6 +77,8 @@ class Solution:
             cur = cur.next
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -98,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -123,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -142,6 +150,8 @@ func deleteNode(head *ListNode, val int) *ListNode {
 	return dummy.Next
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -175,6 +185,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -199,6 +211,8 @@ var deleteNode = function (head, val) {
     return dummy.next;
 };
 ```
+
+#### C#
 
 ```cs
 /**

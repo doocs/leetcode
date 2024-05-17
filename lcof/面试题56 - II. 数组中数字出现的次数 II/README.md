@@ -52,6 +52,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
@@ -62,6 +64,8 @@ class Solution:
                 x >>= 1
         return sum(1 << i for i in range(32) if cnt[i] % 3)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +87,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -106,6 +112,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func singleNumber(nums []int) (ans int) {
 	cnt := [32]int{}
@@ -123,6 +131,8 @@ func singleNumber(nums []int) (ans int) {
 	return
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -142,6 +152,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -165,6 +177,8 @@ var singleNumber = function (nums) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

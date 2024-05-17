@@ -61,11 +61,15 @@ The time complexity is $O(n)$, and the space complexity is $O(C)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkIfPangram(self, sentence: str) -> bool:
         return len(set(sentence)) == 26
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -84,6 +88,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -96,6 +102,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func checkIfPangram(sentence string) bool {
@@ -112,6 +120,8 @@ func checkIfPangram(sentence string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function checkIfPangram(sentence: string): boolean {
     const vis = new Array(26).fill(false);
@@ -121,6 +131,8 @@ function checkIfPangram(sentence: string): boolean {
     return vis.every(v => v);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -133,6 +145,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 bool checkIfPangram(char* sentence) {
@@ -165,6 +179,8 @@ The time complexity is $O(n)$, where $n$ is the length of the string `sentence`.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkIfPangram(self, sentence: str) -> bool:
@@ -173,6 +189,8 @@ class Solution:
             mask |= 1 << (ord(c) - ord('a'))
         return mask == (1 << 26) - 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -186,6 +204,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -197,6 +217,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func checkIfPangram(sentence string) bool {
 	mask := 0
@@ -207,6 +229,8 @@ func checkIfPangram(sentence string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function checkIfPangram(sentence: string): boolean {
     let mark = 0;
@@ -216,6 +240,8 @@ function checkIfPangram(sentence: string): boolean {
     return mark === (1 << 26) - 1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -228,6 +254,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 bool checkIfPangram(char* sentence) {

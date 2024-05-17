@@ -87,6 +87,8 @@ new Calculator(20).divide(0).getResult() // 20 / 0
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 class Calculator {
     private x: number;

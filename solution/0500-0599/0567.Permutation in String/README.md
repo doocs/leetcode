@@ -67,6 +67,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
@@ -82,6 +84,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -140,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func checkInclusion(s1 string, s2 string) bool {
 	n, m := len(s1), len(s2)
@@ -165,6 +173,8 @@ func checkInclusion(s1 string, s2 string) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 function checkInclusion(s1: string, s2: string): boolean {
@@ -211,6 +221,8 @@ function checkInclusion(s1: string, s2: string): boolean {
     return isMatch();
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -275,6 +287,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
@@ -307,6 +321,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -354,6 +370,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -399,6 +417,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func checkInclusion(s1 string, s2 string) bool {
@@ -453,6 +473,8 @@ func checkInclusion(s1 string, s2 string) bool {
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Go
 
 ```go
 func checkInclusion(s1 string, s2 string) bool {

@@ -78,6 +78,8 @@ The time complexity is $O(n)$, where n is the length of the array. The space com
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minArrayLength(self, nums: List[int], k: int) -> int:
@@ -92,6 +94,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -138,6 +144,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minArrayLength(nums []int, k int) int {
 	ans, y := 1, nums[0]
@@ -155,6 +163,8 @@ func minArrayLength(nums []int, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minArrayLength(nums: number[], k: number): number {

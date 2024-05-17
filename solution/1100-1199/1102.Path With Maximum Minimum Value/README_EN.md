@@ -81,6 +81,8 @@ The time complexity is $O(m \times n \times (\log (m \times n) + \alpha(m \times
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumMinimumPath(self, grid: List[List[int]]) -> int:
@@ -106,6 +108,8 @@ class Solution:
                     p[find(i * n + j)] = find(x * n + y)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -148,6 +152,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -186,6 +192,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumMinimumPath(grid [][]int) (ans int) {
@@ -227,6 +235,8 @@ func maximumMinimumPath(grid [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumMinimumPath(grid: number[][]): number {
     const m = grid.length;
@@ -266,6 +276,8 @@ function maximumMinimumPath(grid: number[][]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 struct UnionFind {
@@ -357,6 +369,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class UnionFind:
     __slots__ = ("p", "size")
@@ -402,6 +416,8 @@ class Solution:
                     uf.union(x * n + y, i * n + j)
         return ans
 ```
+
+#### Java
 
 ```java
 class UnionFind {
@@ -467,6 +483,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class UnionFind {
@@ -535,6 +553,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type unionFind struct {
 	p, size []int
@@ -600,6 +620,8 @@ func maximumMinimumPath(grid [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 class UnionFind {

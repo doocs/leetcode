@@ -95,6 +95,8 @@ encrypter.decrypt("eizfeiam"); // return 2.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Encrypter:
     def __init__(self, keys: List[str], values: List[str], dictionary: List[str]):
@@ -118,6 +120,8 @@ class Encrypter:
 # param_1 = obj.encrypt(word1)
 # param_2 = obj.decrypt(word2)
 ```
+
+#### Java
 
 ```java
 class Encrypter {
@@ -158,6 +162,8 @@ class Encrypter {
  */
 ```
 
+#### C++
+
 ```cpp
 class Encrypter {
 public:
@@ -190,6 +196,8 @@ public:
  * int param_2 = obj->decrypt(word2);
  */
 ```
+
+#### Go
 
 ```go
 type Encrypter struct {

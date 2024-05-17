@@ -73,6 +73,8 @@ The time complexity is $O(n \times \log n)$, ignoring the space consumption of t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def productQueries(self, n: int, queries: List[List[int]]) -> List[int]:
@@ -90,6 +92,8 @@ class Solution:
             ans.append(x)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -141,6 +147,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func productQueries(n int, queries [][]int) []int {

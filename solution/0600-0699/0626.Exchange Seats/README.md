@@ -77,6 +77,8 @@ Seat 表:
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT s1.id, COALESCE(s2.student, s1.student) AS student
@@ -95,6 +97,8 @@ ORDER BY 1;
 ### 方法二
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -122,6 +126,8 @@ ORDER BY 1;
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT
@@ -139,6 +145,8 @@ FROM Seat;
 ### 方法四
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

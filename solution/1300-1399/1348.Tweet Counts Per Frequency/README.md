@@ -101,6 +101,8 @@ tweetCounts.getTweetCountsPerFrequency("hour", "tweet3", 0, 210);  //&nbsp;è¿”å›
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedList
 
@@ -133,6 +135,8 @@ class TweetCounts:
 # obj.recordTweet(tweetName,time)
 # param_2 = obj.getTweetCountsPerFrequency(freq,tweetName,startTime,endTime)
 ```
+
+#### Java
 
 ```java
 class TweetCounts {
@@ -176,6 +180,8 @@ class TweetCounts {
  * List<Integer> param_2 = obj.getTweetCountsPerFrequency(freq,tweetName,startTime,endTime);
  */
 ```
+
+#### C++
 
 ```cpp
 class TweetCounts {

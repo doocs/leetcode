@@ -92,6 +92,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumOperationsToMakeEqual(self, x: int, y: int) -> int:
@@ -108,6 +110,8 @@ class Solution:
 
         return dfs(x)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -138,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -161,6 +167,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumOperationsToMakeEqual(x int, y int) int {
 	f := map[int]int{}
@@ -182,6 +190,8 @@ func minimumOperationsToMakeEqual(x int, y int) int {
 	return dfs(x)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumOperationsToMakeEqual(x: number, y: number): number {

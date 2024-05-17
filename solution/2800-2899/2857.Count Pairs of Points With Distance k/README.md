@@ -72,6 +72,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countPairs(self, coordinates: List[List[int]], k: int) -> int:
@@ -85,6 +87,8 @@ class Solution:
             cnt[(x2, y2)] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -125,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countPairs(coordinates [][]int, k int) (ans int) {
 	cnt := map[[2]int]int{}
@@ -140,6 +148,8 @@ func countPairs(coordinates [][]int, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countPairs(coordinates: number[][], k: number): number {
@@ -167,6 +177,8 @@ function countPairs(coordinates: number[][], k: number): number {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### C++
 
 ```cpp
 class Solution {

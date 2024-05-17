@@ -112,6 +112,8 @@ Orders 表:
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT product_name, SUM(unit) AS unit

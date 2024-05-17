@@ -90,6 +90,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def deleteGreatestValue(self, grid: List[List[int]]) -> int:
@@ -97,6 +99,8 @@ class Solution:
             row.sort()
         return sum(max(col) for col in zip(*grid))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -134,6 +140,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func deleteGreatestValue(grid [][]int) (ans int) {
@@ -153,6 +161,8 @@ func deleteGreatestValue(grid [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function deleteGreatestValue(grid: number[][]): number {
     for (const row of grid) {
@@ -171,6 +181,8 @@ function deleteGreatestValue(grid: number[][]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

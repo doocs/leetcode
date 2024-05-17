@@ -65,6 +65,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def clumsy(self, N: int) -> int:
@@ -82,6 +84,8 @@ class Solution:
             op = (op + 1) % 4
         return sum(s)
 ```
+
+#### Java
 
 ```java
 class Solution {

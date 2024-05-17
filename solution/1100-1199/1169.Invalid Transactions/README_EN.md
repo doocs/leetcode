@@ -85,6 +85,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ i
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def invalidTransactions(self, transactions: List[str]) -> List[str]:
@@ -102,6 +104,8 @@ class Solution:
                     idx.add(j)
         return [transactions[i] for i in idx]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -146,6 +150,8 @@ class Item {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -187,6 +193,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func invalidTransactions(transactions []string) (ans []string) {

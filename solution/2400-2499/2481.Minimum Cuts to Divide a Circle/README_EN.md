@@ -83,11 +83,15 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfCuts(self, n: int) -> int:
         return n if (n > 1 and n & 1) else n >> 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +100,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -106,6 +112,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfCuts(n int) int {
 	if n > 1 && n%2 == 1 {
@@ -115,11 +123,15 @@ func numberOfCuts(n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numberOfCuts(n: number): number {
     return n > 1 && n & 1 ? n : n >> 1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -131,6 +143,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

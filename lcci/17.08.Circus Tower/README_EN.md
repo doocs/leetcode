@@ -45,6 +45,8 @@ The space complexity is $O(n)$, where $n$ is the number of people.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class BinaryIndexedTree:
     def __init__(self, n):
@@ -79,6 +81,8 @@ class Solution:
             tree.update(x, t)
         return ans
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -138,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -195,6 +201,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {
@@ -255,6 +263,8 @@ func bestSeqAtIndex(height []int, weight []int) int {
 	return ans
 }
 ```
+
+#### Swift
 
 ```swift
 class BinaryIndexedTree {

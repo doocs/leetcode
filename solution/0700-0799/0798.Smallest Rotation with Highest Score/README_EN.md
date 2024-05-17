@@ -67,6 +67,8 @@ So we will choose the smallest k, which is 0.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def bestRotation(self, nums: List[int]) -> int:
@@ -85,6 +87,8 @@ class Solution:
                 ans = k
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -137,6 +143,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func bestRotation(nums []int) int {

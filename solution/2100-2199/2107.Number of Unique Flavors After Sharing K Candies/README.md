@@ -87,6 +87,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def shareCandies(self, candies: List[int], k: int) -> int:
@@ -100,6 +102,8 @@ class Solution:
             ans = max(ans, len(cnt))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -144,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func shareCandies(candies []int, k int) (ans int) {
 	cnt := map[int]int{}
@@ -163,6 +171,8 @@ func shareCandies(candies []int, k int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function shareCandies(candies: number[], k: number): number {
     const cnt: Map<number, number> = new Map();
@@ -181,6 +191,8 @@ function shareCandies(candies: number[], k: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;

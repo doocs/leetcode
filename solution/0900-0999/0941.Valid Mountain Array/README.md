@@ -81,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def validMountainArray(self, arr: List[int]) -> bool:
@@ -94,6 +96,8 @@ class Solution:
             j -= 1
         return i == j
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +117,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -134,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func validMountainArray(arr []int) bool {
 	n := len(arr)
@@ -150,6 +158,8 @@ func validMountainArray(arr []int) bool {
 	return i == j
 }
 ```
+
+#### TypeScript
 
 ```ts
 function validMountainArray(arr: number[]): boolean {

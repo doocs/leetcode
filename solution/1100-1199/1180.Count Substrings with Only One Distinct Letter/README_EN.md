@@ -64,6 +64,8 @@ The time complexity is $O(n)$, where $n$ is the length of the string $s$. The sp
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countLetters(self, s: str) -> int:
@@ -77,6 +79,8 @@ class Solution:
             i = j
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +98,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -113,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countLetters(s string) int {
 	ans := 0
@@ -127,6 +135,8 @@ func countLetters(s string) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countLetters(s: string): number {
@@ -155,6 +165,8 @@ function countLetters(s: string): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countLetters(self, s: str) -> int:
@@ -170,6 +182,8 @@ class Solution:
             i = j
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -190,6 +204,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -209,6 +225,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countLetters(s string) (ans int) {

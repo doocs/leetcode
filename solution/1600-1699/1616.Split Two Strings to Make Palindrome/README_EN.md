@@ -76,6 +76,8 @@ Then, a<sub>prefix</sub> + b<sub>suffix</sub> = &quot;ula&quot; + &quot;alu&quot
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkPalindromeFormation(self, a: str, b: str) -> bool:
@@ -90,6 +92,8 @@ class Solution:
 
         return check1(a, b) or check1(b, a)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -144,6 +150,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 func checkPalindromeFormation(a string, b string) bool {
 	return check1(a, b) || check1(b, a)
@@ -167,6 +175,8 @@ func check2(a string, i, j int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function checkPalindromeFormation(a: string, b: string): boolean {
     const check1 = (a: string, b: string) => {
@@ -189,6 +199,8 @@ function checkPalindromeFormation(a: string, b: string): boolean {
     return check1(a, b) || check1(b, a);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

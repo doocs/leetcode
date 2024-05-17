@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minMutation(self, start: str, end: str, bank: List[str]) -> int:
@@ -95,6 +97,8 @@ class Solution:
                         s.remove(next)
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +136,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -165,6 +171,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minMutation(start string, end string, bank []string) int {
@@ -203,6 +211,8 @@ func minMutation(start string, end string, bank []string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minMutation(start: string, end: string, bank: string[]): number {
     const queue = [start];
@@ -233,6 +243,8 @@ function minMutation(start: string, end: string, bank: string[]): number {
     return -1;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -279,6 +291,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minMutation(self, start: str, end: str, bank: List[str]) -> int:
@@ -300,6 +314,8 @@ class Solution:
         dfs(start, 0)
         return -1 if ans == inf else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -339,6 +355,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -372,6 +390,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minMutation(start string, end string, bank []string) int {

@@ -74,6 +74,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def candy(self, ratings: List[int]) -> int:
@@ -88,6 +90,8 @@ class Solution:
                 right[i] = right[i + 1] + 1
         return sum(max(a, b) for a, b in zip(left, right))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -141,6 +147,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func candy(ratings []int) int {
@@ -170,6 +178,8 @@ func candy(ratings []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function candy(ratings: number[]): number {
     const n = ratings.length;
@@ -192,6 +202,8 @@ function candy(ratings: number[]): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -229,6 +241,8 @@ public class Solution {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {

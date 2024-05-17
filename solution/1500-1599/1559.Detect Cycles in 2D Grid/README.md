@@ -82,6 +82,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def containsCycle(self, grid: List[List[str]]) -> bool:
@@ -102,6 +104,8 @@ class Solution:
                         p[find(x * n + y)] = find(i * n + j)
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -141,6 +145,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -171,6 +177,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func containsCycle(grid [][]byte) bool {
@@ -203,6 +211,8 @@ func containsCycle(grid [][]byte) bool {
 	return false
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -262,6 +272,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

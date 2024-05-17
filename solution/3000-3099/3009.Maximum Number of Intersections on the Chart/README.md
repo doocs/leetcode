@@ -63,9 +63,13 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,9 +96,13 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 
 ```
+
+#### Go
 
 ```go
 

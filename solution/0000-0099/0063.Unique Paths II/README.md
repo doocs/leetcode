@@ -79,6 +79,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def uniquePathsWithObstacles(self, obstacleGrid: List[List[int]]) -> int:
@@ -93,6 +95,8 @@ class Solution:
         m, n = len(obstacleGrid), len(obstacleGrid[0])
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +128,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -147,6 +153,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func uniquePathsWithObstacles(obstacleGrid [][]int) int {
@@ -174,6 +182,8 @@ func uniquePathsWithObstacles(obstacleGrid [][]int) int {
 	return dfs(0, 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function uniquePathsWithObstacles(obstacleGrid: number[][]): number {
@@ -217,6 +227,8 @@ function uniquePathsWithObstacles(obstacleGrid: number[][]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def uniquePathsWithObstacles(self, obstacleGrid: List[List[int]]) -> int:
@@ -236,6 +248,8 @@ class Solution:
                     f[i][j] = f[i - 1][j] + f[i][j - 1]
         return f[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -259,6 +273,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -284,6 +300,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func uniquePathsWithObstacles(obstacleGrid [][]int) int {
 	m, n := len(obstacleGrid), len(obstacleGrid[0])
@@ -307,6 +325,8 @@ func uniquePathsWithObstacles(obstacleGrid [][]int) int {
 	return f[m-1][n-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function uniquePathsWithObstacles(obstacleGrid: number[][]): number {
@@ -337,6 +357,8 @@ function uniquePathsWithObstacles(obstacleGrid: number[][]): number {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function uniquePathsWithObstacles(obstacleGrid: number[][]): number {
     const m = obstacleGrid.length;
@@ -357,6 +379,8 @@ function uniquePathsWithObstacles(obstacleGrid: number[][]): number {
     return dfs(0, 0);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

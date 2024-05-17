@@ -93,6 +93,8 @@ setTimeout(() =&gt; {
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 const intervalMap = new Map<number, NodeJS.Timeout>();
 

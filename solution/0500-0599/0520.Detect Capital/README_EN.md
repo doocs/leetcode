@@ -60,12 +60,16 @@ The time complexity is $O(n)$, where $n$ is the length of the string `word`. The
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def detectCapitalUse(self, word: str) -> bool:
         cnt = sum(c.isupper() for c in word)
         return cnt == 0 or cnt == len(word) or (cnt == 1 and word[0].isupper())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +86,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -91,6 +97,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func detectCapitalUse(word string) bool {
@@ -103,6 +111,8 @@ func detectCapitalUse(word string) bool {
 	return cnt == 0 || cnt == len(word) || (cnt == 1 && unicode.IsUpper(rune(word[0])))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function detectCapitalUse(word: string): boolean {

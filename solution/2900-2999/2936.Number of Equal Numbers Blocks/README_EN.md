@@ -89,6 +89,8 @@ The time complexity is $O(m \times \log n)$, where $m$ is the number of differen
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for BigArray.
 # class BigArray:
@@ -109,6 +111,8 @@ class Solution(object):
                 i += bisect_left(range(i, n), True, key=lambda j: nums.at(j) != x)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -143,6 +147,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -180,6 +186,8 @@ public:
     }
 };
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -228,6 +236,8 @@ The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$. Her
 
 <!-- tabs:start -->
 
+#### Java
+
 ```java
 /**
  * Definition for BigArray.
@@ -253,6 +263,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -281,6 +293,8 @@ public:
     }
 };
 ```
+
+#### TypeScript
 
 ```ts
 /**

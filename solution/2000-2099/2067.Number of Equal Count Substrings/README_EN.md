@@ -83,6 +83,8 @@ The time complexity is $O(n \times C)$, and the space complexity is $O(C)$. Wher
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def equalCountSubstrings(self, s: str, count: int) -> int:
@@ -104,6 +106,8 @@ class Solution:
                 ans += i == t
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -134,6 +138,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -161,6 +167,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func equalCountSubstrings(s string, count int) (ans int) {
@@ -195,6 +203,8 @@ func equalCountSubstrings(s string, count int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function equalCountSubstrings(s: string, count: number): number {
     const n = s.length;
@@ -218,6 +228,8 @@ function equalCountSubstrings(s: string, count: number): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

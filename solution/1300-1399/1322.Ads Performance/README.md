@@ -93,6 +93,8 @@ Ads 表:
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 SELECT
     ad_id,

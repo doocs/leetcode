@@ -78,6 +78,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestSemiRepetitiveSubstring(self, s: str) -> int:
@@ -91,6 +93,8 @@ class Solution:
             ans = max(ans, i - j + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -125,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestSemiRepetitiveSubstring(s string) (ans int) {
 	ans = 1
@@ -142,6 +150,8 @@ func longestSemiRepetitiveSubstring(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestSemiRepetitiveSubstring(s: string): number {

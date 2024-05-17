@@ -73,6 +73,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def subarraysDivByK(self, nums: List[int], k: int) -> int:
@@ -84,6 +86,8 @@ class Solution:
             cnt[s] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -116,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subarraysDivByK(nums []int, k int) (ans int) {
 	cnt := map[int]int{0: 1}
@@ -128,6 +136,8 @@ func subarraysDivByK(nums []int, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function subarraysDivByK(nums: number[], k: number): number {

@@ -102,6 +102,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a rope tree node.
 # class RopeTreeNode(object):
@@ -121,6 +123,8 @@ class Solution:
 
         return dfs(root)[k - 1]
 ```
+
+#### Java
 
 ```java
 /**
@@ -166,6 +170,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a rope tree node.
@@ -198,6 +204,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**

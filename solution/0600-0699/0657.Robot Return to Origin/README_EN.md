@@ -60,6 +60,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def judgeCircle(self, moves: str) -> bool:
@@ -75,6 +77,8 @@ class Solution:
                 y -= 1
         return x == 0 and y == 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +99,8 @@ class Solution {
     }
 }
 ```
+
+#### TypeScript
 
 ```ts
 function judgeCircle(moves: string): boolean {

@@ -107,6 +107,8 @@ Note that the output is only one number and that we do not care about the remove
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

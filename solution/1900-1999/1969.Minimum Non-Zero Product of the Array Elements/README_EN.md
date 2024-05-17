@@ -91,12 +91,16 @@ The time complexity is $O(p)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minNonZeroProduct(self, p: int) -> int:
         mod = 10**9 + 7
         return (2**p - 1) * pow(2**p - 2, 2 ** (p - 1) - 1, mod) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +123,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -143,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minNonZeroProduct(p int) int {
 	const mod int = 1e9 + 7
@@ -161,6 +169,8 @@ func minNonZeroProduct(p int) int {
 	return a * b % mod
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minNonZeroProduct(p: number): number {

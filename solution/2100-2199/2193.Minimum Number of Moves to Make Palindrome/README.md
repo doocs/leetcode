@@ -91,6 +91,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minMovesToMakePalindrome(self, s: str) -> int:
@@ -113,6 +115,8 @@ class Solution:
             i += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -144,6 +148,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -169,6 +175,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minMovesToMakePalindrome(s string) int {

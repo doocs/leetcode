@@ -96,6 +96,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumRows(self, matrix: List[List[int]], numSelect: int) -> int:
@@ -112,6 +114,8 @@ class Solution:
             ans = max(ans, t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -143,6 +147,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -173,6 +179,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumRows(matrix [][]int, numSelect int) (ans int) {
 	m, n := len(matrix), len(matrix[0])
@@ -201,6 +209,8 @@ func maximumRows(matrix [][]int, numSelect int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumRows(matrix: number[][], numSelect: number): number {

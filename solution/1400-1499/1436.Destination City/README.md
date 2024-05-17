@@ -80,12 +80,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def destCity(self, paths: List[List[str]]) -> str:
         s = {a for a, _ in paths}
         return next(b for _, b in paths if b not in s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func destCity(paths [][]string) string {
 	s := map[string]bool{}
@@ -137,6 +145,8 @@ func destCity(paths [][]string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function destCity(paths: string[][]): string {
     const set = new Set(paths.map(([a]) => a));
@@ -148,6 +158,8 @@ function destCity(paths: string[][]): string {
     return '';
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -167,6 +179,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string[][]} paths
@@ -185,6 +199,8 @@ var destCity = function (paths) {
     return '';
 };
 ```
+
+#### C
 
 ```c
 char* destCity(char*** paths, int pathsSize, int* pathsColSize) {

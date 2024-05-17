@@ -60,6 +60,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def singleNonDuplicate(self, nums: List[int]) -> int:
@@ -73,6 +75,8 @@ class Solution:
                 left = mid + 1
         return nums[left]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +97,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -110,6 +116,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func singleNonDuplicate(nums []int) int {
 	left, right := 0, len(nums)-1
@@ -124,6 +132,8 @@ func singleNonDuplicate(nums []int) int {
 	return nums[left]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function singleNonDuplicate(nums: number[]): number {

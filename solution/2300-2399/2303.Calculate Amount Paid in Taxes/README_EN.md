@@ -91,6 +91,8 @@ The time complexity is $O(n)$, where $n$ is the length of `brackets`. The space 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def calculateTax(self, brackets: List[List[int]], income: int) -> float:
@@ -100,6 +102,8 @@ class Solution:
             prev = upper
         return ans / 100
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -130,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func calculateTax(brackets [][]int, income int) float64 {
 	var ans, prev int
@@ -142,6 +150,8 @@ func calculateTax(brackets [][]int, income int) float64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function calculateTax(brackets: number[][], income: number): number {
     let ans = 0;
@@ -153,6 +163,8 @@ function calculateTax(brackets: number[][], income: number): number {
     return ans / 100;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

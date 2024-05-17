@@ -84,6 +84,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestPalindrome(self, word1: str, word2: str) -> int:
@@ -103,6 +105,8 @@ class Solution:
                     f[i][j] = max(f[i + 1][j], f[i][j - 1])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -158,6 +164,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestPalindrome(word1 string, word2 string) (ans int) {
 	s := word1 + word2
@@ -183,6 +191,8 @@ func longestPalindrome(word1 string, word2 string) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestPalindrome(word1: string, word2: string): number {
     const s = word1 + word2;
@@ -207,6 +217,8 @@ function longestPalindrome(word1: string, word2: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

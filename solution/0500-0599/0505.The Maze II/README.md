@@ -98,6 +98,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def shortestDistance(
@@ -121,6 +123,8 @@ class Solution:
                     q.append((x, y))
         return -1 if dist[di][dj] == inf else dist[di][dj]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -160,6 +164,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -194,6 +200,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func shortestDistance(maze [][]int, start []int, destination []int) int {
@@ -232,6 +240,8 @@ func shortestDistance(maze [][]int, start []int, destination []int) int {
 	return dist[di][dj]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function shortestDistance(maze: number[][], start: number[], destination: number[]): number {

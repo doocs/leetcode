@@ -87,6 +87,8 @@ promiseAll(functions).then(console.log); // [5]
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 async function promiseAll<T>(functions: (() => Promise<T>)[]): Promise<T[]> {
     return new Promise<T[]>((resolve, reject) => {

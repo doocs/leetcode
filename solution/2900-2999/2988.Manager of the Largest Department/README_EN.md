@@ -83,6 +83,8 @@ We can first count the number of employees in each department, denoted as table 
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

@@ -70,6 +70,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxValue(self, n: str, x: int) -> str:
@@ -84,6 +86,8 @@ class Solution:
                     return n[: i + 1] + str(x) + n[i + 1 :]
             return n + str(x)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -117,6 +123,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxValue(n string, x int) string {
 	i := 0
@@ -131,6 +139,8 @@ func maxValue(n string, x int) string {
 	return n[:i] + string(y) + n[i:]
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

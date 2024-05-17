@@ -62,6 +62,8 @@ A <strong>subsequence</strong> of a string is a new string that is formed from t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def distinctSubseqII(self, s: str) -> int:
@@ -77,6 +79,8 @@ class Solution:
                     dp[i][j] = dp[i - 1][j]
         return sum(dp[-1]) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -116,6 +122,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func distinctSubseqII(s string) int {
@@ -137,6 +145,8 @@ func distinctSubseqII(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function distinctSubseqII(s: string): number {
     const mod = 1e9 + 7;
@@ -147,6 +157,8 @@ function distinctSubseqII(s: string): number {
     return dp.reduce((r, v) => (r + v) % mod, 0);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -172,6 +184,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int distinctSubseqII(char* s) {
@@ -203,6 +217,8 @@ int distinctSubseqII(char* s) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def distinctSubseqII(self, s: str) -> int:
@@ -213,6 +229,8 @@ class Solution:
             dp[i] = sum(dp) % mod + 1
         return sum(dp) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -232,6 +250,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -250,6 +270,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func distinctSubseqII(s string) int {
@@ -275,6 +297,8 @@ func distinctSubseqII(s string) int {
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

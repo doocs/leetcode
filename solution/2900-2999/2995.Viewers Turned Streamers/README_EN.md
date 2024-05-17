@@ -82,6 +82,8 @@ We can use the window function `RANK()` to rank each session by `user_id` dimens
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

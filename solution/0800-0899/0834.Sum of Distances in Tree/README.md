@@ -86,6 +86,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumOfDistancesInTree(self, n: int, edges: List[List[int]]) -> List[int]:
@@ -114,6 +116,8 @@ class Solution:
         dfs2(0, -1, ans[0])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -160,6 +164,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -200,6 +206,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumOfDistancesInTree(n int, edges [][]int) []int {
 	g := make([][]int, n)
@@ -235,6 +243,8 @@ func sumOfDistancesInTree(n int, edges [][]int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumOfDistancesInTree(n: number, edges: number[][]): number[] {

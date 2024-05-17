@@ -88,6 +88,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2757.Ge
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function* cycleGenerator(arr: number[], startIndex: number): Generator<number, void, number> {
     const n = arr.length;

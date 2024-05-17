@@ -77,6 +77,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minSubArrayLen(self, target: int, nums: List[int]) -> int:
@@ -90,6 +92,8 @@ class Solution:
                 i += 1
         return 0 if ans == inf else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -129,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minSubArrayLen(target int, nums []int) int {
 	const inf = 1 << 30
@@ -148,6 +156,8 @@ func minSubArrayLen(target int, nums []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minSubArrayLen(target: number, nums: number[]): number {

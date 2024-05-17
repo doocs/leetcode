@@ -80,6 +80,8 @@ The time complexity is $O(L)$, and the space complexity is $O(L)$. Here, $L$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Trie:
     __slots__ = ["children", "cnt"]
@@ -125,6 +127,8 @@ class Solution:
             )
         return ans
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -177,6 +181,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -242,6 +248,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -299,6 +307,8 @@ func wordsAbbreviation(words []string) (ans []string) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 class Trie {

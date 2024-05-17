@@ -84,6 +84,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfGoodPartitions(self, nums: List[int]) -> int:
@@ -95,6 +97,8 @@ class Solution:
             k += i == j
         return pow(2, k - 1, mod)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -157,6 +163,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfGoodPartitions(nums []int) int {
 	qpow := func(a, n, mod int) int {
@@ -184,6 +192,8 @@ func numberOfGoodPartitions(nums []int) int {
 	return qpow(2, k-1, mod)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfGoodPartitions(nums: number[]): number {

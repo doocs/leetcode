@@ -83,6 +83,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def pyramidTransition(self, bottom: str, allowed: List[str]) -> bool:
@@ -103,6 +105,8 @@ class Solution:
             d[a, b].append(c)
         return dfs(bottom)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -146,6 +150,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -187,6 +193,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func pyramidTransition(bottom string, allowed []string) bool {

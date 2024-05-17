@@ -124,6 +124,8 @@ sol.read (buf, 1); // 我们已经到达文件的末尾，不能读取更多的�
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # The read4 API is already defined for you.
 # def read4(buf4: List[str]) -> int:
@@ -148,6 +150,8 @@ class Solution:
                 j += 1
         return j
 ```
+
+#### Java
 
 ```java
 /**
@@ -184,6 +188,8 @@ public class Solution extends Reader4 {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * The read4 API is defined in the parent class Reader4.
@@ -216,6 +222,8 @@ private:
     int size = 0;
 };
 ```
+
+#### Go
 
 ```go
 /**

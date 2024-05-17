@@ -66,11 +66,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def prefixCount(self, words: List[str], pref: str) -> int:
         return sum(w.startswith(pref) for w in words)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +90,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -96,6 +102,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func prefixCount(words []string, pref string) (ans int) {
@@ -108,11 +116,15 @@ func prefixCount(words []string, pref string) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function prefixCount(words: string[], pref: string): number {
     return words.reduce((r, s) => (r += s.startsWith(pref) ? 1 : 0), 0);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -124,6 +136,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int prefixCount(char** words, int wordsSize, char* pref) {
@@ -166,6 +180,8 @@ int prefixCount(char** words, int wordsSize, char* pref) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Trie:
     def __init__(self):
@@ -198,6 +214,8 @@ class Solution:
             tree.insert(w)
         return tree.search(pref)
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -239,6 +257,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -287,6 +307,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type Trie struct {

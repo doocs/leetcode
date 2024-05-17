@@ -70,6 +70,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 """
 # Definition for a Node.
@@ -101,6 +103,8 @@ class Solution:
         leaf.parent = None
         return leaf
 ```
+
+#### Java
 
 ```java
 /*
@@ -137,6 +141,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /*
@@ -176,6 +182,8 @@ public:
 };
 ```
 
+#### JavaScript
+
 ```js
 /**
  * // Definition for a Node.
@@ -213,6 +221,8 @@ var flipBinaryTree = function (root, leaf) {
     return leaf;
 };
 ```
+
+#### C#
 
 ```cs
 /*

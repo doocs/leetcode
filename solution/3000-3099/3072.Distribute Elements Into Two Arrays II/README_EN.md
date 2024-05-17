@@ -97,6 +97,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$,
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class BinaryIndexedTree:
     __slots__ = "n", "c"
@@ -147,6 +149,8 @@ class Solution:
         return arr1 + arr2
 ```
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedList
 
@@ -174,6 +178,8 @@ class Solution:
                 sl2.add(x)
         return arr1 + arr2
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -240,6 +246,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 private:
@@ -302,6 +310,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -359,6 +369,8 @@ func resultArray(nums []int) []int {
 	return arr1
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {

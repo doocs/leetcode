@@ -71,12 +71,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isBoomerang(self, points: List[List[int]]) -> bool:
         (x1, y1), (x2, y2), (x3, y3) = points
         return (y2 - y1) * (x3 - x2) != (y3 - y2) * (x2 - x1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +92,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -101,6 +107,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isBoomerang(points [][]int) bool {
 	x1, y1 := points[0][0], points[0][1]
@@ -110,6 +118,8 @@ func isBoomerang(points [][]int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isBoomerang(points: number[][]): boolean {
     const [x1, y1] = points[0];
@@ -118,6 +128,8 @@ function isBoomerang(points: number[][]): boolean {
     return (x1 - x2) * (y2 - y3) !== (x2 - x3) * (y1 - y2);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

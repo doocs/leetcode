@@ -103,6 +103,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def wonderfulSubstrings(self, word: str) -> int:
@@ -116,6 +118,8 @@ class Solution:
             cnt[st] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -137,6 +141,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -157,6 +163,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func wonderfulSubstrings(word string) (ans int64) {
 	cnt := [1024]int{1}
@@ -172,6 +180,8 @@ func wonderfulSubstrings(word string) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function wonderfulSubstrings(word: string): number {
@@ -190,6 +200,8 @@ function wonderfulSubstrings(word: string): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

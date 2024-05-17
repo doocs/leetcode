@@ -75,6 +75,8 @@ Another solution is [-3,1,4,-2], which would also be accepted.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def restoreArray(self, adjacentPairs: List[List[int]]) -> List[int]:
@@ -94,6 +96,8 @@ class Solution:
             ans[i] = v[0] if v[1] == ans[i - 2] else v[1]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -150,6 +156,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func restoreArray(adjacentPairs [][]int) []int {
 	n := len(adjacentPairs) + 1
@@ -177,6 +185,8 @@ func restoreArray(adjacentPairs [][]int) []int {
 	return ans
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -226,6 +236,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def restoreArray(self, adjacentPairs: List[List[int]]) -> List[int]:
@@ -244,6 +256,8 @@ class Solution:
         dfs(i, 1e6)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -278,6 +292,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -308,6 +324,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func restoreArray(adjacentPairs [][]int) []int {

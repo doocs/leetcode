@@ -110,6 +110,8 @@ The time complexity is $O(n \times (m + C^2))$, and the space complexity is $O(n
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumOperations(self, grid: List[List[int]]) -> int:
@@ -129,6 +131,8 @@ class Solution:
                             f[i][j] = min(f[i][j], f[i - 1][k] + m - cnt[j])
         return min(f[-1])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -167,6 +171,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -197,6 +203,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumOperations(grid [][]int) int {
@@ -230,6 +238,8 @@ func minimumOperations(grid [][]int) int {
 	return slices.Min(f[n-1])
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumOperations(grid: number[][]): number {

@@ -71,6 +71,8 @@ We can use the `GROUP BY` statement to group the data by the `email` field, and 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 import pandas as pd
 
@@ -82,6 +84,8 @@ def duplicate_emails(person: pd.DataFrame) -> pd.DataFrame:
 
     return results.drop_duplicates()
 ```
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -102,6 +106,8 @@ HAVING COUNT(1) > 1;
 We can use a self-join to join the `Person` table with itself, and then filter out the records where the `id` is different but the `email` is the same.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 SELECT DISTINCT p1.email

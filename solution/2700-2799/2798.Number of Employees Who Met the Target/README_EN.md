@@ -74,11 +74,15 @@ The time complexity is $O(n)$, where $n$ is the length of the array $hours$. The
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfEmployeesWhoMetTarget(self, hours: List[int], target: int) -> int:
         return sum(x >= target for x in hours)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +98,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -102,6 +108,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfEmployeesWhoMetTarget(hours []int, target int) (ans int) {
@@ -114,11 +122,15 @@ func numberOfEmployeesWhoMetTarget(hours []int, target int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numberOfEmployeesWhoMetTarget(hours: number[], target: number): number {
     return hours.filter(x => x >= target).length;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

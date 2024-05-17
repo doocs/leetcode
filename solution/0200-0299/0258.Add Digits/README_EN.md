@@ -59,11 +59,15 @@ Since 2 has only one digit, return it.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def addDigits(self, num: int) -> int:
         return 0 if num == 0 else (num - 1) % 9 + 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -72,6 +76,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -82,6 +88,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func addDigits(num int) int {
 	if num == 0 {
@@ -90,6 +98,8 @@ func addDigits(num int) int {
 	return (num-1)%9 + 1
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -117,6 +127,8 @@ impl Solution {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {

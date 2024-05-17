@@ -84,6 +84,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedList
 
@@ -101,6 +103,8 @@ class Solution:
                 ans = min(ans, nums[i] - sl[j - 1])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +126,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -145,6 +151,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minAbsoluteDifference(nums []int, x int) int {
 	rbt := redblacktree.NewWithIntComparator()
@@ -163,6 +171,8 @@ func minAbsoluteDifference(nums []int, x int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minAbsoluteDifference(nums: number[], x: number): number {

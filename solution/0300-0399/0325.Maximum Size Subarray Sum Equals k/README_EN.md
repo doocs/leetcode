@@ -56,6 +56,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxSubArrayLen(self, nums: List[int], k: int) -> int:
@@ -69,6 +71,8 @@ class Solution:
                 d[s] = i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +90,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -108,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSubArrayLen(nums []int, k int) (ans int) {
 	d := map[int]int{0: -1}
@@ -124,6 +132,8 @@ func maxSubArrayLen(nums []int, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxSubArrayLen(nums: number[], k: number): number {

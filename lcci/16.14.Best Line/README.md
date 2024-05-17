@@ -41,6 +41,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.14.Best%20Line/REA
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def bestLine(self, points: List[List[int]]) -> List[int]:
@@ -61,6 +63,8 @@ class Solution:
                     x, y = i, j
         return [x, y]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +97,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func bestLine(points [][]int) []int {
 	n := len(points)
@@ -150,6 +158,8 @@ func bestLine(points [][]int) []int {
 	return ans
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -202,6 +212,8 @@ class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def bestLine(self, points: List[List[int]]) -> List[int]:
@@ -224,6 +236,8 @@ class Solution:
                     x, y = cnt[k][0]
         return [x, y]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -259,6 +273,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -289,6 +305,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func bestLine(points [][]int) []int {

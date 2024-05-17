@@ -101,6 +101,8 @@ Explanation is shown in the photo below:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 """
 # Definition for a QuadTree node.
@@ -137,6 +139,8 @@ class Solution:
 
         return dfs(0, 0, len(grid) - 1, len(grid[0]) - 1)
 ```
+
+#### Java
 
 ```java
 /*
@@ -205,6 +209,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /*
@@ -275,6 +281,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**

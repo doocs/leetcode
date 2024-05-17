@@ -90,6 +90,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def alienOrder(self, words: List[str]) -> str:
@@ -145,6 +147,8 @@ class Solution:
                         q.append(i)
         return '' if len(ans) < cnt else ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -222,6 +226,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {

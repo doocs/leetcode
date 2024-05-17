@@ -70,6 +70,8 @@ or 7 -&gt; 6 -&gt; 3 -&gt; 2 -&gt; 1
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def integerReplacement(self, n: int) -> int:
@@ -84,6 +86,8 @@ class Solution:
             ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +129,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func integerReplacement(n int) int {

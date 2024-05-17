@@ -71,6 +71,8 @@ DataFrame <code>players:</code>
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 import pandas as pd
 

@@ -73,6 +73,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getMaxLen(self, nums: List[int]) -> int:
@@ -101,6 +103,8 @@ class Solution:
         return res
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int getMaxLen(int[] nums) {
@@ -125,6 +129,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -151,6 +157,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getMaxLen(nums []int) int {
@@ -186,6 +194,8 @@ func getMaxLen(nums []int) int {
 	return res
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getMaxLen(nums: number[]): number {

@@ -67,6 +67,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxNumberOfApples(self, weight: List[int]) -> int:
@@ -78,6 +80,8 @@ class Solution:
                 return i
         return len(weight)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +98,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -112,6 +118,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxNumberOfApples(weight []int) int {
 	sort.Ints(weight)
@@ -125,6 +133,8 @@ func maxNumberOfApples(weight []int) int {
 	return len(weight)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxNumberOfApples(weight: number[]): number {

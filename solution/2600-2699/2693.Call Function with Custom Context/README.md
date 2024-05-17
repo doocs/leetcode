@@ -79,6 +79,8 @@ args = [{"item": "burger"}, 10, 1,1]
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 declare global {
     interface Function {

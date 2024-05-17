@@ -68,6 +68,8 @@ The time complexity is $O(n)$, where $n$ is the length of the string $s$. The sp
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def lengthOfLastWord(self, s: str) -> int:
@@ -79,6 +81,8 @@ class Solution:
             j -= 1
         return i - j
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +99,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -113,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func lengthOfLastWord(s string) int {
 	i := len(s) - 1
@@ -126,6 +134,8 @@ func lengthOfLastWord(s string) int {
 	return i - j
 }
 ```
+
+#### TypeScript
 
 ```ts
 function lengthOfLastWord(s: string): number {
@@ -141,6 +151,8 @@ function lengthOfLastWord(s: string): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn length_of_last_word(s: String) -> i32 {
@@ -155,6 +167,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -174,6 +188,8 @@ var lengthOfLastWord = function (s) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int LengthOfLastWord(string s) {
@@ -189,6 +205,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

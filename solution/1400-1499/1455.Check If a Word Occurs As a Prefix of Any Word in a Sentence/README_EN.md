@@ -71,6 +71,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isPrefixOfWord(self, sentence: str, searchWord: str) -> int:
@@ -79,6 +81,8 @@ class Solution:
                 return i
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +97,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -110,6 +116,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isPrefixOfWord(sentence string, searchWord string) int {
 	for i, s := range strings.Split(sentence, " ") {
@@ -120,6 +128,8 @@ func isPrefixOfWord(sentence string, searchWord string) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isPrefixOfWord(sentence: string, searchWord: string): number {
@@ -134,6 +144,8 @@ function isPrefixOfWord(sentence: string, searchWord: string): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn is_prefix_of_word(sentence: String, search_word: String) -> i32 {
@@ -147,6 +159,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

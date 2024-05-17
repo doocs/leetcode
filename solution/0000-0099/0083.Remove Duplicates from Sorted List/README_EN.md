@@ -58,6 +58,8 @@ The time complexity is $O(n)$, where $n$ is the length of the linked list. The s
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -74,6 +76,8 @@ class Solution:
                 cur = cur.next
         return head
 ```
+
+#### Java
 
 ```java
 /**
@@ -100,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -128,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -148,6 +156,8 @@ func deleteDuplicates(head *ListNode) *ListNode {
 	return head
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -184,6 +194,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -208,6 +220,8 @@ var deleteDuplicates = function (head) {
     return head;
 };
 ```
+
+#### C#
 
 ```cs
 /**

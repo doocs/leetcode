@@ -89,6 +89,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findRotateSteps(self, ring: str, key: str) -> int:
@@ -107,6 +109,8 @@ class Solution:
                     )
         return min(f[-1][j] for j in pos[key[-1]])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -142,6 +146,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -171,6 +177,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findRotateSteps(ring string, key string) int {
@@ -210,6 +218,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findRotateSteps(ring: string, key: string): number {

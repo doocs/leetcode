@@ -87,6 +87,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxArea(
@@ -100,6 +102,8 @@ class Solution:
         y = max(b - a for a, b in pairwise(verticalCuts))
         return (x * y) % (10**9 + 7)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -145,6 +151,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxArea(h int, w int, horizontalCuts []int, verticalCuts []int) int {
 	horizontalCuts = append(horizontalCuts, []int{0, h}...)
@@ -163,6 +171,8 @@ func maxArea(h int, w int, horizontalCuts []int, verticalCuts []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxArea(h: number, w: number, horizontalCuts: number[], verticalCuts: number[]): number {
     const mod = 1e9 + 7;
@@ -180,6 +190,8 @@ function maxArea(h: number, w: number, horizontalCuts: number[], verticalCuts: n
     return Number((BigInt(x) * BigInt(y)) % BigInt(mod));
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

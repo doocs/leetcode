@@ -74,6 +74,8 @@ Enrollments 表：
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH
@@ -103,6 +105,8 @@ ORDER BY student_id;
 我们可以先查询每个学生的最高成绩，然后再查询每个学生的最高成绩对应的最小课程号。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

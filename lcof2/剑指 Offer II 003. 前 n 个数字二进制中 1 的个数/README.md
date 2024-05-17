@@ -80,6 +80,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countBits(self, n: int) -> List[int]:
@@ -88,6 +90,8 @@ class Solution:
             f[i] = f[i & (i - 1)] + 1
         return f
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,6 +120,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countBits(n int) []int {
 	f := make([]int, n+1)
@@ -123,6 +131,8 @@ func countBits(n int) []int {
 	return f
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countBits(n: number): number[] {

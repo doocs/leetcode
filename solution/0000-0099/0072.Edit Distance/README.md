@@ -94,6 +94,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minDistance(self, word1: str, word2: str) -> int:
@@ -110,6 +112,8 @@ class Solution:
                     f[i][j] = min(f[i - 1][j], f[i][j - 1], f[i - 1][j - 1]) + 1
         return f[m][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +137,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -158,6 +164,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minDistance(word1 string, word2 string) int {
 	m, n := len(word1), len(word2)
@@ -182,6 +190,8 @@ func minDistance(word1 string, word2 string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minDistance(word1: string, word2: string): number {
     const m = word1.length;
@@ -205,6 +215,8 @@ function minDistance(word1: string, word2: string): number {
     return f[m][n];
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

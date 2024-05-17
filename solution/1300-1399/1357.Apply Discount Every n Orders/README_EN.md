@@ -93,6 +93,8 @@ The time complexity of initialization is $O(n)$, where $n$ is the number of prod
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Cashier:
     def __init__(self, n: int, discount: int, products: List[int], prices: List[int]):
@@ -115,6 +117,8 @@ class Cashier:
 # obj = Cashier(n, discount, products, prices)
 # param_1 = obj.getBill(product,amount)
 ```
+
+#### Java
 
 ```java
 class Cashier {
@@ -150,6 +154,8 @@ class Cashier {
  */
 ```
 
+#### C++
+
 ```cpp
 class Cashier {
 public:
@@ -184,6 +190,8 @@ private:
  * double param_1 = obj->getBill(product,amount);
  */
 ```
+
+#### Go
 
 ```go
 type Cashier struct {

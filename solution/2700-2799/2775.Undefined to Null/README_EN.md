@@ -53,6 +53,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2775.Un
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function undefinedToNull(obj: Record<any, any>): Record<any, any> {
     for (const key in obj) {

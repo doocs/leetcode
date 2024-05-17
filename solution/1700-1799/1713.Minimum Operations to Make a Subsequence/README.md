@@ -74,6 +74,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class BinaryIndexedTree:
     def __init__(self, n):
@@ -115,6 +117,8 @@ class Solution:
             tree.update(x, t)
         return ans
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -185,6 +189,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -247,6 +253,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {

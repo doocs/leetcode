@@ -66,6 +66,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sortArrayByParity(self, nums: List[int]) -> List[int]:
@@ -80,6 +82,8 @@ class Solution:
                 i, j = i + 1, j - 1
         return nums
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sortArrayByParity(nums []int) []int {
 	for i, j := 0, len(nums)-1; i < j; {
@@ -136,6 +144,8 @@ func sortArrayByParity(nums []int) []int {
 	return nums
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sortArrayByParity(nums: number[]): number[] {
@@ -153,6 +163,8 @@ function sortArrayByParity(nums: number[]): number[] {
     return nums;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -173,6 +185,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

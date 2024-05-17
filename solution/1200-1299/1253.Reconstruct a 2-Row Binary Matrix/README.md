@@ -89,6 +89,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reconstructMatrix(
@@ -111,6 +113,8 @@ class Solution:
                 return []
         return ans if lower == upper == 0 else []
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -144,6 +148,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -173,6 +179,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func reconstructMatrix(upper int, lower int, colsum []int) [][]int {
@@ -206,6 +214,8 @@ func reconstructMatrix(upper int, lower int, colsum []int) [][]int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function reconstructMatrix(upper: number, lower: number, colsum: number[]): number[][] {

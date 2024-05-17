@@ -71,6 +71,8 @@ We can use a self-join to join each point in the table with the larger points, a
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT MIN(p2.x - p1.x) AS shortest
@@ -90,6 +92,8 @@ FROM
 We can use a window function to sort the points in the table by their $x$ values, and then calculate the distance between adjacent points. Finally, we can take the minimum distance.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

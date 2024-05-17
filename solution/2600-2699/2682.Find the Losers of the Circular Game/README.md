@@ -89,6 +89,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def circularGameLosers(self, n: int, k: int) -> List[int]:
@@ -100,6 +102,8 @@ class Solution:
             p += 1
         return [i + 1 for i in range(n) if not vis[i]]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +126,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -143,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func circularGameLosers(n int, k int) (ans []int) {
 	vis := make([]bool, n)
@@ -158,6 +166,8 @@ func circularGameLosers(n int, k int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function circularGameLosers(n: number, k: number): number[] {
@@ -175,6 +185,8 @@ function circularGameLosers(n: number, k: number): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

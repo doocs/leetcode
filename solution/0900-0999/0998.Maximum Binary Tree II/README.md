@@ -94,6 +94,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -110,6 +112,8 @@ class Solution:
         root.right = self.insertIntoMaxTree(root.right, val)
         return root
 ```
+
+#### Java
 
 ```java
 /**
@@ -138,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -160,6 +166,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -177,6 +185,8 @@ func insertIntoMaxTree(root *TreeNode, val int) *TreeNode {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -201,6 +211,8 @@ function insertIntoMaxTree(root: TreeNode | null, val: number): TreeNode | null 
     return root;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -248,6 +260,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 /**
  * Definition for a binary tree node.
@@ -287,6 +301,8 @@ struct TreeNode* insertIntoMaxTree(struct TreeNode* root, int val) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -308,6 +324,8 @@ class Solution:
         curr.right = node
         return root
 ```
+
+#### Java
 
 ```java
 /**
@@ -342,6 +360,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -368,6 +388,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -391,6 +413,8 @@ func insertIntoMaxTree(root *TreeNode, val int) *TreeNode {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

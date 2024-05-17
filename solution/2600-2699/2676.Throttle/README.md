@@ -95,6 +95,8 @@ calls = [
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 type F = (...args: any[]) => void;
 

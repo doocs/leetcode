@@ -72,6 +72,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isValidPalindrome(self, s: str, k: int) -> bool:
@@ -89,6 +91,8 @@ class Solution:
                     return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -142,6 +148,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isValidPalindrome(s string, k int) bool {
 	n := len(s)
@@ -166,6 +174,8 @@ func isValidPalindrome(s string, k int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isValidPalindrome(s: string, k: number): boolean {
     const n = s.length;
@@ -188,6 +198,8 @@ function isValidPalindrome(s: string, k: number): boolean {
     return false;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

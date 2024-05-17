@@ -40,6 +40,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.01.Add%20Without%2
 
 <!-- tabs:start -->
 
+#### Java
+
 ```java
 class Solution {
     public int add(int a, int b) {
@@ -54,6 +56,8 @@ class Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

@@ -85,6 +85,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def leftRigthDifference(self, nums: List[int]) -> List[int]:
@@ -96,6 +98,8 @@ class Solution:
             left += x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +134,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func leftRigthDifference(nums []int) (ans []int) {
@@ -151,6 +159,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function leftRigthDifference(nums: number[]): number[] {
     let left = 0,
@@ -164,6 +174,8 @@ function leftRigthDifference(nums: number[]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -181,6 +193,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**
@@ -213,6 +227,8 @@ int* leftRigthDifference(int* nums, int numsSize, int* returnSize) {
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function leftRigthDifference(nums: number[]): number[] {
     let left = 0;
@@ -225,6 +241,8 @@ function leftRigthDifference(nums: number[]): number[] {
     });
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -259,6 +277,8 @@ impl Solution {
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {

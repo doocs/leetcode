@@ -62,6 +62,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2061.%20%E6%B0%94%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def temperatureTrend(self, temperatureA: List[int], temperatureB: List[int]) -> int:
@@ -77,6 +79,8 @@ class Solution:
                 f = 0
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +100,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -114,6 +120,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func temperatureTrend(temperatureA []int, temperatureB []int) int {

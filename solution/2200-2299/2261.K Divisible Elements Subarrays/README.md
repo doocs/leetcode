@@ -90,6 +90,8 @@ nums 中的所有元素都可以被 p = 1 整除。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countDistinct(self, nums: List[int], k: int, p: int) -> int:
@@ -104,6 +106,8 @@ class Solution:
                 s.add(tuple(nums[i : j + 1]))
         return len(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +129,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -148,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countDistinct(nums []int, k int, p int) int {
 	s := map[string]struct{}{}
@@ -167,6 +175,8 @@ func countDistinct(nums []int, k int, p int) int {
 	return len(s)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countDistinct(nums: number[], k: number, p: number): number {
@@ -196,6 +206,8 @@ function countDistinct(nums: number[], k: number, p: number): number {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

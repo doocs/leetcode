@@ -70,6 +70,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isBipartite(self, graph: List[List[int]]) -> bool:
@@ -90,6 +92,8 @@ class Solution:
                 return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +128,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -148,6 +154,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isBipartite(graph [][]int) bool {
@@ -175,6 +183,8 @@ func isBipartite(graph [][]int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isBipartite(graph: number[][]): boolean {
@@ -204,6 +214,8 @@ function isBipartite(graph: number[][]): boolean {
     return valid;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -254,6 +266,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isBipartite(self, graph: List[List[int]]) -> bool:
@@ -270,6 +284,8 @@ class Solution:
                 p[find(v)] = find(g[0])
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -302,6 +318,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -327,6 +345,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isBipartite(graph [][]int) bool {
@@ -354,6 +374,8 @@ func isBipartite(graph [][]int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isBipartite(graph: number[][]): boolean {
     const n = graph.length;
@@ -378,6 +400,8 @@ function isBipartite(graph: number[][]): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

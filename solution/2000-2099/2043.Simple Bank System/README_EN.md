@@ -91,6 +91,8 @@ The time complexity of the above operations is $O(1)$, and the space complexity 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Bank:
     def __init__(self, balance: List[int]):
@@ -123,6 +125,8 @@ class Bank:
 # param_2 = obj.deposit(account,money)
 # param_3 = obj.withdraw(account,money)
 ```
+
+#### Java
 
 ```java
 class Bank {
@@ -169,6 +173,8 @@ class Bank {
  */
 ```
 
+#### C++
+
 ```cpp
 class Bank {
 public:
@@ -208,6 +214,8 @@ public:
  * bool param_3 = obj->withdraw(account,money);
  */
 ```
+
+#### Go
 
 ```go
 type Bank struct {
@@ -253,6 +261,8 @@ func (this *Bank) Withdraw(account int, money int64) bool {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class Bank {
     balance: number[];
@@ -295,6 +305,8 @@ class Bank {
  * var param_3 = obj.withdraw(account,money)
  */
 ```
+
+#### Rust
 
 ```rust
 struct Bank {

@@ -81,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfPaths(self, n: int, corridors: List[List[int]]) -> int:
@@ -95,6 +97,8 @@ class Solution:
                     ans += 1
         return ans // 3
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -152,6 +158,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfPaths(n int, corridors [][]int) int {

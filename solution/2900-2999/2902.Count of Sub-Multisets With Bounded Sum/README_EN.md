@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSubMultisets(self, nums: List[int], l: int, r: int) -> int:
@@ -103,6 +105,8 @@ class Solution:
 
         return (zeros + 1) * sum(dp[l : r + 1]) % kMod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -152,6 +156,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -180,6 +186,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countSubMultisets(nums []int, l int, r int) int {
@@ -214,6 +222,8 @@ func countSubMultisets(nums []int, l int, r int) int {
 }
 var mod int = 1e9 + 7
 ```
+
+#### TypeScript
 
 ```ts
 function countSubMultisets(nums: number[], l: number, r: number): number {

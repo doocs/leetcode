@@ -110,6 +110,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumProcessableQueries(self, nums: List[int], queries: List[int]) -> int:
@@ -130,6 +132,8 @@ class Solution:
                     return m
         return max(f[i][i] + (nums[i] >= queries[f[i][i]]) for i in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -161,6 +165,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -190,6 +196,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumProcessableQueries(nums []int, queries []int) (ans int) {
@@ -230,6 +238,8 @@ func maximumProcessableQueries(nums []int, queries []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumProcessableQueries(nums: number[], queries: number[]): number {

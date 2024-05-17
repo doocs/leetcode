@@ -73,6 +73,8 @@ for (int i = n / 2; i > 0; --i) {
 
 ### **Python3**
 
+#### Python3
+
 ```python
 n, m = list(map(int, input().split(" ")))
 h = [0] + list(map(int, input().split(" ")))
@@ -111,6 +113,8 @@ print(' '.join(list(map(str, res))))
 ```
 
 ### **Java**
+
+#### Java
 
 ```java
 import java.util.Scanner;
@@ -166,6 +170,8 @@ public class Main {
 ```
 
 ### **Rust**
+
+#### Rust
 
 ```rust
 use std::io;
@@ -232,6 +238,8 @@ fn main() -> io::Result<()> {
 
 ### **Go**
 
+#### Go
+
 ```go
 package main
 
@@ -294,6 +302,8 @@ func main() {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 n, m = list(map(int, input().split(" ")))
 h = [0] + list(map(int, input().split(" ")))
@@ -330,6 +340,8 @@ for i in range(m):
 
 print(' '.join(list(map(str, res))))
 ```
+
+#### Java
 
 ```java
 import java.util.Scanner;
@@ -384,6 +396,8 @@ public class Main {
 }
 ```
 
+#### Go
+
 ```go
 package main
 
@@ -437,6 +451,8 @@ func main() {
 	}
 }
 ```
+
+#### Rust
 
 ```rust
 use std::io;

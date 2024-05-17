@@ -65,6 +65,8 @@ recentCounter.ping(3002);  // requests = [1, <strong>100</strong>, <strong>3001<
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class RecentCounter:
     def __init__(self):
@@ -81,6 +83,8 @@ class RecentCounter:
 # obj = RecentCounter()
 # param_1 = obj.ping(t)
 ```
+
+#### Java
 
 ```java
 class RecentCounter {
@@ -106,6 +110,8 @@ class RecentCounter {
  */
 ```
 
+#### C++
+
 ```cpp
 class RecentCounter {
 public:
@@ -129,6 +135,8 @@ public:
  * int param_1 = obj->ping(t);
  */
 ```
+
+#### Go
 
 ```go
 type RecentCounter struct {
@@ -156,6 +164,8 @@ func (this *RecentCounter) Ping(t int) int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class RecentCounter {
     stack: Array<number>;
@@ -176,6 +186,8 @@ class RecentCounter {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 var RecentCounter = function () {

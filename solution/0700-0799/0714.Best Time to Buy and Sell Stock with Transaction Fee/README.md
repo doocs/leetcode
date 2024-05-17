@@ -81,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProfit(self, prices: List[int], fee: int) -> int:
@@ -97,6 +99,8 @@ class Solution:
 
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -155,6 +161,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxProfit(prices []int, fee int) int {
@@ -183,6 +191,8 @@ func maxProfit(prices []int, fee int) int {
 	return dfs(0, 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxProfit(prices: number[], fee: number): number {
@@ -225,6 +235,8 @@ function maxProfit(prices: number[], fee: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProfit(self, prices: List[int], fee: int) -> int:
@@ -236,6 +248,8 @@ class Solution:
             f[i][1] = max(f[i - 1][1], f[i - 1][0] - prices[i])
         return f[n - 1][0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -251,6 +265,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -269,6 +285,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProfit(prices []int, fee int) int {
 	n := len(prices)
@@ -281,6 +299,8 @@ func maxProfit(prices []int, fee int) int {
 	return f[n-1][0]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxProfit(prices: number[], fee: number): number {
@@ -305,6 +325,8 @@ function maxProfit(prices: number[], fee: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProfit(self, prices: List[int], fee: int) -> int:
@@ -313,6 +335,8 @@ class Solution:
             f0, f1 = max(f0, f1 + x - fee), max(f1, f0 - x)
         return f0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -327,6 +351,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -343,6 +369,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProfit(prices []int, fee int) int {
 	f0, f1 := 0, -prices[0]
@@ -352,6 +380,8 @@ func maxProfit(prices []int, fee int) int {
 	return f0
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxProfit(prices: number[], fee: number): number {

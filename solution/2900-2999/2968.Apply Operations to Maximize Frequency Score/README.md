@@ -107,6 +107,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxFrequencyScore(self, nums: List[int], k: int) -> int:
@@ -131,6 +133,8 @@ class Solution:
                 r = mid - 1
         return l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -168,6 +172,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -209,6 +215,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxFrequencyScore(nums []int, k int64) int {
 	sort.Ints(nums)
@@ -245,6 +253,8 @@ func maxFrequencyScore(nums []int, k int64) int {
 	return l
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxFrequencyScore(nums: number[], k: number): number {

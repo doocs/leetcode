@@ -64,12 +64,16 @@ The time complexity is $O(n \times \log n + m)$, and the space complexity is $O(
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def relativeSortArray(self, arr1: List[int], arr2: List[int]) -> List[int]:
         pos = {x: i for i, x in enumerate(arr2)}
         return sorted(arr1, key=lambda x: pos.get(x, 1000 + x))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +94,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -112,6 +118,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func relativeSortArray(arr1 []int, arr2 []int) []int {
@@ -136,6 +144,8 @@ func relativeSortArray(arr1 []int, arr2 []int) []int {
 	return arr1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function relativeSortArray(arr1: number[], arr2: number[]): number[] {

@@ -85,6 +85,8 @@ The time complexity is $O(n)$ and the space complexity is $O(C)$. Where $n$ is t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkAlmostEquivalent(self, word1: str, word2: str) -> bool:
@@ -93,6 +95,8 @@ class Solution:
             cnt[c] -= 1
         return all(abs(x) <= 3 for x in cnt.values())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +117,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -135,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func checkAlmostEquivalent(word1 string, word2 string) bool {
 	cnt := [26]int{}
@@ -153,6 +161,8 @@ func checkAlmostEquivalent(word1 string, word2 string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function checkAlmostEquivalent(word1: string, word2: string): boolean {
     const cnt: number[] = new Array(26).fill(0);
@@ -165,6 +175,8 @@ function checkAlmostEquivalent(word1: string, word2: string): boolean {
     return cnt.every(x => Math.abs(x) <= 3);
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -187,6 +199,8 @@ var checkAlmostEquivalent = function (word1, word2) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool CheckAlmostEquivalent(string word1, string word2) {
@@ -201,6 +215,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

@@ -65,6 +65,8 @@ which are both strictly increasing.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minSwap(self, nums1: List[int], nums2: List[int]) -> int:
@@ -79,6 +81,8 @@ class Solution:
                     a, b = min(a, y), min(b, x + 1)
         return min(a, b)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +129,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minSwap(nums1 []int, nums2 []int) int {

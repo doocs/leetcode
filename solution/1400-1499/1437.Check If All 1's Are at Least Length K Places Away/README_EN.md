@@ -56,6 +56,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def kLengthApart(self, nums: List[int], k: int) -> bool:
@@ -67,6 +69,8 @@ class Solution:
                 j = i
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -84,6 +88,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -103,6 +109,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func kLengthApart(nums []int, k int) bool {
 	j := -(k + 1)
@@ -117,6 +125,8 @@ func kLengthApart(nums []int, k int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function kLengthApart(nums: number[], k: number): boolean {

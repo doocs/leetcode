@@ -87,6 +87,8 @@ The mail of user 7 starts with a period.
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT *

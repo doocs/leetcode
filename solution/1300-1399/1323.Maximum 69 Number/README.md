@@ -74,11 +74,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximum69Number(self, num: int) -> int:
         return int(str(num).replace("6", "9", 1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +91,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -104,6 +110,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximum69Number(num int) int {
 	s := strconv.Itoa(num)
@@ -119,11 +127,15 @@ func maximum69Number(num int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximum69Number(num: number): number {
     return Number((num + '').replace('6', '9'));
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -132,6 +144,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -147,6 +161,8 @@ class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int maximum69Number(int num) {

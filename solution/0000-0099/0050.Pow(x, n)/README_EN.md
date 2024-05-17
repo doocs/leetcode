@@ -67,6 +67,8 @@ The time complexity is $O(\log n)$, and the space complexity is $O(1)$. Here, $n
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def myPow(self, x: float, n: int) -> float:
@@ -81,6 +83,8 @@ class Solution:
 
         return qpow(x, n) if n >= 0 else 1 / qpow(x, -n)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +125,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func myPow(x float64, n int) float64 {
@@ -139,6 +147,8 @@ func myPow(x float64, n int) float64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function myPow(x: number, n: number): number {
     const qpow = (a: number, n: number): number => {
@@ -154,6 +164,8 @@ function myPow(x: number, n: number): number {
     return n >= 0 ? qpow(x, n) : 1 / qpow(x, -n);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -184,6 +196,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number} x
@@ -204,6 +218,8 @@ var myPow = function (x, n) {
     return n >= 0 ? qpow(x, n) : 1 / qpow(x, -n);
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

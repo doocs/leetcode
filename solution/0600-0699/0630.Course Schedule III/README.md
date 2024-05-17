@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def scheduleCourse(self, courses: List[List[int]]) -> int:
@@ -93,6 +95,8 @@ class Solution:
                 s += heappop(pq)
         return len(pq)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -135,6 +141,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func scheduleCourse(courses [][]int) int {
@@ -165,6 +173,8 @@ func (h *hp) Pop() any {
 func (h *hp) push(v int) { heap.Push(h, v) }
 func (h *hp) pop() int   { return heap.Pop(h).(int) }
 ```
+
+#### TypeScript
 
 ```ts
 function scheduleCourse(courses: number[][]): number {

@@ -83,6 +83,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def shortestSubstrings(self, arr: List[str]) -> List[str]:
@@ -99,6 +101,8 @@ class Solution:
                     break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -160,6 +166,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func shortestSubstrings(arr []string) []string {
 	ans := make([]string, len(arr))
@@ -186,6 +194,8 @@ func shortestSubstrings(arr []string) []string {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function shortestSubstrings(arr: string[]): string[] {

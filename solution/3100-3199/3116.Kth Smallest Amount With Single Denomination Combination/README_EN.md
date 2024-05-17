@@ -131,6 +131,8 @@ The time complexity is $O(n \times 2^n \times \log (k \times M))$, where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findKthSmallest(self, coins: List[int], k: int) -> int:
@@ -152,6 +154,8 @@ class Solution:
 
         return bisect_left(range(10**11), True, key=check)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -206,6 +210,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -249,6 +255,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findKthSmallest(coins []int, k int) int64 {
 	var r int = 1e11
@@ -288,6 +296,8 @@ func lcm(a, b int) int {
 	return a * b / gcd(a, b)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findKthSmallest(coins: number[], k: number): number {

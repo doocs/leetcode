@@ -69,6 +69,8 @@ logger.shouldPrintMessage(11, &quot;foo&quot;); // 11 &gt;= 11, return true, nex
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Logger:
     def __init__(self):
@@ -94,6 +96,8 @@ class Logger:
 # obj = Logger()
 # param_1 = obj.shouldPrintMessage(timestamp,message)
 ```
+
+#### Java
 
 ```java
 class Logger {
@@ -126,6 +130,8 @@ class Logger {
  * boolean param_1 = obj.shouldPrintMessage(timestamp,message);
  */
 ```
+
+#### JavaScript
 
 ```js
 /**

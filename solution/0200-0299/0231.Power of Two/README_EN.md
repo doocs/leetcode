@@ -66,11 +66,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isPowerOfTwo(self, n: int) -> bool:
         return n > 0 and (n & (n - 1)) == 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -79,6 +83,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -89,17 +95,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isPowerOfTwo(n int) bool {
 	return n > 0 && (n&(n-1)) == 0
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isPowerOfTwo(n: number): boolean {
     return n > 0 && (n & (n - 1)) === 0;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -121,11 +133,15 @@ var isPowerOfTwo = function (n) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isPowerOfTwo(self, n: int) -> bool:
         return n > 0 and n == n & (-n)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -134,6 +150,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -144,17 +162,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isPowerOfTwo(n int) bool {
 	return n > 0 && n == (n&(-n))
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isPowerOfTwo(n: number): boolean {
     return n > 0 && (n & (n - 1)) === 0;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

@@ -81,6 +81,8 @@ It is impossible to go beyond building 4 because you do not have any more bricks
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def furthestBuilding(self, heights: List[int], bricks: int, ladders: int) -> int:
@@ -96,6 +98,8 @@ class Solution:
                         return i
         return len(heights) - 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +123,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -144,6 +150,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func furthestBuilding(heights []int, bricks int, ladders int) int {

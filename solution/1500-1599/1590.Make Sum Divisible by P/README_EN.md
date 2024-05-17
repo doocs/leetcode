@@ -70,6 +70,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minSubarray(self, nums: List[int], p: int) -> int:
@@ -87,6 +89,8 @@ class Solution:
             last[cur] = i
         return -1 if ans == len(nums) else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +119,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -145,6 +151,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minSubarray(nums []int, p int) int {
 	k := 0
@@ -172,6 +180,8 @@ func minSubarray(nums []int, p int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minSubarray(nums: number[], p: number): number {

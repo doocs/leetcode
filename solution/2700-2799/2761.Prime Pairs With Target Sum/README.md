@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findPrimePairs(self, n: int) -> List[List[int]]:
@@ -91,6 +93,8 @@ class Solution:
                 ans.append([x, y])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +119,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -141,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findPrimePairs(n int) (ans [][]int) {
 	primes := make([]bool, n)
@@ -163,6 +171,8 @@ func findPrimePairs(n int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findPrimePairs(n: number): number[][] {

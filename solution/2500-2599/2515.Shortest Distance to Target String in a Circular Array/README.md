@@ -84,6 +84,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def closetTarget(self, words: List[str], target: str, startIndex: int) -> int:
@@ -95,6 +97,8 @@ class Solution:
                 ans = min(ans, t, n - t)
         return -1 if ans == n else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +136,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func closetTarget(words []string, target string, startIndex int) int {
@@ -155,6 +163,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function closetTarget(words: string[], target: string, startIndex: number): number {
     const n = words.length;
@@ -166,6 +176,8 @@ function closetTarget(words: string[], target: string, startIndex: number): numb
     return -1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -184,6 +196,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int closetTarget(char** words, int wordsSize, char* target, int startIndex) {
@@ -205,6 +219,8 @@ int closetTarget(char** words, int wordsSize, char* target, int startIndex) {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 use std::cmp::min;

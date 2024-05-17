@@ -55,11 +55,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reverseWords(self, s: str) -> str:
         return ' '.join([t[::-1] for t in s.split(' ')])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -76,6 +80,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -91,6 +97,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func reverseWords(s string) string {
@@ -109,6 +117,8 @@ func reverseWords(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function reverseWords(s: string): string {
     return s
@@ -124,6 +134,8 @@ function reverseWords(s: string): string {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn reverse_words(s: String) -> String {
@@ -134,6 +146,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

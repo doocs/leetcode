@@ -57,6 +57,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def nthUglyNumber(self, n: int) -> int:
@@ -72,6 +74,8 @@ class Solution:
                     heappush(h, nxt)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +99,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -120,6 +126,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func nthUglyNumber(n int) int {
@@ -158,6 +166,8 @@ func (h *IntHeap) Pop() any {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number} n
@@ -181,6 +191,8 @@ var nthUglyNumber = function (n) {
     return dp[n - 1];
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -216,6 +228,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def nthUglyNumber(self, n: int) -> int:
@@ -232,6 +246,8 @@ class Solution:
                 p5 += 1
         return dp[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -251,6 +267,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -269,6 +287,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func nthUglyNumber(n int) int {

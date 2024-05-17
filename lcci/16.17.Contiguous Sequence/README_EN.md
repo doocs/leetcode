@@ -64,6 +64,8 @@ We notice that $f[i]$ only depends on $f[i-1]$, so we can use a variable $f$ to 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
@@ -73,6 +75,8 @@ class Solution:
             ans = max(ans, f)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +90,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -101,6 +107,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSubArray(nums []int) int {
 	ans, f := math.MinInt32, math.MinInt32
@@ -112,6 +120,8 @@ func maxSubArray(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxSubArray(nums: number[]): number {
     let [ans, f] = [-Infinity, -Infinity];
@@ -122,6 +132,8 @@ function maxSubArray(nums: number[]): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -137,6 +149,8 @@ var maxSubArray = function (nums) {
     return ans;
 };
 ```
+
+#### Swift
 
 ```swift
 class Solution {

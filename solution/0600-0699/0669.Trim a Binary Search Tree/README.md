@@ -71,6 +71,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -95,6 +97,8 @@ class Solution:
 
         return dfs(root)
 ```
+
+#### Java
 
 ```java
 /**
@@ -130,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -155,6 +161,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -179,6 +187,8 @@ func trimBST(root *TreeNode, low int, high int) *TreeNode {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -211,6 +221,8 @@ function trimBST(root: TreeNode | null, low: number, high: number): TreeNode | n
     return dfs(root);
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -258,6 +270,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -291,6 +305,8 @@ var trimBST = function (root, low, high) {
     return dfs(root);
 };
 ```
+
+#### C
 
 ```c
 /**
@@ -342,6 +358,8 @@ struct TreeNode* trimBST(struct TreeNode* root, int low, int high) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -371,6 +389,8 @@ class Solution:
                 node = node.right
         return root
 ```
+
+#### Java
 
 ```java
 /**
@@ -417,6 +437,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -459,6 +481,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -498,6 +522,8 @@ func trimBST(root *TreeNode, low int, high int) *TreeNode {
 	return root
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

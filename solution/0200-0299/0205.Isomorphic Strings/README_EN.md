@@ -59,6 +59,8 @@ The time complexity is $O(n)$ and the space complexity is $O(C)$. Where $n$ is t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
@@ -71,6 +73,8 @@ class Solution:
             d2[b] = a
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +98,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -113,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isIsomorphic(s string, t string) bool {
 	d1 := [256]int{}
@@ -127,6 +135,8 @@ func isIsomorphic(s string, t string) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isIsomorphic(s: string, t: string): boolean {
@@ -144,6 +154,8 @@ function isIsomorphic(s: string, t: string): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -168,6 +180,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -198,6 +212,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
@@ -209,6 +225,8 @@ class Solution:
             d1[a] = d2[b] = i
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {

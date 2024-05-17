@@ -72,6 +72,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def mostFrequentEven(self, nums: List[int]) -> int:
@@ -82,6 +84,8 @@ class Solution:
                 ans, mx = x, v
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +109,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -127,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func mostFrequentEven(nums []int) int {
 	cnt := map[int]int{}
@@ -144,6 +152,8 @@ func mostFrequentEven(nums []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function mostFrequentEven(nums: number[]): number {
@@ -164,6 +174,8 @@ function mostFrequentEven(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -187,6 +199,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

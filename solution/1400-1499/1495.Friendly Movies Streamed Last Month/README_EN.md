@@ -109,6 +109,8 @@ We can first use an equi-join to join the two tables based on the `content_id` f
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT DISTINCT title

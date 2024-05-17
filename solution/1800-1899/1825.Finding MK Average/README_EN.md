@@ -107,6 +107,8 @@ In terms of time complexity, each call to the $addElement(num)$ function has a t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedList
 
@@ -165,6 +167,8 @@ class MKAverage:
 # obj.addElement(num)
 # param_2 = obj.calculateMKAverage()
 ```
+
+#### Java
 
 ```java
 class MKAverage {
@@ -260,6 +264,8 @@ class MKAverage {
  */
 ```
 
+#### C++
+
 ```cpp
 class MKAverage {
 public:
@@ -335,6 +341,8 @@ private:
  * int param_2 = obj->calculateMKAverage();
  */
 ```
+
+#### Go
 
 ```go
 type MKAverage struct {
@@ -440,6 +448,8 @@ func (this *MKAverage) CalculateMKAverage() int {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedList

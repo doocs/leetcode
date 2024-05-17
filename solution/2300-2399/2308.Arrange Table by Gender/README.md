@@ -89,6 +89,8 @@ Genders 表:
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH
@@ -120,6 +122,8 @@ ORDER BY rk1, rk2;
 ### 方法二
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 SELECT

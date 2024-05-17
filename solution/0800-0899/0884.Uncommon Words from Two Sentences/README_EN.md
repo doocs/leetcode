@@ -57,12 +57,16 @@ The time complexity is $O(m + n)$, and the space complexity is $O(m + n)$. Here,
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def uncommonFromSentences(self, s1: str, s2: str) -> List[str]:
         cnt = Counter(s1.split()) + Counter(s2.split())
         return [s for s, v in cnt.items() if v == 1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +89,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -105,6 +111,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func uncommonFromSentences(s1 string, s2 string) (ans []string) {
 	cnt := map[string]int{}
@@ -123,6 +131,8 @@ func uncommonFromSentences(s1 string, s2 string) (ans []string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function uncommonFromSentences(s1: string, s2: string): string[] {
     const cnt: Map<string, number> = new Map();
@@ -138,6 +148,8 @@ function uncommonFromSentences(s1: string, s2: string): string[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -161,6 +173,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

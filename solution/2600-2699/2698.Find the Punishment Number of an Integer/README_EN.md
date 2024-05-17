@@ -77,6 +77,8 @@ The time complexity is $O(n^{1 + 2 \log_{10}^2})$, and the space complexity is $
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def punishmentNumber(self, n: int) -> int:
@@ -100,6 +102,8 @@ class Solution:
                 ans += x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +137,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -169,6 +175,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func punishmentNumber(n int) (ans int) {
 	var check func(string, int, int) bool
@@ -199,6 +207,8 @@ func punishmentNumber(n int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function punishmentNumber(n: number): number {

@@ -72,6 +72,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestLine(self, mat: List[List[int]]) -> int:
@@ -91,6 +93,8 @@ class Solution:
                     ans = max(ans, a[i][j], b[i][j], c[i][j], d[i][j])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -150,6 +156,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestLine(mat [][]int) (ans int) {

@@ -84,6 +84,8 @@ The time complexity is $O(n^2)$, where $n$ is the length of the array $nums$. Th
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestAlternatingSubarray(self, nums: List[int], threshold: int) -> int:
@@ -96,6 +98,8 @@ class Solution:
                 ans = max(ans, r - l)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -134,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestAlternatingSubarray(nums []int, threshold int) (ans int) {
 	n := len(nums)
@@ -149,6 +157,8 @@ func longestAlternatingSubarray(nums []int, threshold int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestAlternatingSubarray(nums: number[], threshold: number): number {
@@ -181,6 +191,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestAlternatingSubarray(self, nums: List[int], threshold: int) -> int:
@@ -196,6 +208,8 @@ class Solution:
                 l += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -217,6 +231,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -240,6 +256,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestAlternatingSubarray(nums []int, threshold int) (ans int) {
 	for l, n := 0, len(nums); l < n; {
@@ -257,6 +275,8 @@ func longestAlternatingSubarray(nums []int, threshold int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestAlternatingSubarray(nums: number[], threshold: number): number {

@@ -74,11 +74,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def firstPalindrome(self, words: List[str]) -> str:
         return next((w for w in words if w == w[::-1]), "")
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -119,6 +125,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func firstPalindrome(words []string) string {
 	for _, w := range words {
@@ -135,6 +143,8 @@ func firstPalindrome(words []string) string {
 	return ""
 }
 ```
+
+#### TypeScript
 
 ```ts
 function firstPalindrome(words: string[]): string {
@@ -155,6 +165,8 @@ function firstPalindrome(words: string[]): string {
     return '';
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -178,6 +190,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 char* firstPalindrome(char** words, int wordsSize) {

@@ -88,6 +88,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumSubarrayMins(self, arr: List[int]) -> int:
@@ -112,6 +114,8 @@ class Solution:
         mod = 10**9 + 7
         return sum((i - left[i]) * (right[i] - i) * v for i, v in enumerate(arr)) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -152,6 +156,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -189,6 +195,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func sumSubarrayMins(arr []int) (ans int) {
@@ -228,6 +236,8 @@ func sumSubarrayMins(arr []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sumSubarrayMins(arr: number[]): number {
     const n: number = arr.length;
@@ -264,6 +274,8 @@ function sumSubarrayMins(arr: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;

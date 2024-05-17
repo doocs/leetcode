@@ -68,6 +68,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2002.%20%E5%88%86%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def fraction(self, cont: List[int]) -> List[int]:
@@ -81,6 +83,8 @@ class Solution:
 
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func fraction(cont []int) []int {
 	var dfs func(i int) []int
@@ -142,6 +150,8 @@ func fraction(cont []int) []int {
 	return dfs(0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function fraction(cont: number[]): number[] {
@@ -160,6 +170,8 @@ function fraction(cont: number[]): number[] {
     return dfs(0);
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

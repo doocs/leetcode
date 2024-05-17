@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -104,6 +106,8 @@ class Solution:
         dfs(root)
         return build(0, len(nums) - 1)
 ```
+
+#### Java
 
 ```java
 /**
@@ -150,6 +154,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -193,6 +199,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -227,6 +235,8 @@ func balanceBST(root *TreeNode) *TreeNode {
 	return build(0, len(ans)-1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

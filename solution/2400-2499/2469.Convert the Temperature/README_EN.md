@@ -69,11 +69,15 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def convertTemperature(self, celsius: float) -> List[float]:
         return [celsius + 273.15, celsius * 1.8 + 32]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +86,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -92,17 +98,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func convertTemperature(celsius float64) []float64 {
 	return []float64{celsius + 273.15, celsius*1.8 + 32}
 }
 ```
 
+#### TypeScript
+
 ```ts
 function convertTemperature(celsius: number): number[] {
     return [celsius + 273.15, celsius * 1.8 + 32];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -111,6 +123,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**

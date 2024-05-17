@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Trie:
     __slots__ = ["children", "is_end"]
@@ -114,6 +116,8 @@ class Solution:
                 ans = w
         return ans
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -165,6 +169,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -220,6 +226,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -269,6 +277,8 @@ func longestWord(words []string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 class Trie {
     private children: (Trie | null)[] = Array(26).fill(null);
@@ -313,6 +323,8 @@ function longestWord(words: string[]): string {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 struct Trie {
@@ -368,6 +380,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Trie {

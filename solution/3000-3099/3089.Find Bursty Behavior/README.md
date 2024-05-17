@@ -100,6 +100,8 @@ post_id 是这张表的主键（有不同值的列）。
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH
@@ -126,6 +128,8 @@ GROUP BY 1
 HAVING max_7day_posts >= avg_weekly_posts * 2
 ORDER BY 1;
 ```
+
+#### Python3
 
 ```python
 import pandas as pd

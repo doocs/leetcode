@@ -69,12 +69,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isFascinating(self, n: int) -> bool:
         s = str(n) + str(2 * n) + str(3 * n)
         return "".join(sorted(s)) == "123456789"
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +95,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -101,6 +107,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isFascinating(n int) bool {
@@ -116,12 +124,16 @@ func isFascinating(n int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isFascinating(n: number): boolean {
     const s = `${n}${n * 2}${n * 3}`;
     return s.split('').sort().join('') === '123456789';
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -151,6 +163,8 @@ impl Solution {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;

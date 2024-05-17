@@ -75,6 +75,8 @@ Total number of squares = 6 + 1 = <b>7</b>.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSquares(self, matrix: List[List[int]]) -> int:
@@ -92,6 +94,8 @@ class Solution:
                 ans += f[i][j]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -139,6 +145,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countSquares(matrix [][]int) int {

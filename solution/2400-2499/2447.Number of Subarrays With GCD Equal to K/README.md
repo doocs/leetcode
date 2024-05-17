@@ -71,6 +71,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def subarrayGCD(self, nums: List[int], k: int) -> int:
@@ -82,6 +84,8 @@ class Solution:
                 ans += g == k
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +129,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func subarrayGCD(nums []int, k int) (ans int) {
@@ -145,6 +153,8 @@ func gcd(a, b int) int {
 	return gcd(b, a%b)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function subarrayGCD(nums: number[], k: number): number {

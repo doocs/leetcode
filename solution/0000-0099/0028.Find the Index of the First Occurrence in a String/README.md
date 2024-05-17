@@ -62,6 +62,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
@@ -71,6 +73,8 @@ class Solution:
                 return i
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -155,6 +161,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func strStr(haystack string, needle string) int {
 	n, m := len(haystack), len(needle)
@@ -166,6 +174,8 @@ func strStr(haystack string, needle string) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function strStr(haystack: string, needle: string): number {
@@ -186,6 +196,8 @@ function strStr(haystack: string, needle: string): number {
     return -1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -222,6 +234,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} haystack
@@ -247,6 +261,8 @@ var strStr = function (haystack, needle) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int StrStr(string haystack, string needle) {
@@ -263,6 +279,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -301,6 +319,8 @@ class Solution {
 
 <!-- tabs:start -->
 
+#### Go
+
 ```go
 func strStr(haystack string, needle string) int {
 	n, m := len(haystack), len(needle)
@@ -330,6 +350,8 @@ func strStr(haystack string, needle string) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function strStr(haystack: string, needle: string): number {

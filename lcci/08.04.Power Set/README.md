@@ -50,6 +50,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.04.Power%20Set/REA
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
@@ -66,6 +68,8 @@ class Solution:
         dfs(0, [])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +95,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -114,6 +120,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subsets(nums []int) [][]int {
 	var ans [][]int
@@ -134,6 +142,8 @@ func subsets(nums []int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function subsets(nums: number[]): number[][] {
     const res = [[]];
@@ -145,6 +155,8 @@ function subsets(nums: number[]): number[][] {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -160,6 +172,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -183,6 +197,8 @@ function dfs(nums, depth, prev, res) {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -224,6 +240,8 @@ class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
@@ -236,6 +254,8 @@ class Solution:
             ans.append(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -255,6 +275,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -277,6 +299,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subsets(nums []int) [][]int {
 	var ans [][]int
@@ -293,6 +317,8 @@ func subsets(nums []int) [][]int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function subsets(nums: number[]): number[][] {
@@ -313,6 +339,8 @@ function subsets(nums: number[]): number[][] {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

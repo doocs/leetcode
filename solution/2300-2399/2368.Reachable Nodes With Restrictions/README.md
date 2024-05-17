@@ -83,6 +83,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reachableNodes(
@@ -99,6 +101,8 @@ class Solution:
         vis = set(restricted)
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +137,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -162,6 +168,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func reachableNodes(n int, edges [][]int, restricted []int) int {
 	g := make([][]int, n)
@@ -190,6 +198,8 @@ func reachableNodes(n int, edges [][]int, restricted []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function reachableNodes(n: number, edges: number[][], restricted: number[]): number {
@@ -234,6 +244,8 @@ function reachableNodes(n: number, edges: number[][], restricted: number[]): num
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reachableNodes(
@@ -255,6 +267,8 @@ class Solution:
                     vis.add(j)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -287,6 +301,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -318,6 +334,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func reachableNodes(n int, edges [][]int, restricted []int) (ans int) {
 	g := make([][]int, n)
@@ -344,6 +362,8 @@ func reachableNodes(n int, edges [][]int, restricted []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function reachableNodes(n: number, edges: number[][], restricted: number[]): number {

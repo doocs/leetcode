@@ -83,6 +83,8 @@ First, we filter out candidates who have the skills `Python`, `Tableau`, and `Po
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT candidate_id

@@ -87,6 +87,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCost(self, n: int, cuts: List[int]) -> int:
@@ -102,6 +104,8 @@ class Solution:
                     f[i][j] = min(f[i][j], f[i][k] + f[k][j] + cuts[j] - cuts[i])
         return f[0][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -152,6 +158,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minCost(n int, cuts []int) int {
 	cuts = append(cuts, []int{0, n}...)
@@ -173,6 +181,8 @@ func minCost(n int, cuts []int) int {
 	return f[0][m-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minCost(n: number, cuts: number[]): number {
@@ -203,6 +213,8 @@ function minCost(n: number, cuts: number[]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCost(self, n: int, cuts: List[int]) -> int:
@@ -217,6 +229,8 @@ class Solution:
                     f[i][j] = min(f[i][j], f[i][k] + f[k][j] + cuts[j] - cuts[i])
         return f[0][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -243,6 +257,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -264,6 +280,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minCost(n int, cuts []int) int {

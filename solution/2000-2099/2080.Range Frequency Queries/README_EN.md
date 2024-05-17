@@ -77,6 +77,8 @@ In terms of time complexity, the time complexity of the constructor is $O(n)$, a
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class RangeFreqQuery:
 
@@ -96,6 +98,8 @@ class RangeFreqQuery:
 # obj = RangeFreqQuery(arr)
 # param_1 = obj.query(left,right,value)
 ```
+
+#### Java
 
 ```java
 class RangeFreqQuery {
@@ -127,6 +131,8 @@ class RangeFreqQuery {
  */
 ```
 
+#### C++
+
 ```cpp
 class RangeFreqQuery {
 public:
@@ -157,6 +163,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type RangeFreqQuery struct {
 	g map[int][]int
@@ -185,6 +193,8 @@ func (this *RangeFreqQuery) Query(left int, right int, value int) int {
  * param_1 := obj.Query(left,right,value);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class RangeFreqQuery {

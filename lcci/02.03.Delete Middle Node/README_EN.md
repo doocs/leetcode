@@ -42,6 +42,8 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -55,6 +57,8 @@ class Solution:
         node.val = node.next.val
         node.next = node.next.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -72,6 +76,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -91,6 +97,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -104,6 +112,8 @@ func deleteNode(node *ListNode) {
 	node.Next = node.Next.Next
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -122,6 +132,8 @@ var deleteNode = function (node) {
     node.next = node.next.next;
 };
 ```
+
+#### Swift
 
 ```swift
 /**

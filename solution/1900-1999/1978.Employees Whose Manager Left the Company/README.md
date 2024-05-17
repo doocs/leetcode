@@ -82,6 +82,8 @@ Joziah 的上级经理是 6 号员工，他已经离职，因为员工表里面�
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT e1.employee_id
@@ -103,6 +105,8 @@ ORDER BY 1;
 我们也可以使用子查询，先找出所有已经离职的经理，然后再找出薪水小于 30000 的员工，且他们的上级经理不在已经离职的经理列表中。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

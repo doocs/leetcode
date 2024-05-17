@@ -83,6 +83,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def matrixBlockSum(self, mat: List[List[int]], k: int) -> List[List[int]]:
@@ -101,6 +103,8 @@ class Solution:
                 )
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +132,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -157,6 +163,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func matrixBlockSum(mat [][]int, k int) [][]int {
@@ -189,6 +197,8 @@ func matrixBlockSum(mat [][]int, k int) [][]int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function matrixBlockSum(mat: number[][], k: number): number[][] {

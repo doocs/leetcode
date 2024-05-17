@@ -89,6 +89,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def houseOfCards(self, n: int) -> int:
@@ -103,6 +105,8 @@ class Solution:
 
         return dfs(n, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -152,6 +158,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func houseOfCards(n int) int {
@@ -179,6 +187,8 @@ func houseOfCards(n int) int {
 	return dfs(n, 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function houseOfCards(n: number): number {

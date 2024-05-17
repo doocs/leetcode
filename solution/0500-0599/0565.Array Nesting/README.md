@@ -59,6 +59,8 @@ S[0] = {A[0], A[5], A[6], A[2]} = {5, 6, 2, 0}
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def arrayNesting(self, nums: List[int]) -> int:
@@ -77,6 +79,8 @@ class Solution:
             res = max(res, m)
         return res
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +130,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func arrayNesting(nums []int) int {
@@ -163,6 +171,8 @@ func arrayNesting(nums []int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def arrayNesting(self, nums: List[int]) -> int:
@@ -177,6 +187,8 @@ class Solution:
             ans = max(ans, cnt)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -198,6 +210,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -218,6 +232,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func arrayNesting(nums []int) int {

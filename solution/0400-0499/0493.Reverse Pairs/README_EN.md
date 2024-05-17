@@ -71,6 +71,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reversePairs(self, nums: List[int]) -> int:
@@ -102,6 +104,8 @@ class Solution:
 
         return merge_sort(0, len(nums) - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -153,6 +157,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -198,6 +204,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func reversePairs(nums []int) int {
@@ -254,6 +262,8 @@ func reversePairs(nums []int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class BinaryIndexedTree:
     def __init__(self, n):
@@ -292,6 +302,8 @@ class Solution:
             tree.update(m[num * 2], 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -348,6 +360,8 @@ class BinaryIndexedTree {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -400,6 +414,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {
@@ -467,6 +483,8 @@ func reversePairs(nums []int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Node:
     def __init__(self):
@@ -531,6 +549,8 @@ class Solution:
             tree.modify(1, m[v * 2], 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -618,6 +638,8 @@ class SegmentTree {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Node {

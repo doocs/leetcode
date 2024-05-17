@@ -64,11 +64,15 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reverseWords(self, s: str) -> str:
         return " ".join(s.strip().split()[::-1])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -84,6 +88,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -108,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func reverseWords(s string) string {
 	s = strings.Trim(s, " ")
@@ -129,11 +137,15 @@ func reverseWords(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function reverseWords(s: string): string {
     return s.trim().split(/\s+/).reverse().join(' ');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -149,6 +161,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} s
@@ -162,6 +176,8 @@ var reverseWords = function (s) {
         .join(' ');
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -195,6 +211,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function reverseWords(s: string): string {
     s = s.trim();
@@ -214,6 +232,8 @@ function reverseWords(s: string): string {
     return res.join(' ');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -237,6 +257,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn reverse_words(s: String) -> String {
@@ -254,6 +276,8 @@ impl Solution {
 ### 方法四
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {

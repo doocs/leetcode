@@ -55,6 +55,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def lexicalOrder(self, n: int) -> List[int]:
@@ -70,6 +72,8 @@ class Solution:
             dfs(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +97,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -109,6 +115,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func lexicalOrder(n int) []int {
@@ -129,6 +137,8 @@ func lexicalOrder(n int) []int {
 	return ans
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -151,6 +161,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -185,6 +197,8 @@ var lexicalOrder = function (n) {
 
 <!-- tabs:start -->
 
+#### Java
+
 ```java
 class Solution {
     public List<Integer> lexicalOrder(int n) {
@@ -206,6 +220,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -225,6 +241,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func lexicalOrder(n int) []int {

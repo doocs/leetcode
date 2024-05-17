@@ -55,6 +55,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def fizzBuzz(self, n: int) -> List[str]:
@@ -70,6 +72,8 @@ class Solution:
                 ans.append(str(i))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +97,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -109,6 +115,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func fizzBuzz(n int) []string {
@@ -130,6 +138,8 @@ func fizzBuzz(n int) []string {
 }
 ```
 
+#### JavaScript
+
 ```js
 const fizzBuzz = function (n) {
     let arr = [];
@@ -142,6 +152,8 @@ const fizzBuzz = function (n) {
     return arr;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {

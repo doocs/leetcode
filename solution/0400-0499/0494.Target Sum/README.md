@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
@@ -93,6 +95,8 @@ class Solution:
                     dp[i][j] += dp[i - 1][j - nums[i - 1]]
         return dp[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -140,6 +146,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findTargetSumWays(nums []int, target int) int {
@@ -167,6 +175,8 @@ func findTargetSumWays(nums []int, target int) int {
 	return dp[m][n]
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -207,6 +217,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -244,6 +256,8 @@ var findTargetSumWays = function (nums, target) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
@@ -258,6 +272,8 @@ class Solution:
                 dp[j] += dp[j - v]
         return dp[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -282,6 +298,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -298,6 +316,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findTargetSumWays(nums []int, target int) int {
@@ -319,6 +339,8 @@ func findTargetSumWays(nums []int, target int) int {
 	return dp[n]
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -361,6 +383,8 @@ impl Solution {
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

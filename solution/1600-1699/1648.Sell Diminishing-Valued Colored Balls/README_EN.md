@@ -69,6 +69,8 @@ The maximum total value is 3 + 2 + 5 + 4 + 3 + 2 = 19.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProfit(self, inventory: List[int], orders: int) -> int:
@@ -98,6 +100,8 @@ class Solution:
             ans %= mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -171,6 +177,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxProfit(inventory []int, orders int) int {

@@ -86,6 +86,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isPreorder(self, nodes: List[List[int]]) -> bool:
@@ -102,6 +104,8 @@ class Solution:
         k = 0
         return dfs(nodes[0][0]) and k == len(nodes)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +136,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -158,6 +164,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isPreorder(nodes [][]int) bool {
 	k := 0
@@ -181,6 +189,8 @@ func isPreorder(nodes [][]int) bool {
 	return dfs(nodes[0][0]) && k == len(nodes)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isPreorder(nodes: number[][]): boolean {

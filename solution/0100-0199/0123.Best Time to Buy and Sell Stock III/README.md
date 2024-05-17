@@ -89,6 +89,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
@@ -101,6 +103,8 @@ class Solution:
             f4 = max(f4, f3 + price)
         return f4
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -134,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProfit(prices []int) int {
 	f1, f2, f3, f4 := -prices[0], 0, -prices[0], 0
@@ -147,6 +155,8 @@ func maxProfit(prices []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxProfit(prices: number[]): number {
     let [f1, f2, f3, f4] = [-prices[0], 0, -prices[0], 0];
@@ -159,6 +169,8 @@ function maxProfit(prices: number[]): number {
     return f4;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -181,6 +193,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

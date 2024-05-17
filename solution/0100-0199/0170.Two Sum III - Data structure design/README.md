@@ -82,6 +82,8 @@ twoSum.find(7);  // 没有两个整数加起来等于 7 ，返回 false</pre>
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class TwoSum:
 
@@ -104,6 +106,8 @@ class TwoSum:
 # obj.add(number)
 # param_2 = obj.find(value)
 ```
+
+#### Java
 
 ```java
 class TwoSum {
@@ -135,6 +139,8 @@ class TwoSum {
  * boolean param_2 = obj.find(value);
  */
 ```
+
+#### C++
 
 ```cpp
 class TwoSum {
@@ -168,6 +174,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type TwoSum struct {
 	cnt map[int]int
@@ -198,6 +206,8 @@ func (this *TwoSum) Find(value int) bool {
  * param_2 := obj.Find(value);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class TwoSum {

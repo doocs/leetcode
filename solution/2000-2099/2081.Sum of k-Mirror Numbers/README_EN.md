@@ -90,6 +90,8 @@ Their sum = 1 + 2 + 4 + 8 + 121 + 151 + 212 = 499.
 
 <!-- tabs:start -->
 
+#### Java
+
 ```java
 class Solution {
     public long kMirror(int k, int n) {

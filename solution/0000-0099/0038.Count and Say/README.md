@@ -89,6 +89,8 @@ countAndSay(4) = 读 "21" = 一 个 2 + 一 个 1 = "12" + "11" = "1211"
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countAndSay(self, n: int) -> str:
@@ -106,6 +108,8 @@ class Solution:
             s = ''.join(t)
         return s
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -149,6 +155,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countAndSay(n int) string {
@@ -171,6 +179,8 @@ func countAndSay(n int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countAndSay(n: number): string {
     let s = '1';
@@ -192,6 +202,8 @@ function countAndSay(n: number): string {
     return s;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::iter::once;
@@ -217,6 +229,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 const countAndSay = function (n) {
     let s = '1';
@@ -239,6 +253,8 @@ const countAndSay = function (n) {
     return s;
 };
 ```
+
+#### C#
 
 ```cs
 using System.Text;
@@ -279,6 +295,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

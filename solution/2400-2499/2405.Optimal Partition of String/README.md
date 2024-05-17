@@ -72,6 +72,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def partitionString(self, s: str) -> int:
@@ -84,6 +86,8 @@ class Solution:
             ss.add(c)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -120,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func partitionString(s string) int {
 	ss := map[rune]bool{}
@@ -135,6 +143,8 @@ func partitionString(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function partitionString(s: string): number {
     const set = new Set();
@@ -149,6 +159,8 @@ function partitionString(s: string): number {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -178,6 +190,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def partitionString(self, s: str) -> int:
@@ -190,6 +204,8 @@ class Solution:
             v |= 1 << i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -209,6 +225,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -227,6 +245,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func partitionString(s string) int {

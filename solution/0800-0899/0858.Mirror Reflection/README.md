@@ -66,6 +66,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def mirrorReflection(self, p: int, q: int) -> int:
@@ -76,6 +78,8 @@ class Solution:
             return 1
         return 0 if p == 1 else 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +99,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -109,6 +115,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func mirrorReflection(p int, q int) int {
@@ -131,6 +139,8 @@ func gcd(a, b int) int {
 	return gcd(b, a%b)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function mirrorReflection(p: number, q: number): number {

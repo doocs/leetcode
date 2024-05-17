@@ -82,6 +82,8 @@ It is obvious that we can make two bouquets in different ways.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minDays(self, bloomDay: List[int], m: int, k: int) -> int:
@@ -106,6 +108,8 @@ class Solution:
                 left = mid + 1
         return left
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -144,6 +148,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -181,6 +187,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minDays(bloomDay []int, m int, k int) int {

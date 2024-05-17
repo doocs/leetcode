@@ -82,6 +82,8 @@ On 2019-07-02, user 2 purchased using mobile <strong>only</strong>, user 3 purch
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

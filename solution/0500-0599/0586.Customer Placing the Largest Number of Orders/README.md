@@ -79,6 +79,8 @@ customer_number 为 '3' 的顾客有两个订单，比顾客 '1' 或者 '2' 都�
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT
@@ -98,6 +100,8 @@ LIMIT 1;
 ### 方法二
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 /* Write your T-SQL query statement below */

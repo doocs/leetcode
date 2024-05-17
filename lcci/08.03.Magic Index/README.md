@@ -54,6 +54,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.03.Magic%20Index/R
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMagicIndex(self, nums: List[int]) -> int:
@@ -70,6 +72,8 @@ class Solution:
 
         return dfs(0, len(nums) - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +98,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -117,6 +123,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMagicIndex(nums []int) int {
 	var dfs func(i, j int) int
@@ -137,6 +145,8 @@ func findMagicIndex(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findMagicIndex(nums: number[]): number {
     const dfs = (i: number, j: number): number => {
@@ -156,6 +166,8 @@ function findMagicIndex(nums: number[]): number {
     return dfs(0, nums.length - 1);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -182,6 +194,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -205,6 +219,8 @@ var findMagicIndex = function (nums) {
     return dfs(0, nums.length - 1);
 };
 ```
+
+#### Swift
 
 ```swift
 class Solution {

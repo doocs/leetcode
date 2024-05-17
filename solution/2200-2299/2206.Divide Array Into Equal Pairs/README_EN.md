@@ -71,12 +71,16 @@ There is no way to divide nums into 4 / 2 = 2 pairs such that the pairs satisfy 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def divideArray(self, nums: List[int]) -> bool:
         cnt = Counter(nums)
         return all(v % 2 == 0 for v in cnt.values())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +99,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -108,6 +114,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func divideArray(nums []int) bool {

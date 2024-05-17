@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countPairs(self, nums: List[int], target: int) -> int:
@@ -90,6 +92,8 @@ class Solution:
             ans += i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -134,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countPairs(nums []int, target int) (ans int) {
 	sort.Ints(nums)
@@ -144,6 +152,8 @@ func countPairs(nums []int, target int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countPairs(nums: number[], target: number): number {

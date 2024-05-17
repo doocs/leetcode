@@ -50,11 +50,15 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.07.Exchange/README
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def exchangeBits(self, num: int) -> int:
         return ((num & 0x55555555) << 1) | ((num & 0xAAAAAAAA) >> 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -63,6 +67,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -73,17 +79,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func exchangeBits(num int) int {
 	return ((num & 0x55555555) << 1) | (num&0xaaaaaaaa)>>1
 }
 ```
 
+#### TypeScript
+
 ```ts
 function exchangeBits(num: number): number {
     return ((num & 0x55555555) << 1) | ((num & 0xaaaaaaaa) >>> 1);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -93,6 +105,8 @@ impl Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

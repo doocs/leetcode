@@ -86,11 +86,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumStrongPairXor(self, nums: List[int]) -> int:
         return max(x ^ y for x in nums for y in nums if abs(x - y) <= min(x, y))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +130,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumStrongPairXor(nums []int) (ans int) {
@@ -144,6 +152,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumStrongPairXor(nums: number[]): number {
@@ -174,6 +184,8 @@ function maximumStrongPairXor(nums: number[]): number {
 时间复杂度 $O(n \times \log M)$，空间复杂度 $O(n \times \log M)$。其中 $n$ 是数组 $nums$ 的长度，而 $M$ 是数组 $nums$ 中的最大值。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -225,6 +237,8 @@ class Solution:
             ans = max(ans, tree.search(y))
         return ans
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -287,6 +301,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -355,6 +371,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Trie struct {
 	children [2]*Trie
@@ -415,6 +433,8 @@ func maximumStrongPairXor(nums []int) (ans int) {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 class Trie {

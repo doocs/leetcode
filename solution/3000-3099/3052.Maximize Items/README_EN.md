@@ -92,6 +92,8 @@ Next, we calculate the number of items of type `prime_eligible` and `not_prime` 
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

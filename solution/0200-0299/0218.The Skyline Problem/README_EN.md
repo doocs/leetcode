@@ -76,6 +76,8 @@ Figure B shows the skyline formed by those buildings. The red points in figure B
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from queue import PriorityQueue
 
@@ -101,6 +103,8 @@ class Solution:
             skys.append([line, high])
         return skys
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -140,6 +144,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type Matrix struct{ left, right, height int }
@@ -188,6 +194,8 @@ func getSkyline(buildings [][]int) [][]int {
 	return skys
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

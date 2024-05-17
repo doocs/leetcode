@@ -80,6 +80,8 @@ Since we need to return the answer modulo 10<sup>9</sup> + 7, we return 20828761
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 mod = 10**9 + 7
 f = [1, 1, 2, 4]
@@ -97,6 +99,8 @@ class Solution:
             ans = ans * (g[m] if ch in "79" else f[m]) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +139,8 @@ class Solution {
     }
 }
 ```
+
+#### Go
 
 ```go
 const mod int = 1e9 + 7

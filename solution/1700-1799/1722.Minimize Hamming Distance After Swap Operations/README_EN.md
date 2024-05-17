@@ -83,6 +83,8 @@ The time complexity is $O(n \times \log n)$ or $O(n \times \alpha(n))$, and the 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumHammingDistance(
@@ -108,6 +110,8 @@ class Solution:
             ans += cnt[j][x] < 0
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -147,6 +151,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -174,6 +180,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumHammingDistance(source []int, target []int, allowedSwaps [][]int) (ans int) {
@@ -210,6 +218,8 @@ func minimumHammingDistance(source []int, target []int, allowedSwaps [][]int) (a
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumHammingDistance(

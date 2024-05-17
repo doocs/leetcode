@@ -63,6 +63,8 @@ The time complexity is $O(m \times n \times \log (m \times n))$, and the space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def pondSizes(self, land: List[List[int]]) -> List[int]:
@@ -78,6 +80,8 @@ class Solution:
         m, n = len(land), len(land[0])
         return sorted(dfs(i, j) for i in range(m) for j in range(n) if land[i][j] == 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -146,6 +152,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func pondSizes(land [][]int) (ans []int) {
 	m, n := len(land), len(land[0])
@@ -173,6 +181,8 @@ func pondSizes(land [][]int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function pondSizes(land: number[][]): number[] {
@@ -202,6 +212,8 @@ function pondSizes(land: number[][]): number[] {
     return ans;
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

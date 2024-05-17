@@ -74,6 +74,8 @@ The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the length of
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countNicePairs(self, nums: List[int]) -> int:
@@ -88,6 +90,8 @@ class Solution:
         mod = 10**9 + 7
         return sum(v * (v - 1) // 2 for v in cnt.values()) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -141,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countNicePairs(nums []int) (ans int) {
 	rev := func(x int) (y int) {
@@ -161,6 +169,8 @@ func countNicePairs(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countNicePairs(nums: number[]): number {
@@ -183,6 +193,8 @@ function countNicePairs(nums: number[]): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -210,6 +222,8 @@ var countNicePairs = function (nums) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -248,6 +262,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countNicePairs(self, nums: List[int]) -> int:
@@ -267,6 +283,8 @@ class Solution:
             cnt[y] += 1
         return ans % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -292,6 +310,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -315,6 +335,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countNicePairs(nums []int) (ans int) {
 	rev := func(x int) (y int) {
@@ -333,6 +355,8 @@ func countNicePairs(nums []int) (ans int) {
 	return
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

@@ -104,11 +104,15 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def addedInteger(self, nums1: List[int], nums2: List[int]) -> int:
         return min(nums2) - min(nums1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -127,11 +133,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func addedInteger(nums1 []int, nums2 []int) int {
 	return slices.Min(nums2) - slices.Min(nums1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function addedInteger(nums1: number[], nums2: number[]): number {

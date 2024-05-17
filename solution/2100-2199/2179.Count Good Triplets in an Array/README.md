@@ -103,6 +103,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class BinaryIndexedTree:
     def __init__(self, n):
@@ -140,6 +142,8 @@ class Solution:
             tree.update(p, 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -193,6 +197,8 @@ class BinaryIndexedTree {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -243,6 +249,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {
@@ -303,6 +311,8 @@ func goodTriplets(nums1 []int, nums2 []int) int64 {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -366,6 +376,8 @@ class Solution:
             tree.modify(1, p, 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -450,6 +462,8 @@ class SegmentTree {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Node {

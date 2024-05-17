@@ -84,6 +84,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxIncreasingCells(self, mat: List[List[int]]) -> int:
@@ -105,6 +107,8 @@ class Solution:
                 colMax[j] = max(colMax[j], mx[k])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -169,6 +175,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxIncreasingCells(mat [][]int) (ans int) {

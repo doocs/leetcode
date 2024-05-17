@@ -105,6 +105,8 @@ matrix[1][1] 的秩为 3 ，因为 matrix[1][1] > matrix[0][1]， matrix[1][1] >
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class UnionFind:
     def __init__(self, n):
@@ -155,6 +157,8 @@ class Solution:
                 uf.reset(j + m)
         return ans
 ```
+
+#### Java
 
 ```java
 class UnionFind {
@@ -234,6 +238,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class UnionFind {
 public:
@@ -306,6 +312,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type unionFind struct {

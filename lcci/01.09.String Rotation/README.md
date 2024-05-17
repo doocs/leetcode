@@ -72,11 +72,15 @@ s1 + s1 = "abaaba"
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isFlipedString(self, s1: str, s2: str) -> bool:
         return len(s1) == len(s2) and s2 in s1 * 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +89,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -95,17 +101,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isFlipedString(s1 string, s2 string) bool {
 	return len(s1) == len(s2) && strings.Contains(s1+s1, s2)
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isFlipedString(s1: string, s2: string): boolean {
     return s1.length === s2.length && (s2 + s2).indexOf(s1) !== -1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -114,6 +126,8 @@ impl Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

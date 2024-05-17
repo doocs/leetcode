@@ -76,6 +76,8 @@ Similar problems:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
@@ -95,6 +97,8 @@ class Solution:
         dfs(1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -151,6 +157,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func combine(n int, k int) (ans [][]int) {
 	t := []int{}
@@ -173,6 +181,8 @@ func combine(n int, k int) (ans [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function combine(n: number, k: number): number[][] {
     const ans: number[][] = [];
@@ -194,6 +204,8 @@ function combine(n: number, k: number): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -218,6 +230,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -259,6 +273,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
@@ -278,6 +294,8 @@ class Solution:
         dfs(1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -310,6 +328,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -336,6 +356,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func combine(n int, k int) (ans [][]int) {
 	t := []int{}
@@ -359,6 +381,8 @@ func combine(n int, k int) (ans [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function combine(n: number, k: number): number[][] {
     const ans: number[][] = [];
@@ -381,6 +405,8 @@ function combine(n: number, k: number): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -406,6 +432,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

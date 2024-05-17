@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minAreaFreeRect(self, points: List[List[int]]) -> float:
@@ -94,6 +96,8 @@ class Solution:
                                     ans = min(ans, w * h)
         return 0 if ans == inf else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -134,6 +138,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -173,6 +179,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minAreaFreeRect(points [][]int) float64 {
 	n := len(points)
@@ -211,6 +219,8 @@ func minAreaFreeRect(points [][]int) float64 {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minAreaFreeRect(points: number[][]): number {

@@ -64,11 +64,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
         return list(set(nums1) & set(nums2))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +92,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -110,6 +116,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func intersection(nums1 []int, nums2 []int) (ans []int) {
 	s := [1001]bool{}
@@ -125,6 +133,8 @@ func intersection(nums1 []int, nums2 []int) (ans []int) {
 	return
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -148,6 +158,8 @@ var intersection = function (nums1, nums2) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int[] Intersection(int[] nums1, int[] nums2) {
@@ -163,6 +175,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -197,6 +211,8 @@ class Solution {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### JavaScript
 
 ```js
 /**

@@ -84,6 +84,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def champagneTower(self, poured: int, query_row: int, query_glass: int) -> float:
@@ -98,6 +100,8 @@ class Solution:
                     f[i + 1][j + 1] += half
         return f[query_row][query_glass]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +122,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -140,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func champagneTower(poured int, query_row int, query_glass int) float64 {
 	f := [101][101]float64{}
@@ -158,6 +166,8 @@ func champagneTower(poured int, query_row int, query_glass int) float64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function champagneTower(poured: number, query_row: number, query_glass: number): number {
     let row = [poured];
@@ -174,6 +184,8 @@ function champagneTower(poured: number, query_row: number, query_glass: number):
     return Math.min(1, row[query_glass]);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -206,6 +218,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def champagneTower(self, poured: int, query_row: int, query_glass: int) -> float:
@@ -220,6 +234,8 @@ class Solution:
             f = g
         return min(1, f[query_glass])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -240,6 +256,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -262,6 +280,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func champagneTower(poured int, query_row int, query_glass int) float64 {

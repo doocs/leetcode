@@ -62,6 +62,8 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(1)$, wher
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minNumber(self, nums1: List[int], nums2: List[int]) -> int:
@@ -74,6 +76,8 @@ class Solution:
                     ans = min(ans, 10 * a + b, 10 * b + a)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -112,6 +118,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minNumber(nums1 []int, nums2 []int) int {
 	ans := 100
@@ -128,6 +136,8 @@ func minNumber(nums1 []int, nums2 []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minNumber(nums1: number[], nums2: number[]): number {
     let ans = 100;
@@ -143,6 +153,8 @@ function minNumber(nums1: number[], nums2: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -178,6 +190,8 @@ The time complexity is $(m + n)$, and the space complexity is $O(C)$. Where $m$ 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minNumber(self, nums1: List[int], nums2: List[int]) -> int:
@@ -187,6 +201,8 @@ class Solution:
         a, b = min(nums1), min(nums2)
         return min(a * 10 + b, b * 10 + a)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -215,6 +231,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -245,6 +263,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minNumber(nums1 []int, nums2 []int) int {
 	s1 := [10]bool{}
@@ -270,6 +290,8 @@ func minNumber(nums1 []int, nums2 []int) int {
 	return min(a*10+b, b*10+a)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minNumber(nums1: number[], nums2: number[]): number {
@@ -297,6 +319,8 @@ function minNumber(nums1: number[], nums2: number[]): number {
     return Math.min(a * 10 + b, b * 10 + a);
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -353,6 +377,8 @@ The time complexity is $O(m + n)$, and the space complexity is $O(1)$. Where $m$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minNumber(self, nums1: List[int], nums2: List[int]) -> int:
@@ -368,6 +394,8 @@ class Solution:
         b = (mask2 & -mask2).bit_length() - 1
         return min(a * 10 + b, b * 10 + a)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -389,6 +417,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -412,6 +442,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minNumber(nums1 []int, nums2 []int) int {
 	var mask1, mask2 uint
@@ -428,6 +460,8 @@ func minNumber(nums1 []int, nums2 []int) int {
 	return min(a*10+b, b*10+a)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minNumber(nums1: number[], nums2: number[]): number {

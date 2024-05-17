@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minFlips(self, mat: List[List[int]]) -> int:
@@ -111,6 +113,8 @@ class Solution:
             ans += 1
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -164,6 +168,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -207,6 +213,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minFlips(mat [][]int) int {

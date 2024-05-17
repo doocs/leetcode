@@ -56,6 +56,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMinDifference(self, timePoints: List[str]) -> int:
@@ -68,6 +70,8 @@ class Solution:
             res = min(res, mins[i] - mins[i - 1])
         return res
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +95,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -109,6 +115,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findMinDifference(timePoints []string) int {
@@ -131,6 +139,8 @@ func findMinDifference(timePoints []string) int {
 	return res
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findMinDifference(timePoints: string[]): number {

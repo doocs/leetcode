@@ -215,17 +215,25 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 
 ```
+
+#### Java
 
 ```java
 
 ```
 
+#### C++
+
 ```cpp
 
 ```
+
+#### Go
 
 ```go
 
@@ -267,17 +275,25 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 
 ```
+
+#### Java
 
 ```java
 
 ```
 
+#### C++
+
 ```cpp
 
 ```
+
+#### Go
 
 ```go
 
@@ -319,17 +335,25 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 
 ```
+
+#### Java
 
 ```java
 
 ```
 
+#### C++
+
 ```cpp
 
 ```
+
+#### Go
 
 ```go
 
@@ -371,17 +395,25 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 
 ```
+
+#### Java
 
 ```java
 
 ```
 
+#### C++
+
 ```cpp
 
 ```
+
+#### Go
 
 ```go
 
@@ -423,6 +455,8 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 
 ```
@@ -462,6 +496,8 @@ If you want to estimate your score changes after the contest ends, you can visit
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 
@@ -503,6 +539,8 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 
 ```
@@ -542,6 +580,8 @@ If you want to estimate your score changes after the contest ends, you can visit
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 

@@ -81,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, nums: List[int], x: int) -> int:
@@ -95,6 +97,8 @@ class Solution:
                 mx = max(mx, i - vis[t - s])
         return -1 if mx == -1 else len(nums) - mx
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -140,6 +146,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minOperations(nums []int, x int) int {
@@ -165,6 +173,8 @@ func minOperations(nums []int, x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minOperations(nums: number[], x: number): number {
     const s = nums.reduce((acc, cur) => acc + cur, -x);
@@ -183,6 +193,8 @@ function minOperations(nums: number[], x: number): number {
     return ~mx ? n - mx : -1;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -232,6 +244,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, nums: List[int], x: int) -> int:
@@ -247,6 +261,8 @@ class Solution:
                 mx = max(mx, i - j + 1)
         return -1 if mx == -1 else len(nums) - mx
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -271,6 +287,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -291,6 +309,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minOperations(nums []int, x int) int {
@@ -315,6 +335,8 @@ func minOperations(nums []int, x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minOperations(nums: number[], x: number): number {
     const s = nums.reduce((acc, cur) => acc + cur, -x);
@@ -332,6 +354,8 @@ function minOperations(nums: number[], x: number): number {
     return ~mx ? n - mx : -1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

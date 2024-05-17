@@ -98,6 +98,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3143.Ma
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxPointsInsideSquare(self, points: List[List[int]], s: str) -> int:
@@ -115,6 +117,8 @@ class Solution:
             ans += len(idx)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -141,6 +145,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -169,6 +175,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxPointsInsideSquare(points [][]int, s string) (ans int) {
 	g := map[int][]int{}
@@ -196,6 +204,8 @@ func maxPointsInsideSquare(points [][]int, s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxPointsInsideSquare(points: number[][], s: string): number {

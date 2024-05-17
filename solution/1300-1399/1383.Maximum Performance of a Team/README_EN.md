@@ -76,6 +76,8 @@ We have the maximum performance of the team by selecting engineer 2 (with speed=
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxPerformance(
@@ -93,6 +95,8 @@ class Solution:
                 tot -= heappop(h)
         return ans % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -145,6 +151,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxPerformance(n int, speed []int, efficiency []int, k int) int {

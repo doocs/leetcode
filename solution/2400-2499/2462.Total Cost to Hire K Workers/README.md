@@ -95,6 +95,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def totalCost(self, costs: List[int], k: int, candidates: int) -> int:
@@ -122,6 +124,8 @@ class Solution:
                 r -= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -159,6 +163,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -193,6 +199,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func totalCost(costs []int, k int, candidates int) (ans int64) {
@@ -238,6 +246,8 @@ func (h hp) Swap(i, j int) { h[i], h[j] = h[j], h[i] }
 func (h *hp) Push(v any)   { *h = append(*h, v.(pair)) }
 func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
+
+#### TypeScript
 
 ```ts
 function totalCost(costs: number[], k: number, candidates: number): number {

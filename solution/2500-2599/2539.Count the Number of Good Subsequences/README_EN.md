@@ -68,6 +68,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 N = 10001
 MOD = 10**9 + 7
@@ -94,6 +96,8 @@ class Solution:
             ans = (ans + x - 1) % MOD
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -147,6 +151,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 int N = 10001;
@@ -202,6 +208,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 const n = 1e4 + 1

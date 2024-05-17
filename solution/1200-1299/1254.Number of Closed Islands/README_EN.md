@@ -83,6 +83,8 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(m \times 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def closedIsland(self, grid: List[List[int]]) -> int:
@@ -99,6 +101,8 @@ class Solution:
         dirs = (-1, 0, 1, 0, -1)
         return sum(grid[i][j] == 0 and dfs(i, j) for i in range(m) for j in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +140,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -163,6 +169,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func closedIsland(grid [][]int) (ans int) {
@@ -194,6 +202,8 @@ func closedIsland(grid [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function closedIsland(grid: number[][]): number {
     const m = grid.length;
@@ -221,6 +231,8 @@ function closedIsland(grid: number[][]): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -278,6 +290,8 @@ The time complexity is $O(m \times n \times \alpha(m \times n))$, and the space 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class UnionFind:
     def __init__(self, n: int):
@@ -319,6 +333,8 @@ class Solution:
                 ans += grid[i][j] == 0 and uf.find(i * n + j) == i * n + j
         return ans
 ```
+
+#### Java
 
 ```java
 class UnionFind {
@@ -387,6 +403,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class UnionFind {
 public:
@@ -450,6 +468,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type unionFind struct {
@@ -515,6 +535,8 @@ func closedIsland(grid [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function closedIsland(grid: number[][]): number {
     const m = grid.length;
@@ -579,6 +601,8 @@ class UnionFind {
     }
 }
 ```
+
+#### C#
 
 ```cs
 class UnionFind {

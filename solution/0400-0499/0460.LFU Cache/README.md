@@ -109,6 +109,8 @@ lfu.get(4);      // 返回 4
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Node:
     def __init__(self, key: int, value: int) -> None:
@@ -199,6 +201,8 @@ class LFUCache:
 # param_1 = obj.get(key)
 # obj.put(key,value)
 ```
+
+#### Java
 
 ```java
 class LFUCache {
@@ -318,6 +322,8 @@ class LFUCache {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Node {
@@ -443,6 +449,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type LFUCache struct {
 	cache    map[int]*node
@@ -565,6 +573,8 @@ func (l *list) empty() bool {
 	return l.head.next == l.tail
 }
 ```
+
+#### Rust
 
 ```rust
 use std::cell::RefCell;

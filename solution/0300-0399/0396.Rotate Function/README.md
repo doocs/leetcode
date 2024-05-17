@@ -72,6 +72,8 @@ F(3) = (0 * 3) + (1 * 2) + (2 * 6) + (3 * 4) = 0 + 2 + 12 + 12 = 26
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxRotateFunction(self, nums: List[int]) -> int:
@@ -83,6 +85,8 @@ class Solution:
             ans = max(ans, f)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxRotateFunction(nums []int) int {
 	f, s, n := 0, 0, len(nums)
@@ -141,6 +149,8 @@ func maxRotateFunction(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxRotateFunction(nums: number[]): number {
     const n = nums.length;
@@ -154,6 +164,8 @@ function maxRotateFunction(nums: number[]): number {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

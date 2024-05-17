@@ -79,12 +79,16 @@ Hence, the total sum of vowels = 1 + 1 + 1 + 0 + 0 + 0 = 3.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countVowels(self, word: str) -> int:
         n = len(word)
         return sum((i + 1) * (n - i) for i, c in enumerate(word) if c in 'aeiou')
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -117,6 +123,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countVowels(word string) (ans int64) {
 	for i, c := range word {
@@ -127,6 +135,8 @@ func countVowels(word string) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countVowels(word: string): number {

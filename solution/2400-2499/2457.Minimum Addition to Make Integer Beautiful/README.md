@@ -86,6 +86,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def makeIntegerBeautiful(self, n: int, target: int) -> int:
@@ -106,6 +108,8 @@ class Solution:
             x = (y // 10 + 1) * p - n
         return x
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +137,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -163,6 +169,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func makeIntegerBeautiful(n int64, target int) (x int64) {
 	f := func(x int64) (y int) {
@@ -183,6 +191,8 @@ func makeIntegerBeautiful(n int64, target int) (x int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function makeIntegerBeautiful(n: number, target: number): number {

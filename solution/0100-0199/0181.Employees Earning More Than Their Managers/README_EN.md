@@ -72,6 +72,8 @@ Employee table:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 import pandas as pd
 
@@ -82,6 +84,8 @@ def find_employees(employee: pd.DataFrame) -> pd.DataFrame:
 
     return pd.DataFrame({"Employee": emp})
 ```
+
+#### MySQL
 
 ```sql
 SELECT Name AS Employee
@@ -103,6 +107,8 @@ WHERE
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

@@ -57,6 +57,8 @@ sleep(100).then(() =&gt; {
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 async function sleep(millis: number): Promise<void> {
     return new Promise(r => setTimeout(r, millis));

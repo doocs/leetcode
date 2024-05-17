@@ -70,6 +70,8 @@ arr = [6]
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def lastRemaining(self, n: int) -> int:
@@ -89,6 +91,8 @@ class Solution:
             i += 1
         return a1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +136,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func lastRemaining(n int) int {

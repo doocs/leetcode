@@ -101,6 +101,8 @@ findRoot 函数应该返回根 Node(1) ，驱动程序代码将序列化它并�
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 """
 # Definition for a Node.
@@ -120,6 +122,8 @@ class Solution:
                 x ^= child.val
         return next(node for node in tree if node.val == x)
 ```
+
+#### Java
 
 ```java
 /*
@@ -163,6 +167,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /*
 // Definition for a Node.
@@ -203,6 +209,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -227,6 +235,8 @@ func findRoot(tree []*Node) *Node {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

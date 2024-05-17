@@ -89,6 +89,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxSumMinProduct(self, nums: List[int]) -> int:
@@ -113,6 +115,8 @@ class Solution:
         mod = 10**9 + 7
         return max((s[right[i]] - s[left[i] + 1]) * x for i, x in enumerate(nums)) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -156,6 +160,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -197,6 +203,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxSumMinProduct(nums []int) int {
@@ -241,6 +249,8 @@ func maxSumMinProduct(nums []int) int {
 	return ans % mod
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxSumMinProduct(nums: number[]): number {

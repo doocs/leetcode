@@ -92,6 +92,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxIncreasingGroups(self, usageLimits: List[int]) -> int:
@@ -105,6 +107,8 @@ class Solution:
                 usageLimits[i + 1] += usageLimits[i]
         return k
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +127,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -143,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxIncreasingGroups(usageLimits []int) int {
 	sort.Ints(usageLimits)
@@ -157,6 +165,8 @@ func maxIncreasingGroups(usageLimits []int) int {
 	return k
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxIncreasingGroups(usageLimits: number[]): number {
@@ -183,6 +193,8 @@ function maxIncreasingGroups(usageLimits: number[]): number {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

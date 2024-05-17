@@ -95,6 +95,8 @@ player1 的得分等于 player2 的得分，所以这一场比赛平局，答案
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isWinner(self, player1: List[int], player2: List[int]) -> int:
@@ -108,6 +110,8 @@ class Solution:
         a, b = f(player1), f(player2)
         return 1 if a > b else (2 if b > a else 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -144,6 +150,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isWinner(player1 []int, player2 []int) int {
@@ -169,6 +177,8 @@ func isWinner(player1 []int, player2 []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isWinner(player1: number[], player2: number[]): number {
     const f = (arr: number[]): number => {
@@ -186,6 +196,8 @@ function isWinner(player1: number[], player2: number[]): number {
     return a > b ? 1 : a < b ? 2 : 0;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

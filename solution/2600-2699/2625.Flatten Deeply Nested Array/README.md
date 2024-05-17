@@ -89,6 +89,8 @@ n = 2
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 type MultiDimensionalArray = (number | MultiDimensionalArray)[];
 

@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def shiftingLetters(self, s: str, shifts: List[int]) -> str:
@@ -88,6 +90,8 @@ class Solution:
             s[i] = ascii_lowercase[j]
         return ''.join(s)
 ```
+
+#### Python3
 
 ```python
 class Solution:
@@ -110,6 +114,8 @@ class Solution:
         return ''.join(ans)
 ```
 
+#### Java
+
 ```java
 class Solution {
     public String shiftingLetters(String s, int[] shifts) {
@@ -126,6 +132,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -141,6 +149,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func shiftingLetters(s string, shifts []int) string {

@@ -65,6 +65,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def validSubarrays(self, nums: List[int]) -> int:
@@ -79,6 +81,8 @@ class Solution:
             stk.append(i)
         return sum(j - i for i, j in enumerate(right))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +109,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func validSubarrays(nums []int) (ans int) {
 	n := len(nums)
@@ -153,6 +161,8 @@ func validSubarrays(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function validSubarrays(nums: number[]): number {
@@ -186,6 +196,8 @@ function validSubarrays(nums: number[]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def validSubarrays(self, nums: List[int]) -> int:
@@ -199,6 +211,8 @@ class Solution:
             stk.append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -219,6 +233,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -237,6 +253,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func validSubarrays(nums []int) (ans int) {
@@ -257,6 +275,8 @@ func validSubarrays(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function validSubarrays(nums: number[]): number {

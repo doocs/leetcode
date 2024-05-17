@@ -100,6 +100,8 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isNumber(self, s: str) -> bool:
@@ -131,6 +133,8 @@ class Solution:
             j += 1
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -173,6 +177,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -200,6 +206,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isNumber(s string) bool {
@@ -238,6 +246,8 @@ func isNumber(s string) bool {
 	return true
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -298,6 +308,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 using System.Text.RegularExpressions;

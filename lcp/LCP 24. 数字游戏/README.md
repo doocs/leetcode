@@ -84,6 +84,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2024.%20%E6%95%B0%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class MedianFinder:
     def __init__(self):
@@ -125,6 +127,8 @@ class Solution:
             ans[i] = finder.cal()
         return ans
 ```
+
+#### Java
 
 ```java
 class MedianFinder {
@@ -178,6 +182,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class MedianFinder {
@@ -236,6 +242,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numsGame(nums []int) []int {

@@ -90,6 +90,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMaximalUncoveredRanges(
@@ -106,6 +108,8 @@ class Solution:
             ans.append([last + 1, n - 1])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +131,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -151,6 +157,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findMaximalUncoveredRanges(n int, ranges [][]int) (ans [][]int) {

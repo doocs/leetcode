@@ -70,6 +70,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array $arr$. The s
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function map(arr: number[], fn: (n: number, i: number) => number): number[] {
     for (let i = 0; i < arr.length; ++i) {

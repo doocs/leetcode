@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isMajorityElement(self, nums: List[int], target: int) -> bool:
@@ -76,6 +78,8 @@ class Solution:
         right = bisect_right(nums, target)
         return right - left > len(nums) // 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -111,6 +117,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isMajorityElement(nums []int, target int) bool {
 	left := sort.SearchInts(nums, target)
@@ -118,6 +126,8 @@ func isMajorityElement(nums []int, target int) bool {
 	return right-left > len(nums)/2
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isMajorityElement(nums: number[], target: number): boolean {
@@ -154,6 +164,8 @@ function isMajorityElement(nums: number[], target: number): boolean {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isMajorityElement(self, nums: List[int], target: int) -> bool:
@@ -161,6 +173,8 @@ class Solution:
         right = left + len(nums) // 2
         return right < len(nums) and nums[right] == target
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -186,6 +200,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -198,6 +214,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isMajorityElement(nums []int, target int) bool {
 	n := len(nums)
@@ -206,6 +224,8 @@ func isMajorityElement(nums []int, target int) bool {
 	return right < n && nums[right] == target
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isMajorityElement(nums: number[], target: number): boolean {

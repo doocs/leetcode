@@ -74,6 +74,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2008.%20%E5%89%A7%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getTriggerTime(
@@ -96,6 +98,8 @@ class Solution:
                     left = mid + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {

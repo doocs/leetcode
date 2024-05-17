@@ -78,6 +78,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def pivotInteger(self, n: int) -> int:
@@ -86,6 +88,8 @@ class Solution:
                 return x
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +103,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,6 +120,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func pivotInteger(n int) int {
 	for x := 1; x <= n; x++ {
@@ -125,6 +133,8 @@ func pivotInteger(n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function pivotInteger(n: number): number {
     for (let x = 1; x <= n; ++x) {
@@ -135,6 +145,8 @@ function pivotInteger(n: number): number {
     return -1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -150,6 +162,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -197,6 +211,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def pivotInteger(self, n: int) -> int:
@@ -204,6 +220,8 @@ class Solution:
         x = int(sqrt(y))
         return x if x * x == y else -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -214,6 +232,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -226,6 +246,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func pivotInteger(n int) int {
 	y := n * (n + 1) / 2
@@ -236,6 +258,8 @@ func pivotInteger(n int) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function pivotInteger(n: number): number {

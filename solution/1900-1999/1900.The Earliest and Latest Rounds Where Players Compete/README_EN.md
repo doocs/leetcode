@@ -86,6 +86,8 @@ There is no way to make them compete in any other round.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def earliestAndLatest(

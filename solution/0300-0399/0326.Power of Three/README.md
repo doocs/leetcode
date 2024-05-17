@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isPowerOfThree(self, n: int) -> bool:
@@ -86,6 +88,8 @@ class Solution:
             n //= 3
         return n == 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -116,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isPowerOfThree(n int) bool {
 	for n > 2 {
@@ -128,11 +136,15 @@ func isPowerOfThree(n int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isPowerOfThree(n: number): boolean {
     return n > 0 && 1162261467 % n == 0;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -158,11 +170,15 @@ var isPowerOfThree = function (n) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isPowerOfThree(self, n: int) -> bool:
         return n > 0 and 1162261467 % n == 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -172,6 +188,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -180,6 +198,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isPowerOfThree(n int) bool {

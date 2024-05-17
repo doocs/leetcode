@@ -86,6 +86,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumTotal(self, triangle: List[List[int]]) -> int:
@@ -96,6 +98,8 @@ class Solution:
                 f[i][j] = min(f[i + 1][j], f[i + 1][j + 1]) + triangle[i][j]
         return f[0][0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -129,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumTotal(triangle [][]int) int {
 	n := len(triangle)
@@ -142,6 +150,8 @@ func minimumTotal(triangle [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumTotal(triangle: number[][]): number {
     const n = triangle.length;
@@ -154,6 +164,8 @@ function minimumTotal(triangle: number[][]): number {
     return f[0];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -180,6 +192,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumTotal(self, triangle: List[List[int]]) -> int:
@@ -190,6 +204,8 @@ class Solution:
                 f[j] = min(f[j], f[j + 1]) + triangle[i][j]
         return f[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -206,6 +222,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -220,6 +238,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumTotal(triangle [][]int) int {
 	for i := len(triangle) - 2; i >= 0; i-- {
@@ -231,6 +251,8 @@ func minimumTotal(triangle [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumTotal(triangle: number[][]): number {
     for (let i = triangle.length - 2; ~i; --i) {
@@ -241,6 +263,8 @@ function minimumTotal(triangle: number[][]): number {
     return triangle[0][0];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -265,6 +289,8 @@ impl Solution {
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

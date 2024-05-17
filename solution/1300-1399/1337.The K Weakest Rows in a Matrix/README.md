@@ -94,6 +94,8 @@ k = 2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def kWeakestRows(self, mat: List[List[int]], k: int) -> List[int]:
@@ -103,6 +105,8 @@ class Solution:
         idx.sort(key=lambda i: ans[i])
         return idx[:k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +137,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -166,6 +172,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func kWeakestRows(mat [][]int, k int) []int {
 	m, n := len(mat), len(mat[0])
@@ -190,6 +198,8 @@ func kWeakestRows(mat [][]int, k int) []int {
 	return idx[:k]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function kWeakestRows(mat: number[][], k: number): number[] {

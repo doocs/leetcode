@@ -69,6 +69,8 @@ itr.hasNext(); // return False
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class CombinationIterator:
     def __init__(self, characters: str, combinationLength: int):
@@ -104,6 +106,8 @@ class CombinationIterator:
 # param_1 = obj.next()
 # param_2 = obj.hasNext()
 ```
+
+#### Java
 
 ```java
 class CombinationIterator {
@@ -152,6 +156,8 @@ class CombinationIterator {
  */
 ```
 
+#### C++
+
 ```cpp
 class CombinationIterator {
 public:
@@ -198,6 +204,8 @@ public:
  * bool param_2 = obj->hasNext();
  */
 ```
+
+#### Go
 
 ```go
 type CombinationIterator struct {
@@ -255,6 +263,8 @@ func (this *CombinationIterator) HasNext() bool {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class CombinationIterator:
     def __init__(self, characters: str, combinationLength: int):
@@ -283,6 +293,8 @@ class CombinationIterator:
 # param_1 = obj.next()
 # param_2 = obj.hasNext()
 ```
+
+#### Java
 
 ```java
 class CombinationIterator {
@@ -330,6 +342,8 @@ class CombinationIterator {
  */
 ```
 
+#### C++
+
 ```cpp
 class CombinationIterator {
 public:
@@ -371,6 +385,8 @@ public:
  * bool param_2 = obj->hasNext();
  */
 ```
+
+#### Go
 
 ```go
 type CombinationIterator struct {

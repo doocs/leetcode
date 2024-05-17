@@ -81,6 +81,8 @@ The time complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minScore(self, n: int, roads: List[List[int]]) -> int:
@@ -101,6 +103,8 @@ class Solution:
         dfs(1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -134,6 +138,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -162,6 +168,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minScore(n int, roads [][]int) int {
 	type pair struct{ i, v int }
@@ -189,6 +197,8 @@ func minScore(n int, roads [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minScore(n: number, roads: number[][]): number {
     const vis = new Array(n + 1).fill(false);
@@ -212,6 +222,8 @@ function minScore(n: number, roads: number[][]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -241,6 +253,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 var minScore = function (n, roads) {
@@ -281,6 +295,8 @@ The time complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minScore(self, n: int, roads: List[List[int]]) -> int:
@@ -302,6 +318,8 @@ class Solution:
                         q.append(j)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -336,6 +354,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -368,6 +388,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minScore(n int, roads [][]int) int {

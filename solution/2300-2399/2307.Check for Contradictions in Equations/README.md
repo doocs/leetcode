@@ -86,6 +86,8 @@ a = 3, b = 1 和 c = 2.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkContradictions(
@@ -118,6 +120,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -166,6 +170,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -205,6 +211,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func checkContradictions(equations [][]string, values []float64) bool {
@@ -255,6 +263,8 @@ func checkContradictions(equations [][]string, values []float64) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 function checkContradictions(equations: string[][], values: number[]): boolean {

@@ -47,6 +47,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sequentialDigits(self, low: int, high: int) -> List[int]:
@@ -59,6 +61,8 @@ class Solution:
                     ans.append(x)
         return sorted(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -78,6 +82,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -99,6 +105,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sequentialDigits(low int, high int) (ans []int) {
 	for i := 1; i < 9; i++ {
@@ -114,6 +122,8 @@ func sequentialDigits(low int, high int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sequentialDigits(low: number, high: number): number[] {

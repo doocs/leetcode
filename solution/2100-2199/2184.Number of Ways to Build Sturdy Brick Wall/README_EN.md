@@ -66,6 +66,8 @@ There are no ways to build a sturdy wall because the only type of brick we have 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def buildWall(self, height: int, width: int, bricks: List[int]) -> int:
@@ -117,6 +119,8 @@ class Solution:
                     dp[i][j] %= mod
         return sum(dp[-1]) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -196,6 +200,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -268,6 +274,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func buildWall(height int, width int, bricks []int) int {

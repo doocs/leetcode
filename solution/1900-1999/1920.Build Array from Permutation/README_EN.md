@@ -66,11 +66,15 @@ ans = [nums[nums[0]], nums[nums[1]], nums[nums[2]], nums[nums[3]], nums[nums[4]]
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def buildArray(self, nums: List[int]) -> List[int]:
         return [nums[num] for num in nums]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +87,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -97,6 +103,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func buildArray(nums []int) []int {
 	ans := make([]int, len(nums))
@@ -107,11 +115,15 @@ func buildArray(nums []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function buildArray(nums: number[]): number[] {
     return nums.map(v => nums[v]);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -122,6 +134,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -136,6 +150,8 @@ var buildArray = function (nums) {
     return ans;
 };
 ```
+
+#### C
 
 ```c
 /**

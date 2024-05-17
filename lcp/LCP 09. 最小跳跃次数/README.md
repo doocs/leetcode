@@ -42,6 +42,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2009.%20%E6%9C%80%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minJump(self, jump: List[int]) -> int:
@@ -64,6 +66,8 @@ class Solution:
             ans += 1
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -134,6 +140,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minJump(jump []int) int {

@@ -70,6 +70,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -83,6 +85,8 @@ class Solution:
             return 0
         return 1 + self.countNodes(root.left) + self.countNodes(root.right)
 ```
+
+#### Java
 
 ```java
 /**
@@ -110,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -133,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -149,6 +157,8 @@ func countNodes(root *TreeNode) int {
 	return 1 + countNodes(root.Left) + countNodes(root.Right)
 }
 ```
+
+#### Rust
 
 ```rust
 use std::cell::RefCell;
@@ -176,6 +186,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -196,6 +208,8 @@ var countNodes = function (root) {
     return 1 + countNodes(root.left) + countNodes(root.right);
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -244,6 +258,8 @@ The time complexity is $O(\log^2 n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -267,6 +283,8 @@ class Solution:
             return (1 << left) + self.countNodes(root.right)
         return (1 << right) + self.countNodes(root.left)
 ```
+
+#### Java
 
 ```java
 /**
@@ -307,6 +325,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -343,6 +363,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -370,6 +392,8 @@ func depth(root *TreeNode) (d int) {
 	return
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -403,6 +427,8 @@ var countNodes = function (root) {
     return (1 << right) + countNodes(root.left);
 };
 ```
+
+#### C#
 
 ```cs
 /**

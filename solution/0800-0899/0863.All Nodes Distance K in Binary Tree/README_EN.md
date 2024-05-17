@@ -61,6 +61,8 @@ Explanation: The nodes that are a distance 2 from the target node (with value 5)
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -99,6 +101,8 @@ class Solution:
         dfs(target, k)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -149,6 +153,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -191,6 +197,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -243,6 +251,8 @@ func distanceK(root *TreeNode, target *TreeNode, k int) []int {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.

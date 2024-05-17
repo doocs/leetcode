@@ -107,6 +107,8 @@ Similar problems:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class BinaryIndexedTree:
     __slots__ = ["n", "c"]
@@ -148,6 +150,8 @@ class Solution:
             ans[i] = tree.query(k)
         return ans
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -210,6 +214,8 @@ class Solution {
 }
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int[] maximumSumQueries(int[] nums1, int[] nums2, int[][] q) {
@@ -254,6 +260,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class BinaryIndexedTree {
@@ -314,6 +322,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -372,6 +382,8 @@ func maximumSumQueries(nums1 []int, nums2 []int, queries [][]int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {

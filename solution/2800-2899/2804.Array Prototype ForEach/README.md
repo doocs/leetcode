@@ -91,6 +91,8 @@ context = {"context": 5}
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 Array.prototype.forEach = function (callback: Function, context: any): void {
     for (let i = 0; i < this.length; ++i) {

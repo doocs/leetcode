@@ -86,6 +86,8 @@ The time complexity is $O(\log num \times k)$, and the space complexity is $O(\l
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def divisorSubstrings(self, num: int, k: int) -> int:
@@ -97,6 +99,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -129,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func divisorSubstrings(num int, k int) int {
 	ans := 0
@@ -142,6 +150,8 @@ func divisorSubstrings(num int, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function divisorSubstrings(num: number, k: number): number {
@@ -171,6 +181,8 @@ The time complexity is $O(\log num)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def divisorSubstrings(self, num: int, k: int) -> int:
@@ -189,6 +201,8 @@ class Solution:
             ans += int(x != 0 and num % x == 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -212,6 +226,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -238,6 +254,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func divisorSubstrings(num int, k int) (ans int) {
 	x, p, t := 0, 1, num
@@ -261,6 +279,8 @@ func divisorSubstrings(num int, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function divisorSubstrings(num: number, k: number): number {

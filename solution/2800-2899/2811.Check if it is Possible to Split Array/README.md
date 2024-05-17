@@ -106,6 +106,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canSplitArray(self, nums: List[int], m: int) -> bool:
@@ -123,6 +125,8 @@ class Solution:
         s = list(accumulate(nums, initial=0))
         return dfs(0, len(nums) - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -160,6 +164,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -193,6 +199,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canSplitArray(nums []int, m int) bool {
@@ -228,6 +236,8 @@ func canSplitArray(nums []int, m int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canSplitArray(nums: number[], m: number): boolean {
     const n = nums.length;
@@ -259,6 +269,8 @@ function canSplitArray(nums: number[], m: number): boolean {
     return dfs(0, n - 1);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -292,6 +304,8 @@ impl Solution {
 时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function canSplitArray(nums: number[], m: number): boolean {

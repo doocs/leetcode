@@ -74,6 +74,8 @@ Person table:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 import pandas as pd
 
@@ -85,6 +87,8 @@ def delete_duplicate_emails(person: pd.DataFrame) -> None:
     # Drop the duplicates based on email.
     person.drop_duplicates(subset="email", keep="first", inplace=True)
 ```
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -101,6 +105,8 @@ WHERE id NOT IN (SELECT MIN(id) FROM (SELECT * FROM Person) AS p GROUP BY email)
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -131,6 +137,8 @@ WHERE
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 DELETE p2

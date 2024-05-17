@@ -70,6 +70,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numRescueBoats(self, people: List[int], limit: int) -> int:
@@ -83,6 +85,8 @@ class Solution:
             ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +103,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -117,6 +123,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numRescueBoats(people []int, limit int) int {
 	sort.Ints(people)
@@ -130,6 +138,8 @@ func numRescueBoats(people []int, limit int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numRescueBoats(people: number[], limit: number): number {

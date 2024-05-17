@@ -82,6 +82,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getLucky(self, s: str, k: int) -> int:
@@ -91,6 +93,8 @@ class Solution:
             s = str(t)
         return int(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +134,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getLucky(s string, k int) int {
@@ -149,6 +157,8 @@ func getLucky(s string, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function getLucky(s: string, k: number): number {
     let ans = '';
@@ -165,6 +175,8 @@ function getLucky(s: string, k: number): number {
     return Number(ans);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -184,6 +196,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

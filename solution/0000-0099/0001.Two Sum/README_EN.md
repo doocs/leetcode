@@ -75,6 +75,8 @@ The time complexity is $O(n)$ and the space complexity is $O(n)$. Where $n$ is t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
@@ -85,6 +87,8 @@ class Solution:
                 return [m[y], i]
             m[x] = i
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -119,6 +125,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func twoSum(nums []int, target int) []int {
 	m := map[int]int{}
@@ -132,6 +140,8 @@ func twoSum(nums []int, target int) []int {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function twoSum(nums: number[], target: number): number[] {
@@ -150,6 +160,8 @@ function twoSum(nums: number[], target: number): number[] {
 }
 ```
 
+#### Rust
+
 ```rust
 use std::collections::HashMap;
 
@@ -167,6 +179,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -187,6 +201,8 @@ var twoSum = function (nums, target) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int[] TwoSum(int[] nums, int target) {
@@ -204,6 +220,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -225,6 +243,8 @@ class Solution {
 }
 ```
 
+#### Scala
+
 ```scala
 import scala.collection.mutable
 
@@ -242,6 +262,8 @@ object Solution {
   }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -261,6 +283,8 @@ class Solution {
 }
 ```
 
+#### Ruby
+
 ```rb
 # @param {Integer[]} nums
 # @param {Integer} target
@@ -274,6 +298,8 @@ def two_sum(nums, target)
   end
 end
 ```
+
+#### Nim
 
 ```nim
 import std/enumerate

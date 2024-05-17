@@ -61,6 +61,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxSumOfThreeSubarrays(self, nums: List[int], k: int) -> List[int]:
@@ -87,6 +89,8 @@ class Solution:
                 s3 -= nums[i - k + 1]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +126,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -159,6 +165,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSumOfThreeSubarrays(nums []int, k int) []int {
 	ans := make([]int, 3)
@@ -191,6 +199,8 @@ func maxSumOfThreeSubarrays(nums []int, k int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxSumOfThreeSubarrays(nums: number[], k: number): number[] {
@@ -261,6 +271,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxSumOfThreeSubarrays(self, nums: List[int], k: int) -> List[int]:
@@ -290,6 +302,8 @@ class Solution:
                 t = cur
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -333,6 +347,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -382,6 +398,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxSumOfThreeSubarrays(nums []int, k int) (ans []int) {

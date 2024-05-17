@@ -85,6 +85,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class ZigzagIterator:
     def __init__(self, v1: List[int], v2: List[int]):
@@ -114,6 +116,8 @@ class ZigzagIterator:
 # i, v = ZigzagIterator(v1, v2), []
 # while i.hasNext(): v.append(i.next())
 ```
+
+#### Java
 
 ```java
 public class ZigzagIterator {
@@ -158,6 +162,8 @@ public class ZigzagIterator {
  * while (i.hasNext()) v[f()] = i.next();
  */
 ```
+
+#### Rust
 
 ```rust
 struct ZigzagIterator {

@@ -81,6 +81,8 @@ s 变为 "0" + "0" + "0" = "000" ，其长度等于 k ，所以返回 "000" 。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def digitSum(self, s: str, k: int) -> str:
@@ -95,6 +97,8 @@ class Solution:
             s = "".join(t)
         return s
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +119,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -137,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func digitSum(s string, k int) string {
 	for len(s) > k {
@@ -154,6 +162,8 @@ func digitSum(s string, k int) string {
 	return s
 }
 ```
+
+#### TypeScript
 
 ```ts
 function digitSum(s: string, k: number): string {
@@ -179,6 +189,8 @@ function digitSum(s: string, k: number): string {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

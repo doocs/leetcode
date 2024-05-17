@@ -76,6 +76,8 @@ JSON 的基本类型是字符串、数字型、布尔值和 null。
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function jsonStringify(object: any): string {
     if (object === null) {

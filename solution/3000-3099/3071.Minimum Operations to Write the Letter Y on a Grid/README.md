@@ -86,6 +86,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumOperationsToWriteY(self, grid: List[List[int]]) -> int:
@@ -105,6 +107,8 @@ class Solution:
             n * n - cnt1[i] - cnt2[j] for i in range(3) for j in range(3) if i != j
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +140,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -169,6 +175,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumOperationsToWriteY(grid [][]int) int {
 	n := len(grid)
@@ -197,6 +205,8 @@ func minimumOperationsToWriteY(grid [][]int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumOperationsToWriteY(grid: number[][]): number {

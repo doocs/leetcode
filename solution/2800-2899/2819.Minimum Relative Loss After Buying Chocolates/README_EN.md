@@ -103,6 +103,8 @@ The time complexity is $O((n + m) \times \log n)$, and the space complexity is $
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumRelativeLosses(
@@ -130,6 +132,8 @@ class Solution:
             ans.append(loss)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -175,6 +179,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -212,6 +218,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumRelativeLosses(prices []int, queries [][]int) []int64 {
 	n := len(prices)
@@ -246,6 +254,8 @@ func minimumRelativeLosses(prices []int, queries [][]int) []int64 {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumRelativeLosses(prices: number[], queries: number[][]): number[] {

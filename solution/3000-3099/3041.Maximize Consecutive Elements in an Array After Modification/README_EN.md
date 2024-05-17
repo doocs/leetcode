@@ -64,17 +64,25 @@ It can be shown that we cannot select more than 3 consecutive elements.</pre>
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 
 ```
+
+#### Java
 
 ```java
 
 ```
 
+#### C++
+
 ```cpp
 
 ```
+
+#### Go
 
 ```go
 

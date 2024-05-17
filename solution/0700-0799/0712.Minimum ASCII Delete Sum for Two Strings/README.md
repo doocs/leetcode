@@ -83,6 +83,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumDeleteSum(self, s1: str, s2: str) -> int:
@@ -102,6 +104,8 @@ class Solution:
                     )
         return f[m][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +132,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -156,6 +162,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumDeleteSum(s1 string, s2 string) int {
 	m, n := len(s1), len(s2)
@@ -181,6 +189,8 @@ func minimumDeleteSum(s1 string, s2 string) int {
 	return f[m][n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumDeleteSum(s1: string, s2: string): number {
@@ -208,6 +218,8 @@ function minimumDeleteSum(s1: string, s2: string): number {
     return f[m][n];
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

@@ -61,6 +61,8 @@ n = -2
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function createCounter(n: number): () => number {
     let i = n;

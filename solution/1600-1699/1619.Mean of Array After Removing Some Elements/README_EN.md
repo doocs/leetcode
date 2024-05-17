@@ -65,6 +65,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def trimMean(self, arr: List[int]) -> float:
@@ -74,6 +76,8 @@ class Solution:
         t = arr[start:end]
         return round(sum(t) / len(t), 5)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +93,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -103,6 +109,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func trimMean(arr []int) float64 {
 	sort.Ints(arr)
@@ -114,6 +122,8 @@ func trimMean(arr []int) float64 {
 	return sum / (float64(n) * 0.9)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function trimMean(arr: number[]): number {
@@ -127,6 +137,8 @@ function trimMean(arr: number[]): number {
     return sum / (n * 0.9);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

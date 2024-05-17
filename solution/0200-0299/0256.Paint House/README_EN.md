@@ -64,6 +64,8 @@ Minimum cost: 2 + 5 + 3 = 10.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCost(self, costs: List[List[int]]) -> int:
@@ -72,6 +74,8 @@ class Solution:
             a, b, c = min(b, c) + ca, min(a, c) + cb, min(a, b) + cc
         return min(a, b, c)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +91,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -104,6 +110,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minCost(costs [][]int) int {
 	r, g, b := 0, 0, 0
@@ -116,6 +124,8 @@ func minCost(costs [][]int) int {
 	return min(r, min(g, b))
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

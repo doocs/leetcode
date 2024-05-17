@@ -83,6 +83,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 """
 # Definition for a Node.
@@ -107,6 +109,8 @@ class Solution:
             node = node.parent
         return node
 ```
+
+#### Java
 
 ```java
 /*
@@ -133,6 +137,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /*
@@ -162,6 +168,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for Node.
@@ -185,6 +193,8 @@ func lowestCommonAncestor(p *Node, q *Node) *Node {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -230,6 +240,8 @@ The time complexity is $O(n)$, where $n$ is the number of nodes in the binary tr
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 """
 # Definition for a Node.
@@ -250,6 +262,8 @@ class Solution:
             b = b.parent if b.parent else p
         return a
 ```
+
+#### Java
 
 ```java
 /*
@@ -273,6 +287,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /*
@@ -299,6 +315,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -328,6 +346,8 @@ func lowestCommonAncestor(p *Node, q *Node) *Node {
 	return a
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

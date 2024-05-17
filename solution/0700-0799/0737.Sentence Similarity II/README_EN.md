@@ -84,6 +84,8 @@ Since &quot;leetcode is similar to &quot;onepiece&quot; and the first two words 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def areSentencesSimilarTwo(
@@ -121,6 +123,8 @@ class Solution:
                 return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -169,6 +173,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -206,6 +212,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 var p []int

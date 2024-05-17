@@ -120,6 +120,8 @@ Thus, the resulting masked number is &quot;***-***-7890&quot;.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maskPII(self, s: str) -> str:
@@ -131,6 +133,8 @@ class Solution:
         suf = '***-***-' + s[-4:]
         return suf if cnt == 0 else f'+{"*" * cnt}-{suf}'
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -155,6 +159,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -183,6 +189,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maskPII(s string) string {
 	i := strings.Index(s, "@")
@@ -205,6 +213,8 @@ func maskPII(s string) string {
 	return "+" + strings.Repeat("*", cnt) + "-" + suf
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maskPII(s: string): string {

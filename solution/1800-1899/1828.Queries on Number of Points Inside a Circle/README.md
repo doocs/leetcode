@@ -75,6 +75,8 @@ queries[0] 是绿色的圆，queries[1] 是红色的圆，queries[2] 是蓝色�
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countPoints(
@@ -89,6 +91,8 @@ class Solution:
             ans.append(cnt)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countPoints(points [][]int, queries [][]int) (ans []int) {
 	for _, q := range queries {
@@ -148,6 +156,8 @@ func countPoints(points [][]int, queries [][]int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countPoints(points: number[][], queries: number[][]): number[] {
     return queries.map(([cx, cy, r]) => {
@@ -161,6 +171,8 @@ function countPoints(points: number[][], queries: number[][]): number[] {
     });
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -183,6 +195,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**

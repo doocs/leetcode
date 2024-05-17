@@ -60,6 +60,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def magicalString(self, n: int) -> int:
@@ -73,6 +75,8 @@ class Solution:
             i += 1
         return s[:n].count(1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +100,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -112,6 +118,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func magicalString(n int) (ans int) {
@@ -132,6 +140,8 @@ func magicalString(n int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function magicalString(n: number): number {
     const cs = [...'1221121'];
@@ -147,6 +157,8 @@ function magicalString(n: number): number {
     return cs.slice(0, n).reduce((r, c) => r + (c === '1' ? 1 : 0), 0);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

@@ -84,6 +84,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numOfPairs(self, nums: List[str], target: str) -> int:
@@ -92,6 +94,8 @@ class Solution:
             i != j and nums[i] + nums[j] == target for i in range(n) for j in range(n)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -125,6 +131,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numOfPairs(nums []string, target string) (ans int) {
@@ -153,6 +161,8 @@ func numOfPairs(nums []string, target string) (ans int) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numOfPairs(self, nums: List[str], target: str) -> int:
@@ -166,6 +176,8 @@ class Solution:
                 ans += cnt[a] * (cnt[a] - 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -191,6 +203,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -212,6 +226,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numOfPairs(nums []string, target string) (ans int) {

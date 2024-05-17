@@ -60,6 +60,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def removeDuplicates(self, s: str) -> str:
@@ -71,6 +73,8 @@ class Solution:
                 stk.append(c)
         return ''.join(stk)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +91,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -105,6 +111,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func removeDuplicates(s string) string {
 	stk := []rune{}
@@ -118,6 +126,8 @@ func removeDuplicates(s string) string {
 	return string(stk)
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -134,6 +144,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -152,6 +164,8 @@ var removeDuplicates = function (s) {
     return stk.join('');
 };
 ```
+
+#### C
 
 ```c
 char* removeDuplicates(char* s) {

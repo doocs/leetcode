@@ -77,6 +77,8 @@ The time complexity is $O(n \times \log n)$, where $n$ is the length of the two-
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumUnits(self, boxTypes: List[List[int]], truckSize: int) -> int:
@@ -88,6 +90,8 @@ class Solution:
                 break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumUnits(boxTypes [][]int, truckSize int) (ans int) {
 	sort.Slice(boxTypes, func(i, j int) bool { return boxTypes[i][1] > boxTypes[j][1] })
@@ -138,6 +146,8 @@ func maximumUnits(boxTypes [][]int, truckSize int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumUnits(boxTypes: number[][], truckSize: number): number {
@@ -156,6 +166,8 @@ function maximumUnits(boxTypes: number[][], truckSize: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -193,6 +205,8 @@ The time complexity is $O(M)$, where $M$ is the maximum number of units. In this
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumUnits(self, boxTypes: List[List[int]], truckSize: int) -> int:
@@ -209,6 +223,8 @@ class Solution:
                     break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -230,6 +246,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -253,6 +271,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumUnits(boxTypes [][]int, truckSize int) (ans int) {
 	cnt := [1001]int{}
@@ -270,6 +290,8 @@ func maximumUnits(boxTypes [][]int, truckSize int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumUnits(boxTypes: number[][], truckSize: number): number {

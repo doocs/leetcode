@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def matrixScore(self, grid: List[List[int]]) -> int:
@@ -90,6 +92,8 @@ class Solution:
             ans += max(cnt, m - cnt) * (1 << (n - j - 1))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -140,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func matrixScore(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
@@ -165,6 +173,8 @@ func matrixScore(grid [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function matrixScore(grid: number[][]): number {
     const m = grid.length;
@@ -187,6 +197,8 @@ function matrixScore(grid: number[][]): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

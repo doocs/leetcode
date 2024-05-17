@@ -100,6 +100,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minTaps(self, n: int, ranges: List[int]) -> int:
@@ -118,6 +120,8 @@ class Solution:
                 pre = mx
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -142,6 +146,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -168,6 +174,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minTaps(n int, ranges []int) (ans int) {
 	last := make([]int, n+1)
@@ -189,6 +197,8 @@ func minTaps(n int, ranges []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minTaps(n: number, ranges: number[]): number {
@@ -214,6 +224,8 @@ function minTaps(n: number, ranges: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

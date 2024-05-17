@@ -92,6 +92,8 @@ class Node {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 """
 # Definition for a Node.
@@ -119,6 +121,8 @@ class Solution:
 
         return clone(node)
 ```
+
+#### Java
 
 ```java
 /*
@@ -161,6 +165,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /*
 // Definition for a Node.
@@ -199,6 +205,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -229,6 +237,8 @@ func cloneGraph(node *Node) *Node {
 	return clone(node)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -264,6 +274,8 @@ function cloneGraph(node: Node | null): Node | null {
     return visited.get(node);
 }
 ```
+
+#### C#
 
 ```cs
 using System.Collections.Generic;

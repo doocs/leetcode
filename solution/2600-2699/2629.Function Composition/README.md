@@ -77,6 +77,8 @@ Starting with x = 4.
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 type F = (x: number) => number;
 

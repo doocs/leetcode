@@ -68,6 +68,8 @@ It can be shown that we can not select any other subarray with a gcd-sum greater
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxGcdSum(self, nums: List[int], k: int) -> int:
@@ -87,6 +89,8 @@ class Solution:
                     ans = max(ans, (s[i + 1] - s[j]) * x)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -157,6 +163,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxGcdSum(nums []int, k int) int64 {
@@ -197,6 +205,8 @@ func gcd(a, b int) int {
 	return gcd(b, a%b)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxGcdSum(nums: number[], k: number): number {
@@ -243,6 +253,8 @@ function gcd(a: number, b: number): number {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function maxGcdSum(nums: number[], k: number): number {

@@ -93,6 +93,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def kIncreasing(self, arr: List[int], k: int) -> int:
@@ -108,6 +110,8 @@ class Solution:
 
         return sum(lis(arr[i::k]) for i in range(k))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -152,6 +156,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -178,6 +184,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func kIncreasing(arr []int, k int) int {

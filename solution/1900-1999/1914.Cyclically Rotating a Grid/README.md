@@ -75,6 +75,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def rotateGrid(self, grid: List[List[int]], k: int) -> List[List[int]]:
@@ -111,6 +113,8 @@ class Solution:
             rotate(p, k)
         return grid
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -163,6 +167,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -207,6 +213,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func rotateGrid(grid [][]int, k int) [][]int {
@@ -255,6 +263,8 @@ func rotateGrid(grid [][]int, k int) [][]int {
 	return grid
 }
 ```
+
+#### TypeScript
 
 ```ts
 function rotateGrid(grid: number[][], k: number): number[][] {

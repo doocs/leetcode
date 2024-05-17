@@ -67,11 +67,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def coloredCells(self, n: int) -> int:
         return 2 * n * (n - 1) + 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -80,6 +84,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -90,17 +96,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func coloredCells(n int) int64 {
 	return int64(2*n*(n-1) + 1)
 }
 ```
 
+#### TypeScript
+
 ```ts
 function coloredCells(n: number): number {
     return 2 * n * (n - 1) + 1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

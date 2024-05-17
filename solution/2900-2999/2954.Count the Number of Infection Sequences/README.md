@@ -96,6 +96,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 mod = 10**9 + 7
 mx = 10**5
@@ -118,6 +120,8 @@ class Solution:
                 ans = ans * pow(2, x - 1, mod) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -170,6 +174,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 const int MX = 1e5;
@@ -224,6 +230,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 const MX = 1e5
 const MOD = 1e9 + 7
@@ -277,6 +285,8 @@ func numberOfSequence(n int, sick []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 const MX = 1e5;

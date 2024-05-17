@@ -142,6 +142,8 @@ We group the `Orders` table by `customer_id` and `product_id`, and then use the 
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

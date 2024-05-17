@@ -70,6 +70,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def carPooling(self, trips: List[List[int]], capacity: int) -> bool:
@@ -80,6 +82,8 @@ class Solution:
             d[t] -= x
         return all(s <= capacity for s in accumulate(d))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -124,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func carPooling(trips [][]int, capacity int) bool {
 	d := [1001]int{}
@@ -143,6 +151,8 @@ func carPooling(trips [][]int, capacity int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function carPooling(trips: number[][], capacity: number): boolean {
     const mx = Math.max(...trips.map(([, , t]) => t));
@@ -161,6 +171,8 @@ function carPooling(trips: number[][], capacity: number): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -186,6 +198,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[][]} trips
@@ -209,6 +223,8 @@ var carPooling = function (trips, capacity) {
     return true;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

@@ -72,6 +72,8 @@ The time complexity is $O(m\times n)$, and the space complexity is $O(m+n)$. Whe
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def setZeroes(self, matrix: List[List[int]]) -> None:
@@ -87,6 +89,8 @@ class Solution:
                 if rows[i] or cols[j]:
                     matrix[i][j] = 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -139,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func setZeroes(matrix [][]int) {
 	m, n := len(matrix), len(matrix[0])
@@ -161,6 +169,8 @@ func setZeroes(matrix [][]int) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -189,6 +199,8 @@ function setZeroes(matrix: number[][]): void {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[][]} matrix
@@ -216,6 +228,8 @@ var setZeroes = function (matrix) {
     }
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -257,6 +271,8 @@ The time complexity is $O(m\times n)$, and the space complexity is $O(1)$. Where
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def setZeroes(self, matrix: List[List[int]]) -> None:
@@ -278,6 +294,8 @@ class Solution:
             for i in range(m):
                 matrix[i][0] = 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -324,6 +342,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -372,6 +392,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func setZeroes(matrix [][]int) {
 	m, n := len(matrix), len(matrix[0])
@@ -415,6 +437,8 @@ func setZeroes(matrix [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  Do not return anything, modify matrix in-place instead.
@@ -449,6 +473,8 @@ function setZeroes(matrix: number[][]): void {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -493,6 +519,8 @@ var setZeroes = function (matrix) {
     }
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

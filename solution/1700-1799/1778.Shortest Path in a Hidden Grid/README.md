@@ -119,6 +119,8 @@ The robot is initially standing on cell (1, 0), denoted by the -1.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # """
 # This is GridMaster's API interface.
@@ -174,6 +176,8 @@ class Solution(object):
                         q.append((x, y))
         return -1
 ```
+
+#### Java
 
 ```java
 /**
@@ -236,6 +240,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**

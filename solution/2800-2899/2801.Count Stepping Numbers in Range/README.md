@@ -87,6 +87,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSteppingNumbers(self, low: str, high: str) -> int:
@@ -111,6 +113,8 @@ class Solution:
         b = dfs(0, -1, True, True)
         return (a - b) % mod
 ```
+
+#### Java
 
 ```java
 import java.math.BigInteger;
@@ -154,6 +158,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -204,6 +210,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countSteppingNumbers(low string, high string) int {
@@ -271,6 +279,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countSteppingNumbers(low: string, high: string): number {

@@ -119,6 +119,8 @@ int search(int left, int right) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:
@@ -126,6 +128,8 @@ class Solution:
         r = bisect_left(nums, target + 1)
         return [-1, -1] if l == r else [l, r - 1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -150,6 +154,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -162,6 +168,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func searchRange(nums []int, target int) []int {
 	l := sort.SearchInts(nums, target)
@@ -172,6 +180,8 @@ func searchRange(nums []int, target int) []int {
 	return []int{l, r - 1}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function searchRange(nums: number[], target: number): number[] {
@@ -192,6 +202,8 @@ function searchRange(nums: number[], target: number): number[] {
     return l === r ? [-1, -1] : [l, r - 1];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -220,6 +232,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -245,6 +259,8 @@ var searchRange = function (nums, target) {
     return l == r ? [-1, -1] : [l, r - 1];
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {

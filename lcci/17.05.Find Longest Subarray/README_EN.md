@@ -71,6 +71,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findLongestSubarray(self, array: List[str]) -> List[str]:
@@ -86,6 +88,8 @@ class Solution:
                 vis[s] = i
         return array[k : k + mx]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -134,6 +140,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findLongestSubarray(array []string) []string {
@@ -158,6 +166,8 @@ func findLongestSubarray(array []string) []string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findLongestSubarray(array: string[]): string[] {
     const vis = new Map();
@@ -180,6 +190,8 @@ function findLongestSubarray(array: string[]): string[] {
     return array.slice(k, k + mx);
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

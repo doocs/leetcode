@@ -104,6 +104,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def colorRed(self, n: int) -> List[List[int]]:
@@ -123,6 +125,8 @@ class Solution:
             k = (k + 1) % 4
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -148,6 +152,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -175,6 +181,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func colorRed(n int) (ans [][]int) {
 	ans = append(ans, []int{1, 1})
@@ -196,6 +204,8 @@ func colorRed(n int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function colorRed(n: number): number[][] {

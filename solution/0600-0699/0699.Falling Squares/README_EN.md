@@ -72,6 +72,8 @@ Note that square 2 only brushes the right side of square 1, which does not count
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Node:
     def __init__(self, l, r):
@@ -148,6 +150,8 @@ class Solution:
             tree.modify(l, r, h)
         return ans
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -255,6 +259,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Node {
 public:
@@ -351,6 +357,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type node struct {

@@ -83,6 +83,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minMaxDifference(self, num: int) -> int:
@@ -93,6 +95,8 @@ class Solution:
                 return int(s.replace(c, '9')) - mi
         return num - mi
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -138,6 +144,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minMaxDifference(num int) int {
 	s := []byte(strconv.Itoa(num))
@@ -165,6 +173,8 @@ func minMaxDifference(num int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minMaxDifference(num: number): number {
     const s = num + '';
@@ -177,6 +187,8 @@ function minMaxDifference(num: number): number {
     return num - min;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -192,6 +204,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int getLen(int num) {
@@ -241,6 +255,8 @@ int minMaxDifference(int num) {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {

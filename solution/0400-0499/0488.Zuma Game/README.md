@@ -106,6 +106,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMinStep(self, board: str, hand: str) -> int:
@@ -133,6 +135,8 @@ class Solution:
                         q.append((s, b))
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {

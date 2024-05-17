@@ -64,6 +64,8 @@ generator.next().done; // true
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 type MultidimensionalArray = (MultidimensionalArray | number)[];
 

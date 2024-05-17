@@ -66,6 +66,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2068.%20%E7%BE%8E%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def beautifulBouquet(self, flowers: List[int], cnt: int) -> int:
@@ -80,6 +82,8 @@ class Solution:
             ans = (ans + i - j + 1) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +129,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func beautifulBouquet(flowers []int, cnt int) (ans int) {

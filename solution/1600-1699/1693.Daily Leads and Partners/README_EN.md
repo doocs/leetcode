@@ -86,6 +86,8 @@ We can use the `GROUP BY` statement to group the data by the `date_id` and `make
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT

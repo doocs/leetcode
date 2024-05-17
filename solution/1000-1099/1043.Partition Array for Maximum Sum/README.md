@@ -80,6 +80,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxSumAfterPartitioning(self, arr: List[int], k: int) -> int:
@@ -92,6 +94,8 @@ class Solution:
                 f[i] = max(f[i], f[j - 1] + mx * (i - j + 1))
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -129,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSumAfterPartitioning(arr []int, k int) int {
 	n := len(arr)
@@ -143,6 +151,8 @@ func maxSumAfterPartitioning(arr []int, k int) int {
 	return f[n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxSumAfterPartitioning(arr: number[], k: number): number {

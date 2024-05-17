@@ -69,6 +69,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$,
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def validTree(self, n: int, edges: List[List[int]]) -> bool:
@@ -86,6 +88,8 @@ class Solution:
             n -= 1
         return n == 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ public:
 };
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -135,6 +141,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func validTree(n int, edges [][]int) bool {
@@ -160,6 +168,8 @@ func validTree(n int, edges [][]int) bool {
 	return n == 1
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -202,6 +212,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def validTree(self, n: int, edges: List[List[int]]) -> bool:
@@ -221,6 +233,8 @@ class Solution:
         dfs(0)
         return len(vis) == n
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -253,6 +267,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -282,6 +298,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func validTree(n int, edges [][]int) bool {
 	if len(edges) != n-1 {
@@ -308,6 +326,8 @@ func validTree(n int, edges [][]int) bool {
 	return n == 0
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

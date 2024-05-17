@@ -61,12 +61,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def commonFactors(self, a: int, b: int) -> int:
         g = gcd(a, b)
         return sum(g % x == 0 for x in range(1, g + 1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +91,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -100,6 +106,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func commonFactors(a int, b int) (ans int) {
@@ -119,6 +127,8 @@ func gcd(a int, b int) int {
 	return gcd(b, a%b)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function commonFactors(a: number, b: number): number {
@@ -151,6 +161,8 @@ function gcd(a: number, b: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def commonFactors(self, a: int, b: int) -> int:
@@ -163,6 +175,8 @@ class Solution:
             x += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -186,6 +200,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -202,6 +218,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func commonFactors(a int, b int) (ans int) {
@@ -224,6 +242,8 @@ func gcd(a int, b int) int {
 	return gcd(b, a%b)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function commonFactors(a: number, b: number): number {

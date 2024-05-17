@@ -79,6 +79,8 @@ Products table:
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT product_id, 'store1' AS store, store1 AS price FROM Products WHERE store1 IS NOT NULL

@@ -114,6 +114,8 @@ Id为4的商品(LC-T-Shirt)的存货量为 4x10x20 = 800
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT

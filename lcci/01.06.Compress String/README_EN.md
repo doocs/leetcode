@@ -60,12 +60,16 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def compressString(self, S: str) -> str:
         t = "".join(a + str(len(list(b))) for a, b in groupby(S))
         return min(S, t, key=len)
 ```
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +84,8 @@ class Solution:
             i = j
         return min(S, "".join(t), key=len)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -120,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func compressString(S string) string {
 	n := len(S)
@@ -139,6 +149,8 @@ func compressString(S string) string {
 	return S
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -167,6 +179,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} S
@@ -186,6 +200,8 @@ var compressString = function (S) {
     return t.length < n ? t.join('') : S;
 };
 ```
+
+#### Swift
 
 ```swift
 class Solution {

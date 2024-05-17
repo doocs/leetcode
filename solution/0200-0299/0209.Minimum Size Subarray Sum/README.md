@@ -83,6 +83,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minSubArrayLen(self, target: int, nums: List[int]) -> int:
@@ -95,6 +97,8 @@ class Solution:
                 ans = min(ans, j - i)
         return ans if ans <= n else 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -150,6 +156,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minSubArrayLen(target int, nums []int) int {
 	n := len(nums)
@@ -170,6 +178,8 @@ func minSubArrayLen(target int, nums []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minSubArrayLen(target: number, nums: number[]): number {
@@ -202,6 +212,8 @@ function minSubArrayLen(target: number, nums: number[]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn min_sub_array_len(target: i32, nums: Vec<i32>) -> i32 {
@@ -225,6 +237,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -262,6 +276,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minSubArrayLen(self, target: int, nums: List[int]) -> int:
@@ -276,6 +292,8 @@ class Solution:
                 j += 1
         return ans if ans <= n else 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -294,6 +312,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -314,6 +334,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minSubArrayLen(target int, nums []int) int {
 	n := len(nums)
@@ -333,6 +355,8 @@ func minSubArrayLen(target int, nums []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minSubArrayLen(target: number, nums: number[]): number {

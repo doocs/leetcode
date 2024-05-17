@@ -70,6 +70,8 @@ mRUQueue.fetch(8); // The 8<sup>th</sup> element (2) is already at the end of th
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class MRUQueue:
     def __init__(self, n: int):
@@ -86,6 +88,8 @@ class MRUQueue:
 # obj = MRUQueue(n)
 # param_1 = obj.fetch(k)
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -152,6 +156,8 @@ class MRUQueue {
  */
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -216,6 +222,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -278,6 +286,8 @@ func (this *MRUQueue) Fetch(k int) int {
  * param_1 := obj.Fetch(k);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {
@@ -352,6 +362,8 @@ class MRUQueue {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:

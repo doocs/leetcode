@@ -79,6 +79,8 @@ solution.pick(); // return [0, 0]
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def __init__(self, rects: List[List[int]]):
@@ -98,6 +100,8 @@ class Solution:
 # obj = Solution(rects)
 # param_1 = obj.pick()
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +143,8 @@ class Solution {
  */
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -170,6 +176,8 @@ public:
  * vector<int> param_1 = obj->pick();
  */
 ```
+
+#### Go
 
 ```go
 type Solution struct {

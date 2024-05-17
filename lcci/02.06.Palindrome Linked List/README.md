@@ -55,6 +55,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.06.Palindrome%20Li
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -85,6 +87,8 @@ class Solution:
             p = p.next
         return True
 ```
+
+#### Java
 
 ```java
 /**
@@ -127,6 +131,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -171,6 +177,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -207,6 +215,8 @@ func isPalindrome(head *ListNode) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -252,6 +262,8 @@ function isPalindrome(head: ListNode | null): boolean {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -295,6 +307,8 @@ var isPalindrome = function (head) {
 };
 ```
 
+#### C#
+
 ```cs
 /**
  * Definition for singly-linked list.
@@ -336,6 +350,8 @@ public class Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 /**

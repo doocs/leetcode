@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxBottlesDrunk(self, numBottles: int, numExchange: int) -> int:
@@ -88,6 +90,8 @@ class Solution:
             numBottles += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -120,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxBottlesDrunk(numBottles int, numExchange int) int {
 	ans := numBottles
@@ -132,6 +140,8 @@ func maxBottlesDrunk(numBottles int, numExchange int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxBottlesDrunk(numBottles: number, numExchange: number): number {

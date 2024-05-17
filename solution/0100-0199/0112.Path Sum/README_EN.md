@@ -74,6 +74,8 @@ The time complexity is $O(n)$, where $n$ is the number of nodes in the binary tr
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -93,6 +95,8 @@ class Solution:
 
         return dfs(root, 0)
 ```
+
+#### Java
 
 ```java
 /**
@@ -128,6 +132,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -154,6 +160,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -178,6 +186,8 @@ func hasPathSum(root *TreeNode, targetSum int) bool {
 	return dfs(root, 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -205,6 +215,8 @@ function hasPathSum(root: TreeNode | null, targetSum: number): boolean {
     return hasPathSum(left, targetSum - val) || hasPathSum(right, targetSum - val);
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -245,6 +257,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

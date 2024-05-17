@@ -55,6 +55,8 @@ Given an integer array <code>arr</code>, return <code>true</code>&nbsp;if there 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def threeConsecutiveOdds(self, arr: List[int]) -> bool:
@@ -68,6 +70,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +92,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -105,6 +111,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func threeConsecutiveOdds(arr []int) bool {
 	cnt := 0
@@ -121,6 +129,8 @@ func threeConsecutiveOdds(arr []int) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 function threeConsecutiveOdds(arr: number[]): boolean {
@@ -148,6 +158,8 @@ function threeConsecutiveOdds(arr: number[]): boolean {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

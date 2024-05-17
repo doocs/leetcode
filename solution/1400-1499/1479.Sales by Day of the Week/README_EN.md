@@ -120,6 +120,8 @@ There are no sales of T-shirts.
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT

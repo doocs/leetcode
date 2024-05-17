@@ -68,6 +68,8 @@ The string is now alternating.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minSwaps(self, s: str) -> int:
@@ -91,6 +93,8 @@ class Solution:
             return s0n0
         return min(s0n0, s1n0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +129,8 @@ class Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

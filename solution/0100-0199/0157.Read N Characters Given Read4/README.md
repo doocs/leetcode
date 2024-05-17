@@ -113,6 +113,8 @@ read4(buf4); // read4 返回 0。现在 buf = &quot;&quot;，fp 指向文件末�
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 """
 The read4 API is already defined for you.
@@ -150,6 +152,8 @@ class Solution:
         return i
 ```
 
+#### Java
+
 ```java
 /**
  * The read4 API is defined in the parent class Reader4.
@@ -178,6 +182,8 @@ public class Solution extends Reader4 {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -208,6 +214,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**

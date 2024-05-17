@@ -69,6 +69,8 @@ To the right of 1 there is <b>0</b> smaller element.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class BinaryIndexedTree:
     def __init__(self, n):
@@ -104,6 +106,8 @@ class Solution:
             ans.append(tree.query(x - 1))
         return ans[::-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -161,6 +165,8 @@ class BinaryIndexedTree {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -212,6 +218,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {
@@ -279,6 +287,8 @@ func countSmaller(nums []int) []int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Node:
     def __init__(self):
@@ -339,6 +349,8 @@ class Solution:
             tree.modify(1, x, 1)
         return ans[::-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -428,6 +440,8 @@ class SegmentTree {
 }
 ```
 
+#### C++
+
 ```cpp
 class Node {
 public:
@@ -502,6 +516,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type Pair struct {

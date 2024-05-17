@@ -101,6 +101,8 @@ We can first perform an inner join between the `Project` table and the `Employee
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

@@ -64,6 +64,8 @@ The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findTheDifference(self, s: str, t: str) -> str:
@@ -73,6 +75,8 @@ class Solution:
             if cnt[c] < 0:
                 return c
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +93,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -108,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findTheDifference(s, t string) byte {
 	cnt := [26]int{}
@@ -123,6 +131,8 @@ func findTheDifference(s, t string) byte {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findTheDifference(s: string, t: string): string {
@@ -140,6 +150,8 @@ function findTheDifference(s: string, t: string): string {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -165,6 +177,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 char findTheDifference(char* s, char* t) {
@@ -197,6 +211,8 @@ The time complexity is $O(n)$, where $n$ is the length of the string. The space 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findTheDifference(self, s: str, t: str) -> str:
@@ -204,6 +220,8 @@ class Solution:
         b = sum(ord(c) for c in t)
         return chr(b - a)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -219,6 +237,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -236,6 +256,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findTheDifference(s string, t string) byte {
 	ss := 0
@@ -249,6 +271,8 @@ func findTheDifference(s string, t string) byte {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findTheDifference(s: string, t: string): string {
     return String.fromCharCode(
@@ -257,6 +281,8 @@ function findTheDifference(s: string, t: string): string {
     );
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -272,6 +298,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 char findTheDifference(char* s, char* t) {

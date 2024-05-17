@@ -85,6 +85,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minSpeedOnTime(self, dist: List[int], hour: float) -> int:
@@ -98,6 +100,8 @@ class Solution:
         ans = bisect_left(range(1, r), True, key=check) + 1
         return -1 if ans == r else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +128,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -152,6 +158,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minSpeedOnTime(dist []int, hour float64) int {
 	n := len(dist)
@@ -171,6 +179,8 @@ func minSpeedOnTime(dist []int, hour float64) int {
 	return x + 1
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -207,6 +217,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

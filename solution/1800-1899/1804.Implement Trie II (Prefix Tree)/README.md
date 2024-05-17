@@ -109,6 +109,8 @@ trie.countWordsStartingWith("app"); // 返回 0
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Trie:
     def __init__(self):
@@ -158,6 +160,8 @@ class Trie:
 # param_3 = obj.countWordsStartingWith(prefix)
 # obj.erase(word)
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -223,6 +227,8 @@ class Trie {
  * obj.erase(word);
  */
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -292,6 +298,8 @@ private:
  * obj->erase(word);
  */
 ```
+
+#### Go
 
 ```go
 type Trie struct {

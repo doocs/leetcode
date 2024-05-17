@@ -81,6 +81,8 @@ collection.getRandom(); // getRandom 应该返回 1 或 2，两者的可能性�
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class RandomizedCollection:
     def __init__(self):
@@ -135,6 +137,8 @@ class RandomizedCollection:
 # param_2 = obj.remove(val)
 # param_3 = obj.getRandom()
 ```
+
+#### Java
 
 ```java
 class RandomizedCollection {

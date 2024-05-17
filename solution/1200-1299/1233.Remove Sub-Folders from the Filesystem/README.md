@@ -83,6 +83,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def removeSubfolders(self, folder: List[str]) -> List[str]:
@@ -94,6 +96,8 @@ class Solution:
                 ans.append(f)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +138,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func removeSubfolders(folder []string) []string {
@@ -162,6 +170,8 @@ func removeSubfolders(folder []string) []string {
 时间复杂度 $O(n \times m)$，空间复杂度 $O(n \times m)$。其中 $n$ 和 $m$ 分别为数组 `folder` 的长度和数组 `folder` 中字符串的最大长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -198,6 +208,8 @@ class Solution:
             trie.insert(i, f)
         return [folder[i] for i in trie.search()]
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -248,6 +260,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -311,6 +325,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Trie struct {
 	children map[string]*Trie
@@ -372,6 +388,8 @@ func removeSubfolders(folder []string) []string {
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Go
 
 ```go
 type Trie struct {

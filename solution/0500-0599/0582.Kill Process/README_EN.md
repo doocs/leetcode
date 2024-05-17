@@ -72,6 +72,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def killProcess(self, pid: List[int], ppid: List[int], kill: int) -> List[int]:
@@ -87,6 +89,8 @@ class Solution:
         dfs(kill)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -133,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func killProcess(pid []int, ppid []int, kill int) (ans []int) {
 	g := map[int][]int{}
@@ -150,6 +158,8 @@ func killProcess(pid []int, ppid []int, kill int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function killProcess(pid: number[], ppid: number[], kill: number): number[] {
@@ -171,6 +181,8 @@ function killProcess(pid: number[], ppid: number[], kill: number): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;

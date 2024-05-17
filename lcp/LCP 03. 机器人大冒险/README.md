@@ -76,6 +76,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2003.%20%E6%9C%BA%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def robot(self, command: str, obstacles: List[List[int]], x: int, y: int) -> bool:
@@ -99,6 +101,8 @@ class Solution:
                 return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +135,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -165,6 +171,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func robot(command string, obstacles [][]int, x int, y int) bool {
 	type pair struct{ i, j int }
@@ -195,6 +203,8 @@ func robot(command string, obstacles [][]int, x int, y int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function robot(command: string, obstacles: number[][], x: number, y: number): boolean {

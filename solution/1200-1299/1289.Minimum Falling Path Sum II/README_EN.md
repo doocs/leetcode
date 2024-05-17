@@ -64,6 +64,8 @@ The falling path with the smallest sum is&nbsp;[1,5,7], so the answer is&nbsp;13
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minFallingPathSum(self, grid: List[List[int]]) -> int:
@@ -75,6 +77,8 @@ class Solution:
                 f[i][j] = v + x
         return min(f[n])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -125,6 +131,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minFallingPathSum(grid [][]int) int {
@@ -163,6 +171,8 @@ func minFallingPathSum(grid [][]int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minFallingPathSum(self, grid: List[List[int]]) -> int:
@@ -182,6 +192,8 @@ class Solution:
             f, g, fp = ff, gg, ffp
         return f
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -211,6 +223,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -239,6 +253,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minFallingPathSum(grid [][]int) int {

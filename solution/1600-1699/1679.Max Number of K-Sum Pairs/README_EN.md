@@ -77,6 +77,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxOperations(self, nums: List[int], k: int) -> int:
@@ -93,6 +95,8 @@ class Solution:
                 l += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -140,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxOperations(nums []int, k int) int {
 	sort.Ints(nums)
@@ -160,6 +168,8 @@ func maxOperations(nums []int, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxOperations(nums: number[], k: number): number {
     const cnt = new Map();
@@ -175,6 +185,8 @@ function maxOperations(nums: number[], k: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -220,6 +232,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxOperations(self, nums: List[int], k: int) -> int:
@@ -233,6 +247,8 @@ class Solution:
                 cnt[x] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -254,6 +270,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -273,6 +291,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxOperations(nums []int, k int) (ans int) {
 	cnt := map[int]int{}
@@ -287,6 +307,8 @@ func maxOperations(nums []int, k int) (ans int) {
 	return
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

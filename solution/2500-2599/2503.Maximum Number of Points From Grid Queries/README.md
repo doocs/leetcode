@@ -88,6 +88,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxPoints(self, grid: List[List[int]], queries: List[int]) -> List[int]:
@@ -110,6 +112,8 @@ class Solution:
             ans[k] = cnt
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -148,6 +152,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -188,6 +194,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxPoints(grid [][]int, queries []int) []int {
@@ -245,6 +253,8 @@ func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; 
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

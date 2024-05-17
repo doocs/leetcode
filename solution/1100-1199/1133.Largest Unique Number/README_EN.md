@@ -60,12 +60,16 @@ The time complexity is $O(n + M)$, and the space complexity is $O(M)$. Here, $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def largestUniqueNumber(self, nums: List[int]) -> int:
         cnt = Counter(nums)
         return max((x for x, v in cnt.items() if v == 1), default=-1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +87,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -102,6 +108,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func largestUniqueNumber(nums []int) int {
 	cnt := [1001]int{}
@@ -117,6 +125,8 @@ func largestUniqueNumber(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function largestUniqueNumber(nums: number[]): number {
     const cnt = Array(1001).fill(0);
@@ -131,6 +141,8 @@ function largestUniqueNumber(nums: number[]): number {
     return -1;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

@@ -79,6 +79,8 @@ The time complexity is $O(n + m \times \log n)$, and the space complexity is $O(
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -108,6 +110,8 @@ class Solution:
             ans.append([mi, mx])
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -154,6 +158,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -193,6 +199,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -229,6 +237,8 @@ func closestNodes(root *TreeNode, queries []int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -279,6 +289,8 @@ function closestNodes(root: TreeNode | null, queries: number[]): number[][] {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 /**

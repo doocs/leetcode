@@ -109,6 +109,8 @@ The time complexity is $O(n + m)$ and the space complexity is $O(n + m)$, where 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def rootCount(
@@ -143,6 +145,8 @@ class Solution:
         dfs2(0, -1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -202,6 +206,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -254,6 +260,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func rootCount(edges [][]int, guesses [][]int, k int) (ans int) {
 	n := len(edges) + 1
@@ -303,6 +311,8 @@ func rootCount(edges [][]int, guesses [][]int, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function rootCount(edges: number[][], guesses: number[][], k: number): number {

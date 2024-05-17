@@ -65,6 +65,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxCount(self, m: int, n: int, ops: List[List[int]]) -> int:
@@ -73,6 +75,8 @@ class Solution:
             n = min(n, b)
         return m * n
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +90,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -98,6 +104,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxCount(m int, n int, ops [][]int) int {

@@ -65,12 +65,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def frequencySort(self, nums: List[int]) -> List[int]:
         cnt = Counter(nums)
         return sorted(nums, key=lambda x: (cnt[x], -x))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +97,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -110,6 +116,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func frequencySort(nums []int) []int {
 	cnt := make([]int, 201)
@@ -124,6 +132,8 @@ func frequencySort(nums []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function frequencySort(nums: number[]): number[] {
     const map = new Map<number, number>();
@@ -133,6 +143,8 @@ function frequencySort(nums: number[]): number[] {
     return nums.sort((a, b) => map.get(a) - map.get(b) || b - a);
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -153,6 +165,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

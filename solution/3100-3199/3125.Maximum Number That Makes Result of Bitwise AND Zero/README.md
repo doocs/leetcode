@@ -86,11 +86,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxNumber(self, n: int) -> int:
         return (1 << (n.bit_length() - 1)) - 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -108,6 +114,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxNumber(n int64) int64 {

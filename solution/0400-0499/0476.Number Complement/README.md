@@ -77,11 +77,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findComplement(self, num: int) -> int:
         return num ^ ((1 << num.bit_length()) - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +94,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -100,11 +106,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findComplement(num int) int {
 	return num ^ ((1 << bits.Len(uint(num))) - 1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findComplement(num: number): number {

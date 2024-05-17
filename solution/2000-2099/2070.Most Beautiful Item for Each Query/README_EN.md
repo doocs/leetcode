@@ -87,6 +87,8 @@ The time complexity is $O(n \times \log n + m \times \log m)$, and the space com
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumBeauty(self, items: List[List[int]], queries: List[int]) -> List[int]:
@@ -101,6 +103,8 @@ class Solution:
             ans[j] = mx
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +130,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -153,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumBeauty(items [][]int, queries []int) []int {
 	sort.Slice(items, func(i, j int) bool {
@@ -176,6 +184,8 @@ func maximumBeauty(items [][]int, queries []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumBeauty(items: number[][], queries: number[]): number[] {
@@ -215,6 +225,8 @@ The time complexity is $O((m + n) \times \log n)$, and the space complexity is $
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumBeauty(self, items: List[List[int]], queries: List[int]) -> List[int]:
@@ -230,6 +242,8 @@ class Solution:
             ans.append(0 if j < 0 else mx[j])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -254,6 +268,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -275,6 +291,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumBeauty(items [][]int, queries []int) []int {
@@ -298,6 +316,8 @@ func maximumBeauty(items [][]int, queries []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumBeauty(items: number[][], queries: number[]): number[] {

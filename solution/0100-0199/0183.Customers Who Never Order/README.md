@@ -91,6 +91,8 @@ Orders table:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 import pandas as pd
 
@@ -104,6 +106,8 @@ def find_customers(customers: pd.DataFrame, orders: pd.DataFrame) -> pd.DataFram
 
     return df
 ```
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -127,6 +131,8 @@ WHERE
 使用 `LEFT JOIN` 连接表格，返回 `CustomerId` 为 `NULL` 的数据。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

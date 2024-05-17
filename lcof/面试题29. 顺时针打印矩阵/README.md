@@ -53,6 +53,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
@@ -73,6 +75,8 @@ class Solution:
             i, j = x, y
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func spiralOrder(matrix [][]int) []int {
 	if len(matrix) == 0 || len(matrix[0]) == 0 {
@@ -159,6 +167,8 @@ func spiralOrder(matrix [][]int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 var spiralOrder = (matrix: number[][]): number[] => {
     let ans: number[] = [];
@@ -184,6 +194,8 @@ var spiralOrder = (matrix: number[][]): number[] => {
     return ans;
 };
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -233,6 +245,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[][]} matrix
@@ -266,6 +280,8 @@ var spiralOrder = function (matrix) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -324,6 +340,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
@@ -341,6 +359,8 @@ class Solution:
             top, bottom, left, right = top + 1, bottom - 1, left + 1, right - 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -377,6 +397,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -403,6 +425,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func spiralOrder(matrix [][]int) []int {

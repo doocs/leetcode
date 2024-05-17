@@ -85,6 +85,8 @@ The time complexity is $O(n)$, where $n$ is the length of the customer array `cu
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def averageWaitingTime(self, customers: List[List[int]]) -> float:
@@ -94,6 +96,8 @@ class Solution:
             tot += t - a
         return tot / len(customers)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -126,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func averageWaitingTime(customers [][]int) float64 {
 	tot, t := 0, 0
@@ -137,6 +145,8 @@ func averageWaitingTime(customers [][]int) float64 {
 	return float64(tot) / float64(len(customers))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function averageWaitingTime(customers: number[][]): number {

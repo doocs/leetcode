@@ -109,6 +109,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxTrailingZeros(self, grid: List[List[int]]) -> int:
@@ -143,6 +145,8 @@ class Solution:
                 ans = max(ans, a, b, c, d)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -184,6 +188,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -223,6 +229,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxTrailingZeros(grid [][]int) (ans int) {
@@ -267,6 +275,8 @@ func get(m, n int) [][]int {
 	return f
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxTrailingZeros(grid: number[][]): number {

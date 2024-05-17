@@ -56,6 +56,8 @@ The time complexity is $O(n \times \log n)$, where $n$ is the length of the arra
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findKthLargest(self, nums: List[int], k: int) -> int:
@@ -82,6 +84,8 @@ class Solution:
         n = len(nums)
         return quick_sort(0, n - 1, n - k)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -138,6 +144,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findKthLargest(nums []int, k int) int {
@@ -175,6 +183,8 @@ func quickSort(nums []int, left, right, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findKthLargest(nums: number[], k: number): number {
     const n = nums.length;
@@ -203,6 +213,8 @@ function findKthLargest(nums: number[], k: number): number {
     return nums[k - 1];
 }
 ```
+
+#### Rust
 
 ```rust
 use rand::Rng;
@@ -251,6 +263,8 @@ Quick sort has a characteristic that at the end of each loop, it can be determin
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 use rand::Rng;

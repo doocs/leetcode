@@ -111,6 +111,8 @@ We can hire all three juniors with the remaining budget.
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def interchangeableRectangles(self, rectangles: List[List[int]]) -> int:
@@ -89,6 +91,8 @@ class Solution:
             cnt[(w, h)] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -134,6 +140,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func interchangeableRectangles(rectangles [][]int) int64 {
@@ -158,6 +166,8 @@ func gcd(a, b int) int {
 	return gcd(b, a%b)
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

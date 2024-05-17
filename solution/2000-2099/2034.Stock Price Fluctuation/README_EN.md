@@ -102,6 +102,8 @@ The space complexity is $O(n)$, where $n$ is the number of `update` operations.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedList
 
@@ -136,6 +138,8 @@ class StockPrice:
 # param_3 = obj.maximum()
 # param_4 = obj.minimum()
 ```
+
+#### Java
 
 ```java
 class StockPrice {
@@ -181,6 +185,8 @@ class StockPrice {
  */
 ```
 
+#### C++
+
 ```cpp
 class StockPrice {
 public:
@@ -223,6 +229,8 @@ private:
  * int param_4 = obj->minimum();
  */
 ```
+
+#### Go
 
 ```go
 type StockPrice struct {

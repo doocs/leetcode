@@ -96,6 +96,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minIncrements(self, n: int, cost: List[int]) -> int:
@@ -106,6 +108,8 @@ class Solution:
             cost[i - 1] += max(cost[l - 1], cost[r - 1])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -135,6 +141,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minIncrements(n int, cost []int) (ans int) {
@@ -153,6 +161,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minIncrements(n: number, cost: number[]): number {

@@ -85,6 +85,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumXORSum(self, nums1: List[int], nums2: List[int]) -> int:
@@ -98,6 +100,8 @@ class Solution:
                         f[i][j] = min(f[i][j], f[i - 1][j ^ (1 << k)] + (x ^ nums2[k]))
         return f[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -144,6 +150,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumXORSum(nums1 []int, nums2 []int) int {
@@ -168,6 +176,8 @@ func minimumXORSum(nums1 []int, nums2 []int) int {
 	return f[n][(1<<n)-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumXORSum(nums1: number[], nums2: number[]): number {
@@ -203,6 +213,8 @@ function minimumXORSum(nums1: number[], nums2: number[]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumXORSum(self, nums1: List[int], nums2: List[int]) -> int:
@@ -216,6 +228,8 @@ class Solution:
                         f[j] = min(f[j], f[j ^ (1 << k)] + (x ^ nums2[k]))
         return f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -237,6 +251,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -260,6 +276,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumXORSum(nums1 []int, nums2 []int) int {
 	n := len(nums1)
@@ -280,6 +298,8 @@ func minimumXORSum(nums1 []int, nums2 []int) int {
 	return f[(1<<n)-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumXORSum(nums1: number[], nums2: number[]): number {
@@ -309,6 +329,8 @@ function minimumXORSum(nums1: number[], nums2: number[]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumXORSum(self, nums1: List[int], nums2: List[int]) -> int:
@@ -322,6 +344,8 @@ class Solution:
                     f[i] = min(f[i], f[i ^ (1 << j)] + (nums1[k] ^ nums2[j]))
         return f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -342,6 +366,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -364,6 +390,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumXORSum(nums1 []int, nums2 []int) int {
 	n := len(nums1)
@@ -383,6 +411,8 @@ func minimumXORSum(nums1 []int, nums2 []int) int {
 	return f[(1<<n)-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumXORSum(nums1: number[], nums2: number[]): number {

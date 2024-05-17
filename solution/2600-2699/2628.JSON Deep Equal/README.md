@@ -93,6 +93,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2628.JS
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function areDeeplyEqual(o1: any, o2: any): boolean {
     if (o1 === null || typeof o1 !== 'object') {

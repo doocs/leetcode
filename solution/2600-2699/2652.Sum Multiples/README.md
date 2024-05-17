@@ -70,11 +70,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumOfMultiples(self, n: int) -> int:
         return sum(x for x in range(1, n + 1) if x % 3 == 0 or x % 5 == 0 or x % 7 == 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +93,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -105,6 +111,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumOfMultiples(n int) (ans int) {
 	for x := 1; x <= n; x++ {
@@ -115,6 +123,8 @@ func sumOfMultiples(n int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumOfMultiples(n: number): number {
@@ -127,6 +137,8 @@ function sumOfMultiples(n: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -164,6 +176,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumOfMultiples(self, n: int) -> int:
@@ -173,6 +187,8 @@ class Solution:
 
         return f(3) + f(5) + f(7) - f(3 * 5) - f(3 * 7) - f(5 * 7) + f(3 * 5 * 7)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -190,6 +206,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -203,6 +221,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumOfMultiples(n int) int {
 	f := func(x int) int {
@@ -213,6 +233,8 @@ func sumOfMultiples(n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sumOfMultiples(n: number): number {
     const f = (x: number): number => {
@@ -222,6 +244,8 @@ function sumOfMultiples(n: number): number {
     return f(3) + f(5) + f(7) - f(3 * 5) - f(3 * 7) - f(5 * 7) + f(3 * 5 * 7);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -240,6 +264,8 @@ impl Solution {
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {

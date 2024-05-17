@@ -68,6 +68,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumOfDigits(self, nums: List[int]) -> int:
@@ -78,6 +80,8 @@ class Solution:
             x //= 10
         return s & 1 ^ 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +99,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -108,6 +114,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func sumOfDigits(nums []int) int {

@@ -102,6 +102,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def threeEqualParts(self, arr: List[int]) -> List[int]:
@@ -124,6 +126,8 @@ class Solution:
             i, j, k = i + 1, j + 1, k + 1
         return [i - 1, j] if k == n else [-1, -1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -163,6 +167,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -187,6 +193,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func threeEqualParts(arr []int) []int {
@@ -221,6 +229,8 @@ func threeEqualParts(arr []int) []int {
 	return []int{-1, -1}
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

@@ -87,6 +87,8 @@ It can be shown that Bob cannot obtain a score higher than 27 points.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumBobPoints(self, numArrows: int, aliceArrows: List[int]) -> List[int]:
@@ -110,6 +112,8 @@ class Solution:
         ans[0] = numArrows
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -143,6 +147,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -175,6 +181,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumBobPoints(numArrows int, aliceArrows []int) []int {
 	n := len(aliceArrows)
@@ -204,6 +212,8 @@ func maximumBobPoints(numArrows int, aliceArrows []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumBobPoints(numArrows: number, aliceArrows: number[]): number[] {
     const dfs = (arr: number[], i: number, c: number): number[] => {
@@ -227,6 +237,8 @@ function maximumBobPoints(numArrows: number, aliceArrows: number[]): number[] {
     return dfs(new Array(12).fill(0), 11, numArrows);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

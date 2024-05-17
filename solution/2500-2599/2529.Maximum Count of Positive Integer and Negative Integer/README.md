@@ -82,6 +82,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumCount(self, nums: List[int]) -> int:
@@ -89,6 +91,8 @@ class Solution:
         b = sum(x < 0 for x in nums)
         return max(a, b)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -123,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumCount(nums []int) int {
 	var a, b int
@@ -137,6 +145,8 @@ func maximumCount(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumCount(nums: number[]): number {
     let [a, b] = [0, 0];
@@ -150,6 +160,8 @@ function maximumCount(nums: number[]): number {
     return Math.max(a, b);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -169,6 +181,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define max(a, b) (a > b ? a : b)
@@ -200,6 +214,8 @@ int maximumCount(int* nums, int numsSize) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumCount(self, nums: List[int]) -> int:
@@ -207,6 +223,8 @@ class Solution:
         b = bisect_left(nums, 0)
         return max(a, b)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -231,6 +249,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -242,6 +262,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumCount(nums []int) int {
 	a := len(nums) - sort.SearchInts(nums, 1)
@@ -249,6 +271,8 @@ func maximumCount(nums []int) int {
 	return max(a, b)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumCount(nums: number[]): number {
@@ -270,6 +294,8 @@ function maximumCount(nums: number[]): number {
     return Math.max(a, b);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -295,6 +321,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define max(a, b) (a > b ? a : b)

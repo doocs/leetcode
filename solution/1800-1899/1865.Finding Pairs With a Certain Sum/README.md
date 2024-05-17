@@ -90,6 +90,8 @@ findSumPairs.count(7);  // 返回 11 ；下标对 (2,1), (2,2), (2,4), (3,1), (3
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class FindSumPairs:
     def __init__(self, nums1: List[int], nums2: List[int]):
@@ -112,6 +114,8 @@ class FindSumPairs:
 # obj.add(index,val)
 # param_2 = obj.count(tot)
 ```
+
+#### Java
 
 ```java
 class FindSumPairs {
@@ -150,6 +154,8 @@ class FindSumPairs {
  * int param_2 = obj.count(tot);
  */
 ```
+
+#### C++
 
 ```cpp
 class FindSumPairs {
@@ -190,6 +196,8 @@ private:
  * int param_2 = obj->count(tot);
  */
 ```
+
+#### Go
 
 ```go
 type FindSumPairs struct {

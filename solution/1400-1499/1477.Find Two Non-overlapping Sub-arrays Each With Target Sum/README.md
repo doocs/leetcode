@@ -95,6 +95,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minSumOfLengths(self, arr: List[int], target: int) -> int:
@@ -112,6 +114,8 @@ class Solution:
             d[s] = i
         return -1 if ans > n else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -165,6 +171,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minSumOfLengths(arr []int, target int) int {

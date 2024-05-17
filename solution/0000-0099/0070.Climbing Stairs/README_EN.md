@@ -75,6 +75,8 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def climbStairs(self, n: int) -> int:
@@ -83,6 +85,8 @@ class Solution:
             a, b = b, a + b
         return b
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -113,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func climbStairs(n int) int {
 	a, b := 0, 1
@@ -122,6 +130,8 @@ func climbStairs(n int) int {
 	return b
 }
 ```
+
+#### TypeScript
 
 ```ts
 function climbStairs(n: number): number {
@@ -133,6 +143,8 @@ function climbStairs(n: number): number {
     return q;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -147,6 +159,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -164,6 +178,8 @@ var climbStairs = function (n) {
     return b;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -232,6 +248,8 @@ The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def climbStairs(self, n: int) -> int:
@@ -256,6 +274,8 @@ class Solution:
         a = [[1, 1], [1, 0]]
         return pow(a, n - 1)[0][0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -291,6 +311,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -328,6 +350,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 type matrix [2][2]int
 
@@ -360,6 +384,8 @@ func pow(a matrix, n int) matrix {
 	return res
 }
 ```
+
+#### TypeScript
 
 ```ts
 function climbStairs(n: number): number {
@@ -400,6 +426,8 @@ function pow(a: number[][], n: number): number[][] {
     return res;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -454,6 +482,8 @@ function pow(a, n) {
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import numpy as np

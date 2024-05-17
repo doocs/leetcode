@@ -79,6 +79,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def distributeCookies(self, cookies: List[int], k: int) -> int:
@@ -100,6 +102,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -142,6 +146,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -171,6 +177,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distributeCookies(cookies []int, k int) int {
 	sort.Sort(sort.Reverse(sort.IntSlice(cookies)))
@@ -195,6 +203,8 @@ func distributeCookies(cookies []int, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function distributeCookies(cookies: number[], k: number): number {

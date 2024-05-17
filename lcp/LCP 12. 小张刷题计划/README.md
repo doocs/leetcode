@@ -67,6 +67,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2012.%20%E5%B0%8F%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minTime(self, time: List[int], m: int) -> int:
@@ -83,6 +85,8 @@ class Solution:
 
         return bisect_left(range(sum(time)), True, key=check)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -154,6 +160,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minTime(time []int, m int) int {
 	right := 0
@@ -175,6 +183,8 @@ func minTime(time []int, m int) int {
 	})
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minTime(time: number[], m: number): number {

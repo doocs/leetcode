@@ -89,6 +89,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def dietPlanPerformance(
@@ -104,6 +106,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +130,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -151,6 +157,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func dietPlanPerformance(calories []int, k int, lower int, upper int) (ans int) {
 	n := len(calories)
@@ -169,6 +177,8 @@ func dietPlanPerformance(calories []int, k int, lower int, upper int) (ans int) 
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function dietPlanPerformance(calories: number[], k: number, lower: number, upper: number): number {
@@ -204,6 +214,8 @@ The time complexity is $O(n)$, where $n$ is the length of the `calories` array. 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def dietPlanPerformance(
@@ -223,6 +235,8 @@ class Solution:
             ans += check(s)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -250,6 +264,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -275,6 +291,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func dietPlanPerformance(calories []int, k int, lower int, upper int) (ans int) {
 	n := len(calories)
@@ -298,6 +316,8 @@ func dietPlanPerformance(calories []int, k int, lower int, upper int) (ans int) 
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function dietPlanPerformance(calories: number[], k: number, lower: number, upper: number): number {

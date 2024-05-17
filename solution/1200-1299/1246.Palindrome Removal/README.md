@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumMoves(self, arr: List[int]) -> int:
@@ -87,6 +89,8 @@ class Solution:
                     f[i][j] = t
         return f[0][n - 1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +117,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -141,6 +147,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumMoves(arr []int) int {

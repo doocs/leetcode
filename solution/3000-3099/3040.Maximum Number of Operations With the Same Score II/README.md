@@ -92,6 +92,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxOperations(self, nums: List[int]) -> int:
@@ -114,6 +116,8 @@ class Solution:
         c = dfs(1, n - 2, nums[0] + nums[-1])
         return 1 + max(a, b, c)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -159,6 +163,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -195,6 +201,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxOperations(nums []int) int {
@@ -239,6 +247,8 @@ func maxOperations(nums []int) int {
 	return 1 + max(a, b, c)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxOperations(nums: number[]): number {

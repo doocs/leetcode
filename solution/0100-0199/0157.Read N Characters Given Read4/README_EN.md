@@ -117,6 +117,8 @@ Note that &quot;abc&quot; is the file&#39;s content, not buf. buf is the destina
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 """
 The read4 API is already defined for you.
@@ -154,6 +156,8 @@ class Solution:
         return i
 ```
 
+#### Java
+
 ```java
 /**
  * The read4 API is defined in the parent class Reader4.
@@ -182,6 +186,8 @@ public class Solution extends Reader4 {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -212,6 +218,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**

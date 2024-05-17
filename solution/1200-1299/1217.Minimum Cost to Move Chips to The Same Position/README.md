@@ -87,6 +87,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCostToMoveChips(self, position: List[int]) -> int:
@@ -94,6 +96,8 @@ class Solution:
         b = len(position) - a
         return min(a, b)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +125,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minCostToMoveChips(position []int) int {
@@ -133,6 +141,8 @@ func minCostToMoveChips(position []int) int {
 	return b
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

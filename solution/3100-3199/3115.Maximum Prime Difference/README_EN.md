@@ -70,6 +70,8 @@ The time complexity is $O(n \times \sqrt{M})$, where $n$ and $M$ are the length 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumPrimeDifference(self, nums: List[int]) -> int:
@@ -84,6 +86,8 @@ class Solution:
                     if is_prime(nums[j]):
                         return j - i
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -142,6 +148,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumPrimeDifference(nums []int) int {
 	for i := 0; ; i++ {
@@ -167,6 +175,8 @@ func isPrime(n int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumPrimeDifference(nums: number[]): number {

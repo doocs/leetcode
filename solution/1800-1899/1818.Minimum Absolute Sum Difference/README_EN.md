@@ -94,6 +94,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minAbsoluteSumDiff(self, nums1: List[int], nums2: List[int]) -> int:
@@ -111,6 +113,8 @@ class Solution:
             mx = max(mx, d1 - d2)
         return (s - mx + mod) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -153,6 +157,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -181,6 +187,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minAbsoluteSumDiff(nums1 []int, nums2 []int) int {
@@ -216,6 +224,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minAbsoluteSumDiff(nums1: number[], nums2: number[]): number {
@@ -257,6 +267,8 @@ function search(nums: number[], x: number): number {
     return left;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

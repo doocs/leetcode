@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def decodeString(self, s: str) -> str:
@@ -95,6 +97,8 @@ class Solution:
                 res += c
         return res
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +129,8 @@ class Solution {
     }
 }
 ```
+
+#### TypeScript
 
 ```ts
 function decodeString(s: string): string {

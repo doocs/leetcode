@@ -92,6 +92,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # """
 # This is the ImmutableListNode's API interface.
@@ -108,6 +110,8 @@ class Solution:
             self.printLinkedListInReverse(head.getNext())
             head.printValue()
 ```
+
+#### Java
 
 ```java
 /**
@@ -128,6 +132,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -150,6 +156,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /*   Below is the interface for ImmutableListNode, which is already defined for you.
@@ -175,6 +183,8 @@ func printLinkedListInReverse(head ImmutableListNode) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * // This is the ImmutableListNode's API interface.
@@ -193,6 +203,8 @@ function printLinkedListInReverse(head: ImmutableListNode) {
     }
 }
 ```
+
+#### C#
 
 ```cs
 /**

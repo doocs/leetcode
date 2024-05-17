@@ -83,6 +83,8 @@ The time complexity is $O(n^3 + L)$, and the space complexity is $O(n + L)$. Her
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minExtraChar(self, s: str, dictionary: List[str]) -> int:
@@ -96,6 +98,8 @@ class Solution:
                     f[i] = f[j]
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -141,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minExtraChar(s string, dictionary []string) int {
 	ss := map[string]bool{}
@@ -161,6 +169,8 @@ func minExtraChar(s string, dictionary []string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minExtraChar(s: string, dictionary: string[]): number {
     const ss = new Set(dictionary);
@@ -177,6 +187,8 @@ function minExtraChar(s: string, dictionary: string[]): number {
     return f[n];
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -217,6 +229,8 @@ The time complexity is $O(n^2 + L)$, and the space complexity is $O(n + L \times
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Node:
     __slots__ = ['children', 'is_end']
@@ -251,6 +265,8 @@ class Solution:
                     f[i] = f[j]
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -291,6 +307,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Node {
@@ -339,6 +357,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Node struct {
 	children [26]*Node
@@ -377,6 +397,8 @@ func minExtraChar(s string, dictionary []string) int {
 	return f[n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 class Node {

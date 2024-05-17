@@ -36,6 +36,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.15.Longest%20Word/
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Trie:
     def __init__(self):
@@ -82,6 +84,8 @@ class Solution:
             trie.insert(w)
         return ans
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -147,6 +151,8 @@ class Solution {
 }
 ```
 
+#### Go
+
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -211,6 +217,8 @@ func longestWord(words []string) string {
 	return ans
 }
 ```
+
+#### Swift
 
 ```swift
 class Trie {

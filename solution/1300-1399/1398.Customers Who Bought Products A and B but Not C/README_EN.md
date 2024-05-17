@@ -101,6 +101,8 @@ We can use `LEFT JOIN` to join the `Customers` table and the `Orders` table, the
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT customer_id, customer_name

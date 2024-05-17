@@ -46,6 +46,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def partition(self, s: str) -> List[List[str]]:
@@ -69,6 +71,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -142,6 +148,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func partition(s string) (ans [][]string) {
@@ -178,6 +186,8 @@ func partition(s string) (ans [][]string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function partition(s: string): string[][] {
     const n = s.length;
@@ -206,6 +216,8 @@ function partition(s: string): string[][] {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

@@ -60,6 +60,8 @@ There are 4 pairs that meet all the requirements:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countPairs(self, nums: List[int], k: int) -> int:
@@ -70,6 +72,8 @@ class Solution:
             for j in range(i + 1, n)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +92,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -104,6 +110,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countPairs(nums []int, k int) int {
 	n := len(nums)
@@ -119,6 +127,8 @@ func countPairs(nums []int, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countPairs(nums: number[], k: number): number {
     const n = nums.length;
@@ -133,6 +143,8 @@ function countPairs(nums: number[], k: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -151,6 +163,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int countPairs(int* nums, int numsSize, int k) {

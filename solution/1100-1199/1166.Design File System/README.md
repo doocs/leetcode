@@ -101,6 +101,8 @@ fileSystem.get("/c"); // 返回 -1 因为该路径不存在。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Trie:
     def __init__(self, v: int = -1):
@@ -144,6 +146,8 @@ class FileSystem:
 # param_1 = obj.createPath(path,value)
 # param_2 = obj.get(path)
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -207,6 +211,8 @@ class FileSystem {
  * int param_2 = obj.get(path);
  */
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -286,6 +292,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type trie struct {
 	children map[string]*trie
@@ -347,6 +355,8 @@ func (this *FileSystem) Get(path string) int {
  * param_2 := obj.Get(path);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class Trie {

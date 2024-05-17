@@ -68,6 +68,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestPalindromeSubseq(self, s: str) -> int:
@@ -83,6 +85,8 @@ class Solution:
                     f[i][j] = max(f[i + 1][j], f[i][j - 1])
         return f[0][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -130,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestPalindromeSubseq(s string) int {
 	n := len(s)
@@ -150,6 +158,8 @@ func longestPalindromeSubseq(s string) int {
 	return f[0][n-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestPalindromeSubseq(s: string): number {

@@ -67,6 +67,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def fractionAddition(self, expression: str) -> str:
@@ -89,6 +91,8 @@ class Solution:
         y //= z
         return f'{x}/{y}'
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +126,8 @@ class Solution {
     }
 }
 ```
+
+#### Go
 
 ```go
 func fractionAddition(expression string) string {

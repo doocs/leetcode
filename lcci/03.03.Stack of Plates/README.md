@@ -49,6 +49,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.03.Stack%20of%20Pl
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class StackOfPlates:
     def __init__(self, cap: int):
@@ -80,6 +82,8 @@ class StackOfPlates:
 # param_2 = obj.pop()
 # param_3 = obj.popAt(index)
 ```
+
+#### Java
 
 ```java
 class StackOfPlates {
@@ -124,6 +128,8 @@ class StackOfPlates {
  * int param_3 = obj.popAt(index);
  */
 ```
+
+#### C++
 
 ```cpp
 class StackOfPlates {
@@ -172,6 +178,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type StackOfPlates struct {
 	stk [][]int
@@ -217,6 +225,8 @@ func (this *StackOfPlates) PopAt(index int) int {
  * param_3 := obj.PopAt(index);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class StackOfPlates {
@@ -270,6 +280,8 @@ class StackOfPlates {
  * var param_3 = obj.popAt(index)
  */
 ```
+
+#### Swift
 
 ```swift
 class StackOfPlates {

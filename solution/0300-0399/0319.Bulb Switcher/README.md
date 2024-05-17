@@ -87,11 +87,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def bulbSwitch(self, n: int) -> int:
         return int(sqrt(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -110,11 +116,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func bulbSwitch(n int) int {
 	return int(math.Sqrt(float64(n)))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function bulbSwitch(n: number): number {

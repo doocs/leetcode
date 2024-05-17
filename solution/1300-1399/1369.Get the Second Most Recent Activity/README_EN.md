@@ -78,6 +78,8 @@ Bob only has one record, we just take that one.
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 SELECT
     username,

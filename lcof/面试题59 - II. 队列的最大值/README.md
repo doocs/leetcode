@@ -61,6 +61,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class MaxQueue:
     def __init__(self):
@@ -91,6 +93,8 @@ class MaxQueue:
 # obj.push_back(value)
 # param_3 = obj.pop_front()
 ```
+
+#### Java
 
 ```java
 class MaxQueue {
@@ -132,6 +136,8 @@ class MaxQueue {
  * int param_3 = obj.pop_front();
  */
 ```
+
+#### C++
 
 ```cpp
 class MaxQueue {
@@ -176,6 +182,8 @@ private:
  * int param_3 = obj->pop_front();
  */
 ```
+
+#### Go
 
 ```go
 type MaxQueue struct {
@@ -222,6 +230,8 @@ func (this *MaxQueue) Pop_front() int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class MaxQueue {
     private queue: number[];
@@ -261,6 +271,8 @@ class MaxQueue {
  * var param_3 = obj.pop_front()
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -312,6 +324,8 @@ impl MaxQueue {
  */
 ```
 
+#### JavaScript
+
 ```js
 var MaxQueue = function () {
     this.q1 = [];
@@ -359,6 +373,8 @@ MaxQueue.prototype.pop_front = function () {
  * var param_3 = obj.pop_front()
  */
 ```
+
+#### C#
 
 ```cs
 public class MaxQueue {

@@ -64,11 +64,15 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findCenter(self, edges: List[List[int]]) -> int:
         return edges[0][0] if edges[0][0] in edges[1] else edges[0][1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -79,6 +83,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -91,6 +97,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findCenter(edges [][]int) int {
 	a, b := edges[0][0], edges[0][1]
@@ -102,6 +110,8 @@ func findCenter(edges [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findCenter(edges: number[][]): number {
     for (let num of edges[0]) {
@@ -111,6 +121,8 @@ function findCenter(edges: number[][]): number {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -122,6 +134,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

@@ -79,6 +79,8 @@ The time complexity is $O(\text{indices.length} \times (m+n) + mn)$, and the spa
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def oddCells(self, m: int, n: int, indices: List[List[int]]) -> int:
@@ -90,6 +92,8 @@ class Solution:
                 g[r][j] += 1
         return sum(v % 2 for row in g for v in row)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +138,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func oddCells(m int, n int, indices [][]int) int {
@@ -174,6 +182,8 @@ The time complexity is $O(\text{indices.length} + mn)$, and the space complexity
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def oddCells(self, m: int, n: int, indices: List[List[int]]) -> int:
@@ -184,6 +194,8 @@ class Solution:
             col[c] += 1
         return sum((i + j) % 2 for i in row for j in col)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -206,6 +218,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -224,6 +238,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func oddCells(m int, n int, indices [][]int) int {
@@ -260,6 +276,8 @@ The time complexity is $O(\text{indices.length} + m + n)$, and the space complex
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def oddCells(self, m: int, n: int, indices: List[List[int]]) -> int:
@@ -272,6 +290,8 @@ class Solution:
         cnt2 = sum(v % 2 for v in col)
         return cnt1 * (n - cnt2) + cnt2 * (m - cnt1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -295,6 +315,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -313,6 +335,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func oddCells(m int, n int, indices [][]int) int {

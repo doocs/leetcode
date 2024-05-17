@@ -129,6 +129,8 @@ id为 4 的用户的查询结果是 no，因为他卖出的第二件商品的品
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT

@@ -84,6 +84,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def calcEquation(
@@ -112,6 +114,8 @@ class Solution:
             for c, d in queries
         ]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -161,6 +165,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -203,6 +209,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func calcEquation(equations [][]string, values []float64, queries [][]string) []float64 {
 	p := make(map[string]string)
@@ -244,6 +252,8 @@ func calcEquation(equations [][]string, values []float64, queries [][]string) []
 	return ans
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;

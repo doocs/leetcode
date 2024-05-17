@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canMakeSubsequence(self, str1: str, str2: str) -> bool:
@@ -90,6 +92,8 @@ class Solution:
                 i += 1
         return i == len(str2)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canMakeSubsequence(str1 string, str2 string) bool {
 	i, n := 0, len(str2)
@@ -137,6 +145,8 @@ func canMakeSubsequence(str1 string, str2 string) bool {
 	return i == n
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canMakeSubsequence(str1: string, str2: string): boolean {

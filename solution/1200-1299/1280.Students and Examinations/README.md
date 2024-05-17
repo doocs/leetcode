@@ -141,6 +141,8 @@ John  参加了数学、物理、编程测试各 1 次。
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT student_id, student_name, subject_name, COUNT(e.student_id) AS attended_exams

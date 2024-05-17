@@ -77,6 +77,8 @@ ID = 11 的司机从来不是乘客。</pre>
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH T AS (SELECT DISTINCT driver_id FROM Rides)

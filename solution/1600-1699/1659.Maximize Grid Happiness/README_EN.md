@@ -115,6 +115,8 @@ The time complexity is $O(3^{2n} \times (m \times ic \times ec + n))$, and the s
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getMaxGridHappiness(
@@ -158,6 +160,8 @@ class Solution:
                     g[i][j] += h[bits[i][k]][bits[j][k]]
         return dfs(0, 0, introvertsCount, extrovertsCount)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -227,6 +231,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -289,6 +295,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getMaxGridHappiness(m int, n int, introvertsCount int, extrovertsCount int) int {
@@ -361,6 +369,8 @@ func getMaxGridHappiness(m int, n int, introvertsCount int, extrovertsCount int)
 	return dfs(0, 0, introvertsCount, extrovertsCount)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getMaxGridHappiness(
@@ -469,6 +479,8 @@ The time complexity is $O(3^{n+1} \times m \times n \times ic \times ec)$, and t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getMaxGridHappiness(
@@ -499,6 +511,8 @@ class Solution:
         h = [[0, 0, 0], [0, -60, -10], [0, -10, 40]]
         return dfs(0, 0, introvertsCount, extrovertsCount)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -541,6 +555,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -575,6 +591,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getMaxGridHappiness(m int, n int, introvertsCount int, extrovertsCount int) int {
@@ -631,6 +649,8 @@ func getMaxGridHappiness(m int, n int, introvertsCount int, extrovertsCount int)
 	return dfs(0, 0, introvertsCount, extrovertsCount)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getMaxGridHappiness(

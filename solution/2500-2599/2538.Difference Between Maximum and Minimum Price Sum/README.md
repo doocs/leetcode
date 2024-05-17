@@ -101,6 +101,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxOutput(self, n: int, edges: List[List[int]], price: List[int]) -> int:
@@ -123,6 +125,8 @@ class Solution:
         dfs(0, -1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -159,6 +163,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -189,6 +195,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxOutput(n int, edges [][]int, price []int) int64 {

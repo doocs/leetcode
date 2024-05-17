@@ -100,6 +100,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reachableNodes(self, edges: List[List[int]], maxMoves: int, n: int) -> int:
@@ -122,6 +124,8 @@ class Solution:
             ans += min(cnt, a + b)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -166,6 +170,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -204,6 +210,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func reachableNodes(edges [][]int, maxMoves int, n int) (ans int) {

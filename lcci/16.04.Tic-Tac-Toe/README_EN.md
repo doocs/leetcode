@@ -77,6 +77,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def tictactoe(self, board: List[str]) -> str:
@@ -106,6 +108,8 @@ class Solution:
                     return c
         return 'Pending' if has_empty_grid else 'Draw'
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -142,6 +146,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -175,6 +181,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func tictactoe(board []string) string {
@@ -220,6 +228,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function tictactoe(board: string[]): string {
     const n = board.length;
@@ -256,6 +266,8 @@ function tictactoe(board: string[]): string {
     return hasEmptyGrid ? 'Pending' : 'Draw';
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

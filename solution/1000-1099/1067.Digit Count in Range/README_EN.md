@@ -57,6 +57,8 @@ Note that the digit d = 1 occurs twice in the number 11.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def digitsCount(self, d: int, low: int, high: int) -> int:
@@ -84,6 +86,8 @@ class Solution:
             n //= 10
         return dfs(l, 0, True, True)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +136,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -177,6 +183,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func digitsCount(d int, low int, high int) int {

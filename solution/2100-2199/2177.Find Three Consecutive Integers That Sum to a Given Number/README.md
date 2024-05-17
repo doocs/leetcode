@@ -60,12 +60,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumOfThree(self, num: int) -> List[int]:
         x, mod = divmod(num, 3)
         return [] if mod else [x - 1, x, x + 1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -78,6 +82,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -92,6 +98,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumOfThree(num int64) []int64 {
 	if num%3 != 0 {
@@ -101,6 +109,8 @@ func sumOfThree(num int64) []int64 {
 	return []int64{x - 1, x, x + 1}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumOfThree(num: number): number[] {

@@ -95,6 +95,8 @@ countIntervals.count();    // 返回 8
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Node:
     def __init__(self):
@@ -139,6 +141,8 @@ class CountIntervals:
 # obj.add(left,right)
 # param_2 = obj.count()
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -252,6 +256,8 @@ class CountIntervals {
  * int param_2 = obj.count();
  */
 ```
+
+#### C++
 
 ```cpp
 class Node {
@@ -367,6 +373,8 @@ private:
  * int param_2 = obj->count();
  */
 ```
+
+#### Go
 
 ```go
 type Node struct {
@@ -492,6 +500,8 @@ func (ci *CountIntervals) Count() int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class CountIntervals {
     left: null | CountIntervals;
@@ -543,6 +553,8 @@ class CountIntervals {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:

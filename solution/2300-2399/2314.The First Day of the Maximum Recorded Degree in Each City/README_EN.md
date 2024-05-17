@@ -80,6 +80,8 @@ For city 3, the maximum degree was recorded on 2022-12-07 with -6 degrees.
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

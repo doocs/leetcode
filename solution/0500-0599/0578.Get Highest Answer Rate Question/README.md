@@ -84,6 +84,8 @@ SurveyLog table:
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT question_id AS survey_log
@@ -102,6 +104,8 @@ LIMIT 1;
 ### 方法二
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 WITH

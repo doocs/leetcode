@@ -73,6 +73,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countBadPairs(self, nums: List[int]) -> int:
@@ -83,6 +85,8 @@ class Solution:
             cnt[i - x] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -115,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countBadPairs(nums []int) (ans int64) {
 	cnt := map[int]int{}
@@ -126,6 +134,8 @@ func countBadPairs(nums []int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countBadPairs(nums: number[]): number {

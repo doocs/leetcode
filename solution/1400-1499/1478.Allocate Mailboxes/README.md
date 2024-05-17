@@ -99,6 +99,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minDistance(self, houses: List[int], k: int) -> int:
@@ -116,6 +118,8 @@ class Solution:
                     f[i][j] = min(f[i][j], f[p][j - 1] + g[p + 1][i])
         return f[-1][k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -146,6 +150,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -173,6 +179,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minDistance(houses []int, k int) int {

@@ -70,6 +70,8 @@ This is less than 23, so a collision would not destroy the last asteroid.</pre>
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def asteroidsDestroyed(self, mass: int, asteroids: List[int]) -> bool:
@@ -80,6 +82,8 @@ class Solution:
             mass += v
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +101,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -111,6 +117,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func asteroidsDestroyed(mass int, asteroids []int) bool {

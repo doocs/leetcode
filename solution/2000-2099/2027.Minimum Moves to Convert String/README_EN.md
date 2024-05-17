@@ -74,6 +74,8 @@ The time complexity is $O(n)$, where $n$ represents the length of the string $s$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumMoves(self, s: str) -> int:
@@ -86,6 +88,8 @@ class Solution:
                 i += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -118,6 +124,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumMoves(s string) (ans int) {
 	for i := 0; i < len(s); i++ {
@@ -129,6 +137,8 @@ func minimumMoves(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumMoves(s: string): number {
@@ -146,6 +156,8 @@ function minimumMoves(s: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -166,6 +178,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int minimumMoves(char* s) {

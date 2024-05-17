@@ -74,6 +74,8 @@ The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def rowAndMaximumOnes(self, mat: List[List[int]]) -> List[int]:
@@ -84,6 +86,8 @@ class Solution:
                 ans = [i, cnt]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -126,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func rowAndMaximumOnes(mat [][]int) []int {
 	ans := make([]int, 2)
@@ -144,6 +152,8 @@ func rowAndMaximumOnes(mat [][]int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function rowAndMaximumOnes(mat: number[][]): number[] {
     const ans: number[] = [0, 0];
@@ -157,6 +167,8 @@ function rowAndMaximumOnes(mat: number[][]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

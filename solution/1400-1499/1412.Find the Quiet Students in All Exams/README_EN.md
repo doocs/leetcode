@@ -113,6 +113,8 @@ Next, we can perform an inner join between the table $T$ and the table $Student$
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

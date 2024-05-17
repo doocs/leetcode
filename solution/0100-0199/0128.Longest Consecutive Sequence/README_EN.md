@@ -68,6 +68,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
@@ -86,6 +88,8 @@ class Solution:
                 t = 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -136,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestConsecutive(nums []int) int {
 	n := len(nums)
@@ -159,6 +167,8 @@ func longestConsecutive(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestConsecutive(nums: number[]): number {
     const n = nums.length;
@@ -181,6 +191,8 @@ function longestConsecutive(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -212,6 +224,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -254,6 +268,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
@@ -267,6 +283,8 @@ class Solution:
                 ans = max(ans, y - x)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -290,6 +308,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -310,6 +330,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestConsecutive(nums []int) (ans int) {
 	s := map[int]bool{}
@@ -329,6 +351,8 @@ func longestConsecutive(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestConsecutive(nums: number[]): number {
     const s: Set<number> = new Set(nums);
@@ -345,6 +369,8 @@ function longestConsecutive(nums: number[]): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

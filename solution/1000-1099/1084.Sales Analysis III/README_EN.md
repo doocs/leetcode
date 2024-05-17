@@ -101,6 +101,8 @@ We return only product 1 as it is the product that was only sold in the spring o
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT product_id, product_name

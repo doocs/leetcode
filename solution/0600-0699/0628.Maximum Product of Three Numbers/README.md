@@ -71,6 +71,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumProduct(self, nums: List[int]) -> int:
@@ -79,6 +81,8 @@ class Solution:
         b = nums[-1] * nums[0] * nums[1]
         return max(a, b)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +95,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -105,6 +111,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumProduct(nums []int) int {
 	sort.Ints(nums)
@@ -117,6 +125,8 @@ func maximumProduct(nums []int) int {
 	return b
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumProduct(nums: number[]): number {
@@ -144,6 +154,8 @@ function maximumProduct(nums: number[]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumProduct(self, nums: List[int]) -> int:
@@ -151,6 +163,8 @@ class Solution:
         bottom2 = nlargest(2, nums, key=lambda x: -x)
         return max(top3[0] * top3[1] * top3[2], top3[0] * bottom2[0] * bottom2[1])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -180,6 +194,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -211,6 +227,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumProduct(nums []int) int {
 	const inf = 1 << 30
@@ -233,6 +251,8 @@ func maximumProduct(nums []int) int {
 	return max(mi1*mi2*mx1, mx1*mx2*mx3)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumProduct(nums: number[]): number {

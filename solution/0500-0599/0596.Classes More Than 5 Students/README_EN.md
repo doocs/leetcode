@@ -81,6 +81,8 @@ We can use the `GROUP BY` statement to group by class and then use the `HAVING` 
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT class

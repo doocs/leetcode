@@ -67,6 +67,8 @@ Let `dp[i][j]` be true if and only if the interval `s[i], s[i+1], ..., s[j]` can
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkValidString(self, s: str) -> bool:
@@ -84,6 +86,8 @@ class Solution:
                 )
         return dp[0][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +136,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func checkValidString(s string) bool {
@@ -167,6 +175,8 @@ Scan twice, first from left to right to make sure that each of the closing brack
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkValidString(self, s: str) -> bool:
@@ -188,6 +198,8 @@ class Solution:
                 return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -218,6 +230,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -246,6 +260,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func checkValidString(s string) bool {

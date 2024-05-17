@@ -85,6 +85,8 @@ Purchases table:
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 WITH RECURSIVE
     T AS (

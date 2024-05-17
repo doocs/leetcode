@@ -100,6 +100,8 @@ The time complexity is $O(2^n)$, and the space complexity is $O(2^n)$. Where $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def circularPermutation(self, n: int, start: int) -> List[int]:
@@ -107,6 +109,8 @@ class Solution:
         j = g.index(start)
         return g[j:] + g[:j]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +131,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -149,6 +155,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func circularPermutation(n int, start int) []int {
 	g := make([]int, 1<<n)
@@ -162,6 +170,8 @@ func circularPermutation(n int, start int) []int {
 	return append(g[j:], g[:j]...)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function circularPermutation(n: number, start: number): number[] {
@@ -189,11 +199,15 @@ The time complexity is $O(2^n)$, where $n$ is the integer given in the problem. 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def circularPermutation(self, n: int, start: int) -> List[int]:
         return [i ^ (i >> 1) ^ start for i in range(1 << n)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -207,6 +221,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -219,6 +235,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func circularPermutation(n int, start int) (ans []int) {

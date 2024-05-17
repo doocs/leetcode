@@ -70,6 +70,8 @@ solution.flip();  // 返回 [2, 0]，此时返回 [0,0]、[1,0] 和 [2,0] 的概
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def __init__(self, m: int, n: int):
@@ -95,6 +97,8 @@ class Solution:
 # param_1 = obj.flip()
 # obj.reset()
 ```
+
+#### Java
 
 ```java
 class Solution {

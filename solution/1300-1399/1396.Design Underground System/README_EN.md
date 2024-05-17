@@ -134,6 +134,8 @@ The time complexity is $O(1)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class UndergroundSystem:
     def __init__(self):
@@ -159,6 +161,8 @@ class UndergroundSystem:
 # obj.checkOut(id,stationName,t)
 # param_3 = obj.getAverageTime(startStation,endStation)
 ```
+
+#### Java
 
 ```java
 class UndergroundSystem {
@@ -198,6 +202,8 @@ class UndergroundSystem {
  */
 ```
 
+#### C++
+
 ```cpp
 class UndergroundSystem {
 public:
@@ -233,6 +239,8 @@ private:
  * double param_3 = obj->getAverageTime(startStation,endStation);
  */
 ```
+
+#### Go
 
 ```go
 type UndergroundSystem struct {

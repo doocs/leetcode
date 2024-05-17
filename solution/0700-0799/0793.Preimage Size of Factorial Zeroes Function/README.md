@@ -85,6 +85,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def preimageSizeFZF(self, k: int) -> int:
@@ -98,6 +100,8 @@ class Solution:
 
         return g(k + 1) - g(k)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +130,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -157,6 +163,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func preimageSizeFZF(k int) int {

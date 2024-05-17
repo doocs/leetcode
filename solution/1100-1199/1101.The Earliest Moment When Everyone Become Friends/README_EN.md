@@ -79,6 +79,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def earliestAcq(self, logs: List[List[int]], n: int) -> int:
@@ -97,6 +99,8 @@ class Solution:
                 return t
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -155,6 +161,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func earliestAcq(logs [][]int, n int) int {
@@ -185,6 +193,8 @@ func earliestAcq(logs [][]int, n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function earliestAcq(logs: number[][], n: number): number {
     const p: number[] = Array(n)
@@ -210,6 +220,8 @@ function earliestAcq(logs: number[][], n: number): number {
     return -1;
 }
 ```
+
+#### Rust
 
 ```rust
 struct UnionFind {
@@ -280,6 +292,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class UnionFind:
     __slots__ = ('p', 'size')
@@ -316,6 +330,8 @@ class Solution:
                     return t
         return -1
 ```
+
+#### Java
 
 ```java
 class UnionFind {
@@ -369,6 +385,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class UnionFind {
 public:
@@ -419,6 +437,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type unionFind struct {
@@ -472,6 +492,8 @@ func earliestAcq(logs [][]int, n int) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 class UnionFind {

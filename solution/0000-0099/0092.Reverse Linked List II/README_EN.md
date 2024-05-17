@@ -60,6 +60,8 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -86,6 +88,8 @@ class Solution:
         q.next = cur
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -124,6 +128,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -161,6 +167,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -191,6 +199,8 @@ func reverseBetween(head *ListNode, left int, right int) *ListNode {
 	return dummy.Next
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -231,6 +241,8 @@ function reverseBetween(head: ListNode | null, left: number, right: number): Lis
     return dummy.next;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -276,6 +288,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -313,6 +327,8 @@ var reverseBetween = function (head, left, right) {
     return dummy.next;
 };
 ```
+
+#### C#
 
 ```cs
 /**

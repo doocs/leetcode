@@ -72,12 +72,16 @@ The index where nums[i] == 5 is 4.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def targetIndices(self, nums: List[int], target: int) -> List[int]:
         nums.sort()
         return [i for i, v in enumerate(nums) if v == target]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +97,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -110,6 +116,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func targetIndices(nums []int, target int) (ans []int) {
 	sort.Ints(nums)
@@ -121,6 +129,8 @@ func targetIndices(nums []int, target int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function targetIndices(nums: number[], target: number): number[] {

@@ -98,6 +98,8 @@ n = 1
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 type F = () => Promise<any>;
 

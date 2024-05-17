@@ -112,6 +112,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class BinaryIndexedTree:
     def __init__(self, n):
@@ -157,6 +159,8 @@ class Solution:
                         break
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -222,6 +226,8 @@ class BinaryIndexedTree {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -281,6 +287,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {

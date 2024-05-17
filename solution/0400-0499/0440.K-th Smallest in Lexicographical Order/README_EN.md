@@ -51,6 +51,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findKthNumber(self, n: int, k: int) -> int:
@@ -73,6 +75,8 @@ class Solution:
                 curr *= 10
         return curr
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -142,6 +148,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findKthNumber(n int, k int) int {

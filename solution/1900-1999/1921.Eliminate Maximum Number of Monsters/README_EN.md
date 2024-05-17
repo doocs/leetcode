@@ -83,6 +83,8 @@ You can only eliminate 1 monster.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def eliminateMaximum(self, dist: List[int], speed: List[int]) -> int:
@@ -92,6 +94,8 @@ class Solution:
                 return i
         return len(times)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func eliminateMaximum(dist []int, speed []int) int {
 	n := len(dist)
@@ -149,6 +157,8 @@ func eliminateMaximum(dist []int, speed []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function eliminateMaximum(dist: number[], speed: number[]): number {
     const n = dist.length;
@@ -165,6 +175,8 @@ function eliminateMaximum(dist: number[], speed: number[]): number {
     return n;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -186,6 +198,8 @@ var eliminateMaximum = function (dist, speed) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

@@ -90,6 +90,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countDigitOne(self, n: int) -> int:
@@ -111,6 +113,8 @@ class Solution:
             l += 1
         return dfs(l, 0, True)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -149,6 +153,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -184,6 +190,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countDigitOne(n int) int {
@@ -229,6 +237,8 @@ func countDigitOne(n int) int {
 	return dfs(l, 0, true)
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

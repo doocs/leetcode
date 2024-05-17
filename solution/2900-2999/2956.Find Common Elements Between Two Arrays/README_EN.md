@@ -79,12 +79,16 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here,
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findIntersectionValues(self, nums1: List[int], nums2: List[int]) -> List[int]:
         s1, s2 = set(nums1), set(nums2)
         return [sum(x in s2 for x in nums1), sum(x in s1 for x in nums2)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -133,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findIntersectionValues(nums1 []int, nums2 []int) []int {
 	s1 := [101]int{}
@@ -153,6 +161,8 @@ func findIntersectionValues(nums1 []int, nums2 []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findIntersectionValues(nums1: number[], nums2: number[]): number[] {

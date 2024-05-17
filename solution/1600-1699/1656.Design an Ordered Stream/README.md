@@ -84,6 +84,8 @@ os.insert(4, "ddddd"); // 插入 (4, "ddddd")，返回 ["ddddd", "eeeee"]
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class OrderedStream:
     def __init__(self, n: int):
@@ -103,6 +105,8 @@ class OrderedStream:
 # obj = OrderedStream(n)
 # param_1 = obj.insert(idKey,value)
 ```
+
+#### Java
 
 ```java
 class OrderedStream {
@@ -131,6 +135,8 @@ class OrderedStream {
  */
 ```
 
+#### C++
+
 ```cpp
 class OrderedStream {
 public:
@@ -155,6 +161,8 @@ public:
  * vector<string> param_1 = obj->insert(idKey,value);
  */
 ```
+
+#### Go
 
 ```go
 type OrderedStream struct {
@@ -184,6 +192,8 @@ func (this *OrderedStream) Insert(idKey int, value string) []string {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class OrderedStream {
     private ptr: number;
@@ -211,6 +221,8 @@ class OrderedStream {
  * var param_1 = obj.insert(idKey,value)
  */
 ```
+
+#### Rust
 
 ```rust
 struct OrderedStream {

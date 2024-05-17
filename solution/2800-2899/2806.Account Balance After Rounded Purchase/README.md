@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def accountBalanceAfterPurchase(self, purchaseAmount: int) -> int:
@@ -79,6 +81,8 @@ class Solution:
                 x = y
         return 100 - x
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +100,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -112,6 +118,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func accountBalanceAfterPurchase(purchaseAmount int) int {
@@ -133,6 +141,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function accountBalanceAfterPurchase(purchaseAmount: number): number {

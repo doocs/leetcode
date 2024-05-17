@@ -68,6 +68,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def find132pattern(self, nums: List[int]) -> bool:
@@ -81,6 +83,8 @@ class Solution:
             stk.append(x)
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func find132pattern(nums []int) bool {
 	vk := -(1 << 30)
@@ -140,6 +148,8 @@ func find132pattern(nums []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function find132pattern(nums: number[]): boolean {
     let vk = -Infinity;
@@ -156,6 +166,8 @@ function find132pattern(nums: number[]): boolean {
     return false;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -186,6 +198,8 @@ impl Solution {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -222,6 +236,8 @@ class Solution:
             tree.update(x, 1)
         return False
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -291,6 +307,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -345,6 +363,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {
@@ -401,6 +421,8 @@ func find132pattern(nums []int) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndextedTree {

@@ -75,6 +75,8 @@ The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxRepOpt1(self, text: str) -> int:
@@ -94,6 +96,8 @@ class Solution:
             i = j
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +126,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -152,6 +158,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxRepOpt1(text string) (ans int) {
 	cnt := [26]int{}
@@ -175,6 +183,8 @@ func maxRepOpt1(text string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxRepOpt1(text: string): number {

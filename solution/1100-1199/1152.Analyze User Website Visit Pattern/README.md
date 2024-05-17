@@ -91,6 +91,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def mostVisitedPattern(
@@ -115,6 +117,8 @@ class Solution:
                 cnt[t] += 1
         return sorted(cnt.items(), key=lambda x: (-x[1], x[0]))[0][0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -171,6 +175,8 @@ class Node {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -223,6 +229,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func mostVisitedPattern(username []string, timestamp []int, website []string) []string {

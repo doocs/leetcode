@@ -62,6 +62,8 @@ n 循环右移直至为 0，依次检测 n 的二进制位是否交替出现。�
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def hasAlternatingBits(self, n: int) -> bool:
@@ -74,6 +76,8 @@ class Solution:
             n >>= 1
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +96,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -108,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hasAlternatingBits(n int) bool {
 	prev := -1
@@ -122,6 +130,8 @@ func hasAlternatingBits(n int) bool {
 	return true
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -155,12 +165,16 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def hasAlternatingBits(self, n: int) -> bool:
         n ^= n >> 1
         return (n & (n + 1)) == 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -170,6 +184,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -181,12 +197,16 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hasAlternatingBits(n int) bool {
 	n ^= (n >> 1)
 	return (n & (n + 1)) == 0
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

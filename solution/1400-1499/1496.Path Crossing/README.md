@@ -72,6 +72,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isPathCrossing(self, path: str) -> bool:
@@ -92,6 +94,8 @@ class Solution:
             vis.add((i, j))
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +119,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -143,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isPathCrossing(path string) bool {
 	i, j := 0, 0
@@ -166,6 +174,8 @@ func isPathCrossing(path string) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isPathCrossing(path: string): boolean {

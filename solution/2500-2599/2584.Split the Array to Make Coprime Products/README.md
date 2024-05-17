@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findValidSplit(self, nums: List[int]) -> int:
@@ -105,6 +107,8 @@ class Solution:
             mx = max(mx, x)
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -149,6 +153,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -190,6 +196,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findValidSplit(nums []int) int {

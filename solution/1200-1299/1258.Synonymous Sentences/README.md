@@ -77,6 +77,8 @@ text = &quot;I am happy today but was sad yesterday&quot;
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class UnionFind:
     def __init__(self, n):
@@ -132,6 +134,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class UnionFind {
@@ -224,6 +228,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class UnionFind {
@@ -322,6 +328,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type unionFind struct {

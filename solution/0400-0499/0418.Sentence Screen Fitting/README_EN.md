@@ -79,6 +79,8 @@ The character &#39;-&#39; signifies an empty space on the screen.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def wordsTyping(self, sentence: List[str], rows: int, cols: int) -> int:
@@ -93,6 +95,8 @@ class Solution:
                 cur -= 1
         return cur // m
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -141,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func wordsTyping(sentence []string, rows int, cols int) int {
 	s := strings.Join(sentence, " ") + " "
@@ -159,6 +167,8 @@ func wordsTyping(sentence []string, rows int, cols int) int {
 	return cur / m
 }
 ```
+
+#### TypeScript
 
 ```ts
 function wordsTyping(sentence: string[], rows: number, cols: number): number {

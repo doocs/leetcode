@@ -92,6 +92,8 @@ curriedLife() === 42
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function curry(fn: Function): Function {
     return function curried(...args) {

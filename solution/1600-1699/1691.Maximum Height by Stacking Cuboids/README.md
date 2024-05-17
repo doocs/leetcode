@@ -103,6 +103,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxHeight(self, cuboids: List[List[int]]) -> int:
@@ -118,6 +120,8 @@ class Solution:
             f[i] += cuboids[i][2]
         return max(f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -142,6 +146,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -165,6 +171,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxHeight(cuboids [][]int) int {
 	for _, c := range cuboids {
@@ -187,6 +195,8 @@ func maxHeight(cuboids [][]int) int {
 	return slices.Max(f)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxHeight(cuboids: number[][]): number {
@@ -214,6 +224,8 @@ function maxHeight(cuboids: number[][]): number {
     return Math.max(...f);
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

@@ -82,6 +82,8 @@ The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition of commonBits API.
 # def commonBits(num: int) -> int:
@@ -97,6 +99,8 @@ class Solution:
                 n |= 1 << i
         return n
 ```
+
+#### Java
 
 ```java
 /**
@@ -119,6 +123,8 @@ public class Solution extends Problem {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition of commonBits API.
@@ -140,6 +146,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**

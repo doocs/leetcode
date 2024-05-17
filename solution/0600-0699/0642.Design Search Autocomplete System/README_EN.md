@@ -90,6 +90,8 @@ obj.input(&quot;#&quot;); // return []. The user finished the input, the sentenc
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Trie:
     def __init__(self):
@@ -153,6 +155,8 @@ class AutocompleteSystem:
 # obj = AutocompleteSystem(sentences, times)
 # param_1 = obj.input(c)
 ```
+
+#### Java
 
 ```java
 class Trie {

@@ -92,6 +92,8 @@ Hence, the abbreviated product is &quot;399168e2&quot;.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 import numpy
 
@@ -127,6 +129,8 @@ class Solution:
         pre = int(pow(10, z - int(z) + 4))
         return str(pre) + "..." + str(suf).zfill(5) + "e" + str(c)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -168,6 +172,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -211,6 +217,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func abbreviateProduct(left int, right int) string {
@@ -265,6 +273,8 @@ func abbreviateProduct(left int, right int) string {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

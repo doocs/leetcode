@@ -110,6 +110,8 @@ startUrl = "http://news.google.com"
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # """
 # This is HtmlParser's API interface.
@@ -141,6 +143,8 @@ class Solution:
         dfs(startUrl)
         return list(ans)
 ```
+
+#### Java
 
 ```java
 /**
@@ -178,6 +182,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -219,6 +225,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**

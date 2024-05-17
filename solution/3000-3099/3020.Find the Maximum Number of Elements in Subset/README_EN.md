@@ -71,6 +71,8 @@ The time complexity is $O(n \times \log \log M)$, and the space complexity is $O
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumLength(self, nums: List[int]) -> int:
@@ -86,6 +88,8 @@ class Solution:
             ans = max(ans, t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -135,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumLength(nums []int) (ans int) {
 	cnt := map[int]int{}
@@ -159,6 +167,8 @@ func maximumLength(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumLength(nums: number[]): number {

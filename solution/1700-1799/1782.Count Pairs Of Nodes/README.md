@@ -87,6 +87,8 @@ answers[1] = 5。所有的点对(a, b)中除了(3,4)边数等于3，其它点对
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countPairs(
@@ -112,6 +114,8 @@ class Solution:
                     ans[i] -= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -161,6 +165,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -196,6 +202,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countPairs(n int, edges [][]int, queries []int) []int {
 	cnt := make([]int, n)
@@ -228,6 +236,8 @@ func countPairs(n int, edges [][]int, queries []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countPairs(n: number, edges: number[][], queries: number[]): number[] {

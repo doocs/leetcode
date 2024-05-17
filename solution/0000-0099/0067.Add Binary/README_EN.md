@@ -52,11 +52,15 @@ The time complexity is $O(\max(m, n))$, where $m$ and $n$ are the lengths of str
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def addBinary(self, a: str, b: str) -> str:
         return bin(int(a, 2) + int(b, 2))[2:]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -72,6 +76,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -89,6 +95,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func addBinary(a string, b string) string {
@@ -111,11 +119,15 @@ func addBinary(a string, b string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function addBinary(a: string, b: string): string {
     return (BigInt('0b' + a) + BigInt('0b' + b)).toString(2);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -142,6 +154,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -172,6 +186,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def addBinary(self, a: str, b: str) -> str:
@@ -184,6 +200,8 @@ class Solution:
             i, j = i - 1, j - 1
         return ''.join(ans[::-1])
 ```
+
+#### TypeScript
 
 ```ts
 function addBinary(a: string, b: string): string {

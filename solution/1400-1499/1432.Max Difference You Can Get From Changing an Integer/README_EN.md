@@ -70,6 +70,8 @@ We have now a = 9 and b = 1 and max difference = 8
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxDiff(self, num: int) -> int:
@@ -87,6 +89,8 @@ class Solution:
                     break
         return int(a) - int(b)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +117,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -147,6 +153,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxDiff(num int) int {

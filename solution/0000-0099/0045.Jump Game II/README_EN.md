@@ -78,6 +78,8 @@ Similar problems:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def jump(self, nums: List[int]) -> int:
@@ -89,6 +91,8 @@ class Solution:
                 last = mx
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -123,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func jump(nums []int) (ans int) {
 	mx, last := 0, 0
@@ -137,6 +145,8 @@ func jump(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function jump(nums: number[]): number {
     let [ans, mx, last] = [0, 0, 0];
@@ -150,6 +160,8 @@ function jump(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -170,6 +182,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int Jump(int[] nums) {
@@ -185,6 +199,8 @@ public class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define min(a, b) a < b ? a : b
@@ -202,6 +218,8 @@ int jump(int* nums, int numsSize) {
     return dp[numsSize - 1];
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

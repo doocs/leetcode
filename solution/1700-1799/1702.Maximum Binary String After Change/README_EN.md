@@ -86,6 +86,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumBinaryString(self, binary: str) -> str:
@@ -95,6 +97,8 @@ class Solution:
         k += binary[k + 1 :].count('0')
         return '1' * k + '0' + '1' * (len(binary) - k - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -135,6 +141,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumBinaryString(binary string) string {
@@ -156,6 +164,8 @@ func maximumBinaryString(binary string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumBinaryString(binary: string): string {
     let k = binary.indexOf('0');
@@ -166,6 +176,8 @@ function maximumBinaryString(binary: string): string {
     return '1'.repeat(k) + '0' + '1'.repeat(binary.length - k - 1);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -183,6 +195,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

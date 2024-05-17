@@ -90,6 +90,8 @@ circularDeque.getFront();				// 返回 4
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class MyCircularDeque:
     def __init__(self, k: int):
@@ -184,6 +186,8 @@ class MyCircularDeque:
 # param_7 = obj.isEmpty()
 # param_8 = obj.isFull()
 ```
+
+#### Java
 
 ```java
 class MyCircularDeque {
@@ -283,6 +287,8 @@ class MyCircularDeque {
  */
 ```
 
+#### C++
+
 ```cpp
 class MyCircularDeque {
 public:
@@ -365,6 +371,8 @@ public:
  * bool param_8 = obj->isFull();
  */
 ```
+
+#### Go
 
 ```go
 type MyCircularDeque struct {
@@ -453,6 +461,8 @@ func (this *MyCircularDeque) IsFull() bool {
  * param_8 := obj.IsFull();
  */
 ```
+
+#### TypeScript
 
 ```ts
 class MyCircularDeque {

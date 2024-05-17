@@ -71,6 +71,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countGoodNumbers(self, n: int) -> int:
@@ -87,6 +89,8 @@ class Solution:
 
         return myPow(5, (n + 1) >> 1) * myPow(4, n >> 1) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 int MOD = 1000000007;
@@ -133,6 +139,8 @@ private:
     }
 };
 ```
+
+#### Go
 
 ```go
 const mod int64 = 1e9 + 7

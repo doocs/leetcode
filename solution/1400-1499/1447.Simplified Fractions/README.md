@@ -70,6 +70,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def simplifiedFractions(self, n: int) -> List[str]:
@@ -80,6 +82,8 @@ class Solution:
             if gcd(i, j) == 1
         ]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -117,6 +123,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func simplifiedFractions(n int) (ans []string) {
@@ -138,6 +146,8 @@ func gcd(a, b int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function simplifiedFractions(n: number): string[] {
     const ans: string[] = [];
@@ -155,6 +165,8 @@ function gcd(a: number, b: number): number {
     return b === 0 ? a : gcd(b, a % b);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

@@ -80,6 +80,8 @@ Time complexity $O(1)$, space complexity $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -98,6 +100,8 @@ class Solution:
         node.next = node.next.next
 ```
 
+#### Java
+
 ```java
 /**
  * Definition for singly-linked list.
@@ -114,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -133,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -146,6 +154,8 @@ func deleteNode(node *ListNode) {
 	node.Next = node.Next.Next
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -169,6 +179,8 @@ function deleteNode(node: ListNode | null): void {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -187,6 +199,8 @@ var deleteNode = function (node) {
 };
 ```
 
+#### C#
+
 ```cs
 /**
  * Definition for singly-linked list.
@@ -203,6 +217,8 @@ public class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**

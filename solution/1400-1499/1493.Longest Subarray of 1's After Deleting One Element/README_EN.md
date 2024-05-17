@@ -75,6 +75,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestSubarray(self, nums: List[int]) -> int:
@@ -89,6 +91,8 @@ class Solution:
                 right[i] = right[i + 1] + 1
         return max(left[i] + right[i + 1] for i in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -141,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestSubarray(nums []int) (ans int) {
 	n := len(nums)
@@ -162,6 +170,8 @@ func longestSubarray(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestSubarray(nums: number[]): number {
@@ -204,6 +214,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestSubarray(self, nums: List[int]) -> int:
@@ -217,6 +229,8 @@ class Solution:
             ans = max(ans, i - j)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -233,6 +247,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -251,6 +267,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestSubarray(nums []int) (ans int) {
 	cnt, j := 0, 0
@@ -264,6 +282,8 @@ func longestSubarray(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestSubarray(nums: number[]): number {

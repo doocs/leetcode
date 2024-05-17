@@ -56,6 +56,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2077.%20%E7%AC%A6%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def runeReserve(self, runes: List[int]) -> int:
@@ -68,6 +70,8 @@ class Solution:
                 ans = max(ans, j - i + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +89,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -104,6 +110,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func runeReserve(runes []int) (ans int) {
 	sort.Ints(runes)
@@ -118,6 +126,8 @@ func runeReserve(runes []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function runeReserve(runes: number[]): number {

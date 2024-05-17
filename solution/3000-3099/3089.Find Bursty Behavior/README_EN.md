@@ -99,6 +99,8 @@ Finally, we connect tables `P` and `T` with the condition `P.user_id = T.user_id
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH
@@ -125,6 +127,8 @@ GROUP BY 1
 HAVING max_7day_posts >= avg_weekly_posts * 2
 ORDER BY 1;
 ```
+
+#### Python3
 
 ```python
 import pandas as pd

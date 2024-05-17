@@ -35,6 +35,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.02.Min%20Stack/REA
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class MinStack:
     def __init__(self):
@@ -66,6 +68,8 @@ class MinStack:
 # param_3 = obj.top()
 # param_4 = obj.getMin()
 ```
+
+#### Java
 
 ```java
 class MinStack {
@@ -105,6 +109,8 @@ class MinStack {
  * int param_4 = obj.getMin();
  */
 ```
+
+#### C++
 
 ```cpp
 class MinStack {
@@ -147,6 +153,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type MinStack struct {
 	stk1 []int
@@ -186,6 +194,8 @@ func (this *MinStack) GetMin() int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class MinStack {
     stack: number[];
@@ -223,6 +233,8 @@ class MinStack {
  * var param_4 = obj.getMin()
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -272,6 +284,8 @@ impl MinStack {
  */
 ```
 
+#### C#
+
 ```cs
 public class MinStack {
     private Stack<int> stk1 = new Stack<int>();
@@ -310,6 +324,8 @@ public class MinStack {
  * int param_4 = obj.GetMin();
  */
 ```
+
+#### Swift
 
 ```swift
 class MinStack {

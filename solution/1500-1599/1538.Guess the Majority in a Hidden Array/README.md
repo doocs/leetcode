@@ -100,6 +100,8 @@ reader.query(4,5,6,7) // 返回 4，因为 nums[4], nums[5], nums[6], nums[7] �
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # """
 # This is the ArrayReader's API interface.
@@ -151,6 +153,8 @@ class Solution:
             return -1
         return 3 if a > b else k
 ```
+
+#### Java
 
 ```java
 /**
@@ -212,6 +216,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * // This is the ArrayReader's API interface.
@@ -272,6 +278,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * // This is the ArrayReader's API interface.
@@ -330,6 +338,8 @@ func guessMajority(reader *ArrayReader) int {
 	return k
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

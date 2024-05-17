@@ -112,6 +112,8 @@ Queries 表:
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT q.*, IFNULL(npv, 0) AS npv

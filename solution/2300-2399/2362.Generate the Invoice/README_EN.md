@@ -101,6 +101,8 @@ The highest price is $1000, and the invoices with the highest prices are 2 and 4
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

@@ -97,6 +97,8 @@ Result table
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 SELECT DISTINCT user_id
 FROM

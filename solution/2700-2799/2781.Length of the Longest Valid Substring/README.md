@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestValidSubstring(self, word: str, forbidden: List[str]) -> int:
@@ -89,6 +91,8 @@ class Solution:
             ans = max(ans, j - i + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -129,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestValidSubstring(word string, forbidden []string) (ans int) {
 	s := map[string]bool{}
@@ -148,6 +156,8 @@ func longestValidSubstring(word string, forbidden []string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestValidSubstring(word: string, forbidden: string[]): number {

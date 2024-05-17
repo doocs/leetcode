@@ -77,6 +77,8 @@ solution.pick(); // 返回 4
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def __init__(self, n: int, blacklist: List[int]):
@@ -100,6 +102,8 @@ class Solution:
 # obj = Solution(n, blacklist)
 # param_1 = obj.pick()
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -137,6 +141,8 @@ class Solution {
  */
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -167,6 +173,8 @@ public:
  * int param_1 = obj->pick();
  */
 ```
+
+#### Go
 
 ```go
 type Solution struct {

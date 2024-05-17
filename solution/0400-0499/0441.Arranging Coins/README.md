@@ -63,11 +63,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def arrangeCoins(self, n: int) -> int:
         return int(math.sqrt(2) * math.sqrt(n + 0.125) - 0.5)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -76,6 +80,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 using LL = long;
@@ -96,6 +102,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func arrangeCoins(n int) int {
@@ -122,6 +130,8 @@ func arrangeCoins(n int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def arrangeCoins(self, n: int) -> int:
@@ -134,6 +144,8 @@ class Solution:
                 right = mid - 1
         return left
 ```
+
+#### Java
 
 ```java
 class Solution {

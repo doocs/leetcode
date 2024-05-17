@@ -97,6 +97,8 @@ The second minimum time path is 1 -&gt; 2 -&gt; 1 -&gt; 2 with time = 11 minutes
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def secondMinimum(
@@ -127,6 +129,8 @@ class Solution:
                 ans = (ans + change) // change * change
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {

@@ -84,6 +84,8 @@ snakeGame.move(&quot;U&quot;); // return -1, game over because snake collides wi
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class SnakeGame:
     def __init__(self, width: int, height: int, food: List[List[int]]):
@@ -129,6 +131,8 @@ class SnakeGame:
 # obj = SnakeGame(width, height, food)
 # param_1 = obj.move(direction)
 ```
+
+#### Java
 
 ```java
 class SnakeGame {
@@ -191,6 +195,8 @@ class SnakeGame {
  * int param_1 = obj.move(direction);
  */
 ```
+
+#### C++
 
 ```cpp
 class SnakeGame {
@@ -259,6 +265,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type SnakeGame struct {
 	m     int
@@ -316,6 +324,8 @@ func (this *SnakeGame) Move(direction string) int {
  * param_1 := obj.Move(direction);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class SnakeGame {

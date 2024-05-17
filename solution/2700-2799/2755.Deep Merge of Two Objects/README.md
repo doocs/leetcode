@@ -83,6 +83,8 @@ obj2 = {"a": 1, "b": {"c": [6, [6], [9]], "e": 3}}
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function deepMerge(obj1: any, obj2: any): any {
     const isObj = (obj: any) => obj && typeof obj === 'object';

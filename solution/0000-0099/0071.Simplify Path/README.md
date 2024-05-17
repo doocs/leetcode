@@ -94,6 +94,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def simplifyPath(self, path: str) -> str:
@@ -108,6 +110,8 @@ class Solution:
                 stk.append(s)
         return '/' + '/'.join(stk)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +131,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -159,6 +165,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func simplifyPath(path string) string {
 	var stk []string
@@ -178,6 +186,8 @@ func simplifyPath(path string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function simplifyPath(path: string): string {
     const stk: string[] = [];
@@ -196,6 +206,8 @@ function simplifyPath(path: string): string {
     return '/' + stk.join('/');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -226,6 +238,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -261,6 +275,8 @@ public class Solution {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Go
 
 ```go
 func simplifyPath(path string) string {

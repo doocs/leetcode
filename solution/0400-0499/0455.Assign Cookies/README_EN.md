@@ -63,6 +63,8 @@ You need to output 2.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findContentChildren(self, g: List[int], s: List[int]) -> int:
@@ -77,6 +79,8 @@ class Solution:
             j += 1
         return len(g)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +102,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -118,6 +124,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findContentChildren(g []int, s []int) int {
 	sort.Ints(g)
@@ -136,6 +144,8 @@ func findContentChildren(g []int, s []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findContentChildren(g: number[], s: number[]): number {
     g.sort((a, b) => a - b);
@@ -153,6 +163,8 @@ function findContentChildren(g: number[], s: number[]): number {
     return m;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

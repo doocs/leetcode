@@ -72,12 +72,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, s: str) -> int:
         cnt = sum(c != '01'[i & 1] for i, c in enumerate(s))
         return min(cnt, len(s) - cnt)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +95,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -101,6 +107,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minOperations(s string) int {
@@ -114,6 +122,8 @@ func minOperations(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minOperations(s: string): number {
     const n = s.length;
@@ -124,6 +134,8 @@ function minOperations(s: string): number {
     return Math.min(count, n - count);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -139,6 +151,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define min(a, b) (((a) < (b)) ? (a) : (b))

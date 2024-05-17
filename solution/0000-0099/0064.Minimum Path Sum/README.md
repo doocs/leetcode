@@ -72,6 +72,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minPathSum(self, grid: List[List[int]]) -> int:
@@ -87,6 +89,8 @@ class Solution:
                 f[i][j] = min(f[i - 1][j], f[i][j - 1]) + grid[i][j]
         return f[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -133,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minPathSum(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
@@ -155,6 +163,8 @@ func minPathSum(grid [][]int) int {
 	return f[m-1][n-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minPathSum(grid: number[][]): number {
@@ -179,6 +189,8 @@ function minPathSum(grid: number[][]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn min_path_sum(mut grid: Vec<Vec<i32>>) -> i32 {
@@ -199,6 +211,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -226,6 +240,8 @@ var minPathSum = function (grid) {
     return f[m - 1][n - 1];
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

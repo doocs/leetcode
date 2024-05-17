@@ -94,6 +94,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumSubarrayLength(self, nums: List[int], k: int) -> int:
@@ -117,6 +119,8 @@ class Solution:
                 i += 1
         return -1 if ans > n else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -147,6 +151,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -176,6 +182,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumSubarrayLength(nums []int, k int) int {
@@ -208,6 +216,8 @@ func minimumSubarrayLength(nums []int, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumSubarrayLength(nums: number[], k: number): number {

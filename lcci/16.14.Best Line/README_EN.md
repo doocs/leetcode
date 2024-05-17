@@ -46,6 +46,8 @@ The time complexity is $O(n^3)$, and the space complexity is $O(1)$. Here, $n$ i
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def bestLine(self, points: List[List[int]]) -> List[int]:
@@ -66,6 +68,8 @@ class Solution:
                     x, y = i, j
         return [x, y]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +102,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func bestLine(points [][]int) []int {
 	n := len(points)
@@ -155,6 +163,8 @@ func bestLine(points [][]int) []int {
 	return ans
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -203,6 +213,8 @@ The time complexity is $O(n^2 \times \log m)$, and the space complexity is $O(n)
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def bestLine(self, points: List[List[int]]) -> List[int]:
@@ -225,6 +237,8 @@ class Solution:
                     x, y = cnt[k][0]
         return [x, y]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -260,6 +274,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -290,6 +306,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func bestLine(points [][]int) []int {

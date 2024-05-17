@@ -99,6 +99,8 @@ values = [[5],[]]
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 type Fn = (...params: any) => any;
 

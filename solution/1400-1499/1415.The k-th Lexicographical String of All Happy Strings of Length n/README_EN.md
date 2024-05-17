@@ -75,6 +75,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getHappyString(self, n: int, k: int) -> str:
@@ -91,6 +93,8 @@ class Solution:
         dfs('')
         return '' if len(ans) < k else ans[k - 1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +119,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {

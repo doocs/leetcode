@@ -65,6 +65,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isRectangleCover(self, rectangles: List[List[int]]) -> bool:
@@ -99,6 +101,8 @@ class Solution:
 
         return all(c == 2 or c == 4 for c in cnt.values())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -167,6 +171,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
@@ -210,6 +216,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type pair struct {

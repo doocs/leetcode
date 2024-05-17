@@ -75,6 +75,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def addToArrayForm(self, num: List[int], k: int) -> List[int]:
@@ -88,6 +90,8 @@ class Solution:
             i -= 1
         return ans[::-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +128,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func addToArrayForm(num []int, k int) []int {
@@ -143,6 +151,8 @@ func addToArrayForm(num []int, k int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function addToArrayForm(num: number[], k: number): number[] {
     let arr2 = [...String(k)].map(Number);
@@ -158,6 +168,8 @@ function addToArrayForm(num: number[], k: number): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -190,6 +202,8 @@ impl Solution {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function addToArrayForm(num: number[], k: number): number[] {

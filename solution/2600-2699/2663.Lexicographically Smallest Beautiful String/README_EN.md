@@ -82,6 +82,8 @@ The time complexity is $O(n)$, where $n$ is the length of the string. The space 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def smallestBeautifulString(self, s: str, k: int) -> str:
@@ -104,6 +106,8 @@ class Solution:
                 return ''.join(cs)
         return ''
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +140,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -167,6 +173,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallestBeautifulString(s string, k int) string {
 	cs := []byte(s)
@@ -195,6 +203,8 @@ func smallestBeautifulString(s string, k int) string {
 	return ""
 }
 ```
+
+#### TypeScript
 
 ```ts
 function smallestBeautifulString(s: string, k: number): string {

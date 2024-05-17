@@ -99,6 +99,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minWastedSpace(self, packages: List[int], boxes: List[List[int]]) -> int:
@@ -119,6 +121,8 @@ class Solution:
             return -1
         return (ans - sum(packages)) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -167,6 +171,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -194,6 +200,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minWastedSpace(packages []int, boxes [][]int) int {
@@ -225,6 +233,8 @@ func minWastedSpace(packages []int, boxes [][]int) int {
 	return (ans - s) % mod
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minWastedSpace(packages: number[], boxes: number[][]): number {

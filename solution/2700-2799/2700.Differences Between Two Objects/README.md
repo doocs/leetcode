@@ -147,6 +147,8 @@ obj2 = { &nbsp;
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function objDiff(obj1: any, obj2: any): any {
     if (type(obj1) !== type(obj2)) return [obj1, obj2];

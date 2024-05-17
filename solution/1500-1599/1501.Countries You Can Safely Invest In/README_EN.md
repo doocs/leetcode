@@ -139,6 +139,8 @@ We can use an equi-join to join the `Person` table and the `Calls` table on the 
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT country
@@ -163,6 +165,8 @@ WHERE duration > (SELECT AVG(duration) FROM Calls);
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

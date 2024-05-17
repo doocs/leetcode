@@ -72,6 +72,8 @@ answer = [7,1,3,9] 。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def separateDigits(self, nums: List[int]) -> List[int]:
@@ -84,6 +86,8 @@ class Solution:
             ans.extend(t[::-1])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -126,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func separateDigits(nums []int) (ans []int) {
 	for _, x := range nums {
@@ -142,6 +150,8 @@ func separateDigits(nums []int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function separateDigits(nums: number[]): number[] {
     const ans: number[] = [];
@@ -156,6 +166,8 @@ function separateDigits(nums: number[]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -176,6 +188,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**
@@ -212,6 +226,8 @@ int* separateDigits(int* nums, int numsSize, int* returnSize) {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {

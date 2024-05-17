@@ -65,6 +65,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def rangeBitwiseAnd(self, left: int, right: int) -> int:
@@ -72,6 +74,8 @@ class Solution:
             right &= right - 1
         return right
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +87,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -96,6 +102,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func rangeBitwiseAnd(left int, right int) int {
 	for left < right {
@@ -104,6 +112,8 @@ func rangeBitwiseAnd(left int, right int) int {
 	return right
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -118,6 +128,8 @@ var rangeBitwiseAnd = function (left, right) {
     return right;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {

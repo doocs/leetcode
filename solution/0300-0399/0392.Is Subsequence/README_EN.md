@@ -56,6 +56,8 @@ The time complexity is $O(m + n)$, where $m$ and $n$ are the lengths of the stri
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isSubsequence(self, s: str, t: str) -> bool:
@@ -66,6 +68,8 @@ class Solution:
             j += 1
         return i == len(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +87,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -99,6 +105,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isSubsequence(s string, t string) bool {
 	i, j, m, n := 0, 0, len(s), len(t)
@@ -111,6 +119,8 @@ func isSubsequence(s string, t string) bool {
 	return i == m
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isSubsequence(s: string, t: string): boolean {
@@ -125,6 +135,8 @@ function isSubsequence(s: string, t: string): boolean {
     return i === m;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -146,6 +158,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool IsSubsequence(string s, string t) {
@@ -160,6 +174,8 @@ public class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 bool isSubsequence(char* s, char* t) {

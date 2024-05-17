@@ -87,6 +87,8 @@ The time complexity is $O(\sqrt{n})$, where $n$ is the number of boxes given in 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumBoxes(self, n: int) -> int:
@@ -103,6 +105,8 @@ class Solution:
             k += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -146,6 +152,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumBoxes(n int) int {

@@ -61,6 +61,8 @@ The arrangement with the smallest value that does not contain any leading zeros 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def smallestNumber(self, num: int) -> int:
@@ -89,6 +91,8 @@ class Solution:
                 ans += str(i) * cnt[i]
         return int(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -164,6 +170,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func smallestNumber(num int64) int64 {

@@ -84,6 +84,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countPairs(self, deliciousness: List[int]) -> int:
@@ -99,6 +101,8 @@ class Solution:
             cnt[d] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -138,6 +144,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countPairs(deliciousness []int) (ans int) {
@@ -164,6 +172,8 @@ func countPairs(deliciousness []int) (ans int) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countPairs(self, deliciousness: List[int]) -> int:
@@ -177,6 +187,8 @@ class Solution:
                     ans += m * (m - 1) if a == b else m * cnt[b]
         return (ans >> 1) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -205,6 +217,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -227,6 +241,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countPairs(deliciousness []int) (ans int) {

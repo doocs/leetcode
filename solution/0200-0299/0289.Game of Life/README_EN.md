@@ -82,6 +82,8 @@ The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def gameOfLife(self, board: List[List[int]]) -> None:
@@ -104,6 +106,8 @@ class Solution:
                 elif board[i][j] == -1:
                     board[i][j] = 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +143,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -176,6 +182,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func gameOfLife(board [][]int) {
 	m, n := len(board), len(board[0])
@@ -209,6 +217,8 @@ func gameOfLife(board [][]int) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -247,6 +257,8 @@ function gameOfLife(board: number[][]): void {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 const DIR: [(i32, i32); 8] = [
@@ -305,6 +317,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

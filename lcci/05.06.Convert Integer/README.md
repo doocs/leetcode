@@ -50,6 +50,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.06.Convert%20Integ
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def convertInteger(self, A: int, B: int) -> int:
@@ -58,6 +60,8 @@ class Solution:
         return (A ^ B).bit_count()
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int convertInteger(int A, int B) {
@@ -65,6 +69,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -76,11 +82,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func convertInteger(A int, B int) int {
 	return bits.OnesCount32(uint32(A ^ B))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function convertInteger(A: number, B: number): number {
@@ -96,6 +106,8 @@ function convertInteger(A: number, B: number): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn convert_integer(a: i32, b: i32) -> i32 {
@@ -103,6 +115,8 @@ impl Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

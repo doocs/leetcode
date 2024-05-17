@@ -123,6 +123,8 @@ Quarz在连续5场竞赛中赢得了奖牌(190, 191, 192, 193, and 194), 所以�
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

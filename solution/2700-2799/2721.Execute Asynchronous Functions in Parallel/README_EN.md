@@ -85,6 +85,8 @@ The single function was resolved at 200ms with a value of 5.
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 async function promiseAll<T>(functions: (() => Promise<T>)[]): Promise<T[]> {
     return new Promise<T[]>((resolve, reject) => {

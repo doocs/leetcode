@@ -70,6 +70,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -90,6 +92,8 @@ class Solution:
         a.next = c
         return head
 ```
+
+#### Java
 
 ```java
 /**
@@ -120,6 +124,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -152,6 +158,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -176,6 +184,8 @@ func oddEvenList(head *ListNode) *ListNode {
 	return head
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

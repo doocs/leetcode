@@ -62,6 +62,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def commonChars(self, words: List[str]) -> List[str]:
@@ -75,6 +77,8 @@ class Solution:
             ans.extend([c] * v)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -127,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func commonChars(words []string) (ans []string) {
 	cnt := [26]int{}
@@ -151,6 +159,8 @@ func commonChars(words []string) (ans []string) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function commonChars(words: string[]): string[] {

@@ -82,6 +82,8 @@ We notice that $f[i][j]$ is only related to $f[i - 1][j]$ and $f[i][j - 1]$, so 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
@@ -95,6 +97,8 @@ class Solution:
                     f[i][j] += f[i][j - 1]
         return f[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +119,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -137,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func uniquePaths(m int, n int) int {
 	f := make([][]int, m)
@@ -158,6 +166,8 @@ func uniquePaths(m int, n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function uniquePaths(m: number, n: number): number {
     const f: number[][] = Array(m)
@@ -178,6 +188,8 @@ function uniquePaths(m: number, n: number): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn unique_paths(m: i32, n: i32) -> i32 {
@@ -192,6 +204,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -228,6 +242,8 @@ var uniquePaths = function (m, n) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
@@ -237,6 +253,8 @@ class Solution:
                 f[i][j] = f[i - 1][j] + f[i][j - 1]
         return f[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -255,6 +273,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -269,6 +289,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func uniquePaths(m int, n int) int {
@@ -288,6 +310,8 @@ func uniquePaths(m int, n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function uniquePaths(m: number, n: number): number {
     const f: number[][] = Array(m)
@@ -301,6 +325,8 @@ function uniquePaths(m: number, n: number): number {
     return f[m - 1][n - 1];
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -331,6 +357,8 @@ var uniquePaths = function (m, n) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
@@ -340,6 +368,8 @@ class Solution:
                 f[j] += f[j - 1]
         return f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -356,6 +386,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -370,6 +402,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func uniquePaths(m int, n int) int {
@@ -386,6 +420,8 @@ func uniquePaths(m int, n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function uniquePaths(m: number, n: number): number {
     const f: number[] = Array(n).fill(1);
@@ -397,6 +433,8 @@ function uniquePaths(m: number, n: number): number {
     return f[n - 1];
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

@@ -68,6 +68,8 @@ XRLXXRRLX
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canTransform(self, start: str, end: str) -> bool:
@@ -88,6 +90,8 @@ class Solution:
                 return False
             i, j = i + 1, j + 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -136,6 +142,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canTransform(start string, end string) bool {

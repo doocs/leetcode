@@ -81,6 +81,8 @@ We use the window function `MAX(height) OVER (ORDER BY id)` to calculate the max
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH
@@ -94,6 +96,8 @@ WITH
 SELECT SUM(LEAST(l, r) - height) AS total_trapped_water
 FROM T;
 ```
+
+#### Python3
 
 ```python
 import pandas as pd

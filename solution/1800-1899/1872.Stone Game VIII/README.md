@@ -105,6 +105,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def stoneGameVIII(self, stones: List[int]) -> int:
@@ -117,6 +119,8 @@ class Solution:
         s = list(accumulate(stones))
         return dfs(1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -146,6 +150,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -170,6 +176,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func stoneGameVIII(stones []int) int {
 	n := len(stones)
@@ -193,6 +201,8 @@ func stoneGameVIII(stones []int) int {
 	return dfs(1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function stoneGameVIII(stones: number[]): number {
@@ -246,6 +256,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def stoneGameVIII(self, stones: List[int]) -> int:
@@ -255,6 +267,8 @@ class Solution:
             f = max(f, s[i] - f)
         return f
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -272,6 +286,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -288,6 +304,8 @@ public:
     }
 };
 ```
+
+#### TypeScript
 
 ```ts
 function stoneGameVIII(stones: number[]): number {

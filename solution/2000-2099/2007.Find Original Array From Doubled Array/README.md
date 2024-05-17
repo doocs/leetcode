@@ -79,6 +79,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findOriginalArray(self, changed: List[int]) -> List[int]:
@@ -95,6 +97,8 @@ class Solution:
             ans.append(x)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +128,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -151,6 +157,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findOriginalArray(changed []int) (ans []int) {
 	sort.Ints(changed)
@@ -173,6 +181,8 @@ func findOriginalArray(changed []int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findOriginalArray(changed: number[]): number[] {

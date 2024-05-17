@@ -79,6 +79,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minDays(self, grid: List[List[int]]) -> int:
@@ -115,6 +117,8 @@ class Solution:
                     grid[i][j] = 1
         return cnt
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -176,6 +180,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -232,6 +238,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minDays(grid [][]int) int {

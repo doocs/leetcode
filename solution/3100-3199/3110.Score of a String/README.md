@@ -71,11 +71,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def scoreOfString(self, s: str) -> int:
         return sum(abs(a - b) for a, b in pairwise(map(ord, s)))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +93,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -101,6 +107,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func scoreOfString(s string) (ans int) {
@@ -117,6 +125,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function scoreOfString(s: string): number {

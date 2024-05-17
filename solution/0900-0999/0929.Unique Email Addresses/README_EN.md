@@ -79,6 +79,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numUniqueEmails(self, emails: List[str]) -> int:
@@ -91,6 +93,8 @@ class Solution:
             s.add(local + '@' + domain)
         return len(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -131,6 +137,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numUniqueEmails(emails []string) int {
 	s := map[string]bool{}
@@ -145,6 +153,8 @@ func numUniqueEmails(emails []string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numUniqueEmails(emails: string[]): number {
     return new Set(
@@ -154,6 +164,8 @@ function numUniqueEmails(emails: string[]): number {
     ).size;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -180,6 +192,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 const numUniqueEmails2 = function (emails) {

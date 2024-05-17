@@ -99,6 +99,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimizeStringValue(self, s: str) -> str:
@@ -119,6 +121,8 @@ class Solution:
                 j += 1
         return "".join(cs)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -157,6 +161,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -192,6 +198,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimizeStringValue(s string) string {

@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def similarPairs(self, words: List[str]) -> int:
@@ -93,6 +95,8 @@ class Solution:
             cnt[v] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -129,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func similarPairs(words []string) (ans int) {
 	cnt := map[int]int{}
@@ -143,6 +151,8 @@ func similarPairs(words []string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function similarPairs(words: string[]): number {
@@ -159,6 +169,8 @@ function similarPairs(words: string[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;

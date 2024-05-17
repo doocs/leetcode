@@ -66,6 +66,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canPartitionKSubsets(self, nums: List[int], k: int) -> bool:
@@ -88,6 +90,8 @@ class Solution:
         nums.sort(reverse=True)
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +132,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -161,6 +167,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canPartitionKSubsets(nums []int, k int) bool {
@@ -197,6 +205,8 @@ func canPartitionKSubsets(nums []int, k int) bool {
 	return dfs(0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canPartitionKSubsets(nums: number[], k: number): boolean {
@@ -255,6 +265,8 @@ function canPartitionKSubsets(nums: number[], k: number): boolean {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canPartitionKSubsets(self, nums: List[int], k: int) -> bool:
@@ -278,6 +290,8 @@ class Solution:
         mask = (1 << len(nums)) - 1
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -326,6 +340,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -366,6 +382,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canPartitionKSubsets(nums []int, k int) bool {
@@ -430,6 +448,8 @@ func canPartitionKSubsets(nums []int, k int) bool {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canPartitionKSubsets(self, nums: List[int], k: int) -> bool:
@@ -454,6 +474,8 @@ class Solution:
                         f[i | 1 << j] = True
         return f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -490,6 +512,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -524,6 +548,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canPartitionKSubsets(nums []int, k int) bool {

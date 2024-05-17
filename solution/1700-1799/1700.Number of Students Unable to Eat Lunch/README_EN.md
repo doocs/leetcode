@@ -89,6 +89,8 @@ The time complexity is $O(n)$, where $n$ is the number of sandwiches. The space 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countStudents(self, students: List[int], sandwiches: List[int]) -> int:
@@ -99,6 +101,8 @@ class Solution:
             cnt[v] -= 1
         return 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +138,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countStudents(students []int, sandwiches []int) int {
@@ -149,6 +157,8 @@ func countStudents(students []int, sandwiches []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countStudents(students: number[], sandwiches: number[]): number {
     const count = [0, 0];
@@ -164,6 +174,8 @@ function countStudents(students: number[], sandwiches: number[]): number {
     return 0;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -183,6 +195,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int countStudents(int* students, int studentsSize, int* sandwiches, int sandwichesSize) {

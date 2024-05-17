@@ -79,11 +79,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isAcronym(self, words: List[str], s: str) -> bool:
         return "".join(w[0] for w in words) == s
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +100,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -110,6 +116,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isAcronym(words []string, s string) bool {
 	t := []byte{}
@@ -120,11 +128,15 @@ func isAcronym(words []string, s string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isAcronym(words: string[], s: string): boolean {
     return words.map(w => w[0]).join('') === s;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -155,11 +167,15 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isAcronym(self, words: List[str], s: str) -> bool:
         return len(words) == len(s) and all(w[0] == c for w, c in zip(words, s))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -176,6 +192,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -194,6 +212,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isAcronym(words []string, s string) bool {
 	if len(words) != len(s) {
@@ -208,6 +228,8 @@ func isAcronym(words []string, s string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isAcronym(words: string[], s: string): boolean {
     if (words.length !== s.length) {
@@ -221,6 +243,8 @@ function isAcronym(words: string[], s: string): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

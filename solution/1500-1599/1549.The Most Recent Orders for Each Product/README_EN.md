@@ -137,6 +137,8 @@ We can use an equi-join to join the `Orders` table and the `Products` table base
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

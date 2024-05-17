@@ -61,6 +61,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.01.Remove%20Duplic
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -81,6 +83,8 @@ class Solution:
                 pre = pre.next
         return head
 ```
+
+#### Java
 
 ```java
 /**
@@ -106,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -134,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -156,6 +164,8 @@ func removeDuplicateNodes(head *ListNode) *ListNode {
 	return head
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -184,6 +194,8 @@ function removeDuplicateNodes(head: ListNode | null): ListNode | null {
     return head;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -224,6 +236,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -250,6 +264,8 @@ var removeDuplicateNodes = function (head) {
     return head;
 };
 ```
+
+#### Swift
 
 ```swift
 /**

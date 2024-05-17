@@ -46,12 +46,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canAttendMeetings(self, intervals: List[List[int]]) -> bool:
         intervals.sort()
         return all(a[1] <= b[0] for a, b in pairwise(intervals))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -68,6 +72,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -86,6 +92,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canAttendMeetings(intervals [][]int) bool {
 	sort.Slice(intervals, func(i, j int) bool {
@@ -100,6 +108,8 @@ func canAttendMeetings(intervals [][]int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canAttendMeetings(intervals: number[][]): boolean {
     intervals.sort((a, b) => a[0] - b[0]);
@@ -111,6 +121,8 @@ function canAttendMeetings(intervals: number[][]): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

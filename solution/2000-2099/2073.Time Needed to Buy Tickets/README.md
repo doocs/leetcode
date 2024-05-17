@@ -71,6 +71,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def timeRequiredToBuy(self, tickets: List[int], k: int) -> int:
@@ -82,6 +84,8 @@ class Solution:
                 ans += min(tickets[k] - 1, t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -116,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func timeRequiredToBuy(tickets []int, k int) int {
 	ans := 0
@@ -129,6 +137,8 @@ func timeRequiredToBuy(tickets []int, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function timeRequiredToBuy(tickets: number[], k: number): number {

@@ -82,6 +82,8 @@ The time complexity is $O(m \times n \times \log n)$. Here, $m$ and $n$ are the 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def largestSubmatrix(self, matrix: List[List[int]]) -> int:
@@ -96,6 +98,8 @@ class Solution:
                 ans = max(ans, j * v)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -145,6 +151,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func largestSubmatrix(matrix [][]int) int {
 	m, n := len(matrix), len(matrix[0])
@@ -165,6 +173,8 @@ func largestSubmatrix(matrix [][]int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function largestSubmatrix(matrix: number[][]): number {

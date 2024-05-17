@@ -68,6 +68,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findSubstringInWraproundString(self, p: str) -> int:
@@ -82,6 +84,8 @@ class Solution:
             dp[idx] = max(dp[idx], k)
         return sum(dp)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -126,6 +132,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findSubstringInWraproundString(p string) int {
@@ -148,6 +156,8 @@ func findSubstringInWraproundString(p string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findSubstringInWraproundString(p: string): number {
     const n = p.length;
@@ -166,6 +176,8 @@ function findSubstringInWraproundString(p: string): number {
     return dp.reduce((r, v) => r + v);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

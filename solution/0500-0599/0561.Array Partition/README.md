@@ -66,11 +66,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def arrayPairSum(self, nums: List[int]) -> int:
         return sum(sorted(nums)[::2])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +89,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -97,6 +103,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func arrayPairSum(nums []int) int {
 	sort.Ints(nums)
@@ -107,6 +115,8 @@ func arrayPairSum(nums []int) int {
 	return ans
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -123,6 +133,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

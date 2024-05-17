@@ -64,6 +64,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numSimilarGroups(self, strs: List[str]) -> int:
@@ -80,6 +82,8 @@ class Solution:
                     p[find(i)] = find(j)
         return sum(i == find(i) for i in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -161,6 +167,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numSimilarGroups(strs []string) int {

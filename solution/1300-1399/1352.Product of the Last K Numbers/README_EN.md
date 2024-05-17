@@ -87,6 +87,8 @@ The time complexity is $O(1)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class ProductOfNumbers:
     def __init__(self):
@@ -107,6 +109,8 @@ class ProductOfNumbers:
 # obj.add(num)
 # param_2 = obj.getProduct(k)
 ```
+
+#### Java
 
 ```java
 class ProductOfNumbers {
@@ -138,6 +142,8 @@ class ProductOfNumbers {
  * int param_2 = obj.getProduct(k);
  */
 ```
+
+#### C++
 
 ```cpp
 class ProductOfNumbers {
@@ -171,6 +177,8 @@ private:
  * int param_2 = obj->getProduct(k);
  */
 ```
+
+#### Go
 
 ```go
 type ProductOfNumbers struct {

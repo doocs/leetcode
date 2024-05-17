@@ -52,6 +52,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.01.Swap%20Numbers/
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def swapNumbers(self, numbers: List[int]) -> List[int]:
@@ -60,6 +62,8 @@ class Solution:
         numbers[0] ^= numbers[1]
         return numbers
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -71,6 +75,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -84,6 +90,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func swapNumbers(numbers []int) []int {
 	numbers[0] ^= numbers[1]
@@ -93,6 +101,8 @@ func swapNumbers(numbers []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function swapNumbers(numbers: number[]): number[] {
     numbers[0] ^= numbers[1];
@@ -101,6 +111,8 @@ function swapNumbers(numbers: number[]): number[] {
     return numbers;
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

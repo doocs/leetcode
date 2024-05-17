@@ -122,6 +122,8 @@ bms.scatter(5, 1); // 返回 False
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Node:
     def __init__(self):
@@ -218,6 +220,8 @@ class BookMyShow:
 # param_1 = obj.gather(k,maxRow)
 # param_2 = obj.scatter(k,maxRow)
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -353,6 +357,8 @@ class BookMyShow {
  * boolean param_2 = obj.scatter(k,maxRow);
  */
 ```
+
+#### C++
 
 ```cpp
 class Node {
@@ -491,6 +497,8 @@ private:
  * bool param_2 = obj->scatter(k,maxRow);
  */
 ```
+
+#### Go
 
 ```go
 type BookMyShow struct {

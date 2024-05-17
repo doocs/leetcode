@@ -71,6 +71,8 @@ Each string in the array has value 1. Hence, we return 1.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumValue(self, strs: List[str]) -> int:
@@ -79,6 +81,8 @@ class Solution:
 
         return max(f(s) for s in strs)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -127,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumValue(strs []string) (ans int) {
 	f := func(s string) (x int) {
@@ -147,12 +155,16 @@ func maximumValue(strs []string) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumValue(strs: string[]): number {
     const f = (s: string) => (Number.isNaN(Number(s)) ? s.length : Number(s));
     return Math.max(...strs.map(f));
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -166,6 +178,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -185,6 +199,8 @@ public class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))
@@ -221,6 +237,8 @@ int maximumValue(char** strs, int strsSize) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumValue(self, strs: List[str]) -> int:
@@ -234,6 +252,8 @@ class Solution:
 
         return max(f(s) for s in strs)
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -275,6 +295,8 @@ impl Solution {
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 use std::cmp::max;

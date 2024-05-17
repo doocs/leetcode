@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findInteger(self, k: int, digit1: int, digit2: int) -> int:
@@ -98,6 +100,8 @@ class Solution:
             if digit1 != digit2:
                 q.append(x * 10 + digit2)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -155,6 +161,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findInteger(k int, digit1 int, digit2 int) int {

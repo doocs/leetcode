@@ -97,6 +97,8 @@ boundFunc(); // "My name is Kathy"
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 type Fn = (...args) => any;
 

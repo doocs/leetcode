@@ -77,6 +77,8 @@ The time complexity is $O(n \times \log(m \times k))$, where $n$ and $k$ are the
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumTime(self, time: List[int], totalTrips: int) -> int:
@@ -85,6 +87,8 @@ class Solution:
             range(mx), totalTrips, key=lambda x: sum(x // v for v in time)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -134,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumTime(time []int, totalTrips int) int64 {
 	mx := slices.Min(time) * totalTrips
@@ -146,6 +154,8 @@ func minimumTime(time []int, totalTrips int) int64 {
 	}))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumTime(time: number[], totalTrips: number): number {

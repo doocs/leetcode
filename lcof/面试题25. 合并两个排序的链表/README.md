@@ -43,6 +43,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -65,6 +67,8 @@ class Solution:
         cur.next = l1 or l2
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -94,6 +98,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -125,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -154,6 +162,8 @@ func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 	return dummy.Next
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -185,6 +195,8 @@ function mergeTwoLists(l1: ListNode | null, l2: ListNode | null): ListNode | nul
     return dummy.next;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -235,6 +247,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -265,6 +279,8 @@ var mergeTwoLists = function (l1, l2) {
     return dummy.next;
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -314,6 +330,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -333,6 +351,8 @@ class Solution:
             l2.next = self.mergeTwoLists(l1, l2.next)
             return l2
 ```
+
+#### Java
 
 ```java
 /**
@@ -361,6 +381,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -391,6 +413,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -415,6 +439,8 @@ func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -441,6 +467,8 @@ function mergeTwoLists(l1: ListNode | null, l2: ListNode | null): ListNode | nul
     return l2;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -482,6 +510,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -508,6 +538,8 @@ var mergeTwoLists = function (l1, l2) {
     }
 };
 ```
+
+#### C#
 
 ```cs
 /**

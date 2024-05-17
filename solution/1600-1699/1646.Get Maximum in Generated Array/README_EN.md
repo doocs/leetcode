@@ -81,6 +81,8 @@ Hence, nums = [0,1,1,2,1,3,2,3], and the maximum is max(0,1,1,2,1,3,2,3) = 3.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getMaximumGenerated(self, n: int) -> int:
@@ -92,6 +94,8 @@ class Solution:
             nums[i] = nums[i >> 1] if i % 2 == 0 else nums[i >> 1] + nums[(i >> 1) + 1]
         return max(nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -127,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getMaximumGenerated(n int) int {
 	if n < 2 {
@@ -144,6 +152,8 @@ func getMaximumGenerated(n int) int {
 	return slices.Max(nums)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getMaximumGenerated(n: number): number {

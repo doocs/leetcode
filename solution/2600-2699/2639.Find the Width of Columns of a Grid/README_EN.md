@@ -77,11 +77,15 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(\log M)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findColumnWidth(self, grid: List[List[int]]) -> List[int]:
         return [max(len(str(x)) for x in col) for col in zip(*grid)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -116,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findColumnWidth(grid [][]int) []int {
 	ans := make([]int, len(grid[0]))
@@ -128,6 +136,8 @@ func findColumnWidth(grid [][]int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findColumnWidth(grid: number[][]): number[] {
@@ -142,6 +152,8 @@ function findColumnWidth(grid: number[][]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

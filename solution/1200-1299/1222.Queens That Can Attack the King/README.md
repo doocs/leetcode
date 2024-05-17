@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def queensAttacktheKing(
@@ -95,6 +97,8 @@ class Solution:
                             break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +128,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -155,6 +161,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func queensAttacktheKing(queens [][]int, king []int) (ans [][]int) {
 	n := 8
@@ -180,6 +188,8 @@ func queensAttacktheKing(queens [][]int, king []int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function queensAttacktheKing(queens: number[][], king: number[]): number[][] {

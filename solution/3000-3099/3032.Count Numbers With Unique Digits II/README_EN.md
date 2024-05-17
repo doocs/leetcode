@@ -79,6 +79,8 @@ The time complexity is $O(m \times 2^{10} \times 10)$, and the space complexity 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberCount(self, a: int, b: int) -> int:
@@ -102,6 +104,8 @@ class Solution:
         y = dfs(0, 0, True)
         return y - x
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -142,6 +146,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -179,6 +185,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberCount(a int, b int) int {
@@ -232,6 +240,8 @@ func numberCount(a int, b int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numberCount(a: number, b: number): number {
     let num: string = b.toString();
@@ -281,11 +291,15 @@ function numberCount(a: number, b: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberCount(self, a: int, b: int) -> int:
         return sum(len(set(str(num))) == len(str(num)) for num in range(a, b + 1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -314,6 +328,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -340,6 +356,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberCount(a int, b int) int {
 	count := 0
@@ -362,6 +380,8 @@ func hasUniqueDigits(num int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberCount(a: number, b: number): number {

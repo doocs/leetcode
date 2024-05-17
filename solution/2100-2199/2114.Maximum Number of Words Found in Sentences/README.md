@@ -72,11 +72,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def mostWordsFound(self, sentences: List[str]) -> int:
         return 1 + max(s.count(' ') for s in sentences)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +100,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -110,6 +116,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func mostWordsFound(sentences []string) (ans int) {
 	for _, s := range sentences {
@@ -121,6 +129,8 @@ func mostWordsFound(sentences []string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function mostWordsFound(sentences: string[]): number {
@@ -134,6 +144,8 @@ function mostWordsFound(sentences: string[]): number {
     );
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -152,6 +164,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))

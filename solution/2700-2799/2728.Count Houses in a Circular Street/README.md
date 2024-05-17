@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a street.
 # class Street:
@@ -105,6 +107,8 @@ class Solution:
             ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -134,6 +138,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -166,6 +172,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a street.
@@ -189,6 +197,8 @@ func houseCount(street Street, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

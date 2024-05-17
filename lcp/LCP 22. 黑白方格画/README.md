@@ -66,6 +66,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2022.%20%E9%BB%91%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def paintingPlan(self, n: int, k: int) -> int:
@@ -78,6 +80,8 @@ class Solution:
                     ans += comb(n, i) * comb(n, j)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -133,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func paintingPlan(n int, k int) (ans int) {
 	if k == n*n {
@@ -158,6 +166,8 @@ func paintingPlan(n int, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function paintingPlan(n: number, k: number): number {

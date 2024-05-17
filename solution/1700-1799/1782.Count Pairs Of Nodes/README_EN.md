@@ -86,6 +86,8 @@ The time complexity is $O(q \times (n \times \log n + m))$, and the space comple
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countPairs(
@@ -111,6 +113,8 @@ class Solution:
                     ans[i] -= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -160,6 +164,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -195,6 +201,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countPairs(n int, edges [][]int, queries []int) []int {
 	cnt := make([]int, n)
@@ -227,6 +235,8 @@ func countPairs(n int, edges [][]int, queries []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countPairs(n: number, edges: number[][], queries: number[]): number[] {

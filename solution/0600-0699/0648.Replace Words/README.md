@@ -78,6 +78,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Trie:
     def __init__(self):
@@ -117,6 +119,8 @@ class Solution:
         return " ".join(ans)
 ```
 
+#### Java
+
 ```java
 class Solution {
     public String replaceWords(List<String> dictionary, String sentence) {
@@ -136,6 +140,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -197,6 +203,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -251,6 +259,8 @@ func replaceWords(dictionary []string, sentence string) string {
 	return ans.String()[:ans.Len()-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 class Trie {
@@ -314,6 +324,8 @@ function replaceWords(dictionary: string[], sentence: string): string {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Trie {

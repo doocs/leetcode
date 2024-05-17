@@ -91,6 +91,8 @@ The time complexity is $O(n)$, where $n$ is the length of the string $seq$. Igno
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxDepthAfterSplit(self, seq: str) -> List[int]:
@@ -105,6 +107,8 @@ class Solution:
                 ans[i] = x & 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +126,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -141,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxDepthAfterSplit(seq string) []int {
 	n := len(seq)
@@ -157,6 +165,8 @@ func maxDepthAfterSplit(seq string) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxDepthAfterSplit(seq: string): number[] {

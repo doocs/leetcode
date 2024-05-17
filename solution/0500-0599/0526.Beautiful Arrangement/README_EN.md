@@ -68,6 +68,8 @@ The second beautiful arrangement is [2,1]:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countArrangement(self, n: int) -> int:
@@ -93,6 +95,8 @@ class Solution:
         dfs(1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +140,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -172,6 +178,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countArrangement(n int) int {
 	ans := 0
@@ -205,6 +213,8 @@ func countArrangement(n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countArrangement(n: number): number {
     const vis = new Array(n + 1).fill(0);
@@ -235,6 +245,8 @@ function countArrangement(n: number): number {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -280,6 +292,8 @@ impl Solution {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {

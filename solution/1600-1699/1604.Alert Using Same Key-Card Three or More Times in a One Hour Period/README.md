@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def alertNames(self, keyName: List[str], keyTime: List[str]) -> List[str]:
@@ -98,6 +100,8 @@ class Solution:
         ans.sort()
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +133,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -162,6 +168,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func alertNames(keyName []string, keyTime []string) (ans []string) {
 	d := map[string][]int{}
@@ -187,6 +195,8 @@ func alertNames(keyName []string, keyTime []string) (ans []string) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function alertNames(keyName: string[], keyTime: string[]): string[] {

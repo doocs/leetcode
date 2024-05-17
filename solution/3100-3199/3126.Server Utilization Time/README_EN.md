@@ -126,6 +126,8 @@ We can use the window function `LEAD` to get the time of the next status for eac
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

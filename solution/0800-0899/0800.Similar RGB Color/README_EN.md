@@ -67,6 +67,8 @@ This is the highest among any shorthand color.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def similarRGB(self, color: str) -> str:
@@ -79,6 +81,8 @@ class Solution:
         a, b, c = color[1:3], color[3:5], color[5:7]
         return f'#{f(a)}{f(b)}{f(c)}'
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +98,8 @@ class Solution {
     }
 }
 ```
+
+#### Go
 
 ```go
 func similarRGB(color string) string {

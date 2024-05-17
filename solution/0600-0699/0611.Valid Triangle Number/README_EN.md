@@ -59,6 +59,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def triangleNumber(self, nums: List[int]) -> int:
@@ -70,6 +72,8 @@ class Solution:
                 ans += k - j
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +97,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -109,6 +115,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func triangleNumber(nums []int) int {
@@ -132,6 +140,8 @@ func triangleNumber(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function triangleNumber(nums: number[]): number {
     nums.sort((a, b) => a - b);
@@ -152,6 +162,8 @@ function triangleNumber(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -185,6 +197,8 @@ impl Solution {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {

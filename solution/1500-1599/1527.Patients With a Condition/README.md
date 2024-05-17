@@ -73,6 +73,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 SELECT
     patient_id,

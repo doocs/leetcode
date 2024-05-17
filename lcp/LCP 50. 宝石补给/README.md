@@ -75,6 +75,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2050.%20%E5%AE%9D%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def giveGem(self, gem: List[int], operations: List[List[int]]) -> int:
@@ -84,6 +86,8 @@ class Solution:
             gem[x] -= v
         return max(gem) - min(gem)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -121,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func giveGem(gem []int, operations [][]int) int {
 	for _, op := range operations {
@@ -132,6 +140,8 @@ func giveGem(gem []int, operations [][]int) int {
 	return slices.Max(gem) - slices.Min(gem)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function giveGem(gem: number[], operations: number[][]): number {

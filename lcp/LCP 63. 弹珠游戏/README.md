@@ -84,6 +84,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2063.%20%E5%BC%B9%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def ballGame(self, num: int, plate: List[str]) -> List[List[int]]:
@@ -117,6 +119,8 @@ class Solution:
                 ans.append([m - 1, j])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -174,6 +178,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -221,6 +227,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func ballGame(num int, plate []string) (ans [][]int) {

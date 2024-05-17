@@ -83,6 +83,8 @@ The time complexity is $O(n)$ and the space complexity is $O(1)$. Where $n$ is t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumLength(self, s: str) -> int:
@@ -95,6 +97,8 @@ class Solution:
             i, j = i + 1, j - 1
         return max(0, j - i + 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -135,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumLength(s string) int {
 	i, j := 0, len(s)-1
@@ -150,6 +158,8 @@ func minimumLength(s string) int {
 	return max(0, j-i+1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumLength(s: string): number {
@@ -168,6 +178,8 @@ function minimumLength(s: string): number {
     return Math.max(0, j - i + 1);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -190,6 +202,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int minimumLength(char* s) {

@@ -61,6 +61,8 @@ The closest occurrence of &#39;e&#39; for index 8 is at index 6, so the distance
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def shortestToChar(self, s: str, c: str) -> List[int]:
@@ -78,6 +80,8 @@ class Solution:
             ans[i] = min(ans[i], suf - i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -127,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func shortestToChar(s string, c byte) []int {
 	n := len(s)
@@ -150,6 +158,8 @@ func shortestToChar(s string, c byte) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function shortestToChar(s: string, c: string): number[] {
     const n = s.length;
@@ -170,6 +180,8 @@ function shortestToChar(s: string, c: string): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

@@ -68,6 +68,8 @@ The time complexity is $O(m + n)$, and the space complexity is $O(m + n)$. Here,
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -100,6 +102,8 @@ class Solution:
                 j -= 1
         return False
 ```
+
+#### Java
 
 ```java
 /**
@@ -150,6 +154,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -193,6 +199,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -230,6 +238,8 @@ func twoSumBSTs(root1 *TreeNode, root2 *TreeNode, target int) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

@@ -68,6 +68,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkValid(self, matrix: List[List[int]]) -> bool:
@@ -88,6 +90,8 @@ class Solution:
                 seen[v] = True
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -143,6 +149,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func checkValid(matrix [][]int) bool {
@@ -170,6 +178,8 @@ func checkValid(matrix [][]int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function checkValid(matrix: number[][]): boolean {

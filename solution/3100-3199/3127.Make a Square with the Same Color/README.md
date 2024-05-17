@@ -167,6 +167,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canMakeSquare(self, grid: List[List[str]]) -> bool:
@@ -181,6 +183,8 @@ class Solution:
                     return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -203,6 +207,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -227,6 +233,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canMakeSquare(grid [][]byte) bool {
 	dirs := [5]int{0, 0, 1, 1, 0}
@@ -249,6 +257,8 @@ func canMakeSquare(grid [][]byte) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canMakeSquare(grid: string[][]): boolean {

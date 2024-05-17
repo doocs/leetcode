@@ -86,6 +86,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def arrayChange(self, nums: List[int], operations: List[List[int]]) -> List[int]:
@@ -95,6 +97,8 @@ class Solution:
             d[b] = d[a]
         return nums
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -131,6 +137,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func arrayChange(nums []int, operations [][]int) []int {
 	d := map[int]int{}
@@ -145,6 +153,8 @@ func arrayChange(nums []int, operations [][]int) []int {
 	return nums
 }
 ```
+
+#### TypeScript
 
 ```ts
 function arrayChange(nums: number[], operations: number[][]): number[] {

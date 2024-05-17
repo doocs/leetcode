@@ -73,6 +73,8 @@ bulbs = [1,3,2]，k = 1
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class BinaryIndexedTree:
     def __init__(self, n):
@@ -108,6 +110,8 @@ class Solution:
                 return i
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -156,6 +160,8 @@ class BinaryIndexedTree {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class BinaryIndexedTree {
@@ -207,6 +213,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -251,6 +259,8 @@ func kEmptySlots(bulbs []int, k int) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {

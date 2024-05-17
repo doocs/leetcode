@@ -82,6 +82,8 @@ nums 中的数字按非递减顺序排列为 ["0","0"]
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def kthLargestNumber(self, nums: List[str], k: int) -> str:
@@ -94,6 +96,8 @@ class Solution:
         return nums[k - 1]
 ```
 
+#### Java
+
 ```java
 class Solution {
     public String kthLargestNumber(String[] nums, int k) {
@@ -103,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,6 +120,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func kthLargestNumber(nums []string, k int) string {

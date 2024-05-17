@@ -106,6 +106,8 @@ Next, we just need to filter out the data where `rk = 1`, then join table `T` to
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

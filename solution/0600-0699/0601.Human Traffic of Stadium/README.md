@@ -82,6 +82,8 @@ id</strong> 为 5、6、7、8 的四行 id 连续，并且每行都有 &gt;= 100
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

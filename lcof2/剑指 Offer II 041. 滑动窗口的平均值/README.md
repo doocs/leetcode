@@ -63,6 +63,8 @@ movingAverage.next(5); // 返回 6.0 = (10 + 3 + 5) / 3
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class MovingAverage:
     def __init__(self, size: int):
@@ -82,6 +84,8 @@ class MovingAverage:
 # obj = MovingAverage(size)
 # param_1 = obj.next(val)
 ```
+
+#### Java
 
 ```java
 class MovingAverage {
@@ -108,6 +112,8 @@ class MovingAverage {
  * double param_1 = obj.next(val);
  */
 ```
+
+#### C++
 
 ```cpp
 class MovingAverage {
@@ -136,6 +142,8 @@ private:
  * double param_1 = obj->next(val);
  */
 ```
+
+#### Go
 
 ```go
 type MovingAverage struct {
@@ -174,6 +182,8 @@ func (this *MovingAverage) Next(val int) float64 {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class MovingAverage:
     def __init__(self, size: int):
@@ -193,6 +203,8 @@ class MovingAverage:
 # obj = MovingAverage(size)
 # param_1 = obj.next(val)
 ```
+
+#### Java
 
 ```java
 class MovingAverage {
@@ -220,6 +232,8 @@ class MovingAverage {
  * double param_1 = obj.next(val);
  */
 ```
+
+#### C++
 
 ```cpp
 class MovingAverage {
@@ -250,6 +264,8 @@ private:
  * double param_1 = obj->next(val);
  */
 ```
+
+#### Go
 
 ```go
 type MovingAverage struct {

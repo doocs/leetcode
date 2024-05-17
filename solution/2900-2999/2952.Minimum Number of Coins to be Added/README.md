@@ -87,6 +87,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumAddedCoins(self, coins: List[int], target: int) -> int:
@@ -102,6 +104,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +124,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -140,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumAddedCoins(coins []int, target int) (ans int) {
 	slices.Sort(coins)
@@ -155,6 +163,8 @@ func minimumAddedCoins(coins []int, target int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumAddedCoins(coins: number[], target: number): number {

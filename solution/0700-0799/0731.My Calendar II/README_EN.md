@@ -70,6 +70,8 @@ myCalendarTwo.book(25, 55); // return True, The event can be booked, as the time
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedDict
 
@@ -95,6 +97,8 @@ class MyCalendarTwo:
 # obj = MyCalendarTwo()
 # param_1 = obj.book(start,end)
 ```
+
+#### Java
 
 ```java
 class MyCalendarTwo {
@@ -126,6 +130,8 @@ class MyCalendarTwo {
  */
 ```
 
+#### C++
+
 ```cpp
 class MyCalendarTwo {
 public:
@@ -156,6 +162,8 @@ public:
  * bool param_1 = obj->book(start,end);
  */
 ```
+
+#### Go
 
 ```go
 type MyCalendarTwo struct {
@@ -205,6 +213,8 @@ func (this *MyCalendarTwo) Book(start int, end int) bool {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -284,6 +294,8 @@ class MyCalendarTwo:
 # obj = MyCalendarTwo()
 # param_1 = obj.book(start,end)
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -396,6 +408,8 @@ class MyCalendarTwo {
  */
 ```
 
+#### C++
+
 ```cpp
 class Node {
 public:
@@ -495,6 +509,8 @@ public:
  * bool param_1 = obj->book(start,end);
  */
 ```
+
+#### Go
 
 ```go
 type node struct {

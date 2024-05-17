@@ -62,6 +62,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def angleClock(self, hour: int, minutes: int) -> float:
@@ -70,6 +72,8 @@ class Solution:
         diff = abs(h - m)
         return min(diff, 360 - diff)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +85,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -94,6 +100,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func angleClock(hour int, minutes int) float64 {
 	h := 30*float64(hour) + 0.5*float64(minutes)
@@ -102,6 +110,8 @@ func angleClock(hour int, minutes int) float64 {
 	return math.Min(diff, 360-diff)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function angleClock(hour: number, minutes: number): number {

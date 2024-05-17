@@ -78,6 +78,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumDifference(self, nums: List[int]) -> int:
@@ -90,6 +92,8 @@ class Solution:
                 mi = x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -126,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumDifference(nums []int) int {
 	mi := 1 << 30
@@ -141,6 +149,8 @@ func maximumDifference(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumDifference(nums: number[]): number {
     const n = nums.length;
@@ -153,6 +163,8 @@ function maximumDifference(nums: number[]): number {
     return res === 0 ? -1 : res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -170,6 +182,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

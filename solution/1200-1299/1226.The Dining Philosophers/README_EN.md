@@ -73,6 +73,8 @@ output[i] = [a, b, c] (three integers)
 
 <!-- tabs:start -->
 
+#### C++
+
 ```cpp
 class DiningPhilosophers {
 public:

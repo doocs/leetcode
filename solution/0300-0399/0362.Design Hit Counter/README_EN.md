@@ -75,6 +75,8 @@ hitCounter.getHits(301); // get hits at timestamp 301, return 3.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class HitCounter:
     def __init__(self):
@@ -103,6 +105,8 @@ class HitCounter:
 # obj.hit(timestamp)
 # param_2 = obj.getHits(timestamp)
 ```
+
+#### Java
 
 ```java
 class HitCounter {
@@ -144,6 +148,8 @@ class HitCounter {
  * int param_2 = obj.getHits(timestamp);
  */
 ```
+
+#### Rust
 
 ```rust
 use std::{ collections::BinaryHeap, cmp::Reverse };

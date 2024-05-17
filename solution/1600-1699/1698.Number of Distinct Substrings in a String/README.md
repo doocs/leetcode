@@ -66,12 +66,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countDistinct(self, s: str) -> int:
         n = len(s)
         return len({s[i:j] for i in range(n) for j in range(i + 1, n + 1)})
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +91,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -105,6 +111,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countDistinct(s string) int {
@@ -138,6 +146,8 @@ func countDistinct(s string) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countDistinct(self, s: str) -> int:
@@ -156,6 +166,8 @@ class Solution:
                 ss.add(t)
         return len(ss)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -181,6 +193,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -205,6 +219,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countDistinct(s string) int {

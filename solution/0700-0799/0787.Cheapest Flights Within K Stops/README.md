@@ -79,6 +79,8 @@ src = 0, dst = 2, k = 0
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findCheapestPrice(
@@ -93,6 +95,8 @@ class Solution:
                 dist[t] = min(dist[t], backup[f] + p)
         return -1 if dist[dst] == INF else dist[dst]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -134,6 +140,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findCheapestPrice(n int, flights [][]int, src int, dst int, k int) int {
@@ -168,6 +176,8 @@ func findCheapestPrice(n int, flights [][]int, src int, dst int, k int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findCheapestPrice(
@@ -191,6 +201,8 @@ class Solution:
         ans = dfs(src, k + 1)
         return -1 if ans >= inf else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -236,6 +248,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -267,6 +281,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findCheapestPrice(n int, flights [][]int, src int, dst int, k int) int {

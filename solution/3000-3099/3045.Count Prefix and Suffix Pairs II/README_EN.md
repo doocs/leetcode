@@ -92,6 +92,8 @@ The time complexity is $O(n \times m)$, and the space complexity is $O(n \times 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Node:
     __slots__ = ["children", "cnt"]
@@ -115,6 +117,8 @@ class Solution:
             node.cnt += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -141,6 +145,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Node {
@@ -175,6 +181,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Node struct {
 	children map[int]*Node
@@ -199,6 +207,8 @@ func countPrefixSuffixPairs(words []string) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 class Node {

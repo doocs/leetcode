@@ -76,6 +76,8 @@ The time complexity is $O(n \times \log n)$, where $n$ is the length of the arra
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
@@ -86,6 +88,8 @@ class Solution:
             if j < n and numbers[j] == x:
                 return [i + 1, j + 1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func twoSum(numbers []int, target int) []int {
 	for i, n := 0, len(numbers); ; i++ {
@@ -135,6 +143,8 @@ func twoSum(numbers []int, target int) []int {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function twoSum(numbers: number[], target: number): number[] {
@@ -157,6 +167,8 @@ function twoSum(numbers: number[], target: number): number[] {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 use std::cmp::Ordering;
@@ -183,6 +195,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -225,6 +239,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array `numbers`. T
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
@@ -238,6 +254,8 @@ class Solution:
             else:
                 j -= 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -256,6 +274,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -276,6 +296,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func twoSum(numbers []int, target int) []int {
 	for i, j := 0, len(numbers)-1; ; {
@@ -292,6 +314,8 @@ func twoSum(numbers []int, target int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function twoSum(numbers: number[], target: number): number[] {
     for (let i = 0, j = numbers.length - 1; ; ) {
@@ -307,6 +331,8 @@ function twoSum(numbers: number[], target: number): number[] {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

@@ -57,6 +57,8 @@ Three values were passed to the function so it should return 3.
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function argumentsLength(...args: any[]): number {
     return args.length;

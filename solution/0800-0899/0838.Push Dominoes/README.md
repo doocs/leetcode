@@ -72,6 +72,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def pushDominoes(self, dominoes: str) -> str:
@@ -100,6 +102,8 @@ class Solution:
                         force[j].append(f)
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -145,6 +149,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -183,6 +189,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func pushDominoes(dominoes string) string {
@@ -228,6 +236,8 @@ func pushDominoes(dominoes string) string {
 	return string(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function pushDominoes(dominoes: string): string {

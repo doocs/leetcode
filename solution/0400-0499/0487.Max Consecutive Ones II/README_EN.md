@@ -64,6 +64,8 @@ The max number of consecutive ones is 4.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
@@ -88,6 +90,8 @@ class Solution:
             ans = max(ans, t + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -152,6 +158,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findMaxConsecutiveOnes(nums []int) int {
@@ -201,6 +209,8 @@ func findMaxConsecutiveOnes(nums []int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
@@ -216,6 +226,8 @@ class Solution:
             ans = max(ans, i - j + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -238,6 +250,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -259,6 +273,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findMaxConsecutiveOnes(nums []int) int {
@@ -290,6 +306,8 @@ func findMaxConsecutiveOnes(nums []int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
@@ -305,6 +323,8 @@ class Solution:
             r += 1
         return r - l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -324,6 +344,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -342,6 +364,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findMaxConsecutiveOnes(nums []int) int {

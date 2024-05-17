@@ -64,6 +64,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -77,6 +79,8 @@ class Solution:
             slow, fast = slow.next, fast.next.next
         return slow
 ```
+
+#### Java
 
 ```java
 /**
@@ -100,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -125,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -141,6 +149,8 @@ func middleNode(head *ListNode) *ListNode {
 	return slow
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -165,6 +175,8 @@ function middleNode(head: ListNode | null): ListNode | null {
     return slow;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -195,6 +207,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 /**
@@ -229,6 +243,8 @@ class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**

@@ -88,6 +88,8 @@ We can use a self-join to find out the cases where each account logs in from dif
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT DISTINCT

@@ -87,6 +87,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def smallestStringWithSwaps(self, s: str, pairs: List[List[int]]) -> str:
@@ -106,6 +108,8 @@ class Solution:
             d[i].sort(reverse=True)
         return "".join(d[find(i)].pop() for i in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -146,6 +150,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -179,6 +185,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func smallestStringWithSwaps(s string, pairs [][]int) string {
@@ -216,6 +224,8 @@ func smallestStringWithSwaps(s string, pairs [][]int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function smallestStringWithSwaps(s: string, pairs: number[][]): string {
     const n = s.length;
@@ -243,6 +253,8 @@ function smallestStringWithSwaps(s: string, pairs: number[][]): string {
     return ans.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

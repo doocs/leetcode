@@ -91,6 +91,8 @@ i = 2 且 j = 3 ，因为 isPrefixAndSuffix("ma", "mama") 为 true 。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countPrefixSuffixPairs(self, words: List[str]) -> int:
@@ -100,6 +102,8 @@ class Solution:
                 ans += t.endswith(s) and t.startswith(s)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +123,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -140,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countPrefixSuffixPairs(words []string) (ans int) {
 	for i, s := range words {
@@ -152,6 +160,8 @@ func countPrefixSuffixPairs(words []string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countPrefixSuffixPairs(words: string[]): number {
@@ -184,6 +194,8 @@ function countPrefixSuffixPairs(words: string[]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Node:
     __slots__ = ["children", "cnt"]
@@ -207,6 +219,8 @@ class Solution:
             node.cnt += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -233,6 +247,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Node {
@@ -266,6 +282,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type Node struct {

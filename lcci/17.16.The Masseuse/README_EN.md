@@ -66,6 +66,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.16.The%20Masseuse/
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def massage(self, nums: List[int]) -> int:
@@ -74,6 +76,8 @@ class Solution:
             f, g = g + x, max(f, g)
         return max(f, g)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +93,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -106,6 +112,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func massage(nums []int) int {
 	f, g := 0, 0
@@ -115,6 +123,8 @@ func massage(nums []int) int {
 	return max(f, g)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function massage(nums: number[]): number {
@@ -129,6 +139,8 @@ function massage(nums: number[]): number {
     return Math.max(f, g);
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

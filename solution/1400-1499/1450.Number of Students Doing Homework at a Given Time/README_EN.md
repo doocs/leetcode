@@ -64,6 +64,8 @@ The third student started doing homework at time 3 and finished at time 7 and wa
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def busyStudent(
@@ -71,6 +73,8 @@ class Solution:
     ) -> int:
         return sum(a <= queryTime <= b for a, b in zip(startTime, endTime))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +90,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -98,6 +104,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func busyStudent(startTime []int, endTime []int, queryTime int) int {
@@ -112,6 +120,8 @@ func busyStudent(startTime []int, endTime []int, queryTime int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function busyStudent(startTime: number[], endTime: number[], queryTime: number): number {
     const n = startTime.length;
@@ -124,6 +134,8 @@ function busyStudent(startTime: number[], endTime: number[], queryTime: number):
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -138,6 +150,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int busyStudent(int* startTime, int startTimeSize, int* endTime, int endTimeSize, int queryTime) {
@@ -161,6 +175,8 @@ int busyStudent(int* startTime, int startTimeSize, int* endTime, int endTimeSize
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def busyStudent(
@@ -172,6 +188,8 @@ class Solution:
             c[b + 1] -= 1
         return sum(c[: queryTime + 1])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -190,6 +208,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -207,6 +227,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func busyStudent(startTime []int, endTime []int, queryTime int) int {

@@ -85,6 +85,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfCleanRooms(self, room: List[List[int]]) -> int:
@@ -107,6 +109,8 @@ class Solution:
         dfs(0, 0, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -167,6 +173,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfCleanRooms(room [][]int) (ans int) {
@@ -208,6 +216,8 @@ func numberOfCleanRooms(room [][]int) (ans int) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfCleanRooms(self, room: List[List[int]]) -> int:
@@ -226,6 +236,8 @@ class Solution:
                 k = (k + 1) % 4
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -251,6 +263,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -278,6 +292,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfCleanRooms(room [][]int) (ans int) {

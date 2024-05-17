@@ -95,6 +95,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countPoints(self, rings: str) -> int:
@@ -106,6 +108,8 @@ class Solution:
             mask[j] |= d[c]
         return mask.count(7)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -146,6 +152,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countPoints(rings string) (ans int) {
@@ -165,6 +173,8 @@ func countPoints(rings string) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countPoints(rings: string): number {
     const idx = (c: string) => c.charCodeAt(0) - 'A'.charCodeAt(0);
@@ -181,6 +191,8 @@ function countPoints(rings: string): number {
     return mask.filter(x => x === 7).length;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -207,6 +219,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int countPoints(char* rings) {
@@ -245,6 +259,8 @@ int countPoints(char* rings) {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function countPoints(rings: string): number {

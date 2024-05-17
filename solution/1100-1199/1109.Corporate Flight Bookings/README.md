@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def corpFlightBookings(self, bookings: List[List[int]], n: int) -> List[int]:
@@ -90,6 +92,8 @@ class Solution:
                 ans[last] -= seats
         return list(accumulate(ans))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -130,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func corpFlightBookings(bookings [][]int, n int) []int {
 	ans := make([]int, n)
@@ -146,6 +154,8 @@ func corpFlightBookings(bookings [][]int, n int) []int {
 	return ans
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -171,6 +181,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -216,6 +228,8 @@ var corpFlightBookings = function (bookings, n) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class BinaryIndexedTree:
     def __init__(self, n):
@@ -243,6 +257,8 @@ class Solution:
             tree.update(last + 1, -seats)
         return [tree.query(i + 1) for i in range(n)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -287,6 +303,8 @@ class BinaryIndexedTree {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class BinaryIndexedTree {
@@ -333,6 +351,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {

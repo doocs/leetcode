@@ -80,11 +80,15 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
         return reduce(xor, (i ^ v for i, v in enumerate(nums, 1)))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -113,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func missingNumber(nums []int) (ans int) {
 	n := len(nums)
@@ -124,6 +132,8 @@ func missingNumber(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function missingNumber(nums: number[]): number {
     const n = nums.length;
@@ -134,6 +144,8 @@ function missingNumber(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -147,6 +159,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -162,6 +176,8 @@ var missingNumber = function (nums) {
     return ans;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -194,12 +210,16 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
         n = len(nums)
         return (1 + n) * n // 2 - sum(nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -214,6 +234,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -223,6 +245,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func missingNumber(nums []int) (ans int) {
@@ -235,6 +259,8 @@ func missingNumber(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function missingNumber(nums: number[]): number {
     const n = nums.length;
@@ -245,6 +271,8 @@ function missingNumber(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -258,6 +286,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

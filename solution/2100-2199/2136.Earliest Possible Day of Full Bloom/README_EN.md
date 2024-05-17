@@ -87,6 +87,8 @@ Thus, on day 2, all the seeds are blooming.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def earliestFullBloom(self, plantTime: List[int], growTime: List[int]) -> int:
@@ -96,6 +98,8 @@ class Solution:
             ans = max(ans, t + gt)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -134,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func earliestFullBloom(plantTime []int, growTime []int) (ans int) {
 	n := len(plantTime)
@@ -151,6 +159,8 @@ func earliestFullBloom(plantTime []int, growTime []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function earliestFullBloom(plantTime: number[], growTime: number[]): number {
     const n = plantTime.length;
@@ -164,6 +174,8 @@ function earliestFullBloom(plantTime: number[], growTime: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

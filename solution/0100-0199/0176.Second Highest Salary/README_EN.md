@@ -84,6 +84,8 @@ Employee table:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 import pandas as pd
 
@@ -107,6 +109,8 @@ def second_highest_salary(employee: pd.DataFrame) -> pd.DataFrame:
     return result_df
 ```
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT
@@ -128,6 +132,8 @@ SELECT
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT MAX(salary) AS SecondHighestSalary
@@ -144,6 +150,8 @@ WHERE salary < (SELECT MAX(salary) FROM Employee);
 ### Solution 3: Use `IFNULL()` and window function
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

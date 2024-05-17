@@ -86,6 +86,8 @@ The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Here, $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numPermsDISequence(self, s: str) -> int:
@@ -104,6 +106,8 @@ class Solution:
                         f[i][j] = (f[i][j] + f[i - 1][k]) % mod
         return sum(f[n][j] for j in range(n + 1)) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +139,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -169,6 +175,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numPermsDISequence(s string) (ans int) {
 	const mod = 1e9 + 7
@@ -199,6 +207,8 @@ func numPermsDISequence(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numPermsDISequence(s: string): number {
@@ -237,6 +247,8 @@ We can optimize the time complexity to $O(n^2)$ using prefix sums.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numPermsDISequence(self, s: str) -> int:
@@ -256,6 +268,8 @@ class Solution:
                     pre = (pre + f[i - 1][j]) % mod
         return sum(f[n][j] for j in range(n + 1)) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -286,6 +300,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -319,6 +335,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numPermsDISequence(s string) (ans int) {
 	const mod = 1e9 + 7
@@ -348,6 +366,8 @@ func numPermsDISequence(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numPermsDISequence(s: string): number {
@@ -385,6 +405,8 @@ Additionally, we can optimize the space complexity to $O(n)$ using a rolling arr
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numPermsDISequence(self, s: str) -> int:
@@ -405,6 +427,8 @@ class Solution:
             f = g
         return sum(f) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -437,6 +461,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -471,6 +497,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numPermsDISequence(s string) (ans int) {
 	const mod = 1e9 + 7
@@ -499,6 +527,8 @@ func numPermsDISequence(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numPermsDISequence(s: string): number {

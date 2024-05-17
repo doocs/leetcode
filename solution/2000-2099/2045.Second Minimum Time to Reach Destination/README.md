@@ -102,6 +102,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def secondMinimum(
@@ -132,6 +134,8 @@ class Solution:
                 ans = (ans + change) // change * change
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {

@@ -77,6 +77,8 @@ i = 2：1，2 和 3 是两个数组的前缀公共元素，所以 C[2] = 3 。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findThePrefixCommonArray(self, A: List[int], B: List[int]) -> List[int]:
@@ -90,6 +92,8 @@ class Solution:
             ans.append(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -129,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findThePrefixCommonArray(A []int, B []int) []int {
 	n := len(A)
@@ -146,6 +154,8 @@ func findThePrefixCommonArray(A []int, B []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findThePrefixCommonArray(A: number[], B: number[]): number[] {
@@ -184,6 +194,8 @@ function findThePrefixCommonArray(A: number[], B: number[]): number[] {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findThePrefixCommonArray(self, A: List[int], B: List[int]) -> List[int]:
@@ -198,6 +210,8 @@ class Solution:
             ans.append(s)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -219,6 +233,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -239,6 +255,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findThePrefixCommonArray(A []int, B []int) (ans []int) {
 	vis := make([]int, len(A)+1)
@@ -257,6 +275,8 @@ func findThePrefixCommonArray(A []int, B []int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findThePrefixCommonArray(A: number[], B: number[]): number[] {

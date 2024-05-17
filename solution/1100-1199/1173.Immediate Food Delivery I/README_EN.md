@@ -76,6 +76,8 @@ We can use the `sum` function to count the number of instant orders, and then di
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT

@@ -92,6 +92,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumCost(self, n: int, highways: List[List[int]], k: int) -> int:
@@ -115,6 +117,8 @@ class Solution:
                     ans = max(ans, f[i][j])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -157,6 +161,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -194,6 +200,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumCost(n int, highways [][]int, k int) int {
@@ -235,6 +243,8 @@ func maximumCost(n int, highways [][]int, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumCost(n: number, highways: number[][], k: number): number {

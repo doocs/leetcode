@@ -109,6 +109,8 @@ ID = 96 的顾客曾经去过购物中心，并且没有进行任何交易。
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT customer_id, COUNT(1) AS count_no_trans
@@ -128,6 +130,8 @@ GROUP BY 1;
 我们也可以使用左连接，将 `Visits` 表和 `Transactions` 表按照 `visit_id` 进行连接，然后筛选出 `amount` 为 `NULL` 的记录，按照 `customer_id` 进行分组，统计每个顾客的没有进行交易的次数。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

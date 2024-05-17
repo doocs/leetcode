@@ -69,6 +69,8 @@ myCalendarThree.book(25, 55); // return 3
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Node:
     def __init__(self, l, r):
@@ -145,6 +147,8 @@ class MyCalendarThree:
 # obj = MyCalendarThree()
 # param_1 = obj.book(start,end)
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -254,6 +258,8 @@ class MyCalendarThree {
  */
 ```
 
+#### C++
+
 ```cpp
 class Node {
 public:
@@ -353,6 +359,8 @@ public:
  * int param_1 = obj->book(start,end);
  */
 ```
+
+#### Go
 
 ```go
 type node struct {

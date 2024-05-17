@@ -99,6 +99,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Trie:
     def __init__(self):
@@ -137,6 +139,8 @@ class Solution:
             trie.insert(w, i)
         return [[products[i] for i in v] for v in trie.search(searchWord)]
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -193,6 +197,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -251,6 +257,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type Trie struct {

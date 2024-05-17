@@ -70,6 +70,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def knightDialer(self, n: int) -> int:
@@ -90,6 +92,8 @@ class Solution:
             f = t
         return sum(t) % (10**9 + 7)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using ll = long long;
 
@@ -152,6 +158,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func knightDialer(n int) int {
@@ -185,6 +193,8 @@ func knightDialer(n int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function knightDialer(n: number): number {
@@ -222,6 +232,8 @@ function knightDialer(n: number): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

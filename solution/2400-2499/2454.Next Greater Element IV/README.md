@@ -91,6 +91,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedList
 
@@ -109,6 +111,8 @@ class Solution:
             sl.add(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +139,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -158,6 +164,8 @@ public:
     }
 };
 ```
+
+#### TypeScript
 
 ```ts
 function secondGreaterElement(nums: number[]): number[] {

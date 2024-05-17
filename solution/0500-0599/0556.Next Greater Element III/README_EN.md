@@ -47,6 +47,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def nextGreaterElement(self, n: int) -> int:
@@ -64,6 +66,8 @@ class Solution:
         ans = int(''.join(cs))
         return -1 if ans > 2**31 - 1 else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +102,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -117,6 +123,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func nextGreaterElement(n int) int {

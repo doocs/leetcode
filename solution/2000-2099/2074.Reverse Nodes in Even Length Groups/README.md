@@ -92,6 +92,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -133,6 +135,8 @@ class Solution:
             prev.next = reverse(prev.next, left)
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -188,6 +192,8 @@ class Solution {
     }
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

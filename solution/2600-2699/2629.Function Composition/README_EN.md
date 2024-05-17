@@ -75,6 +75,8 @@ The composition of zero functions is the identity function</pre>
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 type F = (x: number) => number;
 

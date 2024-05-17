@@ -72,6 +72,8 @@ The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the length an
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
@@ -80,6 +82,8 @@ class Solution:
 
         return 1 + bisect_left(range(1, max(piles) + 1), True, key=check)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -124,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minEatingSpeed(piles []int, h int) int {
 	return 1 + sort.Search(slices.Max(piles), func(k int) bool {
@@ -136,6 +144,8 @@ func minEatingSpeed(piles []int, h int) int {
 	})
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minEatingSpeed(piles: number[], h: number): number {
@@ -152,6 +162,8 @@ function minEatingSpeed(piles: number[], h: number): number {
     return l;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -174,6 +186,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

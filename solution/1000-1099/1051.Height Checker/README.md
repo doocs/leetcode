@@ -83,12 +83,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def heightChecker(self, heights: List[int]) -> int:
         expected = sorted(heights)
         return sum(a != b for a, b in zip(heights, expected))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -118,6 +124,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func heightChecker(heights []int) int {
@@ -148,6 +156,8 @@ func heightChecker(heights []int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def heightChecker(self, heights: List[int]) -> int:
@@ -163,6 +173,8 @@ class Solution:
                 i += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -185,6 +197,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -202,6 +216,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func heightChecker(heights []int) int {

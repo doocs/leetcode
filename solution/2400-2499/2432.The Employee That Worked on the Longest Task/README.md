@@ -102,6 +102,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def hardestWorker(self, n: int, logs: List[List[int]]) -> int:
@@ -113,6 +115,8 @@ class Solution:
             last += t
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +137,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -152,6 +158,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hardestWorker(n int, logs [][]int) (ans int) {
 	var mx, last int
@@ -168,6 +176,8 @@ func hardestWorker(n int, logs [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function hardestWorker(n: number, logs: number[][]): number {
     let [ans, mx, last] = [0, 0, 0];
@@ -182,6 +192,8 @@ function hardestWorker(n: number, logs: number[][]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -201,6 +213,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define min(a, b) (((a) < (b)) ? (a) : (b))
@@ -230,6 +244,8 @@ int hardestWorker(int n, int** logs, int logsSize, int* logsColSize) {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {

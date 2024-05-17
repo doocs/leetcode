@@ -87,6 +87,8 @@ Notice that $f[i][j]$ only depends on $f[i - 1][j - 1]$ and $f[i - 1][j]$, so we
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numMusicPlaylists(self, n: int, goal: int, k: int) -> int:
@@ -101,6 +103,8 @@ class Solution:
                 f[i][j] %= mod
         return f[goal][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -144,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numMusicPlaylists(n int, goal int, k int) int {
 	const mod = 1e9 + 7
@@ -165,6 +173,8 @@ func numMusicPlaylists(n int, goal int, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numMusicPlaylists(n: number, goal: number, k: number): number {
     const mod = 1e9 + 7;
@@ -182,6 +192,8 @@ function numMusicPlaylists(n: number, goal: number, k: number): number {
     return f[goal][n];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -225,6 +237,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numMusicPlaylists(self, n: int, goal: int, k: int) -> int:
@@ -241,6 +255,8 @@ class Solution:
             f = g
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -263,6 +279,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -287,6 +305,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numMusicPlaylists(n int, goal int, k int) int {
 	const mod = 1e9 + 7
@@ -306,6 +326,8 @@ func numMusicPlaylists(n int, goal int, k int) int {
 	return f[n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numMusicPlaylists(n: number, goal: number, k: number): number {

@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countHousePlacements(self, n: int) -> int:
@@ -88,6 +90,8 @@ class Solution:
         v = f[-1] + g[-1]
         return v * v % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countHousePlacements(n int) int {
 	const mod = 1e9 + 7
@@ -139,6 +147,8 @@ func countHousePlacements(n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countHousePlacements(n: number): number {
     const f = new Array(n);
@@ -153,6 +163,8 @@ function countHousePlacements(n: number): number {
     return Number(v ** 2n % mod);
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

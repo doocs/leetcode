@@ -88,6 +88,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def shiftGrid(self, grid: List[List[int]], k: int) -> List[List[int]]:
@@ -99,6 +101,8 @@ class Solution:
                 ans[x][y] = v
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +128,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -142,6 +148,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func shiftGrid(grid [][]int, k int) [][]int {
 	m, n := len(grid), len(grid[0])
@@ -159,6 +167,8 @@ func shiftGrid(grid [][]int, k int) [][]int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function shiftGrid(grid: number[][], k: number): number[][] {

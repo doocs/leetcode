@@ -80,6 +80,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def asteroidCollision(self, asteroids: List[int]) -> List[int]:
@@ -96,6 +98,8 @@ class Solution:
                     stk.append(x)
         return stk
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +123,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -144,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func asteroidCollision(asteroids []int) (stk []int) {
 	for _, x := range asteroids {
@@ -163,6 +171,8 @@ func asteroidCollision(asteroids []int) (stk []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function asteroidCollision(asteroids: number[]): number[] {
@@ -184,6 +194,8 @@ function asteroidCollision(asteroids: number[]): number[] {
     return stk;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

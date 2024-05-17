@@ -73,11 +73,15 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isStrictlyPalindromic(self, n: int) -> bool:
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +90,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -96,17 +102,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isStrictlyPalindromic(n int) bool {
 	return false
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isStrictlyPalindromic(n: number): boolean {
     return false;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -115,6 +127,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 bool isStrictlyPalindromic(int n) {

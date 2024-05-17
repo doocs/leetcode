@@ -75,6 +75,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def finalPrices(self, prices: List[int]) -> List[int]:
@@ -87,6 +89,8 @@ class Solution:
                     break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -127,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func finalPrices(prices []int) []int {
 	n := len(prices)
@@ -144,6 +152,8 @@ func finalPrices(prices []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function finalPrices(prices: number[]): number[] {
     const n = prices.length;
@@ -160,6 +170,8 @@ function finalPrices(prices: number[]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -180,6 +192,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} prices
@@ -197,6 +211,8 @@ var finalPrices = function (prices) {
     return prices;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -242,6 +258,8 @@ for i in range(n):
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def finalPrices(self, prices: List[int]) -> List[int]:
@@ -253,6 +271,8 @@ class Solution:
             stk.append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -272,6 +292,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -290,6 +312,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func finalPrices(prices []int) []int {
 	var stk []int
@@ -306,6 +330,8 @@ func finalPrices(prices []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function finalPrices(prices: number[]): number[] {
@@ -333,6 +359,8 @@ function finalPrices(prices: number[]): number[] {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def finalPrices(self, prices: List[int]) -> List[int]:
@@ -346,6 +374,8 @@ class Solution:
             stk.append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -367,6 +397,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -390,6 +422,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func finalPrices(prices []int) []int {
 	stk := []int{}
@@ -408,6 +442,8 @@ func finalPrices(prices []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function finalPrices(prices: number[]): number[] {

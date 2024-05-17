@@ -76,6 +76,8 @@ Notice that you cannot attend any other event as they overlap, and that you do <
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxValue(self, events: List[List[int]], k: int) -> int:
@@ -93,6 +95,8 @@ class Solution:
         events.sort()
         return dfs(0, k)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +139,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -161,6 +167,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxValue(events [][]int, k int) int {
 	sort.Slice(events, func(i, j int) bool { return events[i][0] < events[j][0] })
@@ -185,6 +193,8 @@ func maxValue(events [][]int, k int) int {
 	return dfs(0, k)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxValue(events: number[][], k: number): number {
@@ -225,6 +235,8 @@ function maxValue(events: number[][], k: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxValue(self, events: List[List[int]], k: int) -> int:
@@ -237,6 +249,8 @@ class Solution:
                 f[i][j] = max(f[i - 1][j], f[p][j - 1] + val)
         return f[n][k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -269,6 +283,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -289,6 +305,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxValue(events [][]int, k int) int {

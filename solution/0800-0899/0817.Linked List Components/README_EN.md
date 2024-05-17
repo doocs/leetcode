@@ -62,6 +62,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -80,6 +82,8 @@ class Solution:
                 head = head.next
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -113,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -138,6 +144,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -167,6 +175,8 @@ func numComponents(head *ListNode, nums []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -200,6 +210,8 @@ function numComponents(head: ListNode | null, nums: number[]): number {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -240,6 +252,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

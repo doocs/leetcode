@@ -47,6 +47,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.04.Missing%20Numbe
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
@@ -56,6 +58,8 @@ class Solution:
                 return i
         return len(nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -71,6 +75,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -88,6 +94,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func missingNumber(nums []int) int {
 	sort.Ints(nums)
@@ -99,6 +107,8 @@ func missingNumber(nums []int) int {
 	return len(nums)
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -114,6 +124,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -131,6 +143,8 @@ var missingNumber = function (nums) {
     return n;
 };
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -160,11 +174,15 @@ class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
         return sum(range(len(nums) + 1)) - sum(nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -178,6 +196,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -193,6 +213,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func missingNumber(nums []int) (ans int) {
 	ans = len(nums)
@@ -202,6 +224,8 @@ func missingNumber(nums []int) (ans int) {
 	return
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -222,6 +246,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -236,6 +262,8 @@ var missingNumber = function (nums) {
     return ans;
 };
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -260,6 +288,8 @@ class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
@@ -268,6 +298,8 @@ class Solution:
             ans ^= i ^ x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -280,6 +312,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -294,6 +328,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func missingNumber(nums []int) (ans int) {
 	for i, x := range nums {
@@ -302,6 +338,8 @@ func missingNumber(nums []int) (ans int) {
 	return
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -315,6 +353,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

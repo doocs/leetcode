@@ -86,6 +86,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
@@ -94,6 +96,8 @@ class Solution:
 
         return bisect_left(range(len(nums)), True, key=f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -140,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findDuplicate(nums []int) int {
 	return sort.Search(len(nums), func(x int) bool {
@@ -153,6 +161,8 @@ func findDuplicate(nums []int) int {
 	})
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findDuplicate(nums: number[]): number {
@@ -175,6 +185,8 @@ function findDuplicate(nums: number[]): number {
     return l;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -200,6 +212,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

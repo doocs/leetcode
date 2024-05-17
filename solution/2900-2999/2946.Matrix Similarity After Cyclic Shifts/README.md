@@ -78,6 +78,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def areSimilar(self, mat: List[List[int]], k: int) -> bool:
@@ -90,6 +92,8 @@ class Solution:
                     return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func areSimilar(mat [][]int, k int) bool {
 	n := len(mat[0])
@@ -149,6 +157,8 @@ func areSimilar(mat [][]int, k int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function areSimilar(mat: number[][], k: number): boolean {

@@ -74,11 +74,15 @@ The time complexity is $O(n)$, where $n$ is the length of `details`. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSeniors(self, details: List[str]) -> int:
         return sum(int(x[11:13]) > 60 for x in details)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +99,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -109,6 +115,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSeniors(details []string) (ans int) {
 	for _, x := range details {
@@ -120,6 +128,8 @@ func countSeniors(details []string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countSeniors(details: string[]): number {
@@ -133,6 +143,8 @@ function countSeniors(details: string[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -162,11 +174,15 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function countSeniors(details: string[]): number {
     return details.filter(v => parseInt(v.slice(11, 13)) > 60).length;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

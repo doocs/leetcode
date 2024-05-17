@@ -53,6 +53,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcs/LCS%2002.%20%E5%AE%8C%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def halfQuestions(self, questions: List[int]) -> int:
@@ -65,6 +67,8 @@ class Solution:
                 break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +89,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -104,6 +110,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func halfQuestions(questions []int) (ans int) {
 	cnt := make([]int, 1010)
@@ -119,6 +127,8 @@ func halfQuestions(questions []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function halfQuestions(questions: number[]): number {
@@ -136,6 +146,8 @@ function halfQuestions(questions: number[]): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

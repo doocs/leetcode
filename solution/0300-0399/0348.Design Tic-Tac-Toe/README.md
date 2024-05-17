@@ -89,6 +89,8 @@ toe.move(2, 1, 1); -&gt; 函数返回 1 (此时，玩家 1 赢得了该场比赛
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class TicTacToe:
     def __init__(self, n: int):
@@ -130,6 +132,8 @@ class TicTacToe:
 # obj = TicTacToe(n)
 # param_1 = obj.move(row,col,player)
 ```
+
+#### Java
 
 ```java
 class TicTacToe {

@@ -59,6 +59,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def modifyString(self, s: str) -> str:
@@ -73,6 +75,8 @@ class Solution:
                     break
         return "".join(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +99,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -116,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func modifyString(s string) string {
 	n := len(s)
@@ -134,6 +142,8 @@ func modifyString(s string) string {
 	return string(cs)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function modifyString(s: string): string {

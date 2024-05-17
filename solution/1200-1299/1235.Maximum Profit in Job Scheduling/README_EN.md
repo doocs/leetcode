@@ -94,6 +94,8 @@ The time complexity is $O(n \times \log n)$, where $n$ is the number of jobs.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def jobScheduling(
@@ -111,6 +113,8 @@ class Solution:
         n = len(profit)
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -158,6 +162,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -181,6 +187,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func jobScheduling(startTime []int, endTime []int, profit []int) int {
@@ -208,6 +216,8 @@ func jobScheduling(startTime []int, endTime []int, profit []int) int {
 	return dfs(0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function jobScheduling(startTime: number[], endTime: number[], profit: number[]): number {
@@ -271,6 +281,8 @@ Similar problems:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def jobScheduling(
@@ -284,6 +296,8 @@ class Solution:
             dp[i + 1] = max(dp[i], dp[j] + p)
         return dp[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -317,6 +331,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -336,6 +352,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func jobScheduling(startTime []int, endTime []int, profit []int) int {
 	n := len(profit)
@@ -353,6 +371,8 @@ func jobScheduling(startTime []int, endTime []int, profit []int) int {
 	return dp[n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function jobScheduling(startTime: number[], endTime: number[], profit: number[]): number {

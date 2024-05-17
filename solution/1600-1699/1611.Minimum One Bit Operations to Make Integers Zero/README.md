@@ -93,6 +93,8 @@ int rev(int x) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumOneBitOperations(self, n: int) -> int:
@@ -102,6 +104,8 @@ class Solution:
             n >>= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -128,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumOneBitOperations(n int) (ans int) {
 	for ; n > 0; n >>= 1 {
@@ -136,6 +144,8 @@ func minimumOneBitOperations(n int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumOneBitOperations(n: number): number {
@@ -157,6 +167,8 @@ function minimumOneBitOperations(n: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumOneBitOperations(self, n: int) -> int:
@@ -164,6 +176,8 @@ class Solution:
             return 0
         return n ^ self.minimumOneBitOperations(n >> 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -175,6 +189,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -188,6 +204,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumOneBitOperations(n int) int {
 	if n == 0 {
@@ -196,6 +214,8 @@ func minimumOneBitOperations(n int) int {
 	return n ^ minimumOneBitOperations(n>>1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumOneBitOperations(n: number): number {

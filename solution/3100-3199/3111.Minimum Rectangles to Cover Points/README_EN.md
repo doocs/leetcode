@@ -164,6 +164,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minRectanglesToCoverPoints(self, points: List[List[int]], w: int) -> int:
@@ -175,6 +177,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -194,6 +198,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -212,6 +218,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minRectanglesToCoverPoints(points [][]int, w int) (ans int) {
 	sort.Slice(points, func(i, j int) bool { return points[i][0] < points[j][0] })
@@ -225,6 +233,8 @@ func minRectanglesToCoverPoints(points [][]int, w int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minRectanglesToCoverPoints(points: number[][], w: number): number {

@@ -81,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def distanceBetweenBusStops(
@@ -92,6 +94,8 @@ class Solution:
             start = (start + 1) % n
         return min(a, sum(distance) - a)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +128,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func distanceBetweenBusStops(distance []int, start int, destination int) int {
@@ -138,6 +146,8 @@ func distanceBetweenBusStops(distance []int, start int, destination int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function distanceBetweenBusStops(distance: number[], start: number, destination: number): number {
     const s = distance.reduce((a, b) => a + b, 0);
@@ -150,6 +160,8 @@ function distanceBetweenBusStops(distance: number[], start: number, destination:
     return Math.min(a, s - a);
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

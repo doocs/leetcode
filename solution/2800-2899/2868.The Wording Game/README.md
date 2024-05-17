@@ -116,6 +116,8 @@ Bob 无法出牌，因为他的两个单词的第一个字母都比 Alice 的单
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canAliceWin(self, a: List[str], b: List[str]) -> bool:
@@ -137,6 +139,8 @@ class Solution:
                     k ^= 1
                 i += 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -171,6 +175,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -202,6 +208,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canAliceWin(a []string, b []string) bool {
 	i, j, k := 1, 0, 1
@@ -229,6 +237,8 @@ func canAliceWin(a []string, b []string) bool {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canAliceWin(a: string[], b: string[]): boolean {

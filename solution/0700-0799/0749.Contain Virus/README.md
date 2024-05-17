@@ -93,6 +93,8 @@ DFS 找到每个病毒区域 `areas[i]`，同时记录每个区域边界节点 `
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def containVirus(self, isInfected: List[List[int]]) -> int:
@@ -138,6 +140,8 @@ class Solution:
                                 isInfected[x][y] = 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -232,6 +236,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -319,6 +325,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func containVirus(isInfected [][]int) int {

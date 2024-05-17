@@ -71,12 +71,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3146.Pe
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findPermutationDifference(self, s: str, t: str) -> int:
         d = {c: i for i, c in enumerate(s)}
         return sum(abs(d[c] - i) for i, c in enumerate(t))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +98,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -113,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findPermutationDifference(s string, t string) (ans int) {
 	d := [26]int{}
@@ -125,6 +133,8 @@ func findPermutationDifference(s string, t string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findPermutationDifference(s: string, t: string): number {

@@ -68,6 +68,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def kSimilarity(self, s1: str, s2: str) -> int:
@@ -95,6 +97,8 @@ class Solution:
                         q.append(nxt)
             ans += 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -146,6 +150,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -186,6 +192,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func kSimilarity(s1 string, s2 string) int {
@@ -247,6 +255,8 @@ A\* 算法主要步骤如下：
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def kSimilarity(self, s1: str, s2: str) -> int:
@@ -276,6 +286,8 @@ class Solution:
                     dist[nxt] = dist[s] + 1
                     heappush(q, (dist[nxt] + f(nxt), nxt))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -334,6 +346,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using pis = pair<int, string>;
 
@@ -382,6 +396,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func kSimilarity(s1 string, s2 string) int {

@@ -46,6 +46,8 @@ The time complexity is $O(\log n)$, where $n$ is the size of $N$. The space comp
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def insertBits(self, N: int, M: int, i: int, j: int) -> int:
@@ -53,6 +55,8 @@ class Solution:
             N &= ~(1 << k)
         return N | M << i
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -64,6 +68,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -77,6 +83,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func insertBits(N int, M int, i int, j int) int {
 	for k := i; k <= j; k++ {
@@ -86,6 +94,8 @@ func insertBits(N int, M int, i int, j int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function insertBits(N: number, M: number, i: number, j: number): number {
     for (let k = i; k <= j; ++k) {
@@ -94,6 +104,8 @@ function insertBits(N: number, M: number, i: number, j: number): number {
     return N | (M << i);
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

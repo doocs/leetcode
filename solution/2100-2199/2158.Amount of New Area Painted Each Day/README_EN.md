@@ -86,6 +86,8 @@ The amount of new area painted on day 1 is 0.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Node:
     def __init__(self, l, r):
@@ -161,6 +163,8 @@ class Solution:
             tree.modify(l, r, 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -268,6 +272,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Node {

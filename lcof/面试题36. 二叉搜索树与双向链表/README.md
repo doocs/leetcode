@@ -58,6 +58,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 """
 # Definition for a Node.
@@ -92,6 +94,8 @@ class Solution:
         pre.right = head
         return head
 ```
+
+#### Java
 
 ```java
 /*
@@ -144,6 +148,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /*
@@ -200,6 +206,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -236,6 +244,8 @@ func treeToDoublyList(root *Node) *Node {
 	return head
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -276,6 +286,8 @@ var treeToDoublyList = function (root) {
     return head;
 };
 ```
+
+#### C#
 
 ```cs
 /*

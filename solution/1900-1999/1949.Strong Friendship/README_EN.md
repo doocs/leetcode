@@ -87,6 +87,8 @@ We did not include the friendship of users 2 and 3 because they only have two co
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

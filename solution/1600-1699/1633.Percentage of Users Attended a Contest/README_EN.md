@@ -110,6 +110,8 @@ We can group the `Register` table by `contest_id` and count the number of regist
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT

@@ -74,6 +74,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxRepeating(self, sequence: str, word: str) -> int:
@@ -81,6 +83,8 @@ class Solution:
             if word * k in sequence:
                 return k
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +98,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,6 +120,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxRepeating(sequence string, word string) int {
 	for k := len(sequence) / len(word); k > 0; k-- {
@@ -124,6 +132,8 @@ func maxRepeating(sequence string, word string) int {
 	return 0
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxRepeating(sequence: string, word: string): number {
@@ -137,6 +147,8 @@ function maxRepeating(sequence: string, word: string): number {
     return 0;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -157,6 +169,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))

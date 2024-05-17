@@ -80,6 +80,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def badSensor(self, sensor1: List[int], sensor2: List[int]) -> int:
@@ -96,6 +98,8 @@ class Solution:
             i += 1
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +138,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func badSensor(sensor1 []int, sensor2 []int) int {
@@ -149,6 +157,8 @@ func badSensor(sensor1 []int, sensor2 []int) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function badSensor(sensor1: number[], sensor2: number[]): number {

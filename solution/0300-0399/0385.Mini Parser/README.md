@@ -72,6 +72,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # """
 # This is the interface that allows for creating nested lists.
@@ -134,6 +136,8 @@ class Solution:
         return ans
 ```
 
+#### Java
+
 ```java
 /**
  * // This is the interface that allows for creating nested lists.
@@ -187,6 +191,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -244,6 +250,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * // This is the interface that allows for creating nested lists.
@@ -294,6 +302,8 @@ func deserialize(s string) *NestedInteger {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -381,6 +391,8 @@ function deserialize(s: string): NestedInteger {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # """
 # This is the interface that allows for creating nested lists.
@@ -448,6 +460,8 @@ class Solution:
         return stk.pop()
 ```
 
+#### Java
+
 ```java
 /**
  * // This is the interface that allows for creating nested lists.
@@ -512,6 +526,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -580,6 +596,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * // This is the interface that allows for creating nested lists.
@@ -644,6 +662,8 @@ func deserialize(s string) *NestedInteger {
 	return stk[0]
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

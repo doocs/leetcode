@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def nthSuperUglyNumber(self, n: int, primes: List[int]) -> int:
@@ -92,6 +94,8 @@ class Solution:
                     break
         return x
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -141,6 +147,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func nthSuperUglyNumber(n int, primes []int) (x int) {
@@ -180,6 +188,8 @@ func (h *hp) Pop() any {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Go
 
 ```go
 type Ugly struct{ value, prime, index int }

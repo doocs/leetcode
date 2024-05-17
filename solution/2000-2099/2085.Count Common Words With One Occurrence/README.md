@@ -78,6 +78,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countWords(self, words1: List[str], words2: List[str]) -> int:
@@ -85,6 +87,8 @@ class Solution:
         cnt2 = Counter(words2)
         return sum(v == 1 and cnt2[w] == 1 for w, v in cnt1.items())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -129,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countWords(words1 []string, words2 []string) (ans int) {
 	cnt1 := map[string]int{}
@@ -147,6 +155,8 @@ func countWords(words1 []string, words2 []string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countWords(words1: string[], words2: string[]): number {

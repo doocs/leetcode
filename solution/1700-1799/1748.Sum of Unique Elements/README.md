@@ -72,12 +72,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumOfUnique(self, nums: List[int]) -> int:
         cnt = Counter(nums)
         return sum(x for x, v in cnt.items() if v == 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +100,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -116,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumOfUnique(nums []int) (ans int) {
 	cnt := [101]int{}
@@ -130,6 +138,8 @@ func sumOfUnique(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumOfUnique(nums: number[]): number {
@@ -146,6 +156,8 @@ function sumOfUnique(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -164,6 +176,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -197,6 +211,8 @@ class Solution {
 
 <!-- tabs:start -->
 
+#### Java
+
 ```java
 class Solution {
     public int sumOfUnique(int[] nums) {
@@ -213,6 +229,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -232,6 +250,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumOfUnique(nums []int) (ans int) {
 	cnt := [101]int{}
@@ -247,6 +267,8 @@ func sumOfUnique(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sumOfUnique(nums: number[]): number {
     let ans = 0;
@@ -261,6 +283,8 @@ function sumOfUnique(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;

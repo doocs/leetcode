@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def idealArrays(self, n: int, maxValue: int) -> int:
@@ -103,6 +105,8 @@ class Solution:
             ans = (ans + dfs(i, 1)) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -148,6 +152,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -180,6 +186,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func idealArrays(n int, maxValue int) int {
@@ -245,6 +253,8 @@ func idealArrays(n int, maxValue int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def idealArrays(self, n: int, maxValue: int) -> int:
@@ -268,6 +278,8 @@ class Solution:
                 ans = (ans + dp[i][j] * c[-1][j - 1]) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -303,6 +315,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using ll = long long;
 
@@ -331,6 +345,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func idealArrays(n int, maxValue int) int {

@@ -87,6 +87,8 @@ The time complexity is $O(n \times |\Sigma|)$, and the space complexity is $O(|\
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxSubstringLength(self, s: str) -> int:
@@ -107,6 +109,8 @@ class Solution:
                     ans = max(ans, j - i + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -146,6 +150,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -184,6 +190,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSubstringLength(s string) int {
 	first := [26]int{}
@@ -220,6 +228,8 @@ func maxSubstringLength(s string) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxSubstringLength(s: string): number {

@@ -69,11 +69,15 @@ You can rotate the array by x = 0 positions (i.e. no rotation) to make nums.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def check(self, nums: List[int]) -> bool:
         return sum(nums[i - 1] > v for i, v in enumerate(nums)) <= 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +93,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -102,6 +108,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func check(nums []int) bool {
 	cnt := 0
@@ -114,12 +122,16 @@ func check(nums []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function check(nums: number[]): boolean {
     const n = nums.length;
     return nums.reduce((r, v, i) => r + (v > nums[(i + 1) % n] ? 1 : 0), 0) <= 1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -135,6 +147,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 bool check(int* nums, int numsSize) {

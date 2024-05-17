@@ -98,6 +98,8 @@ The time complexity is $O(m \times n \times \min(m, n))$, and the space complexi
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedSet
 
@@ -128,6 +130,8 @@ class Solution:
                     ss.remove(ss[0])
         return list(ss)[::-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -167,6 +171,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -201,6 +207,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getBiggestThree(grid [][]int) []int {
@@ -243,6 +251,8 @@ func getBiggestThree(grid [][]int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getBiggestThree(grid: number[][]): number[] {

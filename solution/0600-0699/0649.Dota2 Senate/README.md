@@ -87,6 +87,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def predictPartyVictory(self, senate: str) -> str:
@@ -107,6 +109,8 @@ class Solution:
             qd.popleft()
         return "Radiant" if qr else "Dire"
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -134,6 +138,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -165,6 +171,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func predictPartyVictory(senate string) string {
 	n := len(senate)
@@ -193,6 +201,8 @@ func predictPartyVictory(senate string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function predictPartyVictory(senate: string): string {
     const n = senate.length;
@@ -217,6 +227,8 @@ function predictPartyVictory(senate: string): string {
     return qr.length > 0 ? 'Radiant' : 'Dire';
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

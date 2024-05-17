@@ -70,6 +70,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class UnionFind:
     def __init__(self, n):
@@ -98,6 +100,8 @@ class Solution:
                 i += 1
         return max(Counter(uf.find(v) for v in nums).values())
 ```
+
+#### Java
 
 ```java
 class UnionFind {
@@ -154,6 +158,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class UnionFind {
 public:
@@ -203,6 +209,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func largestComponentSize(nums []int) int {

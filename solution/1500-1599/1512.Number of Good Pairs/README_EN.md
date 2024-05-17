@@ -67,6 +67,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numIdenticalPairs(self, nums: List[int]) -> int:
@@ -77,6 +79,8 @@ class Solution:
             cnt[x] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +94,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -105,6 +111,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numIdenticalPairs(nums []int) (ans int) {
 	cnt := [101]int{}
@@ -116,6 +124,8 @@ func numIdenticalPairs(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numIdenticalPairs(nums: number[]): number {
     const cnt = new Array(101).fill(0);
@@ -126,6 +136,8 @@ function numIdenticalPairs(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -140,6 +152,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -160,6 +174,8 @@ class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int numIdenticalPairs(int* nums, int numsSize) {
@@ -182,12 +198,16 @@ int numIdenticalPairs(int* nums, int numsSize) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numIdenticalPairs(self, nums: List[int]) -> int:
         cnt = Counter(nums)
         return sum(v * (v - 1) for v in cnt.values()) >> 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -204,6 +224,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -222,6 +244,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numIdenticalPairs(nums []int) (ans int) {
 	cnt := [101]int{}
@@ -234,6 +258,8 @@ func numIdenticalPairs(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numIdenticalPairs(nums: number[]): number {
@@ -248,6 +274,8 @@ function numIdenticalPairs(nums: number[]): number {
     return ans >> 1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -264,6 +292,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int numIdenticalPairs(int* nums, int numsSize) {

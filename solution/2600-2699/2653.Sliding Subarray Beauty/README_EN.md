@@ -93,6 +93,8 @@ The time complexity is $O(n \times 50)$, and the space complexity is $O(100)$. W
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getSubarrayBeauty(self, nums: List[int], k: int, x: int) -> List[int]:
@@ -115,6 +117,8 @@ class Solution:
         return ans
 ```
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedList
 
@@ -129,6 +133,8 @@ class Solution:
             ans.append(sl[x - 1] if sl[x - 1] < 0 else 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -161,6 +167,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -192,6 +200,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getSubarrayBeauty(nums []int, k int, x int) []int {
 	n := len(nums)
@@ -219,6 +229,8 @@ func getSubarrayBeauty(nums []int, k int, x int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getSubarrayBeauty(nums: number[], k: number, x: number): number[] {
@@ -283,6 +295,8 @@ Similar problems:
 -   [480. Sliding Window Median](https://github.com/doocs/leetcode/blob/main/solution/0400-0499/0480.Sliding%20Window%20Median/README.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MedianFinder:
@@ -354,6 +368,8 @@ class Solution:
             ans.append(finder.find())
         return ans
 ```
+
+#### Java
 
 ```java
 class MedianFinder {
@@ -447,6 +463,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class MedianFinder {
@@ -546,6 +564,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type MedianFinder struct {

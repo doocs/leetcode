@@ -87,6 +87,8 @@ smallestInfiniteSet.popSmallest(); // 返回 5 ，并将其从集合中移除。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedSet
 
@@ -109,6 +111,8 @@ class SmallestInfiniteSet:
 # param_1 = obj.popSmallest()
 # obj.addBack(num)
 ```
+
+#### Java
 
 ```java
 class SmallestInfiniteSet {
@@ -136,6 +140,8 @@ class SmallestInfiniteSet {
  * obj.addBack(num);
  */
 ```
+
+#### C++
 
 ```cpp
 class SmallestInfiniteSet {
@@ -168,6 +174,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type SmallestInfiniteSet struct {
 	s *treemap.Map
@@ -198,6 +206,8 @@ func (this *SmallestInfiniteSet) AddBack(num int) {
  * obj.AddBack(num);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class SmallestInfiniteSet {
@@ -867,6 +877,8 @@ class TreeMultiSet<T = number> {
  */
 ```
 
+#### Rust
+
 ```rust
 use std::collections::BTreeSet;
 
@@ -909,6 +921,8 @@ impl SmallestInfiniteSet {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 class SmallestInfiniteSet {

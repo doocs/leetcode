@@ -78,6 +78,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findCircleNum(self, isConnected: List[List[int]]) -> int:
@@ -96,6 +98,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -154,6 +160,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findCircleNum(isConnected [][]int) (ans int) {
 	n := len(isConnected)
@@ -177,6 +185,8 @@ func findCircleNum(isConnected [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findCircleNum(isConnected: number[][]): number {
     const n = isConnected.length;
@@ -199,6 +209,8 @@ function findCircleNum(isConnected: number[][]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -246,6 +258,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findCircleNum(self, isConnected: List[List[int]]) -> int:
@@ -266,6 +280,8 @@ class Solution:
                         ans -= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -301,6 +317,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -331,6 +349,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findCircleNum(isConnected [][]int) (ans int) {
 	n := len(isConnected)
@@ -360,6 +380,8 @@ func findCircleNum(isConnected [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findCircleNum(isConnected: number[][]): number {

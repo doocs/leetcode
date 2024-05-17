@@ -73,6 +73,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkIfExist(self, arr: List[int]) -> bool:
@@ -83,6 +85,8 @@ class Solution:
             s.add(x)
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -115,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func checkIfExist(arr []int) bool {
 	s := map[int]bool{}
@@ -127,6 +135,8 @@ func checkIfExist(arr []int) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 function checkIfExist(arr: number[]): boolean {

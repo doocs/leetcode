@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumRecolors(self, blocks: str, k: int) -> int:
@@ -90,6 +92,8 @@ class Solution:
             ans = min(ans, cnt)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +130,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumRecolors(blocks string, k int) int {
@@ -144,6 +152,8 @@ func minimumRecolors(blocks string, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumRecolors(blocks: string, k: number): number {
     let cnt = 0;
@@ -159,6 +169,8 @@ function minimumRecolors(blocks: string, k: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -186,6 +198,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -215,6 +229,8 @@ class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define min(a, b) (((a) < (b)) ? (a) : (b))

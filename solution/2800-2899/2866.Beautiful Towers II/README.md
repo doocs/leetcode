@@ -109,6 +109,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumSumOfHeights(self, maxHeights: List[int]) -> int:
@@ -146,6 +148,8 @@ class Solution:
                 g[i] = maxHeights[i] * (j - i) + (g[j] if j != n else 0)
         return max(a + b - c for a, b, c in zip(f, g, maxHeights))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -206,6 +210,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -262,6 +268,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumSumOfHeights(maxHeights []int) (ans int64) {
@@ -324,6 +332,8 @@ func maximumSumOfHeights(maxHeights []int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumSumOfHeights(maxHeights: number[]): number {

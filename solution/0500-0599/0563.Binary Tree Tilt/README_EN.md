@@ -75,6 +75,8 @@ Sum of every tilt : 0 + 0 + 0 + 2 + 7 + 6 = 15
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -98,6 +100,8 @@ class Solution:
         sum(root)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -136,6 +140,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -166,6 +172,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**

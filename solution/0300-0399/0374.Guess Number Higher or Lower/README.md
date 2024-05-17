@@ -87,6 +87,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # The guess API is already defined for you.
 # @param num, your guess
@@ -105,6 +107,8 @@ class Solution:
                 left = mid + 1
         return left
 ```
+
+#### Java
 
 ```java
 /**
@@ -131,6 +135,8 @@ public class Solution extends GuessGame {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -159,6 +165,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Forward declaration of guess API.
@@ -182,6 +190,8 @@ func guessNumber(n int) int {
 	return left
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -207,6 +217,8 @@ function guessNumber(n: number): number {
     return l;
 }
 ```
+
+#### Rust
 
 ```rust
 
@@ -240,6 +252,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 /**
@@ -277,6 +291,8 @@ public class Solution : GuessGame {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # The guess API is already defined for you.
 # @param num, your guess
@@ -290,6 +306,8 @@ class Solution:
     def guessNumber(self, n: int) -> int:
         return bisect.bisect(range(1, n + 1), 0, key=lambda x: -guess(x))
 ```
+
+#### Go
 
 ```go
 /**

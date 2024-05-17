@@ -62,6 +62,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMinDifference(self, timePoints: List[str]) -> int:
@@ -71,6 +73,8 @@ class Solution:
         mins.append(mins[0] + 24 * 60)
         return min(b - a for a, b in pairwise(mins))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +98,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -116,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMinDifference(timePoints []string) int {
 	if len(timePoints) > 24*60 {
@@ -137,6 +145,8 @@ func findMinDifference(timePoints []string) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findMinDifference(timePoints: string[]): number {

@@ -82,6 +82,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findSquare(self, matrix: List[List[int]]) -> List[int]:
@@ -105,6 +107,8 @@ class Solution:
                         return [i, j, k]
         return []
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -134,6 +138,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -165,6 +171,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findSquare(matrix [][]int) []int {
@@ -201,6 +209,8 @@ func findSquare(matrix [][]int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findSquare(matrix: number[][]): number[] {
     const n = matrix.length;
@@ -231,6 +241,8 @@ function findSquare(matrix: number[][]): number[] {
     return [];
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

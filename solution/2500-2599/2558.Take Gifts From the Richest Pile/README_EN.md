@@ -81,6 +81,8 @@ The time complexity is $O(n + k \times \log n)$, and the space complexity is $O(
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def pickGifts(self, gifts: List[int], k: int) -> int:
@@ -90,6 +92,8 @@ class Solution:
             heapreplace(h, -int(sqrt(-h[0])))
         return -sum(h)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +130,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func pickGifts(gifts []int, k int) (ans int64) {
@@ -146,6 +154,8 @@ func (hp) Pop() (_ any)         { return }
 func (hp) Push(any)             {}
 ```
 
+#### TypeScript
+
 ```ts
 function pickGifts(gifts: number[], k: number): number {
     const pq = new MaxPriorityQueue();
@@ -162,6 +172,8 @@ function pickGifts(gifts: number[], k: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

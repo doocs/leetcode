@@ -74,6 +74,8 @@ We use the `SUM` function to calculate the total quantity of products and the to
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT

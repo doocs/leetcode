@@ -68,6 +68,8 @@ for i in range(n):
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
@@ -80,6 +82,8 @@ class Solution:
             stk.append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -118,6 +124,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func dailyTemperatures(temperatures []int) []int {
 	ans := make([]int, len(temperatures))
@@ -134,6 +142,8 @@ func dailyTemperatures(temperatures []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function dailyTemperatures(temperatures: number[]): number[] {
     const n = temperatures.length;
@@ -149,6 +159,8 @@ function dailyTemperatures(temperatures: number[]): number[] {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -178,6 +190,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
@@ -192,6 +206,8 @@ class Solution:
             stk.append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -213,6 +229,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -229,6 +247,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func dailyTemperatures(temperatures []int) []int {
@@ -248,6 +268,8 @@ func dailyTemperatures(temperatures []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function dailyTemperatures(temperatures: number[]): number[] {
     const n = temperatures.length;
@@ -264,6 +286,8 @@ function dailyTemperatures(temperatures: number[]): number[] {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

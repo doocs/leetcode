@@ -72,6 +72,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def binaryGap(self, n: int) -> int:
@@ -84,6 +86,8 @@ class Solution:
             n >>= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -118,6 +124,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func binaryGap(n int) int {
 	ans := 0
@@ -132,6 +140,8 @@ func binaryGap(n int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function binaryGap(n: number): number {
@@ -149,6 +159,8 @@ function binaryGap(n: number): number {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

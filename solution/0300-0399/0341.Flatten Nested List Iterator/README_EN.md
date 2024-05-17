@@ -78,6 +78,8 @@ return res
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # """
 # This is the interface that allows for creating nested lists.
@@ -128,6 +130,8 @@ class NestedIterator:
 # i, v = NestedIterator(nestedList), []
 # while i.hasNext(): v.append(i.next())
 ```
+
+#### Java
 
 ```java
 /**
@@ -187,6 +191,8 @@ public class NestedIterator implements Iterator<Integer> {
  */
 ```
 
+#### C++
+
 ```cpp
 /**
  * // This is the interface that allows for creating nested lists.
@@ -241,6 +247,8 @@ private:
  * while (i.hasNext()) cout << i.next();
  */
 ```
+
+#### Go
 
 ```go
 /**
@@ -300,6 +308,8 @@ func (this *NestedIterator) HasNext() bool {
 	return this.index < this.length
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -378,6 +388,8 @@ class NestedIterator {
  */
 ```
 
+#### Rust
+
 ```rust
 // #[derive(Debug, PartialEq, Eq)]
 // pub enum NestedInteger {
@@ -438,6 +450,8 @@ impl NestedIterator {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Go
 
 ```go
 /**

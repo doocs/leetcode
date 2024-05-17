@@ -85,6 +85,8 @@ Actions table:
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT extra AS report_reason, COUNT(DISTINCT post_id) AS report_count

@@ -45,6 +45,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.03.Delete%20Middle
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -58,6 +60,8 @@ class Solution:
         node.val = node.next.val
         node.next = node.next.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -75,6 +79,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -94,6 +100,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -107,6 +115,8 @@ func deleteNode(node *ListNode) {
 	node.Next = node.Next.Next
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -125,6 +135,8 @@ var deleteNode = function (node) {
     node.next = node.next.next;
 };
 ```
+
+#### Swift
 
 ```swift
 /**

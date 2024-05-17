@@ -97,6 +97,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def wordSubsets(self, words1: List[str], words2: List[str]) -> List[str]:
@@ -112,6 +114,8 @@ class Solution:
                 ans.append(a)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -147,6 +151,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -184,6 +190,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func wordSubsets(words1 []string, words2 []string) (ans []string) {

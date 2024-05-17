@@ -69,11 +69,15 @@ The time complexity is $O(n)$, where $n$ is the length of the string. The space 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minPartitions(self, n: str) -> int:
         return int(max(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +90,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -100,6 +106,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minPartitions(n string) (ans int) {
 	for _, c := range n {
@@ -111,11 +119,15 @@ func minPartitions(n string) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minPartitions(n: string): number {
     return Math.max(...n.split('').map(d => parseInt(d)));
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -128,6 +140,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int minPartitions(char* n) {

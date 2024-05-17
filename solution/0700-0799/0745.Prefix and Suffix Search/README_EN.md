@@ -64,6 +64,8 @@ wordFilter.f(&quot;a&quot;, &quot;e&quot;); // return 0, because the word at ind
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class WordFilter:
     def __init__(self, words: List[str]):
@@ -84,6 +86,8 @@ class WordFilter:
 # obj = WordFilter(words)
 # param_1 = obj.f(pref,suff)
 ```
+
+#### Java
 
 ```java
 class WordFilter {
@@ -114,6 +118,8 @@ class WordFilter {
  * int param_1 = obj.f(pref,suff);
  */
 ```
+
+#### C++
 
 ```cpp
 class WordFilter {
@@ -147,6 +153,8 @@ public:
  * int param_1 = obj->f(pref,suff);
  */
 ```
+
+#### Go
 
 ```go
 type WordFilter struct {
@@ -191,6 +199,8 @@ func (this *WordFilter) F(pref string, suff string) int {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -245,6 +255,8 @@ class WordFilter:
 # obj = WordFilter(words)
 # param_1 = obj.f(pref,suff)
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -317,6 +329,8 @@ class WordFilter {
  * int param_1 = obj.f(pref,suff);
  */
 ```
+
+#### Go
 
 ```go
 type Trie struct {

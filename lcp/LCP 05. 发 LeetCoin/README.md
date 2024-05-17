@@ -92,6 +92,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2005.%20%E5%8F%91%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 MOD = int(1e9 + 7)
 
@@ -190,6 +192,8 @@ class Solution:
                 ans.append(tree.query(begin[v], end[v]))
         return ans
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -324,6 +328,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 const int MOD = 1e9 + 7;

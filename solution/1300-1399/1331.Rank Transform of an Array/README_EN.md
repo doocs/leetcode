@@ -71,12 +71,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def arrayRankTransform(self, arr: List[int]) -> List[int]:
         t = sorted(set(arr))
         return [bisect_right(t, x) for x in arr]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +103,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -114,6 +120,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func arrayRankTransform(arr []int) (ans []int) {
@@ -134,6 +142,8 @@ func arrayRankTransform(arr []int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function arrayRankTransform(arr: number[]): number[] {

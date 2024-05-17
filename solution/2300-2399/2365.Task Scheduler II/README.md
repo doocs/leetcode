@@ -96,6 +96,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def taskSchedulerII(self, tasks: List[int], space: int) -> int:
@@ -107,6 +109,8 @@ class Solution:
             day[task] = ans + space + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +126,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -139,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func taskSchedulerII(tasks []int, space int) (ans int64) {
 	day := map[int]int64{}
@@ -152,6 +160,8 @@ func taskSchedulerII(tasks []int, space int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function taskSchedulerII(tasks: number[], space: number): number {

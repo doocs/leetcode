@@ -94,6 +94,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, s1: str, s2: str, x: int) -> int:
@@ -113,6 +115,8 @@ class Solution:
             return -1
         return dfs(0, m - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -151,6 +155,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -184,6 +190,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minOperations(s1 string, s2 string, x int) int {
@@ -220,6 +228,8 @@ func minOperations(s1 string, s2 string, x int) int {
 	return dfs(0, m-1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minOperations(s1: string, s2: string, x: number): number {
@@ -262,6 +272,8 @@ function minOperations(s1: string, s2: string, x: number): number {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {

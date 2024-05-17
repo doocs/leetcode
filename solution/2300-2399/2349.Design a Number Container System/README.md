@@ -78,6 +78,8 @@ nc.find(10); // 数字 10 所在下标为 2 ，3 和 5 。最小下标为 2 ，�
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedSet
 
@@ -104,6 +106,8 @@ class NumberContainers:
 # obj.change(index,number)
 # param_2 = obj.find(number)
 ```
+
+#### Java
 
 ```java
 class NumberContainers {
@@ -138,6 +142,8 @@ class NumberContainers {
  */
 ```
 
+#### C++
+
 ```cpp
 class NumberContainers {
 public:
@@ -170,6 +176,8 @@ public:
  * int param_2 = obj->find(number);
  */
 ```
+
+#### Go
 
 ```go
 type NumberContainers struct {

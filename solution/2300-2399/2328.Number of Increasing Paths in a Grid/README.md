@@ -95,6 +95,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countPaths(self, grid: List[List[int]]) -> int:
@@ -111,6 +113,8 @@ class Solution:
         m, n = len(grid), len(grid[0])
         return sum(dfs(i, j) for i in range(m) for j in range(n)) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -151,6 +155,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -184,6 +190,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countPaths(grid [][]int) (ans int) {
 	const mod = 1e9 + 7
@@ -215,6 +223,8 @@ func countPaths(grid [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countPaths(grid: number[][]): number {

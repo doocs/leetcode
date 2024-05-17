@@ -67,6 +67,8 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def distributeCandies(self, n: int, limit: int) -> int:
@@ -79,6 +81,8 @@ class Solution:
             ans += 3 * comb(n - 2 * limit, 2)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distributeCandies(n int, limit int) int {
 	comb2 := func(n int) int {
@@ -142,6 +150,8 @@ func distributeCandies(n int, limit int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function distributeCandies(n: number, limit: number): number {

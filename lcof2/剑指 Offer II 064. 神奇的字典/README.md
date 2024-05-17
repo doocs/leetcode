@@ -76,6 +76,8 @@ magicDictionary.search(&quot;leetcoded&quot;); // 返回 False
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class MagicDictionary:
     def __init__(self):
@@ -104,6 +106,8 @@ class MagicDictionary:
 # obj.buildDict(dictionary)
 # param_2 = obj.search(searchWord)
 ```
+
+#### Java
 
 ```java
 class MagicDictionary {
@@ -156,6 +160,8 @@ class MagicDictionary {
  */
 ```
 
+#### C++
+
 ```cpp
 class MagicDictionary {
 public:
@@ -200,6 +206,8 @@ private:
  * bool param_2 = obj->search(searchWord);
  */
 ```
+
+#### Go
 
 ```go
 type MagicDictionary struct {

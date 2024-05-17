@@ -44,6 +44,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.15.Master%20Mind/R
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def masterMind(self, solution: str, guess: str) -> List[int]:
@@ -51,6 +53,8 @@ class Solution:
         y = sum((Counter(solution) & Counter(guess)).values())
         return [x, y - x]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -72,6 +76,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -89,6 +95,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func masterMind(solution string, guess string) []int {
@@ -109,6 +117,8 @@ func masterMind(solution string, guess string) []int {
 	return []int{x, y - x}
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -134,6 +144,8 @@ var masterMind = function (solution, guess) {
     return [res1, res2];
 };
 ```
+
+#### Swift
 
 ```swift
 class Solution {

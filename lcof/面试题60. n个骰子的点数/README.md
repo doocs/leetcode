@@ -61,6 +61,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def dicesProbability(self, n: int) -> List[float]:
@@ -75,6 +77,8 @@ class Solution:
         m = pow(6, n)
         return [f[n][i] / m for i in range(n, 6 * n + 1)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -130,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func dicesProbability(n int) (ans []float64) {
 	f := make([][]int, n+1)
@@ -155,6 +163,8 @@ func dicesProbability(n int) (ans []float64) {
 	return
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -183,6 +193,8 @@ var dicesProbability = function (n) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -216,6 +228,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def dicesProbability(self, n: int) -> List[float]:
@@ -230,6 +244,8 @@ class Solution:
         m = pow(6, n)
         return [f[j] / m for j in range(n, 6 * n + 1)]
 ```
+
+#### Go
 
 ```go
 func dicesProbability(n int) []float64 {

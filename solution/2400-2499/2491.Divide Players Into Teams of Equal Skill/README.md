@@ -86,6 +86,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def dividePlayers(self, skill: List[int]) -> int:
@@ -100,6 +102,8 @@ class Solution:
             i, j = i + 1, j - 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -136,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func dividePlayers(skill []int) (ans int64) {
 	sort.Ints(skill)
@@ -150,6 +158,8 @@ func dividePlayers(skill []int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function dividePlayers(skill: number[]): number {
@@ -166,6 +176,8 @@ function dividePlayers(skill: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -184,6 +196,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 var dividePlayers = function (skill) {
@@ -214,6 +228,8 @@ var dividePlayers = function (skill) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def dividePlayers(self, skill: List[int]) -> int:
@@ -233,6 +249,8 @@ class Solution:
                 d[v] += 1
         return -1 if m else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -259,6 +277,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -282,6 +302,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func dividePlayers(skill []int) int64 {

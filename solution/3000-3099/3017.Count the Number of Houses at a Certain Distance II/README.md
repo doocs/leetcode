@@ -88,6 +88,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countOfPairs(self, n: int, x: int, y: int) -> List[int]:
@@ -133,6 +135,8 @@ class Solution:
         return res
 ```
 
+#### Java
+
 ```java
 class Solution {
     public long[] countOfPairs(int n, int x, int y) {
@@ -162,6 +166,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -187,6 +193,8 @@ public:
   }
 };
 ```
+
+#### Go
 
 ```go
 func countOfPairs(n int, x int, y int) []int64 {

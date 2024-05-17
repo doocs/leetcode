@@ -85,6 +85,8 @@ The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfBeams(self, bank: List[str]) -> int:
@@ -95,6 +97,8 @@ class Solution:
                 pre = cur
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfBeams(bank []string) (ans int) {
 	pre := 0
@@ -144,6 +152,8 @@ func numberOfBeams(bank []string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfBeams(bank: string[]): number {
@@ -158,6 +168,8 @@ function numberOfBeams(bank: string[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -178,6 +190,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int numberOfBeams(char** bank, int bankSize) {

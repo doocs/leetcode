@@ -41,6 +41,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.02.Kth%20Node%20Fr
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -59,6 +61,8 @@ class Solution:
             fast = fast.next
         return slow.val
 ```
+
+#### Java
 
 ```java
 /**
@@ -83,6 +87,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -110,6 +116,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -130,6 +138,8 @@ func kthToLast(head *ListNode, k int) int {
 	return slow.Val
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -156,6 +166,8 @@ function kthToLast(head: ListNode | null, k: number): number {
     return slow.val;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -190,6 +202,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -215,6 +229,8 @@ var kthToLast = function (head, k) {
     return slow.val;
 };
 ```
+
+#### Swift
 
 ```swift
 /**

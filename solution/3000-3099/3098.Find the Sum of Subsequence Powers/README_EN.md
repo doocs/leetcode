@@ -97,6 +97,8 @@ The time complexity is $O(n^5)$, and the space complexity is $O(n^5)$. Where $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumOfPowers(self, nums: List[int], k: int) -> int:
@@ -117,6 +119,8 @@ class Solution:
         nums.sort()
         return dfs(0, n, k, inf)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -151,6 +155,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -181,6 +187,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func sumOfPowers(nums []int, k int) int {

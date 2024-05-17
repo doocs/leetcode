@@ -99,6 +99,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minLengthAfterRemovals(self, nums: List[int]) -> int:
@@ -117,6 +119,8 @@ class Solution:
             ans -= 2
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -147,6 +151,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -180,6 +186,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minLengthAfterRemovals(nums []int) int {
@@ -218,6 +226,8 @@ func (h *hp) Pop() any {
 func (h *hp) push(v int) { heap.Push(h, v) }
 func (h *hp) pop() int   { return heap.Pop(h).(int) }
 ```
+
+#### TypeScript
 
 ```ts
 function minLengthAfterRemovals(nums: number[]): number {

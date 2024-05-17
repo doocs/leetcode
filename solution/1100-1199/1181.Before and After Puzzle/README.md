@@ -92,6 +92,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def beforeAndAfterPuzzles(self, phrases: List[str]) -> List[str]:
@@ -107,6 +109,8 @@ class Solution:
                     ans.append(phrases[i] + phrases[j][len(ps[j][0]) :])
         return sorted(set(ans))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +135,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -162,6 +168,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func beforeAndAfterPuzzles(phrases []string) []string {
 	n := len(phrases)
@@ -186,6 +194,8 @@ func beforeAndAfterPuzzles(phrases []string) []string {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function beforeAndAfterPuzzles(phrases: string[]): string[] {

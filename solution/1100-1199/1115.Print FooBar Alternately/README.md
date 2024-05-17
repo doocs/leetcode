@@ -89,6 +89,8 @@ class FooBar {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from threading import Semaphore
 
@@ -113,6 +115,8 @@ class FooBar:
             printBar()
             self.f.release()
 ```
+
+#### Java
 
 ```java
 class FooBar {
@@ -143,6 +147,8 @@ class FooBar {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 #include <semaphore.h>

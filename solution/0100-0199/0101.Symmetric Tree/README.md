@@ -70,6 +70,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -88,6 +90,8 @@ class Solution:
 
         return dfs(root, root)
 ```
+
+#### Java
 
 ```java
 /**
@@ -122,6 +126,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -147,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -170,6 +178,8 @@ func isSymmetric(root *TreeNode) bool {
 	return dfs(root, root)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -200,6 +210,8 @@ function isSymmetric(root: TreeNode | null): boolean {
     return dfs(root.left, root.right);
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -244,6 +256,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -276,6 +290,8 @@ var isSymmetric = function (root) {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.

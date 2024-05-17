@@ -59,6 +59,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # The rand7() API is already defined for you.
 # def rand7():
@@ -77,6 +79,8 @@ class Solution:
             if x <= 40:
                 return x % 10 + 1
 ```
+
+#### Java
 
 ```java
 /**
@@ -98,6 +102,8 @@ class Solution extends SolBase {
 }
 ```
 
+#### C++
+
 ```cpp
 // The rand7() API is already defined for you.
 // int rand7();
@@ -118,6 +124,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func rand10() int {
 	for {
@@ -130,6 +138,8 @@ func rand10() int {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -149,6 +159,8 @@ function rand10(): number {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 /**

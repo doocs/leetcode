@@ -93,6 +93,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findTheString(self, lcp: List[List[int]]) -> str:
@@ -121,6 +123,8 @@ class Solution:
                     return ""
         return "".join(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -166,6 +170,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -208,6 +214,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findTheString(lcp [][]int) string {
 	i, n := 0, len(lcp)
@@ -246,6 +254,8 @@ func findTheString(lcp [][]int) string {
 	return string(s)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findTheString(lcp: number[][]): string {

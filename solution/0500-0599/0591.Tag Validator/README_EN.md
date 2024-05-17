@@ -88,6 +88,8 @@ The reason why cdata is NOT <b>&quot;&lt;![CDATA[&lt;div&gt;]&gt;]]&gt;]]&gt;&qu
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isValid(self, code: str) -> bool:
@@ -124,6 +126,8 @@ class Solution:
             i += 1
         return not stk
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -180,6 +184,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -220,6 +226,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isValid(code string) bool {
@@ -280,6 +288,8 @@ func check(tag string) bool {
 	return true
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

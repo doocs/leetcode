@@ -74,6 +74,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def divisibilityArray(self, word: str, m: int) -> List[int]:
@@ -84,6 +86,8 @@ class Solution:
             ans.append(1 if x == 0 else 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -116,6 +122,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func divisibilityArray(word string, m int) (ans []int) {
@@ -132,6 +140,8 @@ func divisibilityArray(word string, m int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function divisibilityArray(word: string, m: number): number[] {
     const ans: number[] = [];
@@ -143,6 +153,8 @@ function divisibilityArray(word: string, m: number): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -163,6 +175,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**

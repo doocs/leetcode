@@ -81,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumProfit(self, present: List[int], future: List[int], budget: int) -> int:
@@ -92,6 +94,8 @@ class Solution:
                     f[i][j] = max(f[i][j], f[i - 1][j - w] + future[i - 1] - w)
         return f[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumProfit(present []int, future []int, budget int) int {
 	n := len(present)
@@ -150,6 +158,8 @@ func maximumProfit(present []int, future []int, budget int) int {
 	return f[n][budget]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumProfit(present: number[], future: number[], budget: number): number {
@@ -174,6 +184,8 @@ function maximumProfit(present: number[], future: number[], budget: number): num
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumProfit(self, present: List[int], future: List[int], budget: int) -> int:
@@ -183,6 +195,8 @@ class Solution:
                 f[j] = max(f[j], f[j - a] + b - a)
         return f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -199,6 +213,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -217,6 +233,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumProfit(present []int, future []int, budget int) int {

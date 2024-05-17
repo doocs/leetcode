@@ -89,6 +89,8 @@ So, answer[2] = 1.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minEdgeReversals(self, n: int, edges: List[List[int]]) -> List[int]:
@@ -115,6 +117,8 @@ class Solution:
         dfs2(0, -1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -157,6 +161,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -190,6 +196,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minEdgeReversals(n int, edges [][]int) []int {
@@ -227,6 +235,8 @@ func minEdgeReversals(n int, edges [][]int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minEdgeReversals(n: number, edges: number[][]): number[] {

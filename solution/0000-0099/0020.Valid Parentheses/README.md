@@ -79,6 +79,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isValid(self, s: str) -> bool:
@@ -91,6 +93,8 @@ class Solution:
                 return False
         return not stk
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -134,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isValid(s string) bool {
 	stk := []rune{}
@@ -154,6 +162,8 @@ func match(l, r rune) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 const map = new Map([
     ['(', ')'],
@@ -173,6 +183,8 @@ function isValid(s: string): boolean {
     return stack.length === 0;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -195,6 +207,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -220,6 +234,8 @@ function match(l, r) {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool IsValid(string s) {
@@ -239,6 +255,8 @@ public class Solution {
     }
 }
 ```
+
+#### Ruby
 
 ```rb
 # @param {String} s
@@ -264,6 +282,8 @@ def is_valid(s)
   stack == ''
 end
 ```
+
+#### PHP
 
 ```php
 class Solution {

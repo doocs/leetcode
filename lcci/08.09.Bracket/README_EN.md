@@ -59,6 +59,8 @@ The time complexity is $O(2^{n\times 2} \times n)$, and the space complexity is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
@@ -75,6 +77,8 @@ class Solution:
         dfs(0, 0, '')
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func generateParenthesis(n int) []string {
 	ans := []string{}
@@ -142,6 +150,8 @@ func generateParenthesis(n int) []string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function generateParenthesis(n: number): string[] {
     function dfs(l, r, t) {
@@ -160,6 +170,8 @@ function generateParenthesis(n: number): string[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -188,6 +200,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number} n
@@ -210,6 +224,8 @@ var generateParenthesis = function (n) {
     return ans;
 };
 ```
+
+#### Swift
 
 ```swift
 class Solution {

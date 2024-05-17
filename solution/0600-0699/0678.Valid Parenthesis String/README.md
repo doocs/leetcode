@@ -84,6 +84,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkValidString(self, s: str) -> bool:
@@ -101,6 +103,8 @@ class Solution:
                 )
         return dp[0][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -147,6 +153,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func checkValidString(s string) bool {
@@ -187,6 +195,8 @@ func checkValidString(s string) bool {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkValidString(self, s: str) -> bool:
@@ -208,6 +218,8 @@ class Solution:
                 return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -238,6 +250,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -266,6 +280,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func checkValidString(s string) bool {

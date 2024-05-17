@@ -58,6 +58,8 @@ Total amount you can rob = 2 + 9 + 1 = 12.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def rob(self, nums: List[int]) -> int:
@@ -68,6 +70,8 @@ class Solution:
             f[i] = max(f[i - 1], f[i - 2] + nums[i - 1])
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +86,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -99,6 +105,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func rob(nums []int) int {
 	n := len(nums)
@@ -111,6 +119,8 @@ func rob(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function rob(nums: number[]): number {
     const n = nums.length;
@@ -122,6 +132,8 @@ function rob(nums: number[]): number {
     return f[n];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -145,6 +157,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def rob(self, nums: List[int]) -> int:
@@ -153,6 +167,8 @@ class Solution:
             f, g = max(f, g), f + x
         return max(f, g)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -167,6 +183,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -183,6 +201,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func rob(nums []int) int {
 	f, g := 0, 0
@@ -192,6 +212,8 @@ func rob(nums []int) int {
 	return max(f, g)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function rob(nums: number[]): number {

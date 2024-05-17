@@ -107,6 +107,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfPairs(self, points: List[List[int]]) -> int:
@@ -120,6 +122,8 @@ class Solution:
                     ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -143,6 +147,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -169,6 +175,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfPairs(points [][]int) (ans int) {
 	sort.Slice(points, func(i, j int) bool {
@@ -189,6 +197,8 @@ func numberOfPairs(points [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numberOfPairs(points: number[][]): number {
     points.sort((a, b) => (a[0] === b[0] ? b[1] - a[1] : a[0] - b[0]));
@@ -208,6 +218,8 @@ function numberOfPairs(points: number[][]): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

@@ -70,6 +70,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
@@ -80,6 +82,8 @@ class Solution:
             d[x] = i
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +99,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -112,6 +118,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func containsNearbyDuplicate(nums []int, k int) bool {
 	d := map[int]int{}
@@ -125,6 +133,8 @@ func containsNearbyDuplicate(nums []int, k int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function containsNearbyDuplicate(nums: number[], k: number): boolean {
     const d: Map<number, number> = new Map();
@@ -137,6 +147,8 @@ function containsNearbyDuplicate(nums: number[], k: number): boolean {
     return false;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -152,6 +164,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

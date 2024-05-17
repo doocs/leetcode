@@ -83,6 +83,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumDeletions(self, nums: List[int]) -> int:
@@ -96,6 +98,8 @@ class Solution:
             mi, mx = mx, mi
         return min(mx + 1, len(nums) - mi, mi + 1 + len(nums) - mx)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -138,6 +144,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumDeletions(nums []int) int {
 	mi, mx, n := 0, 0, len(nums)
@@ -155,6 +163,8 @@ func minimumDeletions(nums []int) int {
 	return min(min(mx+1, n-mi), mi+1+n-mx)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumDeletions(nums: number[]): number {

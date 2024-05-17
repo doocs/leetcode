@@ -57,6 +57,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxPower(self, s: str) -> int:
@@ -69,6 +71,8 @@ class Solution:
                 t = 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +89,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -103,6 +109,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxPower(s string) int {
 	ans, t := 1, 1
@@ -117,6 +125,8 @@ func maxPower(s string) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxPower(s: string): number {

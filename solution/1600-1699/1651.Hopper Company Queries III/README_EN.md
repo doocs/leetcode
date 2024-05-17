@@ -165,6 +165,8 @@ By the end of October --&gt; average_ride_distance = (0+163+6)/3=56.33, average_
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH RECURSIVE

@@ -77,6 +77,8 @@ Result 表：
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 import pandas as pd
 
@@ -92,6 +94,8 @@ def consecutive_numbers(logs: pd.DataFrame) -> pd.DataFrame:
         .rename(columns={"num": "ConsecutiveNums"})
     )
 ```
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -115,6 +119,8 @@ FROM
 我们也可以对数字进行分组，具体做法是使用 `IF` 函数来判断当前行与前一行的 `num` 是否相等，如果相等则记为 $0$，否则记为 $1$，然后使用窗口函数 `SUM` 来计算前缀和，这样计算出的前缀和就是分组的标识。最后，我们只需要按照分组标识进行分组，然后筛选出每组中的行数大于等于 $3$ 的数字即可。同样，我们需要使用 `DISTINCT` 关键字来对结果去重。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -140,6 +146,8 @@ WHERE a = num AND b = num;
 ### 方法三
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

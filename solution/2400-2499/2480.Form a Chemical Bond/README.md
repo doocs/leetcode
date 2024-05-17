@@ -91,6 +91,8 @@ Nonmetal 元素包括 Cl, O, and N.
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT a.symbol AS metal, b.symbol AS nonmetal

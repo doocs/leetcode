@@ -84,6 +84,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def replaceWords(self, dictionary: List[str], sentence: str) -> str:
@@ -96,6 +98,8 @@ class Solution:
                     break
         return ' '.join(words)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -143,6 +149,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func replaceWords(dictionary []string, sentence string) string {
@@ -173,6 +181,8 @@ func replaceWords(dictionary []string, sentence string) string {
 ### 方法二：前缀树
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -208,6 +218,8 @@ class Solution:
             trie.insert(v)
         return ' '.join(trie.search(v) for v in sentence.split())
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -257,6 +269,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Trie {
 public:
@@ -304,6 +318,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type Trie struct {

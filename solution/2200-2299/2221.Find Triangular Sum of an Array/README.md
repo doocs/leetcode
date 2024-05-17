@@ -73,6 +73,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def triangularSum(self, nums: List[int]) -> int:
@@ -82,6 +84,8 @@ class Solution:
                 nums[j] = (nums[j] + nums[j + 1]) % 10
         return nums[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +101,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -109,6 +115,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func triangularSum(nums []int) int {

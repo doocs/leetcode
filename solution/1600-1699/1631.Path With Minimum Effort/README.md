@@ -88,6 +88,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class UnionFind:
     def __init__(self, n):
@@ -136,6 +138,8 @@ class Solution:
                 return h
         return 0
 ```
+
+#### Java
 
 ```java
 class UnionFind {
@@ -207,6 +211,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class UnionFind {
 public:
@@ -274,6 +280,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type unionFind struct {
@@ -348,6 +356,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 class UnionFind {
@@ -436,6 +446,8 @@ function minimumEffortPath(heights: number[][]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumEffortPath(self, heights: List[List[int]]) -> int:
@@ -463,6 +475,8 @@ class Solution:
         m, n = len(heights), len(heights[0])
         return bisect_left(range(10**6), True, key=check)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -506,6 +520,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -547,6 +563,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumEffortPath(heights [][]int) int {
 	return sort.Search(1e6, func(h int) bool {
@@ -585,6 +603,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumEffortPath(heights: number[][]): number {
@@ -652,6 +672,8 @@ function minimumEffortPath(heights: number[][]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumEffortPath(self, heights: List[List[int]]) -> int:
@@ -673,6 +695,8 @@ class Solution:
                     heappush(q, (d, x, y))
         return int(dist[-1][-1])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -705,6 +729,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -736,6 +762,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumEffortPath(heights [][]int) int {
@@ -783,6 +811,8 @@ func (h hp) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
 func (h *hp) Push(v any)        { *h = append(*h, v.(tuple)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumEffortPath(heights: number[][]): number {

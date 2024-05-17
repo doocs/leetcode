@@ -52,6 +52,8 @@ date.nextDay(); // &quot;2014-06-21&quot;
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 declare global {
     interface Date {

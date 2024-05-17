@@ -55,11 +55,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSegments(self, s: str) -> int:
         return len(s.split())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -75,6 +79,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -87,6 +93,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSegments(s string) int {
 	ans := 0
@@ -98,6 +106,8 @@ func countSegments(s string) int {
 	return ans
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -128,6 +138,8 @@ class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSegments(self, s: str) -> int:
@@ -137,6 +149,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -152,6 +166,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -166,6 +182,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countSegments(s string) int {

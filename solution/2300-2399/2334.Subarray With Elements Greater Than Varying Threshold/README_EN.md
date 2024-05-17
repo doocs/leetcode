@@ -67,6 +67,8 @@ Therefore, 2, 3, 4, or 5 may also be returned.</pre>
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def validSubarraySize(self, nums: List[int], threshold: int) -> int:
@@ -97,6 +99,8 @@ class Solution:
             vis[i] = True
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -152,6 +156,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using pii = pair<int, int>;
 
@@ -192,6 +198,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func validSubarraySize(nums []int, threshold int) int {
@@ -253,6 +261,8 @@ func validSubarraySize(nums []int, threshold int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def validSubarraySize(self, nums: List[int], threshold: int) -> int:
@@ -279,6 +289,8 @@ class Solution:
                 return k
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -322,6 +334,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -352,6 +366,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func validSubarraySize(nums []int, threshold int) int {

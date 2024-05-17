@@ -78,6 +78,8 @@ Hence, we return -5.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxStarSum(self, vals: List[int], edges: List[List[int]], k: int) -> int:
@@ -91,6 +93,8 @@ class Solution:
             bs.sort(reverse=True)
         return max(v + sum(g[i][:k]) for i, v in enumerate(vals))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -145,6 +151,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxStarSum(vals []int, edges [][]int, k int) (ans int) {

@@ -48,6 +48,8 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Where
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def trulyMostPopular(self, names: List[str], synonyms: List[str]) -> List[str]:
@@ -81,6 +83,8 @@ class Solution:
                 ans.append(f"{name}({freq})")
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +134,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -182,6 +188,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func trulyMostPopular(names []string, synonyms []string) (ans []string) {
 	g := map[string][]string{}
@@ -228,6 +236,8 @@ func trulyMostPopular(names []string, synonyms []string) (ans []string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function trulyMostPopular(names: string[], synonyms: string[]): string[] {
     const map = new Map<string, string>();
@@ -258,6 +268,8 @@ function trulyMostPopular(names: string[], synonyms: string[]): string[] {
     return [...keyCount.entries()].map(([k, v]) => `${k}(${v})`);
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

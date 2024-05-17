@@ -94,6 +94,8 @@ The time complexity is $O(n)$ and the space complexity is $O(1)$, where $n$ is t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
@@ -104,6 +106,8 @@ class Solution:
                 k += 1
         return k
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +122,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -134,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func removeElement(nums []int, val int) int {
 	k := 0
@@ -147,6 +155,8 @@ func removeElement(nums []int, val int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function removeElement(nums: number[], val: number): number {
     let k: number = 0;
@@ -158,6 +168,8 @@ function removeElement(nums: number[], val: number): number {
     return k;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -173,6 +185,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -190,6 +204,8 @@ var removeElement = function (nums, val) {
     return k;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {

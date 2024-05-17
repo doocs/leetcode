@@ -79,6 +79,8 @@ Question 285 has the highest answer rate.</pre>
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT question_id AS survey_log
@@ -97,6 +99,8 @@ LIMIT 1;
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 WITH

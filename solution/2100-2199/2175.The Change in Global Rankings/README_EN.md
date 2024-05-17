@@ -130,6 +130,8 @@ New Zealand did not gain or lose points and their rank did not change.
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

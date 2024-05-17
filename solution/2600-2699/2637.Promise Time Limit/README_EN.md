@@ -112,6 +112,8 @@ The function immediately throws an error.</pre>
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 type Fn = (...params: any[]) => Promise<any>;
 

@@ -72,6 +72,8 @@ There is no occurrence of a subarray with a size more than 3 filled with 0. Ther
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def zeroFilledSubarray(self, nums: List[int]) -> int:
@@ -81,6 +83,8 @@ class Solution:
             ans += cnt
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +99,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -111,6 +117,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func zeroFilledSubarray(nums []int) (ans int64) {
 	cnt := 0
@@ -125,6 +133,8 @@ func zeroFilledSubarray(nums []int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function zeroFilledSubarray(nums: number[]): number {

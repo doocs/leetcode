@@ -65,6 +65,8 @@ grade 列的数据类型已转换为整数。</pre>
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 import pandas as pd
 

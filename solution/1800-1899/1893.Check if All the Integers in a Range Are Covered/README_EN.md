@@ -65,6 +65,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isCovered(self, ranges: List[List[int]], left: int, right: int) -> bool:
@@ -79,6 +81,8 @@ class Solution:
                 return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -123,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isCovered(ranges [][]int, left int, right int) bool {
 	diff := [52]int{}
@@ -142,6 +150,8 @@ func isCovered(ranges [][]int, left int, right int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isCovered(ranges: number[][], left: number, right: number): boolean {
     const diff = new Array(52).fill(0);
@@ -159,6 +169,8 @@ function isCovered(ranges: number[][], left: number, right: number): boolean {
     return true;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

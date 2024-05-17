@@ -74,6 +74,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findLatestTime(self, s: str) -> str:
@@ -83,6 +85,8 @@ class Solution:
                 if all(a == b for a, b in zip(s, t) if a != "?"):
                     return t
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -130,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findLatestTime(s string) string {
 	for h := 11; ; h-- {
@@ -149,6 +157,8 @@ func findLatestTime(s string) string {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findLatestTime(s: string): string {
@@ -189,6 +199,8 @@ function findLatestTime(s: string): string {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findLatestTime(self, s: str) -> str:
@@ -203,6 +215,8 @@ class Solution:
             s[4] = "9"
         return "".join(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -225,6 +239,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -245,6 +261,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findLatestTime(s string) string {
@@ -272,6 +290,8 @@ func findLatestTime(s string) string {
 	return string(cs)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findLatestTime(s: string): string {

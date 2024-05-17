@@ -95,6 +95,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def onesMinusZeros(self, grid: List[List[int]]) -> List[List[int]]:
@@ -111,6 +113,8 @@ class Solution:
                 diff[i][j] = r + c - (n - r) - (m - c)
         return diff
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +139,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -161,6 +167,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func onesMinusZeros(grid [][]int) [][]int {
 	m, n := len(grid), len(grid[0])
@@ -182,6 +190,8 @@ func onesMinusZeros(grid [][]int) [][]int {
 	return diff
 }
 ```
+
+#### TypeScript
 
 ```ts
 function onesMinusZeros(grid: number[][]): number[][] {
@@ -206,6 +216,8 @@ function onesMinusZeros(grid: number[][]): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -232,6 +244,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**

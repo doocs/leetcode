@@ -52,6 +52,8 @@ The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the length of
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
@@ -65,6 +67,8 @@ class Solution:
                     ans |= 1 << i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +86,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -101,6 +107,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func singleNumber(nums []int) int {
 	ans := int32(0)
@@ -116,6 +124,8 @@ func singleNumber(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function singleNumber(nums: number[]): number {
     let ans = 0;
@@ -126,6 +136,8 @@ function singleNumber(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -143,6 +155,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 int singleNumber(int* nums, int numsSize) {
     int ans = 0;
@@ -158,6 +172,8 @@ int singleNumber(int* nums, int numsSize) {
     return ans;
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -219,6 +235,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
@@ -229,6 +247,8 @@ class Solution:
             a, b = aa, bb
         return b
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -244,6 +264,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -261,6 +283,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func singleNumber(nums []int) int {
 	a, b := 0, 0
@@ -272,6 +296,8 @@ func singleNumber(nums []int) int {
 	return b
 }
 ```
+
+#### TypeScript
 
 ```ts
 function singleNumber(nums: number[]): number {
@@ -286,6 +312,8 @@ function singleNumber(nums: number[]): number {
     return b;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

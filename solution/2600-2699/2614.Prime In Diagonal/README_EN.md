@@ -78,6 +78,8 @@ The time complexity is $O(n \times \sqrt{M})$, where $n$ and $M$ are the number 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def diagonalPrime(self, nums: List[List[int]]) -> int:
@@ -95,6 +97,8 @@ class Solution:
                 ans = max(ans, row[n - i - 1])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +129,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -157,6 +163,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func diagonalPrime(nums [][]int) (ans int) {
 	n := len(nums)
@@ -183,6 +191,8 @@ func isPrime(x int) bool {
 	return true
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

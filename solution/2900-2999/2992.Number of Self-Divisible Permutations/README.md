@@ -96,6 +96,8 @@ nums = [2,1]：这是自整除的，因为 gcd(nums[1], 1) == 1 并且 gcd(nums[
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def selfDivisiblePermutationCount(self, n: int) -> int:
@@ -112,6 +114,8 @@ class Solution:
 
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -143,6 +147,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -170,6 +176,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func selfDivisiblePermutationCount(n int) int {
 	f := make([]int, 1<<(n+1))
@@ -196,6 +204,8 @@ func selfDivisiblePermutationCount(n int) int {
 	return dfs(0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function selfDivisiblePermutationCount(n: number): number {
@@ -247,6 +257,8 @@ function bitCount(i: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def selfDivisiblePermutationCount(self, n: int) -> int:
@@ -259,6 +271,8 @@ class Solution:
                     f[mask] += f[mask ^ (1 << (j - 1))]
         return f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -277,6 +291,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -298,6 +314,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func selfDivisiblePermutationCount(n int) int {
 	f := make([]int, 1<<n)
@@ -313,6 +331,8 @@ func selfDivisiblePermutationCount(n int) int {
 	return f[(1<<n)-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function selfDivisiblePermutationCount(n: number): number {

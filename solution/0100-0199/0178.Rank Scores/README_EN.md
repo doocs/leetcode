@@ -82,6 +82,8 @@ Scores table:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 import pandas as pd
 
@@ -95,6 +97,8 @@ def order_scores(scores: pd.DataFrame) -> pd.DataFrame:
 
     return result_df
 ```
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -113,6 +117,8 @@ FROM Scores;
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 SELECT

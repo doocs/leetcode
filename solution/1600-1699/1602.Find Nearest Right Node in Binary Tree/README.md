@@ -81,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -101,6 +103,8 @@ class Solution:
                 if root.right:
                     q.append(root.right)
 ```
+
+#### Java
 
 ```java
 /**
@@ -141,6 +145,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -177,6 +183,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -209,6 +217,8 @@ func findNearestRightNode(root *TreeNode, u *TreeNode) *TreeNode {
 	return nil
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -258,6 +268,8 @@ DFS 先序遍历二叉树，首次搜索到 $u$ 时，标记目前层数 $d$，�
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -285,6 +297,8 @@ class Solution:
         dfs(root, 1)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -331,6 +345,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -369,6 +385,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -401,6 +419,8 @@ func findNearestRightNode(root *TreeNode, u *TreeNode) *TreeNode {
 	return ans
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

@@ -64,6 +64,8 @@ So return 6.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minTotalDistance(self, grid: List[List[int]]) -> int:
@@ -81,6 +83,8 @@ class Solution:
         j = cols[len(cols) >> 1]
         return f(rows, i) + f(cols, j)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -141,6 +147,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minTotalDistance(grid [][]int) int {
@@ -173,6 +181,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

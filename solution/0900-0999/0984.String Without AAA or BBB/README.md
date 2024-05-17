@@ -71,6 +71,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def strWithout3a3b(self, a: int, b: int) -> str:
@@ -91,6 +93,8 @@ class Solution:
             ans.append('b' * b)
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +126,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -148,6 +154,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func strWithout3a3b(a int, b int) string {

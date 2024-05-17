@@ -106,6 +106,8 @@ Based on that, we return true.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isRobotBounded(self, instructions: str) -> bool:
@@ -120,6 +122,8 @@ class Solution:
                 dist[k] += 1
         return (dist[0] == dist[2] and dist[1] == dist[3]) or k != 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -141,6 +145,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -161,6 +167,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isRobotBounded(instructions string) bool {
 	dist := [4]int{}
@@ -177,6 +185,8 @@ func isRobotBounded(instructions string) bool {
 	return (dist[0] == dist[2] && dist[1] == dist[3]) || k != 0
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isRobotBounded(instructions: string): boolean {

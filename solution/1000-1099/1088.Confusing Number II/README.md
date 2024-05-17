@@ -96,6 +96,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def confusingNumberII(self, n: int) -> int:
@@ -120,6 +122,8 @@ class Solution:
         s = str(n)
         return dfs(0, True, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -156,6 +160,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -187,6 +193,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func confusingNumberII(n int) int {
@@ -222,6 +230,8 @@ func confusingNumberII(n int) int {
 	return dfs(0, true, 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function confusingNumberII(n: number): number {

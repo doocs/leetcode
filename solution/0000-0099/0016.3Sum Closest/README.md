@@ -65,6 +65,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def threeSumClosest(self, nums: List[int], target: int) -> int:
@@ -85,6 +87,8 @@ class Solution:
                     j += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -137,6 +143,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func threeSumClosest(nums []int, target int) int {
@@ -171,6 +179,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function threeSumClosest(nums: number[], target: number): number {
     nums.sort((a, b) => a - b);
@@ -197,6 +207,8 @@ function threeSumClosest(nums: number[], target: number): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -229,6 +241,8 @@ var threeSumClosest = function (nums, target) {
     return ans;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {

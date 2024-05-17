@@ -79,6 +79,8 @@ s 中没有 "01" 存在，整个过程花费 0 秒。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def secondsToRemoveOccurrences(self, s: str) -> int:
@@ -88,6 +90,8 @@ class Solution:
             ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -138,6 +144,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func secondsToRemoveOccurrences(s string) int {
@@ -194,6 +202,8 @@ func secondsToRemoveOccurrences(s string) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def secondsToRemoveOccurrences(self, s: str) -> int:
@@ -205,6 +215,8 @@ class Solution:
                 ans = max(ans + 1, cnt)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -222,6 +234,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -238,6 +252,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func secondsToRemoveOccurrences(s string) int {

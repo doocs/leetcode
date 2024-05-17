@@ -88,6 +88,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSubarrays(self, nums: List[int], k: int) -> int:
@@ -106,6 +108,8 @@ class Solution:
             ans += cnt[-x] + cnt[-x + 1]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -137,6 +141,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -166,6 +172,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countSubarrays(nums []int, k int) int {
@@ -202,6 +210,8 @@ func countSubarrays(nums []int, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countSubarrays(nums: number[], k: number): number {

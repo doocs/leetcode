@@ -102,6 +102,8 @@ The time complexity is $O(4^n \times n \times m)$, and the space complexity is $
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxStudents(self, seats: List[List[str]]) -> int:
@@ -132,6 +134,8 @@ class Solution:
         ss = [f(s) for s in seats]
         return dfs(ss[0], 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -178,6 +182,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -218,6 +224,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxStudents(seats [][]byte) int {
@@ -261,6 +269,8 @@ func maxStudents(seats [][]byte) int {
 	return dfs(ss[0], 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxStudents(seats: string[][]): number {

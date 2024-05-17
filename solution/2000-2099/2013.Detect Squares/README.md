@@ -92,6 +92,8 @@ detectSquares.count([11, 10]); // 返回 2 。你可以选择：
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class DetectSquares:
     def __init__(self):
@@ -119,6 +121,8 @@ class DetectSquares:
 # obj.add(point)
 # param_2 = obj.count(point)
 ```
+
+#### Java
 
 ```java
 class DetectSquares {
@@ -162,6 +166,8 @@ class DetectSquares {
  */
 ```
 
+#### C++
+
 ```cpp
 class DetectSquares {
 public:
@@ -201,6 +207,8 @@ private:
  * int param_2 = obj->count(point);
  */
 ```
+
+#### Go
 
 ```go
 type DetectSquares struct {

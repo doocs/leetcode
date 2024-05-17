@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumSubarraySum(self, nums: List[int], k: int) -> int:
@@ -96,6 +98,8 @@ class Solution:
                 p[nums[i + 1]] = s
         return 0 if ans == -inf else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -154,6 +160,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumSubarraySum(nums []int, k int) int64 {
 	p := map[int]int64{nums[0]: 0}
@@ -182,6 +190,8 @@ func maximumSubarraySum(nums []int, k int) int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumSubarraySum(nums: number[], k: number): number {
     const p: Map<number, number> = new Map();
@@ -204,6 +214,8 @@ function maximumSubarraySum(nums: number[], k: number): number {
     return ans === -Infinity ? 0 : ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

@@ -64,6 +64,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minSwapsCouples(self, row: List[int]) -> int:
@@ -79,6 +81,8 @@ class Solution:
             p[find(a)] = find(b)
         return n - sum(i == find(i) for i in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -137,6 +143,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minSwapsCouples(row []int) int {
@@ -166,6 +174,8 @@ func minSwapsCouples(row []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minSwapsCouples(row: number[]): number {
     const n = row.length >> 1;
@@ -192,6 +202,8 @@ function minSwapsCouples(row: number[]): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

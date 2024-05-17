@@ -77,12 +77,16 @@ Note that in particular, &quot;zzxy&quot; is not special equivalent to &quot;zzy
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numSpecialEquivGroups(self, words: List[str]) -> int:
         s = {''.join(sorted(word[::2]) + sorted(word[1::2])) for word in words}
         return len(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -140,6 +146,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numSpecialEquivGroups(words []string) int {

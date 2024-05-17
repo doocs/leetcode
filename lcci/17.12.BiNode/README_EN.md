@@ -48,6 +48,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.12.BiNode/README_E
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -74,6 +76,8 @@ class Solution:
         dfs(root)
         return dummy.right
 ```
+
+#### Java
 
 ```java
 /**
@@ -108,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -140,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -167,6 +175,8 @@ func convertBiNode(root *TreeNode) *TreeNode {
 	return dummy.Right
 }
 ```
+
+#### JavaScript
 
 ```js
 const convertBiNode = root => {

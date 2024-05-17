@@ -92,6 +92,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sequenceReconstruction(
@@ -114,6 +116,8 @@ class Solution:
                     q.append(j)
         return len(q) == 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -147,6 +151,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -182,6 +188,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sequenceReconstruction(nums []int, sequences [][]int) bool {
 	n := len(nums)
@@ -214,6 +222,8 @@ func sequenceReconstruction(nums []int, sequences [][]int) bool {
 	return len(q) == 0
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sequenceReconstruction(nums: number[], sequences: number[][]): boolean {

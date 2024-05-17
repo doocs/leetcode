@@ -98,6 +98,8 @@ We can group the query results by `query_name`, and then use the `AVG` and `ROUN
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT
@@ -108,6 +110,8 @@ FROM Queries
 WHERE query_name IS NOT NULL
 GROUP BY 1;
 ```
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

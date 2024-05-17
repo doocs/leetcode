@@ -98,6 +98,8 @@ We can also change the above process to an iterative way to avoid the space over
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minMoves(self, target: int, maxDoubles: int) -> int:
@@ -109,6 +111,8 @@ class Solution:
             return 1 + self.minMoves(target >> 1, maxDoubles - 1)
         return 1 + self.minMoves(target - 1, maxDoubles)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +130,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -145,6 +151,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minMoves(target int, maxDoubles int) int {
 	if target == 1 {
@@ -159,6 +167,8 @@ func minMoves(target int, maxDoubles int) int {
 	return 1 + minMoves(target-1, maxDoubles)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minMoves(target: number, maxDoubles: number): number {
@@ -185,6 +195,8 @@ function minMoves(target: number, maxDoubles: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minMoves(self, target: int, maxDoubles: int) -> int:
@@ -199,6 +211,8 @@ class Solution:
         ans += target - 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -218,6 +232,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -239,6 +255,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minMoves(target int, maxDoubles int) (ans int) {
 	for maxDoubles > 0 && target > 1 {
@@ -254,6 +272,8 @@ func minMoves(target int, maxDoubles int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minMoves(target: number, maxDoubles: number): number {

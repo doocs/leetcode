@@ -86,6 +86,8 @@ This is the lowest possible number of moves to reach the last square, so return 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def snakesAndLadders(self, board: List[List[int]]) -> int:
@@ -114,6 +116,8 @@ class Solution:
             ans += 1
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -160,6 +164,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -199,6 +205,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func snakesAndLadders(board [][]int) int {

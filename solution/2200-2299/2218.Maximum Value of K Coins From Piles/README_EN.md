@@ -66,6 +66,8 @@ The maximum total we can obtain is 101.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxValueOfCoins(self, piles: List[List[int]], k: int) -> int:
@@ -79,6 +81,8 @@ class Solution:
                         dp[i][j] = max(dp[i][j], dp[i - 1][j - idx] + v)
         return dp[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -131,6 +137,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxValueOfCoins(piles [][]int, k int) int {
@@ -166,6 +174,8 @@ func maxValueOfCoins(piles [][]int, k int) int {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

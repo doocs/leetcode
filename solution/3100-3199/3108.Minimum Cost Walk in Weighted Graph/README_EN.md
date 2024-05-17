@@ -98,6 +98,8 @@ The time complexity is $O((n + m + q) \times \alpha(n))$, and the space complexi
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class UnionFind:
     def __init__(self, n):
@@ -142,6 +144,8 @@ class Solution:
 
         return [f(s, t) for s, t in query]
 ```
+
+#### Java
 
 ```java
 class UnionFind {
@@ -218,6 +222,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class UnionFind {
 public:
@@ -290,6 +296,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 type unionFind struct {
 	p, size []int
@@ -360,6 +368,8 @@ func minimumCost(n int, edges [][]int, query [][]int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 class UnionFind {

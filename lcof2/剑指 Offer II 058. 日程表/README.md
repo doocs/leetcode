@@ -62,6 +62,8 @@ MyCalendar.book(20, 30); // returns true ，第三个日程安排可以添加到
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedDict
 
@@ -83,6 +85,8 @@ class MyCalendar:
 # obj = MyCalendar()
 # param_1 = obj.book(start,end)
 ```
+
+#### Java
 
 ```java
 import java.util.Map;
@@ -114,6 +118,8 @@ class MyCalendar {
  * obj = new MyCalendar(); boolean param_1 = obj.book(start,end);
  */
 ```
+
+#### Go
 
 ```go
 type MyCalendar struct {

@@ -81,6 +81,8 @@ Note that the rows in the output are the same as in the input.
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT
@@ -101,6 +103,8 @@ FROM CoffeeShop;
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

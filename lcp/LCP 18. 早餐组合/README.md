@@ -87,6 +87,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2018.%20%E6%97%A9%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def breakfastNumber(self, staple: List[int], drinks: List[int], x: int) -> int:
@@ -105,6 +107,8 @@ class Solution:
                 res = (res + left + 1) % 1000000007
         return res
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -155,6 +161,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func breakfastNumber(staple []int, drinks []int, x int) int {

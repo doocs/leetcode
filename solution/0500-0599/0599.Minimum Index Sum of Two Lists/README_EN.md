@@ -77,6 +77,8 @@ The strings with the least index sum are &quot;sad&quot; and &quot;happy&quot;.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findRestaurant(self, list1: List[str], list2: List[str]) -> List[str]:
@@ -93,6 +95,8 @@ class Solution:
                     ans.append(v)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -146,6 +152,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findRestaurant(list1 []string, list2 []string) []string {
 	mp := make(map[string]int)
@@ -169,6 +177,8 @@ func findRestaurant(list1 []string, list2 []string) []string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findRestaurant(list1: string[], list2: string[]): string[] {
     let minI = Infinity;
@@ -189,6 +199,8 @@ function findRestaurant(list1: string[], list2: string[]): string[] {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -228,6 +240,8 @@ impl Solution {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### C++
 
 ```cpp
 func findRestaurant(list1[] string, list2[] string)[] string {

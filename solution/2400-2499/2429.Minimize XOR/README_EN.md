@@ -74,6 +74,8 @@ The time complexity is $O(\log n)$, and the space complexity is $O(1)$. Here, $n
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimizeXor(self, num1: int, num2: int) -> int:
@@ -89,6 +91,8 @@ class Solution:
                 cnt -= 1
         return x
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -135,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimizeXor(num1 int, num2 int) int {
 	cnt := bits.OnesCount(uint(num2))
@@ -154,6 +162,8 @@ func minimizeXor(num1 int, num2 int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimizeXor(num1: number, num2: number): number {
@@ -189,6 +199,8 @@ function minimizeXor(num1: number, num2: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimizeXor(self, num1: int, num2: int) -> int:
@@ -202,6 +214,8 @@ class Solution:
             cnt1 += 1
         return num1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -218,6 +232,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -236,6 +252,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimizeXor(num1 int, num2 int) int {
 	cnt1 := bits.OnesCount(uint(num1))
@@ -249,6 +267,8 @@ func minimizeXor(num1 int, num2 int) int {
 	return num1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimizeXor(num1: number, num2: number): number {

@@ -94,6 +94,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findHighAccessEmployees(self, access_times: List[List[str]]) -> List[str]:
@@ -107,6 +109,8 @@ class Solution:
                 ans.append(name)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -134,6 +138,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -160,6 +166,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findHighAccessEmployees(access_times [][]string) (ans []string) {
 	d := map[string][]int{}
@@ -182,6 +190,8 @@ func findHighAccessEmployees(access_times [][]string) (ans []string) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findHighAccessEmployees(access_times: string[][]): string[] {

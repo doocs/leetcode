@@ -83,6 +83,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def dietPlanPerformance(
@@ -98,6 +100,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +124,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -145,6 +151,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func dietPlanPerformance(calories []int, k int, lower int, upper int) (ans int) {
 	n := len(calories)
@@ -163,6 +171,8 @@ func dietPlanPerformance(calories []int, k int, lower int, upper int) (ans int) 
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function dietPlanPerformance(calories: number[], k: number, lower: number, upper: number): number {
@@ -198,6 +208,8 @@ function dietPlanPerformance(calories: number[], k: number, lower: number, upper
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def dietPlanPerformance(
@@ -217,6 +229,8 @@ class Solution:
             ans += check(s)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -244,6 +258,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -269,6 +285,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func dietPlanPerformance(calories []int, k int, lower int, upper int) (ans int) {
 	n := len(calories)
@@ -292,6 +310,8 @@ func dietPlanPerformance(calories []int, k int, lower int, upper int) (ans int) 
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function dietPlanPerformance(calories: number[], k: number, lower: number, upper: number): number {

@@ -75,6 +75,8 @@ Note that the array cannot be converted to [<u><strong>2</strong></u>,2,2,2,2] b
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumOperations(self, nums: List[int]) -> int:
@@ -89,6 +91,8 @@ class Solution:
         n = len(nums)
         return min(n - (n1 + n2) for a, n1 in get(0) for b, n2 in get(1) if a != b)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +140,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 typedef pair<int, int> PII;
 
@@ -171,6 +177,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumOperations(nums []int) int {
 	n := len(nums)
@@ -200,6 +208,8 @@ func minimumOperations(nums []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumOperations(nums: number[]): number {

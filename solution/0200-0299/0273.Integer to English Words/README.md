@@ -61,6 +61,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberToWords(self, num: int) -> str:
@@ -124,6 +126,8 @@ class Solution:
             i //= 1000
         return ''.join(res).strip()
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -198,6 +202,8 @@ class Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 using System.Collections.Generic;
@@ -299,6 +305,8 @@ public class Solution {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {

@@ -70,6 +70,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ i
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfWays(self, numPeople: int) -> int:
@@ -87,6 +89,8 @@ class Solution:
         mod = 10**9 + 7
         return dfs(numPeople)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -139,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfWays(numPeople int) int {
 	const mod int = 1e9 + 7
@@ -160,6 +168,8 @@ func numberOfWays(numPeople int) int {
 	return dfs(numPeople)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfWays(numPeople: number): number {

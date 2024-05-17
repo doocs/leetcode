@@ -102,6 +102,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Trie:
     __slots__ = ("children", "length", "idx")
@@ -144,6 +146,8 @@ class Solution:
             trie.insert(w, i)
         return [trie.query(w) for w in wordsQuery]
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -199,6 +203,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -264,6 +270,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 const inf = 1 << 30
 
@@ -319,6 +327,8 @@ func stringIndices(wordsContainer []string, wordsQuery []string) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 class Trie {

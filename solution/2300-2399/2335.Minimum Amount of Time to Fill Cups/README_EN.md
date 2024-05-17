@@ -80,6 +80,8 @@ Second 7: Fill up a hot cup.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def fillCups(self, amount: List[int]) -> int:
@@ -91,6 +93,8 @@ class Solution:
             amount[1] = max(0, amount[1] - 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -123,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func fillCups(amount []int) int {
 	ans := 0
@@ -138,6 +146,8 @@ func fillCups(amount []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function fillCups(amount: number[]): number {
     amount.sort((a, b) => a - b);
@@ -147,6 +157,8 @@ function fillCups(amount: number[]): number {
     else return Math.floor((diff + 1) / 2) + c;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -171,6 +183,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def fillCups(self, amount: List[int]) -> int:
@@ -179,6 +193,8 @@ class Solution:
             return amount[2]
         return (sum(amount) + 1) // 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -192,6 +208,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -204,6 +222,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func fillCups(amount []int) int {

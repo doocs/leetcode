@@ -61,6 +61,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -78,6 +80,8 @@ class Solution:
 
         return dfs(root1) == dfs(root2)
 ```
+
+#### Java
 
 ```java
 /**
@@ -116,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -145,6 +151,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -170,6 +178,8 @@ func leafSimilar(root1 *TreeNode, root2 *TreeNode) bool {
 	return reflect.DeepEqual(dfs(root1), dfs(root2))
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -229,6 +239,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 var leafSimilar = function (root1, root2) {

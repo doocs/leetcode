@@ -86,6 +86,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def largestGoodInteger(self, num: str) -> str:
@@ -94,6 +96,8 @@ class Solution:
                 return s
         return ""
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -124,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func largestGoodInteger(num string) string {
 	for c := '9'; c >= '0'; c-- {
@@ -134,6 +142,8 @@ func largestGoodInteger(num string) string {
 	return ""
 }
 ```
+
+#### TypeScript
 
 ```ts
 function largestGoodInteger(num: string): string {

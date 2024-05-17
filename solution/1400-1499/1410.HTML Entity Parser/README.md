@@ -95,6 +95,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def entityParser(self, text: str) -> str:
@@ -120,6 +122,8 @@ class Solution:
                 i += 1
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -157,6 +161,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -191,6 +197,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func entityParser(text string) string {
@@ -228,6 +236,8 @@ func entityParser(text string) string {
 	return ans.String()
 }
 ```
+
+#### TypeScript
 
 ```ts
 function entityParser(text: string): string {
@@ -277,6 +287,8 @@ function entityParser(text: string): string {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function entityParser(text: string): string {

@@ -96,6 +96,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reformatNumber(self, number: str) -> str:
@@ -109,6 +111,8 @@ class Solution:
             ans.append(number[-2:])
         return "-".join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +133,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -162,6 +168,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func reformatNumber(number string) string {
 	number = strings.ReplaceAll(number, " ", "")
@@ -181,6 +189,8 @@ func reformatNumber(number string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function reformatNumber(number: string): string {
     const cs = [...number].filter(c => c !== ' ' && c !== '-');
@@ -195,6 +205,8 @@ function reformatNumber(number: string): string {
         .join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

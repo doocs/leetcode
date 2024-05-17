@@ -86,6 +86,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfArithmeticSlices(self, nums: List[int]) -> int:
@@ -98,6 +100,8 @@ class Solution:
                 f[i][d] += f[j][d] + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -139,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfArithmeticSlices(nums []int) (ans int) {
 	f := make([]map[int]int, len(nums))
@@ -156,6 +164,8 @@ func numberOfArithmeticSlices(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfArithmeticSlices(nums: number[]): number {

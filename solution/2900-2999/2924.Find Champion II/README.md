@@ -86,6 +86,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findChampion(self, n: int, edges: List[List[int]]) -> int:
@@ -94,6 +96,8 @@ class Solution:
             indeg[v] += 1
         return -1 if indeg.count(0) != 1 else indeg.index(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +117,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -135,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findChampion(n int, edges [][]int) int {
 	indeg := make([]int, n)
@@ -154,6 +162,8 @@ func findChampion(n int, edges [][]int) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findChampion(n: number, edges: number[][]): number {

@@ -54,6 +54,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.10.Rank%20from%20S
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class BinaryIndexedTree:
     __slots__ = "n", "c"
@@ -92,6 +94,8 @@ class StreamRank:
 # obj.track(x)
 # param_2 = obj.getRankOfNumber(x)
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -141,6 +145,8 @@ class StreamRank {
  * int param_2 = obj.getRankOfNumber(x);
  */
 ```
+
+#### C++
 
 ```cpp
 class BinaryIndexedTree {
@@ -193,6 +199,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -241,6 +249,8 @@ func (this *StreamRank) GetRankOfNumber(x int) int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class BinaryIndexedTree {
     private n: number;
@@ -287,6 +297,8 @@ class StreamRank {
  * var param_2 = obj.getRankOfNumber(x)
  */
 ```
+
+#### Swift
 
 ```swift
 class BinaryIndexedTree {

@@ -81,6 +81,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxScore(self, grid: List[List[int]]) -> int:
@@ -97,6 +99,8 @@ class Solution:
                 f[i][j] = min(x, mi)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +126,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -149,6 +155,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxScore(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
@@ -174,6 +182,8 @@ func maxScore(grid [][]int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxScore(grid: number[][]): number {

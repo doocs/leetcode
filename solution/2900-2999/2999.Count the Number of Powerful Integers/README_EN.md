@@ -76,6 +76,8 @@ It can be shown that there are only 2 powerful integers in this range.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfPowerfulInt(self, start: int, finish: int, limit: int, s: str) -> int:
@@ -99,6 +101,8 @@ class Solution:
         b = dfs(0, True)
         return b - a
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -143,6 +147,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -180,6 +186,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfPowerfulInt(start, finish int64, limit int, s string) int64 {
@@ -231,6 +239,8 @@ func numberOfPowerfulInt(start, finish int64, limit int, s string) int64 {
 	return b - a
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfPowerfulInt(start: number, finish: number, limit: number, s: string): number {

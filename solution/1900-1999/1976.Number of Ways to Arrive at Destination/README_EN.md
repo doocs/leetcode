@@ -86,6 +86,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countPaths(self, n: int, roads: List[List[int]]) -> int:
@@ -116,6 +118,8 @@ class Solution:
         mod = 10**9 + 7
         return f[-1] % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -163,6 +167,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -218,6 +224,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countPaths(n int, roads [][]int) int {
 	const inf = math.MaxInt64 / 2
@@ -269,6 +277,8 @@ func countPaths(n int, roads [][]int) int {
 	return f[n-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countPaths(n: number, roads: number[][]): number {

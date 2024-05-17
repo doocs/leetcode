@@ -71,6 +71,8 @@ DataFrame <code>weather</code>
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 import pandas as pd
 

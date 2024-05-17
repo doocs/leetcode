@@ -91,6 +91,8 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(C^2)$. He
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def matchReplacement(self, s: str, sub: str, mappings: List[List[str]]) -> bool:
@@ -102,6 +104,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +132,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -153,6 +159,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func matchReplacement(s string, sub string, mappings [][]byte) bool {
@@ -193,6 +201,8 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(C^2)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def matchReplacement(self, s: str, sub: str, mappings: List[List[str]]) -> bool:
@@ -206,6 +216,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -232,6 +244,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -257,6 +271,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func matchReplacement(s string, sub string, mappings [][]byte) bool {

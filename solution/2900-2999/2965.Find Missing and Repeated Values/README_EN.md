@@ -69,6 +69,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMissingAndRepeatedValues(self, grid: List[List[int]]) -> List[int]:
@@ -85,6 +87,8 @@ class Solution:
                 ans[1] = i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -133,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMissingAndRepeatedValues(grid [][]int) []int {
 	n := len(grid)
@@ -154,6 +162,8 @@ func findMissingAndRepeatedValues(grid [][]int) []int {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findMissingAndRepeatedValues(grid: number[][]): number[] {

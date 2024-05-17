@@ -61,6 +61,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def superPow(self, a: int, b: List[int]) -> int:
@@ -71,6 +73,8 @@ class Solution:
             a = pow(a, 10, mod)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +102,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func superPow(a int, b []int) int {
 	const mod int = 1337
@@ -145,6 +153,8 @@ func superPow(a int, b []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function superPow(a: number, b: number[]): number {

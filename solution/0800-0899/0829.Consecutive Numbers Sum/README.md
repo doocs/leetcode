@@ -70,6 +70,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def consecutiveNumbersSum(self, n: int) -> int:
@@ -81,6 +83,8 @@ class Solution:
             k += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +102,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -113,6 +119,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func consecutiveNumbersSum(n int) int {

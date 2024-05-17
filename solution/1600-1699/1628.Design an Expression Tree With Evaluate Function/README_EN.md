@@ -72,6 +72,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 import abc
 from abc import ABC, abstractmethod
@@ -137,6 +139,8 @@ expTree = obj.buildTree(postfix);
 ans = expTree.evaluate();
 """
 ```
+
+#### Java
 
 ```java
 /**
@@ -216,6 +220,8 @@ class TreeBuilder {
  * int ans = expTree.evaluate();
  */
 ```
+
+#### C++
 
 ```cpp
 /**

@@ -86,6 +86,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxScore(self, prices: List[int]) -> int:
@@ -94,6 +96,8 @@ class Solution:
             cnt[x - i] += x
         return max(cnt.values())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -128,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxScore(prices []int) (ans int64) {
 	cnt := map[int]int{}
@@ -141,6 +149,8 @@ func maxScore(prices []int) (ans int64) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxScore(prices: number[]): number {
     const cnt: Map<number, number> = new Map();
@@ -151,6 +161,8 @@ function maxScore(prices: number[]): number {
     return Math.max(...cnt.values());
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;

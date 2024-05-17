@@ -87,6 +87,8 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(m \times 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMaxFish(self, grid: List[List[int]]) -> int:
@@ -107,6 +109,8 @@ class Solution:
                     ans = max(ans, dfs(i, j))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -144,6 +148,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -174,6 +180,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMaxFish(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
@@ -200,6 +208,8 @@ func findMaxFish(grid [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findMaxFish(grid: number[][]): number {

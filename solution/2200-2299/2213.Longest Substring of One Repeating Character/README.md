@@ -89,6 +89,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Node:
     def __init__(self):
@@ -179,6 +181,8 @@ class Solution:
             ans.append(tree.query(1, 1, len(s)).mx)
         return ans
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -298,6 +302,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Node {
 public:
@@ -394,6 +400,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type segmentTree struct {

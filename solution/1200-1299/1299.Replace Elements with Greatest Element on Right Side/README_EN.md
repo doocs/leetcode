@@ -63,6 +63,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def replaceElements(self, arr: List[int]) -> List[int]:
@@ -73,6 +75,8 @@ class Solution:
             m = max(m, t)
         return arr
 ```
+
+#### Java
 
 ```java
 class Solution {

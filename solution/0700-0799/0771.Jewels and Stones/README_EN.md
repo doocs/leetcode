@@ -48,12 +48,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numJewelsInStones(self, jewels: str, stones: str) -> int:
         s = set(jewels)
         return sum(c in s for c in stones)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -71,6 +75,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -83,6 +89,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numJewelsInStones(jewels string, stones string) (ans int) {
@@ -97,6 +105,8 @@ func numJewelsInStones(jewels string, stones string) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numJewelsInStones(jewels: string, stones: string): number {
     const s = new Set([...jewels]);
@@ -107,6 +117,8 @@ function numJewelsInStones(jewels: string, stones: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -124,6 +136,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} jewels
@@ -135,6 +149,8 @@ var numJewelsInStones = function (jewels, stones) {
     return stones.split('').reduce((prev, val) => prev + s.has(val), 0);
 };
 ```
+
+#### C
 
 ```c
 int numJewelsInStones(char* jewels, char* stones) {

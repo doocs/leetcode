@@ -74,6 +74,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findSubarrays(self, nums: List[int]) -> bool:
@@ -84,6 +86,8 @@ class Solution:
             vis.add(x)
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -116,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findSubarrays(nums []int) bool {
 	vis := map[int]bool{}
@@ -130,6 +138,8 @@ func findSubarrays(nums []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findSubarrays(nums: number[]): boolean {
     const vis: Set<number> = new Set<number>();
@@ -143,6 +153,8 @@ function findSubarrays(nums: number[]): boolean {
     return false;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -159,6 +171,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 bool findSubarrays(int* nums, int numsSize) {

@@ -75,6 +75,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumTripletValue(self, nums: List[int]) -> int:
@@ -85,6 +87,8 @@ class Solution:
             mx_diff = max(mx_diff, mx - num)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +125,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumTripletValue(nums []int) int64 {
 	ans, mx, mx_diff := 0, 0, 0
@@ -130,6 +138,8 @@ func maximumTripletValue(nums []int) int64 {
 	return int64(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumTripletValue(nums: number[]): number {

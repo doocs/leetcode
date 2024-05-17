@@ -61,6 +61,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def trap(self, height: List[int]) -> int:
@@ -72,6 +74,8 @@ class Solution:
             right[n - i - 1] = max(right[n - i], height[n - i - 1])
         return sum(min(l, r) - h for l, r, h in zip(left, right, height))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +98,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -115,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func trap(height []int) (ans int) {
 	n := len(height)
@@ -132,6 +140,8 @@ func trap(height []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function trap(height: number[]): number {
     const n = height.length;
@@ -148,6 +158,8 @@ function trap(height: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -178,6 +190,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int Trap(int[] height) {
@@ -198,6 +212,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

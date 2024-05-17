@@ -85,6 +85,8 @@ For product 3, the price is 1000 in Shop and 1900 in Souq. It is not sold in the
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 CREATE PROCEDURE PivotProducts()
 BEGIN

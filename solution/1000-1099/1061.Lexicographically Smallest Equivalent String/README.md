@@ -83,6 +83,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def smallestEquivalentString(self, s1: str, s2: str, baseStr: str) -> str:
@@ -107,6 +109,8 @@ class Solution:
             res.append(chr(find(a) + ord('a')))
         return ''.join(res)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -143,6 +147,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -175,6 +181,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 var p []int

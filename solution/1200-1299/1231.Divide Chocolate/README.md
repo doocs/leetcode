@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximizeSweetness(self, sweetness: List[int], k: int) -> int:
@@ -98,6 +100,8 @@ class Solution:
                 r = mid - 1
         return l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -160,6 +166,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximizeSweetness(sweetness []int, k int) int {
 	l, r := 0, 0
@@ -188,6 +196,8 @@ func maximizeSweetness(sweetness []int, k int) int {
 	return l
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximizeSweetness(sweetness: number[], k: number): number {

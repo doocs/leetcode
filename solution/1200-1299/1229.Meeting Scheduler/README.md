@@ -71,6 +71,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minAvailableDuration(
@@ -91,6 +93,8 @@ class Solution:
                 j += 1
         return []
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +119,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -141,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minAvailableDuration(slots1 [][]int, slots2 [][]int, duration int) []int {
 	sort.Slice(slots1, func(i, j int) bool { return slots1[i][0] < slots1[j][0] })
@@ -161,6 +169,8 @@ func minAvailableDuration(slots1 [][]int, slots2 [][]int, duration int) []int {
 	return []int{}
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

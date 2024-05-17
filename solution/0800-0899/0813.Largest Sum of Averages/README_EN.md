@@ -62,6 +62,8 @@ That partition would lead to a score of 5 + 2 + 6 = 13, which is worse.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def largestSumOfAverages(self, nums: List[int], k: int) -> float:
@@ -81,6 +83,8 @@ class Solution:
         s = list(accumulate(nums, initial=0))
         return dfs(0, k)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -143,6 +149,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func largestSumOfAverages(nums []int, k int) float64 {

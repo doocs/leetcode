@@ -89,11 +89,15 @@ The time complexity is $O(n \times m)$, and the space complexity is $O(m)$, wher
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def splitWordsBySeparator(self, words: List[str], separator: str) -> List[str]:
         return [s for w in words for s in w.split(separator) if s]
 ```
+
+#### Java
 
 ```java
 import java.util.regex.Pattern;
@@ -112,6 +116,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func splitWordsBySeparator(words []string, separator byte) (ans []string) {
 	for _, w := range words {
@@ -144,6 +152,8 @@ func splitWordsBySeparator(words []string, separator byte) (ans []string) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function splitWordsBySeparator(words: string[], separator: string): string[] {

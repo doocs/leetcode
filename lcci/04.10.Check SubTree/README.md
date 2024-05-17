@@ -54,6 +54,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.10.Check%20SubTree
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -80,6 +82,8 @@ class Solution:
             return True
         return self.checkSubTree(t1.left, t2) or self.checkSubTree(t1.right, t2)
 ```
+
+#### Java
 
 ```java
 /**
@@ -116,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -154,6 +160,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -186,6 +194,8 @@ func checkSubTree(t1 *TreeNode, t2 *TreeNode) bool {
 	return checkSubTree(t1.Left, t2) || checkSubTree(t1.Right, t2)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -224,6 +234,8 @@ function checkSubTree(t1: TreeNode | null, t2: TreeNode | null): boolean {
     return checkSubTree(t1.left, t2) || checkSubTree(t1.right, t2);
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -281,6 +293,8 @@ impl Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 /* class TreeNode {

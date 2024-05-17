@@ -72,6 +72,8 @@ ActorDirector 表：
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT actor_id, director_id

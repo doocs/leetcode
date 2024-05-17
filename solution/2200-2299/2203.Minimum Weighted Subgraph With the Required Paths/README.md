@@ -96,6 +96,8 @@ $A$, $B$ 两条路径一定存在着公共点 $p$，因为 $dest$ 一定是其�
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumWeight(
@@ -126,6 +128,8 @@ class Solution:
         ans = min(sum(v) for v in zip(d1, d2, d3))
         return -1 if ans >= inf else ans
 ```
+
+#### Java
 
 ```java
 class Solution {

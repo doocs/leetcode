@@ -90,6 +90,8 @@ Note that we do not care about Ignored Ads.
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 SELECT
     ad_id,

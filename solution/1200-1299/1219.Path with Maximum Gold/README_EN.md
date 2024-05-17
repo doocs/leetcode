@@ -84,6 +84,8 @@ The time complexity is $O(m \times n \times 3^k)$, where $k$ is the maximum leng
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getMaximumGold(self, grid: List[List[int]]) -> int:
@@ -100,6 +102,8 @@ class Solution:
         dirs = (-1, 0, 1, 0, -1)
         return max(dfs(i, j) for i in range(m) for j in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -137,6 +141,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -162,6 +168,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getMaximumGold(grid [][]int) (ans int) {
@@ -190,6 +198,8 @@ func getMaximumGold(grid [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function getMaximumGold(grid: number[][]): number {
     const m = grid.length;
@@ -213,6 +223,8 @@ function getMaximumGold(grid: number[][]): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

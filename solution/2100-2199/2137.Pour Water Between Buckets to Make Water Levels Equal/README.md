@@ -81,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def equalizeWater(self, buckets: List[int], loss: int) -> float:
@@ -102,6 +104,8 @@ class Solution:
                 r = mid
         return l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +137,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -162,6 +168,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func equalizeWater(buckets []int, loss int) float64 {
 	check := func(v float64) bool {
@@ -188,6 +196,8 @@ func equalizeWater(buckets []int, loss int) float64 {
 	return l
 }
 ```
+
+#### TypeScript
 
 ```ts
 function equalizeWater(buckets: number[], loss: number): number {

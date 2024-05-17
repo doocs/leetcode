@@ -82,11 +82,15 @@ s 中的单词为 ["What", "is" "the", "solution", "to", "this", "problem"]
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def truncateSentence(self, s: str, k: int) -> str:
         return ' '.join(s.split()[:k])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -115,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func truncateSentence(s string, k int) string {
 	for i, c := range s {
@@ -129,6 +137,8 @@ func truncateSentence(s string, k int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function truncateSentence(s: string, k: number): string {
     for (let i = 0; i < s.length; ++i) {
@@ -139,6 +149,8 @@ function truncateSentence(s: string, k: number): string {
     return s;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -165,6 +177,8 @@ var truncateSentence = function (s, k) {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

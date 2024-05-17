@@ -84,6 +84,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestNiceSubstring(self, s: str) -> str:
@@ -100,6 +102,8 @@ class Solution:
                     ans = s[i : j + 1]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -159,6 +165,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestNiceSubstring(s string) string {
 	n := len(s)
@@ -187,6 +195,8 @@ func longestNiceSubstring(s string) string {
 	return s[k : k+mx]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestNiceSubstring(s: string): string {
@@ -227,6 +237,8 @@ function longestNiceSubstring(s: string): string {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestNiceSubstring(self, s: str) -> str:
@@ -243,6 +255,8 @@ class Solution:
                     ans = s[i : j + 1]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -270,6 +284,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -294,6 +310,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestNiceSubstring(s string) string {

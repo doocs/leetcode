@@ -77,11 +77,15 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def largestAltitude(self, gain: List[int]) -> int:
         return max(accumulate(gain, initial=0))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +100,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -106,6 +112,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func largestAltitude(gain []int) (ans int) {
@@ -120,6 +128,8 @@ func largestAltitude(gain []int) (ans int) {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn largest_altitude(gain: Vec<i32>) -> i32 {
@@ -133,6 +143,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -149,6 +161,8 @@ var largestAltitude = function (gain) {
     return ans;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -168,6 +182,8 @@ class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))
@@ -192,6 +208,8 @@ int largestAltitude(int* gain, int gainSize) {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

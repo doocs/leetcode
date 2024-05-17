@@ -85,6 +85,8 @@ The nodes visited are 0, 1, and 3, giving a maximal path quality of 1 + 2 + 4 = 
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 function maximalPathQuality(values: number[], edges: number[][], maxTime: number): number {
     const n = values.length;

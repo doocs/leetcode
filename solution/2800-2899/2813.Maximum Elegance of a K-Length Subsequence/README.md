@@ -102,6 +102,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMaximumElegance(self, items: List[List[int]], k: int) -> int:
@@ -124,6 +126,8 @@ class Solution:
             ans = max(ans, tot + len(vis) ** 2)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -154,6 +158,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -191,6 +197,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMaximumElegance(items [][]int, k int) int64 {
 	sort.Slice(items, func(i, j int) bool { return items[i][0] > items[j][0] })
@@ -220,6 +228,8 @@ func findMaximumElegance(items [][]int, k int) int64 {
 	return int64(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findMaximumElegance(items: number[][], k: number): number {

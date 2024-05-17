@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def diffWaysToCompute(self, expression: str) -> List[int]:
@@ -92,6 +94,8 @@ class Solution:
 
         return dfs(expression)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -134,6 +138,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -172,6 +178,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 var memo = map[string][]int{}
 
@@ -208,6 +216,8 @@ func dfs(exp string) []int {
 	return ans
 }
 ```
+
+#### C#
 
 ```cs
 using System.Collections.Generic;

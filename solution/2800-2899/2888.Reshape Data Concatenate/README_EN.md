@@ -84,6 +84,8 @@ df1</strong>
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 import pandas as pd
 

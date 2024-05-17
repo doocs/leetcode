@@ -85,6 +85,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def lengthOfLongestSubsequence(self, nums: List[int], target: int) -> int:
@@ -98,6 +100,8 @@ class Solution:
                     f[i][j] = max(f[i][j], f[i - 1][j - x] + 1)
         return -1 if f[n][target] <= 0 else f[n][target]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -144,6 +150,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func lengthOfLongestSubsequence(nums []int, target int) int {
@@ -171,6 +179,8 @@ func lengthOfLongestSubsequence(nums []int, target int) int {
 	return f[n][target]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function lengthOfLongestSubsequence(nums: number[], target: number): number {
@@ -200,6 +210,8 @@ function lengthOfLongestSubsequence(nums: number[], target: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def lengthOfLongestSubsequence(self, nums: List[int], target: int) -> int:
@@ -209,6 +221,8 @@ class Solution:
                 f[j] = max(f[j], f[j - x] + 1)
         return -1 if f[-1] <= 0 else f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -227,6 +241,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -243,6 +259,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func lengthOfLongestSubsequence(nums []int, target int) int {
@@ -262,6 +280,8 @@ func lengthOfLongestSubsequence(nums []int, target int) int {
 	return f[target]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function lengthOfLongestSubsequence(nums: number[], target: number): number {

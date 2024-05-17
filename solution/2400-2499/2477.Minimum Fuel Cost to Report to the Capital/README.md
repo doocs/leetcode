@@ -104,6 +104,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumFuelCost(self, roads: List[List[int]], seats: int) -> int:
@@ -125,6 +127,8 @@ class Solution:
         dfs(0, -1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -160,6 +164,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -189,6 +195,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumFuelCost(roads [][]int, seats int) (ans int64) {
 	n := len(roads) + 1
@@ -215,6 +223,8 @@ func minimumFuelCost(roads [][]int, seats int) (ans int64) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumFuelCost(roads: number[][], seats: number): number {
     const n = roads.length + 1;
@@ -239,6 +249,8 @@ function minimumFuelCost(roads: number[][], seats: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

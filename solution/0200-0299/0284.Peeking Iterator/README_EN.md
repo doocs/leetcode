@@ -73,6 +73,8 @@ peekingIterator.hasNext(); // return False
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Below is the interface for Iterator, which is already defined for you.
 #
@@ -141,6 +143,8 @@ class PeekingIterator:
 #     iter.next()         # Should return the same value as [val].
 ```
 
+#### Java
+
 ```java
 // Java Iterator interface reference:
 // https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html
@@ -183,6 +187,8 @@ class PeekingIterator implements Iterator<Integer> {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /*
@@ -240,6 +246,8 @@ private:
     int peekedElement;
 };
 ```
+
+#### Go
 
 ```go
 /*   Below is the interface for Iterator, which is already defined for you.

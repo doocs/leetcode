@@ -48,6 +48,8 @@ The time complexity is $O(n)$, where $n$ is the number of words in the text file
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findClosest(self, words: List[str], word1: str, word2: str) -> int:
@@ -61,6 +63,8 @@ class Solution:
             ans = min(ans, abs(i - j))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -79,6 +83,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -100,6 +106,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findClosest(words []string, word1 string, word2 string) int {
 	const inf int = 1 << 29
@@ -116,6 +124,8 @@ func findClosest(words []string, word1 string, word2 string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findClosest(words: string[], word1: string, word2: string): number {
     let [i, j, ans] = [Infinity, -Infinity, Infinity];
@@ -130,6 +140,8 @@ function findClosest(words: string[], word1: string, word2: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -152,6 +164,8 @@ impl Solution {
     }
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -195,6 +209,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findClosest(self, words: List[str], word1: str, word2: str) -> int:
@@ -212,6 +228,8 @@ class Solution:
                 j += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -236,6 +254,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -262,6 +282,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findClosest(words []string, word1 string, word2 string) int {
 	d := map[string][]int{}
@@ -285,6 +307,8 @@ func findClosest(words []string, word1 string, word2 string) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findClosest(words: string[], word1: string, word2: string): number {

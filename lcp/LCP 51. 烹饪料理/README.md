@@ -71,6 +71,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2051.%20%E7%83%B9%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def perfectMenu(
@@ -96,6 +98,8 @@ class Solution:
                 ans = a
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +132,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -162,6 +168,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func perfectMenu(materials []int, cookbooks [][]int, attribute [][]int, limit int) int {
 	n := len(cookbooks)
@@ -190,6 +198,8 @@ func perfectMenu(materials []int, cookbooks [][]int, attribute [][]int, limit in
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function perfectMenu(

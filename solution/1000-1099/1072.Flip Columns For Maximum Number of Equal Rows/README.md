@@ -95,6 +95,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxEqualRowsAfterFlips(self, matrix: List[List[int]]) -> int:
@@ -104,6 +106,8 @@ class Solution:
             cnt[t] += 1
         return max(cnt.values())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -140,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxEqualRowsAfterFlips(matrix [][]int) (ans int) {
 	cnt := map[string]int{}
@@ -158,6 +166,8 @@ func maxEqualRowsAfterFlips(matrix [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxEqualRowsAfterFlips(matrix: number[][]): number {

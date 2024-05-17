@@ -107,6 +107,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numOfBurgers(self, tomatoSlices: int, cheeseSlices: int) -> List[int]:
@@ -115,6 +117,8 @@ class Solution:
         x = cheeseSlices - y
         return [] if k % 2 or y < 0 or x < 0 else [x, y]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +130,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -139,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numOfBurgers(tomatoSlices int, cheeseSlices int) []int {
 	k := 4*cheeseSlices - tomatoSlices
@@ -151,6 +159,8 @@ func numOfBurgers(tomatoSlices int, cheeseSlices int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numOfBurgers(tomatoSlices: number, cheeseSlices: number): number[] {
     const k = 4 * cheeseSlices - tomatoSlices;
@@ -159,6 +169,8 @@ function numOfBurgers(tomatoSlices: number, cheeseSlices: number): number[] {
     return k % 2 || y < 0 || x < 0 ? [] : [x, y];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

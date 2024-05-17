@@ -81,6 +81,8 @@ x 不能取更大的值，因为 nums 中只有两个元素。</pre>
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def specialArray(self, nums: List[int]) -> int:
@@ -90,6 +92,8 @@ class Solution:
                 return x
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +129,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func specialArray(nums []int) int {
@@ -141,6 +149,8 @@ func specialArray(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function specialArray(nums: number[]): number {
     const n = nums.length;
@@ -152,6 +162,8 @@ function specialArray(nums: number[]): number {
     return -1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -189,6 +201,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def specialArray(self, nums: List[int]) -> int:
@@ -200,6 +214,8 @@ class Solution:
                 return x
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -226,6 +242,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -240,6 +258,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func specialArray(nums []int) int {
@@ -264,6 +284,8 @@ func specialArray(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function specialArray(nums: number[]): number {
     const n = nums.length;
@@ -286,6 +308,8 @@ function specialArray(nums: number[]): number {
     return -1;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::cmp::Ordering;

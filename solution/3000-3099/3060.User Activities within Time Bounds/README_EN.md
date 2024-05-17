@@ -86,6 +86,8 @@ First, we use the `LAG` window function to find the end time of the previous ses
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH
@@ -104,6 +106,8 @@ SELECT DISTINCT
 FROM T
 WHERE TIMESTAMPDIFF(HOUR, prev_session_end, session_start) <= 12;
 ```
+
+#### Python3
 
 ```python
 import pandas as pd

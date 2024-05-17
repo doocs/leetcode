@@ -96,6 +96,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getLastMoment(self, n: int, left: List[int], right: List[int]) -> int:
@@ -106,6 +108,8 @@ class Solution:
             ans = max(ans, n - x)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +125,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -138,6 +144,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getLastMoment(n int, left []int, right []int) (ans int) {
 	for _, x := range left {
@@ -149,6 +157,8 @@ func getLastMoment(n int, left []int, right []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getLastMoment(n: number, left: number[], right: number[]): number {

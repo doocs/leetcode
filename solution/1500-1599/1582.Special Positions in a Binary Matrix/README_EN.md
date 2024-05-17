@@ -60,6 +60,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numSpecial(self, mat: List[List[int]]) -> int:
@@ -77,6 +79,8 @@ class Solution:
                     ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numSpecial(mat [][]int) int {
 	m, n := len(mat), len(mat[0])
@@ -149,6 +157,8 @@ func numSpecial(mat [][]int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numSpecial(mat: number[][]): number {
@@ -178,6 +188,8 @@ function numSpecial(mat: number[][]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn num_special(mat: Vec<Vec<i32>>) -> i32 {
@@ -204,6 +216,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int numSpecial(int** mat, int matSize, int* matColSize) {

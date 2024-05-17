@@ -85,6 +85,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minDifference(self, nums: List[int], queries: List[List[int]]) -> List[int]:
@@ -110,6 +112,8 @@ class Solution:
             ans.append(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -145,6 +149,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -182,6 +188,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minDifference(nums []int, queries [][]int) []int {
 	m, n := len(nums), len(queries)
@@ -218,6 +226,8 @@ func minDifference(nums []int, queries [][]int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minDifference(nums: number[], queries: number[][]): number[] {

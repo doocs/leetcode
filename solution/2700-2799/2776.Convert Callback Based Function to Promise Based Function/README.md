@@ -98,6 +98,8 @@ fn 以回调函数作为第一个参数和 args 作为其余参数进行调用�
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 type CallbackFn = (next: (data: number, error: string) => void, ...args: number[]) => void;
 type Promisified = (...args: number[]) => Promise<number>;

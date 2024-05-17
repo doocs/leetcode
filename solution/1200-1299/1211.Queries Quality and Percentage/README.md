@@ -99,6 +99,8 @@ Cat 查询结果的劣质查询百分比为 (1 / 3) * 100 = 33.33
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT
@@ -109,6 +111,8 @@ FROM Queries
 WHERE query_name IS NOT NULL
 GROUP BY 1;
 ```
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

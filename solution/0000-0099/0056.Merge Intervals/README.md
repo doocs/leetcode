@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
@@ -84,6 +86,8 @@ class Solution:
         ans.append([st, ed])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -129,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func merge(intervals [][]int) (ans [][]int) {
 	sort.Slice(intervals, func(i, j int) bool {
@@ -148,6 +156,8 @@ func merge(intervals [][]int) (ans [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function merge(intervals: number[][]): number[][] {
     intervals.sort((a, b) => a[0] - b[0]);
@@ -165,6 +175,8 @@ function merge(intervals: number[][]): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -187,6 +199,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -219,6 +233,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
@@ -231,6 +247,8 @@ class Solution:
                 ans[-1][1] = max(ans[-1][1], e)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -251,6 +269,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -270,6 +290,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func merge(intervals [][]int) (ans [][]int) {
 	sort.Slice(intervals, func(i, j int) bool { return intervals[i][0] < intervals[j][0] })
@@ -285,6 +307,8 @@ func merge(intervals [][]int) (ans [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function merge(intervals: number[][]): number[][] {
     intervals.sort((a, b) => a[0] - b[0]);
@@ -299,6 +323,8 @@ function merge(intervals: number[][]): number[][] {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -327,6 +353,8 @@ public class Solution {
 ### 方法三
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function merge(intervals: number[][]): number[][] {

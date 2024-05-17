@@ -75,6 +75,8 @@ The time complexity is $O(m+n)$. Where $m$ and $n$ are the lengths of the `nums1
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def xorAllNums(self, nums1: List[int], nums2: List[int]) -> int:
@@ -87,6 +89,8 @@ class Solution:
                 ans ^= v
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -127,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func xorAllNums(nums1 []int, nums2 []int) int {
 	ans := 0
@@ -143,6 +151,8 @@ func xorAllNums(nums1 []int, nums2 []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function xorAllNums(nums1: number[], nums2: number[]): number {

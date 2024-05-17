@@ -91,6 +91,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minPathCost(self, grid: List[List[int]], moveCost: List[List[int]]) -> int:
@@ -104,6 +106,8 @@ class Solution:
             f = g
         return min(f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +136,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -153,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minPathCost(grid [][]int, moveCost [][]int) int {
 	m, n := len(grid), len(grid[0])
@@ -171,6 +179,8 @@ func minPathCost(grid [][]int, moveCost [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minPathCost(grid: number[][], moveCost: number[][]): number {
     const m = grid.length;
@@ -188,6 +198,8 @@ function minPathCost(grid: number[][], moveCost: number[][]): number {
     return Math.min(...f);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

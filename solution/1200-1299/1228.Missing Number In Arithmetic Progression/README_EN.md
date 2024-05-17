@@ -68,11 +68,15 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def missingNumber(self, arr: List[int]) -> int:
         return (arr[0] + arr[-1]) * (len(arr) + 1) // 2 - sum(arr)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +89,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -96,6 +102,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func missingNumber(arr []int) int {
@@ -120,6 +128,8 @@ func missingNumber(arr []int) int {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def missingNumber(self, arr: List[int]) -> int:
@@ -130,6 +140,8 @@ class Solution:
                 return arr[i - 1] + d
         return arr[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -145,6 +157,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {

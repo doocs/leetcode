@@ -82,6 +82,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isPossibleToCutPath(self, grid: List[List[int]]) -> bool:
@@ -99,6 +101,8 @@ class Solution:
         b = dfs(0, 0)
         return not (a and b)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -153,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isPossibleToCutPath(grid [][]int) bool {
 	m, n := len(grid), len(grid[0])
@@ -173,6 +181,8 @@ func isPossibleToCutPath(grid [][]int) bool {
 	return !(a && b)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isPossibleToCutPath(grid: number[][]): boolean {

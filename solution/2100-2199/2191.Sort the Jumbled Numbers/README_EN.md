@@ -82,6 +82,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sortJumbled(self, mapping: List[int], nums: List[int]) -> List[int]:
@@ -99,6 +101,8 @@ class Solution:
         arr = sorted((f(x), i) for i, x in enumerate(nums))
         return [nums[i] for _, i in arr]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -134,6 +138,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -165,6 +171,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sortJumbled(mapping []int, nums []int) (ans []int) {
 	n := len(nums)
@@ -191,6 +199,8 @@ func sortJumbled(mapping []int, nums []int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sortJumbled(mapping: number[], nums: number[]): number[] {
     const n = nums.length;
@@ -211,6 +221,8 @@ function sortJumbled(mapping: number[], nums: number[]): number[] {
     return arr.map(x => nums[x[1]]);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -246,6 +258,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

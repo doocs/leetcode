@@ -147,6 +147,8 @@ The time complexity is $O(n)$, where $n$ is the length of the string. We only ne
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def myAtoi(self, s: str) -> int:
@@ -178,6 +180,8 @@ class Solution:
         return sign * res
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int myAtoi(String s) {
@@ -205,6 +209,8 @@ class Solution {
     }
 }
 ```
+
+#### Go
 
 ```go
 func myAtoi(s string) int {
@@ -244,6 +250,8 @@ func myAtoi(s string) int {
 }
 ```
 
+#### JavaScript
+
 ```js
 const myAtoi = function (str) {
     str = str.trim();
@@ -270,6 +278,8 @@ const myAtoi = function (str) {
     return isPositive ? ans : -ans;
 };
 ```
+
+#### C#
 
 ```cs
 ﻿// https://leetcode.com/problems/string-to-integer-atoi/
@@ -319,6 +329,8 @@ public partial class Solution
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {

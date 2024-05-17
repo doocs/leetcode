@@ -87,6 +87,8 @@ Index 2, 4, 6, 7 is also a correct answer.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # """
 # This is the ArrayReader's API interface.
@@ -138,6 +140,8 @@ class Solution:
             return -1
         return 3 if a > b else k
 ```
+
+#### Java
 
 ```java
 /**
@@ -199,6 +203,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * // This is the ArrayReader's API interface.
@@ -259,6 +265,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * // This is the ArrayReader's API interface.
@@ -317,6 +325,8 @@ func guessMajority(reader *ArrayReader) int {
 	return k
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

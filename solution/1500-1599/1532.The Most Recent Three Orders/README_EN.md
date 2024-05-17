@@ -122,6 +122,8 @@ We can use an equi-join to join the `Customers` table and the `Orders` table bas
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

@@ -50,6 +50,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def pairSums(self, nums: List[int], target: int) -> List[List[int]]:
@@ -64,6 +66,8 @@ class Solution:
                 cnt[x] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +90,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -106,6 +112,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func pairSums(nums []int, target int) (ans [][]int) {
 	cnt := map[int]int{}
@@ -121,6 +129,8 @@ func pairSums(nums []int, target int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function pairSums(nums: number[], target: number): number[][] {
@@ -143,6 +153,8 @@ function pairSums(nums: number[], target: number): number[][] {
     return ans;
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

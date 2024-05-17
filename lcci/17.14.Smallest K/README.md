@@ -39,11 +39,15 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.14.Smallest%20K/RE
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def smallestK(self, arr: List[int], k: int) -> List[int]:
         return sorted(arr)[:k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -57,6 +61,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -72,6 +78,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallestK(arr []int, k int) []int {
 	sort.Ints(arr)
@@ -82,6 +90,8 @@ func smallestK(arr []int, k int) []int {
 	return ans
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -109,6 +119,8 @@ class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def smallestK(self, arr: List[int], k: int) -> List[int]:
@@ -119,6 +131,8 @@ class Solution:
                 heappop(h)
         return [-v for v in h]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -140,6 +154,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -160,6 +176,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func smallestK(arr []int, k int) []int {

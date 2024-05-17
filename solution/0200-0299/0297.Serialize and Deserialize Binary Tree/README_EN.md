@@ -60,6 +60,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode(object):
@@ -116,6 +118,8 @@ class Codec:
 # deser = Codec()
 # ans = deser.deserialize(ser.serialize(root))
 ```
+
+#### Java
 
 ```java
 /**
@@ -181,6 +185,8 @@ public class Codec {
 // TreeNode ans = deser.deserialize(ser.serialize(root));
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -234,6 +240,8 @@ public:
 // TreeNode* ans = deser.deserialize(ser.serialize(root));
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for a binary tree node.
@@ -268,6 +276,8 @@ function deserialize(data: string): TreeNode | null {
  * deserialize(serialize(root));
  */
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -341,6 +351,8 @@ impl Codec {
  */
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -411,6 +423,8 @@ const rdeserialize = dataList => {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 /**

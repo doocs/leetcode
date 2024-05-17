@@ -81,6 +81,8 @@ The time complexity is $O(m + n)$, and the space complexity is $O(C)$. Here, $m$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
@@ -101,6 +103,8 @@ class Solution:
                 j += 1
         return '' if k < 0 else s[k : k + mi]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +136,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -165,6 +171,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minWindow(s string, t string) string {
 	need := [128]int{}
@@ -197,6 +205,8 @@ func minWindow(s string, t string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minWindow(s: string, t: string): string {
     const need: number[] = new Array(128).fill(0);
@@ -227,6 +237,8 @@ function minWindow(s: string, t: string): string {
     return k < 0 ? '' : s.slice(k, k + mi);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -263,6 +275,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

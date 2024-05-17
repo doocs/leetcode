@@ -61,6 +61,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2066.%20%E6%9C%80%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minNumBooths(self, demand: List[str]) -> int:
@@ -76,6 +78,8 @@ class Solution:
                 cnt[c] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +129,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minNumBooths(demand []string) (ans int) {

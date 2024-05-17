@@ -72,6 +72,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minSum(self, nums1: List[int], nums2: List[int]) -> int:
@@ -83,6 +85,8 @@ class Solution:
             return s1
         return -1 if nums1.count(0) == 0 else s2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +136,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minSum(nums1 []int, nums2 []int) int64 {
@@ -157,6 +165,8 @@ func minSum(nums1 []int, nums2 []int) int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minSum(nums1: number[], nums2: number[]): number {
     let [s1, s2] = [0, 0];
@@ -179,6 +189,8 @@ function minSum(nums1: number[], nums2: number[]): number {
     return hasZero ? s2 : -1;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

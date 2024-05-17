@@ -89,6 +89,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numDistinct(self, s: str, t: str) -> int:
@@ -103,6 +105,8 @@ class Solution:
                     f[i][j] += f[i - 1][j - 1]
         return f[m][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +128,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -148,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numDistinct(s string, t string) int {
 	m, n := len(s), len(t)
@@ -170,6 +178,8 @@ func numDistinct(s string, t string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numDistinct(s: string, t: string): number {
     const m = s.length;
@@ -189,6 +199,8 @@ function numDistinct(s: string, t: string): number {
     return f[m][n];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -229,6 +241,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numDistinct(self, s: str, t: str) -> int:
@@ -240,6 +254,8 @@ class Solution:
                     f[j] += f[j - 1]
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -259,6 +275,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -281,6 +299,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numDistinct(s string, t string) int {
 	n := len(t)
@@ -296,6 +316,8 @@ func numDistinct(s string, t string) int {
 	return f[n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numDistinct(s: string, t: string): number {

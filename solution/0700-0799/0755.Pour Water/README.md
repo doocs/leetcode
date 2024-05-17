@@ -164,6 +164,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def pourWater(self, heights: List[int], volume: int, k: int) -> List[int]:
@@ -181,6 +183,8 @@ class Solution:
                 heights[k] += 1
         return heights
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -209,6 +213,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -236,6 +242,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func pourWater(heights []int, volume int, k int) []int {

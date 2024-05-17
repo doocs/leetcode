@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def greatestLetter(self, s: str) -> str:
@@ -89,6 +91,8 @@ class Solution:
                 return c
         return ''
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -121,6 +127,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func greatestLetter(s string) string {
@@ -137,6 +145,8 @@ func greatestLetter(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function greatestLetter(s: string): string {
     const ss = new Array(128).fill(false);
@@ -151,6 +161,8 @@ function greatestLetter(s: string): string {
     return '';
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -172,6 +184,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -210,6 +224,8 @@ var greatestLetter = function (s) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def greatestLetter(self, s: str) -> str:
@@ -222,6 +238,8 @@ class Solution:
         mask = mask1 & mask2
         return chr(mask.bit_length() - 1 + ord("A")) if mask else ""
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -242,6 +260,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -259,6 +279,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func greatestLetter(s string) string {

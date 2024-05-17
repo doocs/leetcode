@@ -62,6 +62,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def averageValue(self, nums: List[int]) -> int:
@@ -72,6 +74,8 @@ class Solution:
                 n += 1
         return 0 if n == 0 else s // n
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +91,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -104,6 +110,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func averageValue(nums []int) int {
 	var s, n int
@@ -120,6 +128,8 @@ func averageValue(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function averageValue(nums: number[]): number {
     let s = 0;
@@ -133,6 +143,8 @@ function averageValue(nums: number[]): number {
     return n === 0 ? 0 : ~~(s / n);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -152,6 +164,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int averageValue(int* nums, int numsSize) {
@@ -175,6 +189,8 @@ int averageValue(int* nums, int numsSize) {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {

@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def removeDigit(self, number: str, digit: str) -> str:
@@ -84,6 +86,8 @@ class Solution:
             number[:i] + number[i + 1 :] for i, d in enumerate(number) if d == digit
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func removeDigit(number string, digit byte) string {
 	ans := "0"
@@ -136,6 +144,8 @@ func removeDigit(number string, digit byte) string {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function removeDigit(number: string, digit: string): string {
@@ -152,6 +162,8 @@ function removeDigit(number: string, digit: string): string {
     return number.substring(0, last) + number.substring(last + 1);
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -191,6 +203,8 @@ class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def removeDigit(self, number: str, digit: str) -> str:
@@ -203,6 +217,8 @@ class Solution:
                     break
         return number[:last] + number[last + 1 :]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -223,6 +239,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -242,6 +260,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func removeDigit(number string, digit byte) string {

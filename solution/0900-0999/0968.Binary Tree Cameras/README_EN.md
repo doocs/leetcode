@@ -58,6 +58,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -80,6 +82,8 @@ class Solution:
         a, b, _ = dfs(root)
         return min(a, b)
 ```
+
+#### Java
 
 ```java
 /**
@@ -116,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -154,6 +160,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -180,6 +188,8 @@ func minCameraCover(root *TreeNode) int {
 	return min(a, b)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**

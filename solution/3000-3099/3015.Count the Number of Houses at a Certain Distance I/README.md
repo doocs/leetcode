@@ -93,6 +93,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countOfPairs(self, n: int, x: int, y: int) -> List[int]:
@@ -106,6 +108,8 @@ class Solution:
                 ans[min(a, b, c) - 1] += 2
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -145,6 +151,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countOfPairs(n int, x int, y int) []int {
@@ -168,6 +176,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countOfPairs(n: number, x: number, y: number): number[] {

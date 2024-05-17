@@ -44,6 +44,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.08.Draw%20Line/REA
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def drawLine(self, length: int, w: int, x1: int, x2: int, y: int) -> List[int]:
@@ -56,6 +58,8 @@ class Solution:
         ans[j] &= -0x80000000 >> (x2 % 32)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -72,6 +76,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {

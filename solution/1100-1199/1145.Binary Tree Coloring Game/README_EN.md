@@ -73,6 +73,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -96,6 +98,8 @@ class Solution:
         l, r = count(node.left), count(node.right)
         return max(l, r, n - l - r - 1) > n // 2
 ```
+
+#### Java
 
 ```java
 /**
@@ -138,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -175,6 +181,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -210,6 +218,8 @@ func btreeGameWinningMove(root *TreeNode, n int, x int) bool {
 	return max(max(l, r), n-l-r-1) > n/2
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -247,6 +257,8 @@ function btreeGameWinningMove(root: TreeNode | null, n: number, x: number): bool
     return Math.max(l, r, n - l - r - 1) > n / 2;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

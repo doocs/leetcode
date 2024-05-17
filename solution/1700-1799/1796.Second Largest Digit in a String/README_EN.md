@@ -66,6 +66,8 @@ The time complexity is $O(n)$, where $n$ is the length of the string $s$. The sp
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def secondHighest(self, s: str) -> int:
@@ -79,6 +81,8 @@ class Solution:
                     b = v
         return b
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -121,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func secondHighest(s string) int {
 	a, b := -1, -1
@@ -137,6 +145,8 @@ func secondHighest(s string) int {
 	return b
 }
 ```
+
+#### TypeScript
 
 ```ts
 function secondHighest(s: string): number {
@@ -155,6 +165,8 @@ function secondHighest(s: string): number {
     return second;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -176,6 +188,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int secondHighest(char* s) {
@@ -214,6 +228,8 @@ The time complexity is $O(n)$, where $n$ is the length of the string $s$. The sp
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def secondHighest(self, s: str) -> int:
@@ -226,6 +242,8 @@ class Solution:
                 return i
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -247,6 +265,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -260,6 +280,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func secondHighest(s string) int {

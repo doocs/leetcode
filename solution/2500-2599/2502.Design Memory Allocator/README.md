@@ -98,6 +98,8 @@ loc.free(7); // 释放 mID 为 7 的所有内存单元。内存数组保持原�
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Allocator:
     def __init__(self, n: int):
@@ -129,6 +131,8 @@ class Allocator:
 # param_1 = obj.allocate(size,mID)
 # param_2 = obj.free(mID)
 ```
+
+#### Java
 
 ```java
 class Allocator {
@@ -170,6 +174,8 @@ class Allocator {
  * int param_2 = obj.free(mID);
  */
 ```
+
+#### C++
 
 ```cpp
 class Allocator {
@@ -219,6 +225,8 @@ private:
  * int param_2 = obj->free(mID);
  */
 ```
+
+#### Go
 
 ```go
 type Allocator struct {
@@ -283,6 +291,8 @@ func (this *Allocator) Free(mID int) (ans int) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedList
 
@@ -315,6 +325,8 @@ class Allocator:
 # param_1 = obj.allocate(size,mID)
 # param_2 = obj.free(mID)
 ```
+
+#### Java
 
 ```java
 class Allocator {
@@ -361,6 +373,8 @@ class Allocator {
  * int param_2 = obj.free(mID);
  */
 ```
+
+#### C++
 
 ```cpp
 class Allocator {
@@ -409,6 +423,8 @@ private:
  * int param_2 = obj->free(mID);
  */
 ```
+
+#### Go
 
 ```go
 type Allocator struct {

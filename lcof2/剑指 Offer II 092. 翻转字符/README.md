@@ -72,6 +72,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minFlipsMonoIncr(self, s: str) -> int:
@@ -85,6 +87,8 @@ class Solution:
             ans = min(ans, i - left0 + right0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +134,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minFlipsMonoIncr(s string) int {
@@ -151,6 +159,8 @@ func minFlipsMonoIncr(s string) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minFlipsMonoIncr(s: string): number {

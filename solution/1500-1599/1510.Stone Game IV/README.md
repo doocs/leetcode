@@ -98,6 +98,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def winnerSquareGame(self, n: int) -> bool:
@@ -114,6 +116,8 @@ class Solution:
 
         return dfs(n)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -140,6 +144,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -168,6 +174,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func winnerSquareGame(n int) bool {
 	f := make([]int, n+1)
@@ -191,6 +199,8 @@ func winnerSquareGame(n int) bool {
 	return dfs(n)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function winnerSquareGame(n: number): boolean {
@@ -243,6 +253,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def winnerSquareGame(self, n: int) -> bool:
@@ -256,6 +268,8 @@ class Solution:
                 j += 1
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -273,6 +287,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -293,6 +309,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func winnerSquareGame(n int) bool {
 	f := make([]bool, n+1)
@@ -307,6 +325,8 @@ func winnerSquareGame(n int) bool {
 	return f[n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function winnerSquareGame(n: number): boolean {

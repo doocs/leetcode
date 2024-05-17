@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def candyCrush(self, board: List[List[int]]) -> List[List[int]]:
@@ -110,6 +112,8 @@ class Solution:
                         curr -= 1
         return board
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -157,6 +161,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -201,6 +207,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func candyCrush(board [][]int) [][]int {

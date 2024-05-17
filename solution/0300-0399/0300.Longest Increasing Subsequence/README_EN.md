@@ -64,6 +64,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
@@ -75,6 +77,8 @@ class Solution:
                     f[i] = max(f[i], f[j] + 1)
         return max(f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +100,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -113,6 +119,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func lengthOfLIS(nums []int) int {
@@ -134,6 +142,8 @@ func lengthOfLIS(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function lengthOfLIS(nums: number[]): number {
     const n = nums.length;
@@ -148,6 +158,8 @@ function lengthOfLIS(nums: number[]): number {
     return Math.max(...f);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -175,6 +187,8 @@ impl Solution {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -206,6 +220,8 @@ class Solution:
             tree.update(x, t)
         return tree.query(m)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -269,6 +285,8 @@ class BinaryIndexedTree {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -313,6 +331,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {
@@ -361,6 +381,8 @@ func lengthOfLIS(nums []int) int {
 	return tree.query(m)
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {

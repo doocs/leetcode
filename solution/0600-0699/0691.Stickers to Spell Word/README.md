@@ -71,6 +71,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minStickers(self, stickers: List[str], target: str) -> int:
@@ -97,6 +99,8 @@ class Solution:
             ans += 1
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -176,6 +182,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minStickers(stickers []string, target string) int {
@@ -215,6 +223,8 @@ func minStickers(stickers []string, target string) int {
 	return -1
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::{ HashSet, VecDeque };

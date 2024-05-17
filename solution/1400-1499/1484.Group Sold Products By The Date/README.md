@@ -78,6 +78,8 @@ Activities</code> 表：
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 SELECT
     sell_date,

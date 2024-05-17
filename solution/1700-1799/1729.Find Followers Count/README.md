@@ -76,6 +76,8 @@ Followers 表：
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT user_id, COUNT(1) AS followers_count

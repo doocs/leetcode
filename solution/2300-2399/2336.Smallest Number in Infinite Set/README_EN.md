@@ -86,6 +86,8 @@ The space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedSet
 
@@ -108,6 +110,8 @@ class SmallestInfiniteSet:
 # param_1 = obj.popSmallest()
 # obj.addBack(num)
 ```
+
+#### Java
 
 ```java
 class SmallestInfiniteSet {
@@ -135,6 +139,8 @@ class SmallestInfiniteSet {
  * obj.addBack(num);
  */
 ```
+
+#### C++
 
 ```cpp
 class SmallestInfiniteSet {
@@ -167,6 +173,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type SmallestInfiniteSet struct {
 	s *treemap.Map
@@ -197,6 +205,8 @@ func (this *SmallestInfiniteSet) AddBack(num int) {
  * obj.AddBack(num);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class SmallestInfiniteSet {
@@ -866,6 +876,8 @@ class TreeMultiSet<T = number> {
  */
 ```
 
+#### Rust
+
 ```rust
 use std::collections::BTreeSet;
 
@@ -908,6 +920,8 @@ impl SmallestInfiniteSet {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 class SmallestInfiniteSet {

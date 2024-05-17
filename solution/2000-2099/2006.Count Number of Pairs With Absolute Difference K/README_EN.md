@@ -86,6 +86,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(1)$. Here, $n$ i
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countKDifference(self, nums: List[int], k: int) -> int:
@@ -94,6 +96,8 @@ class Solution:
             abs(nums[i] - nums[j]) == k for i in range(n) for j in range(i + 1, n)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -126,6 +132,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countKDifference(nums []int, k int) int {
@@ -149,6 +157,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countKDifference(nums: number[], k: number): number {
     let ans = 0;
@@ -160,6 +170,8 @@ function countKDifference(nums: number[], k: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -194,6 +206,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countKDifference(self, nums: List[int], k: int) -> int:
@@ -204,6 +218,8 @@ class Solution:
             cnt[num] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -223,6 +239,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -244,6 +262,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countKDifference(nums []int, k int) (ans int) {
 	cnt := [110]int{}
@@ -259,6 +279,8 @@ func countKDifference(nums []int, k int) (ans int) {
 	return
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

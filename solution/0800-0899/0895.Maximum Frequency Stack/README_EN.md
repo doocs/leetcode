@@ -84,6 +84,8 @@ When performing a pop operation, we directly pop an element from the priority qu
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class FreqStack:
     def __init__(self):
@@ -107,6 +109,8 @@ class FreqStack:
 # obj.push(val)
 # param_2 = obj.pop()
 ```
+
+#### Java
 
 ```java
 class FreqStack {
@@ -137,6 +141,8 @@ class FreqStack {
  * int param_2 = obj.pop();
  */
 ```
+
+#### C++
 
 ```cpp
 class FreqStack {
@@ -169,6 +175,8 @@ private:
  * int param_2 = obj->pop();
  */
 ```
+
+#### Go
 
 ```go
 type FreqStack struct {
@@ -230,6 +238,8 @@ When performing a pop operation, we take the list of elements with frequency $mx
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class FreqStack:
     def __init__(self):
@@ -255,6 +265,8 @@ class FreqStack:
 # obj.push(val)
 # param_2 = obj.pop()
 ```
+
+#### Java
 
 ```java
 class FreqStack {
@@ -290,6 +302,8 @@ class FreqStack {
  */
 ```
 
+#### C++
+
 ```cpp
 class FreqStack {
 public:
@@ -323,6 +337,8 @@ private:
  * int param_2 = obj->pop();
  */
 ```
+
+#### Go
 
 ```go
 type FreqStack struct {

@@ -81,11 +81,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countBits(self, n: int) -> List[int]:
         return [i.bit_count() for i in range(n + 1)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -112,6 +118,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countBits(n int) []int {
 	ans := make([]int, n+1)
@@ -121,6 +129,8 @@ func countBits(n int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countBits(n: number): number[] {
@@ -157,6 +167,8 @@ function bitCount(n: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countBits(self, n: int) -> List[int]:
@@ -165,6 +177,8 @@ class Solution:
             ans[i] = ans[i & (i - 1)] + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -177,6 +191,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -191,6 +207,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countBits(n int) []int {
 	ans := make([]int, n+1)
@@ -200,6 +218,8 @@ func countBits(n int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countBits(n: number): number[] {

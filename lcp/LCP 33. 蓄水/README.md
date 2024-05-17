@@ -65,6 +65,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2033.%20%E8%93%84%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def storeWater(self, bucket: List[int], vat: List[int]) -> int:
@@ -77,6 +79,8 @@ class Solution:
             ans = min(ans, x + y)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -121,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func storeWater(bucket []int, vat []int) int {
 	mx := slices.Max(vat)
@@ -138,6 +146,8 @@ func storeWater(bucket []int, vat []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function storeWater(bucket: number[], vat: number[]): number {

@@ -88,6 +88,8 @@ The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def satisfiesConditions(self, grid: List[List[int]]) -> bool:
@@ -100,6 +102,8 @@ class Solution:
                     return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +123,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -140,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func satisfiesConditions(grid [][]int) bool {
 	m, n := len(grid), len(grid[0])
@@ -156,6 +164,8 @@ func satisfiesConditions(grid [][]int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function satisfiesConditions(grid: number[][]): boolean {

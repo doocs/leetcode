@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countAsterisks(self, s: str) -> int:
@@ -87,6 +89,8 @@ class Solution:
                 ok ^= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +109,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countAsterisks(s string) (ans int) {
 	ok := 1
@@ -135,6 +143,8 @@ func countAsterisks(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countAsterisks(s: string): number {
@@ -150,6 +160,8 @@ function countAsterisks(s: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -168,6 +180,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int CountAsterisks(string s) {
@@ -183,6 +197,8 @@ public class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int countAsterisks(char* s) {

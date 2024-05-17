@@ -80,6 +80,8 @@ The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def construct2DArray(self, original: List[int], m: int, n: int) -> List[List[int]]:
@@ -87,6 +89,8 @@ class Solution:
             return []
         return [original[i : i + n] for i in range(0, m * n, n)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -123,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func construct2DArray(original []int, m int, n int) (ans [][]int) {
 	if m*n != len(original) {
@@ -134,6 +142,8 @@ func construct2DArray(original []int, m int, n int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function construct2DArray(original: number[], m: number, n: number): number[][] {
@@ -147,6 +157,8 @@ function construct2DArray(original: number[], m: number, n: number): number[][] 
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

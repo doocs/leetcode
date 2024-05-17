@@ -80,6 +80,8 @@ i=3: 3 mod 10 = 3 != nums[3].
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def smallestEqual(self, nums: List[int]) -> int:
@@ -88,6 +90,8 @@ class Solution:
                 return i
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -114,6 +120,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallestEqual(nums []int) int {
 	for i, v := range nums {
@@ -124,6 +132,8 @@ func smallestEqual(nums []int) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function smallestEqual(nums: number[]): number {

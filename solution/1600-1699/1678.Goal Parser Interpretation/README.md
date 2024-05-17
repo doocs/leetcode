@@ -70,11 +70,15 @@ G -&gt; G
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def interpret(self, command: str) -> str:
         return command.replace('()', 'o').replace('(al)', 'al')
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +87,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -95,6 +101,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func interpret(command string) string {
 	command = strings.ReplaceAll(command, "()", "o")
@@ -103,11 +111,15 @@ func interpret(command string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function interpret(command: string): string {
     return command.replace(/\(\)/g, 'o').replace(/\(al\)/g, 'al');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -116,6 +128,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 char* interpret(char* command) {
@@ -159,6 +173,8 @@ char* interpret(char* command) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def interpret(self, command: str) -> str:
@@ -170,6 +186,8 @@ class Solution:
                 ans.append('o' if command[i + 1] == ')' else 'al')
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -188,6 +206,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -204,6 +224,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func interpret(command string) string {
@@ -223,6 +245,8 @@ func interpret(command string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function interpret(command: string): string {
     const n = command.length;
@@ -238,6 +262,8 @@ function interpret(command: string): string {
     return ans.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

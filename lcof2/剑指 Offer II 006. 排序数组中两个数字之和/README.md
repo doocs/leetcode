@@ -71,6 +71,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
@@ -81,6 +83,8 @@ class Solution:
             if j < n and numbers[j] == x:
                 return [i, j]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +125,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func twoSum(numbers []int, target int) []int {
 	for i, n := 0, len(numbers); ; i++ {
@@ -130,6 +138,8 @@ func twoSum(numbers []int, target int) []int {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function twoSum(numbers: number[], target: number): number[] {
@@ -152,6 +162,8 @@ function twoSum(numbers: number[], target: number): number[] {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 use std::cmp::Ordering;
@@ -193,6 +205,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
@@ -206,6 +220,8 @@ class Solution:
             else:
                 j -= 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -224,6 +240,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -244,6 +262,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func twoSum(numbers []int, target int) []int {
 	for i, j := 0, len(numbers)-1; ; {
@@ -260,6 +280,8 @@ func twoSum(numbers []int, target int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function twoSum(numbers: number[], target: number): number[] {
     for (let i = 0, j = numbers.length - 1; ; ) {
@@ -275,6 +297,8 @@ function twoSum(numbers: number[], target: number): number[] {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 use std::cmp::Ordering;

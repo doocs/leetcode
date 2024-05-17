@@ -84,6 +84,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3149.Fi
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findPermutation(self, nums: List[int]) -> List[int]:
@@ -113,6 +115,8 @@ class Solution:
         g(1, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -164,6 +168,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -208,6 +214,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findPermutation(nums []int) (ans []int) {
@@ -263,6 +271,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findPermutation(nums: number[]): number[] {

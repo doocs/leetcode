@@ -80,6 +80,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getGoodIndices(self, variables: List[List[int]], target: int) -> List[int]:
@@ -89,6 +91,8 @@ class Solution:
             if pow(pow(a, b, 10), c, m) == target
         ]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -144,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getGoodIndices(variables [][]int, target int) (ans []int) {
 	qpow := func(a, n, mod int) int {
@@ -165,6 +173,8 @@ func getGoodIndices(variables [][]int, target int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getGoodIndices(variables: number[][], target: number): number[] {

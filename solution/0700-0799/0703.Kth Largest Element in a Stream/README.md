@@ -72,6 +72,8 @@ kthLargest.add(4);   // return 8
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class KthLargest:
     def __init__(self, k: int, nums: List[int]):
@@ -91,6 +93,8 @@ class KthLargest:
 # obj = KthLargest(k, nums)
 # param_1 = obj.add(val)
 ```
+
+#### Java
 
 ```java
 class KthLargest {
@@ -121,6 +125,8 @@ class KthLargest {
  */
 ```
 
+#### C++
+
 ```cpp
 class KthLargest {
 public:
@@ -145,6 +151,8 @@ public:
  * int param_1 = obj->add(val);
  */
 ```
+
+#### Go
 
 ```go
 type KthLargest struct {
@@ -221,6 +229,8 @@ func (h *IntHeap) Top() int {
  * param_1 := obj.Add(val);
  */
 ```
+
+#### JavaScript
 
 ```js
 /**

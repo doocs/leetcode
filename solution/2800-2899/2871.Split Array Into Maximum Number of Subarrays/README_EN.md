@@ -80,6 +80,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxSubarrays(self, nums: List[int]) -> int:
@@ -91,6 +93,8 @@ class Solution:
                 ans += 1
         return 1 if ans == 1 else ans - 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -126,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSubarrays(nums []int) int {
 	ans, score := 1, -1
@@ -142,6 +150,8 @@ func maxSubarrays(nums []int) int {
 	return ans - 1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxSubarrays(nums: number[]): number {

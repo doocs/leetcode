@@ -88,6 +88,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxScoreIndices(self, nums: List[int]) -> List[int]:
@@ -107,6 +109,8 @@ class Solution:
                 ans = [i + 1]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -144,6 +148,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -171,6 +177,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxScoreIndices(nums []int) []int {
 	left, right := 0, 0
@@ -196,6 +204,8 @@ func maxScoreIndices(nums []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxScoreIndices(nums: number[]): number[] {

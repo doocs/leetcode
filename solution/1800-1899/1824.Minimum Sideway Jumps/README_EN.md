@@ -94,6 +94,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array $obstacles$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minSideJumps(self, obstacles: List[int]) -> int:
@@ -109,6 +111,8 @@ class Solution:
                     f[j] = min(f[j], x)
         return min(f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +137,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -159,6 +165,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minSideJumps(obstacles []int) int {
 	f := [3]int{1, 0, 1}
@@ -180,6 +188,8 @@ func minSideJumps(obstacles []int) int {
 	return min(f[0], min(f[1], f[2]))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minSideJumps(obstacles: number[]): number {

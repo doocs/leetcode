@@ -66,11 +66,15 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def xorOperation(self, n: int, start: int) -> int:
         return reduce(xor, ((start + 2 * i) for i in range(n)))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +87,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -97,6 +103,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func xorOperation(n int, start int) (ans int) {
 	for i := 0; i < n; i++ {
@@ -105,6 +113,8 @@ func xorOperation(n int, start int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function xorOperation(n: number, start: number): number {

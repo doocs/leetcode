@@ -68,6 +68,8 @@ myCalendar.book(20, 30); // return True ，这个日程安排可以添加到日�
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedDict
 
@@ -88,6 +90,8 @@ class MyCalendar:
 # obj = MyCalendar()
 # param_1 = obj.book(start,end)
 ```
+
+#### Java
 
 ```java
 import java.util.Map;
@@ -120,6 +124,8 @@ class MyCalendar {
  */
 ```
 
+#### C++
+
 ```cpp
 class MyCalendar {
 public:
@@ -151,6 +157,8 @@ public:
  */
 ```
 
+#### Go
+
 ```go
 type MyCalendar struct {
 	rbt *redblacktree.Tree
@@ -180,6 +188,8 @@ func (this *MyCalendar) Book(start int, end int) bool {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class MyCalendar {
     private calendar: number[][];
@@ -206,6 +216,8 @@ class MyCalendar {
  * var param_1 = obj.book(start,end)
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::BTreeMap;

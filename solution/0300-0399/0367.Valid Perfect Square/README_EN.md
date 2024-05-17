@@ -57,6 +57,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isPerfectSquare(self, num: int) -> bool:
@@ -69,6 +71,8 @@ class Solution:
                 left = mid + 1
         return left * left == num
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +91,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -104,6 +110,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isPerfectSquare(num int) bool {
 	left, right := 1, num
@@ -118,6 +126,8 @@ func isPerfectSquare(num int) bool {
 	return left*left == num
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isPerfectSquare(num: number): boolean {
@@ -134,6 +144,8 @@ function isPerfectSquare(num: number): boolean {
     return left * left === num;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::cmp::Ordering;
@@ -184,6 +196,8 @@ so 1+3+...+(2n-1) = (2n-1 + 1)n/2 = n²
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isPerfectSquare(self, num: int) -> bool:
@@ -193,6 +207,8 @@ class Solution:
             i += 2
         return num == 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -205,6 +221,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -215,6 +233,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isPerfectSquare(num int) bool {
 	for i := 1; num > 0; i += 2 {
@@ -223,6 +243,8 @@ func isPerfectSquare(num int) bool {
 	return num == 0
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isPerfectSquare(num: number): boolean {
@@ -234,6 +256,8 @@ function isPerfectSquare(num: number): boolean {
     return num === 0;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

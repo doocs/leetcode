@@ -82,6 +82,8 @@ In terms of time complexity, during initialization, we need $O(n)$ time, and dur
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class TopVotedCandidate:
 
@@ -105,6 +107,8 @@ class TopVotedCandidate:
 # obj = TopVotedCandidate(persons, times)
 # param_1 = obj.q(t)
 ```
+
+#### Java
 
 ```java
 class TopVotedCandidate {
@@ -140,6 +144,8 @@ class TopVotedCandidate {
  * int param_1 = obj.q(t);
  */
 ```
+
+#### C++
 
 ```cpp
 class TopVotedCandidate {
@@ -177,6 +183,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type TopVotedCandidate struct {
 	times []int
@@ -209,6 +217,8 @@ func (this *TopVotedCandidate) Q(t int) int {
  * param_1 := obj.Q(t);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class TopVotedCandidate {

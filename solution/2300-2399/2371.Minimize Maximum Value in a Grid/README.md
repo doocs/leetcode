@@ -86,6 +86,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minScore(self, grid: List[List[int]]) -> List[List[int]]:
@@ -100,6 +102,8 @@ class Solution:
             row_max[i] = col_max[j] = ans[i][j]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -149,6 +155,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minScore(grid [][]int) [][]int {
@@ -175,6 +183,8 @@ func minScore(grid [][]int) [][]int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minScore(grid: number[][]): number[][] {

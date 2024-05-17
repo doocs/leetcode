@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def constrainedSubsetSum(self, nums: List[int], k: int) -> int:
@@ -86,6 +88,8 @@ class Solution:
             ans = max(ans, dp[i])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -129,6 +135,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func constrainedSubsetSum(nums []int, k int) int {

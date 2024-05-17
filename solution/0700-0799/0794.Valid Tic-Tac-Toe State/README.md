@@ -86,6 +86,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def validTicTacToe(self, board: List[str]) -> bool:
@@ -107,6 +109,8 @@ class Solution:
             return False
         return not (win('O') and x != o)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -153,6 +157,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -178,6 +184,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func validTicTacToe(board []string) bool {
@@ -214,6 +222,8 @@ func validTicTacToe(board []string) bool {
 	return !(win('O') && x != o)
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

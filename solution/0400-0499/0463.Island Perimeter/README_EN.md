@@ -69,6 +69,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def islandPerimeter(self, grid: List[List[int]]) -> int:
@@ -84,6 +86,8 @@ class Solution:
                         ans -= 2
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +134,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func islandPerimeter(grid [][]int) int {
@@ -149,6 +157,8 @@ func islandPerimeter(grid [][]int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function islandPerimeter(grid: number[][]): number {

@@ -73,6 +73,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def ways(self, pizza: List[str], k: int) -> int:
@@ -97,6 +99,8 @@ class Solution:
                 s[i][j] = s[i - 1][j] + s[i][j - 1] - s[i - 1][j - 1] + int(c == 'A')
         return dfs(0, 0, k - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -143,6 +147,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -181,6 +187,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func ways(pizza []string, k int) int {
@@ -236,6 +244,8 @@ func ways(pizza []string, k int) int {
 	return dfs(0, 0, k-1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function ways(pizza: string[], k: number): number {

@@ -71,12 +71,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findClosestElements(self, arr: List[int], k: int, x: int) -> List[int]:
         arr.sort(key=lambda v: abs(v - x))
         return sorted(arr[:k])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +98,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 int target;
@@ -114,6 +120,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findClosestElements(arr []int, k int, x int) []int {
@@ -137,6 +145,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findClosestElements(arr: number[], k: number, x: number): number[] {
     let l = 0;
@@ -151,6 +161,8 @@ function findClosestElements(arr: number[], k: number, x: number): number[] {
     return arr.slice(l, r);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -186,6 +198,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findClosestElements(self, arr: List[int], k: int, x: int) -> List[int]:
@@ -197,6 +211,8 @@ class Solution:
                 l += 1
         return arr[l:r]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -218,6 +234,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -235,6 +253,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findClosestElements(arr []int, k int, x int) []int {
 	l, r := 0, len(arr)
@@ -248,6 +268,8 @@ func findClosestElements(arr []int, k int, x int) []int {
 	return arr[l:r]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findClosestElements(arr: number[], k: number, x: number): number[] {
@@ -264,6 +286,8 @@ function findClosestElements(arr: number[], k: number, x: number): number[] {
     return arr.slice(left, left + k);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -299,6 +323,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findClosestElements(self, arr: List[int], k: int, x: int) -> List[int]:
@@ -311,6 +337,8 @@ class Solution:
                 left = mid + 1
         return arr[left : left + k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -334,6 +362,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -350,6 +380,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findClosestElements(arr []int, k int, x int) []int {

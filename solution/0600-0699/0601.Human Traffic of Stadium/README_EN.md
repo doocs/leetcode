@@ -81,6 +81,8 @@ The rows with ids 2 and 3 are not included because we need at least three consec
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH

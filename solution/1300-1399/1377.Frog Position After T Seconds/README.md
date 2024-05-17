@@ -101,6 +101,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def frogPosition(
@@ -126,6 +128,8 @@ class Solution:
             t -= 1
         return 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -163,6 +167,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -197,6 +203,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func frogPosition(n int, edges [][]int, t int, target int) float64 {
@@ -239,6 +247,8 @@ func frogPosition(n int, edges [][]int, t int, target int) float64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function frogPosition(n: number, edges: number[][], t: number, target: number): number {
     const g: number[][] = Array.from({ length: n + 1 }, () => []);
@@ -267,6 +277,8 @@ function frogPosition(n: number, edges: number[][], t: number, target: number): 
     return 0;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {

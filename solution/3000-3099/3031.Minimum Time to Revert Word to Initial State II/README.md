@@ -96,6 +96,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Hashing:
     __slots__ = ["mod", "h", "p"]
@@ -121,6 +123,8 @@ class Solution:
                 return i // k
         return (n + k - 1) // k
 ```
+
+#### Java
 
 ```java
 class Hashing {
@@ -158,6 +162,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Hashing {
@@ -198,6 +204,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type Hashing struct {

@@ -78,6 +78,8 @@ Salary table:
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 UPDATE salary
 SET sex = CASE sex
@@ -95,6 +97,8 @@ END;
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

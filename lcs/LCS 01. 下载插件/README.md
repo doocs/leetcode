@@ -62,6 +62,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcs/LCS%2001.%20%E4%B8%8B%
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def leastMinutes(self, n: int) -> int:
@@ -71,6 +73,8 @@ class Solution:
             ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +87,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -97,6 +103,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func leastMinutes(n int) int {
 	ans := 1
@@ -107,6 +115,8 @@ func leastMinutes(n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function leastMinutes(n: number): number {
     let ans = 1;
@@ -116,6 +126,8 @@ function leastMinutes(n: number): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

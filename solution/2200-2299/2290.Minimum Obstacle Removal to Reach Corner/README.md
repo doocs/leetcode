@@ -93,6 +93,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumObstacles(self, grid: List[List[int]]) -> int:
@@ -115,6 +117,8 @@ class Solution:
                     else:
                         q.append((x, y, k + 1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -149,6 +153,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -182,6 +188,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumObstacles(grid [][]int) int {
@@ -219,6 +227,8 @@ func minimumObstacles(grid [][]int) int {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumObstacles(grid: number[][]): number {

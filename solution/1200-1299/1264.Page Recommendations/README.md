@@ -114,6 +114,8 @@ Likes table:
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH
@@ -138,6 +140,8 @@ WHERE page_id NOT IN (SELECT page_id FROM Likes WHERE user_id = 1);
 ### 方法二
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below

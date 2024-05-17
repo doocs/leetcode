@@ -71,6 +71,8 @@ The time complexity is $O(n)$, where $n$ is the given integer. The space complex
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def concatenatedBinary(self, n: int) -> int:
@@ -80,6 +82,8 @@ class Solution:
             ans = (ans << i.bit_length() | i) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +97,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -108,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func concatenatedBinary(n int) (ans int) {
 	const mod = 1e9 + 7
@@ -117,6 +125,8 @@ func concatenatedBinary(n int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function concatenatedBinary(n: number): number {
@@ -143,6 +153,8 @@ function concatenatedBinary(n: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def concatenatedBinary(self, n: int) -> int:
@@ -154,6 +166,8 @@ class Solution:
             ans = (ans << shift | i) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -172,6 +186,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -189,6 +205,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func concatenatedBinary(n int) (ans int) {

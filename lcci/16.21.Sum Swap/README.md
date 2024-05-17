@@ -51,6 +51,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.21.Sum%20Swap/READ
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findSwapValues(self, array1: List[int], array2: List[int]) -> List[int]:
@@ -64,6 +66,8 @@ class Solution:
                 return [a, b]
         return []
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +97,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -115,6 +121,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findSwapValues(array1 []int, array2 []int) []int {
@@ -141,6 +149,8 @@ func findSwapValues(array1 []int, array2 []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findSwapValues(array1: number[], array2: number[]): number[] {
     const s1 = array1.reduce((a, b) => a + b, 0);
@@ -160,6 +170,8 @@ function findSwapValues(array1: number[], array2: number[]): number[] {
     return [];
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

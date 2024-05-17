@@ -70,6 +70,8 @@ we can combine 1 and 1 to get 0, so the array converts to [1], then that&#39;s t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def lastStoneWeightII(self, stones: List[int]) -> int:
@@ -85,6 +87,8 @@ class Solution:
                     )
         return s - 2 * dp[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -126,6 +132,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func lastStoneWeightII(stones []int) int {
@@ -149,6 +157,8 @@ func lastStoneWeightII(stones []int) int {
 	return s - dp[m][n]*2
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -183,6 +193,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} stones
@@ -214,6 +226,8 @@ var lastStoneWeightII = function (stones) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def lastStoneWeightII(self, stones: List[int]) -> int:
@@ -225,6 +239,8 @@ class Solution:
                 dp[j] = max(dp[j], dp[j - v] + v)
         return s - dp[-1] * 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -246,6 +262,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -260,6 +278,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func lastStoneWeightII(stones []int) int {

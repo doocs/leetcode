@@ -81,6 +81,8 @@ After removing outer parentheses of each part, this is &quot;&quot; + &quot;&quo
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def removeOuterParentheses(self, s: str) -> str:
@@ -97,6 +99,8 @@ class Solution:
                     ans.append(c)
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -142,6 +148,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func removeOuterParentheses(s string) string {
 	ans := []rune{}
@@ -163,6 +171,8 @@ func removeOuterParentheses(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function removeOuterParentheses(s: string): string {
     let res = '';
@@ -181,6 +191,8 @@ function removeOuterParentheses(s: string): string {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -213,6 +225,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def removeOuterParentheses(self, s: str) -> str:
@@ -227,6 +241,8 @@ class Solution:
                 cnt -= 1
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -250,6 +266,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -271,6 +289,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func removeOuterParentheses(s string) string {

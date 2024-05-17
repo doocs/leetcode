@@ -79,6 +79,8 @@ Note that there are other possible paths for these cells to flow to the Pacific 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
@@ -118,6 +120,8 @@ class Solution:
             if (i, j) in vis1 and (i, j) in vis2
         ]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -178,6 +182,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 typedef pair<int, int> pii;
@@ -242,6 +248,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func pacificAtlantic(heights [][]int) [][]int {
 	m, n := len(heights), len(heights[0])
@@ -291,6 +299,8 @@ func pacificAtlantic(heights [][]int) [][]int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function pacificAtlantic(heights: number[][]): number[][] {

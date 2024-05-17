@@ -72,6 +72,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countQuadruples(self, firstString: str, secondString: str) -> int:
@@ -87,6 +89,8 @@ class Solution:
                     ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -139,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countQuadruples(firstString string, secondString string) (ans int) {
 	last := [26]int{}
@@ -161,6 +169,8 @@ func countQuadruples(firstString string, secondString string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countQuadruples(firstString: string, secondString: string): number {

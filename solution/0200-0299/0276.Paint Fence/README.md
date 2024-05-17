@@ -84,6 +84,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numWays(self, n: int, k: int) -> int:
@@ -95,6 +97,8 @@ class Solution:
             g[i] = f[i - 1]
         return f[-1] + g[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -127,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numWays(n int, k int) int {
 	f := make([]int, n)
@@ -139,6 +147,8 @@ func numWays(n int, k int) int {
 	return f[n-1] + g[n-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numWays(n: number, k: number): number {
@@ -165,6 +175,8 @@ function numWays(n: number, k: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numWays(self, n: int, k: int) -> int:
@@ -175,6 +187,8 @@ class Solution:
             f = ff
         return f + g
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -189,6 +203,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -205,6 +221,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numWays(n int, k int) int {
 	f, g := k, 0
@@ -214,6 +232,8 @@ func numWays(n int, k int) int {
 	return f + g
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numWays(n: number, k: number): number {

@@ -95,6 +95,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numDupDigitsAtMostN(self, n: int) -> int:
@@ -124,6 +126,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -168,6 +172,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -210,6 +216,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numDupDigitsAtMostN(n int) int {
@@ -257,6 +265,8 @@ func A(m, n int) int {
 	return A(m, n-1) * (m - n + 1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numDupDigitsAtMostN(n: number): number {
@@ -308,6 +318,8 @@ function f(n: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numDupDigitsAtMostN(self, n: int) -> int:
@@ -335,6 +347,8 @@ class Solution:
             n //= 10
         return dfs(len(nums) - 1, 0, True, True)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -379,6 +393,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -426,6 +442,8 @@ private:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numDupDigitsAtMostN(n int) int {

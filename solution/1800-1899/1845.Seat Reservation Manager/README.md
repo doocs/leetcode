@@ -83,6 +83,8 @@ seatManager.unreserve(5); // 将座位 5 变为可以预约，现在可预约的
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class SeatManager:
     def __init__(self, n: int):
@@ -101,6 +103,8 @@ class SeatManager:
 # param_1 = obj.reserve()
 # obj.unreserve(seatNumber)
 ```
+
+#### Java
 
 ```java
 class SeatManager {
@@ -128,6 +132,8 @@ class SeatManager {
  * obj.unreserve(seatNumber);
  */
 ```
+
+#### C++
 
 ```cpp
 class SeatManager {
@@ -159,6 +165,8 @@ private:
  * obj->unreserve(seatNumber);
  */
 ```
+
+#### Go
 
 ```go
 type SeatManager struct {
@@ -199,6 +207,8 @@ func (h *hp) Pop() any {
  * obj.Unreserve(seatNumber);
  */
 ```
+
+#### C#
 
 ```cs
 public class SeatManager {

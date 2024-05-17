@@ -50,6 +50,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def generate(self, numRows: int) -> List[List[int]]:
@@ -59,6 +61,8 @@ class Solution:
             f.append(g)
         return f
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -78,6 +82,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -99,6 +105,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func generate(numRows int) [][]int {
 	f := [][]int{[]int{1}}
@@ -114,6 +122,8 @@ func generate(numRows int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function generate(numRows: number): number[][] {
     const f: number[][] = [[1]];
@@ -128,6 +138,8 @@ function generate(numRows: number): number[][] {
     return f;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -149,6 +161,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

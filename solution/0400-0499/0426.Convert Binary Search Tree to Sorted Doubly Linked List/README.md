@@ -85,6 +85,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 """
 # Definition for a Node.
@@ -119,6 +121,8 @@ class Solution:
         head.left = prev
         return head
 ```
+
+#### Java
 
 ```java
 /*
@@ -175,6 +179,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /*
 // Definition for a Node.
@@ -229,6 +235,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -266,6 +274,8 @@ func treeToDoublyList(root *Node) *Node {
 	return head
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

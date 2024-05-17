@@ -62,6 +62,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.05.Sort%20of%20Sta
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class SortedStack:
 
@@ -94,6 +96,8 @@ class SortedStack:
 # param_3 = obj.peek()
 # param_4 = obj.isEmpty()
 ```
+
+#### Java
 
 ```java
 class SortedStack {
@@ -137,6 +141,8 @@ class SortedStack {
  * boolean param_4 = obj.isEmpty();
  */
 ```
+
+#### C++
 
 ```cpp
 class SortedStack {
@@ -184,6 +190,8 @@ private:
  * bool param_4 = obj->isEmpty();
  */
 ```
+
+#### Go
 
 ```go
 type SortedStack struct {
@@ -233,6 +241,8 @@ func (this *SortedStack) IsEmpty() bool {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class SortedStack {
     private stk: number[] = [];
@@ -273,6 +283,8 @@ class SortedStack {
  * var param_4 = obj.isEmpty()
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -326,6 +338,8 @@ impl SortedStack {
  * let ret_4: bool = obj.is_empty();
  */
 ```
+
+#### Swift
 
 ```swift
 class SortedStack {

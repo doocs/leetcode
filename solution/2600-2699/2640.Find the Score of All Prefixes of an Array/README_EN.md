@@ -81,6 +81,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array $nums$. Igno
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findPrefixScore(self, nums: List[int]) -> List[int]:
@@ -92,6 +94,8 @@ class Solution:
             ans[i] = x + mx + (0 if i == 0 else ans[i - 1])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -124,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findPrefixScore(nums []int) []int64 {
 	n := len(nums)
@@ -139,6 +147,8 @@ func findPrefixScore(nums []int) []int64 {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findPrefixScore(nums: number[]): number[] {

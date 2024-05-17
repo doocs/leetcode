@@ -80,6 +80,8 @@ summaryRanges.getIntervals(); // 返回 [[1, 3], [6, 7]]
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 from sortedcontainers import SortedDict
 
@@ -118,6 +120,8 @@ class SummaryRanges:
 # # obj.addNum(val)
 # # param_2 = obj.getIntervals()
 ```
+
+#### Java
 
 ```java
 class SummaryRanges {
@@ -159,6 +163,8 @@ class SummaryRanges {
  * int[][] param_2 = obj.getIntervals();
  */
 ```
+
+#### C++
 
 ```cpp
 class SummaryRanges {

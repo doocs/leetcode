@@ -87,11 +87,15 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minChanges(self, s: str) -> int:
         return sum(s[i] != s[i - 1] for i in range(1, len(s), 2))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -121,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minChanges(s string) (ans int) {
 	for i := 1; i < len(s); i += 2 {
@@ -131,6 +139,8 @@ func minChanges(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minChanges(s: string): number {

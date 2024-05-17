@@ -89,6 +89,8 @@ authenticationManager.<code>countUnexpiredTokens</code>(15); // tokenId 为 "bbb
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class AuthenticationManager:
     def __init__(self, timeToLive: int):
@@ -113,6 +115,8 @@ class AuthenticationManager:
 # obj.renew(tokenId,currentTime)
 # param_3 = obj.countUnexpiredTokens(currentTime)
 ```
+
+#### Java
 
 ```java
 class AuthenticationManager {
@@ -154,6 +158,8 @@ class AuthenticationManager {
  */
 ```
 
+#### C++
+
 ```cpp
 class AuthenticationManager {
 public:
@@ -189,6 +195,8 @@ private:
  * int param_3 = obj->countUnexpiredTokens(currentTime);
  */
 ```
+
+#### Go
 
 ```go
 type AuthenticationManager struct {
@@ -230,6 +238,8 @@ func (this *AuthenticationManager) CountUnexpiredTokens(currentTime int) int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class AuthenticationManager {
     private timeToLive: number;
@@ -270,6 +280,8 @@ class AuthenticationManager {
  * var param_3 = obj.countUnexpiredTokens(currentTime)
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;

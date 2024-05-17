@@ -79,6 +79,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def spellchecker(self, wordlist: List[str], queries: List[str]) -> List[str]:
@@ -111,6 +113,8 @@ class Solution:
             ans.append("")
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -159,6 +163,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -211,6 +217,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func spellchecker(wordlist []string, queries []string) (ans []string) {

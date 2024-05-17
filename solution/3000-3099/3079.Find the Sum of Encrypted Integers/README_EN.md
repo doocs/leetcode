@@ -68,6 +68,8 @@ The time complexity is $O(n \times \log M)$, where $n$ is the length of the arra
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumOfEncryptedInt(self, nums: List[int]) -> int:
@@ -81,6 +83,8 @@ class Solution:
 
         return sum(encrypt(x) for x in nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumOfEncryptedInt(nums []int) (ans int) {
 	encrypt := func(x int) int {
@@ -140,6 +148,8 @@ func sumOfEncryptedInt(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumOfEncryptedInt(nums: number[]): number {

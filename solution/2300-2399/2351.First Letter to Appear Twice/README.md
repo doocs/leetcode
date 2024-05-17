@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def repeatedCharacter(self, s: str) -> str:
@@ -85,6 +87,8 @@ class Solution:
             if cnt[c] == 2:
                 return c
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -114,6 +120,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func repeatedCharacter(s string) byte {
 	cnt := [26]int{}
@@ -125,6 +133,8 @@ func repeatedCharacter(s string) byte {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function repeatedCharacter(s: string): string {
@@ -140,6 +150,8 @@ function repeatedCharacter(s: string): string {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn repeated_character(s: String) -> char {
@@ -154,6 +166,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -171,6 +185,8 @@ class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 char repeatedCharacter(char* s) {
@@ -199,6 +215,8 @@ char repeatedCharacter(char* s) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def repeatedCharacter(self, s: str) -> str:
@@ -209,6 +227,8 @@ class Solution:
                 return c
             mask |= 1 << i
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -225,6 +245,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -240,6 +262,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func repeatedCharacter(s string) byte {
 	mask := 0
@@ -251,6 +275,8 @@ func repeatedCharacter(s string) byte {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function repeatedCharacter(s: string): string {
@@ -266,6 +292,8 @@ function repeatedCharacter(s: string): string {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn repeated_character(s: String) -> char {
@@ -280,6 +308,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 char repeatedCharacter(char* s) {

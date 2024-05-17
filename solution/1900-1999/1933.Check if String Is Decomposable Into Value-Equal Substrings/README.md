@@ -77,6 +77,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isDecomposable(self, s: str) -> bool:
@@ -94,6 +96,8 @@ class Solution:
             i = j
         return cnt2 == 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -142,6 +148,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isDecomposable(s string) bool {
 	i, n := 0, len(s)
@@ -165,6 +173,8 @@ func isDecomposable(s string) bool {
 	return cnt2 == 1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isDecomposable(s: string): boolean {
@@ -196,6 +206,8 @@ function isDecomposable(s: string): boolean {
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:

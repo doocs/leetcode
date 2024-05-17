@@ -80,6 +80,8 @@ So return 7.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def shortestDistance(self, grid: List[List[int]]) -> int:
@@ -118,6 +120,8 @@ class Solution:
                     ans = min(ans, dist[i][j])
         return -1 if ans == inf else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -169,6 +173,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -217,6 +223,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func shortestDistance(grid [][]int) int {

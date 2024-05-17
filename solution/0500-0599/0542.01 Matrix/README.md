@@ -70,6 +70,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def updateMatrix(self, mat: List[List[int]]) -> List[List[int]]:
@@ -91,6 +93,8 @@ class Solution:
                     q.append((x, y))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -158,6 +164,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func updateMatrix(mat [][]int) [][]int {
@@ -195,6 +203,8 @@ func updateMatrix(mat [][]int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function updateMatrix(mat: number[][]): number[][] {
     const [m, n] = [mat.length, mat[0].length];
@@ -222,6 +232,8 @@ function updateMatrix(mat: number[][]): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;

@@ -73,6 +73,8 @@ The time complexity is $O(m \times n^2)$, and the space complexity is $O(n^2)$. 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countCornerRectangles(self, grid: List[List[int]]) -> int:
@@ -88,6 +90,8 @@ class Solution:
                             cnt[(i, j)] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -137,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countCornerRectangles(grid [][]int) (ans int) {
 	n := len(grid[0])
@@ -158,6 +166,8 @@ func countCornerRectangles(grid [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countCornerRectangles(grid: number[][]): number {

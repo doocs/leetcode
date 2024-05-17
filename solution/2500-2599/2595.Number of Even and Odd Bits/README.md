@@ -68,6 +68,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def evenOddBit(self, n: int) -> List[int]:
@@ -80,6 +82,8 @@ class Solution:
         return ans
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int[] evenOddBit(int n) {
@@ -91,6 +95,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -105,6 +111,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func evenOddBit(n int) []int {
 	ans := make([]int, 2)
@@ -115,6 +123,8 @@ func evenOddBit(n int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function evenOddBit(n: number): number[] {
     const ans = new Array(2).fill(0);
@@ -124,6 +134,8 @@ function evenOddBit(n: number): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -153,6 +165,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def evenOddBit(self, n: int) -> List[int]:
@@ -161,6 +175,8 @@ class Solution:
         odd = (n & ~mask).bit_count()
         return [even, odd]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -172,6 +188,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -185,6 +203,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func evenOddBit(n int) []int {
 	mask := 0x5555
@@ -193,6 +213,8 @@ func evenOddBit(n int) []int {
 	return []int{even, odd}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function evenOddBit(n: number): number[] {
@@ -211,6 +233,8 @@ function bitCount(i: number): number {
     return i & 0x3f;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

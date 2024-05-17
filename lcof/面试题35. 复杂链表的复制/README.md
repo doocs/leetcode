@@ -79,6 +79,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 """
 # Definition for a Node.
@@ -108,6 +110,8 @@ class Solution:
             cur = cur.next
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /*
@@ -143,6 +147,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /*
@@ -181,6 +187,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -208,6 +216,8 @@ func copyRandomList(head *Node) *Node {
 	return dummy.Next
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -240,6 +250,8 @@ var copyRandomList = function (head) {
     return dummy.next;
 };
 ```
+
+#### C#
 
 ```cs
 /*
@@ -295,6 +307,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 """
 # Definition for a Node.
@@ -331,6 +345,8 @@ class Solution:
             cur = nxt
         return ans
 ```
+
+#### Java
 
 ```java
 /*
@@ -374,6 +390,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /*
@@ -421,6 +439,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -456,6 +476,8 @@ func copyRandomList(head *Node) *Node {
 	return ans
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -496,6 +518,8 @@ var copyRandomList = function (head) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 /*

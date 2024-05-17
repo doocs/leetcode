@@ -57,6 +57,8 @@ The time complexity is $O(n)$, the space complexity is $O(C)$, where $n$ is the 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
@@ -69,6 +71,8 @@ class Solution:
                 return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +95,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -107,6 +113,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isAnagram(s string, t string) bool {
@@ -127,6 +135,8 @@ func isAnagram(s string, t string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isAnagram(s: string, t: string): boolean {
     if (s.length !== t.length) {
@@ -140,6 +150,8 @@ function isAnagram(s: string, t: string): boolean {
     return cnt.every(x => x === 0);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -163,6 +175,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} s
@@ -182,6 +196,8 @@ var isAnagram = function (s, t) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool IsAnagram(string s, string t) {
@@ -197,6 +213,8 @@ public class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int cmp(const void* a, const void* b) {
@@ -225,11 +243,15 @@ bool isAnagram(char* s, char* t) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         return Counter(s) == Counter(t)
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -249,6 +271,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 bool isAnagram(char* s, char* t) {

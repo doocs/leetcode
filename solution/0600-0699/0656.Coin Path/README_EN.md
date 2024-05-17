@@ -53,6 +53,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def cheapestJump(self, coins: List[int], maxJump: int) -> List[int]:
@@ -76,6 +78,8 @@ class Solution:
                 ans.append(i + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -146,6 +152,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func cheapestJump(coins []int, maxJump int) (ans []int) {
 	n := len(coins)
@@ -177,6 +185,8 @@ func cheapestJump(coins []int, maxJump int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function cheapestJump(coins: number[], maxJump: number): number[] {

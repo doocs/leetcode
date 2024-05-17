@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def swimInWater(self, grid: List[List[int]]) -> int:
@@ -100,6 +102,8 @@ class Solution:
                     return t
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -144,6 +148,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -176,6 +182,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func swimInWater(grid [][]int) int {
@@ -214,6 +222,8 @@ func swimInWater(grid [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function swimInWater(grid: number[][]): number {
     const m = grid.length,
@@ -245,6 +255,8 @@ function swimInWater(grid: number[][]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 const DIR: [(i32, i32); 4] = [

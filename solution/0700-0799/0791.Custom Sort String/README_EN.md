@@ -69,12 +69,16 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def customSortString(self, order: str, s: str) -> str:
         d = {c: i for i, c in enumerate(order)}
         return ''.join(sorted(s, key=lambda x: d.get(x, 0)))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +97,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -104,6 +110,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func customSortString(order string, s string) string {
@@ -117,6 +125,8 @@ func customSortString(order string, s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function customSortString(order: string, s: string): string {
     const toIndex = (c: string) => c.charCodeAt(0) - 'a'.charCodeAt(0);
@@ -128,6 +138,8 @@ function customSortString(order: string, s: string): string {
     return [...s].sort((a, b) => d[toIndex(a)] - d[toIndex(b)]).join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -156,6 +168,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def customSortString(self, order: str, s: str) -> str:
@@ -168,6 +182,8 @@ class Solution:
             ans.append(c * v)
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -193,6 +209,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -208,6 +226,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func customSortString(order string, s string) string {
@@ -231,6 +251,8 @@ func customSortString(order string, s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function customSortString(order: string, s: string): string {
     const toIndex = (c: string) => c.charCodeAt(0) - 'a'.charCodeAt(0);
@@ -251,6 +273,8 @@ function customSortString(order: string, s: string): string {
     return ans.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

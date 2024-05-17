@@ -61,6 +61,8 @@ The time complexity is $O(n)$, and the space complexity is $O(m)$. Here, $n$ and
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def arraysIntersection(
@@ -69,6 +71,8 @@ class Solution:
         cnt = Counter(arr1 + arr2 + arr3)
         return [x for x in arr1 if cnt[x] == 3]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +94,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -113,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func arraysIntersection(arr1 []int, arr2 []int, arr3 []int) (ans []int) {
 	cnt := [2001]int{}
@@ -131,6 +139,8 @@ func arraysIntersection(arr1 []int, arr2 []int, arr3 []int) (ans []int) {
 	return
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -168,6 +178,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def arraysIntersection(
@@ -181,6 +193,8 @@ class Solution:
                 ans.append(x)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -198,6 +212,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -214,6 +230,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func arraysIntersection(arr1 []int, arr2 []int, arr3 []int) (ans []int) {

@@ -65,6 +65,8 @@ sum(k + 1, n - 1) = sum(6, 6) = 1
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def splitArray(self, nums: List[int]) -> bool:
@@ -82,6 +84,8 @@ class Solution:
                     return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -129,6 +135,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func splitArray(nums []int) bool {

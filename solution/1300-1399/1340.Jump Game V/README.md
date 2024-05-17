@@ -98,6 +98,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxJumps(self, arr: List[int], d: int) -> int:
@@ -117,6 +119,8 @@ class Solution:
         n = len(arr)
         return max(dfs(i) for i in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -159,6 +163,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -193,6 +199,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxJumps(arr []int, d int) (ans int) {
@@ -246,6 +254,8 @@ func maxJumps(arr []int, d int) (ans int) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxJumps(self, arr: List[int], d: int) -> int:
@@ -262,6 +272,8 @@ class Solution:
                 f[i] = max(f[i], 1 + f[j])
         return max(f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -295,6 +307,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -322,6 +336,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxJumps(arr []int, d int) int {

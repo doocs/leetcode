@@ -81,6 +81,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -108,6 +110,8 @@ class Solution:
         dfs(root, 0, (n - 1) // 2)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -159,6 +163,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -194,6 +200,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -236,6 +244,8 @@ func printTree(root *TreeNode) [][]string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for a binary tree node.
@@ -276,6 +286,8 @@ function printTree(root: TreeNode | null): string[][] {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -350,6 +362,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -385,6 +399,8 @@ class Solution:
                 q.append((node.right, r + 1, c + 2 ** (h - r - 1)))
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -464,6 +480,8 @@ class Tuple {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -512,6 +530,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**

@@ -104,6 +104,8 @@ User Jonathan with id = 7 logged in 7 times in 6 different days, five of them we
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 WITH t AS

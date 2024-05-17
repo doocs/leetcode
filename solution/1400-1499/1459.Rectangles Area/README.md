@@ -83,6 +83,8 @@ p1 = 1 且 p2 = 3 时, 是不可能为矩形的, 面积等于 0
 
 <!-- tabs:start -->
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT

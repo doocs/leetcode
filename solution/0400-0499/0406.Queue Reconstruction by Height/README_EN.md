@@ -66,6 +66,8 @@ Hence [[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]] is the reconstructed queue.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reconstructQueue(self, people: List[List[int]]) -> List[List[int]]:
@@ -75,6 +77,8 @@ class Solution:
             ans.insert(p[1], p)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +92,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -103,6 +109,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func reconstructQueue(people [][]int) [][]int {

@@ -96,6 +96,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumTimeToInitialState(self, word: str, k: int) -> int:
@@ -105,6 +107,8 @@ class Solution:
                 return i // k
         return (n + k - 1) // k
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +123,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -135,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumTimeToInitialState(word string, k int) int {
 	n := len(word)
@@ -146,6 +154,8 @@ func minimumTimeToInitialState(word string, k int) int {
 	return (n + k - 1) / k
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumTimeToInitialState(word: string, k: number): number {
@@ -173,6 +183,8 @@ function minimumTimeToInitialState(word: string, k: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Hashing:
     __slots__ = ["mod", "h", "p"]
@@ -198,6 +210,8 @@ class Solution:
                 return i // k
         return (n + k - 1) // k
 ```
+
+#### Java
 
 ```java
 class Hashing {
@@ -235,6 +249,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Hashing {
@@ -275,6 +291,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type Hashing struct {

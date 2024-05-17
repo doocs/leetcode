@@ -61,6 +61,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sortTransformedArray(
@@ -92,6 +94,8 @@ class Solution:
                 k -= 1
         return res
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -167,6 +173,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func sortTransformedArray(nums []int, a int, b int, c int) []int {

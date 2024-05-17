@@ -78,6 +78,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def splitArray(self, nums: List[int], k: int) -> int:
@@ -93,6 +95,8 @@ class Solution:
         left, right = max(nums), sum(nums)
         return left + bisect_left(range(left, right + 1), True, key=check)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -160,6 +166,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func splitArray(nums []int, k int) int {
 	left, right := 0, 0
@@ -181,6 +189,8 @@ func splitArray(nums []int, k int) int {
 	})
 }
 ```
+
+#### TypeScript
 
 ```ts
 function splitArray(nums: number[], k: number): number {

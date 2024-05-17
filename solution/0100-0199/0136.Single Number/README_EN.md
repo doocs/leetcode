@@ -60,11 +60,15 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
         return reduce(xor, nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -77,6 +81,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -91,6 +97,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func singleNumber(nums []int) (ans int) {
 	for _, v := range nums {
@@ -100,11 +108,15 @@ func singleNumber(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function singleNumber(nums: number[]): number {
     return nums.reduce((r, v) => r ^ v);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -116,6 +128,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -126,6 +140,8 @@ var singleNumber = function (nums) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int SingleNumber(int[] nums) {
@@ -133,6 +149,8 @@ public class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int singleNumber(int* nums, int numsSize) {
@@ -143,6 +161,8 @@ int singleNumber(int* nums, int numsSize) {
     return ans;
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {
@@ -161,6 +181,8 @@ class Solution {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {

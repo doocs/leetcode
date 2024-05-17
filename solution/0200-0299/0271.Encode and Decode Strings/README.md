@@ -73,6 +73,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Codec:
     def encode(self, strs: List[str]) -> str:
@@ -98,6 +100,8 @@ class Codec:
 # codec = Codec()
 # codec.decode(codec.encode(strs))
 ```
+
+#### Java
 
 ```java
 public class Codec {
@@ -128,6 +132,8 @@ public class Codec {
 // Codec codec = new Codec();
 // codec.decode(codec.encode(strs));
 ```
+
+#### C++
 
 ```cpp
 class Codec {
@@ -162,6 +168,8 @@ public:
 // Codec codec;
 // codec.decode(codec.encode(strs));
 ```
+
+#### Go
 
 ```go
 type Codec struct {

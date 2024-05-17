@@ -75,6 +75,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def differenceOfSum(self, nums: List[int]) -> int:
@@ -85,6 +87,8 @@ class Solution:
                 x //= 10
         return abs(a - b)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -116,6 +122,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func differenceOfSum(nums []int) int {
@@ -137,6 +145,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function differenceOfSum(nums: number[]): number {
     return nums.reduce((r, v) => {
@@ -149,6 +159,8 @@ function differenceOfSum(nums: number[]): number {
     }, 0);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -166,6 +178,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int differenceOfSum(int* nums, int numsSize) {
@@ -190,6 +204,8 @@ int differenceOfSum(int* nums, int numsSize) {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {

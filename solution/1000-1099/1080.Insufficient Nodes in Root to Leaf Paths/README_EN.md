@@ -67,6 +67,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -87,6 +89,8 @@ class Solution:
         root.right = self.sufficientSubset(root.right, limit)
         return None if root.left is None and root.right is None else root
 ```
+
+#### Java
 
 ```java
 /**
@@ -120,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -148,6 +154,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -181,6 +189,8 @@ func sufficientSubset(root *TreeNode, limit int) *TreeNode {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for a binary tree node.
@@ -209,6 +219,8 @@ function sufficientSubset(root: TreeNode | null, limit: number): TreeNode | null
     return root.left === null && root.right === null ? null : root;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**

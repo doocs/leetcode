@@ -91,6 +91,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countWays(self, ranges: List[List[int]]) -> int:
@@ -103,6 +105,8 @@ class Solution:
         mod = 10**9 + 7
         return pow(2, cnt, mod)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -156,6 +162,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countWays(ranges [][]int) int {
@@ -183,6 +191,8 @@ func countWays(ranges [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countWays(ranges: number[][]): number {
     ranges.sort((a, b) => a[0] - b[0]);
@@ -209,6 +219,8 @@ function countWays(ranges: number[][]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countWays(self, ranges: List[List[int]]) -> int:
@@ -222,6 +234,8 @@ class Solution:
             mx = max(mx, end)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -241,6 +255,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -258,6 +274,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countWays(ranges [][]int) int {

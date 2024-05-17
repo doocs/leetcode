@@ -82,6 +82,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reorderSpaces(self, text: str) -> str:
@@ -92,6 +94,8 @@ class Solution:
             return words[0] + ' ' * cnt
         return (' ' * (cnt // m)).join(words) + ' ' * (cnt % m)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +124,8 @@ class Solution {
 }
 ```
 
+#### Go
+
 ```go
 func reorderSpaces(text string) string {
 	cnt := strings.Count(text, " ")
@@ -131,6 +137,8 @@ func reorderSpaces(text string) string {
 	return strings.Join(words, strings.Repeat(" ", cnt/m)) + strings.Repeat(" ", cnt%m)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function reorderSpaces(text: string): string {
@@ -152,6 +160,8 @@ function reorderSpaces(text: string): string {
     return words.join(''.padStart(per)) + ''.padStart(rest);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {

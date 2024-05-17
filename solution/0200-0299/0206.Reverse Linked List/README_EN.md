@@ -62,6 +62,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -79,6 +81,8 @@ class Solution:
             curr = next
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -105,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -133,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -153,6 +161,8 @@ func reverseList(head *ListNode) *ListNode {
 	return dummy.Next
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -181,6 +191,8 @@ function reverseList(head: ListNode | null): ListNode | null {
     return pre;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -213,6 +225,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -237,6 +251,8 @@ var reverseList = function (head) {
     return dummy.next;
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -275,6 +291,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -290,6 +308,8 @@ class Solution:
         head.next = None
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -315,6 +335,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -338,6 +360,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -356,6 +380,8 @@ func reverseList(head *ListNode) *ListNode {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -387,6 +413,8 @@ function reverseList(head: ListNode | null): ListNode | null {
     return rev(head, next);
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.

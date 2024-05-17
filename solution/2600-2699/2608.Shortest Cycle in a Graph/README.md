@@ -70,6 +70,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findShortestCycle(self, n: int, edges: List[List[int]]) -> int:
@@ -92,6 +94,8 @@ class Solution:
         ans = min(bfs(u, v) for u, v in edges)
         return ans if ans < inf else -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +139,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -173,6 +179,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findShortestCycle(n int, edges [][]int) int {
@@ -214,6 +222,8 @@ func findShortestCycle(n int, edges [][]int) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findShortestCycle(n: number, edges: number[][]): number {
@@ -263,6 +273,8 @@ function findShortestCycle(n: number, edges: number[][]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findShortestCycle(self, n: int, edges: List[List[int]]) -> int:
@@ -288,6 +300,8 @@ class Solution:
         ans = min(bfs(i) for i in range(n))
         return ans if ans < inf else -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -334,6 +348,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -376,6 +392,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findShortestCycle(n int, edges [][]int) int {
@@ -420,6 +438,8 @@ func findShortestCycle(n int, edges [][]int) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findShortestCycle(n: number, edges: number[][]): number {

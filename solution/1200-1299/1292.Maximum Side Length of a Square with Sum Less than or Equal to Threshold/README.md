@@ -71,6 +71,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxSideLength(self, mat: List[List[int]], threshold: int) -> int:
@@ -96,6 +98,8 @@ class Solution:
                 r = mid - 1
         return l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -139,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -175,6 +181,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSideLength(mat [][]int, threshold int) int {
 	m, n := len(mat), len(mat[0])
@@ -209,6 +217,8 @@ func maxSideLength(mat [][]int, threshold int) int {
 	return l
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxSideLength(mat: number[][], threshold: number): number {

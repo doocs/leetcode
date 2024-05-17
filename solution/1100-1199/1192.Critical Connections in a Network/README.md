@@ -76,6 +76,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def criticalConnections(
@@ -108,6 +110,8 @@ class Solution:
         tarjan(0, -1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -151,6 +155,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -188,6 +194,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func criticalConnections(n int, connections [][]int) (ans [][]int) {
 	now := 0
@@ -222,6 +230,8 @@ func criticalConnections(n int, connections [][]int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function criticalConnections(n: number, connections: number[][]): number[][] {

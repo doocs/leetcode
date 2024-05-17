@@ -73,6 +73,8 @@ The time complexity is $O((n + q) \times M)$, and the space complexity is $O(n)$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numSmallerByFrequency(self, queries: List[str], words: List[str]) -> List[int]:
@@ -84,6 +86,8 @@ class Solution:
         nums = sorted(f(w) for w in words)
         return [n - bisect_right(nums, f(q)) for q in queries]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -159,6 +165,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numSmallerByFrequency(queries []string, words []string) (ans []int) {
 	f := func(s string) int {
@@ -186,6 +194,8 @@ func numSmallerByFrequency(queries []string, words []string) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numSmallerByFrequency(queries: string[], words: string[]): number[] {

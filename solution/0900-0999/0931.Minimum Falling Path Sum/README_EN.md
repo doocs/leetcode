@@ -58,6 +58,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minFallingPathSum(self, matrix: List[List[int]]) -> int:
@@ -71,6 +73,8 @@ class Solution:
             f = g
         return min(f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minFallingPathSum(matrix [][]int) int {
 	n := len(matrix)
@@ -145,6 +153,8 @@ func minFallingPathSum(matrix [][]int) int {
 	return slices.Min(f)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minFallingPathSum(matrix: number[][]): number {

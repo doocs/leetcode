@@ -70,6 +70,8 @@ Similar problems:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOf2sInRange(self, n: int) -> int:
@@ -91,6 +93,8 @@ class Solution:
             n //= 10
         return dfs(l, 0, True)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -164,6 +170,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOf2sInRange(n int) int {
@@ -209,6 +217,8 @@ func numberOf2sInRange(n int) int {
 	return dfs(l, 0, true)
 }
 ```
+
+#### Swift
 
 ```swift
 class Solution {

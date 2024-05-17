@@ -88,6 +88,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def semiOrderedPermutation(self, nums: List[int]) -> int:
@@ -97,6 +99,8 @@ class Solution:
         k = 1 if i < j else 2
         return i + n - j - k
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -129,6 +135,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func semiOrderedPermutation(nums []int) int {
@@ -150,6 +158,8 @@ func semiOrderedPermutation(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function semiOrderedPermutation(nums: number[]): number {
     const n = nums.length;
@@ -159,6 +169,8 @@ function semiOrderedPermutation(nums: number[]): number {
     return i + n - j - k;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -195,6 +207,8 @@ impl Solution {
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {

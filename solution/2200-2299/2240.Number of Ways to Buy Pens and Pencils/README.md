@@ -65,6 +65,8 @@ tags:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def waysToBuyPensPencils(self, total: int, cost1: int, cost2: int) -> int:
@@ -74,6 +76,8 @@ class Solution:
             ans += y
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +91,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -102,6 +108,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func waysToBuyPensPencils(total int, cost1 int, cost2 int) (ans int64) {
 	for x := 0; x <= total/cost1; x++ {
@@ -111,6 +119,8 @@ func waysToBuyPensPencils(total int, cost1 int, cost2 int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function waysToBuyPensPencils(total: number, cost1: number, cost2: number): number {
@@ -122,6 +132,8 @@ function waysToBuyPensPencils(total: number, cost1: number, cost2: number): numb
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
