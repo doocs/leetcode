@@ -2,7 +2,7 @@ black==24.4.2
 Requests==2.31.0
 sortedcontainers==2.4.0
 urllib3==1.26.18
-mkdocs-material==9.5.21
+mkdocs-material==9.5.23
 mkdocs-glightbox==0.3.7
 jieba==0.42.1
 beautifulsoup4==4.12.3
