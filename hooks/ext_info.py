@@ -97,10 +97,30 @@ def remove_version_switch(content):
     content = re.sub(r"\[English Version]\((.*?)\)", "", content)
     return content
 
+def is_contest_page(page):
+    a = page.title == 'Contest' and page.url == 'contest/'
+    b = page.title == '竞赛' and page.url == 'contest/'
+    return a or b
+
+
+def replace_contest_problem_link(content, page):
+    if not is_contest_page(page):
+        return content
+    res = re.findall(r"\[(.*?)\]\((.*?)\)", content)
+    for _, link in res:
+        try:
+            num = link.split("/")[-2].split(".")[0]
+            num = int(num)
+            content = content.replace(link, f"./lc/{num}.md")
+        except:
+            pass
+    return content
+
 
 @plugins.event_priority(90)
 def on_page_markdown(markdown, page, config, files):
     markdown = remove_version_switch(markdown)
+    markdown = replace_contest_problem_link(markdown, page)
     markdown = add_difficulty_info(markdown, page)
     markdown = modify_code_block(markdown)
     return markdown

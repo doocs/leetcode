@@ -1,26 +1,5 @@
 import os
-import re
 from collections import defaultdict
-
-
-for contest_file in ["docs/contest.md", "docs-en/contest.md"]:
-    with open(contest_file, "r", encoding="utf-8") as f:
-        content = f.read()
-
-    content = content.replace("[English Version](/solution/CONTEST_README_EN.md)", "")
-    content = content.replace("[中文文档](/solution/CONTEST_README.md)", "")
-    res = re.findall(r"\[(.*?)\]\((.*?)\)", content)
-    for _, link in res:
-        try:
-            num = link.split("/")[-2].split(".")[0]
-            num = int(num)
-            content = content.replace(link, f"./lc/{num}.md")
-        except:
-            pass
-    content = f"---\ncomments: true\n---\n\n" + content
-
-    with open(contest_file, "w", encoding="utf-8") as f:
-        f.write(content)
 
 
 def get_paths(dirs: str, m: int):
@@ -42,23 +21,11 @@ dirs_mapping = {
     "lcs": ("lcs", 3),
 }
 
-dirs = ["solution", "lcof", "lcof2", "lcci", "lcp", "lcs"]
-
-"""
-nav:
-  - LeetCode
-    - 1. 两数之和: lc/1.md
-    - 2. 两数相加: lc/2.md
-"""
-
 navdata_cn = defaultdict(list)
 navdata_en = defaultdict(list)
 
-for dir in dirs:
-    target_dir, m = dirs_mapping[dir]
+for dir, (target_dir, m) in dirs_mapping.items():
     for p in sorted(get_paths(dir, m)):
-        # example:
-        # p = 'solution/0000-0099/0003.Longest Substring Without Repeating Characters/README.md'
         with open(p, "r", encoding="utf-8") as f:
             content = f.read()
             title = content[content.find("[") + 1 : content.find("]")]
