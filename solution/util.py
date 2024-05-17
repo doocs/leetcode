@@ -473,7 +473,7 @@ def generate_contest_readme(result: List):
     result.sort(key=lambda x: -x[0])
     content_cn = "\n\n".join(c[1] for c in result)
     content_en = "\n\n".join(c[2] for c in result)
-    metadata_section = "---\ncomments: true\n---\n\n"
+    metadata_section = "---\ncomments: true\n---"
     content_cn = contest_readme_cn.format(metadata_section, content_cn)
     with open("./CONTEST_README.md", "w", encoding="utf-8") as f:
         f.write(content_cn)

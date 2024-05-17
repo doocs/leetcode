@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # LeetCode Contest
 
 [中文文档](/solution/CONTEST_README.md)
