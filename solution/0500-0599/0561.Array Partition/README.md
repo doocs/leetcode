@@ -62,7 +62,11 @@ tags:
 
 ### 方法一：排序
 
-先排序，然后求相邻的两个元素的最小值，得到的总和即为结果。
+对于一个数对 $(a, b)$，我们不妨设 $a \leq b$，那么 $\min(a, b) = a$。为了使得总和尽可能大，我们取的 $b$ 应该与 $a$ 尽可能接近，这样可以保留更大的数。
+
+因此，我们可以对数组 $nums$ 进行排序，然后将相邻的两个数分为一组，取每组的第一个数相加即可。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
 
@@ -71,7 +75,8 @@ tags:
 ```python
 class Solution:
     def arrayPairSum(self, nums: List[int]) -> int:
-        return sum(sorted(nums)[::2])
+        nums.sort()
+        return sum(nums[::2])
 ```
 
 #### Java
@@ -97,7 +102,9 @@ public:
     int arrayPairSum(vector<int>& nums) {
         sort(nums.begin(), nums.end());
         int ans = 0;
-        for (int i = 0; i < nums.size(); i += 2) ans += nums[i];
+        for (int i = 0; i < nums.size(); i += 2) {
+            ans += nums[i];
+        }
         return ans;
     }
 };
@@ -106,13 +113,12 @@ public:
 #### Go
 
 ```go
-func arrayPairSum(nums []int) int {
+func arrayPairSum(nums []int) (ans int) {
 	sort.Ints(nums)
-	ans := 0
 	for i := 0; i < len(nums); i += 2 {
 		ans += nums[i]
 	}
-	return ans
+	return
 }
 ```
 
@@ -122,14 +128,7 @@ func arrayPairSum(nums []int) int {
 impl Solution {
     pub fn array_pair_sum(mut nums: Vec<i32>) -> i32 {
         nums.sort();
-        let n = nums.len();
-        let mut i = 0;
-        let mut res = 0;
-        while i < n {
-            res += nums[i];
-            i += 2;
-        }
-        res
+        nums.iter().step_by(2).sum()
     }
 }
 ```
@@ -143,11 +142,7 @@ impl Solution {
  */
 var arrayPairSum = function (nums) {
     nums.sort((a, b) => a - b);
-    let ans = 0;
-    for (let i = 0; i < nums.length; i += 2) {
-        ans += nums[i];
-    }
-    return ans;
+    return nums.reduce((acc, cur, i) => (i % 2 === 0 ? acc + cur : acc), 0);
 };
 ```
 

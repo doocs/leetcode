@@ -56,7 +56,13 @@ So the maximum possible sum is 4.</pre>
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting
+
+For a pair of numbers $(a, b)$, we can assume $a \leq b$, then $\min(a, b) = a$. In order to make the sum as large as possible, the $b$ we choose should be as close to $a$ as possible, so as to retain a larger number.
+
+Therefore, we can sort the array $nums$, then divide every two adjacent numbers into a group, and add the first number of each group.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
@@ -65,7 +71,8 @@ So the maximum possible sum is 4.</pre>
 ```python
 class Solution:
     def arrayPairSum(self, nums: List[int]) -> int:
-        return sum(sorted(nums)[::2])
+        nums.sort()
+        return sum(nums[::2])
 ```
 
 #### Java
@@ -91,7 +98,9 @@ public:
     int arrayPairSum(vector<int>& nums) {
         sort(nums.begin(), nums.end());
         int ans = 0;
-        for (int i = 0; i < nums.size(); i += 2) ans += nums[i];
+        for (int i = 0; i < nums.size(); i += 2) {
+            ans += nums[i];
+        }
         return ans;
     }
 };
@@ -100,13 +109,12 @@ public:
 #### Go
 
 ```go
-func arrayPairSum(nums []int) int {
+func arrayPairSum(nums []int) (ans int) {
 	sort.Ints(nums)
-	ans := 0
 	for i := 0; i < len(nums); i += 2 {
 		ans += nums[i]
 	}
-	return ans
+	return
 }
 ```
 
@@ -116,14 +124,7 @@ func arrayPairSum(nums []int) int {
 impl Solution {
     pub fn array_pair_sum(mut nums: Vec<i32>) -> i32 {
         nums.sort();
-        let n = nums.len();
-        let mut i = 0;
-        let mut res = 0;
-        while i < n {
-            res += nums[i];
-            i += 2;
-        }
-        res
+        nums.iter().step_by(2).sum()
     }
 }
 ```
@@ -137,11 +138,7 @@ impl Solution {
  */
 var arrayPairSum = function (nums) {
     nums.sort((a, b) => a - b);
-    let ans = 0;
-    for (let i = 0; i < nums.length; i += 2) {
-        ans += nums[i];
-    }
-    return ans;
+    return nums.reduce((acc, cur, i) => (i % 2 === 0 ? acc + cur : acc), 0);
 };
 ```
 
