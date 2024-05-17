@@ -1,6 +1,13 @@
 .md-typeset h1 {
-    margin: 0 0 0em;
+    margin: 0;
 }
 .md-typeset h2 {
-    margin: 0.5em 0 0em;
+    margin: 0.5em 0 0;
+}
+.md-content__inner>pre {
+    margin: 0;
+    overflow-x: auto;
+    padding: 0 .2941176471em;
+    background-color: #f5f5f5;
+    border-radius: .1rem;
 }

@@ -98,7 +98,7 @@ def remove_version_switch(content):
     return content
 
 
-@plugins.event_priority(100)
+@plugins.event_priority(90)
 def on_page_markdown(markdown, page, config, files):
     markdown = remove_version_switch(markdown)
     markdown = add_difficulty_info(markdown, page)
