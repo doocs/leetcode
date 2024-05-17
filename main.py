@@ -1,23 +1,6 @@
 import os
 import re
-import yaml
 from collections import defaultdict
-
-
-def extract_metadata(content: str):
-    # 检查是否包含 YAML front matter
-    if content.startswith("---\n"):
-        # 使用正则表达式匹配 YAML front matter
-        match = re.match(r"^---\n(.*?)\n---\n", content, re.DOTALL)
-        if match:
-            yaml_content = match.group(1)
-            # 解析 YAML 内容
-            metadata = yaml.safe_load(yaml_content)
-            # 获取剩余的 Markdown 内容
-            remaining_content = content[match.end() :]
-            return metadata, remaining_content
-    # 如果没有 metadata，返回空字典和原始内容
-    return {}, content
 
 
 for contest_file in ["docs/contest.md", "docs-en/contest.md"]:
@@ -38,30 +21,6 @@ for contest_file in ["docs/contest.md", "docs-en/contest.md"]:
 
     with open(contest_file, "w", encoding="utf-8") as f:
         f.write(content)
-
-
-code_dict = {
-    "py": ("Python3", "python"),
-    "java": ("Java", "java"),
-    "cpp": ("C++", "cpp"),
-    "go": ("Go", "go"),
-    "ts": ("TypeScript", "ts"),
-    "rs": ("Rust", "rust"),
-    "js": ("JavaScript", "js"),
-    "cs": ("C#", "cs"),
-    "php": ("PHP", "php"),
-    "c": ("C", "c"),
-    "scala": ("Scala", "scala"),
-    "swift": ("Swift", "swift"),
-    "rb": ("Ruby", "rb"),
-    "kt": ("Kotlin", "kotlin"),
-    "dart": ("Dart", "dart"),
-    "nim": ("Nim", "nim"),
-    "sql": ("MySQL", "sql"),
-    "sh": ("Shell", "bash"),
-}
-
-mapping = {lang: name for name, lang in code_dict.values()}
 
 
 def get_paths(dirs: str, m: int):
@@ -102,12 +61,6 @@ for dir in dirs:
         # p = 'solution/0000-0099/0003.Longest Substring Without Repeating Characters/README.md'
         with open(p, "r", encoding="utf-8") as f:
             content = f.read()
-            metadata, content = extract_metadata(content)
-            # [中文文档](/lcci/01.01.Is%20Unique/README.md)
-            # 正则匹配 [中文文档](xxx) 并且移除
-            content = re.sub(r"\[中文文档]\((.*?)\)", "", content)
-            content = re.sub(r"\[English Version]\((.*?)\)", "", content)
-
             title = content[content.find("[") + 1 : content.find("]")]
             dot = title.find(".") if dir != "lcci" else title.rfind(".")
             num = (
@@ -140,38 +93,10 @@ for dir in dirs:
                 navdata_en[dir].append(f"    - {num}. {name}: {target_dir}/{num}.md")
             else:
                 navdata_cn[dir].append(f"    - {num}. {name}: {target_dir}/{num}.md")
-            # 修改代码块
-            while True:
-                start = "<!-- tabs:start -->"
-                end = "<!-- tabs:end -->"
-                i = content.find(start)
-                j = content.find(end)
-                if i == -1 or j == -1:
-                    break
-                j = content.find(end)
-                codes = content[i + len(start) : j].strip()
-                res = re.findall(r"```(.*?)\n(.*?)\n```", codes, re.S)
-                result = []
-                if res:
-                    for lang, code in res:
-                        name = mapping.get(lang)
-                        code = code or ""
-                        # 需要将 code 缩进 4 个空格
-                        code = code.replace("\n", "\n    ")
-                        code_snippet = f'=== "{name}"\n\n    ```{lang} linenums="1"\n    {code}\n    ```\n'
-                        result.append(code_snippet)
-                content = content[:i] + "\n".join(result) + content[j + len(end) :]
             docs_dir = ("docs-en" if is_en else "docs") + os.sep + target_dir
             if not os.path.exists(docs_dir):
                 os.makedirs(docs_dir)
             new_path = os.path.join(docs_dir, f"{num}.md")
-
-            yaml_metadata = yaml.dump(
-                metadata, default_flow_style=False, allow_unicode=True
-            )
-            print(metadata)
-            metadata_section = f"---\n{yaml_metadata}---\n\n"
-            content = metadata_section + content
             with open(new_path, "w", encoding="utf-8") as f:
                 f.write(content)
 

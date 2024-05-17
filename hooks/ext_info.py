@@ -5,9 +5,31 @@ from mkdocs import plugins
 
 # https://www.mkdocs.org/dev-guide/plugins/#events
 
+code_dict = {
+    "py": ("Python3", "python"),
+    "java": ("Java", "java"),
+    "cpp": ("C++", "cpp"),
+    "go": ("Go", "go"),
+    "ts": ("TypeScript", "ts"),
+    "rs": ("Rust", "rust"),
+    "js": ("JavaScript", "js"),
+    "cs": ("C#", "cs"),
+    "php": ("PHP", "php"),
+    "c": ("C", "c"),
+    "scala": ("Scala", "scala"),
+    "swift": ("Swift", "swift"),
+    "rb": ("Ruby", "rb"),
+    "kt": ("Kotlin", "kotlin"),
+    "dart": ("Dart", "dart"),
+    "nim": ("Nim", "nim"),
+    "sql": ("MySQL", "sql"),
+    "sh": ("Shell", "bash"),
+}
 
-@plugins.event_priority(100)
-def on_page_markdown(markdown, page, config, files):
+mapping = {lang: name for name, lang in code_dict.values()}
+
+
+def add_difficulty_info(markdown, page):
     difficulty = page.meta.get("difficulty")
     rating = page.meta.get("rating")
     if not difficulty and not rating:
@@ -45,3 +67,41 @@ def on_page_markdown(markdown, page, config, files):
         )
 
     return markdown
+
+def modify_code_block(content):
+    # 修改代码块
+    while True:
+        start = "<!-- tabs:start -->"
+        end = "<!-- tabs:end -->"
+        i = content.find(start)
+        j = content.find(end)
+        if i == -1 or j == -1:
+            break
+        j = content.find(end)
+        codes = content[i + len(start) : j].strip()
+        res = re.findall(r"```(.*?)\n(.*?)\n```", codes, re.S)
+        result = []
+        if res:
+            for lang, code in res:
+                name = mapping.get(lang)
+                code = code or ""
+                # 需要将 code 缩进 4 个空格
+                code = code.replace("\n", "\n    ")
+                code_snippet = f'=== "{name}"\n\n    ```{lang} linenums="1"\n    {code}\n    ```\n'
+                result.append(code_snippet)
+        content = content[:i] + "\n".join(result) + content[j + len(end) :]
+    return content
+
+def remove_version_switch(content):
+    content = re.sub(r"\[中文文档]\((.*?)\)", "", content)
+    content = re.sub(r"\[English Version]\((.*?)\)", "", content)
+    return content
+
+
+@plugins.event_priority(100)
+def on_page_markdown(markdown, page, config, files):
+    markdown = remove_version_switch(markdown)
+    markdown = add_difficulty_info(markdown, page)
+    markdown = modify_code_block(markdown)
+    return markdown
+
