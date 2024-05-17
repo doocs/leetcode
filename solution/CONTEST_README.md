@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # 力扣竞赛
 
 [English Version](/solution/CONTEST_README_EN.md)
