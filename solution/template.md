@@ -124,6 +124,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 <!-- 这里是contest_readme_template开始位置 -->
 
+{}
+
 # 力扣竞赛
 
 [English Version](/solution/CONTEST_README_EN.md)
@@ -155,6 +157,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 ---
 
 <!-- 这里是contest_readme_template_en开始位置 -->
+
+{}
 
 # LeetCode Contest
 
