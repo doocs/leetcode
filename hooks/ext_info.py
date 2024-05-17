@@ -99,7 +99,7 @@ def remove_version_switch(content):
 
 def is_contest_page(page):
     a = page.title == 'Contest' and page.url == 'contest/'
-    b = page.title == '竞赛' and page.url == 'contest/'
+    b = page.title == '竞赛专区' and page.url == 'contest/'
     return a or b
 
 
